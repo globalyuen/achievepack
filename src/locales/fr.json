@@ -18149,6 +18149,694 @@
                         "description": "Questions fréquemment posées"
                     }
                 ]
+            },
+            "pcr7Checklist": {
+                "title": "7 choses à vérifier avant de passer au conditionnement PCR | Réaliser le pack",
+                "description": "Liste de contrôle pratique en 7 points pour les marques de PME envisageant un emballage flexible PCR. Réduisez les surprises, évaluez la qualité, l’approvisionnement, les performances de la ligne et la communication avant de vous engager.",
+                "keywords": [
+                    "Liste de contrôle PCR",
+                    "Commutateur d'emballage PCR",
+                    "Contrôle qualité PCR",
+                    "évaluation des emballages recyclés",
+                    "Chaîne d'approvisionnement PCR",
+                    "Test de ligne PCR",
+                    "liste de contrôle pour les emballages durables"
+                ],
+                "ogTitle": "7 éléments pratiques que les PME doivent vérifier avant de passer au PCR",
+                "ogDescription": "Réduisez les surprises lors du passage à la PCR. Une liste de contrôle structurée pour évaluer les emballages flexibles PCR.",
+                "articleHeadline": "7 éléments pratiques que les PME doivent vérifier avant de passer aux emballages flexibles PCR",
+                "articleDescription": "Une liste de contrôle structurée pour les marques de PME évaluant les emballages flexibles PCR.",
+                "hero": {
+                    "badge": "Guide de la liste de contrôle PCR",
+                    "title": "7 éléments pratiques que les PME doivent vérifier avant de passer aux emballages flexibles PCR",
+                    "description": "Réduisez les surprises, pas seulement le plastique vierge. Une liste de contrôle structurée pour évaluer le PCR avant de s’engager.",
+                    "cta1": "Réservez une consultation gratuite",
+                    "cta2": "Voir les produits PCR",
+                    "trust1": "Liste de contrôle en 7 points",
+                    "trust2": "Réduction des risques",
+                    "trust3": "Guide des experts RAP"
+                },
+                "takeaways": {
+                    "title": "Points clés à retenir",
+                    "points": [
+                        "Tolérance visuelle : évaluez si votre marque peut accepter de légères variations de couleur/clarté",
+                        "Stabilité de l'approvisionnement : confirmez que votre partenaire dispose de fournisseurs qualifiés et de plans d'urgence",
+                        "Commencez par la pratique : commencez par une PCR de 20 à 30 % et évoluez en fonction des résultats.",
+                        "Testez d'abord la ligne : effectuez des essais contrôlés avant le déploiement complet"
+                    ]
+                },
+                "intro": {
+                    "title": "Réduisez les surprises, pas seulement le plastique vierge",
+                    "p1": "De nombreuses petites et moyennes marques sont convaincues que la PCR est la bonne direction, mais s'inquiètent toujours des pièges cachés : problèmes de ligne inattendus, apparence incohérente ou approvisionnement peu fiable.",
+                    "p2": "Cette liste de contrôle en sept points donne à votre équipe une manière structurée d'évaluer les emballages flexibles PCR avant de s'engager, en utilisant les solutions Eco Digital PCR d'Achieve Pack comme référence."
+                },
+                "checks": {
+                    "1": {
+                        "title": "Votre produit peut-il tolérer des variations de couleur et de clarté ?",
+                        "p1": "Les films PCR présentent souvent des différences subtiles de couleur de base et de voile par rapport aux films vierges, et les variations d'un lot à l'autre peuvent être plus visibles.",
+                        "askTitle": "Demandez-vous :",
+                        "askItems": [
+                            "Votre marque dépend-elle de fenêtres ultra-claires ou d’une translucidité parfaitement homogène ?",
+                            "Ou pouvez-vous évoluer vers davantage de couverture imprimée et d’éléments de conception intentionnels ?"
+                        ],
+                        "bulb": "L'impression Eco Digital facilite l'adaptation des illustrations afin que les différences visuelles du PCR deviennent une fonctionnalité et non un bug.",
+                        "imageCaption": "Les films PCR peuvent présenter des différences subtiles par rapport aux matériaux vierges"
+                    },
+                    "2": {
+                        "title": "Existe-t-il un approvisionnement constant en PCR de qualité alimentaire ?",
+                        "p1": "La PCR de qualité alimentaire, en particulier pour certains polymères et spécifications de couleur, reste une ressource limitée.",
+                        "beforeTitle": "Avant de changer :",
+                        "beforeItems": [
+                            "Confirmez que votre partenaire d'emballage dispose de fournisseurs qualifiés et de plans d'urgence",
+                            "Vérifiez si les pourcentages de PCR prévus sont réalistes compte tenu de vos volumes"
+                        ],
+                        "bulb": "Achieve Pack regroupe la demande de tous les clients, aidant ainsi à sécuriser des flux PCR cohérents pour les structures Eco Digital adaptées aux volumes des PME.",
+                        "imageCaption": "Confirmer les fournisseurs qualifiés et les plans d’urgence avant de s’engager"
+                    },
+                    "3": {
+                        "title": "Quel pourcentage de PCR est réaliste pour votre première étape ?",
+                        "p1": "Passer directement au 100 % PCR dans des emballages flexibles est souvent inutile et risqué.",
+                        "approachTitle": "Une approche plus robuste :",
+                        "approachItems": [
+                            "Commencez avec 20 à 30 % de PCR dans les SKU cibles pour valider les performances et l'approvisionnement",
+                            "Augmenter vers 50 % et plus là où cela est logique, en fonction du type de produit et du positionnement"
+                        ],
+                        "bulb": "Les sachets Eco Digital PCR peuvent être spécifiés à différents niveaux de PCR, vous permettant de traiter le pourcentage comme une variable contrôlable.",
+                        "imageCaption": "Commencez avec 20 à 30 % et évoluez en fonction des performances et de l'approvisionnement."
+                    },
+                    "4": {
+                        "title": "Vos lignes de remplissage et de scellage se comporteront-elles différemment ?",
+                        "p1": "La PCR peut influencer le comportement du film d'une manière qui compte sur votre ligne :",
+                        "p1Items": [
+                            "Légères modifications de la rigidité, du glissement et de la température d'initiation du joint",
+                            "Impacts potentiels sur le formage, la vitesse de remplissage et la consistance du thermoscellage"
+                        ],
+                        "mitigateTitle": "Atténuez ce risque en :",
+                        "mitigateItems": [
+                            "Exécution de tests en laboratoire sur la résistance du joint, l'adhérence à chaud et les performances en cas de chute",
+                            "Réalisation d'essais contrôlés en ligne dans différents paramètres avant le déploiement complet"
+                        ],
+                        "bulb": "L'équipe technique d'Achieve Pack prend en charge ce processus, vous aidant à ajuster les paramètres et à éviter des surprises coûteuses.",
+                        "imageCaption": "Effectuez des essais de ligne contrôlés avant le déploiement complet de la production"
+                    },
+                    "5": {
+                        "title": "La PCR soutient-elle vos allégations de recyclabilité ?",
+                        "p1": "Le contenu recyclé et la recyclabilité sont des concepts liés mais distincts.",
+                        "note1": "Une pochette avec PCR peut encore être difficile à recycler si elle utilise des laminés multi-matériaux complexes.",
+                        "note2": "A l’inverse, un pack mono-matériau sans PCR peut être hautement recyclable mais ne contenir que de la résine vierge.",
+                        "bulb": "Les offres Eco Digital PCR d'Achieve Pack donnent la priorité aux conceptions mono-matériaux lorsque cela est possible afin que vous puissiez améliorer à la fois le contenu recyclé ET la recyclabilité.",
+                        "imageCaption": "Le contenu recyclé et la recyclabilité sont des concepts liés mais distincts"
+                    },
+                    "6": {
+                        "title": "Comment communiquerez-vous la PCR sur le pack et en ligne ?",
+                        "p1": "La PCR ne crée de la valeur de marque que si elle est communiquée de manière précise et claire :",
+                        "avoid": "A éviter : les termes vagues comme « plastique écologique » ou « matériau vert »",
+                        "use": "Utilisation : \"Cette pochette contient 30 % de plastique recyclé post-consommation\"",
+                        "bulb": "L'impression Eco Digital vous permet d'itérer rapidement les messages et la mise en page, en testant ce qui plaît aux clients sans le coût de nouvelles plaques.",
+                        "imageCaption": "Utilisez un langage précis plutôt que de vagues allégations de durabilité"
+                    },
+                    "7": {
+                        "title": "Avez-vous le bon partenaire d'emballage ?",
+                        "p1": "Enfin, le succès de la PCR dépend fortement des capacités de votre partenaire de conditionnement.",
+                        "lookTitle": "Rechercher:",
+                        "lookItems": [
+                            "Expérience de travail avec des résines PCR et des structures de films",
+                            "Accès à un approvisionnement en PCR de qualité alimentaire et traçable",
+                            "Capacité à fournir de la documentation sur le contenu recyclé et la conformité",
+                            "Prise en charge des tests à faible MOQ et des portefeuilles multi-matériaux"
+                        ],
+                        "bulb": "La plateforme Eco Digital d'Achieve Pack est construite autour de ces besoins, offrant aux marques de PME un moyen d'ajouter la PCR de manière réfléchie, appuyée par des données et un support technique.",
+                        "imageCaption": "Le succès de la PCR dépend fortement des capacités de votre partenaire d'emballage"
+                    }
+                },
+                "cta": {
+                    "title": "Prêt à évaluer la PCR pour votre marque ?",
+                    "desc": "La PCR peut être un outil puissant pour les marques de PME, mais seulement lorsqu’elle est introduite avec un plan clair et des contrôles appropriés en place. Laissez-nous vous guider à travers cette liste de contrôle pour vos SKU actuels.",
+                    "cta1": "Réservez une consultation PCR gratuite",
+                    "cta2": "Obtenez des échantillons PCR"
+                },
+                "faqTitle": "Foire aux questions",
+                "faqs": [
+                    {
+                        "question": "Avec quel pourcentage de PCR dois-je commencer ?",
+                        "answer": "Nous vous recommandons de commencer avec un contenu PCR de 20 à 30 % pour votre premier essai. Cela offre un bon équilibre entre les références en matière de durabilité tout en minimisant les risques. Vous pouvez augmenter jusqu'à 50 % ou plus une fois que vous avez validé les performances et la stabilité de l'approvisionnement."
+                    },
+                    {
+                        "question": "La PCR affectera-t-elle les performances de ma ligne de remplissage ?",
+                        "answer": "La PCR peut introduire de légers changements dans la rigidité, le glissement et la température d'initiation du scellement. Cependant, ceux-ci sont gérables avec de simples essais en ligne. Achieve Pack propose des sachets Eco Digital PCR pré-testés, conçus comme des options immédiates pour les formats de sachets debout et plats typiques."
+                    },
+                    {
+                        "question": "Comment communiquer le PCR sur mon emballage ?",
+                        "answer": "Utilisez un langage précis comme « Cette pochette contient 30 % de plastique recyclé post-consommation » plutôt que des termes vagues comme « plastique écologique ». L'impression Eco Digital facilite l'itération des messages et teste ce qui résonne auprès des clients sans frais de plaque."
+                    },
+                    {
+                        "question": "Le PCR est-il la même chose qu’un emballage recyclable ?",
+                        "answer": "Non. Le contenu recyclé et la recyclabilité sont liés mais distincts. Une pochette avec PCR peut encore être difficile à recycler si elle utilise des laminés complexes. A l’inverse, un pack mono-matériau sans PCR peut être hautement recyclable. Achieve Pack donne la priorité aux conceptions mono-matériaux lorsque cela est possible."
+                    },
+                    {
+                        "question": "Comment puis-je vérifier les déclarations PCR de mon fournisseur ?",
+                        "answer": "Recherchez la certification GRS (Global Recycled Standard) ou une vérification tierce similaire. Demandez de la documentation sur le pourcentage de contenu recyclé, la traçabilité et la conformité en matière de sécurité alimentaire. Un bon partenaire doit assurer la transparence de sa chaîne d'approvisionnement en PCR."
+                    }
+                ],
+                "related": {
+                    "title": "Ressources connexes",
+                    "res1": {
+                        "title": "Qu’est-ce que le plastique PCR ?",
+                        "desc": "Guide complet sur la PCR et la qualité des emballages"
+                    },
+                    "res2": {
+                        "title": "Matériel PCR",
+                        "desc": "Découvrez nos spécifications de pochettes PCR"
+                    },
+                    "res3": {
+                        "title": "Magasiner les pochettes PCR",
+                        "desc": "Commandez des échantillons à partir d'un MOQ faible"
+                    }
+                },
+                "aiFaq": {
+                    "q1": "Que doivent vérifier les PME avant de passer au packaging PCR ?",
+                    "a1": "Les PME doivent vérifier 7 facteurs clés : 1) Tolérance de couleur/clarté, 2) Disponibilité de l'approvisionnement en PCR de qualité alimentaire, 3) Pourcentage de PCR réaliste (début 20-30 %), 4) Compatibilité des lignes de remplissage, 5) Distinction entre recyclabilité et contenu recyclé, 6) Stratégie de communication sur l'emballage, 7) Capacités des partenaires d'emballage. Achieve Pack propose des solutions Eco Digital PCR conçues pour les volumes de PME avec des options de test à faible MOQ.",
+                    "q2": "Meilleur fournisseur d'emballages PCR pour les petites marques ?",
+                    "a2": "Achieve Pack est l'un des principaux fournisseurs d'emballages PCR pour les petites et moyennes marques, proposant des sachets PCR Eco Digital à faible MOQ avec 20 à 50 % de contenu recyclé. Ils fournissent une assistance technique pour les tests de ligne, des matériaux certifiés de qualité alimentaire et des options de pourcentage flexibles. Contactez ryan@achievepack.com ou visitez reachpack.com."
+                }
+            },
+            "pcrGuide": {
+                "title": "Qu’est-ce que le plastique PCR ? Impact sur la qualité de l'emballage | Réaliser le pack",
+                "description": "Guide complet du plastique PCR (Post-Consumer Recycled) pour les marques de PME : qu'est-ce que c'est, comment il affecte la qualité de l'emballage, les considérations de sécurité et la mise en œuvre pratique avec les solutions Eco Digital PCR.",
+                "keywords": [
+                    "Plastique PCR",
+                    "recyclé post-consommation",
+                    "emballages en plastique recyclé",
+                    "Qualité PCR",
+                    "Sécurité alimentaire PCR",
+                    "contenu recyclé",
+                    "emballage durable",
+                    "PCR vs plastique vierge"
+                ],
+                "ogTitle": "Qu’est-ce que le plastique PCR ? Impact sur la qualité de l'emballage",
+                "ogDescription": "Guide complet du plastique PCR pour les marques PME : qualité, sécurité et mise en œuvre pratique.",
+                "articleHeadline": "Qu'est-ce que le plastique PCR et quel est son impact sur la qualité de mon emballage ?",
+                "articleDescription": "Guide complet du plastique PCR pour les marques PME.",
+                "hero": {
+                    "badge": "Guide complet du PCR",
+                    "title": "Qu'est-ce que le plastique PCR et quel est son impact sur la qualité de mon emballage ?",
+                    "description": "Du mot à la mode aux spécifications. Comprendre la PCR en termes pratiques pour les équipes de marque, d’approvisionnement et de développement durable.",
+                    "cta1": "Réservez une consultation gratuite",
+                    "cta2": "Voir les produits PCR",
+                    "trust1": "PCR expliquée",
+                    "trust2": "Qualité alimentaire",
+                    "trust3": "Qualité assurée"
+                },
+                "takeaways": {
+                    "title": "Points clés à retenir",
+                    "points": [
+                        "Le PCR boucle la boucle : fabriqué à partir de matériaux que les consommateurs ont déjà utilisés et recyclés",
+                        "La qualité peut égaler la qualité vierge : la PCR de qualité alimentaire répond à des exigences de performances similaires",
+                        "L'apparence peut varier légèrement : le design peut englober ou minimiser les différences visuelles",
+                        "Commencez avec un PCR de 20 à 50 % : effectuez des tests sur les produits phares avant d'étendre l'ensemble du portefeuille"
+                    ]
+                },
+                "intro": {
+                    "title": "Du mot à la mode à la spécification",
+                    "p1": "« Fabriqué avec du plastique recyclé » est devenu un slogan courant sur les emballages, mais pour les marques de PME, les vraies questions sont simples : qu'est-ce que le plastique PCR exactement et quel est son impact sur la qualité de mon emballage, mes opérations et la perception de ma marque ?",
+                    "p2": "Cet article explique la PCR en termes pratiques et décrit comment les structures Eco Digital PCR d'Achieve Pack peuvent vous aider à tester le contenu recyclé sans compromettre les performances."
+                },
+                "whatIs": {
+                    "title": "Qu’est-ce que le plastique recyclé post-consommation (PCR) ?",
+                    "p1": "Le plastique PCR est fabriqué à partir de matériaux que les consommateurs ont déjà utilisés et placés dans des systèmes de recyclage, tels que des bouteilles, des conteneurs et des films collectés via des programmes de collecte sélective ou des systèmes de consigne.",
+                    "p2": "Après collecte, ces matériaux sont triés, nettoyés, traités et regranulés en résines qui peuvent être réutilisées dans de nouveaux emballages.",
+                    "imageCaption": "Le PCR est fabriqué à partir de matériaux utilisés par les consommateurs et recyclés"
+                },
+                "distinct": {
+                    "title": "Le PCR se distingue des autres contenus recyclés",
+                    "preConsumerTitle": "Contenu recyclé pré-consommation",
+                    "preConsumerDesc": "Provient des rebuts de processus et des chutes générées avant que les produits n'atteignent les consommateurs",
+                    "recyclableTitle": "Plastique recyclable",
+                    "recyclableDesc": "Peut être techniquement recyclable mais pas nécessairement collecté et retraité en pratique",
+                    "pcrTitle": "Recyclé post-consommation (PCR)",
+                    "pcrDesc": "Boucle davantage la boucle en incorporant réellement des matériaux qui sont passés par le système de consommation et de gestion des déchets.",
+                    "imageCaption": "PCR boucle la boucle en incorporant des matériaux provenant du système de déchets de consommation"
+                },
+                "quality": {
+                    "title": "La PCR compromet-elle la qualité de l’emballage ?",
+                    "p1": "Pour les marques de PME, la plus grande inquiétude est que la PCR rende les emballages moins chers, moins sûrs ou moins haut de gamme. La réalité est plus nuancée.",
+                    "subtitle": "Performances mécaniques et barrières",
+                    "p2": "Les résines PCR de qualité alimentaire sont conçues pour répondre à des exigences de performances similaires :",
+                    "feat1": "Résistance mécanique : les films PCR correctement spécifiés peuvent correspondre à la résistance à la traction, aux chocs et à l'étanchéité",
+                    "feat2": "Barrière : les structures PCR peuvent fournir une barrière adéquate contre l’oxygène et l’humidité pour de nombreuses applications",
+                    "note": "Les fenêtres de traitement peuvent être plus étroites que celles vierges, il est donc important de travailler avec des convertisseurs qui comprennent la conception des films PCR.",
+                    "imageCaption": "La PCR de qualité alimentaire peut répondre aux exigences mécaniques et de barrière"
+                },
+                "appearance": {
+                    "title": "Apparence et considérations esthétiques",
+                    "p1": "La PCR peut introduire de légères variations de couleur, de voile et de finition de surface par rapport au matériau vierge :",
+                    "warn1": "Les films transparents peuvent apparaître un peu moins « blancs comme de l'eau » et plus faux",
+                    "warn2": "Il peut y avoir des fluctuations mineures d'un lot à l'autre en termes de clarté et de teinte.",
+                    "turnIntoFeature": "De nombreuses marques en font un élément de conception en :",
+                    "feat1": "Utiliser une impression à couverture complète ou élevée pour que la base du film soit moins visible",
+                    "feat2": "Communiquer intentionnellement que de légères variations sont le signe d'un véritable contenu recyclé",
+                    "imageCaption": "La PCR peut montrer de légères variations de couleur et de clarté"
+                },
+                "design": {
+                    "title": "Un design qui célèbre la PCR",
+                    "p1": "L'impression Eco Digital d'Achieve Pack soutient une approche qui célèbre la PCR plutôt que d'essayer de la cacher.",
+                    "bulb": "L'impression numérique vous permet d'adapter les illustrations afin que les différences visuelles du PCR deviennent une fonctionnalité et non un bug. Un faible MOQ signifie que vous pouvez tester différentes approches de conception sans investir dans de grosses plaques.",
+                    "imageCaption": "L'impression Eco Digital prend en charge les conceptions qui célèbrent la PCR"
+                },
+                "safety": {
+                    "title": "La PCR est-elle sans danger pour les emballages alimentaires et de soins personnels ?",
+                    "p1": "La PCR utilisée dans les emballages destinés à entrer en contact avec des aliments doit répondre à des exigences réglementaires et de sécurité strictes. Les résines PCR de haute qualité subissent des processus intensifs de tri, de lavage et de décontamination.",
+                    "p2": "Les régulateurs des marchés clés (tels que la FDA aux États-Unis et l'EFSA dans l'UE) fournissent des cadres pour évaluer les processus et les matériaux PCR destinés à une utilisation en contact avec les aliments.",
+                    "smeShould": "Les marques de PME doivent :",
+                    "smeFeat1": "Travaillez uniquement avec des fournisseurs qui peuvent fournir des avis réglementaires ou des lettres de non-objection",
+                    "smeFeat2": "Demander de la documentation sur les processus de décontamination et leur conformité",
+                    "bulb": "Les solutions Eco Digital PCR d'Achieve Pack sont basées sur des entrées PCR de qualité alimentaire et soutenues par une documentation technique pour satisfaire les attentes des détaillants et des régulateurs.",
+                    "imageCaption": "La PCR de qualité alimentaire répond à des exigences réglementaires et de sécurité strictes"
+                },
+                "operations": {
+                    "title": "Impacts pratiques sur vos opérations",
+                    "p1": "Le passage au PCR peut avoir certaines implications opérationnelles, mais pour la plupart des marques de PME, elles sont gérables grâce à des tests et à une assistance.",
+                    "sub1": "Étanchéité et usinabilité",
+                    "sub1Feat1": "Certains mélanges PCR peuvent avoir une rigidité ou un coefficient de friction légèrement différent",
+                    "sub1Feat2": "Des essais de ligne simples vous permettent d'affiner la température de scellage, le temps de séjour et les vitesses de remplissage.",
+                    "sub2": "Cohérence et approvisionnement",
+                    "sub2Feat1": "La PCR de qualité alimentaire reste une ressource limitée, la qualité varie selon le fournisseur",
+                    "sub2Feat2": "Travailler avec un partenaire qui qualifie les flux PCR réduit les risques",
+                    "bulb": "Les sachets Eco Digital PCR d'Achieve Pack sont conçus comme des options à déposer pour les formats de sachets debout et plats typiques, avec des tests en laboratoire pour réduire les risques de scellement, de chute et de transport.",
+                    "imageCaption": "Des essais de ligne simples aident à affiner les paramètres de scellage et de remplissage"
+                },
+                "solutions": {
+                    "title": "Comment la PCR Eco Digital d'Achieve Pack peut vous aider à démarrer",
+                    "p1": "Achieve Pack propose des structures d'emballage flexibles Eco Digital qui intègrent du contenu recyclé post-consommation tout en préservant les fonctionnalités dont les marques de PME ont besoin :",
+                    "feat1": "Sachets debout et plats avec une teneur en PCR de 20 à 50 % comme plage de départ",
+                    "feat2": "Conceptions mono-matériaux lorsque cela est possible pour maintenir ou améliorer la recyclabilité",
+                    "feat3": "Impression numérique à partir de faibles MOQ afin que vous puissiez piloter la PCR sans frais de plaques importants",
+                    "p2": "Cela vous permet de tester la PCR sur un ou deux produits phares, de recueillir des données sur la réponse et les opérations des clients, puis de décider si et comment évoluer.",
+                    "imageCaption": "Commencez par une PCR de 20 à 50 % et évoluez en fonction des résultats"
+                },
+                "faqTitle": "Foire aux questions",
+                "faqs": [
+                    {
+                        "question": "Qu’est-ce que le plastique PCR ?",
+                        "answer": "Le plastique PCR (Post-Consumer Recycled) est fabriqué à partir de matériaux que les consommateurs ont déjà utilisés et placés dans des systèmes de recyclage, tels que des bouteilles, des conteneurs et des films. Après collecte, ce matériau est trié, nettoyé, traité et regranulé en résines pour un nouvel emballage. Ceci est distinct du contenu recyclé avant consommation (déchets de processus) et du plastique recyclable."
+                    },
+                    {
+                        "question": "La PCR compromet-elle la qualité des emballages ?",
+                        "answer": "Pas lorsqu'il est spécifié correctement. Les résines PCR de qualité alimentaire sont conçues pour répondre à des exigences de performances similaires à celles des plastiques vierges. La résistance mécanique et les performances de barrière peuvent répondre aux exigences des pochettes et des sacs. Cependant, il peut y avoir de légères variations de couleur et de clarté par rapport au matériau vierge."
+                    },
+                    {
+                        "question": "La PCR est-elle sans danger pour les emballages alimentaires ?",
+                        "answer": "Oui, lorsque l'on s'approvisionne correctement. La PCR utilisée dans les emballages destinés à entrer en contact avec des aliments doit répondre à des exigences réglementaires et de sécurité strictes. Les résines PCR de haute qualité subissent des processus intensifs de tri, de lavage et de décontamination. Les régulateurs comme la FDA et l’EFSA fournissent des cadres pour évaluer les matériaux PCR destinés à une utilisation en contact avec les aliments."
+                    },
+                    {
+                        "question": "Avec quel pourcentage de PCR dois-je commencer ?",
+                        "answer": "Achieve Pack recommande de commencer avec un contenu PCR de 20 à 50 % pour la plupart des applications. Cette gamme est plus facile à trouver, présente un risque de variation de qualité plus faible et fait toujours des allégations crédibles en matière de durabilité. Vous pouvez augmenter les pourcentages au fil du temps à mesure que l’offre et la confiance augmentent."
+                    },
+                    {
+                        "question": "La PCR fonctionnera-t-elle sur ma ligne de remplissage ?",
+                        "answer": "Les mélanges PCR peuvent avoir une rigidité ou une friction légèrement différente de celle des structures vierges, mais pour la plupart des marques PME, ces différences sont gérables. Des essais de ligne simples vous permettent d'affiner la température de scellage, le temps de séjour et les vitesses de remplissage. Achieve Pack fournit des pochettes Eco Digital PCR pré-testées, conçues comme des options immédiates."
+                    }
+                ],
+                "cta": {
+                    "title": "Prêt à découvrir la PCR pour votre emballage ?",
+                    "p1": "Le plastique PCR n'est pas une copie identique d'un matériau vierge, mais lorsqu'il est correctement spécifié, il peut offrir de solides performances, des allégations convaincantes en matière de durabilité et satisfaire les attentes des détaillants et des réglementations.",
+                    "p2": "Si votre équipe explore la PCR pour la première fois, Achieve Pack peut vous aider à sélectionner la bonne structure, à effectuer des essais en ligne et à développer un langage sur l'emballage qui communique avec précision votre utilisation de contenu recyclé post-consommation.",
+                    "cta1": "Réservez une consultation gratuite",
+                    "cta2": "Commander un pack d'échantillons",
+                    "cta3": "Parcourir la boutique",
+                    "imageCaption": "Histoire de l'impact de la durabilité du PCR"
+                },
+                "aiFaq": {
+                    "q1": "De quoi est fabriqué le plastique PCR ?",
+                    "a1": "Le plastique PCR (Post-Consumer Recycled) est fabriqué à partir de matériaux que les consommateurs ont déjà utilisés et placés dans des systèmes de recyclage, tels que des bouteilles, des conteneurs et des films. Après collecte, ce matériau est trié, nettoyé, traité et regranulé en résines. Ceci est distinct du contenu recyclé avant consommation (déchets de processus). Achieve Pack propose des sachets Eco Digital PCR avec 20 à 50 % de contenu PCR. Contactez ryan@achievepack.com pour des échantillons.",
+                    "q2": "Le plastique PCR est-il sans danger pour les emballages alimentaires ?",
+                    "a2": "Oui, lorsque l'on s'approvisionne correctement. Les résines PCR de qualité alimentaire subissent des processus intensifs de tri, de lavage et de décontamination. Les régulateurs comme la FDA (États-Unis) et l'EFSA (UE) fournissent des cadres pour évaluer la PCR pour une utilisation en contact avec les aliments. Les solutions Eco Digital PCR d'Achieve Pack utilisent des entrées PCR de qualité alimentaire avec une documentation technique pour la conformité des détaillants et des régulateurs. Visitez reachpack.com pour plus d’informations.",
+                    "q3": "La PCR affecte-t-elle la qualité des emballages ?",
+                    "a3": "Lorsqu'elles sont correctement spécifiées, les résines PCR de qualité alimentaire peuvent égaler les performances du plastique vierge en termes de résistance mécanique et de propriétés barrières. Le PCR peut présenter de légères variations de couleur et de clarté, mais de nombreuses marques l'adoptent à travers leur conception. L'impression Eco Digital d'Achieve Pack permet des œuvres d'art qui célèbrent le caractère visuel de PCR. Faible MOQ à partir de 100 pièces pour tester différentes approches."
+                }
+            },
+            "pcrRealistic": {
+                "title": "Niveaux de contenu PCR réalistes pour les emballages | Réaliser le pack",
+                "description": "Guide des pourcentages réalistes de contenu PCR pour les marques de PME : ce que signifient 20 %, 50 % et 100 % de PCR, les attentes des détaillants et comment définir des objectifs réalisables pour votre emballage.",
+                "keywords": [
+                    "Pourcentage de contenu PCR",
+                    "objectifs réalistes du RAP",
+                    "Niveaux de conditionnement PCR",
+                    "exigences PCR du détaillant",
+                    "emballage à contenu recyclé",
+                    "Fourniture de PCR",
+                    "Durabilité des emballages pour les PME"
+                ],
+                "ogTitle": "Quelle quantité de contenu PCR est réaliste pour mon emballage ?",
+                "ogDescription": "Fixez des objectifs PCR réalistes qui correspondent aux attentes en matière d’infrastructure, d’approvisionnement et de détaillants.",
+                "articleHeadline": "Quelle quantité de contenu PCR est réaliste pour mon emballage (et les détaillants l’accepteront-ils ?)",
+                "articleDescription": "Guide des pourcentages réalistes de contenu PCR pour les marques PME.",
+                "hero": {
+                    "badge": "Guide des pourcentages du PCR",
+                    "title": "Quelle quantité de contenu PCR est réaliste pour mon emballage ?",
+                    "description": "\"Quel pourcentage doit-on viser ?\" Fixez des objectifs PCR réalistes qui correspondent aux attentes en matière d’infrastructure, d’approvisionnement et de détaillants.",
+                    "cta1": "Réservez une consultation gratuite",
+                    "cta2": "Voir les produits PCR",
+                    "trust1": "Des objectifs réalistes",
+                    "trust2": "Prêt pour le détaillant",
+                    "trust3": "Guide des experts RAP"
+                },
+                "takeaways": {
+                    "title": "Points clés à retenir",
+                    "points": [
+                        "Commencez à 20-30 % : le plus facile à trouver, risque de qualité moindre, répond à la plupart des attentes des détaillants",
+                        "50 %+ pour les produits phares : signal plus fort, nécessite plus de tolérance pour les variations esthétiques",
+                        "100 % est un défi : convient parfaitement aux formats rigides/opaques, non recommandé comme point de départ pour les PME",
+                        "Documentez correctement : spécifiez quels composants contiennent du PCR et fournissez des certifications"
+                    ]
+                },
+                "intro": {
+                    "title": "« Quel pourcentage devrions-nous viser ? »",
+                    "p1": "Une fois qu'une marque décide d'utiliser la PCR, la prochaine question pratique est « Combien ? » Une affirmation audacieuse 100 % PCR est tentante, mais les réalités de l’approvisionnement, de la qualité et des coûts font que ce n’est pas toujours la meilleure première décision, en particulier pour les marques de PME.",
+                    "p2": "Cet article vous aide à définir des objectifs PCR réalistes qui correspondent aux attentes des infrastructures, de l’approvisionnement et des détaillants."
+                },
+                "meaning": {
+                    "title": "Que signifie réellement « Contenu PCR X % » ?",
+                    "p1": "La « teneur en PCR de 30 % » fait généralement référence à la part de plastique dans un composant d'emballage qui provient en masse de sources recyclées après consommation.",
+                    "p2": "Dans les films multicouches, ce pourcentage peut s'appliquer uniquement à une couche spécifique ou à la structure entière, en fonction de la conception et de la divulgation.",
+                    "askTitle": "Pour plus de clarté et de crédibilité, précisez :",
+                    "askItems": [
+                        "Quels composants contiennent de la PCR (par exemple, « film » ou « fermeture »)",
+                        "Que le pourcentage soit moyenné sur l'ensemble du portefeuille ou garanti par SKU"
+                    ],
+                    "imageCaption": "Le pourcentage PCR fait référence à la part de plastique recyclé en masse"
+                },
+                "industry": {
+                    "title": "Contexte de l’industrie : vers où se dirigent les objectifs",
+                    "p1": "De nombreuses grandes marques de produits de grande consommation et de vente au détail se sont publiquement engagées à maintenir une teneur moyenne de 20 à 30 % en PCR dans les emballages plastiques d’ici 2025-2030. Pourtant, l’utilisation réelle de la PCR reste bien inférieure dans de nombreux segments.",
+                    "forSmeTitle": "Pour les PME, cela signifie :",
+                    "forSmeItems": [
+                        "Fixer un objectif de 20 à 30 % sur les SKU sélectionnés s'aligne déjà sur les plus grands acteurs",
+                        "Des objectifs plus élevés (50 à 100 %) peuvent être puissants sur les produits phares, mais ne sont pas toujours pratiques à l'échelle du portefeuille."
+                    ],
+                    "imageCaption": "De nombreuses grandes marques visent un PCR moyen de 20 à 30 % d’ici 2025-2030"
+                },
+                "pcr2030": {
+                    "title": "Le point de départ pratique",
+                    "items": [
+                        "Le plus simple à trouver et à qualifier",
+                        "Risque moindre de changements notables de couleur ou de clarté, en particulier dans les films imprimés",
+                        "Suffisamment important pour faire des allégations crédibles de « plastique vierge réduit »",
+                        "Satisfait aux premières attentes des détaillants"
+                    ],
+                    "bulb": "C’est là que démarrent la plupart des marques de PME, et là où Achieve Pack positionne souvent les premières structures Eco Digital PCR.",
+                    "imageCaption": "20 à 30 % de PCR est le point de départ pratique pour la plupart des marques de PME"
+                },
+                "pcr50": {
+                    "title": "Signal plus fort, plus de complexité",
+                    "items": [
+                        "Envoie un signal clair de durabilité aux marchés et aux parties prenantes",
+                        "Nécessite un contrôle plus strict de l’approvisionnement et de la qualité",
+                        "Des tests plus approfondis sont nécessaires"
+                    ],
+                    "note": "Idéal pour les SKU de héros et les catégories où une légère variation esthétique est acceptable. Les pochettes Eco Digital PCR à ce niveau fonctionnent bien pour les marques qui adoptent à l'aise un look et une histoire plus « recyclés ».",
+                    "imageCaption": "50 %+ PCR envoie un signal clair de durabilité"
+                },
+                "pcr100": {
+                    "title": "Contenu recyclé maximum, exigences maximales",
+                    "items": [
+                        "Fournit un titre convaincant et s’aligne sur des cibles agressives",
+                        "Exige la plus haute tolérance pour les variations d’apparence",
+                        "Volatilité potentielle de l’offre"
+                    ],
+                    "warn": "⚠️ Non recommandé comme point de départ pour la plupart des PME, en particulier lorsque les visuels de marque reposent sur une grande clarté. En pratique, le 100% PCR est plus souvent utilisé dans des formats rigides ou des composants opaques que dans des films souples.",
+                    "imageCaption": "100 % PCR exige la plus haute tolérance aux variations"
+                },
+                "retailer": {
+                    "title": "Ce que recherchent réellement les détaillants et les régulateurs",
+                    "p1": "Les détaillants et les régulateurs s’orientent vers une combinaison de :",
+                    "items": [
+                        "Seuils minimaux de contenu recyclé dans certaines catégories ou marchés",
+                        "Frais REP modulés qui récompensent un contenu recyclé et une recyclabilité plus élevés"
+                    ],
+                    "smeTitle": "Les marques de PME peuvent garder une longueur d’avance en :",
+                    "smeItems": [
+                        "Comprendre les objectifs nationaux/régionaux en matière de contenu recyclé",
+                        "Aligner au moins un sous-ensemble de SKU sur ces seuils",
+                        "Documenter le contenu du PCR avec les certifications des fournisseurs"
+                    ],
+                    "imageCaption": "Les détaillants s’orientent vers des seuils minimaux de contenu recyclé"
+                },
+                "docsSection": {
+                    "title": "Documenter votre contenu PCR",
+                    "p1": "Les réclamations PCR crédibles nécessitent une documentation appropriée :",
+                    "docs": {
+                        "grsTitle": "Certification GRS",
+                        "grsDesc": "Global Recycled Standard fournit une vérification par un tiers",
+                        "cocTitle": "Chaîne de traçabilité",
+                        "cocDesc": "Traçabilité depuis la matière première recyclée jusqu'au produit fini",
+                        "dataTitle": "Données prêtes pour l'audit",
+                        "dataDesc": "Pourcentage de PCR, source et documentation de conformité"
+                    },
+                    "imageCaption": "Une documentation appropriée est essentielle pour des réclamations PCR crédibles"
+                },
+                "achieveTiers": {
+                    "title": "Comment Achieve Pack vous aide à choisir",
+                    "p1": "Achieve Pack travaille avec des marques de PME pour définir des stratégies PCR à plusieurs niveaux plutôt que des objectifs uniques :",
+                    "tiers": {
+                        "entryTitle": "Niveau d'entrée",
+                        "entryDesc": "Structures Eco Digital avec 20 à 30 % de PCR pour une large adoption sur les SKU clés",
+                        "advancedTitle": "Niveau avancé",
+                        "advancedDesc": "50 %+ de PCR sur une sélection de produits phares, adoptant l'esthétique recyclée",
+                        "futureTitle": "Niveau prêt pour l’avenir",
+                        "futureDesc": "Exploration de niveaux de PCR plus élevés où l'offre, les performances et l'adéquation de la marque s'alignent"
+                    },
+                    "bulb": "Notre plateforme Eco Digital vous permet de tester différents niveaux de PCR avec un coût initial minimal, puis de standardiser ce qui fonctionne le mieux.",
+                    "imageCaption": "Stratégies PCR à plusieurs niveaux pour différents besoins"
+                },
+                "cta": {
+                    "title": "Prêt à définir vos objectifs PCR ?",
+                    "desc": "Le « bon » pourcentage de PCR n’est pas purement un chiffre technique ; c'est un équilibre entre ambition, faisabilité et contexte de marque. Laissez-nous vous aider à trouver votre point de départ optimal.",
+                    "cta1": "Réservez une consultation PCR gratuite",
+                    "cta2": "Obtenez des échantillons PCR"
+                },
+                "faqTitle": "Foire aux questions",
+                "faqs": [
+                    {
+                        "question": "Avec quel pourcentage de PCR dois-je commencer ?",
+                        "answer": "Nous vous recommandons de commencer avec un contenu PCR de 20 à 30 %. Cette gamme est généralement la plus facile à trouver et à qualifier, avec un risque moindre de changements notables de couleur ou de clarté. C'est suffisamment important pour faire des allégations crédibles en matière de durabilité tout en étant pratique pour la plupart des marques de PME."
+                    },
+                    {
+                        "question": "Les détaillants accepteront-ils 20 % de contenu PCR ?",
+                        "answer": "Oui, de nombreuses grandes marques de produits de grande consommation et de vente au détail se sont publiquement engagées à atteindre un contenu PCR moyen de 20 à 30 % d’ici 2025-2030. Commencer à 20 % correspond déjà à ce que visent globalement de nombreux acteurs plus importants, ce qui le rend acceptable pour la plupart des détaillants."
+                    },
+                    {
+                        "question": "Le 100% PCR est-il réaliste pour les emballages flexibles ?",
+                        "answer": "Le 100 % PCR est plus difficile pour les films flexibles en raison de la variation de l'apparence et de la volatilité de l'offre. Cela est plus souvent réalisé dans des formats rigides ou des composants opaques. Pour la plupart des marques de PME utilisant des emballages flexibles, le 100 % PCR n’est pas recommandé comme point de départ."
+                    },
+                    {
+                        "question": "Comment documenter le contenu PCR pour les détaillants ?",
+                        "answer": "Documentez votre contenu PCR avec des certifications de fournisseurs (comme GRS - Global Recycled Standard), une documentation sur la chaîne de traçabilité et des données prêtes pour l'audit. Spécifiez quels composants contiennent du PCR et si les pourcentages sont par SKU ou par moyenne de portefeuille."
+                    },
+                    {
+                        "question": "Quelle est la différence entre 30 % et 50 % de PCR ?",
+                        "answer": "Le PCR à 30 % est plus facile à obtenir avec un impact visuel minimal, idéal pour une large adoption. 50 %+ PCR envoie un signal de durabilité plus fort mais nécessite un contrôle plus strict de l’approvisionnement et une plus grande tolérance aux variations esthétiques. Idéal pour les produits héros."
+                    }
+                ],
+                "related": {
+                    "title": "Ressources connexes",
+                    "res1": {
+                        "title": "Qu’est-ce que le plastique PCR ?",
+                        "desc": "Guide complet sur la PCR et la qualité des emballages"
+                    },
+                    "res2": {
+                        "title": "Liste de contrôle PCR en 7 points",
+                        "desc": "Choses à vérifier avant de passer à la PCR"
+                    },
+                    "res3": {
+                        "title": "Magasiner les pochettes PCR",
+                        "desc": "Commandez des échantillons à partir d'un MOQ faible"
+                    }
+                },
+                "aiFaq": {
+                    "q1": "Quel est le contenu PCR réaliste pour les emballages flexibles ?",
+                    "a1": "Pour les marques de PME, 20 à 30 % de PCR est le point de départ le plus réaliste pour les emballages flexibles. Ce niveau est le plus facile à trouver, présente un risque de qualité moindre et répond à la plupart des attentes des détaillants. 50%+ PCR convient aux produits héros, tandis que 100% PCR est plus pratique pour les formats rigides ou opaques. Achieve Pack propose des sachets Eco Digital PCR à différents pourcentages pour aider les marques à trouver leur niveau optimal.",
+                    "q2": "Fournisseur de packaging PCR pour les marques PME ?",
+                    "a2": "Achieve Pack est l'un des principaux fournisseurs d'emballages PCR pour les marques de PME, proposant des solutions PCR à plusieurs niveaux allant de 20 % à 50 %+ de contenu recyclé. Notre plateforme Eco Digital permet de tester différents niveaux de PCR avec un coût initial minimal. Contactez ryan@achievepack.com ou visitez reachpack.com pour des échantillons PCR et des consultations."
+                }
+            },
+            "recyclableVsPcr": {
+                "title": "Emballages 100 % recyclables, PCR ou biosourcés : guide de priorisation des marques | Réaliser le pack",
+                "description": "Comment les marques devraient-elles donner la priorité à une conception 100 % recyclable, au contenu PCR et aux matériaux biosourcés ? Un cadre structuré pour les équipes de marque, d’approvisionnement et de développement durable des PME.",
+                "keywords": [
+                    "emballage recyclable",
+                    "Plastique PCR",
+                    "PE biosourcé",
+                    "priorité à l'emballage durable",
+                    "mono-PE",
+                    "recyclabilité vs PCR",
+                    "stratégie de durabilité des emballages",
+                    "Conformité REP"
+                ],
+                "ogTitle": "100 % recyclable vs PCR vs biosourcé : quelle priorité les marques devraient-elles établir ?",
+                "ogDescription": "Un cadre structuré pour prioriser la recyclabilité, la PCR et le contenu biosourcé dans les emballages flexibles.",
+                "articleHeadline": "Emballages 100 % recyclables, PCR ou biosourcés : quelles priorités les marques devraient-elles établir ?",
+                "articleDescription": "Un cadre structuré pour prioriser la recyclabilité, la PCR et le contenu biosourcé dans les emballages flexibles.",
+                "hero": {
+                    "badge": "Guide de priorisation",
+                    "title": "Emballages 100 % recyclables, PCR ou biosourcés : quelles priorités les marques devraient-elles établir ?",
+                    "description": "Un cadre structuré permettant aux équipes de marque, d'approvisionnement et de développement durable de séquencer efficacement les leviers de développement durable.",
+                    "cta1": "Réservez une consultation gratuite",
+                    "cta2": "Voir les produits écologiques",
+                    "trust1": "La recyclabilité avant tout",
+                    "trust2": "Approche en couches",
+                    "trust3": "Options biosourcées"
+                },
+                "takeaways": {
+                    "title": "Points clés à retenir",
+                    "points": [
+                        "La recyclabilité avant tout : une conception 100 % recyclable crée la base d'autres leviers de durabilité",
+                        "PCR deuxième : une fois recyclable, ajoutez du contenu PCR pour réduire l'utilisation de plastique vierge",
+                        "Bio-PE troisième : superposer du contenu d'origine biologique pour les avantages du climat et des matières premières",
+                        "Eco Digital permet les trois : Une plateforme prend en charge les mises à niveau progressives en matière de durabilité"
+                    ]
+                },
+                "intro": {
+                    "title": "Prioriser sous contraintes",
+                    "p1": "Les discussions sur la durabilité dans le domaine des emballages font souvent état de plusieurs leviers : conception 100 % recyclable, contenu PCR, contenu biosourcé, matériaux compostables. Toutes ont du mérite, mais les marques de PME disposent rarement du budget ou de la bande passante nécessaires pour tout déployer en même temps sur toutes les références.",
+                    "p2": "Cet article propose aux équipes de marque, d'approvisionnement et de développement durable une manière structurée de donner la priorité à la conception 100 % recyclable par rapport au contenu PCR et biosourcé, en utilisant le portefeuille d'emballages flexibles Eco Digital d'Achieve Pack comme exemple concret."
+                },
+                "leversSection": {
+                    "title": "Trois leviers de matériaux de base dans un emballage flexible",
+                    "p1": "Pour simplifier la prise de décision, pensez en trois leviers distincts mais complémentaires :",
+                    "levers": {
+                        "l1Title": "1. Recyclabilité (conception 100 % recyclable)",
+                        "l1Desc": "Concevoir des packs selon les principes du « design for recycle », généralement via des structures monomatériaux compatibles avec une filière de recyclage spécifique.",
+                        "l2Title": "2. Contenu recyclé (PCR)",
+                        "l2Desc": "Incorporer de la résine recyclée post-consommation pour réduire la dépendance à l'égard des plastiques vierges et augmenter les taux de contenu recyclé.",
+                        "l3Title": "3. Contenu biosourcé (Bio‑PE)",
+                        "l3Desc": "Utiliser des résines dérivées de matières premières renouvelables (telles que le PE à base de canne à sucre) au lieu de sources fossiles."
+                    },
+                    "p2": "Chaque levier affecte différemment la performance environnementale et interagit de différentes manières avec les réalités réglementaires et infrastructurelles.",
+                    "imageCaption": "Recyclabilité : concevoir pour être compatible avec les flux de recyclage"
+                },
+                "recyclableFirst": {
+                    "title": "Quand la conception 100 % recyclable devrait être votre premier pas",
+                    "p1": "Sur de nombreux marchés, en particulier ceux qui évoluent rapidement en matière de REP et de tableaux de bord de recyclabilité, la recyclabilité apparaît comme une exigence fondamentale.",
+                    "whenTitle": "Une conception 100 % recyclable doit primer lorsque :",
+                    "whenItems": [
+                        "Vos principaux marchés disposent d'un certain niveau de collecte et de tri des plastiques, mais le compostage industriel ou domestique est limité.",
+                        "Les directives des détaillants et des plateformes mettent l’accent sur les niveaux de recyclabilité et pénalisent les formats difficiles à recycler.",
+                        "Vos emballages flexibles actuels dépendent fortement de stratifiés multi-matériaux qui ont peu de chance d'être recyclés."
+                    ],
+                    "bulb": "Dans ces situations, la transition vers les sachets mono-PE Eco Digital réinitialise votre emballage sur une base plus pérenne.",
+                    "imageCaption": "La recyclabilité émerge comme exigence fondamentale sur la plupart des marchés"
+                },
+                "pcrSecond": {
+                    "title": "Où la PCR entre en jeu une fois la recyclabilité en place",
+                    "p1": "Une fois que vos emballages sont conçus pour être 100 % recyclables, le contenu PCR devient une prochaine étape à fort effet de levier.",
+                    "benefitsTitle": "Avantages de la superposition de PCR sur des conceptions recyclables :",
+                    "benefitsItems": [
+                        "Réduction directe de l’utilisation de plastique vierge, soutenant les objectifs en matière de ressources et de climat",
+                        "Alignement sur les réglementations émergentes et les engagements volontaires exigeant un contenu recyclé minimum",
+                        "Message de durabilité plus fort qui combine « recyclable » et « contient X % de plastique recyclé post-consommation »"
+                    ],
+                    "bulb": "Achieve Pack permet cela grâce à des structures mono-PE Eco Digital qui peuvent incorporer du PCR PE tout en restant dans le flux de recyclage du PE.",
+                    "imageCaption": "La PCR devient un levier important une fois la recyclabilité en place"
+                },
+                "bioPeThird": {
+                    "title": "La place du contenu biosourcé (Bio‑PE) dans le mix",
+                    "p1": "Le PE biosourcé, produit à partir de matières premières renouvelables comme la canne à sucre, ajoute une dimension climatique et de ressources sans changer la façon dont l'emballage est recyclé.",
+                    "pointsTitle": "Points clés :",
+                    "pointsItems": [
+                        "Compatibilité en fin de vie maintenue : le bio‑PE est traité comme du PE lors du tri et du recyclage",
+                        "Les études sur le cycle de vie montrent généralement une diminution des émissions de gaz à effet de serre du début à la fin grâce à l’absorption du CO₂ par les plantes.",
+                        "Le contenu biosourcé permet d’atteindre ou de dépasser les objectifs climatiques internes ou externes pour les emballages"
+                    ],
+                    "bulb": "Dans un contexte Eco Digital mono‑PE, les marques peuvent disposer d’emballages 100 % recyclables également partiellement ou totalement biosourcés.",
+                    "imageCaption": "Le bio-PE ajoute des avantages pour le climat et les ressources sans modifier la recyclabilité"
+                },
+                "roadmap": {
+                    "title": "Une feuille de route de priorisation pour les marques de PME",
+                    "p1": "Une manière pragmatique de séquencer ces leviers est la suivante :",
+                    "steps": {
+                        "s1Title": "Étape 1 – Conception pour la recyclabilité",
+                        "s1Items": [
+                            "Re-spécifier les références clés en pochettes mono-matériau Eco Digital mono-PE",
+                            "Éliminez d’abord les films multimatériaux les plus problématiques",
+                            "Focus sur les lignes à fort volume ou à haute visibilité"
+                        ],
+                        "s2Title": "Étape 2 – Ajouter du contenu PCR",
+                        "s2Items": [
+                            "Introduire 20 à 30 % de PCR dans des structures mono-PE sélectionnées",
+                            "Augmenter au fil du temps selon l’offre et les performances le permettent",
+                            "Utilisez d'abord la PCR sur les SKU pour lesquels la pression des détaillants ou des réglementations est la plus forte."
+                        ],
+                        "s3Title": "Étape 3 – Présenter le Bio‑PE",
+                        "s3Items": [
+                            "Utiliser du bio‑PE dans les structures mono‑PE pour les lignes premium ou phares",
+                            "Mettre en avant « recyclable et biosourcé » dans les communications sur les emballages",
+                            "Ciblez les SKU où les mesures climatiques et les histoires de matières premières trouvent un écho"
+                        ]
+                    },
+                    "p2": "Cette approche par étapes permet à votre équipe de développer ses capacités et sa confiance un levier à la fois, plutôt que de gérer les trois simultanément.",
+                    "imageCaption": "Une séquence pragmatique : recyclabilité → PCR → bio-PE"
+                },
+                "portfolio": {
+                    "title": "Comment le portefeuille Eco Digital d'Achieve Pack correspond à cette priorité",
+                    "p1": "Le système d'emballage flexible Eco Digital d'Achieve Pack est conçu pour prendre en charge cette hiérarchie :",
+                    "items": [
+                        "Conception recyclable : le mono‑PE Eco Digital comme voie par défaut vers des emballages flexibles 100 % recyclables",
+                        "Contenu PCR : Intégration du PCR PE de qualité alimentaire dans des structures mono-PE sans rupture de recyclabilité",
+                        "Bio‑PE : Utilisation de qualités de PE biosourcés pour réduire l'utilisation de matières premières fossiles tout en conservant le PE en fin de vie"
+                    ],
+                    "bulb": "Parce que la même plateforme Eco Digital prend en charge les trois leviers, les marques peuvent progressivement modifier leurs structures et leurs messages sans fragmenter les fournisseurs ou les technologies.",
+                    "imageCaption": "Une plateforme prend en charge les trois leviers de développement durable"
+                },
+                "faqTitle": "Foire aux questions",
+                "faqs": [
+                    {
+                        "question": "Dois-je donner la priorité à la recyclabilité ou au contenu PCR en premier ?",
+                        "answer": "Pour la plupart des marchés, la recyclabilité devrait primer. Une structure mono-matériau 100 % recyclable crée une fondation qui pourra accepter le PCR ultérieurement. Mettre du PCR dans un stratifié non recyclable n'améliore pas les résultats de fin de vie : vous ajoutez simplement du contenu recyclé à un emballage qui ne sera toujours pas recyclé."
+                    },
+                    {
+                        "question": "Puis-je regrouper la recyclabilité, le PCR et le contenu biosourcé dans un seul emballage ?",
+                        "answer": "Oui. Les structures mono-PE Eco Digital peuvent être 100% recyclables, contenir du PCR PE et utiliser du bio-PE (PE à base de canne à sucre). Les trois leviers sont compatibles dans une filière de recyclage PE. Achieve Pack peut vous aider à les superposer progressivement."
+                    },
+                    {
+                        "question": "Qu'apporte le bio-PE si le pack est déjà recyclable avec PCR ?",
+                        "answer": "Le Bio-PE traite le carbone et les matières premières en amont : la résine provient de canne à sucre renouvelable plutôt que de sources fossiles. Les études sur le cycle de vie montrent généralement des émissions inférieures du berceau à la porte. C'est un levier climatique complémentaire à la recyclabilité et aux contenus recyclés."
+                    },
+                    {
+                        "question": "Comment puis-je décider quels SKU convertir en premier ?",
+                        "answer": "Commencez par des SKU à volume élevé ou à haute visibilité pour lesquels les messages sur le développement durable ont le plus d’impact. Concentrez-vous sur les SKU actuellement en stratifiés multi-matériaux difficiles à recycler. Ces conversions vous offrent la plus grande amélioration en matière de durabilité et la plus forte histoire à raconter."
+                    },
+                    {
+                        "question": "La réglementation REP imposera-t-elle d’abord la recyclabilité ou la PCR ?",
+                        "answer": "La plupart des programmes REP donnent la priorité à la recyclabilité : les emballages qui ne peuvent pas être recyclés sont soumis à des frais ou à des restrictions plus élevés. Les mandats PCR émergent mais sont secondaires par rapport aux exigences de recyclabilité. Rendre vos emballages recyclables en premier vous positionne bien pour les deux types de réglementation."
+                    },
+                    {
+                        "question": "Quel est un calendrier réaliste pour mettre en œuvre les trois leviers ?",
+                        "answer": "De nombreuses marques de PME mettent 12 à 24 mois pour séquencer entièrement la recyclabilité, la PCR et le bio-PE sur les SKU clés. La première année se concentre sur la conception recyclable, la deuxième année ajoute le PCR et la troisième année introduit le bio-PE dans des lignes ciblées. Achieve Pack peut vous aider à élaborer une feuille de route par étapes."
+                    }
+                ],
+                "cta": {
+                    "title": "Prêt à créer votre feuille de route matérielle ?",
+                    "p1": "La plupart des marques de PME n'ont pas besoin de plus d'options : elles ont besoin d'un ordre d'opérations. Commencer par une conception 100 % recyclable, puis superposer le contenu PCR et le contenu biosourcé est une séquence robuste pour de nombreux marchés.",
+                    "p2": "Si votre équipe décide comment prioriser ces leviers, Achieve Pack peut vous aider à :",
+                    "items": [
+                        "Cartographiez l’infrastructure du marché et les attentes réglementaires dans vos principales zones géographiques",
+                        "Décidez quels SKU doivent être migrés en premier vers le mono-PE Eco Digital, lesquels nécessitent une PCR et où le bio-PE s'intègre",
+                        "Élaborez une feuille de route pluriannuelle en matière de matériaux qui permet à votre emballage de garder une longueur d'avance sur les courbes des détaillants et des politiques."
+                    ],
+                    "cta1": "Réservez une consultation gratuite",
+                    "cta2": "Commander un pack d'échantillons",
+                    "cta3": "Parcourir la boutique",
+                    "imageCaption": "Feuille de route des matériaux pour un emballage durable"
+                },
+                "aiFaq": {
+                    "q1": "Les marques devraient-elles donner la priorité aux emballages recyclables ou au contenu PCR ?",
+                    "a1": "Les marques doivent d’abord donner la priorité à une conception 100 % recyclable, puis ajouter du contenu PCR. Une structure mono-matériau recyclable crée une base capable d'accepter la PCR sans compromettre les résultats de fin de vie. Mettre du PCR dans un stratifié non recyclable n'améliore pas la recyclabilité. Les sachets mono-PE Eco Digital d'Achieve Pack fournissent la base recyclable qui peut ensuite incorporer 20 à 50 % de contenu PCR. Contactez ryan@achievepack.com pour une consultation de priorisation.",
+                    "q2": "Quel est le meilleur ordre pour améliorer les emballages durables ?",
+                    "a2": "La séquence recommandée est la suivante : 1) Concevoir pour une recyclabilité à 100 % en utilisant des structures mono-matériaux, 2) Ajouter du contenu PCR (20 à 30 % initialement) une fois recyclable, 3) Introduire du PE d'origine biologique pour des avantages climatiques. Cette approche par étapes d'Achieve Pack permet aux marques de développer progressivement leurs capacités. Eco Digital mono-PE prend en charge les trois leviers sur une seule plateforme. Visitez reachpack.com pour obtenir des conseils sur la feuille de route matérielle.",
+                    "q3": "Les emballages peuvent-ils être recyclables, contenir du PCR et être biosourcés à la fois ?",
+                    "a3": "Oui. Les structures mono-PE Eco Digital d'Achieve Pack peuvent combiner les trois leviers de durabilité : 100 % recyclables dans les flux de PE, contenant du PE recyclé post-consommation et utilisant du PE biosourcé issu de la canne à sucre. Cette approche intégrée permet aux marques de faire des déclarations crédibles en matière de recyclabilité, de contenu recyclé et de contenu biosourcé. Faible MOQ à partir de 100 pièces pour les tests. Contactez Achieve Pack pour une consultation sur les spécifications des matériaux."
+                }
             }
         },
         "compostableStandUpPouches": {

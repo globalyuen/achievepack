@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Recycle, CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Factory, Eye, Sparkles, Layers, ShieldCheck } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
@@ -116,44 +117,26 @@ const ImageTextRow: React.FC<{
   )
 }
 
-// FAQ Data
-const faqs = [
-  {
-    question: "What is PCR plastic?",
-    answer: "PCR (Post-Consumer Recycled) plastic is made from materials that consumers have already used and placed into recycling systems, such as bottles, containers and films. After collection, this material is sorted, cleaned, processed and re-pelletized into resins for new packaging. This is distinct from pre-consumer recycled content (process scrap) and recyclable plastic."
-  },
-  {
-    question: "Does PCR compromise packaging quality?",
-    answer: "Not when specified correctly. Food-grade PCR resins are engineered to meet similar performance requirements as virgin plastics. Mechanical strength and barrier performance can match requirements for pouches and bags. However, there may be slight variations in color and clarity compared to virgin material."
-  },
-  {
-    question: "Is PCR safe for food packaging?",
-    answer: "Yes, when sourced properly. PCR used in food-contact packaging must meet strict regulatory and safety requirements. High-quality PCR resins go through intensive sorting, washing and decontamination processes. Regulators like FDA and EFSA provide frameworks for evaluating PCR materials for food-contact use."
-  },
-  {
-    question: "What PCR percentage should I start with?",
-    answer: "Achieve Pack recommends starting with 20-50% PCR content for most applications. This range is easier to source, has lower quality variation risk, and still makes credible sustainability claims. You can increase percentages over time as supply and confidence grow."
-  },
-  {
-    question: "Will PCR work on my filling line?",
-    answer: "PCR blends may have slightly different stiffness or friction than virgin structures, but for most SME brands these differences are manageable. Simple line trials allow you to fine-tune sealing temperature, dwell time and filling speeds. Achieve Pack provides pre-tested Eco Digital PCR pouches designed as drop-in options."
-  }
-]
-
 const PCRGuidePage: React.FC = () => {
+  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
+
+  const p = 'seoPages.pages.pcrGuide'
+  const keywords = t(`${p}.keywords`, { returnObjects: true }) as string[] || []
+  const takeawaysPoints = t(`${p}.takeaways.points`, { returnObjects: true }) as string[] || []
+  const faqs = t(`${p}.faqs`, { returnObjects: true }) as Array<{ question: string; answer: string }> || []
 
   return (
     <>
       <Helmet>
-        <title>What Is PCR Plastic? Impact on Packaging Quality | Achieve Pack</title>
-        <meta name="description" content="Complete guide to PCR (Post-Consumer Recycled) plastic for SME brands: what it is, how it affects packaging quality, safety considerations, and practical implementation with Eco Digital PCR solutions." />
+        <title>{t(`${p}.title`)}</title>
+        <meta name="description" content={t(`${p}.description`)} />
         <link rel="canonical" href="https://achievepack.com/pcr/pcr-plastic-guide" />
-        <meta name="keywords" content="PCR plastic, post-consumer recycled, recycled plastic packaging, PCR quality, PCR food safety, recycled content, sustainable packaging, PCR vs virgin plastic" />
+        <meta name="keywords" content={Array.isArray(keywords) ? keywords.join(', ') : ''} />
         
         {/* Open Graph */}
-        <meta property="og:title" content="What Is PCR Plastic? Impact on Packaging Quality" />
-        <meta property="og:description" content="Complete guide to PCR plastic for SME brands: quality, safety, and practical implementation." />
+        <meta property="og:title" content={t(`${p}.ogTitle`)} />
+        <meta property="og:description" content={t(`${p}.ogDescription`)} />
         <meta property="og:image" content="https://achievepack.com/imgs/pcr/guide/hero.webp" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://achievepack.com/pcr/pcr-plastic-guide" />
@@ -163,8 +146,8 @@ const PCRGuidePage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "What Is PCR Plastic and How Does It Impact My Packaging Quality?",
-            "description": "Complete guide to PCR plastic for SME brands.",
+            "headline": t(`${p}.articleHeadline`),
+            "description": t(`${p}.articleDescription`),
             "image": "https://achievepack.com/imgs/pcr/guide/hero.webp",
             "author": {
               "@type": "Organization",
@@ -187,11 +170,11 @@ const PCRGuidePage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
+            "mainEntity": Array.isArray(faqs) ? faqs.map(faq => ({
               "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-            }))
+              "name": faq?.question || '',
+              "acceptedAnswer": { "@type": "Answer", "text": faq?.answer || '' }
+            })) : []
           })}
         </script>
       </Helmet>
@@ -206,14 +189,14 @@ const PCRGuidePage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    PCR Complete Guide
+                    {t(`${p}.hero.badge`)}
                   </span>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                  What Is PCR Plastic and How Does It Impact My Packaging Quality?
+                  {t(`${p}.hero.title`)}
                 </h1>
                 <p className="text-lg text-teal-100 mb-8">
-                  From buzzword to spec. Understanding PCR in practical terms for brand, procurement and sustainability teams.
+                  {t(`${p}.hero.description`)}
                 </p>
                 
                 <div className="flex flex-wrap gap-4">
@@ -222,14 +205,14 @@ const PCRGuidePage: React.FC = () => {
                     className="flex items-center gap-2 bg-white text-teal-800 hover:bg-teal-50 px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Calendar className="h-5 w-5" />
-                    Book Free Consultation
+                    {t(`${p}.hero.cta1`)}
                   </button>
                   <Link 
                     to="/store"
                     className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Package className="h-5 w-5" />
-                    View PCR Products
+                    {t(`${p}.hero.cta2`)}
                   </Link>
                 </div>
 
@@ -237,15 +220,15 @@ const PCRGuidePage: React.FC = () => {
                 <div className="flex items-center gap-4 mt-8 text-sm text-teal-200">
                   <div className="flex items-center gap-1">
                     <Recycle className="h-4 w-4 text-teal-400" />
-                    <span>PCR Explained</span>
+                    <span>{t(`${p}.hero.trust1`)}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <ShieldCheck className="h-4 w-4 text-teal-400" />
-                    <span>Food-Grade Safe</span>
+                    <span>{t(`${p}.hero.trust2`)}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Sparkles className="h-4 w-4 text-teal-400" />
-                    <span>Quality Assured</span>
+                    <span>{t(`${p}.hero.trust3`)}</span>
                   </div>
                 </div>
               </div>
@@ -253,7 +236,7 @@ const PCRGuidePage: React.FC = () => {
               <div className="relative">
                 <ClickableImage 
                   src={IMAGES.hero}
-                  alt="PCR plastic guide for packaging quality"
+                  alt={t(`${p}.hero.title`)}
                   className="w-full rounded-xl shadow-2xl"
                 />
               </div>
@@ -268,30 +251,34 @@ const PCRGuidePage: React.FC = () => {
               <div className="flex items-start justify-between mb-4">
                 <h2 className="text-xl font-bold text-teal-900 flex items-center gap-2">
                   <Zap className="h-6 w-6 text-teal-600" />
-                  Key Takeaways
+                  {t(`${p}.takeaways.title`)}
                 </h2>
                 <SocialShareButtons 
                   url="https://achievepack.com/pcr/pcr-plastic-guide"
-                  title="What Is PCR Plastic? Impact on Packaging Quality"
+                  title={t(`${p}.ogTitle`)}
                 />
               </div>
               <ul className="space-y-3 text-teal-800">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>PCR closes the loop:</strong> Made from materials consumers have already used and recycled</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>Quality can match virgin:</strong> Food-grade PCR meets similar performance requirements</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>Appearance may vary slightly:</strong> Design can embrace or minimize visual differences</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>Start with 20-50% PCR:</strong> Test on hero products before scaling portfolio-wide</span>
-                </li>
+                {takeawaysPoints.map((point, idx) => {
+                  const colonIndex = point.indexOf(':')
+                  if (colonIndex !== -1) {
+                    return (
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                        <span>
+                          <strong>{point.substring(0, colonIndex + 1)}</strong>
+                          {point.substring(colonIndex + 1)}
+                        </span>
+                      </li>
+                    )
+                  }
+                  return (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                      <span>{point}</span>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           </div>
@@ -302,14 +289,14 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <HelpCircle className="h-8 w-8 text-teal-600" />
-              From Buzzword to Spec
+              {t(`${p}.intro.title`)}
             </h2>
             <div className="prose prose-lg text-neutral-700 space-y-4">
               <p>
-                <strong>"Made with recycled plastic"</strong> has become a common tagline on packaging, but for SME brands the real questions are simple: What exactly is PCR plastic, and what does it do to my pack quality, operations and brand perception?
+                {t(`${p}.intro.p1`)}
               </p>
               <p>
-                This article explains PCR in practical terms and outlines how Achieve Pack's Eco Digital PCR structures can help you <strong>trial recycled content without compromising performance</strong>.
+                {t(`${p}.intro.p2`)}
               </p>
             </div>
           </div>
@@ -320,20 +307,20 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.materialScience}
-              imageAlt="PCR plastic material science infographic"
-              imageCaption="PCR is made from consumer-used materials that have been recycled"
+              imageAlt={t(`${p}.whatIs.title`)}
+              imageCaption={t(`${p}.whatIs.imageCaption`)}
               imageLeft={true}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Recycle className="h-8 w-8 text-teal-600" />
-                What Is Post-Consumer Recycled (PCR) Plastic?
+                {t(`${p}.whatIs.title`)}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  PCR plastic is made from materials that <strong>consumers have already used</strong> and placed into recycling systems, such as bottles, containers and films collected via curbside programs or deposit schemes.
+                  {t(`${p}.whatIs.p1`)}
                 </p>
                 <p>
-                  After collection, this material is <strong>sorted, cleaned, processed and re-pelletized</strong> into resins that can be used again in new packaging.
+                  {t(`${p}.whatIs.p2`)}
                 </p>
               </div>
             </ImageTextRow>
@@ -345,27 +332,27 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.closedLoop}
-              imageAlt="PCR closed loop recycling diagram"
-              imageCaption="PCR closes the loop by incorporating material from the consumer waste system"
+              imageAlt={t(`${p}.distinct.title`)}
+              imageCaption={t(`${p}.distinct.imageCaption`)}
               imageLeft={false}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Layers className="h-8 w-8 text-blue-600" />
-                PCR Is Distinct From Other Recycled Content
+                {t(`${p}.distinct.title`)}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <div className="space-y-3">
                   <div className="bg-amber-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-amber-800 mb-1">Pre-Consumer Recycled Content</h4>
-                    <p className="text-sm text-amber-700">Comes from process scrap and offcuts generated <strong>before</strong> products reach consumers</p>
+                    <h4 className="font-bold text-amber-800 mb-1">{t(`${p}.distinct.preConsumerTitle`)}</h4>
+                    <p className="text-sm text-amber-700">{t(`${p}.distinct.preConsumerDesc`)}</p>
                   </div>
                   <div className="bg-blue-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-blue-800 mb-1">Recyclable Plastic</h4>
-                    <p className="text-sm text-blue-700">May be <strong>technically recyclable</strong> but not necessarily collected and reprocessed in practice</p>
+                    <h4 className="font-bold text-blue-800 mb-1">{t(`${p}.distinct.recyclableTitle`)}</h4>
+                    <p className="text-sm text-blue-700">{t(`${p}.distinct.recyclableDesc`)}</p>
                   </div>
                   <div className="bg-teal-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-teal-800 mb-1">Post-Consumer Recycled (PCR)</h4>
-                    <p className="text-sm text-teal-700"><strong>Closes more of the loop</strong> by actually incorporating material that has gone through the consumer and waste-management system</p>
+                    <h4 className="font-bold text-teal-800 mb-1">{t(`${p}.distinct.pcrTitle`)}</h4>
+                    <p className="text-sm text-teal-700">{t(`${p}.distinct.pcrDesc`)}</p>
                   </div>
                 </div>
               </div>
@@ -378,32 +365,32 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.barrierPerformance}
-              imageAlt="PCR barrier and mechanical performance diagram"
-              imageCaption="Food-grade PCR can match mechanical and barrier requirements"
+              imageAlt={t(`${p}.quality.title`)}
+              imageCaption={t(`${p}.quality.imageCaption`)}
               imageLeft={true}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Shield className="h-8 w-8 text-green-600" />
-                Does PCR Compromise Packaging Quality?
+                {t(`${p}.quality.title`)}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  For SME brands, the biggest worry is that PCR will make packaging feel cheaper, less safe or less premium. <strong>The reality is more nuanced.</strong>
+                  {t(`${p}.quality.p1`)}
                 </p>
-                <h3 className="font-bold text-lg text-neutral-900 mt-4">Mechanical and Barrier Performance</h3>
-                <p>Food-grade PCR resins are engineered to meet similar performance requirements:</p>
+                <h3 className="font-bold text-lg text-neutral-900 mt-4">{t(`${p}.quality.subtitle`)}</h3>
+                <p>{t(`${p}.quality.p2`)}</p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span><strong>Mechanical strength:</strong> properly specified PCR films can match tensile, impact and seal strength</span>
+                    <span>{t(`${p}.quality.feat1`)}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span><strong>Barrier:</strong> PCR structures can deliver adequate oxygen and moisture barrier for many applications</span>
+                    <span>{t(`${p}.quality.feat2`)}</span>
                   </li>
                 </ul>
                 <p className="text-sm text-neutral-600 mt-4">
-                  Processing windows can be narrower than virgin, so it's important to work with converters who understand PCR film design.
+                  {t(`${p}.quality.note`)}
                 </p>
               </div>
             </ImageTextRow>
@@ -415,32 +402,32 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.appearanceComparison}
-              imageAlt="PCR appearance comparison with virgin plastic"
-              imageCaption="PCR may show slight variations in color and clarity"
+              imageAlt={t(`${p}.appearance.title`)}
+              imageCaption={t(`${p}.appearance.imageCaption`)}
               imageLeft={false}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Eye className="h-8 w-8 text-purple-600" />
-                Appearance and Aesthetic Considerations
+                {t(`${p}.appearance.title`)}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  PCR can introduce <strong>slight variations</strong> in color, haze and surface finish compared with virgin material:
+                  {t(`${p}.appearance.p1`)}
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
                     <span className="text-amber-600 mt-0.5 flex-shrink-0">⚠</span>
-                    <span>Clear films may appear a bit less "water-white" and more off-tone</span>
+                    <span>{t(`${p}.appearance.warn1`)}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-amber-600 mt-0.5 flex-shrink-0">⚠</span>
-                    <span>There can be minor batch-to-batch fluctuations in clarity and tint</span>
+                    <span>{t(`${p}.appearance.warn2`)}</span>
                   </li>
                 </ul>
-                <p className="font-medium text-purple-700 mt-4">Many brands turn this into a design feature by:</p>
+                <p className="font-medium text-purple-700 mt-4">{t(`${p}.appearance.turnIntoFeature`)}</p>
                 <ul className="space-y-1 text-sm">
-                  <li>• Using full-coverage or high-coverage print so the film base is less visible</li>
-                  <li>• Intentionally communicating that slight variations are a sign of genuine recycled content</li>
+                  <li>• {t(`${p}.appearance.feat1`)}</li>
+                  <li>• {t(`${p}.appearance.feat2`)}</li>
                 </ul>
               </div>
             </ImageTextRow>
@@ -452,22 +439,21 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.designForward}
-              imageAlt="PCR design forward showcase"
-              imageCaption="Eco Digital printing supports designs that celebrate PCR"
+              imageAlt={t(`${p}.design.title`)}
+              imageCaption={t(`${p}.design.imageCaption`)}
               imageLeft={true}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Sparkles className="h-8 w-8 text-pink-600" />
-                Design That Celebrates PCR
+                {t(`${p}.design.title`)}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  <strong>Eco Digital printing from Achieve Pack</strong> supports an approach that celebrates PCR rather than trying to hide it.
+                  {t(`${p}.design.p1`)}
                 </p>
                 <div className="bg-pink-50 border border-pink-200 p-4 rounded-lg">
                   <p className="text-pink-800 text-sm">
-                    Digital printing allows you to adapt artwork so PCR's visual differences become a <strong>feature, not a bug</strong>. 
-                    Low MOQ means you can test different design approaches without large plate investments.
+                    {t(`${p}.design.bulb`)}
                   </p>
                 </div>
               </div>
@@ -480,35 +466,35 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.safetyCompliance}
-              imageAlt="PCR safety compliance laboratory"
-              imageCaption="Food-grade PCR meets strict regulatory and safety requirements"
+              imageAlt={t(`${p}.safety.title`)}
+              imageCaption={t(`${p}.safety.imageCaption`)}
               imageLeft={false}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <ShieldCheck className="h-8 w-8 text-blue-600" />
-                Is PCR Safe for Food and Personal Care Packaging?
+                {t(`${p}.safety.title`)}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  PCR used in food-contact packaging must meet <strong>strict regulatory and safety requirements</strong>. High-quality PCR resins go through intensive sorting, washing and decontamination processes.
+                  {t(`${p}.safety.p1`)}
                 </p>
                 <p>
-                  Regulators in key markets (such as <strong>FDA</strong> in the US and <strong>EFSA</strong> in the EU) provide frameworks for evaluating PCR processes and materials for food-contact use.
+                  {t(`${p}.safety.p2`)}
                 </p>
-                <p className="font-medium text-blue-700 mt-4">SME brands should:</p>
+                <p className="font-medium text-blue-700 mt-4">{t(`${p}.safety.smeShould`)}</p>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span>Work only with suppliers who can provide regulatory opinions or no-objection letters</span>
+                    <span>{t(`${p}.safety.smeFeat1`)}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span>Request documentation on decontamination processes and compliance</span>
+                    <span>{t(`${p}.safety.smeFeat2`)}</span>
                   </li>
                 </ul>
                 <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg mt-4">
                   <p className="text-blue-800 text-sm">
-                    Achieve Pack's Eco Digital PCR solutions are based on food-grade PCR inputs and supported by technical documentation to satisfy retailer and regulator expectations.
+                    {t(`${p}.safety.bulb`)}
                   </p>
                 </div>
               </div>
@@ -521,31 +507,31 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.lineTrial}
-              imageAlt="PCR line trial and machinability testing"
-              imageCaption="Simple line trials help fine-tune sealing and filling parameters"
+              imageAlt={t(`${p}.operations.title`)}
+              imageCaption={t(`${p}.operations.imageCaption`)}
               imageLeft={true}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Factory className="h-8 w-8 text-orange-600" />
-                Practical Impacts on Your Operations
+                {t(`${p}.operations.title`)}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  Switching to PCR can have some operational implications, but for most SME brands they are <strong>manageable with testing and support</strong>.
+                  {t(`${p}.operations.p1`)}
                 </p>
-                <h3 className="font-bold text-lg text-neutral-900 mt-4">Sealing and Machinability</h3>
+                <h3 className="font-bold text-lg text-neutral-900 mt-4">{t(`${p}.operations.sub1`)}</h3>
                 <ul className="space-y-2 text-sm">
-                  <li>• Some PCR blends may have slightly different stiffness or coefficient of friction</li>
-                  <li>• Simple line trials allow you to fine-tune sealing temperature, dwell time and filling speeds</li>
+                  <li>• {t(`${p}.operations.sub1Feat1`)}</li>
+                  <li>• {t(`${p}.operations.sub1Feat2`)}</li>
                 </ul>
-                <h3 className="font-bold text-lg text-neutral-900 mt-4">Consistency and Supply</h3>
+                <h3 className="font-bold text-lg text-neutral-900 mt-4">{t(`${p}.operations.sub2`)}</h3>
                 <ul className="space-y-2 text-sm">
-                  <li>• Food-grade PCR is still a constrained resource, quality varies by supplier</li>
-                  <li>• Working with a partner who qualifies PCR streams reduces risk</li>
+                  <li>• {t(`${p}.operations.sub2Feat1`)}</li>
+                  <li>• {t(`${p}.operations.sub2Feat2`)}</li>
                 </ul>
                 <div className="bg-orange-50 border border-orange-200 p-4 rounded-lg mt-4">
                   <p className="text-orange-800 text-sm">
-                    Eco Digital PCR pouches from Achieve Pack are designed as <strong>drop-in options</strong> for typical stand-up and flat pouch formats, with lab testing to de-risk sealing, drop, and transport.
+                    {t(`${p}.operations.bulb`)}
                   </p>
                 </div>
               </div>
@@ -558,34 +544,34 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.ecoDigitalSolutions}
-              imageAlt="Achieve Pack Eco Digital PCR solutions"
-              imageCaption="Start with 20-50% PCR and scale based on results"
+              imageAlt={t(`${p}.solutions.title`)}
+              imageCaption={t(`${p}.solutions.imageCaption`)}
               imageLeft={false}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Package className="h-8 w-8 text-teal-600" />
-                How Achieve Pack's Eco Digital PCR Can Help You Start
+                {t(`${p}.solutions.title`)}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  Achieve Pack offers Eco Digital flexible packaging structures that incorporate post-consumer recycled content while <strong>preserving the functionality SME brands need</strong>:
+                  {t(`${p}.solutions.p1`)}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span><strong>Stand-up and flat pouches</strong> with 20-50% PCR content as a starting range</span>
+                    <span>{t(`${p}.solutions.feat1`)}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span><strong>Mono-material designs</strong> where possible to maintain or improve recyclability</span>
+                    <span>{t(`${p}.solutions.feat2`)}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span><strong>Digital printing from low MOQs</strong> so you can pilot PCR without large plate fees</span>
+                    <span>{t(`${p}.solutions.feat3`)}</span>
                   </li>
                 </ul>
                 <p className="text-sm text-neutral-600 mt-4">
-                  This lets you test PCR on one or two hero products, gather data on customer response and operations, and then decide if and how to scale.
+                  {t(`${p}.solutions.p2`)}
                 </p>
               </div>
             </ImageTextRow>
@@ -597,17 +583,17 @@ const PCRGuidePage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
               <HelpCircle className="h-8 w-8 text-teal-600" />
-              Frequently Asked Questions
+              {t(`${p}.faqTitle`)}
             </h2>
             <div className="space-y-4">
               {faqs.map((faq, idx) => (
                 <details key={idx} className="group bg-white rounded-xl overflow-hidden shadow-sm">
                   <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-50 transition">
-                    <span className="font-semibold text-neutral-900 pr-4">{faq.question}</span>
+                    <span className="font-semibold text-neutral-900 pr-4">{faq?.question}</span>
                     <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
                   </summary>
                   <div className="px-6 pb-6 text-neutral-700">
-                    {faq.answer}
+                    {faq?.answer}
                   </div>
                 </details>
               ))}
@@ -621,13 +607,13 @@ const PCRGuidePage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-2xl md:text-4xl font-bold mb-6">
-                  Ready to Explore PCR for Your Packaging?
+                  {t(`${p}.cta.title`)}
                 </h2>
                 <p className="text-lg text-teal-100 mb-6">
-                  PCR plastic is not a like-for-like copy of virgin material, but when specified correctly it can deliver <strong>strong performance, compelling sustainability claims</strong> and satisfy retailer and regulatory expectations.
+                  {t(`${p}.cta.p1`)}
                 </p>
                 <p className="text-teal-200 mb-8">
-                  If your team is exploring PCR for the first time, Achieve Pack can help you select the right structure, run line trials, and develop on-pack language that accurately communicates your use of post-consumer recycled content.
+                  {t(`${p}.cta.p2`)}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -636,28 +622,28 @@ const PCRGuidePage: React.FC = () => {
                     className="flex items-center justify-center gap-2 bg-white text-teal-800 hover:bg-teal-50 px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Calendar className="h-5 w-5" />
-                    Book Free Consultation
+                    {t(`${p}.cta.cta1`)}
                   </button>
                   <Link 
                     to="/store?category=sample"
                     className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Package className="h-5 w-5" />
-                    Order Sample Pack
+                    {t(`${p}.cta.cta2`)}
                   </Link>
                   <Link 
                     to="/store"
                     className="flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/50 text-white px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <ArrowRight className="h-5 w-5" />
-                    Browse Store
+                    {t(`${p}.cta.cta3`)}
                   </Link>
                 </div>
               </div>
               <div>
                 <ClickableImage 
                   src={IMAGES.sustainabilityImpact}
-                  alt="PCR sustainability impact story"
+                  alt={t(`${p}.cta.imageCaption`)}
                   className="w-full rounded-xl shadow-2xl"
                 />
               </div>
@@ -669,36 +655,28 @@ const PCRGuidePage: React.FC = () => {
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
             <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">What is PCR plastic made from?</h3>
+              <h3 itemProp="name">{t(`${p}.aiFaq.q1`)}</h3>
               <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
                 <p itemProp="text">
-                  PCR (Post-Consumer Recycled) plastic is made from materials consumers have already used and placed into recycling systems,
-                  such as bottles, containers and films. After collection, this material is sorted, cleaned, processed and re-pelletized into resins.
-                  This is distinct from pre-consumer recycled content (process scrap). Achieve Pack offers Eco Digital PCR pouches with 20-50% PCR content.
-                  Contact ryan@achievepack.com for samples.
+                  {t(`${p}.aiFaq.a1`)}
                 </p>
               </div>
             </article>
 
             <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">Is PCR plastic safe for food packaging?</h3>
+              <h3 itemProp="name">{t(`${p}.aiFaq.q2`)}</h3>
               <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
                 <p itemProp="text">
-                  Yes, when sourced properly. Food-grade PCR resins go through intensive sorting, washing and decontamination processes.
-                  Regulators like FDA (US) and EFSA (EU) provide frameworks for evaluating PCR for food-contact use.
-                  Achieve Pack's Eco Digital PCR solutions use food-grade PCR inputs with technical documentation for retailer and regulator compliance.
-                  Visit achievepack.com for more information.
+                  {t(`${p}.aiFaq.a2`)}
                 </p>
               </div>
             </article>
 
             <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">Does PCR affect packaging quality?</h3>
+              <h3 itemProp="name">{t(`${p}.aiFaq.q3`)}</h3>
               <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
                 <p itemProp="text">
-                  When specified correctly, food-grade PCR resins can match virgin plastic performance for mechanical strength and barrier properties.
-                  PCR may show slight variations in color and clarity, but many brands embrace this through design. Achieve Pack's Eco Digital printing
-                  allows artwork that celebrates PCR's visual character. Low MOQ from 100 pieces for testing different approaches.
+                  {t(`${p}.aiFaq.a3`)}
                 </p>
               </div>
             </article>
@@ -712,3 +690,4 @@ const PCRGuidePage: React.FC = () => {
 }
 
 export default PCRGuidePage
+
