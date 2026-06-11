@@ -188,9 +188,7 @@ const SpoutPouchesPage: React.FC = () => {
       icon: <Package className="h-5 w-5 text-green-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>
-            <strong>{t(`${p}.sections.ecoMaterials.intro`)}</strong>
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t(`${p}.sections.ecoMaterials.intro`) }} />
           
           {/* Kraft-Look Explanation */}
           <div className="bg-amber-50 p-5 rounded-lg border border-amber-200 mb-6">
@@ -206,9 +204,7 @@ const SpoutPouchesPage: React.FC = () => {
           {/* Important Clarification */}
           <div className="bg-blue-50 border-2 border-blue-200 p-5 rounded-lg">
             <h4 className="font-bold text-blue-800 mb-3">{t(`${p}.sections.ecoMaterials.clarificationTitle`)}</h4>
-            <p className="text-blue-900 mb-4">
-              <strong>{t(`${p}.sections.ecoMaterials.clarificationIntro`)}</strong>
-            </p>
+            <p className="text-blue-900 mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.sections.ecoMaterials.clarificationIntro`) }} />
             
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-green-100 p-4 rounded-lg">

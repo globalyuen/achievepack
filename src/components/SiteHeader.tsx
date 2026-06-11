@@ -166,7 +166,8 @@ function MobileLearnSection({ setIsMenuOpen }: { setIsMenuOpen: (open: boolean) 
   )
 }
 
-export default function SiteHeader({ showLanguageSelector = true, hideLearnBlog = false }: SiteHeaderProps) {
+export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog = false }: SiteHeaderProps) {
+  const displayLanguageSelector = false;
   const { t, i18n } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
   const navigate = useNavigate()
@@ -245,7 +246,7 @@ export default function SiteHeader({ showLanguageSelector = true, hideLearnBlog 
               >
                 <User className="h-4 w-4 text-white" />
               </Link>
-              {showLanguageSelector && (
+              {displayLanguageSelector && (
                 <div className="relative">
                   <button
                     onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
@@ -419,7 +420,7 @@ export default function SiteHeader({ showLanguageSelector = true, hideLearnBlog 
             </div>
             
             {/* Mobile Language Options - Only show if enabled */}
-            {showLanguageSelector && (
+            {displayLanguageSelector && (
               <div className="py-2 border-t border-neutral-100">
                 <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-2">Language</div>
                 <div className="grid grid-cols-4 gap-2 px-2">

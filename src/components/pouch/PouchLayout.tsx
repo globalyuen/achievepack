@@ -13,6 +13,7 @@ interface PouchLayoutProps {
 }
 
 export default function PouchLayout({ children }: PouchLayoutProps) {
+  const showLanguageSelector = false;
   const { i18n } = useTranslation()
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -253,46 +254,48 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             </button>
 
             {/* Language Selector */}
-            <div className="relative">
-              <button
-                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                className="border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors relative group text-black bg-white flex items-center justify-center"
-                title="Change Language"
-              >
-                <Globe className="w-6 h-6" />
-                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 text-[10px] font-['JetBrains_Mono'] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50">
-                  Language
-                </span>
-              </button>
-              {isLangMenuOpen && (
-                <div className="absolute right-0 mt-2 w-36 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-50 p-1 font-['Space_Grotesk'] text-black text-xs">
-                  <button
-                    onClick={() => changeLanguage('en')}
-                    className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
-                  >
-                    ENGLISH
-                  </button>
-                  <button
-                    onClick={() => changeLanguage('fr')}
-                    className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
-                  >
-                    FRANÇAIS
-                  </button>
-                  <button
-                    onClick={() => changeLanguage('es')}
-                    className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
-                  >
-                    ESPAÑOL
-                  </button>
-                  <button
-                    onClick={() => changeLanguage('zh-TW')}
-                    className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
-                  >
-                    繁體中文
-                  </button>
-                </div>
-              )}
-            </div>
+            {showLanguageSelector && (
+              <div className="relative">
+                <button
+                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                  className="border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors relative group text-black bg-white flex items-center justify-center"
+                  title="Change Language"
+                >
+                  <Globe className="w-6 h-6" />
+                  <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 text-[10px] font-['JetBrains_Mono'] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50">
+                    Language
+                  </span>
+                </button>
+                {isLangMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-36 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-50 p-1 font-['Space_Grotesk'] text-black text-xs">
+                    <button
+                      onClick={() => changeLanguage('en')}
+                      className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
+                    >
+                      ENGLISH
+                    </button>
+                    <button
+                      onClick={() => changeLanguage('fr')}
+                      className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
+                    >
+                      FRANÇAIS
+                    </button>
+                    <button
+                      onClick={() => changeLanguage('es')}
+                      className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
+                    >
+                      ESPAÑOL
+                    </button>
+                    <button
+                      onClick={() => changeLanguage('zh-TW')}
+                      className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
+                    >
+                      繁體中文
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* AchievePack Enterprise Link */}
             <a
@@ -542,15 +545,17 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   </a>
                   
                   {/* Mobile Language Options */}
-                  <div className="py-2 border-t-4 border-black mt-4">
-                    <div className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-600 mb-2 uppercase px-2">Language</div>
-                    <div className="grid grid-cols-4 gap-2 px-2">
-                      <button onClick={() => changeLanguage('en')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'en' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>EN</button>
-                      <button onClick={() => changeLanguage('fr')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'fr' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>FR</button>
-                      <button onClick={() => changeLanguage('es')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'es' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>ES</button>
-                      <button onClick={() => changeLanguage('zh-TW')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'zh-tw' || i18n.language === 'zh-TW' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>中文</button>
+                  {showLanguageSelector && (
+                    <div className="py-2 border-t-4 border-black mt-4">
+                      <div className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-600 mb-2 uppercase px-2">Language</div>
+                      <div className="grid grid-cols-4 gap-2 px-2">
+                        <button onClick={() => changeLanguage('en')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'en' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>EN</button>
+                        <button onClick={() => changeLanguage('fr')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'fr' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>FR</button>
+                        <button onClick={() => changeLanguage('es')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'es' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>ES</button>
+                        <button onClick={() => changeLanguage('zh-TW')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'zh-tw' || i18n.language === 'zh-TW' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>中文</button>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <div className="pt-4 border-t-4 border-black mt-4">
                     <NeoButton
