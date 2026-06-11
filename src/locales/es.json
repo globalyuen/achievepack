@@ -2134,7 +2134,20 @@
                     "applications": {
                         "title": "¿Qué productos funcionan mejor en bolsas de fondo plano?",
                         "intro": "Las bolsas de fondo plano son ideales para productos premium que se benefician de una mayor presencia en los estantes:",
-                        "items": "['Café de especialidad', 'Té premium', 'Comida y golosinas para mascotas', 'Proteína en polvo', 'Granola y muesli', 'Frutas secas', 'Frutos secos premium', 'Arroz y cereales', 'Snacks orgánicos', 'Productos artesanales', 'Superalimentos', 'Envases de regalo']"
+                        "items": [
+                            "Café de especialidad",
+                            "Té premium",
+                            "Comida y golosinas para mascotas",
+                            "Proteína en polvo",
+                            "Granola y muesli",
+                            "Frutas secas",
+                            "Frutos secos premium",
+                            "Arroz y cereales",
+                            "Snacks orgánicos",
+                            "Productos artesanales",
+                            "Superalimentos",
+                            "Envases de regalo"
+                        ]
                     },
                     "materials": {
                         "title": "¿Qué materiales están disponibles para las bolsas de fondo plano?",

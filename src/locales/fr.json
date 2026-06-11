@@ -2134,7 +2134,20 @@
                     "applications": {
                         "title": "Quels produits fonctionnent le mieux dans les sacs à fond plat ?",
                         "intro": "Les sacs à fond plat sont idéaux pour les produits haut de gamme qui bénéficient d’une meilleure présence en rayon :",
-                        "items": "['Café de spécialité', 'Thé premium', 'Nourriture et friandises pour animaux', 'Protéines en poudre', 'Granola et muesli', 'Fruits secs', 'Noix premium', 'Riz et céréales', 'Snacks bio', 'Produits artisanaux', 'Superaliments', 'Emballage cadeau']"
+                        "items": [
+                            "Café de spécialité",
+                            "Thé premium",
+                            "Nourriture et friandises pour animaux",
+                            "Protéines en poudre",
+                            "Granola et muesli",
+                            "Fruits secs",
+                            "Noix premium",
+                            "Riz et céréales",
+                            "Snacks bio",
+                            "Produits artisanaux",
+                            "Superaliments",
+                            "Emballage cadeau"
+                        ]
                     },
                     "materials": {
                         "title": "Quels matériaux sont disponibles pour les sacs à fond plat ?",
