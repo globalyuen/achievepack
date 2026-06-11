@@ -102,7 +102,7 @@ export default function PouchDielineCreatorPage() {
   const isPouchDomain = getDomain() === 'pouch'
   const checkboxClass = isPouchDomain 
     ? "rounded-none border-2 border-black text-black focus:ring-0 w-5 h-5 cursor-pointer" 
-    : "rounded border border-neutral-700 bg-neutral-950 text-green-500 focus:ring-0 w-5 h-5 cursor-pointer"
+    : "rounded border border-gray-300 bg-white accent-green-500 focus:ring-0 w-5 h-5 cursor-pointer"
 
   // Sizing State
   const [width, setWidth] = useState(170)
@@ -1148,7 +1148,7 @@ export default function PouchDielineCreatorPage() {
     <div className={`min-h-screen flex flex-col ${
       isPouchDomain 
         ? "font-['Space_Grotesk'] text-black bg-white" 
-        : "font-sans text-neutral-800 bg-neutral-950 text-neutral-100"
+        : "font-sans text-gray-800 bg-gray-50"
     }`}>
       <Helmet>
         <title>Interactive Stand-Up Pouch Dieline Creator | Custom Vector Packaging Templates | Achieve Pack</title>
@@ -1159,15 +1159,15 @@ export default function PouchDielineCreatorPage() {
       <SiteHeader />
 
       {/* App Main Area */}
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8 flex flex-col gap-6">
+      <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8 flex flex-col gap-6 min-h-0">
         
         {/* Breadcrumb / Top Header */}
-        <div className="flex items-center justify-between border-b pb-4">
+        <div className="flex items-center justify-between border-b border-gray-200 pb-4">
           <div className="flex items-center gap-2">
             <a href="/dieline-finder" className="flex items-center gap-1.5 text-sm font-semibold hover:text-green-500 transition-colors">
               <ArrowLeft className="w-4 h-4" /> Dielines Catalog
             </a>
-            <span className="text-neutral-400">/</span>
+            <span className="text-gray-400">/</span>
             <span className="text-sm font-bold text-green-500">Interactive Custom Creator</span>
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-bold font-mono rounded-full uppercase tracking-wider">
@@ -1180,21 +1180,21 @@ export default function PouchDielineCreatorPage() {
           <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight italic">
             Stand-up Pouch Dieline Creator
           </h1>
-          <p className="text-sm text-neutral-400 max-w-3xl">
+          <p className="text-sm text-gray-500 max-w-3xl">
             Input your custom packaging dimensions below to instantly compute seal lines, zipper placements, tear notch points, and corner cuts. Review the blueprint in real-time, then download a 1:1 vector print-ready PDF template.
           </p>
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start lg:min-h-[700px]">
           
-          {/* LEFT PANEL: Interactive Controls (5 Columns) */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
+          {/* LEFT PANEL: Interactive Controls (5 Columns) - independently scrollable */}
+          <div className="lg:col-span-5 flex flex-col gap-6 lg:max-h-[calc(100vh-240px)] lg:overflow-y-auto pr-1 pb-6" style={{scrollbarGutter: 'stable'}}>
             
             {/* Presets Box */}
-            <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl flex flex-col gap-4">
+            <div className="bg-white border border-gray-200 p-5 rounded-2xl flex flex-col gap-4 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 font-mono">
+                <span className="text-xs font-bold uppercase tracking-wider text-gray-500 font-mono">
                   Quick Sizing Presets
                 </span>
                 <span className="text-[10px] text-green-400 font-bold bg-green-500/10 px-2 py-0.5 rounded-full font-mono">
@@ -1206,30 +1206,30 @@ export default function PouchDielineCreatorPage() {
                   <button
                     key={preset.name}
                     onClick={() => applyPreset(preset)}
-                    className="text-left p-3 bg-neutral-950 border border-neutral-850 hover:border-green-500/50 rounded-xl transition-all flex flex-col gap-1"
+                    className="text-left p-3 bg-gray-50 border border-gray-200 hover:border-green-500 rounded-xl transition-all flex flex-col gap-1"
                   >
-                    <span className="text-xs font-bold text-white truncate">{preset.name}</span>
-                    <span className="text-[9px] text-neutral-500 truncate">{preset.width}x{preset.height}mm</span>
+                    <span className="text-xs font-bold text-gray-800 truncate">{preset.name}</span>
+                    <span className="text-[9px] text-gray-500 truncate">{preset.width}x{preset.height}mm</span>
                   </button>
                 ))}
               </div>
             </div>
 
             {/* Dimensional Sliders Container */}
-            <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-3xl flex flex-col gap-6">
+            <div className="bg-white border border-gray-200 p-6 rounded-3xl flex flex-col gap-6 shadow-sm">
               
-              <div className="flex items-center gap-2 border-b border-neutral-800 pb-3">
+              <div className="flex items-center gap-2 border-b border-gray-200 pb-3">
                 <Sliders className="w-5 h-5 text-green-500" />
-                <h3 className="font-bold text-sm uppercase tracking-wider text-white">Dimension Parameters</h3>
+                <h3 className="font-bold text-sm uppercase tracking-wider text-gray-800">Dimension Parameters</h3>
               </div>
 
               {/* Sliders Grid */}
               <div className="flex flex-col gap-4">
                 
                 {/* Width */}
-                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                <div className="space-y-2 bg-gray-50 p-3 rounded-2xl border border-gray-200">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-neutral-400 font-bold">Pouch Width (W)</span>
+                    <span className="text-gray-600 font-bold">Pouch Width (W)</span>
                     <span className="text-green-400 font-mono font-bold">{(width / 25.4).toFixed(2)} in / {width} mm</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
@@ -1239,9 +1239,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={widthMmStr}
                         onChange={(e) => handleWidthChangeMm(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">mm</span>
                     </div>
                     <div className="relative">
                       <input
@@ -1249,9 +1249,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={widthInchStr}
                         onChange={(e) => handleWidthChangeInch(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">in</span>
                     </div>
                   </div>
                   <input
@@ -1260,14 +1260,14 @@ export default function PouchDielineCreatorPage() {
                     max="350"
                     value={width}
                     onChange={(e) => handleWidthChangeMm(e.target.value)}
-                    className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                    className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Length/Height */}
-                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                <div className="space-y-2 bg-gray-50 p-3 rounded-2xl border border-gray-200">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-neutral-400 font-bold">Pouch Height / Length (H)</span>
+                    <span className="text-gray-600 font-bold">Pouch Height / Length (H)</span>
                     <span className="text-green-400 font-mono font-bold">{(height / 25.4).toFixed(2)} in / {height} mm</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
@@ -1277,9 +1277,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={heightMmStr}
                         onChange={(e) => handleHeightChangeMm(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">mm</span>
                     </div>
                     <div className="relative">
                       <input
@@ -1287,9 +1287,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={heightInchStr}
                         onChange={(e) => handleHeightChangeInch(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">in</span>
                     </div>
                   </div>
                   <input
@@ -1298,15 +1298,15 @@ export default function PouchDielineCreatorPage() {
                     max="450"
                     value={height}
                     onChange={(e) => handleHeightChangeMm(e.target.value)}
-                    className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                    className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Bottom Gusset */}
-                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                <div className="space-y-2 bg-gray-50 p-3 rounded-2xl border border-gray-200">
                   <div className="flex justify-between items-center text-xs font-semibold flex-wrap">
-                    <span className="text-neutral-400 font-bold">Bottom Gusset Flat Height (BG)</span>
-                    <span className="text-green-400 font-mono font-bold">{(gusset / 25.4).toFixed(2)} in / {gusset} mm <span className="text-neutral-600">({(gusset / 2 / 25.4).toFixed(2)}" depth)</span></span>
+                    <span className="text-gray-600 font-bold">Bottom Gusset Flat Height (BG)</span>
+                    <span className="text-green-600 font-mono font-bold">{(gusset / 25.4).toFixed(2)} in / {gusset} mm <span className="text-gray-400">({(gusset / 2 / 25.4).toFixed(2)}" depth)</span></span>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="relative">
@@ -1315,9 +1315,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={gussetMmStr}
                         onChange={(e) => handleGussetChangeMm(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-555 uppercase tracking-wider font-mono select-none">mm</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">mm</span>
                     </div>
                     <div className="relative">
                       <input
@@ -1325,9 +1325,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={gussetInchStr}
                         onChange={(e) => handleGussetChangeInch(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-555 uppercase tracking-wider font-mono select-none">in</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">in</span>
                     </div>
                   </div>
                   <input
@@ -1336,15 +1336,15 @@ export default function PouchDielineCreatorPage() {
                     max="150"
                     value={gusset}
                     onChange={(e) => handleGussetChangeMm(e.target.value)}
-                    className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                    className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Include Zipper Toggle */}
-                <div className="flex items-center justify-between border-t border-neutral-850 pt-3">
+                <div className="flex items-center justify-between border-t border-gray-200 pt-3">
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Include Press-to-Close Zipper</span>
-                    <span className="text-[10px] text-neutral-500 font-mono">Adds standard reclosable zipper layer</span>
+                    <span className="text-xs font-bold text-gray-800 uppercase tracking-wider">Include Press-to-Close Zipper</span>
+                    <span className="text-[10px] text-gray-500 font-mono">Adds standard reclosable zipper layer</span>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input 
@@ -1353,7 +1353,7 @@ export default function PouchDielineCreatorPage() {
                       onChange={() => setHasZipper(!hasZipper)}
                       className="sr-only peer"
                     />
-                    <div className="w-11 h-6 bg-neutral-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-neutral-300 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 peer-checked:after:bg-white"></div>
+                    <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 peer-checked:after:bg-white"></div>
                   </label>
                 </div>
 
@@ -1361,8 +1361,8 @@ export default function PouchDielineCreatorPage() {
                 {hasZipper && (
                   <div className="space-y-1 pl-3 border-l-2 border-green-500/20 py-1 transition-all">
                     <div className="flex justify-between text-xs font-semibold">
-                      <span className="text-neutral-400">Zipper Position (From Top)</span>
-                      <span className="text-green-400 font-mono font-bold">{zipper} mm</span>
+                      <span className="text-gray-600">Zipper Position (From Top)</span>
+                      <span className="text-green-600 font-mono font-bold">{zipper} mm</span>
                     </div>
                     <input
                       type="range"
@@ -1370,16 +1370,16 @@ export default function PouchDielineCreatorPage() {
                       max="60"
                       value={zipper}
                       onChange={(e) => setZipper(Number(e.target.value))}
-                      className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                      className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-500"
                     />
                   </div>
                 )}
 
                 {/* Include Valve Toggle */}
-                <div className="flex items-center justify-between border-t border-neutral-850 pt-3">
+                <div className="flex items-center justify-between border-t border-gray-200 pt-3">
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Include Degassing Valve</span>
-                    <span className="text-[10px] text-neutral-500 font-mono">One-way venting valve for coffee/gasses</span>
+                    <span className="text-xs font-bold text-gray-800 uppercase tracking-wider">Include Degassing Valve</span>
+                    <span className="text-[10px] text-gray-500 font-mono">One-way venting valve for coffee/gasses</span>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input 
@@ -1388,7 +1388,7 @@ export default function PouchDielineCreatorPage() {
                       onChange={() => setHasValve(!hasValve)}
                       className="sr-only peer"
                     />
-                    <div className="w-11 h-6 bg-neutral-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-neutral-300 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 peer-checked:after:bg-white"></div>
+                    <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 peer-checked:after:bg-white"></div>
                   </label>
                 </div>
 
@@ -1396,8 +1396,8 @@ export default function PouchDielineCreatorPage() {
                 {hasValve && (
                   <div className="space-y-1 pl-3 border-l-2 border-green-500/20 py-1 transition-all">
                     <div className="flex justify-between text-xs font-semibold">
-                      <span className="text-neutral-400">Valve Position (From Top)</span>
-                      <span className="text-green-400 font-mono font-bold">{valvePosition} mm <span className="text-neutral-500 font-normal">({Math.round(valvePosition / height * 100)}% of height)</span></span>
+                      <span className="text-gray-600">Valve Position (From Top)</span>
+                      <span className="text-green-600 font-mono font-bold">{valvePosition} mm <span className="text-gray-400 font-normal">({Math.round(valvePosition / height * 100)}% of height)</span></span>
                     </div>
                     <input
                       type="range"
@@ -1405,16 +1405,16 @@ export default function PouchDielineCreatorPage() {
                       max={height - bottomSealCurve - 15}
                       value={valvePosition}
                       onChange={(e) => setValvePosition(Number(e.target.value))}
-                      className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                      className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-500"
                     />
                   </div>
                 )}
 
                 {/* Tear Notch */}
-                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                <div className="space-y-2 bg-gray-50 p-3 rounded-2xl border border-gray-200">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-neutral-400 font-bold">Tear Notch Position (From Top)</span>
-                    <span className="text-green-400 font-mono font-bold">{(tearNotch / 25.4).toFixed(2)} in / {tearNotch} mm</span>
+                    <span className="text-gray-600 font-bold">Tear Notch Position (From Top)</span>
+                    <span className="text-green-600 font-mono font-bold">{(tearNotch / 25.4).toFixed(2)} in / {tearNotch} mm</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="relative">
@@ -1423,9 +1423,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={tearNotchMmStr}
                         onChange={(e) => handleTearNotchChangeMm(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">mm</span>
                     </div>
                     <div className="relative">
                       <input
@@ -1433,9 +1433,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={tearNotchInchStr}
                         onChange={(e) => handleTearNotchChangeInch(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">in</span>
                     </div>
                   </div>
                   <input
@@ -1444,15 +1444,15 @@ export default function PouchDielineCreatorPage() {
                     max="50"
                     value={tearNotch}
                     onChange={(e) => handleTearNotchChangeMm(e.target.value)}
-                    className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                    className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Side Seals */}
-                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                <div className="space-y-2 bg-gray-50 p-3 rounded-2xl border border-gray-200">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-neutral-400 font-bold">Side Seal Weld Width</span>
-                    <span className="text-green-400 font-mono font-bold">{(sideSeals / 25.4).toFixed(2)} in / {sideSeals} mm</span>
+                    <span className="text-gray-600 font-bold">Side Seal Weld Width</span>
+                    <span className="text-green-600 font-mono font-bold">{(sideSeals / 25.4).toFixed(2)} in / {sideSeals} mm</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="relative">
@@ -1461,9 +1461,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={sideSealsMmStr}
                         onChange={(e) => handleSideSealsChangeMm(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">mm</span>
                     </div>
                     <div className="relative">
                       <input
@@ -1471,9 +1471,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={sideSealsInchStr}
                         onChange={(e) => handleSideSealsChangeInch(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-white border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-gray-900 font-bold shadow-sm"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">in</span>
                     </div>
                   </div>
                   <input
@@ -1482,12 +1482,12 @@ export default function PouchDielineCreatorPage() {
                     max="15"
                     value={sideSeals}
                     onChange={(e) => handleSideSealsChangeMm(e.target.value)}
-                    className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                    className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Bottom Seal Curve (Auto-Calculated & Locked) */}
-                <div className="space-y-2 bg-neutral-950/40 p-3 rounded-2xl border border-neutral-900/60 opacity-60 relative overflow-hidden select-none">
+                <div className="space-y-2 bg-gray-100 p-3 rounded-2xl border border-gray-200 opacity-60 relative overflow-hidden select-none">
                   <div className="flex justify-between items-center text-xs font-semibold">
                     <span className="text-neutral-500 font-bold flex items-center gap-1.5">
                       <Lock className="w-3.5 h-3.5 text-neutral-500" />
@@ -1504,9 +1504,9 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={bottomCurveMmStr}
                         readOnly
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-950 border border-neutral-900 text-neutral-500 rounded-xl outline-none font-mono font-bold cursor-not-allowed select-none"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-gray-200 border border-gray-300 text-gray-400 rounded-xl outline-none font-mono font-bold cursor-not-allowed select-none"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-600 uppercase tracking-wider font-mono select-none">mm</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">mm</span>
                     </div>
                     <div className="relative">
                       <input
@@ -1514,24 +1514,24 @@ export default function PouchDielineCreatorPage() {
                         type="text"
                         value={bottomCurveInchStr}
                         readOnly
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 text-neutral-550 rounded-xl outline-none font-mono font-bold cursor-not-allowed select-none"
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-gray-200 border border-gray-300 text-gray-400 rounded-xl outline-none font-mono font-bold cursor-not-allowed select-none"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-600 uppercase tracking-wider font-mono select-none">in</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono select-none">in</span>
                     </div>
                   </div>
-                  <div className="w-full h-1 bg-neutral-900/60 rounded-lg overflow-hidden relative pointer-events-none">
+                  <div className="w-full h-1 bg-gray-200 rounded-lg overflow-hidden relative pointer-events-none">
                     <div 
-                      className="bg-neutral-600 h-full transition-all duration-150"
+                      className="bg-gray-400 h-full transition-all duration-150"
                       style={{ width: `${((bottomSealCurve - 15) / (70 - 15)) * 100}%` }}
                     ></div>
                   </div>
                 </div>
 
                 {/* Round Corner Toggle */}
-                <div className="flex items-center justify-between border-t border-neutral-800 pt-4 mt-2">
+                <div className="flex items-center justify-between border-t border-gray-200 pt-4 mt-2">
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Rounded Corner Finish</span>
-                    <span className="text-[10px] text-neutral-500 font-mono">Die-cuts the sharp top/bottom edges</span>
+                    <span className="text-xs font-bold text-gray-800 uppercase tracking-wider">Rounded Corner Finish</span>
+                    <span className="text-[10px] text-gray-500 font-mono">Die-cuts the sharp top/bottom edges</span>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input 
@@ -1540,7 +1540,7 @@ export default function PouchDielineCreatorPage() {
                       onChange={() => setRoundCorners(!roundCorners)}
                       className="sr-only peer"
                     />
-                    <div className="w-11 h-6 bg-neutral-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-neutral-300 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 peer-checked:after:bg-white"></div>
+                    <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 peer-checked:after:bg-white"></div>
                   </label>
                 </div>
 
@@ -1549,18 +1549,18 @@ export default function PouchDielineCreatorPage() {
             </div>
 
             {/* Export Settings */}
-            <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-3xl flex flex-col gap-6">
+            <div className="bg-white border border-gray-200 p-6 rounded-3xl flex flex-col gap-6 shadow-sm">
               
-              <div className="flex items-center gap-2 border-b border-neutral-800 pb-3">
+              <div className="flex items-center gap-2 border-b border-gray-200 pb-3">
                 <Download className="w-5 h-5 text-green-500" />
-                <h3 className="font-bold text-sm uppercase tracking-wider text-white">Prepress Template Export</h3>
+                <h3 className="font-bold text-sm uppercase tracking-wider text-gray-800">Prepress Template Export</h3>
               </div>
 
               <div className="flex flex-col gap-4">
                 
                 {/* Format selection */}
                 <div className="space-y-2">
-                  <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider font-mono">
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider font-mono">
                     Artboard Layout Format
                   </span>
                   <div className="grid grid-cols-2 gap-2">
@@ -1568,11 +1568,11 @@ export default function PouchDielineCreatorPage() {
                       onClick={() => setPdfFormat('1to1')}
                       className={`p-3 border-2 rounded-xl text-left transition-all flex flex-col gap-1 ${
                         pdfFormat === '1to1'
-                          ? 'border-green-500 bg-green-500/10 text-green-400'
-                          : 'border-neutral-800 bg-neutral-950 text-neutral-400 hover:border-neutral-700'
+                          ? 'border-green-500 bg-green-50 text-green-700'
+                          : 'border-gray-200 bg-gray-50 text-gray-500 hover:border-gray-300'
                       }`}
                     >
-                      <span className="text-xs font-bold text-white flex items-center gap-1">
+                      <span className="text-xs font-bold text-gray-800 flex items-center gap-1">
                         <FileCode className="w-3.5 h-3.5" /> 1:1 Scale Vector
                       </span>
                       <span className="text-[9px] leading-relaxed">Perfect artboard template for Adobe Illustrator. 100% exact sizes.</span>
@@ -1582,11 +1582,11 @@ export default function PouchDielineCreatorPage() {
                       onClick={() => setPdfFormat('a4')}
                       className={`p-3 border-2 rounded-xl text-left transition-all flex flex-col gap-1 ${
                         pdfFormat === 'a4'
-                          ? 'border-green-500 bg-green-500/10 text-green-400'
-                          : 'border-neutral-800 bg-neutral-950 text-neutral-400 hover:border-neutral-700'
+                          ? 'border-green-500 bg-green-50 text-green-700'
+                          : 'border-gray-200 bg-gray-50 text-gray-500 hover:border-gray-300'
                       }`}
                     >
-                      <span className="text-xs font-bold text-white flex items-center gap-1">
+                      <span className="text-xs font-bold text-gray-800 flex items-center gap-1">
                         <FileText className="w-3.5 h-3.5" /> A4 Spec Sheet
                       </span>
                       <span className="text-[9px] leading-relaxed">Landscape technical design blueprint. Great for printout and signoff.</span>
@@ -1595,12 +1595,12 @@ export default function PouchDielineCreatorPage() {
                 </div>
 
                 {!isUnlocked ? (
-                  <form onSubmit={handleEmailSubmit} className="flex flex-col gap-4 border-t border-neutral-850 pt-4 mt-2">
+                  <form onSubmit={handleEmailSubmit} className="flex flex-col gap-4 border-t border-gray-200 pt-4 mt-2">
                     <div>
                       <h4 className="font-bold text-xs uppercase tracking-wider text-green-400 flex items-center gap-1.5 mb-1.5">
                         <Mail className="w-3.5 h-3.5" /> Unlock & Email PDF Template
                       </h4>
-                      <p className="text-[10px] text-neutral-400 leading-normal">
+                      <p className="text-[10px] text-gray-500 leading-normal">
                         Enter your email to receive this custom template and unlock unlimited high-fidelity vector dieline downloads instantly.
                       </p>
                     </div>
@@ -1612,7 +1612,7 @@ export default function PouchDielineCreatorPage() {
                         placeholder="brand-manager@company.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-2.5 text-xs bg-neutral-950 border border-neutral-800 hover:border-neutral-700 text-white rounded-xl outline-none font-medium focus:border-green-500 focus:ring-1 focus:ring-green-500"
+                        className="w-full px-4 py-2.5 text-xs bg-white border border-gray-300 hover:border-gray-400 text-gray-900 rounded-xl outline-none font-medium focus:border-green-500 focus:ring-1 focus:ring-green-500 shadow-sm"
                       />
                       {showEmailError && (
                         <p className="text-[10px] text-red-400 font-semibold">Please enter a valid email address.</p>
@@ -1640,7 +1640,7 @@ export default function PouchDielineCreatorPage() {
                     {/* Cloudflare Turnstile CAPTCHA container */}
                     <div ref={turnstileRef} className="cf-turnstile w-full flex justify-center scale-90 -my-1" />
 
-                    <p className="text-[9px] text-neutral-500 font-medium text-center">
+                    <p className="text-[9px] text-gray-400 font-medium text-center">
                       🔒 We value privacy. Your email is strictly used to deliver custom dielines. We do not spam.
                     </p>
                   </form>
@@ -1674,7 +1674,7 @@ export default function PouchDielineCreatorPage() {
                           localStorage.removeItem('dieline_finder_email');
                           setIsUnlocked(false);
                         }}
-                        className="text-[9px] font-bold uppercase text-neutral-500 hover:text-red-400 underline"
+                        className="text-[9px] font-bold uppercase text-gray-400 hover:text-red-500 underline"
                       >
                         Change Email
                       </button>
@@ -1688,27 +1688,27 @@ export default function PouchDielineCreatorPage() {
 
           </div>
 
-          {/* RIGHT PANEL: Live SVG Visualizer (7 Columns) */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          {/* RIGHT PANEL: Live SVG Visualizer (7 Columns) - independently scrollable */}
+          <div className="lg:col-span-7 flex flex-col gap-6 lg:max-h-[calc(100vh-240px)] lg:overflow-y-auto pb-6" style={{scrollbarGutter: 'stable'}}>
             
             {/* SVG Visualizer Canvas Container */}
-            <div className="bg-neutral-900 border border-neutral-800 rounded-3xl overflow-hidden flex flex-col shadow-xl">
+            <div className="bg-white border border-gray-200 rounded-3xl overflow-hidden flex flex-col shadow-sm">
               
               {/* Visualizer header */}
-              <div className="bg-neutral-950 px-6 py-4 flex items-center justify-between border-b border-neutral-850">
+              <div className="bg-gray-50 px-6 py-4 flex items-center justify-between border-b border-gray-200">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
-                  <h3 className="font-bold text-xs uppercase tracking-wider font-mono text-neutral-300">
+                  <h3 className="font-bold text-xs uppercase tracking-wider font-mono text-gray-700">
                     Architectural Layout Preview
                   </h3>
                 </div>
-                <div className="text-[10px] text-neutral-500 font-mono">
+                <div className="text-[10px] text-gray-400 font-mono">
                   SCALE PROPORTIONS • ISO STANDARD
                 </div>
               </div>
 
               {/* Blueprint Canvas Frame */}
-              <div className="relative w-full aspect-[4/3] bg-neutral-950 overflow-hidden flex items-center justify-center border-b border-neutral-850 p-6 select-none">
+              <div className="relative w-full bg-gray-100 overflow-hidden flex items-center justify-center border-b border-gray-200 p-6 select-none" style={{minHeight: '480px', height: '480px'}}>
                 
                 {/* Background Tech Grids */}
                 {showGrid && (
@@ -1839,17 +1839,17 @@ export default function PouchDielineCreatorPage() {
                       {/* Open Direction vertical arrow (left edge) exactly as Arunipa template */}
                       {showOpenArrow && (
                         <g transform={`translate(-20, ${scales.h / 2})`}>
-                          <line x1="0" y1={scales.h * 0.3} x2="0" y2={-scales.h * 0.3} stroke="#ffffff" strokeWidth="2" />
-                          <line x1="0" y1={-scales.h * 0.3} x2="-4" y2={-scales.h * 0.3 + 6} stroke="#ffffff" strokeWidth="2" />
-                          <line x1="0" y1={-scales.h * 0.3} x2="4" y2={-scales.h * 0.3 + 6} stroke="#ffffff" strokeWidth="2" />
-                          <text x="-6" y="-10" fill="#ffffff" fontSize="9" fontWeight="bold" transform="rotate(-90)" textAnchor="middle">
+                          <line x1="0" y1={scales.h * 0.3} x2="0" y2={-scales.h * 0.3} stroke="#374151" strokeWidth="2" />
+                          <line x1="0" y1={-scales.h * 0.3} x2="-4" y2={-scales.h * 0.3 + 6} stroke="#374151" strokeWidth="2" />
+                          <line x1="0" y1={-scales.h * 0.3} x2="4" y2={-scales.h * 0.3 + 6} stroke="#374151" strokeWidth="2" />
+                          <text x="-6" y="-10" fill="#374151" fontSize="9" fontWeight="bold" transform="rotate(-90)" textAnchor="middle">
                             Open direction
                           </text>
                         </g>
                       )}
 
                       {/* Label */}
-                      <text x={scales.w / 2} y={scales.h / 2} fill="#ffffff" fillOpacity="0.4" fontSize="14" fontWeight="black" textAnchor="middle" letterSpacing="2">
+                      <text x={scales.w / 2} y={scales.h / 2} fill="#374151" fillOpacity="0.3" fontSize="14" fontWeight="black" textAnchor="middle" letterSpacing="2">
                         FRONT PANEL
                       </text>
 
@@ -1948,7 +1948,7 @@ export default function PouchDielineCreatorPage() {
                       )}
 
                       {/* Label */}
-                      <text x={scales.w / 2} y={scales.h / 2} fill="#ffffff" fillOpacity="0.4" fontSize="14" fontWeight="black" textAnchor="middle" letterSpacing="2">
+                      <text x={scales.w / 2} y={scales.h / 2} fill="#374151" fillOpacity="0.3" fontSize="14" fontWeight="black" textAnchor="middle" letterSpacing="2">
                         BACK PANEL
                       </text>
 
@@ -1983,7 +1983,7 @@ export default function PouchDielineCreatorPage() {
                       )}
 
                       {/* Label */}
-                      <text x={scales.w / 2} y={scales.g / 2 + 3} fill="#ffffff" fillOpacity="0.4" fontSize="11" fontWeight="black" textAnchor="middle" letterSpacing="1">
+                      <text x={scales.w / 2} y={scales.g / 2 + 3} fill="#374151" fillOpacity="0.3" fontSize="11" fontWeight="black" textAnchor="middle" letterSpacing="1">
                         BOTTOM GUSSET
                       </text>
 
@@ -2064,84 +2064,84 @@ export default function PouchDielineCreatorPage() {
               </div>
 
               {/* Layers controls */}
-              <div className="p-5 bg-neutral-950 grid grid-cols-2 md:grid-cols-4 gap-4 border-b border-neutral-850">
-                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-neutral-300">
+              <div className="p-5 bg-gray-50 grid grid-cols-2 md:grid-cols-4 gap-4 border-b border-gray-200">
+                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-gray-700">
                   <input 
                     type="checkbox" 
                     checked={showGrid} 
                     onChange={() => setShowGrid(!showGrid)}
-                    className="rounded border border-neutral-700 bg-neutral-900 focus:ring-0 text-green-500 w-4 h-4"
+                    className="rounded border border-gray-300 bg-white focus:ring-0 accent-green-500 w-4 h-4"
                   />
                   <span>Blueprint Grid</span>
                 </label>
 
-                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-neutral-300">
+                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-gray-700">
                   <input 
                     type="checkbox" 
                     checked={showCutLines} 
                     onChange={() => setShowCutLines(!showCutLines)}
-                    className="rounded border border-neutral-700 bg-neutral-900 focus:ring-0 text-red-500 w-4 h-4"
+                    className="rounded border border-gray-300 bg-white focus:ring-0 accent-red-500 w-4 h-4"
                   />
-                  <span className="text-red-400 font-bold">Cut Boundary</span>
+                  <span className="text-red-500 font-bold">Cut Boundary</span>
                 </label>
 
-                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-neutral-300">
+                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-gray-700">
                   <input 
                     type="checkbox" 
                     checked={showFoldLines} 
                     onChange={() => setShowFoldLines(!showFoldLines)}
-                    className="rounded border border-neutral-700 bg-neutral-900 focus:ring-0 text-blue-500 w-4 h-4"
+                    className="rounded border border-gray-300 bg-white focus:ring-0 accent-blue-500 w-4 h-4"
                   />
-                  <span className="text-blue-400 font-bold">Fold Creases</span>
+                  <span className="text-blue-600 font-bold">Fold Creases</span>
                 </label>
 
-                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-neutral-300">
+                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-gray-700">
                   <input 
                     type="checkbox" 
                     checked={showBleedLines} 
                     onChange={() => setShowBleedLines(!showBleedLines)}
-                    className="rounded border border-neutral-700 bg-neutral-900 focus:ring-0 text-green-500 w-4 h-4"
+                    className="rounded border border-gray-300 bg-white focus:ring-0 accent-green-500 w-4 h-4"
                   />
-                  <span className="text-green-400 font-bold">3mm Bleeds</span>
+                  <span className="text-green-600 font-bold">3mm Bleeds</span>
                 </label>
 
-                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-neutral-300">
+                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-gray-700">
                   <input 
                     type="checkbox" 
                     checked={showSafeZone} 
                     onChange={() => setShowSafeZone(!showSafeZone)}
-                    className="rounded border border-neutral-700 bg-neutral-900 focus:ring-0 text-amber-500 w-4 h-4"
+                    className="rounded border border-gray-300 bg-white focus:ring-0 accent-amber-500 w-4 h-4"
                   />
-                  <span className="text-amber-400 font-bold">Safe Art Zone</span>
+                  <span className="text-amber-600 font-bold">Safe Art Zone</span>
                 </label>
 
-                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-neutral-300">
+                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-gray-700">
                   <input 
                     type="checkbox" 
                     checked={showDimensions} 
                     onChange={() => setShowDimensions(!showDimensions)}
-                    className="rounded border border-neutral-700 bg-neutral-900 focus:ring-0 text-indigo-500 w-4 h-4"
+                    className="rounded border border-gray-300 bg-white focus:ring-0 accent-indigo-500 w-4 h-4"
                   />
-                  <span className="text-indigo-400 font-bold">Measurements</span>
+                  <span className="text-indigo-600 font-bold">Measurements</span>
                 </label>
 
-                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-neutral-300">
+                <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none text-gray-700">
                   <input 
                     type="checkbox" 
                     checked={showOpenArrow} 
                     onChange={() => setShowOpenArrow(!showOpenArrow)}
-                    className="rounded border border-neutral-700 bg-neutral-900 focus:ring-0 text-neutral-500 w-4 h-4"
+                    className="rounded border border-gray-300 bg-white focus:ring-0 w-4 h-4"
                   />
                   <span>Open Arrow</span>
                 </label>
               </div>
 
               {/* Spec guidelines list */}
-              <div className="p-6 bg-neutral-900/50 flex flex-col gap-4">
-                <div className="flex items-center gap-2 text-xs font-bold text-neutral-400 uppercase tracking-wider font-mono">
+              <div className="p-6 bg-gray-50 flex flex-col gap-4">
+                <div className="flex items-center gap-2 text-xs font-bold text-gray-500 uppercase tracking-wider font-mono">
                   <Info className="w-4 h-4 text-green-500" /> Prepress Setup Guidelines
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-neutral-400 leading-relaxed">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-600 leading-relaxed">
                   <div className="flex gap-2">
                     <CheckCircle className="w-4.5 h-4.5 text-green-500 flex-shrink-0 mt-0.5" />
                     <p>**1:1 Scale Print Match**: Downloaded PDF templates open at the exact real-world dimensions in millimeter units inside Illustrator/CorelDraw.</p>
@@ -2174,20 +2174,20 @@ export default function PouchDielineCreatorPage() {
           
           {/* Section Divider */}
           <div className="relative flex py-5 items-center">
-            <div className="flex-grow border-t border-neutral-800"></div>
-            <span className={`mx-4 flex-shrink text-xs font-bold uppercase tracking-widest font-mono ${isPouchDomain ? 'text-black' : 'text-neutral-500'}`}>
+            <div className="flex-grow border-t border-gray-200"></div>
+            <span className={`mx-4 flex-shrink text-xs font-bold uppercase tracking-widest font-mono ${isPouchDomain ? 'text-black' : 'text-gray-400'}`}>
               Production Setup & Artwork Submission
             </span>
-            <div className="flex-grow border-t border-neutral-800"></div>
+            <div className="flex-grow border-t border-gray-200"></div>
           </div>
 
           {/* Timeline / Visual Illustration of the Process */}
-          <div className={`${isPouchDomain ? "bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-8 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-6`}>
+          <div className={`${isPouchDomain ? "bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-white border border-gray-200 p-8 text-gray-800 shadow-sm rounded-3xl"} flex flex-col gap-6`}>
             <div>
-              <h3 className={`${isPouchDomain ? "font-black text-2xl uppercase tracking-tight font-mono" : "font-extrabold text-xl uppercase tracking-wider text-white"} mb-2`}>
+              <h3 className={`${isPouchDomain ? "font-black text-2xl uppercase tracking-tight font-mono" : "font-extrabold text-xl uppercase tracking-wider text-gray-800"} mb-2`}>
                 Post-Design Guidelines: 4 Simple Steps
               </h3>
-              <p className="text-sm text-neutral-400">
+              <p className="text-sm text-gray-500">
                 What to do after downloading your custom stand-up pouch template:
               </p>
             </div>
@@ -2199,8 +2199,8 @@ export default function PouchDielineCreatorPage() {
                   01
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm uppercase tracking-wide text-white">Import Dieline</h4>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                  <h4 className="font-bold text-sm uppercase tracking-wide text-gray-800">Import Dieline</h4>
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
                     Open the A4 or 1:1 Vector PDF file directly in vector software like Adobe Illustrator, CorelDraw, or Figma. Keep the dieline locked on its original layer.
                   </p>
                 </div>
@@ -2212,8 +2212,8 @@ export default function PouchDielineCreatorPage() {
                   02
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm uppercase tracking-wide text-white">Design Layering</h4>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                  <h4 className="font-bold text-sm uppercase tracking-wide text-gray-800">Design Layering</h4>
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
                     Place your custom graphics, logos, and textures on a separate <strong className="text-green-400">Artwork Layer</strong> placed <em>underneath</em> the locked dieline cuts.
                   </p>
                 </div>
@@ -2225,8 +2225,8 @@ export default function PouchDielineCreatorPage() {
                   03
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm uppercase tracking-wide text-white">Prepress Check</h4>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                  <h4 className="font-bold text-sm uppercase tracking-wide text-gray-800">Prepress Check</h4>
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
                     Convert all text fonts to outlines, map spot colors, embed graphics, and expand backgrounds to the 3mm bleed margin (green dotted line).
                   </p>
                 </div>
@@ -2238,8 +2238,8 @@ export default function PouchDielineCreatorPage() {
                   04
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm uppercase tracking-wide text-white">Verification Sign-off</h4>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                  <h4 className="font-bold text-sm uppercase tracking-wide text-gray-800">Verification Sign-off</h4>
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
                     Run through the prepress checklist below and submit your production file directly to our review desk through one of three pathways.
                   </p>
                 </div>
@@ -2252,12 +2252,12 @@ export default function PouchDielineCreatorPage() {
             
             {/* Direct Upload Box (7 Columns) */}
             <div className="lg:col-span-7 flex flex-col gap-6">
-              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-6`}>
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-white border border-gray-200 p-6 text-gray-800 shadow-sm rounded-3xl"} flex flex-col gap-6`}>
                 <div>
-                  <div className="flex items-center justify-between border-b border-neutral-800 pb-3 mb-2">
+                  <div className="flex items-center justify-between border-b border-gray-200 pb-3 mb-2">
                     <div className="flex items-center gap-2">
                       <UploadCloud className="w-5 h-5 text-green-400" />
-                      <h3 className={`${isPouchDomain ? "font-black text-xl uppercase tracking-tight font-mono" : "font-extrabold text-base uppercase tracking-wider text-white"}`}>
+                      <h3 className={`${isPouchDomain ? "font-black text-xl uppercase tracking-tight font-mono" : "font-extrabold text-base uppercase tracking-wider text-gray-800"}`}>
                         Submit Finished Artwork Layer
                       </h3>
                     </div>
@@ -2265,7 +2265,7 @@ export default function PouchDielineCreatorPage() {
                       SECURE PIPELINE
                     </span>
                   </div>
-                  <p className="text-xs text-neutral-400 leading-relaxed">
+                  <p className="text-xs text-gray-600 leading-relaxed">
                     Upload your completed Adobe Illustrator (.ai), vector PDF, or high-res EPS print file directly to our prepress verification server:
                   </p>
                 </div>
@@ -2273,7 +2273,7 @@ export default function PouchDielineCreatorPage() {
                 {/* Upload drag drop placeholder */}
                 <div 
                   onClick={() => fileInputRef.current?.click()}
-                  className={`border-2 border-dashed ${isPouchDomain ? 'border-black hover:bg-neutral-50' : 'border-neutral-800 bg-neutral-950 hover:bg-neutral-900'} p-8 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer transition-all`}
+                  className={`border-2 border-dashed ${isPouchDomain ? 'border-black hover:bg-neutral-50' : 'border-gray-300 bg-gray-50 hover:bg-gray-100'} p-8 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer transition-all`}
                 >
                   <input 
                     ref={fileInputRef}
@@ -2282,14 +2282,14 @@ export default function PouchDielineCreatorPage() {
                     accept=".ai,.pdf,.eps,.zip,.rar"
                     className="hidden" 
                   />
-                  <div className={`w-12 h-12 rounded-full ${isPouchDomain ? 'bg-[#00FFFF] border-2 border-black' : 'bg-neutral-900 border border-neutral-800'} flex items-center justify-center text-green-400`}>
+                  <div className={`w-12 h-12 rounded-full ${isPouchDomain ? 'bg-[#00FFFF] border-2 border-black' : 'bg-white border border-gray-200'} flex items-center justify-center text-green-400`}>
                     <UploadCloud className="w-6 h-6 stroke-[1.8]" />
                   </div>
                   <div className="text-center space-y-1">
-                    <p className="text-xs font-bold text-white uppercase tracking-wide">
+                    <p className="text-xs font-bold text-gray-800 uppercase tracking-wide">
                       {uploadFile ? uploadFile.name : 'Select or Drag Dieline Artwork File'}
                     </p>
-                    <p className="text-[10px] text-neutral-500">
+                    <p className="text-[10px] text-gray-500">
                       {uploadFile ? `File size: ${(uploadFile.size / 1024 / 1024).toFixed(2)} MB` : 'Supports AI, PDF, EPS, ZIP, RAR up to 150MB'}
                     </p>
                   </div>
@@ -2303,10 +2303,10 @@ export default function PouchDielineCreatorPage() {
                     {isUploading && (
                       <div className="space-y-1.5">
                         <div className="flex justify-between text-[10px] font-bold font-mono">
-                          <span className="text-neutral-400">UPLOADING VECTOR ASSETS...</span>
+                          <span className="text-gray-500">UPLOADING VECTOR ASSETS...</span>
                           <span className="text-green-400">{uploadProgress}%</span>
                         </div>
-                        <div className="w-full bg-neutral-900 h-2 rounded-full overflow-hidden border border-neutral-800">
+                        <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden border border-gray-300">
                           <div 
                             className="bg-green-500 h-full transition-all duration-150" 
                             style={{ width: `${uploadProgress}%` }}
@@ -2349,8 +2349,8 @@ export default function PouchDielineCreatorPage() {
             <div className="lg:col-span-5 flex flex-col gap-4">
               
               {/* Channel B: Direct Contact */}
-              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-4`}>
-                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono" : "font-extrabold text-sm uppercase tracking-wider text-white"}`}>
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-white border border-gray-200 p-6 text-gray-800 shadow-sm rounded-3xl"} flex flex-col gap-4`}>
+                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono" : "font-extrabold text-sm uppercase tracking-wider text-gray-800"}`}>
                   Direct Submission Desk
                 </h3>
                 
@@ -2359,16 +2359,16 @@ export default function PouchDielineCreatorPage() {
                   {/* Email */}
                   <a 
                     href="mailto:artwork@achievepack.com?subject=Custom%20Dieline%20Artwork%20Submission&body=Hi%20Achieve%20Pack%20Team,%20%0A%0AI%20have%20completed%20the%20packaging%20artwork%20using%20your%20custom%20dieline%20creator.%20Please%20find%20the%20attached%20files%20and%20let%20me%20know%20if%20there%20are%20any%20prepress%20revisions%20needed.%20%0A%0ABest%20regards,"
-                    className={`flex items-center gap-3 p-3 border rounded-xl hover:scale-[1.01] transition-all ${isPouchDomain ? 'border-black hover:bg-neutral-50 text-black' : 'border-neutral-850 bg-neutral-950 hover:bg-neutral-900 text-neutral-200'}`}
+                    className={`flex items-center gap-3 p-3 border rounded-xl hover:scale-[1.01] transition-all ${isPouchDomain ? 'border-black hover:bg-neutral-50 text-black' : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-800'}`}
                   >
-                    <div className={`w-8 h-8 rounded-lg ${isPouchDomain ? 'bg-[#00FFFF] border-2 border-black' : 'bg-neutral-900 border border-neutral-800'} flex items-center justify-center text-blue-400`}>
+                    <div className={`w-8 h-8 rounded-lg ${isPouchDomain ? 'bg-[#00FFFF] border-2 border-black' : 'bg-white border border-gray-200'} flex items-center justify-center text-blue-400`}>
                       <Mail className="w-4 h-4" />
                     </div>
                     <div className="flex-1">
                       <span className="text-xs font-bold block uppercase">Submit via Email</span>
-                      <span className="text-[10px] text-neutral-500 font-mono">artwork@achievepack.com</span>
+                      <span className="text-[10px] text-gray-500 font-mono">artwork@achievepack.com</span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-neutral-500" />
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
                   </a>
 
                   {/* WhatsApp */}
@@ -2376,27 +2376,27 @@ export default function PouchDielineCreatorPage() {
                     href="https://wa.me/85269704411?text=Hi%20Achieve%20Pack%20Team,%20I%20have%20completed%20our%20packaging%20artwork%20using%20your%20custom%20dieline%20creator.%20Could%20you%20please%20connect%20me%20with%20a%20packaging%20expert%20to%20verify%20our%20prepress%20tolerance?"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-3 p-3 border rounded-xl hover:scale-[1.01] transition-all ${isPouchDomain ? 'border-black hover:bg-neutral-50 text-black' : 'border-neutral-855 bg-neutral-950 hover:bg-neutral-900 text-neutral-200'}`}
+                    className={`flex items-center gap-3 p-3 border rounded-xl hover:scale-[1.01] transition-all ${isPouchDomain ? 'border-black hover:bg-neutral-50 text-black' : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-800'}`}
                   >
-                    <div className={`w-8 h-8 rounded-lg ${isPouchDomain ? 'bg-[#D4FF00] border-2 border-black' : 'bg-neutral-900 border border-neutral-800'} flex items-center justify-center text-green-400`}>
+                    <div className={`w-8 h-8 rounded-lg ${isPouchDomain ? 'bg-[#D4FF00] border-2 border-black' : 'bg-white border border-gray-200'} flex items-center justify-center text-green-400`}>
                       <MessageCircle className="w-4 h-4" />
                     </div>
                     <div className="flex-1">
                       <span className="text-xs font-bold block uppercase">Submit via WhatsApp</span>
-                      <span className="text-[10px] text-neutral-500 font-mono">+852 6970 4411 (Prepress Desk)</span>
+                      <span className="text-[10px] text-gray-500 font-mono">+852 6970 4411 (Prepress Desk)</span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-neutral-500" />
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
                   </a>
 
                 </div>
               </div>
 
               {/* Channel C: Meeting Consult */}
-              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-4`}>
-                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono" : "font-extrabold text-sm uppercase tracking-wider text-white"}`}>
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-white border border-gray-200 p-6 text-gray-800 shadow-sm rounded-3xl"} flex flex-col gap-4`}>
+                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono" : "font-extrabold text-sm uppercase tracking-wider text-gray-800"}`}>
                   Need a Prepress Alignment?
                 </h3>
-                <p className="text-[11px] leading-relaxed text-neutral-400">
+                <p className="text-[11px] leading-relaxed text-gray-600">
                   Book a rapid 15-minute screen share review session with Ryan Wong (Co-Founder & Packaging Engineer) to verify your final design:
                 </p>
 
@@ -2404,7 +2404,7 @@ export default function PouchDielineCreatorPage() {
                   href="https://calendly.com/achievepack/prepress-review"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3 px-4 flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-wider border rounded-xl transition-all hover:scale-[1.01] ${isPouchDomain ? 'bg-black text-white border-black hover:bg-neutral-800' : 'bg-neutral-950 hover:bg-neutral-900 border-neutral-800 text-white'}`}
+                  className={`w-full py-3 px-4 flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-wider border rounded-xl transition-all hover:scale-[1.01] ${isPouchDomain ? 'bg-black text-white border-black hover:bg-neutral-800' : 'bg-gray-800 hover:bg-gray-900 border-gray-800 text-white'}`}
                 >
                   <Calendar className="w-4 h-4 text-green-400" />
                   <span>Book 1:1 Prepress Alignment</span>
@@ -2423,16 +2423,16 @@ export default function PouchDielineCreatorPage() {
             {/* Interactive Checklist (7 Columns) */}
             <div className="lg:col-span-7 flex flex-col gap-6">
               
-              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-6`}>
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-white border border-gray-200 p-6 text-gray-800 shadow-sm rounded-3xl"} flex flex-col gap-6`}>
                 
                 <div>
-                  <div className="flex items-center gap-2 border-b border-neutral-800 pb-3 mb-2">
+                  <div className="flex items-center gap-2 border-b border-gray-200 pb-3 mb-2">
                     <CheckSquare className="w-5 h-5 text-green-400" />
-                    <h3 className={`${isPouchDomain ? "font-black text-xl uppercase tracking-tight font-mono" : "font-extrabold text-base uppercase tracking-wider text-white"}`}>
+                    <h3 className={`${isPouchDomain ? "font-black text-xl uppercase tracking-tight font-mono" : "font-extrabold text-base uppercase tracking-wider text-gray-800"}`}>
                       Prepress Verification Checklist
                     </h3>
                   </div>
-                  <p className="text-xs text-neutral-400 leading-relaxed">
+                  <p className="text-xs text-gray-600 leading-relaxed">
                     Before giving your final production print approval, please carefully check and verify the following parameters against your imported design:
                   </p>
                 </div>
@@ -2440,7 +2440,7 @@ export default function PouchDielineCreatorPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   
                   {/* Item 1 */}
-                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.size ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.size ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-gray-200 hover:border-gray-400')}`}>
                     <input 
                       type="checkbox" 
                       checked={checklist.size}
@@ -2448,13 +2448,13 @@ export default function PouchDielineCreatorPage() {
                       className={checkboxClass}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Size Verification</span>
-                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Dieline dimensions, gussets, and side seals match original layout.</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Size Verification</span>
+                      <span className="text-[10px] text-gray-500 leading-relaxed block">Dieline dimensions, gussets, and side seals match original layout.</span>
                     </div>
                   </label>
 
                   {/* Item 2 */}
-                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.colors ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.colors ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-gray-200 hover:border-gray-400')}`}>
                     <input 
                       type="checkbox" 
                       checked={checklist.colors}
@@ -2462,13 +2462,13 @@ export default function PouchDielineCreatorPage() {
                       className={checkboxClass}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Correct Colors</span>
-                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Mapped to CMYK print profiles or Pantone Solid Coated (no RGB).</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Correct Colors</span>
+                      <span className="text-[10px] text-gray-500 leading-relaxed block">Mapped to CMYK print profiles or Pantone Solid Coated (no RGB).</span>
                     </div>
                   </label>
 
                   {/* Item 3 */}
-                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.eyespot ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.eyespot ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-gray-200 hover:border-gray-400')}`}>
                     <input 
                       type="checkbox" 
                       checked={checklist.eyespot}
@@ -2476,13 +2476,13 @@ export default function PouchDielineCreatorPage() {
                       className={checkboxClass}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Eyespot Size & Location</span>
-                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Correct eye-mark sensor size and coordinates for high-speed cutters.</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Eyespot Size & Location</span>
+                      <span className="text-[10px] text-gray-500 leading-relaxed block">Correct eye-mark sensor size and coordinates for high-speed cutters.</span>
                     </div>
                   </label>
 
                   {/* Item 4 */}
-                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.weight ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.weight ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-gray-200 hover:border-gray-400')}`}>
                     <input 
                       type="checkbox" 
                       checked={checklist.weight}
@@ -2490,13 +2490,13 @@ export default function PouchDielineCreatorPage() {
                       className={checkboxClass}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Weight Description</span>
-                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Net weight font is compliant (height minimum 2mm is verified).</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Weight Description</span>
+                      <span className="text-[10px] text-gray-500 leading-relaxed block">Net weight font is compliant (height minimum 2mm is verified).</span>
                     </div>
                   </label>
 
                   {/* Item 5 */}
-                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.upc ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.upc ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-gray-200 hover:border-gray-400')}`}>
                     <input 
                       type="checkbox" 
                       checked={checklist.upc}
@@ -2504,13 +2504,13 @@ export default function PouchDielineCreatorPage() {
                       className={checkboxClass}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Correct UPC / Bar Code</span>
-                      <span className="text-[10px] text-neutral-500 leading-relaxed block">High contrast solid background scale (minimum 80% to 120%).</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Correct UPC / Bar Code</span>
+                      <span className="text-[10px] text-gray-500 leading-relaxed block">High contrast solid background scale (minimum 80% to 120%).</span>
                     </div>
                   </label>
 
                   {/* Item 6 */}
-                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.rollDirection ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.rollDirection ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-gray-200 hover:border-gray-400')}`}>
                     <input 
                       type="checkbox" 
                       checked={checklist.rollDirection}
@@ -2518,13 +2518,13 @@ export default function PouchDielineCreatorPage() {
                       className={checkboxClass}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Roll Direction</span>
-                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Wind layout alignment conforms to your packaging machinery specs.</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Roll Direction</span>
+                      <span className="text-[10px] text-gray-500 leading-relaxed block">Wind layout alignment conforms to your packaging machinery specs.</span>
                     </div>
                   </label>
 
                   {/* Item 7 */}
-                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.addons ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.addons ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-gray-200 hover:border-gray-400')}`}>
                     <input 
                       type="checkbox" 
                       checked={checklist.addons}
@@ -2532,13 +2532,13 @@ export default function PouchDielineCreatorPage() {
                       className={checkboxClass}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Add Ons (e.g. zipper, tear notch, etc)</span>
-                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Zipper placement, tear notches, pegs, or degassing valves are correct.</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Add Ons (e.g. zipper, tear notch, etc)</span>
+                      <span className="text-[10px] text-gray-500 leading-relaxed block">Zipper placement, tear notches, pegs, or degassing valves are correct.</span>
                     </div>
                   </label>
 
                   {/* Item 8 */}
-                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.seal ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.seal ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-gray-200 hover:border-gray-400')}`}>
                     <input 
                       type="checkbox" 
                       checked={checklist.seal}
@@ -2546,8 +2546,8 @@ export default function PouchDielineCreatorPage() {
                       className={checkboxClass}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Fin / Lap Seal</span>
-                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Back seal seam overlaps are aligned with appropriate margins.</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Fin / Lap Seal</span>
+                      <span className="text-[10px] text-gray-500 leading-relaxed block">Back seal seam overlaps are aligned with appropriate margins.</span>
                     </div>
                   </label>
 
@@ -2561,8 +2561,8 @@ export default function PouchDielineCreatorPage() {
             <div className="lg:col-span-5 flex flex-col gap-6">
               
               {/* Decision Choice Box */}
-              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-4`}>
-                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono text-black" : "font-extrabold text-sm uppercase tracking-wider text-white"}`}>
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-white border border-gray-200 p-6 text-gray-800 shadow-sm rounded-3xl"} flex flex-col gap-4`}>
+                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono text-black" : "font-extrabold text-sm uppercase tracking-wider text-gray-800"}`}>
                   Your Decision
                 </h3>
 
@@ -2575,7 +2575,7 @@ export default function PouchDielineCreatorPage() {
                   >
                     <ThumbsUp className={`w-4 h-4 mt-0.5 ${decision === 'approve' ? 'text-green-500' : 'text-neutral-500'}`} />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Approve as is</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Approve as is</span>
                       <span className="text-[10px] text-neutral-500 leading-normal block">Perfect! Ready for full commercial production.</span>
                     </div>
                   </button>
@@ -2587,7 +2587,7 @@ export default function PouchDielineCreatorPage() {
                   >
                     <Edit3 className={`w-4 h-4 mt-0.5 ${decision === 'approve_changes' ? 'text-blue-500' : 'text-neutral-500'}`} />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Approve with changes</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Approve with changes</span>
                       <span className="text-[10px] text-neutral-500 leading-normal block">Proceed after minor noted corrections.</span>
                     </div>
                   </button>
@@ -2599,7 +2599,7 @@ export default function PouchDielineCreatorPage() {
                   >
                     <AlertTriangle className={`w-4 h-4 mt-0.5 ${decision === 'revision' ? 'text-rose-500' : 'text-neutral-500'}`} />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold block uppercase text-white">Requires Revision</span>
+                      <span className="text-xs font-bold block uppercase text-gray-800">Requires Revision</span>
                       <span className="text-[10px] text-neutral-500 leading-normal block">Do NOT print. Request new proof after changes.</span>
                     </div>
                   </button>
@@ -2608,15 +2608,15 @@ export default function PouchDielineCreatorPage() {
               </div>
 
               {/* Important notice block */}
-              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-4`}>
-                <div className="flex items-center gap-2 border-b border-neutral-800 pb-2">
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-white border border-gray-200 p-6 text-gray-800 shadow-sm rounded-3xl"} flex flex-col gap-4`}>
+                <div className="flex items-center gap-2 border-b border-gray-200 pb-2">
                   <ShieldAlert className="w-5 h-5 text-amber-500" />
-                  <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono text-black" : "font-extrabold text-sm uppercase tracking-wider text-white"}`}>
+                  <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono text-black" : "font-extrabold text-sm uppercase tracking-wider text-gray-800"}`}>
                     Important Notice - Please Read Before Approval
                   </h3>
                 </div>
 
-                <div className="text-[10.5px] leading-relaxed text-neutral-400 space-y-2">
+                <div className="text-[10.5px] leading-relaxed text-gray-600 space-y-2">
                   <p>• This proof is an exact duplicate of the original production artwork that will be used to print your product.</p>
                   <p>• All copy, punctuation and spelling has been proof read by the account executive.</p>
                   <p className="text-amber-400 font-bold">• We will not be responsible for any discrepancies that are approved by the customer.</p>
@@ -2630,8 +2630,8 @@ export default function PouchDielineCreatorPage() {
                     <span>Tolerances:</span>
                   </div>
                   <div className="flex gap-4 text-[10px] font-bold font-mono">
-                    <span className="text-neutral-400">Bag Making Tolerance: <strong className="text-white">+/-2mm</strong></span>
-                    <span className="text-neutral-400">Color Tolerance: <strong className="text-white">+/-10%</strong></span>
+                    <span className="text-gray-500">Bag Making Tolerance: <strong className="text-gray-800">+/-2mm</strong></span>
+                    <span className="text-gray-500">Color Tolerance: <strong className="text-gray-800">+/-10%</strong></span>
                   </div>
                 </div>
 

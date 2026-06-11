@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T15:15:39.217Z",
+  "lastUnifiedRun": "2026-06-08T15:30:27.133Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2289,17 +2289,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-film-for-sustainable-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 1300,
       "keyword": "high barrier film for sustainable stand up pouches",
-      "difficulty": "Low",
-      "slug": "high-barrier-film-for-sustainable-stand-up-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 790,
       "keyword": "digital print on kraft paper pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-print-on-kraft-paper-pouches"
     },
     {
       "status": "Pending",
@@ -2376,9 +2377,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T15:15:32.583Z",
+      "timestamp": "2026-06-08T15:30:20.666Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for sustainable stand up pouches\" to /blog/high-barrier-film-for-sustainable-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital print on kraft paper pouches\" to /blog/digital-print-on-kraft-paper-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for sustainable stand up pouches\" to /blog/high-barrier-film-for-sustainable-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-08T15:15:32.583Z"
     },
     {
       "action": "Autopilot Generation Draft",
