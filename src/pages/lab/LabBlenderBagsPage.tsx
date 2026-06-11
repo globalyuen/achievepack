@@ -1,27 +1,28 @@
 import React, { useState } from 'react'
-import { Package, Beaker, Shield, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Microscope, Droplets, Zap, Award, FileCheck } from 'lucide-react'
+import { Beaker, Shield, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Microscope, Droplets, Zap, Award, FileCheck, Package } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
-import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
-
-// Gallery images from /imgs/lab/blend/
-const blenderBagsGallery = [
-  { src: '/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp', title: 'AchievePack® Sterile Lab Blender Bags 5-80 mL', desc: 'AchievePack® NoBacteriaLaboratoryHomogenizerBag 5-80 mL' },
-  { src: '/imgs/lab/blend/a_kv_capacity_dimensions_9896640.webp', title: 'Capacity & Size - 5-80 mL, 155 × 105 mm', desc: 'CapacityAndDimensions - 5-80 mL, 155 × 105 mm' },
-  { src: '/imgs/lab/blend/a_kv_material_thickness_detail_7472209.webp', title: 'Material & Thickness - 75 μm LDPE Film', desc: 'MaterialAndThickness - 75 μm LDPE Film' },
-  { src: '/imgs/lab/blend/a_kv_sterility_single_use_7777972.webp', title: 'Gamma Irradiated Sterility 10-25 kGy', desc: 'γ Radiation Sterilization 10-25 kGy' },
-  { src: '/imgs/lab/blend/a_kv_strength_impact_resistance_4057827.webp', title: 'Impact Resistance & Strength', desc: 'Impact ResistantStrongDegree' },
-  { src: '/imgs/lab/blend/a_kv_microbiology_application_2438663.webp', title: 'Microbiology Sample Preparation', desc: 'Microbial Sample Preparation' },
-  { src: '/imgs/lab/blend/a_kv_transparency_observation_4148902.webp', title: 'High Clarity for Visual Observation', desc: 'High TransparencyCanViewObserve' },
-  { src: '/imgs/lab/blend/a_kv_packaging_bulk_supply_5710354.webp', title: 'Bulk Packaging - 1,000 bags/case', desc: 'BatchVolumePackaging - Per Carton 1,000 Only' },
-  { src: '/imgs/lab/blend/a_kv_specifications_summary_8537834.webp', title: 'Complete Technical Specifications', desc: 'CompleteTechnologySpecification' },
-  { src: '/imgs/lab/blend/a_kv_brand_closing_solution_9154876.webp', title: 'AchievePack® Lab Solutions', desc: 'AchievePack® LaboratorySolveSolution' },
-]
+import { useTranslation } from 'react-i18next'
 
 const LabBlenderBagsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
-  
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.labBlender'
+
+  const blenderBagsGallery = [
+    { src: '/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp', title: t(`${p}.gallery.0.title`), desc: t(`${p}.gallery.0.desc`) },
+    { src: '/imgs/lab/blend/a_kv_capacity_dimensions_9896640.webp', title: t(`${p}.gallery.1.title`), desc: t(`${p}.gallery.1.desc`) },
+    { src: '/imgs/lab/blend/a_kv_material_thickness_detail_7472209.webp', title: t(`${p}.gallery.2.title`), desc: t(`${p}.gallery.2.desc`) },
+    { src: '/imgs/lab/blend/a_kv_sterility_single_use_7777972.webp', title: t(`${p}.gallery.3.title`), desc: t(`${p}.gallery.3.desc`) },
+    { src: '/imgs/lab/blend/a_kv_strength_impact_resistance_4057827.webp', title: t(`${p}.gallery.4.title`), desc: t(`${p}.gallery.4.desc`) },
+    { src: '/imgs/lab/blend/a_kv_microbiology_application_2438663.webp', title: t(`${p}.gallery.5.title`), desc: t(`${p}.gallery.5.desc`) },
+    { src: '/imgs/lab/blend/a_kv_transparency_observation_4148902.webp', title: t(`${p}.gallery.6.title`), desc: t(`${p}.gallery.6.desc`) },
+    { src: '/imgs/lab/blend/a_kv_packaging_bulk_supply_5710354.webp', title: t(`${p}.gallery.7.title`), desc: t(`${p}.gallery.7.desc`) },
+    { src: '/imgs/lab/blend/a_kv_specifications_summary_8537834.webp', title: t(`${p}.gallery.8.title`), desc: t(`${p}.gallery.8.desc`) },
+    { src: '/imgs/lab/blend/a_kv_brand_closing_solution_9154876.webp', title: t(`${p}.gallery.9.title`), desc: t(`${p}.gallery.9.desc`) },
+  ]
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
@@ -30,7 +31,6 @@ const LabBlenderBagsPage: React.FC = () => {
     setGalleryEnlarged({ src: blenderBagsGallery[newIndex].src, index: newIndex })
   }
 
-  // Alternating layout component
   const AlternatingSection = ({ 
     image, 
     imageAlt, 
@@ -58,7 +58,7 @@ const LabBlenderBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">{t(`${p}.clickToEnlarge`)}</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -80,7 +80,7 @@ const LabBlenderBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">{t(`${p}.clickToEnlarge`)}</div>
           </button>
         </>
       )}
@@ -90,26 +90,24 @@ const LabBlenderBagsPage: React.FC = () => {
   const sections = [
     {
       id: 'intro',
-      title: 'AchievePack® Lab Blender Bags Overview',
+      title: t(`${p}.secIntroTitle`),
       icon: <Beaker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
-            <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Sterile lab blender bags for small-volume sample preparation</strong> — AchievePack® Lab Blender Bags feature high-clarity virgin LDPE film with gamma irradiation sterilization. Ideal for 5-80 mL microbiology samples in food testing, pharmaceutical QC, and environmental laboratories.
-            </p>
+            <p className="text-lg font-medium text-neutral-900 mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.secIntroBadgeText`) }} />
             <p className="text-neutral-700">
-              SmallBodyAreaSamplePreparationProfessionalUseNoBacteriaHomogenizerBag — AchievePack® LaboratoryHomogenizerBagUsingHighTransparentFood GradeOriginalRaw LDPE Film，γ Irradiation Sterilization。Suitable forFood Testing、PharmaceuticalQuality ControlAndEnvironmentLaboratoryOf 5-80 mL MicrobialSample。
+              {t(`${p}.secIntroBadgeTextCn`)}
             </p>
           </div>
           
           <AlternatingSection
             image="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp"
             imageAlt="AchievePack Lab Blender Bags Hero"
-            title="Sterile Lab Blender Bags for Microbiology"
-            titleCn="MicrobialStudyProfessionalUseNoBacteriaLaboratoryHomogenizerBag"
-            content="AchievePack® Lab Blender Bags are designed for professional microbiology laboratories, food testing facilities, and pharmaceutical QC departments. Made from high-clarity virgin LDPE film, these sterile bags provide a reliable, contamination-free environment for sample preparation and homogenization."
-            contentCn="AchievePack® LaboratoryHomogenizerBagProfessionalForProfessionalIndustryMicrobialLaboratory、Food TestingInstitutionAndPharmaceuticalQuality ControlPartDoorDesign。UsingHigh TransparencyFood GradeOriginalRaw LDPE FilmMadeForm，TheseNoBacteriaBagForSamplePreparationAndHomogenizerizationProvideCanReliableOfNoContaminationEnvironment。"
+            title={t(`${p}.secIntroAltTitle`)}
+            titleCn={t(`${p}.secIntroAltTitleCn`)}
+            content={t(`${p}.secIntroAltContent`)}
+            contentCn={t(`${p}.secIntroAltContentCn`)}
             imageLeft={true}
             index={0}
           />
@@ -118,17 +116,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'capacity',
-      title: 'Optimized Small Volume Capacity',
+      title: t(`${p}.secCapacityTitle`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_capacity_dimensions_9896640.webp"
             imageAlt="Capacity and Dimensions"
-            title="5-80 mL Capacity Range"
-            titleCn="5-80 mL CapacityRange"
-            content={`With a capacity range of 5-80 mL and standard dimensions of 155 mm \u00d7 105 mm (6" \u00d7 4"), these bags are perfectly sized for microbiology sample preparation, environmental testing, and quality control applications. The compact size ensures efficient use of laboratory space while maintaining sample integrity.`}
-            contentCn={`CapacityRange 5-80 mL，StandardDimensions 155 mm \u00d7 105 mm（6" \u00d7 4"），TheseBagChildIdeal forSuitableMicrobial Sample Preparation、Environmental TestingAndQuality ControlApplication。CompactOfDimensionsEnsureLaboratorySpaceOfEfficientBenefitUse，MeanwhileMaintainSampleCompleteProperty。`}
+            title={t(`${p}.secCapacityAltTitle`)}
+            titleCn={t(`${p}.secCapacityAltTitleCn`)}
+            content={t(`${p}.secCapacityAltContent`)}
+            contentCn={t(`${p}.secCapacityAltContentCn`)}
             imageLeft={false}
             index={1}
           />
@@ -136,23 +134,23 @@ const LabBlenderBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800 text-sm">5-80 mL</h4>
-              <p className="text-xs text-neutral-500">Capacity Capacity</p>
+              <h4 className="font-semibold text-neutral-800 text-sm">{t(`${p}.secCapacityLabel1`)}</h4>
+              <p className="text-xs text-neutral-500">{t(`${p}.secCapacitySub1`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800 text-sm">155 × 105 mm</h4>
-              <p className="text-xs text-neutral-500">Dimensions Dimensions</p>
+              <h4 className="font-semibold text-neutral-800 text-sm">{t(`${p}.secCapacityLabel2`)}</h4>
+              <p className="text-xs text-neutral-500">{t(`${p}.secCapacitySub2`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800 text-sm">75 μm</h4>
-              <p className="text-xs text-neutral-500">Wall Thickness Wall Thickness</p>
+              <h4 className="font-semibold text-neutral-800 text-sm">{t(`${p}.secCapacityLabel3`)}</h4>
+              <p className="text-xs text-neutral-500">{t(`${p}.secCapacitySub3`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800 text-sm">1,000/case</h4>
-              <p className="text-xs text-neutral-500">Packaging Packaging</p>
+              <h4 className="font-semibold text-neutral-800 text-sm">{t(`${p}.secCapacityLabel4`)}</h4>
+              <p className="text-xs text-neutral-500">{t(`${p}.secCapacitySub4`)}</p>
             </div>
           </div>
         </div>
@@ -160,17 +158,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'material',
-      title: 'High-Clarity LDPE Film Material',
+      title: t(`${p}.secMaterialTitle`),
       icon: <Microscope className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_material_thickness_detail_7472209.webp"
             imageAlt="Material and Thickness Detail"
-            title="Reinforced 75 μm LDPE Film"
-            titleCn="AddThick 75 μm LDPE Film"
-            content="Our lab blender bags feature a robust 75 μm (3 mil) high-clarity LDPE film with a reinforced single wide bottom seal and no side seams. This construction ensures maximum strength and puncture resistance during intensive paddle blending and stomaching operations, preventing leaks and sample loss."
-            contentCn="OurLaboratoryHomogenizerBagUsingSolidSolidOf 75 μm（3 mil）High Transparency LDPE Film，WithPrepareStrengthenTypeSingleWideBottomSeal，NoSideSealDesign。ThisStructureEnsureInHighStrongDegreeSlapHomogenizerAndStomachBagStyleOperationProcessInToolHaveMostLargeStrongDegreeAndPuncture ResistantProperty，PreventLeakAndSampleLoss。"
+            title={t(`${p}.secMaterialAltTitle`)}
+            titleCn={t(`${p}.secMaterialAltTitleCn`)}
+            content={t(`${p}.secMaterialAltContent`)}
+            contentCn={t(`${p}.secMaterialAltContentCn`)}
             imageLeft={true}
             index={2}
           />
@@ -179,17 +177,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'sterility',
-      title: 'Gamma Irradiation Sterilization',
+      title: t(`${p}.secSterilityTitle`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_sterility_single_use_7777972.webp"
             imageAlt="Gamma Sterilization"
-            title="Gamma Irradiated for Guaranteed Sterility"
-            titleCn="γ Radiation Sterilization，EnsureNoBacteria"
-            content="Each bag is gamma irradiated at 10-25 kGy to ensure complete sterility. Designed for single-use applications, these bags eliminate the risk of cross-contamination between samples, making them ideal for microbiology, pharmaceutical, and food safety testing laboratories."
-            contentCn="EachUnitBagChildAllThroughThrough 10-25 kGy Of γ Radiation Sterilization，WithEnsureCompleteNoBacteria。TheseBagChildDesignForOncePropertyUse，EliminateDoneSampleOfBetweenCrossContaminationOfRisk，Ideal forSuitableMicrobialStudy、PharmaceuticalAndFoodSafeTestingLaboratoryUse。"
+            title={t(`${p}.secSterilityAltTitle`)}
+            titleCn={t(`${p}.secSterilityAltTitleCn`)}
+            content={t(`${p}.secSterilityAltContent`)}
+            contentCn={t(`${p}.secSterilityAltContentCn`)}
             imageLeft={false}
             index={3}
           />
@@ -197,21 +195,21 @@ const LabBlenderBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Shield className="h-5 w-5 text-blue-600 mb-2" />
-              <h4 className="font-semibold text-blue-800">Gamma Sterilized</h4>
-              <p className="text-sm text-blue-700">10-25 kGy irradiation</p>
-              <p className="text-xs text-blue-600 mt-1">γ InjectLine 10-25 kGy Sterilization</p>
+              <h4 className="font-semibold text-blue-800">{t(`${p}.secSterilityCardTitle1`)}</h4>
+              <p className="text-sm text-blue-700">{t(`${p}.secSterilityCardDesc1`)}</p>
+              <p className="text-xs text-blue-600 mt-1">{t(`${p}.secSterilityCardDesc1Cn`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Zap className="h-5 w-5 text-blue-600 mb-2" />
-              <h4 className="font-semibold text-blue-800">Single-Use Design</h4>
-              <p className="text-sm text-blue-700">Eliminates cross-contamination</p>
-              <p className="text-xs text-blue-600 mt-1">OncePropertyUseEliminateContamination</p>
+              <h4 className="font-semibold text-blue-800">{t(`${p}.secSterilityCardTitle2`)}</h4>
+              <p className="text-sm text-blue-700">{t(`${p}.secSterilityCardDesc2`)}</p>
+              <p className="text-xs text-blue-600 mt-1">{t(`${p}.secSterilityCardDesc2Cn`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <CheckCircle className="h-5 w-5 text-blue-600 mb-2" />
-              <h4 className="font-semibold text-blue-800">Contamination-Free</h4>
-              <p className="text-sm text-blue-700">Pre-use sterility guaranteed</p>
-              <p className="text-xs text-blue-600 mt-1">UseBeforeNoBacteriaGuarantee</p>
+              <h4 className="font-semibold text-blue-800">{t(`${p}.secSterilityCardTitle3`)}</h4>
+              <p className="text-sm text-blue-700">{t(`${p}.secSterilityCardDesc3`)}</p>
+              <p className="text-xs text-blue-600 mt-1">{t(`${p}.secSterilityCardDesc3Cn`)}</p>
             </div>
           </div>
         </div>
@@ -219,17 +217,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'strength',
-      title: 'Impact Resistance & Durability',
+      title: t(`${p}.secStrengthTitle`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_strength_impact_resistance_4057827.webp"
             imageAlt="Strength and Impact Resistance"
-            title="Built to Withstand Intensive Blending"
-            titleCn="ResistantReceiveHighStrongDegreeSlapHomogenizer"
-            content="The reinforced wall strength and wide bottom seal design allow these bags to endure prolonged paddle blending without rupture or puncture. Compatible with leading paddle blender models (e.g., Paddle Blender Model 80/3500), they maintain integrity even under vigorous agitation, ensuring reliable sample homogenization."
-            contentCn="StrengthenTypeBagWallStrongDegreeAndWideBottomSealDesignEnableTheseBagChildCanEnoughWithstandLongTimeBetweenOfSlapHomogenizerAndNotBreakSplitOrPierceHole。CompatibleCapacityMainstreamSlapStyleHomogenizerDeviceTypeNumber（If Paddle Blender Model 80/3500），ImmediatelyEnableInDramaStrongStirUnderAlsoCanMaintainCompleteProperty，EnsureCanReliableOfSampleHomogenizerization。"
+            title={t(`${p}.secStrengthAltTitle`)}
+            titleCn={t(`${p}.secStrengthAltTitleCn`)}
+            content={t(`${p}.secStrengthAltContent`)}
+            contentCn={t(`${p}.secStrengthAltContentCn`)}
             imageLeft={true}
             index={4}
           />
@@ -238,17 +236,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Microbiology Applications',
+      title: t(`${p}.secAppsTitle`),
       icon: <Microscope className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_microbiology_application_2438663.webp"
             imageAlt="Microbiology Applications"
-            title="Ideal for Microbiology Sample Preparation"
-            titleCn="Microbial Sample PreparationOfIdealChoose"
-            content="Specifically designed for microbiology sample preparation, storage, and transport, these bags are widely used in food microbiology testing, pharmaceutical QC, environmental sample processing, and clinical laboratory applications. The sterile environment ensures accurate, contamination-free results."
-            contentCn="ProfessionalForMicrobial Sample Preparation、StoreAndTransportationDesign，TheseBagChildWideApplicationAtFoodMicrobialTesting、PharmaceuticalQuality Control、EnvironmentSampleProcessingAndClinicalLaboratoryApplication。NoBacteriaEnvironmentEnsureStandardExact、NoContaminationOfKnotResult。"
+            title={t(`${p}.secAppsAltTitle`)}
+            titleCn={t(`${p}.secAppsAltTitleCn`)}
+            content={t(`${p}.secAppsAltContent`)}
+            contentCn={t(`${p}.secAppsAltContentCn`)}
             imageLeft={false}
             index={5}
           />
@@ -256,23 +254,23 @@ const LabBlenderBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-4 mt-6">
             <div className="bg-green-50 p-4 rounded-lg border border-green-200 text-center">
               <span className="text-2xl mb-2 block">🥗</span>
-              <h4 className="font-semibold text-green-800 text-sm">Food Testing</h4>
-              <p className="text-xs text-green-600">Food Testing</p>
+              <h4 className="font-semibold text-green-800 text-sm">{t(`${p}.secAppsCardTitle1`)}</h4>
+              <p className="text-xs text-green-600">{t(`${p}.secAppsCardDesc1`)}</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200 text-center">
               <span className="text-2xl mb-2 block">💊</span>
-              <h4 className="font-semibold text-purple-800 text-sm">Pharmaceutical QC</h4>
-              <p className="text-xs text-purple-600">PharmaceuticalQuality Control</p>
+              <h4 className="font-semibold text-purple-800 text-sm">{t(`${p}.secAppsCardTitle2`)}</h4>
+              <p className="text-xs text-purple-600">{t(`${p}.secAppsCardDesc2`)}</p>
             </div>
             <div className="bg-teal-50 p-4 rounded-lg border border-teal-200 text-center">
               <span className="text-2xl mb-2 block">🌿</span>
-              <h4 className="font-semibold text-teal-800 text-sm">Environmental</h4>
-              <p className="text-xs text-teal-600">Environmental Testing</p>
+              <h4 className="font-semibold text-teal-800 text-sm">{t(`${p}.secAppsCardTitle3`)}</h4>
+              <p className="text-xs text-teal-600">{t(`${p}.secAppsCardDesc3`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
               <span className="text-2xl mb-2 block">🔬</span>
-              <h4 className="font-semibold text-blue-800 text-sm">Research Labs</h4>
-              <p className="text-xs text-blue-600">ResearchLaboratory</p>
+              <h4 className="font-semibold text-blue-800 text-sm">{t(`${p}.secAppsCardTitle4`)}</h4>
+              <p className="text-xs text-blue-600">{t(`${p}.secAppsCardDesc4`)}</p>
             </div>
           </div>
         </div>
@@ -280,17 +278,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'transparency',
-      title: 'High Clarity for Visual Observation',
+      title: t(`${p}.secClarityTitle`),
       icon: <Droplets className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_transparency_observation_4148902.webp"
             imageAlt="High Clarity Visual Observation"
-            title="Crystal-Clear Film for Easy Sample Observation"
-            titleCn="HighTransparentFilmConvenientAtObserveSample"
-            content="The high-clarity LDPE film allows technicians to easily observe sample status, homogenization progress, and any particulate matter throughout the preparation process. This transparency improves workflow efficiency and quality control, reducing the need to open bags unnecessarily."
-            contentCn="High Transparency LDPE FilmEnableTechnologyPersonStaffCanEnoughInWholeUnitPreparationProcessInLightLooseObserveSampleStatus、HomogenizerizationIntoDegreeAndAnyParticleMaterialQuality。ThisTransparentDegreeRaiseHighDoneWorkProcessEfficiencyAndQuality Control，ReduceDoneNotMustNeedOpenBagChildOfRequireDemand。"
+            title={t(`${p}.secClarityAltTitle`)}
+            titleCn={t(`${p}.secClarityAltTitleCn`)}
+            content={t(`${p}.secClarityAltContent`)}
+            contentCn={t(`${p}.secClarityAltContentCn`)}
             imageLeft={true}
             index={6}
           />
@@ -299,17 +297,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'packaging',
-      title: 'Bulk Packaging & Supply',
+      title: t(`${p}.secPkgTitle`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_packaging_bulk_supply_5710354.webp"
             imageAlt="Bulk Packaging"
-            title="Convenient Bulk Packaging"
-            titleCn="ConvenientQuickBatchVolumePackaging"
-            content="Available in cases of 1,000 bags with inner sachet packing for easy dispensing and protection. The resealable inner packaging helps maintain sterility of unused bags and simplifies inventory management in busy laboratory environments."
-            contentCn="Per Carton 1,000 Only，WithHaveCanSealInsideBagSmallPackaging，ConvenientAtDivideSendAndProtection。CanHeavyNewSealedOfInsidePackagingHaveAssistAtMaintainNotUseBagChildOfNoBacteriaStatus，AndSimpleizationBusyLaboratoryEnvironmentInOfInventoryManagement。"
+            title={t(`${p}.secPkgAltTitle`)}
+            titleCn={t(`${p}.secPkgAltTitleCn`)}
+            content={t(`${p}.secPkgAltContent`)}
+            contentCn={t(`${p}.secPkgAltContentCn`)}
             imageLeft={false}
             index={7}
           />
@@ -318,17 +316,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'specifications',
-      title: 'Technical Specifications',
+      title: t(`${p}.secSpecsTitle`),
       icon: <FileCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_specifications_summary_8537834.webp"
             imageAlt="Technical Specifications"
-            title="Complete Technical Specifications"
-            titleCn="CompleteTechnologySpecification"
-            content="Material: Polyethylene (LDPE) | Thickness: 75 μm (3 mil) | Capacity: 5-80 mL | Size: 155 × 105 mm | Sterility: Gamma irradiated 10-25 kGy | Autoclavable: No | Color: Transparent | Use: Laboratory blender sample preparation | Packaging: 1,000 bags per case with sachet inner packing."
-            contentCn="Material：Polyethylene（LDPE）| Thickness：75 μm（3 mil）| Capacity：5-80 mL | Dimensions：155 × 105 mm | SterilizationMethod：γ InjectLine 10-25 kGy | CanHighPressureSterilization：Whether | ColorColor：Transparent | UseRoute：LaboratoryHomogenizerDeviceSamplePreparation | Packaging：Per Carton 1,000 Only，WithHaveInsideBagSmallPackaging。"
+            title={t(`${p}.secSpecsAltTitle`)}
+            titleCn={t(`${p}.secSpecsAltTitleCn`)}
+            content={t(`${p}.secSpecsAltContent`)}
+            contentCn={t(`${p}.secSpecsAltContentCn`)}
             imageLeft={true}
             index={8}
           />
@@ -337,17 +335,17 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'brand',
-      title: 'AchievePack® Lab Solutions',
+      title: t(`${p}.secBrandTitle`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_kv_brand_closing_solution_9154876.webp"
             imageAlt="AchievePack Lab Solutions"
-            title="AchievePack® Lab Packaging Solutions"
-            titleCn="AchievePack® LaboratoryPackagingSolveSolution"
-            content="Trust AchievePack® for comprehensive lab packaging solutions. Our sterile blender bags are manufactured in cleanroom facilities following strict quality control standards. We provide reliable, contamination-free packaging for microbiology labs, QC departments, and research institutions worldwide."
-            contentCn="Trust AchievePack® ProvideOfFullFaceLaboratoryPackagingSolveSolution。OurNoBacteriaHomogenizerBagInCleanClean RoomSetApplyInProduction，FollowStrictOfQuality ControlStandard。WeForGlobalMicrobialLaboratory、Quality ControlPartDoorAndResearch InstitutionProvideCanReliable、NoContaminationOfPackaging。"
+            title={t(`${p}.secBrandAltTitle`)}
+            titleCn={t(`${p}.secBrandAltTitleCn`)}
+            content={t(`${p}.secBrandAltContent`)}
+            contentCn={t(`${p}.secBrandAltContentCn`)}
             imageLeft={false}
             index={9}
           />
@@ -355,20 +353,20 @@ const LabBlenderBagsPage: React.FC = () => {
           <div className="bg-gradient-to-r from-primary-50 to-blue-50 p-6 rounded-lg border border-primary-200">
             <h4 className="font-semibold text-primary-800 mb-4 flex items-center gap-2">
               <CheckCircle className="h-5 w-5" />
-              AchievePack Quality Assurance QualityGuarantee
+              {t(`${p}.secBrandQaTitle`)}
             </h4>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary-600" />
-                <span className="text-sm text-neutral-700">Clean Room Production Cleanroom Production</span>
+                <span className="text-sm text-neutral-700">{t(`${p}.secBrandQa1`)}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary-600" />
-                <span className="text-sm text-neutral-700">Gamma Sterilized γ Irradiation Sterilization</span>
+                <span className="text-sm text-neutral-700">{t(`${p}.secBrandQa2`)}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary-600" />
-                <span className="text-sm text-neutral-700">Strict Quality Control StrictQuality Control</span>
+                <span className="text-sm text-neutral-700">{t(`${p}.secBrandQa3`)}</span>
               </div>
             </div>
           </div>
@@ -377,29 +375,29 @@ const LabBlenderBagsPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Request Samples or Quote',
+      title: t(`${p}.secCtaTitle`),
       icon: <Calendar className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <div className="bg-gradient-to-r from-primary-600 to-blue-600 text-white p-8 rounded-xl">
             <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-2xl font-bold mb-4">Ready to Order Lab Blender Bags?</h3>
-              <p className="text-primary-100 mb-2">StandardPrepareGoodOrderLaboratoryHomogenizerBag?？</p>
-              <p className="text-white/90 mb-6">Contact us for samples, pricing, or technical consultation. Our team is ready to support your laboratory needs.</p>
+              <h3 className="text-2xl font-bold mb-4">{t(`${p}.secCtaBoxTitle`)}</h3>
+              <p className="text-primary-100 mb-2">{t(`${p}.secCtaBoxSubtitle`)}</p>
+              <p className="text-white/90 mb-6">{t(`${p}.secCtaBoxDesc`)}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={openCalendly}
                   className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
                 >
                   <Calendar className="h-5 w-5" />
-                  Book Consultation
+                  {t(`${p}.secCtaBtnConsult`)}
                 </button>
                 <a
                   href="mailto:ryan@achievepack.com"
                   className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                 >
                   <Mail className="h-5 w-5" />
-                  Request Quote
+                  {t(`${p}.secCtaBtnQuote`)}
                 </a>
               </div>
             </div>
@@ -410,38 +408,38 @@ const LabBlenderBagsPage: React.FC = () => {
   ]
 
   const faqs = [
-    { question: 'What are Lab Blender Bags used for?', answer: 'Lab blender bags are sterile, single-use bags designed for microbiology sample preparation, homogenization, storage, and transport. They are ideal for food testing, pharmaceutical QC, and environmental sample processing in laboratory settings.' },
-    { question: 'What is the capacity range of these blender bags?', answer: 'AchievePack® Lab Blender Bags are designed for small volume samples ranging from 5 to 80 mL, with typical dimensions of 155 mm × 105 mm (6" × 4").' },
-    { question: 'Are these bags sterile?', answer: 'Yes, all AchievePack® Lab Blender Bags are gamma irradiated (10-25 kGy) for guaranteed sterility. They are single-use bags to eliminate cross-contamination risks.' },
-    { question: 'Can these bags be autoclaved?', answer: 'No, these blender bags are not autoclavable. They come pre-sterilized by gamma irradiation and are designed for single-use applications only.' },
-    { question: 'What material are the bags made from?', answer: 'The bags are made from high-clarity, food-grade virgin LDPE (Low-Density Polyethylene) film with a thickness of 75 μm (3 mil), providing excellent transparency for sample observation.' },
-    { question: 'Are these bags compatible with paddle blenders?', answer: 'Yes, these bags are specifically designed to work with paddle blender systems such as the Paddle Blender Model 80/3500 and similar stomacher-type homogenizers.' },
+    { question: t(`${p}.faqs.0.question`), answer: t(`${p}.faqs.0.answer`) },
+    { question: t(`${p}.faqs.1.question`), answer: t(`${p}.faqs.1.answer`) },
+    { question: t(`${p}.faqs.2.question`), answer: t(`${p}.faqs.2.answer`) },
+    { question: t(`${p}.faqs.3.question`), answer: t(`${p}.faqs.3.answer`) },
+    { question: t(`${p}.faqs.4.question`), answer: t(`${p}.faqs.4.answer`) },
+    { question: t(`${p}.faqs.5.question`), answer: t(`${p}.faqs.5.answer`) },
   ]
 
   const relatedLinks = [
-    { title: 'Lateral Filter Bags', url: '/lab/lateral-filter-bags', description: 'Sterile bags with lateral filter membrane' },
-    { title: 'Wire Closure Bags', url: '/lab/wire-closure-bags', description: 'Lab bags with superior metal wire seal' },
-    { title: 'Company Certificates', url: '/company/certificates', description: 'ISO certifications and quality standards' },
-    { title: 'About Achieve Pack', url: '/company/about', description: 'Learn about our company and mission' },
-    { title: 'Factory Tour', url: '/company/factory-tour', description: 'See our cleanroom manufacturing facility' },
-    { title: 'Stand Up Pouches', url: '/packaging/stand-up-pouches', description: 'Flexible stand-up packaging solutions' },
-    { title: 'Flat Pouches', url: '/packaging/flat-pouches', description: 'Flat-bottom pouch packaging' },
-    { title: 'Barrier Options', url: '/features/barrier-options', description: 'Material barrier performance guide' },
-    { title: 'Digital Printing', url: '/printing/digital-printing', description: 'Custom digital printing services' },
-    { title: 'FAQs', url: '/support/faqs', description: 'Frequently asked questions' },
+    { title: t(`${p}.relatedLinks.0.title`), url: '/lab/lateral-filter-bags', description: t(`${p}.relatedLinks.0.description`) },
+    { title: t(`${p}.relatedLinks.1.title`), url: '/lab/wire-closure-bags', description: t(`${p}.relatedLinks.1.description`) },
+    { title: t(`${p}.relatedLinks.2.title`), url: '/company/certificates', description: t(`${p}.relatedLinks.2.description`) },
+    { title: t(`${p}.relatedLinks.3.title`), url: '/company/about', description: t(`${p}.relatedLinks.3.description`) },
+    { title: t(`${p}.relatedLinks.4.title`), url: '/company/factory-tour', description: t(`${p}.relatedLinks.4.description`) },
+    { title: t(`${p}.relatedLinks.5.title`), url: '/packaging/stand-up-pouches', description: t(`${p}.relatedLinks.5.description`) },
+    { title: t(`${p}.relatedLinks.6.title`), url: '/packaging/flat-pouches', description: t(`${p}.relatedLinks.6.description`) },
+    { title: t(`${p}.relatedLinks.7.title`), url: '/features/barrier-options', description: t(`${p}.relatedLinks.7.description`) },
+    { title: t(`${p}.relatedLinks.8.title`), url: '/printing/digital-printing', description: t(`${p}.relatedLinks.8.description`) },
+    { title: t(`${p}.relatedLinks.9.title`), url: '/support/faqs', description: t(`${p}.relatedLinks.9.description`) },
   ]
 
   return (
     <>
       <SEOPageLayout heroBgColor="#1f2937"
-        title="Lab Blender Bags | Sterile Sample Preparation Bags | AchievePack"
-        description="AchievePack® sterile lab blender bags for microbiology sample preparation. 5-80 mL capacity, gamma irradiated, high-clarity LDPE, impact resistant. Perfect for food testing, pharmaceutical QC, and environmental labs."
-        keywords={['lab blender bags', 'sterile sample bags', 'microbiology bags', 'homogenizer bags', 'paddle blender bags', 'stomacher bags', 'laboratory sample preparation', 'gamma irradiated bags', 'food testing bags', 'pharmaceutical QC bags', '5-80 mL bags', 'LDPE sterile bags']}
+        title={t(`${p}.metaTitle`)}
+        description={t(`${p}.metaDescription`)}
+        keywords={t(`${p}.keywords`, { returnObjects: true }) as string[]}
         canonicalUrl="https://achievepack.com/lab/lab-blender-bags"
-        heroTitle="Lab Blender Bags"
-        heroSubtitle="Sterile, high-clarity LDPE bags for 5-80 mL microbiology sample preparation. Gamma sterilized, impact resistant. Perfect for food, pharma & environmental testing. NoBacteriaHighTransparent LDPE Bag，Suitable for 5-80 mL Microbial Sample Preparation。γ Sterilization，Impact Resistant。"
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
         heroImage="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp"
-        introSummary="AchievePack® Lab Blender Bags provide sterile, single-use bags for microbiology sample preparation with 5-80 mL capacity. Made from high-clarity 75 μm LDPE film, gamma irradiated at 10-25 kGy. Ideal for food testing, pharmaceutical QC, environmental labs, and research institutions requiring contamination-free sample homogenization."
+        introSummary={t(`${p}.introSummary`)}
         sections={sections}
         faqs={faqs}
         relatedLinks={relatedLinks}

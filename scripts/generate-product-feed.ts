@@ -23,6 +23,7 @@ function generateFeed() {
 
   const items = FEATURED_PRODUCTS.map((product) => {
     const id = product.id;
+    const gmcId = id.length > 50 ? id.substring(0, 50) : id;
     const title = escapeXml(product.name);
     const link = `${BASE_URL}/store/product/${id}`;
     
@@ -133,7 +134,7 @@ function generateFeed() {
     const descriptionEscaped = escapeXml(richDescription);
 
     let itemXml = `    <item>
-      <g:id>${id}</g:id>
+      <g:id>${gmcId}</g:id>
       <g:title>${title}</g:title>
       <g:description>${descriptionEscaped}</g:description>
       <g:link>${link}</g:link>

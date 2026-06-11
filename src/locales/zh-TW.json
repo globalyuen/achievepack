@@ -17413,6 +17413,742 @@
                         "bullet3": "🛠️ 客製尺寸和功能：搭配您特定的袋子寬度、撕口、掛孔和光澤/霧面飾面，設計出高度個性化、感官豐富的盒子。"
                     }
                 ]
+            },
+            "labBlender": {
+                "metaTitle": "實驗室攪拌機袋|無菌樣品製備袋|成就包",
+                "metaDescription": "AchievePack® 無菌實驗室攪拌袋，用於微生物樣品製備。 5-80 mL 容量，伽瑪射線照射，高透明度 LDPE，耐衝擊。 非常適合食品測試、製藥品質控制和環境實驗室。",
+                "keywords": [
+                    "實驗室攪拌袋",
+                    "無菌樣品袋",
+                    "微生物袋",
+                    "均質袋",
+                    "槳式攪拌機袋",
+                    "胃袋",
+                    "實驗室樣品製備",
+                    "伽瑪射線照射袋",
+                    "食品檢測袋",
+                    "藥品QC袋",
+                    "5-80毫升袋",
+                    "LDPE無菌袋"
+                ],
+                "heroTitle": "實驗室攪拌機袋",
+                "heroSubtitle": "用於 5-80 mL 微生物樣本製備的無菌、高透明度 LDPE 袋。 伽瑪射線滅菌，耐衝擊。 非常適合食品、製藥和環境測試。 無細菌高透明LDPE袋，適合5-80 mL微生物樣本製備。 γ滅菌，耐衝擊。",
+                "introSummary": "AchievePack® 實驗室攪拌袋提供用於微生物學樣品製備的無菌一次性袋子，容量為 5-80 mL。 由高透明度 75 μm LDPE 薄膜製成，經 10-25 kGy 伽馬射線照射。 非常適合需要無污染樣品均質的食品檢測、製藥品質控制、環境實驗室和研究機構。",
+                "gallery": [
+                    {
+                        "title": "AchievePack® 無菌實驗室攪拌袋 5-80 mL",
+                        "desc": "AchievePack® NoBacteriaLaboratory均質器袋 5-80 mL"
+                    },
+                    {
+                        "title": "Capacity & Size - 5-80 mL, 155 × 105 mm",
+                        "desc": "容量和尺寸 - 5-80 mL，155 × 105 mm"
+                    },
+                    {
+                        "title": "材料與厚度 - 75 μm LDPE 薄膜",
+                        "desc": "材質與厚度 - 75 μm LDPE 薄膜"
+                    },
+                    {
+                        "title": "Gamma Irradiated Sterility 10-25 kGy",
+                        "desc": "γ輻射滅菌10-25 kGy"
+                    },
+                    {
+                        "title": "抗衝擊性和強度",
+                        "desc": "耐衝擊強程度"
+                    },
+                    {
+                        "title": "微生物學樣品製備",
+                        "desc": "微生物樣品製備"
+                    },
+                    {
+                        "title": "視覺觀察清晰度高",
+                        "desc": "高透明度CanViewObserve"
+                    },
+                    {
+                        "title": "散裝包裝 - 1,000 袋/箱",
+                        "desc": "BatchVolumePackaging - Per Carton 1,000 Only"
+                    },
+                    {
+                        "title": "完整的技術規格",
+                        "desc": "技術規格齊全"
+                    },
+                    {
+                        "title": "AchievePack® 實驗室解決方案",
+                        "desc": "AchievePack®實驗室解決方案"
+                    }
+                ],
+                "clickToEnlarge": "點擊放大",
+                "secIntroTitle": "AchievePack® 實驗室攪拌機袋概述",
+                "secIntroBadgeText": "<strong>用於小體積樣品製備的無菌實驗室混合袋</strong> — AchievePack® 實驗室混合袋採用高透明度原生 LDPE 薄膜，經過伽馬射線滅菌。 非常適合食品檢測、製藥 QC 和環境實驗室中的 5-80 mL 微生物樣本。",
+                "secIntroBadgeTextCn": "小體面積樣品製備專業使用無細菌均質袋 — AchievePack® 實驗室均質袋採用高透明食品級原生LDPE薄膜，γ射線滅菌。適合食品檢測、藥品品質控制及環境實驗室的5-80 mL微生物樣本。",
+                "secIntroAltTitle": "用於微生物學的無菌實驗室攪拌袋",
+                "secIntroAltTitleCn": "微生物研究專業用途無細菌實驗室均質器袋",
+                "secIntroAltContent": "AchievePack® 實驗室攪拌袋專為專業微生物實驗室、食品檢測設施和製藥 QC 部門而設計。 這些無菌袋由高清晰度原生 LDPE 薄膜製成，為樣品製備和均質化提供可靠、無污染的環境。",
+                "secIntroAltContentCn": "AchievePack®實驗室均質袋專業為專業行業微生物實驗室、食品檢測機構和藥品品質控制部分設計。採用高透明度食品級原始LDPE薄膜製成，這些無細菌袋為樣品製備和均質化提供了可靠的無污染環境。",
+                "secCapacityTitle": "優化的小容量容量",
+                "secCapacityAltTitle": "5-80 mL 容量範圍",
+                "secCapacityAltTitleCn": "5-80 mL容量範圍",
+                "secCapacityAltContent": "這些袋子的容量範圍為 5-80 mL，標準尺寸為 155 mm × 105 mm (6\" × 4\")，尺寸非常適合微生物樣品製備、環境測試和品質控制應用。 緊湊的尺寸確保實驗室空間的有效利用，同時保持樣品的完整性。",
+                "secCapacityAltContentCn": "容量範圍 5-80 mL，標準尺寸 155 mm × 105 mm（6\" × 4\"），這些袋子非常適合微生物樣品製備、環境測試和品質控制應用。緊湊的尺寸確保實驗室空間的高效效益使用，同時保持樣品的完整性能。",
+                "secCapacityLabel1": "5-80毫升",
+                "secCapacitySub1": "容量 容量",
+                "secCapacityLabel2": "155×105毫米",
+                "secCapacitySub2": "尺寸 尺寸",
+                "secCapacityLabel3": "75微米",
+                "secCapacitySub3": "壁厚 壁厚",
+                "secCapacityLabel4": "1,000個/箱",
+                "secCapacitySub4": "包裝 包裝",
+                "secMaterialTitle": "高清晰度LDPE薄膜材料",
+                "secMaterialAltTitle": "增強 75 μm LDPE 薄膜",
+                "secMaterialAltTitleCn": "AddThick 75 μm LDPE Film",
+                "secMaterialAltContent": "我們的實驗室攪拌袋採用堅固的 75 μm（3 百萬）高透明度 LDPE 薄膜，具有加固的單寬底部密封且無側縫。 這種結構可確保在密集的槳式混合和消化操作過程中具有最大的強度和抗穿刺性，從而防止洩漏和樣品損失。",
+                "secMaterialAltContentCn": "我們實驗室的均質機袋採用Solid Solid的75 μm（3 mil）高透明度LDPE薄膜，具有預加強型單寬底密封，無側密封設計。這種結構保證在高強力拍打均質機和胃袋式操作過程中具有最大的強力度和穿刺力耐腐蝕性能，防止洩漏和樣品損失。",
+                "secSterilityTitle": "伽瑪射線滅菌",
+                "secSterilityAltTitle": "伽瑪射線照射確保無菌",
+                "secSterilityAltTitleCn": "γ射線滅菌，確保無細菌",
+                "secSterilityAltContent": "每個袋子都經過 10-25 kGy 的伽馬射線照射，以確保完全無菌。 這些袋子專為一次性應用而設計，消除了樣品之間交叉污染的風險，使其成為微生物學、製藥和食品安全檢測實驗室的理想選擇。",
+                "secSterilityAltContentCn": "每個單位的袋子都經過10-25 kGy的γ輻射滅菌，以確保完全沒有細菌。這些袋子設計為一次性使用，消除了完成樣本之間交叉污染的風險，非常適合微生物研究、製藥和食品安全檢測實驗室使用。",
+                "secSterilityCardTitle1": "伽瑪射線滅菌",
+                "secSterilityCardDesc1": "10-25 kGy 輻照",
+                "secSterilityCardDesc1Cn": "γ InjectLine 10-25 kGy 滅菌",
+                "secSterilityCardTitle2": "免洗設計",
+                "secSterilityCardDesc2": "消除交叉污染",
+                "secSterilityCardDesc2Cn": "一旦財產使用消除污染",
+                "secSterilityCardTitle3": "無污染",
+                "secSterilityCardDesc3": "確保使用前無菌",
+                "secSterilityCardDesc3Cn": "使用前無細菌保證",
+                "secStrengthTitle": "抗衝擊性和耐用性",
+                "secStrengthAltTitle": "Built to Withstand Intensive Blending",
+                "secStrengthAltTitleCn": "耐接收高強度拍擊均質器",
+                "secStrengthAltContent": "增強的壁強度和寬底密封設計使這些袋子能夠承受長時間的槳式混合而不會破裂或刺穿。 它們與領先的槳式攪拌機型號（例如槳式攪拌機型號 80/3500）相容，即使在劇烈攪拌下也能保持完整性，確保可靠的樣品均質。",
+                "secStrengthAltContentCn": "StrengthTypeBagWallStrongDegreeAndWideBottomSealDesignEnableTheseBagChildCanEnoughWithstandLongTimeBetweenOfSlapHomogenizerAndNotBreakSplitOrPierceHole。相容容量MainstreamSlapStyleHomogenizerDeviceTypeNumber（若槳式攪拌機型號） 80/3500），立即啟用在劇烈攪拌下也能保持完整的性能，確保能可靠的樣品均質化。",
+                "secAppsTitle": "微生物學應用",
+                "secAppsAltTitle": "微生物學樣品製備的理想選擇",
+                "secAppsAltTitleCn": "微生物樣本製備OfIdealChoose",
+                "secAppsAltContent": "這些袋子專為微生物學樣品製備、儲存和運輸而設計，廣泛應用於食品微生物學檢測、藥品品質控制、環境樣品處理和臨床實驗室應用。 无菌环境确保结果准确、无污染。",
+                "secAppsAltContentCn": "專業針對微生物樣本製備、儲存和運輸設計，這些袋子廣泛應用於食品微生物檢測、藥品品質控制、環境樣本處理和臨床實驗室應用。無細菌環境確保標準準確、無污染的結果。",
+                "secAppsCardTitle1": "食品檢測",
+                "secAppsCardDesc1": "食品檢測",
+                "secAppsCardTitle2": "製藥品質管制",
+                "secAppsCardDesc2": "製藥品質管制",
+                "secAppsCardTitle3": "環境的",
+                "secAppsCardDesc3": "環境測試",
+                "secAppsCardTitle4": "研究實驗室",
+                "secAppsCardDesc4": "研究實驗室",
+                "secClarityTitle": "視覺觀察清晰度高",
+                "secClarityAltTitle": "晶瑩剔透的薄膜，方便樣品觀察",
+                "secClarityAltTitleCn": "高透明膜方便觀察樣品",
+                "secClarityAltContent": "高清晰度 LDPE 薄膜使技術人員能夠輕鬆觀察整個製備過程中的樣品狀態、均質化進度以及任何顆粒物。 這種透明度提高了工作流程效率和品質控制，減少了不必要的打開袋子的需要。",
+                "secClarityAltContentCn": "高透明LDPE薄膜使技術人員工作人員能夠在整個單元的製備過程中在光線下鬆散地觀察樣品狀態、均質化程度和任何顆粒材料的品質。這種透明程度提高了高完成工作流程的效率和品質控制，減少了DoneNotMustNeedOpenBagChild的Require需求。",
+                "secPkgTitle": "散裝包裝和供應",
+                "secPkgAltTitle": "可重新密封的內包裝",
+                "secPkgAltTitleCn": "方便快速批量批量包裝",
+                "secPkgAltContent": "每箱 1,000 袋，內有小袋包裝，方便分配與保護。 可重新密封的內包裝有助於保持未使用的袋子的無菌性，並簡化繁忙實驗室環境中的庫存管理。",
+                "secPkgAltContentCn": "每箱僅 1,000 個，具有可密封內袋小包裝，方便分送和保護。可重型新密封的內包裝有輔助於維護不使用袋子的無細菌狀態，並簡化繁忙實驗室環境中的庫存管理。",
+                "secSpecsTitle": "技術規格",
+                "secSpecsAltTitle": "完整的技術規格",
+                "secSpecsAltTitleCn": "技術規格齊全",
+                "secSpecsAltContent": "材質： 聚乙烯 (LDPE) |厚度：75 微米（3 百萬）|容量：5-80 毫升 |尺寸：155×105毫米|無菌：伽瑪輻照 10-25 kGy |可高溫高壓滅菌： 否 |顏色：樣品透明用途：實驗室攪拌機製備|包裝：每袋 1000。",
+                "secSpecsAltContentCn": "材質：聚乙烯（LDPE）|厚度：75μm（3密爾）|容量：5-80 mL |尺寸：155 × 105 毫米 |滅菌方式：γ InjectLine 10-25 kGy |能否高壓滅菌：是否|顏色顏色：透明 |使用途徑：實驗室均質器設備樣品製備包裝：每袋小包裝。",
+                "secBrandTitle": "AchievePack® 實驗室解決方案",
+                "secBrandAltTitle": "AchievePack® 實驗室包裝解決方案",
+                "secBrandAltTitleCn": "AchievePack®實驗室包裝解決方案",
+                "secBrandAltContent": "值得信賴 AchievePack® 提供全面的實驗室包裝解決方案。 我們的無菌攪拌袋是在無塵室設施中按照嚴格的品質控制標準製造的。 我們為世界各地的微生物實驗室、品質控制部門和研究機構提供可靠、無污染的包裝。",
+                "secBrandAltContentCn": "Trust AchievePack®提供的FullFace實驗室包裝解決方案。我們的無細菌均質袋在無塵潔淨室中應用，並遵循嚴格的品質控制標準。我們為全球微生物實驗室、品質控制部門和研究機構提供可靠、無污染的包裝。",
+                "secBrandQaTitle": "AchievePack 品質保證 QualityGuarantee",
+                "secBrandQa1": "無塵室生產 無塵室生產",
+                "secBrandQa2": "伽瑪射線滅菌 γ 射線滅菌",
+                "secBrandQa3": "嚴格的品質控制StrictQuality Control",
+                "secCtaTitle": "索取樣品或報價",
+                "secCtaBoxTitle": "準備好訂購實驗室攪拌機袋了嗎？",
+                "secCtaBoxSubtitle": "標準準備訂單實驗室均質袋？ ？",
+                "secCtaBoxDesc": "請聯絡我們以取得樣品、定價或技術諮詢。 我們的團隊已準備好滿足您的實驗室需求。",
+                "secCtaBtnConsult": "預約諮詢",
+                "secCtaBtnQuote": "請求報價",
+                "faqs": [
+                    {
+                        "question": "實驗室攪拌機袋有什麼用途？",
+                        "answer": "實驗室攪拌袋是無菌的一次性袋子，專為微生物樣品製備、均質化、儲存和運輸而設計。 它們非常適合實驗室環境中的食品檢測、製藥品質控制和環境樣品處理。"
+                    },
+                    {
+                        "question": "這些攪拌袋的容量範圍是多少？",
+                        "answer": "AchievePack® 實驗室攪拌袋專為 5 至 80 mL 的小體積樣品而設計，典型尺寸為 155 mm × 105 mm (6\" × 4\")。"
+                    },
+                    {
+                        "question": "這些袋子是無菌的嗎？",
+                        "answer": "是的，所有 AchievePack® 實驗室攪拌袋均經過伽馬射線照射 (10-25 kGy)，以確保無菌。 它們是一次性袋子，可消除交叉污染風險。"
+                    },
+                    {
+                        "question": "這些袋子可以高壓滅菌嗎？",
+                        "answer": "不可以，這些攪拌袋不可高壓滅菌。 它們透過伽馬射線預先消毒，並且僅設計用於一次性應用。"
+                    },
+                    {
+                        "question": "袋子是用什麼材料做的？",
+                        "answer": "這些袋子由厚度為 75 微米（3 密爾）的高透明度食品級原生 LDPE（低密度聚乙烯）薄膜製成，為樣品觀察提供出色的透明度。"
+                    },
+                    {
+                        "question": "這些袋子與槳式攪拌機兼容嗎？",
+                        "answer": "是的，這些袋子專門設計用於與槳式攪拌機系統配合使用，例如槳式攪拌機型號 80/3500 和類似的胃式均質器。"
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "側向濾袋",
+                        "description": "帶側濾膜的無菌袋"
+                    },
+                    {
+                        "title": "線封袋",
+                        "description": "具有優質金屬絲密封的實驗室袋"
+                    },
+                    {
+                        "title": "公司證書",
+                        "description": "ISO 認證和品質標準"
+                    },
+                    {
+                        "title": "關於成就包",
+                        "description": "了解我們的公司和使命"
+                    },
+                    {
+                        "title": "工廠參觀",
+                        "description": "查看我們的無塵室製造工廠"
+                    },
+                    {
+                        "title": "自立袋",
+                        "description": "靈活的立式包裝解決方案"
+                    },
+                    {
+                        "title": "平袋",
+                        "description": "平底袋包裝"
+                    },
+                    {
+                        "title": "障礙選擇權",
+                        "description": "材料阻隔性能指南"
+                    },
+                    {
+                        "title": "數位印刷",
+                        "description": "客製化數位印刷服務"
+                    },
+                    {
+                        "title": "常見問題解答",
+                        "description": "常見問題"
+                    }
+                ]
+            },
+            "lateralFilter": {
+                "metaTitle": "側向過濾攪拌機袋 |無菌實驗室樣品製備|成就包",
+                "metaDescription": "AchievePack 橫向過濾混合袋採用側面安裝的不織布過濾膜，可實現即時、無顆粒的微生物樣品製備。 伽瑪滅菌，無塵室生產。 400mL 容量，用於食品、製藥和環境測試。",
+                "keywords": [
+                    "側向濾袋",
+                    "攪拌袋",
+                    "實驗室過濾袋",
+                    "無菌樣品袋",
+                    "微生物學樣品製備",
+                    "伽瑪射線滅菌袋",
+                    "無塵室生產",
+                    "食品檢測",
+                    "製藥品質管制",
+                    "環境測試",
+                    "均質袋",
+                    "400mL 攪拌袋"
+                ],
+                "heroTitle": "側向過濾攪拌袋",
+                "heroSubtitle": "無菌實驗室攪拌袋配有側邊不織布過濾器，可實現即時、無污染的樣品製備。 無塵室生產，伽瑪射線滅菌。 無細菌實驗室均質袋，側面無過濾膜設計，實現瞬時無污染樣品製備。無塵室生產，γ輻照滅菌。",
+                "introSummary": "AchievePack® BagFilter 系列提供優質無菌攪拌袋，側面有不織布過濾膜。 我们的 400mL 袋子在洁净室生产并经过伽马射线灭菌，可为食品、药品、化妆品和环境微生物学测试提供即时、无颗粒的样品制备。",
+                "gallery": [
+                    {
+                        "title": "AchievePack® 側向過濾攪拌機袋",
+                        "desc": "AchievePack® 側濾膜均質袋"
+                    },
+                    {
+                        "title": "品牌 KV - 無菌實驗室袋系列",
+                        "desc": "BrandMain KV - NoBacteriaLaboratoryHomogenizerBagSeries"
+                    },
+                    {
+                        "title": "Lateral Non-woven Filter Detail",
+                        "desc": "無側濾膜細節特寫"
+                    },
+                    {
+                        "title": "尺寸和規格資訊圖",
+                        "desc": "尺寸及規格說明"
+                    },
+                    {
+                        "title": "多層膜材質細節",
+                        "desc": "Multi-LayerCompoundSuitableFilmMaterialDetails"
+                    },
+                    {
+                        "title": "無菌包裝展示",
+                        "desc": "無細菌包裝展示"
+                    },
+                    {
+                        "title": "Lab Blender Compatibility",
+                        "desc": "實驗室均質器設備相容容量性能"
+                    },
+                    {
+                        "title": "無顆粒濾液傾注",
+                        "desc": "無顆粒濾液傾倒"
+                    },
+                    {
+                        "title": "多行業應用",
+                        "desc": "多線產業應用場景"
+                    },
+                    {
+                        "title": "Weld Structure & Brand Endorsement",
+                        "desc": "焊縫結構及品牌背書"
+                    },
+                    {
+                        "title": "400mL容量可視化",
+                        "desc": "400mL容量可查看"
+                    }
+                ],
+                "clickToEnlarge": "點擊放大",
+                "secIntroTitle": "AchievePack® 側向過濾攪拌機袋概述",
+                "secIntroBadgeText": "<strong>带有侧面无纺布过滤器的优质无菌搅拌袋</strong> — AchievePack® BagFilter 系列采用侧面安装的过滤膜，可实现即时、无颗粒的样品制备。 潔淨室生產並經過伽馬射線滅菌，用於污染敏感的微生物學測試。",
+                "secIntroBadgeTextCn": "優質無細菌側面過濾膜均質袋 — AchievePack® BagFilter系列採用側面無紡布過濾膜設計，實現瞬時無顆粒樣品製備。無塵室生產、γ射線滅菌，適合污染敏感的微生物檢測。",
+                "secIntroAltTitle": "AchievePack® 側向過濾攪拌機袋",
+                "secIntroAltTitleCn": "AchievePack® 側濾膜均質袋",
+                "secIntroAltContent": "我們的 400mL 側向過濾混合袋將側向無紡布過濾與伽瑪滅菌結合，可實現安全、高效的微生物學樣品製備。 與食品、製藥、化妝品和環境測試應用的所有主要實驗室攪拌機相容。",
+                "secIntroAltContentCn": "我們的400mL側濾膜均質器袋適合側面無紡布，透過過濾器和γ輻照滅菌，實現安全高效的微生物樣品製備。相容容量各大品牌實驗室均質器設備，適用於食品、藥品、化妝品及環境檢測。",
+                "secFilterTitle": "橫向不織布過濾技術",
+                "secFilterAltTitle": "側裝不織布過濾器：即時過濾",
+                "secFilterAltTitleCn": "SideNoFilter膜：InstantaneousThroughFilter",
+                "secFilterAltContent": "側邊不織布過濾膜的孔徑約為<250μm，無需額外的過濾設備即可進行即時過濾。 中間焊接結構可以輕鬆地從袋子開口傾倒無顆粒濾液，同時將固體殘留物保留在過濾器後面。",
+                "secFilterAltContentCn": "側邊無編織織物過濾膜通過過濾孔路徑約小在250μm，不需要額外的外部過濾裝置立即可以實現瞬時通過過濾。焊接結構方便從袋子打開輕鬆倒出無顆粒濾液，固體殘留物被過濾膜阻擋在一側。",
+                "secFilterCardTitle1": "側向過濾器",
+                "secFilterCardDesc1": "不織布膜≤250μm",
+                "secFilterCardDesc1Cn": "無側濾膜≤250μm",
+                "secFilterCardTitle2": "即時過濾",
+                "secFilterCardDesc2": "無需額外設備",
+                "secFilterCardDesc2Cn": "NoRequireExtraOutsideFilterDevice設備",
+                "secFilterCardTitle3": "無交叉污染",
+                "secFilterCardDesc3": "免洗無菌設計",
+                "secFilterCardDesc3Cn": "OncePropertyNoBacteriaDesign",
+                "secSpecsTitle": "規格和尺寸",
+                "secSpecsAltTitle": "400mL 標準容量：相容實驗室攪拌機",
+                "secSpecsAltTitleCn": "400mL標準容量：相容主流均質器設備",
+                "secSpecsAltContent": "標準 400mL 容量，典型尺寸為 190×300mm，壁厚約 72μm（~3 mil）。 最佳均質體積範圍為 50-300mL。 一次性設計確保樣品之間沒有交叉污染的風險。",
+                "secSpecsAltContentCn": "標準400mL容量，經典型尺寸約190×300mm，袋壁厚度約72μm（約3密爾）。最佳均質器主體面積範圍為50-300mL。一旦屬性使用設計確保樣品之間沒有交叉污染風險。",
+                "secSpecsLabel1": "400毫升",
+                "secSpecsSub1": "容量 容量",
+                "secSpecsLabel2": "190×300毫米",
+                "secSpecsSub2": "尺寸 尺寸",
+                "secSpecsLabel3": "〜72微米",
+                "secSpecsSub3": "壁厚 壁厚",
+                "secSpecsLabel4": "50–300 毫升",
+                "secSpecsSub4": "最佳體積MostBest均質器體積",
+                "secMaterialTitle": "多層膜和透明膠片",
+                "secMaterialAltTitle": "多層增強薄膜：透明剛性",
+                "secMaterialAltTitleCn": "多層添加固體化合物適當的薄膜：透明支架包括",
+                "secMaterialAltContent": "優質多層增強複合膜為樣品觀察提供出色的透明度，並具有易於操作的剛性。 透明的袋體可目視監控均質過程，同時在混合操作過程中保持結構完整性。",
+                "secMaterialAltContentCn": "高品質多層添加固體化合物適當的薄膜提供優異的透明度，方便在樣品觀察，同時維護支架包括EasyAt操作。透明的袋體允許可以查看監控均質機過程，同時在攪拌操作中維護結構完整的性能。",
+                "secSterilityTitle": "伽瑪滅菌及無塵室生產",
+                "secSterilityAltTitle": "無塵室生產+伽瑪滅菌",
+                "secSterilityAltTitleCn": "無塵室生產+γ射線滅菌",
+                "secSterilityAltContent": "所有 AchievePack BagFilter 產品均在受控無塵室環境中製造，並在包裝前經過伽馬射線滅菌。 這確保了使用前的無菌性，這對於污染敏感的微生物學實驗（包括預富集、PCR 和流式細胞儀應用）至關重要。",
+                "secSterilityAltContentCn": "所有包裝袋過濾產品均達到在接收受控無塵室環境下生產，包裝前經過γ輻照滅菌處理。確保使用前無細菌狀態，適用於預富集、PCR和流式細胞儀等污染敏感的微生物真實測試關閉重度需求。",
+                "secQaTitle": "✓ AchievePack 品質保證 QualityGuarantee",
+                "secQaCardTitle1": "無塵室生產",
+                "secQaCardDesc1": "無塵室生產環境",
+                "secQaCardTitle2": "伽瑪射線滅菌",
+                "secQaCardDesc2": "γ射線滅菌",
+                "secQaCardTitle3": "無菌認證",
+                "secQaCardDesc3": "無細菌認證",
+                "secBlenderTitle": "實驗室攪拌機相容性",
+                "secBlenderAltTitle": "與所有主要實驗室攪拌機相容",
+                "secBlenderAltTitleCn": "相容容量各大品牌實驗室均質器設備",
+                "secBlenderAltContent": "AchievePack 橫向過濾袋設計用於與所有主要實驗室攪拌機和胃過濾器設備無縫配合。 標準化的 400mL 容量和尺寸確保通用相容性，簡化實驗室設備配置和工作流程。",
+                "secBlenderAltContentCn": "實現Pack側濾袋設計可及所有主流實驗室均質器裝置及拍打樣式甚至與製漿機無接縫配合。標準化400mL容量及尺寸確保連接使用相容容量屬性，簡化實驗室設備與設定及工作流程。",
+                "secPourTitle": "Easy Pouring & Particle-free Filtrate",
+                "secPourAltTitle": "倒出澄清濾液，留下殘留物",
+                "secPourAltTitleCn": "倒出澄清過濾液體，殘留物留在袋子裡面",
+                "secPourAltContent": "獨特的中間焊接結構可以輕鬆地將無顆粒濾液直接從袋子開口倒入無菌管或容器中。 固體殘留物和乾擾顆粒被保留在側向過濾器後面，確保用於下游分析（包括 PCR 和流式細胞儀）的乾淨樣本。",
+                "secPourAltContentCn": "獨特的特殊InWeldSeam結構方便直接從袋子打開不會有顆粒過濾倒出進入沒有細菌的試管或容量裝置。固體殘留和乾擾顆粒在過濾塊旁邊，確保使用在PCR和流式細胞儀等SwimDivideAnalyze的樣本下清晰乾淨。",
+                "secAppsTitle": "多行業應用",
+                "secAppsAltTitle": "食品、製藥、化妝品和環境測試",
+                "secAppsAltTitleCn": "食品、藥品、化妝品及環境檢測",
+                "secAppsAltContent": "AchievePack 橫向過濾袋適用於食品、製藥、化妝品、環境和公共研究應用的微生物學樣本製備。 支援要求嚴苛的分析工作流程，包括預富集、小體積實驗 (≤1000μL)、PCR 和流式細胞儀。",
+                "secAppsAltContentCn": "實現Pack側濾袋適用於食品、藥品、化妝品、環境和公共研究機構的微生物樣品製備。支援高需求的分液分析過程，Pack包括預富集、小體面積真實測試（≤1000μL）、PCR和流式細胞儀。",
+                "secAppsCardTitle1": "食品檢測",
+                "secAppsCardDesc1": "食品檢測",
+                "secAppsCardTitle2": "製藥",
+                "secAppsCardDesc2": "PharmaceuticalLineIndustry",
+                "secAppsCardTitle3": "化妝品",
+                "secAppsCardDesc3": "化妝品",
+                "secAppsCardTitle4": "環境的",
+                "secAppsCardDesc4": "環境測試",
+                "secBrandTitle": "AchievePack：升級的實驗室解決方案",
+                "secBrandAltTitle": "AchievePack：您的高級實驗室樣品準備升級",
+                "secBrandAltTitleCn": "AchievePack：YouOfPremiumLaboratorySamplePreparationRiseGradeSolution",
+                "secBrandAltContent": "與沒有過濾的傳統普通樣品袋相比，AchievePack 橫向過濾袋可提高過濾效率、減少處理步驟並降低污染風險。 體驗我們無塵室生產、經過伽馬射線滅菌的優質攪拌袋的差異。",
+                "secBrandAltContentCn": "與傳統的無過濾膜樣品袋相比，實現包側過濾袋提供更高的通過過濾效率、更少的操作步驟、更低的污染風險。體測我們無塵室生產、γ輻照滅菌的優質均質袋與ComeOf差異。",
+                "secBrandAdvTitle": "AchievePack 優勢 AchievePack ExcellentTrend",
+                "secBrandAdv1": "透過 FilterEfficiencyImprove 提高過濾效率",
+                "secBrandAdv2": "較少的處理步驟 OperationStepsReduce",
+                "secBrandAdv3": "降低污染風險ContaminationRiskReduceLow",
+                "secTrustTitle": "品質認證與信任",
+                "secTrustCardTitle1": "ISO認證生產",
+                "secTrustCardDesc1": "ISO認證生產",
+                "secTrustCardText1": "製造設施遵守 ISO 品質標準，確保一致的產品品質和可追溯性。",
+                "secTrustCardTitle2": "無菌驗證",
+                "secTrustCardDesc2": "無細菌測試證明",
+                "secTrustCardText2": "Gamma sterilization process validated to ensure sterility assurance level (SAL) meeting laboratory requirements.",
+                "secTrustFooter": "Trusted by microbiology laboratories worldwide GlobalMicrobialLaboratoryTrusted Choice",
+                "secTrustTag1": "食品檢驗實驗室",
+                "secTrustTag2": "製藥品質管制",
+                "secTrustTag3": "研究所",
+                "secTrustTag4": "環保機構",
+                "secCtaTitle": "索取樣品或報價",
+                "secCtaBoxTitle": "準備好升級您的實驗室樣品製備了嗎？",
+                "secCtaBoxSubtitle": "標準準備好上升等級您的實驗室樣品準備？ ？",
+                "secCtaBoxDesc": "請聯絡我們以取得樣品、定價或技術諮詢。 我們的團隊已準備好滿足您的實驗室需求。",
+                "secCtaBtnConsult": "預約諮詢",
+                "secCtaBtnQuote": "請求報價",
+                "faqs": [
+                    {
+                        "question": "AchievePack橫向濾袋的過濾孔徑是多少？",
+                        "answer": "The lateral non-woven filter membrane has an approximate pore size of less than 250μm, providing effective filtration while allowing rapid liquid passage."
+                    },
+                    {
+                        "question": "AchievePack 攪拌袋是否無菌？",
+                        "answer": "是的，所有 AchievePack BagFilter 產品均經過伽馬射線滅菌並在無塵室環境中生產，以確保污染敏感應用的使用前無菌狀態。"
+                    },
+                    {
+                        "question": "AchievePack濾袋的標準容量是多少？",
+                        "answer": "我們的標準側向過濾攪拌機袋容量為 400mL，尺寸約為 190×300mm，與大多數實驗室攪拌機相容。"
+                    },
+                    {
+                        "question": "這些袋子可以用於 PCR 樣本製備嗎？",
+                        "answer": "是的，AchievePack 橫向過濾袋適用於 PCR、流式細胞儀、預富集以及其他需要無顆粒樣品製備的嚴苛分析工作流程。"
+                    },
+                    {
+                        "question": "哪些產業使用 AchievePack 攪拌袋？",
+                        "answer": "我們的袋子廣泛應用於全球食品檢測、藥品品質控制、化妝品、環境檢測和研究機構。"
+                    },
+                    {
+                        "question": "袋子是一次性的還是可重複使用的？",
+                        "answer": "AchievePack 橫向過濾袋設計為一次性使用，以消除樣品之間的交叉污染風險。 它們不適合高壓滅菌或重複使用。"
+                    },
+                    {
+                        "question": "袋子的壁厚是多少？",
+                        "answer": "多層增強薄膜的壁厚約為 72μm（約 3 密爾），在保持結構剛性的同時提供出色的觀察清晰度。"
+                    },
+                    {
+                        "question": "如何訂購樣品或取得定價？",
+                        "answer": "請透過電子郵件與我們聯絡：ryan@achievepack.com 或透過我們的網站預約諮詢。 我們為批量訂單提供用於評估和有競爭力的定價的樣品套件。"
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "家庭可堆肥材料",
+                        "description": "100% 無塑膠環保材質選擇"
+                    },
+                    {
+                        "title": "工業可堆肥選項",
+                        "description": "經過認證的可生物降解結構選項"
+                    },
+                    {
+                        "title": "公司證書",
+                        "description": "ISO 認證和品質標準"
+                    },
+                    {
+                        "title": "關於成就包",
+                        "description": "了解我們的公司和使命"
+                    },
+                    {
+                        "title": "工廠參觀",
+                        "description": "查看我們的無塵室製造工廠"
+                    },
+                    {
+                        "title": "自立袋",
+                        "description": "靈活的立式包裝解決方案"
+                    },
+                    {
+                        "title": "平袋",
+                        "description": "平底袋包裝"
+                    },
+                    {
+                        "title": "障礙選擇權",
+                        "description": "材料阻隔性能指南"
+                    },
+                    {
+                        "title": "數位印刷",
+                        "description": "客製化數位印刷服務"
+                    },
+                    {
+                        "title": "常見問題解答",
+                        "description": "常見問題"
+                    }
+                ]
+            },
+            "wireClosure": {
+                "metaTitle": "線封攪拌機袋 |防漏實驗室樣品袋|成就包",
+                "metaDescription": "AchievePack 線封混合袋採用整合式金屬線密封，可實現卓越的防漏樣品製備。 伽瑪滅菌，無塵室生產。 折疊·扭轉·鎖定以確保安全密封。 紮帶閉合均質袋，更好的防漏密封。",
+                "keywords": [
+                    "鐵絲封口袋",
+                    "攪拌袋",
+                    "實驗室樣品袋",
+                    "無菌攪拌袋",
+                    "防漏袋",
+                    "伽瑪射線滅菌袋",
+                    "無塵室生產",
+                    "食品檢測",
+                    "製藥品質管制",
+                    "微生物學樣品製備",
+                    "均質袋",
+                    "金屬線密封"
+                ],
+                "heroTitle": "線封攪拌機袋",
+                "heroSubtitle": "線封閉，實現卓越的密封。 無菌實驗室攪拌袋配有整合式金屬線，用於防洩漏樣品製備。 無塵室生產，伽瑪射線滅菌。 紮帶閉合，更好的防漏密封。無塵室生產，γ射線滅菌。",
+                "introSummary": "AchievePack® 線封混合袋採用整合式金屬線密封技術，可實現卓越的防漏樣品製備。 只需折疊並扭轉即可形成牢固的密封。 無塵室生產並經過伽馬射線滅菌，用於食品、製藥、化妝品和環境實驗室中污染敏感的微生物學測試。",
+                "gallery": [
+                    {
+                        "title": "AchievePack® 線封閉無菌攪拌袋",
+                        "desc": "AchievePack® 紮線帶封口無細菌均質器袋"
+                    },
+                    {
+                        "title": "電線閉合 - 卓越的密封技術",
+                        "desc": "紮帶閉合 - ExcellentSealedTechnology"
+                    },
+                    {
+                        "title": "填充·折疊·扭曲和密封工藝",
+                        "desc": "填充·折疊·收緊密封工藝"
+                    },
+                    {
+                        "title": "逐步密封說明",
+                        "desc": "DivideStepSealed操作說明"
+                    },
+                    {
+                        "title": "傳統紮帶與線閉合比較",
+                        "desc": "常規紮帶與紮帶閉合比例"
+                    },
+                    {
+                        "title": "防撕膜細節",
+                        "desc": "防撕裂膜詳情"
+                    },
+                    {
+                        "title": "伽瑪射線滅菌過程",
+                        "desc": "γ射線滅菌工藝"
+                    },
+                    {
+                        "title": "無塵室生產環境",
+                        "desc": "無塵室生產環境"
+                    },
+                    {
+                        "title": "電線閉合品牌摘要",
+                        "desc": "紮帶閉合品牌TotalKnot"
+                    }
+                ],
+                "clickToEnlarge": "點擊放大",
+                "secIntroTitle": "AchievePack® 線封閉攪拌機袋概述",
+                "secIntroBadgeText": "<strong>實現卓越密封的金屬絲封閉</strong> — AchievePack® 無菌攪拌袋採用集成金屬金屬絲封閉，可在均質之前、期間和之後實現安全、防漏密封。 潔淨室生產並經過伽馬射線滅菌，用於污染敏感的微生物學測試。",
+                "secIntroBadgeTextCn": "紮帶閉合，更好的防漏密封 — AchievePack® NoBacteria均質器袋採用一體式紮帶閉合設計，在均質器之前和運輸過程中提供堅固的防漏密封。無塵室生產、γ輻照滅菌，適合污染敏感的微生物測試。",
+                "secIntroAltTitle": "AchievePack® 線封閉無菌攪拌袋",
+                "secIntroAltTitleCn": "AchievePack® 紮線帶封口無細菌均質器袋",
+                "secIntroAltContent": "我們的金屬絲封閉混合袋將整合式金屬絲密封技術與伽瑪滅菌相結合，可實現安全、防漏的樣品製備。 線扣提供了傳統塑膠紮帶無法比擬的卓越密封性，確保樣品在整個處理和運輸過程中的完整性。",
+                "secIntroAltContentCn": "我們的紮帶閉合均質機袋結適合一體化鋼絲密封技術和γ輻照滅菌，實現安全防漏的樣品製備。紮帶閉合提供與常規塑膠紮帶無方法相比的優異密封效果，確保樣品在加工和運輸全過程中的完整性能。",
+                "secWireTitle": "線閉合技術：卓越的密封",
+                "secWireAltTitle": "增強線確保穩定的密封性能",
+                "secWireAltTitleCn": "加強型線材，提供維持長久穩定的密封性能",
+                "secWireAltContent": "整合的金屬線閉合裝置可以輕鬆抓握和彎曲，以實現安全密封。 加固鋼絲在扭曲後仍保持其形狀，提供持久、穩定的密封性能。 只需折疊並扭轉電線即可形成緊密、防漏的密封，從而保護您的樣品。",
+                "secWireAltContentCn": "一個體化的紮帶閉合設計，方便在握持和彎曲時，實現堅固的密封。加強型鋼絲在扭轉後保持形狀，提供保持長久穩定的密封性能。只需折疊和拉緊鋼絲，立即即可形成緊密的防漏密封，保護您的樣品。",
+                "secWireCardTitle1": "防漏",
+                "secWireCardDesc1": "緊密的扭轉密封可防止洩漏",
+                "secWireCardDesc1Cn": "擰緊密封，防止洩漏",
+                "secWireCardTitle2": "易於操作",
+                "secWireCardDesc2": "簡單的折疊和扭轉動作",
+                "secWireCardDesc2Cn": "簡單單折扭轉操作",
+                "secWireCardTitle3": "可重複的運動",
+                "secWireCardDesc3": "如果需要可以重新密封",
+                "secWireCardDesc3Cn": "可重複密封操作",
+                "secSealingTitle": "三步驟密封工藝：填充·折疊·扭轉",
+                "secSealingAltTitle1": "填充·折疊·扭轉並密封",
+                "secSealingAltTitle1Cn": "填充·折疊·收緊密封",
+                "secSealingAltContent1": "線材閉合密封過程簡單直覺。 步驟 1：將樣品裝入袋子中。 步驟 2：折疊袋子頂部的金屬絲封口。 步驟 3：將電線擰緊，形成牢固、防漏的密封。 整個過程只需幾秒鐘，不需要額外的工具或設備。",
+                "secSealingAltContent1Cn": "紮帶閉合密封流程SimpleSingleStraightView。 NumberOneStep：WillSampleFillEnterBagIn。 NumberTwoStep：FoldBagTopOf紮帶閉合。 NumberThreeStep：TightlyTwistWire，FormFormSturdyLeak-ProofSealed。整個單元過程僅需要秒數，不需要額外的外部工人工具或設備。",
+                "secSealingAltTitle2": "逐步密封說明",
+                "secSealingAltTitle2Cn": "DivideStepSealed操作說明",
+                "secSealingAltContent2": "我們詳細的視覺說明將引導您完成正確的電線閉合密封技術。 電線應纏繞多圈以確保密封嚴密。 適當的密封技術可防止樣本在均質、儲存和運輸過程中洩漏。",
+                "secSealingAltContent2Cn": "我们详细的图表说明点指导您正确的扎带闭合密封技术。電線應扭轉多圈以確保密封嚴密。正确的密封技术可以防止样品在均质器、储存和运输过程中泄漏。",
+                "secCompareTitle": "線閉合與傳統紮帶",
+                "secCompareAltTitle": "密封更牢固·風險更小",
+                "secCompareAltTitleCn": "密封性更強·洩漏風險更低",
+                "secCompareAltContent": "Compared to conventional plastic ties that can loosen over time, the wire closure provides a significantly stronger and more reliable seal. The metal wire maintains its shape and tension, ensuring consistent seal performance throughout sample processing, storage, and transport.",
+                "secCompareAltContentCn": "与可跟随时间松开的常规塑料扎带相比，扎带闭合提供显着的更坚固、更可靠的密封效果。線材保持其形狀和片材力，確保在樣品加工、儲存和運輸全過程中保持一個終極的密封性能。",
+                "secCompareCardTitle1": "常規塑膠紮帶",
+                "secCompareCardBullet1": "隨著時間的推移可能會鬆動",
+                "secCompareCardBullet2": "樣品洩漏的風險",
+                "secCompareCardBullet3": "密封品質不一致",
+                "secCompareCardDesc1Cn": "RegularPlasticCable Tie：CanCanLooseRelax、HaveLeakageRisk、SealedQualityVolumeNotOneUltimate",
+                "secCompareCardTitle2": "線閉合",
+                "secCompareCardBullet4": "保持形狀和張力",
+                "secCompareCardBullet5": "防漏密封",
+                "secCompareCardBullet6": "一致的性能",
+                "secCompareCardDesc2Cn": "Wire Tie Closure：MaintainShapeSheetPower、Leak-ProofSealed、PropertyCanStableOneUltimate",
+                "secFilmTitle": "抗撕裂多層膜",
+                "secFilmAltTitle": "適用於高要求應用的增強薄膜",
+                "secFilmAltTitleCn": "強化型薄膜，適合嚴苛應用",
+                "secFilmAltContent": "AchievePack® wire closure bags feature multilayer reinforced film construction that resists tearing and puncturing during homogenization. The transparent film provides excellent sample visibility while maintaining structural integrity under mechanical stress.",
+                "secFilmAltContentCn": "AchievePack®紮帶封口袋採用多層強化薄膜結構，在均質機過程中抵抗撕裂分裂和刺穿。透明薄膜提供出色的樣品可見光性能，同時在機器運轉時應保持結構完整的性能。",
+                "secFilmCard1": "多層",
+                "secFilmCardSub1": "強化結構多層強化結構",
+                "secFilmCard2": "抗撕裂",
+                "secFilmCardSub2": "高耐用性 HighResistantUseProperty",
+                "secFilmCard3": "透明的",
+                "secFilmCardSub3": "樣本可見性 SampleCanSee",
+                "secFilmCard4": "〜72微米",
+                "secFilmCardSub4": "壁厚 壁厚",
+                "secSterilityTitle": "伽瑪滅菌及無塵室生產",
+                "secSterilityAltTitle": "伽瑪射線滅菌",
+                "secSterilityAltTitleCn": "γ射線滅菌",
+                "secSterilityAltContent": "所有 AchievePack® 線封袋均經過伽馬射線滅菌，以確保使用前無菌。 此過程消除了細菌、孢子和其他微生物，使我們的袋子成為污染敏感的微生物測試應用的理想選擇。",
+                "secSterilityAltContentCn": "所有AchievePack®紮帶封口袋甚至經過γ輻照滅菌處理，確保使用前的無細菌狀態。此過程消除細小細菌、孢子和其他微生物，使我們的袋子形式成為污染敏感的微生物測試應用的理想選擇。",
+                "secCleanTitle": "無塵室生產環境",
+                "secCleanTitleCn": "無塵室生產環境",
+                "secCleanContent": "我們的金屬絲封閉袋是在受控的無塵室環境中製造的，以最大程度地減少生產過程中的顆粒和微生物污染。 這確保了要求嚴格的實驗室應用的一致的品質和可靠性。",
+                "secCleanContentCn": "OurWire Tie ClosureBagInReceiveControlled CleanroomEnvironmentInProduction，MostLargeLimitDegreeReduceProductionProcessInOfParticleAndMicrobialContamination。ThisEnsureDoneForRigorousLaboratoryApplicationOfOneUltimateQualityVolumeAndCanReliableProperty。",
+                "secTransportTitle": "運送過程中值得信賴的印章",
+                "secTransportH3": "全程可靠保護",
+                "secTransportP1": "The wire closure seal remains secure during sample transport, even when the bag is subjected to movement and vibration. Whether transporting samples within the lab or shipping to external testing facilities, the wire closure provides trusted leak protection.",
+                "secTransportP1Cn": "紮帶閉合件密封在樣品運輸過程中保持堅固，立即啟用袋子接收移動和振動影響。無理論是在實驗室內部運送樣本也是送到外部部分測試機構，紮帶閉合件均提供可可靠的防漏保護。",
+                "secTransportCard1": "運輸安全",
+                "secTransportCardSub1": "承受運動和振動",
+                "secTransportCardDesc1Cn": "抗移動和振動",
+                "secTransportCard2": "無洩漏",
+                "secTransportCardSub2": "保持密封完整性",
+                "secTransportCardDesc2Cn": "密封完整的財產維護",
+                "secTransportCard3": "樣品完整性",
+                "secTransportCardSub3": "全程保護",
+                "secTransportCardDesc3Cn": "全流程樣品齊全產權保護",
+                "secAppsTitle": "多行業應用",
+                "secAppsAltTitle": "值得全球各行業信賴",
+                "secAppsAltTitleCn": "全球多線產業值得信賴的選擇",
+                "secAppsAltContent": "AchievePack® 金屬絲封閉混合袋被全球食品安全、藥品品質控制、化妝品測試、環境監測和研究機構的實驗室和測試設施所使用。 我們的袋子符合 ISO、GLP 和 HACCP 協議的嚴格要求。",
+                "secAppsAltContentCn": "AchievePack®紮線封口均質袋在全球食品安全、藥品品質控制、化妝品檢測、環境監督測試和研究機構的實驗室和測試裝置中應用廣泛。我們的袋子符合ISO、GLP和HACCP合作討論的嚴格需求需求。",
+                "secAppsGrid": [
+                    {
+                        "title": "食品檢測",
+                        "titleCn": "食品檢測"
+                    },
+                    {
+                        "title": "製藥品質管制",
+                        "titleCn": "PharmaceuticalsQuality Control"
+                    },
+                    {
+                        "title": "化妝品",
+                        "titleCn": "化妝品"
+                    },
+                    {
+                        "title": "環境的",
+                        "titleCn": "環境測試"
+                    },
+                    {
+                        "title": "研究",
+                        "titleCn": "研究機構"
+                    }
+                ],
+                "secSizesTitle": "Available Sizes & Specifications",
+                "secSizesTh1": "尺寸 尺寸",
+                "secSizesTh2": "Dimensions DimensionsSpecification",
+                "secSizesTh3": "容量 容量",
+                "secSizesTh4": "最適合使用",
+                "secSizesRow1": [
+                    "6×9英寸",
+                    "152×229毫米",
+                    "〜200毫升",
+                    "Small samples SmallSample"
+                ],
+                "secSizesRow2": [
+                    "7.5×12英寸",
+                    "190×305毫米",
+                    "〜400毫升",
+                    "標準 標準"
+                ],
+                "secSizesRow3": [
+                    "10×15英寸",
+                    "254×381毫米",
+                    "〜1000毫升",
+                    "大樣本 LargeSample"
+                ],
+                "secSizesCustom": "<strong>Custom sizes available:</strong> Contact us for custom dimensions and specifications to meet your specific laboratory requirements.",
+                "secSizesCustomCn": "可提供自訂尺寸：連接系統我們取得自訂尺寸和規格，以滿足您的特定實驗室需求。",
+                "secCtaTitle": "Request Samples & Pricing",
+                "secCtaBoxTitle": "開始使用 AchievePack® 線閉合袋",
+                "secCtaBoxDesc": "體驗我們的線封攪拌袋的卓越密封性能。 索取樣品進行評估或獲得具有競爭力的批量訂單價格。",
+                "secCtaBoxDescCn": "身體測試我們紮帶閉合均質機袋的優秀密封性能可以。申請請樣品審查估計或取得大量訂單優秀折扣價格。",
+                "faqs": [
+                    {
+                        "question": "AchievePack 攪拌袋上的金屬絲封口是什麼？",
+                        "answer": "金屬線封口是袋子頂部的整合式金屬線，可以折疊和扭轉以形成安全、防漏的密封。 與傳統的塑膠紮帶相比，它提供了卓越的密封性。"
+                    },
+                    {
+                        "question": "如何使用金屬絲封口密封袋子？",
+                        "answer": "只需將袋子開口處的金屬絲折起來，然後緊緊地扭幾圈即可。 電線在扭曲後保持其形狀，形成耐用、防漏的密封。"
+                    },
+                    {
+                        "question": "鐵絲封口袋是否無菌？",
+                        "answer": "是的，所有 AchievePack 線封袋均經過伽馬射線滅菌並在無塵室環境中生產，以確保使用前的無菌狀態。"
+                    },
+                    {
+                        "question": "有哪些尺寸可供選擇？",
+                        "answer": "我們提供三種標準尺寸：6×9 英吋（~200mL）、7.5×12 英吋（~400mL 標準）和 10×15 英吋（~1000mL）。 也可根據要求提供客製尺寸。"
+                    },
+                    {
+                        "question": "Can the wire closure be resealed?",
+                        "answer": "是的，如果您需要取得樣品並重新密封袋子，可以鬆開並重新擰緊金屬絲封口。 然而，為了獲得最佳無菌效果，我們建議一次性操作。"
+                    },
+                    {
+                        "question": "均質製程中線材閉合是否安全？",
+                        "answer": "是的，線封設計為位於袋子頂部，遠離均質區。 它不會幹擾混合過程。"
+                    },
+                    {
+                        "question": "哪些行業使用線封攪拌袋？",
+                        "answer": "我們的袋子用於世界各地的食品檢測、藥品品質控制、化妝品、環境檢測和研究機構的微生物學樣品製備。"
+                    },
+                    {
+                        "question": "如何訂購樣品或取得定價？",
+                        "answer": "請透過電子郵件與我們聯絡：ryan@achievepack.com 或透過我們的網站預約諮詢。 我們為批量訂單提供用於評估和有競爭力的定價的樣品套件。"
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "側向濾袋",
+                        "description": "帶側濾膜的無菌袋"
+                    },
+                    {
+                        "title": "家庭可堆肥材料",
+                        "description": "100% 無塑膠環保材質選擇"
+                    },
+                    {
+                        "title": "工業可堆肥選項",
+                        "description": "經過認證的可生物降解結構選項"
+                    },
+                    {
+                        "title": "公司證書",
+                        "description": "ISO 認證和品質標準"
+                    },
+                    {
+                        "title": "關於成就包",
+                        "description": "了解我們的公司和使命"
+                    },
+                    {
+                        "title": "工廠參觀",
+                        "description": "查看我們的無塵室製造工廠"
+                    },
+                    {
+                        "title": "自立袋",
+                        "description": "靈活的立式包裝解決方案"
+                    },
+                    {
+                        "title": "障礙選擇權",
+                        "description": "材料阻隔性能指南"
+                    },
+                    {
+                        "title": "數位印刷",
+                        "description": "客製化數位印刷服務"
+                    },
+                    {
+                        "title": "常見問題解答",
+                        "description": "常見問題"
+                    }
+                ]
             }
         },
         "compostableStandUpPouches": {
