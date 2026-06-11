@@ -603,6 +603,15 @@ const PouchSaucesPage = lazyWithRetry(() => import('./pages/pouch/industry/Pouch
 const PouchPlasticFreeKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchPlasticFreeKraftPage'))
 const PouchCombustionSafetyTestPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCombustionSafetyTestPage'))
 
+// Legacy Pouch SEO Pages
+const DrinkLiquidPouchPage = lazyWithRetry(() => import('./pages/pouch/legacy/DrinkLiquidPouchPage'))
+const LowMOQStandUpPouchPage = lazyWithRetry(() => import('./pages/pouch/legacy/LowMOQStandUpPouchPage'))
+const BioBasedSpoutPouchesPage = lazyWithRetry(() => import('./pages/pouch/legacy/BioBasedSpoutPouchesPage'))
+const TrappingKeylinePage = lazyWithRetry(() => import('./pages/pouch/legacy/TrappingKeylinePage'))
+const RefillPouchesPage = lazyWithRetry(() => import('./pages/pouch/legacy/RefillPouchesPage'))
+const KSealHeavyContentPage = lazyWithRetry(() => import('./pages/pouch/legacy/KSealHeavyContentPage'))
+const TechnicalDataSheetCategoryPage = lazyWithRetry(() => import('./pages/pouch/legacy/TechnicalDataSheetCategoryPage'))
+
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const EcoFriendlyFoodPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/EcoFriendlyFoodPackagingGuide'))
 const DTCSustainablePackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/DTCSustainablePackagingGuide'))
@@ -864,6 +873,16 @@ if (getDomain() === 'pouch') {
                   <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
                   <Route path="/products/custom-compostable-labels" element={<CustomCompostableLabelsPage />} />
                   <Route path="/products/compostable-side-gusset-bags" element={<CompostableSideGussetPage />} />
+                  
+                  {/* Legacy pouch.eco routes recovery */}
+                  <Route path="/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc" element={<DrinkLiquidPouchPage />} />
+                  <Route path="/digital-print-conventional-zipper-stand-up-pouch-bag-with-moq-start-from-100pcs" element={<LowMOQStandUpPouchPage />} />
+                  <Route path="/eco-friendly-packaging-revolution-introducing-bio-based-spout-pouches-for-liquid" element={<BioBasedSpoutPouchesPage />} />
+                  <Route path="/understand-trapping-why-we-need-to-add-a-keyline" element={<TrappingKeylinePage />} />
+                  <Route path="/sustainable-packaging-revolution-glass-bottles-paired-with-compostable-refill-pouches-for-an-eco-friendly-lifestyle" element={<RefillPouchesPage />} />
+                  <Route path="/the-way-to-use-k-seal-bag-packing-heavy-content" element={<KSealHeavyContentPage />} />
+                  <Route path="/category/packaging-technical-data-sheet" element={<TechnicalDataSheetCategoryPage />} />
+                  
                   <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
                   <Route path="/quotes/flat-bottom" element={<FlatBottomQuotePage />} />
                   <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />

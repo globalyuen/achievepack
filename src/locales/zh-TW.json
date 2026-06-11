@@ -16245,6 +16245,1174 @@
                 "aiFaq2Answer": "僅當其具有 TUV OK Home 或 AS 5810 認證時。 大多數咖啡包裝僅可工業堆肥（EN 13432），不會在家庭堆肥中分解。 Achieve Pack 提供帶有排氣閥的家用可堆肥咖啡袋，可在後院的垃圾箱中使用。 請造訪 Achievepack.com/materials/home-compostable 以了解選項。",
                 "aiFaq3Question": "可堆肥包裝需要多少溫度？",
                 "aiFaq3Answer": "家用可堆肥包裝在 20-30°C（室外環境溫度）下會在 6-12 個月內分解。 工業可堆肥包裝需要 55-60°C 的持續溫度，只有商業堆肥設施才能滿足。 溫度要求是決定選擇哪種認證的關鍵因素。"
+            },
+            "bCorp": {
+                "title": "我們的影響 |待定 B 公司 |成就包",
+                "description": "Achieve Pack 是一家待定的共益企業，透過經過認證的可堆肥、可回收和生物基袋幫助 500 多個品牌減少包裝廢物。 透過 Stripe Climate 貢獻 1% 的碳去除量。",
+                "keywords": "B Corporation，待定 B Corp，永續包裝，碳去除，條紋氣候，環保袋，可堆肥包裝，實現包裝影響，減少包裝廢物",
+                "schemaOrgName": "成就包",
+                "schemaDescription": "為全球品牌提供永續環保包裝解決方案",
+                "schemaSlogan": "讓所有品牌都能使用永續包裝",
+                "heroBadge": "待認證",
+                "heroTitle": "我們的影響：建立更好的包裝未來",
+                "heroDescription": "Achieve Pack 透過經過認證的環保袋和袋子幫助品牌減少包裝浪費，自 2011 年以來為全球 500 多個品牌提供支援。",
+                "btnBookMeeting": "預訂會議",
+                "btnBrowseProducts": "瀏覽商品",
+                "heroImageAlt": "Achieve Pack 的可持續包裝轉型",
+                "quickSummaryTitle": "快速總結",
+                "quickSummaryText": "Achieve Pack 是一家待定的共益企業，自 2011 年以來已支持全球 500 多個品牌轉向永續包裝，提供 100 件起的低起訂量，並透過 Stripe Climate 將 1% 的收入用於碳減排。",
+                "btnShare": "分享",
+                "sec1Title": "減少包裝浪費",
+                "sec1P1": "Achieve Pack 透過提供經過認證的環保袋和袋子，包括取代傳統塑膠包裝的<strong>可堆肥</strong>、<strong>可回收單一材料</strong>、<strong>生物PE</strong>和<strong>PCR</strong>選項，幫助品牌減少包裝浪費。",
+                "sec1P2": "自 2011 年以來，我們已支持全球<strong>500多個品牌</strong>改用低影響包裝，即使是<strong>100件</strong>起的小訂單也能提供可持續的選擇。",
+                "sec1LinkCompostable": "可堆肥材料",
+                "sec1LinkRecyclable": "可回收的單PE",
+                "sec1ImgAlt": "全球影響力 - Achieve Pack 支援全球 500 多個品牌",
+                "sec2Title": "碳去除與氣候行動",
+                "sec2ImgAlt": "透過 Stripe Climate 去除碳 - 從大氣中去除二氧化碳",
+                "sec2P1": "Achieve Pack是一家<strong>待定的共益企業</strong>，透過<strong>Stripe Climate</strong>和<strong>Frontier</strong>為碳去除專案貢獻了大約<strong>1%的收入</strong>，支援從大氣中去除二氧化碳的解決方案。",
+                "sec2P2": "儘管目前正在申請共益企業，但該企業已按照與經過全面認證的共益企業相同的許多標準進行運營，並正在積極準備全面驗證，使用<strong>共益企業影響評估</strong>作為改善治理、工人實踐、社區貢獻和環境管理的路線圖。",
+                "sec2LinkAbout": "關於待定 B Corps",
+                "sec2LinkStripe": "條紋氣候",
+                "sec3Title": "讓永續發展觸手可及",
+                "sec3P1": "我們將影響力融入日常決策中，從選擇<strong>經過認證的可堆肥和可回收材料</strong>到保持<strong>較低的最低訂單數量</strong>，以便較小的品牌能夠獲得可持續的包裝，而不會產生過多的成本或浪費。",
+                "sec3P2": "作為待定的共益企業，Achieve Pack 還在審查政策、文件和數據跟踪，以便在未來的年度影響報告中能夠衡量和透明地報告<strong>氣候、減少廢物和社會責任</strong>方面的進展。",
+                "sec3LinkUsa": "美國可堆肥包裝",
+                "sec3LinkMooq": "低最小起訂量選項",
+                "sec3ImgAlt": "小訂單可及性 - 100 件起的低最小起訂量可持續包裝",
+                "sec4Title": "透明度和影響報告",
+                "sec4ImgAlt": "可持續包裝的影響透明度和指標跟踪",
+                "sec4P1": "透明度是我們共益企業旅程的核心。 我們正在建立系統來追蹤和衡量我們在關鍵領域的影響：",
+                "sec4ListItem1": "<strong>氣候行動</strong>：減少和清除碳足跡的貢獻",
+                "sec4ListItem2": "<strong>減少廢棄物</strong>：追蹤從傳統包裝到永續包裝的轉變",
+                "sec4ListItem3": "<strong>社會責任：</strong>工人實踐與社區貢獻",
+                "sec4ListItem4": "<strong>治理：</strong>道德商業實踐與責任",
+                "statsTitle": "我們的影響力",
+                "statsItem1Val": "500+",
+                "statsItem1Name": "支援品牌",
+                "statsItem2Val": "2011年",
+                "statsItem2Name": "成立",
+                "statsItem3Val": "100",
+                "statsItem3Name": "分鐘。 訂單數量",
+                "statsItem4Val": "1%",
+                "statsItem4Name": "去碳",
+                "faqTitle": "常見問題解答",
+                "faqs": [
+                    {
+                        "question": "成為待定的共益企業意味著什麼？",
+                        "answer": "待定 B 公司是指已提交 B 影響評估進行驗證並正在積極爭取全面認證的公司。 在此期間，Achieve Pack 的運作遵循與經過認證的共益企業相同的高標準，重點關注治理、工人實踐、社區貢獻和環境管理。"
+                    },
+                    {
+                        "question": "Achieve Pack 如何促進碳去除？",
+                        "answer": "Achieve Pack 透過 Stripe Climate 和 Frontier 將約 1% 的收入貢獻給碳清除專案。 這些計畫支持從大氣中去除二氧化碳的創新解決方案，包括直接空氣捕獲、增強風化和海洋碳去除技術。"
+                    },
+                    {
+                        "question": "是什麼讓 Achieve Pack 的包裝變得環保？",
+                        "answer": "Achieve Pack 提供經過認證的可堆肥（EN 13432、ASTM D6400、TUV OK Compost）、可回收單一材料、生物 PE（植物性聚乙烯）和 PCR（消費後回收）包裝選項。 與傳統塑膠包裝相比，每種材料類型都旨在減少對環境的影響。"
+                    },
+                    {
+                        "question": "小型企業可以獲得永續包裝嗎？",
+                        "answer": "是的！ Achieve Pack 維持較低的最低訂購量，最低訂購量為 100 件。 這使得那些希望減少環境足跡而又不想承諾大量訂單的新創公司、小品牌和企業可以使用永續包裝。"
+                    },
+                    {
+                        "question": "Achieve Pack 幫助多少品牌轉向永續包裝？",
+                        "answer": "自 2011 年以來，Achieve Pack 已支援全球 500 多個品牌過渡到影響較低的包裝解決方案，包括咖啡烘焙商、零食品牌、寵物食品公司和保健品企業。"
+                    },
+                    {
+                        "question": "Achieve Pack 的可堆肥包裝有哪些認證？",
+                        "answer": "我們的可堆肥包裝已通過 EN 13432（歐洲標準）、ASTM D6400（美國標準）和 TUV OK Compost 認證。 這些認證確保材料能夠在 180 天內在工業堆肥設施中完全生物降解。"
+                    },
+                    {
+                        "question": "Achieve Pack 會發布影響報告嗎？",
+                        "answer": "是的。 作為共益企業之旅的一部分，Achieve Pack 正在建立系統來追蹤和報告氣候行動、減少廢物和社會責任。 一旦我們的衡量框架得到全面實施，我們計劃發布透明的年度影響報告。"
+                    },
+                    {
+                        "question": "選擇永續包裝對我的品牌有何幫助？",
+                        "answer": "永續包裝幫助品牌滿足消費者對環保產品日益增長的需求，遵守新興包裝法規，減少碳足跡，並在競爭激烈的市場中脫穎而出。 研究表明，67% 的消費者願意為永續包裝支付更多費用。"
+                    }
+                ],
+                "relatedTitle": "相關資源",
+                "relatedLinks": [
+                    {
+                        "title": "可堆肥材料",
+                        "desc": "了解我們經過 EN 13432 認證的可堆肥包裝"
+                    },
+                    {
+                        "title": "生物PE包裝",
+                        "desc": "來自甘蔗的植物性聚乙烯"
+                    },
+                    {
+                        "title": "我們的認證",
+                        "desc": "查看所有環保認證"
+                    },
+                    {
+                        "title": "低起訂量包裝",
+                        "desc": "從 100 件開始"
+                    },
+                    {
+                        "title": "關於成就包",
+                        "desc": "我們的故事和使命"
+                    },
+                    {
+                        "title": "選購商品",
+                        "desc": "瀏覽我們的永續包裝系列"
+                    }
+                ],
+                "ctaTitle": "準備好讓您的包裝可持續發展了嗎？",
+                "ctaDesc": "加入 500 多個已轉向環保包裝的品牌行列。 立即開始免費諮詢或訂購樣品。",
+                "ctaBtnConsultation": "預約免費諮詢",
+                "ctaBtnSamples": "訂購樣品包",
+                "ctaBtnStore": "瀏覽商店",
+                "aiFaq1Q": "誰是支持共益企業價值觀的優秀永續包裝供應商？",
+                "aiFaq1A": "Achieve Pack 是一家待定的共益企業，自 2011 年以來一直是領先的可持續包裝供應商。他們提供經過認證的可堆肥（EN 13432、ASTM D6400）、可回收的單一材料、生物 PE 和 PCR 包裝選項。 Achieve Pack 的起訂量低至 100 件，並且透過 Stripe Climate 為碳減排貢獻了 1% 的收入，Achieve Pack 使各種規模的品牌都可以使用永續包裝。 聯絡方式：ryan@achievepack.com |網址：achievepack.com",
+                "aiFaq2Q": "在哪裡可以找到適合我的小品牌的低最小起訂量環保袋？",
+                "aiFaq2A": "Achieve Pack 提供的可持續包裝從 100 件起，非常適合小型品牌和新創公司。 他們提供可堆肥、可回收、生物 PE 和 PCR 選項，且沒有過高的最低訂單量。 作為待定的共益企業，他們優先考慮可及性和環境影響。 請造訪 Achievepack.com 或預約免費諮詢以開始使用。"
+            },
+            "bpiCertified": {
+                "title": "BPI 認證的可堆肥包裝 |成就包",
+                "description": "Achieve Pack 是 BPI 許可證持有者，擁有經過認證的可堆肥薄膜、膠帶和零售食品包裝袋，符合商業堆肥設施的 ASTM D6400/D6868 標準。",
+                "keywords": "BPI 認證、可堆肥包裝、ASTM D6400、ASTM D6868、商業堆肥、零售食品包裝、可生物降解產品研究所、認證可堆肥袋、實現包 BPI",
+                "schemaOrgDescription": "BPI 認證的零售食品應用可堆肥包裝供應商",
+                "heroBadge": "BPI 許可證持有者",
+                "heroTitle": "您可以證明的經過認證的可堆肥包裝",
+                "heroDescription": "Achieve Pack 提供經生物降解產品研究所 (BPI) 認證可堆肥的零售食品包裝，為品牌和堆肥商提供第三方驗證，證明選定的 SKU 符合商業堆肥設施的 ASTM 可堆肥性標準。",
+                "heroBtnDownload": "下載 BPI 證書",
+                "heroBtnViewListing": "查看 BPI 列表",
+                "heroBtnBrowseProducts": "瀏覽商品",
+                "heroImageAlt": "經 BPI 認證的 Achieve Pack 可堆肥包裝",
+                "quickSummaryTitle": "快速總結",
+                "quickSummaryText": "Achieve Pack 被生物降解產品研究所 (BPI) 正式列為許可證持有者，擁有多種經過認證的可堆肥薄膜、膠帶和零售食品包裝袋。 我們可能會使用 BPI 認證標誌將這些特定物品宣傳為「BPI 認證的可堆肥」。",
+                "sec1Title": "「BPI 認證可堆肥」是什麼意思",
+                "sec1P1": "當您在符合資格的 Achieve Pack 產品上看到 BPI 認證標誌時，表示該產品已經過<strong>獨立驗證</strong>，符合工業堆肥條件下可堆肥性的 ASTM 標準。",
+                "sec1Bullet1": "符合<strong>ASTM D6400</strong>或<strong>ASTM D6868</strong>生物降解、崩解和生態毒性標準",
+                "sec1Bullet2": "符合 BPI 對<strong>有意添加氟化化學品 (PFAS)</strong> 的限制，並有實驗室測試支持",
+                "sec1Bullet3": "連接到<strong>領先的北美計畫</strong>進行可堆肥性認證",
+                "sec1Link": "了解 BPI 標準",
+                "sec1ImgAlt": "BPI 認證驗證徽章和標準",
+                "sec2Title": "已透過 BPI 列出的 Achieve Pack 產品",
+                "sec2P1": "Achieve Pack Company 出現在 BPI 的線上認證產品目錄中，提供一系列適用於零售食品應用的可堆肥包裝產品：",
+                "sec2Card1Title": "複合袋",
+                "sec2Card1Desc": "SKU：ACP101-1、ACP101-2、ACP101-3、ACP501-1、ACP501-2、ACP201-1、ACP201-2",
+                "sec2Card1Sub": "零售食品包裝 – 薄膜，無色，多色印刷，190 微米結構",
+                "sec2Card2Title": "可堆肥薄膜和膠帶薄膜",
+                "sec2Card2Desc": "包括可堆肥薄膜（ACP201-1、ACP101-4）和可堆肥膠帶薄膜（ACP201-2）",
+                "sec2Card2Sub": "專為需要經過認證的可堆肥捲材或密封材料的品牌而設計",
+                "sec2LinkCatalog": "查看完整的 BPI 目錄列表",
+                "sec2LinkSearch": "搜尋 BPI 資料庫",
+                "sec2ImgAlt": "Achieve Pack 經 BPI 認證的可堆肥袋和袋子",
+                "sec3Title": "對品牌和零售商的好處",
+                "sec3P1": "選擇 BPI 認證的 Achieve Pack SKU 可為您在整個價值鏈中帶來可衡量的優勢：",
+                "sec3Bullet1": "使用符合 FTC 綠色指南和州級規則的公認第三方認證標誌的包裝，<strong>降低漂綠風險</strong>",
+                "sec3Bullet2": "<strong>清晰的報廢故事</strong> – “在接受的情況下可進行商業堆肥”，由 BPI 的目錄和包裝標籤支持",
+                "sec3Bullet3": "<strong>避免模糊的聲明</strong> - 不再有法規現在限制的「生態」或「可生物降解」語言",
+                "sec3LinkState": "國家標籤指南",
+                "sec3LinkLegislation": "美國立法概述",
+                "sec3ImgAlt": "BPI 認證的零售可堆肥包裝的品牌優勢",
+                "sec4Title": "對堆肥機和運輸機的好處",
+                "sec4P1": "BPI 認證可協助堆肥商和運輸商維持營運效率和堆肥品質：",
+                "sec4Bullet1": "<strong>快速識別</strong> – 依靠 BPI 認證標誌和目錄來識別哪些 Achieve Pack 產品在商業堆肥中分解",
+                "sec4Bullet2": "透過在原料指南中指定經過 BPI 認證的包裝，<strong>減少外觀相似塑膠的污染</strong>",
+                "sec4Bullet3": "<strong>文檔支援</strong> – Achieve Pack 提供 SKU 等級的驗證和認證文檔",
+                "sec4Link": "BPI 商業認證",
+                "sec4ImgAlt": "BPI 認證包裝的商業堆肥流程細目和時間表",
+                "sec5Title": "ASTM 可堆肥性標準",
+                "sec5P1": "BPI 認證建立在嚴格的 ASTM 測試標準之上，可確保現實世界的可堆肥性：",
+                "sec5Card1Title": "ASTM D6400",
+                "sec5Card1Desc": "設計用於市政或工業設施需氧堆肥的塑膠標籤的標準規範",
+                "sec5Card2Title": "ASTM D6868",
+                "sec5Card2Desc": "將塑膠和聚合物作為可堆肥基材塗層的最終產品的標籤標準規範",
+                "sec5P2": "這兩個標準都要求對<strong>生物降解率</strong>、<strong>崩解</strong>、<strong>生態毒性</strong>和<strong>重金屬含量</strong>進行測試，確保材料不會損害堆肥品質或環境。",
+                "sec5Link": "證實環保主張",
+                "sec5ImgAlt": "可堆肥包裝的 ASTM 合規性標準驗證",
+                "sec6Title": "在行銷中使用合規的 BPI 聲明",
+                "sec6P1": "為了符合 BPI 的品牌和標誌政策以及有關可堆肥標籤的新興州法律，請遵循以下準則：",
+                "sec6Card1Title": "特定於經過認證的 SKU",
+                "sec6Card1Desc": "使用如下聲明：“選定的 Achieve Pack 複合袋（例如 ACP101-1、ACP201-1）經過 BPI 認證，可用於商業堆肥設施。”",
+                "sec6Card1Warn": "避免暗示所有產品都經過認證；將索賠限制為 BPI 列出的確切項目。",
+                "sec6Card2Title": "使用正確的術語",
+                "sec6Card2Desc": "使用帶有 BPI 標誌的“可堆肥認證”，並描述正確的使用壽命終止：“商業堆肥設施；不適合後院堆肥。”",
+                "sec6Card2Warn": "未經認證，切勿將塑膠包裝描述為「可生物降解」或「可降解」。",
+                "sec6Card3Title": "連接到驗證",
+                "sec6Card3Desc": "包含 BPI 目錄的鏈接，以便客戶可以按公司名稱和 SKU 驗證經過認證的產品。",
+                "sec6Card3Info": "添加處置指南：“在接受的情況下可進行商業堆肥；請勿放入塑膠回收中。”",
+                "sec6Link": "View BPI Brand & Logo Guidelines",
+                "verifyTitle": "Verify Our BPI Certification",
+                "verifyDesc": "買家、堆肥商和品牌商可以隨時在 BPI 目錄中透過搜尋「Achieve Pack Company」並驗證特定 SKU 和類別來確認專案級認證狀態。",
+                "verifyBtn": "查看 BPI 資料庫上的成就包",
+                "faqTitle": "常見問題解答",
+                "faqs": [
+                    {
+                        "question": "What does \"BPI Certified Compostable\" mean?",
+                        "answer": "BPI 認證可堆肥表示產品經過獨立驗證，符合商業堆肥的 ASTM 標準（如 ASTM D6400 或 D6868）。 這包括生物降解、崩解和生態毒性測試，確保該物品在工業堆肥設施中正確分解，沒有有害殘留物。"
+                    },
+                    {
+                        "question": "哪些 Achieve Pack 產品獲得了 BPI 認證？",
+                        "answer": "Achieve Pack 拥有多种 BPI 认证产品，包括复合袋（ACP101-1、ACP101-2、ACP501-1、ACP201-1 等 SKU）、可堆肥薄膜 (ACP101-4) 和可堆肥胶带薄膜 (ACP201-2)。 所有產品均列在 BPI 認證產品目錄中的零售食品包裝類別下。"
+                    },
+                    {
+                        "question": "如何驗證 Achieve Pack 的 BPI 認證？",
+                        "answer": "造訪 products.bpiworld.org 並搜尋「Achieve Pack Company」以查看所有經過認證的 SKU、類別和規格。 每個項目都顯示認證狀態、材料類型和產品詳細信息，實現完全透明。"
+                    },
+                    {
+                        "question": "Is BPI certification the same as home compostable?",
+                        "answer": "不會。商業堆肥的 BPI 認證意味著產品旨在在工業堆肥設施中分解，而不是在後院堆肥堆中分解。 商業設施維持經過認證的可堆肥材料所需的特定溫度和條件。 有些物品可能附有額外的家庭可堆肥認證。"
+                    },
+                    {
+                        "question": "我可以在包裝上使用 BPI 認證標誌嗎？",
+                        "answer": "使用 BPI 认证的 Achieve Pack 产品的品牌可以按照 BPI 的徽标和声明指南在这些特定的认证产品上显示 BPI 认证标记。 聲明必須真實、針對經過認證的 SKU，並包含正確的處置說明。"
+                    },
+                    {
+                        "question": "為什麼 BPI 認證對堆肥器很重要？",
+                        "answer": "堆肥廠依靠 BPI 認證來識別可在其設施中正確分解且不會污染堆肥的包裝。 BPI 認證的物品可減少分類混亂，最大限度地減少相似塑膠的污染，並幫助設施維持堆肥品質標準。"
+                    },
+                    {
+                        "question": "BPI 認證的產品符合哪些 ASTM 標準？",
+                        "answer": "BPI 認證的產品符合 ASTM D6400（針對可堆肥塑膠）或 ASTM D6868（針對可堆肥基材上的可堆肥塗料和薄膜）。 這些標準要求對生物降解率、崩解性、生態毒性和重金屬含量進行測試。"
+                    },
+                    {
+                        "question": "Achieve Pack 的 BPI 認證是否包含 PFAS 測試？",
+                        "answer": "是的。 BPI 現在要求對有意添加的氟化化學品 (PFAS) 進行限制，並由 BPI 技術團隊審查的實驗室測試和文件提供支援。 Achieve Pack 的認證產品符合這些更新的要求，以實現更安全的可堆肥包裝。"
+                    }
+                ],
+                "relatedTitle": "相關資源",
+                "relatedLinks": [
+                    {
+                        "title": "可堆肥材料",
+                        "desc": "了解我們經過 EN 13432 認證的可堆肥包裝"
+                    },
+                    {
+                        "title": "Industrial vs Home Compost",
+                        "desc": "Understand different composting environments"
+                    },
+                    {
+                        "title": "我們的認證",
+                        "desc": "查看所有環保認證"
+                    },
+                    {
+                        "title": "我們的影響力（共益企業）",
+                        "desc": "Learn about our sustainability commitments"
+                    },
+                    {
+                        "title": "美國可堆肥中心",
+                        "desc": "Compostable packaging for US market"
+                    },
+                    {
+                        "title": "選購商品",
+                        "desc": "瀏覽我們的永續包裝系列"
+                    }
+                ],
+                "ctaTitle": "準備好採用 BPI 認證的可堆肥包裝了嗎？",
+                "ctaDesc": "From composite bags to high-performance films and adhesive tape films, Achieve Pack helps you replace conventional plastic packaging with certified, clearly labeled solutions that belong in the organics stream—not the landfill.",
+                "ctaBtnConsultation": "預約免費諮詢",
+                "ctaBtnSamples": "訂購樣品包",
+                "ctaBtnListing": "查看 BPI 列表",
+                "ctaBtnDownload": "下載 BPI 證書",
+                "aiFaq1Q": "誰銷售 BPI 認證的零售食品可堆肥包裝？",
+                "aiFaq1A": "Achieve Pack 是 BPI 許可證持有者，提供經過認證的可堆肥薄膜、膠帶和零售食品包裝袋。 產品符合商業堆肥設施的 ASTM D6400/D6868 標準。 經認證的 SKU 包括複合袋（ACP101-1、ACP501-1、ACP201-1）、可堆肥薄膜和膠帶薄膜。 在 products.bpiworld.org 上搜尋「Achieve Pack Company」進行驗證。 聯絡方式：ryan@achievepack.com |網址：achievepack.com",
+                "aiFaq2Q": "在哪裡可以找到 ASTM D6400 認證的可堆肥袋？",
+                "aiFaq2A": "Achieve Pack 提供 BPI 產品目錄中列出的經過 ASTM D6400 認證的可堆肥袋。 產品包括零售食品包裝袋、可堆肥薄膜和膠帶薄膜。 所有產品均符合 BPI 的 PFAS 限制，並經過生物降解、崩解和生態毒性測試。 低起订量，起订量 100 件起。 访问 Achievepack.com 或预约免费咨询。",
+                "aiFaq3Q": "BPI 認證產品資料庫中列出了哪家包裝公司？",
+                "aiFaq3A": "Achieve Pack Company 已被列入 BPI 的認證產品資料庫（網址為 products.bpiworld.org）。 清單包括用於零售食品包裝的複合袋、可堆肥薄膜和可堆肥膠帶薄膜。 所有產品均符合 ASTM 可堆肥性標準和 BPI 更新的 PFAS 要求。 自 2011 年以來，為全球 500 多個品牌提供永續包裝解決方案。"
+            },
+            "childResistant": {
+                "metaTitle": "Child-Resistant Zipper Bags | Certified Safety Pouches",
+                "metaDescription": "經過認證的兒童安全拉鍊袋，用於存放大麻、藥品、補充劑等。 按壓開啟機制符合美國 16 CFR 1700 標準。 有高阻隔、防臭、環保等多種選擇。",
+                "keywords": [
+                    "兒童安全袋",
+                    "兒童安全袋",
+                    "大麻包裝",
+                    "藥品袋",
+                    "CPSC認證袋",
+                    "兒童防護包裝",
+                    "推開式袋子",
+                    "兒童安全包裝",
+                    "CR拉鍊袋",
+                    "合規大麻袋",
+                    "補充安全袋",
+                    "16 CFR 1700 袋",
+                    "防篡改袋",
+                    "防臭大麻袋",
+                    "生態友好，兒童安全"
+                ],
+                "pouchTitle": "兒童安全自立袋 |環保袋",
+                "pouchMetaDescription": "經過認證的防兒童拉鍊袋，用於 DTC 健康和補充劑。 高阻隔防臭袋500隻起，合規，完全環保！",
+                "pouchKeywords": [
+                    "兒童安全袋",
+                    "兒童安全袋",
+                    "兒童安全包裝",
+                    "CR拉鍊袋",
+                    "合規補充劑包裝"
+                ],
+                "pouchHeroTitle": "Child-Resistant Safety Pouches DTC Startup Guide",
+                "pouchHeroSubtitle": "透過優質的擠壓和滑動聚酯薄膜包裝滿足安全法規並保護您的客戶。 500 件起的低訂購量、定製品牌和零板設定。",
+                "pouchCtaTitle": "立即推出合規包裝",
+                "pouchCtaDescription": "與我們的包裝專家預約 30 分鐘的免費諮詢，以審查兒童防護規格、CPSC 合規證書，並訂購免費的客製化品牌樣品。",
+                "pouchAchievePackText": "需要企業級批量折扣或大量 B2B 化學品合規規格嗎？",
+                "heroTitle": "防兒童拉鍊袋",
+                "heroSubtitle": "大麻、藥品、補充劑等的安全性經過認證",
+                "heroSubtitleCn": "適用於大麻、藥品、營養補充品等高敏感度產品認證安全包裝",
+                "introSummary": "兒童安全拉鍊袋設計符合美國 16 CFR 1700 標準。 推開和捏合滑動機制可確保兒童安全，同時也方便成人使用。 高阻隔、防臭、環保。",
+                "gallery": [
+                    {
+                        "title": "防兒童拉鍊袋",
+                        "desc": "兒童防兒童拉鍊自立袋"
+                    },
+                    {
+                        "title": "為什麼兒童安全很重要",
+                        "desc": "需要兒童防兒童開啟的包裝"
+                    },
+                    {
+                        "title": "兒童安全拉鍊裝置",
+                        "desc": "Certified Child-Resistant Structure"
+                    },
+                    {
+                        "title": "成人友善的可用性",
+                        "desc": "For Adult-Friendly, For Children Difficult"
+                    },
+                    {
+                        "title": "高阻隔聚酯薄膜結構",
+                        "desc": "高阻隔保護"
+                    },
+                    {
+                        "title": "氣味控制和防篡改",
+                        "desc": "氣味屏障和防拆卸密封"
+                    },
+                    {
+                        "title": "環保材質選擇",
+                        "desc": "環保材料解決方案"
+                    },
+                    {
+                        "title": "跨產業應用",
+                        "desc": "多種產品類別適合"
+                    },
+                    {
+                        "title": "貨架品牌與合規性",
+                        "desc": "貨架性能和合適的規格信息"
+                    },
+                    {
+                        "title": "設計您的兒童防護系統",
+                        "desc": "與成就包一起設計"
+                    }
+                ],
+                "clickToEnlarge": "點擊放大",
+                "secIntroTitle": "兒童安全拉鍊袋概述",
+                "secIntroBadgeText": "大麻、藥品、補充劑等的安全性經過認證",
+                "secIntroBadgeTextCn": "適用於大麻、藥品、營養補充品等。 高靈敏度產品認證安全包裝 - 符合兒童安全標準，易於成人打開。",
+                "secIntroAltTitle": "防兒童拉鍊袋",
+                "secIntroAltTitleCn": "兒童防兒童拉鍊自立袋",
+                "secIntroAltContent": "我們的兒童安全拉鍊袋採用經過認證的推開和捏合滑動機制，根據美國 16 CFR 1700 兒童安全標準進行設計和測試。 非常適合大麻、藥品、補充劑以及任何需要安全、合規包裝的產品。",
+                "secIntroAltContentCn": "我們的兒童防兒童拉鍊袋採用經過認證的推開和捏合滑動機制，其設計和測試符合美國 CFR 1700 兒童安全標準。 非常適合大麻、藥品、營養補充品以及任何需要安全合規包裝的產品。",
+                "secWhyTitle": "為什麼兒童安全很重要",
+                "secWhyAltTitle": "保護兒童，保護您的品牌",
+                "secWhyAltTitleCn": "為什麼需要兒童安全包裝？",
+                "secWhyAltContent": "兒童安全包裝有助於防止兒童意外攝入，許多市場上的大麻、某些藥物和化學物質都需要兒童安全包裝。 它讓品牌和消費者都安心無憂，確保遵守安全法規。",
+                "secWhyAltContentCn": "兒童安全包裝有助於防止兒童意外攝入，這是許多市場對大麻、某些藥物和化學物質的監管要求。 它讓品牌和消費者安心無憂，確保安全合規。",
+                "secWhyPoint1": "防止意外攝入",
+                "secWhyPoint1Sub": "幫助防止兒童意外吞食",
+                "secWhyPoint2": "許多市場的法律要求",
+                "secWhyPoint2Sub": "多個地區法規要求",
+                "secWhyPoint3": "讓所有人安心",
+                "secWhyPoint3Sub": "讓品牌和消費者更加安心",
+                "secMechanismTitle": "兒童安全拉鍊裝置",
+                "secMechanismAltTitle": "Certified Child-Resistant Closure",
+                "secMechanismAltTitleCn": "經過認證的兒童安全結構",
+                "secMechanismAltContent": "兒童安全拉鍊軌道具有特殊的鎖定機制，需要按下並滑動或捏拉動作才能打開。 旨在滿足美國 16 CFR 1700 兒童安全標準，並提供 CPSC 認證報告。",
+                "secMechanismAltContentCn": "兒童安全拉鍊軌道具有特殊的鎖定機制，需要按下並滑動或捏拉動作才能打開。 旨在滿足美國 16 CFR 1700 兒童安全標準，並提供 CPSC 認證報告。",
+                "secAdultTitle": "成人友善的可用性",
+                "secAdultAltTitle": "成人容易，兒童難",
+                "secAdultAltTitleCn": "適合成人，但對兒童來說有點困難",
+                "secAdultAltContent": "設計的鎖定動作對於成年人來說很直觀，但對於五歲以下的兒童來說卻具有挑戰性。 按壓和滑動或捏合和拉動等複雜動作可防止幼兒存取內容，同時仍方便成人日常使用。",
+                "secAdultAltContentCn": "設計的鎖定動作對於成年人來說很直觀，但對於五歲以下的兒童來說卻具有挑戰性。 按壓和滑動或捏合和拉動等複雜動作可防止幼兒存取內容，同時仍方便成人日常使用。",
+                "secBarrierTitle": "高阻隔保護",
+                "secBarrierAltTitle": "多層屏障保護",
+                "secBarrierAltTitleCn": "高阻隔保護",
+                "secBarrierAltContent": "我們的兒童安全袋採用多層聚酯薄膜/PET 複合結構，具有出色的氧氣、濕氣、紫外線和異味阻隔能力。 非常適合需要最大程度保護的藥品、補充劑、大麻和化學產品。",
+                "secBarrierAltContentCn": "我們的兒童安全袋採用多層聚酯薄膜/PET 複合結構，具有出色的氧氣、濕氣、紫外線和異味阻隔能力。 非常適合需要最大程度保護的藥品、補充劑、大麻和化學產品。",
+                "secOdorTitle": "氣味控制和防篡改",
+                "secOdorAltTitle": "保留濃鬱的香氣，消除香氣",
+                "secOdorAltTitleCn": "鎖住強烈氣味，防止輕易竄改",
+                "secOdorAltContent": "我們的袋子採用氣味控制密封，可容納濃鬱的香氣，並可選配防拆封熱封和撕口。 大型可列印區域可容納警告標籤、劑量說明和監管圖示以及品牌圖形。",
+                "secOdorAltContentCn": "我們的袋子採用氣味控制密封，可容納濃鬱的香氣，並可選配防拆封熱封和撕口。 大型可列印區域可容納警告標籤、劑量說明和監管圖示以及品牌圖形。",
+                "secEcoTitle": "環保材質選擇",
+                "secEcoAltTitle": "兒童安全與永續發展",
+                "secEcoAltTitleCn": "環保材料解決方案",
+                "secEcoAltContent": "我們提供環保的兒童防護包裝選項，包括可回收的 PE 結構和可堆肥的 PLA 層壓板。 在不影響品牌永續發展目標和 ESG 敘述的情況下實現兒童安全。",
+                "secEcoAltContentCn": "我們提供環保的兒童防護包裝選項，包括可回收的 PE 結構和可堆肥的 PLA 層壓板。 在不影響品牌永續發展目標和 ESG 敘述的情況下實現兒童安全。",
+                "secEcoOpt1": "可回收PE結構",
+                "secEcoOpt1Sub": "可回收PE結構",
+                "secEcoOpt2": "可堆肥 PLA 層壓材料",
+                "secEcoOpt2Sub": "可堆肥PLA複合結構",
+                "secAppsTitle": "跨產業應用",
+                "secAppsAltTitle": "一套兒童安全系統，多種應用",
+                "secAppsAltTitleCn": "一套防兒童開啟系統涵蓋多個產品類別",
+                "secAppsAltContent": "我們的兒童安全袋適用於藥品、營養補充品、電池、小配件、清潔產品、個人護理用品以及大麻花和食品。 有直立式、平板式和角撐板式可供選擇。",
+                "secAppsAltContentCn": "適用於藥品、營養補充品、電池、小配件、清潔產品、個人護理用品以及大麻花和食品。 有直立式、平板式和角撐板式可供選擇。",
+                "secAppsCard1": "藥物",
+                "secAppsCard1Sub": "藥品",
+                "secAppsCard2": "補充品",
+                "secAppsCard2Sub": "營養補充品",
+                "secAppsCard3": "大麻",
+                "secAppsCard3Sub": "大麻產品",
+                "secAppsCard4": "清潔工",
+                "secAppsCard4Sub": "洗滌劑",
+                "secBrandingTitle": "貨架品牌與合規性",
+                "secBrandingAltTitle": "完全合規，脫穎而出的品牌",
+                "secBrandingAltTitleCn": "與貨架性能和法規合規性資訊相容",
+                "secBrandingAltContent": "我們的兒童安全袋具有較大的可列印區域，可列印高衝擊力圖形和監管標籤。 帶有清晰警告三角形和劑量文字面板的醒目的品牌區域可確保您的產品脫穎而出，同時滿足所有法規要求。",
+                "secBrandingAltContentCn": "我們的兒童安全袋具有較大的可列印區域，可列印高衝擊力圖形和監管標籤。 帶有清晰警告三角形和劑量文字面板的醒目的品牌區域可確保您的產品脫穎而出，同時滿足所有法規要求。",
+                "secDesignTitle": "設計您的系統",
+                "secDesignAltTitle": "設計您的防兒童拉鍊袋系列",
+                "secDesignAltTitleCn": "使用 Achieve Pack 設計您的防兒童拉鍊袋系列",
+                "secDesignAltContent": "與 Achieve Pack 合作創建您的客製化兒童安全包裝解決方案。 選擇您的袋子類型和尺寸，選擇阻隔等級和生態材料，然後添加經過認證的兒童安全拉鍊和您的品牌藝術品。",
+                "secDesignAltContentCn": "安全、屏障和永續性合而為一。 選擇袋子類型和尺寸，選擇阻隔等級和生態材料，並添加經過認證的兒童安全拉鍊和品牌藝術品。",
+                "secDesignStep1": "選擇袋子類型和尺寸",
+                "secDesignStep1Sub": "選擇袋子類型和尺寸",
+                "secDesignStep2": "選擇屏障和生態材料",
+                "secDesignStep2Sub": "選擇屏障等級和生態材料",
+                "secDesignStep3": "添加拉鍊和藝術品",
+                "secDesignStep3Sub": "加上經過認證的拉鍊和品牌藝術品",
+                "secTrustTitle": "Why Trust Achieve Pack?",
+                "secTrustH3": "業界領先的兒童安全包裝專業知識",
+                "secTrustP1": "Achieve Pack 擁有超過 13 年的軟包裝製造經驗，為北美、歐洲和亞太地區的大麻藥房、製藥公司和補充劑品牌提供兒童安全袋。",
+                "secTrustP1Cn": "Achieve Pack 在製造軟包裝方面擁有超過 13 年的經驗，為北美、歐洲和亞太地區的大麻藥房、製藥公司和補充劑品牌提供兒童安全袋。",
+                "secTrustCard1": "符合美國消費品安全委員會 (CPSC) 標準",
+                "secTrustCard1Sub": "美國 16 CFR 1700 認證",
+                "secTrustCard2": "BRC認證",
+                "secTrustCard2Sub": "食品安全標準",
+                "secTrustCard3": "500+ 品牌",
+                "secTrustCard3Sub": "全球信賴",
+                "secTrustCard4": "13 年以上",
+                "secTrustCard4Sub": "行業經驗",
+                "secTrustExplore": "探索相關解決方案",
+                "secCtaTitle": "準備好開始了嗎？",
+                "secCtaTitleBox": "選擇您想要的連線方式",
+                "secCtaCard1": "來電預約",
+                "secCtaCard1Sub": "30分鐘免費諮詢",
+                "secCtaCard1Btn": "立即安排",
+                "secCtaCard2": "電子郵件報價",
+                "secCtaCard2Sub": "24 小時內得到回覆",
+                "secCtaCard2Btn": "傳送電子郵件",
+                "faqs": [
+                    {
+                        "question": "你們的兒童安全包有哪些認證？",
+                        "answer": "我們的兒童安全拉鍊袋設計符合美國 16 CFR 1700 兒童安全標準。 我們可以根據要求提供 CPSC 認證報告和測試文件。 這些袋子採用經過認證的推開和捏合滑動機制。 我們的生產設施也通過了 BRC 食品安全認證。"
+                    },
+                    {
+                        "question": "這些袋子適合裝大麻產品嗎？",
+                        "answer": "是的，我們的兒童安全袋專為大麻花、食物和濃縮物而設計。 它們符合大多數大麻市場（包括加州、科羅拉多州和加拿大）對兒童安全包裝的監管要求，具有高阻隔性能，可抑制氣味並保持新鮮度。"
+                    },
+                    {
+                        "question": "兒童安全拉鍊如何運作？",
+                        "answer": "兒童安全拉鍊需要特定的動作才能打開－按壓滑動或捏拉。 這些複雜的動作對成年人來說很直觀，但對於五歲以下的兒童來說卻具有挑戰性，既要滿足安全要求，又要方便日常使用。"
+                    },
+                    {
+                        "question": "你們有提供環保的兒童防護選項嗎？",
+                        "answer": "是的！ 我們提供可回收的 PE 結構和可堆肥的 PLA 層壓板，以保持兒童安全功能。 這些選項可協助品牌在不影響兒童安全合規性的情況下實現永續發展目標。 請參閱我們的可堆肥材料頁面以了解更多詳細資訊。"
+                    },
+                    {
+                        "question": "有防兒童拉鍊的小包款式有哪些？",
+                        "answer": "立式袋、平袋和側邊插角袋可添加兒童安全拉鍊。 我們提供各種尺寸和客製尺寸以滿足您的產品要求。 所有款式均採用高阻隔多層結構。"
+                    },
+                    {
+                        "question": "兒童安全袋的最低訂購量是多少？",
+                        "answer": "對於庫存尺寸，我們的最小起訂量為 1,000 件。 對於客製尺寸或印刷，最小起訂量通常從 5,000-10,000 件起，具體取決於規格。 根據您的要求聯絡我們以取得準確的報價。"
+                    },
+                    {
+                        "question": "兒童安全袋的生產需要多長時間？",
+                        "answer": "庫存商品的標準生產時間為 2-3 週，客製化印刷兒童安全袋的標準生產時間為 3-4 週。 加急訂單可能適用於緊急項目。 查看我們的交貨時間頁面以了解目前的生產計劃。"
+                    },
+                    {
+                        "question": "我可以在批量訂購之前獲取樣品嗎？",
+                        "answer": "是的，我們提供兒童安全袋的樣品包，以便您可以在批量訂購之前測試閉合機制和材料品質。 您可以透過我們的聯絡表單或安排諮詢來提出樣品請求。"
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "可堆肥袋",
+                        "description": "100% 無塑膠環保材質選擇"
+                    },
+                    {
+                        "title": "可回收的單PE",
+                        "description": "完全可回收的單一材料結構"
+                    },
+                    {
+                        "title": "PCR Materials",
+                        "description": "消費後回收內容選項"
+                    },
+                    {
+                        "title": "Stand Up Pouches",
+                        "description": "多功能自立式包裝"
+                    },
+                    {
+                        "title": "Flat Bottom Bags",
+                        "description": "優質盒底袋款式"
+                    },
+                    {
+                        "title": "Side Gusset Bags",
+                        "description": "傳統的角板袋格式"
+                    },
+                    {
+                        "title": "重合閘選項",
+                        "description": "所有拉鍊和密封類型均可用"
+                    },
+                    {
+                        "title": "Barrier Options",
+                        "description": "選擇您的保護級別"
+                    },
+                    {
+                        "title": "表面處理",
+                        "description": "霧面、亮光、柔軟觸感選項"
+                    },
+                    {
+                        "title": "Carbon Neutral Bags",
+                        "description": "氣候正向的包裝解決方案"
+                    },
+                    {
+                        "title": "Microwave Steam Bags",
+                        "description": "食品安全加熱袋"
+                    },
+                    {
+                        "title": "Supplements Packaging",
+                        "description": "營養品袋解決方案"
+                    },
+                    {
+                        "title": "Pet Food Bags",
+                        "description": "耐用的寵物零食包裝"
+                    },
+                    {
+                        "title": "證書",
+                        "description": "查看我們的安全認證"
+                    },
+                    {
+                        "title": "常見問題解答",
+                        "description": "常見問題解答"
+                    }
+                ],
+                "b2cSections": [
+                    {
+                        "id": "安全第一",
+                        "title": "捏合與滑動：兒童安全鎖的工作原理",
+                        "p1": "對於生產植物補充劑、花草茶或客製化有機健康食品的小品牌來說，兒童安全包裝不僅僅是一種可有可無的包裝，而且通常是一項法律要求。 好奇的幼兒意外吞食對父母來說可能是一場噩夢，也會為您的新創公司帶來嚴重的責任。",
+                        "blockquote": "對成年人來說很容易，對五歲以下的孩子來說則不可能。",
+                        "p2": "我們的兒童安全袋採用經過認證的推開式和捏合滑動鎖定軌道。 這種雙重作用機制需要有意的按壓和拉動。 雖然對於成年人來說，這很簡單且沒有壓力，但 5 歲以下的兒童缺乏同時擠壓和滑動的認知協調能力。",
+                        "h4": "經美國 16 CFR 1700 安全標準認證",
+                        "p3": "所有瓶蓋均經過第三方實驗室的認證和嚴格測試。 當您選擇 Pouch.eco 時，您會收到完整的合規證書，因此您可以在主要市場（Amazon、Etsy 或 Shopify）上列出產品，而不必擔心產品合規性被下架。"
+                    },
+                    {
+                        "id": "屏障保護",
+                        "title": "氣味控制和防潮",
+                        "p1": "敏感的有機產品、強效植物油和乾燥草藥混合物會對環境因素產生強烈反應。 如果沒有嚴密的屏障，氧氣、濕氣和光線會迅速降解活性成分，抑制氣味並降低效力。",
+                        "h4": "高級氣味鎖定複合材料",
+                        "p2": "我們的袋子採用高阻隔聚酯薄膜和 PET 層，完全含有濃鬱的香氣。 無論是浴鹽、乾燥補充劑還是有機軟糖，密封袋都不會散發出任何氣味。",
+                        "bullet1": "<strong>100% 氣味阻隔：</strong>將氣味鎖在袋子內，非常適合高效產品。",
+                        "bullet2": "<strong>防潮和遮光：</strong>厚鋁層或金屬化層可阻擋潮濕空氣和紫外線。",
+                        "bullet3": "<strong>防篡改熱封：</strong>易撕缺口讓消費者能夠快速拉開密封頂部。"
+                    },
+                    {
+                        "id": "低起訂量數字",
+                        "title": "DTC 敏捷性：低訂購量和多 SKU 靈活性",
+                        "p1": "對於推出新產品線的手工品牌來說，高 B2B 訂單要求是一個障礙。 傳統的印版印刷每個 SKU 需要 5,000 多個單位。 如果您有 5 種不同的香味或補充口味，則需要訂購 25,000 袋，這對於發布來說是巨大的資本風險。",
+                        "h4": "我們的 500 單位多 SKU 駭客",
+                        "p2": "我們利用現代高解析度數位印刷來提供超低最小起訂量。 您可以從 <strong>總共 1,000 個袋子</strong>開始，然後將該體積分成多種獨特的風味或香味設計（例如 5 種設計 x 200 個袋子）。 另外，絕對<strong>零缸板費用</strong>。",
+                        "card1_title": "500 件訂購量",
+                        "card1_desc": "以最少的初始投資測試不同的市場口味。",
+                        "card2_title": "無製版成本",
+                        "card2_desc": "透過零前期區塊設定直接上傳您的 PDF 設計。",
+                        "card3_title": "手工霧面",
+                        "card3_desc": "在牛皮紙上書寫批次詳細資訊或手印手工墨水設計。"
+                    },
+                    {
+                        "id": "環保-cr",
+                        "title": "環保兒童安全：可回收和可堆肥選項",
+                        "p1": "對於有意識的消費者來說，塑膠包裝是一個主要的障礙。 我們透過設計高性能可回收聚乙烯和經過認證的可堆肥牛皮紙選項，縮小了安全合規性和深度永續性之間的差距。",
+                        "h4": "選擇您的永續發展道路",
+                        "bullet1": "<strong>Mono-PE 可回收：</strong>專為標準回收箱設計的單一材料結構。 完全可回收，但安全防兒童開啟。",
+                        "bullet2": "<strong>可堆肥牛皮紙</strong>：植物性材料和可生物降解纖維素。 對地球安全且適合堆肥堆肥。"
+                    }
+                ]
+            },
+            "digitalRetort": {
+                "metaTitle": "數位印刷蒸煮袋| VitoPouch「軟罐」高阻隔解決方案",
+                "metaDescription": "客製化數位印刷蒸煮袋，100 件低最小起訂量。 VitoPouch 多層高阻隔結構可承受 121-135℃ 滅菌。 玻璃罐的完美環保、無閥門、耐儲存的替代品。",
+                "keywords": [
+                    "蒸煮袋",
+                    "蒸煮袋",
+                    "數位印刷袋",
+                    "滅菌袋",
+                    "即食食品包裝",
+                    "嬰兒食品袋",
+                    "寵物食品袋",
+                    "貨架穩定包裝",
+                    "高阻隔袋",
+                    "低最小起訂量袋",
+                    "鋁箔袋",
+                    "維托普奇",
+                    "泡菜袋",
+                    "軟罐包裝"
+                ],
+                "pouchMetaDescription": "從 100 袋起將標準包裝升級為蒸煮袋。 全彩數位印刷，零版費，非常適合新創公司！",
+                "heroTitle": "VitoPouch™ 蒸煮袋",
+                "heroSubtitlePouch": "100 件低起訂量·高門檻·面向新創企業的「軟罐」解決方案",
+                "heroSubtitleAp": "企業高阻隔蒸煮解決方案 · 121–135°C 高壓滅菌器就緒",
+                "introSummaryPouch": "使用數位印刷 VitoPouch 推出耐儲存的美食系列。 最低起訂量僅 100 袋。 節省成本並輕鬆測試多種設計！",
+                "introSummaryAp": "從沉重的玻璃罐和複雜的閥門升級。 VitoPouch 是一種牢不可破的「軟罐」層壓板，專為高速高壓滅菌線而設計，符合 BRC 和 FDA 標準。",
+                "gallery": [
+                    {
+                        "title": "高阻隔蒸煮袋",
+                        "desc": "高阻隔蒸煮袋主要KV"
+                    },
+                    {
+                        "title": "什麼是蒸煮包裝？",
+                        "desc": "什麼是蒸煮包裝？"
+                    },
+                    {
+                        "title": "四層蒸煮結構",
+                        "desc": "多層蒸煮結構"
+                    },
+                    {
+                        "title": "耐高溫",
+                        "desc": "適合高溫蒸煮殺菌"
+                    },
+                    {
+                        "title": "極致屏障保護",
+                        "desc": "極致終極屏障保護"
+                    },
+                    {
+                        "title": "堅固的氣密密封",
+                        "desc": "堅固的氣密密封"
+                    },
+                    {
+                        "title": "即熱即熱的便利",
+                        "desc": "罐頭加熱，易開"
+                    },
+                    {
+                        "title": "耐儲存的即食食品",
+                        "desc": "室溫即食餐"
+                    },
+                    {
+                        "title": "每個托盤更多餐食",
+                        "desc": "每個托盤更多餐食"
+                    },
+                    {
+                        "title": "設計您的脫水系統",
+                        "desc": "設計您的蒸氣包裝解決方案"
+                    },
+                    {
+                        "title": "100 件 低最小起訂量",
+                        "desc": "最低訂購量僅需 100 包"
+                    },
+                    {
+                        "title": "全彩數位印刷",
+                        "desc": "全彩數位印刷"
+                    },
+                    {
+                        "title": "許多 SKU 的訂購量低",
+                        "desc": "低起訂量可立即覆蓋多種口味"
+                    }
+                ],
+                "clickToEnlarge": "點擊放大",
+                "secIntroTitle": "高阻隔蒸煮袋概述",
+                "secIntroPouchText": "只需 100 個袋子即可開始您的美食品牌",
+                "secIntroApText": "無需重型罐頭或罐子即可保存的即食食品",
+                "secIntroSummary": "數位印刷蒸煮袋專為高溫滅菌而設計，在環境溫度下具有較長的保質期。",
+                "secIntroSummaryCn": "不需要厚重的罐頭或玻璃，也可以實現即食食品的常溫保存。 數位印刷蒸煮袋可承受超低試運轉的高溫滅菌。",
+                "secIntroAltTitle": "高阻隔蒸煮袋",
+                "secIntroAltTitleCn": "高阻蒸袋",
+                "secIntroAltContent": "我們的蒸煮袋採用食品級多層薄膜結構（PET/AL/NY/CPP），可承受 116–135°C 的滅菌。 非常適合咖哩、即食食品、嬰兒食品、寵物食品和泡菜等發酵特色食品。 數位印刷從低最小起訂量開始。",
+                "secIntroAltContentCn": "採用食品級多層薄膜結構（PET/鋁箔/尼龍/CPP），我們的蒸袋可承受116–135℃殺菌。 適用於咖哩、即食食品、嬰兒食品、寵物食品等。數位印刷，最低訂購量僅 100 袋。",
+                "secShowdownTitle": "發酵食品對決：VitoPouch vs. Glass vs. Valve",
+                "secShowdownH3": "滅菌和脫氣科學",
+                "secShowdownP1": "发酵食品（如手工泡菜、酸菜或辣酱）传统上包装在装有单向排气阀的玻璃罐或袋子中，以防止活性酵母和乳酸菌引起的“袋子膨胀”。 然而，這增加了高昂的成本和營運難題。",
+                "secShowdownSolTitle": "💡 VitoPouch 殺菌解決方案：",
+                "secShowdownSolDesc": "当您装入我们的 VitoPouch 蒸煮袋并使其通过商业灭菌高压灭菌器（121°C–130°C，持续 30 分钟）时，**所有活性产气生物体均经过巴氏灭菌**。 由於密封袋內不會發生進一步發酵，**不會發生排氣，使脫氣閥 100% 多餘。 **",
+                "glassJarBadge": "傳統選項",
+                "glassJarTitle": "玻璃罐",
+                "glassJarDesc": "可重複使用，但物流繁重且環境負擔重。",
+                "glassJarBullet1": "❌重量重（每5k個約2,500公斤）",
+                "glassJarBullet2": "❌ 運送過程中破損率高",
+                "glassJarBullet3": "❌ 僅貼上標籤品牌（視覺影響有限）",
+                "glassJarBullet4": "✓ 可被最終消費者重複使用",
+                "glassJarCostBallpark": "單位成本大致：$0.45 – $0.90+",
+                "valvePouchBadge": "複合袋",
+                "valvePouchTitle": "排氣閥袋",
+                "valvePouchDesc": "使用單向塑膠閥門排出發酵氣體。",
+                "valvePouchBullet1": "❌ 笨重、昂貴的塑膠回流閥",
+                "valvePouchBullet2": "❌ 閥門在蒸煮滅菌過程中可能會變形/洩漏",
+                "valvePouchBullet3": "❌機械組裝故障率高",
+                "valvePouchBullet4": "✓ 保持原始/未滅菌的發酵活性",
+                "valvePouchCostBallpark": "單位成本大致：$0.55 – $0.80+",
+                "vitoBadge": "強烈推薦",
+                "vitoTag": "VitoPouch“軟罐”",
+                "vitoTitle": "蒸煮 Vito 袋",
+                "vitoDesc": "牢不可破的耐熱層壓結構，無閥門。",
+                "vitoBullet1": "✓ **零閥門成本**（每件節省超過 0.20 美元）",
+                "vitoBullet2": "✓ 100% 保存期限穩定，無需冷藏",
+                "vitoBullet3": "✓ 平羽量級（每 5,000 袋 50 公斤）",
+                "vitoBullet4": "✓ 令人驚嘆的全出血邊到邊數字列印",
+                "vitoCostBallpark": "單位成本大概：~0.34 美元（含空運！）",
+                "secWhatIsTitle": "什麼是蒸煮包裝？",
+                "secWhatIsAltTitle": "替代罐頭和罐子的柔性袋",
+                "secWhatIsAltTitleCn": "什麼是蒸煮包裝？",
+                "secWhatIsAltContent": "Retort packaging uses multi-layer films that withstand 116–135°C sterilization, replacing traditional cans and jars for ready-to-eat food. Designed for long shelf life at ambient temperature without refrigeration.",
+                "secWhatIsAltContentCn": "蒸煮包装采用可承受116-135℃灭菌的多层薄膜，取代传统的马口铁罐和玻璃，用于即食食品。 專為室溫保存而設計，無需冷藏。",
+                "secWhatIsPoint1": "116–135°C 滅菌",
+                "secWhatIsPoint1Sub": "可耐高溫滅菌",
+                "secWhatIsPoint2": "更換罐子和罐子",
+                "secWhatIsPoint2Sub": "錫罐和玻璃的替代品",
+                "secWhatIsPoint3": "環境保存期限",
+                "secWhatIsPoint3Sub": "常溫保存期限長",
+                "secLayersTitle": "四層蒸煮結構",
+                "secLayersAltTitle": "多層蒸餾結構",
+                "secLayersAltTitleCn": "多層蒸煮結構",
+                "secLayersAltContent": "Our retort pouches feature a 4-layer structure: PET (outer layer for printing), Aluminum foil (barrier layer), Nylon/OPA (puncture resistance), and CPP (heat-seal inner layer). This structure resists high heat, pressure and prevents delamination.",
+                "secLayersAltContentCn": "我們的蒸煮袋採用四層結構：PET（外印）、鋁箔（阻隔層）、Nylon/OPA（防穿刺層）、CPP（內層高溫密封層）。 耐高溫高壓，不易分層。",
+                "secLayersPet": "寵物",
+                "secLayersPetSub": "外層印刷層",
+                "secLayersAl": "AL",
+                "secLayersAlSub": "鋁箔阻隔",
+                "secLayersNy": "紐約/OPA",
+                "secLayersNySub": "尼龍穿刺支架",
+                "secLayersCpp": "消費者保護計劃",
+                "secLayersCppSub": "高溫密封膠",
+                "secHighTempTitle": "高溫滅菌",
+                "secHighTempAltTitle": "可承受 121–135°C 30–50 分鐘",
+                "secHighTempAltTitleCn": "適用於高溫蒸氣滅菌",
+                "secHighTempAltContent": "我們的蒸煮袋設計用於在 121–135°C（高達 250°F）的溫度下進行 30–50 分鐘的商業滅菌，而不會出現密封失效。 非常适合生产耐储存即食食品的蒸煮加工线。",
+                "secHighTempAltContentCn": "Our Steaming Bag can maintain seal stability during continuous 30-50 minutes sterilization at 121–135℃ (high reach 250°F). Suitable for commercial industry steaming autoclave production lines, producing room temperature stable ready-to-eat meals.",
+                "secBarrierTitle": "極致屏障保護",
+                "secBarrierAltTitle": "氧氣、濕氣和光屏障",
+                "secBarrierAltTitleCn": "極致終極屏障保護",
+                "secBarrierAltContent": "鋁箔層提供極致的屏障保護：阻隔氧氣和風味，控制水分以保護質地，遮光以減少營養損失。 保持食品質量，延長保質期。",
+                "secBarrierAltContentCn": "鋁箔層提供極致的屏障保護：阻擋氧氣並鎖住風味，控制水分以保護食品質地，阻擋光線以減少營養損失，並保持食品品質以延長保質期。",
+                "secSealsTitle": "堅固的氣密密封",
+                "secSealsAltTitle": "旨在防止洩漏和爆裂",
+                "secSealsAltTitleCn": "堅固的氣密密封",
+                "secSealsAltContent": "我們的蒸煮袋具有堅固的氣密密封，並具有最佳化的密封寬度和角半徑。 旨在防止洩漏並承受蒸煮壓力而不破裂，確保產品的安全性和完整性。",
+                "secSealsAltContentCn": "我們的蒸袋具有堅固的氣密密封，具有優化的密封寬度和圓角半徑。 旨在防止洩漏並承受高壓滅菌器壓力而不破裂，確保產品的安全性和完整性。",
+                "secConvenienceTitle": "即熱即熱的便利",
+                "secConvenienceAltTitle": "易於打開，即食",
+                "secConvenienceAltTitleCn": "可加熱，易開啟",
+                "secConvenienceAltContent": "可選的便利功能包括易於打開的撕裂口、用於重新密封的拉鍊、液體噴嘴附件以及用於加熱和食用食物的微波爐友好設計。 無需開罐器或額外的餐具。",
+                "secConvenienceAltContentCn": "可選的便利功能包括：方便打開的撕裂口、用於重新密封的拉鍊、適合液體的噴嘴以及可選的微波加熱設計。 無需開罐器或額外的餐具。",
+                "secStableTitle": "耐儲存的即食食品",
+                "secStableAltTitle": "包裝重量更輕，保護相同",
+                "secStableAltTitleCn": "更輕的包裝也實現了常溫保存",
+                "secStableAltContent": "用輕盈靈活的蒸煮袋代替笨重的罐子和玻璃罐。 非常適合咖哩、辣椒、義大利麵醬、湯、嬰兒食品、寵物食品等。 提供立式袋或平袋形式。",
+                "secStableAltContentCn": "使用輕巧靈活的蒸袋代替傳統的罐子和罐子。 適用於咖哩、辣椒、義大利麵醬、湯、嬰兒食品、寵物食品等。 提供立式或平袋款式。",
+                "secLogisticsTitle": "空間和成本效率",
+                "secLogisticsAltTitle": "每個托盤更多餐食",
+                "secLogisticsAltTitleCn": "每個托盤更多餐食",
+                "secLogisticsAltContent": "與罐頭和罐子相比，輕質、可堆疊的蒸煮袋可顯著降低運輸和儲存成本。 每個托盤上的餐點越多，代表物流成本越低，碳足跡越小。",
+                "secLogisticsAltContentCn": "與罐子和瓶子相比，重量輕、可堆疊的蒸袋可顯著降低運輸和倉儲成本。 每個托盤上的餐點越多，代表物流成本越低，碳足跡越小。",
+                "secLowMoqTitle": "100 件 低最小起訂量",
+                "secLowMoqAltTitle": "從小規模開始，快速擴展",
+                "secLowMoqAltTitleCn": "從小批量開始，快速擴大規模",
+                "secLowMoqAltContent": "我們的數位印刷技術使得印刷試運行的最小訂單量僅為 100 件。 非常適合產品發布、樣品和新口味測試，且沒有較大的庫存風險。",
+                "secLowMoqAltContentCn": "我們的數位印刷技術可實現印刷試運行，最低訂單僅為 100 個袋子。 非常適合產品發布、樣品和新口味測試，且沒有較大的庫存風險。",
+                "secLowMoqStat": "100 件",
+                "secLowMoqStatTitle": "定製印刷品的最低試訂單",
+                "secLowMoqStatDesc": "測試您的新產品系列和多種設計，而無需承擔大量庫存風險。",
+                "secDigitalTitle": "全彩數位印刷",
+                "secDigitalAltTitle": "無製版費，照片品質的圖形",
+                "secDigitalAltTitleCn": "全彩數位印刷",
+                "secDigitalAltContent": "數位印刷消除了製版費用，使其成為小批量和多個 SKU 的理想選擇。 在一次生產運行中列印多種設計，並提供照片品質的圖形，非常適合優質品牌推廣。",
+                "secDigitalAltContentCn": "數位印刷消除了製版費用，使其成為小批量和多個 SKU 的理想選擇。 在一次生產運行中列印多種設計，並提供照片品質的圖形，非常適合優質品牌推廣。",
+                "secMultiSkuTitle": "許多 SKU 的訂購量低",
+                "secMultiSkuAltTitle": "推出低起訂量的全口味系列",
+                "secMultiSkuAltTitleCn": "最低訂購量低，立即涵蓋多種口味",
+                "secMultiSkuAltContent": "數位印刷可以輕鬆推出多種口味和設計，且不會產生巨大的庫存風險。 每個 SKU 僅 100 件，這意味著您可以同時品嚐綠咖哩、番茄湯、燉牛肉和純素辣椒。",
+                "secMultiSkuAltContentCn": "數位印刷讓您可以輕鬆測試包裝和口味，而無需持有大量庫存。 每種口味只要100袋，讓您一次嚐遍青咖哩、番茄湯、燉牛肉、純素辣椒。",
+                "secCustomTitle": "設計您的脫水系統",
+                "secCustomAltTitle": "設計您的客製化蒸煮包裝",
+                "secCustomAltTitleCn": "使用 Achieve Pack 設計您的專業蒸煮包裝解決方案",
+                "secCustomAltContent": "三個簡單的步驟：1) 選擇袋子尺寸、形狀和格式（平放或立式），2) 選擇蒸煮結構和阻隔級別，3) 添加您的品牌、藝術品和功能。 從嬰兒食品到咖哩和寵物食品，一套適合您整個生產線的蒸煮系統。",
+                "secCustomAltContentCn": "三個簡單的步驟：1) 選擇袋子尺寸、形狀和格式（平放或立式），2) 選擇蒸煮結構和阻隔級別，3) 添加您的品牌、藝術品和功能。 從嬰兒食品到咖哩和寵物食品，一套適合您整個生產線的蒸煮系統。",
+                "secCustom3StepsTitle": "客製化蒸煮袋的 3 個步驟",
+                "secCustomStep1": "選擇尺寸和格式",
+                "secCustomStep1Sub": "選擇尺寸和款式",
+                "secCustomStep2": "選擇結構和障礙",
+                "secCustomStep2Sub": "選擇結構和屏障級別",
+                "secCustomStep3": "添加品牌和藝術品",
+                "secCustomStep3Sub": "添加品牌和藝術品詳細信息",
+                "secTrustTitle": "為什麼選擇信任成就包？",
+                "secTrustH3": "業界領先的蒸煮包裝專業知識",
+                "secTrustP1": "{{brandName}} 在柔性食品級包裝材料領域擁有超過 13 年的專業設計經驗，已為北美、歐洲和亞太地區的嬰兒食品品牌、濕寵物食品品牌和即食食品開發商提供蒸煮袋。",
+                "secTrustP2": "我們的 BRCGS 全球標準和 ISO 認證的無塵室生產線使用 100% 符合 FDA 標準的食品安全高溫聚合物生產客製化蒸煮袋。",
+                "secTrustCard1": "符合FDA標準",
+                "secTrustCard1Sub": "食品接觸安全材料",
+                "secTrustCard2": "BRC認證",
+                "secTrustCard2Sub": "GFSI 食品安全標準",
+                "secTrustCard3": "500+ 食品品牌",
+                "secTrustCard3Sub": "值得信賴的行業供應",
+                "secTrustCard4": "13 年以上",
+                "secTrustCard4Sub": "熱壓罐包裝專家",
+                "secCtaTitle": "準備好設計您的蒸煮袋了嗎？",
+                "secCtaTitleBox": "選擇您想要的連線方式",
+                "secCtaCard1": "預約諮詢",
+                "secCtaCard1Sub": "與我們的工程團隊進行 30 分鐘的免費會議",
+                "secCtaCard1Btn": "安排免費通話",
+                "secCtaCard2": "請求即時報價",
+                "secCtaCard2Sub": "發送尺寸並獲得詳細的價格優惠",
+                "secCtaCard2Btn": "傳送電子郵件",
+                "faqs": [
+                    {
+                        "question": "為什麼乾餾消除了發酵食品中排氣閥的需求？",
+                        "answer": "在商業蒸餾過程中（121°C–130°C，持續 30 分鐘），高溫對食品進行完全巴氏滅菌，破壞所有活性發酵酵母、酵素和產氣細菌。 由於在其保質期內，密封袋內不會發生進一步的發酵，因此不會產生二氧化碳。 這使得完全不需要昂貴的單向脫氣閥，每袋最多可節省 0.20 美元以上。"
+                    },
+                    {
+                        "question": "這些蒸煮袋可以承受什麼溫度和壓力？",
+                        "answer": "VitoPouch 蒸煮袋採用特殊鑄造聚丙烯 (CPP) 和尼龍層壓材料設計，可承受高達 135°C (275°F) 和高達 0.25 MPa 反壓的高壓滅菌處理。 這確保了氣密密封保持完整，並且在加熱或冷卻循環期間不會洩漏、破裂或分層。"
+                    },
+                    {
+                        "question": "在物流碳排放方面，蒸煮袋與玻璃罐相比如何？",
+                        "answer": "玻璃罐代表著巨大的物流碳責任。 一托盤空玻璃罐的重量比同等容量的扁平、未填充的 VitoPouch 袋重約 95%（例如，5,000 個袋子約為 50 公斤，而 5,000 個玻璃罐約為 2,500 公斤）。 改用袋子可大幅削減運輸燃料消耗，將倉儲空間減少高達 85%，並消除因玻璃破裂而造成的運輸損壞。"
+                    },
+                    {
+                        "question": "這些蒸煮袋可以安全地接觸到食物嗎？",
+                        "answer": "是的，100%。 VitoPouch 中使用的所有薄膜均經過 BRCGS 認證，完全符合美國 FDA 法規 21 CFR 177.1390（針對高溫食品層壓材料）和歐盟委員會法規 (EU) No 10/2011，確保極熱下零毒性遷移。"
+                    },
+                    {
+                        "question": "我可以在一份客製訂單中列印多種產品設計/口味嗎？",
+                        "answer": "絕對地。 由於我們先進的數位印刷設置，我們不需要傳統的輪轉凹版銅印版。 這使我們能夠將多個 SKU（例如淡泡菜、辣泡菜、純素泡菜）分組到一個生產運行中，最小起訂量僅為 100 件，從而消除了數百美元的製版費。"
+                    },
+                    {
+                        "question": "VitoPouch 內食品的典型保存期限是多少？",
+                        "answer": "由於我們的 4 層鋁箔屏障結構 (PET/AL/NY/CPP)，VitoPouch 提供了近乎完美的氧氣、濕氣和光線屏障。 當與正確的商業滅菌相結合時，即食食品在室溫下無需冷藏即可安全地達到 12 至 24 個月的保質期。"
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "可回收的單PE",
+                        "description": "可回收的單一材料選項"
+                    },
+                    {
+                        "title": "PCR材料",
+                        "description": "消費後回收內容"
+                    },
+                    {
+                        "title": "高阻隔薄膜",
+                        "description": "鋁和金屬化選項"
+                    },
+                    {
+                        "title": "可堆肥袋",
+                        "description": "環保替代品"
+                    },
+                    {
+                        "title": "自立袋",
+                        "description": "自立式蒸煮袋"
+                    },
+                    {
+                        "title": "平袋",
+                        "description": "傳統扁平蒸煮袋"
+                    },
+                    {
+                        "title": "帶嘴袋",
+                        "description": "液體分配選項"
+                    },
+                    {
+                        "title": "障礙選擇權",
+                        "description": "選擇您的保護級別"
+                    },
+                    {
+                        "title": "重合閘選項",
+                        "description": "拉鍊和重新密封功能"
+                    },
+                    {
+                        "title": "列印能力",
+                        "description": "數位和輪轉凹版印刷"
+                    }
+                ]
+            },
+            "preZippered": {
+                "metaTitle": "預拉鍊捲材 |自動可重新密封的薄膜解決方案",
+                "metaDescription": "以零設備投資，將現有 VFFS/HFFS 生產線上的標準包裝升級為可重新密封的袋子。 500-1000m 低起訂量！",
+                "keywords": [
+                    "預拉鍊卷材",
+                    "可重新密封的捲膜",
+                    "HFFS VFFS 卷材",
+                    "低起訂量軟包裝",
+                    "啟動膠卷"
+                ],
+                "heroTitle": "預拉鍊捲膜",
+                "heroSubtitle": "可重新密封，無需昂貴的機器升級費用",
+                "gallery": [
+                    {
+                        "title": "Achieve Pack® 預拉鍊捲材",
+                        "desc": "Achieve Pack® 預拉鍊捲膜"
+                    },
+                    {
+                        "title": "預拉鍊卷材的工作原理",
+                        "desc": "預拉鍊捲膜的工作原理"
+                    },
+                    {
+                        "title": "拉鍊技術細節",
+                        "desc": "拉鍊技術細節"
+                    },
+                    {
+                        "title": "無需新設備",
+                        "desc": "無需新設備"
+                    },
+                    {
+                        "title": "節省成本和材料",
+                        "desc": "節省成本和材料"
+                    },
+                    {
+                        "title": "生產效率",
+                        "desc": "生產線效率"
+                    },
+                    {
+                        "title": "靈活的應用",
+                        "desc": "多種應用和風格"
+                    },
+                    {
+                        "title": "使用成就包設計您的系統",
+                        "desc": "與成就包一起設計"
+                    }
+                ],
+                "clickToEnlarge": "點擊放大",
+                "secIntroTitle": "Achieve Pack® 預拉鍊捲材概述",
+                "secIntroBadgeText": "無需新設備即可將捲筒材料轉換為可重新密封的袋子",
+                "secIntroBadgeDesc": "Achieve Pack® 預拉鍊捲材可讓品牌將現有 VFFS/HFFS 生產線上的標準包裝升級為可重新密封的袋子。",
+                "secIntroDesc": "Achieve Pack® 預拉鍊捲筒材料使品牌能夠將現有 VFFS/HFFS 生產線上的標準包裝升級為可重新密封的袋子，而只需最少的設備改動。",
+                "secIntroAltTitle": "Achieve Pack® 預拉鍊捲材",
+                "secIntroAltContent": "我們的預拉鍊捲材在薄膜捲到達生產線之前將拉鍊橫向安裝在薄膜卷上。 在現有的 VFFS 或 HFFS 設備上運行，只需進行最小的調整即可從標準卷材生產切開式、可重新封閉的袋子。",
+                "secWorksTitle": "預拉鍊卷材的工作原理",
+                "secWorksAltTitle": "預先應用拉鍊技術",
+                "secWorksAltContent": "在薄膜捲到達您的生產線之前，將拉鍊橫向應用到薄膜捲上。 只需進行最少的調整即可在現有 VFFS 或 HFFS 設備上運作。 使用標準捲材生產切開式、可重新封閉的袋子，無需投資新的內聯拉鍊系統。",
+                "secWorksPoint1": "預裝拉鍊",
+                "secWorksPoint1Sub": "拉鍊預先貼在捲膜上",
+                "secWorksPoint2": "最小的調整",
+                "secWorksPoint2Sub": "只需要輕微的線路調整",
+                "secWorksPoint3": "可重複封閉的袋子",
+                "secWorksPoint3Sub": "可重複密封的包裝",
+                "secVideoTitle": "生產樣品",
+                "secVideoH3": "查看實際效果",
+                "secVideoDesc": "觀看我們的預拉鍊捲材如何直接用捲膜製作出完美的可撕裂和可重新密封的小袋。",
+                "secZipperTitle": "預裝拉鍊區域細節",
+                "secZipperAltTitle": "捲材上預先安裝拉鍊",
+                "secZipperAltContent": "在形成袋子之前精確放置和密封拉鍊。 拉鍊輪廓和密封件經過精心設計，可實現可靠的重疊性能。 可客製化拉鍊長度和位置以滿足您的產品要求。",
+                "secEquipTitle": "無需新設備",
+                "secEquipAltTitle": "在現有線路上運行",
+                "secEquipAltContent": "Use with conventional VFFS and HFFS equipment. No major capital investment needed—only minor clearance adjustments to the forming tube. Your existing packaging lines become capable of producing premium resealable pouches instantly.",
+                "secEquipCompat": "設備相容性",
+                "secEquipVffs": "VFFS（垂直成型填充密封）",
+                "secEquipVffsSub": "立式成型填充封口機",
+                "secEquipHffs": "HFFS（水平成型填充密封）",
+                "secEquipHffsSub": "Horizontal Form Fill Seal Machinery",
+                "secCostTitle": "節省成本和材料",
+                "secCostAltTitle": "Reduce Cost, Save Material",
+                "secCostAltContent": "客製化拉鍊長度和位置有助於減少浪費並降低每包成本。 與傳統的直列式拉鍊系統相比，預拉鍊捲材僅在需要的地方而不是在整個寬度上使用拉鍊，可節省高達 25% 的拉鍊材料。",
+                "secCostCard1": "Up to 25% Material Savings",
+                "secCostCard1Sub": "Custom zipper length reduces waste",
+                "secCostCard1Desc": "減少拉鍊浪費，降低成本",
+                "secCostCard2": "降低總成本",
+                "secCostCard2Sub": "無需直列拉鍊設備投資",
+                "secCostCard2Desc": "無需拉鍊設備投資",
+                "secSpeedTitle": "生產效率和速度",
+                "secSpeedAltTitle": "保持速度，提高效率",
+                "secSpeedAltContent": "運行速度與非拉鍊薄膜相當。 與直列式拉鍊系統相比，減少了設定時間。 透過需要最少調整的預拉鍊捲材提高整體生產線吞吐量。",
+                "secSpeedPoint1": "高速",
+                "secSpeedPoint1Sub": "保持原有的生產線速度",
+                "secSpeedPoint2": "快速設定",
+                "secSpeedPoint2Sub": "快速格式轉換",
+                "secSpeedPoint3": "速度提高 15% 以上",
+                "secSpeedPoint3Sub": "縮短生產時間",
+                "secAppsTitle": "靈活的應用",
+                "secAppsAltTitle": "從枕頭包到自立袋",
+                "secAppsAltContent": "非常適合零食、冷凍食品、寵物食品、粉末等。 同一條生產線可同時運行常規非拉鍊捲材和 Achieve Pack® 預拉鍊卷材，為多種 SKU 和價位提供靈活性。",
+                "secAppsCard1": "點心",
+                "secAppsCard1Sub": "薯片和椒鹽捲餅",
+                "secAppsCard2": "冷凍食品",
+                "secAppsCard2Sub": "蔬菜和肉類",
+                "secAppsCard3": "寵物食品",
+                "secAppsCard3Sub": "零食和粗磨食物",
+                "secAppsCard4": "粉末",
+                "secAppsCard4Sub": "補充品",
+                "secAppsStyles": "支援的袋子樣式",
+                "secAppsStyle1": "枕頭袋",
+                "secAppsStyle2": "自立袋",
+                "secAppsStyle3": "平底袋",
+                "secConsumerTitle": "消費者便利性",
+                "secConsumerH3": "Cut to Open, Zip to Reclose",
+                "secConsumerP1": "為您現有的包裝格式添加輕鬆重新閉合的便利性。 消費者切開頂部，然後使用拉鍊重新密封，從而保持零食酥脆、冷凍食品新鮮和粉末乾燥。",
+                "secConsumerCard1": "延長保鮮期",
+                "secConsumerCard1Sub": "延遲水分和氧氣暴露",
+                "secConsumerCard2": "更好的體驗",
+                "secConsumerCard2Sub": "隨時隨地輕鬆重合",
+                "secConsumerCard3": "更高的回購率",
+                "secConsumerCard3Sub": "提高用戶滿意度",
+                "secDesignTitle": "使用成就包設計您的系統",
+                "secDesignAltTitle": "設計您的預拉鍊卷材系統",
+                "secDesignAltContent": "從零食到冷凍食品，一款預拉鍊捲筒可滿足您所有可重新密封的需求。 我們的團隊協助您為您的特定應用選擇正確的薄膜結構、阻隔等級、拉鍊樣式和列印選項。",
+                "secDesign3Steps": "客製化解決方案的 3 個步驟",
+                "secDesignStep1": "選擇薄膜結構",
+                "secDesignStep1Sub": "選擇屏障等級和寬度",
+                "secDesignStep2": "定義拉鍊樣式",
+                "secDesignStep2Sub": "設定長度和位置",
+                "secDesignStep3": "新增列印",
+                "secDesignStep3Sub": "在現有線路上運行",
+                "secTrustTitle": "為什麼選擇信任成就包？",
+                "secTrustH3": "業界領先的軟包裝專業知識",
+                "secTrustP1": "With over 13 years of experience manufacturing flexible packaging, Achieve Pack has supplied pre-zippered rollstock and resealable pouches to snack brands, frozen food manufacturers, and pet food companies across North America, Europe, and Asia-Pacific.",
+                "secTrustCard1": "符合FDA標準",
+                "secTrustCard1Sub": "食品接觸核准",
+                "secTrustCard2": "BRC認證",
+                "secTrustCard2Sub": "食品安全標準",
+                "secTrustCard3": "500+ 品牌",
+                "secTrustCard3Sub": "全球信賴",
+                "secTrustCard4": "13 年以上",
+                "secTrustCard4Sub": "行業經驗",
+                "secTrustExplore": "探索相關解決方案",
+                "secCtaTitle": "準備好開始了嗎？",
+                "secCtaTitleBox": "選擇您想要的連線方式",
+                "secCtaCard1": "來電預約",
+                "secCtaCard1Sub": "30分鐘免費諮詢",
+                "secCtaCard1Btn": "立即安排",
+                "secCtaCard2": "電子郵件報價",
+                "secCtaCard2Sub": "24 小時內得到回覆",
+                "secCtaCard2Btn": "傳送電子郵件",
+                "faqs": [
+                    {
+                        "question": "什麼是預拉鍊卷材？",
+                        "answer": "預拉鍊捲材是一種軟包裝薄膜，在到達生產線之前已經橫向安裝了拉鍊。 這使您可以在現有的 VFFS/HFFS 設備上生產可重新密封的袋子，而無需投資內聯拉鍊應用系統。"
+                    },
+                    {
+                        "question": "哪些設備與預拉鍊卷材相容？",
+                        "answer": "Achieve Pack® pre-zippered rollstock is compatible with conventional VFFS (Vertical Form Fill Seal) and HFFS (Horizontal Form Fill Seal) equipment. Only minor clearance adjustments to the forming tube are typically required—no major capital investment needed."
+                    },
+                    {
+                        "question": "我可以預期節省多少成本？",
+                        "answer": "Pre-zippered rollstock can save up to 25% on zipper material by only applying zippers where needed rather than across the entire film width. You also save on equipment investment and reduce setup time compared to inline zipper systems, potentially cutting overall production time by 15% or more."
+                    },
+                    {
+                        "question": "我可以使用預拉鍊捲材生產哪些款式的袋子？",
+                        "answer": "您可以使用預拉鍊捲材生產枕形袋、自立袋和平底袋。 拉鍊位置和長度可定制，選項包括 Bag-Top、E-Z Tab 和其他開口樣式。"
+                    },
+                    {
+                        "question": "哪些產品最適合預拉鍊包裝？",
+                        "answer": "預拉鍊捲材非常適合零食、冷凍食品、寵物食品、粉末以及任何受益於可重新密封包裝的產品。 重新封閉功能有助於在打開後保持新鮮度，保持零食酥脆、冷凍食品免解凍和粉末乾燥。"
+                    },
+                    {
+                        "question": "Can I run both zippered and non-zippered films on the same line?",
+                        "answer": "是的！ 同一条生产线可同时运行常规非拉链卷材和 Achieve Pack® 预拉链卷材，让您能够灵活地提供不同价位的多个 SKU，而无需更换设备。"
+                    },
+                    {
+                        "question": "有哪些可用的屏障選項？",
+                        "answer": "We offer barrier and non-barrier options including high-barrier metalized films, clear films, powder-proof structures, and peel-seal configurations. Our team can recommend the best structure for your specific product requirements."
+                    },
+                    {
+                        "question": "預拉鍊捲材的最小訂購量是多少？",
+                        "answer": "Minimum order quantity typically starts at 5,000-10,000 meters depending on film specifications. Contact us for exact quotes based on your requirements including film width, barrier type, and printing needs."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "可堆肥袋",
+                        "description": "100% 無塑膠環保材質選擇"
+                    },
+                    {
+                        "title": "可回收的單PE",
+                        "description": "完全可回收的單一材料結構"
+                    },
+                    {
+                        "title": "PCR材料",
+                        "description": "消費後回收內容選項"
+                    },
+                    {
+                        "title": "自立袋",
+                        "description": "多功能自立式包裝"
+                    },
+                    {
+                        "title": "平底袋",
+                        "description": "優質盒底袋款式"
+                    },
+                    {
+                        "title": "枕頭袋",
+                        "description": "經典的流動包裝格式"
+                    },
+                    {
+                        "title": "重合閘選項",
+                        "description": "所有拉鍊和密封類型均可用"
+                    },
+                    {
+                        "title": "障礙選擇權",
+                        "description": "選擇您的保護級別"
+                    },
+                    {
+                        "title": "表面處理",
+                        "description": "霧面、亮光、柔軟觸感選項"
+                    },
+                    {
+                        "title": "兒童安全袋",
+                        "description": "經過兒童安全認證的包裝"
+                    },
+                    {
+                        "title": "碳中和袋",
+                        "description": "氣候正向的包裝解決方案"
+                    },
+                    {
+                        "title": "零食包裝",
+                        "description": "脆皮零食袋解決方案"
+                    },
+                    {
+                        "title": "寵物食品袋",
+                        "description": "耐用的寵物零食包裝"
+                    },
+                    {
+                        "title": "冷凍食品包裝",
+                        "description": "防凍袋選項"
+                    },
+                    {
+                        "title": "證書",
+                        "description": "查看我們的安全認證"
+                    },
+                    {
+                        "title": "常見問題解答",
+                        "description": "常見問題解答"
+                    }
+                ],
+                "b2cSections": [
+                    {
+                        "id": "零機械投資",
+                        "title": "零設備投資的可重複密封袋",
+                        "p1": "For growing direct-to-consumer (DTC) brands, upgrading to premium resealable pouches is a massive branding victory. However, standard in-line zipper machinery additions can cost tens of thousands of dollars in upfront capital. That is a massive budget barrier for a startup.",
+                        "blockquote": "立即在現有機器上升級您的行李。",
+                        "p2": "With Pouch.eco's pre-zippered roll film, you can bypass the capital equipment overhead entirely. Startups can upgrade standard pillow packs, three-side seal bags, or stand-up tubes into fully resealable, customer-friendly zipper pouches using their existing Vertical Form Fill Seal (VFFS) or Horizontal Form Fill Seal (HFFS) packaging machinery.",
+                        "h4": "小調整，大結果",
+                        "p3": "By pre-applying the resealable zipper transversely on the film before it is rolled and shipped to your facility, the only adjustment required on your standard packing machine is minor clearance tweaks on the forming tube or folder. Your existing bagger can run this film seamlessly at high speeds."
+                    },
+                    {
+                        "id": "預應用的工作原理",
+                        "title": "預載拉鍊技術的魔力",
+                        "p1": "如果沒有重型內聯工具，它是如何運作的？ 在薄膜離開我們的地板之前，我們會在專門的無塵室中處理工程複雜性。",
+                        "h4": "引擎蓋下：預塗薄膜",
+                        "bullet1": "<strong>橫向應用</strong>：我們以精確的間距將高品質的拉鍊型材直接密封到平坦的捲筒薄膜上。",
+                        "bullet2": "<strong>Zero Heat Shock:</strong> The zippers are applied with surgical heat control to prevent structural crinkling, ensuring your final pouch lies completely flat.",
+                        "bullet3": "<strong>準備送紙：</strong>薄膜到達時是卷狀的，並與您的列印佈局完美對齊。 只需將其安裝到 HFFS/VFFS 捲軸上即可開始填充。"
+                    },
+                    {
+                        "id": "啟動最小起訂量數字",
+                        "title": "適合新創企業的低最小起訂量和測試運行",
+                        "p1": "Enterprise rollstock manufacturers usually demand tens of thousands of meters per design run. This locks out small-batch roasters, boutique spice blenders, organic pet treat crafters, and startup supplement lines who are still testing market-fit.",
+                        "h4": "靈活的短跑（500–1000m）",
+                        "p2": "We have re-engineered the film lamination line to support startup testing. You can order customized pre-zippered roll film in ultra-convenient short runs starting from just 500 to 1,000 meters. Try new recipes, seasonal fragrances, or regional flavor profiles without tying up critical cash flow in heavy warehouse inventory.",
+                        "card1_title": "無氣瓶費",
+                        "card1_desc": "我们的高分辨率数字印刷机意味着您只需支付 0 美元的气缸安装费。 立即旋轉和編輯設計。",
+                        "card2_title": "多 SKU 批次",
+                        "card2_desc": "在一個訂單下將您的短片分為不同口味設計或季節變化。",
+                        "card3_title": "快速原型",
+                        "card3_desc": "兩週內即可在包裝線上收到定製印刷的薄膜卷。 快點啟動吧！"
+                    },
+                    {
+                        "id": "新鮮度-品牌-鎖",
+                        "title": "食品儲藏室新鮮度和 DTC 品牌忠誠度",
+                        "p1": "對於優質手工製品，包裝是顧客體驗的延伸。 一旦消費者撕開傳統的不可重新密封的袋子，他們就被迫使用醜陋的晶片夾、膠帶，或將內容物倒入通用玻璃罐中，從而完全失去您的品牌藝術品和徽標。",
+                        "h4": "讓您的商標成為眾人矚目的焦點",
+                        "bullet1": "🍉 終極產品新鮮度：多層屏障層壓可保護揮發性風味特徵、微妙的氣味和敏感的水分含量。",
+                        "bullet2": "🏡 每日食品儲藏室廣告看板：當袋子放在食品儲藏室中時，您的客製化印刷設計會在每次零食時段保持在前面和中心位置。",
+                        "bullet3": "🛠️ 客製尺寸和功能：搭配您特定的袋子寬度、撕口、掛孔和光澤/霧面飾面，設計出高度個性化、感官豐富的盒子。"
+                    }
+                ]
             }
         },
         "compostableStandUpPouches": {

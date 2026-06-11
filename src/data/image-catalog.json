@@ -1,10 +1,10 @@
 {
-  "generated": "2026-06-10",
-  "total_images": 3066,
+  "generated": "2026-06-11",
+  "total_images": 3069,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1528,
+    ".png": 1531,
     ".jpg": 232,
     ".svg": 3
   },
@@ -15326,8 +15326,26 @@
       ]
     },
     "store/products": {
-      "count": 297,
+      "count": 300,
       "images": [
+        {
+          "filename": "water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-3.png",
+          "path": "/imgs/store/products/water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-3.png",
+          "extension": ".png",
+          "modified": "2026-06-11T12:45:10.661Z"
+        },
+        {
+          "filename": "water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-2.png",
+          "path": "/imgs/store/products/water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-06-11T12:45:10.659Z"
+        },
+        {
+          "filename": "water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-1.png",
+          "path": "/imgs/store/products/water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-06-11T12:45:10.654Z"
+        },
         {
           "filename": "chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-5.png",
           "path": "/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-5.png",

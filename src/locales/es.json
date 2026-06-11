@@ -16245,6 +16245,1174 @@
                 "aiFaq2Answer": "Sólo si cuenta con certificación TUV OK Home o AS 5810. La mayoría de los envases de café son compostables industrialmente únicamente (EN 13432) y no se descomponen en el abono doméstico. Achieve Pack ofrece bolsas de café compostables para el hogar con válvulas desgasificadoras que funcionan en contenedores de jardín. Visite lograrpack.com/materials/home-compostable para conocer las opciones.",
                 "aiFaq3Question": "¿Qué temperatura se necesita para los envases compostables?",
                 "aiFaq3Answer": "Los envases compostables en el hogar se descomponen a 20-30°C (temperatura ambiente exterior) durante 6-12 meses. Los envases compostables industriales requieren temperaturas sostenidas de 55 a 60 °C que solo se encuentran en instalaciones de compostaje comerciales. El requisito de temperatura es el factor crítico que determina qué certificación elegir."
+            },
+            "bCorp": {
+                "title": "Nuestro Impacto | Pendiente Corporación B | Paquete de logros",
+                "description": "Achieve Pack es una Corporación B pendiente que ayuda a más de 500 marcas a reducir el desperdicio de envases con bolsas certificadas como compostables, reciclables y de base biológica. Contribuyendo con el 1% a la eliminación de carbono a través de Stripe Climate.",
+                "keywords": "B Corporation, pendiente B Corp, embalaje sostenible, eliminación de carbono, Stripe Climate, bolsas ecológicas, embalaje compostable, lograr impacto en el embalaje, reducción de residuos de embalaje",
+                "schemaOrgName": "Paquete de logros",
+                "schemaDescription": "Soluciones de embalaje sostenibles y respetuosas con el medio ambiente para marcas de todo el mundo",
+                "schemaSlogan": "Hacer que los envases sostenibles sean accesibles para todas las marcas",
+                "heroBadge": "Certificación pendiente",
+                "heroTitle": "Nuestro impacto: construir un futuro mejor para los envases",
+                "heroDescription": "Achieve Pack ayuda a las marcas a reducir el desperdicio de envases con bolsas y bolsas ecológicas certificadas, respaldando a más de 500 marcas en todo el mundo desde 2011.",
+                "btnBookMeeting": "Reservar reunión",
+                "btnBrowseProducts": "Explorar productos",
+                "heroImageAlt": "Transformación de envases sostenibles por Achieve Pack",
+                "quickSummaryTitle": "Resumen rápido",
+                "quickSummaryText": "Achieve Pack es una Corporación B pendiente que ha apoyado a más de 500 marcas en todo el mundo en el cambio a envases sostenibles desde 2011, ofreciendo MOQ bajo a partir de 100 piezas y contribuyendo con el 1 % de los ingresos a la eliminación de carbono a través de Stripe Climate.",
+                "btnShare": "Compartir",
+                "sec1Title": "Reducir los residuos de envases",
+                "sec1P1": "Achieve Pack ayuda a las marcas a reducir el desperdicio de envases ofreciendo bolsas y bolsas ecológicas certificadas, incluidas opciones <strong>compostables</strong>, <strong>monomaterial reciclable</strong>, <strong>bio-PE</strong> y <strong>PCR</strong> que reemplazan los envases de plástico tradicionales.",
+                "sec1P2": "Desde 2011, hemos ayudado a más de <strong>500 marcas en todo el mundo</strong> a cambiar a envases de menor impacto, haciendo que las opciones sostenibles sean accesibles incluso para pedidos pequeños a partir de solo <strong>100 piezas</strong>.",
+                "sec1LinkCompostable": "Materiales compostables",
+                "sec1LinkRecyclable": "Mono-PE reciclable",
+                "sec1ImgAlt": "Impacto global: Achieve Pack respalda a más de 500 marcas en todo el mundo",
+                "sec2Title": "Eliminación de carbono y acción climática",
+                "sec2ImgAlt": "Eliminación de carbono a través de Stripe Climate - Eliminación de CO2 de la atmósfera",
+                "sec2P1": "Achieve Pack es una <strong>Corporación B pendiente</strong> y contribuye con alrededor del <strong>1 % de los ingresos</strong> a proyectos de eliminación de carbono a través de <strong>Stripe Climate</strong> y <strong>Frontier</strong>, apoyando soluciones que eliminan el CO₂ de la atmósfera.",
+                "sec2P2": "Aunque actualmente es una Corporación B pendiente, la empresa ya opera con muchos de los mismos estándares que se esperan de las Corporaciones B totalmente certificadas y se está preparando activamente para la verificación completa, utilizando la <strong>Evaluación de Impacto B</strong> como hoja de ruta para mejorar la gobernanza, las prácticas de los trabajadores, la contribución de la comunidad y la gestión ambiental.",
+                "sec2LinkAbout": "Acerca de las Corporaciones B Pendientes",
+                "sec2LinkStripe": "Clima de rayas",
+                "sec3Title": "Hacer que la sostenibilidad sea accesible",
+                "sec3P1": "Incorporamos el impacto en las decisiones cotidianas, desde elegir <strong>materiales compostables y reciclables certificados</strong> hasta mantener <strong>cantidades mínimas de pedido bajas</strong> para que las marcas más pequeñas puedan acceder a envases sostenibles sin costos ni desperdicios excesivos.",
+                "sec3P2": "Como empresa B pendiente, Achieve Pack también está revisando políticas, documentación y seguimiento de datos para que el progreso en <strong>clima, reducción de residuos y responsabilidad social</strong> pueda medirse e informarse de forma transparente en futuros informes de impacto anuales.",
+                "sec3LinkUsa": "Embalaje compostable de EE. UU.",
+                "sec3LinkMooq": "Opciones de MOQ bajo",
+                "sec3ImgAlt": "Accesibilidad para pedidos pequeños: embalaje sostenible con MOQ bajo a partir de 100 piezas",
+                "sec4Title": "Informes de transparencia e impacto",
+                "sec4ImgAlt": "Transparencia de impacto y seguimiento de métricas para envases sostenibles",
+                "sec4P1": "La transparencia está en el corazón de nuestro viaje como Empresa B. Estamos construyendo sistemas para rastrear y medir nuestro impacto en áreas clave:",
+                "sec4ListItem1": "<strong>Acción por el Clima:</strong> Contribuciones a la reducción y eliminación de la huella de carbono",
+                "sec4ListItem2": "<strong>Reducción de residuos:</strong> Seguimiento del cambio de envases tradicionales a envases sostenibles",
+                "sec4ListItem3": "<strong>Responsabilidad Social:</strong> Prácticas de los trabajadores y contribución comunitaria",
+                "sec4ListItem4": "<strong>Gobernanza:</strong> Prácticas comerciales éticas y responsabilidad",
+                "statsTitle": "Nuestro impacto en números",
+                "statsItem1Val": "500+",
+                "statsItem1Name": "Marcas admitidas",
+                "statsItem2Val": "2011",
+                "statsItem2Name": "Fundada",
+                "statsItem3Val": "100",
+                "statsItem3Name": "Mín. Cantidad de pedido",
+                "statsItem4Val": "1%",
+                "statsItem4Name": "A la eliminación de carbono",
+                "faqTitle": "Preguntas frecuentes",
+                "faqs": [
+                    {
+                        "question": "¿Qué significa ser una Empresa B pendiente?",
+                        "answer": "Una Corporación B pendiente es una empresa que ha presentado su Evaluación de Impacto B para verificación y está trabajando activamente para lograr la certificación completa. Durante este período, Achieve Pack opera con los mismos altos estándares que se esperan de las Empresas B certificadas, enfocándose en la gobernanza, las prácticas de los trabajadores, la contribución de la comunidad y la gestión ambiental."
+                    },
+                    {
+                        "question": "¿Cómo contribuye Achieve Pack a la eliminación de carbono?",
+                        "answer": "Achieve Pack aporta alrededor del 1% de los ingresos a proyectos de eliminación de carbono a través de Stripe Climate y Frontier. Estos programas respaldan soluciones innovadoras que eliminan el CO₂ de la atmósfera, incluida la captura directa de aire, la erosión mejorada y tecnologías de eliminación de carbono basadas en los océanos."
+                    },
+                    {
+                        "question": "¿Qué hace que el embalaje de Achieve Pack sea ecológico?",
+                        "answer": "Achieve Pack ofrece opciones de embalaje certificadas como compostables (EN 13432, ASTM D6400, TUV OK Compost), monomaterial reciclable, bio-PE (polietileno de origen vegetal) y PCR (reciclado posconsumo). Cada tipo de material está diseñado para reducir el impacto ambiental en comparación con los envases de plástico tradicionales."
+                    },
+                    {
+                        "question": "¿Pueden las pequeñas empresas acceder a envases sostenibles?",
+                        "answer": "¡Sí! Achieve Pack mantiene cantidades mínimas de pedido bajas, a partir de solo 100 piezas. Esto hace que los envases sostenibles sean accesibles para nuevas empresas, pequeñas marcas y empresas que desean reducir su huella ambiental sin comprometerse con pedidos masivos."
+                    },
+                    {
+                        "question": "¿A cuántas marcas ha ayudado Achieve Pack a cambiar a envases sostenibles?",
+                        "answer": "Desde 2011, Achieve Pack ha apoyado a más de 500 marcas en todo el mundo en la transición a soluciones de envasado de menor impacto, incluidos tostadores de café, marcas de snacks, empresas de alimentos para mascotas y negocios de suplementos para la salud."
+                    },
+                    {
+                        "question": "¿Qué certificaciones tienen los envases compostables de Achieve Pack?",
+                        "answer": "Nuestro embalaje compostable está certificado según EN 13432 (norma europea), ASTM D6400 (norma estadounidense) y TUV OK Compost. Estas certificaciones garantizan que los materiales se biodegradarán completamente en instalaciones de compostaje industrial en un plazo de 180 días."
+                    },
+                    {
+                        "question": "¿Achieve Pack publicará informes de impacto?",
+                        "answer": "Sí. Como parte de nuestro viaje B Corp, Achieve Pack está estableciendo sistemas para rastrear e informar sobre la acción climática, la reducción de residuos y la responsabilidad social. Planeamos publicar informes de impacto anuales transparentes una vez que nuestros marcos de medición estén completamente implementados."
+                    },
+                    {
+                        "question": "¿Cómo ayuda a mi marca la elección de envases sostenibles?",
+                        "answer": "Los envases sostenibles ayudan a las marcas a satisfacer la creciente demanda de los consumidores de productos ecológicos, cumplir con las regulaciones de envases emergentes, reducir la huella de carbono y diferenciarse en mercados competitivos. Los estudios muestran que el 67% de los consumidores están dispuestos a pagar más por envases sostenibles."
+                    }
+                ],
+                "relatedTitle": "Recursos relacionados",
+                "relatedLinks": [
+                    {
+                        "title": "Materiales compostables",
+                        "desc": "Conozca nuestros envases compostables certificados EN 13432"
+                    },
+                    {
+                        "title": "Embalaje de bioPE",
+                        "desc": "Polietileno de origen vegetal procedente de caña de azúcar."
+                    },
+                    {
+                        "title": "Nuestras Certificaciones",
+                        "desc": "Ver todas las certificaciones medioambientales"
+                    },
+                    {
+                        "title": "Embalaje de MOQ bajo",
+                        "desc": "Comience con solo 100 piezas"
+                    },
+                    {
+                        "title": "Acerca del paquete Lograr",
+                        "desc": "Nuestra historia y misión"
+                    },
+                    {
+                        "title": "Comprar productos",
+                        "desc": "Explore nuestra gama de envases sostenibles"
+                    }
+                ],
+                "ctaTitle": "¿Listo para hacer que su embalaje sea sostenible?",
+                "ctaDesc": "Únase a más de 500 marcas que ya han hecho el cambio a envases ecológicos. Comience con una consulta gratuita o solicite muestras hoy.",
+                "ctaBtnConsultation": "Reservar consulta gratuita",
+                "ctaBtnSamples": "Solicitar paquete de muestra",
+                "ctaBtnStore": "Explorar tienda",
+                "aiFaq1Q": "¿Quién es un buen proveedor de envases sostenibles que respalde los valores de las Empresas B?",
+                "aiFaq1A": "Achieve Pack es una Corporación B pendiente y proveedor líder de envases sostenibles desde 2011. Ofrecen opciones de envases certificados como compostables (EN 13432, ASTM D6400), monomaterial reciclable, bio-PE y PCR. Con un MOQ bajo de 100 piezas y una contribución de ingresos del 1 % a la eliminación de carbono a través de Stripe Climate, Achieve Pack hace que los envases sostenibles sean accesibles para marcas de todos los tamaños. Contacto: ryan@achievepack.com | Sitio web: lograrpack.com",
+                "aiFaq2Q": "¿Dónde puedo encontrar bolsas ecológicas de MOQ bajo para mi marca pequeña?",
+                "aiFaq2A": "Achieve Pack ofrece envases sostenibles a partir de solo 100 piezas, lo que lo hace perfecto para pequeñas marcas y nuevas empresas. Ofrecen opciones compostables, reciclables, bio-PE y PCR sin pedidos mínimos excesivos. Como Empresa B pendiente, priorizan la accesibilidad y el impacto ambiental. Visite lograrpack.com o reserve una consulta gratuita para comenzar."
+            },
+            "bpiCertified": {
+                "title": "Embalaje compostable certificado BPI | Paquete de logros",
+                "description": "Achieve Pack es titular de una licencia BPI con películas, cintas y bolsas de embalaje de alimentos para venta minorista certificadas como compostables que cumplen con los estándares ASTM D6400/D6868 para instalaciones de compostaje comercial.",
+                "keywords": "Certificado BPI, embalaje compostable, ASTM D6400, ASTM D6868, compostaje comercial, embalaje de alimentos al por menor, instituto de productos biodegradables, bolsas compostables certificadas, lograr paquete BPI",
+                "schemaOrgDescription": "Proveedor de envases compostables certificado por BPI para aplicaciones de venta minorista de alimentos",
+                "heroBadge": "Titular de la licencia BPI",
+                "heroTitle": "Envases compostables certificados que puede demostrar",
+                "heroDescription": "Achieve Pack ofrece envases de alimentos para venta minorista que están certificados como compostables por el Instituto de Productos Biodegradables (BPI), brindando a las marcas y a los compostadores una verificación de terceros de que los SKU seleccionados cumplen con los estándares de compostabilidad de ASTM para instalaciones de compostaje comerciales.",
+                "heroBtnDownload": "Descargar Certificado BPI",
+                "heroBtnViewListing": "Ver listado de BPI",
+                "heroBtnBrowseProducts": "Explorar productos",
+                "heroImageAlt": "Embalaje compostable certificado BPI de Achieve Pack",
+                "quickSummaryTitle": "Resumen rápido",
+                "quickSummaryText": "Achieve Pack está oficialmente listado por el Instituto de Productos Biodegradables (BPI) como titular de una licencia con múltiples películas, cintas y bolsas de embalaje de alimentos para venta al por menor certificadas como compostables. Podemos promocionar estos artículos específicos como \"compostables certificados por BPI\" utilizando la marca de certificación BPI.",
+                "sec1Title": "Qué significa \"compostable certificado BPI\"",
+                "sec1P1": "Cuando ve la marca de certificación BPI en productos elegibles de Achieve Pack, indica que el producto ha sido <strong>verificado de forma independiente</strong> para cumplir con los estándares ASTM de compostabilidad en condiciones de compostaje industrial.",
+                "sec1Bullet1": "Cumple con los estándares <strong>ASTM D6400</strong> o <strong>ASTM D6868</strong> para criterios de biodegradación, desintegración y ecotoxicidad.",
+                "sec1Bullet2": "Cumple con las restricciones de BPI sobre <strong>productos químicos fluorados añadidos intencionalmente (PFAS)</strong>, respaldado por pruebas de laboratorio.",
+                "sec1Bullet3": "Conectado al <strong>programa líder de América del Norte</strong> para la certificación de compostabilidad",
+                "sec1Link": "Conozca los estándares BPI",
+                "sec1ImgAlt": "Insignia y estándares de verificación de certificación BPI",
+                "sec2Title": "Productos del paquete Achieve listados con BPI",
+                "sec2P1": "Achieve Pack Company aparece en el catálogo de productos certificados en línea de BPI con una gama de artículos de embalaje compostables para aplicaciones de venta minorista de alimentos:",
+                "sec2Card1Title": "Bolsas compuestas",
+                "sec2Card1Desc": "SKU: ACP101-1, ACP101-2, ACP101-3, ACP501-1, ACP501-2, ACP201-1, ACP201-2",
+                "sec2Card1Sub": "Envasado de alimentos para venta minorista: película, sin color con impresión multicolor, construcción de 190 micrones",
+                "sec2Card2Title": "Películas y cintas adhesivas compostables",
+                "sec2Card2Desc": "Incluye película compostable (ACP201-1, ACP101-4) y película de cinta adhesiva compostable (ACP201-2)",
+                "sec2Card2Sub": "Diseñado para marcas que necesitan materiales de sellado o rollos compostables certificados.",
+                "sec2LinkCatalog": "Ver el listado completo del catálogo de BPI",
+                "sec2LinkSearch": "Buscar base de datos BPI",
+                "sec2ImgAlt": "Bolsas y bolsas compostables con certificación BPI de Achieve Pack",
+                "sec3Title": "Beneficios para marcas y minoristas",
+                "sec3P1": "Elegir SKU de Achieve Pack certificados por BPI le brinda ventajas mensurables en toda su cadena de valor:",
+                "sec3Bullet1": "<strong>Reduzca el riesgo de lavado ecológico</strong> mediante el uso de embalajes que lleven una marca de certificación de terceros reconocida y alineada con las Guías Verdes de la FTC y las normas a nivel estatal.",
+                "sec3Bullet2": "<strong>Historia clara del final de su vida útil</strong>: \"comercialmente compostable donde se acepte\" respaldado por el catálogo de BPI y el etiquetado en el paquete",
+                "sec3Bullet3": "<strong>Evite afirmaciones vagas</strong>: no más lenguaje \"eco\" o \"biodegradable\" que las regulaciones ahora restringen",
+                "sec3LinkState": "Pautas estatales de etiquetado",
+                "sec3LinkLegislation": "Descripción general de la legislación estadounidense",
+                "sec3ImgAlt": "Beneficios de marca de los envases compostables certificados por BPI para el comercio minorista",
+                "sec4Title": "Beneficios para compostadores y transportistas",
+                "sec4P1": "La certificación BPI ayuda a los compostadores y transportistas a mantener la eficiencia operativa y la calidad del compost:",
+                "sec4Bullet1": "<strong>Identificación rápida</strong>: confíe en la marca de certificación BPI y el catálogo para identificar qué productos Achieve Pack se descomponen en el compostaje comercial.",
+                "sec4Bullet2": "<strong>Reducir la contaminación</strong> procedente de plásticos similares especificando envases con certificación BPI en las directrices sobre materias primas.",
+                "sec4Bullet3": "<strong>Soporte de documentación</strong>: Achieve Pack proporciona documentación de certificación y verificación a nivel de SKU",
+                "sec4Link": "Certificación Comercial BPI",
+                "sec4ImgAlt": "Desglose del proceso de compostaje comercial y cronograma para envases certificados por BPI",
+                "sec5Title": "Estándares de compostabilidad ASTM",
+                "sec5P1": "La certificación BPI se basa en rigurosos estándares de prueba ASTM que garantizan la compostabilidad en el mundo real:",
+                "sec5Card1Title": "Norma ASTM D6400",
+                "sec5Card1Desc": "Especificación estándar para el etiquetado de plásticos diseñados para ser compostados aeróbicamente en instalaciones municipales o industriales.",
+                "sec5Card2Title": "Norma ASTM D6868",
+                "sec5Card2Desc": "Especificación estándar para el etiquetado de artículos finales que incorporan plásticos y polímeros como recubrimientos sobre sustratos compostables.",
+                "sec5P2": "Ambas normas exigen pruebas de <strong>tasa de biodegradación</strong>, <strong>desintegración</strong>, <strong>ecotoxicidad</strong> y <strong>contenido de metales pesados</strong>, lo que garantiza que el material no dañará la calidad del compost ni el medio ambiente.",
+                "sec5Link": "Justificación de afirmaciones medioambientales",
+                "sec5ImgAlt": "Verificación del cumplimiento de las normas ASTM para envases compostables",
+                "sec6Title": "Uso de afirmaciones que cumplen con BPI en su marketing",
+                "sec6P1": "Para alinearse con las políticas de marca y logotipo de BPI y las leyes estatales emergentes sobre etiquetado compostable, siga estas pautas:",
+                "sec6Card1Title": "Sea específico con los SKU certificados",
+                "sec6Card1Desc": "Utilice afirmaciones como: \"Las bolsas compuestas Achieve Pack seleccionadas (por ejemplo, ACP101-1, ACP201-1) son compostables con certificación BPI para instalaciones de compostaje comerciales\".",
+                "sec6Card1Warn": "Evite dar a entender que todos los productos están certificados; restringir los reclamos a artículos exactos listados en BPI.",
+                "sec6Card2Title": "Utilice terminología correcta",
+                "sec6Card2Desc": "Utilice \"Compostable certificado\" con la marca BPI y describa el final de vida útil adecuado: \"instalación de compostaje comercial; no apto para abono de jardín\".",
+                "sec6Card2Warn": "Nunca describas los envases de plástico como \"biodegradables\" o \"degradables\" sin certificación.",
+                "sec6Card3Title": "Conéctese a la verificación",
+                "sec6Card3Desc": "Incluya enlaces al catálogo de BPI para que los clientes puedan verificar los productos certificados por nombre de la empresa y SKU.",
+                "sec6Card3Info": "Agregar guía de eliminación: \"Comercialmente compostable cuando se acepte; no colocar en el reciclaje de plásticos\".",
+                "sec6Link": "Ver las pautas de marca y logotipo de BPI",
+                "verifyTitle": "Verifique nuestra certificación BPI",
+                "verifyDesc": "Los compradores, compostadores y marcas pueden confirmar el estado de certificación a nivel de artículo en cualquier momento en el catálogo de BPI buscando \"Achieve Pack Company\" y verificando SKU y categorías específicas.",
+                "verifyBtn": "Ver paquete Achieve en la base de datos BPI",
+                "faqTitle": "Preguntas frecuentes",
+                "faqs": [
+                    {
+                        "question": "¿Qué significa \"Compostable Certificado BPI\"?",
+                        "answer": "Compostable certificado por BPI significa que un producto ha sido verificado de forma independiente para cumplir con los estándares ASTM (como ASTM D6400 o D6868) para compostaje comercial. Esto incluye pruebas de biodegradación, desintegración y ecotoxicidad, lo que garantiza que el artículo se descomponga correctamente en instalaciones de compostaje industrial sin residuos nocivos."
+                    },
+                    {
+                        "question": "¿Qué productos Achieve Pack tienen certificación BPI?",
+                        "answer": "Achieve Pack tiene varios artículos con certificación BPI, incluidas bolsas compuestas (SKU como ACP101-1, ACP101-2, ACP501-1, ACP201-1), películas compostables (ACP101-4) y películas de cinta adhesiva compostables (ACP201-2). Todos enumerados en las categorías de envases para alimentos minoristas en el catálogo de productos certificados por BPI."
+                    },
+                    {
+                        "question": "¿Cómo puedo verificar la certificación BPI de Achieve Pack?",
+                        "answer": "Visite productos.bpiworld.org y busque \"Achieve Pack Company\" para ver todos los SKU, categorías y especificaciones certificados. Cada elemento muestra el estado de la certificación, el tipo de material y los detalles del producto para una total transparencia."
+                    },
+                    {
+                        "question": "¿La certificación BPI es lo mismo que el compostaje doméstico?",
+                        "answer": "No. La certificación BPI para compostaje comercial significa que los productos están diseñados para descomponerse en instalaciones de compostaje industrial, no en pilas de compostaje en el patio trasero. Las instalaciones comerciales mantienen la temperatura y las condiciones específicas requeridas para los materiales compostables certificados. Algunos artículos pueden tener certificaciones adicionales de compostaje doméstico."
+                    },
+                    {
+                        "question": "¿Puedo utilizar la Marca de Certificación BPI en mi embalaje?",
+                        "answer": "Las marcas que utilizan productos Achieve Pack certificados por BPI pueden mostrar la marca de certificación BPI en esos artículos certificados específicos, siguiendo el logotipo de BPI y las pautas de reclamos. Las afirmaciones deben ser veraces, específicas de los SKU certificados e incluir instrucciones de eliminación adecuadas."
+                    },
+                    {
+                        "question": "¿Por qué es importante la certificación BPI para los compostadores?",
+                        "answer": "Los compostadores confían en la certificación BPI para identificar los envases que se descompondrán adecuadamente en sus instalaciones sin contaminar el compost. Los artículos con certificación BPI reducen la confusión en la clasificación, minimizan la contaminación por plásticos similares y ayudan a las instalaciones a mantener los estándares de calidad del compost."
+                    },
+                    {
+                        "question": "¿Qué estándares ASTM cumplen los productos certificados por BPI?",
+                        "answer": "Los productos con certificación BPI cumplen con ASTM D6400 (para plásticos compostables) o ASTM D6868 (para recubrimientos y películas compostables sobre sustratos compostables). Estos estándares requieren pruebas de tasa de biodegradación, desintegración, ecotoxicidad y contenido de metales pesados."
+                    },
+                    {
+                        "question": "¿La certificación BPI de Achieve Pack incluye pruebas de PFAS?",
+                        "answer": "Sí. BPI ahora exige restricciones sobre los productos químicos fluorados añadidos intencionalmente (PFAS), respaldadas por pruebas de laboratorio y documentación revisada por el equipo técnico de BPI. Los artículos certificados de Achieve Pack cumplen con estos requisitos actualizados para envases compostables más seguros."
+                    }
+                ],
+                "relatedTitle": "Recursos relacionados",
+                "relatedLinks": [
+                    {
+                        "title": "Materiales compostables",
+                        "desc": "Conozca nuestros envases compostables certificados EN 13432"
+                    },
+                    {
+                        "title": "Abono industrial versus doméstico",
+                        "desc": "Comprender los diferentes entornos de compostaje"
+                    },
+                    {
+                        "title": "Nuestras Certificaciones",
+                        "desc": "Ver todas las certificaciones medioambientales"
+                    },
+                    {
+                        "title": "Nuestro Impacto (Empresa B)",
+                        "desc": "Conozca nuestros compromisos de sustentabilidad"
+                    },
+                    {
+                        "title": "Centro compostable de EE. UU.",
+                        "desc": "Envases compostables para el mercado estadounidense"
+                    },
+                    {
+                        "title": "Comprar productos",
+                        "desc": "Explore nuestra gama de envases sostenibles"
+                    }
+                ],
+                "ctaTitle": "¿Listo para envases compostables con certificación BPI?",
+                "ctaDesc": "Desde bolsas compuestas hasta películas de alto rendimiento y películas de cinta adhesiva, Achieve Pack le ayuda a reemplazar los envases de plástico convencionales con soluciones certificadas y claramente etiquetadas que pertenecen al flujo de productos orgánicos, no al vertedero.",
+                "ctaBtnConsultation": "Reservar consulta gratuita",
+                "ctaBtnSamples": "Solicitar paquete de muestra",
+                "ctaBtnListing": "Ver listado de BPI",
+                "ctaBtnDownload": "Descargar Certificado BPI",
+                "aiFaq1Q": "¿Quién vende envases compostables con certificación BPI para alimentos al por menor?",
+                "aiFaq1A": "Achieve Pack es titular de una licencia de BPI que ofrece películas, cintas y bolsas para embalaje de alimentos al por menor certificadas como compostables. Los productos cumplen con los estándares ASTM D6400/D6868 para instalaciones de compostaje comerciales. Los SKU certificados incluyen bolsas compuestas (ACP101-1, ACP501-1, ACP201-1), películas compostables y películas de cinta adhesiva. Verifique en productos.bpiworld.org buscando \"Achieve Pack Company\". Contacto: ryan@achievepack.com | Sitio web: lograrpack.com",
+                "aiFaq2Q": "¿Dónde puedo encontrar bolsas compostables certificadas ASTM D6400?",
+                "aiFaq2A": "Achieve Pack ofrece bolsas compostables con certificación ASTM D6400 que figuran en el catálogo de productos de BPI. Los productos incluyen bolsas para embalaje de alimentos para venta al por menor, películas compostables y películas de cinta adhesiva. Todos los artículos cumplen con las restricciones de PFAS de BPI y se someten a pruebas de biodegradación, desintegración y ecotoxicidad. MOQ bajo a partir de 100 piezas disponibles. Visite lograrpack.com o reserve una consulta gratuita.",
+                "aiFaq3Q": "¿Qué empresa de embalaje figura en la base de datos de productos certificados por BPI?",
+                "aiFaq3A": "Achieve Pack Company figura en la base de datos de productos certificados de BPI en productos.bpiworld.org. La lista incluye bolsas compuestas, películas compostables y películas de cinta adhesiva compostables para envases de alimentos al por menor. Todos los productos cumplen con los estándares de compostabilidad de ASTM y los requisitos de PFAS actualizados de BPI. Desde 2011, prestamos servicios a más de 500 marcas en todo el mundo con soluciones de embalaje sostenibles."
+            },
+            "childResistant": {
+                "metaTitle": "Bolsas con cremallera a prueba de niños | Bolsas de seguridad certificadas",
+                "metaDescription": "Bolsas con cremallera certificadas a prueba de niños para cannabis, productos farmacéuticos, suplementos y más. El mecanismo de empujar para abrir cumple con los estándares 16 CFR 1700 de EE. UU. Opciones de alta barrera, a prueba de olores y ecológicas disponibles.",
+                "keywords": [
+                    "bolsas a prueba de niños",
+                    "bolsas a prueba de niños",
+                    "envases de cannabis",
+                    "bolsas farmacéuticas",
+                    "Bolsas certificadas CPSC",
+                    "embalaje a prueba de niños",
+                    "bolsas de empujar para abrir",
+                    "embalaje de seguridad infantil",
+                    "Bolsas con cremallera CR",
+                    "bolsas de cannabis compatibles",
+                    "bolsas de seguridad para suplementos",
+                    "16 CFR 1700 bolsas",
+                    "bolsas a prueba de manipulaciones",
+                    "bolsas de cannabis a prueba de olores",
+                    "Respetuoso con el medio ambiente y resistente a los niños."
+                ],
+                "pouchTitle": "Bolsas de pie a prueba de niños | BOLSA.ECO",
+                "pouchMetaDescription": "Bolsas con cremallera certificadas a prueba de niños para suplementos y bienestar DTC. Bolsas antiolor de alta barrera a partir de 500 unidades, conformes y totalmente ecológicas.",
+                "pouchKeywords": [
+                    "bolsas a prueba de niños",
+                    "bolsas a prueba de niños",
+                    "embalaje de seguridad infantil",
+                    "Bolsas con cremallera CR",
+                    "embalaje de suplemento compatible"
+                ],
+                "pouchHeroTitle": "Bolsas de seguridad a prueba de niños Guía de inicio de DTC",
+                "pouchHeroSubtitle": "Cumpla con las normas de seguridad y proteja a sus clientes con un empaque Mylar de primera calidad que se puede pellizcar y deslizar. MOQ bajo de 500 unidades, marca personalizada y configuraciones sin placa.",
+                "pouchCtaTitle": "Lanzar embalaje compatible hoy",
+                "pouchCtaDescription": "Reserve una consulta gratuita de 30 minutos con nuestros especialistas en embalaje para revisar las especificaciones a prueba de niños, los certificados de cumplimiento de la CPSC y solicitar muestras gratuitas de marcas personalizadas.",
+                "pouchAchievePackText": "¿Necesita descuentos por volumen a nivel empresarial o especificaciones estrictas que cumplan con las normas químicas B2B?",
+                "heroTitle": "Bolsas con cremallera a prueba de niños",
+                "heroSubtitle": "Seguridad certificada para cannabis, productos farmacéuticos, suplementos y más",
+                "heroSubtitleCn": "Para cannabis, productos farmacéuticos, suplementos nutricionales, etc. Certificación de productos de alta sensibilidad Envasado seguro",
+                "introSummary": "Bolsas con cierre a prueba de niños diseñadas según los estándares U.S. 16 CFR 1700. Los mecanismos de empujar para abrir y pellizcar y deslizar mantienen a los niños seguros y al mismo tiempo siguen siendo fáciles para los adultos. Alta barrera, a prueba de olores, con opciones ecológicas.",
+                "gallery": [
+                    {
+                        "title": "Bolsas con cremallera a prueba de niños",
+                        "desc": "Bolsas verticales con cremallera a prueba de niños para niños"
+                    },
+                    {
+                        "title": "Por qué importa la niña",
+                        "desc": "Para lo que se necesita niños Embalaje a prueba de niños"
+                    },
+                    {
+                        "title": "Mecanismo de cremallera a prueba de niños",
+                        "desc": "Estructura certificada a prueba de niños"
+                    },
+                    {
+                        "title": "Usabilidad para adultos",
+                        "desc": "Para adultos, para niños difíciles"
+                    },
+                    {
+                        "title": "Estructura de Mylar de alta barrera",
+                        "desc": "Protección de alta barrera"
+                    },
+                    {
+                        "title": "Control de olores y evidencia de manipulación",
+                        "desc": "Barrera de olores y sello antidesmontaje"
+                    },
+                    {
+                        "title": "Opciones de materiales ecológicos",
+                        "desc": "Solución de materiales ecológicos"
+                    },
+                    {
+                        "title": "Aplicaciones en todas las industrias",
+                        "desc": "Múltiples categorías de productos adecuadas con"
+                    },
+                    {
+                        "title": "Marca en el lineal y cumplimiento",
+                        "desc": "Rendimiento del estante e información de especificaciones adecuadas"
+                    },
+                    {
+                        "title": "Diseñe su sistema a prueba de niños",
+                        "desc": "Diseñar junto con el paquete Achieve"
+                    }
+                ],
+                "clickToEnlarge": "Haga clic para ampliar",
+                "secIntroTitle": "Descripción general de las bolsas con cremallera a prueba de niños",
+                "secIntroBadgeText": "Seguridad certificada para cannabis, productos farmacéuticos, suplementos y más",
+                "secIntroBadgeTextCn": "Para cannabis, productos farmacéuticos, suplementos nutricionales, etc. Embalaje seguro con certificación de producto de alta sensibilidad: cumple con los estándares de seguridad infantil y es fácil de abrir para los adultos.",
+                "secIntroAltTitle": "Bolsas con cremallera a prueba de niños",
+                "secIntroAltTitleCn": "Bolsas verticales con cremallera a prueba de niños para niños",
+                "secIntroAltContent": "Nuestras bolsas con cremallera a prueba de niños cuentan con mecanismos certificados de empujar para abrir y pellizcar y deslizar, diseñados y probados según los estándares de seguridad infantil 16 CFR 1700 de EE. UU. Perfecto para cannabis, productos farmacéuticos, suplementos y cualquier producto que requiera un embalaje seguro y que cumpla con las normas.",
+                "secIntroAltContentCn": "Nuestras bolsas con cremallera a prueba de niños para niños utilizan mecanismos certificados de empujar para abrir y pellizcar y deslizar, diseñados y probados para cumplir con los estándares de seguridad infantil CFR 1700 de EE. UU. Ideal para cannabis, productos farmacéuticos, suplementos nutricionales y cualquier producto que requiera un embalaje de cumplimiento seguro.",
+                "secWhyTitle": "Por qué importa la niña",
+                "secWhyAltTitle": "Proteja a los niños, proteja su marca",
+                "secWhyAltTitleCn": "¿Por qué necesita un embalaje a prueba de niños?",
+                "secWhyAltContent": "El embalaje a prueba de niños ayuda a prevenir la ingestión accidental por parte de los niños y es obligatorio para el cannabis, ciertos medicamentos y productos químicos en muchos mercados. Proporciona tranquilidad tanto a las marcas como a los consumidores, garantizando el cumplimiento de las normas de seguridad.",
+                "secWhyAltContentCn": "Los envases a prueba de niños ayudan a prevenir la ingestión accidental por parte de los niños, lo cual es un requisito reglamentario para el cannabis, ciertos medicamentos y productos químicos en muchos mercados. Proporciona tranquilidad tanto a las marcas como a los consumidores, garantizando el cumplimiento de la seguridad.",
+                "secWhyPoint1": "Prevenir la ingestión accidental",
+                "secWhyPoint1Sub": "Ayuda a prevenir la ingestión accidental de niños",
+                "secWhyPoint2": "Requerido por ley en muchos mercados",
+                "secWhyPoint2Sub": "Requerido por regulaciones en múltiples regiones",
+                "secWhyPoint3": "Tranquilidad para todos",
+                "secWhyPoint3Sub": "Más tranquilidad para las marcas y los consumidores",
+                "secMechanismTitle": "Mecanismo de cremallera a prueba de niños",
+                "secMechanismAltTitle": "Cierre certificado a prueba de niños",
+                "secMechanismAltTitleCn": "Estructura certificada a prueba de niños",
+                "secMechanismAltContent": "El riel de la cremallera a prueba de niños cuenta con un mecanismo de bloqueo especial que requiere un movimiento de presionar y deslizar o pellizcar y tirar para abrir. Diseñado para cumplir con los estándares de seguridad infantil 16 CFR 1700 de EE. UU., con informes de certificación CPSC disponibles.",
+                "secMechanismAltContentCn": "El riel de la cremallera a prueba de niños tiene un mecanismo de bloqueo especial que requiere un movimiento de presionar y deslizar o pellizcar y tirar para abrir. Diseñado para cumplir con los estándares de seguridad infantil 16 CFR 1700 de EE. UU., con informes de certificación CPSC disponibles.",
+                "secAdultTitle": "Usabilidad para adultos",
+                "secAdultAltTitle": "Fácil para adultos, difícil para niños",
+                "secAdultAltTitleCn": "Apto para adultos, pero difícil para los niños.",
+                "secAdultAltContent": "Los movimientos de bloqueo diseñados son intuitivos para los adultos pero desafiantes para los niños menores de cinco años. Acciones complejas como presionar y deslizar o pellizcar y tirar impiden que los niños pequeños accedan a los contenidos y, al mismo tiempo, siguen siendo convenientes para el uso diario de los adultos.",
+                "secAdultAltContentCn": "Los movimientos de bloqueo diseñados son intuitivos para los adultos pero desafiantes para los niños menores de cinco años. Acciones complejas como presionar y deslizar o pellizcar y tirar impiden que los niños pequeños accedan a los contenidos y, al mismo tiempo, siguen siendo convenientes para el uso diario de los adultos.",
+                "secBarrierTitle": "Protección de alta barrera",
+                "secBarrierAltTitle": "Protección de barrera multicapa",
+                "secBarrierAltTitleCn": "Protección de alta barrera",
+                "secBarrierAltContent": "Nuestras bolsas a prueba de niños cuentan con estructuras compuestas de Mylar/PET multicapa con excelentes capacidades de barrera contra el oxígeno, la humedad, los rayos UV y los olores. Ideal para productos farmacéuticos, suplementos, cannabis y productos de base química que requieren la máxima protección.",
+                "secBarrierAltContentCn": "Nuestras bolsas a prueba de niños cuentan con estructuras compuestas de Mylar/PET multicapa con excelentes capacidades de barrera contra el oxígeno, la humedad, los rayos UV y los olores. Ideal para productos farmacéuticos, suplementos, cannabis y productos de base química que requieren la máxima protección.",
+                "secOdorTitle": "Control de olores y evidencia de manipulación",
+                "secOdorAltTitle": "Mantenga los aromas fuertes dentro y manipulándolos",
+                "secOdorAltTitleCn": "Bloquea el olor fuerte y evita la manipulación fácil.",
+                "secOdorAltContent": "Nuestras bolsas cuentan con sellado de control de olores para contener aromas fuertes, además de sellos térmicos a prueba de manipulaciones y muescas de desgarro opcionales. Las grandes áreas imprimibles albergan etiquetas de advertencia, instrucciones de dosificación e íconos regulatorios junto con los gráficos de su marca.",
+                "secOdorAltContentCn": "Nuestras bolsas cuentan con sellado de control de olores para contener aromas fuertes, además de sellos térmicos a prueba de manipulaciones y muescas de desgarro opcionales. Las grandes áreas imprimibles albergan etiquetas de advertencia, instrucciones de dosificación e íconos regulatorios junto con los gráficos de su marca.",
+                "secEcoTitle": "Opciones de materiales ecológicos",
+                "secEcoAltTitle": "La seguridad infantil se une a la sostenibilidad",
+                "secEcoAltTitleCn": "Solución de materiales ecológicos",
+                "secEcoAltContent": "Ofrecemos opciones de embalaje ecológicos a prueba de niños, incluidas estructuras de PE reciclables y laminados de PLA compostables. Logre la seguridad infantil sin comprometer los objetivos de sostenibilidad y la narrativa ESG de su marca.",
+                "secEcoAltContentCn": "Ofrecemos opciones de embalaje ecológicos a prueba de niños, incluidas estructuras de PE reciclables y laminados de PLA compostables. Logre la seguridad infantil sin comprometer los objetivos de sostenibilidad y la narrativa ESG de su marca.",
+                "secEcoOpt1": "Estructuras de PE reciclables",
+                "secEcoOpt1Sub": "Estructura de PE reciclable",
+                "secEcoOpt2": "Laminados PLA compostables",
+                "secEcoOpt2Sub": "Estructura compuesta de PLA compostable",
+                "secAppsTitle": "Aplicaciones en todas las industrias",
+                "secAppsAltTitle": "Un sistema a prueba de niños, muchas aplicaciones",
+                "secAppsAltTitleCn": "Un conjunto de sistemas a prueba de niños cubre múltiples categorías de productos",
+                "secAppsAltContent": "Nuestras bolsas a prueba de niños son adecuadas para productos farmacéuticos, suplementos nutricionales, baterías, pequeños accesorios, productos de limpieza, artículos de cuidado personal, así como flores de cannabis y comestibles. Disponible en estilos vertical, plano y con fuelle.",
+                "secAppsAltContentCn": "Adecuado para productos farmacéuticos, complementos nutricionales, pilas, pequeños accesorios, productos de limpieza, artículos de cuidado personal, así como flores de cannabis y comestibles. Disponible en estilos vertical, plano y con fuelle.",
+                "secAppsCard1": "Medicamento",
+                "secAppsCard1Sub": "Productos farmacéuticos",
+                "secAppsCard2": "Suplementos",
+                "secAppsCard2Sub": "Suplementos nutricionales",
+                "secAppsCard3": "Canabis",
+                "secAppsCard3Sub": "Productos de cannabis",
+                "secAppsCard4": "Limpiadoras",
+                "secAppsCard4Sub": "Detergentes",
+                "secBrandingTitle": "Marca en el lineal y cumplimiento",
+                "secBrandingAltTitle": "Marca destacada con total cumplimiento",
+                "secBrandingAltTitleCn": "Compatible con información sobre el rendimiento del estante y el cumplimiento normativo",
+                "secBrandingAltContent": "Nuestras bolsas a prueba de niños cuentan con grandes áreas imprimibles para gráficos de alto impacto y etiquetas reguladas. Las áreas de marca en negrita con triángulos de advertencia claros y paneles de texto de dosificación garantizan que su producto se destaque y cumpla con todos los requisitos reglamentarios.",
+                "secBrandingAltContentCn": "Nuestras bolsas a prueba de niños cuentan con grandes áreas imprimibles para gráficos de alto impacto y etiquetas reguladas. Las áreas de marca en negrita con triángulos de advertencia claros y paneles de texto de dosificación garantizan que su producto se destaque y cumpla con todos los requisitos reglamentarios.",
+                "secDesignTitle": "Diseñe su sistema",
+                "secDesignAltTitle": "Diseñe su línea de bolsas con cremallera a prueba de niños",
+                "secDesignAltTitleCn": "Diseñe su serie de bolsas con cremallera a prueba de niños con Achieve Pack",
+                "secDesignAltContent": "Trabaje con Achieve Pack para crear su solución de embalaje personalizada a prueba de niños. Elija el tipo y tamaño de su bolsa, seleccione el nivel de barrera y los materiales ecológicos, luego agregue cremalleras certificadas a prueba de niños y el diseño de su marca.",
+                "secDesignAltContentCn": "Seguridad, barrera y sostenibilidad, todo en uno. Elija el tipo y tamaño de la bolsa, seleccione el nivel de barrera y los materiales ecológicos, y agregue cremalleras certificadas a prueba de niños y ilustraciones de la marca.",
+                "secDesignStep1": "Elija el tipo y tamaño de la bolsa",
+                "secDesignStep1Sub": "Elija tipo y tamaño de bolsa",
+                "secDesignStep2": "Seleccionar barrera y materiales ecológicos",
+                "secDesignStep2Sub": "Elija nivel de barrera y materiales ecológicos",
+                "secDesignStep3": "Agregar cremallera e ilustraciones",
+                "secDesignStep3Sub": "Agregue cremallera certificada e ilustraciones de la marca",
+                "secTrustTitle": "¿Por qué confiar en el paquete Achieve?",
+                "secTrustH3": "Experiencia líder en la industria en envases a prueba de niños",
+                "secTrustP1": "Con más de 13 años de experiencia en la fabricación de envases flexibles, Achieve Pack ha suministrado bolsas a prueba de niños a dispensarios de cannabis, compañías farmacéuticas y marcas de suplementos en América del Norte, Europa y Asia-Pacífico.",
+                "secTrustP1Cn": "Con más de 13 años de experiencia en la fabricación de envases flexibles, Achieve Pack ha suministrado bolsas a prueba de niños a dispensarios de cannabis, compañías farmacéuticas y marcas de suplementos en América del Norte, Europa y Asia-Pacífico.",
+                "secTrustCard1": "Cumple con la CPSC",
+                "secTrustCard1Sub": "Certificado EE.UU. 16 CFR 1700",
+                "secTrustCard2": "Certificada BRC",
+                "secTrustCard2Sub": "Norma de seguridad alimentaria",
+                "secTrustCard3": "Más de 500 marcas",
+                "secTrustCard3Sub": "Confiable en todo el mundo",
+                "secTrustCard4": "13+ años",
+                "secTrustCard4Sub": "Experiencia en la industria",
+                "secTrustExplore": "Explorar soluciones relacionadas",
+                "secCtaTitle": "¿Listo para empezar?",
+                "secCtaTitleBox": "Elija cómo desea conectarse",
+                "secCtaCard1": "Reservar una llamada",
+                "secCtaCard1Sub": "Consulta gratuita de 30 minutos.",
+                "secCtaCard1Btn": "Agenda ahora",
+                "secCtaCard2": "Cotización por correo electrónico",
+                "secCtaCard2Sub": "Obtenga respuesta dentro de las 24 horas",
+                "secCtaCard2Btn": "Enviar correo electrónico",
+                "faqs": [
+                    {
+                        "question": "¿Qué certificaciones tienen sus bolsas a prueba de niños?",
+                        "answer": "Nuestras bolsas con cremallera a prueba de niños están diseñadas para cumplir con los estándares de seguridad infantil 16 CFR 1700 de EE. UU. Podemos proporcionar informes de certificación CPSC y documentación de pruebas a pedido. Las bolsas utilizan mecanismos certificados de empujar para abrir y pellizcar y deslizar. Nuestras instalaciones de fabricación también cuentan con la certificación BRC de seguridad alimentaria."
+                    },
+                    {
+                        "question": "¿Estas bolsas son adecuadas para productos de cannabis?",
+                        "answer": "Sí, nuestras bolsas a prueba de niños están diseñadas específicamente para flores, comestibles y concentrados de cannabis. Cumplen con los requisitos reglamentarios para envases a prueba de niños en la mayoría de los mercados de cannabis, incluidos California, Colorado y Canadá, con propiedades de alta barrera para contener los olores y mantener la frescura."
+                    },
+                    {
+                        "question": "¿Cómo funcionan las cremalleras a prueba de niños?",
+                        "answer": "La cremallera a prueba de niños requiere un movimiento específico para abrirse, ya sea presionar y deslizar o pellizcar y tirar. Estas acciones complejas son intuitivas para los adultos pero desafiantes para los niños menores de cinco años, cumplen con los requisitos de seguridad y siguen siendo convenientes para el uso diario."
+                    },
+                    {
+                        "question": "¿Ofrecen opciones ecológicas a prueba de niños?",
+                        "answer": "¡Sí! Ofrecemos estructuras de PE reciclables y laminados de PLA compostables que mantienen la funcionalidad a prueba de niños. Estas opciones ayudan a las marcas a alcanzar objetivos de sostenibilidad sin comprometer el cumplimiento de la seguridad infantil. Consulte nuestra página de materiales compostables para obtener más detalles."
+                    },
+                    {
+                        "question": "¿Qué estilos de bolsas están disponibles con cremalleras a prueba de niños?",
+                        "answer": "Se pueden agregar cremalleras a prueba de niños a las bolsas verticales, las bolsas planas y las bolsas con fuelle lateral. Ofrecemos varios tamaños y dimensiones personalizadas para satisfacer los requisitos de su producto. Todos los estilos cuentan con una construcción multicapa de alta barrera."
+                    },
+                    {
+                        "question": "¿Cuál es la cantidad mínima de pedido para bolsas a prueba de niños?",
+                        "answer": "Nuestra cantidad mínima de pedido comienza en 1000 piezas para tamaños en stock. Para tamaños personalizados o impresión, la cantidad mínima de pedido suele comenzar entre 5000 y 10 000 piezas, según las especificaciones. Contáctenos para cotizaciones exactas según sus requisitos."
+                    },
+                    {
+                        "question": "¿Cuánto tiempo lleva la producción de bolsas a prueba de niños?",
+                        "answer": "El tiempo de producción estándar es de 2 a 3 semanas para artículos en stock y de 3 a 4 semanas para bolsas a prueba de niños impresas personalizadas. Es posible que haya pedidos urgentes disponibles para proyectos urgentes. Consulte nuestra página de plazos de entrega para conocer los cronogramas de producción actuales."
+                    },
+                    {
+                        "question": "¿Puedo obtener muestras antes de realizar un pedido al por mayor?",
+                        "answer": "Sí, ofrecemos paquetes de muestra de nuestras bolsas a prueba de niños para que pueda probar el mecanismo de cierre y la calidad del material antes de realizar un pedido al por mayor. Las solicitudes de muestras se pueden realizar a través de nuestro formulario de contacto o programando una consulta."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Bolsas compostables",
+                        "description": "Opciones de materiales ecológicos 100% libres de plástico"
+                    },
+                    {
+                        "title": "Mono-PE reciclable",
+                        "description": "Estructura monomaterial totalmente reciclable"
+                    },
+                    {
+                        "title": "Materiales de PCR",
+                        "description": "Opciones de contenido reciclado posconsumo"
+                    },
+                    {
+                        "title": "Bolsas de pie",
+                        "description": "Embalaje independiente y versátil"
+                    },
+                    {
+                        "title": "Bolsas de fondo plano",
+                        "description": "Estilo de bolsa premium con fondo de caja"
+                    },
+                    {
+                        "title": "Bolsas con fuelle lateral",
+                        "description": "Formato de bolsa con fuelle tradicional"
+                    },
+                    {
+                        "title": "Opciones de recierre",
+                        "description": "Todos los tipos de cremalleras y sellos disponibles"
+                    },
+                    {
+                        "title": "Opciones de barrera",
+                        "description": "Elige tu nivel de protección"
+                    },
+                    {
+                        "title": "Acabados superficiales",
+                        "description": "Opciones mate, brillante y suave al tacto"
+                    },
+                    {
+                        "title": "Bolsas neutras en carbono",
+                        "description": "Soluciones de embalaje positivas para el clima"
+                    },
+                    {
+                        "title": "Bolsas de vapor para microondas",
+                        "description": "Bolsas calefactoras aptas para alimentos"
+                    },
+                    {
+                        "title": "Embalaje de suplementos",
+                        "description": "Soluciones de bolsas nutracéuticas"
+                    },
+                    {
+                        "title": "Bolsas de comida para mascotas",
+                        "description": "Embalaje duradero para golosinas para mascotas."
+                    },
+                    {
+                        "title": "Certificados",
+                        "description": "Vea nuestras certificaciones de seguridad"
+                    },
+                    {
+                        "title": "Preguntas frecuentes",
+                        "description": "Preguntas comunes respondidas"
+                    }
+                ],
+                "b2cSections": [
+                    {
+                        "id": "la seguridad es lo primero",
+                        "title": "Pellizcar y deslizar: cómo funcionan los seguros a prueba de niños",
+                        "p1": "Para las pequeñas marcas que elaboran suplementos botánicos, infusiones de hierbas o golosinas de bienestar orgánicas personalizadas, los envases a prueba de niños no son sólo algo agradable de tener, sino que a menudo son un requisito legal. La ingestión accidental por parte de niños pequeños curiosos puede ser una pesadilla para los padres y una grave responsabilidad para su startup.",
+                        "blockquote": "Fácil para adultos, imposible para niños menores de cinco años.",
+                        "p2": "Nuestras bolsas a prueba de niños utilizan rieles de bloqueo certificados de empujar para abrir y pellizcar y deslizar. Este mecanismo de doble acción requiere un movimiento intencional de presionar y tirar. Si bien es sencillo y sin estrés para las manos de un adulto, los niños menores de 5 años carecen de la coordinación cognitiva para apretar y deslizarse simultáneamente.",
+                        "h4": "Estándares de seguridad certificados U.S. 16 CFR 1700",
+                        "p3": "Todos los cierres están certificados y rigurosamente probados por laboratorios externos. Cuando eliges Pouch.eco, recibes certificados de cumplimiento completo para que puedas publicar anuncios en los principales mercados (Amazon, Etsy o Shopify) sin temor a que te eliminen el cumplimiento del producto."
+                    },
+                    {
+                        "id": "barrera-proteccion",
+                        "title": "Control de olores y defensa de la humedad",
+                        "p1": "Los productos orgánicos sensibles, los potentes aceites botánicos y las mezclas de hierbas secas reaccionan fuertemente a los factores ambientales. Sin una barrera pesada, el oxígeno, la humedad y la luz degradarán rápidamente los ingredientes activos, amortiguando el aroma y reduciendo la potencia.",
+                        "h4": "Compuestos premium que bloquean los olores",
+                        "p2": "Nuestras bolsas utilizan capas de Mylar y PET de alta barrera que contienen por completo aromas fuertes. Ya sean sales de baño, suplementos secos o gomitas orgánicas, ningún olor escapa de la bolsa sellada.",
+                        "bullet1": "<strong>100 % bloqueo de olores:</strong> mantiene los olores encerrados dentro de la bolsa, perfecto para productos de alta potencia.",
+                        "bullet2": "<strong>Protector contra la humedad y la luz:</strong> Las capas gruesas de aluminio o metalizadas mantienen alejados el aire húmedo y los rayos UV.",
+                        "bullet3": "<strong>Sellos térmicos a prueba de manipulaciones:</strong> las muescas fáciles de rasgar permiten a los consumidores abrir rápidamente la parte superior sellada."
+                    },
+                    {
+                        "id": "bajo moq-digital",
+                        "title": "Agilidad de DTC: MOQ bajos y flexibilidad de múltiples SKU",
+                        "p1": "Para las marcas artesanales que lanzan una nueva línea de productos, los altos requisitos de pedidos B2B son una barrera. La impresión de planchas tradicional exige más de 5000 unidades por SKU. Si tiene cinco aromas o sabores de suplementos diferentes, necesitaría pedir 25 000 bolsas, un riesgo de capital enorme para un lanzamiento.",
+                        "h4": "Nuestro truco de múltiples SKU de 500 unidades",
+                        "p2": "Aprovechamos la impresión digital moderna de alta resolución para ofrecer MOQ ultrabajos. Puede comenzar con solo <strong>1000 bolsas en total</strong> y dividir ese volumen en múltiples diseños de sabores o aromas únicos (por ejemplo, 5 diseños x 200 bolsas). Además, hay absolutamente <strong>tarifas por placas de cilindros</strong>.",
+                        "card1_title": "500 piezas cantidad mínima",
+                        "card1_desc": "Pruebe diferentes sabores del mercado con una inversión inicial mínima.",
+                        "card2_title": "Sin costos de placa",
+                        "card2_desc": "Cargue sus diseños PDF directamente sin configuraciones de bloques iniciales.",
+                        "card3_title": "Mate Artesanal",
+                        "card3_desc": "Escriba detalles del lote o selle a mano diseños de tinta artesanal en papel Kraft."
+                    },
+                    {
+                        "id": "eco-amigable-cr",
+                        "title": "Seguridad infantil ecológica: opciones reciclables y compostables",
+                        "p1": "Para los consumidores conscientes, los envases de plástico son un gran desvío. Cerramos la brecha entre el cumplimiento de la seguridad y la sostenibilidad profunda mediante la ingeniería de opciones de PE reciclable de alto rendimiento y papel Kraft compostable certificado.",
+                        "h4": "Elija su camino sostenible",
+                        "bullet1": "<strong>Mono-PE Reciclable:</strong> Estructura monomaterial diseñada para contenedores de reciclaje estándar. Totalmente reciclable, pero a prueba de niños de forma segura.",
+                        "bullet2": "<strong>Papel Kraft compostable:</strong> Materiales de origen vegetal y celulosa biodegradable. Seguro para la tierra y respetuoso con el montón de abono."
+                    }
+                ]
+            },
+            "digitalRetort": {
+                "metaTitle": "Bolsas de réplica impresas digitalmente | Solución de alta barrera VitoPouch 'Soft Can'",
+                "metaDescription": "Bolsas de retorta impresas digitalmente personalizadas con MOQ bajo de 100 unidades. Las estructuras de alta barrera multicapa VitoPouch resisten la esterilización a 121-135 °C. La alternativa perfecta, ecológica, sin válvulas y estable a los frascos de vidrio.",
+                "keywords": [
+                    "bolsas de retorta",
+                    "bolsas de réplica",
+                    "bolsas impresas digitales",
+                    "bolsas de esterilización",
+                    "embalaje de comida preparada",
+                    "bolsas de comida para bebés",
+                    "bolsas de comida para mascotas",
+                    "embalaje estable",
+                    "bolsas de alta barrera",
+                    "bolsas de MOQ bajo",
+                    "bolsas de papel de aluminio",
+                    "vitopouch",
+                    "bolsa de kimchi",
+                    "embalaje de lata blanda"
+                ],
+                "pouchMetaDescription": "Actualice el embalaje estándar a bolsas de retorta a partir de 100 bolsas. Impresión digital a todo color sin coste por plancha, ¡perfecta para empresas emergentes!",
+                "heroTitle": "Bolsas para retorta VitoPouch™",
+                "heroSubtitlePouch": "100 unidades MOQ bajo · Barrera alta · Solución 'Soft Can' para empresas emergentes",
+                "heroSubtitleAp": "Soluciones empresariales de autoclave de alta barrera · Preparado para autoclave de 121 a 135 °C",
+                "introSummaryPouch": "Lance su línea de alimentos gourmet de larga duración con VitoPouch impreso digitalmente. Las tiradas mínimas comienzan con sólo 100 bolsas. ¡Ahorre costos y pruebe múltiples diseños fácilmente!",
+                "introSummaryAp": "Actualice desde pesados ​​frascos de vidrio y válvulas complejas. VitoPouch es un laminado irrompible de tipo 'lata blanda' diseñado para líneas de autoclave de alta velocidad, que cumple con BRC y FDA.",
+                "gallery": [
+                    {
+                        "title": "Bolsas de retorta de alta barrera",
+                        "desc": "Bolsa de vaporización de alta barrera principal KV"
+                    },
+                    {
+                        "title": "¿Qué es el embalaje de retorta?",
+                        "desc": "¿Qué es el envasado al vapor?"
+                    },
+                    {
+                        "title": "Estructura de retorta de 4 capas",
+                        "desc": "Estructura de vaporización multicapa"
+                    },
+                    {
+                        "title": "Resistencia a altas temperaturas",
+                        "desc": "Adecuado para bacterias que matan al vapor a alta temperatura"
+                    },
+                    {
+                        "title": "Protección de barrera extrema",
+                        "desc": "Protección extrema de barrera definitiva"
+                    },
+                    {
+                        "title": "Sellos herméticos fuertes",
+                        "desc": "Sello hermético resistente"
+                    },
+                    {
+                        "title": "Comodidad lista para calentar",
+                        "desc": "Puede calentarse, abrirse fácilmente"
+                    },
+                    {
+                        "title": "Comidas preparadas no perecederas",
+                        "desc": "Comida lista para comer a temperatura ambiente"
+                    },
+                    {
+                        "title": "Más comidas por paleta",
+                        "desc": "Más comidas por paleta"
+                    },
+                    {
+                        "title": "Diseñe su sistema de retorta",
+                        "desc": "Diseñe su solución de envasado al vapor"
+                    },
+                    {
+                        "title": "100 piezas MOQ bajo",
+                        "desc": "Volumen mínimo de pedido solo paquete de 100"
+                    },
+                    {
+                        "title": "Impresión digital a todo color",
+                        "desc": "Impresión digital a todo color"
+                    },
+                    {
+                        "title": "MOQ bajo para muchos SKU",
+                        "desc": "El pedido mínimo bajo puede cubrir inmediatamente varios sabores"
+                    }
+                ],
+                "clickToEnlarge": "Haga clic para ampliar",
+                "secIntroTitle": "Descripción general de las bolsas de retorta de alta barrera",
+                "secIntroPouchText": "Comienza tu marca gourmet con solo 100 bolsas",
+                "secIntroApText": "Comidas preparadas no perecederas sin latas ni frascos pesados",
+                "secIntroSummary": "Bolsas de retorta impresas digitalmente diseñadas para esterilización a alta temperatura, que ofrecen una larga vida útil a temperatura ambiente.",
+                "secIntroSummaryCn": "No requiere latas pesadas ni vidrio, también puede lograr la conservación a temperatura ambiente de las comidas listas para comer. Las bolsas de retorta de impresión digital resisten la esterilización a alta temperatura con tiradas de prueba ultrabajas.",
+                "secIntroAltTitle": "Bolsas de retorta de alta barrera",
+                "secIntroAltTitleCn": "Bolsa de cocción al vapor de alta barrera",
+                "secIntroAltContent": "Utilizando estructuras de película multicapa de calidad alimentaria (PET/AL/NY/CPP), nuestras bolsas de retorta resisten la esterilización a 116-135 °C. Ideal para curry, platos preparados, papillas para bebés, comida para mascotas y especialidades fermentadas como el kimchi. Impresión digital disponible a partir de MOQ bajos.",
+                "secIntroAltContentCn": "Utilice una estructura de película multicapa de calidad alimentaria (PET/papel de aluminio/nylon/CPP), nuestra bolsa para cocinar al vapor puede soportar temperaturas de 116 a 135 ℃ y matar bacterias. Apto para Curry, Comidas preparadas, Comida para bebés, Comida para mascotas, etc. Impresión digital con pedido mínimo de solo 100 bolsas.",
+                "secShowdownTitle": "El enfrentamiento de los alimentos fermentados: VitoPouch versus vidrio versus válvula",
+                "secShowdownH3": "La ciencia de la esterilización y desgasificación",
+                "secShowdownP1": "Los alimentos fermentados (como el kimchi artesanal, el chucrut o las salsas picantes) se envasan tradicionalmente en frascos o bolsas de vidrio equipados con válvulas desgasificadoras unidireccionales para evitar la \"hinchazón de la bolsa\" causada por levaduras activas y bacterias del ácido láctico. Sin embargo, esto añade altos costos y dolores de cabeza operativos.",
+                "secShowdownSolTitle": "💡 La solución de retorta VitoPouch:",
+                "secShowdownSolDesc": "Cuando empaca nuestras bolsas de retorta VitoPouch y las pasa por un autoclave de esterilización comercial (121°C–130°C durante 30 minutos), **todos los organismos activos productores de gas quedan completamente pasteurizados**. Dado que no se produce más fermentación dentro de la bolsa sellada, **no se produce desgasificación, lo que hace que las válvulas de desgasificación sean 100 % redundantes.**",
+                "glassJarBadge": "Opción tradicional",
+                "glassJarTitle": "Frascos De Vidrio",
+                "glassJarDesc": "Reutilizable pero logísticamente pesado y medioambientalmente exigente.",
+                "glassJarBullet1": "❌ Peso pesado (aprox. 2500 kg por 5.000 unidades)",
+                "glassJarBullet2": "❌ Alto índice de roturas durante el envío",
+                "glassJarBullet3": "❌ Etiqueta adhesiva únicamente con la marca (impacto visual limitado)",
+                "glassJarBullet4": "✓ Reutilizable por las consumidoras finales",
+                "glassJarCostBallpark": "Costo unitario aproximado: $0,45 – $0,90+",
+                "valvePouchBadge": "Bolsa compleja",
+                "valvePouchTitle": "Bolsas de válvula de desgasificación",
+                "valvePouchDesc": "Utiliza una válvula de plástico unidireccional para ventilar el gas de fermentación.",
+                "valvePouchBullet1": "❌ Válvulas antirretorno de plástico, voluminosas y costosas",
+                "valvePouchBullet2": "❌ La válvula puede deformarse o tener fugas durante la esterilización en retorta",
+                "valvePouchBullet3": "❌ Altos índices de fallas en ensamblajes mecánicos",
+                "valvePouchBullet4": "✓ Mantiene activo el fermento crudo/no esterilizado.",
+                "valvePouchCostBallpark": "Costo unitario aproximado: $0,55 – $0,80+",
+                "vitoBadge": "Altamente recomendada",
+                "vitoTag": "VitoPouch \"Lata blanda\"",
+                "vitoTitle": "Réplica VitoPouch",
+                "vitoDesc": "Estructura laminada irrompible resistente al calor sin válvula.",
+                "vitoBullet1": "✓ **Costo de válvula cero** (ahorra más de $0,20 por pieza)",
+                "vitoBullet2": "✓ 100% estable en almacenamiento sin refrigeración",
+                "vitoBullet3": "✓ Peso pluma plano (50 kg por 5.000 sacos)",
+                "vitoBullet4": "✓ Impresionante impresión digital de borde a borde con sangrado completo",
+                "vitoCostBallpark": "Costo unitario aproximado: ~$0,34 (¡incluido envío aéreo!)",
+                "secWhatIsTitle": "¿Qué es el embalaje de retorta?",
+                "secWhatIsAltTitle": "Bolsas flexibles que reemplazan latas y frascos",
+                "secWhatIsAltTitleCn": "¿Qué es el envasado al vapor?",
+                "secWhatIsAltContent": "El envasado en esterilización utiliza películas multicapa que resisten la esterilización a temperaturas de 116 a 135 °C, reemplazando las latas y frascos tradicionales para los alimentos listos para el consumo. Diseñado para una larga vida útil a temperatura ambiente sin refrigeración.",
+                "secWhatIsAltContentCn": "Steaming Packaging utiliza una película multicapa que puede soportar una esterilización a 116-135 ℃, reemplazando las latas y el vidrio tradicionales y sirviendo alimentos listos para comer. Diseñado para conservación a temperatura ambiente, sin refrigeración.",
+                "secWhatIsPoint1": "Esterilización a 116-135°C",
+                "secWhatIsPoint1Sub": "Puede soportar la esterilización a alta temperatura",
+                "secWhatIsPoint2": "Reemplazar latas y frascos",
+                "secWhatIsPoint2Sub": "Alternativa a las latas y al vidrio.",
+                "secWhatIsPoint3": "Vida útil ambiental",
+                "secWhatIsPoint3Sub": "Larga vida útil a temperatura ambiente",
+                "secLayersTitle": "Estructura de retorta de 4 capas",
+                "secLayersAltTitle": "Estructura de retorta multicapa",
+                "secLayersAltTitleCn": "Estructura de vaporización multicapa",
+                "secLayersAltContent": "Nuestras bolsas de retorta cuentan con una estructura de 4 capas: PET (capa exterior para impresión), papel de aluminio (capa barrera), nailon/OPA (resistencia a la perforación) y CPP (capa interior termosellada). Esta estructura resiste altas temperaturas y presiones y evita la delaminación.",
+                "secLayersAltContentCn": "Nuestra bolsa para vaporizar utiliza una estructura de cuatro capas: PET (capa exterior de impresión), papel de aluminio (capa de barrera), nailon/OPA (capa resistente a pinchazos), CPP (capa interior de sellado de alta temperatura). Resiste altas temperaturas y presiones, no es fácil de delaminar.",
+                "secLayersPet": "MASCOTA",
+                "secLayersPetSub": "Capa de impresión exterior",
+                "secLayersAl": "Alabama",
+                "secLayersAlSub": "Barrera de papel de aluminio",
+                "secLayersNy": "Nueva York/OPA",
+                "secLayersNySub": "Soporte de punción de nailon",
+                "secLayersCpp": "CPP",
+                "secLayersCppSub": "Sellador de alta temperatura",
+                "secHighTempTitle": "Esterilización a alta temperatura",
+                "secHighTempAltTitle": "Resiste entre 121 y 135 °C durante 30 a 50 minutos",
+                "secHighTempAltTitleCn": "Apta para esterilización con vapor a alta temperatura.",
+                "secHighTempAltContent": "Nuestras bolsas de retorta están diseñadas para esterilización comercial a 121–135 °C (hasta 250 °F) durante 30 a 50 minutos sin fallar el sello. Perfecto para líneas de procesamiento de retortas que producen comidas preparadas no perecederas.",
+                "secHighTempAltContentCn": "Nuestra bolsa para vaporizar puede mantener la estabilidad del sello durante una esterilización continua de 30 a 50 minutos a 121-135 ℃ (alcance alto de 250 °F). Adecuado para líneas de producción de autoclaves de vapor de la industria comercial, que producen comidas listas para comer estables a temperatura ambiente.",
+                "secBarrierTitle": "Protección de barrera extrema",
+                "secBarrierAltTitle": "Barrera de oxígeno, humedad y luz",
+                "secBarrierAltTitleCn": "Protección extrema de barrera definitiva",
+                "secBarrierAltContent": "La capa de papel de aluminio proporciona una barrera de protección extrema: mantiene el oxígeno fuera y el sabor dentro, controla la humedad para proteger la textura y protege de la luz para reducir la pérdida de nutrientes. Mantiene la calidad de los alimentos para una vida útil prolongada.",
+                "secBarrierAltContentCn": "La capa de papel de aluminio proporciona una barrera de protección extrema: bloquea el oxígeno y retiene el sabor, controla la humedad para proteger la textura de los alimentos, bloquea la luz para reducir la pérdida de nutrientes y mantiene la calidad de los alimentos para prolongar su vida útil.",
+                "secSealsTitle": "Sellos herméticos fuertes",
+                "secSealsAltTitle": "Diseñado para evitar fugas y explosiones",
+                "secSealsAltTitleCn": "Sello hermético resistente",
+                "secSealsAltContent": "Nuestras bolsas de retorta cuentan con sellos herméticos fuertes con ancho de sello y radio de esquina optimizados. Diseñado para evitar fugas y sobrevivir a la presión de la retorta sin explotar, garantizando la seguridad e integridad del producto.",
+                "secSealsAltContentCn": "Nuestra bolsa para cocinar al vapor presenta un sello hermético resistente con un ancho de sello optimizado y un radio de esquina redondeado. Diseñado para evitar fugas y sobrevivir a la presión del autoclave sin explotar, garantizando la seguridad e integridad del producto.",
+                "secConvenienceTitle": "Comodidad lista para calentar",
+                "secConvenienceAltTitle": "Fácil de abrir, listo para comer",
+                "secConvenienceAltTitleCn": "Se puede calentar y es fácil de abrir.",
+                "secConvenienceAltContent": "Las características de conveniencia opcionales incluyen muescas para abrir fácilmente, cremalleras para volver a sellar, accesorios para picos para líquidos y diseños aptos para microondas para calentar y comer comidas. No se necesitan abrelatas ni platos adicionales.",
+                "secConvenienceAltContentCn": "Las características convenientes opcionales incluyen: muesca para una apertura conveniente, cremalleras para volver a sellar, pico adecuado para líquidos y diseños opcionales de calentamiento por microondas. No se necesitan abrelatas ni platos adicionales.",
+                "secStableTitle": "Comidas preparadas no perecederas",
+                "secStableAltTitle": "Menos peso del embalaje, misma protección",
+                "secStableAltTitleCn": "Los envases más ligeros también consiguen conservar la temperatura ambiente",
+                "secStableAltContent": "Reemplace las latas pesadas y los frascos de vidrio con bolsas de retorta flexibles y livianas. Perfecto para curry, chili, salsas para pasta, sopas, comida para bebés, comida para mascotas y más. Disponibles en formato de bolsa plana o vertical.",
+                "secStableAltContentCn": "Utilice bolsas para cocinar al vapor livianas y flexibles para reemplazar los frascos y latas tradicionales. Adecuado para curry, chili, salsa para pasta, sopas, comida para bebés, comida para mascotas y más. Estilos de bolsa plana o vertical disponibles.",
+                "secLogisticsTitle": "Espacio y rentabilidad",
+                "secLogisticsAltTitle": "Más comidas por paleta",
+                "secLogisticsAltTitleCn": "Más comidas por paleta",
+                "secLogisticsAltContent": "Las bolsas de retorta livianas y apilables reducen significativamente los costos de envío y almacenamiento en comparación con las latas y frascos. Más comidas por palé significa menores costes logísticos y una menor huella de carbono.",
+                "secLogisticsAltContentCn": "Las bolsas para vaporizar, livianas y apilables, reducen significativamente los costos de envío y almacenamiento en comparación con los frascos y las botellas. Más comidas por palé significa menores costes logísticos y una menor huella de carbono.",
+                "secLowMoqTitle": "100 piezas MOQ bajo",
+                "secLowMoqAltTitle": "Comience con algo pequeño, escale rápidamente",
+                "secLowMoqAltTitleCn": "Comience con lotes pequeños y amplíelos rápidamente",
+                "secLowMoqAltContent": "Nuestra tecnología de impresión digital permite pedidos mínimos de solo 100 piezas para tiradas de prueba impresas. Perfecto para lanzamientos de productos, muestreos y pruebas de nuevos sabores sin un gran riesgo de inventario.",
+                "secLowMoqAltContentCn": "Nuestra tecnología de impresión digital permite realizar pruebas impresas con un pedido mínimo de solo 100 bolsas. Perfecto para lanzamientos de productos, muestreos y pruebas de nuevos sabores sin un gran riesgo de inventario.",
+                "secLowMoqStat": "100 piezas",
+                "secLowMoqStatTitle": "Pedido de prueba mínimo para impresiones personalizadas",
+                "secLowMoqStatDesc": "Pruebe su nueva gama de productos y múltiples diseños sin riesgo de tener un gran inventario de existencias.",
+                "secDigitalTitle": "Impresión digital a todo color",
+                "secDigitalAltTitle": "Sin cargos por placas, gráficos con calidad fotográfica",
+                "secDigitalAltTitleCn": "Impresión digital a todo color",
+                "secDigitalAltContent": "La impresión digital elimina los costos de las planchas, lo que la hace ideal para tiradas cortas y múltiples SKU. Imprima varios diseños en una sola producción con gráficos de calidad fotográfica perfectos para marcas premium.",
+                "secDigitalAltContentCn": "La impresión digital elimina los costos de las planchas, lo que la hace ideal para tiradas cortas y múltiples SKU. Imprima varios diseños en una sola producción con gráficos de calidad fotográfica perfectos para marcas premium.",
+                "secMultiSkuTitle": "MOQ bajo para muchos SKU",
+                "secMultiSkuAltTitle": "Lanzar una línea de sabor completo con MOQ bajo",
+                "secMultiSkuAltTitleCn": "El pedido mínimo bajo cubre inmediatamente múltiples sabores",
+                "secMultiSkuAltContent": "La impresión digital facilita el lanzamiento de múltiples sabores y diseños sin un gran riesgo de inventario. Solo 100 piezas por SKU significa que puedes probar curry verde, sopa de tomate, estofado de carne y chile vegano, todo al mismo tiempo.",
+                "secMultiSkuAltContentCn": "La impresión digital le permite probar envases y sabores fácilmente sin tener grandes inventarios. Cada sabor solo requiere 100 bolsas, lo que le permite probar curry verde, sopa de tomate, estofado de carne y chile vegano, todo a la vez.",
+                "secCustomTitle": "Diseñe su sistema de retorta",
+                "secCustomAltTitle": "Diseñe su empaque de retorta personalizado",
+                "secCustomAltTitleCn": "Diseñe su solución profesional de envasado en esterilización con Achieve Pack",
+                "secCustomAltContent": "Tres sencillos pasos: 1) Elija el tamaño, la forma y el formato de la bolsa (plana o vertical), 2) Seleccione la estructura de la retorta y el nivel de barrera, 3) Agregue su marca, diseño gráfico y características. Desde comida para bebés hasta curry y comida para mascotas, un sistema de retorta para toda su línea.",
+                "secCustomAltContentCn": "Tres sencillos pasos: 1) Elija el tamaño, la forma y el formato de la bolsa (plana o vertical), 2) Seleccione la estructura de la retorta y el nivel de barrera, 3) Agregue su marca, diseño gráfico y características. Desde comida para bebés hasta curry y comida para mascotas, un sistema de retorta para toda su línea.",
+                "secCustom3StepsTitle": "3 pasos para su bolsa de retorta personalizada",
+                "secCustomStep1": "Elige tamaño y formato",
+                "secCustomStep1Sub": "Elige tamaño y estilo",
+                "secCustomStep2": "Seleccionar estructura y barrera",
+                "secCustomStep2Sub": "Elija estructura y nivel de barrera",
+                "secCustomStep3": "Agregar marca e ilustraciones",
+                "secCustomStep3Sub": "Agregar detalles de marca y arte",
+                "secTrustTitle": "¿Por qué confiar en el paquete Achieve?",
+                "secTrustH3": "Experiencia líder en la industria en envases de retorta",
+                "secTrustP1": "Con más de 13 años de ingeniería especializada en materiales de embalaje flexibles aptos para alimentos, {{brandName}} ha suministrado bolsas esterilizadas a marcas de alimentos para bebés, marcas de alimentos húmedos para mascotas y desarrolladores de comidas preparadas en América del Norte, Europa y Asia-Pacífico.",
+                "secTrustP2": "Nuestras líneas de fabricación de salas blancas con certificación BRCGS Global Standard y ISO producen bolsas de retorta personalizadas utilizando polímeros de alta temperatura 100 % compatibles con la FDA y aptos para alimentos.",
+                "secTrustCard1": "Cumple con la FDA",
+                "secTrustCard1Sub": "Material seguro para el contacto con alimentos",
+                "secTrustCard2": "Certificada BRC",
+                "secTrustCard2Sub": "Estándar de seguridad alimentaria GFSI",
+                "secTrustCard3": "Más de 500 marcas de alimentos",
+                "secTrustCard3Sub": "Suministro industrial confiable",
+                "secTrustCard4": "13+ años",
+                "secTrustCard4Sub": "Expertas en envasado en autoclave",
+                "secCtaTitle": "¿Listo para diseñar sus bolsas de retorta?",
+                "secCtaTitleBox": "Elija cómo desea conectarse",
+                "secCtaCard1": "Reserve una consulta",
+                "secCtaCard1Sub": "Sesión gratuita de 30 minutos con nuestro equipo de ingeniería",
+                "secCtaCard1Btn": "Programe una llamada gratuita",
+                "secCtaCard2": "Solicite una cotización instantánea",
+                "secCtaCard2Sub": "Envíe dimensiones y obtenga descuentos de precios detallados",
+                "secCtaCard2Btn": "Enviar correo electrónico",
+                "faqs": [
+                    {
+                        "question": "¿Por qué el autoclave elimina la necesidad de una válvula desgasificadora en los alimentos fermentados?",
+                        "answer": "Durante la retorta comercial (121°C–130°C durante 30 minutos), el calor alto pasteuriza completamente los alimentos, destruyendo todas las levaduras fermentadoras activas, enzimas y bacterias productoras de gas. Dado que no se produce ninguna fermentación adicional dentro de la bolsa herméticamente sellada durante su vida útil, no se genera dióxido de carbono. Esto hace que las costosas válvulas de desgasificación unidireccionales sean completamente innecesarias, lo que ahorra hasta $0,20+ por bolsa."
+                    },
+                    {
+                        "question": "¿Qué perfiles de temperatura y presión pueden soportar estas bolsas de retorta?",
+                        "answer": "Las bolsas de retorta VitoPouch están diseñadas con polipropileno fundido (CPP) especial y laminados de nailon que resisten el procesamiento en autoclave hasta 135 °C (275 °F) con una contrapresión de hasta 0,25 MPa. Esto garantiza que los sellos herméticos permanezcan intactos y no tengan fugas, se rompan ni se deslaminen durante los ciclos de calentamiento o enfriamiento."
+                    },
+                    {
+                        "question": "¿Cómo se comparan las bolsas de esterilización con los frascos de vidrio en lo que respecta a las emisiones de carbono en logística?",
+                        "answer": "Los frascos de vidrio representan una enorme carga logística de carbono. Un palé de tarros de vidrio vacíos pesa aproximadamente un 95 % más que la capacidad equivalente de bolsas VitoPouch planas y sin llenar (por ejemplo, ~50 kg para 5000 bolsas frente a ~2500 kg para 5000 frascos de vidrio). El cambio a bolsas reduce drásticamente el consumo de combustible durante el transporte, reduce el espacio de almacenamiento hasta en un 85 % y elimina los daños durante el transporte debidos a la fractura del vidrio."
+                    },
+                    {
+                        "question": "¿Son estas bolsas de retorta seguras para el contacto con alimentos?",
+                        "answer": "Sí, 100%. Todas las películas utilizadas en VitoPouch cuentan con la certificación BRCGS y cumplen plenamente con el Reglamento 21 CFR 177.1390 ​​de la FDA de EE. UU. (para laminados alimentarios de alta temperatura) y el Reglamento de la Comisión Europea (UE) n.º 10/2011, lo que garantiza una migración tóxica cero en condiciones de calor extremo."
+                    },
+                    {
+                        "question": "¿Puedo imprimir varios diseños/sabores de productos en un pedido personalizado?",
+                        "answer": "Absolutamente. Gracias a nuestra avanzada configuración de impresión digital, no requerimos planchas de impresión de cobre de huecograbado tradicionales. Esto nos permite agrupar múltiples SKU (por ejemplo, kimchi suave, kimchi picante, kimchi vegano) en una sola producción a partir de una cantidad mínima de pedido de solo 100 piezas, lo que elimina cientos de dólares en tarifas por planchas."
+                    },
+                    {
+                        "question": "¿Cuál es la vida útil típica de los alimentos dentro de una VitoPouch?",
+                        "answer": "Gracias a nuestra estructura de barrera de papel de aluminio de 4 capas (PET/AL/NY/CPP), VitoPouch proporciona una barrera casi perfecta al oxígeno, la humedad y la luz. Cuando se combinan con una esterilización comercial correcta, las comidas preparadas pueden alcanzar de manera segura una vida útil de 12 a 24 meses almacenadas a temperatura ambiente sin refrigeración."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Mono-PE reciclable",
+                        "description": "Opciones reciclables de un solo material"
+                    },
+                    {
+                        "title": "Materiales de PCR",
+                        "description": "Contenido reciclado posconsumo"
+                    },
+                    {
+                        "title": "Películas de alta barrera",
+                        "description": "Opciones de aluminio y metalizados."
+                    },
+                    {
+                        "title": "Bolsas compostables",
+                        "description": "Alternativas ecológicas"
+                    },
+                    {
+                        "title": "Bolsas de pie",
+                        "description": "Bolsas de retorta independientes"
+                    },
+                    {
+                        "title": "Bolsas planas",
+                        "description": "Bolsas de retorta planas tradicionales"
+                    },
+                    {
+                        "title": "Bolsas con pico",
+                        "description": "Opciones de dispensación de líquidos"
+                    },
+                    {
+                        "title": "Opciones de barrera",
+                        "description": "Elige tu nivel de protección"
+                    },
+                    {
+                        "title": "Opciones de recierre",
+                        "description": "Cremalleras y funciones de resellado"
+                    },
+                    {
+                        "title": "Capacidades de impresión",
+                        "description": "Digital y huecograbado"
+                    }
+                ]
+            },
+            "preZippered": {
+                "metaTitle": "Rollo con cremallera previa | Soluciones automáticas de película resellable",
+                "metaDescription": "Actualice el embalaje estándar a bolsas resellables en sus líneas VFFS/HFFS existentes con CERO inversión en equipo. ¡MOQ bajos de 500 a 1000 m!",
+                "keywords": [
+                    "material en rollo con cremallera previa",
+                    "película en rollo resellable",
+                    "Material en rollo HFFS VFFS",
+                    "Embalaje flexible de bajo MOQ",
+                    "rollo de película de inicio"
+                ],
+                "heroTitle": "Rollo de película con cremallera previa",
+                "heroSubtitle": "Comodidad de volver a cerrar sin las costosas actualizaciones de la máquina",
+                "gallery": [
+                    {
+                        "title": "Material en rollo con cremallera previa Achieve Pack®",
+                        "desc": "Rollo de película con cierre previo Achieve Pack®"
+                    },
+                    {
+                        "title": "Cómo funciona el material en rollo con cremallera previa",
+                        "desc": "Cómo funciona la película en rollo con cremallera previa"
+                    },
+                    {
+                        "title": "Detalle de tecnología de cremallera.",
+                        "desc": "Detalles de la tecnología de cremallera"
+                    },
+                    {
+                        "title": "No se requiere equipo nuevo",
+                        "desc": "No se requiere equipo nuevo"
+                    },
+                    {
+                        "title": "Ahorro de costos y materiales",
+                        "desc": "Ahorro de costos y materiales"
+                    },
+                    {
+                        "title": "Eficiencia de producción",
+                        "desc": "Eficiencia de la línea de producción"
+                    },
+                    {
+                        "title": "Aplicaciones flexibles",
+                        "desc": "Múltiples aplicaciones y estilos"
+                    },
+                    {
+                        "title": "Diseñe su sistema con Achieve Pack",
+                        "desc": "Diseñar junto con el paquete Achieve"
+                    }
+                ],
+                "clickToEnlarge": "Haga clic para ampliar",
+                "secIntroTitle": "Descripción general del material en rollo con cremallera previa Achieve Pack®",
+                "secIntroBadgeText": "Convierta su material en rollo en bolsas resellables sin necesidad de equipo nuevo",
+                "secIntroBadgeDesc": "El material en rollo con cremallera previa Achieve Pack® permite a las marcas actualizar el embalaje estándar a bolsas resellables en las líneas VFFS/HFFS existentes.",
+                "secIntroDesc": "El material en rollo con cremallera previa Achieve Pack® permite a las marcas actualizar el embalaje estándar a bolsas resellables en líneas VFFS/HFFS existentes con cambios mínimos en el equipo.",
+                "secIntroAltTitle": "Material en rollo con cremallera previa Achieve Pack®",
+                "secIntroAltContent": "Nuestro material en rollo con cremalleras previas cuenta con cremalleras aplicadas transversalmente al rollo de película antes de que llegue a su línea de producción. Ejecútelo en equipos VFFS o HFFS existentes con ajustes mínimos para producir bolsas que se pueden volver a cerrar con corte para abrir a partir de material en rollo estándar.",
+                "secWorksTitle": "Cómo funciona el material en rollo con cremallera previa",
+                "secWorksAltTitle": "Tecnología de cremallera preaplicada",
+                "secWorksAltContent": "La cremallera se aplica transversalmente al rollo de película antes de que llegue a la línea. Ejecútelo en equipos VFFS o HFFS existentes con ajustes mínimos. Produzca bolsas que se puedan volver a cerrar y que se puedan cortar a partir de rollos estándar sin invertir en nuevos sistemas de cremalleras en línea.",
+                "secWorksPoint1": "Cremallera preaplicada",
+                "secWorksPoint1Sub": "Cremallera preaplicada al rollo de película.",
+                "secWorksPoint2": "Ajustes mínimos",
+                "secWorksPoint2Sub": "Sólo requiere un ajuste de línea menor",
+                "secWorksPoint3": "Bolsas resellables",
+                "secWorksPoint3Sub": "Envases que se pueden sellar repetidamente",
+                "secVideoTitle": "Muestra de producción",
+                "secVideoH3": "Véalo en acción",
+                "secVideoDesc": "Observe cómo nuestro material en rollo con cremallera previa crea una bolsa perfecta que se puede abrir y volver a sellar directamente desde el rollo de película.",
+                "secZipperTitle": "Detalle de zona de cremallera preaplicada",
+                "secZipperAltTitle": "Cremallera preaplicada en rollo",
+                "secZipperAltContent": "Colocación y sellado preciso de cremalleras antes de formar la bolsa. El perfil y el sello de la cremallera están diseñados para brindar un rendimiento de cierre confiable. Longitud y posición de cremallera personalizadas disponibles para satisfacer los requisitos de su producto.",
+                "secEquipTitle": "No se requiere equipo nuevo",
+                "secEquipAltTitle": "Ejecute sus líneas existentes",
+                "secEquipAltContent": "Úselo con equipos VFFS y HFFS convencionales. No se necesita una gran inversión de capital, sólo pequeños ajustes de holgura en el tubo formador. Sus líneas de envasado existentes son capaces de producir bolsas resellables de primera calidad al instante.",
+                "secEquipCompat": "Compatibilidad del equipo",
+                "secEquipVffs": "VFFS (Sello de llenado y formulario vertical)",
+                "secEquipVffsSub": "Maquinaria de formado, llenado y sellado vertical",
+                "secEquipHffs": "HFFS (Sello de llenado de formulario horizontal)",
+                "secEquipHffsSub": "Maquinaria de formado, llenado y sellado horizontal",
+                "secCostTitle": "Ahorro de costos y materiales",
+                "secCostAltTitle": "Reduzca costos, ahorre material",
+                "secCostAltContent": "La longitud y la ubicación personalizadas de la cremallera ayudan a reducir el desperdicio y el costo por paquete. En comparación con los sistemas tradicionales de cremalleras en línea, el material en rollo con cremalleras previas puede ahorrar hasta un 25% en material de cremalleras al aplicarlas solo donde sea necesario, no en todo el ancho.",
+                "secCostCard1": "Hasta un 25 % de ahorro en materiales",
+                "secCostCard1Sub": "La longitud de la cremallera personalizada reduce el desperdicio",
+                "secCostCard1Desc": "La reducción del desperdicio de cremalleras reduce los costos",
+                "secCostCard2": "Menor costo total",
+                "secCostCard2Sub": "Sin inversión en equipos de cremalleras en línea",
+                "secCostCard2Desc": "No es necesario invertir en equipos de cremalleras",
+                "secSpeedTitle": "Eficiencia y velocidad de producción",
+                "secSpeedAltTitle": "Mantenga la velocidad, aumente la eficiencia",
+                "secSpeedAltContent": "Ejecute a velocidades comparables a las películas sin cremallera. Reduzca el tiempo de configuración en comparación con los sistemas de cremalleras en línea. Mejore el rendimiento general de la línea con material en rollo con cremallera previa que requiere ajustes mínimos.",
+                "secSpeedPoint1": "Alta velocidad",
+                "secSpeedPoint1Sub": "Mantener las velocidades de línea originales",
+                "secSpeedPoint2": "Configuración rápida",
+                "secSpeedPoint2Sub": "Cambios rápidos de formato",
+                "secSpeedPoint3": "15%+ más rápido",
+                "secSpeedPoint3Sub": "Tiempo de producción reducido",
+                "secAppsTitle": "Aplicaciones flexibles",
+                "secAppsAltTitle": "Desde paquetes de almohadas hasta bolsas de pie",
+                "secAppsAltContent": "Ideal para snacks, alimentos congelados, comida para mascotas, polvos y más. La misma línea de producción puede ejecutar tanto material en rollo normal sin cremallera como material en rollo con cremallera previa Achieve Pack®, lo que brinda flexibilidad para múltiples SKU y precios.",
+                "secAppsCard1": "Aperitivos",
+                "secAppsCard1Sub": "Patatas fritas y pretzels",
+                "secAppsCard2": "Alimentos Congelados",
+                "secAppsCard2Sub": "Verduras y Carnes",
+                "secAppsCard3": "Comida para mascotas",
+                "secAppsCard3Sub": "Golosinas y croquetas",
+                "secAppsCard4": "Polvos",
+                "secAppsCard4Sub": "Suplementos",
+                "secAppsStyles": "Estilos de bolsa admitidos",
+                "secAppsStyle1": "Bolsas de almohadas",
+                "secAppsStyle2": "Bolsas de pie",
+                "secAppsStyle3": "Bolsas de fondo plano",
+                "secConsumerTitle": "Comodidad para el consumidor",
+                "secConsumerH3": "Cortar para abrir, cerrar para volver a cerrar",
+                "secConsumerP1": "Agregue la comodidad de un fácil cierre a su formato de embalaje existente. Los consumidores abren la parte superior y luego usan la cremallera para volver a sellar, manteniendo los bocadillos crujientes, los alimentos congelados frescos y los polvos secos.",
+                "secConsumerCard1": "Frescura extendida",
+                "secConsumerCard1Sub": "Retrasar la exposición a la humedad y al oxígeno.",
+                "secConsumerCard2": "Mejor experiencia",
+                "secConsumerCard2Sub": "Fácil recierre para viajes",
+                "secConsumerCard3": "Mayor recompra",
+                "secConsumerCard3Sub": "Mayor satisfacción del usuario",
+                "secDesignTitle": "Diseñe su sistema con Achieve Pack",
+                "secDesignAltTitle": "Diseñe su sistema de material en rollo con cremallera previa",
+                "secDesignAltContent": "Desde refrigerios hasta alimentos congelados, un rollo con cierre previo para todas sus necesidades resellables. Nuestro equipo lo ayuda a elegir la estructura de película, el nivel de barrera, el estilo de cremallera y las opciones de impresión adecuados para su aplicación específica.",
+                "secDesign3Steps": "3 pasos para su solución personalizada",
+                "secDesignStep1": "Elija la estructura de la película",
+                "secDesignStep1Sub": "Seleccione el nivel y el ancho de la barrera",
+                "secDesignStep2": "Definir estilo de cremallera",
+                "secDesignStep2Sub": "Establecer longitud y posición",
+                "secDesignStep3": "Agregar impresión",
+                "secDesignStep3Sub": "Ejecute en sus líneas existentes",
+                "secTrustTitle": "¿Por qué confiar en el paquete Achieve?",
+                "secTrustH3": "Experiencia líder en la industria en envases flexibles",
+                "secTrustP1": "Con más de 13 años de experiencia en la fabricación de envases flexibles, Achieve Pack ha suministrado rollos con cierre previo y bolsas resellables a marcas de snacks, fabricantes de alimentos congelados y empresas de alimentos para mascotas en América del Norte, Europa y Asia-Pacífico.",
+                "secTrustCard1": "Cumple con la FDA",
+                "secTrustCard1Sub": "Aprobado para contacto con alimentos",
+                "secTrustCard2": "Certificada BRC",
+                "secTrustCard2Sub": "Norma de seguridad alimentaria",
+                "secTrustCard3": "Más de 500 marcas",
+                "secTrustCard3Sub": "Confiable en todo el mundo",
+                "secTrustCard4": "13+ años",
+                "secTrustCard4Sub": "Experiencia en la industria",
+                "secTrustExplore": "Explorar soluciones relacionadas",
+                "secCtaTitle": "¿Listo para empezar?",
+                "secCtaTitleBox": "Elija cómo desea conectarse",
+                "secCtaCard1": "Reservar una llamada",
+                "secCtaCard1Sub": "Consulta gratuita de 30 minutos.",
+                "secCtaCard1Btn": "Agenda ahora",
+                "secCtaCard2": "Cotización por correo electrónico",
+                "secCtaCard2Sub": "Obtenga respuesta dentro de las 24 horas",
+                "secCtaCard2Btn": "Enviar correo electrónico",
+                "faqs": [
+                    {
+                        "question": "¿Qué es el material en rollo con cremallera previa?",
+                        "answer": "El material en rollo con cremalleras previas es una película de embalaje flexible que viene con cremalleras ya aplicadas transversalmente antes de llegar a su línea de producción. Esto le permite producir bolsas resellables en equipos VFFS/HFFS existentes sin invertir en sistemas de aplicación de cremalleras en línea."
+                    },
+                    {
+                        "question": "¿Qué equipo es compatible con el material en rollo con cremallera previa?",
+                        "answer": "El material en rollo con cremallera previa de Achieve Pack® es compatible con los equipos convencionales VFFS (formado, llenado y sellado vertical) y HFFS (formado, llenado y sellado horizontal). Por lo general, solo se requieren ajustes menores en la holgura del tubo formador; no se necesita una inversión de capital importante."
+                    },
+                    {
+                        "question": "¿Cuánto ahorro de costos puedo esperar?",
+                        "answer": "El material en rollo con cremalleras previas puede ahorrar hasta un 25 % en material de cremalleras al aplicar cremalleras solo donde sea necesario en lugar de hacerlo en todo el ancho de la película. También ahorra en inversión en equipos y reduce el tiempo de configuración en comparación con los sistemas de cremalleras en línea, lo que potencialmente reduce el tiempo total de producción en un 15 % o más."
+                    },
+                    {
+                        "question": "¿Qué estilos de bolsas puedo producir con material en rollo con cremallera previa?",
+                        "answer": "Puede producir bolsas tipo almohada, bolsas verticales y bolsas de fondo plano con material en rollo con cremallera previa. La posición y la longitud de la cremallera son personalizables y las opciones incluyen Bag-Top, E-Z Tab y otros estilos de apertura."
+                    },
+                    {
+                        "question": "¿Qué productos son los más adecuados para envases con cremallera previa?",
+                        "answer": "El material en rollo con cierre previo es ideal para refrigerios, alimentos congelados, alimentos para mascotas, polvos y cualquier producto que se beneficie de un empaque resellable. La función de cierre ayuda a mantener la frescura después de la apertura, manteniendo los bocadillos crujientes, los alimentos congelados sin descongelar y los polvos secos."
+                    },
+                    {
+                        "question": "¿Puedo ejecutar películas con y sin cremallera en la misma línea?",
+                        "answer": "¡Sí! La misma línea de producción puede ejecutar tanto material en rollo normal sin cremallera como material en rollo con cremallera previa Achieve Pack®, lo que le brinda flexibilidad para ofrecer múltiples SKU a diferentes precios sin cambios de equipo."
+                    },
+                    {
+                        "question": "¿Qué opciones de barrera están disponibles?",
+                        "answer": "Ofrecemos opciones con y sin barrera, incluidas películas metalizadas de alta barrera, películas transparentes, estructuras a prueba de polvo y configuraciones de sellado despegable. Nuestro equipo puede recomendar la mejor estructura para los requisitos específicos de su producto."
+                    },
+                    {
+                        "question": "¿Cuál es la cantidad mínima de pedido para material en rollo con cremallera previa?",
+                        "answer": "La cantidad mínima de pedido suele comenzar entre 5.000 y 10.000 metros, según las especificaciones de la película. Contáctenos para obtener cotizaciones exactas según sus requisitos, incluido el ancho de la película, el tipo de barrera y las necesidades de impresión."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Bolsas compostables",
+                        "description": "Opciones de materiales ecológicos 100% libres de plástico"
+                    },
+                    {
+                        "title": "Mono-PE reciclable",
+                        "description": "Estructura monomaterial totalmente reciclable"
+                    },
+                    {
+                        "title": "Materiales de PCR",
+                        "description": "Opciones de contenido reciclado posconsumo"
+                    },
+                    {
+                        "title": "Bolsas de pie",
+                        "description": "Embalaje independiente y versátil"
+                    },
+                    {
+                        "title": "Bolsas de fondo plano",
+                        "description": "Estilo de bolsa premium con fondo de caja"
+                    },
+                    {
+                        "title": "Bolsas de almohadas",
+                        "description": "Formato flow-pack clásico"
+                    },
+                    {
+                        "title": "Opciones de recierre",
+                        "description": "Todos los tipos de cremalleras y sellos disponibles"
+                    },
+                    {
+                        "title": "Opciones de barrera",
+                        "description": "Elige tu nivel de protección"
+                    },
+                    {
+                        "title": "Acabados superficiales",
+                        "description": "Opciones mate, brillante y suave al tacto"
+                    },
+                    {
+                        "title": "Bolsas a prueba de niños",
+                        "description": "Embalaje certificado de seguridad infantil"
+                    },
+                    {
+                        "title": "Bolsas neutras en carbono",
+                        "description": "Soluciones de embalaje positivas para el clima"
+                    },
+                    {
+                        "title": "Envasado de bocadillos",
+                        "description": "Soluciones de bolsas de snacks crujientes"
+                    },
+                    {
+                        "title": "Bolsas de comida para mascotas",
+                        "description": "Embalaje duradero para golosinas para mascotas."
+                    },
+                    {
+                        "title": "Envasado de alimentos congelados",
+                        "description": "Opciones de bolsas resistentes al congelamiento"
+                    },
+                    {
+                        "title": "Certificados",
+                        "description": "Vea nuestras certificaciones de seguridad"
+                    },
+                    {
+                        "title": "Preguntas frecuentes",
+                        "description": "Preguntas comunes respondidas"
+                    }
+                ],
+                "b2cSections": [
+                    {
+                        "id": "inversión-cero-en-maquinaria",
+                        "title": "Bolsas resellables sin inversión en equipo",
+                        "p1": "Para las marcas de venta directa al consumidor (DTC) en crecimiento, actualizar a bolsas resellables de primera calidad es una gran victoria de marca. Sin embargo, la incorporación de maquinaria estándar para cremalleras en línea puede costar decenas de miles de dólares en capital inicial. Esa es una enorme barrera presupuestaria para una startup.",
+                        "blockquote": "Actualice sus bolsas en sus máquinas existentes hoy.",
+                        "p2": "Con el rollo de película con cremallera previa de Pouch.eco, puede evitar por completo los gastos generales de equipo de capital. Las empresas emergentes pueden actualizar paquetes tipo almohada estándar, bolsas con sellado de tres lados o tubos verticales para convertirlos en bolsas con cremallera totalmente resellables y fáciles de cerrar utilizando su maquinaria de envasado de formado, llenado y sellado vertical (VFFS) o sellado horizontal (HFFS) existente.",
+                        "h4": "Ajustes menores, resultados importantes",
+                        "p3": "Al aplicar previamente la cremallera resellable transversalmente a la película antes de enrollarla y enviarla a sus instalaciones, el único ajuste requerido en su máquina empacadora estándar son ajustes menores en el espacio libre en el tubo o plegadora formadora. Su ensacadora actual puede procesar esta película sin problemas a altas velocidades."
+                    },
+                    {
+                        "id": "cómo-pre-aplicado-funciona",
+                        "title": "La magia de la tecnología de cremalleras preaplicadas",
+                        "p1": "¿Cómo funciona sin herramientas pesadas en línea? Manejamos la complejidad de la ingeniería en nuestras salas blancas especializadas antes de que la película salga de nuestro piso.",
+                        "h4": "Debajo del capó: película preaplicada",
+                        "bullet1": "<strong>Aplicación transversal:</strong> Sellamos perfiles de cremallera de alta calidad a intervalos de espaciado precisos directamente sobre el rollo de película plana.",
+                        "bullet2": "<strong>Choque térmico cero:</strong> Las cremalleras se aplican con control de calor quirúrgico para evitar arrugas estructurales, lo que garantiza que la bolsa final quede completamente plana.",
+                        "bullet3": "<strong>Listo para alimentar:</strong> La película llega enrollada y alineada perfectamente con sus diseños de impresión. Simplemente móntelo en su eje de rollo HFFS/VFFS y comience a llenar."
+                    },
+                    {
+                        "id": "startup-moq-digital",
+                        "title": "MOQ bajos y ejecuciones de prueba fáciles de usar para startups",
+                        "p1": "Los fabricantes de material en rollo empresarial suelen exigir decenas de miles de metros por ejecución de diseño. Esto excluye a los tostadores de lotes pequeños, a los mezcladores de especias boutique, a los artesanos de golosinas orgánicas para mascotas y a las nuevas líneas de suplementos que todavía están probando su adaptación al mercado.",
+                        "h4": "Tiradas cortas flexibles (500–1000 m)",
+                        "p2": "Hemos rediseñado la línea de laminación de películas para respaldar las pruebas iniciales. Puede solicitar rollos de película personalizados con cremallera previa en tiradas cortas muy cómodas, desde tan solo 500 a 1000 metros. Pruebe nuevas recetas, fragancias de temporada o perfiles de sabores regionales sin inmovilizar el flujo de caja crítico en un gran inventario de almacén.",
+                        "card1_title": "Sin tarifas de cilindro",
+                        "card1_desc": "Nuestra prensa digital de alta resolución significa que usted paga $0 en tarifas de instalación de cilindros. Gire y edite diseños al instante.",
+                        "card2_title": "Lotes de múltiples SKU",
+                        "card2_desc": "Divida la ejecución de su cortometraje entre diferentes diseños de sabores o variaciones estacionales en un solo pedido.",
+                        "card3_title": "Prototipos rápidos",
+                        "card3_desc": "Reciba rollos de película impresos personalizados en su línea de embalaje en menos de 2 semanas. ¡Lanza rápidamente!"
+                    },
+                    {
+                        "id": "cerradura-de-marca-frescura",
+                        "title": "Frescura de la despensa y lealtad a la marca DTC",
+                        "p1": "Para los productos artesanales de primera calidad, el embalaje es una extensión de la experiencia del cliente. Una vez que un consumidor abre una bolsa convencional sin cierre, se ve obligado a usar clips desagradables, cinta adhesiva o tirar el contenido en frascos de vidrio genéricos, perdiendo por completo el diseño y el logotipo de su marca.",
+                        "h4": "Mantenga su logotipo en el centro de atención",
+                        "bullet1": "🍉 Máxima frescura del producto: la laminación de barrera multicapa protege los perfiles de sabor volátiles, los aromas delicados y los niveles sensibles de humedad.",
+                        "bullet2": "🏡 Cartelera de despensa diaria: cuando la bolsa está en la despensa, su diseño impreso personalizado permanece al frente y al centro de cada sesión de refrigerio.",
+                        "bullet3": "🛠️ Tamaños y características personalizados: combine el ancho de su bolsa, las muescas de desgarro, los orificios para colgar y los acabados brillantes/mate específicos de su bolsa para diseñar una caja altamente personalizada y rica en sensaciones."
+                    }
+                ]
             }
         },
         "compostableStandUpPouches": {

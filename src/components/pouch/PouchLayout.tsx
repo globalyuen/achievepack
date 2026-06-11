@@ -679,6 +679,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/packaging/spout-pouches" className="hover:underline">[SPOUT POUCHES]</Link></li>
                 <li><Link to="/packaging/flat-pouches" className="hover:underline">[FLAT POUCHES]</Link></li>
                 <li><Link to="/packaging/vacuum-pouches" className="hover:underline">[VACUUM POUCHES]</Link></li>
+                <li><Link to="/the-way-to-use-k-seal-bag-packing-heavy-content" className="hover:underline text-[#10B981] font-black">[K-SEAL FOR HEAVY WEIGHTS]</Link></li>
                 <li><Link to="/products" className="hover:underline">[ALL PRODUCTS]</Link></li>
               </ul>
             </div>
@@ -688,6 +689,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/materials/compostable" className="hover:underline">[COMPOSTABLE]</Link></li>
                 <li><Link to="/materials/recyclable" className="hover:underline">[RECYCLABLE]</Link></li>
                 <li><Link to="/materials/plastic-free-kraft" className="hover:underline text-[#10b981]">[PLASTIC-FREE KRAFT]</Link></li>
+                <li><Link to="/category/packaging-technical-data-sheet" className="hover:underline text-[#10B981] font-black">[TECHNICAL DATA SHEETS]</Link></li>
                 <li><Link to="/materials" className="hover:underline">[MATERIAL HUB]</Link></li>
               </ul>
             </div>
@@ -724,6 +726,11 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/tech-specs" className="hover:underline text-[#10B981]">[TECH SPECS]</Link></li>
                 <li><Link to="/sample" className="hover:underline">[CUSTOM PRINTED SAMPLE]</Link></li>
                 <li><Link to="/blog/stamp-foil-recyclability" className="hover:underline text-[#10B981] font-black">[STAMP FOIL RECYCLABILITY]</Link></li>
+                <li><Link to="/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc" className="hover:underline text-[#10B981]">[DRINK & LIQUID POUCHES]</Link></li>
+                <li><Link to="/digital-print-conventional-zipper-stand-up-pouch-bag-with-moq-start-from-100pcs" className="hover:underline text-[#10B981]">[DIGITAL PRINT 100PCS MOQ]</Link></li>
+                <li><Link to="/eco-friendly-packaging-revolution-introducing-bio-based-spout-pouches-for-liquid" className="hover:underline text-[#10B981]">[BIO-BASED SPOUT POUCHES]</Link></li>
+                <li><Link to="/understand-trapping-why-we-need-to-add-a-keyline" className="hover:underline text-[#10B981]">[PREPRESS TRAPPING & KEYLINES]</Link></li>
+                <li><Link to="/sustainable-packaging-revolution-glass-bottles-paired-with-compostable-refill-pouches-for-an-eco-friendly-lifestyle" className="hover:underline text-[#10B981]">[REFILL POUCH SYSTEMS]</Link></li>
               </ul>
             </div>
             <div>

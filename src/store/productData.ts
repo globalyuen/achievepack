@@ -7890,6 +7890,152 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       { id: 'cotton-paper-gusset-30x8-gold', label: '30x8x7.5cm Metallic Gold - 100 Pcs', dimensions: '30 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 21.84, unitPrice: 0.218 }
     ],
     customPrintNote: 'Custom prints available from 2,000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'water-soluble-fishing-bait-bags-pva-3-side-seal',
+    name: 'Water-Soluble Fishing Bait Bags (PVA / Instant-Dissolve)',
+    category: 'eco-stock',
+    description: 'A premium, eco-friendly PVA (polyvinyl alcohol) water-soluble bait bag designed for advanced sport and commercial fishing. Engineered using high-performance instant-dissolve PVA film, this 3-side seal flat pouch dissolves rapidly and completely in water without leaving any toxic residue. Perfect for precise, concentrated baiting in reservoirs, lakes, large rivers, and sea fishing. Safe for the aquatic ecosystem and highly effective for attracting fish.',
+    shortDesc: 'Premium eco-friendly PVA instant-dissolve water-soluble 3-side seal fishing bait bags',
+    features: [
+      'Eco-Friendly PVA Material: 100% biodegradable and water-soluble, dissolving fully without leaving toxic residue.',
+      'Instant-Dissolve Formulation: Quick and complete dissolution in water to release groundbait instantly at the target spot.',
+      'Precise Groundbait Placement: Ensures bait stays concentrated exactly where you drop your hook, maximizing fish gathering.',
+      '3-Side Seal Design: Flat format optimized for easy packing, secure transport, and quick deployment.',
+      'Safe for Aquatic Ecosystems: Non-toxic, starch-based compound that is safe for fish and other water organisms.'
+    ],
+    images: [
+      '/imgs/store/products/water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-1.png',
+      '/imgs/store/products/water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-2.png',
+      '/imgs/store/products/water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-3.png'
+    ],
+    badge: '🌱 100% Water-Soluble',
+    rating: 4.9,
+    reviews: 24,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 200,
+    shape: 'Three-side Seal Pouch',
+    material: 'Water-Soluble PVA (Instant-Dissolve Film)',
+    basePrice: 18.00,
+    pricePerPiece: 0.09,
+    minQuantity: 200,
+    quantityStep: 100,
+    sizeInfo: 'S (60x120mm) / M (70x150mm) / L (80x160mm) • PVA Film',
+    sizeVariants: [
+      // Size S (60 x 120 mm)
+      {
+        id: 'pva-bait-bag-s-200pcs',
+        label: 'Size S (60 × 120 mm) - 200 Pcs',
+        dimensions: '60 × 120 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 18.00,
+        unitPrice: 0.09
+      },
+      {
+        id: 'pva-bait-bag-s-500pcs',
+        label: 'Size S (60 × 120 mm) - 500 Pcs',
+        dimensions: '60 × 120 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 35.00,
+        unitPrice: 0.07
+      },
+      {
+        id: 'pva-bait-bag-s-1000pcs',
+        label: 'Size S (60 × 120 mm) - 1000 Pcs',
+        dimensions: '60 × 120 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 50.00,
+        unitPrice: 0.05
+      },
+      {
+        id: 'pva-bait-bag-s-5000pcs',
+        label: 'Size S (60 × 120 mm) - 5000 Pcs',
+        dimensions: '60 × 120 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 5000,
+        totalPrice: 175.00,
+        unitPrice: 0.035
+      },
+      // Size M (70 x 150 mm)
+      {
+        id: 'pva-bait-bag-m-200pcs',
+        label: 'Size M (70 × 150 mm) - 200 Pcs',
+        dimensions: '70 × 150 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 22.00,
+        unitPrice: 0.11
+      },
+      {
+        id: 'pva-bait-bag-m-500pcs',
+        label: 'Size M (70 × 150 mm) - 500 Pcs',
+        dimensions: '70 × 150 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 45.00,
+        unitPrice: 0.09
+      },
+      {
+        id: 'pva-bait-bag-m-1000pcs',
+        label: 'Size M (70 × 150 mm) - 1000 Pcs',
+        dimensions: '70 × 150 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 70.00,
+        unitPrice: 0.07
+      },
+      {
+        id: 'pva-bait-bag-m-5000pcs',
+        label: 'Size M (70 × 150 mm) - 5000 Pcs',
+        dimensions: '70 × 150 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 5000,
+        totalPrice: 260.00,
+        unitPrice: 0.052
+      },
+      // Size L (80 x 160 mm)
+      {
+        id: 'pva-bait-bag-l-200pcs',
+        label: 'Size L (80 × 160 mm) - 200 Pcs',
+        dimensions: '80 × 160 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 26.00,
+        unitPrice: 0.13
+      },
+      {
+        id: 'pva-bait-bag-l-500pcs',
+        label: 'Size L (80 × 160 mm) - 500 Pcs',
+        dimensions: '80 × 160 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 55.00,
+        unitPrice: 0.11
+      },
+      {
+        id: 'pva-bait-bag-l-1000pcs',
+        label: 'Size L (80 × 160 mm) - 1000 Pcs',
+        dimensions: '80 × 160 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 90.00,
+        unitPrice: 0.09
+      },
+      {
+        id: 'pva-bait-bag-l-5000pcs',
+        label: 'Size L (80 × 160 mm) - 5000 Pcs',
+        dimensions: '80 × 160 mm • PVA Film • Instant Dissolve',
+        hasHole: false,
+        quantity: 5000,
+        totalPrice: 340.00,
+        unitPrice: 0.068
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 200+ pieces. Please consult our team.'
   }
 ]
 

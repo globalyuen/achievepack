@@ -16245,6 +16245,1174 @@
                 "aiFaq2Answer": "Uniquement s'il est certifié TUV OK Home ou AS 5810. La plupart des emballages de café sont uniquement compostables industriellement (EN 13432) et ne se décomposeront pas dans le compost domestique. Achieve Pack propose des sachets de café compostables à domicile avec des valves de dégazage qui fonctionnent dans les bacs de jardin. Visitez reachpack.com/materials/home-compostable pour les options.",
                 "aiFaq3Question": "Quelle température faut-il pour les emballages compostables ?",
                 "aiFaq3Answer": "Les emballages compostables à domicile se décomposent à 20-30°C (température ambiante extérieure) sur 6 à 12 mois. Les emballages compostables industriels nécessitent des températures soutenues de 55 à 60 °C que l'on trouve uniquement dans les installations de compostage commerciales. L’exigence de température est le facteur critique déterminant la certification à choisir."
+            },
+            "bCorp": {
+                "title": "Notre impact | En attente B Corporation | Réaliser le pack",
+                "description": "Achieve Pack est une société B en attente qui aide plus de 500 marques à réduire les déchets d'emballage avec des sachets certifiés compostables, recyclables et biosourcés. Contribuer à hauteur de 1 % à l'élimination du carbone via Stripe Climate.",
+                "keywords": "B Corporation, en attente de B Corp, emballage durable, élimination du carbone, Stripe Climate, pochettes écologiques, emballage compostable, impact sur l'emballage, réduction des déchets d'emballage",
+                "schemaOrgName": "Réaliser le pack",
+                "schemaDescription": "Solutions d'emballage durables et respectueuses de l'environnement pour les marques du monde entier",
+                "schemaSlogan": "Rendre les emballages durables accessibles à toutes les marques",
+                "heroBadge": "En attente de certification",
+                "heroTitle": "Notre impact : bâtir un meilleur avenir pour l’emballage",
+                "heroDescription": "Achieve Pack aide les marques à réduire les déchets d'emballage avec des pochettes et des sacs certifiés respectueux de l'environnement, soutenant plus de 500 marques dans le monde depuis 2011.",
+                "btnBookMeeting": "Réunion du livre",
+                "btnBrowseProducts": "Parcourir les produits",
+                "heroImageAlt": "Transformation des emballages durables par Achieve Pack",
+                "quickSummaryTitle": "Résumé rapide",
+                "quickSummaryText": "Achieve Pack est une B Corporation en attente qui a aidé plus de 500 marques dans le monde à passer à des emballages durables depuis 2011, offrant un faible MOQ à partir de 100 pièces et contribuant 1 % de ses revenus à l'élimination du carbone via Stripe Climate.",
+                "btnShare": "Partager",
+                "sec1Title": "Réduire les déchets d'emballage",
+                "sec1P1": "Achieve Pack aide les marques à réduire les déchets d'emballage en proposant des pochettes et des sacs certifiés respectueux de l'environnement, notamment des options <strong>compostables</strong>, <strong>mono-matériau recyclable</strong>, <strong>bio-PE</strong> et <strong>PCR</strong> qui remplacent les emballages en plastique traditionnels.",
+                "sec1P2": "Depuis 2011, nous avons aidé plus de <strong>500 marques dans le monde</strong> à passer à des emballages à faible impact, rendant ainsi les choix durables accessibles même pour les petites commandes à partir de seulement <strong>100 pièces</strong>.",
+                "sec1LinkCompostable": "Matériaux compostables",
+                "sec1LinkRecyclable": "Mono-PE recyclable",
+                "sec1ImgAlt": "Impact mondial - Achieve Pack prend en charge plus de 500 marques dans le monde",
+                "sec2Title": "Élimination du carbone et action climatique",
+                "sec2ImgAlt": "Élimination du carbone grâce à Stripe Climate - Élimination du CO2 de l'atmosphère",
+                "sec2P1": "Achieve Pack est une <strong>B Corporation en attente</strong> et contribue environ <strong>1 % de ses revenus</strong> à des projets d'élimination du carbone via <strong>Stripe Climate</strong> et <strong>Frontier</strong>, en soutenant des solutions qui éliminent le CO₂ de l'atmosphère.",
+                "sec2P2": "Bien qu'elle soit actuellement en attente d'être une société B, l'entreprise fonctionne déjà selon bon nombre des mêmes normes attendues des B Corps entièrement certifiés et se prépare activement à une vérification complète, en utilisant l'<strong>évaluation d'impact B</strong> comme feuille de route pour améliorer la gouvernance, les pratiques des travailleurs, la contribution de la communauté et la gestion environnementale.",
+                "sec2LinkAbout": "À propos des corps B en attente",
+                "sec2LinkStripe": "Climat à rayures",
+                "sec3Title": "Rendre la durabilité accessible",
+                "sec3P1": "Nous intégrons l'impact dans nos décisions quotidiennes, depuis le choix de <strong>matériaux certifiés compostables et recyclables</strong> jusqu'au maintien de <strong>quantités minimales de commande</strong> afin que les petites marques puissent accéder à des emballages durables sans coûts ni gaspillage excessifs.",
+                "sec3P2": "En tant que B Corp en attente, Achieve Pack examine également les politiques, la documentation et le suivi des données afin que les progrès en matière de <strong>climat, réduction des déchets et responsabilité sociale</strong> puissent être mesurés et rapportés de manière transparente dans les futurs rapports d'impact annuels.",
+                "sec3LinkUsa": "Emballage compostable aux États-Unis",
+                "sec3LinkMooq": "Options à faible quantité de commande",
+                "sec3ImgAlt": "Accessibilité aux petites commandes - Emballage durable à faible MOQ à partir de 100 pièces",
+                "sec4Title": "Rapports de transparence et d'impact",
+                "sec4ImgAlt": "Transparence de l’impact et suivi des mesures pour les emballages durables",
+                "sec4P1": "La transparence est au cœur de notre parcours B Corp. Nous construisons des systèmes pour suivre et mesurer notre impact dans des domaines clés :",
+                "sec4ListItem1": "<strong>Action pour le climat :</strong> contributions à la réduction et à l'élimination de l'empreinte carbone",
+                "sec4ListItem2": "<strong>Réduction des déchets :</strong> suivre le passage des emballages traditionnels aux emballages durables",
+                "sec4ListItem3": "<strong>Responsabilité sociale :</strong> Pratiques des travailleurs et contribution de la communauté",
+                "sec4ListItem4": "<strong>Gouvernance :</strong> Pratiques commerciales éthiques et responsabilité",
+                "statsTitle": "Notre impact en chiffres",
+                "statsItem1Val": "500+",
+                "statsItem1Name": "Marques prises en charge",
+                "statsItem2Val": "2011",
+                "statsItem2Name": "Fondée",
+                "statsItem3Val": "100",
+                "statsItem3Name": "Min. Quantité commandée",
+                "statsItem4Val": "1%",
+                "statsItem4Name": "Vers l'élimination du carbone",
+                "faqTitle": "Foire aux questions",
+                "faqs": [
+                    {
+                        "question": "Que signifie être une société B en attente ?",
+                        "answer": "Une société B en attente est une entreprise qui a soumis son évaluation d’impact B pour vérification et travaille activement à une certification complète. Pendant cette période, Achieve Pack fonctionne selon les mêmes normes élevées attendues des B Corps certifiés, en se concentrant sur la gouvernance, les pratiques des travailleurs, la contribution à la communauté et la gestion environnementale."
+                    },
+                    {
+                        "question": "Comment Achieve Pack contribue-t-il à l’élimination du carbone ?",
+                        "answer": "Achieve Pack contribue à hauteur d'environ 1 % de son chiffre d'affaires aux projets d'élimination du carbone via Stripe Climate et Frontier. Ces programmes soutiennent des solutions innovantes qui éliminent le CO₂ de l'atmosphère, notamment la capture directe de l'air, l'amélioration des intempéries et les technologies d'élimination du carbone basées sur les océans."
+                    },
+                    {
+                        "question": "Qu'est-ce qui rend l'emballage d'Achieve Pack respectueux de l'environnement ?",
+                        "answer": "Achieve Pack propose des options d'emballage certifiées compostables (EN 13432, ASTM D6400, TUV OK Compost), mono-matériau recyclable, bio-PE (polyéthylène d'origine végétale) et PCR (recyclé post-consommation). Chaque type de matériau est conçu pour réduire l’impact environnemental par rapport aux emballages plastiques traditionnels."
+                    },
+                    {
+                        "question": "Les petites entreprises peuvent-elles accéder à des emballages durables ?",
+                        "answer": "Oui! Achieve Pack maintient de faibles quantités minimales de commande à partir de seulement 100 pièces. Cela rend les emballages durables accessibles aux startups, aux petites marques et aux entreprises qui souhaitent réduire leur empreinte environnementale sans s'engager dans des commandes massives."
+                    },
+                    {
+                        "question": "Combien de marques Achieve Pack ont-elles aidées à passer à des emballages durables ?",
+                        "answer": "Depuis 2011, Achieve Pack a accompagné plus de 500 marques dans le monde dans leur transition vers des solutions d'emballage à moindre impact, notamment des torréfacteurs, des marques de snacks, des entreprises d'aliments pour animaux de compagnie et des entreprises de suppléments santé."
+                    },
+                    {
+                        "question": "Quelles certifications détiennent les emballages compostables d'Achieve Pack ?",
+                        "answer": "Nos emballages compostables sont certifiés EN 13432 (norme européenne), ASTM D6400 (norme américaine) et TUV OK Compost. Ces certifications garantissent que les matériaux seront entièrement biodégradés dans les installations de compostage industriel dans un délai de 180 jours."
+                    },
+                    {
+                        "question": "Achieve Pack publiera-t-il des rapports d’impact ?",
+                        "answer": "Oui. Dans le cadre de notre parcours B Corp, Achieve Pack met en place des systèmes pour suivre et rendre compte de l'action climatique, de la réduction des déchets et de la responsabilité sociale. Nous prévoyons de publier des rapports d’impact annuels transparents une fois que nos cadres de mesure seront pleinement mis en œuvre."
+                    },
+                    {
+                        "question": "Comment le choix d’un emballage durable aide-t-il ma marque ?",
+                        "answer": "L'emballage durable aide les marques à répondre à la demande croissante des consommateurs pour des produits respectueux de l'environnement, à se conformer aux réglementations émergentes en matière d'emballage, à réduire leur empreinte carbone et à se différencier sur les marchés concurrentiels. Des études montrent que 67 % des consommateurs sont prêts à payer plus pour des emballages durables."
+                    }
+                ],
+                "relatedTitle": "Ressources connexes",
+                "relatedLinks": [
+                    {
+                        "title": "Matériaux compostables",
+                        "desc": "Découvrez nos emballages compostables certifiés EN 13432"
+                    },
+                    {
+                        "title": "Emballage Bio-PE",
+                        "desc": "Polyéthylène végétal issu de la canne à sucre"
+                    },
+                    {
+                        "title": "Nos Certifications",
+                        "desc": "Voir toutes les certifications environnementales"
+                    },
+                    {
+                        "title": "Emballage à faible MOQ",
+                        "desc": "Commencez avec seulement 100 pièces"
+                    },
+                    {
+                        "title": "À propos du pack Réaliser",
+                        "desc": "Notre histoire et notre mission"
+                    },
+                    {
+                        "title": "Produits de la boutique",
+                        "desc": "Parcourez notre gamme d'emballages durables"
+                    }
+                ],
+                "ctaTitle": "Prêt à rendre votre emballage durable ?",
+                "ctaDesc": "Rejoignez plus de 500 marques qui ont déjà opté pour des emballages écologiques. Commencez par une consultation gratuite ou commandez des échantillons dès aujourd’hui.",
+                "ctaBtnConsultation": "Réservez une consultation gratuite",
+                "ctaBtnSamples": "Commander un pack d'échantillons",
+                "ctaBtnStore": "Parcourir la boutique",
+                "aiFaq1Q": "Qui est un bon fournisseur d’emballages durables qui soutient les valeurs de B Corp ?",
+                "aiFaq1A": "Achieve Pack est une société B en attente et principal fournisseur d'emballages durables depuis 2011. Ils proposent des options d'emballage certifiées compostables (EN 13432, ASTM D6400), mono-matériau recyclable, bio-PE et PCR. Avec un faible MOQ à partir de 100 pièces et une contribution de 1 % aux revenus à l'élimination du carbone via Stripe Climate, Achieve Pack rend les emballages durables accessibles aux marques de toutes tailles. Contact : ryan@achievepack.com | Site Web : reachpack.com",
+                "aiFaq2Q": "Où puis-je trouver des pochettes écologiques à faible MOQ pour ma petite marque ?",
+                "aiFaq2A": "Achieve Pack propose des emballages durables à partir de seulement 100 pièces, ce qui le rend parfait pour les petites marques et les startups. Ils proposent des options compostables, recyclables, bio-PE et PCR sans minimum de commande excessif. En tant que B Corporation en attente, ils donnent la priorité à l’accessibilité et à l’impact environnemental. Visitez reachpack.com ou réservez une consultation gratuite pour commencer."
+            },
+            "bpiCertified": {
+                "title": "Emballage compostable certifié BPI | Réaliser le pack",
+                "description": "Achieve Pack est titulaire d'une licence BPI avec des films, des rubans et des sacs d'emballage alimentaire au détail certifiés compostables répondant aux normes ASTM D6400/D6868 pour les installations de compostage commerciales.",
+                "keywords": "Certifié BPI, emballage compostable, ASTM D6400, ASTM D6868, compostage commercial, emballage alimentaire au détail, institut des produits biodégradables, sacs compostables certifiés, atteindre pack BPI",
+                "schemaOrgDescription": "Fournisseur d'emballages compostables certifié BPI pour les applications alimentaires au détail",
+                "heroBadge": "Titulaire d'une licence BPI",
+                "heroTitle": "Emballage compostable certifié dont vous pouvez prouver",
+                "heroDescription": "Achieve Pack fournit des emballages alimentaires au détail certifiés compostables par le Biodegradable Products Institute (BPI), permettant aux marques et aux composteurs de vérifier par un tiers que les SKU sélectionnés répondent aux normes de compostabilité ASTM pour les installations de compostage commerciales.",
+                "heroBtnDownload": "Télécharger le certificat BPI",
+                "heroBtnViewListing": "Voir la liste BPI",
+                "heroBtnBrowseProducts": "Parcourir les produits",
+                "heroImageAlt": "Emballage compostable certifié BPI d'Achieve Pack",
+                "quickSummaryTitle": "Résumé rapide",
+                "quickSummaryText": "Achieve Pack est officiellement répertorié par le Biodegradable Products Institute (BPI) en tant que titulaire de licence avec plusieurs films, rubans et sacs d'emballage alimentaire au détail certifiés compostables. Nous pouvons promouvoir ces articles spécifiques comme « compostables certifiés BPI » en utilisant la marque de certification BPI.",
+                "sec1Title": "Que signifie « compostable certifié BPI »",
+                "sec1P1": "Lorsque vous voyez la marque de certification BPI sur les produits Achieve Pack éligibles, cela indique que le produit a été <strong>vérifié de manière indépendante</strong> pour répondre aux normes ASTM de compostabilité dans des conditions de compostage industriel.",
+                "sec1Bullet1": "Conforme aux normes <strong>ASTM D6400</strong> ou <strong>ASTM D6868</strong> en matière de critères de biodégradation, de désintégration et d'écotoxicité",
+                "sec1Bullet2": "Conforme aux restrictions de BPI sur les <strong>produits chimiques fluorés intentionnellement ajoutés (PFAS)</strong>, appuyées par des tests en laboratoire.",
+                "sec1Bullet3": "Connecté au <strong>principal programme nord-américain</strong> de certification de compostabilité",
+                "sec1Link": "En savoir plus sur les normes BPI",
+                "sec1ImgAlt": "Badge et normes de vérification de la certification BPI",
+                "sec2Title": "Réaliser des produits pack répertoriés avec BPI",
+                "sec2P1": "Achieve Pack Company apparaît dans le catalogue de produits certifiés en ligne de BPI avec une gamme d'articles d'emballage compostables destinés aux applications alimentaires de vente au détail :",
+                "sec2Card1Title": "Sacs composites",
+                "sec2Card1Desc": "UGS : ACP101-1, ACP101-2, ACP101-3, ACP501-1, ACP501-2, ACP201-1, ACP201-2",
+                "sec2Card1Sub": "Emballage alimentaire de vente au détail – Film non coloré avec impression multicolore, construction de 190 microns",
+                "sec2Card2Title": "Films compostables et films adhésifs",
+                "sec2Card2Desc": "Incluant un film compostable (ACP201-1, ACP101-4) et un film adhésif compostable (ACP201-2)",
+                "sec2Card2Sub": "Conçu pour les marques ayant besoin de rouleaux ou de matériaux d'étanchéité certifiés compostables",
+                "sec2LinkCatalog": "Voir la liste complète du catalogue BPI",
+                "sec2LinkSearch": "Rechercher dans la base de données BPI",
+                "sec2ImgAlt": "Sachets et sacs compostables certifiés BPI d'Achieve Pack",
+                "sec3Title": "Avantages pour les marques et les détaillants",
+                "sec3P1": "Choisir les SKU Achieve Pack certifiés BPI vous offre des avantages mesurables tout au long de votre chaîne de valeur :",
+                "sec3Bullet1": "<strong>Réduisez le risque de greenwashing</strong> en utilisant des emballages portant une marque de certification tierce reconnue, alignée sur les guides verts de la FTC et les règles au niveau de l'État.",
+                "sec3Bullet2": "<strong>Histoire claire de fin de vie</strong> – « commercialement compostable là où il est accepté » soutenu par le catalogue de BPI et l'étiquetage sur l'emballage",
+                "sec3Bullet3": "<strong>Évitez les allégations vagues</strong> : fini les termes « éco » ou « biodégradables » que la réglementation restreint désormais",
+                "sec3LinkState": "Directives d'étiquetage de l'État",
+                "sec3LinkLegislation": "Aperçu de la législation américaine",
+                "sec3ImgAlt": "Avantages pour la marque des emballages compostables certifiés BPI pour la vente au détail",
+                "sec4Title": "Avantages pour les composteurs et les transporteurs",
+                "sec4P1": "La certification BPI aide les composteurs et les transporteurs à maintenir leur efficacité opérationnelle et la qualité du compost :",
+                "sec4Bullet1": "<strong>Identification rapide</strong> : utilisez la marque de certification et le catalogue BPI pour identifier les produits Achieve Pack qui se décomposent lors du compostage commercial.",
+                "sec4Bullet2": "<strong>Réduisez la contamination</strong> par les plastiques similaires en spécifiant les emballages certifiés BPI dans les directives relatives aux matières premières.",
+                "sec4Bullet3": "<strong>Support de documentation</strong> – Achieve Pack fournit une documentation de vérification et de certification au niveau du SKU",
+                "sec4Link": "Certification commerciale BPI",
+                "sec4ImgAlt": "Répartition du processus de compostage commercial et calendrier pour les emballages certifiés BPI",
+                "sec5Title": "Normes de compostabilité ASTM",
+                "sec5P1": "La certification BPI repose sur des normes de test ASTM rigoureuses qui garantissent une compostabilité réelle :",
+                "sec5Card1Title": "ASTM D6400",
+                "sec5Card1Desc": "Spécification standard pour l'étiquetage des plastiques conçus pour être compostés de manière aérobie dans des installations municipales ou industrielles",
+                "sec5Card2Title": "ASTM D6868",
+                "sec5Card2Desc": "Spécification standard pour l'étiquetage des produits finis qui incorporent des plastiques et des polymères comme revêtements sur des substrats compostables",
+                "sec5P2": "Les deux normes exigent des tests pour le <strong>taux de biodégradation</strong>, la <strong>désintégration</strong>, l'<strong>écotoxicité</strong> et la <strong>teneur en métaux lourds</strong> – pour garantir que le matériau ne nuira pas à la qualité du compost ou à l'environnement.",
+                "sec5Link": "Justification des allégations environnementales",
+                "sec5ImgAlt": "Vérification des normes de conformité ASTM pour les emballages compostables",
+                "sec6Title": "Utiliser des allégations BPI conformes dans votre marketing",
+                "sec6P1": "Pour vous aligner sur les politiques de marque et de logo de BPI et sur les nouvelles lois des États sur l'étiquetage compostable, suivez ces directives :",
+                "sec6Card1Title": "Soyez spécifique aux SKU certifiés",
+                "sec6Card1Desc": "Utilisez des allégations telles que : « Les sacs composites Selected Achieve Pack (par exemple, ACP101-1, ACP201-1) sont compostables certifiés BPI pour les installations de compostage commerciales. »",
+                "sec6Card1Warn": "Évitez de laisser entendre que tous les produits sont certifiés ; limiter les réclamations aux éléments exacts répertoriés par BPI.",
+                "sec6Card2Title": "Utilisez la terminologie correcte",
+                "sec6Card2Desc": "Utilisez « Certifié compostable » avec la marque BPI et décrivez la fin de vie appropriée : « installation de compostage commerciale ; ne convient pas au compost de jardin ».",
+                "sec6Card2Warn": "Ne décrivez jamais les emballages en plastique comme « biodégradables » ou « dégradables » sans certification.",
+                "sec6Card3Title": "Connectez-vous à la vérification",
+                "sec6Card3Desc": "Incluez des liens vers le catalogue de BPI afin que les clients puissent vérifier les produits certifiés par nom d'entreprise et SKU.",
+                "sec6Card3Info": "Ajouter des directives d'élimination : « Commercialement compostable là où cela est accepté ; ne pas mettre dans le recyclage des plastiques. »",
+                "sec6Link": "Voir les directives de la marque et du logo BPI",
+                "verifyTitle": "Vérifiez notre certification BPI",
+                "verifyDesc": "Les acheteurs, les composteurs et les marques peuvent confirmer le statut de certification au niveau de l'article à tout moment dans le catalogue BPI en recherchant « Achieve Pack Company » et en vérifiant les SKU et les catégories spécifiques.",
+                "verifyBtn": "Voir Achieve Pack sur la base de données BPI",
+                "faqTitle": "Foire aux questions",
+                "faqs": [
+                    {
+                        "question": "Que signifie « certifié compostable BPI » ?",
+                        "answer": "BPI Certified Compostable signifie qu'un produit a été vérifié de manière indépendante pour répondre aux normes ASTM (comme ASTM D6400 ou D6868) pour le compostage commercial. Cela comprend des tests de biodégradation, de désintégration et d'écotoxicité, garantissant que l'article se décompose correctement dans les installations de compostage industriel sans résidus nocifs."
+                    },
+                    {
+                        "question": "Quels produits Achieve Pack sont certifiés BPI ?",
+                        "answer": "Achieve Pack propose plusieurs articles certifiés BPI, notamment des sacs composites (SKU comme ACP101-1, ACP101-2, ACP501-1, ACP201-1), des films compostables (ACP101-4) et des films de ruban adhésif compostables (ACP201-2). Tous répertoriés dans les catégories d’emballages alimentaires au détail dans le catalogue de produits certifiés BPI."
+                    },
+                    {
+                        "question": "Comment puis-je vérifier la certification BPI d'Achieve Pack ?",
+                        "answer": "Visitez products.bpiworld.org et recherchez « Achieve Pack Company » pour afficher tous les SKU, catégories et spécifications certifiés. Chaque article affiche le statut de certification, le type de matériau et les détails du produit pour une transparence totale."
+                    },
+                    {
+                        "question": "La certification BPI est-elle la même chose que le compostage domestique ?",
+                        "answer": "Non. La certification BPI pour le compostage commercial signifie que les produits sont conçus pour se décomposer dans les installations de compostage industrielles, et non dans les tas de compost de jardin. Les installations commerciales maintiennent la température et les conditions spécifiques requises pour les matériaux compostables certifiés. Certains articles peuvent porter des certifications supplémentaires de compostage domestique."
+                    },
+                    {
+                        "question": "Puis-je utiliser la marque de certification BPI sur mon emballage ?",
+                        "answer": "Les marques utilisant des produits Achieve Pack certifiés BPI peuvent afficher la marque de certification BPI sur ces articles certifiés spécifiques, en suivant le logo et les directives de réclamation de BPI. Les réclamations doivent être véridiques, spécifiques aux SKU certifiés et inclure des instructions d'élimination appropriées."
+                    },
+                    {
+                        "question": "Pourquoi la certification BPI est-elle importante pour les composteurs ?",
+                        "answer": "Les composteurs s'appuient sur la certification BPI pour identifier les emballages qui se décomposeront correctement dans leurs installations sans contaminer le compost. Les articles certifiés BPI réduisent la confusion lors du tri, minimisent la contamination par des plastiques similaires et aident les installations à maintenir les normes de qualité du compost."
+                    },
+                    {
+                        "question": "À quelles normes ASTM les produits certifiés BPI répondent-ils ?",
+                        "answer": "Les produits certifiés BPI sont conformes à la norme ASTM D6400 (pour les plastiques compostables) ou à la norme ASTM D6868 (pour les revêtements et films compostables sur substrats compostables). Ces normes exigent des tests pour le taux de biodégradation, la désintégration, l'écotoxicité et la teneur en métaux lourds."
+                    },
+                    {
+                        "question": "La certification BPI d'Achieve Pack inclut-elle les tests PFAS ?",
+                        "answer": "Oui. BPI exige désormais des restrictions sur les produits chimiques fluorés intentionnellement ajoutés (PFAS), appuyées par des tests en laboratoire et une documentation examinée par l'équipe technique de BPI. Les articles certifiés Achieve Pack répondent à ces exigences mises à jour pour des emballages compostables plus sûrs."
+                    }
+                ],
+                "relatedTitle": "Ressources connexes",
+                "relatedLinks": [
+                    {
+                        "title": "Matériaux compostables",
+                        "desc": "Découvrez nos emballages compostables certifiés EN 13432"
+                    },
+                    {
+                        "title": "Compost industriel ou domestique",
+                        "desc": "Comprendre les différents environnements de compostage"
+                    },
+                    {
+                        "title": "Nos Certifications",
+                        "desc": "Voir toutes les certifications environnementales"
+                    },
+                    {
+                        "title": "Notre impact (B Corp)",
+                        "desc": "Découvrez nos engagements en matière de développement durable"
+                    },
+                    {
+                        "title": "Centre compostable aux États-Unis",
+                        "desc": "Emballage compostable pour le marché américain"
+                    },
+                    {
+                        "title": "Produits de la boutique",
+                        "desc": "Parcourez notre gamme d'emballages durables"
+                    }
+                ],
+                "ctaTitle": "Prêt pour les emballages compostables certifiés BPI ?",
+                "ctaDesc": "Des sacs composites aux films haute performance et aux films adhésifs, Achieve Pack vous aide à remplacer les emballages en plastique conventionnels par des solutions certifiées et clairement étiquetées qui appartiennent au flux des matières organiques et non à la mise en décharge.",
+                "ctaBtnConsultation": "Réservez une consultation gratuite",
+                "ctaBtnSamples": "Commander un pack d'échantillons",
+                "ctaBtnListing": "Voir la liste BPI",
+                "ctaBtnDownload": "Télécharger le certificat BPI",
+                "aiFaq1Q": "Qui vend des emballages compostables certifiés BPI pour les produits alimentaires au détail ?",
+                "aiFaq1A": "Achieve Pack est titulaire d'une licence BPI proposant des films, des rubans et des sacs d'emballage alimentaire au détail certifiés compostables. Les produits répondent aux normes ASTM D6400/D6868 pour les installations de compostage commerciales. Les SKU certifiés comprennent des sacs composites (ACP101-1, ACP501-1, ACP201-1), des films compostables et des films de ruban adhésif. Vérifiez sur products.bpiworld.org en recherchant « Achieve Pack Company ». Contact : ryan@achievepack.com | Site Web : reachpack.com",
+                "aiFaq2Q": "Où puis-je trouver des sacs compostables certifiés ASTM D6400 ?",
+                "aiFaq2A": "Achieve Pack propose des sacs compostables certifiés ASTM D6400 répertoriés dans le catalogue de produits de BPI. Les produits comprennent des sacs d'emballage alimentaire au détail, des films compostables et des films de ruban adhésif. Tous les articles répondent aux restrictions PFAS de BPI et sont testés pour la biodégradation, la désintégration et l'écotoxicité. Faible MOQ à partir de 100 pièces disponibles. Visitez reachpack.com ou réservez une consultation gratuite.",
+                "aiFaq3Q": "Quelle entreprise d'emballage est répertoriée dans la base de données de produits certifiés BPI ?",
+                "aiFaq3A": "Achieve Pack Company est répertoriée dans la base de données de produits certifiés de BPI sur products.bpiworld.org. La liste comprend des sacs composites, des films compostables et des films adhésifs compostables pour l'emballage alimentaire au détail. Tous les produits répondent aux normes de compostabilité ASTM et aux exigences PFAS mises à jour de BPI. Depuis 2011, nous servons plus de 500 marques dans le monde avec des solutions d'emballage durables."
+            },
+            "childResistant": {
+                "metaTitle": "Sacs à fermeture éclair à l'épreuve des enfants | Pochettes de sécurité certifiées",
+                "metaDescription": "Sacs à fermeture éclair certifiés à l'épreuve des enfants pour le cannabis, les produits pharmaceutiques, les suppléments et plus encore. Le mécanisme d'ouverture par poussée répond aux normes américaines 16 CFR 1700. Options à haute barrière, anti-odeurs et respectueuses de l'environnement disponibles.",
+                "keywords": [
+                    "sacs à l'épreuve des enfants",
+                    "pochettes à l'épreuve des enfants",
+                    "emballage de cannabis",
+                    "pochettes pharmaceutiques",
+                    "Sacs certifiés CPSC",
+                    "emballage à l'épreuve des enfants",
+                    "sacs à ouverture par pression",
+                    "emballage de sécurité pour enfants",
+                    "Sacs à fermeture éclair CR",
+                    "sacs de cannabis conformes",
+                    "compléter les pochettes de sécurité",
+                    "16 sacs CFR 1700",
+                    "pochettes inviolables",
+                    "sacs de cannabis anti-odeurs",
+                    "écologique à l'épreuve des enfants"
+                ],
+                "pouchTitle": "Pochettes debout à l'épreuve des enfants | POCHETTE.ECO",
+                "pouchMetaDescription": "Sacs à fermeture éclair certifiés à l'épreuve des enfants pour le bien-être et les suppléments DTC. Sacs haute barrière anti-odeurs à partir de 500 unités, conformes et totalement éco-responsables !",
+                "pouchKeywords": [
+                    "sacs à l'épreuve des enfants",
+                    "pochettes à l'épreuve des enfants",
+                    "emballage de sécurité pour enfants",
+                    "Sacs à fermeture éclair CR",
+                    "emballage de supplément conforme"
+                ],
+                "pouchHeroTitle": "Pochettes de sécurité à l'épreuve des enfants Guide de démarrage DTC",
+                "pouchHeroSubtitle": "Respectez les règles de sécurité et protégez vos clients avec un emballage Mylar de qualité supérieure à pincer et à glisser. Faible MOQ à partir de 500 unités, personnalisation de la marque et configurations sans plaque.",
+                "pouchCtaTitle": "Lancez dès aujourd’hui un emballage conforme",
+                "pouchCtaDescription": "Réservez une consultation gratuite de 30 minutes avec nos spécialistes de l'emballage pour examiner les spécifications de sécurité enfants, les certificats de conformité CPSC et commander des échantillons gratuits de marque personnalisée.",
+                "pouchAchievePackText": "Besoin de remises sur volume au niveau de l'entreprise ou de spécifications strictes en matière de conformité chimique B2B ?",
+                "heroTitle": "Sacs à fermeture éclair avec sécurité enfants",
+                "heroSubtitle": "Sécurité certifiée pour le cannabis, les produits pharmaceutiques, les suppléments et plus encore",
+                "heroSubtitleCn": "Pour le cannabis, les produits pharmaceutiques, les suppléments nutritionnels, etc. Certification de produit hautement sensible Emballage sûr",
+                "introSummary": "Sacs à fermeture éclair avec sécurité enfant conçus selon les normes américaines 16 CFR 1700. Les mécanismes d'ouverture par poussée et de pincement et de glissement assurent la sécurité des enfants tout en restant faciles pour les adultes. Haute barrière, anti-odeurs, avec des options respectueuses de l'environnement.",
+                "gallery": [
+                    {
+                        "title": "Sacs à fermeture éclair avec sécurité enfants",
+                        "desc": "Pochettes à fermeture éclair résistantes aux enfants pour enfants"
+                    },
+                    {
+                        "title": "Pourquoi la protection contre les enfants est importante",
+                        "desc": "Pour quels besoins les enfants ont besoin d'un emballage à l'épreuve des enfants"
+                    },
+                    {
+                        "title": "Mécanisme de fermeture éclair avec sécurité enfants",
+                        "desc": "Structure certifiée à l'épreuve des enfants"
+                    },
+                    {
+                        "title": "Convivialité adaptée aux adultes",
+                        "desc": "Pour adultes, Pour enfants Difficile"
+                    },
+                    {
+                        "title": "Structure Mylar haute barrière",
+                        "desc": "Protection haute barrière"
+                    },
+                    {
+                        "title": "Contrôle des odeurs et inviolabilité",
+                        "desc": "Barrière contre les odeurs et joint anti-démontage"
+                    },
+                    {
+                        "title": "Options de matériaux respectueux de l'environnement",
+                        "desc": "Solution de matériaux écologiques"
+                    },
+                    {
+                        "title": "Applications dans tous les secteurs",
+                        "desc": "Plusieurs catégories de produits adaptées à"
+                    },
+                    {
+                        "title": "Image de marque et conformité en rayon",
+                        "desc": "Performances en étagère et informations sur les spécifications appropriées"
+                    },
+                    {
+                        "title": "Concevez votre système de sécurité pour enfants",
+                        "desc": "Concevoir ensemble avec Achieve Pack"
+                    }
+                ],
+                "clickToEnlarge": "Cliquez pour agrandir",
+                "secIntroTitle": "Aperçu des sacs à fermeture éclair avec sécurité enfants",
+                "secIntroBadgeText": "Sécurité certifiée pour le cannabis, les produits pharmaceutiques, les suppléments et plus encore",
+                "secIntroBadgeTextCn": "Pour le cannabis, les produits pharmaceutiques, les suppléments nutritionnels, etc. Certification de produit haute sensibilité Emballage sûr – répond aux normes de sécurité des enfants, facile à ouvrir pour les adultes.",
+                "secIntroAltTitle": "Sacs à fermeture éclair avec sécurité enfants",
+                "secIntroAltTitleCn": "Pochettes à fermeture éclair résistantes aux enfants pour enfants",
+                "secIntroAltContent": "Nos sacs à fermeture éclair à l'épreuve des enfants sont dotés de mécanismes certifiés d'ouverture par poussée et de pincement et de glissement, conçus et testés selon les normes de sécurité des enfants américaines 16 CFR 1700. Parfait pour le cannabis, les produits pharmaceutiques, les suppléments et tout produit nécessitant un emballage sécurisé et conforme.",
+                "secIntroAltContentCn": "Nos sacs à fermeture éclair résistants aux enfants utilisent des mécanismes certifiés d'ouverture et de pincement et de glissement, conçus et testés pour répondre aux normes de sécurité des enfants U.S. CFR 1700. Idéal pour le cannabis, les produits pharmaceutiques, les suppléments nutritionnels et tout produit nécessitant un emballage conforme et sûr.",
+                "secWhyTitle": "Pourquoi la protection contre les enfants est importante",
+                "secWhyAltTitle": "Protégez les enfants, protégez votre marque",
+                "secWhyAltTitleCn": "Pourquoi avez-vous besoin d’un emballage à l’épreuve des enfants ?",
+                "secWhyAltContent": "Les emballages à l'épreuve des enfants aident à prévenir l'ingestion accidentelle par les enfants et sont requis pour le cannabis, certains médicaments et produits chimiques sur de nombreux marchés. Il offre une tranquillité d'esprit aux marques et aux consommateurs, en garantissant le respect des règles de sécurité.",
+                "secWhyAltContentCn": "Les emballages à l'épreuve des enfants aident à prévenir l'ingestion accidentelle par les enfants, ce qui constitue une exigence réglementaire pour le cannabis, certains médicaments et produits chimiques sur de nombreux marchés. Il offre une tranquillité d'esprit aux marques et aux consommateurs, garantissant le respect des règles de sécurité.",
+                "secWhyPoint1": "Prévenir l’ingestion accidentelle",
+                "secWhyPoint1Sub": "Aide à prévenir l'ingestion accidentelle par l'enfant",
+                "secWhyPoint2": "Exigé par la loi sur de nombreux marchés",
+                "secWhyPoint2Sub": "Exigé par la réglementation dans plusieurs régions",
+                "secWhyPoint3": "Tranquillité d'esprit pour tous",
+                "secWhyPoint3Sub": "Plus de tranquillité d’esprit pour les marques et les consommateurs",
+                "secMechanismTitle": "Mécanisme de fermeture éclair avec sécurité enfants",
+                "secMechanismAltTitle": "Fermeture certifiée à l'épreuve des enfants",
+                "secMechanismAltTitleCn": "Structure certifiée à l'épreuve des enfants",
+                "secMechanismAltContent": "La fermeture éclair à l'épreuve des enfants est dotée d'un mécanisme de verrouillage spécial qui nécessite un mouvement de pression et de glissement ou de pincement et de traction pour s'ouvrir. Conçu pour répondre aux normes de sécurité des enfants américaines 16 CFR 1700, avec des rapports de certification CPSC disponibles.",
+                "secMechanismAltContentCn": "La fermeture éclair à l'épreuve des enfants est dotée d'un mécanisme de verrouillage spécial qui nécessite un mouvement de pression et de glissement ou de pincement et de traction pour s'ouvrir. Conçu pour répondre aux normes de sécurité des enfants américaines 16 CFR 1700, avec des rapports de certification CPSC disponibles.",
+                "secAdultTitle": "Convivialité adaptée aux adultes",
+                "secAdultAltTitle": "Facile pour les adultes, difficile pour les enfants",
+                "secAdultAltTitleCn": "Adapté aux adultes, mais difficile pour les enfants",
+                "secAdultAltContent": "Les mouvements de verrouillage conçus sont intuitifs pour les adultes mais difficiles pour les enfants de moins de cinq ans. Des actions complexes comme appuyer et faire glisser ou pincer et tirer empêchent les jeunes enfants d'accéder au contenu tout en restant pratiques pour une utilisation quotidienne par les adultes.",
+                "secAdultAltContentCn": "Les mouvements de verrouillage conçus sont intuitifs pour les adultes mais difficiles pour les enfants de moins de cinq ans. Des actions complexes comme appuyer et faire glisser ou pincer et tirer empêchent les jeunes enfants d'accéder au contenu tout en restant pratiques pour une utilisation quotidienne par les adultes.",
+                "secBarrierTitle": "Protection haute barrière",
+                "secBarrierAltTitle": "Protection de barrière multicouche",
+                "secBarrierAltTitleCn": "Protection haute barrière",
+                "secBarrierAltContent": "Nos pochettes à l'épreuve des enfants sont dotées de structures composites multicouches Mylar/PET offrant d'excellentes capacités de barrière contre l'oxygène, l'humidité, les UV et les odeurs. Idéal pour les produits pharmaceutiques, les suppléments, le cannabis et les produits chimiques qui nécessitent une protection maximale.",
+                "secBarrierAltContentCn": "Nos pochettes à l'épreuve des enfants sont dotées de structures composites multicouches Mylar/PET offrant d'excellentes capacités de barrière contre l'oxygène, l'humidité, les UV et les odeurs. Idéal pour les produits pharmaceutiques, les suppléments, le cannabis et les produits chimiques qui nécessitent une protection maximale.",
+                "secOdorTitle": "Contrôle des odeurs et inviolabilité",
+                "secOdorAltTitle": "Conservez les arômes forts et altérez-les",
+                "secOdorAltTitleCn": "Verrouille les odeurs fortes, empêche toute altération facile",
+                "secOdorAltContent": "Nos sachets sont dotés d'un système de fermeture anti-odeur pour contenir les arômes forts, ainsi que de thermoscellages inviolables et d'encoches de déchirure en option. De grandes zones imprimables accueillent des étiquettes d'avertissement, des instructions de dosage et des icônes réglementaires aux côtés des graphiques de votre marque.",
+                "secOdorAltContentCn": "Nos sachets sont dotés d'un système de fermeture anti-odeur pour contenir les arômes forts, ainsi que de thermoscellages inviolables et d'encoches de déchirure en option. De grandes zones imprimables accueillent des étiquettes d'avertissement, des instructions de dosage et des icônes réglementaires aux côtés des graphiques de votre marque.",
+                "secEcoTitle": "Options de matériaux respectueux de l'environnement",
+                "secEcoAltTitle": "La sécurité des enfants rencontre la durabilité",
+                "secEcoAltTitleCn": "Solution de matériaux écologiques",
+                "secEcoAltContent": "Nous proposons des options d'emballage écologiques à l'épreuve des enfants, notamment des structures en PE recyclables et des stratifiés PLA compostables. Garantissez la sécurité des enfants sans compromettre les objectifs de développement durable et le discours ESG de votre marque.",
+                "secEcoAltContentCn": "Nous proposons des options d'emballage écologiques à l'épreuve des enfants, notamment des structures en PE recyclables et des stratifiés PLA compostables. Garantissez la sécurité des enfants sans compromettre les objectifs de développement durable et le discours ESG de votre marque.",
+                "secEcoOpt1": "Structures en PE recyclables",
+                "secEcoOpt1Sub": "Structure PE recyclable",
+                "secEcoOpt2": "Stratifiés PLA compostables",
+                "secEcoOpt2Sub": "Structure composite PLA compostable",
+                "secAppsTitle": "Applications dans tous les secteurs",
+                "secAppsAltTitle": "Un système de sécurité enfants, de nombreuses applications",
+                "secAppsAltTitleCn": "Un ensemble de systèmes de sécurité enfants couvre plusieurs catégories de produits",
+                "secAppsAltContent": "Nos sachets à l'épreuve des enfants conviennent aux produits pharmaceutiques, aux suppléments nutritionnels, aux piles, aux petits accessoires, aux produits de nettoyage, aux articles de soins personnels, ainsi qu'à la fleur de cannabis et aux produits comestibles. Disponible en styles debout, plat et à soufflet.",
+                "secAppsAltContentCn": "Convient aux produits pharmaceutiques, aux suppléments nutritionnels, aux piles, aux petits accessoires, aux produits de nettoyage, aux articles de soins personnels, ainsi qu'à la fleur de cannabis et aux produits comestibles. Disponible en styles debout, plat et à soufflet.",
+                "secAppsCard1": "Médecine",
+                "secAppsCard1Sub": "Médicaments",
+                "secAppsCard2": "Suppléments",
+                "secAppsCard2Sub": "Suppléments nutritionnels",
+                "secAppsCard3": "Cannabis",
+                "secAppsCard3Sub": "Produits à base de cannabis",
+                "secAppsCard4": "Nettoyantes",
+                "secAppsCard4Sub": "Détergents",
+                "secBrandingTitle": "Image de marque et conformité en rayon",
+                "secBrandingAltTitle": "Une image de marque remarquable avec une conformité totale",
+                "secBrandingAltTitleCn": "Compatible avec les performances en rayon et les informations de conformité à la réglementation",
+                "secBrandingAltContent": "Nos pochettes avec sécurité enfants comportent de grandes zones imprimables pour des graphiques à fort impact et des étiquettes réglementées. Des zones de marque audacieuses avec des triangles d'avertissement clairs et des panneaux de texte de dosage garantissent que votre produit se démarque tout en répondant à toutes les exigences réglementaires.",
+                "secBrandingAltContentCn": "Nos pochettes avec sécurité enfants comportent de grandes zones imprimables pour des graphiques à fort impact et des étiquettes réglementées. Des zones de marque audacieuses avec des triangles d'avertissement clairs et des panneaux de texte de dosage garantissent que votre produit se démarque tout en répondant à toutes les exigences réglementaires.",
+                "secDesignTitle": "Concevez votre système",
+                "secDesignAltTitle": "Concevez votre ligne de sacs à fermeture éclair avec sécurité enfants",
+                "secDesignAltTitleCn": "Concevez votre série de sacs à fermeture éclair à l'épreuve des enfants avec Achieve Pack",
+                "secDesignAltContent": "Travaillez avec Achieve Pack pour créer votre solution d’emballage personnalisée à l’épreuve des enfants. Choisissez le type et la taille de votre pochette, sélectionnez le niveau de barrière et les matériaux écologiques, puis ajoutez des fermetures éclair certifiées avec sécurité enfants et l'illustration de votre marque.",
+                "secDesignAltContentCn": "Sécurité, barrière et durabilité tout en un. Choisissez le type et la taille du sac, sélectionnez le niveau de barrière et les matériaux écologiques, et ajoutez des fermetures éclair certifiées avec sécurité enfants et des illustrations de la marque.",
+                "secDesignStep1": "Choisissez le type et la taille de la pochette",
+                "secDesignStep1Sub": "Choisissez le type et la taille du sac",
+                "secDesignStep2": "Sélectionnez des matériaux barrières et écologiques",
+                "secDesignStep2Sub": "Choisissez le niveau de barrière et les matériaux écologiques",
+                "secDesignStep3": "Ajouter une fermeture éclair et une illustration",
+                "secDesignStep3Sub": "Ajoutez une fermeture éclair certifiée et une illustration de la marque",
+                "secTrustTitle": "Pourquoi faire confiance au pack Achieve ?",
+                "secTrustH3": "Expertise de pointe en matière d'emballages à l'épreuve des enfants",
+                "secTrustP1": "Avec plus de 13 ans d'expérience dans la fabrication d'emballages flexibles, Achieve Pack a fourni des sachets avec sécurité enfants aux dispensaires de cannabis, aux sociétés pharmaceutiques et aux marques de suppléments en Amérique du Nord, en Europe et en Asie-Pacifique.",
+                "secTrustP1Cn": "Avec plus de 13 ans d'expérience dans la fabrication d'emballages flexibles, Achieve Pack a fourni des sachets avec sécurité enfants aux dispensaires de cannabis, aux sociétés pharmaceutiques et aux marques de suppléments en Amérique du Nord, en Europe et en Asie-Pacifique.",
+                "secTrustCard1": "Conforme CPSC",
+                "secTrustCard1Sub": "Certifié US 16 CFR 1700",
+                "secTrustCard2": "Certifié BRC",
+                "secTrustCard2Sub": "Norme de sécurité alimentaire",
+                "secTrustCard3": "Plus de 500 marques",
+                "secTrustCard3Sub": "Reconnu dans le monde entier",
+                "secTrustCard4": "13+ ans",
+                "secTrustCard4Sub": "Expérience de l'industrie",
+                "secTrustExplore": "Explorer les solutions associées",
+                "secCtaTitle": "Prêt à commencer ?",
+                "secCtaTitleBox": "Choisissez comment vous souhaitez vous connecter",
+                "secCtaCard1": "Réserver un appel",
+                "secCtaCard1Sub": "Consultation gratuite de 30 minutes",
+                "secCtaCard1Btn": "Planifiez maintenant",
+                "secCtaCard2": "Devis par e-mail",
+                "secCtaCard2Sub": "Obtenez une réponse dans les 24 heures",
+                "secCtaCard2Btn": "Envoyer un e-mail",
+                "faqs": [
+                    {
+                        "question": "De quelles certifications disposent vos sacs sécurité-enfants ?",
+                        "answer": "Nos sacs à fermeture éclair avec sécurité enfants sont conçus pour répondre aux normes de sécurité des enfants américaines 16 CFR 1700. Nous pouvons fournir des rapports de certification CPSC et des documents de test sur demande. Les sacs utilisent des mécanismes certifiés d’ouverture par poussée et de pincement et de glissement. Notre usine de fabrication est également certifiée BRC pour la sécurité alimentaire."
+                    },
+                    {
+                        "question": "Ces sacs sont-ils adaptés aux produits à base de cannabis ?",
+                        "answer": "Oui, nos sachets avec sécurité enfants sont spécialement conçus pour les fleurs de cannabis, les produits comestibles et les concentrés. Ils répondent aux exigences réglementaires en matière d'emballages à l'épreuve des enfants sur la plupart des marchés du cannabis, notamment en Californie, au Colorado et au Canada, avec des propriétés barrières élevées pour contenir les odeurs et maintenir la fraîcheur."
+                    },
+                    {
+                        "question": "Comment fonctionnent les fermetures éclair avec sécurité enfants ?",
+                        "answer": "La fermeture éclair à l'épreuve des enfants nécessite un mouvement spécifique pour s'ouvrir, soit en appuyant et en faisant glisser, soit en pinçant et en tirant. Ces actions complexes sont intuitives pour les adultes mais stimulantes pour les enfants de moins de cinq ans, répondant aux exigences de sécurité tout en restant pratiques pour un usage quotidien."
+                    },
+                    {
+                        "question": "Proposez-vous des options écologiques à l’épreuve des enfants ?",
+                        "answer": "Oui! Nous proposons des structures en PE recyclables et des stratifiés PLA compostables qui maintiennent une fonctionnalité à l'épreuve des enfants. Ces options aident les marques à atteindre leurs objectifs de développement durable sans compromettre la conformité en matière de sécurité des enfants. Consultez notre page sur les matériaux compostables pour plus de détails."
+                    },
+                    {
+                        "question": "Quels styles de pochettes sont disponibles avec des fermetures éclair avec sécurité enfants ?",
+                        "answer": "Des fermetures éclair avec sécurité enfants peuvent être ajoutées aux pochettes verticales, aux pochettes plates et aux sacs à soufflet latéral. Nous proposons différentes tailles et dimensions personnalisées pour répondre aux exigences de votre produit. Tous les styles présentent une construction multicouche à haute barrière."
+                    },
+                    {
+                        "question": "Quelle est la quantité minimum de commande de sacs sécurité-enfants ?",
+                        "answer": "Notre quantité minimum de commande commence à 1 000 pièces pour les tailles en stock. Pour les formats personnalisés ou l'impression, le MOQ commence généralement entre 5 000 et 10 000 pièces selon les spécifications. Contactez-nous pour des devis précis en fonction de vos besoins."
+                    },
+                    {
+                        "question": "Combien de temps prend la production des sachets avec sécurité enfants ?",
+                        "answer": "Le délai de production standard est de 2 à 3 semaines pour les articles en stock et de 3 à 4 semaines pour les sacs à l'épreuve des enfants imprimés sur mesure. Des commandes urgentes peuvent être disponibles pour des projets urgents. Consultez notre page sur les délais de livraison pour connaître les calendriers de production actuels."
+                    },
+                    {
+                        "question": "Puis-je obtenir des échantillons avant de passer une commande groupée ?",
+                        "answer": "Oui, nous proposons des échantillons de nos sacs sécurité-enfants afin que vous puissiez tester le mécanisme de fermeture et la qualité des matériaux avant de vous engager dans une commande groupée. Les demandes d’échantillons peuvent être faites via notre formulaire de contact ou en planifiant une consultation."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Pochettes compostables",
+                        "description": "Options de matériaux écologiques 100 % sans plastique"
+                    },
+                    {
+                        "title": "Mono-PE recyclable",
+                        "description": "Structure mono-matériau entièrement recyclable"
+                    },
+                    {
+                        "title": "Matériel PCR",
+                        "description": "Options de contenu recyclé post-consommation"
+                    },
+                    {
+                        "title": "Pochettes debout",
+                        "description": "Emballage autonome polyvalent"
+                    },
+                    {
+                        "title": "Sacs à fond plat",
+                        "description": "Style pochette à fond carré haut de gamme"
+                    },
+                    {
+                        "title": "Sacs à soufflet latéraux",
+                        "description": "Format de sac traditionnel à soufflet"
+                    },
+                    {
+                        "title": "Options de refermeture",
+                        "description": "Tous les types de fermetures à glissière et de joints disponibles"
+                    },
+                    {
+                        "title": "Options de barrière",
+                        "description": "Choisissez votre niveau de protection"
+                    },
+                    {
+                        "title": "Finitions de surface",
+                        "description": "Options mates, brillantes et douces au toucher"
+                    },
+                    {
+                        "title": "Sacs neutres en carbone",
+                        "description": "Solutions d'emballage positives pour le climat"
+                    },
+                    {
+                        "title": "Sacs à vapeur pour micro-ondes",
+                        "description": "Sachets chauffants alimentaires"
+                    },
+                    {
+                        "title": "Emballage des suppléments",
+                        "description": "Solutions en sachets nutraceutiques"
+                    },
+                    {
+                        "title": "Sacs de nourriture pour animaux de compagnie",
+                        "description": "Emballage durable de friandises pour animaux de compagnie"
+                    },
+                    {
+                        "title": "Certificats",
+                        "description": "Consultez nos certifications de sécurité"
+                    },
+                    {
+                        "title": "FAQ",
+                        "description": "Réponses aux questions courantes"
+                    }
+                ],
+                "b2cSections": [
+                    {
+                        "id": "la sécurité avant tout",
+                        "title": "Pincer et glisser : comment fonctionnent les serrures à l'épreuve des enfants",
+                        "p1": "Pour les petites marques fabriquant des suppléments botaniques, des tisanes ou des friandises de bien-être biologiques personnalisées, les emballages à l'épreuve des enfants ne sont pas seulement un plaisir, c'est souvent une exigence légale. L'ingestion accidentelle par des tout-petits curieux peut être un cauchemar pour les parents et un grave handicap pour votre startup.",
+                        "blockquote": "Facile pour les adultes, impossible pour les enfants de moins de cinq ans.",
+                        "p2": "Nos pochettes à l'épreuve des enfants utilisent des rails de verrouillage certifiés par poussée pour ouvrir et par pincement et glissement. Ce mécanisme à double action nécessite un mouvement intentionnel de pression et de traction. Bien que ce soit simple et sans stress pour les mains des adultes, les enfants de moins de 5 ans n'ont pas la coordination cognitive nécessaire pour serrer et glisser simultanément.",
+                        "h4": "Normes de sécurité certifiées US 16 CFR 1700",
+                        "p3": "Toutes les fermetures sont certifiées et rigoureusement testées par des laboratoires tiers. Lorsque vous choisissez Pouch.eco, vous recevez des certificats de conformité complets afin que vous puissiez vous inscrire sur les principales places de marché (Amazon, Etsy ou Shopify) sans craindre le retrait de la conformité des produits."
+                    },
+                    {
+                        "id": "barrière-de-protection",
+                        "title": "Contrôle des odeurs et défense contre l'humidité",
+                        "p1": "Les produits biologiques sensibles, les huiles botaniques puissantes et les mélanges d'herbes séchées réagissent fortement aux facteurs environnementaux. Sans barrière épaisse, l’oxygène, l’humidité et la lumière dégraderont rapidement les ingrédients actifs, atténuant le parfum et réduisant la puissance.",
+                        "h4": "Composites anti-odeurs de qualité supérieure",
+                        "p2": "Nos sacs utilisent des couches de Mylar et de PET à haute barrière qui contiennent entièrement des arômes forts. Qu'il s'agisse de sels de bain, de suppléments séchés ou de bonbons gélifiés biologiques, aucune odeur ne s'échappe du sachet scellé.",
+                        "bullet1": "<strong>Bloque 100 % des odeurs :</strong> Gardez les odeurs enfermées à l'intérieur de la pochette, parfaite pour les produits très puissants.",
+                        "bullet2": "<strong>Protection contre l'humidité et la lumière :</strong> Des couches épaisses d'aluminium ou métallisées empêchent l'air humide et les rayons UV d'entrer.",
+                        "bullet3": "<strong>Scellés thermiques inviolables :</strong> Les encoches faciles à déchirer permettent aux consommateurs d'ouvrir rapidement le dessus scellé."
+                    },
+                    {
+                        "id": "faible moq-numérique",
+                        "title": "Agilité DTC : faibles MOQ et flexibilité multi-SKU",
+                        "p1": "Pour les marques artisanales qui lancent une nouvelle gamme de produits, les exigences élevées en matière de commandes B2B constituent un obstacle. L’impression traditionnelle sur plaques nécessite plus de 5 000 unités par SKU. Si vous avez 5 parfums ou saveurs de suppléments différents, vous devrez commander 25 000 sachets, ce qui représente un risque capital énorme pour un lancement.",
+                        "h4": "Notre hack multi-SKU de 500 unités",
+                        "p2": "Nous exploitons l’impression numérique haute résolution moderne pour offrir des MOQ ultra faibles. Vous pouvez commencer avec seulement <strong>1 000 sachets au total</strong> et répartir ce volume entre plusieurs modèles de saveurs ou de parfums uniques (par exemple, 5 modèles x 200 sachets). De plus, il n'y a absolument aucun frais pour les plaques de cylindre.",
+                        "card1_title": "500 pièces MOQ",
+                        "card1_desc": "Testez différentes saveurs du marché avec un investissement initial minimal.",
+                        "card2_title": "Aucun frais de plaque",
+                        "card2_desc": "Téléchargez vos conceptions PDF directement sans aucune configuration de bloc initiale.",
+                        "card3_title": "Mat artisanal",
+                        "card3_desc": "Écrivez les détails du lot ou tamponnez à la main des motifs à l'encre artisanale sur du papier Kraft."
+                    },
+                    {
+                        "id": "cr-écologique",
+                        "title": "Sécurité des enfants respectueuse de l'environnement : options recyclables et compostables",
+                        "p1": "Pour les consommateurs conscients, les emballages en plastique constituent un frein majeur. Nous comblons le fossé entre la conformité en matière de sécurité et la durabilité profonde en concevant des options de PE recyclable haute performance et de papier Kraft certifié compostable.",
+                        "h4": "Choisissez votre voie durable",
+                        "bullet1": "<strong>Mono-PE Recyclable :</strong> Une structure mono-matériau conçue pour les bacs de recyclage standards. Entièrement recyclable, mais en toute sécurité à l'épreuve des enfants.",
+                        "bullet2": "<strong>Papier Kraft compostable :</strong> Matériaux d'origine végétale et cellulose biodégradable. Sans danger pour la terre et respectueux des tas de compost."
+                    }
+                ]
+            },
+            "digitalRetort": {
+                "metaTitle": "Sacs de cornue imprimés numériques | Solution haute barrière VitoPouch « Soft Can »",
+                "metaDescription": "Pochettes cornue imprimées numériques personnalisées avec 100 pièces à faible MOQ. Les structures multicouches VitoPouch à haute barrière résistent à une stérilisation à 121-135°C. L'alternative parfaite, écologique et sans valve, aux bocaux en verre.",
+                "keywords": [
+                    "sachets de cornue",
+                    "sacs de cornue",
+                    "pochettes imprimées numériquement",
+                    "pochettes de stérilisation",
+                    "emballage de plats cuisinés",
+                    "sachets de nourriture pour bébé",
+                    "sacs de nourriture pour animaux de compagnie",
+                    "emballage de longue conservation",
+                    "pochettes haute barrière",
+                    "pochettes à faible MOQ",
+                    "pochettes en papier d'aluminium",
+                    "vitopouche",
+                    "pochette de kimchi",
+                    "emballage de canette souple"
+                ],
+                "pouchMetaDescription": "Améliorez l'emballage standard en sachets cornues à partir de 100 sacs. Impression numérique couleur sans frais de plaque, parfaite pour les startups !",
+                "heroTitle": "VitoPouch™ Sachets pour cornue",
+                "heroSubtitlePouch": "100 pièces Faible MOQ · Haute barrière · Solution « Soft Can » pour les startups",
+                "heroSubtitleAp": "Solutions d'autoclave à haute barrière pour entreprise · Prêt pour l'autoclave de 121 à 135 °C",
+                "introSummaryPouch": "Lancez votre gamme d'aliments gastronomiques de longue conservation avec VitoPouch imprimé numériquement. Les courses minimales commencent à seulement 100 sacs. Économisez des coûts et testez facilement plusieurs conceptions !",
+                "introSummaryAp": "Mise à niveau des bocaux en verre lourds et des vannes complexes. VitoPouch est un laminé « soft can » incassable conçu pour les lignes d'autoclaves à grande vitesse, conforme aux normes BRC et FDA.",
+                "gallery": [
+                    {
+                        "title": "Sachets de cornue à haute barrière",
+                        "desc": "Sac de cuisson à la vapeur haute barrière Main KV"
+                    },
+                    {
+                        "title": "Qu’est-ce que l’emballage cornue ?",
+                        "desc": "Qu’est-ce qu’un emballage cuit à la vapeur ?"
+                    },
+                    {
+                        "title": "Structure de cornue à 4 couches",
+                        "desc": "Structure de cuisson à la vapeur multicouche"
+                    },
+                    {
+                        "title": "Résistance aux hautes températures",
+                        "desc": "Convient à la cuisson à la vapeur à haute température pour tuer les bactéries"
+                    },
+                    {
+                        "title": "Protection barrière extrême",
+                        "desc": "Protection ultime et extrême"
+                    },
+                    {
+                        "title": "Joints hermétiques solides",
+                        "desc": "Joint hermétique robuste."
+                    },
+                    {
+                        "title": "Commodité du prêt à chauffer",
+                        "desc": "Chauffage de canette, ouverture facile"
+                    },
+                    {
+                        "title": "Plats cuisinés de longue conservation",
+                        "desc": "Repas prêt-à-manger à température ambiante"
+                    },
+                    {
+                        "title": "Plus de repas par palette",
+                        "desc": "Plus de repas par palette"
+                    },
+                    {
+                        "title": "Concevez votre système de cornue",
+                        "desc": "Concevez votre solution d'emballage à la vapeur"
+                    },
+                    {
+                        "title": "100 pièces faible MOQ",
+                        "desc": "Volume minimum de commande seulement 100 paquets"
+                    },
+                    {
+                        "title": "Impression numérique couleur",
+                        "desc": "Impression numérique couleur"
+                    },
+                    {
+                        "title": "Faible MOQ pour de nombreux SKU",
+                        "desc": "Une commande minimum faible peut immédiatement couvrir plusieurs saveurs"
+                    }
+                ],
+                "clickToEnlarge": "Cliquez pour agrandir",
+                "secIntroTitle": "Présentation des sachets cornues à haute barrière",
+                "secIntroPouchText": "Démarrez votre marque gastronomique avec seulement 100 sacs",
+                "secIntroApText": "Plats préparés de longue conservation sans boîtes ni bocaux lourds",
+                "secIntroSummary": "Sachets de cornue imprimés numériquement conçus pour la stérilisation à haute température, offrant une longue durée de conservation à température ambiante.",
+                "secIntroSummaryCn": "Ne nécessite pas de canettes ou de verres lourds, peut également permettre la conservation à température ambiante des plats prêts à manger. Les sachets de cornue à impression numérique résistent à la stérilisation à haute température avec des essais ultra-faibles.",
+                "secIntroAltTitle": "Sachets de cornue à haute barrière",
+                "secIntroAltTitleCn": "Sac de cuisson à la vapeur à haute barrière",
+                "secIntroAltContent": "Utilisant des structures de film multicouche de qualité alimentaire (PET/AL/NY/CPP), nos sachets cornue résistent à une stérilisation de 116 à 135°C. Idéal pour les currys, les plats cuisinés, les aliments pour bébés, les aliments pour animaux et les spécialités fermentées comme le kimchi. Impression numérique disponible à partir de faibles MOQ.",
+                "secIntroAltContentCn": "Utilisez une structure de film multicouche de qualité alimentaire (PET/feuille d'aluminium/nylon/CPP), notre sac de cuisson à la vapeur peut résister à 116-135 ℃ pour tuer les bactéries. Convient pour le curry, les plats cuisinés, les aliments pour bébés, les aliments pour animaux, etc. Impression numérique avec seulement 100 sacs minimum de commande.",
+                "secShowdownTitle": "La confrontation des aliments fermentés : VitoPouch contre verre contre valve",
+                "secShowdownH3": "La science de la stérilisation et du dégazage",
+                "secShowdownP1": "Les aliments fermentés (comme le kimchi artisanal, la choucroute ou les sauces piquantes) sont traditionnellement emballés dans des bocaux en verre ou des sachets équipés de valves de dégazage unidirectionnelles pour éviter les « ballonnements » causés par la levure active et les bactéries lactiques. Cependant, cela ajoute des coûts élevés et des problèmes opérationnels.",
+                "secShowdownSolTitle": "💡 La solution de cornue VitoPouch :",
+                "secShowdownSolDesc": "Lorsque vous emballez nos sachets VitoPouch et que vous les faites passer dans un autoclave de stérilisation commercial (121 °C à 130 °C pendant 30 minutes), **tous les organismes producteurs de gaz actifs sont complètement pasteurisés**. Puisqu'aucune fermentation supplémentaire ne se produit à l'intérieur du sac scellé, **aucun dégazage ne se produit, ce qui rend les vannes de dégazage 100 % redondantes.**",
+                "glassJarBadge": "Option traditionnelle",
+                "glassJarTitle": "Bocaux en verre",
+                "glassJarDesc": "Réutilisable mais lourd sur le plan logistique et exigeant pour l'environnement.",
+                "glassJarBullet1": "❌ Poids lourd (environ 2 500 kg par 5 000 unités)",
+                "glassJarBullet2": "❌ Taux de casse élevé lors du transport",
+                "glassJarBullet3": "❌ Marquage par étiquette autocollante uniquement (impact visuel limité)",
+                "glassJarBullet4": "✓ Réutilisable par les consommateurs finaux",
+                "glassJarCostBallpark": "Coût unitaire approximatif : 0,45 $ – 0,90 $+",
+                "valvePouchBadge": "Pochette complexe",
+                "valvePouchTitle": "Pochettes pour valves de dégazage",
+                "valvePouchDesc": "Utilise une valve unidirectionnelle en plastique pour évacuer le gaz de fermentation.",
+                "valvePouchBullet1": "❌ Clapets anti-retour en plastique encombrants et coûteux",
+                "valvePouchBullet2": "❌ La valve peut se déformer/fuir lors de la stérilisation en cornue",
+                "valvePouchBullet3": "❌ Taux de défaillance des assemblages mécaniques élevés",
+                "valvePouchBullet4": "✓ Maintient actif le ferment cru/non stérilisé",
+                "valvePouchCostBallpark": "Coût unitaire approximatif : 0,55 $ – 0,80 $+",
+                "vitoBadge": "Fortement recommandé",
+                "vitoTag": "VitoPouch \"Soft Can\"",
+                "vitoTitle": "Cornue VitoPouch",
+                "vitoDesc": "Structure laminée incassable et résistante à la chaleur sans valve.",
+                "vitoBullet1": "✓ **Coût de valve nul** (économisez plus de 0,20 $ par pièce)",
+                "vitoBullet2": "✓ 100% longue conservation sans réfrigération",
+                "vitoBullet3": "✓ Poids plume plat (50 kg pour 5 000 sacs)",
+                "vitoBullet4": "✓ Superbe impression numérique bord à bord à fond perdu",
+                "vitoCostBallpark": "Coût unitaire approximatif : ~ 0,34 $ (y compris le transport aérien !)",
+                "secWhatIsTitle": "Qu’est-ce que l’emballage cornue ?",
+                "secWhatIsAltTitle": "Pochettes flexibles qui remplacent les canettes et les bocaux",
+                "secWhatIsAltTitleCn": "Qu’est-ce qu’un emballage cuit à la vapeur ?",
+                "secWhatIsAltContent": "Les emballages cornues utilisent des films multicouches qui résistent à une stérilisation entre 116 et 135 °C, remplaçant ainsi les boîtes de conserve et les bocaux traditionnels pour les aliments prêts à manger. Conçu pour une longue durée de conservation à température ambiante sans réfrigération.",
+                "secWhatIsAltContentCn": "Steaming Packaging utilise un film multicouche qui peut résister à une stérilisation de 116 à 135 ℃, remplaçant les boîtes de conserve et le verre traditionnels, servant des aliments prêts à manger. Conçu pour la conservation à température ambiante, sans réfrigération.",
+                "secWhatIsPoint1": "Stérilisation à 116-135°C",
+                "secWhatIsPoint1Sub": "Peut résister à une stérilisation à haute température",
+                "secWhatIsPoint2": "Remplacer les canettes et les bocaux",
+                "secWhatIsPoint2Sub": "Alternative aux boîtes de conserve et au verre",
+                "secWhatIsPoint3": "Durée de conservation ambiante",
+                "secWhatIsPoint3Sub": "Longue durée de conservation à température ambiante",
+                "secLayersTitle": "Structure de cornue à 4 couches",
+                "secLayersAltTitle": "Structure de cornue multicouche",
+                "secLayersAltTitleCn": "Structure de cuisson à la vapeur multicouche",
+                "secLayersAltContent": "Nos sachets cornue présentent une structure à 4 couches : PET (couche externe pour l'impression), feuille d'aluminium (couche barrière), nylon/OPA (résistance à la perforation) et CPP (couche interne thermoscellée). Cette structure résiste à la chaleur et à la pression élevées et empêche le délaminage.",
+                "secLayersAltContentCn": "Notre sac de cuisson à la vapeur utilise une structure à quatre couches : PET (impression de couche externe), feuille d'aluminium (couche barrière), nylon/OPA (couche résistante à la perforation), CPP (couche intérieure d'étanchéité à haute température). Résiste aux températures et pressions élevées, pas facile à délaminer.",
+                "secLayersPet": "ANIMAL DE COMPAGNIE",
+                "secLayersPetSub": "Couche d'impression externe",
+                "secLayersAl": "AL",
+                "secLayersAlSub": "Barrière en aluminium",
+                "secLayersNy": "NY/OPA",
+                "secLayersNySub": "Support de perforation en nylon",
+                "secLayersCpp": "RPC",
+                "secLayersCppSub": "Scellant haute température",
+                "secHighTempTitle": "Stérilisation à haute température",
+                "secHighTempAltTitle": "Résiste à 121-135°C pendant 30-50 minutes",
+                "secHighTempAltTitleCn": "Convient à la stérilisation à la vapeur à haute température",
+                "secHighTempAltContent": "Nos sachets de cornue sont conçus pour une stérilisation commerciale entre 121 et 135 °C (jusqu'à 250 °F) pendant 30 à 50 minutes sans rupture de fermeture. Parfait pour les lignes de traitement en cornue produisant des plats préparés de longue conservation.",
+                "secHighTempAltContentCn": "Notre sac de cuisson à la vapeur peut maintenir la stabilité du joint pendant une stérilisation continue de 30 à 50 minutes à 121-135 ℃ (haute portée 250 °F). Convient aux lignes de production d'autoclaves à vapeur de l'industrie commerciale, produisant des plats prêts à manger stables à température ambiante.",
+                "secBarrierTitle": "Protection barrière extrême",
+                "secBarrierAltTitle": "Barrière d'oxygène, d'humidité et de lumière",
+                "secBarrierAltTitleCn": "Protection ultime et extrême",
+                "secBarrierAltContent": "La couche de papier d'aluminium offre une protection extrême : empêche l'oxygène d'entrer et la saveur, contrôle l'humidité pour protéger la texture, protège de la lumière pour réduire la perte de nutriments. Maintient la qualité des aliments pour une durée de conservation prolongée.",
+                "secBarrierAltContentCn": "La couche de papier d'aluminium offre une protection ultime : bloque l'oxygène et retient la saveur, contrôle l'humidité pour protéger la texture des aliments, bloque la lumière pour réduire la perte de nutriments, maintient la qualité des aliments pour une durée de conservation prolongée.",
+                "secSealsTitle": "Joints hermétiques solides",
+                "secSealsAltTitle": "Conçu pour éviter les fuites et les éclatements",
+                "secSealsAltTitleCn": "Joint hermétique robuste.",
+                "secSealsAltContent": "Nos sachets cornue sont dotés de joints solides et hermétiques avec une largeur de joint et un rayon d'angle optimisés. Conçu pour éviter les fuites et survivre à la pression de la cornue sans éclater, garantissant ainsi la sécurité et l'intégrité du produit.",
+                "secSealsAltContentCn": "Notre sac de cuisson à la vapeur est doté d'un joint hermétique robuste avec une largeur de joint optimisée et un rayon de coin arrondi. Conçu pour éviter les fuites et survivre à la pression de l'autoclave sans éclater, garantissant ainsi la sécurité et l'intégrité du produit.",
+                "secConvenienceTitle": "Commodité du prêt à chauffer",
+                "secConvenienceAltTitle": "Facile à ouvrir, prêt à manger",
+                "secConvenienceAltTitleCn": "Peut être chauffé, facile à ouvrir",
+                "secConvenienceAltContent": "Les fonctionnalités pratiques en option incluent des encoches de déchirure pour une ouverture facile, des fermetures éclair pour refermer, des becs verseurs pour les liquides et des conceptions adaptées au micro-ondes pour réchauffer et manger des repas. Aucun ouvre-boîte ni vaisselle supplémentaire n'est nécessaire.",
+                "secConvenienceAltContentCn": "Les fonctionnalités pratiques en option incluent : une encoche de déchirure pour une ouverture pratique, des fermetures éclair pour refermer, un bec verseur adapté aux liquides et des conceptions de chauffage au micro-ondes en option. Aucun ouvre-boîte ni vaisselle supplémentaire n'est nécessaire.",
+                "secStableTitle": "Plats cuisinés de longue conservation",
+                "secStableAltTitle": "Moins de poids d'emballage, même protection",
+                "secStableAltTitleCn": "Un emballage plus léger permet également de conserver la température ambiante",
+                "secStableAltContent": "Remplacez les canettes lourdes et les bocaux en verre par des sachets cornues flexibles et légers. Parfait pour les currys, le chili, les sauces pour pâtes, les soupes, les aliments pour bébés, les aliments pour animaux et plus encore. Formats de sachets debout ou plats disponibles.",
+                "secStableAltContentCn": "Utilisez des sacs à vapeur légers et flexibles pour remplacer les bocaux et les canettes traditionnels. Convient pour les currys, le chili, la sauce pour pâtes, les soupes, les aliments pour bébés, les aliments pour animaux, et plus encore. Styles de pochettes debout ou plates disponibles.",
+                "secLogisticsTitle": "Espace et rentabilité",
+                "secLogisticsAltTitle": "Plus de repas par palette",
+                "secLogisticsAltTitleCn": "Plus de repas par palette",
+                "secLogisticsAltContent": "Les sachets autoclaves légers et empilables réduisent considérablement les coûts d'expédition et de stockage par rapport aux canettes et aux bocaux. Plus de repas par palette signifie des coûts logistiques réduits et une empreinte carbone plus faible.",
+                "secLogisticsAltContentCn": "Les sacs à vapeur légers et empilables réduisent considérablement les coûts d'expédition et d'entreposage par rapport aux bocaux et aux bouteilles. Plus de repas par palette signifie des coûts logistiques réduits et une empreinte carbone plus faible.",
+                "secLowMoqTitle": "100 pièces faible MOQ",
+                "secLowMoqAltTitle": "Commencez petit, évoluez rapidement",
+                "secLowMoqAltTitleCn": "Commencez par de petits lots, augmentez rapidement",
+                "secLowMoqAltContent": "Notre technologie d'impression numérique permet des commandes minimum de seulement 100 pièces pour des essais d'impression. Parfait pour les lancements de produits, l'échantillonnage et les tests de nouvelles saveurs sans risque d'inventaire important.",
+                "secLowMoqAltContentCn": "Notre technologie d'impression numérique permet des essais d'impression avec une commande minimum de seulement 100 sacs. Parfait pour les lancements de produits, l'échantillonnage et les tests de nouvelles saveurs sans risque d'inventaire important.",
+                "secLowMoqStat": "100 pièces",
+                "secLowMoqStatTitle": "Commande d'essai minimale pour les impressions personnalisées",
+                "secLowMoqStatDesc": "Testez votre nouvelle gamme de produits et plusieurs conceptions sans risque d'inventaire important.",
+                "secDigitalTitle": "Impression numérique couleur",
+                "secDigitalAltTitle": "Pas de frais de plaque, graphiques de qualité photo",
+                "secDigitalAltTitleCn": "Impression numérique couleur",
+                "secDigitalAltContent": "L'impression numérique élimine les frais de plaques, ce qui la rend idéale pour les petits tirages et les SKU multiples. Imprimez plusieurs designs en une seule fois avec des graphiques de qualité photo parfaits pour une image de marque haut de gamme.",
+                "secDigitalAltContentCn": "L'impression numérique élimine les frais de plaques, ce qui la rend idéale pour les petits tirages et les SKU multiples. Imprimez plusieurs designs en une seule fois avec des graphiques de qualité photo parfaits pour une image de marque haut de gamme.",
+                "secMultiSkuTitle": "Faible MOQ pour de nombreux SKU",
+                "secMultiSkuAltTitle": "Lancez une gamme complète de saveurs avec un faible MOQ",
+                "secMultiSkuAltTitleCn": "La commande minimum faible couvre immédiatement plusieurs saveurs",
+                "secMultiSkuAltContent": "L'impression numérique facilite le lancement de plusieurs saveurs et designs sans risque d'inventaire important. Seulement 100 pièces par SKU signifie que vous pouvez tester le curry vert, la soupe aux tomates, le ragoût de bœuf et le chili végétalien en même temps.",
+                "secMultiSkuAltContentCn": "L'impression numérique vous permet de tester facilement les emballages et les arômes sans détenir de gros stocks. Chaque saveur ne nécessite que 100 sachets, ce qui vous permet de tester le curry vert, la soupe aux tomates, le ragoût de bœuf et le chili végétalien en même temps.",
+                "secCustomTitle": "Concevez votre système de cornue",
+                "secCustomAltTitle": "Concevez votre emballage de cornue personnalisé",
+                "secCustomAltTitleCn": "Concevez votre solution d'emballage de cornue professionnelle avec Achieve Pack",
+                "secCustomAltContent": "Trois étapes simples : 1) Choisissez la taille, la forme et le format du sachet (à plat ou debout), 2) Sélectionnez la structure de la cornue et le niveau de barrière, 3) Ajoutez votre marque, votre illustration et vos caractéristiques. Des aliments pour bébés aux currys et repas pour animaux de compagnie, un seul système de cornue pour toute votre gamme.",
+                "secCustomAltContentCn": "Trois étapes simples : 1) Choisissez la taille, la forme et le format du sachet (à plat ou debout), 2) Sélectionnez la structure de la cornue et le niveau de barrière, 3) Ajoutez votre marque, votre illustration et vos caractéristiques. Des aliments pour bébés aux currys et repas pour animaux de compagnie, un seul système de cornue pour toute votre gamme.",
+                "secCustom3StepsTitle": "3 étapes pour obtenir votre pochette cornue personnalisée",
+                "secCustomStep1": "Choisissez la taille et le format",
+                "secCustomStep1Sub": "Choisissez la taille et le style",
+                "secCustomStep2": "Sélectionnez la structure et la barrière",
+                "secCustomStep2Sub": "Choisissez la structure et le niveau de barrière",
+                "secCustomStep3": "Ajouter une marque et des illustrations",
+                "secCustomStep3Sub": "Ajouter des détails sur la marque et les illustrations",
+                "secTrustTitle": "Pourquoi faire confiance au pack Achieve ?",
+                "secTrustH3": "Expertise de pointe en matière d'emballage en cornue",
+                "secTrustP1": "Avec plus de 13 ans d'ingénierie spécialisée dans les matériaux d'emballage flexibles de qualité alimentaire, {{brandName}} a fourni des sachets cornues à des marques d'aliments pour bébés, des marques d'aliments humides pour animaux de compagnie et des développeurs de plats cuisinés en Amérique du Nord, en Europe et en Asie-Pacifique.",
+                "secTrustP2": "Nos lignes de fabrication en salle blanche certifiées BRCGS Global Standard et ISO produisent des sachets autoclaves personnalisés en utilisant des polymères haute température 100 % conformes aux normes FDA et de qualité alimentaire.",
+                "secTrustCard1": "Conforme à la FDA",
+                "secTrustCard1Sub": "Matériau sans danger pour le contact alimentaire",
+                "secTrustCard2": "Certifié BRC",
+                "secTrustCard2Sub": "Norme de sécurité alimentaire GFSI",
+                "secTrustCard3": "Plus de 500 marques alimentaires",
+                "secTrustCard3Sub": "Approvisionnement industriel fiable",
+                "secTrustCard4": "13+ ans",
+                "secTrustCard4Sub": "Experts en emballage autoclave",
+                "secCtaTitle": "Prêt à concevoir vos sachets cornues ?",
+                "secCtaTitleBox": "Choisissez comment vous souhaitez vous connecter",
+                "secCtaCard1": "Réservez une consultation",
+                "secCtaCard1Sub": "Séance gratuite de 30 minutes avec notre équipe d'ingénieurs",
+                "secCtaCard1Btn": "Programmer un appel gratuit",
+                "secCtaCard2": "Demandez un devis instantané",
+                "secCtaCard2Sub": "Envoyez des dimensions et obtenez des réductions de prix détaillées",
+                "secCtaCard2Btn": "Envoyer un e-mail",
+                "faqs": [
+                    {
+                        "question": "Pourquoi l'autoclave élimine-t-il le besoin d'une vanne de dégazage dans les aliments fermentés ?",
+                        "answer": "Lors d'une cornue commerciale (121 °C à 130 °C pendant 30 minutes), la chaleur élevée pasteurise complètement les aliments, détruisant toutes les levures de fermentation actives, les enzymes et les bactéries produisant des gaz. Puisqu’aucune fermentation supplémentaire ne se produit dans le sachet hermétiquement fermé pendant sa durée de conservation, aucun dioxyde de carbone n’est généré. Cela rend les vannes de dégazage unidirectionnelles coûteuses totalement inutiles, ce qui permet d'économiser jusqu'à 0,20 $ et plus par sac."
+                    },
+                    {
+                        "question": "Quels profils de température et de pression ces sacs cornue peuvent-ils gérer ?",
+                        "answer": "Les sacs de cornue VitoPouch sont conçus à partir de stratifiés spéciaux en polypropylène moulé (CPP) et en nylon qui résistent au traitement en autoclave jusqu'à 135 °C (275 °F) avec une contre-pression allant jusqu'à 0,25 MPa. Cela garantit que les joints hermétiques restent intacts et ne fuiront pas, ne se rompront pas ou ne se délamineront pas pendant les cycles de chauffage ou de refroidissement."
+                    },
+                    {
+                        "question": "Comment les sachets cornues se comparent-ils aux bocaux en verre en termes d'émissions de carbone logistiques ?",
+                        "answer": "Les bocaux en verre représentent un énorme passif carbone logistique. Une palette de bocaux en verre vides pèse environ 95 % de plus que la capacité équivalente de sacs VitoPouch plats et non remplis (par exemple ~50 kg pour 5 000 sachets contre ~2 500 kg pour 5 000 bocaux en verre). Le passage aux sachets réduit considérablement la consommation de carburant d'expédition, réduit l'espace d'entreposage jusqu'à 85 % et élimine les dommages dus au transport dus à la fracture du verre."
+                    },
+                    {
+                        "question": "Ces sachets cornues sont-ils sans danger pour le contact alimentaire ?",
+                        "answer": "Oui, 100%. Tous les films utilisés dans VitoPouch sont certifiés BRCGS et sont entièrement conformes au règlement 21 CFR 177.1390 ​​de la FDA américaine (pour les stratifiés alimentaires à haute température) et au règlement (UE) n° 10/2011 de la Commission européenne, garantissant une migration toxique nulle sous une chaleur extrême."
+                    },
+                    {
+                        "question": "Puis-je imprimer plusieurs modèles/saveurs de produits en une seule commande personnalisée ?",
+                        "answer": "Absolument. Grâce à notre configuration d’impression numérique avancée, nous n’avons pas besoin de plaques d’impression hélio traditionnelles en cuivre. Cela nous permet de regrouper plusieurs SKU (par exemple, Kimchi doux, Kimchi épicé, Kimchi végétalien) en une seule production à partir d'un MOQ de seulement 100 pièces, éliminant ainsi des centaines de dollars en frais de plaque."
+                    },
+                    {
+                        "question": "Quelle est la durée de conservation typique des aliments contenus dans un VitoPouch ?",
+                        "answer": "Grâce à notre structure barrière en feuille d'aluminium à 4 couches (PET/AL/NY/CPP), VitoPouch offre une barrière presque parfaite à l'oxygène, à l'humidité et à la lumière. Lorsqu'ils sont combinés à une stérilisation commerciale correcte, les plats préparés peuvent atteindre en toute sécurité une durée de conservation de 12 à 24 mois stockés à température ambiante sans réfrigération."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Mono-PE recyclable",
+                        "description": "Options mono-matériau recyclables"
+                    },
+                    {
+                        "title": "Matériel PCR",
+                        "description": "Contenu recyclé post-consommation"
+                    },
+                    {
+                        "title": "Films haute barrière",
+                        "description": "Options en aluminium et métallisées"
+                    },
+                    {
+                        "title": "Pochettes compostables",
+                        "description": "Alternatives écologiques"
+                    },
+                    {
+                        "title": "Pochettes debout",
+                        "description": "Sachets autoportants"
+                    },
+                    {
+                        "title": "Pochettes plates",
+                        "description": "Sacs cornue plats traditionnels"
+                    },
+                    {
+                        "title": "Pochettes à bec",
+                        "description": "Options de distribution de liquide"
+                    },
+                    {
+                        "title": "Options de barrière",
+                        "description": "Choisissez votre niveau de protection"
+                    },
+                    {
+                        "title": "Options de refermeture",
+                        "description": "Fermetures éclair et fonctionnalités de refermeture"
+                    },
+                    {
+                        "title": "Capacités d'impression",
+                        "description": "Numérique et héliogravure"
+                    }
+                ]
+            },
+            "preZippered": {
+                "metaTitle": "Rouleau pré-fermé | Solutions de films refermables automatiques",
+                "metaDescription": "Améliorez l'emballage standard en sachets refermables sur vos lignes VFFS/HFFS existantes avec un investissement en équipement ZÉRO. Faibles MOQ de 500 à 1 000 m !",
+                "keywords": [
+                    "rouleau pré-zippé",
+                    "film en rouleau refermable",
+                    "Rouleaux HFFS VFFS",
+                    "emballage flexible à faible MOQ",
+                    "film en rouleau de démarrage"
+                ],
+                "heroTitle": "Film en rouleau pré-fermé",
+                "heroSubtitle": "Commodité refermable sans mises à niveau coûteuses de la machine",
+                "gallery": [
+                    {
+                        "title": "Rouleau de papier pré-zippé Achieve Pack®",
+                        "desc": "Film en rouleau pré-zippé Achieve Pack®"
+                    },
+                    {
+                        "title": "Comment fonctionne le rouleau pré-zippé",
+                        "desc": "Comment fonctionne le film en rouleau pré-fermeture éclair"
+                    },
+                    {
+                        "title": "Détail de la technologie de fermeture éclair",
+                        "desc": "Détails de la technologie de fermeture éclair"
+                    },
+                    {
+                        "title": "Aucun nouvel équipement requis",
+                        "desc": "Aucun nouvel équipement requis"
+                    },
+                    {
+                        "title": "Économies de coûts et de matériaux",
+                        "desc": "Économies de coûts et de matériaux"
+                    },
+                    {
+                        "title": "Efficacité de production",
+                        "desc": "Efficacité de la ligne de production"
+                    },
+                    {
+                        "title": "Applications flexibles",
+                        "desc": "Applications et styles multiples"
+                    },
+                    {
+                        "title": "Concevez votre système avec Achieve Pack",
+                        "desc": "Concevoir ensemble avec Achieve Pack"
+                    }
+                ],
+                "clickToEnlarge": "Cliquez pour agrandir",
+                "secIntroTitle": "Présentation du rouleau pré-zippé Achieve Pack®",
+                "secIntroBadgeText": "Convertissez votre rouleau en sachets refermables sans nouvel équipement",
+                "secIntroBadgeDesc": "Le stock de rouleaux pré-zippés Achieve Pack® permet aux marques de mettre à niveau l'emballage standard vers des sachets refermables sur les lignes VFFS/HFFS existantes.",
+                "secIntroDesc": "Le stock de rouleaux pré-zippés Achieve Pack® permet aux marques de mettre à niveau leurs emballages standard vers des sachets refermables sur les lignes VFFS/HFFS existantes avec un minimum de changements d'équipement.",
+                "secIntroAltTitle": "Rouleau de papier pré-zippé Achieve Pack®",
+                "secIntroAltContent": "Notre rouleau de film pré-fermé comporte des fermetures à glissière appliquées transversalement au rouleau de film avant qu'il n'atteigne votre ligne de production. Exécutez-le sur un équipement VFFS ou HFFS existant avec des ajustements minimes pour produire des sachets découpés et refermables à partir de rouleaux standard.",
+                "secWorksTitle": "Comment fonctionne le rouleau pré-zippé",
+                "secWorksAltTitle": "Technologie de fermeture éclair pré-appliquée",
+                "secWorksAltContent": "La fermeture éclair est appliquée transversalement au rouleau de film avant qu'il n'atteigne votre ligne. Exécutez-le sur un équipement VFFS ou HFFS existant avec un minimum d’ajustements. Produisez des sachets découpés pour ouvrir et refermables à partir de rouleaux standard sans investir dans de nouveaux systèmes de fermeture à glissière en ligne.",
+                "secWorksPoint1": "Fermeture éclair pré-appliquée",
+                "secWorksPoint1Sub": "Fermeture éclair pré-appliquée sur le film en rouleau",
+                "secWorksPoint2": "Ajustements minimes",
+                "secWorksPoint2Sub": "Ne nécessite qu'un ajustement mineur de la ligne",
+                "secWorksPoint3": "Pochettes refermables",
+                "secWorksPoint3Sub": "Emballage scellable à plusieurs reprises",
+                "secVideoTitle": "Échantillon de production",
+                "secVideoH3": "Voyez-le en action",
+                "secVideoDesc": "Regardez comment notre rouleau pré-fermé crée une pochette parfaite, déchirable et refermable, directement à partir du film en rouleau.",
+                "secZipperTitle": "Détail de la zone de fermeture éclair pré-appliquée",
+                "secZipperAltTitle": "Fermeture éclair pré-appliquée sur rouleau",
+                "secZipperAltContent": "Placement précis et scellage des fermetures éclair avant de former la pochette. Le profil de la fermeture éclair et le joint sont conçus pour des performances de refermeture fiables. Longueur et position de la fermeture éclair personnalisées disponibles pour répondre aux exigences de votre produit.",
+                "secEquipTitle": "Aucun nouvel équipement requis",
+                "secEquipAltTitle": "Exécutez sur vos lignes existantes",
+                "secEquipAltContent": "À utiliser avec les équipements VFFS et HFFS conventionnels. Aucun investissement majeur n'est nécessaire : seulement des ajustements mineurs du jeu du tube de formage. Vos lignes d’emballage existantes deviennent capables de produire instantanément des sachets refermables de qualité supérieure.",
+                "secEquipCompat": "Compatibilité des équipements",
+                "secEquipVffs": "VFFS (scellement de remplissage vertical)",
+                "secEquipVffsSub": "Machines verticales de remplissage et de scellage",
+                "secEquipHffs": "HFFS (scellé de remplissage de formulaire horizontal)",
+                "secEquipHffsSub": "Machines de scellement de remplissage de formulaire horizontal",
+                "secCostTitle": "Économies de coûts et de matériaux",
+                "secCostAltTitle": "Réduisez les coûts, économisez du matériel",
+                "secCostAltContent": "La longueur et le placement personnalisés de la fermeture éclair aident à réduire le gaspillage et à réduire le coût par paquet. Par rapport aux systèmes traditionnels de fermetures à glissière en ligne, les rouleaux pré-fermés peuvent économiser jusqu'à 25 % sur le matériau des fermetures à glissière en appliquant les fermetures à glissière uniquement là où cela est nécessaire, et non sur toute la largeur.",
+                "secCostCard1": "Jusqu'à 25 % d'économies de matériaux",
+                "secCostCard1Sub": "La longueur de la fermeture éclair personnalisée réduit les déchets",
+                "secCostCard1Desc": "La réduction des déchets de fermetures éclair réduit les coûts",
+                "secCostCard2": "Coût total inférieur",
+                "secCostCard2Sub": "Aucun investissement en équipement de fermeture à glissière en ligne",
+                "secCostCard2Desc": "Pas besoin d'investissement dans l'équipement de fermeture à glissière",
+                "secSpeedTitle": "Efficacité et rapidité de production",
+                "secSpeedAltTitle": "Maintenir la vitesse, augmenter l’efficacité",
+                "secSpeedAltContent": "Exécutez à des vitesses comparables à celles des films sans fermeture éclair. Réduisez le temps d’installation par rapport aux systèmes de fermeture à glissière en ligne. Améliorez le débit global de la ligne grâce à des rouleaux pré-zippés qui nécessitent des ajustements minimes.",
+                "secSpeedPoint1": "Grande vitesse",
+                "secSpeedPoint1Sub": "Maintenir les vitesses de ligne d'origine",
+                "secSpeedPoint2": "Installation rapide",
+                "secSpeedPoint2Sub": "Changements de format rapides",
+                "secSpeedPoint3": "15 %+ plus rapide",
+                "secSpeedPoint3Sub": "Temps de production raccourci",
+                "secAppsTitle": "Applications flexibles",
+                "secAppsAltTitle": "Des packs d’oreillers aux pochettes stand-up",
+                "secAppsAltContent": "Idéal pour les collations, les aliments surgelés, les aliments pour animaux, les poudres et plus encore. La même ligne de production peut gérer à la fois des rouleaux ordinaires sans fermeture éclair et des rouleaux pré-zippés Achieve Pack®, offrant ainsi une flexibilité pour plusieurs SKU et niveaux de prix.",
+                "secAppsCard1": "Collations",
+                "secAppsCard1Sub": "Chips et bretzels",
+                "secAppsCard2": "Aliments surgelés",
+                "secAppsCard2Sub": "Légumes & Viandes",
+                "secAppsCard3": "Nourriture pour animaux",
+                "secAppsCard3Sub": "Friandises et croquettes",
+                "secAppsCard4": "Poudres",
+                "secAppsCard4Sub": "Suppléments",
+                "secAppsStyles": "Styles de pochettes pris en charge",
+                "secAppsStyle1": "Sacs d'oreiller",
+                "secAppsStyle2": "Pochettes verticales",
+                "secAppsStyle3": "Sacs à fond plat",
+                "secConsumerTitle": "Commodité pour le consommateur",
+                "secConsumerH3": "Couper pour ouvrir, Zip pour refermer",
+                "secConsumerP1": "Ajoutez une commodité de refermeture facile à votre format d’emballage existant. Les consommateurs coupent le dessus, puis utilisent la fermeture éclair pour refermer, gardant les collations croustillantes, les aliments surgelés frais et les poudres sèches.",
+                "secConsumerCard1": "Fraîcheur prolongée",
+                "secConsumerCard1Sub": "Retarder l’exposition à l’humidité et à l’oxygène",
+                "secConsumerCard2": "Meilleure expérience",
+                "secConsumerCard2Sub": "Réenclenchement facile pour les déplacements",
+                "secConsumerCard3": "Rachat plus élevé",
+                "secConsumerCard3Sub": "Satisfaction améliorée des utilisateurs",
+                "secDesignTitle": "Concevez votre système avec Achieve Pack",
+                "secDesignAltTitle": "Concevez votre système de rouleaux pré-fermés",
+                "secDesignAltContent": "Des collations aux aliments surgelés, un rouleau pré-fermé pour tous vos besoins refermables. Notre équipe vous aide à choisir la structure du film, le niveau de barrière, le style de fermeture éclair et les options d'impression adaptés à votre application spécifique.",
+                "secDesign3Steps": "3 étapes pour votre solution personnalisée",
+                "secDesignStep1": "Choisissez la structure du film",
+                "secDesignStep1Sub": "Sélectionnez le niveau et la largeur de la barrière",
+                "secDesignStep2": "Définir le style de fermeture éclair",
+                "secDesignStep2Sub": "Définir la longueur et la position",
+                "secDesignStep3": "Ajouter une impression",
+                "secDesignStep3Sub": "Exécutez sur vos lignes existantes",
+                "secTrustTitle": "Pourquoi faire confiance au pack Achieve ?",
+                "secTrustH3": "Expertise de pointe en matière d’emballage flexible",
+                "secTrustP1": "Avec plus de 13 ans d'expérience dans la fabrication d'emballages flexibles, Achieve Pack a fourni des rouleaux pré-fermés et des sachets refermables à des marques de snacks, des fabricants d'aliments surgelés et des entreprises d'aliments pour animaux de compagnie en Amérique du Nord, en Europe et en Asie-Pacifique.",
+                "secTrustCard1": "Conforme à la FDA",
+                "secTrustCard1Sub": "Agréé contact alimentaire",
+                "secTrustCard2": "Certifié BRC",
+                "secTrustCard2Sub": "Norme de sécurité alimentaire",
+                "secTrustCard3": "Plus de 500 marques",
+                "secTrustCard3Sub": "Reconnu dans le monde entier",
+                "secTrustCard4": "13+ ans",
+                "secTrustCard4Sub": "Expérience de l'industrie",
+                "secTrustExplore": "Explorer les solutions associées",
+                "secCtaTitle": "Prêt à commencer ?",
+                "secCtaTitleBox": "Choisissez comment vous souhaitez vous connecter",
+                "secCtaCard1": "Réserver un appel",
+                "secCtaCard1Sub": "Consultation gratuite de 30 minutes",
+                "secCtaCard1Btn": "Planifiez maintenant",
+                "secCtaCard2": "Devis par e-mail",
+                "secCtaCard2Sub": "Obtenez une réponse dans les 24 heures",
+                "secCtaCard2Btn": "Envoyer un e-mail",
+                "faqs": [
+                    {
+                        "question": "Qu'est-ce qu'un rouleau pré-zippé ?",
+                        "answer": "Le rouleau pré-fermé est un film d'emballage flexible doté de fermetures éclair déjà appliquées transversalement avant d'atteindre votre ligne de production. Cela vous permet de produire des sachets refermables sur des équipements VFFS/HFFS existants sans investir dans des systèmes d'application de fermetures à glissière en ligne."
+                    },
+                    {
+                        "question": "Quel équipement est compatible avec les rouleaux pré-zippés ?",
+                        "answer": "Le rouleau pré-zippé Achieve Pack® est compatible avec les équipements conventionnels VFFS (Vertical Form Fill Seal) et HFFS (Horizontal Form Fill Seal). Seuls des ajustements mineurs du jeu du tube de formage sont généralement nécessaires : aucun investissement majeur n'est nécessaire."
+                    },
+                    {
+                        "question": "À quelles économies puis-je m’attendre ?",
+                        "answer": "Les rouleaux pré-fermés peuvent économiser jusqu'à 25 % sur le matériau des fermetures à glissière en appliquant les fermetures à glissière uniquement là où cela est nécessaire plutôt que sur toute la largeur du film. Vous économisez également sur l’investissement en équipement et réduisez le temps de configuration par rapport aux systèmes de fermeture à glissière en ligne, réduisant potentiellement le temps de production global de 15 % ou plus."
+                    },
+                    {
+                        "question": "Quels styles de pochettes puis-je produire avec du papier rouleau pré-zippé ?",
+                        "answer": "Vous pouvez produire des sacs oreiller, des sachets debout et des sacs à fond plat avec des rouleaux pré-fermés. La position et la longueur de la fermeture éclair sont personnalisables et les options incluent Bag-Top, E-Z Tab et d'autres styles d'ouverture."
+                    },
+                    {
+                        "question": "Quels produits sont les mieux adaptés aux emballages pré-zippés ?",
+                        "answer": "Le rouleau pré-zippé est idéal pour les collations, les aliments surgelés, les aliments pour animaux, les poudres et tout produit bénéficiant d'un emballage refermable. La fonction de refermeture aide à maintenir la fraîcheur après ouverture, en gardant les collations croustillantes, les aliments surgelés sans décongélation et les poudres sèches."
+                    },
+                    {
+                        "question": "Puis-je faire passer des films avec et sans fermeture à glissière sur la même ligne ?",
+                        "answer": "Oui! La même ligne de production peut gérer à la fois des rouleaux ordinaires sans fermeture éclair et des rouleaux pré-zippés Achieve Pack®, vous offrant ainsi la flexibilité de proposer plusieurs SKU à différents niveaux de prix sans changement d'équipement."
+                    },
+                    {
+                        "question": "Quelles options de barrières sont disponibles ?",
+                        "answer": "Nous proposons des options avec et sans barrière, notamment des films métallisés à haute barrière, des films transparents, des structures résistantes à la poudre et des configurations pelables. Notre équipe peut vous recommander la meilleure structure pour les exigences spécifiques de votre produit."
+                    },
+                    {
+                        "question": "Quelle est la quantité minimum de commande de rouleaux pré-zippés ?",
+                        "answer": "La quantité minimale de commande commence généralement entre 5 000 et 10 000 mètres selon les spécifications du film. Contactez-nous pour obtenir des devis précis basés sur vos besoins, notamment la largeur du film, le type de barrière et les besoins d'impression."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Pochettes compostables",
+                        "description": "Options de matériaux écologiques 100 % sans plastique"
+                    },
+                    {
+                        "title": "Mono-PE recyclable",
+                        "description": "Structure mono-matériau entièrement recyclable"
+                    },
+                    {
+                        "title": "Matériel PCR",
+                        "description": "Options de contenu recyclé post-consommation"
+                    },
+                    {
+                        "title": "Pochettes debout",
+                        "description": "Emballage autonome polyvalent"
+                    },
+                    {
+                        "title": "Sacs à fond plat",
+                        "description": "Style pochette à fond carré haut de gamme"
+                    },
+                    {
+                        "title": "Sacs d'oreiller",
+                        "description": "Format flow-wrap classique"
+                    },
+                    {
+                        "title": "Options de refermeture",
+                        "description": "Tous les types de fermetures à glissière et de joints disponibles"
+                    },
+                    {
+                        "title": "Options de barrière",
+                        "description": "Choisissez votre niveau de protection"
+                    },
+                    {
+                        "title": "Finitions de surface",
+                        "description": "Options mates, brillantes et douces au toucher"
+                    },
+                    {
+                        "title": "Sacs à l'épreuve des enfants",
+                        "description": "Emballage certifié pour la sécurité des enfants"
+                    },
+                    {
+                        "title": "Sacs neutres en carbone",
+                        "description": "Solutions d'emballage positives pour le climat"
+                    },
+                    {
+                        "title": "Emballage de collations",
+                        "description": "Solutions de sachets de snacks croustillants"
+                    },
+                    {
+                        "title": "Sacs de nourriture pour animaux de compagnie",
+                        "description": "Emballage durable de friandises pour animaux de compagnie"
+                    },
+                    {
+                        "title": "Emballage d'aliments surgelés",
+                        "description": "Options de pochettes résistantes au gel"
+                    },
+                    {
+                        "title": "Certificats",
+                        "description": "Consultez nos certifications de sécurité"
+                    },
+                    {
+                        "title": "FAQ",
+                        "description": "Réponses aux questions courantes"
+                    }
+                ],
+                "b2cSections": [
+                    {
+                        "id": "zéro investissement en machines",
+                        "title": "Sachets refermables sans investissement en équipement",
+                        "p1": "Pour les marques de vente directe au consommateur (DTC) en pleine croissance, la mise à niveau vers des sachets refermables haut de gamme est une énorme victoire de marque. Cependant, l’ajout de machines à fermeture à glissière en ligne standard peut coûter des dizaines de milliers de dollars en capital initial. C’est un énorme obstacle budgétaire pour une startup.",
+                        "blockquote": "Améliorez vos sacs sur vos machines existantes dès aujourd'hui.",
+                        "p2": "Avec le film en rouleau pré-zippé de Pouch.eco, vous pouvez éviter complètement les frais généraux d'équipement. Les startups peuvent transformer des sachets oreillers standard, des sacs scellés sur trois côtés ou des tubes verticaux en sachets à fermeture éclair entièrement refermables et conviviaux à l'aide de leurs machines d'emballage verticales Form Fill Seal (VFFS) ou horizontales Form Fill Seal (HFFS) existantes.",
+                        "h4": "Ajustements mineurs, résultats majeurs",
+                        "p3": "En pré-appliquant la fermeture éclair refermable transversalement sur le film avant qu'il ne soit enroulé et expédié à votre installation, le seul ajustement requis sur votre machine d'emballage standard consiste en des ajustements mineurs de dégagement sur le tube ou le dossier de formage. Votre ensacheuse existante peut faire passer ce film de manière transparente à des vitesses élevées."
+                    },
+                    {
+                        "id": "comment fonctionne le pré-appliqué",
+                        "title": "La magie de la technologie des fermetures éclair pré-appliquées",
+                        "p1": "Comment cela fonctionne-t-il sans outillage en ligne lourd ? Nous traitons la complexité technique dans nos salles blanches spécialisées avant que le film ne quitte notre sol.",
+                        "h4": "Sous le capot : film pré-appliqué",
+                        "bullet1": "<strong>Application transversale :</strong> Nous scellons des profils de fermeture à glissière de haute qualité à des intervalles d'espacement précis directement sur le rouleau de film plat.",
+                        "bullet2": "<strong>Zéro choc thermique :</strong> les fermetures éclair sont appliquées avec un contrôle chirurgical de la chaleur pour éviter le froissement structurel, garantissant ainsi que votre pochette finale repose complètement à plat.",
+                        "bullet3": "<strong>Prêt à alimenter</strong> : le film arrive enroulé et parfaitement aligné avec vos mises en page d'impression. Montez-le simplement sur votre axe de rouleau HFFS/VFFS et commencez à remplir."
+                    },
+                    {
+                        "id": "startup-moq-digital",
+                        "title": "Faibles MOQ et tests adaptés aux startups",
+                        "p1": "Les fabricants de rouleaux d'entreprise exigent généralement des dizaines de milliers de mètres par cycle de conception. Cela exclut les torréfacteurs en petits lots, les mélangeurs d'épices de boutique, les artisans de friandises biologiques pour animaux de compagnie et les lignes de suppléments en démarrage qui sont encore en train de tester leur adéquation au marché.",
+                        "h4": "Courses courtes flexibles (500 à 1 000 m)",
+                        "p2": "Nous avons repensé la ligne de laminage de films pour prendre en charge les tests de démarrage. Vous pouvez commander des films en rouleau pré-zippés personnalisés en petits tirages ultra pratiques allant de 500 à 1 000 mètres seulement. Essayez de nouvelles recettes, des parfums de saison ou des profils de saveurs régionales sans immobiliser des flux de trésorerie critiques dans des stocks lourds en entrepôt.",
+                        "card1_title": "Pas de frais de cylindre",
+                        "card1_desc": "Notre presse numérique haute résolution signifie que vous ne payez aucun frais de configuration de cylindre. Faites pivoter et modifiez instantanément vos conceptions.",
+                        "card2_title": "Lots multi-SKU",
+                        "card2_desc": "Répartissez votre court métrage entre différentes conceptions de saveurs ou variations saisonnières sous une seule commande.",
+                        "card3_title": "Prototypes rapides",
+                        "card3_desc": "Recevez des rouleaux de film imprimés sur mesure sur votre ligne d'emballage en moins de 2 semaines. Lancez-vous vite !"
+                    },
+                    {
+                        "id": "fraîcheur-branding-lock",
+                        "title": "Fraîcheur du garde-manger et fidélité à la marque DTC",
+                        "p1": "Pour les produits artisanaux haut de gamme, l’emballage est une extension de votre expérience client. Une fois qu'un consommateur ouvre un sac non refermable conventionnel, il est obligé d'utiliser de vilaines pinces à puces, du ruban adhésif ou de vider le contenu dans des bocaux en verre génériques, perdant ainsi entièrement l'illustration et le logo de votre marque.",
+                        "h4": "Gardez votre logo sous les projecteurs",
+                        "bullet1": "🍉 Fraîcheur ultime du produit : la stratification multicouche protège les profils de saveur volatiles, les parfums délicats et les niveaux d'humidité sensibles.",
+                        "bullet2": "🏡 Panneau d'affichage quotidien du garde-manger : lorsque le sac est placé dans le garde-manger, votre motif imprimé personnalisé reste au premier plan pour chaque séance de collation.",
+                        "bullet3": "🛠️ Dimensionnement et caractéristiques sur mesure : faites correspondre la largeur de votre pochette spécifique, les encoches de déchirure, les trous de suspension et les finitions brillantes/mates pour concevoir une boîte hautement personnalisée et riche en sensoriels."
+                    }
+                ]
             }
         },
         "compostableStandUpPouches": {
