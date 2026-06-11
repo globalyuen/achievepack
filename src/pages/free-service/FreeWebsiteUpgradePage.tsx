@@ -484,7 +484,7 @@ const seoKnowHowCards = [
     title: "Compostable vs Recyclable",
     desc: "Deciding between circular plastic recovery and organic composting paths for your packaging.",
     link: "/blog/compostable-vs-recyclable",
-    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
+    image: "/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.jpg",
     tag: "Analysis",
     badgeType: "eco"
   },
@@ -492,7 +492,7 @@ const seoKnowHowCards = [
     title: "Packaging Cost Guide",
     desc: "Complete breakdown of plate charges, setup fees, material costs, and wholesale volume tiers.",
     link: "/blog/packaging-cost-guide",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    image: "/imgs/seo-photos/a_packaging_cost_comparison_8724501.jpg",
     tag: "Finance",
     badgeType: "accent"
   },
@@ -500,7 +500,7 @@ const seoKnowHowCards = [
     title: "Eco Packaging Mistakes",
     desc: "Avoid common design and material selection errors that disrupt commercial supply chains.",
     link: "/blog/eco-packaging-mistakes",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    image: "/imgs/seo-photos/a_packaging_mistakes_overview_6183920.jpg",
     tag: "Strategy",
     badgeType: "luxury"
   },
@@ -508,7 +508,7 @@ const seoKnowHowCards = [
     title: "EU PPWR Compliance",
     desc: "Understanding the new European Union packaging regulations and recycling requirements.",
     link: "/blog/eu-ppwr-compliance-guide",
-    image: "/imgs/store/products/eco-standup-premium.png",
+    image: "/imgs/topics/eu-ppwr-compliance.png",
     tag: "Regulations",
     badgeType: "eco"
   },
@@ -516,7 +516,7 @@ const seoKnowHowCards = [
     title: "Compostable Zippers",
     desc: "How biodegradable press-to-close zippers preserve freshness without polluting composting streams.",
     link: "/blog/compostable-zipper-no-removal",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    image: "/imgs/samples/kraft-compostable-zipper.png",
     tag: "Technology",
     badgeType: "eco"
   },
@@ -524,7 +524,7 @@ const seoKnowHowCards = [
     title: "Foil Stamping Recyclability",
     desc: "Assessing the impact of hot and cold foil stamping on paperboard and plastic recycling.",
     link: "/blog/stamp-foil-recyclability",
-    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
+    image: "/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.jpg",
     tag: "Design",
     badgeType: "luxury"
   },
@@ -532,7 +532,7 @@ const seoKnowHowCards = [
     title: "Compostable Materials",
     desc: "Overview of organic starch-based polymers and plant cell membranes that biodegrade safely.",
     link: "/materials/compostable",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    image: "/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp",
     tag: "Materials",
     badgeType: "eco"
   },
@@ -540,7 +540,7 @@ const seoKnowHowCards = [
     title: "Recyclable Mono-PE",
     desc: "Engineered single-polymer films with EVOH barrier that qualify for standard recycling streams.",
     link: "/materials/recyclable-mono-pe",
-    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
+    image: "/imgs/seo-photos/a_achievepack_mono_kitchen_8539724.webp",
     tag: "Materials",
     badgeType: "accent"
   },
@@ -548,7 +548,7 @@ const seoKnowHowCards = [
     title: "Sugarcane Bio-PE",
     desc: "Plant-based polyethylene films derived from sugarcane that reduce carbon footprint.",
     link: "/materials/bio-pe",
-    image: "/imgs/store/products/eco-standup-premium.png",
+    image: "/imgs/biope/what/a_hero_bio_pe_article_2212774.webp",
     tag: "Materials",
     badgeType: "eco"
   },
@@ -556,7 +556,7 @@ const seoKnowHowCards = [
     title: "Post-Consumer Recycled",
     desc: "Reusing plastic ocean waste and curbside recyclables to fabricate premium composite barrier films.",
     link: "/materials/pcr",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    image: "/imgs/seo-photos/a_achievepack_pcr_office_8175988.webp",
     tag: "Materials",
     badgeType: "luxury"
   },
@@ -564,7 +564,7 @@ const seoKnowHowCards = [
     title: "Stand Up Pouches",
     desc: "The classic retail packaging format with bottom gusset and custom resealable zippers.",
     link: "/packaging/stand-up-pouches",
-    image: "/imgs/store/products/eco-standup-premium.png",
+    image: "/imgs/pouch-shape/achieve-pack-sup-hero.png",
     tag: "Packaging",
     badgeType: "eco"
   },
@@ -572,7 +572,7 @@ const seoKnowHowCards = [
     title: "Flat Bottom Bags",
     desc: "Maximum stability with five printable panels, ideal for heavy coffee beans and dry pet food.",
     link: "/packaging/flat-bottom-bags",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    image: "/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp",
     tag: "Packaging",
     badgeType: "accent"
   },
@@ -580,7 +580,7 @@ const seoKnowHowCards = [
     title: "Spouted Liquid Pouches",
     desc: "Flexible bottle-shaped pouches with fitment caps designed to hold cosmetics, drinks, and purees.",
     link: "/packaging/spout-pouches",
-    image: "/imgs/store/products/spouted-foil-pouch-thumbnail-26.webp",
+    image: "/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp",
     tag: "Packaging",
     badgeType: "liquid"
   },
@@ -596,7 +596,7 @@ const seoKnowHowCards = [
     title: "Startup Founder Solutions",
     desc: "Low MOQ, design support, and rapid prototyping workflows for launching products.",
     link: "/solutions/startup-founder",
-    image: "/imgs/store/products/conven-3ss-clear-zip-premium.png",
+    image: "/imgs/seo-photos/a_achievepack_compostable_garden_9329618.webp",
     tag: "Solutions",
     badgeType: "accent"
   },
@@ -604,7 +604,7 @@ const seoKnowHowCards = [
     title: "Ecommerce Brand Packaging",
     desc: "Optimizing mailers, shipping boxes, and secondary pouches for D2C transit safety.",
     link: "/solutions/ecommerce-brand",
-    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
+    image: "/imgs/seo-photos/a_ecommerce_lightweight_pouch_achieve_pack_8535238.webp",
     tag: "Solutions",
     badgeType: "luxury"
   },
@@ -612,7 +612,7 @@ const seoKnowHowCards = [
     title: "Coffee Roaster Packaging",
     desc: "High-barrier foil stand-up and flat bottom bags equipped with degassing valves.",
     link: "/solutions/coffee-roaster",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    image: "/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp",
     tag: "Solutions",
     badgeType: "accent"
   },
@@ -620,7 +620,7 @@ const seoKnowHowCards = [
     title: "Snack Brand Packaging",
     desc: "Lightproof and air-tight pouches to maintain crispness and extend retail shelf life.",
     link: "/solutions/snack-brand-manager",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    image: "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp",
     tag: "Solutions",
     badgeType: "liquid"
   },
@@ -628,7 +628,7 @@ const seoKnowHowCards = [
     title: "Minimalist D2C Branding",
     desc: "Designing clean packaging layouts that reduce ink waste and capture consumer interest.",
     link: "/topics/minimalist-d2c-packaging",
-    image: "/imgs/store/products/eco-standup-premium.png",
+    image: "/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp",
     tag: "Branding",
     badgeType: "eco"
   },
@@ -636,7 +636,7 @@ const seoKnowHowCards = [
     title: "Low MOQ Startup Tips",
     desc: "Strategic advice on split-shipping, template reuse, and digital runs for multi-SKU brands.",
     link: "/topics/low-moq-startup-packaging",
-    image: "/imgs/store/products/conven-3ss-clear-zip-premium.png",
+    image: "/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp",
     tag: "Strategy",
     badgeType: "luxury"
   },
@@ -644,7 +644,7 @@ const seoKnowHowCards = [
     title: "Home Compostable Coffee",
     desc: "Integrating plant-based degassing valves and compostable films to create home-friendly coffee bags.",
     link: "/topics/home-compostable-coffee-bags",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    image: "/imgs/topics/home-compostable-coffee-hero.png",
     tag: "Coffee",
     badgeType: "eco"
   },
@@ -652,7 +652,7 @@ const seoKnowHowCards = [
     title: "Recyclable Snacks Pouch",
     desc: "Preserving chips and granola freshness using EVOH-coated recyclable polyethylene structures.",
     link: "/topics/recyclable-snack-packaging",
-    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
+    image: "/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp",
     tag: "Snacks",
     badgeType: "liquid"
   },
@@ -660,7 +660,7 @@ const seoKnowHowCards = [
     title: "Mono-Material PE Guide",
     desc: "Technical deep-dive on single-polymer laminates that fulfill circular economy requirements.",
     link: "/topics/mono-material-pe-pouches",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    image: "/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp",
     tag: "Technology",
     badgeType: "accent"
   },
@@ -668,7 +668,7 @@ const seoKnowHowCards = [
     title: "PFAS-Free Food Packaging",
     desc: "Ensuring compliance with local environmental acts by utilizing PFAS-free barriers.",
     link: "/topics/pfas-free-food-packaging",
-    image: "/imgs/store/products/eco-standup-premium.png",
+    image: "/imgs/topics/pfas-free-lab-hero.png",
     tag: "Compliance",
     badgeType: "eco"
   },
@@ -676,7 +676,7 @@ const seoKnowHowCards = [
     title: "USA Compostable Standards",
     desc: "Guidelines on ASTM D6400 certification, BPI labels, and local state labeling mandates.",
     link: "/usa/compostable-packaging",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    image: "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
     tag: "USA",
     badgeType: "eco"
   },
@@ -684,7 +684,7 @@ const seoKnowHowCards = [
     title: "USA Coffee Bags Market",
     desc: "US retail trends in organic specialty coffee packaging and eco-friendly packaging rules.",
     link: "/usa/coffee-packaging",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    image: "/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp",
     tag: "USA",
     badgeType: "accent"
   },
@@ -692,7 +692,7 @@ const seoKnowHowCards = [
     title: "Coffee Roastery Case Study",
     desc: "How a specialty Seattle roastery shifted to 100% compostable bags without dropping speed.",
     link: "/case-studies/coffee-roastery",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    image: "/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp",
     tag: "Case Study",
     badgeType: "accent"
   },
@@ -700,7 +700,7 @@ const seoKnowHowCards = [
     title: "Tea Brand Case Study",
     desc: "Transitioning to plastic-free kraft bags to align with clean label values.",
     link: "/case-studies/tea-brand",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    image: "/imgs/seo-photos/a_milano_botanica_tea_caf_8381320.webp",
     tag: "Case Study",
     badgeType: "eco"
   },
@@ -708,7 +708,7 @@ const seoKnowHowCards = [
     title: "Pet Treats Case Study",
     desc: "Developing high-volume pet food pouches with puncture-resistant layers and durable zippers.",
     link: "/case-studies/pet-treats",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    image: "/imgs/seo-photos/a_food_grade_olive_stone_pouch_achieve_pack_8628145.webp",
     tag: "Case Study",
     badgeType: "liquid"
   },
@@ -716,7 +716,7 @@ const seoKnowHowCards = [
     title: "Chocolate Brand Case Study",
     desc: "Eco-luxe chocolate brand showcases premium rigid box and compostable pouch designs.",
     link: "/case-studies/chocolate-brand",
-    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
+    image: "/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_luxury_pouch_4218900.webp",
     tag: "Case Study",
     badgeType: "luxury"
   }
