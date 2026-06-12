@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { Calendar, Users, Zap, CheckCircle, Clock, MapPin } from 'lucide-react';
 import { NeoCard, NeoButton, NeoBadge } from '@/components/pouch/PouchUI';
 import PouchLayout from '@/components/pouch/PouchLayout';
+import { useTranslation } from 'react-i18next';
 
 const WorkshopRegisterPage = () => {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -16,8 +18,8 @@ const WorkshopRegisterPage = () => {
   return (
     <PouchLayout>
       <Helmet>
-        <title>Register: Live Packaging Workshop May 26 | Achieve Pack</title>
-        <meta name="description" content="Register for our live workshop on May 26 to learn how to apply sustainable packaging best practices to your brand." />
+        <title>{t('workshopRegisterPage.meta.title')}</title>
+        <meta name="description" content={t('workshopRegisterPage.meta.description')} />
       </Helmet>
 
       <div className="pt-32 pb-20 px-4">
@@ -29,21 +31,21 @@ const WorkshopRegisterPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <NeoBadge color="bg-[#D4FF00]" className="mb-6">Live Workshop</NeoBadge>
+              <NeoBadge color="bg-[#D4FF00]" className="mb-6">{t('workshopRegisterPage.badge')}</NeoBadge>
               <h1 className="text-5xl md:text-6xl font-black uppercase leading-tight mb-8">
-                The Action <br />
-                <span className="bg-black text-white px-2">Powers</span> Results
+                {t('workshopRegisterPage.hero.titleLine1')} <br />
+                <span className="bg-black text-white px-2">{t('workshopRegisterPage.hero.titleHighlight')}</span> {t('workshopRegisterPage.hero.titleLine2')}
               </h1>
               <p className="text-xl text-neutral-600 mb-10">
-                Join us on May 26 for a live, data-driven workshop. We'll bring the report data to life and help you apply it directly to your unique brand requirements.
+                {t('workshopRegisterPage.hero.subtitle')}
               </p>
 
               <div className="space-y-6 mb-12">
                 {[
-                  { icon: <Calendar />, text: "May 26, 2026 @ 10:00 AM EST" },
-                  { icon: <Clock />, text: "90 Minutes of Pure Insight" },
-                  { icon: <MapPin />, text: "Live Digital Workshop (Link via Email)" },
-                  { icon: <Zap />, text: "Includes Early Access to Transition Planner" },
+                  { icon: <Calendar />, text: t('workshopRegisterPage.details.date') },
+                  { icon: <Clock />, text: t('workshopRegisterPage.details.duration') },
+                  { icon: <MapPin />, text: t('workshopRegisterPage.details.location') },
+                  { icon: <Zap />, text: t('workshopRegisterPage.details.bonus') },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 text-lg font-bold">
                     <div className="w-10 h-10 border-2 border-black flex items-center justify-center bg-[#D4FF00]">
@@ -56,23 +58,23 @@ const WorkshopRegisterPage = () => {
 
               <NeoCard color="bg-neutral-100" className="border-dashed mb-6">
                 <h3 className="font-black uppercase mb-4 flex items-center gap-2">
-                  <Users className="w-5 h-5" /> Who is this for?
+                  <Users className="w-5 h-5" /> {t('workshopRegisterPage.whoIsThisFor.title')}
                 </h3>
                 <ul className="space-y-2 font-medium text-neutral-700">
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> DTC Brand Founders</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> Sustainability Officers</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> Product Developers</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> Supply Chain Managers</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> {t('workshopRegisterPage.whoIsThisFor.item1')}</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> {t('workshopRegisterPage.whoIsThisFor.item2')}</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> {t('workshopRegisterPage.whoIsThisFor.item3')}</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> {t('workshopRegisterPage.whoIsThisFor.item4')}</li>
                 </ul>
               </NeoCard>
 
               <NeoCard color="bg-white">
-                <h3 className="font-black uppercase mb-4">Did you miss the report?</h3>
+                <h3 className="font-black uppercase mb-4">{t('workshopRegisterPage.missedReport.title')}</h3>
                 <p className="text-sm text-neutral-600 mb-4 font-bold">
-                  The insights we'll discuss are based on our flagship "State of Sustainable Packaging 2026" report.
+                  {t('workshopRegisterPage.missedReport.description')}
                 </p>
                 <NeoButton variant="secondary" to="/reports/state-of-packaging-2026" className="w-full">
-                  Read the Report
+                  {t('workshopRegisterPage.missedReport.cta')}
                 </NeoButton>
               </NeoCard>
             </motion.div>
@@ -85,42 +87,42 @@ const WorkshopRegisterPage = () => {
             >
               {!submitted ? (
                 <NeoCard className="p-10">
-                  <h2 className="text-3xl font-black uppercase mb-8">Secure Your Spot</h2>
+                  <h2 className="text-3xl font-black uppercase mb-8">{t('workshopRegisterPage.form.title')}</h2>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label className="block text-sm font-black uppercase mb-2">Full Name</label>
+                      <label className="block text-sm font-black uppercase mb-2">{t('workshopRegisterPage.form.fullName')}</label>
                       <input 
                         type="text" 
                         required
                         className="w-full p-4 border-4 border-black focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all font-bold"
-                        placeholder="Ryan Wong"
+                        placeholder={t('workshopRegisterPage.form.fullNamePlaceholder')}
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-black uppercase mb-2">Work Email</label>
+                      <label className="block text-sm font-black uppercase mb-2">{t('workshopRegisterPage.form.workEmail')}</label>
                       <input 
                         type="email" 
                         required
                         className="w-full p-4 border-4 border-black focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all font-bold"
-                        placeholder="ryan@achievepack.com"
+                        placeholder={t('workshopRegisterPage.form.workEmailPlaceholder')}
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-black uppercase mb-2">Company Name</label>
+                      <label className="block text-sm font-black uppercase mb-2">{t('workshopRegisterPage.form.companyName')}</label>
                       <input 
                         type="text" 
                         required
                         className="w-full p-4 border-4 border-black focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all font-bold"
-                        placeholder="Achieve Pack"
+                        placeholder={t('workshopRegisterPage.form.companyNamePlaceholder')}
                       />
                     </div>
                     <div className="pt-4">
                       <NeoButton variant="primary" className="w-full py-6 text-xl">
-                        Register Now
+                        {t('workshopRegisterPage.form.submit')}
                       </NeoButton>
                     </div>
                     <p className="text-xs text-center text-neutral-500 font-bold uppercase tracking-widest">
-                      Limited to 10 participants per session.
+                      {t('workshopRegisterPage.form.limitNotice')}
                     </p>
                   </form>
                 </NeoCard>
@@ -133,12 +135,12 @@ const WorkshopRegisterPage = () => {
                     <div className="w-20 h-20 bg-black text-white flex items-center justify-center rounded-full mx-auto mb-8">
                       <CheckCircle className="w-10 h-10" />
                     </div>
-                    <h2 className="text-4xl font-black uppercase mb-4">You're Registered!</h2>
+                    <h2 className="text-4xl font-black uppercase mb-4">{t('workshopRegisterPage.success.title')}</h2>
                     <p className="text-xl font-bold mb-8">
-                      We've sent a confirmation email with the workshop details and your transition planner. See you on May 26!
+                      {t('workshopRegisterPage.success.message')}
                     </p>
                     <NeoButton variant="dark" to="/">
-                      Back to Home
+                      {t('workshopRegisterPage.success.cta')}
                     </NeoButton>
                   </NeoCard>
                 </motion.div>
