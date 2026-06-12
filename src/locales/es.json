@@ -1867,12 +1867,12 @@
                     "metaDescription": "Bolsas verticales impresas personalizadas, compostables y reciclables certificadas. MOQ bajo 500 unidades, tinta orgánica, PLA vegetal o barreras Mono-PE reciclables. Maquetas de diseño gratuitas.",
                     "hero": {
                         "badge": "Embalaje ecológico de estantería",
-                        "titlePart1": "PONERSE DE PIE",
+                        "titlePart1": "BOLSAS",
                         "desc": "Plantas-estrellas de PLA compostables certificadas y estructuras de Mono-PE reciclables. Excelente preservación de la barrera, cremalleras duraderas y tamaños personalizados.",
                         "btn1": "Reservar Llamada Gratuita",
                         "btn2": "Especialista en WhatsApp",
                         "imgBadge": "MOQ BAJO: 500!",
-                        "titlePart2": "BOLSAS"
+                        "titlePart2": "STAND-UP"
                     },
                     "bento": {
                         "titlePre": "RENDIMIENTO AVANZADO <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span>",
@@ -19544,5 +19544,61 @@
                 }
             }
         }
+    },
+    "slogans": {
+        "default": {
+            "prefix": "Tus clientes se preocupan por qué están hechos sus productos y dónde terminan.",
+            "suffix": "Tu empaque también debería hacerlo.",
+            "full": "Tus clientes se preocupan por qué están hechos sus productos y dónde terminan. Tu empaque también debería hacerlo."
+        },
+        "b2b": [
+            {
+                "prefix": "Pusiste tu corazón en el interior.",
+                "suffix": "Asegurémonos de que el exterior honre esa promesa."
+            },
+            {
+                "prefix": "Tu producto cuenta una historia de cuidado.",
+                "suffix": "Tu empaque debería ser su final perfecto."
+            },
+            {
+                "prefix": "Un empaque tan detallado y decidido",
+                "suffix": "como el producto en su interior."
+            },
+            {
+                "prefix": "Gánate su confianza antes de que abran la bolsa.",
+                "suffix": "Un empaque que comparte los valores más profundos de tus clientes."
+            },
+            {
+                "prefix": "Les encanta lo que haces.",
+                "suffix": "Muéstrales que te importa el mundo en el que viven."
+            },
+            {
+                "prefix": "Habla al corazón de tus clientes",
+                "suffix": "con un empaque que no deja rastro."
+            },
+            {
+                "prefix": "Hermoso en el estante. Inofensivo en el suelo.",
+                "suffix": "Un empaque del que tu marca puede estar orgullosa."
+            },
+            {
+                "prefix": "Deja un legado de calidad,",
+                "suffix": "no una huella de residuos."
+            },
+            {
+                "prefix": "Creado con un propósito.",
+                "suffix": "Devuelto a la tierra."
+            }
+        ],
+        "b2c": [
+            "Pusiste tu corazón en el interior. Asegurémonos de que el exterior honre esa promesa.",
+            "Tu producto cuenta una historia de cuidado. Tu empaque debería ser su final perfecto.",
+            "Un empaque tan detallado y decidido como el producto en su interior.",
+            "Gánate su confianza antes de que abran la bolsa. Un empaque que comparte los valores más profundos de tus clientes.",
+            "Les encanta lo que haces. Muéstrales que te importa el mundo en el que viven.",
+            "Habla al corazón de tus clientes con un empaque que no deja rastro.",
+            "Hermoso en el estante. Inofensivo en el suelo. Un empaque del que tu marca puede estar orgullosa.",
+            "Deja un legado de calidad, no una huella de residuos.",
+            "Creado con un propósito. Devuelto a la tierra."
+        ]
     }
 }

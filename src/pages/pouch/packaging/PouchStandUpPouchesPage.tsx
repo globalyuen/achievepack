@@ -7,7 +7,10 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
+import { useTranslation } from 'react-i18next'
+
 export default function PouchStandUpPouchesPage() {
+  const { t } = useTranslation()
   const [scrollPercent, setScrollPercent] = useState(0)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
@@ -29,8 +32,8 @@ export default function PouchStandUpPouchesPage() {
     setTilt({ x: ((e.clientX - rect.left) / rect.width - 0.5) * 30, y: ((e.clientY - rect.top) / rect.height - 0.5) * -30 })
   }
 
-  const title = "Custom Stand-Up Pouches - Eco-Friendly Doypack Bags | Pouch.eco"
-  const description = "BRCGS certified custom stand-up pouches. Certified compostable PLA & recyclable Mono-PE bags. Low MOQ 500 units. Free design proofs. Technical gas barrier protection."
+  const title = t("seoPages.pages.standUpPouches.b2c.metaTitle", "Custom Stand-Up Pouches - Eco-Friendly Doypack Bags | Pouch.eco")
+  const description = t("seoPages.pages.standUpPouches.b2c.metaDescription", "BRCGS certified custom stand-up pouches. Certified compostable PLA & recyclable Mono-PE bags. Low MOQ 500 units. Free design proofs. Technical gas barrier protection.")
 
   const translatedSpecs = [
     {
@@ -113,9 +116,10 @@ export default function PouchStandUpPouchesPage() {
               </div>
               
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                Custom<br/>
-                Stand-Up<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF00FF] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Pouches.</span>
+                {t("seoPages.pages.standUpPouches.b2c.hero.titlePart1", "Custom Stand-Up")}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF00FF] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                  {t("seoPages.pages.standUpPouches.b2c.hero.titlePart2", "Pouches.")}
+                </span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-base md:text-lg max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">

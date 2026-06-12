@@ -8,6 +8,7 @@ import VideoShowcase from '../../components/pouch/VideoShowcase'
 import { ThreePouchViewer } from '../../components/ThreePouchViewer'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from '../../components/AppIcons'
 
+import { useTranslation } from 'react-i18next'
 import WorkCarousel from '../../components/WorkCarousel'
 import KnowHowCarousel from '../../components/KnowHowCarousel'
 
@@ -109,6 +110,7 @@ const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, cove
 // ============================================
 
 export default function PouchHomePage() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const productsRef = useRef<HTMLElement>(null)
 
@@ -324,23 +326,18 @@ export default function PouchHomePage() {
     }
   }
 
-  const [slogan, setSlogan] = useState("Your Customers Care What Their Products Are Made Of & Where They End Up. Your Packaging Should Too.");
+  const [sloganIdx, setSloganIdx] = useState(-1);
 
   useEffect(() => {
-    const B2C_SLOGANS = [
-      "You poured your heart into what’s inside. Let’s make sure the outside honors that promise.",
-      "Your product tells a story of care. Your packaging should be its perfect ending.",
-      "Packaging as thoughtful and purposeful as the product inside.",
-      "Earn their trust before they even open the bag. Packaging that shares your customers' deepest values.",
-      "They love what you make. Show them you care about the world they live in.",
-      "Speak to your customers' hearts with packaging that leaves no trace.",
-      "Beautiful on the shelf. Harmless in the soil. Packaging your brand can be proud of.",
-      "Leave a legacy of quality, not a footprint of waste.",
-      "Made with purpose. Returned to the earth."
-    ];
-    const randomIdx = Math.floor(Math.random() * B2C_SLOGANS.length);
-    setSlogan(B2C_SLOGANS[randomIdx]);
+    const randomIdx = Math.floor(Math.random() * 9);
+    setSloganIdx(randomIdx);
   }, []);
+
+  const defaultSlogan = t("slogans.default.full", "Your Customers Care What Their Products Are Made Of & Where They End Up. Your Packaging Should Too.");
+
+  const slogan = sloganIdx >= 0
+    ? t(`slogans.b2c.${sloganIdx}`)
+    : defaultSlogan;
 
   const scrollToProducts = () => {
     productsRef.current?.scrollIntoView({ behavior: 'smooth' })

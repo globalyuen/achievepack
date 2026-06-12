@@ -328,53 +328,22 @@ function App() {
 
 
 
-  const [slogan, setSlogan] = useState({
-    prefix: "Your Customers Care What Their Products Are Made Of & Where They End Up.",
-    suffix: "Your Packaging Should Too."
-  });
+  const [sloganIdx, setSloganIdx] = useState(-1);
 
   useEffect(() => {
-    const B2B_SLOGANS = [
-      {
-        prefix: "You poured your heart into what’s inside.",
-        suffix: "Let’s make sure the outside honors that promise."
-      },
-      {
-        prefix: "Your product tells a story of care.",
-        suffix: "Your packaging should be its perfect ending."
-      },
-      {
-        prefix: "Packaging as thoughtful and purposeful",
-        suffix: "as the product inside."
-      },
-      {
-        prefix: "Earn their trust before they even open the bag.",
-        suffix: "Packaging that shares your customers' deepest values."
-      },
-      {
-        prefix: "They love what you make.",
-        suffix: "Show them you care about the world they live in."
-      },
-      {
-        prefix: "Speak to your customers' hearts",
-        suffix: "with packaging that leaves no trace."
-      },
-      {
-        prefix: "Beautiful on the shelf. Harmless in the soil.",
-        suffix: "Packaging your brand can be proud of."
-      },
-      {
-        prefix: "Leave a legacy of quality,",
-        suffix: "not a footprint of waste."
-      },
-      {
-        prefix: "Made with purpose.",
-        suffix: "Returned to the earth."
-      }
-    ];
-    const randomIdx = Math.floor(Math.random() * B2B_SLOGANS.length);
-    setSlogan(B2B_SLOGANS[randomIdx]);
+    const randomIdx = Math.floor(Math.random() * 9);
+    setSloganIdx(randomIdx);
   }, []);
+
+  const defaultSlogan = {
+    prefix: t("slogans.default.prefix", "Your Customers Care What Their Products Are Made Of & Where They End Up."),
+    suffix: t("slogans.default.suffix", "Your Packaging Should Too.")
+  };
+
+  const slogan = sloganIdx >= 0 ? {
+    prefix: t(`slogans.b2b.${sloganIdx}.prefix`),
+    suffix: t(`slogans.b2b.${sloganIdx}.suffix`)
+  } : defaultSlogan;
 
   // 3D Pouch Interactive states
   const [activePouchModel, setActivePouchModel] = useState<'spouted' | 'flat-bottom'>('spouted')

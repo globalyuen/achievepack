@@ -1867,12 +1867,12 @@
                     "metaDescription": "Sachets debout imprimés personnalisés certifiés compostables et recyclables. Faible MOQ 500 pièces, encre biologique, PLA végétal ou barrières Mono-PE recyclables. Maquettes de conception gratuites.",
                     "hero": {
                         "badge": "Emballage écologique sur étagère",
-                        "titlePart1": "SE LEVER",
+                        "titlePart1": "SACHETS",
                         "desc": "Étoiles végétales PLA compostables certifiées et structures Mono-PE recyclables. Préservation exceptionnelle des barrières, fermetures éclair durables et tailles personnalisées.",
                         "btn1": "Réserver un appel gratuit",
                         "btn2": "Spécialiste WhatsApp",
                         "imgBadge": "FAIBLE MOQ : 500 !",
-                        "titlePart2": "POCHETTES"
+                        "titlePart2": "DOYPACK"
                     },
                     "bento": {
                         "titlePre": "PERFORMANCES AVANCÉES <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span>",
@@ -19544,5 +19544,61 @@
                 }
             }
         }
+    },
+    "slogans": {
+        "default": {
+            "prefix": "Vos clients se soucient de la composition de leurs produits et de leur fin de vie.",
+            "suffix": "Votre emballage devrait en faire autant.",
+            "full": "Vos clients se soucient de la composition de leurs produits et de leur fin de vie. Votre emballage devrait en faire autant."
+        },
+        "b2b": [
+            {
+                "prefix": "Vous avez mis tout votre cœur dans le contenu.",
+                "suffix": "Assurons-nous que l'emballage honore cette promesse."
+            },
+            {
+                "prefix": "Votre produit raconte une histoire de soin.",
+                "suffix": "Votre emballage devrait en être la fin parfaite."
+            },
+            {
+                "prefix": "Un emballage aussi attentionné et ciblé",
+                "suffix": "que le produit qu'il contient."
+            },
+            {
+                "prefix": "Gagnez leur confiance avant même qu'ils n'ouvrent le sachet.",
+                "suffix": "Un emballage qui partage les valeurs les plus profondes de vos clients."
+            },
+            {
+                "prefix": "Ils aiment ce que vous faites.",
+                "suffix": "Montrez-leur que vous vous souciez du monde dans lequel ils vivent."
+            },
+            {
+                "prefix": "Parlez au cœur de vos clients",
+                "suffix": "avec un emballage qui ne laisse aucune trace."
+            },
+            {
+                "prefix": "Beau sur l'étagère. Inoffensif dans le sol.",
+                "suffix": "Un emballage dont votre marque peut être fière."
+            },
+            {
+                "prefix": "Laissez un héritage de qualité,",
+                "suffix": "pas une empreinte de déchets."
+            },
+            {
+                "prefix": "Créé avec un but.",
+                "suffix": "Retourné à la terre."
+            }
+        ],
+        "b2c": [
+            "Vous avez mis tout votre cœur dans le contenu. Assurons-nous que l'emballage honore cette promesse.",
+            "Votre produit raconte une histoire de soin. Votre emballage devrait en être la fin parfaite.",
+            "Un emballage aussi attentionné et ciblé que le produit qu'il contient.",
+            "Gagnez leur confiance avant même qu'ils n'ouvrent le sachet. Un emballage qui partage les valeurs les plus profondes de vos clients.",
+            "Ils aiment ce que vous faites. Montrez-leur que vous vous souciez du monde dans lequel ils vivent.",
+            "Parlez au cœur de vos clients avec un emballage qui ne laisse aucune trace.",
+            "Beau sur l'étagère. Inoffensif dans le sol. Un emballage dont votre marque peut être fière.",
+            "Laissez un héritage de qualité, pas une empreinte de déchets.",
+            "Créé avec un but. Retourné à la terre."
+        ]
     }
 }

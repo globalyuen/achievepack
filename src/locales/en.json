@@ -19647,5 +19647,61 @@
                 }
             }
         }
+    },
+    "slogans": {
+        "default": {
+            "prefix": "Your Customers Care What Their Products Are Made Of & Where They End Up.",
+            "suffix": "Your Packaging Should Too.",
+            "full": "Your Customers Care What Their Products Are Made Of & Where They End Up. Your Packaging Should Too."
+        },
+        "b2b": [
+            {
+                "prefix": "You poured your heart into what’s inside.",
+                "suffix": "Let’s make sure the outside honors that promise."
+            },
+            {
+                "prefix": "Your product tells a story of care.",
+                "suffix": "Your packaging should be its perfect ending."
+            },
+            {
+                "prefix": "Packaging as thoughtful and purposeful",
+                "suffix": "as the product inside."
+            },
+            {
+                "prefix": "Earn their trust before they even open the bag.",
+                "suffix": "Packaging that shares your customers' deepest values."
+            },
+            {
+                "prefix": "They love what you make.",
+                "suffix": "Show them you care about the world they live in."
+            },
+            {
+                "prefix": "Speak to your customers' hearts",
+                "suffix": "with packaging that leaves no trace."
+            },
+            {
+                "prefix": "Beautiful on the shelf. Harmless in the soil.",
+                "suffix": "Packaging your brand can be proud of."
+            },
+            {
+                "prefix": "Leave a legacy of quality,",
+                "suffix": "not a footprint of waste."
+            },
+            {
+                "prefix": "Made with purpose.",
+                "suffix": "Returned to the earth."
+            }
+        ],
+        "b2c": [
+            "You poured your heart into what’s inside. Let’s make sure the outside honors that promise.",
+            "Your product tells a story of care. Your packaging should be its perfect ending.",
+            "Packaging as thoughtful and purposeful as the product inside.",
+            "Earn their trust before they even open the bag. Packaging that shares your customers' deepest values.",
+            "They love what you make. Show them you care about the world they live in.",
+            "Speak to your customers' hearts with packaging that leaves no trace.",
+            "Beautiful on the shelf. Harmless in the soil. Packaging your brand can be proud of.",
+            "Leave a legacy of quality, not a footprint of waste.",
+            "Made with purpose. Returned to the earth."
+        ]
     }
 }
