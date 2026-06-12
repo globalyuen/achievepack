@@ -1,5 +1,6 @@
 import { Cookie, TrendingUp, Shield, Package, DollarSign, CheckCircle, Building2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import ClickableImage from '../../../components/ClickableImage'
 
@@ -11,6 +12,7 @@ interface BlogArticleSection {
 }
 
 export default function USASnacksPackagingGuide() {
+  const { t } = useTranslation()
   const sections: BlogArticleSection[] = [
     {
       id: 'market-opportunity',
@@ -356,100 +358,100 @@ export default function USASnacksPackagingGuide() {
     },
     {
       id: 'transparent-pricing',
-      title: 'Transparent Pricing: What Snack Packaging Actually Costs',
+      title: t('usaSnacksPackagingGuide.sections.transparent-pricing.title'),
       icon: <DollarSign className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-6">Complete Price Breakdown (Compostable Snack Pouches)</h3>
+            <h3 className="font-black text-2xl uppercase mb-6">{t('usaSnacksPackagingGuide.sections.transparent-pricing.tableTitle')}</h3>
             <ClickableImage src="/imgs/seo-photos/a_data_doesnt_lie_comparison_1860300.webp" alt="Snack Packaging Price Comparison Chart" className="w-full h-64 object-cover border-4 border-black mb-6" />
             
             <div className="overflow-x-auto">
               <table className="w-full border-4 border-black">
                 <thead>
                   <tr className="bg-black text-white">
-                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Quantity</th>
-                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Size</th>
-                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Kraft + PLA</th>
-                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">High-Barrier</th>
+                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">{t('usaSnacksPackagingGuide.sections.transparent-pricing.th1')}</th>
+                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">{t('usaSnacksPackagingGuide.sections.transparent-pricing.th2')}</th>
+                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">{t('usaSnacksPackagingGuide.sections.transparent-pricing.th3')}</th>
+                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">{t('usaSnacksPackagingGuide.sections.transparent-pricing.th4')}</th>
                   </tr>
                 </thead>
                 <tbody className="font-['JetBrains_Mono'] text-sm">
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3 font-bold" rowSpan={3}>100 pcs (Digital Print)</td>
-                    <td className="border-2 border-black p-3">4oz (100×170mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.85-$1.10</td>
-                    <td className="border-2 border-black p-3">$1.00-$1.30</td>
+                    <td className="border-2 border-black p-3 font-bold" rowSpan={3}>{t('usaSnacksPackagingGuide.sections.transparent-pricing.qtyRow1')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow1')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row1Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row1Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3">8oz (120×200mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$1.10-$1.35</td>
-                    <td className="border-2 border-black p-3">$1.30-$1.55</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow2')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row2Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row2Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3">12oz (140×240mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$1.25-$1.50</td>
-                    <td className="border-2 border-black p-3">$1.45-$1.70</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow3')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row3Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row3Col4')}</td>
                   </tr>
                   
                   <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3 font-bold" rowSpan={3}>500 pcs</td>
-                    <td className="border-2 border-black p-3">4oz (100×170mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.65-$0.90</td>
-                    <td className="border-2 border-black p-3">$0.80-$1.05</td>
+                    <td className="border-2 border-black p-3 font-bold" rowSpan={3}>{t('usaSnacksPackagingGuide.sections.transparent-pricing.qtyRow2')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow1')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row4Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row4Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3">8oz (120×200mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.85-$1.10</td>
-                    <td className="border-2 border-black p-3">$1.00-$1.25</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow2')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row5Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row5Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3">12oz (140×240mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$1.00-$1.20</td>
-                    <td className="border-2 border-black p-3">$1.15-$1.40</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow3')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row6Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row6Col4')}</td>
                   </tr>
 
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3 font-bold" rowSpan={3}>1,000 pcs</td>
-                    <td className="border-2 border-black p-3">4oz (100×170mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.55-$0.75</td>
-                    <td className="border-2 border-black p-3">$0.70-$0.90</td>
+                    <td className="border-2 border-black p-3 font-bold" rowSpan={3}>{t('usaSnacksPackagingGuide.sections.transparent-pricing.qtyRow3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow1')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row7Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row7Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3">8oz (120×200mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.70-$0.95</td>
-                    <td className="border-2 border-black p-3">$0.85-$1.10</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow2')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row8Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row8Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3">12oz (140×240mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.80-$1.05</td>
-                    <td className="border-2 border-black p-3">$0.95-$1.20</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.sizeRow3')}</td>
+                    <td className="border-2 border-black p-3 bg-green-50">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row9Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaSnacksPackagingGuide.sections.transparent-pricing.row9Col4')}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <div className="mt-6 bg-yellow-50 border-4 border-black p-4">
-              <h5 className="font-bold mb-2">📦 What\'s Included:</h5>
+              <h5 className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.transparent-pricing.incHeader')}</h5>
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
-                  <p className="font-bold mb-1">✓ Included:</p>
+                  <p className="font-bold mb-1">{t('usaSnacksPackagingGuide.sections.transparent-pricing.incTitle')}</p>
                   <ul className="space-y-1">
-                    <li>• Compostable material (Kraft + PLA or High-Barrier)</li>
-                    <li>• Full-color custom printing (Digital or Plate)</li>
-                    <li>• Resealable compostable zipper</li>
-                    <li>• Tear notches & hang holes</li>
-                    <li>• ASTM D6400 & BPI certification docs</li>
-                    <li>• Free design proof (1 revision)</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.inc1')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.inc2')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.inc3')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.inc4')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.inc5')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.inc6')}</li>
                   </ul>
                 </div>
                 <div>
-                  <p className="font-bold mb-1">✗ Add-ons:</p>
+                  <p className="font-bold mb-1">{t('usaSnacksPackagingGuide.sections.transparent-pricing.addonsTitle')}</p>
                   <ul className="space-y-1">
-                    <li>• Shipping (calculated separately)</li>
-                    <li>• Clear window (+$0.10-0.20/piece)</li>
-                    <li>• Foil/metallic finish (+$0.15-0.30/piece)</li>
-                    <li>• Custom die-cut shapes (+$200-500 one-time)</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.addons1')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.addons2')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.addons3')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.transparent-pricing.addons4')}</li>
                   </ul>
                 </div>
               </div>
@@ -457,23 +459,23 @@ export default function USASnacksPackagingGuide() {
           </div>
 
           <div className="bg-[#D4FF00] border-4 border-black p-6">
-            <h4 className="font-black text-xl uppercase mb-4">Popular Retail Sizes for Snacks</h4>
+            <h4 className="font-black text-xl uppercase mb-4">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetailTitle')}</h4>
             <div className="grid md:grid-cols-4 gap-4">
               <div className="bg-white border-2 border-black p-4 text-center">
-                <p className="text-2xl font-black mb-2">4oz</p>
-                <p className="text-sm">Single-serve, Samples</p>
+                <p className="text-2xl font-black mb-2">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetail1Size')}</p>
+                <p className="text-sm">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetail1Desc')}</p>
               </div>
               <div className="bg-white border-2 border-black p-4 text-center">
-                <p className="text-2xl font-black mb-2">6-8oz</p>
-                <p className="text-sm">Standard retail, Grab-and-go</p>
+                <p className="text-2xl font-black mb-2">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetail2Size')}</p>
+                <p className="text-sm">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetail2Desc')}</p>
               </div>
               <div className="bg-white border-2 border-black p-4 text-center">
-                <p className="text-2xl font-black mb-2">12oz</p>
-                <p className="text-sm">Family size, Multi-serve</p>
+                <p className="text-2xl font-black mb-2">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetail3Size')}</p>
+                <p className="text-sm">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetail3Desc')}</p>
               </div>
               <div className="bg-white border-2 border-black p-4 text-center">
-                <p className="text-2xl font-black mb-2">16-24oz</p>
-                <p className="text-sm">Club stores, Bulk</p>
+                <p className="text-2xl font-black mb-2">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetail4Size')}</p>
+                <p className="text-sm">{t('usaSnacksPackagingGuide.sections.transparent-pricing.popularRetail4Desc')}</p>
               </div>
             </div>
           </div>
@@ -484,7 +486,7 @@ export default function USASnacksPackagingGuide() {
               className="inline-flex items-center justify-center gap-3 bg-black text-[#D4FF00] px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <Package className="w-5 h-5" />
-              Shop Snack Pouches (MOQ 100)
+              {t('usaSnacksPackagingGuide.sections.transparent-pricing.shopBtn')}
             </a>
             <a 
               href="https://achievepack.com/usa/snacks-packaging"
@@ -493,7 +495,7 @@ export default function USASnacksPackagingGuide() {
               className="inline-flex items-center justify-center gap-3 bg-[#00FFFF] text-black px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-black hover:text-[#00FFFF] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <Building2 className="w-5 h-5" />
-              Get Wholesale Bulk Pricing (5,000+)
+              {t('usaSnacksPackagingGuide.sections.transparent-pricing.bulkBtn')}
             </a>
           </div>
         </div>
@@ -501,176 +503,181 @@ export default function USASnacksPackagingGuide() {
     },
     {
       id: 'case-study',
-      title: 'Case Study: Austin Granola Co. Wins Whole Foods Shelf Space',
+      title: t('usaSnacksPackagingGuide.sections.case-study.title'),
       icon: <CheckCircle className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
           <div className="bg-[#00FFFF] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-4">The Challenge: Competing in Natural Grocers</h3>
+            <h3 className="font-black text-2xl uppercase mb-4">{t('usaSnacksPackagingGuide.sections.case-study.boxTitle')}</h3>
             <ClickableImage src="/imgs/seo-photos/little_sprouts_pouch.png" alt="Austin Granola Co Case Study Pouch" className="w-full h-64 object-cover border-4 border-black mb-6" />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-bold text-lg mb-3">Background:</h4>
+                <h4 className="font-bold text-lg mb-3">{t('usaSnacksPackagingGuide.sections.case-study.bgHeader')}</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><strong>Company:</strong> Organic granola brand (Austin, TX)</li>
-                  <li><strong>Product:</strong> 3 granola SKUs (original, chocolate, peanut butter)</li>
-                  <li><strong>Challenge:</strong> Rejected by Whole Foods & Sprouts due to plastic packaging</li>
-                  <li><strong>Budget:</strong> Limited capital, needed low MOQ solution</li>
+                  <li><strong>{t('usaSnacksPackagingGuide.sections.case-study.bg1Bold')}</strong>{t('usaSnacksPackagingGuide.sections.case-study.bg1Text')}</li>
+                  <li><strong>{t('usaSnacksPackagingGuide.sections.case-study.bg2Bold')}</strong>{t('usaSnacksPackagingGuide.sections.case-study.bg2Text')}</li>
+                  <li><strong>{t('usaSnacksPackagingGuide.sections.case-study.bg3Bold')}</strong>{t('usaSnacksPackagingGuide.sections.case-study.bg3Text')}</li>
+                  <li><strong>{t('usaSnacksPackagingGuide.sections.case-study.bg4Bold')}</strong>{t('usaSnacksPackagingGuide.sections.case-study.bg4Text')}</li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-bold text-lg mb-3">Initial Obstacles:</h4>
+                <h4 className="font-bold text-lg mb-3">{t('usaSnacksPackagingGuide.sections.case-study.obsHeader')}</h4>
                 <ul className="space-y-2 text-sm">
-                  <li>✗ Existing supplier MOQ: 5,000 pieces per SKU = $4,500</li>
-                  <li>✗ Multi-layer plastic not accepted by target retailers</li>
-                  <li>✗ Customers asking \"Is this recyclable?\" at farmers markets</li>
-                  <li>✗ No budget for $2,000 plate printing setup</li>
+                  <li>{t('usaSnacksPackagingGuide.sections.case-study.obsItem1')}</li>
+                  <li>{t('usaSnacksPackagingGuide.sections.case-study.obsItem2')}</li>
+                  <li>{t('usaSnacksPackagingGuide.sections.case-study.obsItem3')}</li>
+                  <li>{t('usaSnacksPackagingGuide.sections.case-study.obsItem4')}</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-6">The Solution: Staged Low MOQ Approach</h3>
+            <h3 className="font-black text-2xl uppercase mb-6">{t('usaSnacksPackagingGuide.sections.case-study.solTitle')}</h3>
             
             <div className="space-y-6">
               <div className="bg-green-50 border-2 border-green-600 p-6">
-                <h4 className="font-bold text-lg mb-3">Phase 1: Test Market (100 Bags × 3 SKUs)</h4>
+                <h4 className="font-bold text-lg mb-3">{t('usaSnacksPackagingGuide.sections.case-study.solPhase1Header')}</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <p className="font-bold mb-2">Order Details:</p>
+                    <p className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.case-study.solPhase1DetailsHeader')}</p>
                     <ul className="space-y-1">
-                      <li>• 100 bags per SKU (300 total)</li>
-                      <li>• 8oz Stand-up Pouch (120×200mm)</li>
-                      <li>• Kraft + PLA compostable material</li>
-                      <li>• Digital printing (full-color designs)</li>
-                      <li>• Resealable zipper + hang hole</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase1Detail1')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase1Detail2')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase1Detail3')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase1Detail4')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase1Detail5')}</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-bold mb-2">Investment:</p>
+                    <p className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.case-study.solPhase1InvHeader')}</p>
                     <ul className="space-y-1">
-                      <li>• Cost: $1.10 × 300 = $330</li>
-                      <li>• Design service: $100</li>
-                      <li>• Shipping (DHL Express): $75</li>
-                      <li><strong>Total: $505</strong></li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase1Inv1')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase1Inv2')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase1Inv3')}</li>
+                      <li><strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase1InvTotal')}</strong></li>
                     </ul>
                   </div>
                 </div>
                 <div className="mt-4 bg-white border-2 border-black p-3">
-                  <p className="text-sm"><strong>Outcome:</strong> Sold 250 bags at farmers markets in 4 weeks. Got direct feedback on flavors and packaging appeal.</p>
+                  <p className="text-sm"><strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase1OutHeader')}</strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase1OutText')}</p>
                 </div>
               </div>
 
               <div className="bg-blue-50 border-2 border-blue-600 p-6">
-                <h4 className="font-bold text-lg mb-3">Phase 2: Retail Push (500 Bags)</h4>
+                <h4 className="font-bold text-lg mb-3">{t('usaSnacksPackagingGuide.sections.case-study.solPhase2Header')}</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <p className="font-bold mb-2">Order Details:</p>
+                    <p className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.case-study.solPhase2DetailsHeader')}</p>
                     <ul className="space-y-1">
-                      <li>• 500 bags (most popular SKU only)</li>
-                      <li>• Same compostable material</li>
-                      <li>• Refined design based on customer feedback</li>
-                      <li>• Added \"ASTM D6400 Certified\" badge</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase2Detail1')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase2Detail2')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase2Detail3')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase2Detail4')}</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-bold mb-2">Investment:</p>
+                    <p className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.case-study.solPhase2InvHeader')}</p>
                     <ul className="space-y-1">
-                      <li>• Cost: $0.90 × 500 = $450</li>
-                      <li>• Design revision: $50</li>
-                      <li>• Shipping: $110</li>
-                      <li><strong>Total: $610</strong></li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase2Inv1')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase2Inv2')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase2Inv3')}</li>
+                      <li><strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase2InvTotal')}</strong></li>
                     </ul>
                   </div>
                 </div>
                 <div className="mt-4 bg-white border-2 border-black p-3">
-                  <p className="text-sm"><strong>Outcome:</strong> Secured trials with Whole Foods (2 stores) and Sprouts (1 store). Compostable packaging was key approval factor.</p>
+                  <p className="text-sm"><strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase2OutHeader')}</strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase2OutText')}</p>
                 </div>
               </div>
 
               <div className="bg-yellow-50 border-2 border-yellow-600 p-6">
-                <h4 className="font-bold text-lg mb-3">Phase 3: Scale Production (3,000 Bags)</h4>
+                <h4 className="font-bold text-lg mb-3">{t('usaSnacksPackagingGuide.sections.case-study.solPhase3Header')}</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <p className="font-bold mb-2">Order Details:</p>
+                    <p className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.case-study.solPhase3DetailsHeader')}</p>
                     <ul className="space-y-1">
-                      <li>• 3,000 bags across 3 SKUs</li>
-                      <li>• Same design (kept digital print for flexibility)</li>
-                      <li>• Volume pricing unlocked</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase3Detail1')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase3Detail2')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase3Detail3')}</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-bold mb-2">Investment:</p>
+                    <p className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.case-study.solPhase3InvHeader')}</p>
                     <ul className="space-y-1">
-                      <li>• Cost: $0.60 × 3,000 = $1,800</li>
-                      <li>• Shipping (sea freight): $280</li>
-                      <li><strong>Total: $2,080</strong></li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase3Inv1')}</li>
+                      <li>• {t('usaSnacksPackagingGuide.sections.case-study.solPhase3Inv2')}</li>
+                      <li><strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase3InvTotal')}</strong></li>
                     </ul>
                   </div>
                 </div>
                 <div className="mt-4 bg-white border-2 border-black p-3">
-                  <p className="text-sm"><strong>Outcome:</strong> Now in 12 Whole Foods stores, 5 Sprouts, 8 independent grocers. Per-unit cost dropped 45% from Phase 1.</p>
+                  <p className="text-sm"><strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase3OutHeader')}</strong>{t('usaSnacksPackagingGuide.sections.case-study.solPhase3OutText')}</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="bg-[#D4FF00] border-4 border-black p-8">
-            <h3 className="font-black text-2xl uppercase mb-6">The Results: Business Impact</h3>
+            <h3 className="font-black text-2xl uppercase mb-6">{t('usaSnacksPackagingGuide.sections.case-study.resTitle')}</h3>
             
             <div className="grid md:grid-cols-4 gap-6">
               <div className="bg-white border-2 border-black p-6 text-center">
-                <div className="text-4xl font-black mb-2">3</div>
-                <div className="text-sm font-bold">Months to Profitability</div>
+                <div className="text-4xl font-black mb-2">{t('usaSnacksPackagingGuide.sections.case-study.res1Value')}</div>
+                <div className="text-sm font-bold">{t('usaSnacksPackagingGuide.sections.case-study.res1Desc')}</div>
               </div>
               <div className="bg-white border-2 border-black p-6 text-center">
-                <div className="text-4xl font-black mb-2">25</div>
-                <div className="text-sm font-bold">Retail Locations (from 0)</div>
+                <div className="text-4xl font-black mb-2">{t('usaSnacksPackagingGuide.sections.case-study.res2Value')}</div>
+                <div className="text-sm font-bold">{t('usaSnacksPackagingGuide.sections.case-study.res2Desc')}</div>
               </div>
               <div className="bg-white border-2 border-black p-6 text-center">
-                <div className="text-4xl font-black mb-2">+18%</div>
-                <div className="text-sm font-bold">Sales Increase YoY</div>
+                <div className="text-4xl font-black mb-2">{t('usaSnacksPackagingGuide.sections.case-study.res3Value')}</div>
+                <div className="text-sm font-bold">{t('usaSnacksPackagingGuide.sections.case-study.res3Desc')}</div>
               </div>
               <div className="bg-white border-2 border-black p-6 text-center">
-                <div className="text-4xl font-black mb-2">5★</div>
-                <div className="text-sm font-bold">Customer Reviews on Packaging</div>
+                <div className="text-4xl font-black mb-2">{t('usaSnacksPackagingGuide.sections.case-study.res4Value')}</div>
+                <div className="text-sm font-bold">{t('usaSnacksPackagingGuide.sections.case-study.res4Desc')}</div>
               </div>
             </div>
 
             <div className="mt-8 bg-white border-2 border-black p-6">
-              <h4 className="font-bold text-lg mb-3">Key Takeaways:</h4>
+              <h4 className="font-bold text-lg mb-3">{t('usaSnacksPackagingGuide.sections.case-study.takeawayHeader')}</h4>
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
-                  <p className="font-bold mb-2">✓ What Worked:</p>
+                  <p className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.case-study.takeawayGoodHeader')}</p>
                   <ul className="space-y-1">
-                    <li>• Started with 100 pieces to test product-market fit</li>
-                    <li>• Compostable packaging opened doors to premium retailers</li>
-                    <li>• Low MOQ allowed SKU testing before committing</li>
-                    <li>• Total investment: $3,195 over 3 phases (vs $4,500 traditional)</li>
-                    <li>• Avoided being stuck with wrong design or overstock</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.case-study.takeawayGood1')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.case-study.takeawayGood2')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.case-study.takeawayGood3')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.case-study.takeawayGood4')}</li>
+                    <li>• {t('usaSnacksPackagingGuide.sections.case-study.takeawayGood5')}</li>
                   </ul>
                 </div>
                 <div>
-                  <p className="font-bold mb-2">💬 Founder Quote:</p>
-                  <p className="italic">\"The compostable packaging wasn\'t just a sustainability choice—it was our key to Whole Foods. Buyers told us directly that our ASTM D6400 certification was a major factor. Low MOQ let us prove the concept without betting the farm.\"</p>
-                  <p className="mt-2 font-bold">— Sarah Chen, Founder</p>
+                  <p className="font-bold mb-2">{t('usaSnacksPackagingGuide.sections.case-study.quoteHeader')}</p>
+                  <p className="italic">{t('usaSnacksPackagingGuide.sections.case-study.founderQuote')}</p>
+                  <p className="mt-2 font-bold">{t('usaSnacksPackagingGuide.sections.case-study.founderName')}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       )
-    }
-  ,
+    },
     {
       id: 'b2b-store-links',
-      title: 'Contextual B2B Store Products',
+      title: t('usaSnacksPackagingGuide.sections.b2b-store-links.title'),
       icon: <span className="text-xl">🛒</span>,
       content: (
         <div className="space-y-6">
           <p className="text-lg leading-relaxed">
-            For packaging buyers planning their next production run, we recommend starting with our <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">B2B Biodegradable Sample Kit</a> to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Custom Eco Rollstock Film</a>. If you are packaging confectionery or small items, our premium <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Cellophane Candy Wrapper</a> offers excellent clarity and compostability.
+            {t('usaSnacksPackagingGuide.sections.b2b-store-links.p1Part1')}
+            <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('usaSnacksPackagingGuide.sections.b2b-store-links.sampleKit')}</a>
+            {t('usaSnacksPackagingGuide.sections.b2b-store-links.p1Part2')}
+            <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('usaSnacksPackagingGuide.sections.b2b-store-links.rollstockFilm')}</a>
+            {t('usaSnacksPackagingGuide.sections.b2b-store-links.p1Part3')}
+            <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('usaSnacksPackagingGuide.sections.b2b-store-links.candyWrapper')}</a>
+            {t('usaSnacksPackagingGuide.sections.b2b-store-links.p1Part4')}
           </p>
         </div>
       )

@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { Home, Leaf, Award, DollarSign, Briefcase, TrendingUp, Shield, Clock, Target, CheckCircle, AlertCircle, Package } from 'lucide-react'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
+import { useTranslation } from 'react-i18next'
 
 interface BlogArticleSection {
   id: string
@@ -10,104 +11,151 @@ interface BlogArticleSection {
 }
 
 export default function HomeCompostableGuide() {
+  const { t } = useTranslation()
   const sections: BlogArticleSection[] = [
     {
       id: 'why-home-compostable',
-      title: 'Why 65% of Australian and UK Households Choose Home Compostable in 2026',
+      title: t('homeCompostableGuide.sections.whyHomeCompostable.title'),
       icon: <TrendingUp className="h-5 w-5" />,
       content: (
         <div className="space-y-6">
-          <p className="text-lg text-neutral-700 leading-relaxed">
-            Home compostable packaging breaks down in your customer&apos;s <strong>backyard compost bin at ambient temperature (20-30°C)</strong>, no industrial facility needed. This is the ultimate convenience for eco-conscious consumers in Australia, UK, and Germany where <strong>45-65% of households compost at home</strong>.
-          </p>
+          <p 
+            className="text-lg text-neutral-700 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.whyHomeCompostable.intro') }}
+          />
 
           <div className="bg-[#F0F0F0] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">Market Reality Check</h3>
+            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">
+              {t('homeCompostableGuide.sections.whyHomeCompostable.marketRealityTitle')}
+            </h3>
             <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-[#00FFFF] border-2 border-black p-4">
-                <p className="text-3xl font-black">65%</p>
-                <p className="text-sm">Australian households compost at home</p>
+              <div className="bg-[#00FFFF] border-2 border-black p-4 text-black">
+                <p className="text-3xl font-black">{t('homeCompostableGuide.sections.whyHomeCompostable.stat1')}</p>
+                <p className="text-sm">{t('homeCompostableGuide.sections.whyHomeCompostable.stat1Text')}</p>
               </div>
-              <div className="bg-[#D4FF00] border-2 border-black p-4">
-                <p className="text-3xl font-black">45%</p>
-                <p className="text-sm">UK households have compost bins</p>
+              <div className="bg-[#D4FF00] border-2 border-black p-4 text-black">
+                <p className="text-3xl font-black">{t('homeCompostableGuide.sections.whyHomeCompostable.stat2')}</p>
+                <p className="text-sm">{t('homeCompostableGuide.sections.whyHomeCompostable.stat2Text')}</p>
               </div>
-              <div className="bg-[#00FFFF] border-2 border-black p-4">
-                <p className="text-3xl font-black">180</p>
-                <p className="text-sm">Days to full decomposition</p>
+              <div className="bg-[#00FFFF] border-2 border-black p-4 text-black">
+                <p className="text-3xl font-black">{t('homeCompostableGuide.sections.whyHomeCompostable.stat3')}</p>
+                <p className="text-sm">{t('homeCompostableGuide.sections.whyHomeCompostable.stat3Text')}</p>
               </div>
             </div>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Who Needs Home Compostable?</h3>
-            <div className="grid md:grid-cols-3 gap-4">
+            <h3 className="text-xl font-bold">
+              {t('homeCompostableGuide.sections.whyHomeCompostable.whoNeedsTitle')}
+            </h3>
+            <div className="grid md:grid-cols-3 gap-4 text-black">
               <div className="bg-white border-4 border-black p-4">
-                <h4 className="font-bold mb-2">🍵 Specialty Tea Brands</h4>
-                <p className="text-sm text-neutral-600">Loose leaf tea customers want to compost tea <strong>and</strong> the bag together. Home compostable completes the natural product story.</p>
+                <h4 className="font-bold mb-2">
+                  {t('homeCompostableGuide.sections.whyHomeCompostable.whoNeeds1Title')}
+                </h4>
+                <p 
+                  className="text-sm text-neutral-600"
+                  dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.whyHomeCompostable.whoNeeds1Text') }}
+                />
               </div>
               <div className="bg-white border-4 border-black p-4">
-                <h4 className="font-bold mb-2">🥜 Organic Food Brands</h4>
-                <p className="text-sm text-neutral-600">If your product is organic, why should the packaging go to landfill? Home compostable closes the loop.</p>
+                <h4 className="font-bold mb-2">
+                  {t('homeCompostableGuide.sections.whyHomeCompostable.whoNeeds2Title')}
+                </h4>
+                <p 
+                  className="text-sm text-neutral-600"
+                  dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.whyHomeCompostable.whoNeeds2Text') }}
+                />
               </div>
               <div className="bg-white border-4 border-black p-4">
-                <h4 className="font-bold mb-2">🌏 AU/UK/EU Markets</h4>
-                <p className="text-sm text-neutral-600">These markets have <strong>AS 5810, OK Home, and TÜV</strong> certifications. Retailers expect it.</p>
+                <h4 className="font-bold mb-2">
+                  {t('homeCompostableGuide.sections.whyHomeCompostable.whoNeeds3Title')}
+                </h4>
+                <p 
+                  className="text-sm text-neutral-600"
+                  dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.whyHomeCompostable.whoNeeds3Text') }}
+                />
               </div>
             </div>
           </div>
 
           <div className="bg-amber-50 border-l-4 border-amber-500 p-4">
-            <p className="text-sm text-amber-800">
-              <strong>⚠️ Reality Check:</strong> Home compostable costs 25-35% more than industrial compostable and has lower barrier properties. Only choose this if your customers genuinely compost at home and your product has 3-9 month shelf life.
-            </p>
+            <p 
+              className="text-sm text-amber-800"
+              dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.whyHomeCompostable.warning') }}
+            />
           </div>
         </div>
       )
     },
     {
       id: 'certifications',
-      title: 'OK Home vs AS 5810 vs TÜV: Which Certification Does Your Market Need?',
+      title: t('homeCompostableGuide.sections.certifications.title'),
       icon: <Award className="h-5 w-5" />,
       content: (
         <div className="space-y-6">
-          <p className="text-lg text-neutral-700 leading-relaxed">
-            Home compostable certifications prove your packaging breaks down at <strong>ambient temperature</strong>, not just in industrial facilities. Here&apos;s the complete certification breakdown:
-          </p>
+          <p 
+            className="text-lg text-neutral-700 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.certifications.intro') }}
+          />
 
-          <div className="bg-white border-4 border-black overflow-hidden">
+          <div className="bg-white border-4 border-black overflow-hidden text-black">
             <div className="bg-black text-[#D4FF00] p-3">
-              <h3 className="font-bold font-['JetBrains_Mono']">HOME COMPOSTABLE CERTIFICATIONS</h3>
+              <h3 className="font-bold font-['JetBrains_Mono']">
+                {t('homeCompostableGuide.sections.certifications.tableTitle')}
+              </h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-[#F0F0F0]">
                   <tr>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Certification</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Standard</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Temperature</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Market</th>
-                    <th className="px-4 py-3 text-left">Cost</th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.certifications.th1')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.certifications.th2')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.certifications.th3')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.certifications.th4')}
+                    </th>
+                    <th className="px-4 py-3 text-left">
+                      {t('homeCompostableGuide.sections.certifications.th5')}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-t-2 border-black">
-                    <td className="px-4 py-3 border-r-2 border-black font-bold">OK Home (TÜV Austria)</td>
-                    <td className="px-4 py-3 border-r-2 border-black">NF T51-800</td>
+                    <td className="px-4 py-3 border-r-2 border-black font-bold">
+                      {t('homeCompostableGuide.sections.certifications.r1c1')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.certifications.r1c2')}
+                    </td>
                     <td className="px-4 py-3 border-r-2 border-black">20-30°C</td>
                     <td className="px-4 py-3 border-r-2 border-black">EU, UK, Global</td>
                     <td className="px-4 py-3">$8K-$15K</td>
                   </tr>
                   <tr className="border-t-2 border-black bg-[#F0F0F0]">
-                    <td className="px-4 py-3 border-r-2 border-black font-bold">AS 5810</td>
-                    <td className="px-4 py-3 border-r-2 border-black">Australian Standard</td>
+                    <td className="px-4 py-3 border-r-2 border-black font-bold">
+                      {t('homeCompostableGuide.sections.certifications.r2c1')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.certifications.r2c2')}
+                    </td>
                     <td className="px-4 py-3 border-r-2 border-black">20-30°C</td>
                     <td className="px-4 py-3 border-r-2 border-black">Australia, NZ</td>
                     <td className="px-4 py-3">$7K-$12K</td>
                   </tr>
                   <tr className="border-t-2 border-black">
-                    <td className="px-4 py-3 border-r-2 border-black font-bold">TÜV Home Compost</td>
-                    <td className="px-4 py-3 border-r-2 border-black">DIN EN 13432 Home</td>
+                    <td className="px-4 py-3 border-r-2 border-black font-bold">
+                      {t('homeCompostableGuide.sections.certifications.r3c1')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.certifications.r3c2')}
+                    </td>
                     <td className="px-4 py-3 border-r-2 border-black">20-30°C</td>
                     <td className="px-4 py-3 border-r-2 border-black">Germany, EU</td>
                     <td className="px-4 py-3">$9K-$16K</td>
@@ -117,89 +165,145 @@ export default function HomeCompostableGuide() {
             </div>
           </div>
 
-          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">Which Certification Do You Need?</h3>
+          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
+            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">
+              {t('homeCompostableGuide.sections.certifications.whichNeedTitle')}
+            </h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <p><strong>Selling in Australia/NZ?</strong> AS 5810 is mandatory. ABA (Australasian Bioplastics Association) certification required for retail.</p>
+                <p dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.certifications.need1') }} />
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <p><strong>Selling in EU/UK?</strong> OK Home (TÜV Austria) is the gold standard. Recognized across Europe.</p>
+                <p dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.certifications.need2') }} />
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <p><strong>Selling in Germany specifically?</strong> TÜV Home Compost certification preferred by German retailers.</p>
+                <p dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.certifications.need3') }} />
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <p><strong>Global launch?</strong> Get dual certification (OK Home + AS 5810) for $15K-$25K total. Covers AU, EU, UK, NZ.</p>
+                <p dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.certifications.need4') }} />
               </div>
             </div>
           </div>
 
           <div className="bg-amber-50 border-l-4 border-amber-500 p-4">
-            <p className="text-sm text-amber-800">
-              <strong>Cost-Saving Tip:</strong> Use Achieve Pack&apos;s already-certified materials to skip the $7K-$16K certification cost. We hold OK Home and AS 5810 certificates—you get certified packaging without paying for testing.
-            </p>
+            <p 
+              className="text-sm text-amber-800"
+              dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.certifications.tip') }}
+            />
           </div>
         </div>
       )
     },
     {
       id: 'material-options',
-      title: 'Material Options: Kraft/PLA vs PBAT/PLA vs NatureFlex™ Compared',
+      title: t('homeCompostableGuide.sections.materialOptions.title'),
       icon: <Leaf className="h-5 w-5" />,
       content: (
         <div className="space-y-6">
-          <p className="text-lg text-neutral-700 leading-relaxed">
-            Home compostable materials must break down at <strong>20-30°C ambient temperature</strong>, which limits barrier options. Here&apos;s what actually works:
-          </p>
+          <p 
+            className="text-lg text-neutral-700 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.intro') }}
+          />
 
           <div className="bg-white border-4 border-black overflow-hidden">
             <div className="bg-black text-[#D4FF00] p-3">
-              <h3 className="font-bold font-['JetBrains_Mono']">HOME COMPOSTABLE MATERIAL PERFORMANCE</h3>
+              <h3 className="font-bold font-['JetBrains_Mono']">
+                {t('homeCompostableGuide.sections.materialOptions.tableTitle')}
+              </h3>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto text-black">
               <table className="w-full text-sm">
                 <thead className="bg-[#F0F0F0]">
                   <tr>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Material</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Barrier Level</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Shelf Life</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Decomposition</th>
-                    <th className="px-4 py-3 text-left">Best For</th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.th1')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.th2')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.th3')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.th4')}
+                    </th>
+                    <th className="px-4 py-3 text-left">
+                      {t('homeCompostableGuide.sections.materialOptions.th5')}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-t-2 border-black">
-                    <td className="px-4 py-3 border-r-2 border-black font-bold">Kraft + PLA</td>
-                    <td className="px-4 py-3 border-r-2 border-black">Low</td>
-                    <td className="px-4 py-3 border-r-2 border-black">3-6 months</td>
-                    <td className="px-4 py-3 border-r-2 border-black">90-180 days</td>
-                    <td className="px-4 py-3">Tea, herbs, dried fruit</td>
+                    <td className="px-4 py-3 border-r-2 border-black font-bold">
+                      {t('homeCompostableGuide.sections.materialOptions.r1c1')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r1c2')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r1c3')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r1c4')}
+                    </td>
+                    <td className="px-4 py-3">
+                      {t('homeCompostableGuide.sections.materialOptions.r1c5')}
+                    </td>
                   </tr>
                   <tr className="border-t-2 border-black bg-[#F0F0F0]">
-                    <td className="px-4 py-3 border-r-2 border-black font-bold">PBAT/PLA Blend</td>
-                    <td className="px-4 py-3 border-r-2 border-black">Medium</td>
-                    <td className="px-4 py-3 border-r-2 border-black">6-9 months</td>
-                    <td className="px-4 py-3 border-r-2 border-black">90-180 days</td>
-                    <td className="px-4 py-3">Organic snacks, granola</td>
+                    <td className="px-4 py-3 border-r-2 border-black font-bold">
+                      {t('homeCompostableGuide.sections.materialOptions.r2c1')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r2c2')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r2c3')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r2c4')}
+                    </td>
+                    <td className="px-4 py-3">
+                      {t('homeCompostableGuide.sections.materialOptions.r2c5')}
+                    </td>
                   </tr>
                   <tr className="border-t-2 border-black">
-                    <td className="px-4 py-3 border-r-2 border-black font-bold">NatureFlex™ (Cellulose)</td>
-                    <td className="px-4 py-3 border-r-2 border-black">Medium-High</td>
-                    <td className="px-4 py-3 border-r-2 border-black">6-12 months</td>
-                    <td className="px-4 py-3 border-r-2 border-black">45-90 days</td>
-                    <td className="px-4 py-3">Coffee (short roast), nuts</td>
+                    <td className="px-4 py-3 border-r-2 border-black font-bold">
+                      {t('homeCompostableGuide.sections.materialOptions.r3c1')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r3c2')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r3c3')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r3c4')}
+                    </td>
+                    <td className="px-4 py-3">
+                      {t('homeCompostableGuide.sections.materialOptions.r3c5')}
+                    </td>
                   </tr>
                   <tr className="border-t-2 border-black bg-[#F0F0F0]">
-                    <td className="px-4 py-3 border-r-2 border-black font-bold">Paper + PLA Coating</td>
-                    <td className="px-4 py-3 border-r-2 border-black">Low</td>
-                    <td className="px-4 py-3 border-r-2 border-black">3-6 months</td>
-                    <td className="px-4 py-3 border-r-2 border-black">60-120 days</td>
-                    <td className="px-4 py-3">Dry goods, bulk items</td>
+                    <td className="px-4 py-3 border-r-2 border-black font-bold">
+                      {t('homeCompostableGuide.sections.materialOptions.r4c1')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r4c2')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r4c3')}
+                    </td>
+                    <td className="px-4 py-3 border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.materialOptions.r4c4')}
+                    </td>
+                    <td className="px-4 py-3">
+                      {t('homeCompostableGuide.sections.materialOptions.r4c5')}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -208,66 +312,76 @@ export default function HomeCompostableGuide() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-50 border-4 border-green-500 p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-800">✅ Home Compostable Strengths</h3>
+              <h3 className="text-xl font-bold mb-3 text-green-800">
+                {t('homeCompostableGuide.sections.materialOptions.strengthsTitle')}
+              </h3>
               <ul className="space-y-2 text-sm text-green-700">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600">▸</span>
-                  <span><strong>Consumer Convenience:</strong> Compost at home in backyard bin, no facility needed</span>
+                  <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.strength1') }} />
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600">▸</span>
-                  <span><strong>Premium Positioning:</strong> &quot;Home compostable&quot; commands 10-15% price premium</span>
+                  <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.strength2') }} />
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600">▸</span>
-                  <span><strong>Market Access:</strong> Required for organic certification in some AU/EU markets</span>
+                  <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.strength3') }} />
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600">▸</span>
-                  <span><strong>Brand Story:</strong> Complete the eco-narrative from product to packaging disposal</span>
+                  <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.strength4') }} />
                 </li>
               </ul>
             </div>
 
             <div className="bg-red-50 border-4 border-red-500 p-6">
-              <h3 className="text-xl font-bold mb-3 text-red-800">⚠️ Home Compostable Limitations</h3>
+              <h3 className="text-xl font-bold mb-3 text-red-800">
+                {t('homeCompostableGuide.sections.materialOptions.limitsTitle')}
+              </h3>
               <ul className="space-y-2 text-sm text-red-700">
                 <li className="flex items-start gap-2">
                   <span className="text-red-600">▸</span>
-                  <span><strong>Lower Barrier:</strong> Cannot match high-barrier films for long shelf life products</span>
+                  <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.limit1') }} />
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-600">▸</span>
-                  <span><strong>Higher Cost:</strong> +25-35% vs industrial compostable, +50-70% vs plastic</span>
+                  <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.limit2') }} />
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-600">▸</span>
-                  <span><strong>Shelf Life Limited:</strong> Best for 3-9 month shelf life products</span>
+                  <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.limit3') }} />
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-600">▸</span>
-                  <span><strong>Market Mismatch:</strong> Useless if customers don&apos;t compost at home (e.g., urban USA)</span>
+                  <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.materialOptions.limit4') }} />
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="bg-[#D4FF00] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">Decision Tree: Home vs Industrial Compostable?</h3>
+          <div className="bg-[#D4FF00] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
+            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">
+              {t('homeCompostableGuide.sections.materialOptions.treeTitle')}
+            </h3>
             <div className="space-y-3 text-sm">
-              <p><strong>Choose Home Compostable if:</strong></p>
+              <p><strong>{t('homeCompostableGuide.sections.materialOptions.treeHomeHeader')}</strong></p>
               <ul className="ml-6 space-y-1">
-                <li>✓ Selling in AU/UK/Germany where home composting is common (45-65% adoption)</li>
-                <li>✓ Your product has 3-9 month shelf life and low-medium barrier needs</li>
-                <li>✓ Customers are eco-conscious and likely to compost (tea drinkers, organic buyers)</li>
-                <li>✓ Premium positioning justifies the 25-35% cost increase</li>
+                <li>{t('homeCompostableGuide.sections.materialOptions.treeHome1')}</li>
+                <li>{t('homeCompostableGuide.sections.materialOptions.treeHome2')}</li>
+                <li>{t('homeCompostableGuide.sections.materialOptions.treeHome3')}</li>
+                <li>{t('homeCompostableGuide.sections.materialOptions.treeHome4')}</li>
               </ul>
-              <p className="mt-4"><strong>Choose Industrial Compostable if:</strong></p>
+              <p className="mt-4"><strong>{t('homeCompostableGuide.sections.materialOptions.treeIndHeader')}</strong></p>
               <ul className="ml-6 space-y-1">
-                <li>✓ Need 9-12+ month shelf life or higher barrier properties</li>
-                <li>✓ Selling in USA where home composting is &lt;10% (industrial facilities more accessible)</li>
-                <li>✓ Cost-sensitive market where +15-25% premium (vs plastic) is more acceptable</li>
-                <li>✓ <a href="https://achievepack.com/materials/industrial-compostable" className="underline text-black hover:text-[#10b981]">Learn more about industrial compostable →</a></li>
+                <li>{t('homeCompostableGuide.sections.materialOptions.treeInd1')}</li>
+                <li>{t('homeCompostableGuide.sections.materialOptions.treeInd2')}</li>
+                <li>{t('homeCompostableGuide.sections.materialOptions.treeInd3')}</li>
+                <li>
+                  <a href="https://achievepack.com/materials/industrial-compostable" className="underline text-black hover:text-[#10b981]">
+                    {t('homeCompostableGuide.sections.materialOptions.treeIndLink')}
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -276,51 +390,79 @@ export default function HomeCompostableGuide() {
     },
     {
       id: 'specifications',
-      title: 'B2B Technical Specs: Translating Raw Parameters to Procurement Value',
+      title: t('homeCompostableGuide.sections.specifications.title'),
       icon: <Package className="h-5 w-5" />,
       content: (
         <div className="space-y-6">
           <p className="text-lg text-neutral-700 leading-relaxed">
-            Professional B2B buyers need clear specifications showing how home compostable barrier films perform on automated lines and during transport:
+            {t('homeCompostableGuide.sections.specifications.intro')}
           </p>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto text-black">
             <table className="w-full border-4 border-black bg-white">
               <thead>
                 <tr className="bg-black text-[#D4FF00]">
-                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">Raw Technical Parameter</th>
-                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">B2B Procurement Value / Operational Utility</th>
-                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">Standard Factory Specification</th>
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">
+                    {t('homeCompostableGuide.sections.specifications.th1')}
+                  </th>
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">
+                    {t('homeCompostableGuide.sections.specifications.th2')}
+                  </th>
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">
+                    {t('homeCompostableGuide.sections.specifications.th3')}
+                  </th>
                 </tr>
               </thead>
               <tbody className="font-mono text-xs">
                 <tr className="bg-[#F0F0F0]">
-                  <td className="border-2 border-black p-3 font-bold">NatureFlex™ Cellulose Laminate</td>
-                  <td className="border-2 border-black p-3 text-neutral-800">
-                    <strong>High-Barrier Eco Block:</strong> Excellent gas barrier preserves flavor and freshness while complying fully with OK Compost HOME.
+                  <td className="border-2 border-black p-3 font-bold">
+                    {t('homeCompostableGuide.sections.specifications.r1c1')}
                   </td>
-                  <td className="border-2 border-black p-3">NatureFlex™ NM Cellulose / Bio-PBS Seal. <strong>OTR &lt; 1.0, WVTR &lt; 1.5</strong>.</td>
+                  <td 
+                    className="border-2 border-black p-3 text-neutral-800"
+                    dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.specifications.r1c2') }}
+                  />
+                  <td 
+                    className="border-2 border-black p-3"
+                    dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.specifications.r1c3') }}
+                  />
                 </tr>
                 <tr>
-                  <td className="border-2 border-black p-3 font-bold">110 Micron Caliper Thickness</td>
-                  <td className="border-2 border-black p-3 text-neutral-800">
-                    <strong>Production Runnability:</strong> Optimized tensile strength prevents bag burst and web break on automated vertical bagging lines.
+                  <td className="border-2 border-black p-3 font-bold">
+                    {t('homeCompostableGuide.sections.specifications.r2c1')}
                   </td>
-                  <td className="border-2 border-black p-3">110µm thickness gauge (Tolerances ±3% in size calibrator).</td>
+                  <td 
+                    className="border-2 border-black p-3 text-neutral-800"
+                    dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.specifications.r2c2') }}
+                  />
+                  <td className="border-2 border-black p-3">
+                    {t('homeCompostableGuide.sections.specifications.r2c3')}
+                  </td>
                 </tr>
                 <tr className="bg-[#F0F0F0]">
-                  <td className="border-2 border-black p-3 font-bold">Soft-Touch Anti-Scratch Matte</td>
-                  <td className="border-2 border-black p-3 text-neutral-800">
-                    <strong>Transport Integrity:</strong> Durable outer matte layer prevents micro-scuffs and scuff marks during maritime container shipping.
+                  <td className="border-2 border-black p-3 font-bold">
+                    {t('homeCompostableGuide.sections.specifications.r3c1')}
                   </td>
-                  <td className="border-2 border-black p-3">Anti-Scratch Soft-Touch Lamination (Rejection rate &lt; 0.1% on arrival).</td>
+                  <td 
+                    className="border-2 border-black p-3 text-neutral-800"
+                    dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.specifications.r3c2') }}
+                  />
+                  <td 
+                    className="border-2 border-black p-3"
+                    dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.specifications.r3c3') }}
+                  />
                 </tr>
                 <tr>
-                  <td className="border-2 border-black p-3 font-bold">Double-Wall Heavy Cartons</td>
-                  <td className="border-2 border-black p-3 text-neutral-800">
-                    <strong>Logistical Care:</strong> Sturdy export boxes lined with thick protective PE polybags safeguard organic films from marine moisture.
+                  <td className="border-2 border-black p-3 font-bold">
+                    {t('homeCompostableGuide.sections.specifications.r4c1')}
                   </td>
-                  <td className="border-2 border-black p-3">5-ply double-wall boxes + vacuum poly lining bags + dry silica gel packs.</td>
+                  <td 
+                    className="border-2 border-black p-3 text-neutral-800"
+                    dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.specifications.r4c2') }}
+                  />
+                  <td className="border-2 border-black p-3">
+                    {t('homeCompostableGuide.sections.specifications.r4c3')}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -330,27 +472,40 @@ export default function HomeCompostableGuide() {
     },
     {
       id: 'transparent-pricing',
-      title: 'Transparent Pricing: What Home Compostable Packaging Costs',
+      title: t('homeCompostableGuide.sections.transparentPricing.title'),
       icon: <DollarSign className="h-5 w-5" />,
       content: (
         <div className="space-y-6">
-          <p className="text-lg text-neutral-700 leading-relaxed">
-            Home compostable pouches cost <strong>25-35% more than industrial compostable</strong> and <strong>50-70% more than plastic</strong>. Here&apos;s the complete pricing breakdown:
-          </p>
+          <p 
+            className="text-lg text-neutral-700 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.transparentPricing.intro') }}
+          />
 
-          <div className="bg-white border-4 border-black overflow-hidden">
+          <div className="bg-white border-4 border-black overflow-hidden text-black">
             <div className="bg-black text-[#D4FF00] p-3">
-              <h3 className="font-bold font-['JetBrains_Mono']">HOME COMPOSTABLE STAND-UP POUCH PRICING (KRAFT + PLA)</h3>
+              <h3 className="font-bold font-['JetBrains_Mono']">
+                {t('homeCompostableGuide.sections.transparentPricing.tableTitle')}
+              </h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-[#F0F0F0]">
                   <tr>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">Size</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">100 pieces</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">500 pieces</th>
-                    <th className="px-4 py-3 text-left border-r-2 border-black">1,000 pieces</th>
-                    <th className="px-4 py-3 text-left">3,000 pieces</th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.transparentPricing.th1')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.transparentPricing.th2')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.transparentPricing.th3')}
+                    </th>
+                    <th className="px-4 py-3 text-left border-r-2 border-black">
+                      {t('homeCompostableGuide.sections.transparentPricing.th4')}
+                    </th>
+                    <th className="px-4 py-3 text-left">
+                      {t('homeCompostableGuide.sections.transparentPricing.th5')}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -387,188 +542,220 @@ export default function HomeCompostableGuide() {
             </div>
           </div>
 
-          <div className="bg-[#F0F0F0] border-4 border-black p-6">
-            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">Cost Breakdown: Where Does Your Money Go?</h3>
+          <div className="bg-[#F0F0F0] border-4 border-black p-6 text-black">
+            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">
+              {t('homeCompostableGuide.sections.transparentPricing.costTitle')}
+            </h3>
             <div className="grid md:grid-cols-4 gap-4 text-sm">
               <div className="bg-white border-2 border-black p-4 text-center">
-                <p className="text-2xl font-black">35-40%</p>
-                <p className="text-xs mt-2">Raw Material (PLA resin, kraft paper)</p>
+                <p className="text-2xl font-black">{t('homeCompostableGuide.sections.transparentPricing.cost1')}</p>
+                <p className="text-xs mt-2">{t('homeCompostableGuide.sections.transparentPricing.cost1Text')}</p>
               </div>
               <div className="bg-white border-2 border-black p-4 text-center">
-                <p className="text-2xl font-black">25-30%</p>
-                <p className="text-xs mt-2">Manufacturing and Labor</p>
+                <p className="text-2xl font-black">{t('homeCompostableGuide.sections.transparentPricing.cost2')}</p>
+                <p className="text-xs mt-2">{t('homeCompostableGuide.sections.transparentPricing.cost2Text')}</p>
               </div>
               <div className="bg-white border-2 border-black p-4 text-center">
-                <p className="text-2xl font-black">15-20%</p>
-                <p className="text-xs mt-2">Certification Amortization</p>
+                <p className="text-2xl font-black">{t('homeCompostableGuide.sections.transparentPricing.cost3')}</p>
+                <p className="text-xs mt-2">{t('homeCompostableGuide.sections.transparentPricing.cost3Text')}</p>
               </div>
               <div className="bg-white border-2 border-black p-4 text-center">
-                <p className="text-2xl font-black">10-15%</p>
-                <p className="text-xs mt-2">Printing and QC</p>
+                <p className="text-2xl font-black">{t('homeCompostableGuide.sections.transparentPricing.cost4')}</p>
+                <p className="text-xs mt-2">{t('homeCompostableGuide.sections.transparentPricing.cost4Text')}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">ROI Calculator: Is the Premium Worth It?</h3>
+          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
+            <h3 className="text-xl font-bold mb-4 font-['JetBrains_Mono']">
+              {t('homeCompostableGuide.sections.transparentPricing.roiTitle')}
+            </h3>
             <div className="space-y-4 text-sm">
               <div className="bg-white border-2 border-black p-4">
-                <p className="font-bold mb-2">Example: Australian Tea Brand (1,000 bags/month)</p>
+                <p className="font-bold mb-2">
+                  {t('homeCompostableGuide.sections.transparentPricing.roiSub')}
+                </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-xs text-neutral-600">Plastic Pouch Cost</p>
+                    <p className="text-xs text-neutral-600">
+                      {t('homeCompostableGuide.sections.transparentPricing.plasticCost')}
+                    </p>
                     <p className="text-lg font-bold">$0.50/bag × 1,000 = $500</p>
                   </div>
                   <div>
-                    <p className="text-xs text-neutral-600">Home Compostable Cost</p>
+                    <p className="text-xs text-neutral-600">
+                      {t('homeCompostableGuide.sections.transparentPricing.compostCost')}
+                    </p>
                     <p className="text-lg font-bold">$0.85/bag × 1,000 = $850</p>
                   </div>
                 </div>
-                <p className="mt-2 text-amber-700"><strong>Extra Cost:</strong> +$350/month (+70%)</p>
+                <p className="mt-2 text-amber-700"><strong>{t('homeCompostableGuide.sections.transparentPricing.extraCost')}</strong></p>
               </div>
 
               <div className="bg-white border-2 border-black p-4">
-                <p className="font-bold mb-2">Value Created:</p>
+                <p className="font-bold mb-2">{t('homeCompostableGuide.sections.transparentPricing.valueTitle')}</p>
                 <ul className="space-y-1">
-                  <li>✓ <strong>Price Premium:</strong> Charge $1.50-$2.00 more per unit (consumers pay 10-15% more for home compostable)</li>
-                  <li>✓ <strong>Marketing Angle:</strong> &quot;The ONLY tea you can compost bag and all&quot; differentiates in crowded market</li>
-                  <li>✓ <strong>Retailer Access:</strong> Required for some organic retailers in AU/UK</li>
-                  <li>✓ <strong>Customer Retention:</strong> 40% of eco-conscious consumers mention packaging in reviews</li>
+                  <li>{t('homeCompostableGuide.sections.transparentPricing.v1')}</li>
+                  <li>{t('homeCompostableGuide.sections.transparentPricing.v2')}</li>
+                  <li>{t('homeCompostableGuide.sections.transparentPricing.v3')}</li>
+                  <li>{t('homeCompostableGuide.sections.transparentPricing.v4')}</li>
                 </ul>
-                <p className="mt-2 text-green-700"><strong>Net Impact:</strong> +$1,000-$1,500/month revenue from premium positioning</p>
+                <p 
+                  className="mt-2 text-green-700"
+                  dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.transparentPricing.netImpact') }}
+                />
               </div>
             </div>
           </div>
 
           <div className="bg-amber-50 border-l-4 border-amber-500 p-4">
-            <p className="text-sm text-amber-800">
-              <strong>Budget Tip:</strong> Start with 100-500 pieces digital print run ($0.85-$1.40/bag) to test market response before committing to 3,000+ piece plate print runs. You&apos;ll pay higher unit cost but lower total investment.
-            </p>
+            <p 
+              className="text-sm text-amber-800"
+              dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.transparentPricing.budgetTip') }}
+            />
           </div>
         </div>
       )
     },
     {
       id: 'case-study',
-      title: 'Case Study: Melbourne Herbal Tea Co. Achieves 40% Review Mentions with Home Compostable',
+      title: t('homeCompostableGuide.sections.caseStudy.title'),
       icon: <Briefcase className="h-5 w-5" />,
       content: (
         <div className="space-y-6">
-          <div className="bg-[#F0F0F0] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <div className="bg-[#F0F0F0] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
             <div className="flex items-center gap-3 mb-4">
-              <Package className="h-8 w-8" />
+              <Package className="h-8 w-8 text-black" />
               <div>
                 <h3 className="text-xl font-bold font-['JetBrains_Mono']">Melbourne Herbal Tea Co.</h3>
-                <p className="text-sm text-neutral-600">Organic tea blends • Melbourne, Australia • Launched 2024</p>
+                <p className="text-sm text-neutral-600">
+                  {t('homeCompostableGuide.sections.caseStudy.introSub')}
+                </p>
               </div>
             </div>
-            <div className="grid md:grid-cols-3 gap-4 text-sm">
+            <div className="grid md:grid-cols-3 gap-4 text-sm text-black">
               <div className="bg-white border-2 border-black p-3 text-center">
-                <p className="text-2xl font-black text-[#10b981]">40%</p>
-                <p className="text-xs">Customer reviews mention packaging</p>
+                <p className="text-2xl font-black text-[#10b981]">{t('homeCompostableGuide.sections.caseStudy.stat1')}</p>
+                <p className="text-xs">{t('homeCompostableGuide.sections.caseStudy.stat1Text')}</p>
               </div>
               <div className="bg-white border-2 border-black p-3 text-center">
-                <p className="text-2xl font-black text-[#10b981]">25%</p>
-                <p className="text-xs">Sales increase after switch</p>
+                <p className="text-2xl font-black text-[#10b981]">{t('homeCompostableGuide.sections.caseStudy.stat2')}</p>
+                <p className="text-xs">{t('homeCompostableGuide.sections.caseStudy.stat2Text')}</p>
               </div>
               <div className="bg-white border-2 border-black p-3 text-center">
-                <p className="text-2xl font-black text-[#10b981]">$0.95</p>
-                <p className="text-xs">Final unit cost (1,000 pcs AS 5810)</p>
+                <p className="text-2xl font-black text-[#10b981]">{t('homeCompostableGuide.sections.caseStudy.stat3')}</p>
+                <p className="text-xs">{t('homeCompostableGuide.sections.caseStudy.stat3Text')}</p>
               </div>
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 text-black">
             <div className="bg-white border-4 border-black p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="bg-[#00FFFF] border-2 border-black px-3 py-1 font-bold text-sm">PHASE 1</div>
-                <h3 className="text-lg font-bold">The Problem: Plastic Packaging Contradicted Brand Values</h3>
+                <div className="bg-[#00FFFF] border-2 border-black px-3 py-1 font-bold text-sm">
+                  {t('homeCompostableGuide.sections.caseStudy.p1Title')}
+                </div>
+                <h3 className="text-lg font-bold">
+                  {t('homeCompostableGuide.sections.caseStudy.p1Header')}
+                </h3>
               </div>
               <ul className="space-y-2 text-sm text-neutral-700">
-                <li>• Selling organic loose leaf tea in plastic pouches created cognitive dissonance</li>
-                <li>• Customer feedback: &quot;Love the tea, but why plastic packaging?&quot;</li>
-                <li>• Competitors using compostable were winning shelf space in organic stores</li>
-                <li>• Needed AS 5810 certification for Australian market compliance</li>
+                <li>{t('homeCompostableGuide.sections.caseStudy.p1_1')}</li>
+                <li>{t('homeCompostableGuide.sections.caseStudy.p1_2')}</li>
+                <li>{t('homeCompostableGuide.sections.caseStudy.p1_3')}</li>
+                <li>{t('homeCompostableGuide.sections.caseStudy.p1_4')}</li>
               </ul>
             </div>
 
             <div className="bg-white border-4 border-black p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="bg-[#D4FF00] border-2 border-black px-3 py-1 font-bold text-sm">PHASE 2</div>
-                <h3 className="text-lg font-bold">The Solution: AS 5810 Certified Home Compostable Pouches</h3>
+                <div className="bg-[#D4FF00] border-2 border-black px-3 py-1 font-bold text-sm">
+                  {t('homeCompostableGuide.sections.caseStudy.p2Title')}
+                </div>
+                <h3 className="text-lg font-bold">
+                  {t('homeCompostableGuide.sections.caseStudy.p2Header')}
+                </h3>
               </div>
               <div className="space-y-3 text-sm text-neutral-700">
-                <p><strong>Material Selected:</strong> Kraft + PLA (OK Home and AS 5810 certified)</p>
+                <p><strong>{t('homeCompostableGuide.sections.caseStudy.p2Sel')}</strong></p>
                 <ul className="space-y-2 ml-4">
-                  <li>• <strong>Initial Order:</strong> 500 pieces digital print @ $1.20/bag = $600 total investment</li>
-                  <li>• <strong>Shelf Life Testing:</strong> 6-month shelf life confirmed (adequate for 3-month turnover)</li>
-                  <li>• <strong>Avoided Costs:</strong> $0 certification (used Achieve Pack&apos;s AS 5810 certificate)</li>
-                  <li>• <strong>Lead Time:</strong> 2 weeks for digital print sample run</li>
+                  <li dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.caseStudy.p2_1') }} />
+                  <li>{t('homeCompostableGuide.sections.caseStudy.p2_2')}</li>
+                  <li>{t('homeCompostableGuide.sections.caseStudy.p2_3')}</li>
+                  <li>{t('homeCompostableGuide.sections.caseStudy.p2_4')}</li>
                 </ul>
-                <p className="mt-3"><strong>Marketing Message:</strong> &quot;Compost your tea leaves AND the bag together—Australia&apos;s first fully home compostable tea packaging.&quot;</p>
+                <p className="mt-3"><strong>{t('homeCompostableGuide.sections.caseStudy.p2Marketing')}</strong></p>
               </div>
             </div>
 
             <div className="bg-white border-4 border-black p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="bg-[#10b981] text-white border-2 border-black px-3 py-1 font-bold text-sm">PHASE 3</div>
-                <h3 className="text-lg font-bold">The Results: 40% Packaging Mentions, 25% Sales Lift</h3>
+                <div className="bg-[#10b981] text-white border-2 border-black px-3 py-1 font-bold text-sm">
+                  {t('homeCompostableGuide.sections.caseStudy.p3Title')}
+                </div>
+                <h3 className="text-lg font-bold">
+                  {t('homeCompostableGuide.sections.caseStudy.p3Header')}
+                </h3>
               </div>
-              <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div className="grid md:grid-cols-2 gap-4 text-sm text-black">
                 <div>
-                  <p className="font-bold mb-2 text-green-700">Financial Impact:</p>
+                  <p className="font-bold mb-2 text-green-700">{t('homeCompostableGuide.sections.caseStudy.p3Fin')}</p>
                   <ul className="space-y-1">
-                    <li>• <strong>Packaging Cost Increase:</strong> +$450/month (+70% vs plastic)</li>
-                    <li>• <strong>Sales Revenue Increase:</strong> +$2,800/month (25% sales lift from $11.2K base)</li>
-                    <li>• <strong>Retailer Expansion:</strong> Accepted by 8 organic stores (required AS 5810)</li>
-                    <li>• <strong>Price Premium:</strong> $1.50 more per unit sustained (from $12.99 to $14.49)</li>
+                    <li dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.caseStudy.p3Fin1') }} />
+                    <li dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.caseStudy.p3Fin2') }} />
+                    <li>{t('homeCompostableGuide.sections.caseStudy.p3Fin3')}</li>
+                    <li>{t('homeCompostableGuide.sections.caseStudy.p3Fin4')}</li>
                   </ul>
                 </div>
                 <div>
-                  <p className="font-bold mb-2 text-green-700">Brand Impact:</p>
+                  <p className="font-bold mb-2 text-green-700">{t('homeCompostableGuide.sections.caseStudy.p3Brand')}</p>
                   <ul className="space-y-1">
-                    <li>• <strong>Review Mentions:</strong> 40% of 5-star reviews mention &quot;compostable packaging&quot;</li>
-                    <li>• <strong>Social Media:</strong> 3 influencer features highlighting packaging sustainability</li>
-                    <li>• <strong>Wholesale Interest:</strong> 12 inquiries from cafes wanting &quot;the tea in compostable bags&quot;</li>
-                    <li>• <strong>Customer Retention:</strong> 68% repurchase rate (up from 52% with plastic)</li>
+                    <li>{t('homeCompostableGuide.sections.caseStudy.p3Brand1')}</li>
+                    <li>{t('homeCompostableGuide.sections.caseStudy.p3Brand2')}</li>
+                    <li>{t('homeCompostableGuide.sections.caseStudy.p3Brand3')}</li>
+                    <li>{t('homeCompostableGuide.sections.caseStudy.p3Brand4')}</li>
                   </ul>
                 </div>
               </div>
-              <div className="bg-[#D4FF00] border-2 border-black p-4 mt-4">
-                <p className="font-bold">Net Profit Impact: +$2,350/month</p>
-                <p className="text-xs mt-1">ROI = 522% (every $1 extra packaging cost generates $5.22 in additional profit)</p>
+              <div className="bg-[#D4FF00] border-2 border-black p-4 mt-4 text-black">
+                <p className="font-bold">{t('homeCompostableGuide.sections.caseStudy.netProfit')}</p>
+                <p className="text-xs mt-1">{t('homeCompostableGuide.sections.caseStudy.roiText')}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="text-xl font-bold mb-3 font-['JetBrains_Mono']">Key Lessons</h3>
+          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
+            <h3 className="text-xl font-bold mb-3 font-['JetBrains_Mono']">
+              {t('homeCompostableGuide.sections.caseStudy.lessonsTitle')}
+            </h3>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <span><strong>Test with 500 pieces first:</strong> Digital print lets you validate market response before big commitment.</span>
+                <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.caseStudy.lesson1') }} />
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <span><strong>Messaging matters:</strong> &quot;Compost leaves AND bag&quot; is more compelling than generic &quot;eco-friendly.&quot;</span>
+                <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.caseStudy.lesson2') }} />
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <span><strong>Certification = retail access:</strong> AS 5810 opened 8 organic stores that required home compostable.</span>
+                <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.caseStudy.lesson3') }} />
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <span><strong>Premium pricing sustained:</strong> Consumers willing to pay $1.50 more for genuine home compostable.</span>
+                <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.caseStudy.lesson4') }} />
               </li>
             </ul>
           </div>
 
           <div className="bg-black text-[#D4FF00] border-4 border-black p-6">
-            <h3 className="text-xl font-bold mb-3 font-['JetBrains_Mono'] text-[#D4FF00]">READY TO REPLICATE THIS SUCCESS?</h3>
+            <h3 className="text-xl font-bold mb-3 font-['JetBrains_Mono'] text-[#D4FF00]">
+              {t('homeCompostableGuide.sections.caseStudy.readyTitle')}
+            </h3>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="text-[#D4FF00]">
-                <p className="mb-2 text-[#D4FF00]">Get AS 5810 or OK Home certified pouches without paying $7K-$16K certification cost.</p>
-                <p className="text-[#D4FF00]">Start with 100-500 pieces to test, scale to 1,000-3,000 pieces once validated.</p>
+                <p className="mb-2 text-[#D4FF00]">{t('homeCompostableGuide.sections.caseStudy.readyLeft1')}</p>
+                <p className="text-[#D4FF00]">{t('homeCompostableGuide.sections.caseStudy.readyLeft2')}</p>
               </div>
               <div className="flex flex-col gap-3">
                 <a 
@@ -577,47 +764,48 @@ export default function HomeCompostableGuide() {
                   rel="noopener noreferrer"
                   className="bg-[#D4FF00] text-black px-6 py-3 border-4 border-black font-bold text-center hover:bg-[#00FFFF] transition-colors"
                 >
-                  BOOK FREE CONSULTATION
+                  {t('homeCompostableGuide.sections.caseStudy.btn1')}
                 </a>
                 <a 
                   href="https://achievepack.com/materials/home-compostable" 
                   className="bg-white text-black px-6 py-3 border-4 border-black font-bold text-center hover:bg-[#F0F0F0] transition-colors"
                 >
-                  VIEW FULL SPECS
+                  {t('homeCompostableGuide.sections.caseStudy.btn2')}
                 </a>
               </div>
             </div>
           </div>
         </div>
       )
-    }
-  ,
+    },
     {
       id: 'b2b-store-links',
-      title: 'Contextual B2B Store Products',
+      title: t('homeCompostableGuide.sections.b2bStoreLinks.title'),
       icon: <span className="text-xl">🛒</span>,
       content: (
-        <div className="space-y-6">
-          <p className="text-lg leading-relaxed">
-            For packaging buyers planning their next production run, we recommend starting with our <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">B2B Biodegradable Sample Kit</a> to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Custom Eco Rollstock Film</a>. If you are packaging confectionery or small items, our premium <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Cellophane Candy Wrapper</a> offers excellent clarity and compostability.
-          </p>
+        <div className="space-y-6 text-black">
+          <p 
+            className="text-lg leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.sections.b2bStoreLinks.intro') }}
+          />
         </div>
       )
-    }]
+    }
+  ]
 
   const relatedArticles = [
     {
-      title: 'Industrial Compostable Guide',
+      title: t('homeCompostableGuide.related.t1'),
       url: '/blog/industrial-compostable-guide',
       image: '/imgs/composting/commercial/a_windrow_composting_facility_0882621.webp'
     },
     {
-      title: 'BPI Certified Guide',
+      title: t('homeCompostableGuide.related.t2'),
       url: '/blog/bpi-certified-guide',
       image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp'
     },
     {
-      title: 'USA Compostable Packaging Guide',
+      title: t('homeCompostableGuide.related.t3'),
       url: '/blog/usa-compostable-guide',
       image: '/imgs/composting/finder/a_achievepack_composting_locator_hero_9733153.webp'
     }
@@ -625,35 +813,35 @@ export default function HomeCompostableGuide() {
 
   const faqSections = [
     {
-      q: "What is the MOQ for custom-printed home compostable pouches?",
-      a: "Our minimum order quantity starts at just 500 units for digital printing with zero plate cylinder fees. For high-volume rotogravure printing, the MOQ is 10,000 units, which reduces the per-unit cost by up to 60%."
+      q: t('homeCompostableGuide.faq.q1'),
+      a: t('homeCompostableGuide.faq.a1')
     },
     {
-      q: "Are the home compostable materials certified to AS 5810 and OK Home standards?",
-      a: "Yes, our raw films are pre-certified under AS 5810 (Australia), OK Compost HOME (TÜV Austria), and NF T51-800. These certifications confirm that the materials disintegrate and biodegrade at ambient home composting temperatures (20-30°C) within 180 days."
+      q: t('homeCompostableGuide.faq.q2'),
+      a: t('homeCompostableGuide.faq.a2')
     },
     {
-      q: "What barrier performance (OTR & WVTR) do these bags provide?",
-      a: "Home compostable barrier materials like metallized NatureFlex™ cellulose provide excellent barriers with OTR < 1.0 cc/m²/day and WVTR < 1.5 g/m²/day, ensuring fresh shelf life for sensitive products like coffee or dried foods."
+      q: t('homeCompostableGuide.faq.q3'),
+      a: t('homeCompostableGuide.faq.a3')
     },
     {
-      q: "Do you offer custom sizes, dielines, and integrated degassing valves?",
-      a: "Absolutely. We provide free vector dielines (.AI/PDF) for standard sizes from 50g to 1kg. We also offer custom dimensions, tear notches, resealable zippers, and certified compostable one-way degassing valves specifically for specialty coffee."
+      q: t('homeCompostableGuide.faq.q4'),
+      a: t('homeCompostableGuide.faq.a4')
     },
     {
-      q: "Can I receive physical sample bags to test run on our automated filling lines?",
-      a: "Yes! We provide free stock sample kits containing various pouch sizes and material configurations. For custom print validation, we can run a 50-pouch pre-production proof batch for a flat fee of $100."
+      q: t('homeCompostableGuide.faq.q5'),
+      a: t('homeCompostableGuide.faq.a5')
     },
     {
-      q: "What are the production and transit lead times for shipping to US/AU/EU?",
-      a: "Custom digital printing takes 12-14 business days from artwork sign-off. Rotogravure cylinder setup and printing requires 21-25 days. Express air shipping takes 3-5 days, while wholesale ocean cargo takes 20-30 days to major global ports."
+      q: t('homeCompostableGuide.faq.q6'),
+      a: t('homeCompostableGuide.faq.a6')
     }
   ]
 
   return (
     <BlogArticleTemplate
-      title="Home Compostable Packaging Guide: OK Home, AS 5810, TÜV Certification [2026]"
-      metaDescription="Complete guide to home compostable packaging with OK Home, AS 5810, and TÜV certification. Material comparison, transparent pricing, and real ROI data from Australian brands."
+      title={t('homeCompostableGuide.title')}
+      metaDescription={t('homeCompostableGuide.metaDescription')}
       canonicalUrl="https://pouch.eco/blog/home-compostable-guide"
       keywords={[
         'home compostable packaging',
@@ -669,16 +857,14 @@ export default function HomeCompostableGuide() {
       modifiedDate="2026-01-30T10:00:00Z"
       author="Achieve Pack Sustainability Team"
       heroTitle={
-        <>
-          Home Compostable Packaging Guide: <span className="text-[#10b981]">OK Home, AS 5810, TÜV</span> Certification
-        </>
+        <span dangerouslySetInnerHTML={{ __html: t('homeCompostableGuide.heroTitle') }} />
       }
-      heroSubtitle="Complete guide to home compostable packaging for brands targeting eco-conscious consumers in Australia, UK, and EU. Includes certification comparison, material options, transparent pricing, and real case studies."
+      heroSubtitle={t('homeCompostableGuide.heroSubtitle')}
       categoryTag="Materials"
       categoryColor="green"
       readTime="15 min"
       heroImage="/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp"
-      heroImageAlt="Home compostable packaging in backyard compost bin"
+      heroImageAlt={t('homeCompostableGuide.heroImageAlt')}
       sections={sections}
       faqSections={faqSections}
       achievePackLink="https://achievepack.com/materials/home-compostable"

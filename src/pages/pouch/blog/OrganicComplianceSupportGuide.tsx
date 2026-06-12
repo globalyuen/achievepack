@@ -1,36 +1,39 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Leaf, Shield, FileCheck, CheckCircle, Package, Download, Building2 } from 'lucide-react'
 
 export default function OrganicComplianceSupportGuide() {
+  const { t } = useTranslation()
+
   const sections = [
     {
       id: 'commitment',
-      title: 'Our Commitment to Organic Brands',
+      title: t('organicComplianceSupportGuide.sections.commitment.title'),
       icon: <Leaf className="w-6 h-6" />,
       content: (
         <div className="space-y-6">
           <p className="text-xl font-bold text-neutral-900">
-            For organic-licensed brands, the packaging is just as important as the product inside.
+            {t('organicComplianceSupportGuide.sections.commitment.p1')}
           </p>
           <p>
-            To maintain your certification (USDA Organic, EU Organic, HKORC, etc.), your packaging must meet strict \"Non-GMO\" and \"Non-Toxicity\" standards. We provide a full <strong>Transparency Kit</strong> to ensure your auditors have everything they need for a seamless approval process.
+            {t('organicComplianceSupportGuide.sections.commitment.p2Part1')}<strong>{t('organicComplianceSupportGuide.sections.commitment.p2Bold')}</strong>{t('organicComplianceSupportGuide.sections.commitment.p2Part2')}
           </p>
           
           <div className="bg-[#D4FF00] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-4">Why Packaging Matters for Organic:</h3>
+            <h3 className="font-black text-2xl uppercase mb-4">{t('organicComplianceSupportGuide.sections.commitment.boxTitle')}</h3>
             <ul className="space-y-3 text-lg">
               <li className="flex items-start gap-3">
                 <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>No chemical migration</strong> into your organic product.</span>
+                <span>{t('organicComplianceSupportGuide.sections.commitment.item1')}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>Non-GMO</strong> feedstocks for bioplastics.</span>
+                <span>{t('organicComplianceSupportGuide.sections.commitment.item2')}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>Full traceability</strong> for your Organic System Plan (OSP).</span>
+                <span>{t('organicComplianceSupportGuide.sections.commitment.item3')}</span>
               </li>
             </ul>
           </div>
@@ -39,33 +42,33 @@ export default function OrganicComplianceSupportGuide() {
     },
     {
       id: 'non-gmo',
-      title: 'The Non-GMO Advantage (Sugarcane Base)',
+      title: t('organicComplianceSupportGuide.sections.non-gmo.title'),
       icon: <CheckCircle className="w-6 h-6" />,
       content: (
         <div className="space-y-6">
           <p>
-            Our compostable stand-up pouches are primarily derived from <strong>Chinese Sugarcane</strong>. This natural feedstock offers significant advantages for organic compliance:
+            {t('organicComplianceSupportGuide.sections.non-gmo.p1Part1')}<strong>{t('organicComplianceSupportGuide.sections.non-gmo.p1Bold')}</strong>{t('organicComplianceSupportGuide.sections.non-gmo.p1Part2')}
           </p>
 
           <div className="space-y-4">
             <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black text-xl uppercase mb-3">Inherently Non-GMO</h4>
+              <h4 className="font-black text-xl uppercase mb-3">{t('organicComplianceSupportGuide.sections.non-gmo.card1Title')}</h4>
               <p>
-                There is currently no genetically modified (GM) sugarcane commercially grown in China. This means our raw materials are naturally compliant with organic \"excluded methods\" requirements, unlike standard corn-based PLA from GMO regions.
+                {t('organicComplianceSupportGuide.sections.non-gmo.card1Desc')}
               </p>
             </div>
             
             <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black text-xl uppercase mb-3">Traceable Sourcing</h4>
+              <h4 className="font-black text-xl uppercase mb-3">{t('organicComplianceSupportGuide.sections.non-gmo.card2Title')}</h4>
               <p>
-                We source our biomass locally to ensure a low carbon footprint and clear chain of custody. Everything from farm to film is documented.
+                {t('organicComplianceSupportGuide.sections.non-gmo.card2Desc')}
               </p>
             </div>
 
             <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black text-xl uppercase mb-3">Zero Contamination</h4>
+              <h4 className="font-black text-xl uppercase mb-3">{t('organicComplianceSupportGuide.sections.non-gmo.card3Title')}</h4>
               <p>
-                Our manufacturing facilities follow strict protocols to ensure no cross-contamination with GMO-derived resins or conventional plastics.
+                {t('organicComplianceSupportGuide.sections.non-gmo.card3Desc')}
               </p>
             </div>
           </div>
@@ -74,79 +77,79 @@ export default function OrganicComplianceSupportGuide() {
     },
     {
       id: 'certifications',
-      title: 'Certifications & Proof (The \"Auditor\'s Checklist\")',
+      title: t('organicComplianceSupportGuide.sections.certifications.title'),
       icon: <Shield className="w-6 h-6" />,
       content: (
         <div className="space-y-6">
           <p>
-            When your organic certifier asks for proof, we provide the following documents perfectly organized for your Organic System Plan (OSP):
+            {t('organicComplianceSupportGuide.sections.certifications.p1')}
           </p>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left border-4 border-black bg-white">
               <thead>
                 <tr className="bg-black text-white font-['JetBrains_Mono'] font-bold uppercase">
-                  <th className="p-4 border-b-4 border-black border-r-4">Document</th>
-                  <th className="p-4 border-b-4 border-black border-r-4">What it Proves</th>
-                  <th className="p-4 border-b-4 border-black">Why it Matters for Organic</th>
+                  <th className="p-4 border-b-4 border-black border-r-4">{t('organicComplianceSupportGuide.sections.certifications.th1')}</th>
+                  <th className="p-4 border-b-4 border-black border-r-4">{t('organicComplianceSupportGuide.sections.certifications.th2')}</th>
+                  <th className="p-4 border-b-4 border-black">{t('organicComplianceSupportGuide.sections.certifications.th3')}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr>
-                  <td className="p-4 border-b border-r-4 border-black font-bold whitespace-nowrap">Non-GMO Declaration</td>
-                  <td className="p-4 border-b border-r-4 border-black">Confirms the feedstock (sugarcane) is natural.</td>
-                  <td className="p-4 border-b border-black">Meets \"Excluded Methods\" rules.</td>
+                  <td className="p-4 border-b border-r-4 border-black font-bold whitespace-nowrap">{t('organicComplianceSupportGuide.sections.certifications.row1Col1')}</td>
+                  <td className="p-4 border-b border-r-4 border-black">{t('organicComplianceSupportGuide.sections.certifications.row1Col2')}</td>
+                  <td className="p-4 border-b border-black">{t('organicComplianceSupportGuide.sections.certifications.row1Col3')}</td>
                 </tr>
                 <tr className="bg-neutral-50">
-                  <td className="p-4 border-b border-r-4 border-black font-bold whitespace-nowrap">TÜV / BPI Certificate</td>
-                  <td className="p-4 border-b border-r-4 border-black">Proves 100% compostability & heavy metal limits.</td>
-                  <td className="p-4 border-b border-black">Ensures no soil toxicity.</td>
+                  <td className="p-4 border-b border-r-4 border-black font-bold whitespace-nowrap">{t('organicComplianceSupportGuide.sections.certifications.row2Col1')}</td>
+                  <td className="p-4 border-b border-r-4 border-black">{t('organicComplianceSupportGuide.sections.certifications.row2Col2')}</td>
+                  <td className="p-4 border-b border-black">{t('organicComplianceSupportGuide.sections.certifications.row2Col3')}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 border-b border-r-4 border-black font-bold whitespace-nowrap">Food Safety (FDA/EU)</td>
-                  <td className="p-4 border-b border-r-4 border-black">Confirms the material is safe for food contact.</td>
-                  <td className="p-4 border-b border-black">Prevents chemical migration.</td>
+                  <td className="p-4 border-b border-r-4 border-black font-bold whitespace-nowrap">{t('organicComplianceSupportGuide.sections.certifications.row3Col1')}</td>
+                  <td className="p-4 border-b border-r-4 border-black">{t('organicComplianceSupportGuide.sections.certifications.row3Col2')}</td>
+                  <td className="p-4 border-b border-black">{t('organicComplianceSupportGuide.sections.certifications.row3Col3')}</td>
                 </tr>
                 <tr className="bg-neutral-50">
-                  <td className="p-4 border-r-4 border-black font-bold whitespace-nowrap">Technical Data Sheet</td>
-                  <td className="p-4 border-r-4 border-black">Details the exact layer structure of the pouch.</td>
-                  <td className="p-4 border-black">Full transparency for your OSP.</td>
+                  <td className="p-4 border-r-4 border-black font-bold whitespace-nowrap">{t('organicComplianceSupportGuide.sections.certifications.row4Col1')}</td>
+                  <td className="p-4 border-r-4 border-black">{t('organicComplianceSupportGuide.sections.certifications.row4Col2')}</td>
+                  <td className="p-4 border-black">{t('organicComplianceSupportGuide.sections.certifications.row4Col3')}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-black text-2xl uppercase mb-4 bg-[#D4FF00] inline-block px-2">Technical-to-Purchasing Value Specs (Organic)</h4>
+            <h4 className="font-black text-2xl uppercase mb-4 bg-[#D4FF00] inline-block px-2">{t('organicComplianceSupportGuide.sections.certifications.tableTitle')}</h4>
             <div className="overflow-x-auto mt-2">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="border-b-4 border-black bg-[#F0F0F0]">
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">Raw Technical Field</th>
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">B2B Procurement Translation</th>
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold text-sm">Commercial Advantage & Value</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableHeaderField')}</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableHeaderProcurement')}</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableHeaderAdvantage')}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Natural Sugarcane Feedstock (China Sourced)</td>
-                    <td className="p-3 border-r-2 border-black text-sm">How do we guarantee a Non-GMO supply chain to our certifier?</td>
-                    <td className="p-3 text-sm">Sugarcane grown locally has zero GM commercial varieties. Eliminates GMO contamination risks, guaranteeing smooth USDA Organic certification approvals.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('organicComplianceSupportGuide.sections.certifications.tableRow1Field')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableRow1Procurement')}</td>
+                    <td className="p-3 text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableRow1Advantage')}</td>
                   </tr>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Certified Heavy-Metal Free (EN 13432 limits)</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Does this satisfy strict ecological soil-contact audits?</td>
-                    <td className="p-3 text-sm">Guarantees zero soil contamination or chemical toxicity post-disposal. Safeguards brand reputation against toxic migration issues.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('organicComplianceSupportGuide.sections.certifications.tableRow2Field')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableRow2Procurement')}</td>
+                    <td className="p-3 text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableRow2Advantage')}</td>
                   </tr>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Food Contact Certification (FDA 21 CFR 177.1520)</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Is this material safe for direct organic cereal/powder contact?</td>
-                    <td className="p-3 text-sm">Third-party lab tested for migration limits. Guarantees safe packaging with zero chemical transfer, maintaining pure organic integrity.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('organicComplianceSupportGuide.sections.certifications.tableRow3Field')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableRow3Procurement')}</td>
+                    <td className="p-3 text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableRow3Advantage')}</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Triple-Layer Double-Wall Export Master Packing</td>
-                    <td className="p-3 border-r-2 border-black text-sm">What is our transport and storage risk?</td>
-                    <td className="p-3 text-sm">Heavy-duty transport master boxes with heavy polythene inner liners ensure absolute protection from external moisture or pests during transit.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('organicComplianceSupportGuide.sections.certifications.tableRow4Field')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableRow4Procurement')}</td>
+                    <td className="p-3 text-sm">{t('organicComplianceSupportGuide.sections.certifications.tableRow4Advantage')}</td>
                   </tr>
                 </tbody>
               </table>
@@ -159,7 +162,7 @@ export default function OrganicComplianceSupportGuide() {
               className="inline-flex items-center justify-center gap-3 bg-black text-[#D4FF00] px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <Leaf className="w-5 h-5" />
-              Shop Sustainable Pouches (MOQ 100)
+              {t('organicComplianceSupportGuide.sections.certifications.shopBtn')}
             </a>
             <a 
               href="https://achievepack.com"
@@ -168,7 +171,7 @@ export default function OrganicComplianceSupportGuide() {
               className="inline-flex items-center justify-center gap-3 bg-[#00FFFF] text-black px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-black hover:text-[#00FFFF] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <Building2 className="w-5 h-5" />
-              Get Wholesale Bulk Pricing (5,000+)
+              {t('organicComplianceSupportGuide.sections.certifications.bulkBtn')}
             </a>
           </div>
         </div>
@@ -176,12 +179,12 @@ export default function OrganicComplianceSupportGuide() {
     },
     {
       id: 'downloads',
-      title: 'Download Your Compliance Kit',
+      title: t('organicComplianceSupportGuide.sections.downloads.title'),
       icon: <Download className="w-6 h-6" />,
       content: (
         <div className="space-y-6">
           <p className="text-xl">
-            Click the links below to access our latest certifications and documents for your auditor:
+            {t('organicComplianceSupportGuide.sections.downloads.p1')}
           </p>
 
           <div className="grid md:grid-cols-3 gap-4">
@@ -192,8 +195,8 @@ export default function OrganicComplianceSupportGuide() {
               className="group bg-white border-4 border-black p-6 flex flex-col items-center text-center hover:bg-[#D4FF00] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 block"
             >
               <FileCheck className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform" />
-              <h4 className="font-black uppercase mb-2">Non-GMO Declaration</h4>
-              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">Download PDF</span>
+              <h4 className="font-black uppercase mb-2">{t('organicComplianceSupportGuide.sections.downloads.doc1Title')}</h4>
+              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">{t('organicComplianceSupportGuide.sections.downloads.downloadPdf')}</span>
             </a>
             
             <a 
@@ -201,8 +204,8 @@ export default function OrganicComplianceSupportGuide() {
               className="group bg-white border-4 border-black p-6 flex flex-col items-center text-center hover:bg-[#D4FF00] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 block"
             >
               <Shield className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform" />
-              <h4 className="font-black uppercase mb-2">TÜV Austria Certificate</h4>
-              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">View Certificates</span>
+              <h4 className="font-black uppercase mb-2">{t('organicComplianceSupportGuide.sections.downloads.doc2Title')}</h4>
+              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">{t('organicComplianceSupportGuide.sections.downloads.viewCertificates')}</span>
             </a>
 
             <a 
@@ -210,20 +213,20 @@ export default function OrganicComplianceSupportGuide() {
               className="group bg-white border-4 border-black p-6 flex flex-col items-center text-center hover:bg-[#D4FF00] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 block"
             >
               <Package className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform" />
-              <h4 className="font-black uppercase mb-2">Material Safety Data (MSDS)</h4>
-              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">View Certificates</span>
+              <h4 className="font-black uppercase mb-2">{t('organicComplianceSupportGuide.sections.downloads.doc3Title')}</h4>
+              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">{t('organicComplianceSupportGuide.sections.downloads.viewCertificates')}</span>
             </a>
           </div>
 
           <div className="bg-black text-white p-8 border-4 border-black text-center mt-8">
-            <h4 className="font-black text-3xl uppercase mb-4 text-[#D4FF00]">Request a Sample Kit</h4>
-            <p className="text-lg mb-6">See the quality and barrier performance of our organic-compliant pouches firsthand.</p>
+            <h4 className="font-black text-3xl uppercase mb-4 text-[#D4FF00]">{t('organicComplianceSupportGuide.sections.downloads.boxTitle')}</h4>
+            <p className="text-lg mb-6">{t('organicComplianceSupportGuide.sections.downloads.boxDesc')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/store"
                 className="inline-flex items-center justify-center gap-2 bg-[#D4FF00] text-black px-8 py-4 border-4 border-[#D4FF00] font-['JetBrains_Mono'] font-bold uppercase hover:bg-transparent hover:text-[#D4FF00] transition-colors"
               >
-                Order Free Samples
+                {t('organicComplianceSupportGuide.sections.downloads.btn1')}
               </a>
               <a 
                 href="https://calendly.com/30-min-free-packaging-consultancy"
@@ -231,31 +234,37 @@ export default function OrganicComplianceSupportGuide() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-transparent text-white px-8 py-4 border-4 border-white font-['JetBrains_Mono'] font-bold uppercase hover:bg-white hover:text-black transition-colors"
               >
-                Auditor Consultation
+                {t('organicComplianceSupportGuide.sections.downloads.btn2')}
               </a>
             </div>
           </div>
         </div>
       )
-    }
-  ,
+    },
     {
       id: 'b2b-store-links',
-      title: 'Contextual B2B Store Products',
+      title: t('organicComplianceSupportGuide.sections.b2b-store-links.title'),
       icon: <span className="text-xl">🛒</span>,
       content: (
         <div className="space-y-6">
           <p className="text-lg leading-relaxed">
-            For packaging buyers planning their next production run, we recommend starting with our <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">B2B Biodegradable Sample Kit</a> to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Custom Eco Rollstock Film</a>. If you are packaging confectionery or small items, our premium <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Cellophane Candy Wrapper</a> offers excellent clarity and compostability.
+            {t('organicComplianceSupportGuide.sections.b2b-store-links.p1Part1')}
+            <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('organicComplianceSupportGuide.sections.b2b-store-links.sampleKit')}</a>
+            {t('organicComplianceSupportGuide.sections.b2b-store-links.p1Part2')}
+            <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('organicComplianceSupportGuide.sections.b2b-store-links.rollstockFilm')}</a>
+            {t('organicComplianceSupportGuide.sections.b2b-store-links.p1Part3')}
+            <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('organicComplianceSupportGuide.sections.b2b-store-links.candyWrapper')}</a>
+            {t('organicComplianceSupportGuide.sections.b2b-store-links.p1Part4')}
           </p>
         </div>
       )
-    }]
+    }
+  ]
 
   return (
     <BlogArticleTemplate
-      title="Organic & Non-GMO Compliance Support | POUCH.ECO"
-      metaDescription="Maintain your USDA Organic and EU Organic certifications. Download our Transparency Kit with Non-GMO affidavits and TÜV certificates for your auditor."
+      title={t('organicComplianceSupportGuide.meta.title')}
+      metaDescription={t('organicComplianceSupportGuide.meta.description')}
       canonicalUrl="https://pouch.eco/blog/organic-compliance-support"
       keywords={[
         'organic packaging compliance',
@@ -270,13 +279,13 @@ export default function OrganicComplianceSupportGuide() {
       
       heroTitle={
         <>
-          Organic & <span className="text-[#10b981]">Non-GMO</span><br />
-          Compliance Support
+          {t('organicComplianceSupportGuide.hero.titlePart1')} <span className="text-[#10b981]">{t('organicComplianceSupportGuide.hero.titleAccent')}</span><br />
+          {t('organicComplianceSupportGuide.hero.titlePart2')}
         </>
       }
-      heroSubtitle="Supporting Your Brand's Organic Integrity with Certified Compostable Packaging. Download the exact documents your auditor needs."
+      heroSubtitle={t('organicComplianceSupportGuide.hero.subtitle')}
       heroImage="/imgs/seo-photos/organic/organic_dried_mango_pouch.webp"
-      heroImageAlt="Premium lifestyle product photography of an Achieve Pack organic dried mango pouch on a wooden table"
+      heroImageAlt={t('organicComplianceSupportGuide.hero.imageAlt')}
       categoryTag="COMPLIANCE"
       categoryColor="#10b981"
       readTime="5 min read"
@@ -285,46 +294,46 @@ export default function OrganicComplianceSupportGuide() {
       
       faqSections={[
         {
-          q: "What are the minimum order quantities for organic compliance packaging?",
-          a: "We support emerging organic brands with low-MOQ runs starting at just 100 bags via high-definition digital printing on Pouch.eco. Commercial high-volume plate-printed runs for national distribution are available starting at 5,000 bags on AchievePack.com."
+          q: t('organicComplianceSupportGuide.faq.q1.q'),
+          a: t('organicComplianceSupportGuide.faq.q1.a')
         },
         {
-          q: "Can we request a free organic-compliant sample kit?",
-          a: "Yes. We offer free sample kits featuring our entire range of organic-compliant packaging (Compostable Sugarcane-based Kraft, Recyclable Mono-PE, and PCR post-consumer recycled bags). You only cover express shipping, which is fully credited to your first production run."
+          q: t('organicComplianceSupportGuide.faq.q2.q'),
+          a: t('organicComplianceSupportGuide.faq.q2.a')
         },
         {
-          q: "Do you support custom sizes, warning labels, and transparent product windows?",
-          a: "Absolutely. We offer complete OEM customization. You can customize dimensions (width, height, gusset depth) and select features like biodegradable cellulose clear windows, tear notches, resealable pocket zippers, and printed organic certification logos."
+          q: t('organicComplianceSupportGuide.faq.q3.q'),
+          a: t('organicComplianceSupportGuide.faq.q3.a')
         },
         {
-          q: "What are the standard lead times for manufacturing organic-compliant packaging?",
-          a: "Digital print runs of 100–1,000 pouches are typically completed and shipped in 2–3 weeks. Large-scale custom runs (5,000+ pieces) require 3–4 weeks for co-extrusion, plate engraving, and quality testing. Expedited air and cost-efficient sea freight are available."
+          q: t('organicComplianceSupportGuide.faq.q4.q'),
+          a: t('organicComplianceSupportGuide.faq.q4.a')
         },
         {
-          q: "Do your materials carry verifiable certifications for organic auditors?",
-          a: "Yes. We provide verified ASTM D6400 / EN 13432 compostability certificates (certified by BPI and TÜV AUSTRIA), FDA food-contact compliance declarations, and Non-GMO feedstock affidavits (specifically for our sugarcane base) with every production order."
+          q: t('organicComplianceSupportGuide.faq.q5.q'),
+          a: t('organicComplianceSupportGuide.faq.q5.a')
         },
         {
-          q: "What technical details are needed to request a custom organic packaging quote?",
-          a: "Please specify: (1) Pouch style (e.g. Stand-up, Flat-bottom, Lay-flat), (2) Volumetric capacity (e.g., 4oz, 8oz, 16oz, 1kg), (3) Material structure (Compostable Sugarcane-Kraft, Recyclable Mono-PE, or PCR), (4) Total quantities per SKU, and (5) Artwork blueprints if available."
+          q: t('organicComplianceSupportGuide.faq.q6.q'),
+          a: t('organicComplianceSupportGuide.faq.q6.a')
         }
       ]}
       
-      ctaTitle="Need Help Updating Your Organic System Plan?"
-      ctaDescription="Book a quick call with our compliance specialists to ensure your packaging choice is aligned with your certification."
+      ctaTitle={t('organicComplianceSupportGuide.footer.ctaTitle')}
+      ctaDescription={t('organicComplianceSupportGuide.footer.ctaDescription')}
       calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
       achievePackLink="https://achievepack.com/composting/organic-compliance-support"
-      achievePackText="Need customized structures for heavy organic products? Visit AchievePack.com for B2B solutions"
+      achievePackText={t('organicComplianceSupportGuide.footer.achievePackText')}
       
       showTableOfContents={true}
       relatedArticles={[
         {
-          title: 'USA Compostable Packaging Guide 2026',
+          title: t('organicComplianceSupportGuide.related.art1'),
           url: '/blog/usa-compostable-guide',
           image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
         },
         {
-          title: 'Industrial Compostable Guide',
+          title: t('organicComplianceSupportGuide.related.art2'),
           url: '/blog/industrial-compostable-guide',
           image: '/imgs/seo-photos/a_achievepack_bpi_certified_5482390.webp'
         }
@@ -332,3 +341,4 @@ export default function OrganicComplianceSupportGuide() {
     />
   )
 }
+

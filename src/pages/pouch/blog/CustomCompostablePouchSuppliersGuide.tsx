@@ -1,6 +1,7 @@
 import { Factory, Shield, Globe, Award, MessageCircle, ArrowRight, AlertTriangle, Users } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
+import { useTranslation } from 'react-i18next'
 
 interface BlogArticleSection {
   id: string
@@ -13,6 +14,7 @@ import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
 import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
 
 export default function CustomCompostablePouchSuppliersGuide() {
+  const { t } = useTranslation()
   const override = useSeoBlogOverride('custom-compostable-pouch-suppliers-guide')
   if (override) {
     return <DynamicBlogArticleRender post={override} />
@@ -21,23 +23,25 @@ export default function CustomCompostablePouchSuppliersGuide() {
   const sections: BlogArticleSection[] = [
     {
       id: 'vetting-suppliers',
-      title: 'How to Vet a Compostable Supplier',
+      title: t('customCompostablePouchSuppliersGuide.sections.vettingSuppliers.title'),
       icon: <Shield className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
           <p className="text-lg leading-relaxed">
-            Sourcing custom compostable packaging requires rigorous due diligence. Unlike conventional plastic, bio-based films have complex shelf-life parameters and legal compliance rules.
+            {t('customCompostablePouchSuppliersGuide.sections.vettingSuppliers.intro')}
           </p>
           <div className="bg-[#FF0000] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-white">
-             <h3 className="font-black text-2xl uppercase mb-4">Red Flags 🚩</h3>
+             <h3 className="font-black text-2xl uppercase mb-4">
+               {t('customCompostablePouchSuppliersGuide.sections.vettingSuppliers.redFlags')}
+             </h3>
              <p className="font-bold text-lg mb-4">
-                If they say "Biodegradable" but show no certificate... RUN.
+                {t('customCompostablePouchSuppliersGuide.sections.vettingSuppliers.warning')}
              </p>
              <div className="bg-black text-[#D4FF00] p-4 font-['JetBrains_Mono']">
                 <ul className="space-y-2">
-                   <li>1. "We are in the process of certifying" = <strong>NO.</strong> (Demand active BPI/TÜV numbers).</li>
-                   <li>2. "It breaks down in landfill" = <strong>LIE.</strong> (Nothing composts without oxygen and moisture).</li>
-                   <li>3. MOQ is 10,000+ = <strong>OLD SCHOOL.</strong> (Brokers trying to pack container shipments).</li>
+                   <li dangerouslySetInnerHTML={{ __html: t('customCompostablePouchSuppliersGuide.sections.vettingSuppliers.list1') }} />
+                   <li dangerouslySetInnerHTML={{ __html: t('customCompostablePouchSuppliersGuide.sections.vettingSuppliers.list2') }} />
+                   <li dangerouslySetInnerHTML={{ __html: t('customCompostablePouchSuppliersGuide.sections.vettingSuppliers.list3') }} />
                 </ul>
              </div>
           </div>
@@ -46,28 +50,35 @@ export default function CustomCompostablePouchSuppliersGuide() {
     },
     {
       id: 'the-achieve-pack-difference',
-      title: 'The Pouch.eco Standard',
+      title: t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.title'),
       icon: <Award className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
            <p className="text-lg leading-relaxed">
-             Our factory direct engineering team eliminates the broker middleman. We print, laminate, and make every bag under strict quality control.
+             {t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.intro')}
            </p>
            <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-              <h3 className="font-black text-xl uppercase mb-6">Why We Are Different</h3>
-              <p className="mb-4 text-lg font-bold">We don't just sell bags. We sell <Link to="/blog/usa-labeling-guide" className="underline hover:bg-white px-1">compliance</Link> and speed.</p>
+              <h3 className="font-black text-xl uppercase mb-6">
+                {t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.header')}
+              </h3>
+              <p className="mb-4 text-lg font-bold">
+                We don't just sell bags. We sell <Link to="/blog/usa-labeling-guide" className="underline hover:bg-white px-1">{t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.complianceLinkText')}</Link> and speed.
+              </p>
               
               <div className="grid md:grid-cols-2 gap-6">
                  <div className="bg-white border-2 border-black p-4">
-                    <h4 className="font-black text-lg uppercase mb-2">Capabilities</h4>
-                    <p className="text-sm font-['JetBrains_Mono']">
-                       <strong>Print:</strong> <Link to="/printing/digital" className="underline">Digital HP Indigo 20000</Link><br/>
-                       <strong>MOQ:</strong> <Link to="/blog/low-moq-packaging-guide" className="underline">100 Units</Link><br/>
-                       <strong>Lead Time:</strong> 10-15 Business Days
-                    </p>
+                    <h4 className="font-black text-lg uppercase mb-2">
+                      {t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.capTitle')}
+                    </h4>
+                    <p 
+                      className="text-sm font-['JetBrains_Mono']"
+                      dangerouslySetInnerHTML={{ __html: t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.capText') }}
+                    />
                  </div>
                  <div className="bg-white border-2 border-black p-4">
-                    <h4 className="font-black text-lg uppercase mb-2">Compliance</h4>
+                    <h4 className="font-black text-lg uppercase mb-2">
+                      {t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.compTitle')}
+                    </h4>
                     <p className="text-sm font-['JetBrains_Mono']">
                        <strong>ASTM D6400:</strong> <Link to="/blog/bpi-certified-guide" className="underline">Certified</Link><br/>
                        <strong>EN 13432:</strong> <Link to="/blog/industrial-compostable-guide" className="underline">Certified</Link><br/>
@@ -83,9 +94,11 @@ export default function CustomCompostablePouchSuppliersGuide() {
                   <Factory className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-black text-xl uppercase mb-2">Need Wholesale Enterprise Solutions?</h4>
+                  <h4 className="font-black text-xl uppercase mb-2">
+                    {t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.enterpriseTitle')}
+                  </h4>
                   <p className="text-sm mb-4">
-                    If you are looking for high-volume manufacturing, custom material development, and pricing sheets starting at 5,000+ units, visit our B2B headquarters on AchievePack.com.
+                    {t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.enterpriseText')}
                   </p>
                   <a
                     href="https://achievepack.com/topics/custom-compostable-pouch-suppliers"
@@ -93,7 +106,7 @@ export default function CustomCompostablePouchSuppliersGuide() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-black text-[#00FFFF] px-4 py-2 border-2 border-black font-['JetBrains_Mono'] font-bold text-xs uppercase hover:bg-[#00FFFF] hover:text-black transition-colors"
                   >
-                    Go to AchievePack B2B →
+                    {t('customCompostablePouchSuppliersGuide.sections.pouchEcoStandard.enterpriseBtn')}
                   </a>
                 </div>
               </div>
@@ -103,42 +116,72 @@ export default function CustomCompostablePouchSuppliersGuide() {
     },
     {
        id: 'technical-specifications',
-       title: 'Technical-to-Purchasing Specification Matrix',
+       title: t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.title'),
        icon: <Shield className="w-6 h-6" />,
        content: (
          <div className="space-y-6">
            <p className="text-lg leading-relaxed">
-             Purchasing directors must translate raw material details into operational performance utilities to assure shelf integrity and speed:
+             {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.intro')}
            </p>
            <div className="overflow-x-auto">
              <table className="w-full border-4 border-black bg-white text-sm">
                <thead>
                  <tr className="bg-black text-[#D4FF00]">
-                   <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono'] uppercase">Technical Parameter</th>
-                   <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono'] uppercase">Procurement Impact & Utility</th>
-                   <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono'] uppercase">Direct Factory Standard</th>
+                   <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono'] uppercase">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.th1')}
+                   </th>
+                   <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono'] uppercase">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.th2')}
+                   </th>
+                   <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono'] uppercase">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.th3')}
+                   </th>
                  </tr>
                </thead>
                <tbody className="font-mono">
                  <tr className="border-2 border-black">
-                   <td className="border-2 border-black p-3 font-bold">NKME Metallized Cellulose</td>
-                   <td className="border-2 border-black p-3">High oxygen barrier (&lt; 1.0 cc/m²/24hr OTR) keeps roasted food fresh while complying with EN 13432.</td>
-                   <td className="border-2 border-black p-3">ASTM D6400 & BPI Certified High-Barrier</td>
+                   <td className="border-2 border-black p-3 font-bold">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r1c1')}
+                   </td>
+                   <td className="border-2 border-black p-3">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r1c2')}
+                   </td>
+                   <td className="border-2 border-black p-3">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r1c3')}
+                   </td>
                  </tr>
                  <tr className="border-2 border-black bg-gray-50">
-                   <td className="border-2 border-black p-3 font-bold">Custom Volumetric Dimensions</td>
-                   <td className="border-2 border-black p-3">Perfect calibration down to the millimeter for high-speed automated VFFS filling lines.</td>
-                   <td className="border-2 border-black p-3">Run speeds of 65 bags/minute guaranteed</td>
+                   <td className="border-2 border-black p-3 font-bold">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r2c1')}
+                   </td>
+                   <td className="border-2 border-black p-3">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r2c2')}
+                   </td>
+                   <td className="border-2 border-black p-3">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r2c3')}
+                   </td>
                  </tr>
                  <tr className="border-2 border-black">
-                   <td className="border-2 border-black p-3 font-bold">Matte Anti-Scratch Lamination</td>
-                   <td className="border-2 border-black p-3">Durable finish prevents box scuffing during long-haul transport and displays pristine on retail shelves.</td>
-                   <td className="border-2 border-black p-3">Rejection rate under 0.15% in transit</td>
+                   <td className="border-2 border-black p-3 font-bold">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r3c1')}
+                   </td>
+                   <td className="border-2 border-black p-3">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r3c2')}
+                   </td>
+                   <td className="border-2 border-black p-3">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r3c3')}
+                   </td>
                  </tr>
                  <tr className="border-2 border-black bg-gray-50">
-                   <td className="border-2 border-black p-3 font-bold">Triple-Layer Master Cartons</td>
-                   <td className="border-2 border-black p-3">Double-wall boxes with moisture barrier bags eliminate cargo humidity risks in shipping lanes.</td>
-                   <td className="border-2 border-black p-3">DDP ocean and express air packaging rules</td>
+                   <td className="border-2 border-black p-3 font-bold">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r4c1')}
+                   </td>
+                   <td className="border-2 border-black p-3">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r4c2')}
+                   </td>
+                   <td className="border-2 border-black p-3">
+                     {t('customCompostablePouchSuppliersGuide.sections.technicalSpecifications.r4c3')}
+                   </td>
                  </tr>
                </tbody>
              </table>
@@ -148,14 +191,18 @@ export default function CustomCompostablePouchSuppliersGuide() {
     },
     {
        id: 'global-reach',
-       title: 'Shipping to 50+ Countries',
+       title: t('customCompostablePouchSuppliersGuide.sections.globalReach.title'),
        icon: <Globe className="w-6 h-6" />,
        content: (
           <div className="space-y-6">
              <div className="bg-white border-4 border-black p-6">
-                <h3 className="font-black text-xl uppercase mb-4">We Ship Everywhere.</h3>
-                <p className="mb-4">DDP (Delivered Duty Paid) options available. No surprise customs fees.</p>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 font-['JetBrains_Mono'] text-center">
+                <h3 className="font-black text-xl uppercase mb-4">
+                  {t('customCompostablePouchSuppliersGuide.sections.globalReach.header')}
+                </h3>
+                <p className="mb-4">
+                  {t('customCompostablePouchSuppliersGuide.sections.globalReach.intro')}
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 font-['JetBrains_Mono'] text-center text-black">
                    <div className="bg-[#F0F0F0] p-3 border-2 border-black">🇺🇸 USA</div>
                    <div className="bg-[#F0F0F0] p-3 border-2 border-black">🇬🇧 UK</div>
                    <div className="bg-[#F0F0F0] p-3 border-2 border-black">🇪🇺 EU</div>
@@ -167,71 +214,78 @@ export default function CustomCompostablePouchSuppliersGuide() {
     },
     {
       id: 'factory-direct',
-      title: 'Factory Direct Pricing',
+      title: t('customCompostablePouchSuppliersGuide.sections.factoryDirect.title'),
       icon: <Factory className="w-6 h-6" />,
       content: (
-         <div className="bg-[#D4FF00] border-4 border-black p-6">
-            <h3 className="font-black text-xl uppercase mb-4">Cut Out The Middleman</h3>
-            <p className="mb-4">Most "suppliers" are just brokers. We own the machines.</p>
+         <div className="bg-[#D4FF00] border-4 border-black p-6 text-black">
+            <h3 className="font-black text-xl uppercase mb-4">
+              {t('customCompostablePouchSuppliersGuide.sections.factoryDirect.header')}
+            </h3>
+            <p className="mb-4">
+              {t('customCompostablePouchSuppliersGuide.sections.factoryDirect.intro')}
+            </p>
             <div className="bg-white border-2 border-black p-4">
-               <strong className="block text-lg uppercase mb-2">What this means for you:</strong>
+               <strong className="block text-lg uppercase mb-2">
+                 {t('customCompostablePouchSuppliersGuide.sections.factoryDirect.sub')}
+               </strong>
                <ul className="text-sm font-['JetBrains_Mono'] list-disc list-inside space-y-1">
-                  <li>Lower prices per unit</li>
-                  <li>Direct quality control</li>
-                  <li>Faster communication</li>
-                  <li>Custom sizing down to the millimeter</li>
+                  <li>{t('customCompostablePouchSuppliersGuide.sections.factoryDirect.list1')}</li>
+                  <li>{t('customCompostablePouchSuppliersGuide.sections.factoryDirect.list2')}</li>
+                  <li>{t('customCompostablePouchSuppliersGuide.sections.factoryDirect.list3')}</li>
+                  <li>{t('customCompostablePouchSuppliersGuide.sections.factoryDirect.list4')}</li>
                </ul>
             </div>
          </div>
       )
-    }
-  ,
+    },
     {
       id: 'b2b-store-links',
-      title: 'Contextual B2B Store Products',
+      title: t('customCompostablePouchSuppliersGuide.sections.b2bStoreLinks.title'),
       icon: <span className="text-xl">🛒</span>,
       content: (
         <div className="space-y-6">
-          <p className="text-lg leading-relaxed">
-            For packaging buyers planning their next production run, we recommend starting with our <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">B2B Biodegradable Sample Kit</a> to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Custom Eco Rollstock Film</a>. If you are packaging confectionery or small items, our premium <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Cellophane Candy Wrapper</a> offers excellent clarity and compostability.
-          </p>
+          <p 
+            className="text-lg leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('customCompostablePouchSuppliersGuide.sections.b2bStoreLinks.intro') }}
+          />
         </div>
       )
-    }]
+    }
+  ]
 
   const faqSections = [
     {
-      q: "What is the MOQ for custom compostable pouches?",
-      a: "For digital short-run printing on pouch.eco, the minimum order quantity (MOQ) starts at just 100 units—ideal for new product validation and startups. For bulk wholesale orders requiring advanced custom dimensions and materials, our enterprise line on achievepack.com starts at 5,000 to 10,000 units with volume discounts."
+      q: t('customCompostablePouchSuppliersGuide.faq.q1'),
+      a: t('customCompostablePouchSuppliersGuide.faq.a1')
     },
     {
-      q: "Can I get free samples of your compostable packaging?",
-      a: "Yes! We offer a Free Compostable Sample Kit containing 10 assorted pouches (various sizes, materials, and closures) so you can test thickness, tear notch alignment, and heat sealing. You only cover shipping."
+      q: t('customCompostablePouchSuppliersGuide.faq.q2'),
+      a: t('customCompostablePouchSuppliersGuide.faq.a2')
     },
     {
-      q: "Do you support OEM / custom sizes and colors?",
-      a: "Yes, we offer complete OEM customization. We can manufacture pouches to your precise volumetric blueprints down to the millimeter and print full-bleed custom graphics using HP Indigo digital presses with zero plate cylinder fees."
+      q: t('customCompostablePouchSuppliersGuide.faq.q3'),
+      a: t('customCompostablePouchSuppliersGuide.faq.a3')
     },
     {
-      q: "What is the average lead time for custom pouch delivery?",
-      a: "Digital print runs are completed in 10-15 business days from artwork sign-off. Bulk plate-printed orders via our achievepack.com wholesale line require 20-25 business days. Air and sea DDP shipping options are available globally."
+      q: t('customCompostablePouchSuppliersGuide.faq.q4'),
+      a: t('customCompostablePouchSuppliersGuide.faq.a4')
     },
     {
-      q: "Are your compostable pouches certified by reputable organizations?",
-      a: "Absolutely. Our materials are fully certified compostable under ASTM D6400 (BPI) in the United States and EN 13432 (TÜV OK Compost) in Europe, including certified home-compostable and industrial-compostable films."
+      q: t('customCompostablePouchSuppliersGuide.faq.q5'),
+      a: t('customCompostablePouchSuppliersGuide.faq.a5')
     },
     {
-      q: "What specifications do you need to calculate a custom price quote?",
-      a: "To provide a precise quotation, we need: 1. Pouch Dimensions (width x height x bottom gusset), 2. Expected Order Volume (units), 3. Material Choice (Kraft paper, clear bio-films, high-barrier), and 4. Design details (number of SKUs, zipper, or degassing valve requirements)."
+      q: t('customCompostablePouchSuppliersGuide.faq.q6'),
+      a: t('customCompostablePouchSuppliersGuide.faq.a6')
     }
   ]
 
   return (
     <BlogArticleTemplate
-      title="Custom Compostable Pouch Suppliers Guide | POUCH.ECO"
-      metaDescription="How to choose a compostable pouch supplier. Red flags to avoid, certification checklists, and why low MOQ digital printing is the future."
+      title={t('customCompostablePouchSuppliersGuide.title')}
+      metaDescription={t('customCompostablePouchSuppliersGuide.metaDescription')}
       canonicalUrl="https://pouch.eco/blog/custom-compostable-pouch-suppliers-guide"
-      keywords={['compostable pouch supplier', 'custom packaging manufacturer', 'eco friendly packaging supplier', 'digital print pouch', 'tuv certified supplier']}
+      keywords={t('customCompostablePouchSuppliersGuide.keywords').split(',').map((k: string) => k.trim())}
       publishedDate="2026-02-11T11:00:00Z"
       modifiedDate="2026-02-11T11:00:00Z"
       categoryTag="Sourcing Guide"
@@ -242,9 +296,9 @@ export default function CustomCompostablePouchSuppliersGuide() {
           <span className="text-[#00FFFF]">Don't Get Scammed.</span>
         </>
       }
-      heroSubtitle="Stop dealing with brokers and fakes. Learn how to verify certifications, negotiate MOQs, and source directly from the factory."
+      heroSubtitle={t('customCompostablePouchSuppliersGuide.heroSubtitle')}
       heroImage="/imgs/company/bpi/bpipouch.webp"
-      heroImageAlt="AchievePack Certified BPI Compostable Stand-Up Pouch and certificate details"
+      heroImageAlt={t('customCompostablePouchSuppliersGuide.heroImageAlt')}
       sections={sections}
       faqSections={faqSections}
       calendlyUrl="https://calendly.com/ryan-achievepack/30min"
@@ -252,17 +306,17 @@ export default function CustomCompostablePouchSuppliersGuide() {
       showTableOfContents={true}
       relatedArticles={[
         {
-          title: 'Low MOQ Packaging Guide',
+          title: t('customCompostablePouchSuppliersGuide.related.t1'),
           url: '/blog/low-moq-packaging-guide',
           image: '/imgs/product-hero-pouch.webp'
         },
         {
-          title: 'DTC Sustainable Packaging Guide',
+          title: t('customCompostablePouchSuppliersGuide.related.t2'),
           url: '/blog/dtc-sustainable-packaging-guide',
           image: '/imgs/product-pcr-biobased.webp'
         },
         {
-           title: 'BPI Certified Guide',
+           title: t('customCompostablePouchSuppliersGuide.related.t3'),
            url: '/blog/bpi-certified-guide',
            image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp'
         }
