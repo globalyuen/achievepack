@@ -2,12 +2,14 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import { Layers, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Coffee, HelpCircle, FileText } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 import { Link } from 'react-router-dom'
 
 export default function PouchSideGussetBagsPage() {
+  const { t } = useTranslation()
   const [scrollPercent, setScrollPercent] = useState(0)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const heroCardRef = useRef<HTMLDivElement>(null)
@@ -29,8 +31,8 @@ export default function PouchSideGussetBagsPage() {
     setTilt({ x: ((e.clientX - rect.left) / rect.width - 0.5) * 30, y: ((e.clientY - rect.top) / rect.height - 0.5) * -30 })
   }
 
-  const title = "Custom Side Gusset Bags - Classic Coffee & Bulk Packaging | Pouch.eco"
-  const description = "Factory-direct custom side gusset bags (quad seal) for specialty coffee, tea, and bulk ingredients. BRCGS certified food-safe high barriers with low MOQ from 500 units."
+  const title = t('pouchSideGussetBagsPage.title')
+  const description = t('pouchSideGussetBagsPage.description')
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -38,50 +40,50 @@ export default function PouchSideGussetBagsPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the MOQ for custom side gusset bags?",
+        "name": t('pouchSideGussetBagsPage.faqQ1'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our minimum order quantity is just 500 units for custom digital printing (ideal for startup product launches with zero plate fees), and 5,000 units for high-volume rotogravure printing."
+          "text": t('pouchSideGussetBagsPage.faqA1')
         }
       },
       {
         "@type": "Question",
-        "name": "Can you provide free physical samples?",
+        "name": t('pouchSideGussetBagsPage.faqQ2'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we offer free physical sample kits containing a variety of our materials and bag formats. We ship worldwide via express courier."
+          "text": t('pouchSideGussetBagsPage.faqA2')
         }
       },
       {
         "@type": "Question",
-        "name": "Do you support custom sizes and OEM blueprints?",
+        "name": t('pouchSideGussetBagsPage.faqQ3'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we support fully customized sizing, custom shaped seals, and provide bespoke CAD dieline templates tailored to your vertical-form-fill-seal (VFFS) machinery blueprints."
+          "text": t('pouchSideGussetBagsPage.faqA3')
         }
       },
       {
         "@type": "Question",
-        "name": "What is the manufacturing lead time?",
+        "name": t('pouchSideGussetBagsPage.faqQ4'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our lead time is 7-10 business days for digitally printed runs and 12-14 business days for plate-printed orders. Worldwide air express takes 3-5 days."
+          "text": t('pouchSideGussetBagsPage.faqA4')
         }
       },
       {
         "@type": "Question",
-        "name": "What safety and eco certifications do you have?",
+        "name": t('pouchSideGussetBagsPage.faqQ5'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our materials are manufactured in Grade A BRCGS food-safe facilities. We offer TUV OK Compost HOME, BPI (ASTM D6400) certified compostable films, GRS certified post-consumer recycled materials, and FSC-certified kraft papers."
+          "text": t('pouchSideGussetBagsPage.faqA5')
         }
       },
       {
         "@type": "Question",
-        "name": "What details are required to get an accurate quote?",
+        "name": t('pouchSideGussetBagsPage.faqQ6'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To calculate pricing, please specify your desired pouch dimensions, estimated volume, closure options (e.g., degassing valve, tin-tie), and barrier layer requirements."
+          "text": t('pouchSideGussetBagsPage.faqA6')
         }
       }
     ]
@@ -89,51 +91,51 @@ export default function PouchSideGussetBagsPage() {
 
   const specTranslations = [
     {
-      label: "Material Stack",
-      val: "NKME Metallized Cellulose",
-      desc: "High-barrier protection (<1.0 cc/m²/24hr OTR/WVTR) extending shelf life up to 12 months while meeting EN 13432 compostability standards."
+      label: t('pouchSideGussetBagsPage.specTrans1Label'),
+      val: t('pouchSideGussetBagsPage.specTrans1Val'),
+      desc: t('pouchSideGussetBagsPage.specTrans1Desc')
     },
     {
-      label: "Volumetric Dielines",
-      val: "Bespoke OEM Sizes",
-      desc: "Millimeter-scale CAD dielines adjusted for specific roasted volumes, ensuring perfect alignment on vertical form-fill-seal (VFFS) packaging machines."
+      label: t('pouchSideGussetBagsPage.specTrans2Label'),
+      val: t('pouchSideGussetBagsPage.specTrans2Val'),
+      desc: t('pouchSideGussetBagsPage.specTrans2Desc')
     },
     {
-      label: "Sealing Strength",
-      val: "Heat-Seal Resin (>35 N/15mm)",
-      desc: "Tough structural seams prevent rupture on packaging lines and during shipping, even under high-speed commercial operations."
+      label: t('pouchSideGussetBagsPage.specTrans3Label'),
+      val: t('pouchSideGussetBagsPage.specTrans3Val'),
+      desc: t('pouchSideGussetBagsPage.specTrans3Desc')
     },
     {
-      label: "Logistics Packing",
-      val: "Double-Wall Master Carton",
-      desc: "Heavy-duty double-wall master boxes lined with internal moisture polybags to shield pouches from humidity during ocean freight transit."
+      label: t('pouchSideGussetBagsPage.specTrans4Label'),
+      val: t('pouchSideGussetBagsPage.specTrans4Val'),
+      desc: t('pouchSideGussetBagsPage.specTrans4Desc')
     }
   ]
 
   const faqs = [
     {
-      q: 'What is the MOQ for custom side gusset bags?',
-      a: 'We offer an ultra-low MOQ of just 500 units for digitally printed bags. This lets you launch limited roasts and test the market with zero cylinder plate setup fees. For high-volume production, rotogravure printing starts at 5,000 units.'
+      q: t('pouchSideGussetBagsPage.faqQ1'),
+      a: t('pouchSideGussetBagsPage.faqA1')
     },
     {
-      q: 'Are free physical samples available?',
-      a: 'Yes, we believe in tactile proof. You can request a free physical sample kit containing various material structures (compostable, recyclable, bio-PE) and closures to test with your own filling lines. We ship globally via express.'
+      q: t('pouchSideGussetBagsPage.faqQ2'),
+      a: t('pouchSideGussetBagsPage.faqA2')
     },
     {
-      q: 'Do you support custom sizes and OEM drawings?',
-      a: 'Absolutely. We do not restrict you to standard stock sizes. Our packaging engineers will supply custom CAD dieline blueprints based on your exact volume requirements (e.g. 250g, 500g, 1kg) for a perfect fit.'
+      q: t('pouchSideGussetBagsPage.faqQ3'),
+      a: t('pouchSideGussetBagsPage.faqA3')
     },
     {
-      q: 'What is the average lead time?',
-      a: 'Digital printing takes 7-10 business days from artwork sign-off. Plate-printed runs require 12-14 business days. Air express shipping takes 3-5 days globally, while sea freight is available for bulk cost savings.'
+      q: t('pouchSideGussetBagsPage.faqQ4'),
+      a: t('pouchSideGussetBagsPage.faqA4')
     },
     {
-      q: 'What certifications do you provide?',
-      a: 'All our pouches are produced in Grade A BRCGS certified food-contact facilities. We provide verified certificates for TUV OK Compost HOME, BPI (ASTM D6400) biodegradable standards, GRS recycled materials, and FSC-certified papers.'
+      q: t('pouchSideGussetBagsPage.faqQ5'),
+      a: t('pouchSideGussetBagsPage.faqA5')
     },
     {
-      q: 'What details do you need for a formal quotation?',
-      a: 'Simply provide your dimensions, estimated quantities, material preference (e.g., compostable kraft or recyclable PE), and whether you need degassing valves or tin-ties. We will return a clear price sheet in under 24 hours.'
+      q: t('pouchSideGussetBagsPage.faqQ6'),
+      a: t('pouchSideGussetBagsPage.faqA6')
     }
   ]
 
@@ -156,43 +158,43 @@ export default function PouchSideGussetBagsPage() {
           
           {/* Breadcrumb Bar */}
           <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black mb-8">
-            <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+            <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">{t('pouchSideGussetBagsPage.breadcrumbHome')}</Link>
             <span>/</span>
-            <Link to="/products" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Products</Link>
+            <Link to="/products" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">{t('pouchSideGussetBagsPage.breadcrumbProducts')}</Link>
             <span>/</span>
-            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Side Gusset Bags</span>
+            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">{t('pouchSideGussetBagsPage.breadcrumbCurrent')}</span>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10 text-left">
               <div className="flex flex-wrap gap-2">
                 <span className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  PACKAGING_TYPE: SGB_03
+                  {t('pouchSideGussetBagsPage.packagingType')}
                 </span>
                 <span className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  BRCGS GRADE A
+                  {t('pouchSideGussetBagsPage.brcgsBadge')}
                 </span>
               </div>
 
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                Classic.<br/>
-                Quad Seal.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Iconic.</span>
+                {t('pouchSideGussetBagsPage.heroTitleStart')}<br/>
+                {t('pouchSideGussetBagsPage.heroTitleMiddle')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t('pouchSideGussetBagsPage.heroTitleSpan')}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; Expandable side panels.<br/>
-                &gt; High volume packaging.<br/>
-                &gt; Startup-friendly MOQ 500 pcs.<br/>
-                &gt; BRCGS food-safe certified.
+                &gt; {t('pouchSideGussetBagsPage.heroDescLine1')}<br/>
+                &gt; {t('pouchSideGussetBagsPage.heroDescLine2')}<br/>
+                &gt; {t('pouchSideGussetBagsPage.heroDescLine3')}<br/>
+                &gt; {t('pouchSideGussetBagsPage.heroDescLine4')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary">
-                  Book Packaging Consult
+                  {t('pouchSideGussetBagsPage.heroBtn1')}
                 </NeoButton>
                 <NeoButton variant="secondary" href="#specs">
-                  View Specs Protocol
+                  {t('pouchSideGussetBagsPage.heroBtn2')}
                 </NeoButton>
               </div>
             </div>
@@ -215,29 +217,29 @@ export default function PouchSideGussetBagsPage() {
         <div className="grid md:grid-cols-3 gap-8">
           <NeoCard color="bg-white">
             <Coffee className="w-12 h-12 mb-4 text-[#D4FF00]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">Coffee Heritage</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchSideGussetBagsPage.card1Title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              The original specialty coffee format. Side gussets provide the classic silhouette that specialty roasters and consumers recognize and trust.
+              {t('pouchSideGussetBagsPage.card1Desc')}
             </p>
-            <NeoBadge color="bg-[#D4FF00]">CLASSIC_FORMAT</NeoBadge>
+            <NeoBadge color="bg-[#D4FF00]">{t('pouchSideGussetBagsPage.card1Badge')}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#FF00FF]">
             <Layers className="w-12 h-12 mb-4 text-white" />
-            <h3 className="font-black text-3xl mb-4 uppercase text-white">Quad Seal</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase text-white">{t('pouchSideGussetBagsPage.card2Title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-white">
-              Four side seams create a rigid, structured bag that stands tall and fills the shelf space confidently. Perfect for 250g to 1kg products.
+              {t('pouchSideGussetBagsPage.card2Desc')}
             </p>
-            <NeoBadge color="bg-[#D4FF00]">RIGID_STRUCTURE</NeoBadge>
+            <NeoBadge color="bg-[#D4FF00]">{t('pouchSideGussetBagsPage.card2Badge')}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#D4FF00]">
             <Zap className="w-12 h-12 mb-4 text-black" />
-            <h3 className="font-black text-3xl mb-4 uppercase">High Volume</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchSideGussetBagsPage.card3Title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              Expandable gussets mean the bag grows with your product. More internal volume per footprint vs. flat pouches—ideal for bulk products.
+              {t('pouchSideGussetBagsPage.card3Desc')}
             </p>
-            <NeoBadge color="bg-white">MAX_CAPACITY</NeoBadge>
+            <NeoBadge color="bg-white">{t('pouchSideGussetBagsPage.card3Badge')}</NeoBadge>
           </NeoCard>
         </div>
       </section>
@@ -248,26 +250,26 @@ export default function PouchSideGussetBagsPage() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="text-left">
               <span className="bg-[#FF00FF] text-white font-['JetBrains_Mono'] font-bold text-xs uppercase px-2 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                VALUE_TRANSLATION_ENGINE
+                {t('pouchSideGussetBagsPage.specsBadge')}
               </span>
               <h2 className="font-black text-5xl md:text-7xl uppercase mt-4">
-                Technical<br/>Specifications
+                {t('pouchSideGussetBagsPage.sectionHeadingStart')}<br/>{t('pouchSideGussetBagsPage.sectionHeadingEnd')}
               </h2>
             </div>
             <div className="font-['JetBrains_Mono'] text-sm font-bold bg-[#D4FF00] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              SPECS_V2026_COMPLIANCE
+              {t('pouchSideGussetBagsPage.specsHeaderBadge')}
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             <NeoCard color="bg-white" className="space-y-6">
-              <h3 className="font-black text-3xl uppercase text-left">Dimensions & Capacity</h3>
+              <h3 className="font-black text-3xl uppercase text-left">{t('pouchSideGussetBagsPage.specsCard1Title')}</h3>
               <div className="space-y-4 font-['JetBrains_Mono'] text-lg">
                 {[
-                  ['WIDTH:', '80mm – 280mm'],
-                  ['HEIGHT:', '150mm – 450mm'],
-                  ['GUSSET_DEPTH:', '40mm – 120mm'],
-                  ['CAPACITY:', '100g – 5kg'],
+                  [t('pouchSideGussetBagsPage.specLabelWidth'), '80mm – 280mm'],
+                  [t('pouchSideGussetBagsPage.specLabelHeight'), '150mm – 450mm'],
+                  [t('pouchSideGussetBagsPage.specLabelGusset'), '40mm – 120mm'],
+                  [t('pouchSideGussetBagsPage.specLabelCapacity'), '100g – 5kg'],
                 ].map(([label, val]) => (
                   <div key={label} className="flex justify-between border-b-2 border-black pb-2">
                     <span>{label}</span>
@@ -278,17 +280,17 @@ export default function PouchSideGussetBagsPage() {
             </NeoCard>
 
             <NeoCard color="bg-[#D4FF00]" className="text-black space-y-6">
-              <h3 className="font-black text-3xl uppercase text-left">Closure Options</h3>
+              <h3 className="font-black text-3xl uppercase text-left">{t('pouchSideGussetBagsPage.specsCard2Title')}</h3>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  'Tin Tie Fold-Over',
-                  'Press-to-Close Zipper',
-                  '1-Way Degassing Valve',
-                  'Heat Seal (Permanent)',
-                  'Clear Window Panel',
-                  'Euro Hang Hole',
-                  'Tear Notch',
-                  'Rounded Corners',
+                  t('pouchSideGussetBagsPage.closureFeature1'),
+                  t('pouchSideGussetBagsPage.closureFeature2'),
+                  t('pouchSideGussetBagsPage.closureFeature3'),
+                  t('pouchSideGussetBagsPage.closureFeature4'),
+                  t('pouchSideGussetBagsPage.closureFeature5'),
+                  t('pouchSideGussetBagsPage.closureFeature6'),
+                  t('pouchSideGussetBagsPage.closureFeature7'),
+                  t('pouchSideGussetBagsPage.closureFeature8'),
                 ].map(feature => (
                   <div key={feature} className="flex items-center gap-2 font-['JetBrains_Mono'] font-bold text-sm text-left">
                     <CheckCircle className="w-4 h-4 text-black flex-shrink-0" />
@@ -320,38 +322,38 @@ export default function PouchSideGussetBagsPage() {
       <section className="py-24 bg-neutral-50">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-black uppercase mb-8 text-left">
-            The Ultimate Guide to <span className="text-[#FF00FF]">Side Gusset Coffee Bags</span>
+            {t('pouchSideGussetBagsPage.deepDiveTitleStart')}<span className="text-[#FF00FF]">{t('pouchSideGussetBagsPage.deepDiveTitleSpan')}</span>
           </h2>
 
           <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6 text-left">
             <p>
-              Side gusset bags—also called quad seal bags or gusseted pouches—are one of the most recognizable and enduring packaging formats in the specialty coffee and bulk food industries. Their distinctive silhouette, with four vertical seams and expandable side panels, provides a high-volume, structurally sound package that works beautifully for products ranging from single-origin coffee beans to loose-leaf teas and organic rice.
+              {t('pouchSideGussetBagsPage.deepDivePara1')}
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
               <img
                 src="/imgs/store/pouch shape/side-gusset.webp"
-                alt="Side gusset bag showing quad seal construction and expandable side panels"
+                alt={t('pouchSideGussetBagsPage.imgAlt1')}
                 className="w-full h-80 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />
               <img
                 src="/imgs/pouch-shape/side-gusset-pouch-eco.png"
-                alt="Premium Side Gusset Coffee Bag showing front panel branding"
+                alt={t('pouchSideGussetBagsPage.imgAlt2')}
                 className="w-full h-80 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />
             </div>
 
-            <h3 className="text-2xl font-black uppercase text-black mt-12 mb-4">Why Side Gusset Bags Dominate Specialty Coffee</h3>
+            <h3 className="text-2xl font-black uppercase text-black mt-12 mb-4">{t('pouchSideGussetBagsPage.deepDiveSubheading1')}</h3>
             <p>
-              The side gusset format has become the industry standard for specialty coffee for several key reasons. First, the quad seal construction creates a flat front and back panel—maximizing your digital printing real estate for high-resolution label graphics, flavor profiles, and sustainability stories. Second, the gussets allow the bag to hold significantly more coffee beans or grounds compared to a flat pouch of equivalent footprint dimensions.
+              {t('pouchSideGussetBagsPage.deepDivePara2')}
             </p>
             <p>
-              One-way degassing valves are easily integrated into side gusset bags, allowing freshly roasted beans to off-gas CO2 naturally without the risk of oxidation. This combination of structure, branding area, and valve compatibility makes side gusset bags the format of choice for over 65% of specialty coffee brands globally.
+              {t('pouchSideGussetBagsPage.deepDivePara3')}
             </p>
 
-            <h3 className="text-2xl font-black uppercase text-black mt-12 mb-4">Sustainable Side Gusset Options</h3>
+            <h3 className="text-2xl font-black uppercase text-black mt-12 mb-4">{t('pouchSideGussetBagsPage.deepDiveSubheading2')}</h3>
             <p>
-              At Pouch.eco, we've developed side gusset bags in recyclable mono-PE structures, compostable PLA-based films, and kraft paper with aluminum-free barrier coatings—ensuring that the classic coffee packaging format can meet today's sustainability demands without sacrificing barrier performance or aesthetic quality.
+              {t('pouchSideGussetBagsPage.deepDivePara4')}
             </p>
           </div>
         </div>
@@ -361,12 +363,12 @@ export default function PouchSideGussetBagsPage() {
       <section className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <NeoBadge color="magenta">BIO_INTELLIGENCE_FAQ</NeoBadge>
+            <NeoBadge color="magenta">{t('pouchSideGussetBagsPage.faqBadge')}</NeoBadge>
             <h2 className="text-4xl md:text-5xl font-black uppercase mt-6">
-              Expert Procurement FAQ
+              {t('pouchSideGussetBagsPage.faqHeading')}
             </h2>
             <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 mt-2">
-              Everything professional buyers need to know before ordering.
+              {t('pouchSideGussetBagsPage.faqSubheading')}
             </p>
           </div>
 
@@ -403,26 +405,26 @@ export default function PouchSideGussetBagsPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#D4FF00] border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <NeoBadge color="bg-black text-white">BIO_MANDATE</NeoBadge>
+          <NeoBadge color="bg-black text-white">{t('pouchSideGussetBagsPage.ctaBadge')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-            Start Your Custom Run
+            {t('pouchSideGussetBagsPage.ctaHeading')}
           </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-black">
-            Classic side gusset bags with startup-friendly MOQ from 500 units.
+            {t('pouchSideGussetBagsPage.ctaDesc')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <NeoButton href="/sample" variant="dark">
-              Request Free Eco Sample Kit
+              {t('pouchSideGussetBagsPage.ctaBtn1')}
             </NeoButton>
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="secondary" className="!bg-white !text-black border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Consult Packaging Engineer
+              {t('pouchSideGussetBagsPage.ctaBtn2')}
             </NeoButton>
           </div>
 
           <div className="pt-8 border-t border-black/20 text-xs font-['JetBrains_Mono'] text-black/70 max-w-xl mx-auto leading-relaxed">
-            <strong>Seeking high-volume commercial wholesale runs?</strong><br/>
-            For enterprise quantity pricing (10,000+ units), custom gravure print plates, and bulk contracts, please visit our wholesale portal:{" "}
+            <strong>{t('pouchSideGussetBagsPage.ctaWholesaleTitle')}</strong><br/>
+            {t('pouchSideGussetBagsPage.ctaWholesaleDesc')}
             <a 
               href="https://achievepack.com/packaging/side-gusset-bags" 
               className="underline font-bold hover:text-black transition"

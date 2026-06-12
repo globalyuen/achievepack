@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Droplets } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -6,13 +7,14 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
 export default function PouchSpoutPouchesPage() {
+  const { t } = useTranslation()
   const floatAnim = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
-  const title = "Spout Pouches - Flexible Liquid Packaging | POUCH.ECO"
-  const description = "Custom spouted pouches for liquids, sauces, and purees. Low MOQ 500 units. Lightweight, durable, and eco-friendly alternative to rigid bottles."
+  const title = t('pouchSpoutPouchesPage.title')
+  const description = t('pouchSpoutPouchesPage.description')
 
   return (
     <PouchLayout>
@@ -28,24 +30,24 @@ export default function PouchSpoutPouchesPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="inline-block bg-[#00FFFF] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">LIQUID_TYPE: SPOUT_03</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t('pouchSpoutPouchesPage.liquidType')}</span>
               </div>
               
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                Pour.<br/>
-                Store.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFFF] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Flow.</span>
+                {t('pouchSpoutPouchesPage.hero.part1')}<br/>
+                {t('pouchSpoutPouchesPage.hero.part2')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFFF] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t('pouchSpoutPouchesPage.hero.part3')}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; 80% less plastic than bottles.<br/>
-                &gt; Zero-leak protocol active.<br/>
-                &gt; High performance barrier.
+                &gt; {t('pouchSpoutPouchesPage.hero.descLine1')}<br/>
+                &gt; {t('pouchSpoutPouchesPage.hero.descLine2')}<br/>
+                &gt; {t('pouchSpoutPouchesPage.hero.descLine3')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">Get Quote</NeoButton>
-                <NeoButton variant="secondary" to="/tech-specs">Compare to Bottles</NeoButton>
+                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t('pouchSpoutPouchesPage.hero.getQuote')}</NeoButton>
+                <NeoButton variant="secondary" to="/tech-specs">{t('pouchSpoutPouchesPage.hero.compareBottles')}</NeoButton>
               </div>
             </div>
 
@@ -67,29 +69,29 @@ export default function PouchSpoutPouchesPage() {
         <div className="grid md:grid-cols-3 gap-8">
           <NeoCard color="bg-white">
             <Zap className="w-12 h-12 mb-4 text-[#FF00FF]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">Logistics ROI</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchSpoutPouchesPage.benefits.logisticsRoi.title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              Ships flat. One truck of spout pouches equals 25 trucks of empty rigid bottles. Massive carbon reduction.
+              {t('pouchSpoutPouchesPage.benefits.logisticsRoi.desc')}
             </p>
-            <NeoBadge color="bg-[#D4FF00]">CARBON_SAVER</NeoBadge>
+            <NeoBadge color="bg-[#D4FF00]">{t('pouchSpoutPouchesPage.benefits.logisticsRoi.badge')}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#D4FF00]">
             <Shield className="w-12 h-12 mb-4 text-black" />
-            <h3 className="font-black text-3xl mb-4 uppercase">Durability</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchSpoutPouchesPage.benefits.durability.title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              Multi-layer puncture resistance. Engineered to survive courier drops and rough handling in transit.
+              {t('pouchSpoutPouchesPage.benefits.durability.desc')}
             </p>
-            <NeoBadge color="bg-[#00FFFF]">MIL_SPEC_TOUGH</NeoBadge>
+            <NeoBadge color="bg-[#00FFFF]">{t('pouchSpoutPouchesPage.benefits.durability.badge')}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#00FFFF]">
             <Droplets className="w-12 h-12 mb-4 text-[#FF00FF]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">Dispensing</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchSpoutPouchesPage.benefits.dispensing.title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              Precision spouts from 8.5mm to 22mm. Anti-choke options for baby food and easy-pour for liquids.
+              {t('pouchSpoutPouchesPage.benefits.dispensing.desc')}
             </p>
-            <NeoBadge color="bg-white">CONTROLLED_FLOW</NeoBadge>
+            <NeoBadge color="bg-white">{t('pouchSpoutPouchesPage.benefits.dispensing.badge')}</NeoBadge>
           </NeoCard>
         </div>
       </section>
@@ -97,13 +99,13 @@ export default function PouchSpoutPouchesPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#00FFFF] border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <h2 className="font-black text-5xl md:text-7xl uppercase">Liquid Revolution</h2>
+          <h2 className="font-black text-5xl md:text-7xl uppercase">{t('pouchSpoutPouchesPage.cta.heading')}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl">
-            Upgrade from plastic bottles to high-efficiency spout pouches.
+            {t('pouchSpoutPouchesPage.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">Consult Now</NeoButton>
-            <NeoButton variant="dark" to="/sample">Order Prototype</NeoButton>
+            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t('pouchSpoutPouchesPage.cta.consultNow')}</NeoButton>
+            <NeoButton variant="dark" to="/sample">{t('pouchSpoutPouchesPage.cta.orderPrototype')}</NeoButton>
           </div>
         </div>
       </section>

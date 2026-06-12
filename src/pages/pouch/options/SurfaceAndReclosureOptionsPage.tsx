@@ -1,67 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { ArrowRight, CheckCircle, Package, Leaf, Zap, Shield, Wrench, Sparkles, X, ChevronDown, ChevronUp, Calendar } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { SortableOptionsTable, CLOSURE_OPTIONS, SURFACE_OPTIONS } from '../../../components/SortableOptionsTable'
-
-// Surface finish gallery data
-const SURFACE_GALLERY = [
-  { id: 'matte', name: 'Matte Finish', description: 'Sophisticated & non-reflective', image: '/imgs/surface/a_matte_finish_detail_7483118.webp' },
-  { id: 'gloss', name: 'Gloss Finish', description: 'High-shine & vibrant', image: '/imgs/surface/a_gloss_finish_detail_5685549.webp' },
-  { id: 'spot-matte', name: 'Spot Matte', description: 'Contrast glossy & matte', image: '/imgs/surface/spot-matte-finish.webp' },
-  { id: 'spot-uv', name: 'Spot UV Finish', description: 'Glossy spots over matte', image: '/imgs/surface/spot-uv-pouch.png' },
-  { id: 'soft-touch', name: 'Soft Touch', description: 'Velvet-like tactile feel', image: '/imgs/surface/a_softtouch_pouch_correct_7961783.webp' },
-  { id: 'metallic', name: 'Metallic Gold', description: 'Luxurious premium look', image: '/imgs/surface/a_metallic_gold_closeup_5151764.webp' },
-  { id: 'embossed', name: 'Embossed', description: 'Raised 3D texture', image: '/imgs/surface/a_embossed_navy_9933981.webp' },
-  { id: 'foil', name: 'Foil Stamping', description: 'Metallic accents', image: '/imgs/surface/a_foil_green_charcoal_7632386.webp' },
-]
-
-// Reclosure gallery data
-const RECLOSURE_GALLERY = [
-  { id: 'press-zipper', name: 'Press-to-Close', description: 'Standard zipper', image: '/imgs/reclose/a_reclosure_options_kv_product_photo_7983949.webp' },
-  { id: 'spout', name: 'Spout Cap', description: 'For liquids & pastes', image: '/imgs/reclose/a_spout_closure_closeup_detail_2705813.webp' },
-  { id: 'tintie', name: 'Tin Tie', description: 'Coffee classic', image: '/imgs/reclose/a_tintie_coffee_pouch_correct_4114906.webp' },
-  { id: 'valve', name: 'Degassing Valve', description: 'Freshness vent', image: '/imgs/store/additional/valve.webp' },
-]
-
-// Surface finish comparison data
-const SURFACE_COMPARISON = [
-  { finish: 'Gloss', visual: 'Shiny, vibrant', tactile: 'Smooth', bestFor: 'Snacks, Candy', cost: 'Base Cost', costColor: 'text-green-600' },
-  { finish: 'Matte', visual: 'Elegant, subtle', tactile: 'Smooth, dry', bestFor: 'Organic, Premium', cost: 'Base Cost', costColor: 'text-green-600' },
-  { finish: 'Spot Matte', visual: 'Contrast effect', tactile: 'Mixed texture', bestFor: 'Coffee, Luxury', cost: '+$0.05-0.10/unit', costColor: 'text-amber-600' },
-  { finish: 'Soft-Touch', visual: 'Rich, ultra-matte', tactile: 'Velvety', bestFor: 'Luxury, Cosmetics', cost: '+10-15%', costColor: 'text-amber-600' },
-  { finish: 'Spot UV', visual: 'Contrast highlights', tactile: 'Textured', bestFor: 'Brand emphasis', cost: '+$0.02-0.05/unit', costColor: 'text-purple-600' },
-  { finish: 'Hot Foil', visual: 'Metallic shine', tactile: 'Smooth metallic', bestFor: 'Luxury, Awards', cost: '+$0.05-0.15/unit', costColor: 'text-purple-600' },
-]
-
-// Reclosure comparison data
-const RECLOSURE_COMPARISON = [
-  { type: 'Press Zipper', convenience: 3, sealing: 4, bestFor: 'Snacks, Dry Goods', cost: '+5%', costColor: 'text-green-600' },
-  { type: 'Slider Zipper', convenience: 5, sealing: 4, bestFor: 'Premium Snacks', cost: '+15%', costColor: 'text-amber-600' },
-  { type: 'Spout', convenience: 4, sealing: 5, bestFor: 'Baby Food, Liquids', cost: '+30%', costColor: 'text-purple-600' },
-  { type: 'Tin Tie', convenience: 2, sealing: 3, bestFor: 'Coffee, Bakery', cost: '+10%', costColor: 'text-amber-600' },
-]
-
-// FAQ data
-const FAQ_DATA = [
-  {
-    question: 'Can I combine multiple finishes on one pouch?',
-    answer: 'Yes! Popular combinations include matte lamination + spot UV for contrast, or soft-touch + hot foil for luxury. We can help you design the optimal finish combination for your brand positioning.'
-  },
-  {
-    question: 'Are zippers available on all pouch sizes?',
-    answer: 'Yes, we can apply press-to-close zippers to almost any custom printed pouch size. Sliders and spouts have some size restrictions depending on the pouch geometry.'
-  },
-  {
-    question: 'Do spout pouches cost more than zipper pouches?',
-    answer: 'Spout pouches typically cost 20-40% more than zipper pouches due to the spout component and additional sealing process. However, they offer unique functionality for liquid and semi-liquid products that zippers cannot provide.'
-  },
-  {
-    question: 'Are these options available for compostable pouches?',
-    answer: 'Absolutely. We offer certified compostable zippers (PLA-based) and water-based matte/gloss coatings that meet EN 13432 standards. The zipper material always matches the pouch material for proper end-of-life processing.'
-  },
-]
 
 // Star rating component
 const StarRating = ({ rating }: { rating: number }) => (
@@ -71,21 +14,79 @@ const StarRating = ({ rating }: { rating: number }) => (
 )
 
 export default function SurfaceAndReclosureOptionsPage() {
-  
+  const { t } = useTranslation()
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+
+  // Surface finish gallery data
+  const SURFACE_GALLERY = [
+    { id: 'matte', name: t('surfaceAndReclosureOptionsPage.gallery.matte.name'), description: t('surfaceAndReclosureOptionsPage.gallery.matte.desc'), image: '/imgs/surface/a_matte_finish_detail_7483118.webp' },
+    { id: 'gloss', name: t('surfaceAndReclosureOptionsPage.gallery.gloss.name'), description: t('surfaceAndReclosureOptionsPage.gallery.gloss.desc'), image: '/imgs/surface/a_gloss_finish_detail_5685549.webp' },
+    { id: 'spot-matte', name: t('surfaceAndReclosureOptionsPage.gallery.spotMatte.name'), description: t('surfaceAndReclosureOptionsPage.gallery.spotMatte.desc'), image: '/imgs/surface/spot-matte-finish.webp' },
+    { id: 'spot-uv', name: t('surfaceAndReclosureOptionsPage.gallery.spotUv.name'), description: t('surfaceAndReclosureOptionsPage.gallery.spotUv.desc'), image: '/imgs/surface/spot-uv-pouch.png' },
+    { id: 'soft-touch', name: t('surfaceAndReclosureOptionsPage.gallery.softTouch.name'), description: t('surfaceAndReclosureOptionsPage.gallery.softTouch.desc'), image: '/imgs/surface/a_softtouch_pouch_correct_7961783.webp' },
+    { id: 'metallic', name: t('surfaceAndReclosureOptionsPage.gallery.metallic.name'), description: t('surfaceAndReclosureOptionsPage.gallery.metallic.desc'), image: '/imgs/surface/a_metallic_gold_closeup_5151764.webp' },
+    { id: 'embossed', name: t('surfaceAndReclosureOptionsPage.gallery.embossed.name'), description: t('surfaceAndReclosureOptionsPage.gallery.embossed.desc'), image: '/imgs/surface/a_embossed_navy_9933981.webp' },
+    { id: 'foil', name: t('surfaceAndReclosureOptionsPage.gallery.foil.name'), description: t('surfaceAndReclosureOptionsPage.gallery.foil.desc'), image: '/imgs/surface/a_foil_green_charcoal_7632386.webp' },
+  ]
+
+  // Reclosure gallery data
+  const RECLOSURE_GALLERY = [
+    { id: 'press-zipper', name: t('surfaceAndReclosureOptionsPage.gallery.pressZipper.name'), description: t('surfaceAndReclosureOptionsPage.gallery.pressZipper.desc'), image: '/imgs/reclose/a_reclosure_options_kv_product_photo_7983949.webp' },
+    { id: 'spout', name: t('surfaceAndReclosureOptionsPage.gallery.spout.name'), description: t('surfaceAndReclosureOptionsPage.gallery.spout.desc'), image: '/imgs/reclose/a_spout_closure_closeup_detail_2705813.webp' },
+    { id: 'tintie', name: t('surfaceAndReclosureOptionsPage.gallery.tintie.name'), description: t('surfaceAndReclosureOptionsPage.gallery.tintie.desc'), image: '/imgs/reclose/a_tintie_coffee_pouch_correct_4114906.webp' },
+    { id: 'valve', name: t('surfaceAndReclosureOptionsPage.gallery.valve.name'), description: t('surfaceAndReclosureOptionsPage.gallery.valve.desc'), image: '/imgs/store/additional/valve.webp' },
+  ]
+
+  // Surface finish comparison data
+  const SURFACE_COMPARISON = [
+    { finish: t('surfaceAndReclosureOptionsPage.comparison.surface.gloss'), visual: t('surfaceAndReclosureOptionsPage.comparison.gloss.visual'), tactile: t('surfaceAndReclosureOptionsPage.comparison.gloss.tactile'), bestFor: t('surfaceAndReclosureOptionsPage.comparison.gloss.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.gloss.cost'), costColor: 'text-green-600' },
+    { finish: t('surfaceAndReclosureOptionsPage.comparison.surface.matte'), visual: t('surfaceAndReclosureOptionsPage.comparison.matte.visual'), tactile: t('surfaceAndReclosureOptionsPage.comparison.matte.tactile'), bestFor: t('surfaceAndReclosureOptionsPage.comparison.matte.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.matte.cost'), costColor: 'text-green-600' },
+    { finish: t('surfaceAndReclosureOptionsPage.comparison.surface.spotMatte'), visual: t('surfaceAndReclosureOptionsPage.comparison.spotMatte.visual'), tactile: t('surfaceAndReclosureOptionsPage.comparison.spotMatte.tactile'), bestFor: t('surfaceAndReclosureOptionsPage.comparison.spotMatte.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.spotMatte.cost'), costColor: 'text-amber-600' },
+    { finish: t('surfaceAndReclosureOptionsPage.comparison.surface.softTouch'), visual: t('surfaceAndReclosureOptionsPage.comparison.softTouch.visual'), tactile: t('surfaceAndReclosureOptionsPage.comparison.softTouch.tactile'), bestFor: t('surfaceAndReclosureOptionsPage.comparison.softTouch.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.softTouch.cost'), costColor: 'text-amber-600' },
+    { finish: t('surfaceAndReclosureOptionsPage.comparison.surface.spotUv'), visual: t('surfaceAndReclosureOptionsPage.comparison.spotUv.visual'), tactile: t('surfaceAndReclosureOptionsPage.comparison.spotUv.tactile'), bestFor: t('surfaceAndReclosureOptionsPage.comparison.spotUv.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.spotUv.cost'), costColor: 'text-purple-600' },
+    { finish: t('surfaceAndReclosureOptionsPage.comparison.surface.hotFoil'), visual: t('surfaceAndReclosureOptionsPage.comparison.hotFoil.visual'), tactile: t('surfaceAndReclosureOptionsPage.comparison.hotFoil.tactile'), bestFor: t('surfaceAndReclosureOptionsPage.comparison.hotFoil.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.hotFoil.cost'), costColor: 'text-purple-600' },
+  ]
+
+  // Reclosure comparison data
+  const RECLOSURE_COMPARISON = [
+    { type: t('surfaceAndReclosureOptionsPage.comparison.closure.pressZipper'), convenience: 3, sealing: 4, bestFor: t('surfaceAndReclosureOptionsPage.comparison.pressZipper.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.pressZipper.cost'), costColor: 'text-green-600' },
+    { type: t('surfaceAndReclosureOptionsPage.comparison.closure.sliderZipper'), convenience: 5, sealing: 4, bestFor: t('surfaceAndReclosureOptionsPage.comparison.sliderZipper.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.sliderZipper.cost'), costColor: 'text-amber-600' },
+    { type: t('surfaceAndReclosureOptionsPage.comparison.closure.spout'), convenience: 4, sealing: 5, bestFor: t('surfaceAndReclosureOptionsPage.comparison.spout.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.spout.cost'), costColor: 'text-purple-600' },
+    { type: t('surfaceAndReclosureOptionsPage.comparison.closure.tinTie'), convenience: 2, sealing: 3, bestFor: t('surfaceAndReclosureOptionsPage.comparison.tinTie.bestFor'), cost: t('surfaceAndReclosureOptionsPage.comparison.tinTie.cost'), costColor: 'text-amber-600' },
+  ]
+
+  // FAQ data
+  const FAQ_DATA = [
+    {
+      question: t('surfaceAndReclosureOptionsPage.faq.q1.q'),
+      answer: t('surfaceAndReclosureOptionsPage.faq.q1.a')
+    },
+    {
+      question: t('surfaceAndReclosureOptionsPage.faq.q2.q'),
+      answer: t('surfaceAndReclosureOptionsPage.faq.q2.a')
+    },
+    {
+      question: t('surfaceAndReclosureOptionsPage.faq.q3.q'),
+      answer: t('surfaceAndReclosureOptionsPage.faq.q3.a')
+    },
+    {
+      question: t('surfaceAndReclosureOptionsPage.faq.q4.q'),
+      answer: t('surfaceAndReclosureOptionsPage.faq.q4.a')
+    },
+  ]
 
   
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Premium Customization Options | Surface Finishes & Reclosures | POUCH.ECO</title>
-        <meta name="description" content="Explore our premium surface finishes (Matte, Gloss, Soft-Touch, Spot UV) and reclosure options (Zippers, Spouts, Tin-Ties) for sustainable flexible packaging." />
+        <title>{t('surfaceAndReclosureOptionsPage.title')}</title>
+        <meta name="description" content={t('surfaceAndReclosureOptionsPage.description')} />
         <link rel="canonical" href="https://pouch.eco/options/surface-and-reclosure" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Premium Customization Options | Surface Finishes & Reclosures | POUCH.ECO" />
-        <meta property="og:description" content="Explore our premium surface finishes (Matte, Gloss, Soft-Touch, Spot UV) and reclosure options (Zippers, Spouts, Tin-Ties) for sustainable flexible packaging." />
+        <meta property="og:title" content={t('surfaceAndReclosureOptionsPage.title')} />
+        <meta property="og:description" content={t('surfaceAndReclosureOptionsPage.description')} />
         <meta property="og:url" content="https://pouch.eco/options/surface-and-reclosure" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="https://pouch.eco/imgs/surface/a_achieve_pack_main_kv_six_finishes_3535755.webp" />
@@ -95,8 +96,8 @@ export default function SurfaceAndReclosureOptionsPage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Premium Customization Options: Surface Finishes & Reclosures for Sustainable Packaging",
-            "description": "Complete guide to premium surface finishes and reclosure options for eco-friendly compostable pouches",
+            "headline": t('surfaceAndReclosureOptionsPage.schema.headline'),
+            "description": t('surfaceAndReclosureOptionsPage.schema.description'),
             "author": {
               "@type": "Organization",
               "name": "POUCH.ECO"
@@ -124,14 +125,14 @@ export default function SurfaceAndReclosureOptionsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-sm uppercase tracking-[4px] text-[#10B981] font-bold mb-4">
-              ELEVATE YOUR BRAND · FUNCTIONAL DESIGN · PREMIUM AESTHETICS
+              {t('surfaceAndReclosureOptionsPage.hero.tagline')}
             </p>
             <h1 className="text-4xl md:text-6xl font-['Space_Grotesk'] font-black uppercase mb-6 leading-tight">
-              Complete Customization Guide:
-              <span className="text-[#10B981]"> Surface Finishes & Reclosures</span>
+              {t('surfaceAndReclosureOptionsPage.hero.heading1')}
+              <span className="text-[#10B981]">{t('surfaceAndReclosureOptionsPage.hero.heading2')}</span>
             </h1>
             <p className="text-lg md:text-xl font-['JetBrains_Mono'] mb-8 text-gray-300">
-              Your packaging is your silent salesman. Choosing the right surface finish can elevate your brand's perceived value, while the correct reclosure option ensures product freshness and customer convenience.
+              {t('surfaceAndReclosureOptionsPage.hero.desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -139,7 +140,7 @@ export default function SurfaceAndReclosureOptionsPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#10B981] text-white font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Package className="w-6 h-6" />
-                Browse Materials
+                {t('surfaceAndReclosureOptionsPage.hero.browseMaterials')}
                 <ArrowRight className="w-6 h-6" />
               </Link>
               <a
@@ -149,7 +150,7 @@ export default function SurfaceAndReclosureOptionsPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-black text-[#10B981] font-black uppercase border-4 border-[#10B981] shadow-[8px_8px_0px_0px_#10B981] hover:shadow-[12px_12px_0px_0px_#10B981] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
-                Book Meeting
+                {t('surfaceAndReclosureOptionsPage.hero.bookMeeting')}
               </a>
             </div>
           </div>
@@ -161,17 +162,16 @@ export default function SurfaceAndReclosureOptionsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-4">
-              Part 1: Surface <span className="text-[#10B981]">Finishes</span>
+              {t('surfaceAndReclosureOptionsPage.surface.heading1')}<span className="text-[#10B981]">{t('surfaceAndReclosureOptionsPage.surface.heading2')}</span>
             </h2>
             <p className="text-lg font-['JetBrains_Mono'] text-gray-600">
-              Transform your sustainable packaging into a premium shelf presence.
+              {t('surfaceAndReclosureOptionsPage.surface.desc')}
             </p>
           </div>
 
           {/* Main KV Image */}
           <div 
             className="lb-img cursor-zoom-in relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl mb-8 cursor-zoom-in group"
-            
           >
             <img 
               src="/imgs/surface/a_achieve_pack_main_kv_six_finishes_3535755.webp" 
@@ -180,7 +180,7 @@ export default function SurfaceAndReclosureOptionsPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <p className="absolute bottom-4 left-4 right-4 text-white text-center font-['JetBrains_Mono'] text-sm">
-              Explore our six premium finishes: Matte, Gloss, Soft-Touch, Spot UV, Foil, and Embossing.
+              {t('surfaceAndReclosureOptionsPage.surface.galleryCaption')}
             </p>
           </div>
 
@@ -190,7 +190,6 @@ export default function SurfaceAndReclosureOptionsPage() {
               <div 
                 key={item.id}
                 className="lb-img cursor-zoom-in bg-white rounded-xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#10B981] transition-all cursor-pointer group"
-                
               >
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -212,29 +211,29 @@ export default function SurfaceAndReclosureOptionsPage() {
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 mb-12 border-4 border-black">
             <h3 className="text-2xl font-black uppercase mb-6 flex items-center gap-3">
               <Sparkles className="w-8 h-8 text-[#10B981]" />
-              Special Effect Finishes
+              {t('surfaceAndReclosureOptionsPage.surface.effects.heading')}
             </h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-xl font-bold mb-3">Spot UV Varnish</h4>
+                <h4 className="text-xl font-bold mb-3">{t('surfaceAndReclosureOptionsPage.surface.effects.spotUv.title')}</h4>
                 <p className="font-['JetBrains_Mono'] text-gray-700 mb-4">
-                  Apply a high-gloss coating to specific areas (like your logo) over a matte background. This creates a striking contrast and visual depth that draws the eye immediately.
+                  {t('surfaceAndReclosureOptionsPage.surface.effects.spotUv.desc')}
                 </p>
                 <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Highlight logos and text</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Create subtle texture patterns</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Best combined with matte base</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.effects.spotUv.point1')}</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.effects.spotUv.point2')}</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.effects.spotUv.point3')}</li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-xl font-bold mb-3">Hot Foil Stamping</h4>
+                <h4 className="text-xl font-bold mb-3">{t('surfaceAndReclosureOptionsPage.surface.effects.foil.title')}</h4>
                 <p className="font-['JetBrains_Mono'] text-gray-700 mb-4">
-                  Metallic foil transfer for the ultimate premium look. Available in gold, silver, copper, and rose gold. Perfect for award seals and luxury branding.
+                  {t('surfaceAndReclosureOptionsPage.surface.effects.foil.desc')}
                 </p>
                 <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Reflective metallic shine</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Premium perception</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Ideal for limited editions</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.effects.foil.point1')}</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.effects.foil.point2')}</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.effects.foil.point3')}</li>
                 </ul>
               </div>
             </div>
@@ -242,15 +241,15 @@ export default function SurfaceAndReclosureOptionsPage() {
 
           {/* Surface Comparison Table */}
           <div className="bg-blue-50 rounded-2xl p-6 mb-12 overflow-x-auto">
-            <h3 className="text-xl font-black uppercase mb-4 text-center">Finish Comparison Guide</h3>
+            <h3 className="text-xl font-black uppercase mb-4 text-center">{t('surfaceAndReclosureOptionsPage.surface.table.title')}</h3>
             <table className="w-full min-w-[600px] border-collapse">
               <thead>
                 <tr className="bg-blue-100">
-                  <th className="border border-gray-300 p-3 text-left font-bold">Finish</th>
-                  <th className="border border-gray-300 p-3 text-left font-bold">Visual Effect</th>
-                  <th className="border border-gray-300 p-3 text-left font-bold">Tactile Feel</th>
-                  <th className="border border-gray-300 p-3 text-left font-bold">Best For</th>
-                  <th className="border border-gray-300 p-3 text-left font-bold">Cost Impact</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.surface.table.headers.finish')}</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.surface.table.headers.visual')}</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.surface.table.headers.tactile')}</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.surface.table.headers.bestFor')}</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.surface.table.headers.cost')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -271,7 +270,7 @@ export default function SurfaceAndReclosureOptionsPage() {
           <div className="mb-12">
             <SortableOptionsTable 
               options={SURFACE_OPTIONS} 
-              title="Surface Finishes Database" 
+              title={t('surfaceAndReclosureOptionsPage.surface.databaseTitle')}
               categoryColor="purple"
               type="surface"
             />
@@ -281,40 +280,40 @@ export default function SurfaceAndReclosureOptionsPage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-gray-50 p-6 border-4 border-black rounded-xl">
               <Leaf className="w-10 h-10 text-[#10B981] mb-3" />
-              <h3 className="text-xl font-black uppercase mb-3">Eco-Friendly</h3>
+              <h3 className="text-xl font-black uppercase mb-3">{t('surfaceAndReclosureOptionsPage.surface.features.eco.title')}</h3>
               <p className="font-['JetBrains_Mono'] text-sm mb-3">
-                All surface finishes compatible with compostable and recyclable materials.
+                {t('surfaceAndReclosureOptionsPage.surface.features.eco.desc')}
               </p>
               <ul className="space-y-1 font-['JetBrains_Mono'] text-sm">
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> EN13432 Certified</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Home Compostable</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> BPI Certified</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.eco.point1')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.eco.point2')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.eco.point3')}</li>
               </ul>
             </div>
             
             <div className="bg-gray-50 p-6 border-4 border-black rounded-xl">
               <Wrench className="w-10 h-10 text-[#10B981] mb-3" />
-              <h3 className="text-xl font-black uppercase mb-3">Premium Quality</h3>
+              <h3 className="text-xl font-black uppercase mb-3">{t('surfaceAndReclosureOptionsPage.surface.features.quality.title')}</h3>
               <p className="font-['JetBrains_Mono'] text-sm mb-3">
-                High-quality finishes that enhance brand image and product appeal.
+                {t('surfaceAndReclosureOptionsPage.surface.features.quality.desc')}
               </p>
               <ul className="space-y-1 font-['JetBrains_Mono'] text-sm">
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Vibrant Color</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Scratch Resistant</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Durable</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.quality.point1')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.quality.point2')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.quality.point3')}</li>
               </ul>
             </div>
             
             <div className="bg-gray-50 p-6 border-4 border-black rounded-xl">
               <Sparkles className="w-10 h-10 text-[#10B981] mb-3" />
-              <h3 className="text-xl font-black uppercase mb-3">Customizable</h3>
+              <h3 className="text-xl font-black uppercase mb-3">{t('surfaceAndReclosureOptionsPage.surface.features.custom.title')}</h3>
               <p className="font-['JetBrains_Mono'] text-sm mb-3">
-                Mix and match finishes to create unique packaging solutions.
+                {t('surfaceAndReclosureOptionsPage.surface.features.custom.desc')}
               </p>
               <ul className="space-y-1 font-['JetBrains_Mono'] text-sm">
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Combination Options</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Brand Integration</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Special Effects</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.custom.point1')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.custom.point2')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.surface.features.custom.point3')}</li>
               </ul>
             </div>
           </div>
@@ -326,10 +325,10 @@ export default function SurfaceAndReclosureOptionsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-4">
-              Part 2: Re-<span className="text-[#10B981]">Closure</span> Options
+              {t('surfaceAndReclosureOptionsPage.reclosure.heading1')}<span className="text-[#10B981]">{t('surfaceAndReclosureOptionsPage.reclosure.heading2')}</span>{t('surfaceAndReclosureOptionsPage.reclosure.heading3')}
             </h2>
             <p className="text-lg font-['JetBrains_Mono'] text-gray-600">
-              Keep products fresh and consumers happy with functional closures.
+              {t('surfaceAndReclosureOptionsPage.reclosure.desc')}
             </p>
           </div>
 
@@ -339,7 +338,6 @@ export default function SurfaceAndReclosureOptionsPage() {
               <div 
                 key={item.id}
                 className="lb-img cursor-zoom-in bg-white rounded-xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#10B981] transition-all cursor-pointer group"
-                
               >
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -361,39 +359,39 @@ export default function SurfaceAndReclosureOptionsPage() {
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 mb-12 border-4 border-black">
             <h3 className="text-2xl font-black uppercase mb-6 flex items-center gap-3">
               <Shield className="w-8 h-8 text-[#10B981]" />
-              Zipper & Spout Types
+              {t('surfaceAndReclosureOptionsPage.reclosure.effects.heading')}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white p-5 rounded-xl">
-                <h4 className="font-bold mb-2">Press-to-Close Zipper</h4>
-                <p className="text-sm text-gray-600">The most economical option. Reliable sealing for 500+ open/close cycles. Available on almost all pouch formats.</p>
+                <h4 className="font-bold mb-2">{t('surfaceAndReclosureOptionsPage.reclosure.effects.press.title')}</h4>
+                <p className="text-sm text-gray-600">{t('surfaceAndReclosureOptionsPage.reclosure.effects.press.desc')}</p>
               </div>
               <div className="bg-white p-5 rounded-xl">
-                <h4 className="font-bold mb-2">Slider Zipper</h4>
-                <p className="text-sm text-gray-600">Premium one-hand operation with a tactile "click". Ideal for snacks and pet food where convenience is key.</p>
+                <h4 className="font-bold mb-2">{t('surfaceAndReclosureOptionsPage.reclosure.effects.slider.title')}</h4>
+                <p className="text-sm text-gray-600">{t('surfaceAndReclosureOptionsPage.reclosure.effects.slider.desc')}</p>
               </div>
               <div className="bg-white p-5 rounded-xl">
-                <h4 className="font-bold mb-2">Child-Resistant</h4>
-                <p className="text-sm text-gray-600">ASTM D3475 certified. Required for cannabis and pharmaceutical packaging. Push-and-slide mechanism.</p>
+                <h4 className="font-bold mb-2">{t('surfaceAndReclosureOptionsPage.reclosure.effects.cr.title')}</h4>
+                <p className="text-sm text-gray-600">{t('surfaceAndReclosureOptionsPage.reclosure.effects.cr.desc')}</p>
               </div>
               <div className="bg-white p-5 rounded-xl">
-                <h4 className="font-bold mb-2">Spout Caps</h4>
-                <p className="text-sm text-gray-600">Essential for liquids. Available in various diameters (8.6mm to 33mm). Tamper-evident options available.</p>
+                <h4 className="font-bold mb-2">{t('surfaceAndReclosureOptionsPage.reclosure.effects.spout.title')}</h4>
+                <p className="text-sm text-gray-600">{t('surfaceAndReclosureOptionsPage.reclosure.effects.spout.desc')}</p>
               </div>
             </div>
           </div>
 
           {/* Reclosure Comparison Table */}
           <div className="bg-blue-50 rounded-2xl p-6 mb-12 overflow-x-auto">
-            <h3 className="text-xl font-black uppercase mb-4 text-center">Reclosure Comparison</h3>
+            <h3 className="text-xl font-black uppercase mb-4 text-center">{t('surfaceAndReclosureOptionsPage.reclosure.table.title')}</h3>
             <table className="w-full min-w-[600px] border-collapse">
               <thead>
                 <tr className="bg-blue-100">
-                  <th className="border border-gray-300 p-3 text-left font-bold">Type</th>
-                  <th className="border border-gray-300 p-3 text-left font-bold">Convenience</th>
-                  <th className="border border-gray-300 p-3 text-left font-bold">Sealing</th>
-                  <th className="border border-gray-300 p-3 text-left font-bold">Best For</th>
-                  <th className="border border-gray-300 p-3 text-left font-bold">Cost Impact</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.reclosure.table.headers.type')}</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.reclosure.table.headers.convenience')}</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.reclosure.table.headers.sealing')}</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.reclosure.table.headers.bestFor')}</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">{t('surfaceAndReclosureOptionsPage.reclosure.table.headers.cost')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -414,7 +412,7 @@ export default function SurfaceAndReclosureOptionsPage() {
           <div className="mb-12">
             <SortableOptionsTable 
               options={CLOSURE_OPTIONS} 
-              title="Re-closure Options Database" 
+              title={t('surfaceAndReclosureOptionsPage.reclosure.databaseTitle')}
               categoryColor="blue"
               type="closure"
             />
@@ -424,40 +422,40 @@ export default function SurfaceAndReclosureOptionsPage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-6 border-4 border-black rounded-xl">
               <Zap className="w-10 h-10 text-[#10B981] mb-3" />
-              <h3 className="text-xl font-black uppercase mb-3">Easy Access</h3>
+              <h3 className="text-xl font-black uppercase mb-3">{t('surfaceAndReclosureOptionsPage.reclosure.features.access.title')}</h3>
               <p className="font-['JetBrains_Mono'] text-sm mb-3">
-                Re-closure options designed for convenient product access and resealing.
+                {t('surfaceAndReclosureOptionsPage.reclosure.features.access.desc')}
               </p>
               <ul className="space-y-1 font-['JetBrains_Mono'] text-sm">
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> One-Hand Operation</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Secure Seal</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Child-Resistant</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.access.point1')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.access.point2')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.access.point3')}</li>
               </ul>
             </div>
             
             <div className="bg-white p-6 border-4 border-black rounded-xl">
               <Shield className="w-10 h-10 text-[#10B981] mb-3" />
-              <h3 className="text-xl font-black uppercase mb-3">Product Protection</h3>
+              <h3 className="text-xl font-black uppercase mb-3">{t('surfaceAndReclosureOptionsPage.reclosure.features.protect.title')}</h3>
               <p className="font-['JetBrains_Mono'] text-sm mb-3">
-                Advanced sealing technologies to maintain freshness and quality.
+                {t('surfaceAndReclosureOptionsPage.reclosure.features.protect.desc')}
               </p>
               <ul className="space-y-1 font-['JetBrains_Mono'] text-sm">
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Oxygen Barrier</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Moisture Protection</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Extended Shelf Life</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.protect.point1')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.protect.point2')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.protect.point3')}</li>
               </ul>
             </div>
             
             <div className="bg-white p-6 border-4 border-black rounded-xl">
               <Package className="w-10 h-10 text-[#10B981] mb-3" />
-              <h3 className="text-xl font-black uppercase mb-3">Versatile</h3>
+              <h3 className="text-xl font-black uppercase mb-3">{t('surfaceAndReclosureOptionsPage.reclosure.features.versatile.title')}</h3>
               <p className="font-['JetBrains_Mono'] text-sm mb-3">
-                Suitable for various industries and product types.
+                {t('surfaceAndReclosureOptionsPage.reclosure.features.versatile.desc')}
               </p>
               <ul className="space-y-1 font-['JetBrains_Mono'] text-sm">
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Food & Beverages</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Pharmaceuticals</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> Consumer Goods</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.versatile.point1')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.versatile.point2')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.versatile.point3')}</li>
               </ul>
             </div>
           </div>
@@ -468,7 +466,7 @@ export default function SurfaceAndReclosureOptionsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-3xl md:text-4xl font-['Space_Grotesk'] font-black uppercase mb-8 text-center">
-            Frequently Asked <span className="text-[#10B981]">Questions</span>
+            {t('surfaceAndReclosureOptionsPage.faq.heading1')}<span className="text-[#10B981]">{t('surfaceAndReclosureOptionsPage.faq.heading2')}</span>
           </h2>
           <div className="space-y-4">
             {FAQ_DATA.map((faq, idx) => (
@@ -504,10 +502,10 @@ export default function SurfaceAndReclosureOptionsPage() {
       <section className="py-16 bg-[#10B981] border-t-4 border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-['Space_Grotesk'] font-black uppercase mb-4">
-            Ready to Create Your Custom Pouch?
+            {t('surfaceAndReclosureOptionsPage.cta.heading')}
           </h2>
           <p className="text-lg font-['JetBrains_Mono'] mb-8">
-            Start with a free consultation or request samples to see and feel the difference.
+            {t('surfaceAndReclosureOptionsPage.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -515,7 +513,7 @@ export default function SurfaceAndReclosureOptionsPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-black text-[#10B981] font-black uppercase border-4 border-[#10B981] shadow-[8px_8px_0px_0px_#10B981] hover:shadow-[12px_12px_0px_0px_#10B981] transition-all"
             >
               <Package className="w-6 h-6" />
-              Start Your Custom Order
+              {t('surfaceAndReclosureOptionsPage.cta.startOrder')}
               <ArrowRight className="w-6 h-6" />
             </Link>
             <a
@@ -523,7 +521,7 @@ export default function SurfaceAndReclosureOptionsPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
             >
               <Shield className="w-6 h-6" />
-              Schedule Consultation
+              {t('surfaceAndReclosureOptionsPage.cta.scheduleConsultation')}
             </a>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -6,13 +7,14 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
 export default function PouchFlatPouchesPage() {
+  const { t } = useTranslation()
   const floatAnim = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
-  const title = "Flat Pouches - 3 Side Seal & Pillow Bags | POUCH.ECO"
-  const description = "Custom printed flat pouches and 3-side seal bags. Low MOQ 500 units. Perfect for single-serve samples, face masks, and flat snacks."
+  const title = t('pouchFlatPouchesPage.title')
+  const description = t('pouchFlatPouchesPage.description')
 
   return (
     <PouchLayout>
@@ -28,24 +30,24 @@ export default function PouchFlatPouchesPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="inline-block bg-[#FF00FF] text-white border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">FLAT_TYPE: 3SS_04</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t('pouchFlatPouchesPage.flatType')}</span>
               </div>
               
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                Flat.<br/>
-                Fast.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Sleek.</span>
+                {t('pouchFlatPouchesPage.hero.part1')}<br/>
+                {t('pouchFlatPouchesPage.hero.part2')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t('pouchFlatPouchesPage.hero.part3')}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; Maximum efficiency.<br/>
-                &gt; Perfect for samples.<br/>
-                &gt; Low profile protocol active.
+                &gt; {t('pouchFlatPouchesPage.hero.descLine1')}<br/>
+                &gt; {t('pouchFlatPouchesPage.hero.descLine2')}<br/>
+                &gt; {t('pouchFlatPouchesPage.hero.descLine3')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">Quote Samples</NeoButton>
-                <NeoButton variant="secondary">Material Guide</NeoButton>
+                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t('pouchFlatPouchesPage.hero.quoteSamples')}</NeoButton>
+                <NeoButton variant="secondary">{t('pouchFlatPouchesPage.hero.materialGuide')}</NeoButton>
               </div>
             </div>
 
@@ -67,29 +69,29 @@ export default function PouchFlatPouchesPage() {
         <div className="grid md:grid-cols-3 gap-8">
           <NeoCard color="bg-white">
             <Zap className="w-12 h-12 mb-4 text-[#FF00FF]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">Sample Ready</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchFlatPouchesPage.benefits.sampleReady.title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              Low cost per unit makes flat pouches the ideal choice for marketing samples, protein single-serves, or travel sizes.
+              {t('pouchFlatPouchesPage.benefits.sampleReady.desc')}
             </p>
-            <NeoBadge color="bg-[#D4FF00]">MARKETING_ACTIVE</NeoBadge>
+            <NeoBadge color="bg-[#D4FF00]">{t('pouchFlatPouchesPage.benefits.sampleReady.badge')}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#00FFFF]">
             <Shield className="w-12 h-12 mb-4 text-black" />
-            <h3 className="font-black text-3xl mb-4 uppercase">Barrier Armor</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchFlatPouchesPage.benefits.barrierArmor.title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              Despite the slim profile, we use full-strength barrier films. Protects freshness as well as larger formats.
+              {t('pouchFlatPouchesPage.benefits.barrierArmor.desc')}
             </p>
-            <NeoBadge color="bg-[#FF00FF]">MAX_PROTECT</NeoBadge>
+            <NeoBadge color="bg-[#FF00FF]">{t('pouchFlatPouchesPage.benefits.barrierArmor.badge')}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#D4FF00]">
             <Award className="w-12 h-12 mb-4 text-[#FF00FF]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">Versatility</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchFlatPouchesPage.benefits.versatility.title')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              Top-load, bottom-load, or side-load. Available with zippers, tear notches, and euro slots.
+              {t('pouchFlatPouchesPage.benefits.versatility.desc')}
             </p>
-            <NeoBadge color="bg-white">MULTI_CONFIG</NeoBadge>
+            <NeoBadge color="bg-white">{t('pouchFlatPouchesPage.benefits.versatility.badge')}</NeoBadge>
           </NeoCard>
         </div>
       </section>
@@ -97,13 +99,13 @@ export default function PouchFlatPouchesPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#FF00FF] border-t-4 border-black text-white">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <h2 className="font-black text-5xl md:text-7xl uppercase">Small Batch. Big Impact.</h2>
+          <h2 className="font-black text-5xl md:text-7xl uppercase">{t('pouchFlatPouchesPage.cta.heading')}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl">
-            Custom printed flat pouches with startup-friendly MOQ of 500 units.
+            {t('pouchFlatPouchesPage.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">Start My Sample</NeoButton>
-            <NeoButton variant="secondary" className="!text-black">Price Calculator</NeoButton>
+            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t('pouchFlatPouchesPage.cta.startMySample')}</NeoButton>
+            <NeoButton variant="secondary" className="!text-black">{t('pouchFlatPouchesPage.cta.priceCalculator')}</NeoButton>
           </div>
         </div>
       </section>

@@ -1,16 +1,18 @@
 import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Package, Award, Sparkles, CheckCircle, HelpCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 
 export default function PouchCustomBoxesPage() {
+  const { t } = useTranslation()
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
 
-  const title = "Custom Printed Boxes - Premium Retail & E-commerce Gift Packaging | Pouch.eco"
-  const description = "Factory-direct custom printed boxes with low 200-piece startup MOQ. Rigid boxes, corrugated mailers, and folding cartons with gold foil stamping and embossing."
+  const title = t('pouchCustomBoxesPage.title')
+  const description = t('pouchCustomBoxesPage.description')
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -18,50 +20,50 @@ export default function PouchCustomBoxesPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the MOQ for custom printed boxes?",
+        "name": t('pouchCustomBoxesPage.faqQ1'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our minimum order quantity (MOQ) for custom printed mailer and tuck boxes is just 200 units, making premium custom branding accessible to startup artisan brands."
+          "text": t('pouchCustomBoxesPage.faqA1')
         }
       },
       {
         "@type": "Question",
-        "name": "Are your custom boxes eco-friendly?",
+        "name": t('pouchCustomBoxesPage.faqQ2'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! All our boxes are manufactured from FSC-certified recycled paper and corrugated cardboard. They are 100% recyclable in standard curbside municipal recycling streams."
+          "text": t('pouchCustomBoxesPage.faqA2')
         }
       },
       {
         "@type": "Question",
-        "name": "What custom finishes and additions do you support?",
+        "name": t('pouchCustomBoxesPage.faqQ3'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We support hot foil gold/silver stamping, embossed logo structures, spot UV coatings, customized internal product inserts, and premium smooth matte lamination."
+          "text": t('pouchCustomBoxesPage.faqA3')
         }
       },
       {
         "@type": "Question",
-        "name": "What are the standard lead times for custom box production?",
+        "name": t('pouchCustomBoxesPage.faqQ4'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Production takes approximately 30 days from artwork confirmation. Standard sea shipping takes 40-60 days (included in pricing). Air shipping is available for urgent orders."
+          "text": t('pouchCustomBoxesPage.faqA4')
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer free structural physical samples?",
+        "name": t('pouchCustomBoxesPage.faqQ5'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we can provide physical sample kits to verify paperboard thickness and lock structures before committing to your custom production."
+          "text": t('pouchCustomBoxesPage.faqA5')
         }
       },
       {
         "@type": "Question",
-        "name": "What details do you need for a bespoke size quotation?",
+        "name": t('pouchCustomBoxesPage.faqQ6'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Please provide your required internal box dimensions (Length x Width x Height in millimeters), quantity (MOQ starts at 200), and custom print requirements."
+          "text": t('pouchCustomBoxesPage.faqA6')
         }
       }
     ]
@@ -69,51 +71,51 @@ export default function PouchCustomBoxesPage() {
 
   const specTranslations = [
     {
-      label: "Material Grade",
-      val: "FSC Kraft Cardboard",
-      desc: "Sustainably-sourced, heavy-weight kraft paperboard providing rigid structure while supporting global circular economy compliance."
+      label: t('pouchCustomBoxesPage.specTrans1Label'),
+      val: t('pouchCustomBoxesPage.specTrans1Val'),
+      desc: t('pouchCustomBoxesPage.specTrans1Desc')
     },
     {
-      label: "Dieline Geometry",
-      val: "Custom CAD Blueprints",
-      desc: "Millimeter-exact CAD blueprints designed to match your specific product shapes (chocolates, tea bags, jars) for perfect internal fit."
+      label: t('pouchCustomBoxesPage.specTrans2Label'),
+      val: t('pouchCustomBoxesPage.specTrans2Val'),
+      desc: t('pouchCustomBoxesPage.specTrans2Desc')
     },
     {
-      label: "Finish Quality",
-      val: "Matte Anti-Scratch Lamination",
-      desc: "Ultra-premium matte lamination protecting your box surfaces from shipping wear, scuffs, and fingerprints."
+      label: t('pouchCustomBoxesPage.specTrans3Label'),
+      val: t('pouchCustomBoxesPage.specTrans3Val'),
+      desc: t('pouchCustomBoxesPage.specTrans3Desc')
     },
     {
-      label: "Logistics Shield",
-      val: "Heavy-Duty Master Cartons",
-      desc: "Shipped in double-wall master export boxes with moisture-proof wrapping to protect paper layers during sea freight transport."
+      label: t('pouchCustomBoxesPage.specTrans4Label'),
+      val: t('pouchCustomBoxesPage.specTrans4Val'),
+      desc: t('pouchCustomBoxesPage.specTrans4Desc')
     }
   ]
 
   const faqs = [
     {
-      q: 'What is the MOQ for custom printed boxes?',
-      a: 'We offer an ultra-low MOQ of just 200 units for custom printed mailer and tuck boxes. This startup-friendly threshold lets you test product launches and holiday editions without large upfront cash outlays.'
+      q: t('pouchCustomBoxesPage.faqQ1'),
+      a: t('pouchCustomBoxesPage.faqA1')
     },
     {
-      q: 'Are your box materials eco-friendly?',
-      a: 'Absolutely. We use FSC (Forest Stewardship Council) certified recycled cardboard and paperboards. Our boxes contain zero forever-plastics and are 100% curbside recyclable by consumers.'
+      q: t('pouchCustomBoxesPage.faqQ2'),
+      a: t('pouchCustomBoxesPage.faqA2')
     },
     {
-      q: 'What premium finishes can I add?',
-      a: 'You can elevate your brand with hot metallic gold or silver foil stamping, raised logo embossing for textured depth, spot UV accents, and custom cut inserts to secure your items.'
+      q: t('pouchCustomBoxesPage.faqQ3'),
+      a: t('pouchCustomBoxesPage.faqA3')
     },
     {
-      q: 'How long does production and shipping take?',
-      a: 'Production takes 30 days from artwork approval. Sea freight (which is included in our transparent pricing sheets) takes 40-60 days. Total turnaround is 70-90 days, though express air freight can be arranged.'
+      q: t('pouchCustomBoxesPage.faqQ4'),
+      a: t('pouchCustomBoxesPage.faqA4')
     },
     {
-      q: 'Do you offer physical samples to test?',
-      a: 'Yes, we provide blank structural samples to test fit and thickness, as well as premium custom printed samples to verify color precision before starting a production run.'
+      q: t('pouchCustomBoxesPage.faqQ5'),
+      a: t('pouchCustomBoxesPage.faqA5')
     },
     {
-      q: 'What specifications are required for a quote?',
-      a: 'Please send us your required Length × Width × Height (internal dimensions) in millimeters, choice of tuck carton or corrugated mailer, and artwork files. We supply quotes within 24 hours.'
+      q: t('pouchCustomBoxesPage.faqQ6'),
+      a: t('pouchCustomBoxesPage.faqA6')
     }
   ]
 
@@ -135,43 +137,43 @@ export default function PouchCustomBoxesPage() {
           
           {/* Breadcrumb Bar */}
           <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black mb-8">
-            <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+            <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">{t('pouchCustomBoxesPage.breadcrumbHome')}</Link>
             <span>/</span>
-            <Link to="/products" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Products</Link>
+            <Link to="/products" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">{t('pouchCustomBoxesPage.breadcrumbProducts')}</Link>
             <span>/</span>
-            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Custom Printed Boxes</span>
+            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">{t('pouchCustomBoxesPage.breadcrumbCurrent')}</span>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10 text-left">
               <div className="flex flex-wrap gap-2">
                 <span className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  BOX_TYPE: CPB_04
+                  {t('pouchCustomBoxesPage.boxBadge')}
                 </span>
                 <span className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  FSC RECYCLED
+                  {t('pouchCustomBoxesPage.fscBadge')}
                 </span>
               </div>
 
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                Premium.<br/>
-                Rigid.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Bespoke.</span>
+                {t('pouchCustomBoxesPage.heroTitleStart')}<br/>
+                {t('pouchCustomBoxesPage.heroTitleMiddle')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t('pouchCustomBoxesPage.heroTitleSpan')}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; Rigid tuck & mailers.<br/>
-                &gt; Gold foil & embossed details.<br/>
-                &gt; Startup MOQ of 200 units.<br/>
-                &gt; FSC sustainable cardboards.
+                &gt; {t('pouchCustomBoxesPage.heroDescLine1')}<br/>
+                &gt; {t('pouchCustomBoxesPage.heroDescLine2')}<br/>
+                &gt; {t('pouchCustomBoxesPage.heroDescLine3')}<br/>
+                &gt; {t('pouchCustomBoxesPage.heroDescLine4')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary">
-                  Book Box Design Call
+                  {t('pouchCustomBoxesPage.heroBtn1')}
                 </NeoButton>
                 <NeoButton variant="secondary" href="#details">
-                  View Finishes
+                  {t('pouchCustomBoxesPage.heroBtn2')}
                 </NeoButton>
               </div>
             </div>
@@ -181,7 +183,7 @@ export default function PouchCustomBoxesPage() {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp" 
-                alt="Premium Custom Printed Corrugated Mailer Box" 
+                alt={t('pouchCustomBoxesPage.mailerTitle')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -192,8 +194,8 @@ export default function PouchCustomBoxesPage() {
       {/* Box Styles Section */}
       <section id="details" className="py-24 px-4 md:px-6 max-w-7xl mx-auto text-left">
         <div className="mb-16">
-          <NeoBadge color="magenta">BOX_STYLES_CATALOG</NeoBadge>
-          <h2 className="font-black text-4xl md:text-6xl uppercase mt-4">Mailer & Tuck Formats</h2>
+          <NeoBadge color="magenta">{t('pouchCustomBoxesPage.styleBadge')}</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl uppercase mt-4">{t('pouchCustomBoxesPage.styleHeading')}</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -201,18 +203,18 @@ export default function PouchCustomBoxesPage() {
           <NeoCard color="bg-white" className="space-y-6">
             <ClickableImage 
               src="/imgs/store/box/corrugated-box/2be65396-ac07-44d0-b54c-2422d3bfe981.webp" 
-              alt="Custom Printed Corrugated Mailer Box" 
+              alt={t('pouchCustomBoxesPage.mailerTitle')} 
               className="w-full rounded-lg shadow-md border-2 border-black"
             />
-            <h3 className="font-black text-3xl uppercase">Corrugated Mailer Boxes</h3>
+            <h3 className="font-black text-3xl uppercase">{t('pouchCustomBoxesPage.mailerTitle')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">
-              Heavy-duty mailer boards designed to protect premium coffee pouches, tea subscription boxes, and e-commerce goods during long-haul shipping.
+              {t('pouchCustomBoxesPage.mailerDesc')}
             </p>
             <div className="grid grid-cols-2 gap-2 font-['JetBrains_Mono'] text-xs font-bold text-neutral-700 bg-neutral-100 p-4 border-2 border-black">
-              <div>✓ 500g: 130 × 85 × 35mm</div>
-              <div>✓ 1kg: 270 × 85 × 35mm</div>
-              <div>✓ 100% Curbside Recyclable</div>
-              <div>✓ Sturdy Double-Wall Fit</div>
+              <div>✓ {t('pouchCustomBoxesPage.mailerSpec1')}</div>
+              <div>✓ {t('pouchCustomBoxesPage.mailerSpec2')}</div>
+              <div>✓ {t('pouchCustomBoxesPage.mailerSpec3')}</div>
+              <div>✓ {t('pouchCustomBoxesPage.mailerSpec4')}</div>
             </div>
           </NeoCard>
           
@@ -220,18 +222,18 @@ export default function PouchCustomBoxesPage() {
           <NeoCard color="bg-[#FF00FF]" className="text-white space-y-6">
             <ClickableImage 
               src="/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp" 
-              alt="Custom Printed Tuck Box with Gold Foil" 
+              alt={t('pouchCustomBoxesPage.tuckTitle')} 
               className="w-full rounded-lg shadow-md border-2 border-black"
             />
-            <h3 className="font-black text-3xl uppercase text-white">Tuck Boxes (Cartons)</h3>
+            <h3 className="font-black text-3xl uppercase text-white">{t('pouchCustomBoxesPage.tuckTitle')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm text-neutral-200">
-              Elegant folding paperboard cartons customized with luxurious hot stamp foil and raised embossing. The perfect visual shell for premium chocolate bars, tea sachets, and macarons.
+              {t('pouchCustomBoxesPage.tuckDesc')}
             </p>
             <div className="grid grid-cols-2 gap-2 font-['JetBrains_Mono'] text-xs font-bold text-white bg-black/20 p-4 border-2 border-white">
-              <div>✓ 100g: 81 × 162 × 15mm</div>
-              <div>✓ 250g Art Cardboard</div>
-              <div>✓ Gold Hot Foil Stamping</div>
-              <div>✓ Raised Textured Detail</div>
+              <div>✓ {t('pouchCustomBoxesPage.tuckSpec1')}</div>
+              <div>✓ {t('pouchCustomBoxesPage.tuckSpec2')}</div>
+              <div>✓ {t('pouchCustomBoxesPage.tuckSpec3')}</div>
+              <div>✓ {t('pouchCustomBoxesPage.tuckSpec4')}</div>
             </div>
           </NeoCard>
         </div>
@@ -242,20 +244,20 @@ export default function PouchCustomBoxesPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-left space-y-8">
-              <NeoBadge color="lime">LUXURY_FINISHES</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl uppercase leading-tight italic">Tactile Excellence.</h2>
+              <NeoBadge color="lime">{t('pouchCustomBoxesPage.finishBadge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl uppercase leading-tight italic">{t('pouchCustomBoxesPage.finishHeading')}</h2>
               <p className="font-['JetBrains_Mono'] text-lg text-neutral-300 leading-relaxed">
-                Artisan products demand an exceptional unboxing experience. We integrate premium finishing techniques directly into our production lines:
+                {t('pouchCustomBoxesPage.finishDesc')}
               </p>
               
               <div className="space-y-4">
                 <div className="border-l-4 border-[#D4FF00] pl-6 py-2">
-                  <h4 className="font-black text-xl uppercase">✨ Hot Gold Foil Stamping</h4>
-                  <p className="font-['JetBrains_Mono'] text-xs text-neutral-400 mt-1">Hot-stamped metallic foil coordinates for shimmering branding details that attract eyes instantly.</p>
+                  <h4 className="font-black text-xl uppercase">{t('pouchCustomBoxesPage.finishGoldTitle')}</h4>
+                  <p className="font-['JetBrains_Mono'] text-xs text-neutral-400 mt-1">{t('pouchCustomBoxesPage.finishGoldDesc')}</p>
                 </div>
                 <div className="border-l-4 border-[#FF00FF] pl-6 py-2">
-                  <h4 className="font-black text-xl uppercase">🎨 Raised Embossing</h4>
-                  <p className="font-['JetBrains_Mono'] text-xs text-neutral-400 mt-1">Structural pressing creates distinct tactile patterns and lettering, giving packaging dynamic texture.</p>
+                  <h4 className="font-black text-xl uppercase">{t('pouchCustomBoxesPage.finishEmbossTitle')}</h4>
+                  <p className="font-['JetBrains_Mono'] text-xs text-neutral-400 mt-1">{t('pouchCustomBoxesPage.finishEmbossDesc')}</p>
                 </div>
               </div>
             </div>
@@ -263,12 +265,12 @@ export default function PouchCustomBoxesPage() {
             <div className="grid grid-cols-2 gap-4">
               <ClickableImage 
                 src="/imgs/store/surface/stamp-foil.webp" 
-                alt="Gold foil stamping on premium rigid box" 
+                alt={t('pouchCustomBoxesPage.imgAltGold')} 
                 className="border-4 border-white w-full shadow-lg"
               />
               <ClickableImage 
                 src="/imgs/store/surface/emboss.webp" 
-                alt="Logo embossing detail on card package" 
+                alt={t('pouchCustomBoxesPage.imgAltEmboss')} 
                 className="border-4 border-white w-full shadow-lg"
               />
             </div>
@@ -280,11 +282,11 @@ export default function PouchCustomBoxesPage() {
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto text-left">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <NeoBadge color="magenta">SPECS_TRANSLATION_MATRIX</NeoBadge>
-            <h2 className="font-black text-4xl md:text-6xl uppercase mt-4">Procurement Guide</h2>
+            <NeoBadge color="magenta">{t('pouchCustomBoxesPage.specsBadge')}</NeoBadge>
+            <h2 className="font-black text-4xl md:text-6xl uppercase mt-4">{t('pouchCustomBoxesPage.specsHeading')}</h2>
           </div>
           <span className="font-['JetBrains_Mono'] text-sm font-bold bg-[#D4FF00] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            PAPER_INTEGRITY_V26
+            {t('pouchCustomBoxesPage.specsHeaderBadge')}
           </span>
         </div>
 
@@ -307,12 +309,12 @@ export default function PouchCustomBoxesPage() {
       <section className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <NeoBadge color="magenta">BOX_INTELLIGENCE_FAQ</NeoBadge>
+            <NeoBadge color="magenta">{t('pouchCustomBoxesPage.faqBadge')}</NeoBadge>
             <h2 className="text-4xl md:text-5xl font-black uppercase mt-6">
-              Expert Procurement FAQ
+              {t('pouchCustomBoxesPage.faqHeading')}
             </h2>
             <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 mt-2">
-              Bespoke box packaging guidance for professional startup buyers.
+              {t('pouchCustomBoxesPage.faqSubheading')}
             </p>
           </div>
 
@@ -349,26 +351,26 @@ export default function PouchCustomBoxesPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#D4FF00] border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <NeoBadge color="bg-black text-white">BOX_MANDATE</NeoBadge>
+          <NeoBadge color="bg-black text-white">{t('pouchCustomBoxesPage.ctaBadge')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-            Design Your Box Line
+            {t('pouchCustomBoxesPage.ctaHeading')}
           </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-black">
-            Luxurious retail box presentation starting from just 200 units.
+            {t('pouchCustomBoxesPage.ctaDesc')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <NeoButton href="/sample" variant="dark">
-              Request Structural Samples
+              {t('pouchCustomBoxesPage.ctaBtn1')}
             </NeoButton>
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="secondary" className="!bg-white !text-black border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Consult Packaging Engineer
+              {t('pouchCustomBoxesPage.ctaBtn2')}
             </NeoButton>
           </div>
 
           <div className="pt-8 border-t border-black/20 text-xs font-['JetBrains_Mono'] text-black/70 max-w-xl mx-auto leading-relaxed">
-            <strong>Seeking high-volume B2B wholesale carton manufacturing?</strong><br/>
-            For industrial packaging lines, automatic folding cartoning setup compatibility, and volume contract quotes, see our wholesale portal:{" "}
+            <strong>{t('pouchCustomBoxesPage.ctaWholesaleTitle')}</strong><br/>
+            {t('pouchCustomBoxesPage.ctaWholesaleDesc')}
             <a 
               href="https://achievepack.com/packaging/custom-boxes" 
               className="underline font-bold hover:text-black transition"
