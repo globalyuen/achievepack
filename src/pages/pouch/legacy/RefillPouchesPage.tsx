@@ -1,32 +1,35 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
-import { Layout, Leaf, Droplets, Shield } from 'lucide-react'
+import { Layout, Leaf, Droplets } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 export default function RefillPouchesPage() {
+  const { t } = useTranslation()
+
   const sections = [
     {
       id: 'circular-model',
-      title: 'The Circular Refill Brand Model',
+      title: t('refillPouchesPage.s1.title'),
       icon: <Layout className="w-6 h-6 text-black" />,
       content: (
         <div className="space-y-6">
           <p className="text-xl font-bold text-neutral-900 leading-relaxed">
-            The subscription refill model is changing how consumer packaged goods (CPG) brands approach sustainability. Instead of selling a rigid plastic or heavy glass jar with every purchase, brands ship a premium "durable" container (like glass or ceramics) once, followed by lightweight, flat-shipped compostable refill pouches.
+            {t('refillPouchesPage.s1.p1')}
           </p>
           
           <div className="bg-[#D4FF00] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-            <h3 className="font-black text-2xl uppercase mb-4">Refill Model Advantages:</h3>
+            <h3 className="font-black text-2xl uppercase mb-4">{t('refillPouchesPage.s1.advTitle')}</h3>
             <ul className="space-y-3 text-lg font-medium">
               <li className="flex items-start gap-3">
                 <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>Customer Loyalty:</strong> Refill pouches incentivize subscription-based repeat purchases.</span>
+                <span><strong>{t('refillPouchesPage.s1.adv1Title')}</strong> {t('refillPouchesPage.s1.adv1Desc')}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>Material Savings:</strong> Flat pouches use up to 70% less raw materials than rigid containers.</span>
+                <span><strong>{t('refillPouchesPage.s1.adv2Title')}</strong> {t('refillPouchesPage.s1.adv2Desc')}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>Shelf Differentiation:</strong> Matte Kraft paper or metallic refill bags look extremely premium and stand out on grocery shelves.</span>
+                <span><strong>{t('refillPouchesPage.s1.adv3Title')}</strong> {t('refillPouchesPage.s1.adv3Desc')}</span>
               </li>
             </ul>
           </div>
@@ -35,31 +38,31 @@ export default function RefillPouchesPage() {
     },
     {
       id: 'materials',
-      title: 'Compostable Refill Pouch Materials',
+      title: t('refillPouchesPage.s2.title'),
       icon: <Leaf className="w-6 h-6 text-black" />,
       content: (
         <div className="space-y-6">
           <p className="text-lg leading-relaxed">
-            To hold powders, dry goods, coffee, or cosmetics refills, these pouches need protective barrier layers. We laminate wood-pulp-derived cellulose films (NatureFlex™) with plant-based starch binders (PLA/PBAT), offering high grease barriers and oxygen blocks while allowing the bag to decompose within 90 days in composting conditions.
+            {t('refillPouchesPage.s2.p1')}
           </p>
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-black">
-              <h4 className="font-black text-xl uppercase mb-3">Refill Pouch Structures</h4>
+              <h4 className="font-black text-xl uppercase mb-3">{t('refillPouchesPage.s2.structTitle')}</h4>
               <ul className="space-y-2 text-sm font-medium">
-                <li>✓ Matte Kraft Paper + Metallized Cellulose + PLA (High Barrier MetPLA)</li>
-                <li>✓ Clear Cellulose + PLA Sealant (Transparent Window)</li>
-                <li>✓ Certified ASTM D6400 & EN 13432</li>
-                <li>✓ PFAS-free and FDA food contact approved</li>
+                <li>✓ {t('refillPouchesPage.s2.s1Item')}</li>
+                <li>✓ {t('refillPouchesPage.s2.s2Item')}</li>
+                <li>✓ {t('refillPouchesPage.s2.s3Item')}</li>
+                <li>✓ {t('refillPouchesPage.s2.s4Item')}</li>
               </ul>
             </div>
             <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-black">
-              <h4 className="font-black text-xl uppercase mb-3">Refill Product Types</h4>
+              <h4 className="font-black text-xl uppercase mb-3">{t('refillPouchesPage.s2.prodTitle')}</h4>
               <ul className="space-y-2 text-sm font-medium">
-                <li>✓ Organic Spices, Salts & Herb Seasonings</li>
-                <li>✓ Coffee Beans, Ground Coffee & Cocoa Powders</li>
-                <li>✓ Supplement Powders, Protein & Superfoods</li>
-                <li>✓ Dry Bath Salts, Cosmetics & Cleaning Powders</li>
+                <li>✓ {t('refillPouchesPage.s2.p1Item')}</li>
+                <li>✓ {t('refillPouchesPage.s2.p2Item')}</li>
+                <li>✓ {t('refillPouchesPage.s2.p3Item')}</li>
+                <li>✓ {t('refillPouchesPage.s2.p4Item')}</li>
               </ul>
             </div>
           </div>
@@ -68,26 +71,26 @@ export default function RefillPouchesPage() {
     },
     {
       id: 'carbon-freight',
-      title: 'Carbon Footprint and Economic Freight Benefits',
+      title: t('refillPouchesPage.s3.title'),
       icon: <Droplets className="w-6 h-6 text-black" />,
       content: (
         <div className="space-y-6">
           <p className="text-base leading-relaxed">
-            Shipping empty glass bottles or thick plastic jars is incredibly inefficient, basically transportating empty air across continents. Flat-shipped refill pouches pack with maximum density, drastically lowering freight volume:
+            {t('refillPouchesPage.s3.p1')}
           </p>
           
           <div className="grid md:grid-cols-3 gap-4 font-mono text-center text-black">
             <div className="bg-white border-2 border-black p-4">
-              <div className="text-3xl font-black text-green-600 mb-1">-80%</div>
-              <div className="text-xs font-bold uppercase text-neutral-500">Warehouse Storage Space saved</div>
+              <div className="text-3xl font-black text-green-600 mb-1">{t('refillPouchesPage.s3.metrics.m1')}</div>
+              <div className="text-xs font-bold uppercase text-neutral-500">{t('refillPouchesPage.s3.metrics.m1Label')}</div>
             </div>
             <div className="bg-white border-2 border-black p-4">
-              <div className="text-3xl font-black text-blue-600 mb-1">-65%</div>
-              <div className="text-xs font-bold uppercase text-neutral-500">Logistics Transport Costs</div>
+              <div className="text-3xl font-black text-blue-600 mb-1">{t('refillPouchesPage.s3.metrics.m2')}</div>
+              <div className="text-xs font-bold uppercase text-neutral-500">{t('refillPouchesPage.s3.metrics.m2Label')}</div>
             </div>
             <div className="bg-white border-2 border-black p-4">
-              <div className="text-3xl font-black text-purple-600 mb-1">90 Days</div>
-              <div className="text-xs font-bold uppercase text-neutral-500">Organic Degradation Timeline</div>
+              <div className="text-3xl font-black text-purple-600 mb-1">{t('refillPouchesPage.s3.metrics.m3')}</div>
+              <div className="text-xs font-bold uppercase text-neutral-500">{t('refillPouchesPage.s3.metrics.m3Label')}</div>
             </div>
           </div>
         </div>
@@ -95,43 +98,30 @@ export default function RefillPouchesPage() {
     }
   ]
 
-  const faqSections = [
-    {
-      q: "How do refill pouches reduce transport emissions?",
-      a: "Refill pouches are shipped completely flat. One standard cargo pallet can hold up to 50,000 flat pouches, compared to only 3,000 empty glass bottles. This 16x increase in shipping density reduces freight trucks on the road and lowers Scope 3 carbon metrics."
-    },
-    {
-      q: "What products are best suited for compostable refill pouches?",
-      a: "Dry ingredients like loose tea, spices, coffee, grain cereals, and protein powders are perfect. For wet products like lotion refills, we recommend our specialized high-barrier Bio-PE recyclable spouted pouches."
-    },
-    {
-      q: "Are refill pouches durable enough for mail-order shipping?",
-      a: "Yes. Our MetPLA Triplex laminate has a thickness of 120-140 microns, providing strong puncture resistance to withstand postal sorting machinery and envelopes without tearing."
-    }
-  ]
+  const faqSections = t('refillPouchesPage.faq', { returnObjects: true }) as { q: string, a: string }[] || []
 
   return (
     <BlogArticleTemplate
-      title="Glass Bottles Paired with Compostable Refill Pouches | POUCH.ECO"
-      metaDescription="Build a sustainable refill subscription brand. Learn how durable glass containers paired with certified compostable flat refill pouches lower shipping costs."
+      title={t('refillPouchesPage.title')}
+      metaDescription={t('refillPouchesPage.metaDesc')}
       canonicalUrl="https://pouch.eco/sustainable-packaging-revolution-glass-bottles-paired-with-compostable-refill-pouches-for-an-eco-friendly-lifestyle"
       heroTitle={
         <>
-          Glass Bottles Paired with<br />
-          <span className="text-[#10b981]">Compostable Refill Pouches</span>
+          {t('refillPouchesPage.hero.title')}<br />
+          <span className="text-[#10b981]">{t('refillPouchesPage.hero.titleColored')}</span>
         </>
       }
-      heroSubtitle="Launch a circular refill subscription. Reduce carbon footprints by shipping lightweight, flat-packed ASTM D6400 certified compostable bags to refill durable jars."
+      heroSubtitle={t('refillPouchesPage.hero.subtitle')}
       heroImage="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp"
       categoryTag="CIRCULAR_REFILL"
       categoryColor="#10b981"
-      readTime="9 min read"
+      readTime={t('refillPouchesPage.hero.readTime')}
       sections={sections}
       faqSections={faqSections}
-      ctaTitle="Develop Your Circular Refill Pouch"
-      ctaDescription="Find the perfect size to refill your custom glass jars. Download vector dielines or request a free stock sample kit."
+      ctaTitle={t('refillPouchesPage.cta.title')}
+      ctaDescription={t('refillPouchesPage.cta.desc')}
       achievePackLink="https://achievepack.com/materials/compostable"
-      achievePackText="Need high-volume wholesale compostable refill packaging for retail distribution?"
+      achievePackText={t('refillPouchesPage.cta.achieveText')}
     />
   )
 }

@@ -22291,5 +22291,874 @@
       "orderSamples": "Commander des Échantillons",
       "emailSpecs": "Envoyer les Spécifications par E-mail"
     }
+  },
+  "materialDataSheetPage": {
+    "title": "Fiche Technique du Matériau - Papier Kraft 60g/m² + Film Compostable 50μ | Achieve Pack",
+    "metaDesc": "Fiche technique du matériau d'emballage en papier Kraft 60g/m² + Film compostable intérieur de 50μ.",
+    "backLink": "Retour aux Spécifications",
+    "specBadge": "SPÉCIFICATION_v2026",
+    "heading": "Fiche Technique",
+    "subheading": "Spécification Préliminaire // Kraft + Compostable",
+    "lastUpdate": "Dernière Mise à Jour : Mars 2026",
+    "downloadPdf": "Télécharger le PDF",
+    "overview": {
+      "title": "Aperçu du Produit",
+      "prodName": "Nom du Produit :",
+      "prodNameVal": "Papier Kraft 60g/m² + Film Compostable Intérieur 50μ",
+      "structure": "Structure :",
+      "structureVal": "Papier Kraft / 牛皮纸 + Film Compostable / 可堆肥薄膜",
+      "calcBasis": "Base de Calcul :",
+      "calcBasisVal": "Épaisseur totale nominale de 0.13 mm (130μ) pour 1 m²."
+    },
+    "features": {
+      "title": "Caractéristiques Clés",
+      "items": [
+        "Stratifié compostable à base de papier",
+        "100% Compostable à Domicile et Industriel",
+        "Aspect et texture naturels du Papier Kraft",
+        "Excellentes propriétés de scellage",
+        "Surface imprimable"
+      ]
+    },
+    "usage": {
+      "title": "Utilisation Courante",
+      "items": {
+        "dryFoods": "Aliments Secs",
+        "coffee": "Café en Grains",
+        "confectionery": "Confiserie",
+        "nuts": "Noix et Graines",
+        "fruits": "Fruits Secs",
+        "bakery": "Pâtisseries"
+      }
+    },
+    "certs": {
+      "title": "Certifications"
+    },
+    "structure": {
+      "title": "Structure du Matériau"
+    },
+    "techData": {
+      "title": "Données Techniques",
+      "table": {
+        "thLayer": "Couche / 层级",
+        "thMaterial": "Matériau / 材料",
+        "thGsm": "GSM",
+        "thMm": "mm",
+        "thUm": "μm",
+        "thWeightPct": "Poids %",
+        "thThickPct": "Épaisseur %",
+        "outer": "Externe",
+        "outerMat": "Papier kraft (non couché)",
+        "inner": "Interne",
+        "innerMat": "Film compostable (50μ)",
+        "total": "TOTAL",
+        "totalMat": "Stratifié"
+      },
+      "notes": {
+        "title": "Notes Techniques :",
+        "n1": "Le papier kraft de 60g/m² a une épaisseur typique de 70–85μ ; la valeur nominale de 80μ est retenue ici.",
+        "n2": "Film compostable de 50μ à ρ=1.4 g/cm³ ≈ grammage de 70 g/m².",
+        "n3": "Part d'épaisseur = épaisseur de couche ÷ épaisseur totale × 100%"
+      }
+    },
+    "footer": {
+      "officialDoc": "Document Officiel // Achieve Pack Secure Hub"
+    },
+    "browseAll": "Parcourir les Matériaux"
+  },
+  "pouchBarrierOverviewPage": {
+    "title": "Guide des Options de Barrière | Choisir la Bonne Protection pour Votre Produit | POUCH.ECO",
+    "metaDesc": "Vous ne savez pas de quel niveau de barrière vous avez besoin ? Comparez les options de barrière faible, moyenne et élevée. Obtenez des conseils sur la durée de conservation.",
+    "hero": {
+      "badge": "GUIDE DE DÉCISION",
+      "title": "Les Niveaux de Barrière",
+      "titleColored": " Expliqués Simplement",
+      "desc": "Vous hésitez sur la barrière qu'il vous faut ? Pas de soucis ! Nous vous aidons à choisir entre barrière faible, moyenne et élevée selon votre produit et vos objectifs de conservation.",
+      "btnHelp": "Obtenir l'Avis d'un Expert",
+      "btnQuiz": "Faire le Quiz"
+    },
+    "whatIs": {
+      "title": "Qu'est-ce qu'une \"Barrière\" ?",
+      "sunscreenTitle": "Pensez-y comme à de la crème solaire... 🧴",
+      "sunscreenDesc": "Tout comme la crème solaire protège votre peau des UV, les couches barrières protègent votre produit de :",
+      "oxygen": "L'oxygène - Rend les aliments rassis ou rances",
+      "moisture": "L'humidité - Entraîne l'agglomération ou la dégradation",
+      "light": "La lumière - Altère les vitamines et les couleurs",
+      "odors": "Les odeurs - Conserve les arômes à l'intérieur, bloque les odeurs extérieures",
+      "ruleTitle": "La Règle d'Or :",
+      "ruleText": "Barrière élevée = Conservation plus longue = Coût plus élevé",
+      "ruleSub": "Choisissez la barrière minimale requise ! Le surdimensionnement coûte cher et peut réduire la recyclabilité."
+    },
+    "compare": {
+      "title": "Comparez les Trois Niveaux",
+      "typicalShelfLife": "Durée de Conservation Typique",
+      "bestFor": "Idéal pour :",
+      "levels": {
+        "low": {
+          "name": "Barrière Faible",
+          "shelf": "3-6 Mois",
+          "tagline": "Produits à Rotation Rapide",
+          "desc": "Parfait pour les produits vendus rapidement ou ayant une conservation naturellement longue. Meilleur profil écologique !",
+          "examples": [
+            "Snacks secs",
+            "Biscuits",
+            "Sachets de thé",
+            "Granola",
+            "Pop-corn"
+          ]
+        },
+        "medium": {
+          "name": "Barrière Moyenne",
+          "shelf": "6-12 Mois",
+          "tagline": "Le Juste Milieu",
+          "desc": "Le choix le plus populaire ! Un équilibre idéal entre protection, coût et durabilité.",
+          "examples": [
+            "Café",
+            "Noix",
+            "Friandises animaux",
+            "Céréales",
+            "Fruits secs"
+          ]
+        },
+        "high": {
+          "name": "Barrière Élevée",
+          "shelf": "12-24 Mois",
+          "tagline": "Protection Maximale",
+          "desc": "Pour les produits extrêmement sensibles à l'oxygène et à l'humidité. Positionnement premium !",
+          "examples": [
+            "Café Premium",
+            "Compléments",
+            "Aliments bébé",
+            "Protéine en poudre",
+            "Pharma"
+          ]
+        }
+      }
+    },
+    "whichOne": {
+      "title": "Lequel Choisir ?",
+      "c1": {
+        "title": "Vente Rapide",
+        "desc": "Rotation du produit sous 3 à 6 mois",
+        "badge": "Barrière Faible",
+        "sub": "Exemples : Biscuits, thé, pop-corn"
+      },
+      "c2": {
+        "title": "Produits Classiques",
+        "desc": "Besoin de 6 à 12 mois de conservation",
+        "badge": "Barrière Moyenne",
+        "sub": "Exemples : Café, noix, aliments pour animaux"
+      },
+      "c3": {
+        "title": "Premium / Sensibles",
+        "desc": "Besoin de 12 à 24 mois de protection",
+        "badge": "Barrière Élevée",
+        "sub": "Exemples : Compléments, alimentation bébé"
+      }
+    },
+    "examples": {
+      "title": "Exemples Concrets",
+      "l1": {
+        "title": "Marque de Thé Bio",
+        "desc": "Thé en vrac dans des sachets de 50g. Produit naturellement stable, vendu rapidement localement.",
+        "resTitle": "Résultat :",
+        "resVal": "Utilisation de sachets kraft Barrière Faible, économie de 0.10 $ par unité, positionnement écologique conservé."
+      },
+      "l2": {
+        "title": "Torréfacteur de Café de Spécialité",
+        "desc": "Sachets de café en grains de 340g. Doit rester frais en réseau de vente physique et en ligne.",
+        "resTitle": "Résultat :",
+        "resVal": "Barrière moyenne avec valve de dégazage, conservation parfaite de 9 mois, coût compétitif."
+      },
+      "l3": {
+        "title": "Compléments de Probiotiques",
+        "desc": "Souches vivantes extrêmement sensibles à l'oxygène. La distribution mondiale exige plus de 18 mois.",
+        "resTitle": "Résultat :",
+        "resVal": "Barrière Élevée avec feuille d'aluminium, conservation garantie 24 mois, tests de stabilité validés."
+      }
+    },
+    "unsure": {
+      "title": "Toujours pas Sûr ?",
+      "desc": "Nous proposons des tests de durée de conservation GRATUITS pour identifier la barrière idéale !",
+      "testHeading": "Ce que nous testons :",
+      "t1": "Permeabilité à l'oxygène au fil du temps",
+      "t2": "Taux d'absorption de l'humidité",
+      "t3": "Stabilité du produit à différentes températures",
+      "t4": "Conservation réelle vs théorique",
+      "btn": "Demander un Test Gratuit"
+    },
+    "cta": {
+      "title": "Prêt à Choisir Votre Barrière ?",
+      "desc": "Prenez rendez-vous pour une consultation, nous vous recommanderons la meilleure option !",
+      "btn": "Parler à un Expert"
+    }
+  },
+  "pouchSurfaceFinishPage": {
+    "title": "Options de Finition de Surface | Mat, Brillant et Vernis Sélectif Professionnels | Pouch.eco",
+    "metaDesc": "Choisissez la finition de surface parfaite pour vos sachets écologiques. Mat, brillant, vernis sélectif (Spot UV), toucher doux (Soft-Touch) et marquage à chaud (Foil).",
+    "breadcrumb": {
+      "home": "Accueil",
+      "options": "Options d'Emballage",
+      "current": "Finitions de Surface"
+    },
+    "hero": {
+      "badge": "OPTIONS ÉCOLOGIQUES HAUT DE GAMME",
+      "title": "Finitions de Surface",
+      "titleColored": " Professionnelles",
+      "desc": "La finition de surface est le premier point de contact sensoriel du client avec votre marque. Choisissez une finition de haute qualité en accord avec votre charte graphique tout en respectant les normes environnementales.",
+      "c1": {
+        "title": "Contraste Éclatant",
+        "desc": "Sublimez l'éclat des couleurs et facilitez le nettoyage anti-graisse",
+        "badge": "Choisir le Brillant"
+      },
+      "c2": {
+        "title": "Mat Organique",
+        "desc": "Élégance antireflet au toucher naturel",
+        "badge": "Choisir le Mat"
+      },
+      "c3": {
+        "title": "Finitions Tactiles",
+        "desc": "Effet velours ou contrastes brillants vernis sélectif",
+        "badge": "Choisir le Personnalisé"
+      }
+    },
+    "showcase": {
+      "badge": "MOUVEMENT VISUEL",
+      "title": "Visualisation du Contraste de Surface",
+      "desc": "Notre tableau de comparaison visuelle présente le rendu exact de nos finitions de manière réaliste. De la sobriété du Mat organique à la profondeur du Brillant et à la technicité du Vernis Sélectif, ce guide vous permet de choisir en toute confiance.",
+      "p1": "Angles Volumétriques Réalistes :",
+      "p1Val": "Représente la réfraction de la lumière et les détails de relief pour un rendu identique à nos échantillons physiques.",
+      "p2": "Style Naturel Pur :",
+      "p2Val": "Conçu avec une palette vert foncé en harmonie avec l'identité écologique de pouch.eco.",
+      "clickEnlarge": "Cliquez sur l'infographie pour l'agrandir."
+    },
+    "explore": {
+      "title": "Découvrez nos Finitions Spéciales",
+      "desc": "Chaque finition de surface sur mesure apporte ses propres propriétés esthétiques et techniques pour maximiser la visibilité en rayon.",
+      "commercialApp": "Application Commerciale",
+      "baseCost": "Facteur de Coût de Base",
+      "finishes": {
+        "matte": {
+          "name": "Lamination Mate",
+          "tagline": "Élégante, Antireflet et Naturelle",
+          "desc": "Une finition mat non réfléchissante qui absorbe la lumière, idéale pour une image haut de gamme et naturelle. Résiste aux traces de doigts et protège le sachet des frottements.",
+          "features": [
+            "Rendu moderne et sobre",
+            "Zéro trace de doigts",
+            "Excellente résistance aux rayures"
+          ],
+          "bestFor": "Produits bio, cosmétiques haut de gamme, thés & cafés de spécialité",
+          "price": "Standard (Inclus dans le prix de base)"
+        },
+        "gloss": {
+          "name": "Lamination Brillante",
+          "tagline": "Contraste Élevé et Haute Réflectivité",
+          "desc": "Une finition très brillante qui intensifie les contrastes et la saturation des couleurs. Parfait pour les graphismes colorés devant attirer le regard immédiatement sur les linéaires.",
+          "features": [
+            "Dynamisme des couleurs maximal",
+            "100% étanche à l'eau et aux graisses",
+            "Brillance accrocheuse"
+          ],
+          "bestFor": "Snacks, confiseries, boissons, alimentation animale et designs contrastés",
+          "price": "Standard (Inclus dans le prix de base)"
+        },
+        "spot": {
+          "name": "Vernis Sélectif Brillant / Mat",
+          "tagline": "Contraste Tactile de Haute Qualité",
+          "desc": "Crée un magnifique contraste de textures en appliquant des zones brillantes sur un fond mat velouté. Vos logos, textes ou fenêtres produit se détachent nettement du sachet.",
+          "features": [
+            "Brillance ciblée",
+            "Contraste visuel et tactile élevé",
+            "Rendu haut de gamme",
+            "Appel commercial fort"
+          ],
+          "bestFor": "Cafés artisanaux, chocolats fins, compléments haut de gamme",
+          "price": "+0.02 $ - 0.05 $ / sachet"
+        },
+        "soft": {
+          "name": "Finition Soft-Touch Aterciopelada",
+          "tagline": "Toucher Velours Ultra-Sensible",
+          "desc": "Un traitement de surface très haut de gamme donnant au sachet un toucher peau de pêche. Cet aspect mémorable incite le consommateur à prendre et conserver le produit en main.",
+          "features": [
+            "Toucher velouté doux",
+            "Élégance visuelle mate",
+            "Sensation de prestige"
+          ],
+          "bestFor": "Produits de beauté, cosmétiques, poudres de bien-être, soins premium",
+          "price": "+0.04 $ - 0.08 $ / sachet"
+        },
+        "foil": {
+          "name": "Marquage à Chaud (Hot Foil)",
+          "tagline": "Éclat Or, Argent et Cuivre Véritable",
+          "desc": "Marquage métallique avec finition miroir. Ajoute des dorures, des éléments argentés ou de bronze haut de gamme sur des zones ciblées de votre graphisme.",
+          "features": [
+            "Éclat métallique net",
+            "Contours parfaits",
+            "Positionnement luxe"
+          ],
+          "bestFor": "Éditions limitées, coffrets cadeaux, cafés haut de gamme",
+          "price": "+0.03 $ - 0.07 $ / sachet"
+        }
+      }
+    },
+    "metrics": {
+      "badge": "VALEURS TECHNIQUES",
+      "title": "Spécifications Techniques de Surface",
+      "desc": "Nous traduisons les caractéristiques physiques en indicateurs de performance commerciale pour les directions d'achat.",
+      "thParam": "Paramètre de Mesure",
+      "thMatte": "Référence Finition Mate",
+      "thGloss": "Référence Finition Brillante",
+      "thSignif": "Importance pour les Achats",
+      "rows": {
+        "r1": {
+          "metric": "Réflectivité de la Brillance",
+          "matte": "8 - 12 GU (Brillance faible)",
+          "gloss": "85 - 95 GU (Haute réflexion)",
+          "utility": "Le brillant booste la couleur ; le mat offre une parfaite lisibilité sans reflet sous les néons des magasins."
+        },
+        "r2": {
+          "metric": "Indice de Trouble (ASTM D1003)",
+          "matte": "75% - 85% Haze",
+          "gloss": "< 3.0% Haze",
+          "utility": "Le mat offre un rendu sobre et naturel ; le brillant garantit des fenêtres transparentes d'une clarté absolue."
+        },
+        "r3": {
+          "metric": "COF (Coefficient de Friction)",
+          "matte": "0.25 - 0.35 (Faible glissement, bonne prise en main)",
+          "gloss": "0.15 - 0.22 (Glissement fort, adapté aux machines)",
+          "utility": "Le brillant accélère le remplissage automatique haute vitesse ; le mat offre une expérience tactile premium."
+        },
+        "r4": {
+          "metric": "Adhérence du Marquage (Foil)",
+          "matte": "> 4.5 N/15mm (Fixation parfaite)",
+          "gloss": "> 4.0 N/15mm (Fixation parfaite)",
+          "utility": "Garantit que le marquage à chaud or/argent ne s'écaille pas durant le transport et le stockage."
+        },
+        "r5": {
+          "metric": "Force de Liaison du Stratifié",
+          "matte": "> 2.5 N/15mm (Laminage triple sécurité)",
+          "gloss": "> 2.8 N/15mm (Laminage double sécurité)",
+          "utility": "Évite le décollement des couches (délamination) avec les produits gras ou sous les climats chauds."
+        }
+      }
+    },
+    "faq": {
+      "badge": "CENTRE D'AIDE AUX ACHATS",
+      "title": "FAQ sur les Finitions de Surface",
+      "desc": "Toutes les réponses techniques sur les minima de commande, les échantillons physiques et la création de vos fichiers.",
+      "questions": [
+        {
+          "q": "Quel est le minimum de commande (MOQ) pour les finitions de surface spéciales ?",
+          "a": "Nos finitions standard Mat et Brillant sont disponibles dès notre minimum de 500 unités en impression numérique. Pour les finitions premium comme le vernis sélectif, le toucher doux (soft-touch) ou le marquage à chaud, le minimum est de 5 000 unités en raison du calage machine."
+        },
+        {
+          "q": "Pouvons-nous recevoir des échantillons physiques avant de commander ?",
+          "a": "Tout à fait ! Nous offrons un kit d'échantillons premium gratuit contenant des sachets de différents formats et finitions (Mat, Brillant, Vernis Sélectif, Soft-Touch). Cela permet à vos équipes de valider la qualité. Envoi sous 24h par transporteur express."
+        },
+        {
+          "q": "Comment préparer le fichier graphique pour du vernis sélectif ou du marquage à chaud ?",
+          "a": "Pour les finitions spéciales, votre graphiste doit fournir un calque séparé dans le fichier PDF nommé 'SPOT_UV' ou 'FOIL_STAMP' en couleur 100% Noir Vectoriel (K100). Ce tracé indique précisément la zone d'application du vernis ou de la dorure."
+        },
+        {
+          "q": "Le type de finition a-t-il un impact sur le délai de livraison ?",
+          "a": "Les laminations Mat et Brillant standard n'ajoutent aucun délai, préservant nos délais d'impression numérique rapides (10-14 jours). Le vernis sélectif, le soft-touch et le marquage à chaud nécessitent des étapes supplémentaires, ajoutant 3 à 5 jours ouvrés."
+        },
+        {
+          "q": "Ces finitions de surface sont-elles certifiées compostables ?",
+          "a": "Oui ! Nos films mat et brillant standards sont certifiés compostables selon les normes ASTM D6400 / EN 13432. Nos vernis spéciaux et films métalliques sont conçus à base de composants biodégradables qui ne laissent aucun microplastique et ne perturbent pas le compostage industriel."
+        },
+        {
+          "q": "Quelles informations fournir pour obtenir un devis de gros ?",
+          "a": "Pour établir votre tarification B2B, merci d'indiquer : (1) Le format et la forme du sachet, (2) Le type de finition souhaité (ex. Vernis sélectif vs Mat standard), (3) Le volume estimé par référence (SKU) et (4) Le type de produit à emballer."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Choisissez la Finition Idéale pour",
+      "titleColored": " Votre Marque Éco-responsable",
+      "desc": "Demandez votre kit d'échantillons gratuit contenant de vrais sachets stand-up Mat, Brillant, Soft-Touch et Vernis Sélectif pour juger par vous-même de la qualité.",
+      "d2cBadge": "Startups & D2C",
+      "d2cTitle": "Impression Numérique (MOQ 500)",
+      "d2cDesc": "Idéal pour lancer vos produits. Options Mat ou Brillant standards avec livraison rapide sous 10 jours.",
+      "d2cBtn": "Demander des Échantillons Gratuits",
+      "b2bBadge": "Volume & B2B",
+      "b2bTitle": "Production de Gros (MOQ 5 000+)",
+      "b2bDesc": "Finitions exclusives : Vernis sélectif, lamination effet velours Soft-Touch et marquages à chaud or ou argent.",
+      "b2bBtn": "Découvrir AchievePack B2B"
+    }
+  },
+  "kSealHeavyContentPage": {
+    "title": "Comment Utiliser le Sachet K-Seal : Emballage de Contenu Lourd | POUCH.ECO",
+    "metaDesc": "Découvrez quand et pourquoi utiliser un soufflet inférieur K-Seal pour emballer des produits lourds comme l'alimentation animale, le sel et les céréales.",
+    "hero": {
+      "title": "Utilisation des Sachets K-Seal",
+      "titleColored": " pour les Contenus Lourds",
+      "subtitle": "Maximisez la solidité de l'emballage. Découvrez pourquoi les soufflets de fond K-seal évitent la rupture des soudures dans les coins et maintiennent les sachets debout.",
+      "readTime": "7 min de lecture"
+    },
+    "s1": {
+      "title": "Qu'est-ce qu'un Sachet Stand-Up K-Seal ?",
+      "p1": "Un sachet stand-up K-Seal présente une soudure de fond en forme de lettre \"K\". Contrairement aux sachets standard Doypack (fond rond), le K-seal relie les soudures latérales et de fond à un angle de 30 degrés. Cette modification structurelle oriente le poids des contenus lourds vers le centre de la base au lieu de pousser vers l'extérieur contre les coins inférieurs fragiles.",
+      "diffTitle": "Principales Différences Structurelles :",
+      "doypack": "Doypack Standard :",
+      "doypackDesc": "Idéal pour les produits légers de moins de 250g. Les articles lourds déforment la base arrondie, ce qui fait pencher ou basculer le sachet.",
+      "kseal": "K-Seal :",
+      "ksealDesc": "Redirige le poids de la matière vers le bas. Idéal pour les produits entre 500g et 2.5kg.",
+      "plow": "Fond Plow (Soudure Delta) :",
+      "plowDesc": "Sans soudure sur le pli inférieur, ce qui maximise le volume. Idéal pour les poudres sèches et les articles en vrac très lourds."
+    },
+    "s2": {
+      "title": "Pourquoi les Sachets K-Seal Excellent avec les Contenus Lourds",
+      "p1": "Les produits lourds comme les croquettes, le café en grains, le gros sel de bain et les semences agricoles soumettent les soudures de fond d'un sachet à une pression constante vers l'extérieur. Un sachet Doypack standard présente une zone de fragilité à la jonction de la soudure latérale et de la courbe de fond, provoquant des ruptures de coins durant le transport. Le K-Seal renforce cette zone en scellant les couches de film à plat, répartissant ainsi la tension mécanique.",
+      "mechTitle": "Avantages Mécaniques",
+      "m1": "Évite les déchirures des coins inférieurs et l'éclatement des soudures",
+      "m2": "Maintient le sachet en position verticale de manière stable en rayon",
+      "m3": "Minimise les plis et froissements de l'emballage",
+      "m4": "Améliore la résistance aux chutes depuis les rayonnages hauts",
+      "prodTitle": "Compatibilité Produits Lourds",
+      "p1Item": "Aliments et friandises pour animaux (500g - 2kg)",
+      "p2Item": "Céréales, riz, avoine et farine",
+      "p3Item": "Gros sels de bain et lessives en poudre",
+      "p4Item": "Café de spécialité (sachets de 500g / 1kg pour le commerce)"
+    },
+    "s3": {
+      "title": "Spécifications Techniques et Tolérances pour Emballages Lourds",
+      "p1": "Nos lignes de fabrication appliquent des critères de qualité rigoureux pour supporter les charges lourdes. L'épaisseur des films et la solidité des soudures sont validées par des tests de chute industriels :",
+      "table": {
+        "thCapacity": "Capacité de Poids",
+        "thCaliper": "Épaisseur de Film Recommandée",
+        "thGusset": "Recommandation de Style de Soufflet de Fond",
+        "r1": "Soufflet de fond K-Seal",
+        "r2": "Soufflet de fond K-Seal renforcé",
+        "r3": "Fond Plow ou Sachet à Fond Plat (Box Pouch)"
+      }
+    },
+    "faq": [
+      {
+        "q": "Quelle est la différence entre un K-Seal et un Doypack standard ?",
+        "a": "Un Doypack standard possède une soudure de fond arrondie. Un sachet stand-up K-Seal scelle les bords inférieurs à un angle de 30 degrés, redirigeant le poids du contenu vers le centre pour stabiliser le sachet en rayon."
+      },
+      {
+        "q": "Quand choisir un soufflet K-seal plutôt qu'un fond plow ?",
+        "a": "Pour les produits pesant entre 500g et 2kg, le K-seal offre le meilleur équilibre entre esthétique en rayon et solidité des soudures. Pour les poudres sèches ou les produits de plus de 2.5kg, un fond plow ou un sachet à fond plat est recommandé."
+      },
+      {
+        "q": "Les sachets K-seal peuvent-ils être compostables ou recyclables ?",
+        "a": "Oui. Le K-seal est un type de soudure mécanique, ce qui signifie que nous pouvons l'appliquer sur toutes nos structures de films, y compris nos complexes Kraft/MetPLA certifiés compostables ou nos films recyclables mono-PE."
+      }
+    ],
+    "cta": {
+      "title": "Optimisez la Forme de Votre Sachet",
+      "desc": "Vous hésitez entre un K-seal, un Doypack ou un sachet à fond plat pour le poids de votre produit ? Consultez nos ingénieurs CAO et téléchargez nos gabarits vectoriels.",
+      "achieveText": "Besoin de gabarits de conditionnement en vrac de qualité industrielle pour les lignes d'ensachage verticales automatisées ?"
+    }
+  },
+  "bioBasedSpoutPouchesPage": {
+    "title": "Sachets avec Bouchon Bio-Sourcés pour Liquides | Emballage Écologique | POUCH.ECO",
+    "metaDesc": "Découvrez nos sachets avec bouchon d'origine biologique pour liquides. Bio-PE de canne à sucre et structures compostables avec buses sur mesure.",
+    "hero": {
+      "title": "Présentation des Sachets Gourdes",
+      "titleColored": " Bio-Sourcés pour Emballages Liquides",
+      "subtitle": "Dites adieu aux plastiques fossiles. Nos sachets à canne à sucre Bio-PE offrent d'excellentes propriétés barrière et une recyclabilité totale.",
+      "readTime": "10 min de lecture"
+    },
+    "s1": {
+      "title": "L'Essor du Bio-PE de Canne à Sucre Bio-Sourcé",
+      "p1": "L'industrie de l'emballage s'éloigne des résines fossiles. Le polyéthylène biosourcé (Bio-PE) est fabriqué à partir d'éthylène issu de l'éthanol de canne à sucre. Pendant sa croissance, la canne à sucre capte le CO₂ de l'atmosphère, d'où une empreinte carbone négative dès sa production.",
+      "highlightTitle": "Avantages de l'Approvisionnement en Bio-PE :",
+      "perfTitle": "Performance Identique :",
+      "perfDesc": "Le Bio-PE possède exactement la même structure chimique que le PE fossile traditionnel, garantissant une barrière à l'humidité et une solidité de soudure équivalentes.",
+      "recyTitle": "100% Recyclable :",
+      "recyDesc": "Puisqu'il est chimiquement équivalent au PEHD/PEBD, le Bio-PE est entièrement recyclable dans les filières classiques de recyclage plastique (RIC #4).",
+      "eprTitle": "Conformité REP :",
+      "eprDesc": "Aide les marques à réduire leurs éco-contributions selon la loi SB 343 de Californie et les directives européennes de Responsabilité Élargie des Producteurs."
+    },
+    "s2": {
+      "title": "Complexes Barrières Compostables pour Liquides",
+      "p1": "Pour les marques visant le zéro déchet plastique, nous proposons des gourdes compostables certifiées. Elles associent des couches de cellulose métallisée sous vide à du polybutylène succinate biodégradable (Bio-PBS) pour contenir les liquides sans altération.",
+      "specTitle": "Spécifications de la Barrière Liquide Compostable",
+      "coreLaminate": "Complexe Principal :",
+      "coreLaminateVal": "NatureFlex™ + Bio-PBS (140 microns)",
+      "waterRes": "Résistance à l'Eau :",
+      "waterResVal": "Haute (validée jusqu'à 90 jours à l'état humide)",
+      "otr": "Barrière Oxygène (OTR) :",
+      "otrVal": "< 1.0 cc/m²/24h",
+      "wvtr": "Barrière Humidité (WVTR) :",
+      "wvtrVal": "< 1.5 g/m²/24h"
+    },
+    "s3": {
+      "title": "Spécifications Techniques et Bouchons",
+      "p1": "Notre usine intègre divers formats de goulots et bouchons adaptés aux lignes de conditionnement industrielles. Nous proposons une pose sur angle ou supérieure centrée :",
+      "table": {
+        "thDiam": "Diamètre du Goulot",
+        "thConfig": "Configuration du Bouchon",
+        "thApp": "Application Liquide Idéale",
+        "r1": {
+          "d": "Bouchon 8.6 mm",
+          "c": "Bouchon à vis standard ou bouchon anti-étouffement",
+          "a": "Jus de fruits, purées bébé, packs gel, eau"
+        },
+        "r2": {
+          "d": "Bouchon 10 mm / 15 mm",
+          "c": "Bouchon à vis strié avec bague d'inviolabilité",
+          "a": "Sirops, miel, recharges cosmétiques, savon liquide"
+        },
+        "r3": {
+          "d": "Bouchon 22 mm",
+          "c": "Bouchon distributeur à large ouverture",
+          "a": "Purées épaisses, yaourts, huiles moteur, savon industriel"
+        }
+      }
+    },
+    "s4": {
+      "title": "Impact Environnemental et Cycle de Vie",
+      "p1": "Le remplacement des bouteilles en verre rigide ou des flacons en plastique lourd par des sachets gourdes souples biosourcés réduit nettement les émissions liées au transport :",
+      "metrics": {
+        "m1": "-85%",
+        "m1Label": "Poids par Rapport au Verre",
+        "m2": "-65%",
+        "m2Label": "Émissions de CO₂ liées au Transport",
+        "m3": "Négatif",
+        "m3Label": "Empreinte carbone de la résine Bio-PE"
+      }
+    },
+    "faq": [
+      {
+        "q": "Quelle est la différence entre le PE biosourcé et les plastiques biodégradables ?",
+        "a": "Le PE biosourcé est fabriqué à partir de végétaux (canne à sucre) au lieu de pétrole brut, mais possède la même structure moléculaire que le PE classique. Il est donc 100% recyclable, mais n'est pas biodégradable ni compostable. Les plastiques compostables sont conçus pour se décomposer en compost."
+      },
+      {
+        "q": "Les gourdes avec bouchon biosourcées sont-elles recyclables ?",
+        "a": "Oui. Nos gourdes en Bio-PE de canne à sucre sont fabriquées à partir de structures mono-matériau, ce qui les rend parfaitement recyclables dans la filière PE classique (RIC #4 / PEBD)."
+      },
+      {
+        "q": "Ces gourdes avec bouchon supportent-elles le remplissage à chaud (pasteurisation) ?",
+        "a": "Oui, nos structures en Bio-PE et coextrudées haute température peuvent supporter des températures de remplissage à chaud allant jusqu'à 85°C - 90°C, idéales pour les jus de fruits pasteurisés et les purées."
+      }
+    ],
+    "cta": {
+      "title": "Développez Votre Gourde Biosourcée",
+      "desc": "Validez les bouchons, l'épaisseur du matériau et les personnalisations. Téléchargez nos gabarits vectoriels ou commandez des échantillons.",
+      "achieveText": "Besoin de conformité industrielle B2B et de certificats pour le conditionnement de liquides ?"
+    }
+  },
+  "refillPouchesPage": {
+    "title": "Flacons en Verre et Sachets de Recharge Compostables | POUCH.ECO",
+    "metaDesc": "Créez une marque de recharge par abonnement durable. Découvrez comment l'association de flacons durables et de recharges plates compostables réduit les coûts.",
+    "hero": {
+      "title": "Flacons en Verre Combinés avec",
+      "titleColored": " des Sachets de Recharge Compostables",
+      "subtitle": "Lancez un abonnement de recharge circulaire. Réduisez l'empreinte carbone en envoyant des sachets plats compostables légers certifiés ASTM D6400.",
+      "readTime": "9 min de lecture"
+    },
+    "s1": {
+      "title": "Le Modèle de Marque de Recharge Circulaire",
+      "p1": "Le modèle de recharge par abonnement transforme la façon dont les marques de grande consommation abordent la durabilité. Au lieu de vendre un flacon en plastique ou en verre lourd à chaque achat, les marques envoient une fois un contenant durable haut de gamme (verre, céramique), puis des sachets de recharge compostables plats et légers.",
+      "advTitle": "Avantages du Modèle de Recharge :",
+      "adv1Title": "Fidélisation Client :",
+      "adv1Desc": "Les sachets de recharge encouragent les achats répétés par abonnement.",
+      "adv2Title": "Économie de Matière :",
+      "adv2Desc": "Les sachets plats nécessitent jusqu'à 70% de matières premières en moins que les flacons rigides.",
+      "adv3Title": "Différenciation en Rayon :",
+      "adv3Desc": "Les recharges en kraft mat ou métallisées offrent un aspect très premium et se distinguent sur les linéaires."
+    },
+    "s2": {
+      "title": "Matériaux de Sachets de Recharge Compostables",
+      "p1": "Pour conditionner poudres, produits secs, café ou recharges de cosmétiques, ces sachets exigent des barrières protectrices. Nous associons des films de cellulose issus de pâte de bois (NatureFlex™) à des liants d'amidon végétal (PLA/PBAT), offrant une excellente barrière aux graisses et à l'oxygène tout en permettant une dégradation en 90 jours en compostage.",
+      "structTitle": "Structures de Sachets de Recharge",
+      "s1Item": "Papier Kraft Mat + Cellulose Métallisée + PLA (MetPLA haute barrière)",
+      "s2Item": "Cellulose transparente + scellant PLA (fenêtre transparente)",
+      "s3Item": "Certifié ASTM D6400 & EN 13432",
+      "s4Item": "Sans PFAS et agréé contact alimentaire FDA",
+      "prodTitle": "Produits Adaptés aux Recharges",
+      "p1Item": "Épices bio, sels de cuisine et herbes aromatiques",
+      "p2Item": "Café en grains, café moulu et cacao en poudre",
+      "p3Item": "Poudres de compléments alimentaires, protéines et superaliments",
+      "p4Item": "Sels de bain, cosmétiques secs et poudres ménagères"
+    },
+    "s3": {
+      "title": "Empreinte Carbone et Logistique Optimisée",
+      "p1": "Transporter des flacons en verre vides ou des pots en plastique épais revient à transporter de l'air sur de longues distances. Les sachets de recharge livrés à plat s'empilent de manière ultra-dense, réduisant fortement les volumes de fret :",
+      "metrics": {
+        "m1": "-80%",
+        "m1Label": "Espace de stockage économisé en entrepôt",
+        "m2": "-65%",
+        "m2Label": "Coûts de transport logistique",
+        "m3": "90 Jours",
+        "m3Label": "Délai de biodégradation organique"
+      }
+    },
+    "faq": [
+      {
+        "q": "Comment les recharges souples réduisent-elles les émissions de transport ?",
+        "a": "Les recharges sont expédiées à plat. Une palette de transport standard peut contenir jusqu'à 50 000 sachets plats, contre seulement 3 000 flacons en verre vides. Cette densité 16 fois supérieure réduit le nombre de camions sur les routes et améliore le bilan Scope 3."
+      },
+      {
+        "q": "Quels produits conviennent le mieux aux recharges compostables ?",
+        "a": "Les ingrédients secs comme le thé en vrac, les épices, le café, les céréales et les protéines en poudre sont parfaits. Pour les produits liquides (crèmes, lotions), nous recommandons nos gourdes recyclables en Bio-PE haute barrière."
+      },
+      {
+        "q": "Les recharges souples sont-elles assez solides pour l'envoi postal ?",
+        "a": "Oui. Notre complexe Triplex MetPLA fait 120 à 140 microns d'épaisseur, assurant une excellente résistance à la perforation pour supporter les contraintes postales et les envois sous enveloppe."
+      }
+    ],
+    "cta": {
+      "title": "Développez Votre Sachet de Recharge Circulaire",
+      "desc": "Trouvez le format idéal pour recharger vos flacons de verre. Téléchargez nos gabarits ou demandez un kit d'échantillons gratuit.",
+      "achieveText": "Besoin de volumes de gros importants en recharges compostables pour la grande distribution ?"
+    }
+  },
+  "technicalDataSheetCategoryPage": {
+    "title": "Directoire des Fiches Techniques des Emballages (TDS) | POUCH.ECO",
+    "metaDesc": "Accédez aux fiches techniques des emballages (TDS). Comparez les indices barrières OTR/WVTR, les tolérances d'épaisseur et les certificats.",
+    "hero": {
+      "title": "Directoire des Fiches",
+      "titleColored": " Techniques des Emballages (TDS)",
+      "subtitle": "Validez les spécifications barrières. Index des tolérances d'épaisseur, des taux de transmission d'oxygène/humidité et des certificats écologiques.",
+      "readTime": "5 min de lecture"
+    },
+    "s1": {
+      "title": "Directoire des Fiches Techniques des Emballages (TDS)",
+      "p1": "Les fiches techniques (TDS) fournissent des rapports d'essais validés détaillant les propriétés physiques, l'épaisseur de lamination, les compositions de polymères et les barrières aux gaz de nos films d'emballage. Parcourez notre répertoire structurel ci-dessous :",
+      "compTitle": "🌱 TDS de la Série Compostable",
+      "compLink1": "Cellulose Métallisée Triplex Compostable (Haute Barrière)",
+      "compLink2": "Papier Kraft + Duplex PLA (Basse Barrière)",
+      "compLink3": "Kraft avec Revêtement Aqueux Sans Plastique (Nouveau)",
+      "recyTitle": "♻️ TDS de la Série Recyclable",
+      "recyLink1": "Duplex Mono-PE 100% Recyclable (Transparent)",
+      "recyLink2": "Complexe Mono-PP 100% Recyclable",
+      "recyLink3": "Sachet Bio-PE I'm green™ à Base de Canne à Sucre"
+    },
+    "s2": {
+      "title": "Comprendre les Paramètres TDS (OTR & WVTR)",
+      "p1": "Les équipes achats et les ingénieurs emballage étudient les valeurs OTR et WVTR pour garantir la durée de conservation exacte des aliments. Ces paramètres mesurent la quantité de gaz traversant un mètre carré de film en 24 heures dans des conditions de laboratoire standard :",
+      "otrTitle": "Taux de Transmission d'Oxygène (OTR)",
+      "otrDesc": "Mesuré en cc/m²/24h. L'oxygène provoque l'oxydation, entraînant la dégradation du produit, le rancissement des huiles et la perte de couleur. Le café et les aliments gras exigent un OTR inférieur à 1,0.",
+      "otrVal": "OTR cellulose mét. compostable :",
+      "wvtrTitle": "Taux de Transmission de Vapeur d'Eau (WVTR)",
+      "wvtrDesc": "Mesuré en g/m²/24h. Le passage de l'humidité rend les biscuits mous ou agglomère les poudres sèches. Les barrières à l'humidité protègent les ingrédients secs.",
+      "wvtrVal": "WVTR cellulose mét. compostable :"
+    },
+    "s3": {
+      "title": "Certifications Standards de l'Industrie",
+      "p1": "Tous les matériaux détaillés sur nos fiches techniques possèdent des certifications indépendantes garantissant la conformité environnementale et la sécurité alimentaire :",
+      "table": {
+        "thMark": "Label de Certification",
+        "thBody": "Organisme de Certification",
+        "thMeaning": "Signification de la Conformité",
+        "r1": {
+          "m": "Certifié BPI",
+          "b": "Biodegradable Products Institute (États-Unis)",
+          "c": "Conforme aux spécifications ASTM D6400 pour le compostage municipal."
+        },
+        "r2": {
+          "m": "OK Compost HOME / Industrial",
+          "b": "TÜV Austria",
+          "c": "Conforme aux normes de compostage européennes EN 13432 pour bacs domestiques ou industriels."
+        },
+        "r3": {
+          "m": "GRS (Global Recycled Standard)",
+          "b": "Textile Exchange",
+          "c": "Valide les pourcentages de matières recyclées post-consommation (PCR)."
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "Qu'est-ce qu'une fiche technique d'emballage (TDS) ?",
+        "a": "Une fiche technique est un document détaillant les propriétés physiques, les couches de polymères, la résistance à la traction, la force de soudure, les tolérances d'épaisseur, l'OTR (taux de transmission d'oxygène) et le WVTR (taux de transmission de vapeur d'eau) d'un matériau d'emballage spécifique."
+      },
+      {
+        "q": "Comment demander une fiche technique personnalisée ?",
+        "a": "Veuillez contacter notre équipe technique par e-mail (ryan@achievepack.com) en précisant la structure du sachet. Nous vous fournirons les documents PDF et les numéros de certificats BPI/TÜV sous 24 heures."
+      },
+      {
+        "q": "Quelle est la différence entre l'OTR et le WVTR ?",
+        "a": "L'OTR mesure le passage de l'oxygène à travers le film (essentiel contre l'oxydation), tandis que le WVTR mesure le passage de la vapeur d'eau (essentiel contre l'humidité et l'agglomération)."
+      }
+    ],
+    "cta": {
+      "title": "Demander des Rapports TDS Personnalisés",
+      "desc": "Besoin de rapports de traction spécifiques, de tests de migration ou de sous-licences BPI ? Contactez notre laboratoire R&D emballage.",
+      "achieveText": "Besoin de fiches de données de sécurité (MSDS) complètes et téléchargeables pour votre entreprise ?"
+    }
+  },
+  "lowMOQStandUpPouchPage": {
+    "title": "Sachet Stand-Up Impression Numérique avec Zip, MOQ dès 100pcs | POUCH.ECO",
+    "metaDesc": "Commandez des sachets de stand-up de qualité supérieure imprimés numériquement avec des fermetures éclair conventionnelles. MOQ dès 100 pièces.",
+    "hero": {
+      "title": "Sachets Stand-Up Impression Numérique",
+      "titleColored": "MOQ dès 100pcs",
+      "subtitle": "Lancez votre marque sans frais initiaux élevés de cylindres. Impression numérique HP Indigo, zips à pression et dimensions personnalisées.",
+      "readTime": "6 min de lecture"
+    },
+    "s1": {
+      "title": "Impression Numérique HP Indigo vs Cylindres Traditionnels",
+      "p1": "Le lancement d'une nouvelle gamme de produits nécessitait auparavant d'investir des milliers d'euros dans des cylindres en cuivre pour l'héliogravure. Avec notre presse numérique HP Indigo 20000, nous imprimons directement des visuels haute résolution, permettant de petites séries sans frais de calage.",
+      "advTitle": "Avantages de l'Impression Numérique :",
+      "adv1Title": "Zéro Frais de Cylindre :",
+      "adv1Desc": "Économisez 300 à 500 $ par couleur sur les frais de calage des cylindres.",
+      "adv2Title": "Multi-SKU par Lots :",
+      "adv2Desc": "Répartissez votre commande sur plusieurs graphismes ou saveurs au sein d'une même production.",
+      "adv3Title": "Itérations Rapides :",
+      "adv3Desc": "Mettez à jour les ingrédients, logos réglementaires ou visuels sans gaspiller de vieux stocks de plaques."
+    },
+    "s2": {
+      "title": "Anatomie des Sachets Stand-Up avec Zip Classique",
+      "p1": "Nos sachets stand-up à faible MOQ sont équipés de zips refermables classiques pour préserver la fraîcheur des produits et éviter les fuites après ouverture.",
+      "featTitle": "Caractéristiques Standard du Sachet",
+      "f1": "Fermeture zip classique à pression (PE)",
+      "f2": "Encoches de déchirure faciles à ouvrir des deux côtés",
+      "f3": "Fenêtre transparente ovale ou rectangulaire en option",
+      "f4": "Option coins arrondis pour éviter les dommages de transport",
+      "compTitle": "Options de Composition des Matériaux",
+      "c1": "PET mat / AL / PE (Aluminium haute barrière)",
+      "c2": "MOPP / VMPET / PE (Finition métallique)",
+      "c3": "Papier Kraft / VMPET / PE (Toucher naturel organique)",
+      "c4": "PET transparent / LLDPE (Fenêtre transparente d'exposition)"
+    },
+    "s3": {
+      "title": "Économies du Faible MOQ et Flexibilité",
+      "p1": "Les marques émergentes D2C et de test profitent d'une gestion de production allégée. Réduire le minimum à 100 unités élimine le risque financier :",
+      "roadmapTitle": "Plan de développement des startups",
+      "m1": "100 pcs",
+      "m1Label": "Commande minimale",
+      "m2": "10-12 Jours",
+      "m2Label": "Délai d'Impression Numérique",
+      "m3": "HP Indigo",
+      "m3Label": "Qualité standard de l'industrie"
+    },
+    "s4": {
+      "title": "Options de Prix & Formats",
+      "p1": "Obtenez des tarifs transparents pour votre lancement. Voici notre grille de prix à faible MOQ pour formats standards avec zip classique :",
+      "table": {
+        "thCap": "Volume du Sachet",
+        "thDigital": "100 - 500 pcs (Impression Numérique)",
+        "thRun": "1 000+ pcs (Production Numérique)",
+        "r1": {
+          "v": "Petit (2oz - 4oz / 100g)",
+          "d": "0.35 $ - 0.50 $ / pc",
+          "r": "0.20 $ - 0.30 $ / pc"
+        },
+        "r2": {
+          "v": "Moyen (8oz - 12oz / 250g-340g)",
+          "d": "0.45 $ - 0.65 $ / pc",
+          "r": "0.28 $ - 0.38 $ / pc"
+        },
+        "r3": {
+          "v": "Grand (16oz - 32oz / 500g-1kg)",
+          "d": "0.60 $ - 0.85 $ / pc",
+          "r": "0.38 $ - 0.48 $ / pc"
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "Pourquoi l'impression numérique permet-elle des MOQ si bas ?",
+        "a": "Les presses numériques dessinent le visuel directement sur le support, évitant la préparation physique de cylindres en cuivre. Nous pouvons donc changer de visuel instantanément sans gâche de calage, ce qui rend rentables les séries dès 100 unités."
+      },
+      {
+        "q": "Quels types de zips sont disponibles sur ces sachets à faible MOQ ?",
+        "a": "Par défaut, nous installons un zip classique PE à pression. Nous proposons également des zips pour structures compostables et des zips poche sur demande spécifique."
+      },
+      {
+        "q": "Quel est le délai de fabrication moyen pour 100 pièces ?",
+        "a": "Les commandes en impression numérique sont produites et prêtes à l'expédition sous 10 à 12 jours ouvrés à compter de la validation du bon à tirer."
+      }
+    ],
+    "cta": {
+      "title": "Créez Votre Sachet Stand-Up Personnalisé",
+      "desc": "Téléchargez nos gabarits vectoriels ou commandez un échantillon physique. Économisez votre capital et lancez votre prototype aujourd'hui.",
+      "achieveText": "À la recherche de tarifs de gros industriels et d'ingénierie d'emballage ?"
+    }
+  },
+  "drinkLiquidPouchPage": {
+    "title": "Sachet 3 Côtés Soudés 100% Compostable pour Boissons et Liquides | POUCH.ECO",
+    "metaDesc": "Gourdes à boissons compostables certifiées haute barrière et étanches pour jus et cocktails RTD.",
+    "hero": {
+      "title": "Sachet 3 Côtés Soudés",
+      "titleColored": " 100% Compostable pour Boissons et Liquides",
+      "subtitle": "Fini les fuites et les déchets plastiques. Sachets liquides haute barrière avec soudures thermiques renforcées.",
+      "readTime": "8 min de lecture"
+    },
+    "s1": {
+      "title": "Technologie de Lamination Liquide Haute Barrière",
+      "p1": "Le conditionnement de liquides, boissons et alcools dans des films biopolymères souples exige une ingénierie de lamination de pointe pour éviter l'hydrolyse, les fuites et la perte de barrière. Notre lamination compostable multicapa préserve les produits jusqu'à 12 mois.",
+      "profileTitle": "Profil des Matériaux pour Liquides :",
+      "l1Title": "Couche Externe (MDO-PLA) :",
+      "l1Desc": "Couche d'impression à haute résistance à la traction et à la chaleur servant de support principal pour l'impression numérique.",
+      "l2Title": "Couche Médiane (Met-Cellulose) :",
+      "l2Desc": "Film de biocellulose métallisé sous vide offrant une excellente barrière aux gaz OTR (< 0.5 cc/m²/jour) et WVTR (< 0.8 g/m²/jour).",
+      "l3Title": "Couche de Scellage (Mélange PLA/PBS haute densité) :",
+      "l3Desc": "Film interne résistant à l'hydrolyse supportant les composés liquides organiques, les acides et l'alcool jusqu'à 15% Vol."
+    },
+    "s2": {
+      "title": "Ingénierie des Soudures et Goulots",
+      "p1": "Les sachets classiques fuient souvent aux angles lorsqu'ils contiennent des liquides lourds. Notre usine conçoit des sachets 3 soudures dotés de soudures hermétiques renforcées de 8 mm pour garantir l'absence totale de fuites.",
+      "sealTitle": "Paramètres de Tolérance de Soudure",
+      "s1Item": "Température de soudure optimale : 135 °C - 150 °C",
+      "s2Item": "Pression de soudure hermétique : 3,5 bar",
+      "s3Item": "Largeur de soudure : 8 mm - 10 mm (renforcée)",
+      "s4Item": "Angles arrondis pour éviter les points de perforation",
+      "appTitle": "Applications Liquides",
+      "a1Item": "Jus de fruits bio et smoothies",
+      "a2Item": "Concentrés liquides et sirops de café",
+      "a3Item": "Vins, cocktails et boissons alcoolisées prêtes à boire",
+      "a4Item": "Savons liquides et recharges de produits d'entretien"
+    },
+    "s3": {
+      "title": "Rapports d'Essais de Chute et d'Éclatement Zéro Défaut",
+      "p1": "Les acheteurs B2B exigent des données de validation réelles. Le registre suivant présente nos gourdes liquides compostables testées selon les normes ASTM :",
+      "logTitle": "Registre de Vérification Technique",
+      "m1": "1.2m",
+      "m1Label": "Hauteur de chute validée",
+      "m2": "> 80 kPa",
+      "m2Label": "Pression d'éclatement de soudure",
+      "m3": "100%",
+      "m3Label": "Zip de fermeture biodégradable"
+    },
+    "s4": {
+      "title": "Grille de Tarifs de Sachets Liquides",
+      "p1": "Nos lignes de fabrication souples gèrent les petites séries pour le lancement de boissons, puis la production de gros en héliogravure :",
+      "table": {
+        "thQty": "Quantité",
+        "thDigital": "Impression Numérique (100 - 1 000 pcs)",
+        "thGravure": "Impression Héliogravure (10 000+ pcs)",
+        "r1": {
+          "q": "Sachet liquide 250ml",
+          "d": "0.45 $ - 0.65 $ / pc",
+          "g": "0.18 $ - 0.25 $ / pc"
+        },
+        "r2": {
+          "q": "Sachet liquide 500ml",
+          "d": "0.55 $ - 0.78 $ / pc",
+          "g": "0.24 $ - 0.32 $ / pc"
+        },
+        "r3": {
+          "q": "Sachet liquide 1L",
+          "d": "0.70 $ - 0.98 $ / pc",
+          "g": "0.35 $ - 0.45 $ / pc"
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "Les sachets compostables sont-ils vraiment étanches pour les liquides ?",
+        "a": "Oui. Nos sachets compostables de qualité liquide utilisent un complexe renforcé à base de Bio-PBS, offrant une grande résistance à la perforation et des soudures hermétiques solides pour éliminer tout risque de fuite."
+      },
+      {
+        "q": "Peut-on utiliser ces sachets pour des boissons alcoolisées ou des jus acides ?",
+        "a": "Oui. La couche interne de scellage est chimiquement formulée pour résister aux jus acides et aux cocktails prêts à boire jusqu'à 15% Vol. Pour des taux d'alcool supérieurs, consultez notre laboratoire R&D."
+      },
+      {
+        "q": "Quel est le minimum de commande (MOQ) pour des sachets liquides imprimés ?",
+        "a": "En impression numérique (idéal pour tester le marché), le MOQ commence à 500 pièces. En héliogravure pour de gros volumes, le minimum commence à 10 000 pièces."
+      }
+    ],
+    "cta": {
+      "title": "Obtenez des Gabarits de Sachets Liquides",
+      "desc": "Validez les volumes de remplissage, la position des bouchons et l'épaisseur. Commandez un kit d'échantillons ou consultez un ingénieur.",
+      "achieveText": "Besoin de sachets liquides industriels à gros volumes avec certifications B2B ?"
+    }
   }
 }

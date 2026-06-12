@@ -22293,5 +22293,873 @@
       "orderSamples": "Pedir Muestras",
       "emailSpecs": "Enviar Especificaciones por Email"
     }
+  },
+  "materialDataSheetPage": {
+    "title": "Ficha Técnica de Material - Papel Kraft de 60 g/m² + Película Compostable de 50μ | Achieve Pack",
+    "metaDesc": "Ficha técnica para el material de embalaje de papel Kraft de 60 g/m² + película compostable interna de 50μ.",
+    "backLink": "Volver a Especificaciones Técnicas",
+    "specBadge": "ESPECIFICACIÓN_v2026",
+    "heading": "Ficha Técnica",
+    "subheading": "Especificación Preliminar // Kraft + Compostable",
+    "lastUpdate": "Última Actualización: Marzo 2026",
+    "downloadPdf": "Descargar PDF",
+    "overview": {
+      "title": "Descripción General del Producto",
+      "prodName": "Nombre del Producto:",
+      "prodNameVal": "Papel Kraft de 60 g/m² + Película Compostable Interna de 50μ",
+      "structure": "Estructura:",
+      "structureVal": "Papel Kraft / 牛皮纸 + Película Compostable / 可堆肥薄膜",
+      "calcBasis": "Base de Cálculo:",
+      "calcBasisVal": "Espesor nominal total de 0.13 mm (130μ) por 1 m²."
+    },
+    "features": {
+      "title": "Características Clave",
+      "items": [
+        "Laminado compostable a base de papel",
+        "100% Compostable en Hogar e Industrial",
+        "Aspecto y textura de Papel Kraft natural",
+        "Excelentes propiedades de sellado",
+        "Superficie imprimible"
+      ]
+    },
+    "usage": {
+      "title": "Uso Común",
+      "items": {
+        "dryFoods": "Alimentos Secos",
+        "coffee": "Granos de Café",
+        "confectionery": "Confitería",
+        "nuts": "Nueces y Semillas",
+        "fruits": "Frutas Desecadas",
+        "bakery": "Productos de Panadería"
+      }
+    },
+    "certs": {
+      "title": "Certificaciones"
+    },
+    "structure": {
+      "title": "Estructura del Material"
+    },
+    "techData": {
+      "title": "Datos Técnicos",
+      "table": {
+        "thLayer": "Capa / 层级",
+        "thMaterial": "Material / 材料",
+        "thGsm": "GSM",
+        "thMm": "mm",
+        "thUm": "μm",
+        "thWeightPct": "Peso %",
+        "thThickPct": "Espesor %",
+        "outer": "Exterior",
+        "outerMat": "Papel kraft (sin estucar)",
+        "inner": "Interior",
+        "innerMat": "Película compostable (50μ)",
+        "total": "TOTAL",
+        "totalMat": "Laminado"
+      },
+      "notes": {
+        "title": "Notas Técnicas:",
+        "n1": "El papel kraft de 60 g/m² tiene un rango de espesor típico de 70–85μ; se toma aquí un valor nominal de 80μ.",
+        "n2": "Película compostable de 50μ con ρ=1.4 g/cm³ ≈ peso base de 70 g/m².",
+        "n3": "Participación de espesor = espesor de capa ÷ espesor total × 100%"
+      }
+    },
+    "footer": {
+      "officialDoc": "Documento Oficial // Achieve Pack Secure Hub"
+    },
+    "browseAll": "Ver Todos los Materiales"
+  },
+  "pouchBarrierOverviewPage": {
+    "title": "Guía de Opciones de Barrera | Elija la Protección Adecuada para su Producto | POUCH.ECO",
+    "metaDesc": "¿No está seguro de qué nivel de barrera necesita? Compare las opciones de barrera baja, media y alta. Obtenga orientación sobre la vida útil de snacks, café, suplementos y más.",
+    "hero": {
+      "badge": "GUÍA DE DECISIÓN",
+      "title": "Opciones de Barrera",
+      "titleColored": " Explicadas de Forma Sencilla",
+      "desc": "¿No está seguro de qué barrera necesita? ¡No se preocupe! Le ayudaremos a elegir entre barrera baja, media y alta según su tipo de producto y objetivos de vida útil.",
+      "btnHelp": "Obtener Ayuda de Expertos",
+      "btnQuiz": "Hacer el Cuestionario"
+    },
+    "whatIs": {
+      "title": "¿Qué es una \"Barrera\"?",
+      "sunscreenTitle": "Piénselo como protector solar... 🧴",
+      "sunscreenDesc": "Al igual que el protector solar protege su piel de los rayos UV, las capas de barrera protegen su producto de:",
+      "oxygen": "Oxígeno - Hace que la comida se vuelva rancia o pierda frescura",
+      "moisture": "Humedad - Hace que los productos se apelmacen o se echen a perder",
+      "light": "Luz - Degrada las vitaminas y los colores",
+      "odors": "Olores - Mantiene los sabores dentro y los malos olores fuera",
+      "ruleTitle": "La Regla de Oro:",
+      "ruleText": "Mayor barrera = Mayor vida útil = Mayor coste",
+      "ruleSub": "¡Elija la barrera mínima que necesite! El exceso de ingeniería cuesta dinero y podría reducir la reciclabilidad."
+    },
+    "compare": {
+      "title": "Compare los Tres Niveles",
+      "typicalShelfLife": "Vida Útil Típica",
+      "bestFor": "Ideal para:",
+      "levels": {
+        "low": {
+          "name": "Barrera Baja",
+          "shelf": "3-6 Meses",
+          "tagline": "Productos de Rápida Rotación",
+          "desc": "Ideal para productos que se venden rápidamente o tienen una vida útil larga de forma natural. ¡Las mejores credenciales ecológicas!",
+          "examples": [
+            "Aperitivos secos",
+            "Galletas",
+            "Bolsitas de té",
+            "Granola",
+            "Palomitas"
+          ]
+        },
+        "medium": {
+          "name": "Barrera Media",
+          "shelf": "6-12 Meses",
+          "tagline": "El Punto de Equilibrio",
+          "desc": "¡La opción más popular! Equilibra la protección, el coste y la sostenibilidad a la perfección.",
+          "examples": [
+            "Café",
+            "Frutos secos",
+            "Premios mascotas",
+            "Cereales",
+            "Frutas secas"
+          ]
+        },
+        "high": {
+          "name": "Barrera Alta",
+          "shelf": "12-24 Meses",
+          "tagline": "Máxima Protección",
+          "desc": "Para productos que son muy sensibles al oxígeno y a la humedad. ¡Posicionamiento premium!",
+          "examples": [
+            "Café Premium",
+            "Suplementos",
+            "Comida de bebé",
+            "Proteína en polvo",
+            "Fármacos"
+          ]
+        }
+      }
+    },
+    "whichOne": {
+      "title": "¿Cuál Debería Elegir?",
+      "c1": {
+        "title": "Rotación Rápida",
+        "desc": "El producto se vende en 3-6 meses",
+        "badge": "Barrera Baja",
+        "sub": "Ejemplos: Galletas, té, palomitas de maíz"
+      },
+      "c2": {
+        "title": "Productos Estándar",
+        "desc": "Necesitan 6-12 meses en estantería",
+        "badge": "Barrera Media",
+        "sub": "Ejemplos: Café, frutos secos, alimento para mascotas"
+      },
+      "c3": {
+        "title": "Premium / Sensibles",
+        "desc": "Necesitan 12-24 meses de protección",
+        "badge": "Barrera Alta",
+        "sub": "Ejemplos: Suplementos, comida para bebés"
+      }
+    },
+    "examples": {
+      "title": "Ejemplos del Mundo Real",
+      "l1": {
+        "title": "Marca de Té Orgánico",
+        "desc": "Té de hojas sueltas en bolsas de 50g. Producto naturalmente estable, se vende rápido en mercados locales.",
+        "resTitle": "Resultado:",
+        "resVal": "Utilizó bolsas kraft de barrera baja, ahorró $0.10 por unidad, mantuvo el posicionamiento ecológico."
+      },
+      "l2": {
+        "title": "Tostador de Café de Especialidad",
+        "desc": "Bolsas de 12oz de granos enteros tostados. Necesita mantenerse fresco a través de distribución minorista y en línea.",
+        "resTitle": "Resultado:",
+        "resVal": "Barrera media con válvula desgasificadora, vida útil perfecta de 9 meses, precio competitivo."
+      },
+      "l3": {
+        "title": "Marca de Suplementos Probióticos",
+        "desc": "Cultivos vivos extremadamente sensibles al oxígeno. La distribución internacional requiere más de 18 meses.",
+        "resTitle": "Resultado:",
+        "resVal": "Barrera alta con papel de aluminio, vida útil garantizada de 24 meses, superó las pruebas de estabilidad."
+      }
+    },
+    "unsure": {
+      "title": "¿Aún no está seguro?",
+      "desc": "¡Ofrecemos pruebas de vida útil GRATUITAS para determinar exactamente qué barrera necesita!",
+      "testHeading": "Qué probaremos:",
+      "t1": "Permeabilidad al oxígeno a lo largo del tiempo",
+      "t2": "Tasas de absorción de humedad",
+      "t3": "Estabilidad del producto a diferentes temperaturas",
+      "t4": "Vida útil real frente a la teórica",
+      "btn": "Solicitar Prueba Gratuita"
+    },
+    "cta": {
+      "title": "¿Listo para Elegir su Barrera?",
+      "desc": "¡Reserve una consulta y le recomendaremos la opción perfecta para su producto!",
+      "btn": "Hablar con un Experto"
+    }
+  },
+  "pouchSurfaceFinishPage": {
+    "title": "Opciones de Acabado de Superficie | Mate, Brillo y Reserva UVI Profesionales | Pouch.eco",
+    "metaDesc": "Elija el acabado de superficie perfecto para sus bolsas ecológicas. Mate, brillo, contraste reserva UVI (Spot UV), tacto suave (Soft-Touch) y estampado metalizado (Foil).",
+    "breadcrumb": {
+      "home": "Inicio",
+      "options": "Opciones de Embalaje",
+      "current": "Acabados de Superficie"
+    },
+    "hero": {
+      "badge": "OPCIONES ECOLÓGICAS PREMIUM",
+      "title": "Acabados de Superficie",
+      "titleColored": " Profesionales",
+      "desc": "El acabado de la superficie es el primer punto de contacto sensorial que su cliente tiene con su marca. Elija un acabado de alta calidad que se alinee con su estética de diseño manteniendo un estricto cumplimiento.",
+      "c1": {
+        "title": "Contraste Vibrante",
+        "desc": "Maximice el brillo del color y la limpieza a prueba de grasa",
+        "badge": "Elegir Alto Brillo"
+      },
+      "c2": {
+        "title": "Orgánico Sofisticado",
+        "desc": "Elegancia antirreflectante con textura natural",
+        "badge": "Elegir Mate"
+      },
+      "c3": {
+        "title": "Dimensiones Táctiles",
+        "desc": "Fricción aterciopelada o contrastes brillantes reserva UVI",
+        "badge": "Elegir Personalizado"
+      }
+    },
+    "showcase": {
+      "badge": "MUESTRA VISUAL",
+      "title": "Visualización del Contraste de Superficies",
+      "desc": "Nuestra tabla de comparación visual de calidad profesional muestra el comportamiento volumétrico exacto de nuestros acabados lado a lado. Desde las cualidades antirreflectantes del Mate orgánico hasta la brillante profundidad del Brillo y las texturas de Reserva UVI, esta guía garantiza que sus decisiones estén completamente informadas.",
+      "p1": "Ángulos Volumétricos Precisos:",
+      "p1Val": "Muestra la refracción de luz correcta y los detalles de forma para coincidir con las bolsas de muestras físicas reales.",
+      "p2": "Diseño Botánico Puro:",
+      "p2Val": "Diseñado bajo un tema verde oscuro que coincide con la auténtica estética orgánica de pouch.eco.",
+      "clickEnlarge": "Haga clic en la infografía para ampliarla."
+    },
+    "explore": {
+      "title": "Explore Nuestros Acabados Especiales",
+      "desc": "Cada capa de superficie personalizada tiene rasgos mecánicos y visuales únicos adaptados a la presencia en las estanterías comerciales.",
+      "commercialApp": "Aplicación Comercial",
+      "baseCost": "Factor de Coste Base",
+      "finishes": {
+        "matte": {
+          "name": "Laminación Mate",
+          "tagline": "Sofisticada, Antirreflectante y Orgánica",
+          "desc": "Un acabado elegante y no reflectante que absorbe la luz, creando una estética orgánica natural y de alta gama. Resiste las huellas dactilares y protege la capa impresa de rozaduras en estantería.",
+          "features": [
+            "Aspecto moderno y sofisticado",
+            "Sin marcas de huellas dactilares",
+            "Excelente protección contra arañazos"
+          ],
+          "bestFor": "Alimentos orgánicos, productos de salud de lujo, marcas premium de té y café",
+          "price": "Estándar (Incluido en precio base)"
+        },
+        "gloss": {
+          "name": "Laminación Brillo",
+          "tagline": "Contraste de Color Vibrante y Alta Reflectividad",
+          "desc": "Un acabado altamente reflectante que aumenta drásticamente el contraste y la saturación del color. Perfecto para diseños coloridos que necesitan captar la atención instantánea en estanterías.",
+          "features": [
+            "Máximo rango dinámico de color",
+            "100% resistente al agua y la grasa",
+            "Atractivo brillo reflectante"
+          ],
+          "bestFor": "Snacks de consumo, zumos, comida para mascotas y diseños de alto contraste",
+          "price": "Estándar (Incluido en precio base)"
+        },
+        "spot": {
+          "name": "Barniz Mate / Reserva UVI",
+          "tagline": "Destacados Táctiles de Alto Contraste",
+          "desc": "Crea un hermoso contraste sensorial al colocar elementos de alto brillo sobre un fondo mate aterciopelado. Su logotipo, ventanas de producto o texto prácticamente resaltarán de la bolsa.",
+          "features": [
+            "Brillo selectivo destacado",
+            "Alto contraste visual y táctil",
+            "Atractivo comercial premium"
+          ],
+          "bestFor": "Bolsas de café artesanal, chocolates gourmet, suplementos premium",
+          "price": "+$0.02 - $0.05 / bolsa"
+        },
+        "soft": {
+          "name": "Revestimiento Táctil Soft-Touch",
+          "tagline": "Tacto Premium Aterciopelado",
+          "desc": "Un revestimiento táctil ultra-premium que le da a su bolsa un tacto similar al terciopelo. Altamente atractivo y memorable, invita a los consumidores a sostener físicamente el envase.",
+          "features": [
+            "Fricción de superficie aterciopelada y suave",
+            "Elegancia visual mate",
+            "Sensación premium excepcional"
+          ],
+          "bestFor": "Bolsas de cosméticos, marcas de bienestar de lujo, polvos botánicos de alta gama",
+          "price": "+$0.04 - $0.08 / bolsa"
+        },
+        "foil": {
+          "name": "Estampado Metalizado (Hot Foil)",
+          "tagline": "Brillo Auténtico de Oro, Plata y Cobre",
+          "desc": "Estampado metálico que refleja la luz con claridad impecable. Añade elementos dorados, plateados, de bronce o de oro rosa de alta gama en áreas seleccionadas de su diseño de embalaje.",
+          "features": [
+            "Acabados metálicos reflectantes",
+            "Definición de línea nítida",
+            "Posicionamiento de alto lujo"
+          ],
+          "bestFor": "Ediciones limitadas, envases de regalo, cafés de especialidad de origen único",
+          "price": "+$0.03 - $0.07 / bolsa"
+        }
+      }
+    },
+    "metrics": {
+      "badge": "MÉTRICAS DE VALOR TÉCNICO",
+      "title": "Especificaciones de Ingeniería de Superficie",
+      "desc": "Traducimos las propiedades técnicas en criterios de compra, ofreciendo a los directores de compras puntuaciones exactas de rendimiento de referencia.",
+      "thParam": "Parámetro de Medición",
+      "thMatte": "Referencia de Acabado Mate",
+      "thGloss": "Referencia de Acabado Brillo",
+      "thSignif": "Importancia y Valor de Compra",
+      "rows": {
+        "r1": {
+          "metric": "Reflectividad de Brillo",
+          "matte": "8 - 12 GU (Bajo Brillo)",
+          "gloss": "85 - 95 GU (Alto Brillo)",
+          "utility": "El brillo maximiza el resalte del color; el mate ofrece una legibilidad elegante sin reflejos en tienda."
+        },
+        "r2": {
+          "metric": "Valor de Neblina (ASTM D1003)",
+          "matte": "75% - 85% Neblina",
+          "gloss": "< 3.0% Neblina",
+          "utility": "El mate crea un aspecto natural apagado; el brillo proporciona ventanas transparentes cristalinas."
+        },
+        "r3": {
+          "metric": "COF (Coeficiente de Fricción)",
+          "matte": "0.25 - 0.35 (Bajo deslizamiento, agarre táctil)",
+          "gloss": "0.15 - 0.22 (Alto deslizamiento, llenado rápido)",
+          "utility": "El brillo acelera el llenado automático de alta velocidad; el mate se siente premium y orgánico al tacto."
+        },
+        "r4": {
+          "metric": "Fuerza de Adhesión (Estampado Foil)",
+          "matte": "> 4.5 N/15mm (Unión impecable)",
+          "gloss": "> 4.0 N/15mm (Unión impecable)",
+          "utility": "Garantiza que el estampado de oro/plata no se desprenda ni se pele durante la logística de larga distancia."
+        },
+        "r5": {
+          "metric": "Fuerza de Unión de Laminación",
+          "matte": "> 2.5 N/15mm (Triple capa de seguridad)",
+          "gloss": "> 2.8 N/15mm (Doble capa de seguridad)",
+          "utility": "Previene la delaminación en climas cálidos o con contenidos de productos aceitosos."
+        }
+      }
+    },
+    "faq": {
+      "badge": "CENTRO DE AYUDA DE COMPRAS",
+      "title": "Preguntas Frecuentes sobre Acabados",
+      "desc": "Respuestas claras a los pilares básicos de compra en B2B con respecto a muestras, certificaciones y especificaciones de diseño.",
+      "questions": [
+        {
+          "q": "¿Cuál es la Cantidad Mínima de Pedido (MOQ) para acabados especiales?",
+          "a": "Nuestros acabados estándar mate y brillo están disponibles a partir de nuestro mínimo de 500 unidades para impresión digital. Para efectos premium personalizados como Reserva UVI, Soft-Touch o Hot Foil, los mínimos comienzan en 5.000 unidades debido a requisitos de placas y configuración."
+        },
+        {
+          "q": "¿Podemos recibir muestras físicas de acabados antes de realizar el pedido?",
+          "a": "¡Por supuesto! Ofrecemos un Kit de Muestras Premium gratuito que incluye varias bolsas en diferentes tamaños, formas y acabados de superficie. Esto permite a sus desarrolladores tocar y comprobar la durabilidad de cada acabado. Los kits se envían por mensajería urgente en 24 horas."
+        },
+        {
+          "q": "¿Cómo formateamos los archivos de diseño para Reserva UVI o Estampado Metalizado?",
+          "a": "Para acabados especiales como Spot UV y Foil, su diseñador debe presentar una capa separada en el archivo PDF llamada 'SPOT_UV' o 'FOIL_STAMP' en color 100% negro vectorial (K:100). Esta ruta vectorial indica la máscara física exacta donde se aplicará el barniz o foil."
+        },
+        {
+          "q": "¿El acabado de la superficie influye en el plazo de entrega de mi pedido?",
+          "a": "Los laminados mate y brillo estándar añaden cero tiempo de producción, manteniendo los plazos de impresión digital en 10-14 días. Reserva UVI personalizada, revestimientos soft-touch y hot foil requieren herramientas adicionales y fases de prensado en caliente, lo que añade entre 3 y 5 días laborables al plazo total."
+        },
+        {
+          "q": "¿Estos acabados de superficie están certificados como compostables y ecológicos?",
+          "a": "¡Sí! Todos los acabados mate y brillo estándar utilizados por pouch.eco están certificados como compostables según las normas ASTM D6400 / EN 13432. Nuestros revestimientos personalizados y foils metalizados están formulados como capas biodegradables de base biológica que no dejan microplásticos y son aptos para compostaje municipal."
+        },
+        {
+          "q": "¿Qué detalles técnicos se necesitan para recibir un presupuesto mayorista?",
+          "a": "Para ofrecer un presupuesto B2B preciso, requerimos: (1) Las dimensiones y forma de la bolsa objetivo, (2) El acabado de superficie elegido, (3) El volumen de pedido estimado por diseño (SKU), y (4) El tipo de producto a envasar para asegurar compatibilidad de barrera."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Elija el Acabado Perfecto para",
+      "titleColored": " su Marca Sostenible",
+      "desc": "Solicite un kit de catálogo gratuito que contenga bolsas reales de pie en acabados Mate, Brillo, Soft-Touch y Reserva UVI para comprobar de primera mano la durabilidad del material.",
+      "d2cBadge": "Marcas D2C Startup",
+      "d2cTitle": "Tiradas Digitales (MOQ 500)",
+      "d2cDesc": "Perfecto para el lanzamiento de envases de prueba. Acabado Mate o Brillo estándar con plazos de entrega rápidos de 10 días.",
+      "d2cBtn": "Solicitar Kit de Muestras Gratis",
+      "b2bBadge": "Compradores de Volumen B2B",
+      "b2bTitle": "Venta al por Mayor (MOQ 5.000+)",
+      "b2bDesc": "Especialidades en barniz Reserva UVI, laminación aterciopelada Soft-Touch y estampados dorados o plateados de alta gama.",
+      "b2bBtn": "Visite AchievePack B2B"
+    }
+  },
+  "kSealHeavyContentPage": {
+    "title": "Cómo Utilizar la Bolsa K-Seal: Embalaje para Contenido Pesado | POUCH.ECO",
+    "metaDesc": "Aprenda cuándo y por qué implementar un fuelle inferior K-Seal para envasar contenidos pesados como comida para mascotas, sal y grano.",
+    "hero": {
+      "title": "Uso de Bolsas K-Seal",
+      "titleColored": " para Contenido Pesado",
+      "subtitle": "Maximice la integridad del envase. Descubra por qué los fuelles inferiores K-seal evitan las roturas de las costuras de las esquinas y mantienen las bolsas de pie de forma vertical.",
+      "readTime": "7 min de lectura"
+    },
+    "s1": {
+      "title": "¿Qué es una Bolsa Stand-Up con K-Seal?",
+      "p1": "Una bolsa stand-up con K-Seal presenta un sellado de fuelle inferior con forma de letra \"K\". A diferencia de las bolsas estándar Doypack (fondo redondo), el K-seal une los sellados laterales y los de fondo en un ángulo de 30 grados. Esta modificación estructural guía los contenidos pesados hacia el centro de la base en lugar de empujar hacia afuera contra las frágiles esquinas inferiores.",
+      "diffTitle": "Diferencias Estructurales Clave:",
+      "doypack": "Doypack Estándar:",
+      "doypackDesc": "Ideal para productos ligeros de menos de 250g. Los artículos pesados estiran la base redondeada, haciendo que la bolsa se incline o se caiga.",
+      "kseal": "K-Seal:",
+      "ksealDesc": "Redirige el peso de la masa del producto hacia abajo. Ideal para productos de entre 500g y 2.5kg.",
+      "plow": "Fondo Plow (Sello Delta):",
+      "plowDesc": "Carece de sellado en el pliegue inferior, maximizando el volumen. Ideal para polvos secos y productos a granel extremadamente pesados."
+    },
+    "s2": {
+      "title": "Por Qué las Bolsas K-Seal Destacan con Contenidos Pesados",
+      "p1": "Los productos pesados como el pienso para perros, granos de café, sales de baño gruesas y semillas agrícolas someten a las costuras inferiores de una bolsa a una presión constante hacia afuera. Un sellado Doypack estándar tiene un punto débil donde la costura lateral se encuentra con la curva inferior, provocando roturas en las esquinas durante el envío. Un K-Seal refuerza esta zona sellando las capas de película de forma plana y dispersando la tensión mecánica.",
+      "mechTitle": "Ventajas Mecánicas",
+      "m1": "Evita roturas en las esquinas inferiores y explosiones de costuras",
+      "m2": "Mantiene la bolsa en posición vertical estable en los estantes de las tiendas",
+      "m3": "Minimiza las arrugas y pliegues en el embalaje",
+      "m4": "Mejora la durabilidad en pruebas de caída desde estantes minoristas altos",
+      "prodTitle": "Compatibilidad con Productos Pesados",
+      "p1Item": "Comida para mascotas y premios para perros (500g - 2kg)",
+      "p2Item": "Granos, arroz, avena y harina para hornear",
+      "p3Item": "Sales de baño gruesas y detergentes en polvo",
+      "p4Item": "Granos de café de especialidad (bolsas al por mayor de 1lb / 2lb)"
+    },
+    "s3": {
+      "title": "Especificaciones Técnicas y Tolerancias para Embalaje Pesado",
+      "p1": "Nuestras líneas de fabricación aplican criterios de calidad estrictos para soportar cargas de peso pesadas. El grosor de la película y la integridad del sellado se prueban bajo directrices industriales de caída:",
+      "table": {
+        "thCapacity": "Capacidad de Peso",
+        "thCaliper": "Espesor de Película Recomendado",
+        "thGusset": "Recomendación de Estilo de Fuelle Inferior",
+        "r1": "Fuelle inferior K-Seal",
+        "r2": "Fuelle inferior K-Seal reforzado",
+        "r3": "Fuelle Plow o Bolsa de Fondo Plano (Box Pouch)"
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Cuál es la diferencia entre un K-Seal y un Doypack estándar?",
+        "a": "Un Doypack estándar tiene una costura inferior redondeada. Una bolsa stand-up con K-Seal sella los bordes inferiores a un ángulo de 30 grados, redirigiendo el peso del contenido pesado hacia adentro y estabilizando la bolsa en los estantes."
+      },
+      {
+        "q": "¿Cuándo debería elegir un fuelle inferior K-seal en lugar de un fondo plow?",
+        "a": "Para productos de entre 500g y 2kg, el K-seal proporciona el mejor equilibrio entre la estética del estante y el refuerzo de las costuras. Para polvos secos o productos que superen los 2.5kg, se recomienda un fondo plow o una bolsa de fondo plano."
+      },
+      {
+        "q": "¿Pueden las bolsas K-seal ser compostables o reciclables?",
+        "a": "Sí. El K-seal es un formato de sellado mecánico, lo que significa que podemos aplicarlo a cualquiera de nuestras estructuras de película, incluidos los laminados Kraft/MetPLA compostables certificados o las películas mono-PE reciclables."
+      }
+    ],
+    "cta": {
+      "title": "Optimice la Forma de su Bolsa",
+      "desc": "¿No está seguro de si un K-seal, Doypack o Fondo Plano es mejor para el peso de su producto? Consulte con nuestros ingenieros de CAD y descargue plantillas vectoriales.",
+      "achieveText": "¿Necesita plantillas de embalaje a granel de nivel empresarial para líneas automatizadas de formado-llenado-sellado vertical?"
+    }
+  },
+  "bioBasedSpoutPouchesPage": {
+    "title": "Bolsas con Boquilla Bio-Basadas para Líquidos | Envase Sostenible | POUCH.ECO",
+    "metaDesc": "Descubra bolsas con boquilla de base biológica para líquidos. Bio-PE de caña de azúcar vegetal y estructuras compostables con boquillas a medida.",
+    "hero": {
+      "title": "Presentamos las Bolsas con Boquilla",
+      "titleColored": " Bio-Basadas para Líquidos",
+      "subtitle": "Deje atrás los plásticos fósiles. Las bolsas con boquilla de caña de azúcar Bio-PE vegetal ofrecen una barrera de gas de élite y reciclabilidad total.",
+      "readTime": "10 min de lectura"
+    },
+    "s1": {
+      "title": "El Auge del Bio-PE de Caña de Azúcar de Base Biológica",
+      "p1": "La industria del embalaje se está alejando de las resinas a base de combustibles fósiles. El polietileno de base biológica (Bio-PE) se fabrica utilizando etileno derivado del etanol de caña de azúcar. Durante su ciclo de crecimiento, la caña de azúcar captura CO₂ atmosférico, lo que resulta en un material de envasado con una huella de carbono negativa desde su origen.",
+      "highlightTitle": "Aspectos Destacados del Abastecimiento de Bio-PE:",
+      "perfTitle": "Rendimiento Idéntico:",
+      "perfDesc": "El Bio-PE posee la misma estructura química que el PE fósil tradicional, garantizando idénticas barreras contra la humedad y resistencia de sellado.",
+      "recyTitle": "100% Reciclable:",
+      "recyDesc": "Debido a que es químicamente equivalente al HDPE/LDPE, el Bio-PE es totalmente reciclable en el flujo de reciclaje de plástico estándar (RIC #4).",
+      "eprTitle": "Cumplimiento de EPR:",
+      "eprDesc": "Ayuda a las marcas a reducir las tasas de impuestos ecológicos bajo la ley SB 343 de California y las leyes europeas de responsabilidad extendida del productor."
+    },
+    "s2": {
+      "title": "Laminados Compostables con Barrera para Líquidos",
+      "p1": "Para las marcas que buscan cero residuos plásticos, ofrecemos bolsas con boquilla compostables certificadas. Estas utilizan capas de celulosa metalizada al vacío combinadas con succinato de polibutileno biodegradable (Bio-PBS) para contener ingredientes húmedos sin disolverse.",
+      "specTitle": "Especificaciones de Grosor para Líquidos Compostables",
+      "coreLaminate": "Laminado Núcleo:",
+      "coreLaminateVal": "NatureFlex™ + Bio-PBS (140 micras)",
+      "waterRes": "Resistencia al Agua:",
+      "waterResVal": "Alta (probado hasta 90 días en estado húmedo)",
+      "otr": "Barrera de Oxígeno (OTR):",
+      "otrVal": "< 1.0 cc/m²/24hr",
+      "wvtr": "Barrera de Humedad (WVTR):",
+      "wvtrVal": "< 1.5 g/m²/24hr"
+    },
+    "s3": {
+      "title": "Especificaciones Técnicas y Boquillas",
+      "p1": "Nuestra fábrica integra varios tamaños de boquillas y tapones diseñados para coincidir con la maquinaria de llenado de líquidos comercial. Admitimos posicionamiento personalizado (boquilla en la esquina o boquilla superior central):",
+      "table": {
+        "thDiam": "Diámetro de Boquilla",
+        "thConfig": "Configuración de Tapón",
+        "thApp": "Aplicación Ideal para Líquidos",
+        "r1": {
+          "d": "Boquilla de 8.6 mm",
+          "c": "Tapón de Rosca Estándar o Tapón Antiahogo",
+          "a": "Zumos, purés infantiles, paquetes de gel, agua"
+        },
+        "r2": {
+          "d": "Boquilla de 10 mm / 15 mm",
+          "c": "Tapón de Rosca Nervado con Precinto de Seguridad",
+          "a": "Jarabes, miel, recambios cosméticos, jabón líquido"
+        },
+        "r3": {
+          "d": "Boquilla de 22 mm",
+          "c": "Tapón Dispensador de Boca Ancha",
+          "a": "Purés espesos, yogures, aceite de motor, jabón industrial"
+        }
+      }
+    },
+    "s4": {
+      "title": "Impacto Ambiental y Métricas de Ciclo de Vida",
+      "p1": "Reemplazar botellas de vidrio rígidas o tarros de plástico pesado por bolsas flexibles con boquilla de base biológica reduce significativamente las emisiones de la cadena de suministro:",
+      "metrics": {
+        "m1": "-85%",
+        "m1Label": "Peso en Comparación con el Vidrio",
+        "m2": "-65%",
+        "m2Label": "Emisiones de CO₂ por Transporte",
+        "m3": "Negativa",
+        "m3Label": "Huella de carbono de la resina Bio-PE"
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Cuál es la diferencia entre el PE de base biológica y los plásticos biodegradables?",
+        "a": "El PE de base biológica se fabrica a partir de materiales vegetales (caña de azúcar) en lugar de petróleo fósil, pero tiene exactamente la misma estructura química que el PE tradicional. Esto significa que es 100% reciclable, pero no es biodegradable ni compostable. Los plásticos compostables están diseñados para descomponerse orgánicamente bajo condiciones de compostaje."
+      },
+      {
+        "q": "¿Son reciclables las bolsas con boquilla de base biológica?",
+        "a": "Sí. Nuestras bolsas con boquilla Bio-PE derivadas de caña de azúcar están fabricadas con laminaciones de un solo material, lo que las hace totalmente reciclables bajo el flujo de PE estándar (RIC #4 / LDPE) para apoyar cadenas de suministro circulares."
+      },
+      {
+        "q": "¿Pueden estas bolsas con boquilla soportar la pasteurización por llenado en caliente?",
+        "a": "Sí, nuestras estructuras de Bio-PE y coextruidas a alta temperatura pueden tolerar temperaturas de llenado en caliente de hasta 85 °C - 90 °C, por lo que son adecuadas para zumos y purés pasteurizados."
+      }
+    ],
+    "cta": {
+      "title": "Desarrolle su Envase Líquido Bio-Basado",
+      "desc": "Verifique las boquillas, el grosor del material y las configuraciones personalizadas. Descargue plantillas de dielines u ordene muestras de stock.",
+      "achieveText": "¿Necesita cumplimiento B2B corporativo y certificados para envases de líquidos de venta minorista?"
+    }
+  },
+  "refillPouchesPage": {
+    "title": "Botellas de Vidrio con Bolsas de Recarga Compostables | POUCH.ECO",
+    "metaDesc": "Cree una marca de suscripción de recarga sostenible. Conozca cómo las botellas de vidrio junto con bolsas de recarga compostables reducen costes.",
+    "hero": {
+      "title": "Botellas de Vidrio Combinadas con",
+      "titleColored": " Bolsas de Recarga Compostables",
+      "subtitle": "Lance una suscripción de recarga circular. Reduzca la huella de carbono enviando bolsas compostables ligeras certificadas bajo ASTM D6400.",
+      "readTime": "9 min de lectura"
+    },
+    "s1": {
+      "title": "El Modelo de Marca de Recarga Circular",
+      "p1": "El modelo de recarga por suscripción está cambiando la forma en que las marcas de bienes de consumo (CPG) abordan la sostenibilidad. En lugar de vender un frasco de plástico rígido o vidrio pesado en cada compra, las marcas envían un envase duradero premium (como vidrio o cerámica) una vez, seguido de bolsas de recarga compostables ligeras que se envían planas.",
+      "advTitle": "Ventajas del Modelo de Recarga:",
+      "adv1Title": "Fidelidad del Cliente:",
+      "adv1Desc": "Las bolsas de recarga incentivan las compras repetidas basadas en suscripción.",
+      "adv2Title": "Ahorro de Material:",
+      "adv2Desc": "Las bolsas planas utilizan hasta un 70% menos de materias primas que los envases rígidos.",
+      "adv3Title": "Diferenciación en Estantería:",
+      "adv3Desc": "El papel kraft mate o las bolsas de recarga metálicas se ven muy premium y destacan en las estanterías de los supermercados."
+    },
+    "s2": {
+      "title": "Materiales de Bolsas de Recarga Compostables",
+      "p1": "Para contener polvos, productos secos, café o recargas cosméticas, estas bolsas necesitan capas de barrera protectoras. Laminamos películas de celulosa derivadas de pulpa de madera (NatureFlex™) con aglutinantes de almidón vegetal (PLA/PBAT), que ofrecen altas barreras contra la grasa y el oxígeno mientras permiten que la bolsa se descomponga en 90 días en condiciones de compostaje.",
+      "structTitle": "Estructuras de Bolsas de Recarga",
+      "s1Item": "Papel Kraft Mate + Celulosa Metalizada + PLA (MetPLA de alta barrera)",
+      "s2Item": "Celulosa transparente + sellador PLA (ventana transparente)",
+      "s3Item": "Certificado bajo ASTM D6400 y EN 13432",
+      "s4Item": "Libre de PFAS y aprobado por la FDA para contacto con alimentos",
+      "prodTitle": "Tipos de Productos para Recarga",
+      "p1Item": "Especias orgánicas, sales y condimentos de hierbas",
+      "p2Item": "Granos de café, café molido y cacao en polvo",
+      "p3Item": "Polvos de suplementos, proteínas y superalimentos",
+      "p4Item": "Sales de baño secas, cosméticos y polvos de limpieza"
+    },
+    "s3": {
+      "title": "Huella de Carbono y Beneficios de Transporte Económico",
+      "p1": "Enviar botellas de vidrio vacías o frascos de plástico grueso es increíblemente ineficiente, básicamente transportando aire vacío entre continentes. Las bolsas de recarga que se envían planas se empaquetan con la máxima densidad, reduciendo drásticamente el volumen de carga:",
+      "metrics": {
+        "m1": "-80%",
+        "m1Label": "Espacio de almacenamiento ahorrado",
+        "m2": "-65%",
+        "m2Label": "Costes de transporte logístico",
+        "m3": "90 Días",
+        "m3Label": "Plazo de degradación orgánica"
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Cómo reducen las bolsas de recarga las emisiones del transporte?",
+        "a": "Las bolsas de recarga se envían completamente planas. Un palé de carga estándar puede contener hasta 50.000 bolsas planas, en comparación con solo 3.000 botellas de vidrio vacías. Este aumento de 16 veces en la densidad de envío reduce los camiones de carga en la carretera y disminuye las métricas de carbono de Alcance 3."
+      },
+      {
+        "q": "¿Qué productos son los más adecuados para las bolsas de recarga compostables?",
+        "a": "Los ingredientes secos como el té a granel, las especias, el café, los cereales en grano y las proteínas en polvo son perfectos. Para productos húmedos como las recargas de lociones, recomendamos nuestras bolsas con boquilla reciclables de Bio-PE de alta barrera especializadas."
+      },
+      {
+        "q": "¿Son las bolsas de recarga lo suficientemente duraderas para el envío por correo postal?",
+        "a": "Sí. Nuestro laminado MetPLA Triplex tiene un grosor de 120-140 micras, proporcionando una fuerte resistencia a la perforación para soportar las máquinas de clasificación postal y los sobres sin romperse."
+      }
+    ],
+    "cta": {
+      "title": "Desarrolle su Bolsa de Recarga Circular",
+      "desc": "Encuentre el tamaño perfecto para recargar sus frascos de vidrio personalizados. Descargue plantillas vectoriales o solicite muestras gratuitas.",
+      "achieveText": "¿Necesita envases de recarga compostables al por mayor de gran volumen para distribución minorista?"
+    }
+  },
+  "technicalDataSheetCategoryPage": {
+    "title": "Directorio de Fichas Técnicas de Envases (TDS) | POUCH.ECO",
+    "metaDesc": "Acceda a las Fichas Técnicas de Envases (TDS). Compare las clasificaciones de barrera de gas OTR/WVTR, tolerancias de espesor y certificados.",
+    "hero": {
+      "title": "Directorio de Fichas",
+      "titleColored": " Técnicas de Envases (TDS)",
+      "subtitle": "Verifique las especificaciones de barrera. Índice de tolerancias de espesor de laminación, tasas de transmisión de oxígeno/humedad y certificados ecológicos.",
+      "readTime": "5 min de lectura"
+    },
+    "s1": {
+      "title": "Directorio de Fichas Técnicas de Envases (TDS)",
+      "p1": "Las Fichas Técnicas (TDS) proporcionan informes de pruebas validados que detallan las propiedades físicas, el espesor de la laminación, las composiciones de polímeros y las barreras de gas de nuestras películas de embalaje. Explore nuestro directorio estructural a continuación:",
+      "compTitle": "🌱 TDS de la Serie Compostable",
+      "compLink1": "Celulosa Metalizada Triplex Compostable (Alta Barrera)",
+      "compLink2": "Papel Kraft + Duplex PLA (Baja Barrera)",
+      "compLink3": "Kraft con Recubrimiento Acuoso Sin Plástico (Nuevo)",
+      "recyTitle": "♻️ TDS de la Serie Reciclable",
+      "recyLink1": "Duplex Mono-PE 100% Reciclable (Transparene)",
+      "recyLink2": "Laminado Mono-PP 100% Reciclable",
+      "recyLink3": "Bolsa de Bio-PE I'm green™ a Base de Caña de Azúcar"
+    },
+    "s2": {
+      "title": "Comprensión de los Parámetros TDS (OTR y WVTR)",
+      "p1": "Los equipos de compras y los ingenieros de envasado auditan los valores de OTR y WVTR para asegurar vidas útiles exactas de los alimentos. Estos parámetros miden cuánto gas pasa a través de un metro cuadrado de película en 24 horas bajo condiciones estándar de laboratorio:",
+      "otrTitle": "Tasa de Transmisión de Oxígeno (OTR)",
+      "otrDesc": "Mide cc/m²/24hr. El oxígeno causa oxidación, lo que provoca la pérdida de frescura del producto, rancidez del aceite y pérdida de color. El café y los alimentos ricos en grasas requieren un OTR inferior a 1.0.",
+      "otrVal": "OTR de celulosa met. compostable:",
+      "wvtrTitle": "Tasa de Transmisión de Vapor de Agua (WVTR)",
+      "wvtrDesc": "Mide g/m²/24hr. La transmisión de humedad hace que los aperitivos crujientes se ablanden o que los polvos secos se apelmacen. Las barreras de humedad protegen los ingredientes secos.",
+      "wvtrVal": "WVTR de celulosa met. compostable:"
+    },
+    "s3": {
+      "title": "Certificaciones Estándar del Sector",
+      "p1": "Todos los materiales detallados en nuestras Fichas Técnicas cuentan con certificaciones independientes para verificar el cumplimiento ambiental y la seguridad para el contacto con alimentos:",
+      "table": {
+        "thMark": "Marca de Certificación",
+        "thBody": "Organismo de Normalización",
+        "thMeaning": "Significado del Cumplimiento",
+        "r1": {
+          "m": "Certificado BPI",
+          "b": "Biodegradable Products Institute (EE.UU.)",
+          "c": "Cumple con las especificaciones ASTM D6400 para compostabilidad en instalaciones municipales."
+        },
+        "r2": {
+          "m": "OK Compost HOME / Industrial",
+          "b": "TÜV Austria",
+          "c": "Cumple con las normas europeas de compost EN 13432 para contenedores domésticos o comerciales."
+        },
+        "r3": {
+          "m": "GRS (Global Recycled Standard)",
+          "b": "Textile Exchange",
+          "c": "Valida los porcentajes de contenido reciclado postconsumo (PCR)."
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Qué es una Ficha Técnica de envase (TDS)?",
+        "a": "Una Ficha Técnica es un documento que detalla las propiedades físicas, capas de polímeros, resistencia a la tracción, resistencia de sellado, tolerancias de espesor, OTR (Tasa de Transmisión de Oxígeno) y WVTR (Tasa de Transmisión de Vapor de Agua) de un material de embalaje específico."
+      },
+      {
+        "q": "¿Cómo solicito una TDS personalizada para una auditoría minorista?",
+        "a": "Envíe un correo electrónico a nuestro equipo técnico (ryan@achievepack.com) especificando la estructura de la bolsa que le interesa. Proporcionaremos fichas en PDF y los números de certificado BPI/TÜV correspondientes en un plazo de 24 horas."
+      },
+      {
+        "q": "¿Cuál es la diferencia entre OTR y WVTR?",
+        "a": "El OTR mide cuánto oxígeno pasa a través de la película (crucial para evitar la oxidación y pérdida de frescura), mientras que el WVTR mide cuánto vapor de humedad pasa a través (crucial para evitar el reblandecimiento y apelmazamiento)."
+      }
+    ],
+    "cta": {
+      "title": "Solicitar Informes TDS Personalizados",
+      "desc": "¿Necesita informes específicos de tracción, pruebas de migración o sublicencias BPI de marca compartida? Conéctese con nuestro laboratorio de I+D de envases.",
+      "achieveText": "¿Necesita Fichas de Datos de Seguridad de Materiales (MSDS) empresariales completas y descargables?"
+    }
+  },
+  "lowMOQStandUpPouchPage": {
+    "title": "Bolsa Stand-Up Impresión Digital con Cremallera y MOQ desde 100uds | POUCH.ECO",
+    "metaDesc": "Pida bolsas de pie de primera calidad impresas digitalmente con cremalleras convencionales. Pedido mínimo desde 100 unidades.",
+    "hero": {
+      "title": "Bolsas Stand-Up Impresión Digital",
+      "titleColored": "MOQ desde 100uds",
+      "subtitle": "Lance su marca sin los elevados costes de las planchas tradicionales. Impresión digital HP Indigo, cremalleras a presión y tamaños personalizados.",
+      "readTime": "6 min de lectura"
+    },
+    "s1": {
+      "title": "Impresión Digital HP Indigo frente a Planchas Tradicionales",
+      "p1": "El lanzamiento de una nueva línea de productos requería tradicionalmente invertir miles de dólares en planchas de cobre para la impresión por huecograbado. Con nuestra prensa digital HP Indigo 20000, imprimimos gráficos personalizados de alta resolución sobre película flexible, lo que permite tiradas con un MOQ bajo y sin costes de plancha.",
+      "advTitle": "Ventajas de la Impresión Digital:",
+      "adv1Title": "Sin Costes de Plancha:",
+      "adv1Desc": "Ahorre $300-$500 por canal de color en los costes de configuración de cilindros.",
+      "adv2Title": "Lotes Multi-SKU:",
+      "adv2Desc": "Divida su pedido en múltiples diseños de diseño o sabores de productos dentro de una sola producción.",
+      "adv3Title": "Iteración Rápida:",
+      "adv3Desc": "Actualice las listas de ingredientes, marcas normativas o gráficos sin desechar planchas obsoletas."
+    },
+    "s2": {
+      "title": "Anatomía de las Bolsas de Pie con Cremalleras Convencionales",
+      "p1": "Nuestras bolsas de pie con MOQ bajo vienen equipadas con cremalleras resellables convencionales para mantener la frescura del producto y evitar derrames accidentales después de abrirlas.",
+      "featTitle": "Características Estándar de la Bolsa",
+      "f1": "Cremallera Convencional a Presión (PE)",
+      "f2": "Muescas de rasgado de fácil apertura en ambos lados",
+      "f3": "Ventana de visualización ovalada o rectangular opcional",
+      "f4": "Opciones de esquinas redondeadas para evitar daños en el envío",
+      "compTitle": "Opciones de Composición del Material",
+      "c1": "PET mate / AL / PE (Papel de aluminio de alta barrera)",
+      "c2": "MOPP / VMPET / PE (Acabado metálico)",
+      "c3": "Papel Kraft / VMPET / PE (Tacto orgánico natural)",
+      "c4": "PET transparente / LLDPE (Expositor con ventana transparente)"
+    },
+    "s3": {
+      "title": "Abastecimiento con MOQ Bajo y Escalabilidad Económica",
+      "p1": "Las empresas emergentes B2C y las marcas en fase de pruebas se benefician de una gestión ajustada de la cadena de suministro, eliminando el riesgo de capital:",
+      "roadmapTitle": "Plan de escalabilidad para empresas emergentes",
+      "m1": "100 uds",
+      "m1Label": "Pedido mínimo",
+      "m2": "10-12 Días",
+      "m2Label": "Entrega de Impresión Digital",
+      "m3": "HP Indigo",
+      "m3Label": "Calidad estándar del sector"
+    },
+    "s4": {
+      "title": "Opciones de Precios y Tamaños",
+      "p1": "Obtenga costes transparentes para el lanzamiento de su producto. A continuación se muestra nuestra tabla de precios para tamaños estándar con cremallera convencional:",
+      "table": {
+        "thCap": "Capacidad de la Bolsa (Volumen)",
+        "thDigital": "100 - 500 uds (Imp. Digital)",
+        "thRun": "1.000+ uds (Tirada Digital)",
+        "r1": {
+          "v": "Pequeño (2oz - 4oz / 100g)",
+          "d": "$0.35 - $0.50 / ud",
+          "r": "$0.20 - $0.30 / ud"
+        },
+        "r2": {
+          "v": "Mediano (8oz - 12oz / 250g-340g)",
+          "d": "$0.45 - $0.65 / ud",
+          "r": "$0.28 - $0.38 / ud"
+        },
+        "r3": {
+          "v": "Grande (16oz - 32oz / 500g-1kg)",
+          "d": "$0.60 - $0.85 / ud",
+          "r": "$0.38 - $0.48 / ud"
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Por qué la impresión digital admite un MOQ tan bajo?",
+        "a": "Las prensas digitales plasman los diseños directamente sobre el material, evitando la configuración mecánica de los cilindros de cobre. Esto significa que podemos cambiar archivos de diseño al instante con cero residuos, haciendo viables las tiradas de 100 unidades."
+      },
+      {
+        "q": "¿Qué estilos de cremallera están disponibles en estas bolsas de pie con MOQ bajo?",
+        "a": "Por defecto, aplicamos una cremallera PE convencional a presión. También admitimos cremalleras a presión para estructuras compostables y cremalleras de bolsillo para configuraciones especiales bajo petición."
+      },
+      {
+        "q": "¿Cuál es el plazo medio de entrega para un pedido de 100 unidades?",
+        "a": "Los pedidos de impresión digital se fabrican y están listos para enviar en un plazo de 10 a 12 días laborables desde la aprobación del diseño."
+      }
+    ],
+    "cta": {
+      "title": "Diseñe su Bolsa Stand-Up Personalizada",
+      "desc": "Obtenga plantillas vectoriales para su diseño u ordene una muestra física. Ahorre capital y cree su prototipo hoy mismo.",
+      "achieveText": "¿Busca precios de venta al por mayor para empresas e ingeniería de embalaje?"
+    }
+  },
+  "drinkLiquidPouchPage": {
+    "title": "Bolsa de 3 Lados Sellada 100% Compostable para Bebidas y Líquidos | POUCH.ECO",
+    "metaDesc": "Bolsas de bebidas compostables certificadas de alta barrera y a prueba de fugas para zumos y cócteles RTD.",
+    "hero": {
+      "title": "Bolsas de 3 Lados Selladas",
+      "titleColored": " 100% Compostables para Bebidas y Líquidos",
+      "subtitle": "Evite las fugas de productos y los residuos plásticos. Bolsas para líquidos de alta barrera con costuras reforzadas térmicamente.",
+      "readTime": "8 min de lectura"
+    },
+    "s1": {
+      "title": "Tecnología de Laminación de Líquidos de Alta Barrera",
+      "p1": "El envasado de líquidos, bebidas y alcohol en películas de biopolímero flexible requiere una ingeniería de laminación avanzada para evitar la hidrólisis, las fugas y la degradación de la barrera. Los bioplásticos tradicionales absorben la humedad, pero nuestra laminación compostable multicapa protege el producto hasta por 12 meses.",
+      "profileTitle": "Perfil del Material de Laminación de Líquidos:",
+      "l1Title": "Capa Exterior (MDO-PLA):",
+      "l1Desc": "Capa de impresión de alta resistencia a la tracción y al calor que actúa como lienzo principal para impresiones digitales.",
+      "l2Title": "Capa Intermedia (Met-Cellulose):",
+      "l2Desc": "Película de biocelulosa metalizada al vacío que proporciona bloqueos de gas OTR (< 0.5 cc/m²/día) y WVTR (< 0.8 g/m²/día) de élite.",
+      "l3Title": "Capa Selladora (Mezcla de PLA/PBS de alta densidad):",
+      "l3Desc": "Película interna resistente a la hidrólisis que soporta compuestos líquidos orgánicos, ácidos y alcohol hasta un 15% ABV."
+    },
+    "s2": {
+      "title": "Ingeniería de Costuras Termoselladas y con Boquilla",
+      "p1": "Las bolsas estándar fallan en las esquinas cuando se cargan con líquidos pesados. Nuestra fábrica implementa una construcción de bolsa sellada en 3 lados con costuras herméticas reforzadas de 8 mm para garantizar cero fugas.",
+      "sealTitle": "Parámetros de Tolerancia de Sellado",
+      "s1Item": "Temperatura óptima de sellado: 135 °C - 150 °C",
+      "s2Item": "Sello de presión hermética: 3,5 bar",
+      "s3Item": "Ancho de la costura: 8 mm - 10 mm (reforzada)",
+      "s4Item": "Radio de sellado en las esquinas para evitar puntos de perforación",
+      "appTitle": "Aplicaciones para Líquidos",
+      "a1Item": "Zumos de frutas orgánicos y batidos",
+      "a2Item": "Concentrados líquidos y jarabes de café",
+      "a3Item": "Vino, cócteles y bebidas alcohólicas RTD",
+      "a4Item": "Jabón líquido y recambios de productos de limpieza"
+    },
+    "s3": {
+      "title": "Registros de Pruebas de Caída y Explosión con Cero Fallos",
+      "p1": "Los compradores B2B requieren datos de validación del mundo real. El siguiente registro documenta nuestras bolsas de líquidos compostables bajo normas de prueba ASTM:",
+      "logTitle": "Registro de Verificación Técnica",
+      "m1": "1.2m",
+      "m1Label": "Altura de paso en prueba de caída",
+      "m2": "> 80 kPa",
+      "m2Label": "Presión de explosión de costura",
+      "m3": "100%",
+      "m3Label": "Cremallera de sellado biodegradable"
+    },
+    "s4": {
+      "title": "Estructura de Costes por Volumen de Bolsas para Líquidos",
+      "p1": "Nuestras líneas de fabricación flexibles admiten lotes de prueba de MOQ bajo para lanzamientos de startups de bebidas, escalando a tiradas al por mayor de huecograbado:",
+      "table": {
+        "thQty": "Cantidad",
+        "thDigital": "Impresión Digital (100 - 1.000 uds)",
+        "thGravure": "Impresión en Huecograbado (10.000+ uds)",
+        "r1": {
+          "q": "Bolsa de líquido de 250ml",
+          "d": "$0.45 - $0.65 / ud",
+          "g": "$0.18 - $0.25 / ud"
+        },
+        "r2": {
+          "q": "Bolsa de líquido de 500ml",
+          "d": "$0.55 - $0.78 / ud",
+          "g": "$0.24 - $0.32 / ud"
+        },
+        "r3": {
+          "q": "Bolsa de líquido de 1L",
+          "d": "$0.70 - $0.98 / ud",
+          "g": "$0.35 - $0.45 / ud"
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Son las bolsas compostables realmente a prueba de fugas para líquidos?",
+        "a": "Sí. Nuestras bolsas compostables de grado líquido utilizan una laminación multicapa reforzada que incorpora Bio-PBS, que proporciona una alta resistencia a la perforación y sellados herméticos fuertes, evitando por completo las fugas."
+      },
+      {
+        "q": "¿Se pueden usar estas bolsas para bebidas alcohólicas o zumos ácidos?",
+        "a": "Sí. La capa interna de sellado está diseñada químicamente para resistir jugos de frutas ácidos y mezclas alcohólicas RTD de hasta 15% ABV. Para volúmenes de alcohol más altos, consulte a nuestro laboratorio de I+D."
+      },
+      {
+        "q": "¿Cuál es la cantidad mínima de pedido (MOQ) para bolsas de líquidos impresas personalizadas?",
+        "a": "Para tiradas de impresión digital (perfectas para pruebas de mercado), nuestro MOQ comienza en 500 unidades. Para la distribución industrial a gran escala, las tiradas de huecograbado comienzan en 10.000 unidades."
+      }
+    ],
+    "cta": {
+      "title": "Obtenga Diseños Personalizados para Bolsas de Líquidos",
+      "desc": "Verifique los volúmenes de llenado, colocación de boquillas y espesor del material. Solicite un kit de muestras gratuito o reserve una consulta de ingeniería.",
+      "achieveText": "¿Necesita bolsas para líquidos industriales de gran volumen con certificaciones B2B?"
+    }
   }
 }

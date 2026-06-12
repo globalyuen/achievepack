@@ -22396,5 +22396,873 @@
       "orderSamples": "Order Sample Pack",
       "emailSpecs": "Email Specifications"
     }
+  },
+  "materialDataSheetPage": {
+    "title": "Material Data Sheet - 60gsm Kraft Paper + 50μ Compostable Film | Achieve Pack",
+    "metaDesc": "Technical data sheet for 60gsm Kraft Paper + 50μ Compostable Inner Film packaging material.",
+    "backLink": "Back to Tech Specs",
+    "specBadge": "SPECIFICATION_v2026",
+    "heading": "Technical Data Sheet",
+    "subheading": "Preliminary Specification // Kraft + Compostable",
+    "lastUpdate": "Last Update: March 2026",
+    "downloadPdf": "Download PDF",
+    "overview": {
+      "title": "Product Overview",
+      "prodName": "Product Name:",
+      "prodNameVal": "60gsm Kraft Paper + 50μ Compostable Inner Film",
+      "structure": "Structure:",
+      "structureVal": "Kraft paper / 牛皮纸 + Compostable film / 可堆肥薄膜",
+      "calcBasis": "Calculation Basis:",
+      "calcBasisVal": "Nominal total thickness 0.13mm (130μ) for 1 m²."
+    },
+    "features": {
+      "title": "Key Features",
+      "items": [
+        "Paper based compostable laminate",
+        "100% Home and Industrial Compostable",
+        "Natural Kraft Paper appearance and texture",
+        "Excellent sealing properties",
+        "Printable surface"
+      ]
+    },
+    "usage": {
+      "title": "Common Usage",
+      "items": {
+        "dryFoods": "Dry Foods",
+        "coffee": "Coffee Beans",
+        "confectionery": "Confectionery",
+        "nuts": "Nuts & Seeds",
+        "fruits": "Dried Fruits",
+        "bakery": "Baked Goods"
+      }
+    },
+    "certs": {
+      "title": "Certifications"
+    },
+    "structure": {
+      "title": "Material Structure"
+    },
+    "techData": {
+      "title": "Technical Data",
+      "table": {
+        "thLayer": "Layer / 层级",
+        "thMaterial": "Material / 材料",
+        "thGsm": "GSM",
+        "thMm": "mm",
+        "thUm": "μm",
+        "thWeightPct": "Weight %",
+        "thThickPct": "Thick %",
+        "outer": "Outer",
+        "outerMat": "Kraft paper (uncoated)",
+        "inner": "Inner",
+        "innerMat": "Compostable film (50μ)",
+        "total": "TOTAL",
+        "totalMat": "Laminated"
+      },
+      "notes": {
+        "title": "Technical Notes:",
+        "n1": "60gsm kraft paper typical thickness range 70–85μ; nominal 80μ taken here.",
+        "n2": "Compostable film 50μ at ρ=1.4 g/cm³ ≈ 70 g/m² basis weight.",
+        "n3": "Thickness share = layer thickness ÷ total thickness × 100%"
+      }
+    },
+    "footer": {
+      "officialDoc": "Official Document // Achieve Pack Secure Hub"
+    },
+    "browseAll": "Browse All Materials"
+  },
+  "pouchBarrierOverviewPage": {
+    "title": "Barrier Options Guide | Choose the Right Protection for Your Product | POUCH.ECO",
+    "metaDesc": "Not sure which barrier level you need? Compare Low, Medium, and High barrier options. Get shelf life guidance for snacks, coffee, supplements, and more!",
+    "hero": {
+      "badge": "DECISION GUIDE",
+      "title": "Barrier Options",
+      "titleColored": "Explained Simply",
+      "desc": "Not sure which barrier you need? No worries! We'll help you choose between Low, Medium, and High barrier based on your product type and shelf life goals.",
+      "btnHelp": "Get Expert Help",
+      "btnQuiz": "Take the Quiz"
+    },
+    "whatIs": {
+      "title": "What's a \"Barrier\" Anyway?",
+      "sunscreenTitle": "Think of it like sunscreen... 🧴",
+      "sunscreenDesc": "Just like sunscreen protects your skin from UV rays, barrier layers protect your product from:",
+      "oxygen": "Oxygen - Makes food go stale or rancid",
+      "moisture": "Moisture - Causes products to clump or spoil",
+      "light": "Light - Degrades vitamins and colors",
+      "odors": "Odors - Keeps flavors in, bad smells out",
+      "ruleTitle": "The Golden Rule:",
+      "ruleText": "Higher barrier = Longer shelf life = Higher cost",
+      "ruleSub": "Pick the minimum barrier you need! Over-engineering costs money and might reduce recyclability."
+    },
+    "compare": {
+      "title": "Compare All Three Levels",
+      "typicalShelfLife": "Typical Shelf Life",
+      "bestFor": "Best for:",
+      "levels": {
+        "low": {
+          "name": "Low Barrier",
+          "shelf": "3-6 Months",
+          "tagline": "Fast Turnover Products",
+          "desc": "Great for products that sell quickly or have naturally long shelf life. Best eco-credentials!",
+          "examples": [
+            "Dry snacks",
+            "Cookies",
+            "Tea bags",
+            "Granola",
+            "Popcorn"
+          ]
+        },
+        "medium": {
+          "name": "Medium Barrier",
+          "shelf": "6-12 Months",
+          "tagline": "The Sweet Spot",
+          "desc": "Most popular choice! Balances protection, cost, and sustainability perfectly.",
+          "examples": [
+            "Coffee",
+            "Nuts",
+            "Pet treats",
+            "Cereals",
+            "Dried fruits"
+          ]
+        },
+        "high": {
+          "name": "High Barrier",
+          "shelf": "12-24 Months",
+          "tagline": "Maximum Protection",
+          "desc": "For products that are super sensitive to oxygen and moisture. Premium positioning!",
+          "examples": [
+            "Premium coffee",
+            "Supplements",
+            "Baby food",
+            "Protein powder",
+            "Pharmaceuticals"
+          ]
+        }
+      }
+    },
+    "whichOne": {
+      "title": "Which One Should You Pick?",
+      "c1": {
+        "title": "Fast Sellers",
+        "desc": "Product turns over in 3-6 months",
+        "badge": "Low Barrier",
+        "sub": "Examples: Cookies, tea, popcorn"
+      },
+      "c2": {
+        "title": "Standard Products",
+        "desc": "Need 6-12 months on shelf",
+        "badge": "Medium Barrier",
+        "sub": "Examples: Coffee, nuts, pet food"
+      },
+      "c3": {
+        "title": "Premium / Sensitive",
+        "desc": "Need 12-24 months protection",
+        "badge": "High Barrier",
+        "sub": "Examples: Supplements, baby food"
+      }
+    },
+    "examples": {
+      "title": "Real-World Examples",
+      "l1": {
+        "title": "Organic Tea Brand",
+        "desc": "Loose leaf tea in 50g pouches. Product naturally stable, sells fast in local markets.",
+        "resTitle": "Result:",
+        "resVal": "Used Low Barrier kraft pouches, saved $0.10 per unit, maintained eco-friendly positioning."
+      },
+      "l2": {
+        "title": "Specialty Coffee Roaster",
+        "desc": "12oz bags of roasted whole beans. Needs to stay fresh through retail + online distribution.",
+        "resTitle": "Result:",
+        "resVal": "Medium Barrier with degassing valve, perfect 9-month shelf life, competitive pricing."
+      },
+      "l3": {
+        "title": "Probiotic Supplement Brand",
+        "desc": "Live cultures extremely sensitive to oxygen. International distribution needs 18+ months.",
+        "resTitle": "Result:",
+        "resVal": "High Barrier with aluminum foil, guaranteed 24-month shelf life, passed stability testing."
+      }
+    },
+    "unsure": {
+      "title": "Still Not Sure?",
+      "desc": "We offer FREE shelf-life testing to figure out exactly what barrier you need!",
+      "testHeading": "What we'll test:",
+      "t1": "Oxygen permeability over time",
+      "t2": "Moisture absorption rates",
+      "t3": "Product stability at different temps",
+      "t4": "Actual vs theoretical shelf life",
+      "btn": "Request Free Testing"
+    },
+    "cta": {
+      "title": "Ready to Choose Your Barrier?",
+      "desc": "Book a consultation and we'll recommend the perfect option for your product!",
+      "btn": "Talk to an Expert"
+    }
+  },
+  "pouchSurfaceFinishPage": {
+    "title": "Surface Finish Options | Professional Matte, Gloss & Spot UV | Pouch.eco",
+    "metaDesc": "Choose the perfect surface finish for your eco-friendly pouches. Matte, Gloss, Spot UV contrast, Soft-Touch, and Hot Foil. High-fidelity Amazon-quality visual comparison.",
+    "breadcrumb": {
+      "home": "Home",
+      "options": "Packaging Options",
+      "current": "Surface Finishes"
+    },
+    "hero": {
+      "badge": "PREMIUM ECO-FRIENDLY OPTIONS",
+      "title": "Professional Surface",
+      "titleColored": "Finish Options",
+      "desc": "The surface finish is the first sensory touchpoint your customer has with your brand. Choose a high-quality finish that aligns with your design aesthetic while maintaining strict compliance.",
+      "c1": {
+        "title": "Vibrant Contrast",
+        "desc": "Maximize color pop & grease-proof cleaning",
+        "badge": "Go High-Gloss"
+      },
+      "c2": {
+        "title": "Sophisticated Organic",
+        "desc": "Anti-glare elegance with natural texture",
+        "badge": "Go Matte"
+      },
+      "c3": {
+        "title": "Tactile Dimensions",
+        "desc": "Velvety friction or shiny Spot UV contrasts",
+        "badge": "Go Spot / Custom"
+      }
+    },
+    "showcase": {
+      "badge": "VISUAL SHOWCASE",
+      "title": "Visualizing Surface Contrast",
+      "desc": "Our custom-developed Amazon-grade visual comparison chart showcases the exact volumetric behavior of our finishes side-by-side. From the anti-reflective qualities of organic Matte to the shiny depth of Gloss and Spot UV textures, this guide ensures your packaging decisions are completely informed.",
+      "p1": "Pristine Volumetric Angles:",
+      "p1Val": "Displays correct light refraction and shape details to match real physical sample pouches.",
+      "p2": "Pure Botanical Design:",
+      "p2Val": "Styled inside a dark green theme matching the authentic organic aesthetic of pouch.eco.",
+      "clickEnlarge": "Click infographic to enlarge. Style: nano banana pro 2"
+    },
+    "explore": {
+      "title": "Explore Our Specialty Finishes",
+      "desc": "Each custom surface layer has unique mechanical and visual traits tailored for commercial shelf presence.",
+      "commercialApp": "Commercial Application",
+      "baseCost": "Base Cost Factor",
+      "finishes": {
+        "matte": {
+          "name": "Matte Lamination",
+          "tagline": "Sophisticated, Anti-Glare & Organic",
+          "desc": "An elegant, non-reflective finish that absorbs light, creating a natural and high-end organic aesthetic. Resists fingerprints and protects the printed layer from shelf scuffs.",
+          "features": [
+            "Sophisticated modern look",
+            "Zero fingerprint smudges",
+            "Excellent scratch protection"
+          ],
+          "bestFor": "Organic foods, luxury health products, premium tea & coffee brands",
+          "price": "Standard (Included in Base Price)"
+        },
+        "gloss": {
+          "name": "Gloss Lamination",
+          "tagline": "Vibrant Color Contrast & High Reflectivity",
+          "desc": "A highly reflective finish that dramatically boosts color contrast and saturation. Perfect for colorful package artwork that needs to capture instant attention on retail shelving.",
+          "features": [
+            "Maximum dynamic color range",
+            "100% water and grease resistant",
+            "Sleek reflective pop"
+          ],
+          "bestFor": "Consumer snacks, juices, pet food, and high-contrast designs",
+          "price": "Standard (Included in Base Price)"
+        },
+        "spot": {
+          "name": "Spot Matte Varnish / Contrast",
+          "tagline": "High-Contrast Tactile Highlights",
+          "desc": "Creates a gorgeous sensory contrast by placing high-gloss elements on top of a velvety matte background. Your logo, product windows, or text will practically pop off the pouch.",
+          "features": [
+            "Selective glossy highlights",
+            "High visual & tactile contrast",
+            "Premium commercial appeal"
+          ],
+          "bestFor": "Artisan coffee bags, gourmet chocolates, premium supplements",
+          "price": "+$0.02 - $0.05 / pouch"
+        },
+        "soft": {
+          "name": "Soft-Touch tactile Coating",
+          "tagline": "Velvety Sensual Premium Feel",
+          "desc": "An ultra-premium tactile coating that gives your pouch a velvet-like touch. Highly engaging and memorable, it encourages consumers to physically hold your package.",
+          "features": [
+            "Velvety, soft surface friction",
+            "Matte visual elegance",
+            "Exceptional premium feel"
+          ],
+          "bestFor": "Cosmetic pouches, luxury wellness brands, high-end botanical powders",
+          "price": "+$0.04 - $0.08 / pouch"
+        },
+        "foil": {
+          "name": "Hot Foil Metallic Stamping",
+          "tagline": "Authentic Gold, Silver & Copper Bling",
+          "desc": "Metallic stamping that reflects light with pristine metallic clarity. Adds high-end gold, silver, bronze, or rose-gold elements onto selected areas of your packaging artwork.",
+          "features": [
+            "Reflective metallic finishes",
+            "Crisp line definition",
+            "High luxury positioning"
+          ],
+          "bestFor": "Limited editions, gift packaging, specialty single-origin coffees",
+          "price": "+$0.03 - $0.07 / pouch"
+        }
+      }
+    },
+    "metrics": {
+      "badge": "TECHNICAL VALUE METRICS",
+      "title": "Surface Engineering Specifications",
+      "desc": "We translate technical properties into purchasing criteria, giving procurement directors exact baseline performance scores.",
+      "thParam": "Measurement Parameter",
+      "thMatte": "Matte Finish Baseline",
+      "thGloss": "Gloss Finish Baseline",
+      "thSignif": "Procurement Significance & Value",
+      "rows": {
+        "r1": {
+          "metric": "Gloss Reflectivity",
+          "matte": "8 - 12 GU (Low Gloss)",
+          "gloss": "85 - 95 GU (High Reflection)",
+          "utility": "Gloss maximizes color pop; Matte delivers elegant glare-free retail readability."
+        },
+        "r2": {
+          "metric": "Haze Value (ASTM D1003)",
+          "matte": "75% - 85% Haze",
+          "gloss": "< 3.0% Haze",
+          "utility": "Matte creates a muted natural look; Gloss provides crystal clear transparent windows."
+        },
+        "r3": {
+          "metric": "COF (Coefficient of Friction)",
+          "matte": "0.25 - 0.35 (Low slip, high tactile grip)",
+          "gloss": "0.15 - 0.22 (High slip, smooth automatic fill)",
+          "utility": "Gloss speeds up high-speed VFFS auto-filling; Matte feels premium and organic to touch."
+        },
+        "r4": {
+          "metric": "Adhesion Strength (Foil Stamping)",
+          "matte": "> 4.5 N/15mm (Pristine bonding)",
+          "gloss": "> 4.0 N/15mm (Pristine bonding)",
+          "utility": "Guarantees that gold/silver foil stamps do not flake or peel off during long haul logistics."
+        },
+        "r5": {
+          "metric": "Lamination Bond Strength",
+          "matte": "> 2.5 N/15mm (Triple laminate safety)",
+          "gloss": "> 2.8 N/15mm (Double laminate safety)",
+          "utility": "Prevents delamination under warm packaging climates or oily product contents."
+        }
+      }
+    },
+    "faq": {
+      "badge": "PROCUREMENT HELP CENTER",
+      "title": "Wholesale Surface Finishes FAQ",
+      "desc": "Clear answers to the six B2B purchasing pillars regarding sample runs, certifications, and artwork specs.",
+      "questions": [
+        {
+          "q": "What is the Minimum Order Quantity (MOQ) for specialty surface finishes?",
+          "a": "Our standard Matte and Gloss finishes are available starting at our absolute minimum run of 500 units for digital printing. For premium custom effects like Spot Matte Varnish, Soft-Touch Coating, or Hot Foil Stamping, the minimum runs start at 5,000 units due to custom plating and set-up requirements."
+        },
+        {
+          "q": "Can we receive physical samples of Matte, Gloss, and Spot UV finishes before ordering?",
+          "a": "Absolutely! We offer a Free Premium Sample Kit that includes a variety of physical pouches in different sizes, shapes, and surface finishes (including Gloss, Matte, Spot UV, and Soft-Touch). This allows your product developers to touch, feel, and inspect the durability of each finish. Sample kits are dispatched via express carrier within 24 hours."
+        },
+        {
+          "q": "How do we format artwork files for Spot UV or Hot Foil Stamping?",
+          "a": "For specialty finishes like Spot UV and Hot Foil, your designer must submit a separate layer in the PDF artwork file named 'SPOT_UV' or 'FOIL_STAMP' colored in 100% K (vector solid black). This black vector path indicates the exact physical mask where the varnish or metallic foil should be heat-pressed."
+        },
+        {
+          "q": "Does the surface finish impact the lead time of my packaging order?",
+          "a": "Standard Matte and Gloss lamination add zero additional production time, keeping your digital runs at 10-14 days. Custom Spot UV, soft-touch coatings, and hot foil stamping require specialized tooling alignments and dynamic hot-pressing stages, which add approximately 3-5 business days to the overall production schedule."
+        },
+        {
+          "q": "Are these surface finishes certified compostable and eco-friendly?",
+          "a": "Yes! All standard Matte and Gloss surface films used by pouch.eco are certified compostable under ASTM D6400 / EN 13432 standards (TUV OK Compost and BPI certified). Our custom coatings and metallic foils are formulated as bio-based, biodegradable layers that leave zero microplastics and do not interfere with standard municipal organic composting streams."
+        },
+        {
+          "q": "What technical details are needed to receive a wholesale surface quote?",
+          "a": "To provide an accurate B2B wholesale quotation, we require: (1) Your target pouch dimension and shape, (2) The specific surface finish chosen (e.g. Spot UV contrast vs standard Matte), (3) Estimated order volume per SKU, and (4) The product type being packed to ensure barrier compatibility."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Choose the Perfect Finish for",
+      "titleColored": "Your Sustainable Brand",
+      "desc": "Order a free catalog kit containing real Matte, Glossy, Soft-Touch, and Spot UV stand-up bags to inspect our material durability first-hand.",
+      "d2cBadge": "D2C Startup Brands",
+      "d2cTitle": "Digital Runs (MOQ 500)",
+      "d2cDesc": "Perfect for trial launch packaging. Standard Matte or Gloss coating options with lightning fast 10-day lead time.",
+      "d2cBtn": "Request Free Sample Kit",
+      "b2bBadge": "B2B Volume Buyers",
+      "b2bTitle": "Wholesale (MOQ 5,000+)",
+      "b2bDesc": "Specialty Spot UV, Soft-Touch velvet laminations, and premium custom gold/silver metallic stamping options.",
+      "b2bBtn": "Visit AchievePack B2B"
+    }
+  },
+  "kSealHeavyContentPage": {
+    "title": "The Way to Use K-Seal Bag: Sourcing Heavy Content Packaging | POUCH.ECO",
+    "metaDesc": "Learn when and why to implement a K-Seal bottom gusset for packaging heavy contents like pet food, salt, and grain. Structural design rules from pouch.eco.",
+    "hero": {
+      "title": "Using K-Seal Bags",
+      "titleColored": "for Packing Heavy Contents",
+      "subtitle": "Maximize package integrity. Discover why K-seal bottom gussets prevent corner seam blowouts, reinforce drop strength, and keep heavy bags standing vertically.",
+      "readTime": "7 min read"
+    },
+    "s1": {
+      "title": "What is a K-Seal Stand-Up Pouch?",
+      "p1": "A K-Seal stand-up pouch features a bottom gusset seal shaped like the letter \"K\". Unlike standard Doypack (round bottom) pouches, the K-seal joins the side seals and bottom seals at a 30-degree angle. This structural modification guides heavy contents toward the center base rather than letting it push outward against the fragile bottom corners.",
+      "diffTitle": "Core Structural Differences:",
+      "doypack": "Standard Doypack:",
+      "doypackDesc": "Best for lightweight products under 250g. Heavy items stretch the rounded base, causing the bag to lean or tip over.",
+      "kseal": "K-Seal:",
+      "ksealDesc": "Redirects product mass weight downward. Ideal for products between 500g and 2.5kg.",
+      "plow": "Plow Bottom (Delta Seal):",
+      "plowDesc": "Lacks seals on the bottom crease, maximizing volume. Ideal for dry powders and extremely heavy bulk items."
+    },
+    "s2": {
+      "title": "Why K-Seals Excel with Heavy Content",
+      "p1": "Heavy products like dog kibble, coffee beans, coarse bath salts, and agricultural seeds subject the bottom seams of a pouch to continuous outward pressure. A standard Doypack seal has a weak point where the side seal meets the bottom curve, leading to corner tears during shipping. A K-Seal reinforces this area by sealing the film layers flat, dispersing the mechanical tension.",
+      "mechTitle": "Mechanical Advantages",
+      "m1": "Prevents bottom corner splits and seam blowouts",
+      "m2": "Keeps the pouch standing vertically upright on store shelves",
+      "m3": "Minimizes packaging creasing and folds",
+      "m4": "Enhances drop-test durability from high retail racks",
+      "prodTitle": "Heavy Product Matches",
+      "p1Item": "Pet Food & Dog Treats (500g - 2kg)",
+      "p2Item": "Grains, Rice, Oats & Baking Flour",
+      "p3Item": "Coarse Bath Salts & Laundry Powders",
+      "p4Item": "Specialty Coffee Beans (1lb / 2lb wholesale bags)"
+    },
+    "s3": {
+      "title": "Technical Specs & Tolerances for Heavy Packaging",
+      "p1": "Our manufacturing lines implement strict quality criteria to support heavy weight loads. Film caliper thickness and seal integrity are tested under industrial drop guidelines:",
+      "table": {
+        "thCapacity": "Weight Capacity",
+        "thCaliper": "Recommended Film Caliper",
+        "thGusset": "Bottom Gusset Style Recommendation",
+        "r1": "K-Seal Bottom Gusset",
+        "r2": "Reinforced K-Seal Bottom Gusset",
+        "r3": "Plow Bottom or Flat Bottom Box Pouch"
+      }
+    },
+    "faq": [
+      {
+        "q": "What is the difference between a K-Seal and a standard Doypack?",
+        "a": "A standard Doypack has a rounded bottom seam. A K-Seal stand-up pouch seals the bottom edges at a 30-degree angle, redirecting the weight of heavy contents inward and stabilizing the bag on shelves."
+      },
+      {
+        "q": "When should I choose a K-seal bottom gusset over a plow bottom?",
+        "a": "For products between 500g and 2kg, the K-seal provides the best balance of shelf aesthetics and seam reinforcement. For dry powders or products exceeding 2.5kg, a plow bottom or flat bottom box pouch is recommended."
+      },
+      {
+        "q": "Can K-seal pouches be compostable or recyclable?",
+        "a": "Yes. The K-seal is a mechanical seal format, meaning we can apply it to any of our film structures including certified compostable Kraft/MetPLA laminations or recyclable mono-PE films."
+      }
+    ],
+    "cta": {
+      "title": "Optimize Your Pouch Shape",
+      "desc": "Not sure if a K-seal, Doypack, or Flat Bottom is best for your product weight? Consult our CAD engineers and download vector dielines.",
+      "achieveText": "Need enterprise-level bulk packaging dielines for vertical form-fill-seal automated lines?"
+    }
+  },
+  "bioBasedSpoutPouchesPage": {
+    "title": "Bio-Based Spout Pouches for Liquids | Eco-friendly Packaging | POUCH.ECO",
+    "metaDesc": "Discover bio-based spout pouches for liquids. Plant-derived sugarcane Bio-PE and compostable structures with custom nozzles for drinks, purees, and refills.",
+    "hero": {
+      "title": "Introducing Bio-Based Spout",
+      "titleColored": "Pouches for Liquid Packaging",
+      "subtitle": "Ditch fossil plastics. Plant-based Bio-PE sugarcane spouted pouches offer elite gas barrier performance, leak-proof spouts, and full recyclability.",
+      "readTime": "10 min read"
+    },
+    "s1": {
+      "title": "The Rise of Bio-Based Sugarcane PE",
+      "p1": "The packaging industry is shifting away from fossil-based resins. Bio-based Polyethylene (Bio-PE) is manufactured using ethylene derived from sugarcane ethanol. During its growth cycle, sugarcane captures atmospheric CO₂, resulting in a packaging material with a negative carbon footprint from birth.",
+      "highlightTitle": "Bio-PE Sourcing Highlights:",
+      "perfTitle": "Identical Performance:",
+      "perfDesc": "Bio-based PE possesses the exact chemical structure as traditional fossil PE, ensuring identical moisture barriers and seal strength.",
+      "recyTitle": "100% Recyclable:",
+      "recyDesc": "Because it is chemically equivalent to HDPE/LDPE, Bio-PE is fully recyclable in the standard plastic recycling stream (RIC #4).",
+      "eprTitle": "EPR Compliance:",
+      "eprDesc": "Helps brands lower eco-tax fees under California SB 343 and European Extended Producer Responsibility laws."
+    },
+    "s2": {
+      "title": "Compostable Liquid Barrier Laminations",
+      "p1": "For brands targeting zero plastic waste, we offer certified compostable spout pouches. These utilize vacuum-metallized cellulose layers combined with biodegradable polybutylene succinate (Bio-PBS) to handle wet ingredients without dissolving.",
+      "specTitle": "Compostable Liquid Caliper Specifications",
+      "coreLaminate": "Core Laminate:",
+      "coreLaminateVal": "NatureFlex™ + Bio-PBS (140 Micron)",
+      "waterRes": "Water Resistance:",
+      "waterResVal": "High (tested up to 90 days wet state)",
+      "otr": "Oxygen Barrier (OTR):",
+      "otrVal": "< 1.0 cc/m²/24hr",
+      "wvtr": "Moisture Barrier (WVTR):",
+      "wvtrVal": "< 1.5 g/m²/24hr"
+    },
+    "s3": {
+      "title": "Technical Specs & Spout Fittings",
+      "p1": "Our factory integrates various spout sizes and caps designed to match commercial liquid filling machinery. We support custom positionings (corner spout or center top spout) depending on your brand's application:",
+      "table": {
+        "thDiam": "Spout Diameter",
+        "thConfig": "Cap Configuration",
+        "thApp": "Ideal Liquid Application",
+        "r1": {
+          "d": "8.6mm Spout",
+          "c": "Standard Screw Cap or Anti-Choke Cap",
+          "a": "Juices, baby food purees, gel packs, water"
+        },
+        "r2": {
+          "d": "10mm / 15mm Spout",
+          "c": "Tamper-Evident Ribbed Screw Cap",
+          "a": "Syrups, honey, cosmetics refills, liquid soap"
+        },
+        "r3": {
+          "d": "22mm Spout",
+          "c": "Wide-mouth Dispenser Cap",
+          "a": "Thick purees, yogurts, engine oil, industrial soap"
+        }
+      }
+    },
+    "s4": {
+      "title": "Environmental Impact & Lifecycle Metrics",
+      "p1": "Replacing rigid glass bottles or heavy plastic jars with flexible bio-based spout pouches significantly reduces supply chain emissions:",
+      "metrics": {
+        "m1": "-85%",
+        "m1Label": "Weight Compared to Glass",
+        "m2": "-65%",
+        "m2Label": "CO₂ Transportation Emissions",
+        "m3": "Negative",
+        "m3Label": "Bio-PE resin carbon footprint"
+      }
+    },
+    "faq": [
+      {
+        "q": "What is the difference between bio-based PE and biodegradable plastics?",
+        "a": "Bio-based PE is made from plant materials (sugarcane) instead of fossil oil, but it has the exact same chemical structure as traditional PE. This means it is 100% recyclable, but it is not biodegradable or compostable. Compostable plastics are designed to decompose organically under compost conditions."
+      },
+      {
+        "q": "Are bio-based spout pouches recyclable?",
+        "a": "Yes. Our sugarcane-derived Bio-PE spout pouches are constructed using mono-material laminations, making them fully recyclable under the standard PE stream (RIC #4 / LDPE) to support circular supply lines."
+      },
+      {
+        "q": "Can these spouted pouches handle hot-fill pasteurization?",
+        "a": "Yes, our Bio-PE and high-temp co-extruded structures can tolerate hot-fill temperatures up to 85°C-90°C, making them suitable for pasteurized juices and purees."
+      }
+    ],
+    "cta": {
+      "title": "Develop Your Bio-Based Liquid Pack",
+      "desc": "Verify spout fitments, material thickness, and custom configurations. Download dieline templates or order stock samples.",
+      "achieveText": "Need enterprise B2B compliance and certificates for retail liquid packaging?"
+    }
+  },
+  "refillPouchesPage": {
+    "title": "Glass Bottles Paired with Compostable Refill Pouches | POUCH.ECO",
+    "metaDesc": "Build a sustainable refill subscription brand. Learn how durable glass containers paired with certified compostable flat refill pouches lower shipping costs.",
+    "hero": {
+      "title": "Glass Bottles Paired with",
+      "titleColored": "Compostable Refill Pouches",
+      "subtitle": "Launch a circular refill subscription. Reduce carbon footprints by shipping lightweight, flat-packed ASTM D6400 certified compostable bags to refill durable jars.",
+      "readTime": "9 min read"
+    },
+    "s1": {
+      "title": "The Circular Refill Brand Model",
+      "p1": "The subscription refill model is changing how consumer packaged goods (CPG) brands approach sustainability. Instead of selling a rigid plastic or heavy glass jar with every purchase, brands ship a premium \"durable\" container (like glass or ceramics) once, followed by lightweight, flat-shipped compostable refill pouches.",
+      "advTitle": "Refill Model Advantages:",
+      "adv1Title": "Customer Loyalty:",
+      "adv1Desc": "Refill pouches incentivize subscription-based repeat purchases.",
+      "adv2Title": "Material Savings:",
+      "adv2Desc": "Flat pouches use up to 70% less raw materials than rigid containers.",
+      "adv3Title": "Shelf Differentiation:",
+      "adv3Desc": "Matte Kraft paper or metallic refill bags look extremely premium and stand out on grocery shelves."
+    },
+    "s2": {
+      "title": "Compostable Refill Pouch Materials",
+      "p1": "To hold powders, dry goods, coffee, or cosmetics refills, these pouches need protective barrier layers. We laminate wood-pulp-derived cellulose films (NatureFlex™) with plant-based starch binders (PLA/PBAT), offering high grease barriers and oxygen blocks while allowing the bag to decompose within 90 days in composting conditions.",
+      "structTitle": "Refill Pouch Structures",
+      "s1Item": "Matte Kraft Paper + Metallized Cellulose + PLA (High Barrier MetPLA)",
+      "s2Item": "Clear Cellulose + PLA Sealant (Transparent Window)",
+      "s3Item": "Certified ASTM D6400 & EN 13432",
+      "s4Item": "PFAS-free and FDA food contact approved",
+      "prodTitle": "Refill Product Types",
+      "p1Item": "Organic Spices, Salts & Herb Seasonings",
+      "p2Item": "Coffee Beans, Ground Coffee & Cocoa Powders",
+      "p3Item": "Supplement Powders, Protein & Superfoods",
+      "p4Item": "Dry Bath Salts, Cosmetics & Cleaning Powders"
+    },
+    "s3": {
+      "title": "Carbon Footprint and Economic Freight Benefits",
+      "p1": "Shipping empty glass bottles or thick plastic jars is incredibly inefficient, basically transportating empty air across continents. Flat-shipped refill pouches pack with maximum density, drastically lowering freight volume:",
+      "metrics": {
+        "m1": "-80%",
+        "m1Label": "Warehouse Storage Space saved",
+        "m2": "-65%",
+        "m2Label": "Logistics Transport Costs",
+        "m3": "90 Days",
+        "m3Label": "Organic Degradation Timeline"
+      }
+    },
+    "faq": [
+      {
+        "q": "How do refill pouches reduce transport emissions?",
+        "a": "Refill pouches are shipped completely flat. One standard cargo pallet can hold up to 50,000 flat pouches, compared to only 3,000 empty glass bottles. This 16x increase in shipping density reduces freight trucks on the road and lowers Scope 3 carbon metrics."
+      },
+      {
+        "q": "What products are best suited for compostable refill pouches?",
+        "a": "Dry ingredients like loose tea, spices, coffee, grain cereals, and protein powders are perfect. For wet products like lotion refills, we recommend our specialized high-barrier Bio-PE recyclable spouted pouches."
+      },
+      {
+        "q": "Are refill pouches durable enough for mail-order shipping?",
+        "a": "Yes. Our MetPLA Triplex laminate has a thickness of 120-140 microns, providing strong puncture resistance to withstand postal sorting machinery and envelopes without tearing."
+      }
+    ],
+    "cta": {
+      "title": "Develop Your Circular Refill Pouch",
+      "desc": "Find the perfect size to refill your custom glass jars. Download vector dielines or request a free stock sample kit.",
+      "achieveText": "Need high-volume wholesale compostable refill packaging for retail distribution?"
+    }
+  },
+  "technicalDataSheetCategoryPage": {
+    "title": "Packaging Technical Data Sheets (TDS) Directory | POUCH.ECO",
+    "metaDesc": "Access packaging Technical Data Sheets (TDS). Compare lamination OTR/WVTR gas barrier ratings, material thickness tolerances, and compostable certificates.",
+    "hero": {
+      "title": "Packaging Technical Data",
+      "titleColored": "Sheets (TDS) Directory",
+      "subtitle": "Verify barrier specifications. Index of lamination thickness tolerances, oxygen/moisture transmission ratings, and international environmental compliance certificates.",
+      "readTime": "5 min read"
+    },
+    "s1": {
+      "title": "Packaging Technical Data Sheet (TDS) Directory",
+      "p1": "Technical Data Sheets (TDS) provide validated test reports detailing the physical properties, lamination thickness, polymer compositions, and gas barriers of our packaging films. Browse our complete structural directory below:",
+      "compTitle": "🌱 Compostable Series TDS",
+      "compLink1": "Compostable Triplex Met-Cellulose (High-Barrier)",
+      "compLink2": "Kraft Paper + PLA Duplex (Low-Barrier)",
+      "compLink3": "Plastic-Free Aqueous Coated Kraft (New)",
+      "recyTitle": "♻️ Recyclable Series TDS",
+      "recyLink1": "100% Recyclable Mono-PE Duplex (Clear)",
+      "recyLink2": "100% Recyclable Mono-PP Laminate",
+      "recyLink3": "Sugarcane-Based I'm green™ Bio-PE Pouch"
+    },
+    "s2": {
+      "title": "Understanding TDS Parameters (OTR & WVTR)",
+      "p1": "Procurement teams and packaging engineers audit OTR and WVTR values to secure exact food shelf-lives. These parameters measure how much gas passes through a square meter of film in 24 hours under standard lab conditions:",
+      "otrTitle": "Oxygen Transmission Rate (OTR)",
+      "otrDesc": "Measures cc/m²/24hr. Oxygen causes oxidation, leading to product staleness, oil rancidity, and color loss. Coffee and fat-heavy foods require OTR below 1.0.",
+      "otrVal": "Compostable Met-Cellulose OTR:",
+      "wvtrTitle": "Water Vapor Transmission Rate (WVTR)",
+      "wvtrDesc": "Measures g/m²/24hr. Moisture transmission causes crisp snacks to go soggy, or dry powders to cake and clump. Moisture barriers protect dry ingredients.",
+      "wvtrVal": "Compostable Met-Cellulose WVTR:"
+    },
+    "s3": {
+      "title": "Industry Standard Certifications",
+      "p1": "All materials detailed on our Technical Data Sheets carry independent certifications to verify environmental compliance and food contact safety:",
+      "table": {
+        "thMark": "Certification Mark",
+        "thBody": "Standard Body",
+        "thMeaning": "Compliance Meaning",
+        "r1": {
+          "m": "BPI Certified",
+          "b": "Biodegradable Products Institute (USA)",
+          "c": "Meets ASTM D6400 specs for compostability in municipal facilities."
+        },
+        "r2": {
+          "m": "OK Compost HOME / Industrial",
+          "b": "TÜV Austria",
+          "c": "Meets European EN 13432 compost standards for backyard or commercial bins."
+        },
+        "r3": {
+          "m": "GRS (Global Recycled Standard)",
+          "b": "Textile Exchange",
+          "c": "Validates post-consumer recycled (PCR) content percentages."
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "What is a packaging Technical Data Sheet (TDS)?",
+        "a": "A Technical Data Sheet is a document detailing the physical properties, polymer layers, tensile strength, seal strength, thickness tolerances, OTR (Oxygen Transmission Rate), and WVTR (Water Vapor Transmission Rate) of a specific packaging material."
+      },
+      {
+        "q": "How do I request a custom TDS for a retail audit?",
+        "a": "Please email our technical team (ryan@achievepack.com) specifying the pouch structure you are interested in. We will provide PDF sheets and matching BPI/TÜV certificate numbers within 24 hours."
+      },
+      {
+        "q": "What is the difference between OTR and WVTR?",
+        "a": "OTR measures how much oxygen passes through the film (critical for preventing oxidation and staleness), while WVTR measures how much moisture vapor passes through (critical for preventing sogginess and dry-caking)."
+      }
+    ],
+    "cta": {
+      "title": "Request Customized TDS Reports",
+      "desc": "Need specific tensile reports, migration tests, or co-branding BPI sublicenses? Connect with our R&D packaging lab.",
+      "achieveText": "Need full, downloadable enterprise Material Safety Data Sheets (MSDS)?"
+    }
+  },
+  "lowMOQStandUpPouchPage": {
+    "title": "Digital Print Conventional Zipper Stand-Up Pouch Bag with MOQ from 100pcs | POUCH.ECO",
+    "metaDesc": "Order premium digital-printed stand-up pouches with conventional zippers. Low MOQ starts at 100 pieces. Perfect for startup brands and market testing.",
+    "hero": {
+      "title": "Digital Print Stand-Up Pouches",
+      "titleColored": "MOQ Starting From 100pcs",
+      "subtitle": "Launch your brand without huge upfront plate costs. Professional HP Indigo digital printing, conventional press zippers, and premium custom sizing tailored to your product.",
+      "readTime": "6 min read"
+    },
+    "s1": {
+      "title": "HP Indigo Digital Printing vs. Traditional Plates",
+      "p1": "Starting a new product line traditionally required investing thousands of dollars in copper plate cylinders for rotogravure printing. With our HP Indigo 20000 digital press, we print high-resolution custom graphics directly onto flexible packaging film, enabling low-MOQ runs without plate setup fees.",
+      "advTitle": "Digital Printing Advantages:",
+      "adv1Title": "Zero Plate Fees:",
+      "adv1Desc": "Save $300-$500 per color channel on cylinder setup costs.",
+      "adv2Title": "Multi-SKU Batches:",
+      "adv2Desc": "Split your order across multiple artwork designs or product flavors within a single production run.",
+      "adv3Title": "Rapid Iteration:",
+      "adv3Desc": "Update ingredient lists, regulatory marks, or graphics without rendering obsolete plate stock."
+    },
+    "s2": {
+      "title": "Anatomy of Stand-Up Pouches with Conventional Zippers",
+      "p1": "Our low-MOQ stand-up pouches come equipped with conventional resealable zippers to maintain product freshness and prevent accidental spills after opening. Standard structures are designed for shelf durability and automatic filling line compatibility.",
+      "featTitle": "Standard Pouch Features",
+      "f1": "Conventional Press-to-Close Zipper (PE)",
+      "f2": "Easy-open tear notches on both sides",
+      "f3": "Optional oval or rectangular display window",
+      "f4": "Rounded corner options to prevent shipping damage",
+      "compTitle": "Material Composition Options",
+      "c1": "Matte PET / AL / PE (High Barrier Foil)",
+      "c2": "MOPP / VMPET / PE (Metallic Finish)",
+      "c3": "Kraft Paper / VMPET / PE (Tactile Organic Feel)",
+      "c4": "Clear PET / LLDPE (Transparent Window Showcase)"
+    },
+    "s3": {
+      "title": "Low-MOQ Sourcing & Scalability Economics",
+      "p1": "B2C startups and testing brands benefit from lean supply chain management. Lowering the minimum threshold to 100 units eliminates capital risk while allowing direct comparison tests on retail shelves:",
+      "roadmapTitle": "Startup Scalability roadmap",
+      "m1": "100 pcs",
+      "m1Label": "Minimum Order Run",
+      "m2": "10-12 Days",
+      "m2Label": "Digital Print Turnaround",
+      "m3": "HP Indigo",
+      "m3Label": "Industry-Standard Quality"
+    },
+    "s4": {
+      "title": "Pricing & Sizing Options",
+      "p1": "Get transparent costs for your product launch. Below is our low-MOQ pricing layout for standard sizes with conventional zippers:",
+      "table": {
+        "thCap": "Pouch Capacity (Volume)",
+        "thDigital": "100 - 500 pcs (Digital Print)",
+        "thRun": "1,000+ pcs (Digital Run)",
+        "r1": {
+          "v": "Small (2oz - 4oz / 100g)",
+          "d": "$0.35 - $0.50 / pc",
+          "r": "$0.20 - $0.30 / pc"
+        },
+        "r2": {
+          "v": "Medium (8oz - 12oz / 250g-340g)",
+          "d": "$0.45 - $0.65 / pc",
+          "r": "$0.28 - $0.38 / pc"
+        },
+        "r3": {
+          "v": "Large (16oz - 32oz / 500g-1kg)",
+          "d": "$0.60 - $0.85 / pc",
+          "r": "$0.38 - $0.48 / pc"
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "Why does digital printing support such low MOQs?",
+        "a": "Digital presses draw artwork directly onto the substrate, bypassing the mechanical setup steps of rotating copper cylinders. This means we can change artwork files instantly between prints with zero setup waste, making runs of 100 pieces commercially viable."
+      },
+      {
+        "q": "What zipper styles are available on these low-MOQ stand-up bags?",
+        "a": "By default, we implement a conventional press-to-close PE zipper. We also support press-to-close zippers for compostable structures and pocket zippers for specialty configurations on custom request."
+      },
+      {
+        "q": "What is the average lead time for a 100-piece order?",
+        "a": "Digital printing orders are manufactured and ready to ship within 10 to 12 business days from artwork approval. Shipping times vary depending on the destination and shipping speed selected."
+      }
+    ],
+    "cta": {
+      "title": "Design Your Custom Stand-Up Bag",
+      "desc": "Get vector dielines for your artwork or order a physical digital sample. Save capital and prototype your brand today.",
+      "achieveText": "Looking for enterprise wholesale pricing and packaging engineering?"
+    }
+  },
+  "drinkLiquidPouchPage": {
+    "title": "100% Compostable 3-Side Sealed Pouch for Drink, Liquid, and Alcohol | POUCH.ECO",
+    "metaDesc": "High-barrier, leak-proof certified compostable drink pouches (3-side sealed) for juices, RTD cocktails, and alcohol. ASTM D6400 / EN 13432 certified.",
+    "hero": {
+      "title": "100% Compostable 3-Side Sealed",
+      "titleColored": "Pouches for Drink & Liquid",
+      "subtitle": "Stop organic product leaks and plastic waste. High-barrier ASTM D6400 certified liquid pouches with reinforced heat seams, designed for juice, cocktails, and refills.",
+      "readTime": "8 min read"
+    },
+    "s1": {
+      "title": "High-Barrier Liquid Lamination Technology",
+      "p1": "Packaging liquids, drinks, and alcoholic beverages in flexible biopolymer films requires advanced lamination engineering to prevent hydrolysis, leakage, and barrier degradation. Traditional bioplastics absorb moisture, but our proprietary multi-layer compostable lamination shields product shelf-life for up to 12 months.",
+      "profileTitle": "Liquid Lamination Material Profile:",
+      "l1Title": "Outer Layer (MDO-PLA):",
+      "l1Desc": "High-tensile, heat-resistant printing layer that acts as the primary canvas for digital prints.",
+      "l2Title": "Middle Layer (Met-Cellulose):",
+      "l2Desc": "Vacuum-metallized bio-cellulose film providing elite OTR (< 0.5 cc/m²/day) and WVTR (< 0.8 g/m²/day) gas locks.",
+      "l3Title": "Sealant Layer (High-density PLA/PBS Blend):",
+      "l3Desc": "Hydrolysis-resistant inner film that withstands organic liquid compounds, acids, and alcohol up to 15% ABV."
+    },
+    "s2": {
+      "title": "Heat-Sealed & Spouted Seam Engineering",
+      "p1": "Standard pouches fail at the corners when loaded with heavy liquids. Our factory implements 3-side sealed pouch construction with reinforced 8mm hermetic seams. This ensures zero capillary leakage, even under commercial pressure filing.",
+      "sealTitle": "Sealing Tolerance Parameters",
+      "s1Item": "Optimal Sealing Temp: 135°C - 150°C",
+      "s2Item": "Hermetic Pressure Seal: 3.5 bar",
+      "s3Item": "Seam Width: 8mm - 10mm (reinforced)",
+      "s4Item": "Corner seal radius to prevent puncture points",
+      "appTitle": "Liquid Applications",
+      "a1Item": "Organic Fruit Juices & Smoothies",
+      "a2Item": "Liquid Concentrates & Coffee Syrups",
+      "a3Item": "Wine, Cocktails & RTD Alcoholic Beverages",
+      "a4Item": "Liquid Soap & Cleaning Product Refills"
+    },
+    "s3": {
+      "title": "Zero-Failure Drop & Burst Test Logs",
+      "p1": "Crawlers and B2B buyers require real-world validation data. The following log records our 100% compostable 3-side sealed liquid pouches subjected to ASTM testing standards:",
+      "logTitle": "Technical Verification Log",
+      "m1": "1.2m",
+      "m1Label": "Drop Test Pass Height",
+      "m2": "> 80 kPa",
+      "m2Label": "Seam Burst Pressure",
+      "m3": "100%",
+      "m3Label": "Biodegradable Sealing Zipper"
+    },
+    "s4": {
+      "title": "Volume Cost Structure for Liquid Pouches",
+      "p1": "Our flexible manufacturing lines support low-MOQ test batches for beverage startup launches, scaling to bulk gravure wholesale runs:",
+      "table": {
+        "thQty": "Quantity",
+        "thDigital": "Digital Print (100 - 1,000 pcs)",
+        "thGravure": "Gravure Print (10,000+ pcs)",
+        "r1": {
+          "q": "250ml Liquid Pouch",
+          "d": "$0.45 - $0.65 / pc",
+          "g": "$0.18 - $0.25 / pc"
+        },
+        "r2": {
+          "q": "500ml Liquid Pouch",
+          "d": "$0.55 - $0.78 / pc",
+          "g": "$0.24 - $0.32 / pc"
+        },
+        "r3": {
+          "q": "1L Liquid Pouch",
+          "d": "$0.70 - $0.98 / pc",
+          "g": "$0.35 - $0.45 / pc"
+        }
+      }
+    },
+    "faq": [
+      {
+        "q": "Are compostable pouches really leak-proof for liquids?",
+        "a": "Yes. Our liquid-grade compostable pouches utilize a reinforced multi-layer lamination incorporating Bio-PBS, which provides high elastomeric puncture resistance and strong hermetic seals, completely preventing leakage under standard transportation pressures."
+      },
+      {
+        "q": "Can these pouches be used for alcoholic beverages or acidic juices?",
+        "a": "Yes. The inner sealant layer is chemically engineered to resist acidic fruit juices and RTD alcoholic mixtures containing up to 15% ABV. For higher alcohol volumes, please contact our R&D lab for customized barrier profiles."
+      },
+      {
+        "q": "What is the minimum order quantity (MOQ) for custom-printed liquid pouches?",
+        "a": "For digital printing runs (perfect for market testing and product validations), our MOQ starts at 500 units. For large-scale industrial distribution, gravure printing runs start at 10,000 units to secure the lowest unit pricing."
+      }
+    ],
+    "cta": {
+      "title": "Get Custom Liquid Pouch Blueprints",
+      "desc": "Verify fill volumes, spout placements, and material thickness. Request a free stock sample kit or book a packaging engineering consult.",
+      "achieveText": "Need high-volume industrial liquid pouches with B2B certifications?"
+    }
   }
 }
