@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Plus, Trash2, Loader2, FileText, Check, Printer, FileCheck, Layers, FileCode, ShieldCheck, Truck, ClipboardList, Save } from 'lucide-react';
+import { Download, Plus, Trash2, Loader2, FileText, Check, Printer, FileCheck, Layers, FileCode, ShieldCheck, Truck, ClipboardList, Save, Recycle } from 'lucide-react';
 
 interface SpecSheetData {
   customer: string;
@@ -123,7 +123,7 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedCustomer: 'Dennis Marazzato',
       approvedCustomerPos: 'Customer Quality Manager',
       approvedCustomerDate: 'Monday, December 05, 2016',
-      selectedLogos: ['bcorp', 'recycle_pe'],
+      selectedLogos: ['bio_pe', 'recycle_pe'],
       specType: 'rollstock',
       pouchShape: 'Stand Up Pouch',
       pouchWidth: '',
@@ -187,7 +187,7 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedCustomer: 'Sara Jenkins',
       approvedCustomerPos: 'Eco-Brand Operations Manager',
       approvedCustomerDate: 'Friday, May 29, 2026',
-      selectedLogos: ['bcorp', 'tuv_home', 'tuv_industrial', 'bpi'],
+      selectedLogos: ['bio_pe', 'aba_home', 'seed_industrial', 'fsc'],
       specType: 'pouch',
       pouchShape: 'Stand Up Pouch',
       pouchWidth: '160mm',
@@ -251,7 +251,7 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedCustomer: 'Clara Oswald',
       approvedCustomerPos: 'Technical Operations Director',
       approvedCustomerDate: 'Friday, May 29, 2026',
-      selectedLogos: ['bcorp', 'recycle_pe'],
+      selectedLogos: ['bio_pe', 'recycle_pe'],
       specType: 'pouch',
       pouchShape: 'Stand Up Pouch',
       pouchWidth: '150mm',
@@ -315,7 +315,7 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedCustomer: 'Liam Vance',
       approvedCustomerPos: 'Global Procurement Manager',
       approvedCustomerDate: 'Friday, May 29, 2026',
-      selectedLogos: ['bcorp', 'recycle_pe'],
+      selectedLogos: ['bio_pe', 'recycle_pe'],
       specType: 'rollstock',
       pouchShape: 'Stand Up Pouch',
       pouchWidth: '',
@@ -337,16 +337,46 @@ interface SavedSpecSheet {
 }
 
 const LOGO_SPECS = {
-  bcorp: { name: 'B Corp', left: 1100, width: 1900, label: 'B Corp Certified' },
-  tuv_home: { name: 'OK Compost HOME', left: 3500, width: 1740, label: 'TÜV OK Compost HOME' },
-  tuv_industrial: { name: 'OK Compost Industrial', left: 5720, width: 1311, label: 'TÜV OK Compost Industrial' },
-  bpi: { name: 'BPI', left: 7126, width: 1398, label: 'BPI Compostable' },
-  recycle_pe: { name: 'Recycle 4 PE', left: 8929, width: 2482, label: 'Recyclable LDPE 4' },
+  bio_pe: { name: 'Bio PE', left: 1100, width: 1900, label: "Bio PE - I am Green trademark can add to artwork" },
+  pcr: { name: 'PCR', left: 3500, width: 1740, label: 'PCR - Post Consumer Recycled logo' },
+  seed_industrial: { name: 'Seed logo (Industrial Compostable)', left: 5720, width: 1311, label: 'Seed logo - Industrial Compostable (Industrial)' },
+  aba_home: { name: 'ABA Home Compostable', left: 0, width: 0, label: 'ABA Australia Biodegradable Association AS5810' },
+  fsc: { name: 'FSC', left: 7126, width: 1398, label: 'FSC responsibly managed forest paper' },
+  recycle_pe: { name: 'Recyclable 4 PE', left: 8900, width: 1100, label: 'Recyclable PE Code 4 (PE logo only)' },
+  recycle_pp: { name: 'Recyclable 5 PP', left: 10450, width: 1050, label: 'Recyclable PP Code 5' },
+  recycle_other: { name: 'Recyclable 7', left: 0, width: 0, label: 'Conventional plastic recycle Code 7 (OTHER)' },
 };
 
 function RenderCroppedLogo({ logoKey, height = 40 }: { logoKey: string; height?: number }) {
   const spec = LOGO_SPECS[logoKey as keyof typeof LOGO_SPECS];
   if (!spec) return null;
+
+  if (logoKey === 'aba_home') {
+    return (
+      <img
+        src="/imgs/cert/cert-ABA-as5810.png"
+        alt="ABA Home Compostable"
+        className="inline-block object-contain"
+        style={{
+          height: `${height}px`,
+          width: 'auto',
+        }}
+        title="ABA Home Compostable AS5810"
+      />
+    );
+  }
+
+  if (logoKey === 'recycle_other') {
+    return (
+      <div className="inline-flex flex-col items-center justify-center" style={{ height: `${height}px`, width: `${height * 0.9}px` }}>
+        <div className="relative flex items-center justify-center" style={{ height: `${height * 0.72}px`, width: `${height * 0.72}px` }}>
+          <Recycle className="w-full h-full stroke-[1.5] text-black" />
+          <span className="absolute text-[10px] font-extrabold text-black" style={{ transform: 'translateY(1.2px)' }}>7</span>
+        </div>
+        <span className="text-[7px] font-black tracking-wider uppercase text-black leading-none mt-0.5">OTHER</span>
+      </div>
+    );
+  }
 
   const width = Math.round((height * spec.width) / 2744);
   const left = -Math.round((height * spec.left) / 2744);
@@ -377,6 +407,38 @@ function RenderCroppedLogo({ logoKey, height = 40 }: { logoKey: string; height?:
     </div>
   );
 }
+
+const getStewardshipTextForLogos = (logos: string[]): string => {
+  if (!logos || logos.length === 0) {
+    return 'No product stewardship notes defined.';
+  }
+  const texts: string[] = [];
+  if (logos.includes('bio_pe')) {
+    texts.push("This structure utilizes Bio PE (I'm Green trademark), which can be added to the printing artwork to represent the bio-based material used.");
+  }
+  if (logos.includes('pcr')) {
+    texts.push("This structure incorporates PCR (Post-Consumer Recycled) content, helping to reduce virgin plastic usage and support circular recycling.");
+  }
+  if (logos.includes('seed_industrial')) {
+    texts.push("This packaging is certified Industrial Compostable (Seed logo) under European Standard EN 13432 and American Standard ASTM D6400.");
+  }
+  if (logos.includes('aba_home')) {
+    texts.push("This material is certified Home Compostable under the Australasian Bioplastics Association standard AS5810.");
+  }
+  if (logos.includes('fsc')) {
+    texts.push("The paper components used in this packaging are FSC certified, sourced from responsibly managed forests.");
+  }
+  if (logos.includes('recycle_pe')) {
+    texts.push("This packaging is classified under Plastics Identification Code 4 (PE) and is recyclable where soft plastic recycling facilities exist.");
+  }
+  if (logos.includes('recycle_pp')) {
+    texts.push("This packaging is classified under Plastics Identification Code 5 (PP) and is recyclable in PP recycling streams.");
+  }
+  if (logos.includes('recycle_other')) {
+    texts.push("This film covered by the specification can be classified under Plastics Identification Code 7 (OTHER). Flexible packaging cannot be disposed of currently in curbside collection although clean film can be recycled using industrial recyclers. Cardboard cores can be recycled by industrial recyclers if the film and tape is removed. Cardboard layer pads used as packaging on the pallet can be recycled using industrial recyclers. Where AchievePack has suggested that our product and/or packaging can be Recycled AchievePack can assist with identifying suitable recyclers.");
+  }
+  return texts.join(' ');
+};
 
 export default function SpecSheetTab() {
   const [data, setData] = useState<SpecSheetData>(PRESETS.pvdc.data);
@@ -433,7 +495,12 @@ export default function SpecSheetTab() {
       const updatedLogos = currentLogos.includes(logoKey)
         ? currentLogos.filter(k => k !== logoKey)
         : [...currentLogos, logoKey];
-      return { ...prev, selectedLogos: updatedLogos };
+      const updatedText = getStewardshipTextForLogos(updatedLogos);
+      return { 
+        ...prev, 
+        selectedLogos: updatedLogos,
+        stewardshipRecyclability: updatedText
+      };
     });
   };
 
@@ -1212,7 +1279,7 @@ export default function SpecSheetTab() {
                     <textarea rows={4} value={data.foodContact} onChange={e => handleFieldChange('foodContact', e.target.value)} className="w-full border-gray-300 rounded-lg text-xs p-2.5 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500 font-mono leading-relaxed" placeholder="Conforms to FDA 21CFR..." />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Product Stewardship & Recyclability Notes</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Product Stewardship & Sustainability Notes</label>
                     <textarea rows={3} value={data.stewardshipRecyclability} onChange={e => handleFieldChange('stewardshipRecyclability', e.target.value)} className="w-full border-gray-300 rounded-lg text-xs p-2.5 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500 font-mono leading-relaxed" placeholder="Classified under Plastics Code 7..." />
                   </div>
                   <div>
@@ -1469,18 +1536,42 @@ export default function SpecSheetTab() {
               <p className="text-[10px] text-gray-500 mb-3 leading-relaxed">The following testing metrics reflect minimal threshold tolerances, ranges, or industrial packaging parameters:</p>
               <table className="w-full border-collapse border border-gray-300 mb-6 text-left">
                 <tbody>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 w-[220px] border-r border-gray-300">Opacity (White Films):</td><td className="p-2 font-mono">{data.opacity || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Optical Density (Metallised):</td><td className="p-2 font-mono">{data.opticalDensity || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Lamination Bond Strength (1st Pass):</td><td className="p-2 font-bold">{data.bondStrength || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Heat Seal Strength (Sealing limit):</td><td className="p-2 font-bold text-emerald-800">{data.heatSealStrength || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">WVTR (Water Vapor Barrier):</td><td className="p-2 font-mono font-bold text-blue-900">{data.wvtr || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">OTR (Oxygen Gas Barrier):</td><td className="p-2 font-mono font-bold text-blue-900">{data.otr || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">COF External (Coefficient of Friction):</td><td className="p-2 font-mono">{data.cofExternal || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">COF Internal (Friction sealant):</td><td className="p-2 font-mono">{data.cofInternal || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Total Thickness (microns):</td><td className="p-2 font-mono font-bold">{data.thickness || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Laminate Yield (gsm):</td><td className="p-2 font-mono font-bold">{data.yieldGsm || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Repeat Length (± 1mm):</td><td className="p-2 font-mono">{data.repeatLength || 'Plain'}</td></tr>
-                  <tr><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Slit Width (± 1mm tolerance):</td><td className="p-2 font-mono font-bold">{data.slitWidth || 'N/A'}</td></tr>
+                  <tr className="border-b border-gray-300">
+                    <td className="bg-gray-50 font-bold p-1.5 w-[140px] border-r border-gray-300">Opacity (White Films):</td>
+                    <td className="p-1.5 font-mono border-r border-gray-300 w-[120px]">{data.opacity || 'N/A'}</td>
+                    <td className="bg-gray-50 font-bold p-1.5 w-[140px] border-r border-gray-300">Optical Density:</td>
+                    <td className="p-1.5 font-mono">{data.opticalDensity || 'N/A'}</td>
+                  </tr>
+                  <tr className="border-b border-gray-300">
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Lamination Bond Strength:</td>
+                    <td className="p-1.5 font-bold border-r border-gray-300">{data.bondStrength || 'N/A'}</td>
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Heat Seal Strength:</td>
+                    <td className="p-1.5 font-bold text-emerald-800">{data.heatSealStrength || 'N/A'}</td>
+                  </tr>
+                  <tr className="border-b border-gray-300">
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">WVTR (Water Vapor):</td>
+                    <td className="p-1.5 font-mono font-bold text-blue-900 border-r border-gray-300">{data.wvtr || 'N/A'}</td>
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">OTR (Oxygen Gas):</td>
+                    <td className="p-1.5 font-mono font-bold text-blue-900">{data.otr || 'N/A'}</td>
+                  </tr>
+                  <tr className="border-b border-gray-300">
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">COF External:</td>
+                    <td className="p-1.5 font-mono border-r border-gray-300">{data.cofExternal || 'N/A'}</td>
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">COF Internal:</td>
+                    <td className="p-1.5 font-mono">{data.cofInternal || 'N/A'}</td>
+                  </tr>
+                  <tr className="border-b border-gray-300">
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Total Thickness (microns):</td>
+                    <td className="p-1.5 font-mono font-bold border-r border-gray-300">{data.thickness || 'N/A'}</td>
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Laminate Yield (gsm):</td>
+                    <td className="p-1.5 font-mono font-bold">{data.yieldGsm || 'N/A'}</td>
+                  </tr>
+                  <tr className="border-b border-gray-300">
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Repeat Length (± 1mm):</td>
+                    <td className="p-1.5 font-mono border-r border-gray-300">{data.repeatLength || 'Plain'}</td>
+                    <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Slit Width (± 1mm):</td>
+                    <td className="p-1.5 font-mono font-bold">{data.slitWidth || 'N/A'}</td>
+                  </tr>
                 </tbody>
               </table>
 
@@ -1500,8 +1591,22 @@ export default function SpecSheetTab() {
                     <td className="p-2.5 leading-relaxed text-gray-700">{data.generalQuality || 'N/A'}</td>
                   </tr>
                   <tr>
-                    <td className="bg-gray-50 font-bold p-2.5 border-r border-gray-300 align-top">Product Stewardship & Recyclability:</td>
-                    <td className="p-2.5 leading-relaxed text-gray-700 bg-green-50/20 font-sans">{data.stewardshipRecyclability || 'N/A'}</td>
+                    <td className="bg-gray-50 font-bold p-2.5 border-r border-gray-300 align-top">Product Stewardship & Sustainability:</td>
+                    <td className="p-2.5 leading-relaxed text-gray-700 bg-green-50/20 font-sans">
+                      <div>{data.stewardshipRecyclability || 'N/A'}</div>
+                      {data.selectedLogos && data.selectedLogos.length > 0 && (
+                        <div className="mt-3 pt-3 border-t border-gray-200">
+                          <div className="flex flex-wrap items-center gap-4 mb-2">
+                            {data.selectedLogos.map(logoKey => (
+                              <RenderCroppedLogo key={logoKey} logoKey={logoKey} height={55} />
+                            ))}
+                          </div>
+                          <p className="text-[10px] text-gray-500 italic mt-1">
+                            * The selected logo(s) can be added to the artwork for printing to represent the material used.
+                          </p>
+                        </div>
+                      )}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -1598,15 +1703,7 @@ export default function SpecSheetTab() {
               </table>
 
               <div className="flex-1 flex flex-col justify-center gap-4 py-2">
-                {/* CERTIFICATION LOGOS */}
-                {data.selectedLogos && data.selectedLogos.length > 0 && (
-                  <div className="flex justify-center items-center gap-6 py-2 border-b border-gray-150 mb-2">
-                    {data.selectedLogos.map(logoKey => (
-                      <RenderCroppedLogo key={logoKey} logoKey={logoKey} height={40} />
-                    ))}
-                  </div>
-                )}
-                
+
                 {/* SIGN-OFF TEXT */}
                 <div className="text-center space-y-4 max-w-[500px] mx-auto">
                   <h3 className="text-base font-extrabold text-blue-950">Technical Specifications Agreement</h3>
@@ -1876,18 +1973,42 @@ export default function SpecSheetTab() {
           <p className="text-[9px] text-gray-500 mb-3">The following testing metrics reflect minimal threshold tolerances, ranges, or industrial packaging parameters:</p>
           <table className="w-full mb-6">
             <tbody>
-              <tr><td className="bg-gray-50 font-bold w-[220px]">Opacity (White Films):</td><td className="font-mono">{data.opacity || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Optical Density (Metallised):</td><td className="font-mono">{data.opticalDensity || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Lamination Bond Strength (1st Pass):</td><td className="font-bold">{data.bondStrength || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold text-emerald-800" style={{ color: '#065f46' }}>Heat Seal Strength (Sealing limit):</td><td className="font-bold">{data.heatSealStrength || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold text-blue-900" style={{ color: '#1e3a8a' }}>WVTR (Water Vapor Barrier):</td><td className="font-mono font-bold">{data.wvtr || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold text-blue-900" style={{ color: '#1e3a8a' }}>OTR (Oxygen Gas Barrier):</td><td className="font-mono font-bold">{data.otr || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">COF External (Coefficient of Friction):</td><td className="font-mono">{data.cofExternal || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">COF Internal (Friction sealant):</td><td className="font-mono">{data.cofInternal || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Total Thickness (microns):</td><td className="font-mono font-bold">{data.thickness || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Laminate Yield (gsm):</td><td className="font-mono font-bold">{data.yieldGsm || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Repeat Length (± 1mm):</td><td className="font-mono">{data.repeatLength || 'Plain'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Slit Width (± 1mm tolerance):</td><td className="font-mono font-bold">{data.slitWidth || 'N/A'}</td></tr>
+              <tr>
+                <td className="bg-gray-50 font-bold w-[140px]">Opacity (White Films):</td>
+                <td className="font-mono w-[120px]">{data.opacity || 'N/A'}</td>
+                <td className="bg-gray-50 font-bold w-[140px]">Optical Density:</td>
+                <td className="font-mono">{data.opticalDensity || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td className="bg-gray-50 font-bold">Lamination Bond Strength:</td>
+                <td className="font-bold">{data.bondStrength || 'N/A'}</td>
+                <td className="bg-gray-50 font-bold">Heat Seal Strength:</td>
+                <td className="font-bold text-emerald-800" style={{ color: '#065f46' }}>{data.heatSealStrength || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td className="bg-gray-50 font-bold text-blue-900" style={{ color: '#1e3a8a' }}>WVTR (Water Vapor):</td>
+                <td className="font-mono font-bold text-blue-900" style={{ color: '#1e3a8a' }}>{data.wvtr || 'N/A'}</td>
+                <td className="bg-gray-50 font-bold text-blue-900" style={{ color: '#1e3a8a' }}>OTR (Oxygen Gas):</td>
+                <td className="font-mono font-bold text-blue-900" style={{ color: '#1e3a8a' }}>{data.otr || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td className="bg-gray-50 font-bold">COF External:</td>
+                <td className="font-mono">{data.cofExternal || 'N/A'}</td>
+                <td className="bg-gray-50 font-bold">COF Internal:</td>
+                <td className="font-mono">{data.cofInternal || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td className="bg-gray-50 font-bold">Total Thickness (microns):</td>
+                <td className="font-mono font-bold">{data.thickness || 'N/A'}</td>
+                <td className="bg-gray-50 font-bold">Laminate Yield (gsm):</td>
+                <td className="font-mono font-bold">{data.yieldGsm || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td className="bg-gray-50 font-bold">Repeat Length (± 1mm):</td>
+                <td className="font-mono">{data.repeatLength || 'Plain'}</td>
+                <td className="bg-gray-50 font-bold">Slit Width (± 1mm):</td>
+                <td className="font-mono font-bold">{data.slitWidth || 'N/A'}</td>
+              </tr>
             </tbody>
           </table>
 
@@ -1905,8 +2026,22 @@ export default function SpecSheetTab() {
                 <td className="leading-relaxed text-gray-700">{data.generalQuality || 'N/A'}</td>
               </tr>
               <tr>
-                <td className="bg-gray-50 font-bold align-top">Product Stewardship & Recyclability:</td>
-                <td className="leading-relaxed text-gray-700">{data.stewardshipRecyclability || 'N/A'}</td>
+                <td className="bg-gray-50 font-bold align-top">Product Stewardship & Sustainability:</td>
+                <td className="leading-relaxed text-gray-700">
+                  <div>{data.stewardshipRecyclability || 'N/A'}</div>
+                  {data.selectedLogos && data.selectedLogos.length > 0 && (
+                    <div className="mt-2 pt-2" style={{ borderTop: '1px solid #e5e7eb' }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>
+                        {data.selectedLogos.map(logoKey => (
+                          <RenderCroppedLogo key={logoKey} logoKey={logoKey} height={55} />
+                        ))}
+                      </div>
+                      <p style={{ fontSize: '9px', color: '#6b7280', fontStyle: 'italic', margin: '4px 0 0 0' }}>
+                        * The selected logo(s) can be added to the artwork for printing to represent the material used.
+                      </p>
+                    </div>
+                  )}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -1990,15 +2125,7 @@ export default function SpecSheetTab() {
           </table>
 
           <div className="flex-1 flex flex-col justify-between gap-4 py-2">
-            {/* CERTIFICATION LOGOS */}
-            {data.selectedLogos && data.selectedLogos.length > 0 && (
-              <div className="flex justify-center items-center gap-6 py-2 border-b border-gray-150 mb-2">
-                {data.selectedLogos.map(logoKey => (
-                  <RenderCroppedLogo key={logoKey} logoKey={logoKey} height={40} />
-                ))}
-              </div>
-            )}
-
+            
             <div className="text-center space-y-4 max-w-[500px] mx-auto">
               <h3 className="text-base font-extrabold text-blue-950">Technical Specifications Agreement</h3>
               <p className="text-[9px] leading-relaxed text-gray-500">

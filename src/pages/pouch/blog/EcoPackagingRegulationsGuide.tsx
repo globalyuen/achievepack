@@ -1,6 +1,7 @@
 import { Globe, Shield, FileText, Scale, CheckCircle, Building2, Leaf } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
+import { useTranslation } from 'react-i18next'
 
 interface BlogArticleSection {
   id: string
@@ -13,6 +14,7 @@ import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
 import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
 
 export default function EcoPackagingRegulationsGuide() {
+  const { t } = useTranslation()
   const override = useSeoBlogOverride('eco-packaging-regulations-guide')
   if (override) {
     return <DynamicBlogArticleRender post={override} />
@@ -21,26 +23,26 @@ export default function EcoPackagingRegulationsGuide() {
   const sections: BlogArticleSection[] = [
     {
       id: 'global-compliance',
-      title: 'Global Compliance Overview',
+      title: t('ecoPackagingRegulationsGuide.sections.globalCompliance.title'),
       icon: <Globe className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
           <div className="bg-[#FF0000] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-white">
-             <h3 className="font-black text-2xl uppercase mb-4">Adapt or Pay Fines.</h3>
+             <h3 className="font-black text-2xl uppercase mb-4">{t('ecoPackagingRegulationsGuide.sections.globalCompliance.alertTitle')}</h3>
              <p className="font-bold text-lg mb-4">
-                The era of voluntary sustainability is over. Governments are taxing plastic and mandating certifications.
+                {t('ecoPackagingRegulationsGuide.sections.globalCompliance.alertText')}
              </p>
              <div className="grid md:grid-cols-2 gap-6 bg-black text-[#D4FF00] p-4 font-['JetBrains_Mono']">
                 <div>
-                   <h4 className="font-black uppercase mb-2">Extended Producer Responsibility (EPR)</h4>
+                   <h4 className="font-black uppercase mb-2">{t('ecoPackagingRegulationsGuide.sections.globalCompliance.eprTitle')}</h4>
                    <p className="text-sm opacity-80">
-                      If you sell it, you pay for its disposal. UK, EU, and CA/CO/ME (USA) now enforce this.
+                      {t('ecoPackagingRegulationsGuide.sections.globalCompliance.eprText')}
                    </p>
                 </div>
                 <div>
-                   <h4 className="font-black uppercase mb-2">Plastic Taxes</h4>
+                   <h4 className="font-black uppercase mb-2">{t('ecoPackagingRegulationsGuide.sections.globalCompliance.taxTitle')}</h4>
                    <p className="text-sm opacity-80">
-                      £217/tonne in UK for &lt;30% recycled content. EU Plastic Levy €0.80/kg.
+                      {t('ecoPackagingRegulationsGuide.sections.globalCompliance.taxText')}
                    </p>
                 </div>
              </div>
@@ -50,84 +52,84 @@ export default function EcoPackagingRegulationsGuide() {
     },
     {
       id: 'regional-laws',
-      title: 'Laws By Region',
+      title: t('ecoPackagingRegulationsGuide.sections.regionalLaws.title'),
       icon: <Scale className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
            <div className="bg-white border-4 border-black p-6">
-              <h3 className="font-black text-xl uppercase mb-6">Know Your Market</h3>
+              <h3 className="font-black text-xl uppercase mb-6">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.knowYourMarket')}</h3>
               <div className="space-y-4">
                  <div className="bg-[#F0F0F0] border-2 border-black p-4">
                     <div className="flex items-center gap-2 mb-2">
                        <span className="text-2xl">🇪🇺</span>
-                       <strong className="text-lg uppercase">European Union (PPWR)</strong>
+                       <strong className="text-lg uppercase">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.eu')}</strong>
                     </div>
                     <ul className="list-disc list-inside text-sm font-['JetBrains_Mono'] space-y-1">
-                       <li><strong>Mandatory:</strong> All packaging <Link to="/materials" className="underline">recyclable</Link> by 2030.</li>
-                       <li><strong>Compostable:</strong> Mandated for tea bags, coffee pods, sticky fruit labels.</li>
-                       <li><strong>Ban:</strong> Single-use plastics for dine-in.</li>
+                       <li><strong>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.euL1')}</strong><Link to="/materials" className="underline">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.euL1Link')}</Link>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.euL1End')}</li>
+                       <li>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.euL2')}</li>
+                       <li>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.euL3')}</li>
                     </ul>
                  </div>
                  <div className="bg-[#F0F0F0] border-2 border-black p-4">
                     <div className="flex items-center gap-2 mb-2">
                        <span className="text-2xl">🇺🇸</span>
-                       <strong className="text-lg uppercase">USA (State Level)</strong>
+                       <strong className="text-lg uppercase">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.usa')}</strong>
                     </div>
                     <ul className="list-disc list-inside text-sm font-['JetBrains_Mono'] space-y-1">
-                       <li><strong>California SB 54:</strong> 100% recyclable/compostable by 2032.</li>
-                       <li><strong>Labeling:</strong> Strict \"Truth in Labeling\" laws (no loose \"biodegradable\" claims).</li>
-                       <li><strong>PFAS Ban:</strong> 12+ states ban PFAS in food packaging.</li>
+                       <li>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.usaL1')}</li>
+                       <li>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.usaL2')}</li>
+                       <li>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.usaL3')}</li>
                     </ul>
                  </div>
                  <div className="bg-[#F0F0F0] border-2 border-black p-4">
                     <div className="flex items-center gap-2 mb-2">
                        <span className="text-2xl">🇬🇧</span>
-                       <strong className="text-lg uppercase">United Kingdom</strong>
+                       <strong className="text-lg uppercase">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.uk')}</strong>
                     </div>
                     <ul className="list-disc list-inside text-sm font-['JetBrains_Mono'] space-y-1">
-                       <li><strong>Green Claims Code:</strong> Crackdown on vague eco-marketing.</li>
-                       <li><strong>OPRL:</strong> Strict on-pack recycling labeling rules.</li>
+                       <li>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.ukL1')}</li>
+                       <li>{t('ecoPackagingRegulationsGuide.sections.regionalLaws.ukL2')}</li>
                     </ul>
                  </div>
               </div>
            </div>
 
            <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-black text-2xl uppercase mb-4 bg-[#D4FF00] inline-block px-2">Technical-to-Purchasing Value Specs (Compliance)</h4>
+            <h4 className="font-black text-2xl uppercase mb-4 bg-[#D4FF00] inline-block px-2">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tableTitle')}</h4>
             <div className="overflow-x-auto mt-2">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="border-b-4 border-black bg-[#F0F0F0]">
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">Raw Technical Field</th>
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">B2B Procurement Translation</th>
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold text-sm">Commercial Advantage & Value</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.th1')}</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.th2')}</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.th3')}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">PFAS-Free (Fluorine &lt; 100 ppm limit)</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Does this satisfy strict state bans in California/New York?</td>
-                    <td className="p-3 text-sm">Exempts your brand from heavy penalties. Guarantees safe, toxic-free packaging materials for organic consumers and natural grocery buyers.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr1Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr1Col2')}</td>
+                    <td className="p-3 text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr1Col3')}</td>
                   </tr>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">ASTM D6400 (USA) / EN 13432 (EU) Certification</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Can we legally print the word \"compostable\" on bags?</td>
-                    <td className="p-3 text-sm">Authorizes placement of official BPI and TÜV logos. Safe from commercial fines and regulatory greenwashing audits by FTC/HMRC.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr2Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr2Col2')}</td>
+                    <td className="p-3 text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr2Col3')}</td>
                   </tr>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">How2Recycle Store Drop-off Label Qualification</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Will large retailers like Target and Walmart accept this structure?</td>
-                    <td className="p-3 text-sm">Enables direct retail shelf approval. Minimizes Extended Producer Responsibility (EPR) fee tiers, directly improving wholesale margins.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr3Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr3Col2')}</td>
+                    <td className="p-3 text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr3Col3')}</td>
                   </tr>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Heavy Metal Migration Compliance (FDA 21 CFR)</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Is this film safe for direct fatty/acidic food contact?</td>
-                    <td className="p-3 text-sm">Eliminates migration risks. Safe for pet foods, sauces, baby foods, and specialty coffees, guaranteeing 100% brand protection.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr4Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr4Col2')}</td>
+                    <td className="p-3 text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr4Col3')}</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">GRS (Global Recycled Standard) Traceable PCR</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Are we exempt from the UK/EU Plastic Taxes?</td>
-                    <td className="p-3 text-sm">Fulfills the 30%+ recycled plastic threshold. Exempts brands from £217/tonne UK plastic taxes and lowers EU plastic levies.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr5Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr5Col2')}</td>
+                    <td className="p-3 text-sm">{t('ecoPackagingRegulationsGuide.sections.regionalLaws.tr5Col3')}</td>
                   </tr>
                 </tbody>
               </table>
@@ -140,7 +142,7 @@ export default function EcoPackagingRegulationsGuide() {
               className="inline-flex items-center justify-center gap-3 bg-black text-[#D4FF00] px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <Leaf className="w-5 h-5" />
-              Shop Sustainable Pouches (MOQ 100)
+              {t('ecoPackagingRegulationsGuide.sections.regionalLaws.btnShop')}
             </a>
             <a 
               href="https://achievepack.com/topics/eco-packaging-regulations"
@@ -149,7 +151,7 @@ export default function EcoPackagingRegulationsGuide() {
               className="inline-flex items-center justify-center gap-3 bg-[#00FFFF] text-black px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-black hover:text-[#00FFFF] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <Building2 className="w-5 h-5" />
-              Get Wholesale Bulk Pricing (5,000+)
+              {t('ecoPackagingRegulationsGuide.sections.regionalLaws.btnPricing')}
             </a>
           </div>
         </div>
@@ -157,28 +159,28 @@ export default function EcoPackagingRegulationsGuide() {
     },
     {
        id: 'certifications',
-       title: 'Your Get Out of Jail Free Card',
+       title: t('ecoPackagingRegulationsGuide.sections.certifications.title'),
        icon: <Shield className="w-6 h-6" />,
        content: (
           <div className="bg-[#00FFFF] border-4 border-black p-6">
-             <h3 className="font-black text-xl uppercase mb-4">Certifications Matter</h3>
-             <p className="mb-4">Without third-party proof, your packaging is just \"marketing fluff\" in the eyes of the law.</p>
+             <h3 className="font-black text-xl uppercase mb-4">{t('ecoPackagingRegulationsGuide.sections.certifications.cardTitle')}</h3>
+             <p className="mb-4">{t('ecoPackagingRegulationsGuide.sections.certifications.cardText')}</p>
              <div className="grid grid-cols-2 gap-4 font-['JetBrains_Mono'] text-sm">
                 <div className="bg-white p-3 border-2 border-black">
-                   <strong className="block mb-1">TÜV Austria</strong>
-                   <span className="text-xs"><Link to="/blog/home-compostable-guide" className="underline">OK Compost Home</Link> / Industrial</span>
+                   <strong className="block mb-1">{t('ecoPackagingRegulationsGuide.sections.certifications.tuv')}</strong>
+                   <span className="text-xs"><Link to="/blog/home-compostable-guide" className="underline">{t('ecoPackagingRegulationsGuide.sections.certifications.tuvL')}</Link>{t('ecoPackagingRegulationsGuide.sections.certifications.tuvEnd')}</span>
                 </div>
                 <div className="bg-white p-3 border-2 border-black">
-                   <strong className="block mb-1">BPI (USA)</strong>
-                   <span className="text-xs"><Link to="/blog/bpi-certified-guide" className="underline">ASTM D6400 Compliant</Link></span>
+                   <strong className="block mb-1">{t('ecoPackagingRegulationsGuide.sections.certifications.bpi')}</strong>
+                   <span className="text-xs"><Link to="/blog/bpi-certified-guide" className="underline">{t('ecoPackagingRegulationsGuide.sections.certifications.bpiL')}</Link></span>
                 </div>
                 <div className="bg-white p-3 border-2 border-black">
-                   <strong className="block mb-1">Din Certco</strong>
-                   <span className="text-xs">European Standard NB</span>
+                   <strong className="block mb-1">{t('ecoPackagingRegulationsGuide.sections.certifications.din')}</strong>
+                   <span className="text-xs">{t('ecoPackagingRegulationsGuide.sections.certifications.dinText')}</span>
                 </div>
                 <div className="bg-white p-3 border-2 border-black">
-                   <strong className="block mb-1">How2Recycle</strong>
-                   <span className="text-xs"><Link to="/blog/usa-labeling-guide" className="underline">Standardized Labeling</Link></span>
+                   <strong className="block mb-1">{t('ecoPackagingRegulationsGuide.sections.certifications.h2r')}</strong>
+                   <span className="text-xs"><Link to="/blog/usa-labeling-guide" className="underline">{t('ecoPackagingRegulationsGuide.sections.certifications.h2rL')}</Link></span>
                 </div>
              </div>
           </div>
@@ -186,25 +188,25 @@ export default function EcoPackagingRegulationsGuide() {
     },
     {
       id: 'food-safety',
-      title: 'Food Safety First',
+      title: t('ecoPackagingRegulationsGuide.sections.foodSafety.title'),
       icon: <FileText className="w-6 h-6" />,
       content: (
          <div className="bg-[#D4FF00] border-4 border-black p-6">
-            <h3 className="font-black text-xl uppercase mb-4">Don\'t Forget FDA/EU 10/2011</h3>
-            <p className="mb-4">Sustainable doesn\'t mean you can ignore food safety. Our materials are fully compliant.</p>
+            <h3 className="font-black text-xl uppercase mb-4">{t('ecoPackagingRegulationsGuide.sections.foodSafety.cardTitle')}</h3>
+            <p className="mb-4">{t('ecoPackagingRegulationsGuide.sections.foodSafety.cardText')}</p>
             <div className="bg-white border-2 border-black p-4">
                <ul className="space-y-2 text-sm font-['JetBrains_Mono']">
                   <li className="flex items-center gap-2">
                      <CheckCircle className="w-4 h-4 text-green-600" />
-                     <span>Migration Testing (Overall & Specific)</span>
+                     <span>{t('ecoPackagingRegulationsGuide.sections.foodSafety.l1')}</span>
                   </li>
                   <li className="flex items-center gap-2">
                      <CheckCircle className="w-4 h-4 text-green-600" />
-                     <span>Heavy Metal Limits (EN 13432)</span>
+                     <span>{t('ecoPackagingRegulationsGuide.sections.foodSafety.l2')}</span>
                   </li>
                   <li className="flex items-center gap-2">
                      <CheckCircle className="w-4 h-4 text-green-600" />
-                     <span>GMP Manufacturing (BRC Certified)</span>
+                     <span>{t('ecoPackagingRegulationsGuide.sections.foodSafety.l3')}</span>
                   </li>
                </ul>
             </div>
@@ -214,12 +216,12 @@ export default function EcoPackagingRegulationsGuide() {
   ,
     {
       id: 'b2b-store-links',
-      title: 'Contextual B2B Store Products',
+      title: t('ecoPackagingRegulationsGuide.sections.storeLinks.title'),
       icon: <span className="text-xl">🛒</span>,
       content: (
         <div className="space-y-6">
           <p className="text-lg leading-relaxed">
-            For packaging buyers planning their next production run, we recommend starting with our <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">B2B Biodegradable Sample Kit</a> to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Custom Eco Rollstock Film</a>. If you are packaging confectionery or small items, our premium <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Cellophane Candy Wrapper</a> offers excellent clarity and compostability.
+            {t('ecoPackagingRegulationsGuide.sections.storeLinks.textPart1')}<a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('ecoPackagingRegulationsGuide.sections.storeLinks.link1')}</a>{t('ecoPackagingRegulationsGuide.sections.storeLinks.textPart2')}<a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('ecoPackagingRegulationsGuide.sections.storeLinks.link2')}</a>{t('ecoPackagingRegulationsGuide.sections.storeLinks.textPart3')}<a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('ecoPackagingRegulationsGuide.sections.storeLinks.link3')}</a>{t('ecoPackagingRegulationsGuide.sections.storeLinks.textPart4')}
           </p>
         </div>
       )
@@ -227,55 +229,55 @@ export default function EcoPackagingRegulationsGuide() {
 
   return (
     <BlogArticleTemplate
-      title="Eco Packaging Regulations Guide 2026 | POUCH.ECO"
-      metaDescription="Navigating the legal minefield of sustainable packaging. EU PPWR, UK Plastic Tax, California SB 54, and why certifications are mandatory."
+      title={t('ecoPackagingRegulationsGuide.meta.title')}
+      metaDescription={t('ecoPackagingRegulationsGuide.meta.description')}
       canonicalUrl="https://pouch.eco/blog/eco-packaging-regulations-guide"
-      keywords={['packaging regulations 2026', 'plastic tax uk', 'eu ppwr', 'california sb 54 packaging', 'compostable certification requirements']}
+      keywords={t('ecoPackagingRegulationsGuide.meta.keywords', { returnObjects: true }) as string[]}
       publishedDate="2026-02-11T15:00:00Z"
       modifiedDate="2026-02-11T15:00:00Z"
       categoryTag="Legal & Compliance"
       categoryColor="#dc2626"
       heroTitle={
         <>
-          It's Not Just Ethics.<br />
-          <span className="text-[#FF0000]">It's The Law.</span>
+          {t('ecoPackagingRegulationsGuide.hero.titlePart1')}<br />
+          <span className="text-[#FF0000]">{t('ecoPackagingRegulationsGuide.hero.titlePart2')}</span>
         </>
       }
-      heroSubtitle="Global regulations are tightening. Plastic taxes, EPR fees, and aggressive bans. Is your packaging compliant for 2026?"
+      heroSubtitle={t('ecoPackagingRegulationsGuide.hero.subtitle')}
       heroImage="/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp"
-      heroImageAlt="Global sustainable packaging compliance and labeling showcase"
+      heroImageAlt={t('ecoPackagingRegulationsGuide.hero.imageAlt')}
       sections={sections}
       
       faqSections={[
         {
-          q: "What are your minimum order quantities for regulatory-compliant packaging?",
-          a: "For custom printed, regulatory-compliant bags, our digital printing low-MOQ runs start at just 100 bags on Pouch.eco. Commercial high-volume plate-printed bags for major US/EU brands start at 5,000 bags on AchievePack.com."
+          q: t('ecoPackagingRegulationsGuide.faq.q1'),
+          a: t('ecoPackagingRegulationsGuide.faq.a1')
         },
         {
-          q: "Can we request a free regulatory sample kit to verify certification compliance?",
-          a: "Yes. We offer free sample kits containing BPI-certified compostable Kraft pouches, TÜV OK Compost bags, and How2Recycle-compliant recyclable mono-PE bags. You only cover shipping, which is credited back on your first commercial production order."
+          q: t('ecoPackagingRegulationsGuide.faq.q2'),
+          a: t('ecoPackagingRegulationsGuide.faq.a2')
         },
         {
-          q: "Do you print official certification logos and custom warnings?",
-          a: "Yes. We provide full OEM custom printing. We can print certified BPI compostable stamps, TÜV AUSTRIA badges, California-compliant green/brown striping, and How2Recycle instruction symbols on your packaging based on your regional target markets."
+          q: t('ecoPackagingRegulationsGuide.faq.q3'),
+          a: t('ecoPackagingRegulationsGuide.faq.a3')
         },
         {
-          q: "What are your lead times for manufacturing certified packaging?",
-          a: "Digital print runs of 100–1,000 bags are completed and shipped in 2–3 weeks. Custom bulk gravure runs (5,000+ pieces) require 3–4 weeks for plate engraving and co-extrusion. Air freight and cost-efficient ocean shipping options are available."
+          q: t('ecoPackagingRegulationsGuide.faq.q4'),
+          a: t('ecoPackagingRegulationsGuide.faq.a4')
         },
         {
-          q: "Do you supply official documentation for BPI, TÜV, and FDA compliance?",
-          a: "Absolutely. We supply verified, third-party certification documentation (ASTM D6400 / EN 13432 certificates, FDA food contact migration reports, GRS post-consumer recycled certificates) with every commercial order to satisfy regulatory audits."
+          q: t('ecoPackagingRegulationsGuide.faq.q5'),
+          a: t('ecoPackagingRegulationsGuide.faq.a5')
         },
         {
-          q: "What technical details are needed to request a custom compliance packaging quote?",
-          a: "Please specify: (1) Bag shape and style, (2) Volumetric capacity, (3) Regulatory target market (US CA AB 1201, EU PPWR, UK Plastic Tax), (4) Material preference, and (5) Exact wholesale quantities."
+          q: t('ecoPackagingRegulationsGuide.faq.q6'),
+          a: t('ecoPackagingRegulationsGuide.faq.a6')
         }
       ]}
       
       calendlyUrl="https://calendly.com/ryan-achievepack/30min"
       achievePackLink="https://achievepack.com/topics/eco-packaging-regulations"
-      achievePackText="Need Large-Scale Regulatory-Compliant Custom Production? Visit AchievePack.com for B2B Wholesale Solutions (5,000+ pcs)"
+      achievePackText={t('ecoPackagingRegulationsGuide.achievePackText')}
       
       showTableOfContents={true}
       relatedArticles={[

@@ -2,6 +2,7 @@ import { FileCheck, Shield, AlertTriangle, Scale, CheckCircle, MapPin, Building2
 import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import ClickableImage from '../../../components/ClickableImage'
+import { useTranslation } from 'react-i18next'
 
 interface BlogArticleSection {
   id: string
@@ -11,71 +12,73 @@ interface BlogArticleSection {
 }
 
 export default function USALabelingGuide() {
+  const { t } = useTranslation()
+
   const sections: BlogArticleSection[] = [
     {
       id: 'why-labels-matter',
-      title: 'Why 82% of US Brands Get Labeling Wrong (And Pay the Price)',
+      title: t('usaLabelingGuide.sections.whyLabelsMatter.title'),
       icon: <AlertTriangle className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
-          <ClickableImage src="/imgs/seo-photos/usa/label/a_digital_labeling_strategy_0282148.webp" alt="Compostable Labeling Financial Risk" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
+          <ClickableImage src="/imgs/seo-photos/usa/label/a_digital_labeling_strategy_0282148.webp" alt={t('usaLabelingGuide.sections.whyLabelsMatter.cardTitle')} className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-[#00FFFF] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-4">The $10,000/Day Mistake</h3>
+            <h3 className="font-black text-2xl uppercase mb-4">{t('usaLabelingGuide.sections.whyLabelsMatter.cardTitle')}</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <p className="text-lg font-bold mb-2">Real Penalties in 2025-2026:</p>
+                <p className="text-lg font-bold mb-2">{t('usaLabelingGuide.sections.whyLabelsMatter.p1')}</p>
                 <ul className="space-y-2 text-base">
-                  <li><strong>California SB 343:</strong> Up to $10,000/day for false \"compostable\" claims</li>
-                  <li><strong>Product Recalls:</strong> Avg $400K cost to recall & relabel</li>
-                  <li><strong>Retailer Delisting:</strong> Whole Foods pulled 47 brands in 2025 for non-compliance</li>
-                  <li><strong>Consumer Lawsuits:</strong> Class actions targeting \"greenwashing\"</li>
+                  <li><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.l1')}</strong></li>
+                  <li><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.l2')}</strong></li>
+                  <li><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.l3')}</strong></li>
+                  <li><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.l4')}</strong></li>
                 </ul>
               </div>
               <div>
-                <p className="text-lg font-bold mb-2">Common Labeling Mistakes:</p>
+                <p className="text-lg font-bold mb-2">{t('usaLabelingGuide.sections.whyLabelsMatter.p2')}</p>
                 <ul className="space-y-2 text-base">
-                  <li>✗ Using \"biodegradable\" (illegal in CA, WA, CO)</li>
-                  <li>✗ Missing ASTM D6400 certification documentation</li>
-                  <li>✗ No \"Commercially Compostable\" designation</li>
-                  <li>✗ Using recycling symbols on compostable packaging</li>
-                  <li>✗ Vague \"eco-friendly\" claims without proof</li>
+                  <li>{t('usaLabelingGuide.sections.whyLabelsMatter.r1')}</li>
+                  <li>{t('usaLabelingGuide.sections.whyLabelsMatter.r2')}</li>
+                  <li>{t('usaLabelingGuide.sections.whyLabelsMatter.r3')}</li>
+                  <li>{t('usaLabelingGuide.sections.whyLabelsMatter.r4')}</li>
+                  <li>{t('usaLabelingGuide.sections.whyLabelsMatter.r5')}</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-black text-xl uppercase mb-4">The 3 States You MUST Get Right</h4>
+            <h4 className="font-black text-xl uppercase mb-4">{t('usaLabelingGuide.sections.whyLabelsMatter.threeStates')}</h4>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-blue-50 border-2 border-blue-600 p-4">
-                <h5 className="font-bold text-lg mb-2">California</h5>
-                <p className="text-sm mb-2"><strong>Laws:</strong> AB 1201 + SB 343</p>
-                <p className="text-sm"><strong>Market:</strong> 39M people, $3.9T economy</p>
-                <p className="text-sm mt-2"><strong>Why critical:</strong> Most retailers require CA compliance nationwide</p>
+                <h5 className="font-bold text-lg mb-2">{t('usaLabelingGuide.sections.whyLabelsMatter.ca')}</h5>
+                <p className="text-sm mb-2"><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.caL')}</strong></p>
+                <p className="text-sm">{t('usaLabelingGuide.sections.whyLabelsMatter.caM')}</p>
+                <p className="text-sm mt-2">{t('usaLabelingGuide.sections.whyLabelsMatter.caW')}</p>
               </div>
               <div className="bg-green-50 border-2 border-green-600 p-4">
-                <h5 className="font-bold text-lg mb-2">Washington</h5>
-                <p className="text-sm mb-2"><strong>Law:</strong> HB 1569</p>
-                <p className="text-sm"><strong>Market:</strong> 7.7M people, growing green sector</p>
-                <p className="text-sm mt-2"><strong>Why critical:</strong> Strict enforcement + high consumer awareness</p>
+                <h5 className="font-bold text-lg mb-2">{t('usaLabelingGuide.sections.whyLabelsMatter.wa')}</h5>
+                <p className="text-sm mb-2"><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.waL')}</strong></p>
+                <p className="text-sm">{t('usaLabelingGuide.sections.whyLabelsMatter.waM')}</p>
+                <p className="text-sm mt-2">{t('usaLabelingGuide.sections.whyLabelsMatter.waW')}</p>
               </div>
               <div className="bg-purple-50 border-2 border-purple-600 p-4">
-                <h5 className="font-bold text-lg mb-2">Colorado</h5>
-                <p className="text-sm mb-2"><strong>Law:</strong> HB 22-1355</p>
-                <p className="text-sm"><strong>Market:</strong> 5.8M people, outdoor demo</p>
-                <p className="text-sm mt-2"><strong>Why critical:</strong> Model for other Western states</p>
+                <h5 className="font-bold text-lg mb-2">{t('usaLabelingGuide.sections.whyLabelsMatter.co')}</h5>
+                <p className="text-sm mb-2"><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.coL')}</strong></p>
+                <p className="text-sm">{t('usaLabelingGuide.sections.whyLabelsMatter.coM')}</p>
+                <p className="text-sm mt-2">{t('usaLabelingGuide.sections.whyLabelsMatter.coW')}</p>
               </div>
             </div>
           </div>
 
           <div className="bg-[#F0F0F0] border-4 border-black p-6">
-            <h4 className="font-black text-xl uppercase mb-4">The Federal Layer: FTC Green Guides</h4>
-            <p className="mb-3">Even if your state doesn\'t have laws, FTC guidelines apply nationwide:</p>
+            <h4 className="font-black text-xl uppercase mb-4">{t('usaLabelingGuide.sections.whyLabelsMatter.fedTitle')}</h4>
+            <p className="mb-3">{t('usaLabelingGuide.sections.whyLabelsMatter.fedText')}</p>
             <ul className="space-y-2 text-sm">
-              <li><strong>Substantiation Required:</strong> All environmental claims must be backed by \"competent and reliable evidence\"</li>
-              <li><strong>Clear Disclosure:</strong> Must specify \"industrial compostable\" vs \"home compostable\"</li>
-              <li><strong>Accessibility Caveat:</strong> Can\'t claim \"compostable\" if facilities aren\'t widely available</li>
-              <li><strong>No Vague Claims:</strong> Terms like \"green,\" \"eco-friendly,\" \"sustainable\" must be specific</li>
+              <li><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.fed1')}</strong></li>
+              <li><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.fed2')}</strong></li>
+              <li><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.fed3')}</strong></li>
+              <li><strong>{t('usaLabelingGuide.sections.whyLabelsMatter.fed4')}</strong></li>
             </ul>
           </div>
         </div>
@@ -83,80 +86,80 @@ export default function USALabelingGuide() {
     },
     {
       id: 'california-deep-dive',
-      title: 'California AB 1201 & SB 343: The Complete Compliance Checklist',
+      title: t('usaLabelingGuide.sections.californiaDeepDive.title'),
       icon: <MapPin className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
-          <ClickableImage src="/imgs/seo-photos/usa/label/a_fda_labeling_compliance_checklist_8653787.webp" alt="California AB 1201 Compliance Checklist" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
+          <ClickableImage src="/imgs/seo-photos/usa/label/a_fda_labeling_compliance_checklist_8653787.webp" alt={t('usaLabelingGuide.sections.californiaDeepDive.cardTitle')} className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-6">AB 1201: Compostable Plastics Labeling (2023)</h3>
+            <h3 className="font-black text-2xl uppercase mb-6">{t('usaLabelingGuide.sections.californiaDeepDive.cardTitle')}</h3>
             
             <div className="space-y-6">
               <div className="bg-white border-4 border-black p-6">
-                <h4 className="font-bold text-lg mb-3">REQUIRED Label Elements:</h4>
+                <h4 className="font-bold text-lg mb-3">{t('usaLabelingGuide.sections.californiaDeepDive.reqTitle')}</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h5 className="font-bold mb-2">1. Certification Proof</h5>
+                    <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.californiaDeepDive.req1Title')}</h5>
                     <ul className="text-sm space-y-1">
-                      <li>✓ <Link to="/blog/usa-compostable-guide" className="hover:underline text-blue-800">ASTM D6400 (for plastic film)</Link></li>
-                      <li>✓ ASTM D6868 (for paper + plastic)</li>
-                      <li>✓ Must be third-party certified</li>
-                      <li>✓ Certification docs available on request</li>
+                      <li>✓ <Link to="/blog/usa-compostable-guide" className="hover:underline text-blue-800">{t('usaLabelingGuide.sections.californiaDeepDive.req1L1')}</Link></li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req1L2')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req1L3')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req1L4')}</li>
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold mb-2">2. Clear Designation</h5>
+                    <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.californiaDeepDive.req2Title')}</h5>
                     <ul className="text-sm space-y-1">
-                      <li>✓ \"Commercially Compostable Only\" OR</li>
-                      <li>✓ \"Home Compostable\" (if TÜV certified)</li>
-                      <li>✓ Text must be prominent & legible</li>
-                      <li>✓ Minimum 10pt font size</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req2L1')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req2L2')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req2L3')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req2L4')}</li>
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold mb-2">3. Color Coding</h5>
+                    <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.californiaDeepDive.req3Title')}</h5>
                     <ul className="text-sm space-y-1">
-                      <li>✓ Green OR brown tint/stripe OR</li>
-                      <li>✓ \"Compostable\" text prominently displayed</li>
-                      <li>✓ Natural kraft paper qualifies as \"brown\"</li>
-                      <li>✓ Avoid mixing green with recycling symbols</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req3L1')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req3L2')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req3L3')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req3L4')}</li>
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold mb-2">4. Prohibited Terms</h5>
+                    <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.californiaDeepDive.req4Title')}</h5>
                     <ul className="text-sm space-y-1">
-                      <li>✗ \"Biodegradable\" (explicitly banned)</li>
-                      <li>✗ \"Degradable\" or \"Decomposable\"</li>
-                      <li>✗ \"Oxo-degradable\" or \"Oxo-biodegradable\"</li>
-                      <li>✗ Any misleading environmental claim</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req4L1')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req4L2')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req4L3')}</li>
+                      <li>{t('usaLabelingGuide.sections.californiaDeepDive.req4L4')}</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
               <div className="bg-white border-4 border-black p-6">
-                <h4 className="font-bold text-lg mb-3">SB 343: Truth in Environmental Advertising (2022)</h4>
+                <h4 className="font-bold text-lg mb-3">{t('usaLabelingGuide.sections.californiaDeepDive.sbTitle')}</h4>
                 <div className="bg-red-50 border-2 border-red-600 p-4 mb-4">
-                  <h5 className="font-bold mb-2">⚠️ The \"Chasing Arrows\" Rule:</h5>
-                  <p className="text-sm">Cannot use recycling symbol (♻️) unless material has 60%+ recycling access in California. Compostable packaging should use seedling symbol (🌱) instead.</p>
+                  <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.californiaDeepDive.sbAlert')}</h5>
+                  <p className="text-sm">{t('usaLabelingGuide.sections.californiaDeepDive.sbAlertText')}</p>
                 </div>
                 <ul className="text-sm space-y-2">
-                  <li><strong>Composting Facility Access:</strong> Label should note \"Check locally for industrial composting\"</li>
-                  <li><strong>No False Claims:</strong> Can\'t claim compostable unless certified to ASTM standards</li>
-                  <li><strong>Retailer Liability:</strong> Stores can be held responsible for selling non-compliant products</li>
-                  <li><strong>Civil Penalties:</strong> Up to $10,000/day + injunctive relief + legal fees</li>
+                  <li><strong>{t('usaLabelingGuide.sections.californiaDeepDive.sb1')}</strong></li>
+                  <li><strong>{t('usaLabelingGuide.sections.californiaDeepDive.sb2')}</strong></li>
+                  <li><strong>{t('usaLabelingGuide.sections.californiaDeepDive.sb3')}</strong></li>
+                  <li><strong>{t('usaLabelingGuide.sections.californiaDeepDive.sb4')}</strong></li>
                 </ul>
               </div>
             </div>
 
             <div className="mt-6 bg-green-50 border-4 border-black p-4">
-              <h5 className="font-bold mb-2">✅ California-Compliant Label Template:</h5>
+              <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.californiaDeepDive.templTitle')}</h5>
               <div className="bg-white border-2 border-black p-4 font-['JetBrains_Mono'] text-sm">
-                <p><strong>[Product Name]</strong></p>
-                <p className="text-green-700 font-bold mt-2">🌱 COMMERCIALLY COMPOSTABLE ONLY</p>
-                <p className="mt-2">Certified to ASTM D6400</p>
-                <p>Check locally for industrial composting facilities.</p>
-                <p className="mt-2 text-xs">BPI Certified Compostable</p>
+                <p><strong>{t('usaLabelingGuide.sections.californiaDeepDive.t1')}</strong></p>
+                <p className="text-green-700 font-bold mt-2">{t('usaLabelingGuide.sections.californiaDeepDive.t2')}</p>
+                <p className="mt-2">{t('usaLabelingGuide.sections.californiaDeepDive.t3')}</p>
+                <p>{t('usaLabelingGuide.sections.californiaDeepDive.t4')}</p>
+                <p className="mt-2 text-xs">{t('usaLabelingGuide.sections.californiaDeepDive.t5')}</p>
               </div>
             </div>
           </div>
@@ -165,66 +168,66 @@ export default function USALabelingGuide() {
     },
     {
       id: 'washington-colorado',
-      title: 'Washington HB 1569 and Colorado HB 22-1355: What\'s Different',
+      title: t('usaLabelingGuide.sections.washingtonColorado.title'),
       icon: <Scale className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
-          <ClickableImage src="/imgs/seo-photos/usa/hub/a_label_compliance_requirements_0902238.webp" alt="State Labeling Laws Comparison" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
+          <ClickableImage src="/imgs/seo-photos/usa/hub/a_label_compliance_requirements_0902238.webp" alt={t('usaLabelingGuide.sections.washingtonColorado.cardTitle')} className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-6">State-by-State Comparison</h3>
+            <h3 className="font-black text-2xl uppercase mb-6">{t('usaLabelingGuide.sections.washingtonColorado.cardTitle')}</h3>
             
             <div className="overflow-x-auto">
               <table className="w-full border-4 border-black">
                 <thead>
                   <tr className="bg-black text-[#D4FF00]">
-                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Requirement</th>
-                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">California</th>
-                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Washington</th>
-                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Colorado</th>
+                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">{t('usaLabelingGuide.sections.washingtonColorado.th1')}</th>
+                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">{t('usaLabelingGuide.sections.washingtonColorado.th2')}</th>
+                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">{t('usaLabelingGuide.sections.washingtonColorado.th3')}</th>
+                    <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">{t('usaLabelingGuide.sections.washingtonColorado.th4')}</th>
                   </tr>
                 </thead>
                 <tbody className="font-['JetBrains_Mono'] text-sm">
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3 font-bold">Certification</td>
-                    <td className="border-2 border-black p-3">ASTM D6400/D6868</td>
-                    <td className="border-2 border-black p-3">ASTM D6400/D6868</td>
-                    <td className="border-2 border-black p-3">ASTM D6400</td>
+                    <td className="border-2 border-black p-3 font-bold">{t('usaLabelingGuide.sections.washingtonColorado.tr1Col1')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr1Col2')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr1Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr1Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3 font-bold">\"Commercially Compostable\" Text</td>
-                    <td className="border-2 border-black p-3">✓ Required</td>
-                    <td className="border-2 border-black p-3">✓ Required</td>
-                    <td className="border-2 border-black p-3">✓ \"...Only\" if not home</td>
+                    <td className="border-2 border-black p-3 font-bold">{t('usaLabelingGuide.sections.washingtonColorado.tr2Col1')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr2Col2')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr2Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr2Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3 font-bold">Color Coding</td>
-                    <td className="border-2 border-black p-3">Green/Brown OR \"Compostable\"</td>
-                    <td className="border-2 border-black p-3">Distinguishable from recycling</td>
-                    <td className="border-2 border-black p-3">Not specified</td>
+                    <td className="border-2 border-black p-3 font-bold">{t('usaLabelingGuide.sections.washingtonColorado.tr3Col1')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr3Col2')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr3Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr3Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3 font-bold">\"Biodegradable\" Ban</td>
-                    <td className="border-2 border-black p-3">✓ Prohibited</td>
-                    <td className="border-2 border-black p-3">✓ Prohibited</td>
-                    <td className="border-2 border-black p-3">✓ Prohibited</td>
+                    <td className="border-2 border-black p-3 font-bold">{t('usaLabelingGuide.sections.washingtonColorado.tr4Col1')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr4Col2')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr4Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr4Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3 font-bold">Recycling Symbol</td>
-                    <td className="border-2 border-black p-3">✗ Only if 60%+ access</td>
-                    <td className="border-2 border-black p-3">Not addressed</td>
-                    <td className="border-2 border-black p-3">Not addressed</td>
+                    <td className="border-2 border-black p-3 font-bold">{t('usaLabelingGuide.sections.washingtonColorado.tr5Col1')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr5Col2')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr5Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr5Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3 font-bold">Enforcement</td>
-                    <td className="border-2 border-black p-3">Up to $10K/day</td>
-                    <td className="border-2 border-black p-3">Civil penalties</td>
-                    <td className="border-2 border-black p-3">CDPHE enforcement</td>
+                    <td className="border-2 border-black p-3 font-bold">{t('usaLabelingGuide.sections.washingtonColorado.tr6Col1')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr6Col2')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr6Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr6Col4')}</td>
                   </tr>
                   <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3 font-bold">Effective Date</td>
-                    <td className="border-2 border-black p-3">2023 (active)</td>
-                    <td className="border-2 border-black p-3">2024 (active)</td>
-                    <td className="border-2 border-black p-3">2023 (active)</td>
+                    <td className="border-2 border-black p-3 font-bold">{t('usaLabelingGuide.sections.washingtonColorado.tr7Col1')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr7Col2')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr7Col3')}</td>
+                    <td className="border-2 border-black p-3">{t('usaLabelingGuide.sections.washingtonColorado.tr7Col4')}</td>
                   </tr>
                 </tbody>
               </table>
@@ -232,20 +235,20 @@ export default function USALabelingGuide() {
           </div>
 
           <div className="bg-[#D4FF00] border-4 border-black p-6">
-            <h4 className="font-black text-xl uppercase mb-4">The \"One Label for All States\" Strategy</h4>
-            <p className="mb-4">Good news: You can design ONE label that meets all three states\' requirements:</p>
+            <h4 className="font-black text-xl uppercase mb-4">{t('usaLabelingGuide.sections.washingtonColorado.stratTitle')}</h4>
+            <p className="mb-4">{t('usaLabelingGuide.sections.washingtonColorado.stratText')}</p>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-white border-2 border-black p-4">
-                <h5 className="font-bold mb-2">Step 1: Use Strictest Standard</h5>
-                <p className="text-sm">Meet California AB 1201 (most comprehensive) and you\'ll automatically comply with WA + CO</p>
+                <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.washingtonColorado.step1')}</h5>
+                <p className="text-sm">{t('usaLabelingGuide.sections.washingtonColorado.step1Text')}</p>
               </div>
               <div className="bg-white border-2 border-black p-4">
-                <h5 className="font-bold mb-2">Step 2: Include All Required Text</h5>
-                <p className="text-sm">\"Commercially Compostable Only\" + ASTM D6400 + facility check language</p>
+                <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.washingtonColorado.step2')}</h5>
+                <p className="text-sm">{t('usaLabelingGuide.sections.washingtonColorado.step2Text')}</p>
               </div>
               <div className="bg-white border-2 border-black p-4">
-                <h5 className="font-bold mb-2">Step 3: Use Natural Kraft</h5>
-                <p className="text-sm">Natural brown kraft paper meets CA color requirement + looks premium</p>
+                <h5 className="font-bold mb-2">{t('usaLabelingGuide.sections.washingtonColorado.step3')}</h5>
+                <p className="text-sm">{t('usaLabelingGuide.sections.washingtonColorado.step3Text')}</p>
               </div>
             </div>
           </div>
@@ -254,40 +257,40 @@ export default function USALabelingGuide() {
     },
     {
       id: 'label-design',
-      title: 'Label Design Dos and Donts: Avoid the $400K Relabeling Disaster',
+      title: t('usaLabelingGuide.sections.labelDesign.title'),
       icon: <FileCheck className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
-          <ClickableImage src="/imgs/seo-photos/usa/label/a_labeling_design_best_practices_0279886.webp" alt="Compostable Label Design Examples" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
+          <ClickableImage src="/imgs/seo-photos/usa/label/a_labeling_design_best_practices_0279886.webp" alt={t('usaLabelingGuide.sections.labelDesign.cardTitle')} className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-6">Visual Design Guidelines</h3>
+            <h3 className="font-black text-2xl uppercase mb-6">{t('usaLabelingGuide.sections.labelDesign.cardTitle')}</h3>
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-green-50 border-4 border-black p-6">
                 <h4 className="font-black text-lg uppercase mb-4 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
-                  DO: What Works
+                  {t('usaLabelingGuide.sections.labelDesign.doTitle')}
                 </h4>
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-green-700 font-bold">✓</span>
                     <div>
-                      <p className="font-bold">Use Seedling Symbol (🌱)</p>
-                      <p className="text-xs">Internationally recognized compostable logo</p>
+                      <p className="font-bold">{t('usaLabelingGuide.sections.labelDesign.do1Title')}</p>
+                      <p className="text-xs">{t('usaLabelingGuide.sections.labelDesign.do1Text')}</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-green-700 font-bold">✓</span>
                     <div>
-                      <p className="font-bold">Natural Kraft Background</p>
-                      <p className="text-xs">Meets CA brown requirement + looks premium</p>
+                      <p className="font-bold">{t('usaLabelingGuide.sections.labelDesign.do2Title')}</p>
+                      <p className="text-xs">{t('usaLabelingGuide.sections.labelDesign.do2Text')}</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-green-700 font-bold">✓</span>
                     <div>
-                      <p className="font-bold">BPI Certified Logo</p>
-                      <p className="text-xs">Most trusted third-party certification in US</p>
+                      <p className="font-bold">{t('usaLabelingGuide.sections.labelDesign.do3Title')}</p>
+                      <p className="text-xs">{t('usaLabelingGuide.sections.labelDesign.do3Text')}</p>
                     </div>
                   </li>
                 </ul>
@@ -296,28 +299,28 @@ export default function USALabelingGuide() {
               <div className="bg-red-50 border-4 border-black p-6">
                 <h4 className="font-black text-lg uppercase mb-4 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5" />
-                  DON'T: What Gets You Fined
+                  {t('usaLabelingGuide.sections.labelDesign.dontTitle')}
                 </h4>
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-red-700 font-bold">✗</span>
                     <div>
-                      <p className="font-bold">\"Biodegradable\" or \"Degradable\"</p>
-                      <p className="text-xs">Illegal in CA, WA, CO - instant violation</p>
+                      <p className="font-bold">{t('usaLabelingGuide.sections.labelDesign.dont1Title')}</p>
+                      <p className="text-xs">{t('usaLabelingGuide.sections.labelDesign.dont1Text')}</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-700 font-bold">✗</span>
                     <div>
-                      <p className="font-bold">Recycling Arrows (♻️)</p>
-                      <p className="text-xs">Unless 60%+ CA residents have access (they don\'t)</p>
+                      <p className="font-bold">{t('usaLabelingGuide.sections.labelDesign.dont2Title')}</p>
+                      <p className="text-xs">{t('usaLabelingGuide.sections.labelDesign.dont2Text')}</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-700 font-bold">✗</span>
                     <div>
-                      <p className="font-bold">Vague \"Eco-Friendly\"</p>
-                      <p className="text-xs">FTC requires specific, substantiated claims</p>
+                      <p className="font-bold">{t('usaLabelingGuide.sections.labelDesign.dont3Title')}</p>
+                      <p className="text-xs">{t('usaLabelingGuide.sections.labelDesign.dont3Text')}</p>
                     </div>
                   </li>
                 </ul>
@@ -329,48 +332,48 @@ export default function USALabelingGuide() {
     },
     {
       id: 'certification-proof',
-      title: 'How to Get ASTM D6400 Certification (And Avoid Fake Certificates)',
+      title: t('usaLabelingGuide.sections.certificationProof.title'),
       icon: <Shield className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
-          <ClickableImage src="/imgs/seo-photos/a_certificates_compliance_trust_4184896.webp" alt="ASTM D6400 Certification Process" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
+          <ClickableImage src="/imgs/seo-photos/a_certificates_compliance_trust_4184896.webp" alt={t('usaLabelingGuide.sections.certificationProof.title')} className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           
           <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-black text-2xl uppercase mb-4 bg-[#D4FF00] inline-block px-2">Technical-to-Purchasing Value Specs (Labeling)</h4>
+            <h4 className="font-black text-2xl uppercase mb-4 bg-[#D4FF00] inline-block px-2">{t('usaLabelingGuide.sections.certificationProof.tableTitle')}</h4>
             <div className="overflow-x-auto mt-2">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="border-b-4 border-black bg-[#F0F0F0]">
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">Raw Technical Field</th>
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">B2B Procurement Translation</th>
-                    <th className="p-3 font-['JetBrains_Mono'] font-bold text-sm">Commercial Advantage & Value</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">{t('usaLabelingGuide.sections.certificationProof.th1')}</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">{t('usaLabelingGuide.sections.certificationProof.th2')}</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold text-sm">{t('usaLabelingGuide.sections.certificationProof.th3')}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">ASTM D6400 Certified Compostable Poly PLA</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Is this material legally safe to sell in California?</td>
-                    <td className="p-3 text-sm">Verified laboratory testing. Safely satisfies California AB 1201 standards, avoiding any $2,500/day store violations.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('usaLabelingGuide.sections.certificationProof.tr1Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('usaLabelingGuide.sections.certificationProof.tr1Col2')}</td>
+                    <td className="p-3 text-sm">{t('usaLabelingGuide.sections.certificationProof.tr1Col3')}</td>
                   </tr>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">BPI Registered Logo License Print</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Can we legally display the official BPI logo on retail shelves?</td>
-                    <td className="p-3 text-sm">Valid third-party registered license guarantees rapid grocery chain audits approval (Whole Foods, Kroger).</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('usaLabelingGuide.sections.certificationProof.tr2Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('usaLabelingGuide.sections.certificationProof.tr2Col2')}</td>
+                    <td className="p-3 text-sm">{t('usaLabelingGuide.sections.certificationProof.tr2Col3')}</td>
                   </tr>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Fluorine Content &lt; 100 ppm (PFAS-Free)</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Is our packaging safe from toxic chemical state lawsuits?</td>
-                    <td className="p-3 text-sm">100% fluorochemical-free. Excluded from state chemical registration penalties and safe for premium organic packaging.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('usaLabelingGuide.sections.certificationProof.tr3Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('usaLabelingGuide.sections.certificationProof.tr3Col2')}</td>
+                    <td className="p-3 text-sm">{t('usaLabelingGuide.sections.certificationProof.tr3Col3')}</td>
                   </tr>
                   <tr className="border-b-2 border-black">
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Soy-Based Industrial Compostable Ink</td>
-                    <td className="p-3 border-r-2 border-black text-sm">Will custom printed designs bleed or prevent biodegredation?</td>
-                    <td className="p-3 text-sm">High-clarity print using organic inks that fully biodegrade without leaving heavy metal residue behind.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('usaLabelingGuide.sections.certificationProof.tr4Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('usaLabelingGuide.sections.certificationProof.tr4Col2')}</td>
+                    <td className="p-3 text-sm">{t('usaLabelingGuide.sections.certificationProof.tr4Col3')}</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Eco-Label Stripe Coding (CA Green & Brown stripes)</td>
-                    <td className="p-3 border-r-2 border-black text-sm">How do we prevent downstream sorting contamination?</td>
-                    <td className="p-3 text-sm">Standard green stripe layout satisfies visual inspection audits, ensuring effortless composting processing.</td>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">{t('usaLabelingGuide.sections.certificationProof.tr5Col1')}</td>
+                    <td className="p-3 border-r-2 border-black text-sm">{t('usaLabelingGuide.sections.certificationProof.tr5Col2')}</td>
+                    <td className="p-3 text-sm">{t('usaLabelingGuide.sections.certificationProof.tr5Col3')}</td>
                   </tr>
                 </tbody>
               </table>
@@ -383,7 +386,7 @@ export default function USALabelingGuide() {
               className="inline-flex items-center justify-center gap-3 bg-black text-[#D4FF00] px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <Leaf className="w-5 h-5" />
-              Shop Labeled Pouches (MOQ 100)
+              {t('usaLabelingGuide.sections.certificationProof.btnShop')}
             </a>
             <a 
               href="https://achievepack.com/usa/labeling-guide"
@@ -392,32 +395,77 @@ export default function USALabelingGuide() {
               className="inline-flex items-center justify-center gap-3 bg-[#00FFFF] text-black px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-black hover:text-[#00FFFF] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <Building2 className="w-5 h-5" />
-              Get Wholesale Bulk Pricing (5,000+)
+              {t('usaLabelingGuide.sections.certificationProof.btnPricing')}
             </a>
           </div>
         </div>
       )
-    }
-  ,
+    },
     {
       id: 'b2b-store-links',
-      title: 'Contextual B2B Store Products',
+      title: t('usaLabelingGuide.sections.storeLinks.title'),
       icon: <span className="text-xl">🛒</span>,
       content: (
         <div className="space-y-6">
           <p className="text-lg leading-relaxed">
-            For packaging buyers planning their next production run, we recommend starting with our <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">B2B Biodegradable Sample Kit</a> to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Custom Eco Rollstock Film</a>. If you are packaging confectionery or small items, our premium <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Cellophane Candy Wrapper</a> offers excellent clarity and compostability.
+            {t('usaLabelingGuide.sections.storeLinks.textPart1')}<a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('usaLabelingGuide.sections.storeLinks.link1')}</a>{t('usaLabelingGuide.sections.storeLinks.textPart2')}<a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('usaLabelingGuide.sections.storeLinks.link2')}</a>{t('usaLabelingGuide.sections.storeLinks.textPart3')}<a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">{t('usaLabelingGuide.sections.storeLinks.link3')}</a>{t('usaLabelingGuide.sections.storeLinks.textPart4')}
           </p>
         </div>
       )
-    }]
+    }
+  ]
+
+  const relatedArticles = [
+    {
+      title: t('usaLabelingGuide.relatedArticles.r1Title'),
+      url: '/blog/usa-compostable-guide',
+      image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
+    },
+    {
+      title: t('usaLabelingGuide.relatedArticles.r2Title'),
+      url: '/blog/usa-snacks-packaging-guide',
+      image: '/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp'
+    },
+    {
+      title: t('usaLabelingGuide.relatedArticles.r3Title'),
+      url: '/blog/usa-coffee-packaging',
+      image: '/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp'
+    }
+  ]
+
+  const faqSections = [
+    {
+      q: t('usaLabelingGuide.faq.q1'),
+      a: t('usaLabelingGuide.faq.a1')
+    },
+    {
+      q: t('usaLabelingGuide.faq.q2'),
+      a: t('usaLabelingGuide.faq.a2')
+    },
+    {
+      q: t('usaLabelingGuide.faq.q3'),
+      a: t('usaLabelingGuide.faq.a3')
+    },
+    {
+      q: t('usaLabelingGuide.faq.q4'),
+      a: t('usaLabelingGuide.faq.a4')
+    },
+    {
+      q: t('usaLabelingGuide.faq.q5'),
+      a: t('usaLabelingGuide.faq.a5')
+    },
+    {
+      q: t('usaLabelingGuide.faq.q6'),
+      a: t('usaLabelingGuide.faq.a6')
+    }
+  ]
 
   return (
     <BlogArticleTemplate
-      title="USA Labeling Guide 2026: California, Washington & Colorado Compliance | POUCH.ECO"
-      metaDescription="Complete US compostable packaging labeling guide: California AB 1201/SB 343, Washington HB 1569, Colorado HB 22-1355 compliance. ASTM D6400 certification, label design do's and don'ts."
+      title={t('usaLabelingGuide.meta.title')}
+      metaDescription={t('usaLabelingGuide.meta.description')}
       canonicalUrl="https://pouch.eco/blog/usa-labeling-guide"
-      keywords={['california AB 1201', 'washington compostable law', 'ASTM D6400', 'BPI certification', 'compostable labeling', 'packaging compliance']}
+      keywords={t('usaLabelingGuide.meta.keywords', { returnObjects: true }) as string[]}
       publishedDate="2026-01-30T12:00:00Z"
       modifiedDate="2026-01-30T12:00:00Z"
       author="Ryan Wong"
@@ -425,64 +473,20 @@ export default function USALabelingGuide() {
       categoryColor="#3b82f6"
       heroTitle={
         <>
-          USA Labeling Guide 2026:<br />
-          <span className="bg-black text-white px-2">Avoid the $10K/Day Fine</span>
+          {t('usaLabelingGuide.hero.titlePart1')}<br />
+          <span className="bg-black text-white px-2">{t('usaLabelingGuide.hero.titlePart2')}</span>
         </>
       }
-      heroSubtitle="Complete compliance guide for California AB 1201/SB 343, Washington HB 1569, and Colorado HB 22-1355. ASTM D6400 certification explained, label design do's and don'ts, real examples."
+      heroSubtitle={t('usaLabelingGuide.hero.subtitle')}
       heroImage="/imgs/seo-photos/usa/label/a_digital_labeling_strategy_0282148.webp"
-      heroImageAlt="US Environmental Labeling Laws Compliance Showcase"
+      heroImageAlt={t('usaLabelingGuide.hero.imageAlt')}
       sections={sections}
-      
-      faqSections={[
-        {
-          q: "What is the minimum order quantity for certified compostable labeled bags in the US?",
-          a: "For startup brands and test SKU packaging, our digitally printed low-MOQ runs start at just 100 bags on Pouch.eco. Commercial high-volume plate-printed production (5,000+ units) with deep volume discounts is available on AchievePack.com."
-        },
-        {
-          q: "Can we request a free pre-printed compliant sample kit?",
-          a: "Yes. We offer free sample packs featuring various standard BPI seedling logos and California SB 343 stripe formats. You only pay for express shipping, fully credited upon your first wholesale order."
-        },
-        {
-          q: "Do you support custom sizes, transparent windows, and certified zippers?",
-          a: "Absolutely. We provide comprehensive OEM customization. You can choose custom sizing, shapes, clear compostable windows, resealable certified zippers, and custom printing."
-        },
-        {
-          q: "What are the typical manufacturing and delivery lead times?",
-          a: "Digital print runs of 100–1,000 pouches are completed and shipped in 2–3 weeks. Custom bulk gravure print runs (5,000+ pieces) require 3–4 weeks for plate engraving and co-extrusion."
-        },
-        {
-          q: "Are your pouches officially compliant with California AB 1201 and SB 343?",
-          a: "Yes. All compostable pouches are certified by BPI and TÜV AUSTRIA to meet ASTM D6400 and EN 13432 compostability standards. They fully comply with California AB 1201, CA SB 343, and Washington HB 1569 laws."
-        },
-        {
-          q: "What technical details are needed to request a custom labeled packaging quote?",
-          a: "Please specify: (1) Bag style (Stand-up, flat-bottom, side-gusset), (2) Volumetric capacity (e.g. 4oz, 8oz, 16oz), (3) Material structure (Kraft or High-Barrier), (4) Total quantities, and (5) Design files."
-        }
-      ]}
-      
+      faqSections={faqSections}
       calendlyUrl="https://calendly.com/ryan-achievepack/30min"
       achievePackLink="https://achievepack.com/usa/labeling-guide"
-      achievePackText="Need Large-Scale Wholesale Labeling & Compliance Audits? Visit AchievePack.com for B2B Custom Solutions (5,000+ pcs)"
-      
+      achievePackText={t('usaLabelingGuide.achievePackText')}
       showTableOfContents={true}
-      relatedArticles={[
-        {
-          title: 'USA Compostable Packaging Guide: Certifications & State Laws',
-          url: '/blog/usa-compostable-guide',
-          image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
-        },
-        {
-          title: 'USA Snacks Packaging Guide: State Laws, Materials & Pricing',
-          url: '/blog/usa-snacks-packaging-guide',
-          image: '/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp'
-        },
-        {
-          title: 'USA Coffee Packaging: Compostable vs Recyclable + State Laws',
-          url: '/blog/usa-coffee-packaging',
-          image: '/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp'
-        }
-      ]}
+      relatedArticles={relatedArticles}
     />
   )
 }

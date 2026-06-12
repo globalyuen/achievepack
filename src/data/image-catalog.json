@@ -3092,6 +3092,12 @@
       "count": 16,
       "images": [
         {
+          "filename": "cert-ABA-as5810.png",
+          "path": "/imgs/cert/cert-ABA-as5810.png",
+          "extension": ".png",
+          "modified": "2026-06-12T10:57:06.077Z"
+        },
+        {
           "filename": "im-green-logo.png",
           "path": "/imgs/cert/im-green-logo.png",
           "extension": ".png",
@@ -3108,12 +3114,6 @@
           "path": "/imgs/cert/compostable-logo.png",
           "extension": ".png",
           "modified": "2026-03-12T01:08:55.671Z"
-        },
-        {
-          "filename": "cert-ABA-as5810.png",
-          "path": "/imgs/cert/cert-ABA-as5810.png",
-          "extension": ".png",
-          "modified": "2025-12-19T01:17:13.041Z"
         },
         {
           "filename": "cert-fsc.png",
