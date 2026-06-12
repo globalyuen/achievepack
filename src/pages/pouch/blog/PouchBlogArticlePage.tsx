@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { createClient } from '@supabase/supabase-js'
 import { Loader2, AlertCircle, ArrowLeft, Package, Info, CheckCircle, HelpCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 
 const supabase = createClient(
@@ -10,6 +11,7 @@ const supabase = createClient(
 )
 
 export default function PouchBlogArticlePage() {
+  const { t } = useTranslation()
   const { slug } = useParams<{ slug: string }>()
   const [post, setPost] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -60,14 +62,18 @@ export default function PouchBlogArticlePage() {
       <div className="min-h-screen flex flex-col items-center justify-center bg-white p-4 text-center">
         <div className="bg-red-50 border-4 border-red-500 p-8 max-w-md">
           <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-          <h1 className="text-2xl font-black uppercase mb-4 text-red-900">Article Not Found</h1>
-          <p className="text-red-700 mb-8">{error || "The article you're looking for doesn't exist or has been moved."}</p>
+          <h1 className="text-2xl font-black uppercase mb-4 text-red-900">
+            {t('pouchBlogArticlePage.notFound.title', 'Article Not Found')}
+          </h1>
+          <p className="text-red-700 mb-8">
+            {error || t('pouchBlogArticlePage.notFound.description', "The article you're looking for doesn't exist or has been moved.")}
+          </p>
           <Link 
             to="/blog" 
             className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 border-4 border-black font-black uppercase hover:bg-red-500 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            Back to Blog
+            {t('pouchBlogArticlePage.notFound.back', 'Back to Blog')}
           </Link>
         </div>
       </div>

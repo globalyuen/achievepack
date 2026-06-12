@@ -21045,168 +21045,146 @@
   "pouchSEOPage": {
     "meta": {
       "title": "Guide SEO pour les marques d'emballages compostables | POUCH.ECO",
-      "description": "Apprenez à positionner votre marque d'emballages compostables sur Google. Recherche de mots-clés, stratégie de contenu et conseils SEO techniques pour les entreprises de pochettes écologiques.",
-      "keywords": "SEO pour marques d'emballages, SEO pochettes compostables, marketing emballages écologiques, mots-clés emballages durables, SEO sacs biodégradables, optimisation recherche emballages verts"
-    },
-    "hero": {
-      "badge": "Guide de stratégie SEO",
-      "titleLine1": "Positionnez votre",
-      "titleHighlight": "marque éco",
-      "titleLine2": "sur Google",
-      "subtitle": "Des tactiques SEO qui fonctionnent réellement pour les marques d'emballages compostables. Pas de superflu. Juste des résultats.",
-      "ctaConsult": "Réserver une consultation SEO",
-      "ctaKeywords": "Voir les mots-clés"
-    },
-    "tldr": {
-      "label": "En résumé",
-      "text": "Le SEO pour les emballages écologiques = recherche de mots-clés + contenu de qualité + optimisation technique. Ciblez les mots-clés de longue traîne, rédigez des guides complets et obtenez des backlinks de sites de développement durable. Comptez 3 à 6 mois pour les résultats."
+      "description": "Apprenez à positionner votre marque d'emballages compostables sur Google. Recherche de mots-clés, stratégie de contenu et conseils de SEO technique pour les fabricants de sachets écologiques."
     },
     "keywords": {
-      "title1": "Mots-clés principaux",
-      "title2": "à cibler",
-      "subtitle": "Voici les termes de recherche les plus convertissants pour les marques d'emballages compostables. Commencez ici.",
-      "tableHeaders": {
-        "keyword": "Mot-clé",
-        "searchVolume": "Volume de recherche",
-        "difficulty": "Difficulté"
+      "k1": {
+        "term": "sachets compostables"
       },
-      "items": {
-        "0": {
-          "term": "pochettes compostables",
-          "volume": "1,2K/mois",
-          "difficulty": "Moyen"
-        },
-        "1": {
-          "term": "emballages écologiques",
-          "volume": "5,8K/mois",
-          "difficulty": "Élevé"
-        },
-        "2": {
-          "term": "sacs biodégradables",
-          "volume": "3,4K/mois",
-          "difficulty": "Moyen"
-        },
-        "3": {
-          "term": "emballages durables",
-          "volume": "12K/mois",
-          "difficulty": "Élevé"
-        },
-        "4": {
-          "term": "pochettes à base de plantes",
-          "volume": "890/mois",
-          "difficulty": "Faible"
-        },
-        "5": {
-          "term": "sacs compostables à domicile",
-          "volume": "720/mois",
-          "difficulty": "Faible"
-        }
-      }
+      "k2": {
+        "term": "emballage écologique"
+      },
+      "k3": {
+        "term": "sachets biodégradables"
+      },
+      "k4": {
+        "term": "emballage durable"
+      },
+      "k5": {
+        "term": "sachets biosourcés"
+      },
+      "k6": {
+        "term": "sachets compostables à domicile"
+      },
+      "titleHighlight": "Mots-clés principaux",
+      "title2": "à cibler",
+      "subtitle": "Voici les termes de recherche à plus forte conversion pour les marques d'emballages compostables. Commencez ici."
+    },
+    "difficulty": {
+      "low": "Faible",
+      "medium": "Moyen",
+      "high": "Élevé"
     },
     "strategy": {
-      "title1": "Stratégie SEO",
-      "title2": "en 3 étapes",
-      "subtitle": "Suivez ce cadre pour vous positionner plus vite et convertir davantage d'acheteurs éco-responsables.",
-      "items": {
-        "0": {
-          "title": "Recherche de mots-clés",
-          "description": "Découvrez ce que vos clients recherchent réellement",
-          "tips": {
-            "0": "Ciblez les mots-clés de longue traîne comme « sacs à café compostables certifiés »",
-            "1": "Utilisez Google Search Console pour trouver des opportunités de positionnement",
-            "2": "Concentrez-vous sur les mots-clés d'intention d'achat (ex. : « acheter pochettes compostables »)",
-            "3": "Suivez les mots-clés de vos concurrents avec SEMrush ou Ahrefs"
-          }
-        },
-        "1": {
-          "title": "Stratégie de contenu",
-          "description": "Créez du contenu qui se positionne ET qui convertit",
-          "tips": {
-            "0": "Rédigez des guides complets (plus de 1500 mots)",
-            "1": "Répondez aux questions « qu'est-ce que », « comment » et « vs »",
-            "2": "Incluez des comparaisons de produits et des cas d'utilisation",
-            "3": "Ajoutez des témoignages clients et des études de cas"
-          }
-        },
-        "2": {
-          "title": "SEO technique",
-          "description": "Rendez votre site rapide, adapté au mobile et indexable",
-          "tips": {
-            "0": "Optimisez la vitesse de chargement (moins de 3 secondes)",
-            "1": "Utilisez un design responsive pour les utilisateurs mobiles",
-            "2": "Créez un sitemap XML et un fichier robots.txt",
-            "3": "Implémentez le balisage schema pour les extraits enrichis"
-          }
-        }
-      }
-    },
-    "whySeo": {
-      "title1": "Pourquoi le SEO",
-      "titleHighlight": "compte",
-      "title2": "pour les marques éco",
-      "subtitle": "Vos clients recherchent des emballages durables EN CE MOMENT. Si vous n'êtes pas positionné, ils trouvent vos concurrents à votre place.",
-      "benefits": {
-        "0": {
-          "title": "Trafic organique = Prospects gratuits",
-          "description": "Les publicités payantes coûtent 3 à 8 $ par clic. Le SEO attire des acheteurs qualifiés gratuitement, mois après mois."
-        },
-        "1": {
-          "title": "Autorité = Confiance",
-          "description": "Être en page 1 signale la crédibilité. Les acheteurs font confiance aux marques que Google approuve."
-        },
-        "2": {
-          "title": "Longue traîne = Meilleure conversion",
-          "description": "Ciblez des recherches spécifiques comme « sacs à café compostables certifiés » pour attirer des acheteurs prêts à acheter."
-        }
+      "s1": {
+        "title": "Recherche de mots-clés",
+        "description": "Trouvez ce que vos clients recherchent réellement",
+        "tip1": "Ciblez des mots-clés de longue traîne comme \"sachets de café compostables certifiés\"",
+        "tip2": "Utilisez Google Search Console pour identifier les opportunités de classement",
+        "tip3": "Privilégiez les mots-clés ayant une intention d'achat (ex: \"acheter sachets compostables\")",
+        "tip4": "Suivez les mots-clés des concurrents à l'aide de SEMrush ou Ahrefs"
       },
-      "statsTitle": "Statistiques SEO qui comptent",
-      "stats": {
-        "0": {
-          "value": "75%",
-          "description": "des utilisateurs ne dépassent jamais la page 1 des résultats Google"
-        },
-        "1": {
-          "value": "53%",
-          "description": "de tout le trafic web provient de la recherche organique"
-        },
-        "2": {
-          "value": "14,6%",
-          "description": "taux de conversion moyen pour la recherche organique (contre 1,7 % pour les annonces payantes)"
-        }
+      "s2": {
+        "title": "Stratégie de contenu",
+        "description": "Créez du contenu qui se classe ET convertit",
+        "tip1": "Rédigez des guides complets (plus de 1500 mots)",
+        "tip2": "Répondez aux questions de type \"qu'est-ce que\", \"comment\" et \"vs\"",
+        "tip3": "Incluez des comparatifs de produits et des cas d'utilisation",
+        "tip4": "Ajoutez des témoignages clients et des études de cas"
+      },
+      "s3": {
+        "title": "SEO Technique",
+        "description": "Rendez votre site rapide, mobile-friendly et explorable",
+        "tip1": "Optimisez la vitesse de chargement (moins de 3 secondes)",
+        "tip2": "Adoptez un design réactif pour les utilisateurs sur mobile",
+        "tip3": "Générez un plan de site XML et un fichier robots.txt",
+        "tip4": "Intégrez le balisage de schéma pour les extraits enrichis"
+      },
+      "titleHighlight": "En 3 étapes",
+      "title2": "Stratégie SEO",
+      "subtitle": "Suivez cette méthode pour vous classer plus rapidement et convertir les acheteurs éco-responsables."
+    },
+    "faq": {
+      "q1": {
+        "question": "Combien de temps prend le SEO pour les marques d'emballages ?",
+        "answer": "Comptez 3 à 6 mois pour obtenir des résultats significatifs. L'emballage compostable est une niche en croissance, les classements peuvent donc s'obtenir plus vite que dans d'autres secteurs. Ciblez la longue traîne en premier."
+      },
+      "q2": {
+        "question": "Quels mots-clés cibler pour les sachets compostables ?",
+        "answer": "Commencez par des termes spécifiques comme \"sachets de café compostables certifiés\" ou \"sachets de stand-up biodégradables\". Évitez au début les termes trop génériques comme \"emballage\". Utilisez Google Keyword Planner."
+      },
+      "q3": {
+        "question": "Ai-je besoin d'un blog pour le SEO ?",
+        "answer": "Oui. Un blog vous permet de cibler des mots-clés informationnels (ex: \"comment choisir un emballage compostable\") qui attirent les acheteurs en amont. Visez 2 à 4 articles de qualité par mois."
+      },
+      "q4": {
+        "question": "Quelle est l'importance des backlinks pour le SEO de l'emballage ?",
+        "answer": "Très importante. Des liens de qualité provenant de blogs sur la durabilité et d'annuaires écologiques valident votre autorité auprès de Google. Créez du contenu partageable comme des infographies."
+      },
+      "q5": {
+        "question": "Faut-il optimiser pour Google ou pour Amazon ?",
+        "answer": "Les deux, différemment. Le SEO Google repose sur le contenu et l'autorité. Le SEO Amazon privilégie les titres et les avis produits. Google capte les clients dès l'étape de recherche."
+      },
+      "titleHighlight": "Questions fréquentes",
+      "title2": "sur le SEO"
+    },
+    "hero": {
+      "badge": "Guide stratégique SEO",
+      "title1": "Positionnez votre",
+      "titleHighlight": "Marque éco",
+      "title2": "sur Google",
+      "subtitle": "Des techniques SEO qui fonctionnent réellement pour les marques d'emballages compostables. Pas de blabla. Juste des résultats.",
+      "btn1": "Réserver un audit SEO",
+      "btn2": "Voir les mots-clés"
+    },
+    "tldr": {
+      "title": "En résumé",
+      "content": "SEO pour l'emballage éco = recherche de mots-clés + contenu de qualité + optimisation technique. Ciblez la longue traîne, rédigez des guides exhaustifs et gagnez des liens éco-responsables. Résultats en 3-6 mois."
+    },
+    "table": {
+      "th1": "Mot-clé",
+      "th2": "Volume de recherche",
+      "th3": "Difficulté"
+    },
+    "why": {
+      "title1": "Pourquoi le SEO",
+      "titleHighlight": "Est crucial",
+      "title2": "pour les marques éco",
+      "desc": "Vos clients recherchent des emballages durables EN CE MOMENT MÊME. Si vous n'êtes pas visible, ils trouveront vos concurrents.",
+      "point1": {
+        "title": "Trafic organique = Prospects gratuits",
+        "desc": "La publicité payante coûte de 3 à 8 $ par clic. Le SEO vous apporte des acheteurs qualifiés gratuitement, mois après mois."
+      },
+      "point2": {
+        "title": "Autorité = Confiance",
+        "desc": "Figurer sur la première page est un gage de crédibilité. Les acheteurs font confiance aux marques que Google met en avant."
+      },
+      "point3": {
+        "title": "Longue traîne = Meilleure conversion",
+        "desc": "Ciblez des requêtes précises comme \"sachets de café compostables certifiés\" pour capter des acheteurs prêts à commander."
       }
     },
-    "faqs": {
-      "title1": "Questions",
-      "title2": "SEO fréquentes",
-      "items": {
-        "0": {
-          "question": "Combien de temps faut-il pour le SEO des marques d'emballage ?",
-          "answer": "Comptez 3 à 6 mois pour voir des résultats significatifs. L'emballage compostable est une niche en croissance, donc le positionnement peut être plus rapide que dans les industries concurrentielles. Commencez par les mots-clés de longue traîne, puis élargissez à des termes plus généraux à mesure que vous gagnez en autorité."
-        },
-        "1": {
-          "question": "Quels mots-clés dois-je cibler pour les pochettes compostables ?",
-          "answer": "Commencez par des termes spécifiques aux produits comme « sacs à café compostables certifiés » ou « pochettes stand-up biodégradables ». Évitez les termes génériques comme « emballage » au début. Utilisez Google Keyword Planner pour trouver le volume de recherche et les niveaux de concurrence."
-        },
-        "2": {
-          "question": "Ai-je besoin d'un blog pour le SEO ?",
-          "answer": "Oui. Un blog vous aide à cibler des mots-clés informationnels (ex. : « comment choisir un emballage compostable ») qui attirent les acheteurs plus tôt dans leur phase de recherche. Visez 2 à 4 articles de qualité par mois couvrant les guides de certification, les comparaisons de matériaux et les tendances du secteur."
-        },
-        "3": {
-          "question": "Quelle est l'importance des backlinks pour le SEO de l'emballage ?",
-          "answer": "Très importante. Des backlinks de qualité provenant de blogs sur le développement durable, de publications sectorielles et d'annuaires écologiques signalent l'autorité à Google. Concentrez-vous sur l'obtention de liens via des articles invités, des partenariats et la création de contenu partageable comme des infographies ou des rapports de recherche."
-        },
-        "4": {
-          "question": "Dois-je optimiser pour Google ou Amazon ?",
-          "answer": "Les deux, mais différemment. Le SEO Google se concentre sur le contenu et l'autorité. Le SEO Amazon privilégie les titres de produits, les puces et les avis. Si vous vendez sur Amazon, optimisez les deux canaux — mais Google capture les acheteurs en phase de recherche avant qu'ils n'atteignent Amazon."
-        }
+    "stats": {
+      "title": "Les chiffres du SEO",
+      "s1": {
+        "val": "75%",
+        "desc": "des utilisateurs ne dépassent jamais la première page des résultats Google"
+      },
+      "s2": {
+        "val": "53%",
+        "desc": "du trafic global d'un site provient de la recherche organique"
+      },
+      "s3": {
+        "val": "14.6%",
+        "desc": "taux de conversion moyen pour la recherche organique (vs 1.7% pour la publicité payante)"
       }
     },
     "cta": {
-      "title1": "Prêt à",
-      "titleHighlight": "mieux vous positionner ?",
-      "subtitle": "Réservez une consultation SEO GRATUITE de 30 minutes. Nous auditerons votre site, identifierons les gains rapides et construirons une stratégie de mots-clés personnalisée.",
-      "button": "Réservez votre consultation SEO",
-      "disclaimer": "Pas de pitch. Pas d'obligation. Juste des conseils SEO actionnables."
+      "title1": "Prêt à vous",
+      "titleHighlight": "Classer premier ?",
+      "desc": "Profitez d'une consultation SEO GRATUITE de 30 minutes. Nous analyserons votre site, identifierons les leviers rapides et concevrons votre stratégie de mots-clés.",
+      "btn": "Réserver mon audit SEO",
+      "footer": "Pas de pitch commercial. Aucun engagement. Juste des conseils SEO exploitables."
     }
   },
   "pouchUnprintedSamplesPage": {
@@ -25811,6 +25789,281 @@
       "a5": "Nos sachets de café compostables utilisent de véritables films certifiés BPI et TÜV AUSTRIA (OK Compost Industrial/Home) ainsi que des valves de dégazage importées de Suisse. Ils répondent aux normes ASTM D6400 et EN 13432, se décomposant entièrement en compost organique riche en nutriments sans laisser de résidus toxiques.",
       "q6": "De quelles spécifications techniques avez-vous besoin pour calculer un devis d'emballage personnalisé ?",
       "a6": "Pour fournir un devis de gros précis, veuillez spécifier : (1) Le style de sachet (ex. Stand-Up Pouch, sachet à fond plat, sachet à soufflets latéraux), (2) La capacité volumétrique (12oz, 16oz, 2lb, 5lb), (3) La structure du matériau (Kraft compostable, Mono-PE recyclable ou PCR), (4) La quantité totale, et (5) Les couleurs de conception ou les fichiers graphiques."
+    }
+  },
+  "customPrintedMaterialsGuidePage": {
+    "sec1": {
+      "title": "Écologique ne veut pas dire moche",
+      "p1": "De nombreuses marques supposent que le passage à des films durables implique d'accepter des graphiques ternes et délavés. L'impression numérique moderne sur HP Indigo 20000 offre une profondeur de couleur haute définition et des détails précis sans compromettre la biodégradabilité.",
+      "mythTitle": "Mythe démystifié.",
+      "mythDesc": "\"Les sachets compostables ont un aspect terne et marron.\"",
+      "mythFalse": "FAUX.",
+      "mythListHeader": "Avec les presses numériques HP Indigo 20000, nous imprimons :",
+      "mythItem1": "CMJN + Blanc + Tons directs",
+      "mythItem2": "Images photoréalistes (Haute résolution 1200 DPI)",
+      "mythItem3": "Dégradés et textes fins jusqu'à 4pt"
+    },
+    "sec2": {
+      "title": "Choisissez votre support personnalisé",
+      "naturalTitle": "L'aspect \"Naturel\"",
+      "naturalTag": "PAPIER KRAFT + PLA",
+      "naturalDesc": "Parfait pour le café biologique et le granola. La texture est en papier véritable.",
+      "naturalFinish": "Meilleure finition :",
+      "naturalFinishDesc": "Le marquage à chaud (or/argent) ressort magnifiquement sur le marron.",
+      "premiumTitle": "L'aspect \"Premium\"",
+      "premiumTag": "PLA BLANC / MONO-PE",
+      "premiumDesc": "Base blanche brillante pour des couleurs éclatantes. Ressemble à du plastique \"normal\" mais est durable.",
+      "premiumFinish": "Meilleure finition :",
+      "premiumFinishDesc": "Mat doux au toucher + Vernis sélectif Spot UV."
+    },
+    "sec3": {
+      "title": "Matrice de spécifications techniques et d'approvisionnement",
+      "p1": "Pour les directeurs de marque et de chaîne d'approvisionnement, le choix de matériaux durables imprimés nécessite de traduire les propriétés structurelles clés en valeur d'achat :",
+      "th1": "Paramètre technique",
+      "th2": "Impact d'approvisionnement & utilité",
+      "th3": "Norme d'usine directe",
+      "r1c1": "Lamination numérique 1200 DPI",
+      "r1c2": "Aucun frais de cliché permettant aux marques émergentes de lancer des gammes de produits multi-références de manière rentable.",
+      "r1c3": "Impression sans cliché HP Indigo 20000",
+      "r2c1": "Co-extrusion biosourcée",
+      "r2c2": "Associe l'aspect du papier à des soudures à base d'amidon pour une présence premium en rayon sans déchirure.",
+      "r2c3": "Couches conformes aux normes FDA et GRS",
+      "r3c1": "Film recyclable MDO-PE",
+      "r3c2": "Moins de 5% de densité totale d'encre et de dorure garantit une reconnaissance optique totale dans les centres de tri standard.",
+      "r3c3": "Approuvé pour le dépôt en magasin How2Recycle",
+      "r4c1": "Vernis Spot UV & Dorures métallisées",
+      "r4c2": "Les finitions tactiles à forte conversion augmentent le taux d'attraction en caisse jusqu'à 28% pour les superaliments.",
+      "r4c3": "Options de dorure biodégradable & vernis sélectif"
+    },
+    "sec4": {
+      "title": "Des finitions qui font vendre",
+      "heading": "Expérience tactile",
+      "finish1": {
+        "title": "Toucher doux",
+        "desc": "Sensation veloutée et haut de gamme"
+      },
+      "finish2": {
+        "title": "Vernis brillant sélectif",
+        "desc": "Faites briller vos logos"
+      },
+      "finish3": {
+        "title": "Holographique",
+        "desc": "Effets arc-en-ciel"
+      },
+      "finish4": {
+        "title": "Texture Kraft",
+        "desc": "Brut & authentique"
+      }
+    },
+    "b2b": {
+      "title": "Besoin de solutions corporatives de gros ?",
+      "desc": "Si vous recherchez une fabrication en grand volume, le développement de matériaux sur mesure et des tarifs à partir de 5 000 unités, visitez notre siège B2B sur AchievePack.com.",
+      "btn": "Aller sur AchievePack B2B →"
+    },
+    "sec5": {
+      "title": "Du design au sachet (15 jours)",
+      "heading": "Le flux de travail numérique",
+      "step1": "Télécharger le tracé de découpe IA/PDF",
+      "step2": "Nous envoyons le bon à tirer numérique (24h)",
+      "step3": "Impression & lamination (7 jours)",
+      "step4": "Fabrication des sachets & contrôle qualité (5 jours)",
+      "step5": "Expédition (Express aérien)"
+    },
+    "sec6": {
+      "title": "Produits contextuels de la boutique B2B",
+      "p1": "Pour les acheteurs d'emballages planifiant leur prochaine production, nous recommandons de commencer par notre Kit d'échantillons biodégradables B2B afin d'évaluer l'épaisseur des matériaux et les performances de barrière. Pour les lignes de conditionnement automatisées à grande vitesse, découvrez notre Film en bobine écologique personnalisé. Si vous emballez de la confiserie ou de petits articles, notre emballage de bonbons en cellophane premium offre une excellente clarté et compostabilité."
+    },
+    "faq": {
+      "q1": {
+        "question": "Quel est le MOQ pour les sachets écologiques imprimés personnalisés ?",
+        "answer": "Notre programme de MOQ bas commence à 100 unités pour les sachets en stock avec étiquettes personnalisées et 500 unités pour les sachets imprimés numériquement d'un bord à l'autre. Pour les tirages commerciaux en gros, notre site B2B achievepack.com commence à 5 000 unités par référence."
+      },
+      "q2": {
+        "question": "Y a-t-il des frais de cliché ou de configuration ?",
+        "answer": "Non ! L'impression numérique sur pouch.eco est totalement sans cliché. Votre design est imprimé directement depuis vos fichiers vectoriels vers notre presse HP Indigo, vous faisant économiser 150 à 300 $ en coûts de gravure de cylindres par couleur."
+      },
+      "q3": {
+        "question": "Puis-je recevoir des échantillons physiques imprimés avant la production ?",
+        "answer": "Oui. Vous pouvez commander un Kit d'échantillons gratuit contenant 10 sachets préfabriqués dans plusieurs finitions pour tester les textures du papier et l'épaisseur du film. Pour votre graphisme personnalisé, nous pouvons réaliser un tirage d'essai physique (50 sachets) pour 100 $."
+      },
+      "q4": {
+        "question": "Quel est le délai de production typique ?",
+        "answer": "Les sachets numériques personnalisés sont fabriqués et expédiés en seulement 10 à 15 jours ouvrés après approbation du tracé de découpe. Les tirages de gros en héliogravure sur achievepack.com nécessitent 20 à 25 jours."
+      },
+      "q5": {
+        "question": "Les encres numériques sont-elles sûres et compostables ?",
+        "answer": "Oui. Nous utilisons des encres numériques certifiées de qualité alimentaire et sans solvant conformes aux strictes réglementations de la FDA, de BPI et du TÜV Austria, garantissant une absence de migration chimique toxique."
+      },
+      "q6": {
+        "question": "Quels formats de fichiers graphiques sont requis ?",
+        "answer": "Veuillez soumettre vos tracés de découpe prêts à imprimer au format Adobe Illustrator (.AI), PDF éditable ou EPS vectoriel, avec toutes les polices vectorisées et les images incorporées à une résolution minimale de 300 DPI."
+      }
+    },
+    "meta": {
+      "title": "Guide de l'emballage durable imprimé sur mesure 2026 | POUCH.ECO",
+      "description": "Impression numérique couleur sur sachets compostables et recyclables. Sans frais de cliché, bas MOQs et finitions premium comme le toucher doux et le vernis sélectif."
+    },
+    "categoryTag": "Design & Impression",
+    "hero": {
+      "title1": "Imprimez votre marque.",
+      "title2": "Ne laissez aucune trace.",
+      "subtitle": "La technologie d'impression numérique rencontre les matériaux durables. Qualité photo, impression à fond perdu et sans frais de cliché. Apprenez à concevoir pour les matériaux écologiques.",
+      "imageAlt": "Presse numérique HP Indigo 20000 à grande vitesse imprimant des tracés de découpe d'emballages flexibles écologiques"
+    },
+    "related": {
+      "art1": "Guide des fournisseurs de sachets compostables sur mesure",
+      "art2": "Guide de l'emballage à bas MOQ",
+      "art3": "Options de finition de surface"
+    }
+  },
+  "pouchTechSpecsPage": {
+    "meta": {
+      "pouchTitle": "Spécifications techniques et fiches de données des matériaux | POUCH.ECO",
+      "pouchDesc": "Accédez aux fiches techniques complètes en PDF, au détail des couches et aux paramètres de barrière (OTR/WVTR) pour nos sachets plastiques compostables, recyclables et PCR.",
+      "b2bTitle": "Spécifications techniques | Achieve Pack",
+      "b2bDesc": "Fiches techniques et spécifications détaillées des matériaux pour les emballages durables. Espace ingénierie d'Achieve Pack."
+    },
+    "hero": {
+      "badge": "Espace Ingénierie",
+      "title1": "Spécifications",
+      "titleHighlight": "Techniques",
+      "subtitle": "Toutes les performances de laboratoire, les propriétés barrières et les détails des couches de nos structures de films durables.",
+      "btn1": "Trouver des spécifications",
+      "btn2": "Consulter les fiches techniques"
+    },
+    "b2bHero": {
+      "badge": "Fiches de données techniques v2.0",
+      "title1": "Portail des",
+      "titleHighlight": "Spécifications Techniques",
+      "subtitle": "Un annuaire complet d'ingénierie regroupant nos structures de matériaux durables, leurs performances de barrière et leurs certifications réglementaires. Conçu pour une conformité rigoureuse et les normes de l'économie circulaire.",
+      "btn1": "Lancer le configurateur",
+      "btn2": "Consulter le catalogue des séries"
+    },
+    "finder": {
+      "title": "Configurateur de spécifications",
+      "subtitle": "Renseignez vos critères cibles pour afficher dynamiquement les complexes laminés compatibles.",
+      "b2bSubtitle": "Sélectionnez votre secteur et vos objectifs de performance pour trouver la structure de matériau idéale.",
+      "step1": "// 1. SÉLECTIONNER LA CATÉGORIE DE PRODUIT",
+      "b2bStep1": "1. Quel produit emballez-vous ?",
+      "cat": {
+        "coffee": "Café & Thé",
+        "powder": "Poudres",
+        "pet": "Aliments pour animaux",
+        "liquids": "Liquides & Purées",
+        "snacks": "Snacks & Boulangerie"
+      },
+      "b2bCat": {
+        "powder": "Poudres et Compléments",
+        "pet": "Croquettes et Friandises"
+      },
+      "step2": "// 2. SÉLECTIONNER L'OBJECTIF ÉCOLOGIQUE",
+      "b2bStep2": "2. Quel est votre objectif de durabilité ?",
+      "eco": {
+        "compostable": "Compostable certifié",
+        "recyclable": "Recyclable",
+        "pcr": "Plastique recyclé PCR",
+        "biope": "Bio-PE de canne à sucre"
+      },
+      "b2bEco": {
+        "recyclable": "Recyclable (Tri sélectif)",
+        "pcr": "Plastique recyclé PCR",
+        "biope": "Bio-PE de canne à sucre"
+      },
+      "step3": "// 3. SÉLECTIONNER LE NIVEAU DE BARRIÈRE REQUIS",
+      "b2bStep3": "3. Quel niveau de barrière est requis ?",
+      "bar": {
+        "ultra": "Ultra élevé",
+        "high": "Barrière élevée",
+        "medium": "Standard",
+        "low": "Faible barrière"
+      },
+      "barDesc": {
+        "ultra": "Équivalent aluminium",
+        "high": "Métallisé",
+        "medium": "Transparent/PVOH",
+        "low": "Respirant"
+      },
+      "matchBadge": "STRUCTURE_RECOMMANDÉE",
+      "structure": "STRUCTURE :",
+      "thickness": "ÉPAISSEUR :",
+      "wvtr": "PERFORMANCE WVTR :",
+      "otr": "PERFORMANCE OTR :",
+      "btnView": "Consulter la fiche technique détaillée",
+      "btnRequest": "Demander un kit d'échantillons physiques",
+      "matchHeader": "// Structure de matériau recommandée",
+      "btnViewB2B": "Consulter la fiche de spécifications",
+      "btnRequestB2B": "Demander des échantillons physiques"
+    },
+    "specCard": {
+      "barrierTitle": "Propriétés barrière",
+      "structureTitle": "Structure",
+      "certTitle": "Certifications",
+      "btnDownload": "Télécharger le PDF",
+      "dataSheetTitle": "Fiche technique du produit",
+      "pName": "Nom du produit",
+      "structure": "Structure",
+      "thickness": "Épaisseur totale",
+      "weight": "Poids total",
+      "thLayer": "Couche / Niveau",
+      "thMaterial": "Matériau"
+    },
+    "lab": {
+      "title": "Performances certifiées en laboratoire",
+      "subtitle": "Chaque structure de matériau de notre catalogue est soumise à des tests rigoureux par des organismes tiers pour valider ses propriétés barrières, la solidité des soudures et sa conformité environnementale.",
+      "wvtrUnit": "WVTR g/m²/jour",
+      "otrUnit": "OTR cc/m²/jour",
+      "btn": "Demander les rapports de test"
+    }
+  },
+  "pouchBlogPage": {
+    "categories": {
+      "all": "Tous les articles",
+      "sustain": "Guide Durabilité",
+      "pack": "Guide Emballage",
+      "materials": "Guide Matériaux",
+      "coffee": "Secteur Café",
+      "coffeeUsa": "Café USA",
+      "design": "Conseils Design",
+      "startup": "Guide Startup"
+    },
+    "meta": {
+      "title": "Blog Emballage | Guides, conseils & analyses sectorielles | POUCH.ECO",
+      "description": "Tout savoir sur l'emballage durable : compostable vs recyclable, barrière des sachets de café, astuces bas MOQ et guides de design. Conseils d'experts pour marques éco-responsables.",
+      "ogTitle": "Blog Emballage & Guides | POUCH.ECO",
+      "ogDesc": "Guides d'experts sur l'emballage durable, les matériaux et le design"
+    },
+    "hero": {
+      "badge": "BASE_DE_CONNAISSANCES",
+      "title1": "Tout savoir sur",
+      "titleHighlight": "L'Emballage Durable",
+      "subtitle": "Guides impartiaux, comparatifs concrets et conseils pratiques pour les marques éco-responsables qui créent ou optimisent leurs emballages."
+    },
+    "search": {
+      "placeholder": "RECHERCHER_GUIDES_ET_CONSEILS..."
+    },
+    "featured": {
+      "badge": "À LA UNE",
+      "readTime": "de lecture",
+      "btn": "Lire le guide"
+    },
+    "grid": {
+      "latest": "Dernières publications",
+      "showing": "Affichage de {{filtered}} sur {{total}} articles",
+      "readMore": "Lire la suite"
+    },
+    "loading": "Synchronisation de la base de connaissances...",
+    "empty": {
+      "title": "Aucun article trouvé",
+      "desc": "Essayez de modifier votre recherche ou vos filtres pour trouver ce que vous cherchez.",
+      "btn": "Réinitialiser les filtres"
+    },
+    "newsletter": {
+      "title1": "Recevez nos conseils",
+      "title2": "Chaque semaine",
+      "subtitle": "Actualités du secteur, guides sur les matériaux et conseils exclusifs pour lancer votre marque. Aucun spam, désinscription en un clic.",
+      "placeholder": "VOTRE_EMAIL@MARQUE.COM",
+      "btn": "S'abonner",
+      "footer": "📧 Rejoignez plus de 1 200 fondateurs abonnés à nos conseils d'emballage"
     }
   }
 }

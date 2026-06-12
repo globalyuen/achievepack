@@ -21150,168 +21150,146 @@
   "pouchSEOPage": {
     "meta": {
       "title": "SEO Guide for Compostable Packaging Brands | POUCH.ECO",
-      "description": "Learn how to rank your compostable packaging brand on Google. Keyword research, content strategy, and technical SEO tips for eco-friendly pouch companies.",
-      "keywords": "SEO for packaging brands, compostable pouch SEO, eco packaging marketing, sustainable packaging keywords, biodegradable bag SEO, green packaging search optimization"
+      "description": "Learn how to rank your compostable packaging brand on Google. Keyword research, content strategy, and technical SEO tips for eco-friendly pouch companies."
+    },
+    "keywords": {
+      "k1": {
+        "term": "compostable pouches"
+      },
+      "k2": {
+        "term": "eco friendly packaging"
+      },
+      "k3": {
+        "term": "biodegradable bags"
+      },
+      "k4": {
+        "term": "sustainable packaging"
+      },
+      "k5": {
+        "term": "plant based pouches"
+      },
+      "k6": {
+        "term": "home compostable bags"
+      },
+      "titleHighlight": "Top Keywords",
+      "title2": "to Target",
+      "subtitle": "These are the highest-converting search terms for compostable packaging brands. Start here."
+    },
+    "difficulty": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "strategy": {
+      "s1": {
+        "title": "Keyword Research",
+        "description": "Find what your customers are actually searching for",
+        "tip1": "Target long-tail keywords like \"certified compostable coffee bags\"",
+        "tip2": "Use Google Search Console to find ranking opportunities",
+        "tip3": "Focus on buyer-intent keywords (e.g., \"buy compostable pouches\")",
+        "tip4": "Track competitor keywords using SEMrush or Ahrefs"
+      },
+      "s2": {
+        "title": "Content Strategy",
+        "description": "Create content that ranks AND converts",
+        "tip1": "Write comprehensive guides (1500+ words)",
+        "tip2": "Answer \"what is,\" \"how to,\" and \"vs\" questions",
+        "tip3": "Include product comparisons and use cases",
+        "tip4": "Add customer testimonials and case studies"
+      },
+      "s3": {
+        "title": "Technical SEO",
+        "description": "Make your site fast, mobile-friendly, and crawlable",
+        "tip1": "Optimize page speed (under 3 seconds load time)",
+        "tip2": "Use responsive design for mobile users",
+        "tip3": "Create XML sitemap and robots.txt",
+        "tip4": "Implement schema markup for rich snippets"
+      },
+      "titleHighlight": "3-Step",
+      "title2": "SEO Strategy",
+      "subtitle": "Follow this framework to rank faster and convert more eco-conscious buyers."
+    },
+    "faq": {
+      "q1": {
+        "question": "How long does SEO take for packaging brands?",
+        "answer": "Expect 3-6 months to see meaningful results. Compostable packaging is a growing niche, so ranking can happen faster than competitive industries. Focus on long-tail keywords first, then expand to broader terms as you gain authority."
+      },
+      "q2": {
+        "question": "What keywords should I target for compostable pouches?",
+        "answer": "Start with product-specific terms like \"certified compostable coffee bags\" or \"biodegradable stand-up pouches.\" Avoid generic terms like \"packaging\" initially. Use Google Keyword Planner to find search volume and competition levels."
+      },
+      "q3": {
+        "question": "Do I need a blog for SEO?",
+        "answer": "Yes. A blog helps you target informational keywords (e.g., \"how to choose compostable packaging\") that attract buyers earlier in their research phase. Aim for 2-4 high-quality posts per month covering certification guides, material comparisons, and industry trends."
+      },
+      "q4": {
+        "question": "How important are backlinks for packaging SEO?",
+        "answer": "Very important. Quality backlinks from sustainability blogs, industry publications, and eco-directories signal authority to Google. Focus on earning links through guest posts, partnerships, and creating shareable content like infographics or research reports."
+      },
+      "q5": {
+        "question": "Should I optimize for Google or Amazon?",
+        "answer": "Both, but differently. Google SEO focuses on content and authority. Amazon SEO prioritizes product titles, bullet points, and reviews. If you sell on Amazon, optimize both channels—but Google captures buyers in research mode before they reach Amazon."
+      },
+      "titleHighlight": "Common",
+      "title2": "SEO Questions"
     },
     "hero": {
       "badge": "SEO Strategy Guide",
-      "titleLine1": "Rank Your",
+      "title1": "Rank Your",
       "titleHighlight": "Eco Brand",
-      "titleLine2": "on Google",
+      "title2": "on Google",
       "subtitle": "SEO tactics that actually work for compostable packaging brands. No fluff. Just rankings.",
-      "ctaConsult": "Book SEO Consult",
-      "ctaKeywords": "See Keywords"
+      "btn1": "Book SEO Consult",
+      "btn2": "See Keywords"
     },
     "tldr": {
-      "label": "TL;DR",
-      "text": "SEO for eco packaging = keyword research + high-quality content + technical optimization. Target long-tail keywords, write comprehensive guides, and earn backlinks from sustainability sites. Expect 3-6 months for results."
+      "title": "TL;DR",
+      "content": "SEO for eco packaging = keyword research + high-quality content + technical optimization. Target long-tail keywords, write comprehensive guides, and earn backlinks from sustainability sites. Expect 3-6 months for results."
     },
-    "keywords": {
-      "title1": "Top Keywords",
-      "title2": "to Target",
-      "subtitle": "These are the highest-converting search terms for compostable packaging brands. Start here.",
-      "tableHeaders": {
-        "keyword": "Keyword",
-        "searchVolume": "Search Volume",
-        "difficulty": "Difficulty"
-      },
-      "items": {
-        "0": {
-          "term": "compostable pouches",
-          "volume": "1.2K/mo",
-          "difficulty": "Medium"
-        },
-        "1": {
-          "term": "eco friendly packaging",
-          "volume": "5.8K/mo",
-          "difficulty": "High"
-        },
-        "2": {
-          "term": "biodegradable bags",
-          "volume": "3.4K/mo",
-          "difficulty": "Medium"
-        },
-        "3": {
-          "term": "sustainable packaging",
-          "volume": "12K/mo",
-          "difficulty": "High"
-        },
-        "4": {
-          "term": "plant based pouches",
-          "volume": "890/mo",
-          "difficulty": "Low"
-        },
-        "5": {
-          "term": "home compostable bags",
-          "volume": "720/mo",
-          "difficulty": "Low"
-        }
-      }
+    "table": {
+      "th1": "Keyword",
+      "th2": "Search Volume",
+      "th3": "Difficulty"
     },
-    "strategy": {
-      "title1": "3-Step",
-      "title2": "SEO Strategy",
-      "subtitle": "Follow this framework to rank faster and convert more eco-conscious buyers.",
-      "items": {
-        "0": {
-          "title": "Keyword Research",
-          "description": "Find what your customers are actually searching for",
-          "tips": {
-            "0": "Target long-tail keywords like \"certified compostable coffee bags\"",
-            "1": "Use Google Search Console to find ranking opportunities",
-            "2": "Focus on buyer-intent keywords (e.g., \"buy compostable pouches\")",
-            "3": "Track competitor keywords using SEMrush or Ahrefs"
-          }
-        },
-        "1": {
-          "title": "Content Strategy",
-          "description": "Create content that ranks AND converts",
-          "tips": {
-            "0": "Write comprehensive guides (1500+ words)",
-            "1": "Answer \"what is,\" \"how to,\" and \"vs\" questions",
-            "2": "Include product comparisons and use cases",
-            "3": "Add customer testimonials and case studies"
-          }
-        },
-        "2": {
-          "title": "Technical SEO",
-          "description": "Make your site fast, mobile-friendly, and crawlable",
-          "tips": {
-            "0": "Optimize page speed (under 3 seconds load time)",
-            "1": "Use responsive design for mobile users",
-            "2": "Create XML sitemap and robots.txt",
-            "3": "Implement schema markup for rich snippets"
-          }
-        }
-      }
-    },
-    "whySeo": {
+    "why": {
       "title1": "Why SEO",
       "titleHighlight": "Matters",
       "title2": "for Eco Brands",
-      "subtitle": "Your customers are searching for sustainable packaging RIGHT NOW. If you're not ranking, they're finding your competitors instead.",
-      "benefits": {
-        "0": {
-          "title": "Organic Traffic = Free Leads",
-          "description": "Paid ads cost $3-8 per click. SEO brings qualified buyers for free, month after month."
-        },
-        "1": {
-          "title": "Authority = Trust",
-          "description": "Ranking on page 1 signals credibility. Buyers trust brands that Google trusts."
-        },
-        "2": {
-          "title": "Long-Tail = Higher Conversion",
-          "description": "Target specific searches like \"certified compostable coffee bags\" to attract buyers ready to purchase."
-        }
+      "desc": "Your customers are searching for sustainable packaging RIGHT NOW. If you're not ranking, they're finding your competitors instead.",
+      "point1": {
+        "title": "Organic Traffic = Free Leads",
+        "desc": "Paid ads cost $3-8 per click. SEO brings qualified buyers for free, month after month."
       },
-      "statsTitle": "SEO Stats That Matter",
-      "stats": {
-        "0": {
-          "value": "75%",
-          "description": "of users never scroll past page 1 of Google results"
-        },
-        "1": {
-          "value": "53%",
-          "description": "of all website traffic comes from organic search"
-        },
-        "2": {
-          "value": "14.6%",
-          "description": "average conversion rate for organic search (vs 1.7% for paid ads)"
-        }
+      "point2": {
+        "title": "Authority = Trust",
+        "desc": "Ranking on page 1 signals credibility. Buyers trust brands that Google trusts."
+      },
+      "point3": {
+        "title": "Long-Tail = Higher Conversion",
+        "desc": "Target specific searches like \"certified compostable coffee bags\" to attract buyers ready to purchase."
       }
     },
-    "faqs": {
-      "title1": "Common",
-      "title2": "SEO Questions",
-      "items": {
-        "0": {
-          "question": "How long does SEO take for packaging brands?",
-          "answer": "Expect 3-6 months to see meaningful results. Compostable packaging is a growing niche, so ranking can happen faster than competitive industries. Focus on long-tail keywords first, then expand to broader terms as you gain authority."
-        },
-        "1": {
-          "question": "What keywords should I target for compostable pouches?",
-          "answer": "Start with product-specific terms like \"certified compostable coffee bags\" or \"biodegradable stand-up pouches.\" Avoid generic terms like \"packaging\" initially. Use Google Keyword Planner to find search volume and competition levels."
-        },
-        "2": {
-          "question": "Do I need a blog for SEO?",
-          "answer": "Yes. A blog helps you target informational keywords (e.g., \"how to choose compostable packaging\") that attract buyers earlier in their research phase. Aim for 2-4 high-quality posts per month covering certification guides, material comparisons, and industry trends."
-        },
-        "3": {
-          "question": "How important are backlinks for packaging SEO?",
-          "answer": "Very important. Quality backlinks from sustainability blogs, industry publications, and eco-directories signal authority to Google. Focus on earning links through guest posts, partnerships, and creating shareable content like infographics or research reports."
-        },
-        "4": {
-          "question": "Should I optimize for Google or Amazon?",
-          "answer": "Both, but differently. Google SEO focuses on content and authority. Amazon SEO prioritizes product titles, bullet points, and reviews. If you sell on Amazon, optimize both channels—but Google captures buyers in research mode before they reach Amazon."
-        }
+    "stats": {
+      "title": "SEO Stats That Matter",
+      "s1": {
+        "val": "75%",
+        "desc": "of users never scroll past page 1 of Google results"
+      },
+      "s2": {
+        "val": "53%",
+        "desc": "of all website traffic comes from organic search"
+      },
+      "s3": {
+        "val": "14.6%",
+        "desc": "average conversion rate for organic search (vs 1.7% for paid ads)"
       }
     },
     "cta": {
       "title1": "Ready to",
       "titleHighlight": "Rank Higher?",
-      "subtitle": "Book a FREE 30-minute SEO consultation. We'll audit your site, identify quick wins, and build a custom keyword strategy.",
-      "button": "Book Your SEO Consult",
-      "disclaimer": "No pitch. No obligation. Just actionable SEO advice."
+      "desc": "Book a FREE 30-minute SEO consultation. We'll audit your site, identify quick wins, and build a custom keyword strategy.",
+      "btn": "Book Your SEO Consult",
+      "footer": "No pitch. No obligation. Just actionable SEO advice."
     }
   },
   "pouchUnprintedSamplesPage": {
@@ -25914,6 +25892,281 @@
       "a5": "Our compostable coffee bags utilize genuine BPI-certified and TÜV AUSTRIA (OK Compost Industrial/Home) certified films and Swiss-imported degassing valves. They meet ASTM D6400 and EN 13432 standards, breaking down fully into organic nutrient-rich compost without leaving toxic residues.",
       "q6": "What technical specifications do you need to calculate a custom packaging quote?",
       "a6": "To provide an accurate wholesale quote, please specify your: (1) Bag style (e.g., Stand-Up Pouch, Flat-Bottom Gusset, Side-Gusset Pouch), (2) Volumetric capacity (12oz, 16oz, 2lb, 5lb), (3) Material structure (Compostable Kraft, Recyclable Mono-PE, or PCR), (4) Total quantity, and (5) Design colors or artwork files."
+    }
+  },
+  "customPrintedMaterialsGuidePage": {
+    "sec1": {
+      "title": "Eco Doesn't Mean Ugly",
+      "p1": "Many brands assume that moving to sustainable films means accepting dull, faded graphics. Modern HP Indigo 20000 digital printing delivers high-definition color depth and precise detail without compromising biodegradability.",
+      "mythTitle": "Myth Busted.",
+      "mythDesc": "\"Compostable bags look dull and brown.\"",
+      "mythFalse": "FALSE.",
+      "mythListHeader": "With HP Indigo 20000 Digital Presses, we print:",
+      "mythItem1": "CMYK + White + Spot Colors",
+      "mythItem2": "Photo-Realistic Imagery (High 1200 DPI)",
+      "mythItem3": "Gradients & Fine Text down to 4pt"
+    },
+    "sec2": {
+      "title": "Choose Your Custom Canvas",
+      "naturalTitle": "The \"Natural\" Look",
+      "naturalTag": "KRAFT PAPER + PLA",
+      "naturalDesc": "Perfect for organic coffee and granola. The texture is real paper.",
+      "naturalFinish": "Best Finish:",
+      "naturalFinishDesc": "Foil Stamping (Gold/Silver) pop against the brown.",
+      "premiumTitle": "The \"Premium\" Look",
+      "premiumTag": "WHITE PLA / MONO-PE",
+      "premiumDesc": "Bright white base for vibrant colors. Looks just like \"normal\" plastic but sustainable.",
+      "premiumFinish": "Best Finish:",
+      "premiumFinishDesc": "Soft-Touch Matte + Spot UV Gloss."
+    },
+    "sec3": {
+      "title": "Technical-to-Purchasing Specification Matrix",
+      "p1": "For brand and supply chain directors, choosing printed sustainable materials requires translating key structural properties into procurement value:",
+      "th1": "Technical Parameter",
+      "th2": "Procurement Impact & Utility",
+      "th3": "Direct Factory Standard",
+      "r1c1": "1200 DPI Digital Lamination",
+      "r1c2": "Zero plate fees allow startup brands to launch multi-SKU product lines cost-effectively.",
+      "r1c3": "HP Indigo 20000 Plateless Printing",
+      "r2c1": "Bio-Based Co-Extrusion",
+      "r2c2": "Combines paper look with starch-based seals for premium display shelf presence without tearing.",
+      "r2c3": "FDA and GRS Compliant Layers",
+      "r3c1": "MDO-PE Recyclable Film",
+      "r3c2": "Under 5% total ink and foil density ensures full optical recognition at standard recycling plants.",
+      "r3c3": "Approved for How2Recycle Store Drop-off",
+      "r4c1": "Spot UV & Metallic Foils",
+      "r4c2": "High-converting tactile finishes boost retail checkout pull rate by up to 28% for superfoods.",
+      "r4c3": "Biodegradable Foil Options & Spot Varnish"
+    },
+    "sec4": {
+      "title": "Finishes That Sell",
+      "heading": "Tactile Experience",
+      "finish1": {
+        "title": "Soft Touch",
+        "desc": "Velvety & Expensive Feeling"
+      },
+      "finish2": {
+        "title": "Spot Gloss",
+        "desc": "Make Logos Shine"
+      },
+      "finish3": {
+        "title": "Holographic",
+        "desc": "Rainbow Effects"
+      },
+      "finish4": {
+        "title": "Kraft Texture",
+        "desc": "Raw & Authentic"
+      }
+    },
+    "b2b": {
+      "title": "Need Wholesale Enterprise Solutions?",
+      "desc": "If you are looking for high-volume manufacturing, custom material development, and pricing sheets starting at 5,000+ units, visit our B2B headquarters on AchievePack.com.",
+      "btn": "Go to AchievePack B2B →"
+    },
+    "sec5": {
+      "title": "From Art to Bag (15 Days)",
+      "heading": "The Digital Workflow",
+      "step1": "Upload AI/PDF Dieline",
+      "step2": "We send Digital Proof (24h)",
+      "step3": "Printing & Laminating (7 Days)",
+      "step4": "Pouch Making & QC (5 Days)",
+      "step5": "Shipping (Express Air)"
+    },
+    "sec6": {
+      "title": "Contextual B2B Store Products",
+      "p1": "For packaging buyers planning their next production run, we recommend starting with our B2B Biodegradable Sample Kit to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our Custom Eco Rollstock Film. If you are packaging confectionery or small items, our premium Cellophane Candy Wrapper offers excellent clarity and compostability."
+    },
+    "faq": {
+      "q1": {
+        "question": "What is the MOQ for custom printed eco-pouches?",
+        "answer": "Our low MOQ program starts at 100 units for stock pouches with custom stickers and 500 units for fully custom, edge-to-edge digitally printed pouches. For bulk commercial print runs, our B2B site achievepack.com starts at 5,000 units per SKU."
+      },
+      "q2": {
+        "question": "Are there plate charges or setup fees?",
+        "answer": "No! Digital printing on pouch.eco is completely plateless. Your artwork is printed directly from digital vectors to our HP Indigo press, saving you $150 to $300 in setup plate cylinder costs per color."
+      },
+      "q3": {
+        "question": "Can I receive printed physical samples before full production?",
+        "answer": "Yes. You can order a Free Sample Kit containing 10 pre-made pouches in multiple finishes to check paper textures and film thickness. For your custom artwork, we can run a physical press proof run (50 bags) for $100."
+      },
+      "q4": {
+        "question": "What is the typical production timeline?",
+        "answer": "Custom digital printed pouches are manufactured and shipped in just 10-15 business days following dieline artwork approval. Large rotogravure wholesale runs on achievepack.com require 20-25 days."
+      },
+      "q5": {
+        "question": "Are the digital inks safe and compostable?",
+        "answer": "Yes. We use certified food-grade, solvent-free digital inks that comply with strict FDA, BPI, and TÜV Austria regulations, ensuring zero toxic chemical migration or composting blockage."
+      },
+      "q6": {
+        "question": "What artwork file formats are required?",
+        "answer": "Please submit print-ready vector dielines in Adobe Illustrator (.AI), Editable PDF, or vector EPS format with all fonts outlined and images embedded at a minimum of 300 DPI."
+      }
+    },
+    "meta": {
+      "title": "Custom Printed Sustainable Packaging Guide 2026 | POUCH.ECO",
+      "description": "Full color digital printing on compostable and recyclable pouches. No plate fees, low MOQs, and premium finishes like soft touch and spot UV."
+    },
+    "categoryTag": "Design & Print",
+    "hero": {
+      "title1": "Print Your Brand.",
+      "title2": "Leave No Trace.",
+      "subtitle": "Digital printing technology meets sustainable materials. Photo-quality, full bleed, and zero plate fees. Learn how to design for eco-materials.",
+      "imageAlt": "High-speed digital HP Indigo 20000 printer running custom eco-friendly flexible packaging dielines"
+    },
+    "related": {
+      "art1": "Custom Compostable Pouch Suppliers Guide",
+      "art2": "Low MOQ Packaging Guide",
+      "art3": "Surface Finish Options"
+    }
+  },
+  "pouchTechSpecsPage": {
+    "meta": {
+      "pouchTitle": "Technical Specifications & Material Data Sheets | POUCH.ECO",
+      "pouchDesc": "Access complete PDF specification sheets, layers break down, and barrier parameters (OTR/WVTR) for compostable, recyclable, and PCR plastic pouches.",
+      "b2bTitle": "Technical Specifications | Achieve Pack",
+      "b2bDesc": "Technical data sheets and detailed material specifications for sustainable packaging. Achieve Pack engineering hub."
+    },
+    "hero": {
+      "badge": "Engineering Hub",
+      "title1": "Technical",
+      "titleHighlight": "Specifications",
+      "subtitle": "Complete laboratory performance metrics, barrier sheets, and layer breakdowns for our sustainable film structures.",
+      "btn1": "Material Spec Finder",
+      "btn2": "Browse Data Sheets"
+    },
+    "b2bHero": {
+      "badge": "Technical Data Sheets v2.0",
+      "title1": "Technical",
+      "titleHighlight": "Specification Hub",
+      "subtitle": "A comprehensive engineering directory of our sustainable material structures, barrier performance metrics, and regulatory certifications. Designed for rigorous compliance and circular economy standards.",
+      "btn1": "Launch Spec Finder",
+      "btn2": "Browse Series Catalog"
+    },
+    "finder": {
+      "title": "Material Spec Finder",
+      "subtitle": "Input your target criteria to dynamically fetch compliant laminates.",
+      "b2bSubtitle": "Select your industry and performance targets to match precise material specifications.",
+      "step1": "// 1. SELECT PRODUCT CATEGORY",
+      "b2bStep1": "1. What are you packaging?",
+      "cat": {
+        "coffee": "Coffee & Tea",
+        "powder": "Powders",
+        "pet": "Pet Food",
+        "liquids": "Liquids & Purees",
+        "snacks": "Snacks & Bakery"
+      },
+      "b2bCat": {
+        "powder": "Powders / Supplements",
+        "pet": "Pet Food / Treats"
+      },
+      "step2": "// 2. SELECT SUSTAINABILITY TARGET",
+      "b2bStep2": "2. What is your sustainability target?",
+      "eco": {
+        "compostable": "Certified Compostable",
+        "recyclable": "Curbside Recyclable",
+        "pcr": "Circular Recycled PCR",
+        "biope": "Sugarcane Bio-PE"
+      },
+      "b2bEco": {
+        "recyclable": "Curbside Recyclable",
+        "pcr": "Circular Recycled PCR",
+        "biope": "Sugarcane Bio-PE"
+      },
+      "step3": "// 3. SELECT REQUIRED BARRIER LEVEL",
+      "b2bStep3": "3. What is your required barrier level?",
+      "bar": {
+        "ultra": "Ultra High",
+        "high": "High Barrier",
+        "medium": "Standard",
+        "low": "Low Barrier"
+      },
+      "barDesc": {
+        "ultra": "Foil Equivalent",
+        "high": "Metallized",
+        "medium": "Clear/PVOH",
+        "low": "Breathable"
+      },
+      "matchBadge": "RECOMMENDED_MATCH",
+      "structure": "STRUCTURE:",
+      "thickness": "THICKNESS:",
+      "wvtr": "WVTR RATE:",
+      "otr": "OTR RATE:",
+      "btnView": "View Detailed Spec Sheet",
+      "btnRequest": "Request Physical Sample Box",
+      "matchHeader": "// Recommended Material Match",
+      "btnViewB2B": "View Technical Spec Sheet",
+      "btnRequestB2B": "Request Physical Sample Kit"
+    },
+    "specCard": {
+      "barrierTitle": "Barrier Properties",
+      "structureTitle": "Structure",
+      "certTitle": "Certifications",
+      "btnDownload": "Download PDF",
+      "dataSheetTitle": "Product Data Sheet",
+      "pName": "Product Name",
+      "structure": "Structure",
+      "thickness": "Total Thickness",
+      "weight": "Total Weight",
+      "thLayer": "Layer / 层级",
+      "thMaterial": "Material / 材料"
+    },
+    "lab": {
+      "title": "Verified Lab Performance",
+      "subtitle": "Every material structure in our catalog undergoes rigorous third-party testing to verify barrier properties, seal integrity, and environmental compliance.",
+      "wvtrUnit": "WVTR g/m²/day",
+      "otrUnit": "OTR cc/m²/day",
+      "btn": "Request Test Reports"
+    }
+  },
+  "pouchBlogPage": {
+    "categories": {
+      "all": "All Posts",
+      "sustain": "Sustainability Guide",
+      "pack": "Packaging Guide",
+      "materials": "Materials Guide",
+      "coffee": "Coffee Industry",
+      "coffeeUsa": "Coffee USA",
+      "design": "Design Tips",
+      "startup": "Startup Guide"
+    },
+    "meta": {
+      "title": "Packaging Blog | Guides, Tips & Industry Insights | POUCH.ECO",
+      "description": "Learn about sustainable packaging: compostable vs recyclable, coffee bag barriers, low MOQ tips, and design guides. Expert advice for eco brands.",
+      "ogTitle": "Packaging Blog & Guides | POUCH.ECO",
+      "ogDesc": "Expert guides on sustainable packaging, materials, and design"
+    },
+    "hero": {
+      "badge": "KNOWLEDGE_BASE",
+      "title1": "Learn About",
+      "titleHighlight": "Sustainable Packaging",
+      "subtitle": "Honest guides, real comparisons, and actionable tips for eco brands launching or scaling their packaging."
+    },
+    "search": {
+      "placeholder": "SEARCH_GUIDES_AND_TIPS..."
+    },
+    "featured": {
+      "badge": "FEATURED",
+      "readTime": "read",
+      "btn": "Read Guide"
+    },
+    "grid": {
+      "latest": "Latest Posts",
+      "showing": "Showing {{filtered}} of {{total}} posts",
+      "readMore": "Read More"
+    },
+    "loading": "Synchronizing knowledge base...",
+    "empty": {
+      "title": "No Posts Found",
+      "desc": "Try adjusting your search or filter to find what you're looking for.",
+      "btn": "Reset Filters"
+    },
+    "newsletter": {
+      "title1": "Get Packaging",
+      "title2": "Tips Weekly",
+      "subtitle": "Industry updates, material guides, and exclusive startup tips. No spam, unsubscribe anytime.",
+      "placeholder": "YOUR_EMAIL@BRAND.COM",
+      "btn": "Subscribe",
+      "footer": "📧 Join 1,200+ founders learning about sustainable packaging"
     }
   }
 }

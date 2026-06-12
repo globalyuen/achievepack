@@ -5,6 +5,7 @@ import SiteHeader from '../../components/SiteHeader'
 import Footer from '../../components/Footer'
 import { isPouch } from '../../utils/domain'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { 
   ArrowRight, 
   Eye, 
@@ -169,6 +170,7 @@ const SPEC_FINDER_DATABASE = [
 ]
 
 export default function PouchTechSpecsPage() {
+  const { t } = useTranslation()
   const pouchMode = isPouch()
 
   // Material Spec Finder States
@@ -301,8 +303,8 @@ export default function PouchTechSpecsPage() {
   const Content = pouchMode ? (
     <>
       <Helmet>
-        <title>Technical Specifications | POUCH.ECO</title>
-        <meta name="description" content="Detailed technical specifications for our eco-friendly packaging materials. Download data sheets and view layer structures." />
+        <title>{t('pouchTechSpecsPage.meta.pouchTitle', 'Technical Specifications & Material Data Sheets | POUCH.ECO')}</title>
+        <meta name="description" content={t('pouchTechSpecsPage.meta.pouchDesc', 'Detailed technical specifications for our eco-friendly packaging materials. Download data sheets and view layer structures.')} />
       </Helmet>
 
       {/* Hero Section - Neo-Brutalist */}
@@ -312,18 +314,18 @@ export default function PouchTechSpecsPage() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1">
               <div className="inline-block bg-black text-[#D4FF00] px-4 py-1 mb-6 font-['JetBrains_Mono'] font-bold transform -rotate-1">
-                DATA_SHEETS_V2.0
+                {t('pouchTechSpecsPage.pouchHero.badge', 'DATA_SHEETS_V2.0')}
               </div>
               <h1 className="font-black text-5xl md:text-7xl uppercase mb-8 leading-none">
-                Technical<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#00FFFF] [-webkit-text-stroke:2px_black]">Specs.</span>
+                {t('pouchTechSpecsPage.pouchHero.title1', 'Technical')}<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#00FFFF] [-webkit-text-stroke:2px_black]">{t('pouchTechSpecsPage.pouchHero.titleHighlight', 'Specs.')}</span>
               </h1>
               <p className="font-['JetBrains_Mono'] text-xl max-w-xl mb-8 border-l-4 border-black pl-6">
-                Deep dive into material structures, barrier properties, and certification data. Transparency is our policy.
+                {t('pouchTechSpecsPage.pouchHero.subtitle', 'Deep dive into material structures, barrier properties, and certification data. Transparency is our policy.')}
               </p>
               <div className="flex flex-wrap gap-4">
                  <NeoButton onClick={() => document.getElementById('spec-finder-sec')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Spec Finder App <ArrowRight className="w-5 h-5" />
+                  {t('pouchTechSpecsPage.pouchHero.btn', 'Spec Finder App')} <ArrowRight className="w-5 h-5" />
                  </NeoButton>
               </div>
             </div>
@@ -346,21 +348,21 @@ export default function PouchTechSpecsPage() {
               <div className="flex-1 space-y-6">
                 <div>
                   <h2 className="font-black text-3xl uppercase tracking-tight flex items-center gap-2 mb-2">
-                    <Sparkles className="w-6 h-6 text-black fill-current animate-pulse" /> Material Spec Finder
+                    <Sparkles className="w-6 h-6 text-black fill-current animate-pulse" /> {t('pouchTechSpecsPage.finder.title', 'Material Spec Finder')}
                   </h2>
-                  <p className="font-['JetBrains_Mono'] text-xs font-bold text-gray-500 uppercase">Input your target criteria to dynamically fetch compliant laminates.</p>
+                  <p className="font-['JetBrains_Mono'] text-xs font-bold text-gray-500 uppercase">{t('pouchTechSpecsPage.finder.subtitle', 'Input your target criteria to dynamically fetch compliant laminates.')}</p>
                 </div>
 
                 {/* Industry Selection */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider font-['JetBrains_Mono'] text-gray-700 mb-2">// 1. SELECT PRODUCT CATEGORY</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider font-['JetBrains_Mono'] text-gray-700 mb-2">{t('pouchTechSpecsPage.finder.step1', '// 1. SELECT PRODUCT CATEGORY')}</label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {[
-                      { id: 'coffee', label: 'Coffee & Tea', icon: <Coffee className="w-4 h-4" /> },
-                      { id: 'powder', label: 'Powders', icon: <Layers className="w-4 h-4" /> },
-                      { id: 'pet', label: 'Pet Food', icon: <Heart className="w-4 h-4" /> },
-                      { id: 'liquids', label: 'Liquids & Purees', icon: <Droplet className="w-4 h-4" /> },
-                      { id: 'snacks', label: 'Snacks & Bakery', icon: <Package className="w-4 h-4" /> }
+                      { id: 'coffee', label: t('pouchTechSpecsPage.finder.cat.coffee', 'Coffee & Tea'), icon: <Coffee className="w-4 h-4" /> },
+                      { id: 'powder', label: t('pouchTechSpecsPage.finder.cat.powder', 'Powders'), icon: <Layers className="w-4 h-4" /> },
+                      { id: 'pet', label: t('pouchTechSpecsPage.finder.cat.pet', 'Pet Food'), icon: <Heart className="w-4 h-4" /> },
+                      { id: 'liquids', label: t('pouchTechSpecsPage.finder.cat.liquids', 'Liquids & Purees'), icon: <Droplet className="w-4 h-4" /> },
+                      { id: 'snacks', label: t('pouchTechSpecsPage.finder.cat.snacks', 'Snacks & Bakery'), icon: <Package className="w-4 h-4" /> }
                     ].map(ind => (
                       <button
                         key={ind.id}
@@ -380,13 +382,13 @@ export default function PouchTechSpecsPage() {
 
                 {/* Eco Preference */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider font-['JetBrains_Mono'] text-gray-700 mb-2">// 2. SELECT SUSTAINABILITY TARGET</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider font-['JetBrains_Mono'] text-gray-700 mb-2">{t('pouchTechSpecsPage.finder.step2', '// 2. SELECT SUSTAINABILITY TARGET')}</label>
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      { id: 'compostable', label: 'Certified Compostable', badge: 'ASTM D6400' },
-                      { id: 'recyclable', label: 'Curbside Recyclable', badge: 'Mono-Material' },
-                      { id: 'pcr', label: 'Circular Recycled PCR', badge: 'GRS Certified' },
-                      { id: 'biope', label: 'Sugarcane Bio-PE', badge: 'Carbon-Negative' }
+                      { id: 'compostable', label: t('pouchTechSpecsPage.finder.eco.compostable', 'Certified Compostable'), badge: 'ASTM D6400' },
+                      { id: 'recyclable', label: t('pouchTechSpecsPage.finder.eco.recyclable', 'Curbside Recyclable'), badge: 'Mono-Material' },
+                      { id: 'pcr', label: t('pouchTechSpecsPage.finder.eco.pcr', 'Circular Recycled PCR'), badge: 'GRS Certified' },
+                      { id: 'biope', label: t('pouchTechSpecsPage.finder.eco.biope', 'Sugarcane Bio-PE'), badge: 'Carbon-Negative' }
                     ].map(eco => (
                       <button
                         key={eco.id}
@@ -406,13 +408,13 @@ export default function PouchTechSpecsPage() {
 
                 {/* Barrier Requirements */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider font-['JetBrains_Mono'] text-gray-700 mb-2">// 3. SELECT REQUIRED BARRIER LEVEL</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider font-['JetBrains_Mono'] text-gray-700 mb-2">{t('pouchTechSpecsPage.finder.step3', '// 3. SELECT REQUIRED BARRIER LEVEL')}</label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {[
-                      { id: 'ultra', label: 'Ultra High', desc: 'Foil Equivalent' },
-                      { id: 'high', label: 'High Barrier', desc: 'Metallized' },
-                      { id: 'medium', label: 'Standard', desc: 'Clear/PVOH' },
-                      { id: 'low', label: 'Low Barrier', desc: 'Breathable' }
+                      { id: 'ultra', label: t('pouchTechSpecsPage.finder.bar.ultra', 'Ultra High'), desc: t('pouchTechSpecsPage.finder.bar.ultraDesc', 'Foil Equivalent') },
+                      { id: 'high', label: t('pouchTechSpecsPage.finder.bar.high', 'High Barrier'), desc: t('pouchTechSpecsPage.finder.bar.highDesc', 'Metallized') },
+                      { id: 'medium', label: t('pouchTechSpecsPage.finder.bar.medium', 'Standard'), desc: t('pouchTechSpecsPage.finder.bar.mediumDesc', 'Clear/PVOH') },
+                      { id: 'low', label: t('pouchTechSpecsPage.finder.bar.low', 'Low Barrier'), desc: t('pouchTechSpecsPage.finder.bar.lowDesc', 'Breathable') }
                     ].map(bar => (
                       <button
                         key={bar.id}
@@ -435,7 +437,7 @@ export default function PouchTechSpecsPage() {
               <div className="w-full lg:w-[360px] border-4 border-black bg-white p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
                 <div>
                   <div className="bg-black text-[#D4FF00] font-['JetBrains_Mono'] text-xs font-bold uppercase py-1 px-2.5 inline-block mb-3">
-                    RECOMMENDED_MATCH
+                    {t('pouchTechSpecsPage.finder.matchBadge', 'RECOMMENDED_MATCH')}
                   </div>
                   <h3 className="font-black text-2xl uppercase leading-tight mb-2">{bestMatch.name}</h3>
                   <div className="text-xs font-['Space_Grotesk'] text-gray-500 mb-4">{bestMatch.series}</div>
@@ -447,19 +449,19 @@ export default function PouchTechSpecsPage() {
                   {/* Technical Metrics */}
                   <div className="space-y-2 border-t-2 border-dashed border-black pt-4 font-['JetBrains_Mono'] text-xs font-bold">
                     <div className="flex justify-between">
-                      <span className="text-gray-500">STRUCTURE:</span>
+                      <span className="text-gray-500">{t('pouchTechSpecsPage.finder.structure', 'STRUCTURE:')}</span>
                       <span className="text-black text-right max-w-[65%]">{bestMatch.structure}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-500">THICKNESS:</span>
+                      <span className="text-gray-500">{t('pouchTechSpecsPage.finder.thickness', 'THICKNESS:')}</span>
                       <span className="text-black">{bestMatch.thickness}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-500">WVTR RATE:</span>
+                      <span className="text-gray-500">{t('pouchTechSpecsPage.finder.wvtr', 'WVTR RATE:')}</span>
                       <span className="text-green-700">{bestMatch.wvtr}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-500">OTR RATE:</span>
+                      <span className="text-gray-500">{t('pouchTechSpecsPage.finder.otr', 'OTR RATE:')}</span>
                       <span className="text-green-700">{bestMatch.otr}</span>
                     </div>
                   </div>
@@ -470,7 +472,7 @@ export default function PouchTechSpecsPage() {
                     to={bestMatch.path}
                     className="w-full border-4 border-black py-2.5 bg-black hover:bg-neutral-800 text-[#D4FF00] font-black uppercase text-center text-xs tracking-wider block shadow-[4px_4px_0px_0px_rgba(20,83,45,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
                   >
-                    View Detailed Spec Sheet
+                    {t('pouchTechSpecsPage.finder.btnView', 'View Detailed Spec Sheet')}
                   </Link>
                   <a
                     href="https://calendly.com/30-min-free-packaging-consultancy"
@@ -478,7 +480,7 @@ export default function PouchTechSpecsPage() {
                     rel="noopener noreferrer"
                     className="w-full border-4 border-black py-2 bg-white hover:bg-neutral-100 text-black font-black uppercase text-center text-xs tracking-wider block"
                   >
-                    Request Physical Sample Box
+                    {t('pouchTechSpecsPage.finder.btnRequest', 'Request Physical Sample Box')}
                   </a>
                 </div>
               </div>
@@ -520,7 +522,7 @@ export default function PouchTechSpecsPage() {
                       <p className="font-['Space_Grotesk'] mb-6">{spec.description}</p>
                       <div className="mb-6">
                         <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
-                          <Zap className="w-4 h-4" /> Barrier Properties
+                          <Zap className="w-4 h-4" /> {t('pouchTechSpecsPage.specCard.barrierTitle', 'Barrier Properties')}
                         </div>
                         <div className="grid grid-cols-2 gap-3">
                           {(spec as any).barrier?.map((b: any) => (
@@ -533,7 +535,7 @@ export default function PouchTechSpecsPage() {
                       </div>
                       <div className="mb-6">
                         <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
-                          <Layers className="w-4 h-4" /> Structure
+                          <Layers className="w-4 h-4" /> {t('pouchTechSpecsPage.specCard.structureTitle', 'Structure')}
                         </div>
                         <div className="bg-gray-100 border-2 border-black p-3 space-y-2">
                           {spec.layers.map((layer, i) => (
@@ -546,7 +548,7 @@ export default function PouchTechSpecsPage() {
                       </div>
                       <div className="mb-6">
                         <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
-                          <ShieldCheck className="w-4 h-4" /> Certifications
+                          <ShieldCheck className="w-4 h-4" /> {t('pouchTechSpecsPage.specCard.certTitle', 'Certifications')}
                         </div>
                         <div className="flex flex-wrap gap-2">
                           {spec.certifications.map((cert) => (
@@ -555,7 +557,7 @@ export default function PouchTechSpecsPage() {
                         </div>
                       </div>
                       <NeoButton variant="dark" className="w-full justify-center mt-auto" href={spec.pdfUrl} target="_blank">
-                        <FileText className="w-4 h-4" /> Download PDF
+                        <FileText className="w-4 h-4" /> {t('pouchTechSpecsPage.specCard.btnDownload', 'Download PDF')}
                       </NeoButton>
                     </div>
 
@@ -563,22 +565,22 @@ export default function PouchTechSpecsPage() {
                     {(spec as any).dataSheet && (
                       <div className="flex flex-col">
                         <div className="bg-amber-50 border-4 border-black p-6">
-                          <h3 className="font-black text-lg uppercase mb-1 border-b-2 border-black pb-2 mb-4">Product Data Sheet</h3>
+                          <h3 className="font-black text-lg uppercase mb-1 border-b-2 border-black pb-2 mb-4">{t('pouchTechSpecsPage.specCard.dataSheetTitle', 'Product Data Sheet')}</h3>
                           <div className="space-y-2 mb-4 font-['JetBrains_Mono'] text-sm">
                             <div className="flex justify-between border-b border-gray-300 pb-1">
-                              <span className="font-bold">Product Name</span>
+                              <span className="font-bold">{t('pouchTechSpecsPage.specCard.pName', 'Product Name')}</span>
                               <span className="text-gray-700 text-right max-w-[55%]">{(spec as any).dataSheet.productName}</span>
                             </div>
                             <div className="flex justify-between border-b border-gray-300 pb-1">
-                              <span className="font-bold">Structure</span>
+                              <span className="font-bold">{t('pouchTechSpecsPage.specCard.structure', 'Structure')}</span>
                               <span className="text-gray-700">{(spec as any).dataSheet.structure}</span>
                             </div>
                             <div className="flex justify-between border-b border-gray-300 pb-1">
-                              <span className="font-bold">Total Thickness</span>
+                              <span className="font-bold">{t('pouchTechSpecsPage.specCard.thickness', 'Total Thickness')}</span>
                               <span className="text-gray-700">{(spec as any).dataSheet.totalThickness}</span>
                             </div>
                             <div className="flex justify-between pb-1">
-                              <span className="font-bold">Total Weight</span>
+                              <span className="font-bold">{t('pouchTechSpecsPage.specCard.weight', 'Total Weight')}</span>
                               <span className="text-gray-700">{(spec as any).dataSheet.totalWeight}</span>
                             </div>
                           </div>
@@ -586,8 +588,8 @@ export default function PouchTechSpecsPage() {
                             <table className="w-full text-xs border border-black border-collapse">
                               <thead className="bg-black text-white">
                                 <tr>
-                                  <th className="p-2 text-left border border-gray-600">Layer / 层级</th>
-                                  <th className="p-2 text-left border border-gray-600">Material / 材料</th>
+                                  <th className="p-2 text-left border border-gray-600">{t('pouchTechSpecsPage.specCard.thLayer', 'Layer / 层级')}</th>
+                                  <th className="p-2 text-left border border-gray-600">{t('pouchTechSpecsPage.specCard.thMaterial', 'Material / 材料')}</th>
                                   <th className="p-2 text-center border border-gray-600">g/m²</th>
                                   <th className="p-2 text-center border border-gray-600">mm</th>
                                   <th className="p-2 text-center border border-gray-600">μm</th>
@@ -626,7 +628,7 @@ export default function PouchTechSpecsPage() {
                     <div className="space-y-6 mb-8">
                        <div>
                           <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
-                             <Layers className="w-4 h-4" /> Structure
+                             <Layers className="w-4 h-4" /> {t('pouchTechSpecsPage.specCard.structureTitle', 'Structure')}
                           </div>
                           <div className="bg-gray-100 border-2 border-black p-3 space-y-2">
                              {spec.layers.map((layer, i) => (
@@ -639,7 +641,7 @@ export default function PouchTechSpecsPage() {
                        </div>
                     </div>
                     <NeoButton variant="dark" className="w-full justify-center mt-auto" href={spec.pdfUrl} target="_blank">
-                       <FileText className="w-4 h-4" /> Download PDF
+                       <FileText className="w-4 h-4" /> {t('pouchTechSpecsPage.specCard.btnDownload', 'Download PDF')}
                     </NeoButton>
                   </>
                 )}
@@ -708,21 +710,21 @@ export default function PouchTechSpecsPage() {
               <div className="flex-1 space-y-6">
                 <div>
                   <h2 className="text-3xl font-bold text-amber-400 flex items-center gap-2 mb-2">
-                    <Sparkles className="w-6 h-6" /> Material Spec Finder
+                    <Sparkles className="w-6 h-6" /> {t('pouchTechSpecsPage.finder.title', 'Material Spec Finder')}
                   </h2>
-                  <p className="text-xs text-neutral-300">Select your industry and performance targets to match precise material specifications.</p>
+                  <p className="text-xs text-neutral-300">{t('pouchTechSpecsPage.finder.b2bSubtitle', 'Select your industry and performance targets to match precise material specifications.')}</p>
                 </div>
 
                 {/* Industry Selection */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">1. What are you packaging?</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">{t('pouchTechSpecsPage.finder.b2bStep1', '1. What are you packaging?')}</label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {[
-                      { id: 'coffee', label: 'Coffee & Tea', icon: <Coffee className="w-4 h-4" /> },
-                      { id: 'powder', label: 'Powders / Supplements', icon: <Layers className="w-4 h-4" /> },
-                      { id: 'pet', label: 'Pet Food / Treats', icon: <Heart className="w-4 h-4" /> },
-                      { id: 'liquids', label: 'Liquids & Purees', icon: <Droplet className="w-4 h-4" /> },
-                      { id: 'snacks', label: 'Snacks & Bakery', icon: <Package className="w-4 h-4" /> }
+                      { id: 'coffee', label: t('pouchTechSpecsPage.finder.cat.coffee', 'Coffee & Tea'), icon: <Coffee className="w-4 h-4" /> },
+                      { id: 'powder', label: t('pouchTechSpecsPage.finder.b2bCat.powder', 'Powders / Supplements'), icon: <Layers className="w-4 h-4" /> },
+                      { id: 'pet', label: t('pouchTechSpecsPage.finder.b2bCat.pet', 'Pet Food / Treats'), icon: <Heart className="w-4 h-4" /> },
+                      { id: 'liquids', label: t('pouchTechSpecsPage.finder.cat.liquids', 'Liquids & Purees'), icon: <Droplet className="w-4 h-4" /> },
+                      { id: 'snacks', label: t('pouchTechSpecsPage.finder.cat.snacks', 'Snacks & Bakery'), icon: <Package className="w-4 h-4" /> }
                     ].map(ind => (
                       <button
                         key={ind.id}
@@ -742,13 +744,13 @@ export default function PouchTechSpecsPage() {
 
                 {/* Eco Preference */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">2. What is your sustainability target?</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">{t('pouchTechSpecsPage.finder.b2bStep2', '2. What is your sustainability target?')}</label>
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      { id: 'compostable', label: 'Certified Compostable', badge: 'EN 13432 / ASTM D6400' },
-                      { id: 'recyclable', label: 'Curbside Recyclable', badge: 'Mono-Material PE/PP' },
-                      { id: 'pcr', label: 'Circular Recycled PCR', badge: 'GRS Global Standard' },
-                      { id: 'biope', label: 'Sugarcane Bio-PE', badge: 'Carbon-Negative Bio-Polymer' }
+                      { id: 'compostable', label: t('pouchTechSpecsPage.finder.eco.compostable', 'Certified Compostable'), badge: 'EN 13432 / ASTM D6400' },
+                      { id: 'recyclable', label: t('pouchTechSpecsPage.finder.b2bEco.recyclable', 'Curbside Recyclable'), badge: 'Mono-Material PE/PP' },
+                      { id: 'pcr', label: t('pouchTechSpecsPage.finder.b2bEco.pcr', 'Circular Recycled PCR'), badge: 'GRS Global Standard' },
+                      { id: 'biope', label: t('pouchTechSpecsPage.finder.b2bEco.biope', 'Sugarcane Bio-PE'), badge: 'Carbon-Negative Bio-Polymer' }
                     ].map(eco => (
                       <button
                         key={eco.id}
@@ -768,13 +770,13 @@ export default function PouchTechSpecsPage() {
 
                 {/* Barrier Requirements */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">3. What is your required barrier level?</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">{t('pouchTechSpecsPage.finder.b2bStep3', '3. What is your required barrier level?')}</label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {[
-                      { id: 'ultra', label: 'Ultra High', desc: 'Foil Equivalent' },
-                      { id: 'high', label: 'High Barrier', desc: 'Metallized' },
-                      { id: 'medium', label: 'Standard', desc: 'Clear/EVOH' },
-                      { id: 'low', label: 'Low Barrier', desc: 'Breathable' }
+                      { id: 'ultra', label: t('pouchTechSpecsPage.finder.bar.ultra', 'Ultra High'), desc: t('pouchTechSpecsPage.finder.bar.ultraDesc', 'Foil Equivalent') },
+                      { id: 'high', label: t('pouchTechSpecsPage.finder.bar.high', 'High Barrier'), desc: t('pouchTechSpecsPage.finder.bar.highDesc', 'Metallized') },
+                      { id: 'medium', label: t('pouchTechSpecsPage.finder.bar.medium', 'Standard'), desc: t('pouchTechSpecsPage.finder.bar.mediumDesc', 'Clear/EVOH') },
+                      { id: 'low', label: t('pouchTechSpecsPage.finder.bar.low', 'Low Barrier'), desc: t('pouchTechSpecsPage.finder.bar.lowDesc', 'Breathable') }
                     ].map(bar => (
                       <button
                         key={bar.id}
@@ -797,7 +799,7 @@ export default function PouchTechSpecsPage() {
               <div className="w-full lg:w-[360px] bg-neutral-950 p-6 rounded-xl border border-neutral-700 flex flex-col justify-between">
                 <div>
                   <div className="text-center mb-4">
-                    <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">// Recommended Material Match</span>
+                    <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">{t('pouchTechSpecsPage.finder.matchHeader', '// Recommended Material Match')}</span>
                     <h3 className="text-2xl font-extrabold text-amber-400 mt-1 leading-tight">{bestMatch.name}</h3>
                     <div className="text-xs text-neutral-400 font-medium mt-0.5">{bestMatch.series}</div>
                   </div>
@@ -809,19 +811,19 @@ export default function PouchTechSpecsPage() {
                   {/* Technical Metrics */}
                   <div className="space-y-2 text-xs border-t border-neutral-800 pt-4">
                     <div className="flex justify-between">
-                      <span className="text-neutral-500">STRUCTURE:</span>
+                      <span className="text-neutral-500">{t('pouchTechSpecsPage.finder.structure', 'STRUCTURE:')}</span>
                       <span className="font-bold text-neutral-200 text-right max-w-[65%]">{bestMatch.structure}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-neutral-500">THICKNESS:</span>
+                      <span className="text-neutral-500">{t('pouchTechSpecsPage.finder.thickness', 'THICKNESS:')}</span>
                       <span className="font-semibold text-neutral-300">{bestMatch.thickness}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-neutral-500">WVTR RATE:</span>
+                      <span className="text-neutral-500">{t('pouchTechSpecsPage.finder.wvtr', 'WVTR RATE:')}</span>
                       <span className="font-bold text-green-400">{bestMatch.wvtr}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-neutral-500">OTR RATE:</span>
+                      <span className="text-neutral-500">{t('pouchTechSpecsPage.finder.otr', 'OTR RATE:')}</span>
                       <span className="font-bold text-green-400">{bestMatch.otr}</span>
                     </div>
                   </div>
@@ -832,7 +834,7 @@ export default function PouchTechSpecsPage() {
                     to={bestMatch.path}
                     className="w-full inline-flex items-center justify-center gap-2 py-2.5 bg-amber-500 hover:bg-amber-600 text-neutral-950 font-bold rounded-xl text-xs transition"
                   >
-                    View Technical Spec Sheet
+                    {t('pouchTechSpecsPage.finder.btnViewB2B', 'View Technical Spec Sheet')}
                   </Link>
                   <a
                     href="https://calendly.com/30-min-free-packaging-consultancy"
@@ -840,7 +842,7 @@ export default function PouchTechSpecsPage() {
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 py-2 bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 text-neutral-200 font-semibold rounded-xl text-xs transition"
                   >
-                    Request Physical Sample Kit
+                    {t('pouchTechSpecsPage.finder.btnRequestB2B', 'Request Physical Sample Kit')}
                   </a>
                 </div>
               </div>
@@ -1003,22 +1005,22 @@ export default function PouchTechSpecsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="bg-neutral-900 rounded-3xl p-8 md:p-16 text-white overflow-hidden relative">
             <div className="relative z-10 max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Verified Lab Performance</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">{t('pouchTechSpecsPage.lab.title', 'Verified Lab Performance')}</h2>
               <p className="text-xl text-neutral-400 mb-8">
-                Every material structure in our catalog undergoes rigorous third-party testing to verify barrier properties, seal integrity, and environmental compliance.
+                {t('pouchTechSpecsPage.lab.subtitle', 'Every material structure in our catalog undergoes rigorous third-party testing to verify barrier properties, seal integrity, and environmental compliance.')}
               </p>
               <div className="grid grid-cols-2 gap-8 mb-8">
                 <div>
                   <div className="text-4xl font-bold text-primary-500 mb-2">0.5</div>
-                  <div className="text-sm text-neutral-400 uppercase font-bold tracking-wider">WVTR g/m²/day</div>
+                  <div className="text-sm text-neutral-400 uppercase font-bold tracking-wider">{t('pouchTechSpecsPage.lab.wvtrUnit', 'WVTR g/m²/day')}</div>
                 </div>
                 <div>
                   <div className="text-4xl font-bold text-primary-500 mb-2">&lt;1.0</div>
-                  <div className="text-sm text-neutral-400 uppercase font-bold tracking-wider">OTR cc/m²/day</div>
+                  <div className="text-sm text-neutral-400 uppercase font-bold tracking-wider">{t('pouchTechSpecsPage.lab.otrUnit', 'OTR cc/m²/day')}</div>
                 </div>
               </div>
               <a href="https://calendly.com/30-min-free-packaging-consultancy" className="inline-block bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-neutral-200 transition-colors">
-                Request Test Reports
+                {t('pouchTechSpecsPage.lab.btn', 'Request Test Reports')}
               </a>
             </div>
             <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/3 opacity-20">

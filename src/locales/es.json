@@ -21046,169 +21046,147 @@
   },
   "pouchSEOPage": {
     "meta": {
-      "title": "Guía SEO para marcas de empaques compostables | POUCH.ECO",
-      "description": "Aprenda cómo posicionar su marca de empaques compostables en Google. Investigación de palabras clave, estrategia de contenido y consejos de SEO técnico para empresas de bolsas ecológicas.",
-      "keywords": "SEO para marcas de empaques, SEO bolsas compostables, marketing empaques ecológicos, palabras clave empaques sostenibles, SEO bolsas biodegradables, optimización búsqueda empaques verdes"
+      "title": "Guía de SEO para marcas de embalaje compostable | POUCH.ECO",
+      "description": "Aprenda a posicionar su marca de embalajes compostables en Google. Investigación de palabras clave, estrategia de contenido y consejos de SEO técnico para empresas de bolsas ecológicas."
+    },
+    "keywords": {
+      "k1": {
+        "term": "bolsas compostables"
+      },
+      "k2": {
+        "term": "embalaje ecológico"
+      },
+      "k3": {
+        "term": "bolsas biodegradables"
+      },
+      "k4": {
+        "term": "embalaje sostenible"
+      },
+      "k5": {
+        "term": "bolsas de base vegetal"
+      },
+      "k6": {
+        "term": "bolsas compostables en casa"
+      },
+      "titleHighlight": "Palabras clave principales",
+      "title2": "para apuntar",
+      "subtitle": "Estos son los términos de búsqueda de mayor conversión para marcas de embalaje compostable. Empiece aquí."
+    },
+    "difficulty": {
+      "low": "Bajo",
+      "medium": "Medio",
+      "high": "Alto"
+    },
+    "strategy": {
+      "s1": {
+        "title": "Investigación de palabras clave",
+        "description": "Encuentre lo que sus clientes realmente están buscando",
+        "tip1": "Apunte a palabras clave de cola larga como \"bolsas de café compostables certificadas\"",
+        "tip2": "Use Google Search Console para encontrar oportunidades de clasificación",
+        "tip3": "Enfóquese en palabras clave con intención de compra (ej. \"comprar bolsas compostables\")",
+        "tip4": "Monitoree las palabras clave de la competencia usando SEMrush o Ahrefs"
+      },
+      "s2": {
+        "title": "Estrategia de contenido",
+        "description": "Cree contenido que clasifique Y convierta",
+        "tip1": "Escriba guías completas (más de 1500 palabras)",
+        "tip2": "Responda preguntas de tipo \"qué es\", \"cómo hacer\" y \"versus\"",
+        "tip3": "Incluya comparaciones de productos y casos de uso",
+        "tip4": "Agregue testimonios de clientes y casos de estudio"
+      },
+      "s3": {
+        "title": "SEO Técnico",
+        "description": "Haga su sitio rápido, amigable con móviles y rastreable",
+        "tip1": "Optimice la velocidad de la página (menos de 3 segundos de carga)",
+        "tip2": "Use un diseño responsivo para usuarios móviles",
+        "tip3": "Cree un mapa del sitio XML y robots.txt",
+        "tip4": "Implemente marcado de esquema para fragmentos enriquecidos"
+      },
+      "titleHighlight": "3 pasos",
+      "title2": "Estrategia de SEO",
+      "subtitle": "Siga este marco para clasificar más rápido y convertir a más compradores conscientes del medio ambiente."
+    },
+    "faq": {
+      "q1": {
+        "question": "¿Cuánto tiempo toma el SEO para las marcas de embalaje?",
+        "answer": "Espere de 3 a 6 meses para ver resultados significativos. El embalaje compostable es un nicho en crecimiento, por lo que el posicionamiento puede ocurrir más rápido que en industrias competitivas. Enfóquese primero en palabras clave de cola larga y luego expándase a términos más amplios."
+      },
+      "q2": {
+        "question": "¿Qué palabras clave debo elegir para las bolsas compostables?",
+        "answer": "Comience con términos específicos del producto como \"bolsas de café compostables certificadas\" o \"bolsas de pie biodegradables\". Evite términos genéricos como \"embalaje\" al principio. Use Google Keyword Planner para encontrar volumen y competencia."
+      },
+      "q3": {
+        "question": "¿Necesito un blog para el SEO?",
+        "answer": "Sí. Un blog le ayuda a apuntar a palabras clave informativas (ej. \"cómo elegir embalajes compostables\") que atraen a los compradores al principio de su fase de investigación. Intente publicar de 2 a 4 artículos de alta calidad al mes."
+      },
+      "q4": {
+        "question": "¿Qué tan importantes son los enlaces de retroceso (backlinks) para el SEO de embalajes?",
+        "answer": "Muy importantes. Los enlaces de calidad desde blogs de sostenibilidad y directorios ecológicos señalan autoridad a Google. Enfóquese en obtener enlaces a través de publicaciones de invitados y contenido interactivo."
+      },
+      "q5": {
+        "question": "¿Debo optimizar para Google o para Amazon?",
+        "answer": "Ambos, pero de manera diferente. El SEO de Google se enfoca en el contenido y la autoridad. El SEO de Amazon prioriza los títulos de los productos y las reseñas. Google capta a los compradores en modo de investigación antes de que lleguen a Amazon."
+      },
+      "titleHighlight": "Preguntas comunes",
+      "title2": "de SEO"
     },
     "hero": {
       "badge": "Guía de estrategia SEO",
-      "titleLine1": "Posicione su",
-      "titleHighlight": "marca eco",
-      "titleLine2": "en Google",
-      "subtitle": "Tácticas SEO que realmente funcionan para marcas de empaques compostables. Sin relleno. Solo resultados.",
-      "ctaConsult": "Reservar consulta SEO",
-      "ctaKeywords": "Ver palabras clave"
+      "title1": "Posicione su",
+      "titleHighlight": "Marca ecológica",
+      "title2": "en Google",
+      "subtitle": "Tácticas de SEO que realmente funcionan para marcas de embalaje compostable. Sin rodeos. Solo clasificaciones.",
+      "btn1": "Reservar consulta de SEO",
+      "btn2": "Ver palabras clave"
     },
     "tldr": {
-      "label": "Resumen",
-      "text": "SEO para empaques ecológicos = investigación de palabras clave + contenido de alta calidad + optimización técnica. Apunte a palabras clave de cola larga, escriba guías completas y obtenga backlinks de sitios de sostenibilidad. Espere de 3 a 6 meses para resultados."
+      "title": "Resumen",
+      "content": "SEO para embalajes ecológicos = investigación de palabras clave + contenido de alta calidad + optimización técnica. Apunte a palabras clave de cola larga, escriba guías completas y obtenga enlaces de sostenibilidad. Resultados en 3-6 meses."
     },
-    "keywords": {
-      "title1": "Palabras clave principales",
-      "title2": "a posicionar",
-      "subtitle": "Estos son los términos de búsqueda con mayor conversión para marcas de empaques compostables. Comience aquí.",
-      "tableHeaders": {
-        "keyword": "Palabra clave",
-        "searchVolume": "Volumen de búsqueda",
-        "difficulty": "Dificultad"
-      },
-      "items": {
-        "0": {
-          "term": "bolsas compostables",
-          "volume": "1.2K/mes",
-          "difficulty": "Medio"
-        },
-        "1": {
-          "term": "empaques ecológicos",
-          "volume": "5.8K/mes",
-          "difficulty": "Alto"
-        },
-        "2": {
-          "term": "bolsas biodegradables",
-          "volume": "3.4K/mes",
-          "difficulty": "Medio"
-        },
-        "3": {
-          "term": "empaques sostenibles",
-          "volume": "12K/mes",
-          "difficulty": "Alto"
-        },
-        "4": {
-          "term": "bolsas a base de plantas",
-          "volume": "890/mes",
-          "difficulty": "Bajo"
-        },
-        "5": {
-          "term": "bolsas compostables en casa",
-          "volume": "720/mes",
-          "difficulty": "Bajo"
-        }
-      }
+    "table": {
+      "th1": "Palabra clave",
+      "th2": "Volumen de búsqueda",
+      "th3": "Dificultad"
     },
-    "strategy": {
-      "title1": "Estrategia SEO",
-      "title2": "en 3 pasos",
-      "subtitle": "Siga este marco para posicionarse más rápido y convertir más compradores eco-conscientes.",
-      "items": {
-        "0": {
-          "title": "Investigación de palabras clave",
-          "description": "Descubra lo que sus clientes realmente están buscando",
-          "tips": {
-            "0": "Apunte a palabras clave de cola larga como \"bolsas de café compostables certificadas\"",
-            "1": "Use Google Search Console para encontrar oportunidades de posicionamiento",
-            "2": "Enfóquese en palabras clave de intención de compra (ej., \"comprar bolsas compostables\")",
-            "3": "Rastree palabras clave de la competencia usando SEMrush o Ahrefs"
-          }
-        },
-        "1": {
-          "title": "Estrategia de contenido",
-          "description": "Cree contenido que se posicione Y convierta",
-          "tips": {
-            "0": "Escriba guías completas (más de 1500 palabras)",
-            "1": "Responda preguntas de \"qué es\", \"cómo\" y \"vs\"",
-            "2": "Incluya comparaciones de productos y casos de uso",
-            "3": "Agregue testimonios de clientes y estudios de caso"
-          }
-        },
-        "2": {
-          "title": "SEO técnico",
-          "description": "Haga su sitio rápido, adaptable a móviles y rastreable",
-          "tips": {
-            "0": "Optimice la velocidad de carga (menos de 3 segundos)",
-            "1": "Use diseño responsivo para usuarios móviles",
-            "2": "Cree un sitemap XML y robots.txt",
-            "3": "Implemente marcado schema para fragmentos enriquecidos"
-          }
-        }
-      }
-    },
-    "whySeo": {
+    "why": {
       "title1": "Por qué el SEO",
-      "titleHighlight": "importa",
-      "title2": "para marcas eco",
-      "subtitle": "Sus clientes están buscando empaques sostenibles AHORA MISMO. Si no está posicionado, están encontrando a sus competidores.",
-      "benefits": {
-        "0": {
-          "title": "Tráfico orgánico = Prospectos gratis",
-          "description": "Los anuncios pagados cuestan $3-8 por clic. El SEO atrae compradores calificados gratis, mes tras mes."
-        },
-        "1": {
-          "title": "Autoridad = Confianza",
-          "description": "Posicionarse en la página 1 señala credibilidad. Los compradores confían en las marcas que Google confía."
-        },
-        "2": {
-          "title": "Cola larga = Mayor conversión",
-          "description": "Apunte a búsquedas específicas como \"bolsas de café compostables certificadas\" para atraer compradores listos para comprar."
-        }
+      "titleHighlight": "Importa",
+      "title2": "para marcas ecológicas",
+      "desc": "Sus clientes están buscando embalajes sostenibles AHORA MISMO. Si no está posicionado, encontrarán a sus competidores en su lugar.",
+      "point1": {
+        "title": "Tráfico orgánico = Clientes potenciales gratis",
+        "desc": "Los anuncios pagados cuestan de $3 a $8 por clic. El SEO atrae compradores calificados de forma gratuita, mes tras mes."
       },
-      "statsTitle": "Estadísticas SEO que importan",
-      "stats": {
-        "0": {
-          "value": "75%",
-          "description": "de los usuarios nunca pasan de la página 1 de los resultados de Google"
-        },
-        "1": {
-          "value": "53%",
-          "description": "de todo el tráfico web proviene de búsqueda orgánica"
-        },
-        "2": {
-          "value": "14.6%",
-          "description": "tasa de conversión promedio para búsqueda orgánica (vs 1.7% para anuncios pagados)"
-        }
+      "point2": {
+        "title": "Autoridad = Confianza",
+        "desc": "Clasificar en la página 1 indica credibilidad. Los compradores confían en las marcas en las que Google confía."
+      },
+      "point3": {
+        "title": "Cola larga = Mayor conversión",
+        "desc": "Apunte a búsquedas específicas como \"bolsas de café compostables certificadas\" para atraer compradores listos para comprar."
       }
     },
-    "faqs": {
-      "title1": "Preguntas",
-      "title2": "SEO frecuentes",
-      "items": {
-        "0": {
-          "question": "¿Cuánto tiempo toma el SEO para marcas de empaques?",
-          "answer": "Espere de 3 a 6 meses para ver resultados significativos. El empaque compostable es un nicho en crecimiento, por lo que el posicionamiento puede ocurrir más rápido que en industrias competitivas. Enfóquese primero en palabras clave de cola larga, luego expanda a términos más amplios a medida que gane autoridad."
-        },
-        "1": {
-          "question": "¿Qué palabras clave debo apuntar para bolsas compostables?",
-          "answer": "Comience con términos específicos de producto como \"bolsas de café compostables certificadas\" o \"bolsas stand-up biodegradables\". Evite términos genéricos como \"empaque\" inicialmente. Use Google Keyword Planner para encontrar volumen de búsqueda y niveles de competencia."
-        },
-        "2": {
-          "question": "¿Necesito un blog para el SEO?",
-          "answer": "Sí. Un blog le ayuda a apuntar palabras clave informativas (ej., \"cómo elegir empaques compostables\") que atraen compradores más temprano en su fase de investigación. Apunte a 2-4 publicaciones de alta calidad por mes cubriendo guías de certificación, comparaciones de materiales y tendencias de la industria."
-        },
-        "3": {
-          "question": "¿Qué tan importantes son los backlinks para el SEO de empaques?",
-          "answer": "Muy importantes. Backlinks de calidad de blogs de sostenibilidad, publicaciones del sector y directorios ecológicos señalan autoridad a Google. Enfóquese en obtener enlaces a través de publicaciones invitadas, asociaciones y la creación de contenido compartible como infografías o informes de investigación."
-        },
-        "4": {
-          "question": "¿Debo optimizar para Google o Amazon?",
-          "answer": "Ambos, pero de manera diferente. El SEO de Google se enfoca en contenido y autoridad. El SEO de Amazon prioriza títulos de productos, viñetas y reseñas. Si vende en Amazon, optimice ambos canales, pero Google captura compradores en modo de investigación antes de que lleguen a Amazon."
-        }
+    "stats": {
+      "title": "Estadísticas de SEO que importan",
+      "s1": {
+        "val": "75%",
+        "desc": "de los usuarios nunca pasan de la página 1 de resultados de Google"
+      },
+      "s2": {
+        "val": "53%",
+        "desc": "de todo el tráfico del sitio web proviene de búsquedas orgánicas"
+      },
+      "s3": {
+        "val": "14.6%",
+        "desc": "tasa de conversión promedio para búsqueda orgánica (frente al 1.7% de los anuncios pagados)"
       }
     },
     "cta": {
       "title1": "¿Listo para",
-      "titleHighlight": "posicionarse mejor?",
-      "subtitle": "Reserve una consulta SEO GRATUITA de 30 minutos. Auditaremos su sitio, identificaremos victorias rápidas y construiremos una estrategia de palabras clave personalizada.",
-      "button": "Reserve su consulta SEO",
-      "disclaimer": "Sin discurso de venta. Sin obligación. Solo consejos SEO accionables."
+      "titleHighlight": "Clasificar más alto?",
+      "desc": "Reserve una consulta de SEO GRATUITA de 30 minutos. Auditaremos su sitio, identificaremos victorias rápidas y crearemos una estrategia de palabras clave personalizada.",
+      "btn": "Reserve su consulta de SEO",
+      "footer": "Sin discursos de venta. Sin compromiso. Solo consejos de SEO prácticos."
     }
   },
   "pouchUnprintedSamplesPage": {
@@ -25811,6 +25789,281 @@
       "a5": "Nuestras bolsas de café compostables utilizan películas certificadas por BPI y TÜV AUSTRIA (OK Compost Industrial/Home) y válvulas desgasificadoras importadas de Suiza. Cumplen con las normas ASTM D6400 y EN 13432, descomponiéndose por completo en compost orgánico rico en nutrientes sin dejar residuos tóxicos.",
       "q6": "¿Qué especificaciones técnicas necesitan para calcular una cotización de envase personalizado?",
       "a6": "Para proporcionar una cotización mayorista precisa, especifique: (1) Estilo de bolsa (por ejemplo, Stand-Up Pouch, fuelle de fondo plano, bolsa con fuelle lateral), (2) Capacidad volumétrica (12 oz, 16 oz, 2 lb, 5 lb), (3) Estructura del material (Kraft compostable, Mono-PE reciclable o PCR), (4) Cantidad total y (5) Colores del diseño o archivos de arte."
+    }
+  },
+  "customPrintedMaterialsGuidePage": {
+    "sec1": {
+      "title": "Ecológico no significa feo",
+      "p1": "Muchas marcas asumen que cambiarse a películas sostenibles significa aceptar gráficos opacos y descoloridos. La impresión digital moderna con HP Indigo 20000 ofrece una profundidad de color de alta definición y detalles precisos sin comprometer la biodegradabilidad.",
+      "mythTitle": "Mito desmentido.",
+      "mythDesc": "\"Las bolsas compostables lucen opacas y marrones.\"",
+      "mythFalse": "FALSO.",
+      "mythListHeader": "Con las prensas digitales HP Indigo 20000, imprimimos:",
+      "mythItem1": "CMYK + Blanco + Colores directos",
+      "mythItem2": "Imágenes fotorrealistas (Alta resolución 1200 DPI)",
+      "mythItem3": "Degradados y texto fino de hasta 4 puntos"
+    },
+    "sec2": {
+      "title": "Elige tu lienzo personalizado",
+      "naturalTitle": "El aspecto \"Natural\"",
+      "naturalTag": "PAPEL KRAFT + PLA",
+      "naturalDesc": "Perfecto para café orgánico y granola. La textura es papel real.",
+      "naturalFinish": "Mejor acabado:",
+      "naturalFinishDesc": "El estampado metálico (oro/plata) destaca sobre el marrón.",
+      "premiumTitle": "El aspecto \"Premium\"",
+      "premiumTag": "PLA BLANCO / MONO-PE",
+      "premiumDesc": "Base blanca brillante para colores vibrantes. Se ve igual que el plástico \"normal\" pero es sostenible.",
+      "premiumFinish": "Mejor acabado:",
+      "premiumFinishDesc": "Mate suave al tacto + Brillo Spot UV."
+    },
+    "sec3": {
+      "title": "Matriz de especificaciones técnicas y de adquisición",
+      "p1": "Para directores de marca y cadena de suministro, elegir materiales sostenibles impresos requiere traducir las propiedades estructurales clave en valor de adquisición:",
+      "th1": "Parámetro técnico",
+      "th2": "Impacto de adquisición y utilidad",
+      "th3": "Estándar directo de fábrica",
+      "r1c1": "Laminación digital de 1200 DPI",
+      "r1c2": "Cero tarifas de placas que permiten a las marcas emergentes lanzar líneas de productos multi-SKU de manera rentable.",
+      "r1c3": "Impresión sin placas HP Indigo 20000",
+      "r2c1": "Coextrusión de base bio",
+      "r2c2": "Combina el aspecto del papel con sellos a base de almidón para una presencia premium en el estante sin romperse.",
+      "r2c3": "Capas que cumplen con FDA y GRS",
+      "r3c1": "Película reciclable MDO-PE",
+      "r3c2": "Menos del 5% de densidad total de tinta y película asegura un reconocimiento óptico completo en plantas de reciclaje estándar.",
+      "r3c3": "Aprobado para entrega en tienda How2Recycle",
+      "r4c1": "Barniz Spot UV y películas metálicas",
+      "r4c2": "Acabados táctiles de alta conversión que aumentan la tasa de atracción en cajas minoristas hasta un 28% para superalimentos.",
+      "r4c3": "Opciones de película biodegradable y barniz selectivo"
+    },
+    "sec4": {
+      "title": "Acabados que venden",
+      "heading": "Experiencia táctil",
+      "finish1": {
+        "title": "Tacto suave",
+        "desc": "Sensación aterciopelada y costosa"
+      },
+      "finish2": {
+        "title": "Brillo selectivo",
+        "desc": "Haz que los logotipos brillen"
+      },
+      "finish3": {
+        "title": "Holográfico",
+        "desc": "Efectos arcoíris"
+      },
+      "finish4": {
+        "title": "Textura kraft",
+        "desc": "Crudo y auténtico"
+      }
+    },
+    "b2b": {
+      "title": "¿Necesita soluciones corporativas al por mayor?",
+      "desc": "Si busca fabricación de alto volumen, desarrollo de materiales personalizados y hojas de precios a partir de 5,000 unidades, visite nuestra sede B2B en AchievePack.com.",
+      "btn": "Ir a AchievePack B2B →"
+    },
+    "sec5": {
+      "title": "Del diseño a la bolsa (15 días)",
+      "heading": "El flujo de trabajo digital",
+      "step1": "Subir el troquel en IA/PDF",
+      "step2": "Enviamos la prueba digital (24h)",
+      "step3": "Impresión y laminación (7 días)",
+      "step4": "Fabricación de bolsas y control de calidad (5 días)",
+      "step5": "Envío (aéreo exprés)"
+    },
+    "sec6": {
+      "title": "Productos contextuales de la tienda B2B",
+      "p1": "Para los compradores de embalajes que planean su próxima producción, recomendamos comenzar con nuestro Kit de muestras biodegradables B2B para evaluar el grosor del material y el rendimiento de la barrera. Para líneas de envasado automatizado de alta velocidad, consulte nuestro Rollo de película ecológica personalizada. Si envasa confitería o artículos pequeños, nuestra envoltura de celofán para caramelos premium ofrece excelente claridad y compostabilidad."
+    },
+    "faq": {
+      "q1": {
+        "question": "¿Cuál es el MOQ para bolsas ecológicas impresas personalizadas?",
+        "answer": "Nuestro programa de bajo MOQ comienza en 100 unidades para bolsas de stock con etiquetas personalizadas y 500 unidades para bolsas impresas digitalmente de borde a borde. Para tiradas comerciales al por mayor, nuestro sitio B2B achievepack.com comienza en 5,000 unidades por SKU."
+      },
+      "q2": {
+        "question": "¿Hay cargos por placas o tarifas de configuración?",
+        "answer": "¡No! La impresión digital en pouch.eco es completamente sin placas. Su diseño se imprime directamente desde vectores digitales a nuestra prensa HP Indigo, ahorrándole entre $150 y $300 en costos de cilindros de placa de configuración por color."
+      },
+      "q3": {
+        "question": "¿Puedo recibir muestras físicas impresas antes de la producción completa?",
+        "answer": "Sí. Puede pedir un Kit de muestras gratuito que contiene 10 bolsas prefabricadas en múltiples acabados para verificar las texturas del papel y el grosor de la película. Para su diseño personalizado, podemos realizar una tirada de prueba física (50 bolsas) por $100."
+      },
+      "q4": {
+        "question": "¿Cuál es el tiempo de producción típico?",
+        "answer": "Las bolsas digitales personalizadas se fabrican y envían en solo 10-15 días hábiles tras la aprobación del troquel de diseño. Las tiradas grandes de rotograbado al por mayor en achievepack.com requieren 20-25 días."
+      },
+      "q5": {
+        "question": "¿Las tintas digitales son seguras y compostables?",
+        "answer": "Sí. Utilizamos tintas digitales certificadas de grado alimentario y sin disolventes que cumplen con las estrictas regulaciones de la FDA, BPI y TÜV Austria, garantizando una migración química nula y sin bloqueos de compostaje."
+      },
+      "q6": {
+        "question": "¿Qué formatos de archivo de diseño se requieren?",
+        "answer": "Envíe los troqueles listos para imprimir en formato vectorial de Adobe Illustrator (.AI), PDF editable o EPS vectorial con todas las fuentes convertidas a contornos y las imágenes incrustadas a un mínimo de 300 DPI."
+      }
+    },
+    "meta": {
+      "title": "Guía de embalaje sostenible impreso personalizado 2026 | POUCH.ECO",
+      "description": "Impresión digital a todo color en bolsas compostables y reciclables. Sin tarifas de placas, bajos MOQs y acabados premium como tacto suave y spot UV."
+    },
+    "categoryTag": "Diseño e impresión",
+    "hero": {
+      "title1": "Imprime tu marca.",
+      "title2": "No dejes rastro.",
+      "subtitle": "La tecnología de impresión digital se une a los materiales sostenibles. Calidad fotográfica, sangrado completo y cero tarifas de placas. Aprenda a diseñar para materiales ecológicos.",
+      "imageAlt": "Prensa digital HP Indigo 20000 de alta velocidad imprimiendo troqueles de envases ecológicos flexibles personalizados"
+    },
+    "related": {
+      "art1": "Guía de proveedores de bolsas compostables personalizadas",
+      "art2": "Guía de embalaje de bajo MOQ",
+      "art3": "Opciones de acabado superficial"
+    }
+  },
+  "pouchTechSpecsPage": {
+    "meta": {
+      "pouchTitle": "Especificaciones técnicas y fichas de datos de materiales | POUCH.ECO",
+      "pouchDesc": "Acceda a fichas de especificaciones completas en PDF, desglose de capas y parámetros de barrera (OTR/WVTR) para bolsas de plástico compostables, reciclables y PCR.",
+      "b2bTitle": "Especificaciones técnicas | Achieve Pack",
+      "b2bDesc": "Fichas técnicas y especificaciones detalladas de materiales para embalajes sostenibles. Centro de ingeniería de Achieve Pack."
+    },
+    "hero": {
+      "badge": "Centro de Ingeniería",
+      "title1": "Especificaciones",
+      "titleHighlight": "Técnicas",
+      "subtitle": "Métricas completas de rendimiento de laboratorio, hojas de barrera y desgloses de capas para nuestras estructuras de película sostenibles.",
+      "btn1": "Buscador de especificaciones",
+      "btn2": "Examinar fichas técnicas"
+    },
+    "b2bHero": {
+      "badge": "Fichas de datos técnicos v2.0",
+      "title1": "Centro de",
+      "titleHighlight": "Especificaciones Técnicas",
+      "subtitle": "Un directorio de ingeniería completo de nuestras estructuras de materiales sostenibles, métricas de rendimiento de barrera y certificaciones regulatorias. Diseñado para un cumplimiento riguroso y estándares de economía circular.",
+      "btn1": "Iniciar buscador de especificaciones",
+      "btn2": "Examinar catálogo de series"
+    },
+    "finder": {
+      "title": "Buscador de especificaciones de materiales",
+      "subtitle": "Ingrese sus criterios de destino para recuperar dinámicamente laminados compatibles.",
+      "b2bSubtitle": "Seleccione su industria y objetivos de rendimiento para hacer coincidir especificaciones de materiales precisas.",
+      "step1": "// 1. SELECCIONAR CATEGORÍA DE PRODUCTO",
+      "b2bStep1": "1. ¿Qué está envasando?",
+      "cat": {
+        "coffee": "Café y té",
+        "powder": "Polvos",
+        "pet": "Comida para mascotas",
+        "liquids": "Líquidos y purés",
+        "snacks": "Snacks y panadería"
+      },
+      "b2bCat": {
+        "powder": "Polvos y Suplementos",
+        "pet": "Comida y Premios para Mascotas"
+      },
+      "step2": "// 2. SELECCIONAR OBJETIVO DE SOSTENIBILIDAD",
+      "b2bStep2": "2. ¿Cuál es su objetivo de sostenibilidad?",
+      "eco": {
+        "compostable": "Compostable certificado",
+        "recyclable": "Reciclable en la acera",
+        "pcr": "PCR reciclado circular",
+        "biope": "Bio-PE de caña de azúcar"
+      },
+      "b2bEco": {
+        "recyclable": "Reciclable en la acera",
+        "pcr": "PCR reciclado circular",
+        "biope": "Bio-PE de caña de azúcar"
+      },
+      "step3": "// 3. SELECCIONAR NIVEL DE BARRERA REQUERIDO",
+      "b2bStep3": "3. ¿Cuál es el nivel de barrera requerido?",
+      "bar": {
+        "ultra": "Ultra alto",
+        "high": "Alta barrera",
+        "medium": "Estándar",
+        "low": "Baja barrera"
+      },
+      "barDesc": {
+        "ultra": "Equivalente a aluminio",
+        "high": "Metalizado",
+        "medium": "Transparente/PVOH",
+        "low": "Respirable"
+      },
+      "matchBadge": "COMPATIBILIDAD_RECOMENDADA",
+      "structure": "ESTRUCTURA:",
+      "thickness": "ESPESOR:",
+      "wvtr": "TASA WVTR:",
+      "otr": "TASA OTR:",
+      "btnView": "Ver ficha de especificaciones detallada",
+      "btnRequest": "Solicitar caja de muestras físicas",
+      "matchHeader": "// Coincidencia de material recomendada",
+      "btnViewB2B": "Ver ficha técnica de especificaciones",
+      "btnRequestB2B": "Solicitar kit de muestras físicas"
+    },
+    "specCard": {
+      "barrierTitle": "Propiedades de barrera",
+      "structureTitle": "Estructura",
+      "certTitle": "Certificaciones",
+      "btnDownload": "Descargar PDF",
+      "dataSheetTitle": "Ficha de datos del producto",
+      "pName": "Nombre del producto",
+      "structure": "Estructura",
+      "thickness": "Espesor total",
+      "weight": "Peso total",
+      "thLayer": "Capa / Nivel",
+      "thMaterial": "Material"
+    },
+    "lab": {
+      "title": "Rendimiento verificado en laboratorio",
+      "subtitle": "Cada estructura de material de nuestro catálogo se somete a rigurosas pruebas de terceros para verificar las propiedades de barrera, la integridad del sellado y el cumplimiento ambiental.",
+      "wvtrUnit": "WVTR g/m²/día",
+      "otrUnit": "OTR cc/m²/día",
+      "btn": "Solicitar informes de pruebas"
+    }
+  },
+  "pouchBlogPage": {
+    "categories": {
+      "all": "Todos los artículos",
+      "sustain": "Guía de Sostenibilidad",
+      "pack": "Guía de Embalaje",
+      "materials": "Guía de Materiales",
+      "coffee": "Industria del Café",
+      "coffeeUsa": "Café EE. UU.",
+      "design": "Consejos de Diseño",
+      "startup": "Guía para Startups"
+    },
+    "meta": {
+      "title": "Blog de embalaje | Guías, consejos e información de la industria | POUCH.ECO",
+      "description": "Aprenda sobre embalaje sostenible: compostable frente a reciclable, barreras para bolsas de café, consejos de bajo MOQ y guías de diseño. Consejos de expertos para marcas ecológicas.",
+      "ogTitle": "Blog de embalaje y guías | POUCH.ECO",
+      "ogDesc": "Guías de expertos sobre embalaje sostenible, materiales y diseño"
+    },
+    "hero": {
+      "badge": "BASE_DE_CONOCIMIENTOS",
+      "title1": "Aprenda sobre",
+      "titleHighlight": "Embalaje Sostenible",
+      "subtitle": "Guías honestas, comparaciones reales y consejos prácticos para marcas ecológicas que lanzan o escalan sus embalajes."
+    },
+    "search": {
+      "placeholder": "BUSCAR_GUÍAS_Y_CONSEJOS..."
+    },
+    "featured": {
+      "badge": "DESTACADO",
+      "readTime": "de lectura",
+      "btn": "Leer guía"
+    },
+    "grid": {
+      "latest": "Últimas publicaciones",
+      "showing": "Mostrando {{filtered}} de {{total}} publicaciones",
+      "readMore": "Leer más"
+    },
+    "loading": "Sincronizando base de conocimientos...",
+    "empty": {
+      "title": "No se encontraron publicaciones",
+      "desc": "Intente ajustar su búsqueda o filtro para encontrar lo que busca.",
+      "btn": "Restablecer filtros"
+    },
+    "newsletter": {
+      "title1": "Reciba consejos de",
+      "title2": "Embalaje semanalmente",
+      "subtitle": "Actualizaciones de la industria, guías de materiales y consejos exclusivos para startups. Sin spam, cancele su suscripción en cualquier momento.",
+      "placeholder": "SU_CORREO@MARCA.COM",
+      "btn": "Suscribirse",
+      "footer": "📧 Únase a más de 1,200 fundadores que aprenden sobre embalaje sostenible"
     }
   }
 }

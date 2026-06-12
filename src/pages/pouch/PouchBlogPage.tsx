@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { createClient } from '@supabase/supabase-js'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
+import { useTranslation } from 'react-i18next'
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL || '',
@@ -13,6 +14,7 @@ const supabase = createClient(
 )
 
 export default function PouchBlogPage() {
+  const { t } = useTranslation()
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All Posts')
   const [dynamicPosts, setDynamicPosts] = useState<any[]>([])
@@ -339,14 +341,14 @@ export default function PouchBlogPage() {
   }, [dynamicPosts])
 
   const categories = [
-    { name: 'All Posts', count: posts.length + 1, icon: BookOpen },
-    { name: 'Sustainability Guide', count: 1, icon: Leaf },
-    { name: 'Packaging Guide', count: 1, icon: Package },
-    { name: 'Materials Guide', count: 3, icon: Leaf },
-    { name: 'Coffee Industry', count: 3, icon: Coffee },
-    { name: 'Coffee USA', count: 1, icon: Coffee },
-    { name: 'Design Tips', count: 2, icon: Package },
-    { name: 'Startup Guide', count: 1, icon: TrendingUp }
+    { name: t('pouchBlogPage.categories.all', 'All Posts'), count: posts.length + 1, icon: BookOpen },
+    { name: t('pouchBlogPage.categories.sustain', 'Sustainability Guide'), count: 1, icon: Leaf },
+    { name: t('pouchBlogPage.categories.pack', 'Packaging Guide'), count: 1, icon: Package },
+    { name: t('pouchBlogPage.categories.materials', 'Materials Guide'), count: 3, icon: Leaf },
+    { name: t('pouchBlogPage.categories.coffee', 'Coffee Industry'), count: 3, icon: Coffee },
+    { name: t('pouchBlogPage.categories.coffeeUsa', 'Coffee USA'), count: 1, icon: Coffee },
+    { name: t('pouchBlogPage.categories.design', 'Design Tips'), count: 2, icon: Package },
+    { name: t('pouchBlogPage.categories.startup', 'Startup Guide'), count: 1, icon: TrendingUp }
   ]
 
   // Filter posts based on search query and selected category
@@ -354,19 +356,19 @@ export default function PouchBlogPage() {
     let filtered = posts
 
     // Filter by category
-    if (selectedCategory !== 'All Posts') {
+    if (selectedCategory !== t('pouchBlogPage.categories.all', 'All Posts')) {
       filtered = filtered.filter(post => {
         // Handle category name variations
-        if (selectedCategory === 'Materials Guide') {
+        if (selectedCategory === t('pouchBlogPage.categories.materials', 'Materials Guide')) {
           return post.category === 'Materials' || post.category === 'Materials Guide'
         }
-        if (selectedCategory === 'Sustainability Guide') {
+        if (selectedCategory === t('pouchBlogPage.categories.sustain', 'Sustainability Guide')) {
           return post.category === 'Sustainability' || post.category === 'Sustainability Guide'
         }
-        if (selectedCategory === 'Packaging Guide') {
+        if (selectedCategory === t('pouchBlogPage.categories.pack', 'Packaging Guide')) {
           return post.category === 'Packaging' || post.category === 'Packaging Guide'
         }
-        if (selectedCategory === 'Coffee USA') {
+        if (selectedCategory === t('pouchBlogPage.categories.coffeeUsa', 'Coffee USA')) {
           return post.category === 'Snacks USA' || post.category === 'Coffee USA'
         }
         return post.category === selectedCategory || post.category.includes(selectedCategory.split(' ')[0])
@@ -384,19 +386,19 @@ export default function PouchBlogPage() {
     }
 
     return filtered
-  }, [posts, selectedCategory, searchQuery])
+  }, [posts, selectedCategory, searchQuery, t])
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Packaging Blog | Guides, Tips & Industry Insights | POUCH.ECO</title>
+        <title>{t('pouchBlogPage.meta.title', 'Packaging Blog | Guides, Tips & Industry Insights | POUCH.ECO')}</title>
         <meta 
           name="description" 
-          content="Learn about sustainable packaging: compostable vs recyclable, coffee bag barriers, low MOQ tips, and design guides. Expert advice for eco brands." 
+          content={t('pouchBlogPage.meta.description', 'Learn about sustainable packaging: compostable vs recyclable, coffee bag barriers, low MOQ tips, and design guides. Expert advice for eco brands.')} 
         />
         <link rel="canonical" href="https://pouch.eco/blog" />
-        <meta property="og:title" content="Packaging Blog & Guides | POUCH.ECO" />
-        <meta property="og:description" content="Expert guides on sustainable packaging, materials, and design" />
+        <meta property="og:title" content={t('pouchBlogPage.meta.ogTitle', 'Packaging Blog & Guides | POUCH.ECO')} />
+        <meta property="og:description" content={t('pouchBlogPage.meta.ogDesc', 'Expert guides on sustainable packaging, materials, and design')} />
         <meta property="og:url" content="https://pouch.eco/blog" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -423,18 +425,18 @@ export default function PouchBlogPage() {
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="inline-block bg-[#00FFFF] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
-            <span className="font-['JetBrains_Mono'] font-bold">KNOWLEDGE_BASE</span>
+            <span className="font-['JetBrains_Mono'] font-bold">{t('pouchBlogPage.hero.badge', 'KNOWLEDGE_BASE')}</span>
           </div>
 
           <h1 className="font-black text-5xl md:text-7xl leading-none mb-6">
-            Learn About<br/>
+            {t('pouchBlogPage.hero.title1', 'Learn About')}<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-              Sustainable Packaging
+              {t('pouchBlogPage.hero.titleHighlight', 'Sustainable Packaging')}
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl">
-            <strong>Honest guides, real comparisons, and actionable tips</strong> for eco brands launching or scaling their packaging.
+            {t('pouchBlogPage.hero.subtitle', 'Honest guides, real comparisons, and actionable tips for eco brands launching or scaling their packaging.')}
           </p>
         </div>
       </section>
@@ -448,54 +450,45 @@ export default function PouchBlogPage() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search by title, tags, or content..."
+                placeholder={t('pouchBlogPage.search.placeholder', 'SEARCH_GUIDES_AND_TIPS...')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 border-4 border-black font-['JetBrains_Mono'] font-bold text-sm focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+                className="w-full bg-white border-4 border-black pl-12 pr-6 py-4 font-['JetBrains_Mono'] font-bold focus:outline-none focus:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow"
               />
-              {searchQuery && (
+            </div>
+          </div>
+
+          {/* Categories Horizontal Scroll */}
+          <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-thin">
+            {categories.map((cat) => {
+              const Icon = cat.icon
+              const isSelected = selectedCategory === cat.name
+              return (
                 <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold hover:text-[#10b981] transition-colors"
+                  key={cat.name}
+                  onClick={() => setSelectedCategory(cat.name)}
+                  className={`flex items-center gap-2 px-5 py-3 border-4 border-black font-['JetBrains_Mono'] font-bold text-sm whitespace-nowrap transition-all ${
+                    isSelected 
+                      ? 'bg-black text-[#D4FF00] -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]' 
+                      : 'bg-white hover:bg-neutral-100 hover:text-black'
+                  }`}
                 >
-                  Clear
+                  <Icon className="w-4 h-4" />
+                  <span>{cat.name}</span>
                 </button>
-              )}
-            </div>
+              )
+            })}
           </div>
-
-          {/* Category Filters */}
-          <div className="flex gap-4 overflow-x-auto pb-2">
-            {categories.map((cat, idx) => (
-              <button
-                key={idx}
-                onClick={() => setSelectedCategory(cat.name)}
-                className={`flex items-center gap-2 px-4 py-2 border-2 border-black transition-colors whitespace-nowrap font-['JetBrains_Mono'] font-bold text-sm ${
-                  selectedCategory === cat.name 
-                    ? 'bg-[#D4FF00] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]' 
-                    : 'bg-white hover:bg-[#D4FF00]'
-                }`}
-              >
-                <cat.icon className="w-4 h-4" />
-                {cat.name} ({cat.count})
-              </button>
-            ))}
-          </div>
-
-          {/* Search Results Info */}
-          {searchQuery && (
-            <div className="mt-4 font-['JetBrains_Mono'] text-sm">
-              Found <strong>{filteredPosts.length}</strong> {filteredPosts.length === 1 ? 'post' : 'posts'} matching "{searchQuery}"
-            </div>
-          )}
         </div>
       </section>
 
       {/* Featured Post */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white border-b-4 border-black">
         <div className="max-w-6xl mx-auto">
-          <NeoCard className="grid md:grid-cols-2 overflow-hidden !p-0">
-            <div className="border-r-4 border-black overflow-hidden">
+          <NeoCard
+            className="grid md:grid-cols-2 gap-0 !p-0 overflow-hidden"
+          >
+            <div className="h-96 md:h-full border-r-0 md:border-r-4 border-b-4 md:border-b-0 border-black">
               <img 
                 src={featured.image} 
                 alt={featured.title}
@@ -505,7 +498,7 @@ export default function PouchBlogPage() {
             
             <div className="p-8 flex flex-col justify-center bg-[#F0F0F0]">
               <NeoBadge color="lime" className="mb-4">
-                FEATURED
+                {t('pouchBlogPage.featured.badge', 'FEATURED')}
               </NeoBadge>
 
               <h2 className="font-black text-3xl md:text-4xl mb-4 leading-tight">
@@ -522,13 +515,13 @@ export default function PouchBlogPage() {
                   {featured.date}
                 </span>
                 <span>•</span>
-                <span>{featured.readTime} read</span>
+                <span>{featured.readTime} {t('pouchBlogPage.featured.readTime', 'read')}</span>
               </div>
 
               <NeoButton
                 to={featured.link}
               >
-                Read Guide
+                {t('pouchBlogPage.featured.btn', 'Read Guide')}
                 <ArrowRight className="w-5 h-5 ml-2 inline-block" />
               </NeoButton>
             </div>
@@ -541,33 +534,33 @@ export default function PouchBlogPage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <h2 className="font-black text-4xl uppercase">
-              {selectedCategory === 'All Posts' ? 'Latest Posts' : selectedCategory}
+              {selectedCategory === t('pouchBlogPage.categories.all', 'All Posts') ? t('pouchBlogPage.grid.latest', 'Latest Posts') : selectedCategory}
             </h2>
             <div className="font-['JetBrains_Mono'] text-sm font-bold">
-              Showing {filteredPosts.length} of {posts.length} posts
+              {t('pouchBlogPage.grid.showing', 'Showing {{filtered}} of {{total}} posts', { filtered: filteredPosts.length, total: posts.length })}
             </div>
           </div>
 
           {loading ? (
             <div className="flex flex-col items-center justify-center py-20">
               <Loader2 className="w-12 h-12 animate-spin text-[#10b981] mb-4" />
-              <p className="font-['JetBrains_Mono'] font-bold text-gray-500 uppercase">Synchronizing knowledge base...</p>
+              <p className="font-['JetBrains_Mono'] font-bold text-gray-500 uppercase">{t('pouchBlogPage.loading', 'Synchronizing knowledge base...')}</p>
             </div>
           ) : filteredPosts.length === 0 ? (
             <div className="text-center py-16">
               <div className="bg-white border-4 border-black p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md mx-auto">
                 <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                <h3 className="font-black text-2xl mb-3">No Posts Found</h3>
+                <h3 className="font-black text-2xl mb-3">{t('pouchBlogPage.empty.title', 'No Posts Found')}</h3>
                 <p className="font-['JetBrains_Mono'] text-sm mb-6 text-gray-600">
-                  Try adjusting your search or filter to find what you're looking for.
+                  {t('pouchBlogPage.empty.desc', 'Try adjusting your search or filter to find what you\'re looking for.')}
                 </p>
                 <NeoButton
                   onClick={() => {
                     setSearchQuery('')
-                    setSelectedCategory('All Posts')
+                    setSelectedCategory(t('pouchBlogPage.categories.all', 'All Posts'))
                   }}
                 >
-                  Reset Filters
+                  {t('pouchBlogPage.empty.btn', 'Reset Filters')}
                 </NeoButton>
               </div>
             </div>
@@ -605,7 +598,7 @@ export default function PouchBlogPage() {
 
                     <div className="flex items-center justify-between text-xs font-['JetBrains_Mono'] font-bold mb-4">
                       <span>{post.date}</span>
-                      <span>{post.readTime} read</span>
+                      <span>{post.readTime} {t('pouchBlogPage.featured.readTime', 'read')}</span>
                     </div>
 
                     <NeoButton
@@ -613,7 +606,7 @@ export default function PouchBlogPage() {
                       variant="secondary"
                       className="!py-2 !text-xs !w-fit"
                     >
-                      Read More
+                      {t('pouchBlogPage.grid.readMore', 'Read More')}
                       <ArrowRight className="w-4 h-4 ml-2 inline-block" />
                     </NeoButton>
                   </div>
@@ -628,29 +621,30 @@ export default function PouchBlogPage() {
       <section className="py-16 px-4 bg-[#D4FF00] border-t-4 border-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-black text-4xl md:text-6xl mb-6 uppercase">
-            Get Packaging<br/>Tips Weekly
+            {t('pouchBlogPage.newsletter.title1', 'Get Packaging')}<br/>
+            {t('pouchBlogPage.newsletter.title2', 'Tips Weekly')}
           </h2>
 
           <p className="text-xl mb-8 font-['Space_Grotesk']">
-            <strong>Industry updates, material guides, and exclusive startup tips.</strong> No spam, unsubscribe anytime.
+            {t('pouchBlogPage.newsletter.subtitle', 'Industry updates, material guides, and exclusive startup tips. No spam, unsubscribe anytime.')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
             <input
               type="email"
-              placeholder="YOUR_EMAIL@BRAND.COM"
+              placeholder={t('pouchBlogPage.newsletter.placeholder', 'YOUR_EMAIL@BRAND.COM')}
               className="flex-1 bg-white border-4 border-black px-6 py-4 font-['JetBrains_Mono'] font-bold focus:outline-none focus:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow"
             />
             <NeoButton 
               className="px-8 py-4"
               onClick={() => alert('Subscription logic here')}
             >
-              Subscribe
+              {t('pouchBlogPage.newsletter.btn', 'Subscribe')}
             </NeoButton>
           </div>
 
           <p className="mt-4 text-sm font-['JetBrains_Mono']">
-            📧 Join 1,200+ founders learning about sustainable packaging
+            {t('pouchBlogPage.newsletter.footer', '📧 Join 1,200+ founders learning about sustainable packaging')}
           </p>
         </div>
       </section>
