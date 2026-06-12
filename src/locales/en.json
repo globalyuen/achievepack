@@ -1,4 +1,100 @@
 {
+  "trappingKeylinePage": {
+    "meta": {
+      "title": "Understand Print Trapping & Keyline Setup in Packaging | POUCH.ECO",
+      "description": "Learn what print trapping is and why packaging designers must utilize vector keylines (dielines). Prepress guidelines for Adobe Illustrator flexible print."
+    },
+    "hero": {
+      "titlePart1": "Understanding Print Trapping",
+      "titlePart2": "& Keylines in Packaging Design",
+      "subtitle": "Avoid costly print registration errors. B2B guide explaining how spread/choke trapping works, why dieline blueprints are critical, and prepress vector setups."
+    },
+    "sections": {
+      "print-trapping": {
+        "title": "What is Print Trapping in Packaging?",
+        "p1": "During high-speed packaging runs, flexible films expand and stretch slightly under tension. As a result, different color print rollers can experience minor alignment deviations (registration errors). If colors are printed edge-to-edge with no overlap, a thin white gap can appear between shapes. Trapping is the prepress process of slightly overlapping adjoining colors to prevent these gaps.",
+        "listTitle": "Core Trapping Methods:",
+        "list": {
+          "spread": {
+            "bold": "Spread Trapping: ",
+            "text": "Extending a lighter object color slightly outward into a surrounding darker background color."
+          },
+          "choke": {
+            "bold": "Choke Trapping: ",
+            "text": "Pulling the background color slightly inward under the edges of a darker foreground object."
+          },
+          "white": {
+            "bold": "White Ink Underprinting Trapping: ",
+            "text": "Pulling the backing white ink layer slightly inward by 0.5pt to prevent white borders from showing under CMYK elements."
+          }
+        }
+      },
+      "keyline-dieline": {
+        "title": "The Role of a Keyline (Dieline) in Artwork",
+        "p1": "A keyline (often referred to as a dieline) is a vector blueprint that maps the physical dimensions of the packaging pouch. It marks where the film will be cut, folded, creased, and sealed. Without an accurate keyline in the vector file, our prepress technicians cannot align your graphics to the mechanical constraints of the pouch-making machinery.",
+        "elements": {
+          "title": "Keyline Vector Elements",
+          "list": {
+            "cut": {
+              "bold": "Cut Line: ",
+              "text": "Solid red lines indicating the final outer size of the pouch."
+            },
+            "seal": {
+              "bold": "Seal Area: ",
+              "text": "Shaded areas showing where the heat-sealing jaws clamp."
+            },
+            "bleed": {
+              "bold": "Bleed Area: ",
+              "text": "3mm extension of graphics past the cut line to prevent white margins."
+            },
+            "safe": {
+              "bold": "Safe Zone: ",
+              "text": "Inner margin where critical text must reside."
+            }
+          }
+        },
+        "pitfalls": {
+          "title": "Common Design Pitfalls",
+          "list": {
+            "p1": "Placing text or barcodes inside the 10mm heat-seal seams.",
+            "p2": "Forgetting to lock dieline layers to a dedicated spot color channel.",
+            "p3": "Converting text to raster pixels instead of outlining fonts to vectors.",
+            "p4": "Not extending background patterns to the outer bleed line."
+          }
+        }
+      },
+      "illustrator-setup": {
+        "title": "How to Setup Trapping and Bleeds in Illustrator",
+        "p1": "Pre-flighting files properly speeds up production lead times. Graphic designers should follow these basic rules inside Adobe Illustrator before exporting vector PDFs:",
+        "codeHeader": "// Illustrator pre-flight rules",
+        "rules": {
+          "r1": "1. OUTLINE ALL FONTS (Ctrl+Shift+O / Cmd+Shift+O) to avoid missing font issues.",
+          "r2": "2. SET BLEEDS to exactly 3.0mm (0.12 inches) outside the cut keyline.",
+          "r3": "3. SPOT COLORS: Keep dielines on a separate layer named \"DIELINE\" set to a Spot Color with \"Overprint Stroke\" checked.",
+          "r4": "4. IMAGES: Embed all linked raster files (minimum 300 DPI in CMYK color space)."
+        }
+      }
+    },
+    "faq": {
+      "q1": {
+        "q": "What does 'trapping' mean in printing?",
+        "a": "Trapping is a prepress printing setup where adjacent colors are overlapped slightly (usually by 0.1mm - 0.2mm). This compensates for standard registration movements of high-speed web presses, preventing unwanted white paper outlines from showing between colors."
+      },
+      "q2": {
+        "q": "What is the difference between a keyline, a dieline, and a bleed line?",
+        "a": "A keyline is the vector lines indicating physical pouch outlines. A dieline is the packaging industry term for this blueprint template. A bleed line is a safety line 3mm outside the cut dieline where colors are stretched to ensure clean cuts without unprinted margins."
+      },
+      "q3": {
+        "q": "Does digital printing require the same trapping setup as rotogravure?",
+        "a": "Digital presses have higher registration accuracy, but still benefit from subtle trapping, particularly white ink underprinting trapping on clear or metallized films to prevent white halos around text."
+      }
+    },
+    "cta": {
+      "title": "Download Pouch Dieline Templates",
+      "description": "Access our library of 160+ standard packaging dielines or request a custom keyline blueprint. Run a free artwork file preflight audit.",
+      "achievePackText": "Need a live, custom dieline vector generator with instant DXF outputs?"
+    }
+  },
   "schema": {
     "webpage": {
       "name": "Certified eco-friendly pouch packaging partner for global brands",

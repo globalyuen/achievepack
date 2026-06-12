@@ -1,4 +1,100 @@
 {
+  "trappingKeylinePage": {
+    "meta": {
+      "title": "Comprendre le trapping d'impression & la configuration de l'habillage (Keyline/Dieline) dans l'emballage | POUCH.ECO",
+      "description": "Découvrez ce qu'est le trapping d'impression et pourquoi les concepteurs d'emballages doivent utiliser des tracés de découpe vectoriels (dielines). Directives de prépresse pour l'impression flexible avec Adobe Illustrator."
+    },
+    "hero": {
+      "titlePart1": "Comprendre le trapping d'impression",
+      "titlePart2": "& les tracés de découpe (Keylines) dans le design d'emballage",
+      "subtitle": "Évitez les erreurs coûteuses de repérage à l'impression. Guide B2B expliquant le fonctionnement du trapping par recouvrement (spread) et par retrait (choke), l'importance des tracés de découpe et la préparation des fichiers vectoriels en prépresse."
+    },
+    "sections": {
+      "print-trapping": {
+        "title": "Qu'est-ce que le trapping d'impression dans l'emballage ?",
+        "p1": "Lors des cycles de production d'emballages à grande vitesse, les films flexibles se dilatent et s'étirent légèrement sous la tension. En conséquence, les différents cylindres d'impression couleur peuvent subir de légers écarts d'alignement (erreurs de repérage). Si les couleurs sont imprimées bord à bord sans chevauchement, un mince espace blanc peut apparaître entre les formes. Le trapping (ou recouvrement) est le processus prépresse consistant à faire se chevaucher légèrement les couleurs adjacentes pour éviter ces vides.",
+        "listTitle": "Principales méthodes de trapping :",
+        "list": {
+          "spread": {
+            "bold": "Trapping par recouvrement (Spread) : ",
+            "text": "Élargir légèrement la couleur d'un objet plus clair vers l'extérieur dans une couleur de fond plus sombre environnante."
+          },
+          "choke": {
+            "bold": "Trapping par retrait (Choke) : ",
+            "text": "Resserrer légèrement la couleur de fond vers l'intérieur sous les bords d'un objet de premier plan plus sombre."
+          },
+          "white": {
+            "bold": "Trapping de soutien blanc (White Ink Underprinting) : ",
+            "text": "Réduire la couche de soutien blanc vers l'intérieur de 0,5pt pour éviter que des bordures blanches n'apparaissent sous les éléments CMJN."
+          }
+        }
+      },
+      "keyline-dieline": {
+        "title": "Le rôle du tracé de découpe (Keyline/Dieline) dans la création graphique",
+        "p1": "Une keyline (souvent appelée dieline ou tracé de découpe) est un plan vectoriel qui cartographie les dimensions physiques du sachet d'emballage. Elle indique où le film sera coupé, plié, rainuré et scellé. Sans un tracé de découpe précis dans le fichier vectoriel, nos techniciens prépresse ne peuvent pas aligner vos graphiques sur les contraintes mécaniques des machines de fabrication de sachets.",
+        "elements": {
+          "title": "Éléments vectoriels du tracé de découpe",
+          "list": {
+            "cut": {
+              "bold": "Ligne de coupe (Cut Line) : ",
+              "text": "Lignes rouges pleines indiquant le format extérieur final du sachet."
+            },
+            "seal": {
+              "bold": "Zone de scellage (Seal Area) : ",
+              "text": "Zones ombrées indiquant l'emplacement des mâchoires de thermoscellage."
+            },
+            "bleed": {
+              "bold": "Zone de fond perdu (Bleed Area) : ",
+              "text": "Prolongation des graphismes de 3 mm au-delà de la ligne de coupe pour éviter les liserés blancs lors de la coupe."
+            },
+            "safe": {
+              "bold": "Zone de sécurité (Safe Zone) : ",
+              "text": "Marge intérieure dans laquelle les textes et logos critiques doivent être placés."
+            }
+          }
+        },
+        "pitfalls": {
+          "title": "Erreurs de conception courantes",
+          "list": {
+            "p1": "Placer du texte ou des codes-barres dans les zones de soudure thermique de 10 mm.",
+            "p2": "Oublier de verrouiller les calques de découpe sur un canal de ton direct (spot color) dédié.",
+            "p3": "Convertir du texte en pixels d'image au lieu de vectoriser les polices de caractères.",
+            "p4": "Ne pas étendre les motifs de fond jusqu'à la ligne extérieure de fond perdu."
+          }
+        }
+      },
+      "illustrator-setup": {
+        "title": "Comment configurer le trapping et les fonds perdus dans Illustrator",
+        "p1": "Une bonne préparation des fichiers prépresse accélère les délais de production. Les concepteurs graphiques doivent suivre ces règles de base dans Adobe Illustrator avant d'exporter les PDF vectoriels :",
+        "codeHeader": "// Règles de vérification prépresse dans Illustrator",
+        "rules": {
+          "r1": "1. VECTORISER TOUTES LES POLICES (Ctrl+Shift+O / Cmd+Shift+O) pour éviter les problèmes de polices manquantes.",
+          "r2": "2. DÉFINIR LES FONDS PERDUS à exactement 3,0 mm (0,12 pouce) à l'extérieur de la ligne de coupe.",
+          "r3": "3. TONS DIRECTS : Conserver les tracés de découpe sur un calque séparé nommé \"DIELINE\" défini en Ton Direct (Spot Color) avec l'option \"Surimpression du contour\" cochée.",
+          "r4": "4. IMAGES : Incorporer tous les fichiers d'images matricielles liés (minimum 300 DPI dans l'espace colorimétrique CMJN)."
+        }
+      }
+    },
+    "faq": {
+      "q1": {
+        "q": "Que signifie le terme 'trapping' en impression ?",
+        "a": "Le trapping est une technique prépresse consistant à faire se chevaucher légèrement des couleurs adjacentes (généralement de 0,1 mm à 0,2 mm). Cela compense les variations de repérage courantes sur les presses rotatives à grande vitesse, empêchant l'apparition de liserés blancs indésirables entre les zones de couleur."
+      },
+      "q2": {
+        "q": "Quelle est la différence entre une keyline, une dieline et une ligne de fond perdu (bleed line) ?",
+        "a": "La keyline désigne les lignes vectorielles indiquant le contour physique du sachet. La dieline est le terme technique industriel pour ce gabarit de découpe. Le fond perdu est une marge de sécurité de 3 mm à l'extérieur du tracé de coupe dans laquelle les graphismes sont prolongés pour garantir une découpe propre sans liserés blancs."
+      },
+      "q3": {
+        "q": "L'impression numérique nécessite-t-elle le même réglage de trapping que l'héliogravure ?",
+        "a": "Les presses numériques ont une précision de repérage supérieure, mais bénéficient toujours d'un léger trapping, en particulier pour le blanc de soutien sur les films transparents ou métallisés afin d'éviter les contours blancs autour des textes."
+      }
+    },
+    "cta": {
+      "title": "Télécharger nos gabarits de découpe pour sachets",
+      "description": "Accédez à notre bibliothèque de plus de 160 gabarits standards ou demandez un tracé de découpe sur mesure. Demandez un audit prépresse gratuit de vos fichiers.",
+      "achievePackText": "Besoin d'un générateur de tracés de découpe vectoriels en direct avec export DXF instantané ?"
+    }
+  },
   "schema": {
     "webpage": {
       "name": "Partenaire certifié d'emballage écologique pour les marques mondiales",

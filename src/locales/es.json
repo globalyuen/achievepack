@@ -1,4 +1,100 @@
 {
+  "trappingKeylinePage": {
+    "meta": {
+      "title": "Comprender el reventado de impresión (Trapping) y la configuración de líneas clave (Keyline) en envases | POUCH.ECO",
+      "description": "Obtenga información sobre qué es el reventado de impresión y por qué los diseñadores de envases deben utilizar líneas clave vectoriales (líneas de troquel). Pautas de preimpresión para impresión flexible en Adobe Illustrator."
+    },
+    "hero": {
+      "titlePart1": "Comprender el reventado de impresión",
+      "titlePart2": "y las líneas clave en el diseño de envases",
+      "subtitle": "Evite costosos errores de registro de impresión. Guía B2B que explica cómo funciona el reventado por expansión/contracción, por qué las plantillas de líneas de troquel son críticas y configuraciones vectoriales de preimpresión."
+    },
+    "sections": {
+      "print-trapping": {
+        "title": "¿Qué es el reventado de impresión (Trapping) en envases?",
+        "p1": "Durante las tiradas de envasado a alta velocidad, las películas flexibles se expanden y se estiran ligeramente bajo tensión. Como resultado, los rodillos de impresión de diferentes colores pueden experimentar ligeras desviaciones de alineación (errores de registro). Si los colores se imprimen borde a borde sin superposición, puede aparecer un espacio blanco delgado entre las formas. El reventado es el proceso de preimpresión que consiste en superponer ligeramente los colores adyacentes para evitar estos espacios vacíos.",
+        "listTitle": "Métodos principales de reventado:",
+        "list": {
+          "spread": {
+            "bold": "Reventado por expansión (Spread): ",
+            "text": "Extender el color de un objeto más claro ligeramente hacia afuera en un color de fondo más oscuro circundante."
+          },
+          "choke": {
+            "bold": "Reventado por contracción (Choke): ",
+            "text": "Reducir el color de fondo ligeramente hacia adentro debajo de los bordes de un objeto de primer plano más oscuro."
+          },
+          "white": {
+            "bold": "Reventado de impresión base de tinta blanca: ",
+            "text": "Reducir la capa de tinta blanca de soporte ligeramente hacia adentro en 0.5 puntos para evitar que se muestren bordes blancos debajo de los elementos CMYK."
+          }
+        }
+      },
+      "keyline-dieline": {
+        "title": "El papel de una línea clave (Línea de troquel/Dieline) en el diseño de arte",
+        "p1": "Una línea clave (a menudo denominada línea de troquel) es un plano vectorial que mapea las dimensiones físicas de la bolsa de envasado. Marca dónde se cortará, doblará, plegará y sellará la película. Sin una línea clave precisa en el archivo vectorial, nuestros técnicos de preimpresión no pueden alinear sus gráficos con las limitaciones mecánicas de la maquinaria de fabricación de bolsas.",
+        "elements": {
+          "title": "Elementos vectoriales de la línea clave",
+          "list": {
+            "cut": {
+              "bold": "Línea de corte: ",
+              "text": "Líneas rojas continuas que indican el tamaño exterior final de la bolsa."
+            },
+            "seal": {
+              "bold": "Área de sellado: ",
+              "text": "Áreas sombreadas que muestran dónde se sujetan las mordazas de sellado térmico."
+            },
+            "bleed": {
+              "bold": "Área de sangrado: ",
+              "text": "Extensión de 3 mm de los gráficos más allá de la línea de corte para evitar márgenes blancos."
+            },
+            "safe": {
+              "bold": "Zona segura: ",
+              "text": "Margen interno donde debe residir el texto crítico."
+            }
+          }
+        },
+        "pitfalls": {
+          "title": "Errores comunes de diseño",
+          "list": {
+            "p1": "Colocar texto o códigos de barras dentro de las costuras de sellado térmico de 10 mm.",
+            "p2": "Olvidar bloquear las capas de la línea de troquel en un canal de color directo dedicado.",
+            "p3": "Convertir texto en píxeles rasterizados en lugar de convertir las fuentes en contornos vectoriales.",
+            "p4": "No extender los patrones de fondo hasta la línea de sangrado exterior."
+          }
+        }
+      },
+      "illustrator-setup": {
+        "title": "Cómo configurar reventados y sangrados en Illustrator",
+        "p1": "La verificación previa adecuada de los archivos acelera los tiempos de entrega de producción. Los diseñadores gráficos deben seguir estas reglas básicas dentro de Adobe Illustrator antes de exportar archivos PDF vectoriales:",
+        "codeHeader": "// Reglas de verificación previa de Illustrator",
+        "rules": {
+          "r1": "1. CREAR CONTORNOS PARA TODAS LAS FUENTES (Ctrl+Shift+O / Cmd+Shift+O) para evitar problemas de fuentes faltantes.",
+          "r2": "2. CONFIGURAR SANGRADOS a exactamente 3.0 mm (0.12 pulgadas) fuera de la línea clave de corte.",
+          "r3": "3. COLORES DIRECTOS: Mantenga las líneas de troquel en una capa separada llamada \"DIELINE\" configurada como un Color Directo con la opción \"Sobreimprimir trazo\" marcada.",
+          "r4": "4. IMÁGENES: Incrustar todos los archivos rasterizados vinculados (mínimo 300 DPI en espacio de color CMYK)."
+        }
+      }
+    },
+    "faq": {
+      "q1": {
+        "q": "¿Qué significa 'reventado' (trapping) en la impresión?",
+        "a": "El reventado es una configuración de impresión de preimpresión donde los colores adyacentes se superponen ligeramente (generalmente de 0.1 mm a 0.2 mm). Esto compensa los movimientos de registro estándar de las prensas de bobina de alta velocidad, evitando que se muestren contornos de papel blanco no deseados entre los colores."
+      },
+      "q2": {
+        "q": "¿Cuál es la diferencia entre una línea clave, una línea de troquel y una línea de sangrado?",
+        "a": "Una línea clave indica los contornos físicos de la bolsa en formato vectorial. Una línea de troquel (dieline) es el término de la industria del embalaje para esta plantilla de diseño. Una línea de sangrado es una línea de seguridad de 3 mm fuera de la línea de troquel de corte donde los colores se extienden para garantizar cortes limpios sin márgenes sin imprimir."
+      },
+      "q3": {
+        "q": "¿La impresión digital requiere la misma configuración de reventado que la rotograbado?",
+        "a": "Las prensas digitales tienen una mayor precisión de registro, pero aún se benefician de un reventado sutil, particularmente el reventado de la base de tinta blanca en películas transparentes o metalizadas para evitar halos blancos alrededor del texto."
+      }
+    },
+    "cta": {
+      "title": "Descargar plantillas de líneas de troquel para bolsas",
+      "description": "Acceda a nuestra biblioteca de más de 160 líneas de troquel de embalaje estándar o solicite un diseño de línea clave personalizado. Realice una auditoría gratuita de verificación previa de archivos de arte.",
+      "achievePackText": "¿Necesita un generador de vectores de líneas de troquel personalizado en vivo con salidas DXF instantáneas?"
+    }
+  },
   "schema": {
     "webpage": {
       "name": "Socio certificado de embalaje ecológico para marcas globales",

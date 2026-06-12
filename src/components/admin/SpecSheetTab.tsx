@@ -67,6 +67,7 @@ interface SpecSheetData {
   hangHole: string;
   artworkImage: string;
   artworkImages?: string[];
+  selectedLogos?: string[];
 }
 
 const PRESETS: Record<string, { label: string; description: string; data: SpecSheetData }> = {
@@ -122,6 +123,7 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedCustomer: 'Dennis Marazzato',
       approvedCustomerPos: 'Customer Quality Manager',
       approvedCustomerDate: 'Monday, December 05, 2016',
+      selectedLogos: ['bcorp', 'recycle_pe'],
       specType: 'rollstock',
       pouchShape: 'Stand Up Pouch',
       pouchWidth: '',
@@ -185,6 +187,7 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedCustomer: 'Sara Jenkins',
       approvedCustomerPos: 'Eco-Brand Operations Manager',
       approvedCustomerDate: 'Friday, May 29, 2026',
+      selectedLogos: ['bcorp', 'tuv_home', 'tuv_industrial', 'bpi'],
       specType: 'pouch',
       pouchShape: 'Stand Up Pouch',
       pouchWidth: '160mm',
@@ -248,6 +251,7 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedCustomer: 'Clara Oswald',
       approvedCustomerPos: 'Technical Operations Director',
       approvedCustomerDate: 'Friday, May 29, 2026',
+      selectedLogos: ['bcorp', 'recycle_pe'],
       specType: 'pouch',
       pouchShape: 'Stand Up Pouch',
       pouchWidth: '150mm',
@@ -311,6 +315,7 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedCustomer: 'Liam Vance',
       approvedCustomerPos: 'Global Procurement Manager',
       approvedCustomerDate: 'Friday, May 29, 2026',
+      selectedLogos: ['bcorp', 'recycle_pe'],
       specType: 'rollstock',
       pouchShape: 'Stand Up Pouch',
       pouchWidth: '',
@@ -329,6 +334,48 @@ interface SavedSpecSheet {
   name: string;
   timestamp: string;
   data: SpecSheetData;
+}
+
+const LOGO_SPECS = {
+  bcorp: { name: 'B Corp', left: 1100, width: 1900, label: 'B Corp Certified' },
+  tuv_home: { name: 'OK Compost HOME', left: 3500, width: 1740, label: 'TÜV OK Compost HOME' },
+  tuv_industrial: { name: 'OK Compost Industrial', left: 5720, width: 1311, label: 'TÜV OK Compost Industrial' },
+  bpi: { name: 'BPI', left: 7126, width: 1398, label: 'BPI Compostable' },
+  recycle_pe: { name: 'Recycle 4 PE', left: 8929, width: 2482, label: 'Recyclable LDPE 4' },
+};
+
+function RenderCroppedLogo({ logoKey, height = 40 }: { logoKey: string; height?: number }) {
+  const spec = LOGO_SPECS[logoKey as keyof typeof LOGO_SPECS];
+  if (!spec) return null;
+
+  const width = Math.round((height * spec.width) / 2744);
+  const left = -Math.round((height * spec.left) / 2744);
+  const totalScaledWidth = Math.round((height * 12864) / 2744);
+
+  return (
+    <div
+      className="relative overflow-hidden inline-block"
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+      }}
+      title={spec.label}
+    >
+      <img
+        src="/bpi-bcorp-logos.svg"
+        alt={spec.name}
+        style={{
+          position: 'absolute',
+          height: `${height}px`,
+          width: `${totalScaledWidth}px`,
+          maxWidth: 'none',
+          left: `${left}px`,
+          top: '0px',
+          filter: 'brightness(0)', // Make it black on white
+        }}
+      />
+    </div>
+  );
 }
 
 export default function SpecSheetTab() {
@@ -378,6 +425,16 @@ export default function SpecSheetTab() {
       ...prev,
       [field]: value
     }));
+  };
+
+  const handleLogoToggle = (logoKey: string) => {
+    setData(prev => {
+      const currentLogos = prev.selectedLogos || [];
+      const updatedLogos = currentLogos.includes(logoKey)
+        ? currentLogos.filter(k => k !== logoKey)
+        : [...currentLogos, logoKey];
+      return { ...prev, selectedLogos: updatedLogos };
+    });
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -553,6 +610,7 @@ export default function SpecSheetTab() {
                     core: 'Paper core ID 76 mm', joinsNumber: '1 max', joinsTape: 'Red tape', stackPallet: '', positionJoins: '', rollLabelInfo: '', rollSize: '', palletType: 'Wood', generalPackaging: '',
                     storage: '', foodContact: '',
                     approvedAchieve: '', approvedAchievePos: '', approvedAchieveDate: '', approvedCustomer: '', approvedCustomerPos: '', approvedCustomerDate: '',
+                    selectedLogos: [],
                     specType: 'rollstock', pouchShape: 'Stand Up Pouch', pouchWidth: '', pouchLength: '', pouchGusset: '', zipperType: 'None', tearNotch: 'None', hangHole: 'None', artworkImage: ''
                   });
                   setSuccessMsg('Form Cleared (Custom Blank Pouch Template)');
@@ -760,6 +818,29 @@ export default function SpecSheetTab() {
                         })}
                       </div>
                     ))}
+                  </div>
+                  
+                  <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Show Certification Logos in Spec Sheet</label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 border border-gray-200 bg-gray-50/50 p-3 rounded-xl">
+                      {Object.entries(LOGO_SPECS).map(([key, spec]) => {
+                        const isChecked = (data.selectedLogos || []).includes(key);
+                        return (
+                          <label key={key} className="flex items-center gap-2.5 p-2 rounded-lg bg-white border border-gray-100 hover:border-indigo-300 transition cursor-pointer select-none">
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={() => handleLogoToggle(key)}
+                              className="rounded text-indigo-600 focus:ring-indigo-500 w-4 h-4 cursor-pointer"
+                            />
+                            <div className="flex flex-col">
+                              <span className="text-xs font-bold text-gray-800">{spec.name}</span>
+                              <span className="text-[9px] text-gray-400">{spec.label}</span>
+                            </div>
+                          </label>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               )}
@@ -1288,7 +1369,12 @@ export default function SpecSheetTab() {
                     <tbody>
                       <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 w-[130px] border-r border-gray-300">Printing Process:</td><td className="p-1.5">{data.printingProcess || 'N/A'}</td></tr>
                       <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Print Quality Standard:</td><td className="p-1.5">{data.printQuality || 'N/A'}</td></tr>
-                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Rewind / Film Direction:</td><td className="p-1.5 font-bold text-orange-800">{data.rewindDirection || 'N/A'}</td></tr>
+                      {data.specType === 'rollstock' && (
+                        <tr className="border-b border-gray-300">
+                          <td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Rewind / Film Direction:</td>
+                          <td className="p-1.5 font-bold text-orange-800">{data.rewindDirection || 'N/A'}</td>
+                        </tr>
+                      )}
                       <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Print Number Colours:</td><td className="p-1.5">{data.numColours || 'N/A'}</td></tr>
                       <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Total Retain Solvent Limit:</td><td className="p-1.5 font-mono">{data.totalRetainSolvent || 'N/A'}</td></tr>
                       <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Colour Variation (tolerance):</td><td className="p-1.5 font-mono">{data.solidColourVariation || 'N/A'}</td></tr>
@@ -1512,6 +1598,14 @@ export default function SpecSheetTab() {
               </table>
 
               <div className="flex-1 flex flex-col justify-center gap-4 py-2">
+                {/* CERTIFICATION LOGOS */}
+                {data.selectedLogos && data.selectedLogos.length > 0 && (
+                  <div className="flex justify-center items-center gap-6 py-2 border-b border-gray-150 mb-2">
+                    {data.selectedLogos.map(logoKey => (
+                      <RenderCroppedLogo key={logoKey} logoKey={logoKey} height={40} />
+                    ))}
+                  </div>
+                )}
                 
                 {/* SIGN-OFF TEXT */}
                 <div className="text-center space-y-4 max-w-[500px] mx-auto">
@@ -1691,7 +1785,12 @@ export default function SpecSheetTab() {
                 <tbody>
                   <tr><td className="bg-gray-50 font-bold w-[120px]">Printing Process:</td><td>{data.printingProcess || 'N/A'}</td></tr>
                   <tr><td className="bg-gray-50 font-bold">Print Quality Standard:</td><td>{data.printQuality || 'N/A'}</td></tr>
-                  <tr><td className="bg-gray-50 font-bold text-orange-800" style={{ color: '#9a3412' }}>Rewind / Film Dir:</td><td className="font-bold">{data.rewindDirection || 'N/A'}</td></tr>
+                  {data.specType === 'rollstock' && (
+                    <tr>
+                      <td className="bg-gray-50 font-bold text-orange-800" style={{ color: '#9a3412' }}>Rewind / Film Dir:</td>
+                      <td className="font-bold">{data.rewindDirection || 'N/A'}</td>
+                    </tr>
+                  )}
                   <tr><td className="bg-gray-50 font-bold">Number Colours:</td><td>{data.numColours || 'N/A'}</td></tr>
                   <tr><td className="bg-gray-50 font-bold">Retain Solvent Limit:</td><td className="font-mono">{data.totalRetainSolvent || 'N/A'}</td></tr>
                   <tr><td className="bg-gray-50 font-bold">Colour Variation:</td><td className="font-mono">{data.solidColourVariation || 'N/A'}</td></tr>
@@ -1891,6 +1990,15 @@ export default function SpecSheetTab() {
           </table>
 
           <div className="flex-1 flex flex-col justify-between gap-4 py-2">
+            {/* CERTIFICATION LOGOS */}
+            {data.selectedLogos && data.selectedLogos.length > 0 && (
+              <div className="flex justify-center items-center gap-6 py-2 border-b border-gray-150 mb-2">
+                {data.selectedLogos.map(logoKey => (
+                  <RenderCroppedLogo key={logoKey} logoKey={logoKey} height={40} />
+                ))}
+              </div>
+            )}
+
             <div className="text-center space-y-4 max-w-[500px] mx-auto">
               <h3 className="text-base font-extrabold text-blue-950">Technical Specifications Agreement</h3>
               <p className="text-[9px] leading-relaxed text-gray-500">
