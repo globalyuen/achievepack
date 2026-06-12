@@ -19035,6 +19035,53 @@
                     "q3": "Can packaging be recyclable, contain PCR and be bio-based at the same time?",
                     "a3": "Yes. Achieve Pack's Eco Digital mono-PE structures can combine all three sustainability levers: 100% recyclable in PE streams, containing post-consumer recycled PE, and using bio-based PE from sugarcane. This integrated approach allows brands to make credible claims across recyclability, recycled content, and bio-based content. Low MOQ from 100 pieces for testing. Contact Achieve Pack for a material specification consultation."
                 }
+            },
+            "pouchUSACoffee": {
+                "seoTitle": "USA Coffee Packaging Guide | Custom Printed Coffee Bags | POUCH.ECO",
+                "seoDescription": "The ultimate guide to custom coffee packaging for USA roasters. From FDA compliance and degassing valves to local market trends and sustainable materials.",
+                "badge": "USA_MARKET_HUB // COFFEE",
+                "h1Roast": "Roast Local.",
+                "h1Package": "Package ",
+                "h1Global": "Global.",
+                "heroDesc": "Custom printed coffee bags engineered for the US specialty coffee market. Featuring FDA-compliant materials, high-barrier degassing valves, and sustainable profiles.",
+                "altCustomBag": "Custom printed USA coffee packaging with degassing valve",
+                "highBarrier": "High-Barrier Freshness",
+                "guideTitle": "The Definitive Guide to ",
+                "guideTitleHighlight": "US Coffee Packaging",
+                "guideIntro": "The United States represents one of the largest and most competitive specialty coffee markets in the world. From third-wave roasters in the Pacific Northwest to artisanal cafes in Brooklyn, American consumers demand not only exceptional beans but also premium, sustainable, and highly functional coffee packaging. At POUCH.ECO, we engineer coffee bags specifically tailored to help US roasters stand out on retail shelves and maintain absolute peak freshness.",
+                "altRoasting": "Freshly roasted coffee beans being packed into high-barrier flexible pouches",
+                "fdaHeading": "FDA Compliance and Food Safety",
+                "fdaText": "When importing or utilizing food packaging in the United States, absolute adherence to the Food and Drug Administration (FDA) regulations is non-negotiable. Every layer of our coffee pouches—from the outer matte BOPP to the inner sealant PE layer—is manufactured using 100% FDA-approved, food-safe raw materials. We utilize solventless lamination processes to ensure there is zero risk of chemical migration or odor transfer that could taint the delicate flavor profile of your freshly roasted coffee.",
+                "valveHeading": "The Crucial Degassing Valve",
+                "valveText": "Freshly roasted coffee releases significant amounts of carbon dioxide over the first several weeks. Without a proper venting mechanism, sealed bags will bloat and eventually burst. Our bags are equipped with premium, one-way degassing valves. These engineered valves allow built-up CO2 to escape from the bag while simultaneously blocking oxygen and moisture from entering. This critical component extends the shelf life of your beans by months, ensuring that the coffee your customer brews in New York tastes just as fresh as the day you roasted it in Seattle.",
+                "altValve": "Close-up detail of a coffee bag degassing valve and robust side seals",
+                "sustainableHeading": "Sustainable Coffee Trends in the USA",
+                "sustainableText": "American consumers are increasingly prioritizing environmental sustainability when making purchasing decisions. Traditional coffee bags utilize a layer of aluminum foil for barrier protection, making them impossible to recycle. To meet the demands of the modern US market, we offer cutting-edge sustainable alternatives:",
+                "sustainableList1Title": "Recyclable Mono-PE:",
+                "sustainableList1": "High-barrier, metal-free bags that are 100% recyclable at store drop-off locations across the USA (How2Recycle compliant).",
+                "sustainableList2Title": "Certified Compostable:",
+                "sustainableList2": "Plant-based bags (including the zipper and valve) that break down entirely in industrial or home composting environments.",
+                "sustainableList3Title": "Post-Consumer Recycled (PCR):",
+                "sustainableList3": "Pouches made with up to 50% recycled plastic content, diverting waste from landfills while maintaining premium aesthetics.",
+                "formatsHeading": "Popular Bag Formats",
+                "formatsText": "The US market predominantly favors two pouch formats for specialty coffee. The Stand-Up Pouch (Doypack) is a cost-effective, versatile option perfect for 12oz retail bags. The Flat Bottom Bag (Box Pouch) offers maximum volume efficiency, five panels of printable billboard space, and exceptional shelf stability, making it the premier choice for premium roasts and 2lb or 5lb wholesale formats.",
+                "faqTitle": "Coffee Packaging ",
+                "faqTitleHighlight": "FAQ",
+                "faq": {
+                    "q1": "Are your coffee bags FDA compliant for the US market?",
+                    "a1": "Yes. All raw materials, films, zippers, and adhesives used in our coffee pouches are 100% FDA compliant for direct food contact in the United States.",
+                    "q2": "Do I really need a degassing valve for my coffee?",
+                    "a2": "If you are packaging freshly roasted whole beans, yes. Coffee releases CO2 after roasting. A one-way degassing valve allows this gas to escape without letting oxygen in, preventing your bags from bursting and keeping the coffee fresh.",
+                    "q3": "What is the standard retail coffee bag size in the US?",
+                    "a3": "The most common specialty retail size in the US is 12oz (340g). We offer standardized tooling for 12oz, 16oz (1lb), 2lb, and 5lb wholesale bags.",
+                    "q4": "Can I get recyclable coffee bags with valves?",
+                    "a4": "Absolutely. We offer high-barrier Mono-PE coffee bags complete with fully recyclable PE degassing valves, allowing the entire bag to be recycled together at US store drop-off locations.",
+                    "q5": "What is the minimum order quantity (MOQ) for custom printed bags?",
+                    "a5": "By utilizing advanced HP Indigo digital printing technology, we can offer custom printed, fully branded coffee bags with incredibly low MOQs—often starting at just 500 or 1,000 units per SKU."
+                },
+                "ctaTitle": "Roast. Print. Pack.",
+                "ctaDesc": "Ready to upgrade your coffee brand's presentation in the USA? Get free samples or a custom quote today.",
+                "ctaButton": "Get Your Custom Quote"
             }
         },
         "compostableStandUpPouches": {
@@ -19789,5 +19836,617 @@
             "Leave a legacy of quality, not a footprint of waste.",
             "Made with purpose. Returned to the earth."
         ]
+    },
+    "pouchCustomPrintedSamplePage": {
+        "meta": {
+            "title": "Custom Printed Samples - Pouch.eco"
+        },
+        "hero": {
+            "titleLine1": "Custom Printed",
+            "titleLine2": "Sample",
+            "badge": "High-Fidelity"
+        },
+        "samples": {
+            "handMade": {
+                "label": "Hand Make Sample",
+                "alt": "Hand Make Sample"
+            },
+            "commercial": {
+                "label": "Commercial Sample",
+                "alt": "Commercial Sample"
+            },
+            "sheet": {
+                "label": "Sheet Sample",
+                "alt": "Sheet Sample"
+            }
+        },
+        "option1": {
+            "badge": "Option 01",
+            "title": "Material Sample Prototype",
+            "description": "Hand-made sample using small digital press. Perfect for verifying material texture and initial sizing.",
+            "materialLabel": "Material:",
+            "materialValue": "Home Compostable Glossy Kraft Paper",
+            "styleLabel": "Style:",
+            "styleValue": "Hand-Seal Stand Up Pouch (No Zipper)",
+            "noteLabel": "Note:",
+            "noteValue": "Printing quality is lower than commercial standard",
+            "price": "USD $200",
+            "quantity": "Set of 4 pieces",
+            "cta": "Order Kit 01"
+        },
+        "option2": {
+            "badge": "Option 02",
+            "title": "Final Product Sample",
+            "description": "Produced using our industrial commercial press. Exact quality & finish of your final production run.",
+            "ecoMaterialsLabel": "Eco-Materials:",
+            "ecoMaterialsValue": "Recyclable / Bio PE / Compostable",
+            "styleLabel": "Style:",
+            "styleValue": "Stand Up Pouch WITH Zipper",
+            "statusLabel": "Status:",
+            "statusValue": "Retail Ready Prototype",
+            "price": "USD $400",
+            "ecoLabel": "Eco Materials Pkg",
+            "standardNote": "Starts from $100 for standard plastics",
+            "quantity": "Set of 50 pieces",
+            "cta": "Order Kit 02"
+        },
+        "option3": {
+            "badge": "Option 03",
+            "title": "Artwork Print Only",
+            "description": "Commercial press print on a sheet. Ideal for color matching and artwork review without the full pouch construction.",
+            "formatLabel": "Format:",
+            "formatValue": "Printed Sheet (Commercial Press)",
+            "processLabel": "Process:",
+            "processValue": "No hand-making of pouches included",
+            "price": "USD $100",
+            "quantity": "Artwork Proof Sheet",
+            "cta": "Order Proof"
+        },
+        "timeline": {
+            "title": "Fast-Track Timeline",
+            "production": {
+                "title": "Production",
+                "leadTimeLine1": "Lead Time is",
+                "leadTimeLine2": "Approx 2 Weeks",
+                "postApproval": "Post-Approval"
+            },
+            "shipping": {
+                "title": "FedEx Shipping",
+                "daysLine1": "+ Approx 10",
+                "daysLine2": "Business Days",
+                "service": "Door-to-Door Service"
+            }
+        },
+        "logistics": {
+            "includesShipping": "Includes FedEx Shipping Cost",
+            "excludesTax": "Excluded Tax & Duty"
+        },
+        "thankYou": "Kindly Note Many Thanks"
+    },
+    "pouchCertificationsPage": {
+        "meta": {
+            "title": "Compostable Certifications Explained | BPI, EN 13432 | POUCH.ECO",
+            "description": "Understand BPI, EN 13432, AS 4736, and home compostable certifications. Learn which certification your eco-friendly packaging needs for North America, Europe, Australia.",
+            "keywords": "BPI certified, EN 13432, AS 4736, home compostable, ASTM D6400, BRC packaging, BRCGS, compostable packaging certification, food safety certification",
+            "ogTitle": "Compostable Certifications Explained | POUCH.ECO",
+            "ogDescription": "BPI, EN 13432, AS 4736, Home Compostable - which certification does your packaging need?"
+        },
+        "hero": {
+            "badge": "CERTIFIED_COMPOSTABLE",
+            "titleLine1": "Proof Your",
+            "titleLine2": "Packaging",
+            "titleLine3": "Actually Works",
+            "subtitle": "Third-party certifications mean your compostable packaging has been independently tested and verified. No greenwashing, just documented proof.",
+            "viewBpiListing": "View BPI Listing",
+            "downloadBpiCert": "Download BPI Cert",
+            "getCertified": "Get Certified"
+        },
+        "certifications": {
+            "heading": "Our Certifications",
+            "listing": "LISTING",
+            "download": "DOWNLOAD",
+            "items": {
+                "0": {
+                    "name": "DIN TRUST",
+                    "region": "Europe/Global",
+                    "description": "DIN Geprüft Home Compostable certification. Verified for backyard composting.",
+                    "facility": "Home Composting"
+                },
+                "1": {
+                    "name": "BPI Certified",
+                    "region": "North America",
+                    "description": "Third-party verified compostable by the Biodegradable Products Institute. Meets ASTM D6400/D6868.",
+                    "facility": "Industrial Composting"
+                },
+                "2": {
+                    "name": "ABA Home Compost",
+                    "region": "Australia",
+                    "description": "Australasian Bioplastics Association Home Compostable Verification. The gold standard in AU.",
+                    "facility": "Home Composting"
+                },
+                "3": {
+                    "name": "GRS Certified",
+                    "region": "Global",
+                    "description": "Global Recycled Standard. Verifies recycled content (PCR) and responsible social/environmental practices.",
+                    "facility": "Recycling Stream"
+                },
+                "4": {
+                    "name": "Bio-based PE",
+                    "region": "Global",
+                    "description": "Verified bio-based carbon content from renewable resources like sugarcane.",
+                    "facility": "Recycling Stream"
+                },
+                "5": {
+                    "name": "FSC Certified",
+                    "region": "Global",
+                    "description": "Forest Stewardship Council. Ensures paper comes from responsibly managed forests.",
+                    "facility": "Paper Recycling"
+                },
+                "6": {
+                    "name": "ISO 9001/14001",
+                    "region": "Global",
+                    "description": "International standards for Quality Management and Environmental Management Systems.",
+                    "facility": "Manufacturing"
+                },
+                "7": {
+                    "name": "BRC Packaging",
+                    "region": "Global",
+                    "description": "BRCGS Packaging Materials Standard. Globally recognized certification ensuring safety, quality, and legality of packaging materials for food and consumer products.",
+                    "facility": "Food Safety"
+                }
+            }
+        },
+        "benefits": {
+            "heading": "Why Certifications Matter",
+            "items": {
+                "0": {
+                    "title": "Third-Party Verified",
+                    "description": "Independent lab testing proves your packaging claims"
+                },
+                "1": {
+                    "title": "Customer Trust",
+                    "description": "Certification badges on packaging build immediate credibility"
+                },
+                "2": {
+                    "title": "Compost Facility Acceptance",
+                    "description": "Certified packaging is welcomed by commercial composters"
+                },
+                "3": {
+                    "title": "Legal Protection",
+                    "description": "Avoid greenwashing lawsuits with documented proof"
+                }
+            }
+        },
+        "standards": {
+            "heading": "Standards Comparison",
+            "thCertification": "Certification",
+            "thRegion": "Region",
+            "thFacilityType": "Facility Type",
+            "thTemperature": "Temperature",
+            "rows": {
+                "0": {
+                    "region": "North America",
+                    "facility": "Industrial"
+                },
+                "1": {
+                    "region": "Europe",
+                    "facility": "Industrial"
+                },
+                "2": {
+                    "region": "Australia",
+                    "facility": "Industrial"
+                },
+                "3": {
+                    "region": "Global",
+                    "facility": "Home Compost"
+                },
+                "4": {
+                    "region": "Global",
+                    "facility": "Food Safety"
+                }
+            }
+        },
+        "viewCertificates": {
+            "heading": "View Certificates",
+            "dinHomeCompost": "DIN Home Compost",
+            "bpiCompostable": "BPI Compostable",
+            "downloadLabel": "Download →",
+            "abaAs5810": "ABA AS 5810",
+            "grsRecycled": "GRS Recycled",
+            "bioBasedPe": "Bio-based PE",
+            "fscMix": "FSC Mix",
+            "iso9001": "ISO 9001",
+            "iso14001": "ISO 14001",
+            "brcPackaging": "BRC Packaging"
+        },
+        "cta": {
+            "heading": "Ready to Get Certified?",
+            "subtitle": "We'll guide you through the certification process and help you choose the right standards for your market.",
+            "bookConsultation": "Book Free Consultation",
+            "browseMaterials": "Browse Certified Materials"
+        },
+        "faqs": {
+            "0": {
+                "question": "What does \"BPI Certified Compostable\" mean?",
+                "answer": "BPI Certified means your packaging has been independently tested and verified to break down in industrial composting facilities. It meets strict ASTM standards for biodegradation, disintegration, and eco-toxicity. No harmful residues left behind."
+            },
+            "1": {
+                "question": "Can I compost certified packaging in my backyard?",
+                "answer": "Most BPI-certified packaging is designed for industrial composting facilities, which reach higher temperatures (140-160°F) than home compost piles. If you want backyard compostability, look for \"Home Compostable\" certification (TÜV Austria OK compost HOME)."
+            },
+            "2": {
+                "question": "How do I verify your certifications?",
+                "answer": "Visit products.bpiworld.org and search for \"Achieve Pack Company\" to see all certified SKUs. We provide certification documents with every order. You can also request lab test reports for full transparency."
+            },
+            "3": {
+                "question": "Why do certifications matter for my brand?",
+                "answer": "Certifications provide third-party proof of your sustainability claims. They protect you from greenwashing accusations, build customer trust, and ensure your packaging is actually accepted by composters."
+            },
+            "4": {
+                "question": "Which certification is best for my market?",
+                "answer": "It depends on your region: BPI for North America, EN 13432 for Europe, AS 4736 for Australia. If selling globally, choose packaging that meets multiple standards."
+            },
+            "5": {
+                "question": "Do you test for PFAS (forever chemicals)?",
+                "answer": "Yes! All our certified compostable materials are tested and verified to be PFAS-free. BPI now requires fluorinated chemical restrictions, and we meet those updated standards."
+            },
+            "6": {
+                "question": "What is BRC Packaging certification?",
+                "answer": "BRC (BRCGS) Packaging Materials is a globally recognized food safety certification standard. It ensures our manufacturing facility meets rigorous requirements for hygiene, quality management, product safety, and process control. This certification is often required by major retailers and food brands to ensure packaging materials are safe for food contact."
+            },
+            "heading": "Common Questions"
+        }
+    },
+    "pouchFactoryTourPage": {
+        "meta": {
+            "title": "Factory Tour | See How We Make Eco Pouches | POUCH.ECO",
+            "description": "Virtual factory tour: Watch our sustainable pouch manufacturing process from printing to bag making. Quality certified eco-packaging production.",
+            "ogTitle": "Factory Tour | POUCH.ECO",
+            "ogDescription": "See inside our eco-friendly packaging factory"
+        },
+        "hero": {
+            "badge": "FACTORY_TOUR",
+            "titleLine1": "See How We",
+            "titleLine2": "Make Magic",
+            "subtitle": "Virtual tour of our <strong>certified facility</strong> where sustainable pouches come to life"
+        },
+        "stats": {
+            "productionLines": "Production Lines",
+            "dailyCapacity": "Daily Capacity",
+            "qualityTests": "Quality Tests",
+            "yearsExperience": "Years Experience"
+        },
+        "videoGrid": {
+            "title1": "Production ",
+            "title2": "Process",
+            "subtitle": "Click any video to watch our manufacturing workflow"
+        },
+        "videos": {
+            "enter": {
+                "title": "Welcome to Our Factory",
+                "description": "Step inside our state-of-the-art sustainable packaging facility"
+            },
+            "digitalPrinting": {
+                "title": "Digital Printing Technology",
+                "description": "High-quality digital printing for short runs with unlimited colors"
+            },
+            "rotoPrinting": {
+                "title": "Rotogravure Printing",
+                "description": "Plate printing for large volume production with Pantone matching"
+            },
+            "laminating": {
+                "title": "Lamination Process",
+                "description": "Multi-layer bonding for optimal barrier properties"
+            },
+            "slitting": {
+                "title": "Precision Slitting",
+                "description": "Accurate material cutting for perfect dimensions"
+            },
+            "bagMaking": {
+                "title": "Pouch Manufacturing",
+                "description": "Converting films into finished pouches with quality seals"
+            }
+        },
+        "quality": {
+            "badge": "QUALITY_FIRST",
+            "title1": "Certified ",
+            "title2": "Standards",
+            "materialTesting": {
+                "title": "Material Testing",
+                "point1": "Barrier testing (OTR, WVTR)",
+                "point2": "Seal strength measurement",
+                "point3": "Thickness uniformity",
+                "point4": "Migration testing"
+            },
+            "qualityControl": {
+                "title": "Quality Control",
+                "point1": "In-line inspection",
+                "point2": "Color consistency checks",
+                "point3": "Dimensional accuracy",
+                "point4": "Drop testing"
+            },
+            "certifications": {
+                "title": "Certifications",
+                "point1": "BPI Certified",
+                "point2": "EN 13432 Compliant",
+                "point3": "FDA Food-Safe",
+                "point4": "GRS Certified"
+            }
+        },
+        "cta": {
+            "title": "Ready to Start?",
+            "subtitle": "Book a free consultation to discuss your packaging needs",
+            "button": "Book Consultation"
+        }
+    },
+    "pouchDigitalPrintingPage": {
+        "meta": {
+            "title": "Digital Printing for Pouches | Start with 500 Units | POUCH.ECO",
+            "description": "Print full-color pouches from just 500 units! No plate fees, unlimited colors, fast turnaround. Perfect for startups and small brands testing products.",
+            "ogTitle": "Digital Printing for Pouches | Low MOQ from 500",
+            "ogDescription": "Full-color digital printing with no plate fees! Start from 500 units with fast turnaround.",
+            "twitterTitle": "Digital Printing | Low MOQ Pouches",
+            "twitterDescription": "Start with 500 units, no plate fees, unlimited colors!"
+        },
+        "hero": {
+            "badge": "DIGITAL PRINTING",
+            "titleLine1": "Digital Printing",
+            "titleLine2": "From Just 500 Units!",
+            "descriptionBold": "No plate fees. Unlimited colors. Fast turnaround.",
+            "descriptionRest": "Perfect for startups, small brands, and anyone who wants beautiful full-color pouches without breaking the bank!",
+            "ctaQuote": "Get Free Quote",
+            "ctaExamples": "See Examples"
+        },
+        "advantages": {
+            "heading": "Why Choose Digital Printing?",
+            "items": {
+                "0": {
+                    "title": "Start with Just 500!",
+                    "desc": "No $1,500 plate fees like traditional printing"
+                },
+                "1": {
+                    "title": "Unlimited Colors",
+                    "desc": "Full-color CMYK printing at no extra cost"
+                },
+                "2": {
+                    "title": "Super Fast",
+                    "desc": "2-3 weeks turnaround vs 6-8 weeks traditional"
+                },
+                "3": {
+                    "title": "Easy Updates",
+                    "desc": "Change designs anytime—no new plates needed!"
+                }
+            }
+        },
+        "comparison": {
+            "heading": "Digital vs Traditional Printing",
+            "digital": {
+                "title": "Digital",
+                "moqLabel": "MOQ: 500 units",
+                "moqDesc": "Perfect for testing!",
+                "noPlateLabel": "No plate fees",
+                "noPlateDesc": "Save $1,500 upfront",
+                "colorsLabel": "Unlimited colors",
+                "colorsDesc": "CMYK + White ink",
+                "leadTimeLabel": "2-3 weeks lead time",
+                "leadTimeDesc": "Fast turnaround",
+                "designLabel": "Easy design changes",
+                "designDesc": "No re-plating needed",
+                "bestFor": "Best for:",
+                "bestForDesc": "500-5,000 units per run, multiple SKUs, frequent updates"
+            },
+            "traditional": {
+                "title": "Traditional",
+                "moqLabel": "MOQ: 10,000+ units",
+                "moqDesc": "Too much for testing",
+                "plateLabel": "Plate fees: $1,500+",
+                "plateDesc": "Per color, per design",
+                "colorsLabel": "Pantone colors",
+                "colorsDesc": "Exact brand matching",
+                "leadTimeLabel": "6-8 weeks lead time",
+                "leadTimeDesc": "Longer wait",
+                "designLabel": "Design changes costly",
+                "designDesc": "New plates required",
+                "bestFor": "Best for:",
+                "bestForDesc": "10,000+ units, exact Pantone matching, lower per-unit cost"
+            }
+        },
+        "perfectFor": {
+            "heading": "Perfect For...",
+            "items": {
+                "0": "Startups testing the market",
+                "1": "Multiple product flavors/SKUs",
+                "2": "Seasonal or limited editions",
+                "3": "Batch codes & QR codes",
+                "4": "Small batch artisan brands",
+                "5": "Crowdfunding projects",
+                "6": "Colorful photography designs",
+                "7": "Frequent design changes"
+            }
+        },
+        "pricing": {
+            "heading": "Pricing Example",
+            "units": "units",
+            "price500": "$0.80/unit",
+            "total500": "Total: $400",
+            "price1000": "$0.65/unit",
+            "total1000": "Total: $650",
+            "price2000": "$0.55/unit",
+            "total2000": "Total: $1,100",
+            "includesNote": "Prices include full-color printing on both sides",
+            "disclaimer": "Actual pricing depends on size, material, and features"
+        },
+        "included": {
+            "heading": "What's Included",
+            "includedTitle": "✅ Included in Every Order:",
+            "includedItems": {
+                "0": "Full CMYK color printing (both sides)",
+                "1": "White ink underbase (on dark materials)",
+                "2": "Free design file review",
+                "3": "Digital proof before production",
+                "4": "Quality check photos",
+                "5": "Standard resealable zipper",
+                "6": "Tear notch"
+            },
+            "addOnsTitle": "💰 Optional Add-Ons:",
+            "addOnItems": {
+                "0": "Degassing valve (+$0.05/unit)",
+                "1": "Hang hole (+$0.02/unit)",
+                "2": "Custom sizes (free)",
+                "3": "Metallic printing effect (+$0.10/unit)",
+                "4": "Matte/Gloss lamination (free)",
+                "5": "Batch codes & QR codes (free)"
+            }
+        },
+        "cta": {
+            "heading": "Ready to Print Your Pouches?",
+            "description": "Get a free quote in 24 hours! Upload your design or start from scratch.",
+            "button": "Get Free Quote Now"
+        }
+    },
+    "pouchMaterialBarrierPropertiesPage": {
+        "meta": {
+            "title": "Material Barrier Properties | Data Sheet | POUCH.ECO",
+            "description": "Technical data sheet detailing Oxygen Transmission Rate (O2 TR) and Water Vapor Transmission Rate (WVTR) for transparent, metallized, and kraft pouch materials."
+        },
+        "hero": {
+            "badge": "TECHNICAL SPECS",
+            "title1": "Barrier Properties",
+            "title2": "The Hard Data",
+            "subtitle": "<strong>Oxygen Transmission Rate (O₂ TR)</strong> and <strong>Water Vapor Transmission Rate (WVTR)</strong> across standard flexible packaging layers."
+        },
+        "keyMetrics": {
+            "title": "Key Metrics",
+            "o2": {
+                "title": "O₂ Transmission Rate",
+                "description": "Oxygen barrier performance.",
+                "unit": "Unit: cc/m² · 24hrs · atm (@ 23°C, 0% RH)",
+                "note": "* Lower values = better barrier"
+            },
+            "wvtr": {
+                "title": "Water Vapor Trans.",
+                "description": "Moisture barrier performance.",
+                "unit": "Unit: g/m² · 24hrs (@ 38°C, 90% RH)",
+                "note": "* Lower values = better barrier"
+            }
+        },
+        "dataSection": {
+            "title": "The Data",
+            "disclaimer": "Values are typical industry averages and vary based on exact film manufacturer, thickness tolerances, and environmental conditions.",
+            "materialHeader": "Material",
+            "o2Header": "O₂ TR",
+            "o2Unit": "cc/m² 24hrs",
+            "wvtrHeader": "WVTR",
+            "wvtrUnit": "g/m² 24hrs"
+        },
+        "takeaways": {
+            "title": "Translation for Humans",
+            "transparent": {
+                "title": "Transparent Films",
+                "subtitle": "PET / NY / OPP",
+                "description": "PET and NY offer significantly better oxygen barriers out-of-the-box compared to standard OPP."
+            },
+            "metallized": {
+                "title": "Metallized Magic",
+                "subtitle": "VMCPP / VMPET",
+                "description": "Vacuum Metallizing vastly improves both moisture and oxygen barriers, upgrading clear films into high-barrier giants."
+            },
+            "aluminum": {
+                "title": "The Ultimate Shield",
+                "subtitle": "Aluminum Foil (AL)",
+                "description": "The absolute highest barrier available. Knocks both transmission rates down to ~1. Cannot be seen through."
+            },
+            "pvdc": {
+                "title": "Clear But Mighty",
+                "subtitle": "PVDC Coated (KOP/KNY)",
+                "description": "Applying a \"K\" (PVDC) coating dramatically boosts the barrier while keeping the film completely transparent."
+            }
+        },
+        "cta": {
+            "title": "Still Not Sure?",
+            "description": "These numbers can be dizzying! Book a <strong>FREE consultation</strong> to get a recommended barrier stack for your specific product!",
+            "button": "Request Free Consultation"
+        }
+    },
+    "pouchMaterialsPage": {
+        "meta": {
+            "title": "Materials | POUCH.ECO",
+            "description": "Detailed guide to our sustainable packaging materials: Compostable, Recyclable, and Post-Consumer Recycled (PCR)."
+        },
+        "hero": {
+            "badge": "MATERIAL_SCIENCE",
+            "titleLine1": "Choose",
+            "titleLine2": "Wisely.",
+            "subtitle": "Not all \"eco\" is created equal. We prioritize verified, certified, and honest materials."
+        },
+        "materials": {
+            "compostable": {
+                "name": "HOME & INDUSTRIAL COMPOSTABLE",
+                "description": "Breaks down in home and industrial environments. Certified TUV & BPI.",
+                "pros": {
+                    "0": "Zero Waste",
+                    "1": "Plant-Based",
+                    "2": "Certified",
+                    "3": "Industrial Compostable"
+                },
+                "cons": {
+                    "0": "+12 Months Shelf Life",
+                    "1": "Higher Cost"
+                }
+            },
+            "recyclable": {
+                "name": "RECYCLABLE_MONO",
+                "description": "Mono-material PE or PP structures. Acceptable in standard recycling streams.",
+                "pros": {
+                    "0": "Excellent Barrier",
+                    "1": "Low Cost",
+                    "2": "Wide Acceptance"
+                },
+                "cons": {
+                    "0": "Requires Rinse",
+                    "1": "Not Compostable"
+                }
+            },
+            "pcr": {
+                "name": "PCR & BIO PE CONTENT",
+                "description": "Post-Consumer Recycled plastics & Bio-based Polyethylene. Giving new life to old waste / Plant-based resources.",
+                "pros": {
+                    "0": "Circular Economy",
+                    "1": "Reduced Virgin Plastic",
+                    "2": "Durable",
+                    "3": "Bio PE Available"
+                },
+                "cons": {
+                    "0": "Slight visual imperfections",
+                    "1": "Specific sourcing"
+                }
+            }
+        },
+        "labels": {
+            "pros": "PROS:",
+            "cons": "CONS:"
+        },
+        "techSpecs": {
+            "badge": "FOR_ENGINEERS",
+            "titleLine1": "Technical",
+            "titleLine2": "Data Sheets.",
+            "description": "Need exact barrier properties, thickness options, and seal strengths? Access our full library of technical specifications and downloadable PDFs.",
+            "viewAllSpecs": "View All Specs",
+            "barrierData": "Barrier Properties Data",
+            "downloadBadge": "DOWNLOADABLE_PDFs",
+            "imgAlt": "Tech Specs"
+        },
+        "certifications": {
+            "title": "Certifications Matter",
+            "dinAlt": "DIN Home Compost",
+            "bpiAlt": "BPI Certified",
+            "abaAlt": "ABA Home Compost",
+            "grsAlt": "GRS Certified",
+            "biopeAlt": "Biobased PE",
+            "fscAlt": "FSC Certified",
+            "iso9001Alt": "ISO 9001",
+            "iso14001Alt": "ISO 14001",
+            "speakToExpert": "Speak to an Expert"
+        }
     }
 }

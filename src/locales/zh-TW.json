@@ -18936,6 +18936,53 @@
                     "q3": "包裝能否可回收、含有 PCR 且同時是生物基的？",
                     "a3": "是的。 Achieve Pack 的 Eco Digital 單 PE 結構可結合所有三個永續發展槓桿：PE 流中 100% 可回收，包含消費後回收的 PE，以及使用來自甘蔗的生物基 PE。 這種綜合方法使品牌能夠在可回收性、回收內容和生物基內容方面做出可信的聲明。 低起訂量，起訂量 100 件進行測試。 請聯絡 Achieve Pack 進行材料規格諮詢。"
                 }
+            },
+            "pouchUSACoffee": {
+                "seoTitle": "美國咖啡包裝指南 | 客製化印刷咖啡袋 | POUCH.ECO",
+                "seoDescription": "美國烘豆商客製化咖啡包裝的終極指南。涵蓋 FDA 合規、排氣閥、當地市場趨勢與永續材料。",
+                "badge": "美國市場中心 // 咖啡",
+                "h1Roast": "在地烘焙。",
+                "h1Package": "全球包裝",
+                "h1Global": "全球。",
+                "heroDesc": "專為美國精品咖啡市場設計的客製化印刷咖啡袋。採用 FDA 合規材料、高阻隔排氣閥與永續規格。",
+                "altCustomBag": "附排氣閥的美國客製化印刷咖啡包裝",
+                "highBarrier": "高阻隔保鮮",
+                "guideTitle": "美國咖啡包裝",
+                "guideTitleHighlight": " definitive 指南",
+                "guideIntro": "美國是全球最大且最具競爭力的精品咖啡市場之一。從太平洋西北部的第三波烘豆商到布魯克林的手工咖啡館，美國消費者不僅要求優質咖啡豆，更要求高級、永續且功能強大的咖啡包裝。在 POUCH.ECO，我們專為美國烘豆商打造咖啡袋，幫助他們在零售貨架上脫穎而出並維持絕對峰值鮮度。",
+                "altRoasting": "新鮮烘焙咖啡豆裝入高阻隔軟袋的過程",
+                "fdaHeading": "FDA 合規與食品安全",
+                "fdaText": "在美國進口或使用食品包裝時，絕對遵守食品藥物管理局 (FDA) 法規是不可妥協的。我們咖啡袋的每一層——從外層霧面 BOPP 到內層密封 PE——均使用 100% FDA 核准的食品級原料製造。我們採用無溶劑複合工藝，確保零化學遷移或氣味轉移風險，避免影響新鮮烘焙咖啡的細膩風味。",
+                "valveHeading": "關鍵排氣閥",
+                "valveText": "新鮮烘焙咖啡在最初數週會釋放大量二氧化碳。若無適當排氣機制，密封袋會膨脹甚至爆裂。我們的袋子配備優質單向排氣閥。這些工程閥門允許累積的 CO2 逸出，同時阻擋氧氣和水分進入。此關鍵組件可將豆子保存期限延長數月，確保紐約客戶沖泡的咖啡與西雅圖烘焙當日一樣新鮮。",
+                "altValve": "咖啡袋排氣閥與堅固側封的特寫細節",
+                "sustainableHeading": "美國咖啡永續趨勢",
+                "sustainableText": "美國消費者在購買決策時越來越重視環境永續性。傳統咖啡袋使用鋁箔層提供阻隔，無法回收。為滿足現代美國市場需求，我們提供尖端永續替代方案：",
+                "sustainableList1Title": "可回收單層 PE：",
+                "sustainableList1": "高阻隔無金屬袋，100% 可在美國全境商店回收點回收（符合 How2Recycle 標準）。",
+                "sustainableList2Title": "認證可堆肥：",
+                "sustainableList2": "植物基袋（含拉鍊與閥門），可在工業或家庭堆肥環境中完全分解。",
+                "sustainableList3Title": "消費後回收 (PCR)：",
+                "sustainableList3": "使用高達 50% 回收塑膠製成的袋子，在維持高級外觀的同時減少垃圾掩埋。",
+                "formatsHeading": "熱門袋型",
+                "formatsText": "美國市場主要偏好兩種精品咖啡袋型。自立袋 (Doypack) 是經濟實惠的多功能選擇，適合 12 盎司零售袋。平底袋 (Box Pouch) 提供最大容積效率、五個可印刷面板廣告空間以及優異的貨架穩定性，是高級烘焙與 2 磅或 5 磅批發格式的首選。",
+                "faqTitle": "咖啡包裝",
+                "faqTitleHighlight": "常見問題",
+                "faq": {
+                    "q1": "你們的咖啡袋符合美國市場的 FDA 規定嗎？",
+                    "a1": "是的。我們咖啡袋使用的所有原料、薄膜、拉鍊和黏合劑均 100% 符合美國 FDA 直接食品接觸標準。",
+                    "q2": "我的咖啡真的需要排氣閥嗎？",
+                    "a2": "如果您包裝的是新鮮烘焙整豆，是的。咖啡在烘焙後會釋放 CO2。單向排氣閥可讓氣體逸出，同時防止氧氣進入，避免袋子爆裂並保持咖啡新鮮。",
+                    "q3": "美國零售咖啡袋的標準尺寸是多少？",
+                    "a3": "美國最常見的精品零售尺寸為 12 盎司 (340g)。我們提供 12 盎司、16 盎司 (1 磅)、2 磅和 5 磅批發袋的標準模具。",
+                    "q4": "可以提供附閥門的可回收咖啡袋嗎？",
+                    "a4": "絕對可以。我們提供高阻隔單層 PE 咖啡袋，配備完全可回收的 PE 排氣閥，讓整袋可在美國商店回收點一起回收。",
+                    "q5": "客製化印刷袋的最低訂購量 (MOQ) 是多少？",
+                    "a5": "透過先進的 HP Indigo 數位印刷技術，我們可提供客製化印刷且完全品牌化的咖啡袋，MOQ 極低，通常每 SKU 僅需 500 或 1,000 個起訂。"
+                },
+                "ctaTitle": "烘焙。印刷。包裝。",
+                "ctaDesc": "準備好提升您咖啡品牌在美國的形象了嗎？立即取得免費樣品或客製化報價。",
+                "ctaButton": "取得客製化報價"
             }
         },
         "compostableStandUpPouches": {
@@ -19686,5 +19733,617 @@
             "留下品質的傳承，而非垃圾的足跡。",
             "有目的性地製造，無污染地回歸大地。"
         ]
+    },
+    "pouchCustomPrintedSamplePage": {
+        "meta": {
+            "title": "客製印刷樣品 - Pouch.eco"
+        },
+        "hero": {
+            "titleLine1": "客製印刷",
+            "titleLine2": "樣品",
+            "badge": "高保真"
+        },
+        "samples": {
+            "handMade": {
+                "label": "手工製作樣品",
+                "alt": "手工製作樣品"
+            },
+            "commercial": {
+                "label": "商業樣品",
+                "alt": "商業樣品"
+            },
+            "sheet": {
+                "label": "片材樣品",
+                "alt": "片材樣品"
+            }
+        },
+        "option1": {
+            "badge": "方案 01",
+            "title": "材料樣品原型",
+            "description": "使用小型數位印刷機手工製作的樣品。適合驗證材料質感和初步尺寸。",
+            "materialLabel": "材料：",
+            "materialValue": "家庭可堆肥亮面牛皮紙",
+            "styleLabel": "樣式：",
+            "styleValue": "手封式站立袋（無拉鏈）",
+            "noteLabel": "注意：",
+            "noteValue": "印刷品質低於商業標準",
+            "price": "USD $200",
+            "quantity": "一組 4 件",
+            "cta": "訂購套裝 01"
+        },
+        "option2": {
+            "badge": "方案 02",
+            "title": "最終產品樣品",
+            "description": "使用我們的工業商用印刷機生產。與您最終量產品質和表面處理完全一致。",
+            "ecoMaterialsLabel": "環保材料：",
+            "ecoMaterialsValue": "可回收 / 生物PE / 可堆肥",
+            "styleLabel": "樣式：",
+            "styleValue": "站立袋附拉鏈",
+            "statusLabel": "狀態：",
+            "statusValue": "零售就緒原型",
+            "price": "USD $400",
+            "ecoLabel": "環保材料方案",
+            "standardNote": "標準塑膠從 $100 起",
+            "quantity": "一組 50 件",
+            "cta": "訂購套裝 02"
+        },
+        "option3": {
+            "badge": "方案 03",
+            "title": "僅印刷打樣",
+            "description": "在片材上進行商業印刷。適合色彩匹配和圖稿審核，無需完整袋型製作。",
+            "formatLabel": "格式：",
+            "formatValue": "印刷片材（商業印刷）",
+            "processLabel": "流程：",
+            "processValue": "不包含袋型手工製作",
+            "price": "USD $100",
+            "quantity": "圖稿打樣單",
+            "cta": "訂購打樣"
+        },
+        "timeline": {
+            "title": "快速排程",
+            "production": {
+                "title": "生產",
+                "leadTimeLine1": "交期約為",
+                "leadTimeLine2": "約 2 週",
+                "postApproval": "核准後"
+            },
+            "shipping": {
+                "title": "FedEx 運送",
+                "daysLine1": "+ 約 10",
+                "daysLine2": "個工作天",
+                "service": "門到門服務"
+            }
+        },
+        "logistics": {
+            "includesShipping": "包含 FedEx 運費",
+            "excludesTax": "不含稅金及關稅"
+        },
+        "thankYou": "敬請留意，非常感謝"
+    },
+    "pouchCertificationsPage": {
+        "meta": {
+            "title": "可堆肥認證解析 | BPI, EN 13432 | POUCH.ECO",
+            "description": "了解 BPI、EN 13432、AS 4736 和家庭可堆肥認證。了解您的環保包裝在北美、歐洲和澳洲需要哪種認證。",
+            "keywords": "BPI 認證, EN 13432, AS 4736, 家庭可堆肥, ASTM D6400, BRC 包裝, BRCGS, 可堆肥包裝認證, 食品安全認證",
+            "ogTitle": "可堆肥認證解析 | POUCH.ECO",
+            "ogDescription": "BPI、EN 13432、AS 4736、家庭可堆肥 - 您的包裝需要哪種認證？"
+        },
+        "hero": {
+            "badge": "認證_可堆肥",
+            "titleLine1": "證明您的",
+            "titleLine2": "包裝",
+            "titleLine3": "確實有效",
+            "subtitle": "第三方認證意味著您的可堆肥包裝已經過獨立測試和驗證。沒有漂綠，只有書面證明。",
+            "viewBpiListing": "查看 BPI 清單",
+            "downloadBpiCert": "下載 BPI 證書",
+            "getCertified": "獲得認證"
+        },
+        "certifications": {
+            "heading": "我們的認證",
+            "listing": "清單",
+            "download": "下載",
+            "items": {
+                "0": {
+                    "name": "DIN TRUST",
+                    "region": "歐洲/全球",
+                    "description": "DIN Geprüft 家庭可堆肥認證。已驗證適用於後院堆肥。",
+                    "facility": "家庭堆肥"
+                },
+                "1": {
+                    "name": "BPI 認證",
+                    "region": "北美",
+                    "description": "經生物可降解產品協會第三方驗證的可堆肥產品。符合 ASTM D6400/D6868 標準。",
+                    "facility": "工業堆肥"
+                },
+                "2": {
+                    "name": "ABA 家庭堆肥",
+                    "region": "澳洲",
+                    "description": "澳大利亞生物塑料協會家庭可堆肥驗證。澳洲的黃金標準。",
+                    "facility": "家庭堆肥"
+                },
+                "3": {
+                    "name": "GRS 認證",
+                    "region": "全球",
+                    "description": "全球回收標準。驗證回收含量（PCR）和負責任的社會/環境實踐。",
+                    "facility": "回收流程"
+                },
+                "4": {
+                    "name": "生物基 PE",
+                    "region": "全球",
+                    "description": "經驗證的生物基碳含量，來自甘蔗等可再生資源。",
+                    "facility": "回收流程"
+                },
+                "5": {
+                    "name": "FSC 認證",
+                    "region": "全球",
+                    "description": "森林管理委員會。確保紙張來自負責任管理的森林。",
+                    "facility": "紙張回收"
+                },
+                "6": {
+                    "name": "ISO 9001/14001",
+                    "region": "全球",
+                    "description": "品質管理和環境管理系統的國際標準。",
+                    "facility": "製造"
+                },
+                "7": {
+                    "name": "BRC 包裝",
+                    "region": "全球",
+                    "description": "BRCGS 包裝材料標準。全球認可的認證，確保食品和消費品包裝材料的安全性、品質和合法性。",
+                    "facility": "食品安全"
+                }
+            }
+        },
+        "benefits": {
+            "heading": "為什麼認證很重要",
+            "items": {
+                "0": {
+                    "title": "第三方驗證",
+                    "description": "獨立實驗室測試證明您的包裝聲明"
+                },
+                "1": {
+                    "title": "客戶信任",
+                    "description": "包裝上的認證標誌立即建立可信度"
+                },
+                "2": {
+                    "title": "堆肥設施接受",
+                    "description": "認證包裝受到商業堆肥廠的歡迎"
+                },
+                "3": {
+                    "title": "法律保護",
+                    "description": "以書面證明避免漂綠訴訟"
+                }
+            }
+        },
+        "standards": {
+            "heading": "標準比較",
+            "thCertification": "認證",
+            "thRegion": "地區",
+            "thFacilityType": "設施類型",
+            "thTemperature": "溫度",
+            "rows": {
+                "0": {
+                    "region": "北美",
+                    "facility": "工業"
+                },
+                "1": {
+                    "region": "歐洲",
+                    "facility": "工業"
+                },
+                "2": {
+                    "region": "澳洲",
+                    "facility": "工業"
+                },
+                "3": {
+                    "region": "全球",
+                    "facility": "家庭堆肥"
+                },
+                "4": {
+                    "region": "全球",
+                    "facility": "食品安全"
+                }
+            }
+        },
+        "viewCertificates": {
+            "heading": "查看證書",
+            "dinHomeCompost": "DIN 家庭堆肥",
+            "bpiCompostable": "BPI 可堆肥",
+            "downloadLabel": "下載 →",
+            "abaAs5810": "ABA AS 5810",
+            "grsRecycled": "GRS 回收",
+            "bioBasedPe": "生物基 PE",
+            "fscMix": "FSC Mix",
+            "iso9001": "ISO 9001",
+            "iso14001": "ISO 14001",
+            "brcPackaging": "BRC 包裝"
+        },
+        "cta": {
+            "heading": "準備好獲得認證了嗎？",
+            "subtitle": "我們將引導您完成認證流程，並幫助您選擇適合您市場的正確標準。",
+            "bookConsultation": "預約免費諮詢",
+            "browseMaterials": "瀏覽認證材料"
+        },
+        "faqs": {
+            "0": {
+                "question": "「BPI Certified Compostable」是什麼意思？",
+                "answer": "BPI Certified 表示您的包裝已經過獨立測試和驗證，可在工業堆肥設施中分解。它符合嚴格的 ASTM 生物降解、崩解和生態毒性標準。不留下有害殘留物。"
+            },
+            "1": {
+                "question": "我可以在後院堆肥認證包裝嗎？",
+                "answer": "大多數 BPI 認證包裝是為工業堆肥設施設計的，其溫度（60-71°C）高於家庭堆肥堆。如果您想要後院堆肥能力，請尋找「家庭可堆肥」認證（TÜV Austria OK compost HOME）。"
+            },
+            "2": {
+                "question": "如何驗證您的認證？",
+                "answer": "訪問 products.bpiworld.org 並搜索「Achieve Pack Company」以查看所有認證 SKU。我們隨每個訂單提供認證文件。您也可以要求實驗室測試報告以獲得完全透明度。"
+            },
+            "3": {
+                "question": "為什麼認證對我的品牌很重要？",
+                "answer": "認證為您的可持續性聲明提供第三方證明。它們保護您免受漂綠指控，建立客戶信任，並確保您的包裝確實被堆肥廠接受。"
+            },
+            "4": {
+                "question": "哪種認證最適合我的市場？",
+                "answer": "這取決於您的地區：BPI 適用於北美，EN 13432 適用於歐洲，AS 4736 適用於澳洲。如果在全球銷售，請選擇符合多項標準的包裝。"
+            },
+            "5": {
+                "question": "您是否測試 PFAS（永久化學物質）？",
+                "answer": "是的！我們所有認證的可堆肥材料都經過測試並驗證不含 PFAS。BPI 現在要求限制含氟化學物質，我們符合這些更新的標準。"
+            },
+            "6": {
+                "question": "什麼是 BRC 包裝認證？",
+                "answer": "BRC（BRCGS）包裝材料是全球認可的食品安全認證標準。它確保我們的製造設施符合衛生、品質管理、產品安全和流程控制的嚴格要求。此認證通常是主要零售商和食品品牌的要求，以確保包裝材料安全用於食品接觸。"
+            },
+            "heading": "常見問題"
+        }
+    },
+    "pouchFactoryTourPage": {
+        "meta": {
+            "title": "工廠導覽 | 了解我們如何製造環保袋 | POUCH.ECO",
+            "description": "虛擬工廠導覽：觀看我們從印刷到製袋的永續袋包製造流程。品質認證的環保包裝生產。",
+            "ogTitle": "工廠導覽 | POUCH.ECO",
+            "ogDescription": "走進我們的環保包裝工廠"
+        },
+        "hero": {
+            "badge": "工廠導覽",
+            "titleLine1": "見證我們如何",
+            "titleLine2": "創造奇蹟",
+            "subtitle": "虛擬導覽我們的<strong>認證工廠</strong>，永續袋包在這裡誕生"
+        },
+        "stats": {
+            "productionLines": "生產線",
+            "dailyCapacity": "日產能",
+            "qualityTests": "品質測試",
+            "yearsExperience": "年經驗"
+        },
+        "videoGrid": {
+            "title1": "生產",
+            "title2": "流程",
+            "subtitle": "點擊任何影片觀看我們的製造流程"
+        },
+        "videos": {
+            "enter": {
+                "title": "歡迎來到我們的工廠",
+                "description": "走進我們最先進的永續包裝設施"
+            },
+            "digitalPrinting": {
+                "title": "數位印刷技術",
+                "description": "高品質數位印刷，適合短版印刷，色彩無限"
+            },
+            "rotoPrinting": {
+                "title": "凹版印刷",
+                "description": "適用於大量生產的版印刷，可進行 Pantone 色彩匹配"
+            },
+            "laminating": {
+                "title": "複合製程",
+                "description": "多層黏合，實現最佳阻隔性能"
+            },
+            "slitting": {
+                "title": "精密分切",
+                "description": "精確裁切材料，確保完美尺寸"
+            },
+            "bagMaking": {
+                "title": "製袋加工",
+                "description": "將薄膜轉化為品質密封的成品袋包"
+            }
+        },
+        "quality": {
+            "badge": "品質優先",
+            "title1": "認證",
+            "title2": "標準",
+            "materialTesting": {
+                "title": "材料測試",
+                "point1": "阻隔性測試（OTR、WVTR）",
+                "point2": "封口強度測量",
+                "point3": "厚度均勻性",
+                "point4": "遷移測試"
+            },
+            "qualityControl": {
+                "title": "品質管控",
+                "point1": "線上檢測",
+                "point2": "色彩一致性檢查",
+                "point3": "尺寸精度",
+                "point4": "跌落測試"
+            },
+            "certifications": {
+                "title": "認證資質",
+                "point1": "BPI 認證",
+                "point2": "EN 13432 合規",
+                "point3": "FDA 食品安全",
+                "point4": "GRS 認證"
+            }
+        },
+        "cta": {
+            "title": "準備好開始了嗎？",
+            "subtitle": "預約免費諮詢，討論您的包裝需求",
+            "button": "預約諮詢"
+        }
+    },
+    "pouchDigitalPrintingPage": {
+        "meta": {
+            "title": "袋子數位印刷 | 500個起印 | POUCH.ECO",
+            "description": "500個起即可印刷全彩袋子！無製版費、無限色彩、快速交貨。非常適合新創企業和小品牌測試產品。",
+            "ogTitle": "袋子數位印刷 | 最低起訂量500個",
+            "ogDescription": "無製版費的全彩數位印刷！500個起印，快速交貨。",
+            "twitterTitle": "數位印刷 | 低起訂量袋子",
+            "twitterDescription": "500個起印，無製版費，無限色彩！"
+        },
+        "hero": {
+            "badge": "數位印刷",
+            "titleLine1": "數位印刷",
+            "titleLine2": "500個起印！",
+            "descriptionBold": "無製版費。無限色彩。快速交貨。",
+            "descriptionRest": "非常適合新創企業、小品牌，以及任何想要美觀全彩袋子而不需花費大量預算的客戶！",
+            "ctaQuote": "獲取免費報價",
+            "ctaExamples": "查看範例"
+        },
+        "advantages": {
+            "heading": "為什麼選擇數位印刷？",
+            "items": {
+                "0": {
+                    "title": "500個即可起印！",
+                    "desc": "不像傳統印刷需要$1,500製版費"
+                },
+                "1": {
+                    "title": "無限色彩",
+                    "desc": "全彩CMYK印刷，無額外費用"
+                },
+                "2": {
+                    "title": "超快速",
+                    "desc": "2-3週交期，傳統印刷需6-8週"
+                },
+                "3": {
+                    "title": "輕鬆更新",
+                    "desc": "隨時更改設計——無需重新製版！"
+                }
+            }
+        },
+        "comparison": {
+            "heading": "數位印刷 vs 傳統印刷",
+            "digital": {
+                "title": "數位",
+                "moqLabel": "最低起訂量：500個",
+                "moqDesc": "非常適合測試！",
+                "noPlateLabel": "無製版費",
+                "noPlateDesc": "預先節省$1,500",
+                "colorsLabel": "無限色彩",
+                "colorsDesc": "CMYK + 白色墨水",
+                "leadTimeLabel": "2-3週交期",
+                "leadTimeDesc": "快速交貨",
+                "designLabel": "輕鬆更改設計",
+                "designDesc": "無需重新製版",
+                "bestFor": "最適合：",
+                "bestForDesc": "每次500-5,000個、多種SKU、頻繁更新"
+            },
+            "traditional": {
+                "title": "傳統",
+                "moqLabel": "最低起訂量：10,000+個",
+                "moqDesc": "測試用量太大",
+                "plateLabel": "製版費：$1,500+",
+                "plateDesc": "每色每版",
+                "colorsLabel": "Pantone色彩",
+                "colorsDesc": "精確品牌配色",
+                "leadTimeLabel": "6-8週交期",
+                "leadTimeDesc": "等待時間較長",
+                "designLabel": "設計更改成本高",
+                "designDesc": "需要新製版",
+                "bestFor": "最適合：",
+                "bestForDesc": "10,000+個、精確Pantone配色、較低單位成本"
+            }
+        },
+        "perfectFor": {
+            "heading": "適用於...",
+            "items": {
+                "0": "測試市場的新創企業",
+                "1": "多種產品口味/SKU",
+                "2": "季節性或限量版",
+                "3": "批號和QR碼",
+                "4": "小批量手工品牌",
+                "5": "群眾募資專案",
+                "6": "色彩繽紛的攝影設計",
+                "7": "頻繁的設計變更"
+            }
+        },
+        "pricing": {
+            "heading": "價格範例",
+            "units": "個",
+            "price500": "$0.80/個",
+            "total500": "合計：$400",
+            "price1000": "$0.65/個",
+            "total1000": "合計：$650",
+            "price2000": "$0.55/個",
+            "total2000": "合計：$1,100",
+            "includesNote": "價格包含正反面全彩印刷",
+            "disclaimer": "實際價格取決於尺寸、材料和功能"
+        },
+        "included": {
+            "heading": "包含內容",
+            "includedTitle": "✅ 每筆訂單包含：",
+            "includedItems": {
+                "0": "全彩CMYK印刷（正反面）",
+                "1": "白色墨水底層（深色材料）",
+                "2": "免費設計文件審查",
+                "3": "生產前數位打樣",
+                "4": "品質檢查照片",
+                "5": "標準可重複密封拉鏈",
+                "6": "撕裂口"
+            },
+            "addOnsTitle": "💰 可選附加項目：",
+            "addOnItems": {
+                "0": "排氣閥（+$0.05/個）",
+                "1": "掛孔（+$0.02/個）",
+                "2": "自訂尺寸（免費）",
+                "3": "金屬印刷效果（+$0.10/個）",
+                "4": "霧面/亮面覆膜（免費）",
+                "5": "批號和QR碼（免費）"
+            }
+        },
+        "cta": {
+            "heading": "準備好印刷您的袋子了嗎？",
+            "description": "24小時內獲取免費報價！上傳您的設計或從零開始。",
+            "button": "立即獲取免費報價"
+        }
+    },
+    "pouchMaterialBarrierPropertiesPage": {
+        "meta": {
+            "title": "材料阻隔性能 | 技術數據表 | POUCH.ECO",
+            "description": "技術數據表，詳細說明透明、鍍鋁及牛皮紙包裝材料的氧氣透過率（O2 TR）和水蒸氣透過率（WVTR）。"
+        },
+        "hero": {
+            "badge": "技術規格",
+            "title1": "阻隔性能",
+            "title2": "硬數據",
+            "subtitle": "<strong>氧氣透過率（O₂ TR）</strong>和<strong>水蒸氣透過率（WVTR）</strong>，涵蓋標準軟性包裝各層材料。"
+        },
+        "keyMetrics": {
+            "title": "關鍵指標",
+            "o2": {
+                "title": "O₂ 透過率",
+                "description": "氧氣阻隔性能。",
+                "unit": "單位：cc/m² · 24小時 · atm（@ 23°C, 0% RH）",
+                "note": "* 數值越低 = 阻隔性越好"
+            },
+            "wvtr": {
+                "title": "水蒸氣透過率",
+                "description": "水分阻隔性能。",
+                "unit": "單位：g/m² · 24小時（@ 38°C, 90% RH）",
+                "note": "* 數值越低 = 阻隔性越好"
+            }
+        },
+        "dataSection": {
+            "title": "數據資料",
+            "disclaimer": "數值為典型行業平均值，實際數值會因薄膜製造商、厚度公差和環境條件而異。",
+            "materialHeader": "材料",
+            "o2Header": "O₂ TR",
+            "o2Unit": "cc/m² 24小時",
+            "wvtrHeader": "WVTR",
+            "wvtrUnit": "g/m² 24小時"
+        },
+        "takeaways": {
+            "title": "簡明解讀",
+            "transparent": {
+                "title": "透明薄膜",
+                "subtitle": "PET / NY / OPP",
+                "description": "PET 和 NY 的氧氣阻隔性能明顯優於標準 OPP。"
+            },
+            "metallized": {
+                "title": "鍍鋁的魔力",
+                "subtitle": "VMCPP / VMPET",
+                "description": "真空鍍鋁大幅提升水分和氧氣阻隔性能，將透明薄膜升級為高阻隔材料。"
+            },
+            "aluminum": {
+                "title": "終極防護",
+                "subtitle": "鋁箔（AL）",
+                "description": "可用的最高阻隔材料。將兩種透過率降低至約1。不可透視。"
+            },
+            "pvdc": {
+                "title": "透明卻強大",
+                "subtitle": "PVDC 塗層（KOP/KNY）",
+                "description": "塗上「K」（PVDC）塗層可大幅提升阻隔性能，同時保持薄膜完全透明。"
+            }
+        },
+        "cta": {
+            "title": "仍然不確定？",
+            "description": "這些數字可能令人眼花繚亂！預約<strong>免費諮詢</strong>，為您的特定產品獲取推薦的阻隔結構！",
+            "button": "申請免費諮詢"
+        }
+    },
+    "pouchMaterialsPage": {
+        "meta": {
+            "title": "材料 | POUCH.ECO",
+            "description": "我們永續包裝材料的詳細指南：可堆肥、可回收和消費後回收塑膠 (PCR)。"
+        },
+        "hero": {
+            "badge": "材料科學",
+            "titleLine1": "明智",
+            "titleLine2": "選擇。",
+            "subtitle": "並非所有「環保」都是一樣的。我們優先選擇經過驗證、認證且誠實的材料。"
+        },
+        "materials": {
+            "compostable": {
+                "name": "家庭與工業可堆肥",
+                "description": "可在家庭和工業環境中分解。通過 TUV 和 BPI 認證。",
+                "pros": {
+                    "0": "零廢棄",
+                    "1": "植物基",
+                    "2": "已認證",
+                    "3": "工業可堆肥"
+                },
+                "cons": {
+                    "0": "+12 個月保質期",
+                    "1": "較高成本"
+                }
+            },
+            "recyclable": {
+                "name": "可回收_單一材料",
+                "description": "單一材料 PE 或 PP 結構。可在標準回收流程中處理。",
+                "pros": {
+                    "0": "優異阻隔性",
+                    "1": "低成本",
+                    "2": "廣泛接受"
+                },
+                "cons": {
+                    "0": "需要沖洗",
+                    "1": "不可堆肥"
+                }
+            },
+            "pcr": {
+                "name": "PCR 與生物基 PE 含量",
+                "description": "消費後回收塑膠與生物基聚乙烯。賦予舊廢料新生命 / 植物基資源。",
+                "pros": {
+                    "0": "循環經濟",
+                    "1": "減少原生塑膠",
+                    "2": "耐用",
+                    "3": "生物基 PE 可用"
+                },
+                "cons": {
+                    "0": "輕微視覺瑕疵",
+                    "1": "特定採購來源"
+                }
+            }
+        },
+        "labels": {
+            "pros": "優點：",
+            "cons": "缺點："
+        },
+        "techSpecs": {
+            "badge": "工程師專區",
+            "titleLine1": "技術",
+            "titleLine2": "數據表。",
+            "description": "需要精確的阻隔性能、厚度選項和密封強度？存取我們完整的技術規格庫和可下載的 PDF 文件。",
+            "viewAllSpecs": "查看所有規格",
+            "barrierData": "阻隔性能數據",
+            "downloadBadge": "可下載的PDF",
+            "imgAlt": "技術規格"
+        },
+        "certifications": {
+            "title": "認證很重要",
+            "dinAlt": "DIN 家庭堆肥",
+            "bpiAlt": "BPI 認證",
+            "abaAlt": "ABA 家庭堆肥",
+            "grsAlt": "GRS 認證",
+            "biopeAlt": "生物基 PE",
+            "fscAlt": "FSC 認證",
+            "iso9001Alt": "ISO 9001",
+            "iso14001Alt": "ISO 14001",
+            "speakToExpert": "諮詢專家"
+        }
     }
 }
