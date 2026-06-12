@@ -26065,5 +26065,827 @@
       "btn": "Suscribirse",
       "footer": "📧 Únase a más de 1,200 fundadores que aprenden sobre embalaje sostenible"
     }
+  },
+  "pouchCompostableBabyFoodBagsPage": {
+    "meta": {
+      "title": "Bolsas de Papilla Compostables | Centro de Seguridad | Pouch.eco",
+      "description": "Guía técnica para envases compostables de comida para bebés. Investigación sobre cero microplásticos, barreras no tóxicas e ingeniería de seguridad infantil.",
+      "keywords": "bolsas de comida para bebés compostables, bolsas de papilla, envases no tóxicos, libre de microplásticos, boquillas seguras, bolsas de biopolímero"
+    },
+    "metrics": {
+      "microplastic": {
+        "label": "Microplásticos",
+        "value": "Cero",
+        "unit": "PPM",
+        "desc": "100% biopuro verificado."
+      },
+      "chemicals": {
+        "label": "Químicos",
+        "value": "BPA",
+        "unit": "PFAS",
+        "desc": "Certificado libre de tóxicos."
+      },
+      "shelfLife": {
+        "label": "Vida útil",
+        "value": "12",
+        "unit": "Meses",
+        "desc": "Paridad con barrera Bio-EVOH."
+      },
+      "safetyCap": {
+        "label": "Tapa de seguridad",
+        "value": "Anti",
+        "unit": "Asfixia",
+        "desc": "Supera leyes de seguridad infantil."
+      }
+    },
+    "hero": {
+      "badge": "SEGURIDAD_BEBE_V1.0",
+      "titlePart1": "Puro.",
+      "titlePart2": "Seguro.",
+      "titlePart3": "Futuro.",
+      "description": "La salud infantil no admite compromisos. Diseñamos bolsas compostables para comida de bebé libres de microplásticos, PFAS y BPA, ofreciendo una pureza absoluta para la próxima generación.",
+      "btnBrowse": "Ver Modelos de Seguridad",
+      "btnRequest": "Solicitar Auditoría de Seguridad"
+    },
+    "engineering": {
+      "badge": "AUDITORIA_PUREZA_MATERIALES",
+      "titlePart1": "Diseñado.",
+      "titlePart2": "Para la Seguridad.",
+      "alt": "Ingeniería de Seguridad en Envases de Comida para Bebé",
+      "description": "Los alimentos para bebés son la categoría más sensible a los químicos en la cadena de suministro global. En 2026, los padres ya no aceptan bolsas plásticas tradicionales que desprenden microplásticos o contienen disruptores endocrinos. En Pouch.eco, tratamos el envasado de alimentos para bebés como un Entregable Médico Técnico. Utilizamos biopolímeros 100% compostables (PBS/Bio-EVOH) verificados como libres de PFAS y BPA. Cada estructura se somete a rigurosas pruebas de migración (UE 10/2011) para garantizar que no haya transferencia química a la nutrición del lactante. Nuestras boquillas están hechas de Bio-PE derivado de caña de azúcar, con tapas de seguridad antiasfixia e indicadores de manipulación que superan los estándares globales de seguridad infantil. Este es el nivel más alto de inocuidad alimentaria, diseñado para los consumidores más importantes de la Tierra."
+    },
+    "tech": {
+      "badge": "TECNOLOGIA_DE_SEGURIDAD",
+      "titlePart1": "Cero Toxinas.",
+      "titlePart2": "Total Pura.",
+      "item1Title": "01. Cero Microplásticos",
+      "item1Desc": "Uso de biopolímeros de alta pureza que se descomponen en materia orgánica, eliminando el riesgo de ingestión de plástico por parte de los bebés.",
+      "item2Title": "02. Barreras Libres de PFAS",
+      "item2Desc": "Barreras certificadas contra la grasa y la humedad que contienen cero químicos permanentes, cumpliendo con la norma AB 1200 de California.",
+      "item3Title": "03. Protección de Aroma Bio-EVOH",
+      "item3Desc": "Logra barreras de gas equivalentes al papel de aluminio. Protege las vitaminas y nutrientes en los purés hasta por 12 meses.",
+      "item4Title": "04. Accesorios Antiasfixia",
+      "item4Desc": "Boquillas ergonómicas y tapas ventiladas de gran tamaño diseñadas para evitar riesgos de asfixia y garantizar una alimentación sin esfuerzo."
+    },
+    "science": {
+      "badge": "CIENCIA_DE_SEGURIDAD_V1",
+      "titlePart1": "Medido.",
+      "titlePart2": "Para el Niño.",
+      "description": "La pureza es una especificación técnica. Utilizamos GC-MS (Cromatografía de Gases-Espectometría de Masas) para verificar que cada estructura personalizada esté libre de migrantes químicos. Nuestro Protocolo de Seguridad Infantil EEAT asegura que su marca esté protegida contra litigios por microplásticos y químicos. Proporcionamos documentos de Declaración de Cumplimiento (DoC) que detallan la estructura de materiales y el perfil de seguridad de su envase. Al elegir bolsas de comida para bebés compostables certificadas, alinea su producto con el más alto nivel de consumo consciente de la salud y el planeta.",
+      "shieldTitle": "Escudo contra Toxinas",
+      "shieldDesc": "Verificado con 0 ppm de flúor orgánico y cero disruptores endocrinos.",
+      "trustTitle": "Confianza del Mercado",
+      "trustDesc": "Posicionar su marca como el estándar de oro para la seguridad y la sostenibilidad infantil.",
+      "alt": "Fabricación Verificada de Envases de Comida para Bebé"
+    },
+    "faq": {
+      "badge": "FAQ_BEBE",
+      "titlePart1": "Inteligencia",
+      "titlePart2": "Experta.",
+      "q1": "¿Sus bolsas están realmente libres de microplásticos?",
+      "a1": "Sí. Nuestros biopolímeros compostables se descomponen en materia orgánica, por lo que nunca se fragmentan en microplásticos durante su uso o eliminación.",
+      "q2": "¿Cuál es su postura sobre los PFAS?",
+      "a2": "Tenemos una política de 100% cero PFAS. Todas nuestras barreras de grasa están hechas de biopolímeros base agua certificados como seguros.",
+      "q3": "¿Se pueden calentar estas bolsas?",
+      "a3": "Recomendamos un calentamiento suave. Al no contener metales, son técnicamente aptas para microondas, pero siempre verifique la temperatura del alimento antes de dárselo al bebé.",
+      "q4": "¿Ofrecen tapas antiasfixia de serie?",
+      "a4": "Sí. Todas nuestras boquillas para comida de bebé vienen con tapas ventiladas sobredimensionadas que cumplen con las regulaciones de seguridad infantil más estrictas a nivel mundial."
+    },
+    "cta": {
+      "badge": "MANDATO_BEBE",
+      "titlePart1": "Piense Seguro.",
+      "titlePart2": "Impacto Puro.",
+      "description": "¿Listo para asegurar una cadena de suministro sostenible y libre de toxinas para su marca de comida para bebés? Comencemos la auditoría técnica hoy mismo.",
+      "btnSample": "Pedir Muestras de Seguridad",
+      "btnSpeak": "Hablar con un Ingeniero de Seguridad"
+    }
+  },
+  "pouchCompostableZipperNoRemovalPage": {
+    "meta": {
+      "title": "¿Debo Quitar el Cierre de las Bolsas Compostables? | POUCH.ECO",
+      "description": "Todo lo que necesita saber sobre cierres y válvulas para envases compostables. ¡NO es necesario romperlos antes del compostaje! Descubra por qué son 100% circulares."
+    },
+    "hero": {
+      "badge": "GUIA_COMPOSTAJE: CIERRES_ECOLOGICOS",
+      "titlePart1": "Deje de Romper.",
+      "titlePart2": "Comience a",
+      "titlePart3": "Compostar.",
+      "q1": "> ¿Necesito quitar el cierre?",
+      "q2": "> ¿Tengo que cortar la válvula?",
+      "a": "> La respuesta: ABSOLUTAMENTE NO.",
+      "badgeFloat": "SIN_REPETICIONES_NI_CORTES",
+      "alt": "Bolsa compostable de papel Kraft con cierre hermético compostable"
+    },
+    "guide": {
+      "title": "La Guía Definitiva de",
+      "titleHighlight": "Componentes Compostables",
+      "p1": "Cuando las marcas cambian a empaques sustentables, una de las preguntas más frecuentes de los consumidores es: \"¿Debo arrancar el cierre antes de tirar esta bolsa al compost?\" En los inicios del empaque ecológico, desafortunadamente la respuesta era sí. Muchos fabricantes usaban cuerpos de película compostables pero adherían cierres o válvulas de desgasificación de plástico convencional barato para reducir costos. Esto creaba una experiencia frustrante para el usuario final y anulaba el propósito de un producto circular.",
+      "alt2": "Primer plano de un cierre compostable a presión",
+      "sec1Title": "Circularidad 100% Certificada",
+      "p2": "En POUCH.ECO, creemos que el empaque sustentable no debería requerir un manual de usuario o herramientas especiales para su desecho. Toda nuestra línea de bolsas compostables —incluyendo bolsas de pie (Stand-Up), bolsas de fondo plano y bolsas planas— está diseñada para ser 100% compostable. Esto significa que cada componente individual se fabrica a partir de polímeros vegetales certificados.",
+      "p3": "Nuestros cierres de presión, válvulas de desgasificación de café unidireccionales, muescas de rasgado e incluso los adhesivos de laminación han superado las estrictas certificaciones TUV Austria (OK Compost) y EN 13432. Debido a que estos componentes comparten la misma química biodegradable que el papel Kraft exterior o la película de celulosa, se descomponen juntos en una compostera doméstica o industrial.",
+      "sec2Title": "El Peligro de las Bolsas con Lavado de Imagen Verde (\"Greenwashed\")",
+      "p4": "Es vital que las marcas pregunten directamente a sus proveedores de empaques sobre las certificaciones de los componentes. Una bolsa con lavado de imagen verde podría tener un cuerpo compostable, pero si utiliza un cierre de plástico fósil, tirar toda la bolsa al contenedor de compost introducirá microplásticos en la tierra. La planta de compostaje terminará filtrando el cierre plástico, pero el proceso es ineficiente y daña la calidad del compost resultante.",
+      "alt3": "Infografía que muestra cómo una bolsa totalmente compostable se descompone en biomasa",
+      "sec3Title": "Educando a sus Clientes",
+      "p5": "Como marca, comunicar esta facilidad de uso es una gran ventaja de marketing. Puede imprimir con orgullo en su empaque: \"¡Tire toda la bolsa al compost! No es necesario quitar el cierre\". Este método de desecho sin fricciones aumenta significativamente la probabilidad de que sus clientes realmente composteen el empaque, asegurando que su inversión en sustentabilidad realmente rinde frutos para el planeta."
+    },
+    "faq": {
+      "title": "IAEO y SEO",
+      "titleHighlight": "Preguntas Frecuentes",
+      "q1": "¿Necesito arrancar el cierre de una bolsa compostable?",
+      "a1": "Si compra bolsas compostables certificadas de POUCH.ECO, la respuesta es NO. Nuestros cierres están hechos exactamente de los mismos polímeros vegetales compostables certificados que la bolsa misma. Puede desechar la bolsa completa e intacta en la composta.",
+      "q2": "¿Debo cortar la válvula de desgasificación de café antes de compostar?",
+      "a2": "Absolutamente no. A diferencia de las válvulas plásticas tradicionales, nuestras válvulas desgasificadoras están fabricadas a partir de biorresinas y están certificadas por TUV para compostaje. Toda la bolsa, incluida la válvula, es segura para el suelo.",
+      "q3": "¿Cuánto tiempo tarda en descomponerse un cierre compostable?",
+      "a3": "Debido a que el perfil del cierre es ligeramente más grueso que el cuerpo de la película, puede tardar un poco más en desaparecer visualmente. Sin embargo, bajo condiciones estándar de compostaje, toda la bolsa —incluido el cierre— se descompondrá en biomasa orgánica en 180 días.",
+      "q4": "¿Por qué algunas marcas me dicen que corte el cierre?",
+      "a4": "Esas marcas probablemente utilicen empaques de \"materiales mixtos\" donde el cuerpo es compostable, pero usaron un cierre plástico convencional económico para ahorrar dinero. Esta es una práctica que desaconsejamos firmemente."
+    },
+    "cta": {
+      "title": "¿Listo para una Sostenibilidad Real?",
+      "description": "Consiga envases 100% certificados compostables. Sin lavado de imagen verde. Sin plásticos ocultos.",
+      "btn": "Obtenga su Cotización Personalizada"
+    }
+  },
+  "pouchCustomPrintedSustainablePouchesPage": {
+    "meta": {
+      "title": "Bolsas Sostenibles Impresas Personalizadas | Centro de Marca Pouch.eco",
+      "description": "Guía técnica para bolsas sostenibles impresas personalizadas. Información sobre impresión digital vs rotograbado, ciencia del color G7 y tintas ecológicas.",
+      "keywords": "bolsas impresas personalizadas, marca sostenible, impresión digital, rotograbado, color G7, diseño de empaques"
+    },
+    "metrics": {
+      "colorPrec": {
+        "label": "Prec Color",
+        "value": "< 2.0",
+        "unit": "Delta-E",
+        "desc": "Precisión certificada G7."
+      },
+      "resolution": {
+        "label": "Resolución",
+        "value": "1200",
+        "unit": "DPI",
+        "desc": "Claridad de alta definición."
+      },
+      "printTech": {
+        "label": "Tecn Impresión",
+        "value": "Híbrida",
+        "unit": "Flota",
+        "desc": "Digital y Rotograbado."
+      },
+      "inkSafety": {
+        "label": "Seguridad Tintas",
+        "value": "FDA",
+        "unit": "EFSA",
+        "desc": "Certificado contacto alimentos."
+      }
+    },
+    "hero": {
+      "badge": "CENTRO_MARCA_V1.0",
+      "titlePart1": "Arte.",
+      "titlePart2": "Puro.",
+      "titlePart3": "Identidad.",
+      "description": "Su marca es una historia. Diseñamos bolsas sostenibles impresas personalizadas que transmiten esa historia con precisión.",
+      "btnBrowse": "Ver Estilos de Impresión",
+      "btnRequest": "Pedir Pruebas de Impresión",
+      "alt": "Bolsas sostenibles impresas personalizadas"
+    },
+    "engineering": {
+      "badge": "AUDITORIA_LOGICA_COLOR",
+      "titlePart1": "Diseñado.",
+      "titlePart2": "Para ser Visto.",
+      "description": "La marca no es solo 'diseño'; es física del color. En 2026, mantener la integridad de la marca en sustratos sostenibles (como Kraft o Mono-PE) es un desafío técnico importante. En Pouch.eco, utilizamos flujos de trabajo de gestión del color G7 Master Certified para garantizar que la desviación Delta-E (ΔE) se mantenga por debajo de 2.0. Esto significa que el color de su marca es uniforme en las tiradas de producción digital y de rotograbado, independientemente de la estructura del material. Utilizamos tecnología de alta definición de 1200 DPI para garantizar que incluso las ilustraciones más complejas y las fuentes legales más pequeñas se reproduzcan con extrema claridad. Tanto si es una startup que lanza 500 unidades como una empresa que mueve 5 millones, nuestra ingeniería de impresión ofrece un dominio visual total.",
+      "alt": "Precisión de bolsas sostenibles impresas personalizadas"
+    },
+    "tech": {
+      "badge": "TECNOLOGIA_DE_IDENTIDAD",
+      "titlePart1": "Visión Pura.",
+      "titlePart2": "Impresión Pura.",
+      "item1Title": "01. Agilidad Digital",
+      "item1Desc": "Uso de tecnología HP Indigo 25K para fabricación sin clichés. Perfecto para lanzamientos de productos, SKUs estacionales y branding a escala inicial.",
+      "item2Title": "02. Rotograbado Empresarial",
+      "item2Desc": "Precisión de cilindros de cobre para tiradas de gran volumen. Ofrece el costo unitario más bajo manteniendo una densidad de tinta y saturación de color extremas.",
+      "item3Title": "03. Tintas de Grado Alimentario",
+      "item3Desc": "Tintas certificadas de baja migración que cumplen con las normativas de la FDA y la EFSA. Libres de solventes y con olor neutro para alimentos sensibles.",
+      "item4Title": "04. Acabados Premium",
+      "item4Desc": "Personalice la experiencia táctil con acabados mate de tacto suave, barniz selectivo (Spot UV) y brillo que refuerzan el lujo y la sostenibilidad de su marca."
+    },
+    "science": {
+      "badge": "CIENCIA_DE_IDENTIDAD_V1",
+      "titlePart1": "Medido.",
+      "titlePart2": "Al Píxel.",
+      "description": "La identidad de la marca es una especificación técnica. Utilizamos validación espectrofotométrica en cada tirada de producción para verificar que sus colores coincidan exactamente con sus pautas de marca. Nuestro protocolo de identidad EEAT garantiza que su empaque sostenible no solo sea ecológicamente puro, sino visualmente superior. Proporcionamos pruebas de impresión de alta fidelidad que le permiten ver y sentir el resultado final antes de la producción en masa. Al utilizar tintas ecológicas certificadas y tecnología de acabado avanzada, ayudamos a las marcas a alinear su producto físico con su narrativa digital. Esto es marca verificada por la ciencia.",
+      "visualTitle": "Dominio Visual",
+      "visualDesc": "Garantiza que su marca destaque en el estante con ultra-alta resolución y pureza de color.",
+      "scaleTitle": "Optimización de Escala",
+      "scaleDesc": "Transición perfecta desde startups digitales hasta producción empresarial de gran volumen.",
+      "alt": "Fabricación verificada de impresión personalizada"
+    },
+    "faq": {
+      "badge": "FAQ_BEBE",
+      "titlePart1": "Inteligencia",
+      "titlePart2": "Experta.",
+      "q1": "¿Qué es la certificación G7 Master?",
+      "a1": "Es un estándar internacional para el equilibrio de grises y color. Garantiza que los colores de su marca se mantengan constantes en diferentes prensas y sustratos.",
+      "q2": "¿Puedo imprimir en ventanas transparentes?",
+      "a2": "Sí. Ofrecemos enmascaramiento de tinta de precisión que permite ventanas de producto cristalinas mientras mantiene una marca de alta opacidad en el resto del envase.",
+      "q3": "¿Ofrecen tintas metálicas plateadas o doradas?",
+      "a3": "Sí. Utilizamos tintas metálicas digitales y de rotograbado de alto rendimiento que replican el aspecto del papel de aluminio sin el costo ambiental.",
+      "q4": "¿Cómo envío el diseño para la impresión?",
+      "a4": "Requerimos archivos vectorizados (AI o PDF) con todas las fuentes trazadas y colores especificados como Pantone (PMS) Solid Coated para máxima precisión."
+    },
+    "cta": {
+      "badge": "MANDATO_IDENTIDAD",
+      "titlePart1": "Piense Identidad.",
+      "titlePart2": "Impacto Puro.",
+      "description": "¿Listo para asegurar una cadena de suministro sostenible y visualmente superior para su marca? Comencemos la auditoría técnica hoy mismo.",
+      "btnSample": "Pedir Muestras de Impresión",
+      "btnSpeak": "Hablar con un Ingeniero de Marca"
+    }
+  },
+  "pouchCustomBrandPackagingPage": {
+    "meta": {
+      "title": "Empaque de Marca Personalizado | Ingeniería y Diseño | Pouch.eco",
+      "description": "Guía técnica para empaques de marca personalizados. Investigación sobre ingeniería estructural, ciencia del color G7 y optimización logística D2C.",
+      "keywords": "empaque de marca personalizado, ingeniería de bolsas, ciencia de color G7, diseño estructural, logística D2C"
+    },
+    "metrics": {
+      "colorDeviation": {
+        "label": "Desviación Color",
+        "value": "< 2.0",
+        "unit": "Delta-E",
+        "desc": "Precisión de color indistinguible."
+      },
+      "printRes": {
+        "label": "Res Impresión",
+        "value": "1200+",
+        "unit": "DPI",
+        "desc": "Imágenes de ultra-alta definición."
+      },
+      "materialYield": {
+        "label": "Rendim Material",
+        "value": "+18%",
+        "unit": "Optimización",
+        "desc": "Tamaño adaptado al volumen de producto."
+      },
+      "plateCost": {
+        "label": "Costo Cliché",
+        "value": "$0",
+        "unit": "Digital",
+        "desc": "Fabricación ágil y de bajo riesgo."
+      }
+    },
+    "hero": {
+      "badge": "MOTOR_MARCA_V5.0",
+      "titlePart1": "Construir.",
+      "titlePart2": "Imprimir.",
+      "titlePart3": "Escalar.",
+      "description": "Deje de adivinar las dimensiones de sus empaques. Diseñamos bolsas personalizadas con marca mediante diseños estructurales optimizados por CAD.",
+      "btnBrowse": "Ver Estilos de Ingeniería",
+      "btnRequest": "Pedir Muestras de Marca",
+      "alt": "Diseño de empaque de marca personalizado"
+    },
+    "engineering": {
+      "badge": "AUDITORIA_ESTRUCTURAL",
+      "titlePart1": "Identidad",
+      "titlePart2": "de Ingeniería.",
+      "description": "El empaque es una extensión física de la promesa de su marca. No solo \"imprimimos bolsas\"; realizamos una auditoría volumétrica para garantizar que su producto encaje perfectamente con el mínimo espacio libre. Esto reduce los costos de envío aéreo y evita el desplazamiento interno del producto. Nuestro equipo de ingeniería utiliza el control de color Delta-E (ΔE) para garantizar que la paleta de su marca sea uniforme en todos los sustratos de materiales.",
+      "alt": "Ingeniería estructural de bolsas personalizadas"
+    },
+    "tech": {
+      "badge": "METODOLOGIA_IMPRESION",
+      "titlePart1": "Precisión de",
+      "titlePart2": "Alta Definición.",
+      "item1Title": "Digital (HP Indigo)",
+      "item1Desc": "Sin costos de clichés y con personalización infinita. Ideal para startups y marcas con muchos SKUs. Ofrecemos una resolución de 1200 DPI que hace que las fotografías de productos y los textos pequeños destaquen en el estante.",
+      "item2Title": "Rotograbado",
+      "item2Desc": "Precisión con rodillos de cobre para producción en masa. Este método ofrece el menor costo unitario y una densidad de tinta inigualable para acabados metálicos y de neón.",
+      "item3Title": "G7 Master Certified",
+      "item3Desc": "Seguimos la norma industrial global para el equilibrio de grises y la uniformidad visual. Los colores de su marca se verifican mediante espectrofotometría avanzada en cada paso de la producción.",
+      "item4Title": "Elección de Laminación",
+      "item4Desc": "Elija entre acabados mate de tacto suave, brillo intenso o barniz selectivo UV para crear interés táctil. Nuestro proceso de laminación está optimizado térmicamente para evitar la delaminación en el mercado."
+    },
+    "logistics": {
+      "badge": "LOGISTICA_POR_DISEÑO",
+      "titlePart1": "El Envío No es",
+      "titlePart2": "Un Detalle Secundario.",
+      "description": "Un empaque de tamaño inadecuado es un desperdicio para su huella de carbono y su cuenta bancaria. Nos especializamos en la optimización del peso dimensional (DIM). Al diseñar bolsas que se adaptan exactamente a los sobres de envío D2C estándar, ayudamos a las marcas a reducir sus costos totales de envío hasta en un 22%.",
+      "weightTitle": "Reducción de Peso",
+      "weightDesc": "Los polímeros ligeros reducen la responsabilidad fiscal sobre plástico virgen en el Reino Unido y la UE.",
+      "volumeTitle": "Densidad de Volumen",
+      "volumeDesc": "Almacene hasta 7 veces más envases vacíos en el mismo espacio en comparación con las cajas rígidas.",
+      "alt": "Optimización logística D2C"
+    },
+    "faq": {
+      "badge": "FAQ_DISEÑO",
+      "titlePart1": "Perspectivas",
+      "titlePart2": "Expertas.",
+      "q1": "¿Cuál es la norma industrial para la coincidencia de color?",
+      "a1": "La metodología G7 es el referente global. Apuntamos a un Delta-E (ΔE) de < 2.0 para garantizar que la identidad visual de su marca permanezca invariable ante diferentes fuentes de luz y sustratos.",
+      "q2": "¿Cómo elijo entre impresión Digital y Rotograbado?",
+      "a2": "La impresión digital es ideal para probar el mercado (MOQ 500) y para una gran variedad de SKUs. El rotograbado es el rey de la eficiencia y del costo unitario para diseños estáticos de gran volumen (MOQ 20,000+).",
+      "q3": "¿Pueden proporcionar líneas de troquel personalizadas?",
+      "a3": "Sí. Nuestro equipo de ingeniería proporciona líneas de troquel (dielines) de alta precisión en AI/PDF para sus diseñadores, con especificaciones claras de fuelles, sellos y ubicaciones de cierres.",
+      "q4": "¿Ofrecen prototipos físicos?",
+      "a4": "Por supuesto. Ofrecemos maquetas físicas de alta fidelidad utilizando nuestra línea de impresión digital, lo que le permite verificar la estructura, el tamaño y la marca antes de iniciar la producción completa."
+    },
+    "cta": {
+      "badge": "MANDATO_DISEÑO",
+      "titlePart1": "Marque Mejor.",
+      "titlePart2": "Escale Más Rápido.",
+      "description": "¿Listo para pasar de bolsas genéricas a envases personalizados de diseño técnico? Comencemos la auditoría de diseño hoy mismo.",
+      "btnSample": "Pedir Muestras de Marca",
+      "btnSpeak": "Hablar con un Ingeniero de Diseño"
+    }
+  },
+  "pouchReducePackagingWasteGuidePage": {
+    "meta": {
+      "title": "Reduciendo Residuos de Envase | Estrategia Técnica | Pouch.eco",
+      "description": "Guía técnica para reducir residuos de envase. Información sobre reducción en origen, aligeramiento e ingeniería de economía circular.",
+      "keywords": "reducir residuos de envases, reducción de envases en origen, aligerar envases, estrategia de economía circular"
+    },
+    "metrics": {
+      "massReduct": {
+        "label": "Reducc Masa",
+        "value": "80%",
+        "unit": "vs. Rígido",
+        "desc": "Reducción del peso del material."
+      },
+      "lcaImpact": {
+        "label": "Impacto LCA",
+        "value": "-60%",
+        "unit": "CO2e",
+        "desc": "Ahorro de carbono de cuna a cliente."
+      },
+      "logistics": {
+        "label": "Logística",
+        "value": "7:1",
+        "unit": "Densidad",
+        "desc": "Volumen bolsa vacía vs. caja."
+      },
+      "circular": {
+        "label": "Circular",
+        "value": "90%",
+        "unit": "Recuperación",
+        "desc": "Tasa de reciclabilidad Mono-PE."
+      }
+    },
+    "hero": {
+      "badge": "ESTRATEGIA_RESIDUOS_V1.0",
+      "titlePart1": "Menos.",
+      "titlePart2": "Es.",
+      "titlePart3": "Puro.",
+      "description": "El empaque más sostenible es el que nunca se fabricó. Diseñamos la reducción de residuos mediante el aligeramiento técnico, la pureza de monomateriales y la optimización de la logística.",
+      "btnBrowse": "Ver Soluciones Ligeras",
+      "btnRequest": "Solicitar Auditoría de Residuos"
+    },
+    "engineering": {
+      "badge": "AUDITORIA_REDUCCION_ORIGEN",
+      "titlePart1": "Diseñado.",
+      "titlePart2": "Para la Eficiencia.",
+      "description": "Reducir los residuos de envases es una disciplina de ingeniería, no un eslogan de marketing. En la economía circular de 2026, las marcas se miden por su intensidad de recursos. Utilizamos la reducción en origen como pilar fundamental de nuestra estrategia, facilitando la transición de las marcas desde contenedores rígidos pesados y de alto consumo energético (frascos de vidrio y PET) a bolsas flexibles ligeras. Este cambio reduce la masa del material hasta en un 80% y el volumen de envío en un 700%. Optimizamos los residuos diseñando estructuras de monomaterial que logran tasas de recuperación superiores al 90%, garantizando que el material que utilizamos permanezca en el ciclo productivo en lugar del vertedero.",
+      "alt": "Marco de reducción de residuos de envase"
+    },
+    "tech": {
+      "badge": "TECNOLOGIA_RESIDUOS",
+      "titlePart1": "Alta Barrera.",
+      "titlePart2": "Baja Masa.",
+      "item1Title": "01. Aligeramiento Técnico",
+      "item1Desc": "Uso de MDO-PE y resinas de alto rendimiento para reducir el espesor del film entre un 15% y un 20% sin comprometer la resistencia a la perforación ni la integridad de la barrera.",
+      "item2Title": "02. Optimización Volumétrica",
+      "item2Desc": "Diseño de dimensiones de la bolsa adaptadas al volumen real del producto. Menos 'espacio muerto' significa menos aire transportado y menos residuos de embalaje secundario.",
+      "item3Title": "03. Recuperación en Monoflujo",
+      "item3Desc": "Sustitución de laminados multimaterial por estructuras 100% PE o PP certificadas que son fáciles de clasificar y recuperar mediante sistemas de reciclaje automatizados.",
+      "item4Title": "04. Integridad Compostable",
+      "item4Desc": "Para envases contaminados con alimentos, nuestros compostables certificados EN 13432 aseguran que el envase regrese a la tierra en lugar de obstruir los flujos de plástico."
+    },
+    "science": {
+      "badge": "CIENCIA_RECURSOS_V1",
+      "titlePart1": "Medido.",
+      "titlePart2": "Al Miligramo.",
+      "description": "La reducción de residuos se verifica mediante el Análisis de Ciclo de Vida (LCA). Utilizamos los protocolos ISO 14040 para calcular la carga total del material y el potencial de calentamiento global de su empaque. Al cambiar de un contenedor rígido tradicional a una solución flexible de Pouch.eco, puede reducir sus emisiones de carbono de Alcance 3 en más del 60%. No se trata solo de 'usar menos plástico'; se trata de optimizar todo el ciclo de conversión de material a energía. Proporcionamos los datos técnicos necesarios para sus informes de RSE y divulgaciones de ESG.",
+      "lcaTitle": "Validado por LCA",
+      "lcaDesc": "Reducción verificada en la intensidad de material y carbono por unidad producida.",
+      "eprTitle": "Mitigación EPR",
+      "eprDesc": "La reciclabilidad certificada reduce su responsabilidad fiscal por tarifas de Responsabilidad Extendida del Productor.",
+      "alt": "Fabricación verificada de reducción de residuos"
+    },
+    "faq": {
+      "badge": "FAQ_RESIDUOS",
+      "titlePart1": "Inteligencia",
+      "titlePart2": "Experta.",
+      "q1": "¿Qué es exactamente la 'Reducción en Origen'?",
+      "a1": "Es la práctica de utilizar menos material para realizar la misma función. Cambiar de una botella rígida de PET a una bolsa flexible de recambio es la forma más eficaz de reducción en origen.",
+      "q2": "¿Cómo reduce el envase flexible los residuos de transporte?",
+      "a2": "Las bolsas vacías se envían planas. Un camión lleno de bolsas vacías transporta el mismo volumen que siete camiones de contenedores rígidos vacíos, reduciendo drásticamente las emisiones de transporte y el residuo del envase primario.",
+      "q3": "¿El aligeramiento hace que la bolsa sea más débil?",
+      "a3": "No. Utilizamos películas coextruidas avanzadas como MDO-PE que proporcionan mayor rigidez y resistencia a la perforación con menores espesores, manteniendo una protección absoluta del producto.",
+      "q4": "¿Cómo se calcula el ahorro de carbono?",
+      "a4": "Realizamos un LCA de cuna a puerta utilizando datos de Ecoinvent y el consumo de energía específico de nuestra fábrica, verificado bajo las normas ISO 14040/44."
+    },
+    "cta": {
+      "badge": "MANDATO_RESIDUOS",
+      "titlePart1": "Deseche Menos.",
+      "titlePart2": "Impacto Puro.",
+      "description": "¿Listo para asegurar una cadena de suministro optimizada contra residuos para su marca? Comencemos la auditoría técnica hoy mismo.",
+      "btnSample": "Pedir Muestras Ligeras",
+      "btnSpeak": "Hablar con un Ingeniero de Residuos"
+    }
+  },
+  "pouchCustomVsStandardPackagingPage": {
+    "meta": {
+      "title": "Cotizaciones Personalizadas vs. Tienda Estándar | ROI de Envase | Pouch.eco",
+      "description": "Guía técnica sobre cotizaciones personalizadas B2B a medida vs tiradas estandarizadas de tienda con co-impresión. Domine la combinación de SKUs y el cierre Velcro."
+    },
+    "metrics": {
+      "combinedSku": {
+        "label": "Descuento Combinado SKU",
+        "value": "Hasta 25%",
+        "unit": "Ahorro",
+        "desc": "Agrupar bolsas de sabores del mismo tamaño."
+      },
+      "digitalMooq": {
+        "label": "MOQ Tirada Digital Estándar",
+        "value": "100",
+        "unit": "unidades",
+        "desc": "Volumen inicial económico."
+      },
+      "closureReliability": {
+        "label": "Fiabilidad Cierre",
+        "value": "Velcro®",
+        "unit": "Gancho",
+        "desc": "Autoajuste y resistencia al polvo."
+      },
+      "turnaround": {
+        "label": "Tiempo de Entrega",
+        "value": "15-20",
+        "unit": "Días",
+        "desc": "Eficiencia de co-impresión estandarizada."
+      }
+    },
+    "hero": {
+      "badge": "MATRIZ_PRODUCCION_V2.1",
+      "titlePart1": "Cotización a Medida.",
+      "titlePart2": "Tirada Estándar.",
+      "titlePart3": "Optimice el ROI.",
+      "description": "¿Decidiendo entre tiradas estandarizadas listas para llevar y cotizaciones dinámicas B2B especializadas? Esta guía técnica destaca las tiradas de co-impresión y co-extrusión, los trucos para combinar SKUs y los cierres táctiles de Velcro.",
+      "btnSpec": "Llamada de Especificación Técnica",
+      "btnStore": "Explorar Tienda Digital"
+    },
+    "flow": {
+      "badge": "FLUJO_PRODUCCION",
+      "titlePart1": "Especificaciones Estándar",
+      "titlePart2": "vs. Personalizadas.",
+      "description": "Los artículos estándar de la tienda se basan en la producción grupal (co-impresión colectiva) para evitar enormes costos de configuración de maquinaria. Esto genera MOQs bajos y precios económicos, pero requiere tamaños estándar fijos, fuelle inferior sin imprimir (esencial para sensores de marcas de corte) y cierres de presión estándar. Las cotizaciones dinámicas personalizadas se basan en dimensiones milimétricas a medida, fuelles completamente impresos y cierres Velcro de alto rendimiento.",
+      "alt": "Tiradas de producción conjunta de bolsas impresas personalizadas"
+    },
+    "hack": {
+      "badge": "TRUCO_AGRUPACION_VOLUMEN",
+      "titlePart1": "Agrupación",
+      "titlePart2": "de SKUs Combinados.",
+      "item1Title": "01. El Truco de las Dimensiones",
+      "item1Desc": "Si sus sabores de Chocolate, Vainilla y Fresa comparten el mismo tamaño físico de bolsa y material, pueden imprimirse de forma continua en el mismo rollo.",
+      "item2Title": "02. Transiciones de Impresión Instantáneas",
+      "item2Desc": "Nuestras avanzadas prensas de impresión digital HP Indigo 20000 cambian las pistas de diseño de inmediato sin detener la máquina ni alterar los clichés físicos.",
+      "item3Title": "03. Precios de Descuento Agrupados",
+      "item3Desc": "En lugar de pagar la tarifa premium de tres pedidos independientes de 100 piezas, su pedido se combina y se cobra al precio unificado por volumen de 300 piezas, ¡ahorrando hasta un 25%!",
+      "item4Title": "04. Control de Gráficos Flexibles",
+      "item4Desc": "Aunque las dimensiones coincidan, cada diseño, código de barras, lista de ingredientes y elemento gráfico principal de la SKU sigue siendo totalmente independiente."
+    },
+    "closure": {
+      "badge": "INGENIERIA_DE_CIERRE",
+      "titlePart1": "Cierres Estándar",
+      "titlePart2": "vs. Velcro Premium.",
+      "standardTitle": "Cierre Estándar de Presión",
+      "standardDesc": "Excelentes sellos por fricción interconectados, ideales para contenidos sólidos y líquidos estándar. Sin embargo, los polvos finos (cacao, suplementos, harina) pueden obstruir los rieles físicos, dificultando el cierre para el usuario.",
+      "standardBadge": "TIENDA_ESTANDAR",
+      "velcroTitle": "Cierre Sensorial Premium Velcro®",
+      "velcroDesc": "Innovadora pista de cierre gancho con gancho. Se autoalinea fácilmente al contacto, es totalmente resistente al polvo (los granos finos pasan sin obstruirlo) y proporciona una respuesta de cierre acústica y táctil satisfactoria.",
+      "velcroBadge": "SOLO_COTIZACION_DINAMICA"
+    },
+    "headsUp": {
+      "badge": "AVISO_TIENDA",
+      "titlePart1": "Tiradas Grupales",
+      "titlePart2": "en Tienda Online.",
+      "description": "¿Necesita entregas rápidas (15-20 días) y MOQs bajos? Eche un vistazo a nuestras bolsas de pie convencionales y bolsas planas de 3 sellos (disponibles con y sin cierre).",
+      "items": {
+        "supMetZip": "Stand Up – Metalizado con Cierre (Más Vendido)",
+        "supMetXzip": "Stand Up – Metalizado sin Cierre",
+        "supClearZip": "Stand Up – Transparente con Cierre",
+        "supClearXzip": "Stand Up – Transparente sin Cierre",
+        "ss3MetZip": "3 Sellos Laterales – Metalizado con Cierre",
+        "ss3MetXzip": "3 Sellos Laterales – Metalizado sin Cierre",
+        "ss3ClearZip": "3 Sellos Laterales – Transparente con Cierre",
+        "ss3ClearXzip": "3 Sellos Laterales – Transparente sin Cierre"
+      }
+    },
+    "faq": {
+      "badge": "FAQ_ABASTECIMIENTO",
+      "titlePart1": "Especificaciones de Expertos.",
+      "q1": "¿Por qué el fuelle inferior no está impreso en las tiradas estándar de co-impresión?",
+      "a1": "La co-impresión estándar comparte la bobina de la máquina para diferentes gráficos. Dejar el fuelle inferior sin imprimir evita colisiones con el sensor de registro, permitiendo cortes precisos.",
+      "q2": "What does SKU grouping do to my packaging cost?",
+      "a2": "Agrupar diseños de Vainilla y Chocolate de dimensiones idénticas permite que cuenten como una sola tirada de gran volumen, lo que lo sitúa en un nivel de precio por volumen más económico.",
+      "q3": "¿Puedo obtener cierres Velcro premium en un pedido estándar de 100 piezas?",
+      "a3": "No. Los cierres Velcro premium requieren extrusión personalizada y calibración de corte. Solo están disponibles a través de cotizaciones B2B dinámicas y personalizadas.",
+      "q4": "¿Cuál es el MOQ base para bolsas de dimensiones personalizadas?",
+      "a4": "Los tamaños dinámicos personalizados comienzan en 1,000 unidades. Para lotes pequeños (100-500 piezas), las bolsas de tamaño fijo estándar de la tienda son la mejor opción."
+    },
+    "cta": {
+      "badge": "METRICAS_LANZAMIENTO",
+      "titlePart1": "Evite el",
+      "titlePart2": "Precio Premium.",
+      "description": "¿Listo para configurar sus parámetros ideales de bolsas B2B? Tracemos hoy mismo sus dimensiones de SKU y opciones de cierre.",
+      "btnStore": "Ver Tienda Convencional",
+      "btnSpeak": "Consultar a un Arquitecto de Empaques"
+    }
+  },
+  "pouchCompostableSpoutedPouchesPage": {
+    "pouchCompostableSpoutedPouchesPage": {
+      "meta": {
+        "title": "Bolsas con Boquilla Compostables y Diseño de Economía Circular | POUCH.ECO",
+        "description": "Deseche las bolsas de plástico con boquilla no reciclables. Conozca las bolsas con boquilla para líquidos 100 % compostables y de alta barrera de POUCH.ECO, que ofrecen una solución orgánica verificada para el final de su vida útil.",
+        "keywords": "bolsas con boquilla compostables, boquillas biodegradables, bolsas de barrera para líquidos, envases de economía circular, bolsas ecológicas para alimentos de bebés"
+      },
+      "hero": {
+        "badge": "DISEÑO_ECONOMÍA_CIRCULAR",
+        "titlePart1": "Seguro para Líquidos.",
+        "titlePart2": "Totalmente ",
+        "titlePart3": "Compostable.",
+        "bullet1": "> Las boquillas tradicionales no son reciclables.",
+        "bullet2": "> Los laminados multicapa contaminan los residuos.",
+        "bullet3": "> La circularidad orgánica 100 % de origen vegetal ya está aquí.",
+        "imgAlt": "Bolsa con boquilla compostable de Achieve Pack sometida a prueba de compostaje",
+        "imgBadge": "BOQUILLA_CERTIFICADA_BPI"
+      },
+      "science": {
+        "titlePart1": "La Ciencia del ",
+        "titlePart2": "Embalaje Circular con Boquilla",
+        "p1": "El embalaje flexible, como las bolsas de pie con boquilla (doypack con boquilla), es muy popular para purés, bebidas y cosméticos líquidos debido a su bajo peso y baja huella de carbono. Sin embargo, sus complejas estructuras de capas hacen que el reciclaje estándar sea imposible.",
+        "h3_1": "Una Solución Real para el Final de la Vida Útil",
+        "p2": "En POUCH.ECO, nos enfocamos en cerrar el ciclo. Nuestras bolsas con boquilla representan un diseño riguroso de economía circular. Laminamos fibras de biocelulosa premium con resinas de barrera biodegradables (Bio-EVOH) y PBS de alta elasticidad para crear una estructura 100 % compostable.",
+        "p3": "Incluso la boquilla rígida y el tapón están hechos de almidón de maíz y plantas orgánicos certificados. Cuando se envían al compostaje industrial, el envase completo se descompone por completo sin dejar microplásticos ni residuos tóxicos.",
+        "imgAlt": "Capas de bolsa con boquilla compostable de alta barrera",
+        "h3_2": "Integridad Robusta para Líquidos",
+        "p4": "Sabemos que una bolsa ecológica no sirve de nada si gotea o estropea su producto. Nuestras bolsas con boquilla cuentan con:",
+        "li1": "Alta Resistencia al Sellado Térmico: Soporta temperaturas de pasteurización de hasta 105 °C para alimentos infantiles y purés frescos.",
+        "li2": "Barrera Probada por MOCON: Las tasas de transmisión de oxígeno y vapor de agua se mantienen por debajo de 0.2 cc/m²/día para garantizar una vida útil de 12 a 18 meses.",
+        "li3": "Durabilidad de la Soldadura: La conexión entre la brida de la boquilla rígida y la película flexible está soldada estructuralmente para evitar fugas bajo alta compresión.",
+        "h3_3": "Sin Contaminantes. 100 % Seguro.",
+        "p5": "Nuestras estructuras están completamente libres de BPA, metales pesados y químicos PFAS permanentes. Cumplen con todas las normas orgánicas BPI, EN 13432 y ASTM D6400, ofreciendo una opción completamente circular y segura para los alimentos de marcas sostenibles premium."
+      },
+      "faq": {
+        "badge": "PREGUNTAS TÉCNICAS",
+        "q1": "¿Son estas bolsas con boquilla totalmente seguras para alimentos y llenado en caliente?",
+        "a1": "Sí. Nuestros polímeros de sellado interno consisten en biorresinas termoestabilizadas que soportan temperaturas de llenado estándar de hasta 105 °C, garantizando una total seguridad alimentaria para purés, bebidas y líquidos templados.",
+        "q2": "¿La boquilla de plástico rígido es completamente compostable?",
+        "a2": "Absolutamente. No utilizamos boquillas de plástico con lavado de imagen verde. Nuestros accesorios de boquilla y tapón rígidos están moldeados por inyección a partir de biorresinas a base de almidón verificadas que se descomponen por completo junto con el cuerpo de la bolsa.",
+        "q3": "¿Cuál es la barrera de transmisión de oxígeno de la capa de EVOH?",
+        "a3": "Nuestra barrera orgánica de EVOH iguala el rendimiento del plástico tradicional, logrando un OTR de <0.2 cc/m²/día, lo que garantiza la integridad fresca del producto durante 12 a 18 meses."
+      },
+      "cta": {
+        "title": "Cambie a las Boquillas Circulares",
+        "desc": "Bolsas con boquilla duraderas, a prueba de fugas y de origen vegetal que satisfacen a los clientes y protegen nuestro planeta.",
+        "btn": "Solicitar Muestras de Bolsas"
+      }
+    }
+  },
+  "pouchMonoMaterialSolutionPage": {
+    "pouchMonoMaterialSolutionPage": {
+      "meta": {
+        "title": "Envases Mono-material | Alta Reciclabilidad Tecnológica | Pouch.eco",
+        "description": "Guía técnica para envases mono-material. Investigación sobre MDO-PE, Mono-PP e ingeniería de economía circular.",
+        "keywords": "mono-material, mono-PE, MDO-PE, mono-PP, envases reciclables, envase sostenible"
+      },
+      "metrics": {
+        "purity": {
+          "label": "Pureza del Polímero",
+          "value": "100%",
+          "unit": "Mono-familia",
+          "desc": "Sin laminados mezclados de PET/PE."
+        },
+        "power": {
+          "label": "Poder MDO-PE",
+          "value": "3X",
+          "unit": "Rigidez",
+          "desc": "PE estirado para reemplazar el PET."
+        },
+        "recyclability": {
+          "label": "Reciclabilidad",
+          "value": "90%",
+          "unit": "Puntuación",
+          "desc": "Verificado por laboratorios Cyclos-HTP."
+        },
+        "barrier": {
+          "label": "Barrera EVOH",
+          "value": "EVOH",
+          "unit": "< 5%",
+          "desc": "Bloqueo de oxígeno sin aluminio."
+        }
+      },
+      "hero": {
+        "badge": "TECNOLOGÍA_MONO_V1.0",
+        "title": "Único.\nOrigen.\nPuro.",
+        "desc": "El plástico multicapa tradicional es un fracaso para el reciclaje. Resolvemos el rompecabezas de la circularidad con ingeniería 100 % Mono-material.",
+        "btnBrowse": "Ver Soluciones Mono",
+        "btnOrder": "Solicitar Prueba de Material",
+        "imgAlt": "Héroe de Soluciones Mono-material"
+      },
+      "eng": {
+        "badge": "AUDITORÍA_DE_POLÍMERO_HOMOGÉNEO",
+        "title": "Diseñado.\nPara Reciclar.",
+        "desc": "La circularidad requiere homogeneidad del polímero. Al reemplazar la capa exterior tradicional de PET (poliéster) con MDO-PE (polietileno orientado en dirección de la máquina), creamos un envase que consiste completamente en la familia de polímeros PE. Este avance técnico garantiza que su bolsa no solo afirme ser reciclable, sino que realmente contribuya a la producción de resina rPE de alta calidad. Con < 5 % de EVOH coextruido para la barrera de oxígeno, nuestras estructuras mono-material logran puntajes de reciclabilidad > 90 % (Cyclos-HTP), satisfaciendo los requisitos de REP más estrictos para 2026.",
+        "imgAlt": "Ingeniería Estructural Mono-material"
+      },
+      "tech": {
+        "badge": "TECNOLOGÍA_MDO",
+        "title": "Orientado.\nPara el Rendimiento.",
+        "item1Title": "01. Rigidez (MDO)",
+        "item1Desc": "El estiramiento de la película de PE en la dirección de la máquina alinea las moléculas, aumentando la rigidez en un 300 %. Esto permite que las bolsas se mantengan erguidas en los estantes sin refuerzo de PET.",
+        "item2Title": "02. Claridad Óptica",
+        "item2Desc": "El procesamiento MDO elimina la 'neblina' que suele encontrarse en el PE estándar, ofreciendo las propiedades de visualización cristalina del plástico tradicional.",
+        "item3Title": "03. Resistencia Térmica",
+        "item3Desc": "El PE orientado tiene un punto de fusión más alto que el PE estándar, lo que permite un sellado térmico a alta velocidad en líneas de envasado VFFS y HFFS estándar.",
+        "item4Title": "04. Clasificación por Infrarrojos (NIR)",
+        "item4Desc": "Al ser un solo polímero, nuestros mono-materiales son identificados fácilmente por sensores de infrarrojo cercano en las plantas de reciclaje, garantizando su correcta clasificación."
+      },
+      "science": {
+        "badge": "CIENCIA_DE_POLÍMEROS_V2",
+        "title": "Verificado.\nHasta la Micra.",
+        "desc": "La pureza es el punto de referencia técnico para la reciclabilidad. Realizamos espectroscopia FTIR y calorimetría de barrido diferencial (DSC) en todos los lotes de materiales para verificar que nuestras estructuras de Mono-PE y Mono-PP estén libres de contaminación por polímeros. Al utilizar cremalleras (cierres) 100 % PE y válvulas desgasificadoras 100 % PE, aseguramos que la bolsa terminada sea una obra maestra técnica de circularidad. Sin materiales mezclados, sin necesidad de separación y con cero compromisos en la barrera de oxígeno de EVOH.",
+        "item1Title": "Pureza del Polímero",
+        "item1Desc": "Probado para garantizar una consistencia absoluta de la resina en todas las capas del laminado.",
+        "item2Title": "Puntuación de Recuperación",
+        "item2Desc": "Logrando puntuaciones de reciclabilidad de 90/100 bajo protocolos globales de Cyclos-HTP.",
+        "imgAlt": "Fabricación Mono-material Verificada"
+      },
+      "faq": {
+        "badge": "PREGUNTAS SOBRE MONO-MATERIAL",
+        "title": "Inteligencia\nExperta.",
+        "q1": "¿Puede el mono-PE lograr la misma vida útil que el PET/PE?",
+        "a1": "Sí. Al integrar una capa delgada (< 5 %) de EVOH, logramos una barrera contra el oxígeno (OTR) de < 1.0, igualando el rendimiento de los laminados tradicionales.",
+        "q2": "¿Es el MDO-PE más caro?",
+        "a2": "Los costos de resina y procesamiento son ligeramente más altos, pero esto a menudo se compensa con la reducción de impuestos al plástico y tarifas de REP más bajas para envases reciclables.",
+        "q3": "¿Son las bolsas de mono-material adecuadas para líquidos?",
+        "a3": "Sí. Coextruimos selladores de PE de alto rendimiento que brindan la resistencia a la perforación y la integridad de sellado requeridas para alimentos líquidos y grasosos.",
+        "q4": "¿Funcionan estas bolsas en mis máquinas actuales?",
+        "a4": "La mayoría de las líneas VFFS y HFFS modernas pueden procesar PE mono-material con ligeros ajustes en la temperatura de sellado térmico y el tiempo de contacto."
+      },
+      "cta": {
+        "badge": "MANDATO_MONO",
+        "title": "Material Puro.\nImpacto Audaz.",
+        "desc": "¿Listo para asegurar una cadena de suministro mono-material para su marca? Comencemos la auditoría técnica hoy.",
+        "btnOrder": "Solicitar Muestras Mono",
+        "btnSpeak": "Hablar con un Ingeniero de Polímeros"
+      }
+    }
+  },
+  "pouchGreenCoffeeMaterialsPage": {
+    "pouchGreenCoffeeMaterialsPage": {
+      "meta": {
+        "title": "Envases para Café Verde | Alta Barrera y Frescura | Pouch.eco",
+        "description": "Guía técnica para materiales de envases de café. Investigación sobre mono-PE de alta barrera, válvulas desgasificadoras y protección del aroma.",
+        "keywords": "envases para café, bolsas de café, válvulas desgasificadoras, café de alta barrera, bolsas de café sostenibles"
+      },
+      "metrics": {
+        "oxygen": {
+          "label": "Barrera Oxígeno",
+          "value": "< 0.1",
+          "unit": "OTR",
+          "desc": "Preservación superior del aroma."
+        },
+        "moisture": {
+          "label": "Barrera Humedad",
+          "value": "< 0.1",
+          "unit": "WVTR",
+          "desc": "Evita que el café se eche a perder."
+        },
+        "degassing": {
+          "label": "Desgasificación",
+          "value": "100%",
+          "unit": "Válvula",
+          "desc": "Escape de CO2, bloqueo de O2."
+        },
+        "recyclable": {
+          "label": "Reciclable",
+          "value": "PE",
+          "unit": "Mono",
+          "desc": "Compatible con reciclaje doméstico."
+        }
+      },
+      "hero": {
+        "badge": "TECNOLOGÍA_CAFÉ_V1.0",
+        "title": "Tueste.\nPuro.\nFresco.",
+        "desc": "El aroma lo es todo. Diseñamos bolsas de café sostenibles de alta barrera con válvulas desgasificadoras integradas.",
+        "btnBrowse": "Ver Soluciones para Café",
+        "btnOrder": "Solicitar Muestras de Barrera",
+        "imgAlt": "Héroe de Envases para Café Verde"
+      },
+      "eng": {
+        "badge": "AUDITORÍA_DE_PROTECCIÓN_DE_AROMA",
+        "title": "Diseñado.\nPara el Aroma.",
+        "desc": "El café es un producto orgánico volátil. Proteger su delicado perfil de lípidos y compuestos aromáticos de la oxidación es la prueba de fuego para cualquier envase. Para 2026, la transición del aluminio multicapa a los mono-materiales sostenibles es obligatoria. En Pouch.eco, utilizamos la tecnología MDO-PE (polietileno orientado) integrada con EVOH de alta barrera. Esta estructura ofrece niveles de OTR y WVTR inferiores a 0.1, igualando el rendimiento del papel de aluminio tradicional sin penalizar el reciclaje. Incluimos válvulas desgasificadoras reciclables como estándar, permitiendo que sus granos recién tostados liberen CO2 mientras mantienen una barrera hermética contra el ingreso de oxígeno.",
+        "imgAlt": "Ingeniería de Barrera para Envases de Café"
+      },
+      "tech": {
+        "badge": "TECNOLOGÍA_DEL_CAFÉ",
+        "title": "Alta Tecnología.\nAlta Barrera.",
+        "item1Title": "01. Barrera contra Gases EVOH",
+        "item1Desc": "Capa integrada de alcohol vinílico de etileno que bloquea las moléculas de oxígeno de manera más efectiva que los polímeros tradicionales, asegurando cero oxidación de los aceites del café.",
+        "item2Title": "02. Válvulas Reciclables",
+        "item2Desc": "Válvulas desgasificadoras unidireccionales fabricadas con la misma familia de polímeros que la bolsa, lo que permite un reciclaje del 100 % en el mismo flujo.",
+        "item3Title": "03. Excelencia sin Metal",
+        "item3Desc": "Logramos un rendimiento de alta barrera sin usar papel de aluminio. Esto hace que su envase sea apto para microondas y significativamente más fácil de clasificar en las plantas de reciclaje.",
+        "item4Title": "04. Vida Útil de 12 Meses",
+        "item4Desc": "Verificado mediante pruebas de envejecimiento acelerado. Nuestras estructuras protegen el perfil sensorial de los cafés de especialidad hasta por un año completo."
+      },
+      "science": {
+        "badge": "CIENCIA_DEL_AROMA_V1",
+        "title": "Medido.\nHasta el Tostador.",
+        "desc": "La frescura es una variable técnica. Utilizamos pruebas MOCON OTR/WVTR para verificar que cada estructura personalizada cumpla con nuestros estrictos estándares de protección del aroma. Nuestro Protocolo de Frescura EEAT está diseñado para la industria del café de especialidad, donde los matices del grano son el alma de la marca. Al utilizar materiales compostables en el hogar o Mono-PE 100 % reciclable, ayudamos a los tostadores a alinear su producto premium con una historia ambiental igualmente premium. Proporcionamos los datos de certificación Cyclos-HTP para demostrar que su envase sostenible realmente se recupera en los sistemas modernos de reciclaje.",
+        "item1Title": "Frescura Verificada en Laboratorio",
+        "item1Desc": "Probado contra el papel de aluminio tradicional para garantizar la paridad en la retención del aroma y el sabor.",
+        "item2Title": "Gestión de Gases",
+        "item2Desc": "Ubicación y rendimiento optimizados de la válvula de desgasificación para perfiles de tueste a alta presión.",
+        "imgAlt": "Fabricación de Envases de Café Verificada"
+      },
+      "faq": {
+        "badge": "PREGUNTAS SOBRE CAFÉ",
+        "title": "Inteligencia\nExperta.",
+        "q1": "¿Tienen válvulas sus bolsas de café compostables?",
+        "a1": "Sí. Ofrecemos válvulas desgasificadoras compostables domésticas e industriales que se descomponen junto con la bolsa, garantizando cero residuos plásticos.",
+        "q2": "¿Es el mono-PE tan rígido como las bolsas de café tradicionales?",
+        "a2": "Al utilizar la tecnología MDO-PE, logramos la misma rigidez de soporte vertical y presencia en el estante que las estructuras de PET/ALU/PE.",
+        "q3": "¿Puedo usar sus bolsas para café en grano y molido?",
+        "a3": "Sí. Nuestras barreras están optimizadas para ambos. Para café molido, recomendamos nuestros cierres (zippers) de alta integridad de sellado para evitar que las partículas finas obstruyan el sellado.",
+        "q4": "¿Cuál es el OTR de sus bolsas de café reciclables?",
+        "a4": "Apuntamos a un OTR de < 0.1 cc/m²/día, que es el estándar de oro de la industria para la frescura del café de especialidad durante 12 meses."
+      },
+      "cta": {
+        "badge": "MANDATO_DE_TUESTE",
+        "title": "Piense en Fresco.\nImpacto Puro.",
+        "desc": "¿Listo para asegurar una cadena de suministro sostenible y de alta barrera para su café? Comencemos la auditoría técnica hoy.",
+        "btnOrder": "Solicitar Muestras de Barrera",
+        "btnSpeak": "Hablar con un Ingeniero de Café"
+      }
+    }
+  },
+  "pouchCustomBrandPackagingServicePage": {
+    "pouchCustomBrandPackagingServicePage": {
+      "meta": {
+        "title": "Envases de Marca Personalizados: Diseño Estructural e Ingeniería | Pouch.eco",
+        "description": "Guía experta para envases de marca personalizados. Aprenda sobre ingeniería de líneas de troquel, gestión de color Pantone, impresión digital frente a rotograbado y acabados táctiles premium."
+      },
+      "hero": {
+        "badge": "SISTEMA_MARCA_V2",
+        "title": "EL DISEÑO SE UNE A LA\nINTEGRIDAD\nESTRUCTURAL",
+        "desc": "Su marca es un activo visual. Nuestra ingeniería personalizada garantiza que su envase se vea tan bien como funciona en el estante de la tienda.",
+        "btnStart": "INICIAR_PROYECTO_DISEÑO",
+        "btnColor": "GUÍA_COLORES"
+      },
+      "structural": {
+        "badge": "LA_GEOMETRÍA",
+        "title": "Ingeniería de\nLíneas de Troquel",
+        "desc": "No solo imprimimos en bolsas. Diseñamos estructuras. Desde sellados en K hasta fuelles de fondo redondo, diseñamos la física de su bolsa para garantizar que se mantenga perfectamente erguida.",
+        "item1Title": "Ajuste de Medidas",
+        "item1Desc": "Optimización de dimensiones según la densidad de su producto para eliminar los espacios vacíos y el desperdicio de material.",
+        "item2Title": "Prototipado",
+        "item2Desc": "Modelado 3D de alta fidelidad y muestras físicas neutras para verificar el ajuste y la sensación antes de la producción en masa.",
+        "imgAlt": "Galería de Diseños de Bolsas Personalizadas"
+      },
+      "deep": {
+        "title1": "Autoridad del Color y Control Delta-E",
+        "p1": "La consistencia es el sello distintivo de una marca premium. Nuestras instalaciones utilizan espectrofotómetros X-Rite para mantener una variación Delta-E de < 2.0, lo que garantiza que los colores de su marca se vean idénticos en cada lote de producción, independientemente del sustrato.",
+        "title2": "Comparación de Tecnologías de Impresión",
+        "th1": "Característica",
+        "th2": "Digital (HP Indigo)",
+        "th3": "Rotograbado / Huecograbado",
+        "td1": "Ideal Para",
+        "td2": "Bajo MOQ / Alto SKU",
+        "td3": "Escala Masiva / Bajo Costo",
+        "td4": "Costo de Planchas",
+        "td5": "$0 (Cero)",
+        "td6": "$150 - $400 / Color",
+        "td7": "Plazo de Entrega",
+        "td8": "3-4 Semanas",
+        "td9": "6-8 Semanas",
+        "title3": "Rendimiento Táctil",
+        "p2": "Creemos en la experiencia sensorial de una marca. Desde recubrimientos mate de tacto suave hasta acabados de contraste con UV localizado, proporcionamos las capas táctiles que diferencian su producto en un entorno minorista concurrido. Nuestros recubrimientos biocompatibles aseguran que incluso sus acabados personalizados cumplan con los estándares de compostabilidad."
+      },
+      "aside": {
+        "badge1": "PREPARACIÓN_ARTE",
+        "desc1": "Realizamos auditorías técnicas de líneas de troquel y comprobaciones de opacidad de tinta para garantizar que su diseño esté listo para la prensa en sustratos sostenibles.",
+        "btnArtwork": "ENVIAR_DISEÑO",
+        "badge2": "LAB_ACABADOS",
+        "finish1": "Mate de Tacto Suave",
+        "finish2": "Brillo UV Localizado",
+        "finish3": "Elementos Holográficos",
+        "finish4": "Acentos Metalizados"
+      },
+      "cta": {
+        "title": "EL DISEÑO VENCE\nDESTAQUE",
+        "btn": "OBTENER_PROTOTIPO_PERSONALIZADO"
+      }
+    }
   }
 }

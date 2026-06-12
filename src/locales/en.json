@@ -26168,5 +26168,828 @@
       "btn": "Subscribe",
       "footer": "📧 Join 1,200+ founders learning about sustainable packaging"
     }
+  },
+  "pouchCompostableBabyFoodBagsPage": {
+    "meta": {
+      "title": "Compostable Baby Food Bags | Pure Safety Hub | Pouch.eco",
+      "description": "Technical guide to compostable baby food packaging. 800+ words of research on zero-microplastics, non-toxic barriers, and infant safety engineering.",
+      "keywords": "compostable baby food bags, baby food pouches, non-toxic packaging, microplastic free, safe spouts, bio-polymer pouches"
+    },
+    "metrics": {
+      "microplastic": {
+        "label": "Microplastic",
+        "value": "Zero",
+        "unit": "PPM",
+        "desc": "Verified 100% bio-pure."
+      },
+      "chemicals": {
+        "label": "Chemicals",
+        "value": "BPA",
+        "unit": "PFAS",
+        "desc": "Resin-certified non-toxic."
+      },
+      "shelfLife": {
+        "label": "Shelf Life",
+        "value": "12",
+        "unit": "Months",
+        "desc": "Bio-EVOH barrier parity."
+      },
+      "safetyCap": {
+        "label": "Safety Cap",
+        "value": "Anti",
+        "unit": "Choke",
+        "desc": "Exceeding child safety law."
+      }
+    },
+    "hero": {
+      "badge": "BABY_SAFETY_V1.0",
+      "titlePart1": "Pure.",
+      "titlePart2": "Safe.",
+      "titlePart3": "Future.",
+      "description": "Infant health demands zero compromise. We engineer compostable baby food pouches that are free from microplastics, PFAS, and BPA—delivering absolute purity for the next generation.",
+      "btnBrowse": "Browse Safety Styles",
+      "btnRequest": "Request Safety Audit"
+    },
+    "engineering": {
+      "badge": "MATERIAL_PURITY_AUDIT",
+      "titlePart1": "Engineered.",
+      "titlePart2": "For Safety.",
+      "alt": "Baby Food Packaging Safety Engineering",
+      "description": "Baby food is the most chemically sensitive category in the global supply chain. In 2026, parents are no longer accepting 'traditional' plastic pouches that shed microplastics or contain endocrine disruptors. At Pouch.eco, we treat baby food packaging as a Technical Medical Deliverable. We utilize 100% Compostable Bio-Polymers (PBS/Bio-EVOH) that are verified to be PFAS-Free and BPA-Free. Every structure undergoes rigorous Migration Testing (EU 10/2011) to ensure zero chemical transfer to the infant's nutrition. Our spouts are made from Sugarcane-derived Bio-PE, featuring anti-choke, tamper-evident caps that exceed global child safety standards. This is the highest level of food safety, engineered for the most important consumers on Earth."
+    },
+    "tech": {
+      "badge": "SAFETY_TECH_STACK",
+      "titlePart1": "Zero Toxins.",
+      "titlePart2": "Total Pure.",
+      "item1Title": "01. Zero Microplastics",
+      "item1Desc": "Utilizing high-purity bio-polymers that break down into organic matter, eliminating the risk of plastic ingestion for infants.",
+      "item2Title": "02. PFAS-Free Barriers",
+      "item2Desc": "Certified grease and moisture barriers that contain zero forever-chemicals, meeting California AB 1200 standards.",
+      "item3Title": "03. Bio-EVOH Aroma Protect",
+      "item3Desc": "Achieving gas barriers equivalent to aluminum foil. Protecting the vitamins and nutrients in purees for up to 12 months.",
+      "item4Title": "04. Anti-Choke Fitments",
+      "item4Desc": "Ergonomic spouts and oversized, ventilated caps designed to prevent choking hazards and ensure effortless feeding."
+    },
+    "science": {
+      "badge": "SAFETY_SCIENCE_V1",
+      "titlePart1": "Measured.",
+      "titlePart2": "To the Child.",
+      "description": "Purity is a technical specification. We utilize GC-MS (Gas Chromatography-Mass Spectrometry) to verify that every custom structure is free from chemical migrants. Our EEAT Infant Safety Protocol ensures that your brand is protected against the rising wave of microplastic and chemical litigation. We provide Declaration of Compliance (DoC) documents that outline the full material stack and safety profile of your packaging. By choosing Certified Compostable Baby Food Pouches, you align your product with the highest level of health-conscious and planet-conscious consumerism.",
+      "shieldTitle": "Toxin Shield",
+      "shieldDesc": "Verified 0ppm organic fluorine and zero endocrine disruptors.",
+      "trustTitle": "Market Trust",
+      "trustDesc": "Positioning your brand as the gold standard for infant safety and sustainability.",
+      "alt": "Verified Baby Food Packaging Manufacturing"
+    },
+    "faq": {
+      "badge": "BABY_FAQ",
+      "titlePart1": "Expert",
+      "titlePart2": "Intelligence.",
+      "q1": "Are your pouches truly microplastic-free?",
+      "a1": "Yes. Our compostable bio-polymers break down into organic matter, meaning they never break into microplastics during disposal or use.",
+      "q2": "What is your stance on PFAS?",
+      "a2": "We have a 100% zero-PFAS policy. All our grease barriers are made from aqueous-based bio-polymers that are resin-certified safe.",
+      "q3": "Can these pouches be heated?",
+      "a3": "We recommend gentle warming. Because they are metal-free, they are technically microwave-safe, but always check food temperature before feeding.",
+      "q4": "Do you offer anti-choke caps as standard?",
+      "a4": "Yes. All our baby food spouts come with oversized, ventilated caps that meet the strictest global infant safety regulations."
+    },
+    "cta": {
+      "badge": "BABY_MANDATE",
+      "titlePart1": "Think Safe.",
+      "titlePart2": "Impact Pure.",
+      "description": "Ready to secure a non-toxic, sustainable supply chain for your baby food brand? Let's start the technical audit today.",
+      "btnSample": "Order Safety Samples",
+      "btnSpeak": "Speak to a Safety Engineer"
+    }
+  },
+  "pouchCompostableZipperNoRemovalPage": {
+    "meta": {
+      "title": "Do I Need to Remove the Zipper from Compostable Bags? | POUCH.ECO",
+      "description": "Everything you need to know about compostable packaging zippers and valves. Spoiler: You DO NOT need to rip them off before composting! Learn why our bags are 100% circular."
+    },
+    "hero": {
+      "badge": "COMPOST_GUIDE: ZIPPER_HACKS",
+      "titlePart1": "Stop Ripping.",
+      "titlePart2": "Start",
+      "titlePart3": "Composting.",
+      "q1": "> Do I need to remove the zipper?",
+      "q2": "> Do I need to cut out the valve?",
+      "a": "> The answer: ABSOLUTELY NOT.",
+      "badgeFloat": "ZERO_REMOVAL_REQD",
+      "alt": "Kraft compostable pouch with fully compostable zipper"
+    },
+    "guide": {
+      "title": "The Ultimate Guide to",
+      "titleHighlight": "Compostable Components",
+      "p1": "When brands switch to sustainable packaging, one of the most frequent questions consumers ask is: \"Do I need to rip the zipper off before throwing this bag in the compost?\" In the early days of eco-friendly packaging, the answer was unfortunately yes. Many manufacturers used compostable film bodies but attached cheap, conventional plastic zippers or degassing valves to cut costs. This created a frustrating experience for the end-user and effectively defeated the purpose of a circular product.",
+      "alt2": "Close up of a compostable press-to-close zipper",
+      "sec1Title": "100% Certified Circularity",
+      "p2": "At POUCH.ECO, we believe that sustainable packaging should not require a user manual or specialized tools to dispose of. Our entire line of compostable pouches—including Stand-Up Pouches, Flat Bottom Bags, and Flat Pouches—are engineered to be 100% compostable. This means that every single component is manufactured from certified plant-based polymers.",
+      "p3": "Our press-to-close zippers, our one-way coffee degassing valves, our tear notches, and even our lamination adhesives have all passed stringent TUV Austria (OK Compost) and EN 13432 certifications. Because these components share the same biodegradable chemistry as the outer kraft paper or cellulose film, they will all break down together in a home compost bin or industrial facility.",
+      "sec2Title": "The Danger of \"Greenwashed\" Pouches",
+      "p4": "It is vital for brands to ask their packaging suppliers direct questions about component certifications. A \"greenwashed\" pouch might have a compostable body, but if it utilizes a fossil-based plastic zipper, throwing the entire pouch into a compost bin will introduce microplastics into the soil. The compost facility will eventually screen out the plastic zipper, but the process is inefficient and damages the integrity of the resulting compost.",
+      "alt3": "Infographic showing how a fully compostable bag breaks down into biomass",
+      "sec3Title": "Educating Your Customers",
+      "p5": "As a brand, communicating this ease-of-use is a massive marketing advantage. You can proudly print on your packaging: \"Toss the whole bag in the compost! No need to remove the zipper.\" This zero-friction disposal method significantly increases the likelihood that your customers will actually compost the packaging, ensuring that your investment in sustainability truly pays off for the planet."
+    },
+    "faq": {
+      "title": "AIEO & SEO",
+      "titleHighlight": "FAQ",
+      "q1": "Do I need to rip the zipper off a compostable bag?",
+      "a1": "If you purchase fully certified compostable pouches from POUCH.ECO, the answer is NO. Our zippers are made from the exact same certified compostable plant-polymers as the bag itself. You can throw the entire intact bag into the compost bin.",
+      "q2": "Do I need to cut out the coffee degassing valve before composting?",
+      "a2": "Absolutely not. Unlike traditional plastic valves, our degassing valves are engineered from bio-resins and are TUV certified for composting. The entire bag, valve included, is safe for the soil.",
+      "q3": "How long does a compostable zipper take to break down?",
+      "a3": "Because the zipper profile is slightly thicker than the film body, it may take slightly longer to visually disappear. However, under standard composting conditions, the entire pouch—including the zipper—will break down into organic biomass within 180 days.",
+      "q4": "Why do some brands tell me to cut the zipper off?",
+      "a4": "Those brands are likely using \"mixed-material\" packaging where the body is compostable, but they used a cheap, standard plastic zipper to save money. This is a practice we strongly advise against."
+    },
+    "cta": {
+      "title": "Ready for True Sustainability?",
+      "description": "Get 100% certified compostable packaging. No greenwashing. No hidden plastics.",
+      "btn": "Get Your Custom Quote"
+    }
+  },
+  "pouchCustomPrintedSustainablePouchesPage": {
+    "meta": {
+      "title": "Custom Printed Sustainable Pouches | Pouch.eco Branding Hub",
+      "description": "Technical guide to custom printed sustainable pouches. 800+ words on digital vs rotogravure, G7 color science, and eco-friendly inks.",
+      "keywords": "custom printed pouches, sustainable branding, digital printing, rotogravure, G7 color, packaging design"
+    },
+    "metrics": {
+      "colorPrec": {
+        "label": "Color Prec",
+        "value": "< 2.0",
+        "unit": "Delta-E",
+        "desc": "G7-certified accuracy."
+      },
+      "resolution": {
+        "label": "Resolution",
+        "value": "1200",
+        "unit": "DPI",
+        "desc": "High-definition clarity."
+      },
+      "printTech": {
+        "label": "Print Tech",
+        "value": "Hybrid",
+        "unit": "Fleet",
+        "desc": "Digital & Rotogravure."
+      },
+      "inkSafety": {
+        "label": "Ink Safety",
+        "value": "FDA",
+        "unit": "EFSA",
+        "desc": "Certified for food contact."
+      }
+    },
+    "hero": {
+      "badge": "BRANDING_HUB_V1.0",
+      "titlePart1": "Art.",
+      "titlePart2": "Pure.",
+      "titlePart3": "Identity.",
+      "description": "Your brand is a story. We engineer custom printed sustainable pouches that deliver that story with precision.",
+      "btnBrowse": "Browse Print Styles",
+      "btnRequest": "Request Print Proofs",
+      "alt": "Custom Printed Sustainable Pouches Hero"
+    },
+    "engineering": {
+      "badge": "COLOR_LOGIC_AUDIT",
+      "titlePart1": "Engineered.",
+      "titlePart2": "To Be Seen.",
+      "description": "Branding is not just 'design'; it's color physics. In 2026, maintaining brand integrity across sustainable substrates (like Kraft or Mono-PE) is a significant technical challenge. At Pouch.eco, we utilize G7 Master Certified color management workflows to ensure that your Delta-E (ΔE) deviation remains < 2.0. This means your brand color is consistent across digital and rotogravure production runs, regardless of the material structure. We utilize 1200 DPI High-Definition technology to ensure that even the most complex illustrations and smallest legal fonts are reproduced with extreme clarity. Whether you are a startup launching with 500 units or an enterprise moving 5 million, our print engineering delivers total visual dominance.",
+      "alt": "Custom Printed Sustainable Pouch Precision"
+    },
+    "tech": {
+      "badge": "IDENTITY_TECH_STACK",
+      "titlePart1": "Pure Vision.",
+      "titlePart2": "Pure Print.",
+      "item1Title": "01. Digital Agility",
+      "item1Desc": "Utilizing HP Indigo 25K technology for zero-plate manufacturing. Perfect for product launches, seasonal SKUs, and startup-scale branding.",
+      "item2Title": "02. Enterprise Rotogravure",
+      "item2Desc": "Copper-plate precision for high-volume runs. Delivering the lowest per-unit cost while maintaining extreme ink density and color saturation.",
+      "item3Title": "03. Food-Safe Inks",
+      "item3Desc": "Certified low-migration inks that meet FDA and EFSA regulations. Solvent-free and odor-neutral for sensitive food products.",
+      "item4Title": "04. Premium Finishes",
+      "item4Desc": "Customizing the tactile experience with soft-touch matte, spot UV, and gloss finishes that reinforce your brand's luxury and sustainability."
+    },
+    "science": {
+      "badge": "IDENTITY_SCIENCE_V1",
+      "titlePart1": "Measured.",
+      "titlePart2": "To the Pixel.",
+      "description": "Brand identity is a technical specification. We utilize Spectrophotometric Validation on every production run to verify that your colors match your brand guidelines exactly. Our EEAT Identity Protocol ensures that your sustainable packaging is not just environmentally pure, but visually elite. We provide high-fidelity Print Proofs that allow you to see and feel the final result before mass production. By utilizing Certified Eco-Inks and advanced finishing technology, we help brands align their physical product with their digital storytelling. This is branding verified by science.",
+      "visualTitle": "Visual Dominance",
+      "visualDesc": "Ensuring your brand stands out on the shelf with ultra-high resolution and color purity.",
+      "scaleTitle": "Scale Optimization",
+      "scaleDesc": "Seamlessly transitioning from digital startups to high-volume enterprise production.",
+      "alt": "Verified Custom Printing Manufacturing"
+    },
+    "faq": {
+      "badge": "IDENTITY_FAQ",
+      "titlePart1": "Expert",
+      "titlePart2": "Intelligence.",
+      "q1": "What is G7 Master Certification?",
+      "a1": "It is an international standard for grayscale and color balance. It ensures your brand colors remain consistent across different presses and substrates.",
+      "q2": "Can I print on transparent windows?",
+      "a2": "Yes. We offer precision ink-masking that allows for crystal-clear product windows while maintaining high-opacity branding everywhere else.",
+      "q3": "Do you offer metallic silver or gold inks?",
+      "a3": "Yes. We utilize high-performance digital and rotogravure metallic inks that replicate the look of foil without the environmental cost.",
+      "q4": "How do I submit artwork for printing?",
+      "a4": "We require vectorized files (AI or PDF) with all fonts outlined and colors specified as Pantone (PMS) Solid Coated for maximum accuracy."
+    },
+    "cta": {
+      "badge": "IDENTITY_MANDATE",
+      "titlePart1": "Think Identity.",
+      "titlePart2": "Impact Pure.",
+      "description": "Ready to secure a visually elite, sustainable supply chain for your brand? Let's start the technical audit today.",
+      "btnSample": "Request Print Proofs",
+      "btnSpeak": "Speak to a Branding Engineer"
+    }
+  },
+  "pouchCustomBrandPackagingPage": {
+    "meta": {
+      "title": "Custom Brand Packaging | Engineering & Design | Pouch.eco",
+      "description": "Technical guide to custom brand packaging. 800+ words of research on structural engineering, G7 color science, and D2C logistics optimization.",
+      "keywords": "custom brand packaging, pouch engineering, G7 color science, structural design, D2C logistics"
+    },
+    "metrics": {
+      "colorDeviation": {
+        "label": "Color Deviation",
+        "value": "< 2.0",
+        "unit": "Delta-E",
+        "desc": "Indistinguishable color accuracy."
+      },
+      "printRes": {
+        "label": "Print Res",
+        "value": "1200+",
+        "unit": "DPI",
+        "desc": "Ultra-high definition imagery."
+      },
+      "materialYield": {
+        "label": "Material Yield",
+        "value": "+18%",
+        "unit": "Optimization",
+        "desc": "Sizing tailored to product volume."
+      },
+      "plateCost": {
+        "label": "Plate Cost",
+        "value": "$0",
+        "unit": "Digital",
+        "desc": "Low-risk, agile manufacturing."
+      }
+    },
+    "hero": {
+      "badge": "BRAND_ENGINE_V5.0",
+      "titlePart1": "Build.",
+      "titlePart2": "Print.",
+      "titlePart3": "Scale.",
+      "description": "Stop guessing your packaging dimensions. We engineer custom-branded pouches using CAD-optimized structural designs.",
+      "btnBrowse": "Browse Engineering Styles",
+      "btnRequest": "Order Brand Samples",
+      "alt": "Custom Brand Packaging Hero"
+    },
+    "engineering": {
+      "badge": "STRUCTURAL_AUDIT",
+      "titlePart1": "Engineering",
+      "titlePart2": "Identity.",
+      "description": "Packaging is a physical extension of your brand's promise. We don't just \"print bags\"; we perform a Volumetric Audit to ensure your product fits perfectly with minimal headspace. This reduces air shipping costs and prevents internal product shifting. Our engineering team utilizes Delta-E (ΔE) color monitoring to ensure your brand palette remains consistent across all material substrates.",
+      "alt": "Structural Engineering of Custom Pouches"
+    },
+    "tech": {
+      "badge": "PRINT_METHODOLOGY",
+      "titlePart1": "High-Definition",
+      "titlePart2": "Precision.",
+      "item1Title": "Digital (HP Indigo)",
+      "item1Desc": "Zero plate costs and infinite customization. Ideal for startups and high-SKU brands. We deliver 1200 DPI resolution that makes product photography and fine-print text jump off the shelf.",
+      "item2Title": "Rotogravure",
+      "item2Desc": "Copper-plate precision for mass production. This method provides the lowest per-unit cost and unmatched ink density for metallic and neon finishes.",
+      "item3Title": "G7 Master Certified",
+      "item3Desc": "We follow the global industry standard for gray balance and visual consistency. Your brand colors are verified using advanced spectrophotometry at every production step.",
+      "item4Title": "Lamination Choice",
+      "item4Desc": "Choose from Soft-Touch Matte, High-Gloss, or Spot-UV finishes to create tactile interest. Our lamination process is thermal-optimized to prevent delamination in the field."
+    },
+    "logistics": {
+      "badge": "LOGISTICS_BY_DESIGN",
+      "titlePart1": "Shipping is",
+      "titlePart2": "Not an Afterthought.",
+      "description": "Poorly sized packaging is a drain on your carbon footprint and your bank account. We specialize in Dimensional Weight (DIM) Optimization. By engineering pouches that fit exactly within standard D2C shipping mailers, we help brands reduce their aggregate shipping costs by up to 22%.",
+      "weightTitle": "Weight Reduction",
+      "weightDesc": "Lightweighted polymers reduce virgin plastic tax liability in the UK and EU.",
+      "volumeTitle": "Volume Density",
+      "volumeDesc": "Store 7x more empty packaging in the same space compared to rigid boxes.",
+      "alt": "D2C Logistics Optimization"
+    },
+    "faq": {
+      "badge": "DESIGN_FAQ",
+      "titlePart1": "Expert",
+      "titlePart2": "Insights.",
+      "q1": "What is the industry standard for color matching?",
+      "a1": "The G7 methodology is the global benchmark. We target a Delta-E (ΔE) of < 2.0 to ensure your brand's visual identity remains invariant across different light sources and substrates.",
+      "q2": "How do I choose between Digital and Gravure?",
+      "a2": "Digital is best for testing the market (MOQ 500) and high-SKU variety. Gravure is the king of efficiency and unit-cost for high-volume (MOQ 20,000+) static designs.",
+      "q3": "Can you provide custom die-lines?",
+      "a3": "Yes. Our engineering team provides high-precision AI/PDF die-lines for your designers, including clear specifications for gussets, seals, and zipper placements.",
+      "q4": "Do you offer physical prototypes?",
+      "a4": "Absolutely. We offer high-fidelity physical mockups using our digital print line, allowing you to verify the structure, size, and branding before committing to full production."
+    },
+    "cta": {
+      "badge": "DESIGN_MANDATE",
+      "titlePart1": "Brand Better.",
+      "titlePart2": "Scale Faster.",
+      "description": "Ready to transition from generic bags to engineered custom packaging? Let's start the design audit today.",
+      "btnSample": "Order Brand Samples",
+      "btnSpeak": "Speak to a Design Engineer"
+    }
+  },
+  "pouchReducePackagingWasteGuidePage": {
+    "meta": {
+      "title": "Reducing Packaging Waste | Technical Strategy | Pouch.eco",
+      "description": "Technical guide to reducing packaging waste. 800+ words of research on source reduction, lightweighting, and circular economy engineering.",
+      "keywords": "reduce packaging waste, packaging source reduction, lightweighting packaging, circular economy strategy"
+    },
+    "metrics": {
+      "massReduct": {
+        "label": "Mass Reduct",
+        "value": "80%",
+        "unit": "vs. Rigid",
+        "desc": "Material weight reduction."
+      },
+      "lcaImpact": {
+        "label": "LCA Impact",
+        "value": "-60%",
+        "unit": "CO2e",
+        "desc": "Cradle-to-customer carbon save."
+      },
+      "logistics": {
+        "label": "Logistics",
+        "value": "7:1",
+        "unit": "Density",
+        "desc": "Empty pouch vs. box volume."
+      },
+      "circular": {
+        "label": "Circular",
+        "value": "90%",
+        "unit": "Recovery",
+        "desc": "Mono-PE recyclability rate."
+      }
+    },
+    "hero": {
+      "badge": "WASTE_STRATEGY_V1.0",
+      "titlePart1": "Less.",
+      "titlePart2": "Is.",
+      "titlePart3": "Pure.",
+      "description": "The most sustainable package is the one that was never made. We engineer waste reduction through technical lightweighting, mono-material purity, and logistics optimization.",
+      "btnBrowse": "Browse Lightweight Solutions",
+      "btnRequest": "Request Waste Audit"
+    },
+    "engineering": {
+      "badge": "SOURCE_REDUCTION_AUDIT",
+      "titlePart1": "Engineered.",
+      "titlePart2": "For Efficiency.",
+      "description": "Reducing packaging waste is an engineering discipline, not a marketing slogan. In the 2026 Circular Economy, brands are measured by their Resource Intensity. We utilize Source Reduction as the primary pillar of our strategy—transitioning brands from heavy, energy-intensive rigid containers (glass and PET jars) to lightweight flexible pouches. This shift alone reduces material mass by up to 80% and shipping volume by 700%. We further optimize for waste by engineering Mono-Material structures that achieve > 90% recovery rates, ensuring that the material we do use stays in the loop rather than the landfill.",
+      "alt": "Packaging Waste Reduction Framework"
+    },
+    "tech": {
+      "badge": "WASTE_TECH_STACK",
+      "titlePart1": "High Barrier.",
+      "titlePart2": "Low Mass.",
+      "item1Title": "01. Technical Lightweighting",
+      "item1Desc": "Using MDO-PE and high-performance resins to reduce film thickness by 15-20% without compromising puncture resistance or barrier integrity.",
+      "item2Title": "02. Volumetric Optimization",
+      "item2Desc": "Engineering pouch dimensions to match your product's actual volume. Less 'dead space' means less air shipped and less secondary packaging waste.",
+      "item3Title": "03. Mono-Stream Recovery",
+      "item3Desc": "Replacing multi-material laminates with certified 100% PE or PP structures that are easily sorted and recovered by automated recycling systems.",
+      "item4Title": "04. Compostable Integrity",
+      "item4Desc": "For food-contaminated packaging, our EN 13432 certified compostables ensure the package returns to the soil instead of clogging plastic streams."
+    },
+    "science": {
+      "badge": "RESOURCE_SCIENCE_V1",
+      "titlePart1": "Measured.",
+      "titlePart2": "To the Milligram.",
+      "description": "Waste reduction is verified through Life Cycle Assessment (LCA). We utilize ISO 14040 protocols to calculate the total material burden and global warming potential of your packaging. By switching from a traditional rigid container to a Pouch.eco flexible solution, you can reduce your Scope 3 carbon emissions by over 60%. This isn't just about 'using less plastic'; it's about optimizing the entire material-to-energy conversion loop. We provide the technical data you need for your CSR (Corporate Social Responsibility) reporting and ESG disclosures.",
+      "lcaTitle": "LCA Validated",
+      "lcaDesc": "Verified reduction in material and carbon intensity per unit produced.",
+      "eprTitle": "EPR Mitigation",
+      "eprDesc": "Certified recyclability reduces your Extended Producer Responsibility fee liability.",
+      "alt": "Verified Waste Reduction Manufacturing"
+    },
+    "faq": {
+      "badge": "WASTE_FAQ",
+      "titlePart1": "Expert",
+      "titlePart2": "Intelligence.",
+      "q1": "What is 'Source Reduction' exactly?",
+      "a1": "It is the practice of using less material to perform the same function. Switching from a rigid PET bottle to a flexible refill pouch is the most effective form of source reduction.",
+      "q2": "How does flexible packaging reduce shipping waste?",
+      "a2": "Empty pouches are shipped flat. One truckload of empty pouches carries the same volume as seven truckloads of empty rigid containers, slashing transport carbon and primary packaging waste.",
+      "q3": "Does lightweighting make the bag weaker?",
+      "a3": "No. We use advanced co-extruded films like MDO-PE which provide higher stiffness and puncture resistance at lower thicknesses, maintaining absolute product protection.",
+      "q4": "How do you calculate the carbon save?",
+      "a4": "We perform a cradle-to-gate LCA using Ecoinvent data and our factory's specific energy usage, verified against ISO 14040/44 standards."
+    },
+    "cta": {
+      "badge": "WASTE_MANDATE",
+      "titlePart1": "Waste Less.",
+      "titlePart2": "Impact Pure.",
+      "description": "Ready to secure a waste-optimized supply chain for your brand? Let's start the technical audit today.",
+      "btnSample": "Order Lightweight Samples",
+      "btnSpeak": "Speak to a Waste Engineer"
+    }
+  },
+  "pouchCustomVsStandardPackagingPage": {
+    "meta": {
+      "title": "Custom Quotes vs. Standard Store Runs | Packaging ROI | Pouch.eco",
+      "description": "Technical guide to tailored B2B custom quote packaging vs standardized co-printed store runs. Master the combined SKU volume hack and premium Velcro tracks.",
+      "keywords": "custom vs standard packaging, combined SKU run, group production pouches, velcro pouch closure, conventional stand up pouch, 3 side seal bag"
+    },
+    "metrics": {
+      "combinedSku": {
+        "label": "Combined SKU Run Discount",
+        "value": "Up to 25%",
+        "unit": "Save",
+        "desc": "Grouping same-sized flavor bags."
+      },
+      "digitalMooq": {
+        "label": "Standard Digital Run MOQ",
+        "value": "100",
+        "unit": "units",
+        "desc": "Budget-friendly starting volume."
+      },
+      "closureReliability": {
+        "label": "Closure Reliability",
+        "value": "Velcro®",
+        "unit": "Hook",
+        "desc": "Autofit and powder resistance."
+      },
+      "turnaround": {
+        "label": "Turnaround Time",
+        "value": "15-20",
+        "unit": "Days",
+        "desc": "Standardized co-printing efficiency."
+      }
+    },
+    "hero": {
+      "badge": "PRODUCTION_MATRIX_V2.1",
+      "titlePart1": "Tailored Quote.",
+      "titlePart2": "Standard Run.",
+      "titlePart3": "Optimize ROI.",
+      "description": "Deciding between off-the-shelf standardized checkout runs and specialized B2B dynamic quotes? This technical guide highlights co-printed co-extrusion runs, combined SKU hacks, and tactile Velcro closure tracks.",
+      "btnSpec": "Technical Spec Call",
+      "btnStore": "Explore Digital Store"
+    },
+    "flow": {
+      "badge": "PRODUCTION_FLOW",
+      "titlePart1": "Standard vs.",
+      "titlePart2": "Custom Specs.",
+      "description": "Standard store items rely on Group Production (collective co-printing) to bypass massive machine setup charges. This creates low MOQs and budget-friendly pricing but requires fixed standard sizing, an unprinted bottom gusset (essential for crop-mark sensors), and standard press zippers. Custom dynamic quotes are built around custom millimeter dimensions, fully printed gussets, and high-performance Velcro closures.",
+      "alt": "Custom printed pouch co-production runs"
+    },
+    "hack": {
+      "badge": "VOLUME_GROUPING_HACK",
+      "titlePart1": "Combined SKU",
+      "titlePart2": "Grouping.",
+      "item1Title": "01. The Pouch Dimension Hack",
+      "item1Desc": "If your Chocolate, Vanilla, and Strawberry flavors share the exact same physical pouch size and material, they can be printed continuously on the same web roll.",
+      "item2Title": "02. Instantaneous Press Transitions",
+      "item2Desc": "Our advanced HP Indigo 20000 digital printing presses switch artwork lanes immediately without stopping the press or altering hardware plates.",
+      "item3Title": "03. Grouped Discount Pricing",
+      "item3Desc": "Instead of paying the premium rate of three separate 100-piece orders, your order is combined and charged at the unified 300-piece bulk price, saving you up to 25%!",
+      "item4Title": "04. Flexible Graphics Control",
+      "item4Desc": "Even though dimensions are matching, every single card, barcode, ingredient list, and primary SKU graphic remains fully independent."
+    },
+    "closure": {
+      "badge": "CLOSURE_ENGINEERING",
+      "titlePart1": "Standard Zippers",
+      "titlePart2": "vs. Premium Velcro.",
+      "standardTitle": "Standard Press-To-Close Zipper",
+      "standardDesc": "Excellent interlocking friction seals ideal for standard solid and liquid contents. However, fine powders (cocoa, supplements, flour) can clog the physical tracks, making closing tedious for the end-user.",
+      "standardBadge": "STOCK_STANDARD",
+      "velcroTitle": "Premium Velcro® Sensory Closure",
+      "velcroDesc": "Innovative hook-to-hook closure track. Auto-aligns easily upon contact, fully powder-proof (fine grains pass through without clogging), and provides satisfying audible/tactile closure feedback.",
+      "velcroBadge": "DYNAMIC_QUOTE_ONLY"
+    },
+    "headsUp": {
+      "badge": "STORE_HEADS_UP",
+      "titlePart1": "Online Store",
+      "titlePart2": "Group runs.",
+      "description": "Need fast turnaround (15–20 days) and low MOQs? Check out our conventional stand-up pouches and 3-side seal flat pouches (available with and without zippers).",
+      "items": {
+        "supMetZip": "Stand Up – Metalised With Zipper (Best Seller)",
+        "supMetXzip": "Stand Up – Metalised No Zipper",
+        "supClearZip": "Stand Up – Clear With Zipper",
+        "supClearXzip": "Stand Up – Clear No Zipper",
+        "ss3MetZip": "3 Side Seal – Metalised With Zipper",
+        "ss3MetXzip": "3 Side Seal – Metalised No Zipper",
+        "ss3ClearZip": "3 Side Seal – Clear With Zipper",
+        "ss3ClearXzip": "3 Side Seal – Clear No Zipper"
+      }
+    },
+    "faq": {
+      "badge": "SOURCING_FAQ",
+      "titlePart1": "Expert Specs.",
+      "q1": "Why is the bottom gusset raw on standard co-printing runs?",
+      "a1": "Standard co-printing shares the machine web across changing graphics. Leaving the bottom gusset unprinted prevents registration sensor collisions, allowing precise cuts.",
+      "q2": "What does SKU grouping do to my packaging cost?",
+      "a2": "Grouping Vanilla and Chocolate designs of identical dimensions allows them to count as a single high-volume run, moving you into a cheaper bulk pricing tier.",
+      "q3": "Can I get premium Velcro tracks on a standard 100-pc checkout?",
+      "a3": "No. Premium Velcro closures require custom extrusion and slit calibration. They are only available via customized dynamic B2B quotes.",
+      "q4": "What is the baseline MOQ for custom dimensional pouches?",
+      "a4": "Custom dynamic sizes start at 1,000 units. For micro-batches (100–500 pcs), standard store fixed-size pouches are the best option."
+    },
+    "cta": {
+      "badge": "LAUNCH_METRICS",
+      "titlePart1": "Shed the",
+      "titlePart2": "Premium.",
+      "description": "Ready to configure your ideal B2B pouch parameters? Let's trace your SKU dims and closure options today.",
+      "btnStore": "Browse Conventional Store",
+      "btnSpeak": "Consult a Packaging Architect"
+    }
+  },
+  "pouchCompostableSpoutedPouchesPage": {
+    "pouchCompostableSpoutedPouchesPage": {
+      "meta": {
+        "title": "Compostable Spouted Pouches & Circular Economy Design | POUCH.ECO",
+        "description": "Ditch unrecyclable plastic spout pouches. Meet POUCH.ECO's 100% compostable, high-barrier liquid spouted bags, offering a verified organic end-of-life solution.",
+        "keywords": "compostable spouted pouches, biodegradable spouts, liquid barrier bags, circular economy packaging, baby food eco-pouches"
+      },
+      "hero": {
+        "badge": "CIRCULAR_ECONOMY_DESIGN",
+        "titlePart1": "Liquid Safe.",
+        "titlePart2": "Fully ",
+        "titlePart3": "Compostable.",
+        "bullet1": "> Traditional spouts are non-recyclable.",
+        "bullet2": "> Multilayer laminates contaminate waste.",
+        "bullet3": "> 100% plant-based organic circularity is here.",
+        "imgAlt": "Achieve Pack compostable spouted pouch undergoing composting test",
+        "imgBadge": "BPI_CERTIFIED_SPOUT"
+      },
+      "science": {
+        "titlePart1": "The Science of ",
+        "titlePart2": "Circular Spouted Packaging",
+        "p1": "Flexible packaging like stand-up spouted pouches is highly popular for purees, drinks, and cosmetic liquids because of its low weight and low carbon footprint. However, its complex layer structures make standard recycling impossible.",
+        "h3_1": "A True End-of-Life Solution",
+        "p2": "At POUCH.ECO, we are focused on closing the loop. Our spouted pouches represent a thorough Circular Economy Design. We laminated premium bio-cellulose fibers with biodegradable barrier resins (Bio-EVOH) and high-elasticity PBS to create a 100% compostable structural frame.",
+        "p3": "Even the rigid spout and cap are made from verified organic corn and plant starches. When sent to industrial composting, the complete package decays entirely without leaving microplastics or toxic residues.",
+        "imgAlt": "High barrier compostable spouted pouch layers",
+        "h3_2": "Robust Liquid Integrity",
+        "p4": "We know that an eco-friendly pouch is useless if it leaks or spoils your product. Our spouted bags feature:",
+        "li1": "High Heat-Seal Strength: Withstands pasteurization temperatures up to 105°C for baby foods and fresh purees.",
+        "li2": "MOCON-Tested Barrier: Oxygen and water vapor transmission rates are maintained under 0.2cc/m²/day to guarantee a shelf-life of 12-18 months.",
+        "li3": "Weld-Seam Durability: The connection between the rigid spout flange and the flexible film is structurally welded to prevent leakage under high compression.",
+        "h3_3": "No Contaminants. 100% Safe.",
+        "p5": "Our structures are completely free of BPA, heavy metals, and persistent PFAS \"forever chemicals\". They meet all BPI, EN 13432, and ASTM D6400 organic standards, offering a completely circular and food-safe choice for premium sustainable brands."
+      },
+      "faq": {
+        "badge": "TECHNICAL Q&A",
+        "q1": "Are these spouted bags fully food-safe and hot-fillable?",
+        "a1": "Yes. Our inner sealing polymers consist of heat-stabilized bio-resins that withstand standard filling temperatures up to 105°C, ensuring full food safety for purees, drinks, and warm liquids.",
+        "q2": "Is the rigid plastic spout completely compostable?",
+        "a2": "Absolutely. We do not use greenwashed plastic spouts. Our rigid spout and cap fittings are injection-molded from verified starch-based bio-resins that break down completely alongside the pouch body.",
+        "q3": "What is the oxygen transmission barrier of the EVOH layer?",
+        "a3": "Our organic EVOH barrier matches traditional plastic performance, achieving an OTR of <0.2cc/m²/day, ensuring fresh shelf integrity for 12 to 18 months."
+      },
+      "cta": {
+        "title": "Switch to Circular Spouts",
+        "desc": "Durable, leak-proof, plant-based spouted pouches that satisfy customers and protect our planet.",
+        "btn": "Request Pouch Samples"
+      }
+    }
+  },
+  "pouchMonoMaterialSolutionPage": {
+    "pouchMonoMaterialSolutionPage": {
+      "meta": {
+        "title": "Mono-Material Packaging | High-Tech Recyclability | Pouch.eco",
+        "description": "Technical guide to mono-material packaging. 800+ words of research on MDO-PE, Mono-PP, and circular economy engineering.",
+        "keywords": "mono-material, mono-PE, MDO-PE, mono-PP, recyclable packaging"
+      },
+      "metrics": {
+        "purity": {
+          "label": "Polymer Purity",
+          "value": "100%",
+          "unit": "Single Family",
+          "desc": "No PET/PE mixed laminates."
+        },
+        "power": {
+          "label": "MDO-PE Power",
+          "value": "3X",
+          "unit": "Stiffness",
+          "desc": "Stretched PE for PET replacement."
+        },
+        "recyclability": {
+          "label": "Recyclability",
+          "value": "90%",
+          "unit": "Score",
+          "desc": "Verified by Cyclos-HTP labs."
+        },
+        "barrier": {
+          "label": "Barrier Tech",
+          "value": "EVOH",
+          "unit": "< 5%",
+          "desc": "Oxygen block without foil."
+        }
+      },
+      "hero": {
+        "badge": "MONO_TECH_V1.0",
+        "title": "Single.\nSource.\nPure.",
+        "desc": "Traditional multi-layer plastic is a recycling failure. We solve the circularity puzzle with 100% Mono-Material engineering.",
+        "btnBrowse": "Browse Mono Solutions",
+        "btnOrder": "Order Material Proof",
+        "imgAlt": "Mono-Material Solution Hero"
+      },
+      "eng": {
+        "badge": "HOMOGENEOUS_POLYMER_AUDIT",
+        "title": "Engineered.\nTo Recycle.",
+        "desc": "Circularity requires polymer homogeneity. By replacing the traditional PET (Polyester) outer layer with MDO-PE (Machine Direction Oriented Polyethylene), we create a package that consists entirely of the PE polymer family. This technical breakthrough ensures that your pouch doesn't just claim to be recyclable—it actually contributes to high-quality rPE resin production. With < 5% EVOH co-extruded for oxygen barrier, our mono-material structures achieve > 90% recyclability scores (Cyclos-HTP), satisfying the strictest EPR requirements of 2026.",
+        "imgAlt": "Mono-Material Structural Engineering"
+      },
+      "tech": {
+        "badge": "MDO_TECH_STACK",
+        "title": "Oriented.\nFor Performance.",
+        "item1Title": "01. Stiffness (MDO)",
+        "item1Desc": "Stretching PE film in the machine direction aligns molecules, increasing stiffness by 300%. This allows pouches to stand tall on shelves without PET reinforcement.",
+        "item2Title": "02. Optical Clarity",
+        "item2Desc": "MDO processing eliminates the 'haze' typically found in standard PE, delivering the crystal-clear display properties of traditional plastic.",
+        "item3Title": "03. Heat Resistance",
+        "item3Desc": "Oriented PE has a higher melting point than standard PE, allowing for high-speed heat sealing on standard VFFS and HFFS packaging lines.",
+        "item4Title": "04. NIR Sortability",
+        "item4Desc": "Being a single polymer, our mono-materials are easily identified by Near-Infrared sensors at MRFs, ensuring they are correctly sorted for recovery."
+      },
+      "science": {
+        "badge": "POLYMER_SCIENCE_V2",
+        "title": "Verified.\nTo the Micron.",
+        "desc": "Purity is the technical benchmark for recyclability. We perform FTIR spectroscopy and Differential Scanning Calorimetry (DSC) on all material batches to verify that our Mono-PE and Mono-PP structures are free from polymer contamination. By utilizing 100% PE zippers and 100% PE degassing valves, we ensure that the finished pouch is a technical masterpiece of circularity. No mixed materials, no separation required, and zero compromise on the EVOH oxygen barrier.",
+        "item1Title": "Polymer Purity",
+        "item1Desc": "Tested for absolute resin consistency across all layers of the laminate.",
+        "item2Title": "Recovery Score",
+        "item2Desc": "Achieving 90/100 recyclability scores under global Cyclos-HTP protocols.",
+        "imgAlt": "Verified Mono-Material Manufacturing"
+      },
+      "faq": {
+        "badge": "MONO_FAQ",
+        "title": "Expert\nIntelligence.",
+        "q1": "Can mono-PE achieve the same shelf life as PET/PE?",
+        "a1": "Yes. By integrating a thin (< 5%) layer of EVOH, we achieve an oxygen barrier (OTR) of < 1.0, matching the performance of traditional laminates.",
+        "q2": "Is MDO-PE more expensive?",
+        "a2": "The resin and processing costs are slightly higher, but this is often offset by the reduction in plastic taxes and lower EPR fees for recyclable packaging.",
+        "q3": "Are mono-material bags suitable for liquids?",
+        "a3": "Yes. We co-extrude high-performance PE sealants that provide the puncture resistance and seal integrity required for liquid and high-grease foods.",
+        "q4": "Do these bags work on my current machines?",
+        "a4": "Most modern VFFS and HFFS lines can run mono-material PE with slight adjustments to the heat-sealing temperature and dwell time."
+      },
+      "cta": {
+        "badge": "MONO_MANDATE",
+        "title": "Pure Material.\nBold Impact.",
+        "desc": "Ready to secure a mono-material supply chain for your brand? Let's start the technical audit today.",
+        "btnOrder": "Order Mono Samples",
+        "btnSpeak": "Speak to a Polymer Engineer"
+      }
+    }
+  },
+  "pouchGreenCoffeeMaterialsPage": {
+    "pouchGreenCoffeeMaterialsPage": {
+      "meta": {
+        "title": "Green Coffee Packaging | High Barrier & Freshness | Pouch.eco",
+        "description": "Technical guide to green coffee packaging materials. 800+ words of research on high-barrier mono-PE, degassing valves, and aroma protection.",
+        "keywords": "green coffee packaging, coffee bags, degassing valves, high barrier coffee, sustainable coffee pouches"
+      },
+      "metrics": {
+        "oxygen": {
+          "label": "Oxygen Barr",
+          "value": "< 0.1",
+          "unit": "OTR",
+          "desc": "Superior aroma preservation."
+        },
+        "moisture": {
+          "label": "Moisture Barr",
+          "value": "< 0.1",
+          "unit": "WVTR",
+          "desc": "Prevents staling/softening."
+        },
+        "degassing": {
+          "label": "Degassing",
+          "value": "100%",
+          "unit": "Valve",
+          "desc": "CO2 escape, O2 blocked."
+        },
+        "recyclable": {
+          "label": "Recyclable",
+          "value": "PE",
+          "unit": "Mono",
+          "desc": "Curbside recovery compatible."
+        }
+      },
+      "hero": {
+        "badge": "COFFEE_TECH_V1.0",
+        "title": "Roast.\nPure.\nFresh.",
+        "desc": "Aroma is everything. We engineer high-barrier sustainable coffee pouches with integrated degassing valves.",
+        "btnBrowse": "Browse Coffee Solutions",
+        "btnOrder": "Order Barrier Samples",
+        "imgAlt": "Green Coffee Materials Hero"
+      },
+      "eng": {
+        "badge": "AROMA_PROTECTION_AUDIT",
+        "title": "Engineered.\nFor Aroma.",
+        "desc": "Coffee is a volatile organic product. Protecting its delicate lipid profile and aromatic compounds from oxidation is the ultimate test of a packaging material. In 2026, the transition from multi-layer foil to Sustainable Mono-Materials is mandatory. At Pouch.eco, we utilize MDO-PE (Machine Direction Orientation) technology integrated with High-Barrier EVOH. This structure delivers OTR and WVTR levels below 0.1—matching the performance of traditional aluminum foil without the recycling penalty. We include Recyclable Degassing Valves as standard, allowing your fresh-roasted beans to breathe while maintaining a hermetic barrier against oxygen ingress.",
+        "imgAlt": "Coffee Packaging Barrier Engineering"
+      },
+      "tech": {
+        "badge": "COFFEE_TECH_STACK",
+        "title": "High Tech.\nHigh Barrier.",
+        "item1Title": "01. EVOH Gas Barrier",
+        "item1Desc": "Integrated ethylene vinyl alcohol layer that blocks oxygen molecules more effectively than traditional polymers, ensuring zero oxidation of coffee oils.",
+        "item2Title": "02. Recyclable Valves",
+        "item2Desc": "One-way degassing valves made from the same polymer family as the pouch, allowing for 100% recyclability in the same stream.",
+        "item3Title": "03. Metal-Free Brilliance",
+        "item3Desc": "Achieving high-barrier performance without aluminum foil. This makes your packaging microwave-safe and significantly easier to sort at recycling facilities.",
+        "item4Title": "04. 12-Month Shelf Life",
+        "item4Desc": "Verified through accelerated aging tests. Our structures protect the sensory profile of specialty roasts for up to a full year."
+      },
+      "science": {
+        "badge": "AROMA_SCIENCE_V1",
+        "title": "Measured.\nTo the Roastery.",
+        "desc": "Freshness is a technical variable. We utilize MOCON OTR/WVTR testing to verify that every custom structure meets our strict aroma-protection benchmarks. Our EEAT Freshness Protocol is designed for the specialty coffee industry—where the nuance of the bean is the brand. By utilizing Home Compostable materials or 100% Recyclable Mono-PE, we help roasters align their premium product with an equally premium environmental story. We provide the Cyclos-HTP certification data to prove that your sustainable packaging is actually being recovered in modern recycling systems.",
+        "item1Title": "Lab Verified Fresh",
+        "item1Desc": "Tested against traditional foil to ensure parity in aroma and flavor retention.",
+        "item2Title": "Gas Management",
+        "item2Desc": "Optimized degassing valve placement and performance for high-pressure roast profiles.",
+        "imgAlt": "Verified Coffee Packaging Manufacturing"
+      },
+      "faq": {
+        "badge": "COFFEE_FAQ",
+        "title": "Expert\nIntelligence.",
+        "q1": "Do your compostable coffee bags have valves?",
+        "a1": "Yes. We offer both home and industrial compostable degassing valves that break down alongside the pouch, ensuring zero plastic residue.",
+        "q2": "Is mono-PE as stiff as traditional coffee bags?",
+        "a2": "By using MDO-PE technology, we achieve the same 'stand-up' stiffness and shelf presence as PET/ALU/PE structures.",
+        "q3": "Can I use your bags for whole bean and ground coffee?",
+        "a3": "Yes. Our barriers are optimized for both. For ground coffee, we recommend our high-seal integrity zippers to prevent fine particles from clogging the seal.",
+        "q4": "What is the OTR of your recyclable coffee bags?",
+        "a4": "We target an OTR of < 0.1 cc/m²/day, which is the industry gold standard for 12-month specialty coffee freshness."
+      },
+      "cta": {
+        "badge": "ROAST_MANDATE",
+        "title": "Think Fresh.\nImpact Pure.",
+        "desc": "Ready to secure a high-barrier, sustainable supply chain for your roast? Let's start the technical audit today.",
+        "btnOrder": "Order Barrier Samples",
+        "btnSpeak": "Speak to a Coffee Engineer"
+      }
+    }
+  },
+  "pouchCustomBrandPackagingServicePage": {
+    "pouchCustomBrandPackagingServicePage": {
+      "meta": {
+        "title": "Custom Brand Packaging: Structural Design & Engineering | Pouch.eco",
+        "description": "Expert guide to custom brand packaging. Learn about dieline engineering, Pantone color management, digital vs gravure printing, and premium tactile finishes for high-performance eco-brands."
+      },
+      "hero": {
+        "badge": "BRAND_SYSTEM_V2",
+        "title": "DESIGN_MEETS\nSTRUCTURAL\nINTEGRITY",
+        "desc": "Your brand is a visual asset. Our custom engineering ensures your packaging looks as good as it performs on the retail shelf.",
+        "btnStart": "START_DESIGN_PROJECT",
+        "btnColor": "COLOR_GUIDE"
+      },
+      "structural": {
+        "badge": "THE_GEOMETRY",
+        "title": "Dieline\nEngineering",
+        "desc": "We don't just print on bags. We engineer structures. From K-Seals to Round-Bottom Gussets, we design the physics of your pouch to ensure a perfect retail stand.",
+        "item1Title": "Right-Sizing",
+        "item1Desc": "Optimizing dimensions to your product density to eliminate 'slack-fill' and material waste.",
+        "item2Title": "Prototyping",
+        "item2Desc": "High-fidelity 3D modeling and 'white samples' to verify fit and feel before mass production.",
+        "imgAlt": "Custom Pouch Design Gallery"
+      },
+      "deep": {
+        "title1": "Color Authority & Delta-E Control",
+        "p1": "Consistency is the signature of a premium brand. Our facilities utilize X-Rite spectrophotometers to maintain a Delta-E variance of < 2.0, ensuring your brand colors look identical across every production batch, regardless of the substrate.",
+        "title2": "Printing Technology Comparison",
+        "th1": "Feature",
+        "th2": "Digital (HP Indigo)",
+        "th3": "Gravure Printing",
+        "td1": "Best For",
+        "td2": "Low MOQ / High SKU",
+        "td3": "Mass Scale / Low Cost",
+        "td4": "Plate Cost",
+        "td5": "$0 (Zero)",
+        "td6": "$150 - $400 / Color",
+        "td7": "Lead Time",
+        "td8": "3-4 Weeks",
+        "td9": "6-8 Weeks",
+        "title3": "Tactile Performance",
+        "p2": "We believe in the sensory experience of a brand. From Soft-Touch Matte coatings to Spot-UV contrast finishes, we provide the tactile layers that differentiate your product in a crowded retail environment. Our bio-compatible coatings ensure even your custom finishes meet compostability standards."
+      },
+      "aside": {
+        "badge1": "ART_PREP",
+        "desc1": "We provide technical dieline audits and ink opacity checks to ensure your art is 'Press-Ready' for sustainable substrates.",
+        "btnArtwork": "SUBMIT_ARTWORK",
+        "badge2": "FINISH_LAB",
+        "finish1": "Soft-Touch Matte",
+        "finish2": "Spot Gloss UV",
+        "finish3": "Holographic Elements",
+        "finish4": "Metallized Accents"
+      },
+      "cta": {
+        "title": "DESIGN_WINS\nSTAND_OUT",
+        "btn": "GET_CUSTOM_PROTOTYPE"
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Layers } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -7,22 +8,24 @@ import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
 const PouchMonoMaterialSolutionPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'pouchMonoMaterialSolutionPage'
   const baseUrl = getBaseUrl()
   
   const MONO_METRICS = [
-    { label: 'Polymer Purity', value: '100%', unit: 'Single Family', desc: 'No PET/PE mixed laminates.' },
-    { label: 'MDO-PE Power', value: '3X', unit: 'Stiffness', desc: 'Stretched PE for PET replacement.' },
-    { label: 'Recyclability', value: '90%', unit: 'Score', desc: 'Verified by Cyclos-HTP labs.' },
-    { label: 'Barrier Tech', value: 'EVOH', unit: '< 5%', desc: 'Oxygen block without foil.' }
+    { label: t(`${p}.metrics.purity.label`), value: t(`${p}.metrics.purity.value`), unit: t(`${p}.metrics.purity.unit`), desc: t(`${p}.metrics.purity.desc`) },
+    { label: t(`${p}.metrics.power.label`), value: t(`${p}.metrics.power.value`), unit: t(`${p}.metrics.power.unit`), desc: t(`${p}.metrics.power.desc`) },
+    { label: t(`${p}.metrics.recyclability.label`), value: t(`${p}.metrics.recyclability.value`), unit: t(`${p}.metrics.recyclability.unit`), desc: t(`${p}.metrics.recyclability.desc`) },
+    { label: t(`${p}.metrics.barrier.label`), value: t(`${p}.metrics.barrier.value`), unit: t(`${p}.metrics.barrier.unit`), desc: t(`${p}.metrics.barrier.desc`) }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Mono-Material Packaging | High-Tech Recyclability | Pouch.eco</title>
-        <meta name="description" content="Technical guide to mono-material packaging. 800+ words of research on MDO-PE, Mono-PP, and circular economy engineering." />
+        <title>{t(`${p}.meta.title`)}</title>
+        <meta name="description" content={t(`${p}.meta.description`)} />
         <link rel="canonical" href={`${baseUrl}/topics/mono-material-packaging`} />
-        <meta name="keywords" content="mono-material, mono-PE, MDO-PE, mono-PP, recyclable packaging" />
+        <meta name="keywords" content={t(`${p}.meta.keywords`)} />
       </Helmet>
 
       {/* Hero Section */}
@@ -30,21 +33,28 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <NeoBadge color="magenta">MONO_TECH_V1.0</NeoBadge>
-              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Single.<br/>Source.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Pure.</span></h1>
+              <NeoBadge color="magenta">{t(`${p}.hero.badge`)}</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">
+                {t(`${p}.hero.title`).split('\n').map((line, idx) => (
+                  <React.Fragment key={idx}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </h1>
               <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                Traditional multi-layer plastic is a recycling failure. We solve the circularity puzzle with 100% <strong>Mono-Material</strong> engineering.
+                {t(`${p}.hero.desc`)}
               </p>
               <div className="flex flex-wrap gap-6 mt-12">
-                <NeoButton variant="primary" to="/products">Browse Mono Solutions</NeoButton>
-                <NeoButton variant="secondary" to="/sample">Order Material Proof</NeoButton>
+                <NeoButton variant="primary" to="/products">{t(`${p}.hero.btnBrowse`)}</NeoButton>
+                <NeoButton variant="secondary" to="/sample">{t(`${p}.hero.btnOrder`)}</NeoButton>
               </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_monomaterial_warm_4127359.webp" 
-                alt="Mono-Material Solution Hero" 
+                alt={t(`${p}.hero.imgAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -60,22 +70,29 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/topics/ocean-bound-plastic-hero.png" 
-                alt="Mono-Material Structural Engineering" 
+                alt={t(`${p}.eng.imgAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">HOMOGENEOUS_POLYMER_AUDIT</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Engineered.<br/>To Recycle.</h2>
+              <NeoBadge color="blue">{t(`${p}.eng.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.eng.title`).split('\n').map((line, idx) => (
+                  <React.Fragment key={idx}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                Circularity requires polymer homogeneity. By replacing the traditional PET (Polyester) outer layer with <strong>MDO-PE (Machine Direction Oriented Polyethylene)</strong>, we create a package that consists entirely of the PE polymer family. This technical breakthrough ensures that your pouch doesn't just claim to be recyclable—it actually contributes to high-quality rPE resin production. With <strong>&lt; 5% EVOH</strong> co-extruded for oxygen barrier, our mono-material structures achieve <strong>&gt; 90% recyclability scores</strong> (Cyclos-HTP), satisfying the strictest EPR requirements of 2026.
+                {t(`${p}.eng.desc`)}
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
-                {MONO_METRICS.map((p, i) => (
+                {MONO_METRICS.map((pMetric, i) => (
                   <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
-                    <h4 className="font-black uppercase text-xs mb-1 text-black">{p.label}</h4>
-                    <p className="text-xl font-black">{p.value} <span className="text-[10px] opacity-60 font-normal">{p.unit}</span></p>
-                    <p className="text-[10px] font-bold opacity-60">{p.desc}</p>
+                    <h4 className="font-black uppercase text-xs mb-1 text-black">{pMetric.label}</h4>
+                    <p className="text-xl font-black">{pMetric.value} <span className="text-[10px] opacity-60 font-normal">{pMetric.unit}</span></p>
+                    <p className="text-[10px] font-bold opacity-60">{pMetric.desc}</p>
                   </div>
                 ))}
               </div>
@@ -87,35 +104,42 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
       {/* Technical: MDO-PE Science */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="lime">MDO_TECH_STACK</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">Oriented.<br/>For Performance.</h2>
+          <NeoBadge color="lime">{t(`${p}.tech.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">
+            {t(`${p}.tech.title`).split('\n').map((line, idx) => (
+              <React.Fragment key={idx}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">01. Stiffness (MDO)</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item1Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Stretching PE film in the machine direction aligns molecules, increasing stiffness by 300%. This allows pouches to stand tall on shelves without PET reinforcement.
+                {t(`${p}.tech.item1Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">02. Optical Clarity</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item2Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                MDO processing eliminates the 'haze' typically found in standard PE, delivering the crystal-clear display properties of traditional plastic.
+                {t(`${p}.tech.item2Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">03. Heat Resistance</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item3Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Oriented PE has a higher melting point than standard PE, allowing for high-speed heat sealing on standard VFFS and HFFS packaging lines.
+                {t(`${p}.tech.item3Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">04. NIR Sortability</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item4Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Being a single polymer, our mono-materials are easily identified by Near-Infrared sensors at MRFs, ensuring they are correctly sorted for recovery.
+                {t(`${p}.tech.item4Desc`)}
               </p>
             </div>
           </div>
@@ -127,24 +151,31 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="blue">POLYMER_SCIENCE_V2</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Verified.<br/>To the Micron.</h2>
+              <NeoBadge color="blue">{t(`${p}.science.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.science.title`).split('\n').map((line, idx) => (
+                  <React.Fragment key={idx}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </h2>
               <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
-                Purity is the technical benchmark for recyclability. We perform <strong>FTIR spectroscopy</strong> and <strong>Differential Scanning Calorimetry (DSC)</strong> on all material batches to verify that our Mono-PE and Mono-PP structures are free from polymer contamination. By utilizing 100% PE zippers and 100% PE degassing valves, we ensure that the finished pouch is a technical masterpiece of circularity. No mixed materials, no separation required, and zero compromise on the <strong>EVOH oxygen barrier</strong>.
+                {t(`${p}.science.desc`)}
               </p>
               <div className="mt-12 space-y-4">
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <Microscope className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Polymer Purity</h4>
-                    <p className="text-sm opacity-60">Tested for absolute resin consistency across all layers of the laminate.</p>
+                    <h4 className="font-black uppercase">{t(`${p}.science.item1Title`)}</h4>
+                    <p className="text-sm opacity-60">{t(`${p}.science.item1Desc`)}</p>
                   </div>
                 </div>
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <TrendingUp className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Recovery Score</h4>
-                    <p className="text-sm opacity-60">Achieving 90/100 recyclability scores under global Cyclos-HTP protocols.</p>
+                    <h4 className="font-black uppercase">{t(`${p}.science.item2Title`)}</h4>
+                    <p className="text-sm opacity-60">{t(`${p}.science.item2Desc`)}</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +184,7 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
-                alt="Verified Mono-Material Manufacturing" 
+                alt={t(`${p}.science.imgAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -164,14 +195,21 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
       {/* FAQ: Mono-Material Intelligence */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="magenta">MONO_FAQ</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <NeoBadge color="magenta">{t(`${p}.faq.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">
+            {t(`${p}.faq.title`).split('\n').map((line, idx) => (
+              <React.Fragment key={idx}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </h2>
           <div className="space-y-4">
             {[
-              { q: "Can mono-PE achieve the same shelf life as PET/PE?", a: "Yes. By integrating a thin (< 5%) layer of EVOH, we achieve an oxygen barrier (OTR) of < 1.0, matching the performance of traditional laminates." },
-              { q: "Is MDO-PE more expensive?", a: "The resin and processing costs are slightly higher, but this is often offset by the reduction in plastic taxes and lower EPR fees for recyclable packaging." },
-              { q: "Are mono-material bags suitable for liquids?", a: "Yes. We co-extrude high-performance PE sealants that provide the puncture resistance and seal integrity required for liquid and high-grease foods." },
-              { q: "Do these bags work on my current machines?", a: "Most modern VFFS and HFFS lines can run mono-material PE with slight adjustments to the heat-sealing temperature and dwell time." }
+              { q: t(`${p}.faq.q1`), a: t(`${p}.faq.a1`) },
+              { q: t(`${p}.faq.q2`), a: t(`${p}.faq.a2`) },
+              { q: t(`${p}.faq.q3`), a: t(`${p}.faq.a3`) },
+              { q: t(`${p}.faq.q4`), a: t(`${p}.faq.a4`) }
             ].map((faq, i) => (
               <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
@@ -188,15 +226,22 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-blue-950 text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="lime">MONO_MANDATE</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Pure Material.<br/>Bold Impact.</h2>
+          <NeoBadge color="lime">{t(`${p}.cta.badge`)}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">
+            {t(`${p}.cta.title`).split('\n').map((line, idx) => (
+              <React.Fragment key={idx}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            Ready to secure a mono-material supply chain for your brand? Let's start the technical audit today.
+            {t(`${p}.cta.desc`)}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-white !text-blue-950">Order Mono Samples</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-blue-950">{t(`${p}.cta.btnOrder`)}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to a Polymer Engineer
+              {t(`${p}.cta.btnSpeak`)}
             </NeoButton>
           </div>
         </div>

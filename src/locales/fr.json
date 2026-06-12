@@ -26065,5 +26065,827 @@
       "btn": "S'abonner",
       "footer": "📧 Rejoignez plus de 1 200 fondateurs abonnés à nos conseils d'emballage"
     }
+  },
+  "pouchCompostableBabyFoodBagsPage": {
+    "meta": {
+      "title": "Sachets de Nourriture pour Bébé Compostables | Hub de Sécurité | Pouch.eco",
+      "description": "Guide technique des emballages compostables pour bébés. Recherche sur le zéro microplastique, les barrières non toxiques et l'ingénierie de la sécurité infantile.",
+      "keywords": "sachets nourriture bébé compostables, gourdes de purée bébé, emballage non toxique, sans microplastique, embouts sécurisés, sachets biopolymères"
+    },
+    "metrics": {
+      "microplastic": {
+        "label": "Microplastique",
+        "value": "Zéro",
+        "unit": "PPM",
+        "desc": "Certifié 100% bio-pur."
+      },
+      "chemicals": {
+        "label": "Chimie",
+        "value": "Sans BPA",
+        "unit": "PFAS",
+        "desc": "Non toxique certifié par résine."
+      },
+      "shelfLife": {
+        "label": "Conservation",
+        "value": "12",
+        "unit": "Mois",
+        "desc": "Parité barrière Bio-EVOH."
+      },
+      "safetyCap": {
+        "label": "Bouchon de sécurité",
+        "value": "Anti",
+        "unit": "Étouffement",
+        "desc": "Dépasse les lois de sécurité infantile."
+      }
+    },
+    "hero": {
+      "badge": "SÉCURITÉ_BÉBÉ_V1.0",
+      "titlePart1": "Pur.",
+      "titlePart2": "Sûr.",
+      "titlePart3": "Futur.",
+      "description": "La santé des nourrissons n'admet aucun compromis. Nous concevons des gourdes alimentaires compostables pour bébés, sans microplastiques, sans PFAS et sans BPA, offrant une pureté absolue pour les générations futures.",
+      "btnBrowse": "Découvrir les Styles de Sécurité",
+      "btnRequest": "Demander un Audit de Sécurité"
+    },
+    "engineering": {
+      "badge": "AUDIT_PURETÉ_MATÉRIAUX",
+      "titlePart1": "Conçu.",
+      "titlePart2": "Pour la Sécurité.",
+      "alt": "Ingénierie de sécurité des emballages de nourriture pour bébés",
+      "description": "L'alimentation pour bébés est la catégorie la plus sensible aux produits chimiques dans la chaîne d'approvisionnement mondiale. En 2026, les parents n'acceptent plus les sachets en plastique traditionnels qui rejettent des microplastiques ou contiennent des perturbateurs endocriniens. Chez Pouch.eco, nous traitons l'emballage des aliments pour bébés comme un livrable médical technique. Nous utilisons des biopolymères 100% compostables (PBS/Bio-EVOH) certifiés sans PFAS et sans BPA. Chaque structure subit des tests de migration rigoureux (UE 10/2011) pour garantir l'absence de transfert de substances chimiques vers la nourriture du nourrisson. Nos becs verseurs sont fabriqués en Bio-PE issu de la canne à sucre, équipés de bouchons anti-étouffement et inviolables qui dépassent les normes mondiales de sécurité enfant. C'est le plus haut niveau de sécurité alimentaire, conçu pour les consommateurs les plus précieux au monde."
+    },
+    "tech": {
+      "badge": "TECHNOLOGIE_DE_SÉCURITÉ",
+      "titlePart1": "Zéro Toxine.",
+      "titlePart2": "Pureté Totale.",
+      "item1Title": "01. Zéro Microplastique",
+      "item1Desc": "Utilisation de biopolymères de haute pureté qui se décomposent en matière organique, éliminant tout risque d'ingestion de plastique par les nourrissons.",
+      "item2Title": "02. Barrières sans PFAS",
+      "item2Desc": "Barrières certifiées contre les graisses et l'humidité contenant zéro produit chimique éternel, conformes aux normes California AB 1200.",
+      "item3Title": "03. Protection des arômes Bio-EVOH",
+      "item3Desc": "Barrière aux gaz équivalente à celle d'une feuille d'aluminium. Protège les vitamines et nutriments des purées jusqu'à 12 mois.",
+      "item4Title": "04. Bouchons Anti-Étouffement",
+      "item4Desc": "Embouts ergonomiques et bouchons ventilés surdimensionnés conçus pour prévenir les risques d'étouffement et faciliter l'alimentation."
+    },
+    "science": {
+      "badge": "SCIENCE_SÉCURITÉ_V1",
+      "titlePart1": "Mesuré.",
+      "titlePart2": "Pour l'Enfant.",
+      "description": "La pureté est une spécification technique. Nous utilisons la GC-MS (chromatographie en phase gazeuse-spectrométrie de masse) pour vérifier que chaque structure sur mesure est exempte de migrants chimiques. Notre protocole de sécurité infantile EEAT protège votre marque contre les risques de litiges liés aux microplastiques et produits chimiques. Nous fournissons des documents de Déclaration de Conformité (DoC) détaillant la composition des matériaux et le profil de sécurité de votre emballage. En choisissant des sachets compostables certifiés pour aliments de bébé, vous alignez votre produit avec les exigences les plus élevées en matière de santé et d'éco-responsabilité.",
+      "shieldTitle": "Bouclier Anti-Toxines",
+      "shieldDesc": "Zéro ppm de fluor organique et aucun perturbateur endocrinien.",
+      "trustTitle": "Confiance du Marché",
+      "trustDesc": "Positionner votre marque comme la référence absolue en matière de sécurité et de durabilité pour les nourrissons.",
+      "alt": "Fabrication vérifiée d'emballages pour bébés"
+    },
+    "faq": {
+      "badge": "FAQ_BÉBÉ",
+      "titlePart1": "Conseils",
+      "titlePart2": "d'Experts.",
+      "q1": "Vos sachets sont-ils vraiment sans microplastiques ?",
+      "a1": "Oui. Nos biopolymères compostables se décomposent en matière organique, ce qui signifie qu'ils ne se fragmentent jamais en microplastiques lors de leur utilisation ou élimination.",
+      "q2": "Quelle est votre politique concernant les PFAS ?",
+      "a2": "Nous appliquons une politique de 100% sans PFAS. Toutes nos barrières étanches sont composées de biopolymères à base aqueuse certifiés sûrs.",
+      "q3": "Ces sachets peuvent-ils être chauffés ?",
+      "a3": "Nous recommandons un réchauffement doux. Sans métal, ils sont techniquement compatibles avec le micro-ondes, mais vérifiez toujours la température avant de nourrir l'enfant.",
+      "q4": "Proposez-vous des bouchons anti-étouffement de série ?",
+      "a4": "Oui. Tous nos becs verseurs pour aliments de bébés sont équipés de bouchons ventilés surdimensionnés conformes aux réglementations internationales les plus strictes."
+    },
+    "cta": {
+      "badge": "MANDAT_BÉBÉ",
+      "titlePart1": "Pensez Sûr.",
+      "titlePart2": "Impact Pur.",
+      "description": "Prêt à sécuriser une chaîne d'approvisionnement durable et non toxique pour votre marque d'aliments pour bébés ? Commençons l'audit technique dès aujourd'hui.",
+      "btnSample": "Commander des Échantillons",
+      "btnSpeak": "Parler à un Ingénieur de Sécurité"
+    }
+  },
+  "pouchCompostableZipperNoRemovalPage": {
+    "meta": {
+      "title": "Faut-il Retirer le Zip des Sachets Compostables ? | POUCH.ECO",
+      "description": "Tout ce que vous devez savoir sur les fermetures éclair et les valves compostables. Spoiler : Pas besoin de les arracher avant le compostage ! Découvrez notre circularité 100%."
+    },
+    "hero": {
+      "badge": "GUIDE_COMPOST : ASTUCES_FERMETURE",
+      "titlePart1": "Arrêtez de Déchirer.",
+      "titlePart2": "Commencez à",
+      "titlePart3": "Composter.",
+      "q1": "> Dois-je retirer la fermeture éclair ?",
+      "q2": "> Dois-je découper la valve ?",
+      "a": "> La réponse : ABSOLUTEMENT PAS.",
+      "badgeFloat": "SANS_RETRAIT_REQUIS",
+      "alt": "Sachet compostable en papier Kraft avec fermeture zip compostable"
+    },
+    "guide": {
+      "title": "Le Guide Ultime des",
+      "titleHighlight": "Composants Compostables",
+      "p1": "Lorsque les marques passent aux emballages durables, l'une des questions les plus fréquentes des consommateurs est : « Dois-je arracher le zip avant de jeter ce sachet au compost ? » Aux débuts des emballages écologiques, la réponse était malheureusement oui. De nombreux fabricants utilisaient des corps de sachets compostables mais y collaient des fermetures éclair ou des valves de dégazage en plastique conventionnel bon marché pour réduire les coûts. Cela créait une expérience utilisateur frustrante et annulait l'intérêt d'un produit circulaire.",
+      "alt2": "Gros plan sur une fermeture zip compostable par pression",
+      "sec1Title": "Circularité Certifiée 100%",
+      "p2": "Chez POUCH.ECO, nous pensons que les emballages durables ne devraient pas nécessiter de manuel d'utilisation ni d'outils spéciaux pour être éliminés. Toute notre gamme de sachets compostables — y compris les sachets tenant debout (Stand-Up), les sachets à fond plat et les sachets plats — est conçue pour être 100% compostable. Cela signifie que chaque composant est fabriqué à partir de polymères végétaux certifiés.",
+      "p3": "Nos fermetures par pression, nos valves de dégazage de café unidirectionnelles, nos encoches de déchirure et même nos adhésifs de lamination ont tous passé les certifications rigoureuses TUV Austria (OK Compost) et EN 13432. Comme ces composants partagent la même chimie biodégradable que le papier kraft extérieur ou le film de cellulose, ils se décomposeront tous ensemble dans un bac à compost domestique ou une installation industrielle.",
+      "sec2Title": "Le Danger des Sachets « Éco-blanchis » (Greenwashed)",
+      "p4": "Il est essentiel pour les marques de poser à leurs fournisseurs des questions directes sur les certifications des composants. Un sachet « éco-blanchi » peut avoir un corps compostable, mais s'il utilise une fermeture zip en plastique fossile, jeter tout le sachet dans le bac à compost introduira des microplastiques dans le sol. Le centre de compostage finira par filtrer la fermeture en plastique, mais le processus est inefficace et nuit à la qualité du compost final.",
+      "alt3": "Infographie montrant comment un sachet entièrement compostable se décompose en biomasse",
+      "sec3Title": "Éduquer Vos Clients",
+      "p5": "En tant que marque, communiquer sur cette facilité d'utilisation est un argument marketing puissant. Vous pouvez fièrement imprimer sur votre emballage : « Jetez tout le sachet au compost ! Pas besoin de retirer le zip. » Cette méthode d'élimination sans friction augmente considérablement la probabilité que vos clients compostent réellement l'emballage, garantissant ainsi que votre investissement pour la planète porte ses fruits."
+    },
+    "faq": {
+      "title": "IAEO & SEO",
+      "titleHighlight": "FAQ",
+      "q1": "Dois-je arracher le zip d'un sachet compostable ?",
+      "a1": "Si vous achetez des sachets compostables entièrement certifiés auprès de POUCH.ECO, la réponse est NON. Nos zips sont fabriqués à partir des mêmes polymères végétaux compostables certifiés que le sachet lui-même. Vous pouvez jeter le sachet entier et intact dans le composteur.",
+      "q2": "Dois-je découper la valve de dégazage de café avant le compostage ?",
+      "a2": "Absolument pas. Contrairement aux valves en plastique traditionnelles, nos valves de dégazage sont fabriquées en bio-résines et certifiées TUV pour le compostage. Tout le sachet, valve comprise, est sûr pour le sol.",
+      "q3": "Combien de temps faut-il pour qu'un zip compostable se décompose ?",
+      "a3": "Comme le profil du zip est légèrement plus épais que le corps du film, il peut mettre un peu plus de temps à disparaître visuellement. Cependant, dans des conditions de compostage standard, l'ensemble du sachet — y compris la fermeture éclair — se décompose en biomasse organique en 180 jours.",
+      "q4": "Pourquoi certaines marques demandent-elles de couper le zip ?",
+      "a4": "Ces marques utilisent probablement des emballages composites où le corps est compostable, mais elles ont utilisé une fermeture zip en plastique classique pour économiser de l'argent. C'est une pratique que nous déconseillons fortement."
+    },
+    "cta": {
+      "title": "Prêt pour une Véritable Durabilité ?",
+      "description": "Obtenez un emballage certifié 100% compostable. Sans greenwashing. Sans plastique caché.",
+      "btn": "Obtenir un Devis Personnalisé"
+    }
+  },
+  "pouchCustomPrintedSustainablePouchesPage": {
+    "meta": {
+      "title": "Sachets Éco-responsables Imprimés | Hub Branding | Pouch.eco",
+      "description": "Guide technique des sachets imprimés personnalisés. Comparatif numérique vs héliogravure, science des couleurs G7 et encres écologiques.",
+      "keywords": "sachets imprimés sur mesure, branding durable, impression numérique, héliogravure, couleur G7, design emballage"
+    },
+    "metrics": {
+      "colorPrec": {
+        "label": "Préc Couleur",
+        "value": "< 2.0",
+        "unit": "Delta-E",
+        "desc": "Précision certifiée G7."
+      },
+      "resolution": {
+        "label": "Résolution",
+        "value": "1200",
+        "unit": "DPI",
+        "desc": "Clarté haute définition."
+      },
+      "printTech": {
+        "label": "Impression",
+        "value": "Hybride",
+        "unit": "Flotte",
+        "desc": "Numérique et Hélio."
+      },
+      "inkSafety": {
+        "label": "Sécurité Encres",
+        "value": "FDA",
+        "unit": "EFSA",
+        "desc": "Certifié contact alimentaire."
+      }
+    },
+    "hero": {
+      "badge": "HUB_BRANDING_V1.0",
+      "titlePart1": "Art.",
+      "titlePart2": "Pur.",
+      "titlePart3": "Identité.",
+      "description": "Votre marque raconte une histoire. Nous concevons des sachets durables imprimés sur mesure pour exprimer cette histoire avec exactitude.",
+      "btnBrowse": "Découvrir les Styles d'Impression",
+      "btnRequest": "Demander des Bons à Tirer",
+      "alt": "Sachets durables imprimés sur mesure"
+    },
+    "engineering": {
+      "badge": "AUDIT_LOGIQUE_COULEUR",
+      "titlePart1": "Conçu.",
+      "titlePart2": "Pour Être Vu.",
+      "description": "L'image de marque n'est pas qu'une question de « design », c'est de la physique des couleurs. En 2026, maintenir la cohérence de marque sur des supports écologiques (comme le kraft ou le Mono-PE) est un vrai défi technique. Chez Pouch.eco, nous utilisons des flux de gestion des couleurs certifiés G7 Master pour garantir que votre déviation Delta-E (ΔE) reste inférieure à 2.0. Vos couleurs restent identiques d'un tirage à l'autre, que ce soit en numérique ou en héliogravure. Nous appliquons une résolution haute définition de 1200 DPI pour restituer fidèlement les graphismes complexes et les mentions légales. De la startup lançant 500 unités à la multinationale en commandant 5 millions, notre ingénierie d'impression garantit votre impact visuel.",
+      "alt": "Précision d'impression des sachets durables"
+    },
+    "tech": {
+      "badge": "TECHNOLOGIE_D'IDENTITÉ",
+      "titlePart1": "Vision Pure.",
+      "titlePart2": "Impression Pure.",
+      "item1Title": "01. Agilité Numérique",
+      "item1Desc": "Utilisation de la technologie HP Indigo 25K pour une production sans plaques. Idéal pour les lancements, les séries limitées et le branding des jeunes marques.",
+      "item2Title": "02. Héliogravure Industrielle",
+      "item2Desc": "Précision des cylindres de cuivre pour les volumes importants. Garantit le coût unitaire le plus bas tout en conservant une intensité d'encre et une saturation maximales.",
+      "item3Title": "03. Encres Alimentaires",
+      "item3Desc": "Encres certifiées à faible migration conformes aux réglementations de la FDA et de l'EFSA. Sans solvant et neutres en odeur pour protéger les aliments.",
+      "item4Title": "04. Finitions Premium",
+      "item4Desc": "Valorisez l'expérience tactile avec des vernis mats doux, spot UV ou brillants pour souligner le positionnement premium et durable de votre marque."
+    },
+    "science": {
+      "badge": "SCIENCE_D'IDENTITÉ_V1",
+      "titlePart1": "Mesuré.",
+      "titlePart2": "Au Pixel Près.",
+      "description": "L'identité visuelle est une spécification technique. Nous appliquons un contrôle spectrophotométrique sur chaque lot de production pour garantir le respect strict de votre charte graphique. Notre protocole d'identité EEAT veille à ce que votre emballage durable soit irréprochable sur le plan écologique et esthétique. Nous vous remettons des épreuves imprimées fidèles (BAT) pour valider le rendu physique avant le lancement. Grâce aux encres écologiques certifiées et aux finitions de pointe, nous aidons les marques à concrétiser leur image. C'est l'image de marque validée par la science.",
+      "visualTitle": "Impact Shelf",
+      "visualDesc": "Assurez la visibilité de votre produit en rayon grâce à une pureté des teintes et une résolution ultra-haute.",
+      "scaleTitle": "Adaptabilité Industrielle",
+      "scaleDesc": "Accompagner l'évolution de votre marque du stade de startup à la production de masse.",
+      "alt": "Fabrication vérifiée d'impressions sur mesure"
+    },
+    "faq": {
+      "badge": "FAQ_IDENTITÉ",
+      "titlePart1": "Conseils",
+      "titlePart2": "d'Experts.",
+      "q1": "Qu'est-ce que la certification G7 Master ?",
+      "a1": "C'est un label international régissant la balance des gris et des couleurs. Il garantit que les teintes de votre marque restent constantes sur différents supports et machines.",
+      "q2": "Peut-on imprimer sur des fenêtres transparentes ?",
+      "a2": "Oui. Nous réalisons des masquages d'encre précis pour créer des fenêtres translucides tout en maintenant une excellente opacité sur le reste du sachet.",
+      "q3": "Proposez-vous des encres métallisées or ou argent ?",
+      "a3": "Oui. Nous utilisons des encres métalliques numériques et hélio de haute performance qui recréent l'aspect du métal sans impact écologique négatif.",
+      "q4": "Sous quel format envoyer les fichiers graphiques ?",
+      "a4": "Nous demandons des fichiers vectoriels (AI ou PDF) avec polices vectorisées et couleurs définies selon les références Pantone (PMS) Solid Coated."
+    },
+    "cta": {
+      "badge": "MANDAT_IDENTITÉ",
+      "titlePart1": "Affirmez Votre Image.",
+      "titlePart2": "Impact Pure.",
+      "description": "Prêt à sécuriser un approvisionnement d'emballages haut de gamme et éco-responsables ? Commençons l'audit technique dès maintenant.",
+      "btnSample": "Demander des Bons à Tirer",
+      "btnSpeak": "Parler à un Ingénieur Packaging"
+    }
+  },
+  "pouchCustomBrandPackagingPage": {
+    "meta": {
+      "title": "Emballages de Marque Personnalisés | Ingénierie & Design | Pouch.eco",
+      "description": "Guide technique des emballages sur mesure. Études sur l'ingénierie structurelle, la science des couleurs G7 et l'optimisation logistique D2C.",
+      "keywords": "emballages personnalisés, ingénierie sachet, couleur G7, design structurel, logistique D2C"
+    },
+    "metrics": {
+      "colorDeviation": {
+        "label": "Écart Couleur",
+        "value": "< 2.0",
+        "unit": "Delta-E",
+        "desc": "Précision des teintes parfaite."
+      },
+      "printRes": {
+        "label": "Rés Impression",
+        "value": "1200+",
+        "unit": "DPI",
+        "desc": "Rendu ultra-haute définition."
+      },
+      "materialYield": {
+        "label": "Rendement",
+        "value": "+18%",
+        "unit": "Optimisation",
+        "desc": "Format ajusté au volume du produit."
+      },
+      "plateCost": {
+        "label": "Coût Cliché",
+        "value": "0 €",
+        "unit": "Numérique",
+        "desc": "Production agile sans surcoût."
+      }
+    },
+    "hero": {
+      "badge": "BRAND_ENGINE_V5.0",
+      "titlePart1": "Créer.",
+      "titlePart2": "Imprimer.",
+      "titlePart3": "Développer.",
+      "description": "Ne devinez plus les dimensions de vos sachets. Nous concevons vos emballages sur mesure grâce à des designs structurels optimisés par CAD.",
+      "btnBrowse": "Découvrir les Styles Techniques",
+      "btnRequest": "Demander des Échantillons",
+      "alt": "Design d'emballage de marque personnalisé"
+    },
+    "engineering": {
+      "badge": "AUDIT_STRUCTUREL",
+      "titlePart1": "L'Ingénierie de",
+      "titlePart2": "l'Identité.",
+      "description": "L'emballage est la concrétisation de la promesse de votre marque. Nous ne nous contentons pas « d'imprimer des sachets » ; nous réalisons un audit volumétrique pour veiller à ce que votre produit s'insère parfaitement avec un minimum de vide. Cela réduit les coûts de transport et empêche le produit de bouger. Notre équipe utilise le contrôle Delta-E (ΔE) pour assurer l'uniformité de vos couleurs sur tous les matériaux.",
+      "alt": "Ingénierie structurelle de sachets personnalisés"
+    },
+    "tech": {
+      "badge": "MÉTHODOLOGIE_D'IMPRESSION",
+      "titlePart1": "Précision",
+      "titlePart2": "Haute Définition.",
+      "item1Title": "Numérique (HP Indigo)",
+      "item1Desc": "Pas de frais de clichés et personnalisation infinie. Idéal pour les lancements et les marques multi-produits. Notre résolution de 1200 DPI donne vie aux visuels de vos produits sur les rayons.",
+      "item2Title": "Héliogravure",
+      "item2Desc": "Précision hélio pour les productions de masse. Cette méthode offre le coût unitaire le plus bas et une densité de couleur exceptionnelle pour les finitions métallisées ou néon.",
+      "item3Title": "Certification G7 Master",
+      "item3Desc": "We follow the global industry standard for gray balance and visual consistency. Your brand colors are verified using advanced spectrophotometry at every production step.",
+      "item4Title": "Choix de Lamination",
+      "item4Desc": "Optez pour une lamination mate douce, brillante ou spot UV pour créer du relief tactile. Notre lamination thermique élimine le risque de délamination à l'usage."
+    },
+    "logistics": {
+      "badge": "LOGISTIQUE_CONÇUE",
+      "titlePart1": "Le Transport N'est Pas",
+      "titlePart2": "Une Option Secondaire.",
+      "description": "Un sachet mal proportionné pèse sur votre empreinte carbone et votre rentabilité. Nous optimisons le poids volumétrique (DIM). En concevant des sachets s'adaptant parfaitement aux colis D2C standards, nous réduisons les coûts d'envoi globaux des marques jusqu'à 22%.",
+      "weightTitle": "Gain de Poids",
+      "weightDesc": "Des polymères allégés réduisent la taxe sur le plastique vierge au Royaume-Uni et au sein de l'UE.",
+      "volumeTitle": "Optimisation Espace",
+      "volumeDesc": "Stockez jusqu'à 7 fois plus d'emballages vides dans le même espace que pour des boîtes rigides.",
+      "alt": "Optimisation logistique D2C"
+    },
+    "faq": {
+      "badge": "FAQ_DESIGN",
+      "titlePart1": "Avis",
+      "titlePart2": "d'Experts.",
+      "q1": "Quelle est la norme industrielle pour la fidélité des couleurs ?",
+      "a1": "La norme G7 est la référence mondiale. Nous ciblons un Delta-E (ΔE) < 2.0 pour maintenir l'intégrité visuelle de votre marque sous n'importe quelle lumière ou support.",
+      "q2": "Comment choisir entre Numérique et Héliogravure ?",
+      "a2": "Le numérique est parfait pour tester le marché (MOQ 500) et gérer de nombreuses références. L'héliogravure excelle en termes de coût pour les visuels fixes à grand volume (MOQ 20 000+).",
+      "q3": "Fournissez-vous des tracés de découpe sur mesure ?",
+      "a3": "Oui. Notre bureau d'études fournit des dielines haute précision (AI/PDF) pour vos designers, spécifiant les soufflets, soudures et zips.",
+      "q4": "Proposez-vous des prototypes physiques ?",
+      "a4": "Tout à fait. Nous créons des prototypes physiques fidèles via notre ligne numérique pour vous permettre de tester le format, la tenue et le visuel avant production."
+    },
+    "cta": {
+      "badge": "MANDAT_DESIGN",
+      "titlePart1": "Mieux Emballer.",
+      "titlePart2": "Plus Vite Grandir.",
+      "description": "Prêt à délaisser les sachets génériques au profit d'un emballage technique personnalisé ? Commençons l'audit de design dès aujourd'hui.",
+      "btnSample": "Commander des Échantillons",
+      "btnSpeak": "Parler à un Ingénieur Design"
+    }
+  },
+  "pouchReducePackagingWasteGuidePage": {
+    "meta": {
+      "title": "Réduction des Déchets d'Emballage | Stratégie Technique | Pouch.eco",
+      "description": "Guide technique pour réduire les déchets d'emballage. Analyses sur la réduction à la source, l'allègement et l'ingénierie de l'économie circulaire.",
+      "keywords": "réduire déchets emballage, réduction à la source, emballages légers, stratégie économie circulaire"
+    },
+    "metrics": {
+      "massReduct": {
+        "label": "Réduc Masse",
+        "value": "80%",
+        "unit": "vs Rigide",
+        "desc": "Réduction du poids de matière."
+      },
+      "lcaImpact": {
+        "label": "Impact ACV",
+        "value": "-60%",
+        "unit": "CO2e",
+        "desc": "Émissions économisées du berceau au client."
+      },
+      "logistics": {
+        "label": "Logistique",
+        "value": "7:1",
+        "unit": "Densité",
+        "desc": "Volume sachet vide vs boîte."
+      },
+      "circular": {
+        "label": "Circulaire",
+        "value": "90%",
+        "unit": "Recyclage",
+        "desc": "Taux de recyclabilité Mono-PE."
+      }
+    },
+    "hero": {
+      "badge": "STRATÉGIE_DÉCHETS_V1.0",
+      "titlePart1": "Moins.",
+      "titlePart2": "C'est.",
+      "titlePart3": "Pur.",
+      "description": "L'emballage le plus durable est celui qui n'a jamais été fabriqué. Nous concevons la réduction des déchets par l'allègement technique, la pureté mono-matériau et l'optimisation logistique.",
+      "btnBrowse": "Découvrir les Solutions Légères",
+      "btnRequest": "Demander un Audit Déchets"
+    },
+    "engineering": {
+      "badge": "AUDIT_RÉDUCTION_SOURCE",
+      "titlePart1": "Conçu.",
+      "titlePart2": "Pour l'Efficacité.",
+      "description": "La réduction des déchets d'emballage est une science industrielle, pas un slogan marketing. Dans le cadre de l'économie circulaire actuelle, les marques sont évaluées selon leur intensité de ressources. Nous privilégions la réduction à la source comme pilier de notre stratégie — en transférant les marques des contenants rigides lourds (bocaux en verre, bouteilles PET) vers des sachets souples légers. Cette transition réduit le poids d'emballage jusqu'à 80% et le volume de transport de 700%. Nous concevons également des structures mono-matériau atteignant plus de 90% de recyclabilité réelle pour conserver la matière dans le circuit.",
+      "alt": "Cadre de réduction des déchets d'emballage"
+    },
+    "tech": {
+      "badge": "TECHNOLOGIE_RÉDUCTION",
+      "titlePart1": "Haute Barrière.",
+      "titlePart2": "Faible Masse.",
+      "item1Title": "01. Allègement Technique",
+      "item1Desc": "Utilisation de films MDO-PE et de résines haute performance pour réduire l'épaisseur du sachet de 15 à 20% sans affaiblir la résistance mécanique.",
+      "item2Title": "02. Optimisation du Volume",
+      "item2Desc": "Conception de formats de sachets épousant au plus près le volume du produit pour supprimer les volumes vides inutiles lors des expéditions.",
+      "item3Title": "03. Recyclage Mono-Flux",
+      "item3Desc": "Remplacement des complexes multi-matériaux par des structures certifiées 100% PE ou PP, faciles à trier et à valoriser par les centres de tri automatisés.",
+      "item4Title": "04. Valorisation Organique",
+      "item4Desc": "Pour les emballages salis par la nourriture, nos solutions compostables certifiées EN 13432 garantissent un retour à la terre sans polluer les filières."
+    },
+    "science": {
+      "badge": "SCIENCE_RESSOURCES_V1",
+      "titlePart1": "Mesuré.",
+      "titlePart2": "Au Milligramme.",
+      "description": "La baisse des déchets est validée par l'Analyse du Cycle de Vie (ACV). Nous suivons les normes ISO 14040 pour calculer l'empreinte environnementale globale de votre emballage. En passant d'un emballage rigide à un sachet souple Pouch.eco, vous diminuez vos émissions de Scope 3 de plus de 60%. Il ne s'agit pas seulement d'utiliser moins de plastique, mais de concevoir le meilleur rapport matériau-énergie. Nous fournissons toutes les données nécessaires à vos rapports RSE et ESG.",
+      "lcaTitle": "Validé par ACV",
+      "lcaDesc": "Réduction certifiée du poids de matière et de l'intensité carbone par unité.",
+      "eprTitle": "Avantages REP (EPR)",
+      "eprDesc": "La recyclabilité avérée de nos sachets réduit vos éco-contributions et pénalités financières.",
+      "alt": "Fabrication vérifiée pour la réduction des déchets"
+    },
+    "faq": {
+      "badge": "FAQ_DÉCHETS",
+      "titlePart1": "Conseils",
+      "titlePart2": "d'Experts.",
+      "q1": "Qu'est-ce que la « réduction à la source » ?",
+      "a1": "C'est l'action de consommer moins de matière pour une fonction identique. Remplacer un flacon rigide par une recharge souple est l'exemple type de réduction à la source.",
+      "q2": "Comment le sachet souple réduit-il les déchets de transport ?",
+      "a2": "Les sachets vides voyagent à plat. Un seul camion de sachets vides transporte le même volume de contenants que sept camions d'emballages rigides vides, réduisant le transport.",
+      "q3": "L'allègement fragilise-t-il l'emballage ?",
+      "a3": "Non. Nos formulations comme le MDO-PE garantissent une excellente rigidité et résistance à la perforation pour des épaisseurs moindres.",
+      "q4": "Comment calculez-vous le gain en carbone ?",
+      "a4": "Nous effectuons une ACV du berceau à la porte de l'usine à partir des consommations réelles de nos sites de production, certifiée ISO 14040/44."
+    },
+    "cta": {
+      "badge": "MANDAT_DÉCHETS",
+      "titlePart1": "Moins Gaspiller.",
+      "titlePart2": "Impact Pur.",
+      "description": "Prêt à optimiser le poids et le bilan écologique de vos emballages ? Initierez votre audit de réduction des déchets dès aujourd'hui.",
+      "btnSample": "Commander des Échantillons",
+      "btnSpeak": "Parler à un Ingénieur Déchets"
+    }
+  },
+  "pouchCustomVsStandardPackagingPage": {
+    "meta": {
+      "title": "Devis Sur Mesure vs Boutique Standard | ROI Emballage | Pouch.eco",
+      "description": "Guide technique comparant le devis personnalisé B2B et l'impression groupée en boutique. Optimisez les volumes par le regroupement de SKUs et les fermetures Velcro."
+    },
+    "metrics": {
+      "combinedSku": {
+        "label": "Remise SKU Groupés",
+        "value": "Jusqu'à 25%",
+        "unit": "Économie",
+        "desc": "Regroupement de sachets de même format."
+      },
+      "digitalMooq": {
+        "label": "MOQ Boutique Numérique",
+        "value": "100",
+        "unit": "unités",
+        "desc": "Volume idéal pour débuter à budget maîtrisé."
+      },
+      "closureReliability": {
+        "label": "Fiabilité Fermeture",
+        "value": "Velcro®",
+        "unit": "Crochet",
+        "desc": "Auto-alignement et barrière aux poudres."
+      },
+      "turnaround": {
+        "label": "Délai de Livraison",
+        "value": "15-20",
+        "unit": "Jours",
+        "desc": "Efficacité de l'impression groupée."
+      }
+    },
+    "hero": {
+      "badge": "MATRICE_PRODUCTION_V2.1",
+      "titlePart1": "Devis Sur Mesure.",
+      "titlePart2": "Tirage Standard.",
+      "titlePart3": "Optimiser le ROI.",
+      "description": "Hésitez-vous entre des formats standards prêts à l'achat et des devis B2B dynamiques et personnalisés ? Ce guide technique aborde les tirages en co-extrusion, l'astuce de regroupement de SKUs et les fermetures Velcro.",
+      "btnSpec": "Appel Spécifications Techniques",
+      "btnStore": "Découvrir la Boutique"
+    },
+    "flow": {
+      "badge": "FLUX_PRODUCTION",
+      "titlePart1": "Comparatif Standard",
+      "titlePart2": "vs. Sur Mesure.",
+      "description": "Les articles standards en boutique utilisent la production groupée (impression simultanée) pour éviter les frais de calage machine importants. Cela permet des MOQ bas et des prix économiques, mais impose des dimensions fixes, un soufflet inférieur neutre (requis par les capteurs de découpe) et un zip classique. Les devis personnalisés offrent des dimensions au millimètre près, des soufflets entièrement imprimés et des fermetures Velcro haute performance.",
+      "alt": "Tirages groupés de sachets imprimés personnalisés"
+    },
+    "hack": {
+      "badge": "ASTUCE_REGROUPEMENT_VOLUME",
+      "titlePart1": "Regroupement",
+      "titlePart2": "de SKUs Multiples.",
+      "item1Title": "01. L'Astuce du Format Unique",
+      "item1Desc": "Si vos recettes Chocolat, Vanille et Fraise partagent le même format physique et le même matériau, elles peuvent être imprimées à la suite sur la même bobine.",
+      "item2Title": "02. Changements de Visuels Instantanés",
+      "item2Desc": "Nos presses numériques HP Indigo 20000 alternent les visuels instantanément sans arrêt de production ni frais de plaques.",
+      "item3Title": "03. Tarifs Dégressifs Globalisés",
+      "item3Desc": "Au lieu de payer le tarif fort de trois commandes séparées de 100 unités, votre commande est combinée au tarif unifié pour 300 unités, économisant jusqu'à 25% !",
+      "item4Title": "04. Indépendance Graphique Totale",
+      "item4Desc": "Bien que les dimensions soient communes, chaque étiquette, code-barres, liste d'ingrédients et visuel de produit reste entièrement distinct."
+    },
+    "closure": {
+      "badge": "INGÉNIERIE_FERMETURE",
+      "titlePart1": "Zips Standards",
+      "titlePart2": "vs. Velcro Premium.",
+      "standardTitle": "Fermeture Zip Classique par Pression",
+      "standardDesc": "Excellente étanchéité par friction pour solides et liquides standards. Cependant, les poudres fines (cacao, farines, compléments) peuvent encrasser les rails, rendant la fermeture fastidieuse.",
+      "standardBadge": "BOUTIQUE_STANDARD",
+      "velcroTitle": "Fermeture Sensorielle Velcro® Premium",
+      "velcroDesc": "Fermeture crochet à crochet innovante. S'aligne automatiquement à la pression, insensible aux résidus de poudres et offre un retour tactile et sonore rassurant.",
+      "velcroBadge": "DEVIS_SUR_MESURE_UNIQUEMENT"
+    },
+    "headsUp": {
+      "badge": "INFOS_BOUTIQUE",
+      "titlePart1": "Production Groupée",
+      "titlePart2": "Boutique en Ligne.",
+      "description": "Besoin d'un délai court (15–20 jours) et de faibles MOQ ? Découvrez nos sachets stand-up classiques et sachets plats 3 soudures (disponibles avec ou sans fermeture zip).",
+      "items": {
+        "supMetZip": "Stand Up – Métallisé Avec Zip (Best Seller)",
+        "supMetXzip": "Stand Up – Métallisé Sans Zip",
+        "supClearZip": "Stand Up – Transparent Avec Zip",
+        "supClearXzip": "Stand Up – Transparent Sans Zip",
+        "ss3MetZip": "3 Soudures – Métallisé Avec Zip",
+        "ss3MetXzip": "3 Soudures – Métallisé Sans Zip",
+        "ss3ClearZip": "3 Soudures – Transparent Avec Zip",
+        "ss3ClearXzip": "3 Soudures – Transparent Sans Zip"
+      }
+    },
+    "faq": {
+      "badge": "FAQ_APPROVISIONNEMENT",
+      "titlePart1": "Spécifications d'Experts.",
+      "q1": "Pourquoi le soufflet inférieur n'est-il pas imprimé sur les tirages standards ?",
+      "a1": "L'impression groupée partage la même bande machine pour différents graphismes. Laisser le soufflet vierge évite de perturber les capteurs de repérage et assure une coupe parfaite.",
+      "q2": "Quel est l'impact du regroupement de SKUs sur mes coûts ?",
+      "a2": "Regrouper des décors Vanille et Chocolat de dimensions identiques permet de les traiter comme une seule grande production, vous faisant accéder à un tarif volumétrique avantageux.",
+      "q3": "Puis-je avoir une fermeture Velcro sur un sachet standard de 100 pièces ?",
+      "a3": "Non. Les fermetures Velcro premium exigent une extrusion et un calage sur mesure. Elles sont uniquement proposées sur devis B2B personnalisés.",
+      "q4": "Quel est le MOQ minimal pour des sachets sur mesure ?",
+      "a4": "Les formats sur mesure débutent à 1 000 unités. Pour les micro-séries (100–500 pièces), les formats fixes de notre boutique en ligne restent la meilleure option."
+    },
+    "cta": {
+      "badge": "CHIFFRES_LANCEMENT",
+      "titlePart1": "Supprimez le",
+      "titlePart2": "Surcoût.",
+      "description": "Prêt à définir les paramètres optimaux pour vos sachets B2B ? Analysons ensemble vos formats de SKU et vos options de fermeture dès aujourd'hui.",
+      "btnStore": "Découvrir la Boutique Classique",
+      "btnSpeak": "Consulter un Concepteur d'Emballages"
+    }
+  },
+  "pouchCompostableSpoutedPouchesPage": {
+    "pouchCompostableSpoutedPouchesPage": {
+      "meta": {
+        "title": "Gourdes avec Bec Verseur Compostables & Économie Circulaire | POUCH.ECO",
+        "description": "Dites adieu aux gourdes en plastique non recyclables. Découvrez les sachets avec bouchon 100 % compostables et haute barrière pour liquides de POUCH.ECO, offrant une fin de vie organique certifiée.",
+        "keywords": "gourdes avec bec verseur compostables, bouchons biodégradables, sachets barrière liquide, emballage économie circulaire, sachets écologiques pour bébé"
+      },
+      "hero": {
+        "badge": "CONCEPTION_ÉCONOMIE_CIRCULAIRE",
+        "titlePart1": "Sécurité Liquide.",
+        "titlePart2": "Entièrement ",
+        "titlePart3": "Compostable.",
+        "bullet1": "> Les bouchons traditionnels sont non recyclables.",
+        "bullet2": "> Les complexes multicouches contaminent les déchets.",
+        "bullet3": "> La circularité organique 100 % végétale est arrivée.",
+        "imgAlt": "Sachet avec bouchon compostable Achieve Pack lors d'un test de compostage",
+        "imgBadge": "BEC_CERTIFIÉ_BPI"
+      },
+      "science": {
+        "titlePart1": "La Science de ",
+        "titlePart2": "l'Emballage Circulaire à Bec",
+        "p1": "L'emballage flexible comme les sachets à bec tenant debout (doypack avec bouchon) est très populaire pour les purées, boissons et cosmétiques liquides en raison de sa légèreté et de sa faible empreinte carbone. Cependant, sa structure multicouche complexe rend le recyclage standard impossible.",
+        "h3_1": "Une Véritable Solution de Fin de Vie",
+        "p2": "Chez POUCH.ECO, notre priorité est de boucler la boucle. Nos sachets à bec représentent une conception approfondie d'économie circulaire. Nous laminons des fibres de bio-cellulose premium avec des résines barrières biodégradables (Bio-EVOH) et du PBS à haute élasticité pour créer une structure 100 % compostable.",
+        "p3": "Même le bec rigide et le bouchon sont fabriqués à partir d'amidon de maïs et de plantes certifiés biologiques. Lors du compostage industriel, l'emballage complet se décompose entièrement sans laisser de microplastiques ou de résidus toxiques.",
+        "imgAlt": "Couches de sachet à bec compostable haute barrière",
+        "h3_2": "Intégrité Liquide Robuste",
+        "p4": "Nous savons qu'un sachet écologique est inutile s'il fuit ou altère votre produit. Nos gourdes avec bec intègrent :",
+        "li1": "Haute résistance de thermoscellage : Résiste à des températures de pasteurisation allant jusqu'à 105 °C pour les aliments pour bébés et les purées fraîches.",
+        "li2": "Barrière testée par MOCON : Les taux de transmission d'oxygène et de vapeur d'eau restent inférieurs à 0,2 cc/m²/jour pour garantir une durée de conservation de 12 à 18 mois.",
+        "li3": "Durabilité de la soudure : Le joint entre la collerette du bec rigide et le film flexible est soudé structurellement pour éviter toute fuite sous haute compression.",
+        "h3_3": "Sans Contaminants. 100 % Sûr.",
+        "p5": "Nos structures sont totalement exemptes de BPA, de métaux lourds et de polluants éternels PFAS. Elles répondent à toutes les normes organiques BPI, EN 13432 et ASTM D6400, offrant un choix entièrement circulaire et sûr pour les marques durables haut de gamme."
+      },
+      "faq": {
+        "badge": "Q&R TECHNIQUE",
+        "q1": "Ces sachets à bec sont-ils adaptés au contact alimentaire et au remplissage à chaud ?",
+        "a1": "Oui. Nos polymères de scellage internes sont composés de bio-résines thermostabilisées qui résistent aux températures de remplissage standard allant jusqu'à 105 °C, assurant une parfaite sécurité alimentaire pour les purées, boissons et liquides chauds.",
+        "q2": "Le bec en plastique rigide est-il complètement compostable ?",
+        "a2": "Absolument. Nous n'utilisons pas de becs en plastique faussement écologiques. Nos raccords rigides (bec et bouchon) sont moulés par injection à partir de bio-résines certifiées à base d'amidon qui se dégradent entièrement en même temps que le corps du sachet.",
+        "q3": "Quelle est la barrière de transmission d'oxygène de la couche EVOH ?",
+        "a3": "Notre barrière organique EVOH égale les performances des plastiques traditionnels, atteignant un OTR <0,2 cc/m²/jour, garantissant la fraîcheur du produit pendant 12 à 18 mois."
+      },
+      "cta": {
+        "title": "Passez aux Becs Circulaires",
+        "desc": "Des sachets à bec durables, étanches et d'origine végétale qui satisfont les clients et protègent notre planète.",
+        "btn": "Demander des Échantillons"
+      }
+    }
+  },
+  "pouchMonoMaterialSolutionPage": {
+    "pouchMonoMaterialSolutionPage": {
+      "meta": {
+        "title": "Emballage Mono-matériau | Haute Recyclabilité Technique | Pouch.eco",
+        "description": "Guide technique des emballages mono-matériaux. Recherche sur le MDO-PE, le Mono-PP et l'ingénierie d'économie circulaire.",
+        "keywords": "mono-matériau, mono-PE, MDO-PE, mono-PP, emballage recyclable, emballage éco-conçu"
+      },
+      "metrics": {
+        "purity": {
+          "label": "Pureté Polymère",
+          "value": "100%",
+          "unit": "Famille Unique",
+          "desc": "Pas de complexes mélangés PET/PE."
+        },
+        "power": {
+          "label": "Puissance MDO-PE",
+          "value": "3X",
+          "unit": "Rigidité",
+          "desc": "PE étiré pour remplacer le PET."
+        },
+        "recyclability": {
+          "label": "Recyclabilité",
+          "value": "90%",
+          "unit": "Score",
+          "desc": "Validé par les laboratoires Cyclos-HTP."
+        },
+        "barrier": {
+          "label": "Barrière EVOH",
+          "value": "EVOH",
+          "unit": "< 5%",
+          "desc": "Barrière oxygène sans aluminium."
+        }
+      },
+      "hero": {
+        "badge": "TECH_MONO_V1.0",
+        "title": "Source.\nUnique.\nPure.",
+        "desc": "Le plastique multicouche traditionnel est un échec pour le recyclage. Nous résolvons ce défi avec une ingénierie 100 % Mono-matériau.",
+        "btnBrowse": "Découvrir nos Solutions",
+        "btnOrder": "Commander un Test Matériau",
+        "imgAlt": "Solutions Mono-matériau"
+      },
+      "eng": {
+        "badge": "AUDIT_POLYMÈRE_HOMOGÈNE",
+        "title": "Conçu.\nPour le Recyclage.",
+        "desc": "La circularité exige l'homogénéité du polymère. En remplaçant la couche externe traditionnelle en PET (polyester) par du MDO-PE (polyéthylène orienté dans le sens de la machine), nous créons un emballage composé exclusivement de polymères de la famille PE. Cette percée technique garantit que votre sachet n'est pas seulement recyclable sur le papier, mais qu'il contribue réellement à la production de résine rPE de haute qualité. Avec < 5 % d'EVOH coextrudé pour la barrière à l'oxygène, nos structures mono-matériau atteignent des scores de recyclabilité > 90 % (Cyclos-HTP), répondant aux exigences REP les plus strictes de 2026.",
+        "imgAlt": "Ingénierie Structurale Mono-matériau"
+      },
+      "tech": {
+        "badge": "TECH_MDO",
+        "title": "Orienté.\nPour la Performance.",
+        "item1Title": "01. Rigidité (MDO)",
+        "item1Desc": "L'étirage du film PE dans le sens de la machine aligne les molécules, multipliant sa rigidité par 3. Cela permet aux sachets de tenir debout sans renfort PET.",
+        "item2Title": "02. Clarté Optique",
+        "item2Desc": "Le traitement MDO élimine le voile habituellement présent sur le PE standard, offrant la transparence cristalline du plastique traditionnel.",
+        "item3Title": "03. Résistance à la Chaleur",
+        "item3Desc": "Le PE orienté présente un point de fusion plus élevé que le PE standard, permettant un scellage thermique rapide sur les lignes de conditionnement VFFS et HFFS.",
+        "item4Title": "04. Tri Optique (NIR)",
+        "item4Desc": "Composés d'un seul polymère, nos mono-matériaux sont facilement identifiés par les capteurs proche infrarouge des centres de tri, garantissant leur recyclage effectif."
+      },
+      "science": {
+        "badge": "SCIENCE_DES_POLYMÈRES_V2",
+        "title": "Vérifié.\nAu Micron Près.",
+        "desc": "La pureté est la référence technique de la recyclabilité. Nous effectuons des analyses par spectroscopie FTIR et calorimétrie différentielle à balayage (DSC) sur tous les lots afin de vérifier que nos structures Mono-PE et Mono-PP sont exemptes de toute contamination polymère. En utilisant des zips 100 % PE et des valves de dégazage 100 % PE, nous assurons que le sachet fini est un chef-d'œuvre technique de circularité. Pas de matériaux mixtes, pas besoin de séparation, et zéro compromis sur la barrière oxygène EVOH.",
+        "item1Title": "Pureté du Polymère",
+        "item1Desc": "Testé pour garantir une cohérence absolue de la résine à travers toutes les couches du complexe.",
+        "item2Title": "Score de Récupération",
+        "item2Desc": "Atteint des scores de recyclabilité de 90/100 selon les protocoles mondiaux Cyclos-HTP.",
+        "imgAlt": "Fabrication Mono-matériau Vérifiée"
+      },
+      "faq": {
+        "badge": "FAQ_MONO",
+        "title": "L'Avis des\nExperts.",
+        "q1": "Le mono-PE offre-t-il la même durée de conservation que le PET/PE ?",
+        "a1": "Oui. En intégrant une fine couche d'EVOH (< 5 %), nous obtenons une barrière à l'oxygène (OTR) < 1,0, égalant les performances des complexes traditionnels.",
+        "q2": "Le MDO-PE est-il plus cher ?",
+        "a2": "Les coûts de résine et de traitement sont légèrement supérieurs, mais cela est souvent compensé par la réduction des taxes sur le plastique et des contributions REP.",
+        "q3": "Les sachets mono-matériaux conviennent-ils aux liquides ?",
+        "a3": "Oui. Nous coextrudons des résines de scellage PE haute performance offrant la résistance à la perforation et l'étanchéité nécessaires aux liquides et aliments gras.",
+        "q4": "Ces sachets fonctionnent-ils sur mes machines actuelles ?",
+        "a4": "La plupart des lignes VFFS et HFFS modernes peuvent traiter le PE mono-matériau moyennant de légers ajustements de température et de temps de scellage."
+      },
+      "cta": {
+        "badge": "MANDAT_MONO",
+        "title": "Matériau Pur.\nImpact Fort.",
+        "desc": "Prêt à sécuriser une chaîne d'approvisionnement en mono-matériaux pour votre marque ? Commençons l'audit technique dès aujourd'hui.",
+        "btnOrder": "Demander des Échantillons",
+        "btnSpeak": "Parler à un Ingénieur Polymères"
+      }
+    }
+  },
+  "pouchGreenCoffeeMaterialsPage": {
+    "pouchGreenCoffeeMaterialsPage": {
+      "meta": {
+        "title": "Emballage pour Café Vert | Haute Barrière & Fraîcheur | Pouch.eco",
+        "description": "Guide technique des matériaux d'emballage du café. Recherche sur le mono-PE haute barrière, les valves de dégazage et la protection des arômes.",
+        "keywords": "emballage café vert, sachet café, valve dégazage, café haute barrière, sachets café éco-conçus"
+      },
+      "metrics": {
+        "oxygen": {
+          "label": "Barrière Oxygène",
+          "value": "< 0.1",
+          "unit": "OTR",
+          "desc": "Préservation supérieure des arômes."
+        },
+        "moisture": {
+          "label": "Barrière Humidité",
+          "value": "< 0.1",
+          "unit": "WVTR",
+          "desc": "Évite le ramollissement du café."
+        },
+        "degassing": {
+          "label": "Dégazage",
+          "value": "100%",
+          "unit": "Valve",
+          "desc": "Évacuation du CO2, blocage de l'O2."
+        },
+        "recyclable": {
+          "label": "Recyclable",
+          "value": "PE",
+          "unit": "Mono",
+          "desc": "Compatible avec le tri sélectif."
+        }
+      },
+      "hero": {
+        "badge": "TECH_CAFÉ_V1.0",
+        "title": "Torréfaction.\nPure.\nFraîche.",
+        "desc": "L'arôme est primordial. Nous concevons des sachets de café durables et haute barrière avec valves de dégazage intégrées.",
+        "btnBrowse": "Découvrir les Solutions Café",
+        "btnOrder": "Commander des Échantillons",
+        "imgAlt": "Matériaux d'Emballage Café Vert"
+      },
+      "eng": {
+        "badge": "AUDIT_DE_PROTECTION_DES_ARÔMES",
+        "title": "Conçu.\nPour l'Arôme.",
+        "desc": "Le café est un produit organique volatil. Protéger son profil lipidique délicat et ses composés aromatiques contre l'oxydation est le test ultime pour un emballage. En 2026, la transition du complexe aluminium multicouche vers les mono-matériaux durables est indispensable. Chez Pouch.eco, nous utilisons la technologie MDO-PE (polyéthylène orienté) intégrée à un EVOH haute barrière. Cette structure offre des niveaux d'OTR et de WVTR inférieurs à 0.1, égalant les performances de la feuille d'aluminium traditionnelle sans l'impact écologique. Nous incluions des valves de dégazage recyclables de série, permettant à vos grains fraîchement torréfiés de libérer leur gaz tout en maintenant une barrière hermétique contre l'oxygène.",
+        "imgAlt": "Ingénierie de Barrière pour Sachets de Café"
+      },
+      "tech": {
+        "badge": "TECH_CAFÉ",
+        "title": "Haute Technologie.\nHaute Barrière.",
+        "item1Title": "01. Barrière aux Gaz EVOH",
+        "item1Desc": "Couche intégrée d'éthylène alcool vinylique qui bloque les molécules d'oxygène plus efficacement que les polymères traditionnels, garantissant l'absence d'oxydation des huiles de café.",
+        "item2Title": "02. Valves Recyclables",
+        "item2Desc": "Valves de dégazage unidirectionnelles fabriquées dans la même famille de polymères que le sachet, permettant une recyclabilité à 100 % dans la même filière.",
+        "item3Title": "03. Performance sans Métal",
+        "item3Desc": "Obtention d'une performance haute barrière sans feuille d'aluminium. Cela rend votre emballage compatible avec le micro-ondes et beaucoup plus facile à trier dans les centres de recyclage.",
+        "item4Title": "04. Conservation 12 Mois",
+        "item4Desc": "Validé par des tests de vieillissement accéléré. Nos structures protègent le profil sensoriel des torréfactions de spécialité pendant un an complet."
+      },
+      "science": {
+        "badge": "SCIENCE_DES_ARÔMES_V1",
+        "title": "Mesuré.\nJusqu'au Torréfacteur.",
+        "desc": "La fraîcheur est une variable technique. Nous utilisons les tests MOCON OTR/WVTR pour vérifier que chaque structure sur mesure répond à nos exigences strictes de protection des arômes. Notre protocole de fraîcheur EEAT est conçu pour l'industrie du café de spécialité, où la subtilité du grain fait l'image de la marque. En utilisant des matériaux compostables à domicile ou du Mono-PE 100 % recyclable, nous aidons les torréfacteurs à associer leur produit haut de gamme à un message environnemental fort. Nous fournissons les données de certification Cyclos-HTP prouvant que votre emballage durable est bien récupéré par les systèmes de tri modernes.",
+        "item1Title": "Fraîcheur Certifiée en Labo",
+        "item1Desc": "Testé par rapport à l'aluminium traditionnel pour garantir une conservation équivalente des arômes et des saveurs.",
+        "item2Title": "Gestion des Gaz",
+        "item2Desc": "Optimisation de l'emplacement et des performances de la valve de dégazage pour les profils de torréfaction à haute pression.",
+        "imgAlt": "Fabrication d'Emballages de Café Vérifiée"
+      },
+      "faq": {
+        "badge": "FAQ_CAFÉ",
+        "title": "L'Avis des\nExperts.",
+        "q1": "Vos sachets de café compostables ont-ils des valves ?",
+        "a1": "Oui. Nous proposons des valves de dégazage compostables (domestiques et industrielles) qui se dégradent en même temps que le sachet, garantissant l'absence de résidus plastiques.",
+        "q2": "Le mono-PE est-il aussi rigide que les sachets de café traditionnels ?",
+        "a2": "Grâce à la technologie MDO-PE, nous obtenons la même rigidité de maintien debout et la même présence en rayon que les structures PET/ALU/PE.",
+        "q3": "Puis-je utiliser vos sachets pour le café en grains et le café moulu ?",
+        "a3": "Oui. Nos barrières sont optimisées pour les deux. Pour le café moulu, nous recommandons nos zips haute étanchéité pour éviter que les particules fines n'obstruent la fermeture.",
+        "q4": "Quel est l'OTR de vos sachets de café recyclables ?",
+        "a4": "Nous visons un OTR de < 0,1 cc/m²/jour, qui est la référence absolue de l'industrie pour une fraîcheur de 12 mois des cafés de spécialité."
+      },
+      "cta": {
+        "badge": "MANDAT_TORRÉFACTION",
+        "title": "Fraîcheur Pensée.\nImpact Pur.",
+        "desc": "Prêt à sécuriser une chaîne d'approvisionnement durable et haute barrière pour votre café ? Commençons l'audit technique dès aujourd'hui.",
+        "btnOrder": "Demander des Échantillons",
+        "btnSpeak": "Parler à un Ingénieur Café"
+      }
+    }
+  },
+  "pouchCustomBrandPackagingServicePage": {
+    "pouchCustomBrandPackagingServicePage": {
+      "meta": {
+        "title": "Emballage de Marque Personnalisé : Conception Structurale & Ingénierie | Pouch.eco",
+        "description": "Guide expert de l'emballage personnalisé. Découvrez l'ingénierie des tracés de découpe, la gestion des couleurs Pantone, l'impression numérique vs héliogravure, et les finitions tactiles premium."
+      },
+      "hero": {
+        "badge": "SYSTÈME_MARQUE_V2",
+        "title": "LE DESIGN RENCONTRE\nL'INTÉGRITÉ\nSTRUCTURALE",
+        "desc": "Votre marque est un atout visuel. Notre ingénierie sur mesure garantit que votre emballage soit aussi esthétique que performant en rayon.",
+        "btnStart": "LANCER_PROJET_DESIGN",
+        "btnColor": "GUIDE_DES_COULEURS"
+      },
+      "structural": {
+        "badge": "LA_GÉOMÉTRIE",
+        "title": "Ingénierie du\nTracé de Découpe",
+        "desc": "Nous ne faisons pas qu'imprimer des sachets, nous concevons des structures. Du scellage en K aux soufflets à fond rond, nous étudions la physique de votre sachet pour une tenue parfaite en rayon.",
+        "item1Title": "Ajustement des Dimensions",
+        "item1Desc": "Optimisation des dimensions selon la densité de votre produit pour éliminer le vide et le gaspillage de matière.",
+        "item2Title": "Prototypage",
+        "item2Desc": "Modélisation 3D haute fidélité et maquettes blanches pour valider le format et la prise en main avant la production en série.",
+        "imgAlt": "Galerie de Sachets Personnalisés"
+      },
+      "deep": {
+        "title1": "Gestion des Couleurs & Contrôle Delta-E",
+        "p1": "La cohérence est la signature des marques premium. Nos sites utilisent des spectrophotomètres X-Rite pour maintenir un écart Delta-E < 2.0, garantissant que vos couleurs restent identiques à chaque production, quel que soit le support.",
+        "title2": "Comparatif des Technologies d'Impression",
+        "th1": "Caractéristique",
+        "th2": "Numérique (HP Indigo)",
+        "th3": "Héliogravure",
+        "td1": "Idéal Pour",
+        "td2": "Faibles Volumes / Multi-références",
+        "td3": "Production de Masse / Prix Bas",
+        "td4": "Coût des Cylindres",
+        "td5": "0 € (Aucun)",
+        "td6": "150 € - 400 € / Couleur",
+        "td7": "Délai de Livraison",
+        "td8": "3-4 Semaines",
+        "td9": "6-8 Semaines",
+        "title3": "Performance Tactile",
+        "p2": "Nous croyons en l'expérience sensorielle de la marque. Du vernis mat effet peau de pêche (Soft-touch) aux contrastes de vernis sélectif brillant (Spot-UV), nous créons les sensations tactiles qui différencient votre produit en rayon. Nos vernis éco-conçus garantissent le respect des critères de compostabilité."
+      },
+      "aside": {
+        "badge1": "PRÉPARATION_FICHIERS",
+        "desc1": "Nous réalisons des audits de tracés de découpe et des contrôles d'opacité des encres pour garantir des fichiers prêts pour impression sur supports durables.",
+        "btnArtwork": "SOUMETTRE_FICHIER",
+        "badge2": "LABO_ACCOUTREMENTS",
+        "finish1": "Mat Toucher Doux",
+        "finish2": "Vernis Sélectif Brillant",
+        "finish3": "Éléments Holographiques",
+        "finish4": "Effets Métallisés"
+      },
+      "cta": {
+        "title": "LE DESIGN GAGNE\nSORTIR DU LOT",
+        "btn": "OBTENIR_UN_PROTOTYPE"
+      }
+    }
   }
 }
