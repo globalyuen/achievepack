@@ -94,7 +94,7 @@ import KnowHowCarousel from './components/KnowHowCarousel'
 
 
 function App() {
-  const showLanguageSelector = false;
+  const showLanguageSelector = true;
   const { t, i18n } = useTranslation();
   const { cartCount, addToCart, setIsCartOpen } = useStore();
   const navigate = useNavigate();

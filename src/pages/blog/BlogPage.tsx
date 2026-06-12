@@ -26,11 +26,11 @@ export default function BlogPage() {
       try {
         const { data, error } = await supabase
           .from('pouch_seo_blog')
-          .select('*')
+          .select('slug, title, excerpt, image_url, published_at, category, content->approved, content->achievepack')
           .order('published_at', { ascending: false });
 
         if (error) throw error;
-        const approvedPosts = (data || []).filter(p => p.content?.approved !== false);
+        const approvedPosts = (data || []).filter(p => p.approved !== false);
         setDynamicPosts(approvedPosts);
       } catch (err) {
         console.error('Error fetching dynamic posts:', err);
@@ -43,7 +43,7 @@ export default function BlogPage() {
 
   const posts = useMemo(() => {
     const formattedDynamic = dynamicPosts.map(p => {
-      const apContent = p.content?.achievepack || {};
+      const apContent = p.achievepack || {};
       return {
         id: p.slug,
         slug: p.slug,

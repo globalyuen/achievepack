@@ -1,18 +1,8 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap } from 'lucide-react'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
-import { ALL_PAGES } from './LearnNavigation'
 
 export default function Footer() {
-  const [randomLink, setRandomLink] = useState('/composting/composting-benefits')
-
-  useEffect(() => {
-    if (ALL_PAGES && ALL_PAGES.length > 0) {
-      const randomIndex = Math.floor(Math.random() * ALL_PAGES.length)
-      setRandomLink(ALL_PAGES[randomIndex].link)
-    }
-  }, [])
 
   return (
     <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8">
@@ -27,12 +17,7 @@ export default function Footer() {
             <p className="text-neutral-400 text-xs mb-3">
               Sustainable packaging solutions for forward-thinking brands.
             </p>
-            <Link 
-              to={randomLink} 
-              className="inline-flex items-center gap-1.5 bg-primary-600 hover:bg-primary-500 text-white text-xs font-bold px-4 py-2 rounded transition-all shadow-sm mb-3"
-            >
-              <span>Random Guide 🎲</span>
-            </Link>
+
             {/* Social Media Icons */}
             <div className="flex space-x-2 mb-3">
               <a href="https://www.instagram.com/pouch_eco/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary-500 transition-colors">

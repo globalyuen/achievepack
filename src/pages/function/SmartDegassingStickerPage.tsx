@@ -206,6 +206,109 @@ const SmartDegassingStickerPage: React.FC = () => {
             imageLeft={true}
             index={1}
           />
+
+          <div className="mt-8 border-t border-neutral-100 pt-8">
+            <h4 className="text-xl font-bold text-neutral-900 mb-2">Functional Performance Testing Videos</h4>
+            <p className="text-sm text-primary-600 font-semibold uppercase tracking-wider mb-4">阀门防漏液测试视频</p>
+            <p className="text-neutral-700 text-sm mb-6 leading-relaxed">
+              We subject our packaging solutions to extreme pressure and liquid contact scenarios. Watch the comparative testing below to see the physical performance of our smart degassing stickers vs. standard coffee valves under squeeze pressure:
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Video 1: Leak-proof */}
+              <div className="bg-neutral-50 rounded-xl p-4 border border-neutral-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-3 shadow-inner">
+                    <video
+                      src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781061880450_mn5s9twgw7.mp4"
+                      controls
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="inline-block text-[10px] font-bold text-green-700 bg-green-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
+                    PASSED / 测验合格
+                  </span>
+                  <h5 className="font-bold text-base text-neutral-950 mb-1">
+                    Leak-Proof Valve Test
+                  </h5>
+                  <p className="text-xs text-neutral-500 font-medium mb-1 uppercase tracking-wider">
+                    智能排气阀挤压测试
+                  </p>
+                  <p className="text-xs text-neutral-600 leading-relaxed mb-3">
+                    Watch our specialized flat square valve (AO002) in action under a severe squeeze test. Even when localized pressure is applied to the liquid-rich pouch, the hydrophobic membrane holds firm, preventing a single drop of liquid or sauce from escaping while allowing gas to vent.
+                  </p>
+                </div>
+                <div className="border-t border-neutral-200/60 pt-2 text-[11px] text-neutral-500 italic leading-relaxed">
+                  对包装袋进行大力挤压时，内部空气与气体得以自由排出，而液体被100%封锁在内，即使在强压力下也无任何渗漏。
+                </div>
+              </div>
+
+              {/* Video 2: Failed Coffee Valve */}
+              <div className="bg-neutral-50 rounded-xl p-4 border border-neutral-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-3 shadow-inner">
+                    <video
+                      src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781062000337_s34sw1mer8a.mp4"
+                      controls
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="inline-block text-[10px] font-bold text-red-700 bg-red-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
+                    FAILED / 无法防漏
+                  </span>
+                  <h5 className="font-bold text-base text-neutral-950 mb-1">
+                    Standard Coffee Valve
+                  </h5>
+                  <p className="text-xs text-neutral-500 font-medium mb-1 uppercase tracking-wider">
+                    普通咖啡阀挤压测试
+                  </p>
+                  <p className="text-xs text-neutral-600 leading-relaxed mb-3">
+                    Standard round coffee valves are designed only for dry gases. Under liquid squeeze pressure, the internal seal fails, leading to immediate liquid leak. This highlights why standard coffee valves are not suitable for liquid-rich foods.
+                  </p>
+                </div>
+                <div className="border-t border-neutral-200/60 pt-2 text-[11px] text-neutral-500 italic leading-relaxed">
+                  该阀门仅针对干燥气体设计，在酱汁液体挤压下，其内部橡胶密封圈失效，导致液体立刻渗漏。这说明了普通咖啡阀不适用于富含液体的食品。
+                </div>
+              </div>
+
+              {/* Video 3: Active Degassing */}
+              <div className="bg-neutral-50 rounded-xl p-4 border border-neutral-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-3 shadow-inner">
+                    <video
+                      src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781187167584_l98hchl2bfd.mp4"
+                      controls
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="inline-block text-[10px] font-bold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
+                    ACTIVE DE-GASSING / 正在排气
+                  </span>
+                  <h5 className="font-bold text-base text-neutral-950 mb-1">
+                    Active Venting Demo
+                  </h5>
+                  <p className="text-xs text-neutral-500 font-medium mb-1 uppercase tracking-wider">
+                    单向排气过程演示
+                  </p>
+                  <p className="text-xs text-neutral-600 leading-relaxed mb-3">
+                    Close-up showing carbon dioxide gas bubble venting under pressure while completely blocking liquid backflow. The valve maintains physical seal integrity throughout the off-gassing process.
+                  </p>
+                </div>
+                <div className="border-t border-neutral-200/60 pt-2 text-[11px] text-neutral-500 italic leading-relaxed">
+                  近距离观察二氧化碳气体在微小气压下排出，同时彻底阻断外部空气和液体倒流。在整个排气过程中，阀门始终保持其物理密封。
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )
     },

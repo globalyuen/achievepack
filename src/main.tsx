@@ -688,7 +688,7 @@ import CookieConsent from './components/CookieConsent'
 const root = createRoot(document.getElementById('root')!)
 
 const initialLang = getLanguageFromPath()
-const routerBasename = initialLang === 'en' ? '/' : `/${initialLang}`
+const routerBasename = '/'
 i18n.changeLanguage(initialLang)
 
 if (getDomain() === 'pouch') {

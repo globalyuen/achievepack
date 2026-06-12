@@ -167,7 +167,7 @@ function MobileLearnSection({ setIsMenuOpen }: { setIsMenuOpen: (open: boolean) 
 }
 
 export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog = false }: SiteHeaderProps) {
-  const displayLanguageSelector = false;
+  const displayLanguageSelector = true;
   const { t, i18n } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
   const navigate = useNavigate()

@@ -23,10 +23,12 @@ export default function PouchBlogPage() {
       try {
         const { data, error } = await supabase
           .from('pouch_seo_blog')
-          .select('*')
+          .select('slug, title, excerpt, image_url, published_at, category, content->approved')
           .order('published_at', { ascending: false })
         
-        const approvedPosts = (data || []).filter(p => p.content?.approved !== false)
+        if (error) throw error
+        
+        const approvedPosts = (data || []).filter(p => p.approved !== false)
         setDynamicPosts(approvedPosts)
       } catch (err) {
         console.error('Error fetching dynamic posts:', err)

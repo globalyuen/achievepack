@@ -6,7 +6,7 @@ import {
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
   Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files, Pin,
   LayoutGrid, MessageSquare, CircleDashed, CheckCircle2,
-  Image as ImageIcon, Link as LinkIcon, Crop
+  Image as ImageIcon, Link as LinkIcon, Crop, GripVertical
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
@@ -82,6 +82,11 @@ const ArtworkBatchesPage: React.FC = () => {
   })
   const [activeSection, setActiveSection] = useState<string>('all')
   const [sectionOrder, setSectionOrder] = useState<string[]>([])
+
+  // Section Drag and Drop States
+  const [draggedSection, setDraggedSection] = useState<string | null>(null)
+  const [dragOverSection, setDragOverSection] = useState<string | null>(null)
+  const [activeDragSection, setActiveDragSection] = useState<string | null>(null)
 
   useEffect(() => {
     localStorage.setItem('ap_created_sections', JSON.stringify(createdSections))
@@ -1528,6 +1533,59 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   };
 
+  const handleReorderSections = async (draggedName: string, targetName: string) => {
+    if (!selectedBatch || draggedName === targetName) return;
+
+    const list = [...sectionsList];
+    const draggedIdx = list.indexOf(draggedName);
+    const targetIdx = list.indexOf(targetName);
+    if (draggedIdx === -1 || targetIdx === -1) return;
+
+    // Remove the dragged element
+    const [removed] = list.splice(draggedIdx, 1);
+    // Insert at target index
+    list.splice(targetIdx, 0, removed);
+
+    // Save the new order in state immediately for an instant UI update
+    setSectionOrder(list);
+
+    // Save to the database
+    try {
+      const { data: existingItems, error: findError } = await supabase
+        .from('artwork_batch_items')
+        .select('id')
+        .eq('batch_id', selectedBatch.id)
+        .eq('name', '__section_order__');
+
+      if (findError) throw findError;
+
+      if (existingItems && existingItems.length > 0) {
+        const { error: updateError } = await supabase
+          .from('artwork_batch_items')
+          .update({
+            ai_analysis: { section_order: list },
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', existingItems[0].id);
+        
+        if (updateError) throw updateError;
+      } else {
+        const { error: insertError } = await supabase
+          .from('artwork_batch_items')
+          .insert({
+            batch_id: selectedBatch.id,
+            name: '__section_order__',
+            file_url: '',
+            ai_analysis: { section_order: list }
+          });
+        
+        if (insertError) throw insertError;
+      }
+    } catch (err) {
+      console.error('Failed to save section order:', err);
+    }
+  };
+
   const handleMoveItemToSection = async (item: ArtworkBatchItem, targetSection: string) => {
     try {
       const updatedAnalysis = {
@@ -2916,10 +2974,61 @@ const ArtworkBatchesPage: React.FC = () => {
                       const isEmpty = sectionItems.length === 0
                       
                       return (
-                        <div key={secName} className="bg-white rounded-2xl border border-gray-200 p-6 space-y-6 shadow-sm">
+                        <div 
+                          key={secName} 
+                          draggable={activeDragSection === secName}
+                          onDragStart={(e) => {
+                            e.dataTransfer.effectAllowed = 'move'
+                            setDraggedSection(secName)
+                          }}
+                          onDragEnd={() => {
+                            setDraggedSection(null)
+                            setActiveDragSection(null)
+                            setDragOverSection(null)
+                          }}
+                          onDragOver={(e) => {
+                            if (draggedSection) {
+                              e.preventDefault()
+                            }
+                          }}
+                          onDragEnter={() => {
+                            if (draggedSection && draggedSection !== secName) {
+                              setDragOverSection(secName)
+                            }
+                          }}
+                          onDragLeave={() => {
+                            setDragOverSection(null)
+                          }}
+                          onDrop={async (e) => {
+                            if (draggedSection) {
+                              e.preventDefault()
+                              setDragOverSection(null)
+                              await handleReorderSections(draggedSection, secName)
+                              setDraggedSection(null)
+                              setActiveDragSection(null)
+                            }
+                          }}
+                          className={`bg-white rounded-2xl border p-6 space-y-6 shadow-sm transition-all duration-200 ${
+                            draggedSection === secName 
+                              ? 'opacity-40 border-dashed border-primary-300 scale-[0.99] bg-gray-50' 
+                              : dragOverSection === secName 
+                              ? 'border-primary-500 ring-2 ring-primary-500/20 translate-y-1' 
+                              : 'border-gray-200 hover:border-gray-300'
+                          }`}
+                        >
                           {/* Section Header */}
                           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-4">
                             <div className="flex items-center gap-3">
+                              {/* Grip Handle for Reordering */}
+                              <div
+                                onMouseDown={() => setActiveDragSection(secName)}
+                                onMouseUp={() => setActiveDragSection(null)}
+                                className="cursor-grab active:cursor-grabbing p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition"
+                                title="Drag to reorder section"
+                              >
+                                <GripVertical className="h-4 w-4" />
+                              </div>
+
                               <SectionTitleEditor 
                                 name={secName} 
                                 onSave={(newName) => handleRenameSection(secName, newName)} 

@@ -257,6 +257,102 @@ export default function SmartDegassingStickerPage() {
             </div>
           </div>
 
+          {/* Functional Performance Testing Videos Block */}
+          <div className="border-4 border-black bg-white p-6 md:p-8 rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-16">
+            <span className="inline-block bg-[#00FFFF] border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4 font-mono text-black">
+              VALVE_PERFORMANCE_TEST
+            </span>
+            <h3 className="font-black text-2xl md:text-4xl uppercase tracking-tighter leading-none mb-4">
+              FUNCTIONAL PERFORMANCE TESTING VIDEOS
+            </h3>
+            <p className="font-['Space_Grotesk'] text-base font-bold text-neutral-800 mb-8 max-w-3xl leading-snug">
+              We subject our venting solutions to extreme localized pressure. Watch the comparative testing videos below to see the physical performance of our smart degassing stickers vs. standard coffee valves:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Video 1: Leak-proof */}
+              <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
+                <div>
+                  <div className="aspect-video bg-black border-2 border-black overflow-hidden relative mb-4">
+                    <video
+                      src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781061880450_mn5s9twgw7.mp4"
+                      controls
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="inline-block bg-green-600 text-white text-[10px] font-black uppercase px-2 py-0.5 mb-2 font-mono border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                    PASSED / 测验合格
+                  </div>
+                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">Leak-Proof Valve Test</h4>
+                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">智能排气阀挤压测试</p>
+                  <p className="text-xs text-neutral-700 font-bold leading-relaxed font-['Space_Grotesk'] mb-3">
+                    Watch our specialized flat square valve (AO002) in action under a severe squeeze test. Even when localized pressure is applied to the liquid-rich pouch, the hydrophobic membrane holds firm, preventing a single drop of liquid or sauce from escaping while allowing gas to vent.
+                  </p>
+                </div>
+                <div className="mt-4 border-t-2 border-black pt-3 text-[11px] font-bold font-mono text-neutral-500 italic leading-relaxed">
+                  对包装袋进行大力挤压时，内部空气与气体得以自由排出，而液体被100%封锁在内，即使在强压力下也无任何渗漏。
+                </div>
+              </div>
+
+              {/* Video 2: Failed Coffee Valve */}
+              <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
+                <div>
+                  <div className="aspect-video bg-black border-2 border-black overflow-hidden relative mb-4">
+                    <video
+                      src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781062000337_s34sw1mer8a.mp4"
+                      controls
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="inline-block bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 mb-2 font-mono border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                    FAILED / 无法防漏
+                  </div>
+                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">Standard Coffee Valve</h4>
+                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">普通咖啡阀挤压测试</p>
+                  <p className="text-xs text-neutral-700 font-bold leading-relaxed font-['Space_Grotesk'] mb-3">
+                    Standard round coffee valves are designed only for dry gases. Under liquid squeeze pressure, the internal seal fails, leading to immediate liquid leak. This highlights why standard coffee valves are not suitable for liquid-rich foods.
+                  </p>
+                </div>
+                <div className="mt-4 border-t-2 border-black pt-3 text-[11px] font-bold font-mono text-neutral-500 italic leading-relaxed">
+                  该阀门仅针对干燥气体设计，在酱汁液体挤压下，其内部橡胶密封圈失效，导致液体立刻渗漏。这说明了普通咖啡阀不适用于富含液体的食品。
+                </div>
+              </div>
+
+              {/* Video 3: Active Degassing */}
+              <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
+                <div>
+                  <div className="aspect-video bg-black border-2 border-black overflow-hidden relative mb-4">
+                    <video
+                      src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781187167584_l98hchl2bfd.mp4"
+                      controls
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="inline-block bg-blue-600 text-white text-[10px] font-black uppercase px-2 py-0.5 mb-2 font-mono border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                    ACTIVE VENTING / 正在排气
+                  </div>
+                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">Active Venting Demo</h4>
+                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">单向排气过程演示</p>
+                  <p className="text-xs text-neutral-700 font-bold leading-relaxed font-['Space_Grotesk'] mb-3">
+                    Close-up showing carbon dioxide gas bubble venting under pressure while completely blocking liquid backflow. The valve maintains physical seal integrity throughout the off-gassing process.
+                  </p>
+                </div>
+                <div className="mt-4 border-t-2 border-black pt-3 text-[11px] font-bold font-mono text-neutral-500 italic leading-relaxed">
+                  近距离观察二氧化碳气体在微小气压下排出，同时彻底阻断外部空气和液体倒流。在整个排气过程中，阀门始终保持其物理密封。
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div 
               onClick={() => setLightboxImage('/imgs/function/pouch_production_line_valves.png')}
