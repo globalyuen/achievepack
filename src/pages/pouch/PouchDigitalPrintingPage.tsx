@@ -1,6 +1,7 @@
 import { Cpu, Zap, Palette, CheckCircle, X, DollarSign, Clock, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../components/pouch/PouchLayout'
 
 // ============================================
@@ -14,80 +15,82 @@ import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 // ============================================
 
 export default function PouchDigitalPrintingPage() {
+  const { t } = useTranslation()
+
   const ADVANTAGES = [
     {
       icon: Zap,
-      title: "Start with Just 500!",
-      desc: "No $1,500 plate fees like traditional printing",
+      title: t('pouchDigitalPrintingPage.advantages.items.0.title'),
+      desc: t('pouchDigitalPrintingPage.advantages.items.0.desc'),
       color: "text-yellow-600"
     },
     {
       icon: Palette,
-      title: "Unlimited Colors",
-      desc: "Full-color CMYK printing at no extra cost",
+      title: t('pouchDigitalPrintingPage.advantages.items.1.title'),
+      desc: t('pouchDigitalPrintingPage.advantages.items.1.desc'),
       color: "text-blue-600"
     },
     {
       icon: Clock,
-      title: "Super Fast",
-      desc: "2-3 weeks turnaround vs 6-8 weeks traditional",
+      title: t('pouchDigitalPrintingPage.advantages.items.2.title'),
+      desc: t('pouchDigitalPrintingPage.advantages.items.2.desc'),
       color: "text-green-600"
     },
     {
       icon: Sparkles,
-      title: "Easy Updates",
-      desc: "Change designs anytime—no new plates needed!",
+      title: t('pouchDigitalPrintingPage.advantages.items.3.title'),
+      desc: t('pouchDigitalPrintingPage.advantages.items.3.desc'),
       color: "text-purple-600"
     }
   ]
 
   const PERFECT_FOR = [
-    "Startups testing the market",
-    "Multiple product flavors/SKUs",
-    "Seasonal or limited editions",
-    "Batch codes & QR codes",
-    "Small batch artisan brands",
-    "Crowdfunding projects",
-    "Colorful photography designs",
-    "Frequent design changes"
+    t('pouchDigitalPrintingPage.perfectFor.items.0'),
+    t('pouchDigitalPrintingPage.perfectFor.items.1'),
+    t('pouchDigitalPrintingPage.perfectFor.items.2'),
+    t('pouchDigitalPrintingPage.perfectFor.items.3'),
+    t('pouchDigitalPrintingPage.perfectFor.items.4'),
+    t('pouchDigitalPrintingPage.perfectFor.items.5'),
+    t('pouchDigitalPrintingPage.perfectFor.items.6'),
+    t('pouchDigitalPrintingPage.perfectFor.items.7'),
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Digital Printing for Pouches | Start with 500 Units | POUCH.ECO</title>
-        <meta name="description" content="Print full-color pouches from just 500 units! No plate fees, unlimited colors, fast turnaround. Perfect for startups and small brands testing products." />
+        <title>{t('pouchDigitalPrintingPage.meta.title')}</title>
+        <meta name="description" content={t('pouchDigitalPrintingPage.meta.description')} />
         <link rel="canonical" href="https://pouch.eco/printing/digital" />
-        <meta property="og:title" content="Digital Printing for Pouches | Low MOQ from 500" />
-        <meta property="og:description" content="Full-color digital printing with no plate fees! Start from 500 units with fast turnaround." />
+        <meta property="og:title" content={t('pouchDigitalPrintingPage.meta.ogTitle')} />
+        <meta property="og:description" content={t('pouchDigitalPrintingPage.meta.ogDescription')} />
         <meta property="og:url" content="https://pouch.eco/printing/digital" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Digital Printing | Low MOQ Pouches" />
-        <meta name="twitter:description" content="Start with 500 units, no plate fees, unlimited colors!" />
+        <meta name="twitter:title" content={t('pouchDigitalPrintingPage.meta.twitterTitle')} />
+        <meta name="twitter:description" content={t('pouchDigitalPrintingPage.meta.twitterDescription')} />
       </Helmet>
 
       {/* Hero */}
       <section className="pt-12 pb-16 px-4 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]">
         <div className="max-w-5xl mx-auto">
           <div className="mb-6">
-            <NeoBadge color="bg-[#00FFFF]">DIGITAL PRINTING</NeoBadge>
+            <NeoBadge color="bg-[#00FFFF]">{t('pouchDigitalPrintingPage.hero.badge')}</NeoBadge>
           </div>
 
           <h1 className="font-black text-5xl md:text-7xl leading-none mb-6">
-            Digital Printing<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">From Just 500 Units!</span>
+            {t('pouchDigitalPrintingPage.hero.titleLine1')}<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('pouchDigitalPrintingPage.hero.titleLine2')}</span>
           </h1>
 
           <p className="text-2xl text-gray-700 mb-8 max-w-3xl">
-            <strong>No plate fees. Unlimited colors. Fast turnaround.</strong> Perfect for startups, small brands, and anyone who wants beautiful full-color pouches without breaking the bank!
+            <strong>{t('pouchDigitalPrintingPage.hero.descriptionBold')}</strong> {t('pouchDigitalPrintingPage.hero.descriptionRest')}
           </p>
 
           <div className="flex gap-4 flex-wrap">
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">
-              Get Free Quote
+              {t('pouchDigitalPrintingPage.hero.ctaQuote')}
             </NeoButton>
-            <NeoButton variant="secondary">See Examples</NeoButton>
+            <NeoButton variant="secondary">{t('pouchDigitalPrintingPage.hero.ctaExamples')}</NeoButton>
           </div>
         </div>
       </section>
@@ -95,7 +98,7 @@ export default function PouchDigitalPrintingPage() {
       {/* Why Digital? */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-black text-4xl mb-12 uppercase">Why Choose Digital Printing?</h2>
+          <h2 className="font-black text-4xl mb-12 uppercase">{t('pouchDigitalPrintingPage.advantages.heading')}</h2>
           
           <div className="grid md:grid-cols-2 gap-6">
             {ADVANTAGES.map((adv, idx) => (
@@ -114,57 +117,57 @@ export default function PouchDigitalPrintingPage() {
       {/* Digital vs Traditional */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-black text-4xl mb-12 uppercase text-center">Digital vs Traditional Printing</h2>
+          <h2 className="font-black text-4xl mb-12 uppercase text-center">{t('pouchDigitalPrintingPage.comparison.heading')}</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {/* Digital */}
             <NeoCard color="bg-green-100" className="border-green-400">
               <div className="flex items-center gap-3 mb-4">
                 <Cpu className="w-10 h-10 text-green-600" />
-                <h3 className="font-black text-2xl">Digital</h3>
+                <h3 className="font-black text-2xl">{t('pouchDigitalPrintingPage.comparison.digital.title')}</h3>
               </div>
               
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">MOQ: 500 units</p>
-                    <p className="text-sm text-gray-600">Perfect for testing!</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.digital.moqLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.digital.moqDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">No plate fees</p>
-                    <p className="text-sm text-gray-600">Save $1,500 upfront</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.digital.noPlateLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.digital.noPlateDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">Unlimited colors</p>
-                    <p className="text-sm text-gray-600">CMYK + White ink</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.digital.colorsLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.digital.colorsDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">2-3 weeks lead time</p>
-                    <p className="text-sm text-gray-600">Fast turnaround</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.digital.leadTimeLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.digital.leadTimeDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">Easy design changes</p>
-                    <p className="text-sm text-gray-600">No re-plating needed</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.digital.designLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.digital.designDesc')}</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-white border-2 border-black p-4">
-                <p className="font-black text-lg mb-1">Best for:</p>
-                <p className="text-sm">500-5,000 units per run, multiple SKUs, frequent updates</p>
+                <p className="font-black text-lg mb-1">{t('pouchDigitalPrintingPage.comparison.digital.bestFor')}</p>
+                <p className="text-sm">{t('pouchDigitalPrintingPage.comparison.digital.bestForDesc')}</p>
               </div>
             </NeoCard>
 
@@ -172,50 +175,50 @@ export default function PouchDigitalPrintingPage() {
             <NeoCard color="bg-blue-100" className="border-blue-400">
               <div className="flex items-center gap-3 mb-4">
                 <Palette className="w-10 h-10 text-blue-600" />
-                <h3 className="font-black text-2xl">Traditional</h3>
+                <h3 className="font-black text-2xl">{t('pouchDigitalPrintingPage.comparison.traditional.title')}</h3>
               </div>
               
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-2">
                   <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">MOQ: 10,000+ units</p>
-                    <p className="text-sm text-gray-600">Too much for testing</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.traditional.moqLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.traditional.moqDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">Plate fees: $1,500+</p>
-                    <p className="text-sm text-gray-600">Per color, per design</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.traditional.plateLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.traditional.plateDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">Pantone colors</p>
-                    <p className="text-sm text-gray-600">Exact brand matching</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.traditional.colorsLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.traditional.colorsDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">6-8 weeks lead time</p>
-                    <p className="text-sm text-gray-600">Longer wait</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.traditional.leadTimeLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.traditional.leadTimeDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold">Design changes costly</p>
-                    <p className="text-sm text-gray-600">New plates required</p>
+                    <p className="font-bold">{t('pouchDigitalPrintingPage.comparison.traditional.designLabel')}</p>
+                    <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.comparison.traditional.designDesc')}</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-white border-2 border-black p-4">
-                <p className="font-black text-lg mb-1">Best for:</p>
-                <p className="text-sm">10,000+ units, exact Pantone matching, lower per-unit cost</p>
+                <p className="font-black text-lg mb-1">{t('pouchDigitalPrintingPage.comparison.traditional.bestFor')}</p>
+                <p className="text-sm">{t('pouchDigitalPrintingPage.comparison.traditional.bestForDesc')}</p>
               </div>
             </NeoCard>
           </div>
@@ -225,7 +228,7 @@ export default function PouchDigitalPrintingPage() {
       {/* Perfect For */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-black text-4xl mb-8 uppercase">Perfect For...</h2>
+          <h2 className="font-black text-4xl mb-8 uppercase">{t('pouchDigitalPrintingPage.perfectFor.heading')}</h2>
           
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {PERFECT_FOR.map((item, idx) => (
@@ -242,40 +245,40 @@ export default function PouchDigitalPrintingPage() {
       <section className="py-16 px-4 bg-[#00FFFF]">
         <div className="max-w-4xl mx-auto">
           <NeoCard className="bg-white">
-            <h2 className="font-black text-3xl mb-8 text-center">Pricing Example</h2>
+            <h2 className="font-black text-3xl mb-8 text-center">{t('pouchDigitalPrintingPage.pricing.heading')}</h2>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="text-center">
                 <div className="bg-green-100 border-2 border-black p-4 mb-2">
                   <p className="font-black text-4xl text-green-600">500</p>
-                  <p className="text-sm">units</p>
+                  <p className="text-sm">{t('pouchDigitalPrintingPage.pricing.units')}</p>
                 </div>
-                <p className="font-bold">$0.80/unit</p>
-                <p className="text-sm text-gray-600">Total: $400</p>
+                <p className="font-bold">{t('pouchDigitalPrintingPage.pricing.price500')}</p>
+                <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.pricing.total500')}</p>
               </div>
               
               <div className="text-center">
                 <div className="bg-blue-100 border-2 border-black p-4 mb-2">
                   <p className="font-black text-4xl text-blue-600">1,000</p>
-                  <p className="text-sm">units</p>
+                  <p className="text-sm">{t('pouchDigitalPrintingPage.pricing.units')}</p>
                 </div>
-                <p className="font-bold">$0.65/unit</p>
-                <p className="text-sm text-gray-600">Total: $650</p>
+                <p className="font-bold">{t('pouchDigitalPrintingPage.pricing.price1000')}</p>
+                <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.pricing.total1000')}</p>
               </div>
               
               <div className="text-center">
                 <div className="bg-purple-100 border-2 border-black p-4 mb-2">
                   <p className="font-black text-4xl text-purple-600">2,000</p>
-                  <p className="text-sm">units</p>
+                  <p className="text-sm">{t('pouchDigitalPrintingPage.pricing.units')}</p>
                 </div>
-                <p className="font-bold">$0.55/unit</p>
-                <p className="text-sm text-gray-600">Total: $1,100</p>
+                <p className="font-bold">{t('pouchDigitalPrintingPage.pricing.price2000')}</p>
+                <p className="text-sm text-gray-600">{t('pouchDigitalPrintingPage.pricing.total2000')}</p>
               </div>
             </div>
 
             <div className="bg-gray-50 border-2 border-black p-4 text-center">
-              <p className="text-sm text-gray-600 mb-2">Prices include full-color printing on both sides</p>
-              <p className="text-xs text-gray-500">Actual pricing depends on size, material, and features</p>
+              <p className="text-sm text-gray-600 mb-2">{t('pouchDigitalPrintingPage.pricing.includesNote')}</p>
+              <p className="text-xs text-gray-500">{t('pouchDigitalPrintingPage.pricing.disclaimer')}</p>
             </div>
           </NeoCard>
         </div>
@@ -284,32 +287,32 @@ export default function PouchDigitalPrintingPage() {
       {/* What You Get */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-black text-4xl mb-12 uppercase">What's Included</h2>
+          <h2 className="font-black text-4xl mb-12 uppercase">{t('pouchDigitalPrintingPage.included.heading')}</h2>
           
           <NeoCard className="bg-white">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-black text-xl mb-4">✅ Included in Every Order:</h3>
+                <h3 className="font-black text-xl mb-4">{t('pouchDigitalPrintingPage.included.includedTitle')}</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Full CMYK color printing (both sides)</li>
-                  <li>• White ink underbase (on dark materials)</li>
-                  <li>• Free design file review</li>
-                  <li>• Digital proof before production</li>
-                  <li>• Quality check photos</li>
-                  <li>• Standard resealable zipper</li>
-                  <li>• Tear notch</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.includedItems.0')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.includedItems.1')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.includedItems.2')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.includedItems.3')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.includedItems.4')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.includedItems.5')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.includedItems.6')}</li>
                 </ul>
               </div>
               
               <div>
-                <h3 className="font-black text-xl mb-4">💰 Optional Add-Ons:</h3>
+                <h3 className="font-black text-xl mb-4">{t('pouchDigitalPrintingPage.included.addOnsTitle')}</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Degassing valve (+$0.05/unit)</li>
-                  <li>• Hang hole (+$0.02/unit)</li>
-                  <li>• Custom sizes (free)</li>
-                  <li>• Metallic printing effect (+$0.10/unit)</li>
-                  <li>• Matte/Gloss lamination (free)</li>
-                  <li>• Batch codes & QR codes (free)</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.addOnItems.0')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.addOnItems.1')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.addOnItems.2')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.addOnItems.3')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.addOnItems.4')}</li>
+                  <li>• {t('pouchDigitalPrintingPage.included.addOnItems.5')}</li>
                 </ul>
               </div>
             </div>
@@ -321,13 +324,13 @@ export default function PouchDigitalPrintingPage() {
       <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-black text-4xl md:text-5xl mb-6 uppercase">
-            Ready to Print Your Pouches?
+            {t('pouchDigitalPrintingPage.cta.heading')}
           </h2>
           <p className="text-xl mb-8 text-gray-300">
-            Get a free quote in 24 hours! Upload your design or start from scratch.
+            {t('pouchDigitalPrintingPage.cta.description')}
           </p>
           <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">
-            Get Free Quote Now
+            {t('pouchDigitalPrintingPage.cta.button')}
           </NeoButton>
         </div>
       </section>

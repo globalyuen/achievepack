@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 import { Ruler, Package, Download, Zap, CheckCircle, ArrowRight, Eye, Calculator, Maximize2, Settings, ArrowRightLeft, X, Box, Info, Scale, Layers, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -7,6 +8,7 @@ import { getBaseUrl } from '../../utils/domain'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchSizeGuidePage() {
+  const { t } = useTranslation()
   const baseUrl = getBaseUrl()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
@@ -41,10 +43,10 @@ export default function PouchSizeGuidePage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>Pouch Size Guide | Visual Reference & Capacity Chart | Pouch.eco</title>
-        <meta name="description" content="Ultimate size guide for stand-up pouches and flat bottom bags. Compare sizes to soda cans, check metric/imperial capacities, and download dielines." />
+        <title>{t('pouchSizeGuidePage.meta.title')}</title>
+        <meta name="description" content={t('pouchSizeGuidePage.meta.description')} />
         <link rel="canonical" href={`${baseUrl}/size-guide`} />
-        <meta name="keywords" content="pouch sizes, stand up pouch dimensions, flat bottom bag guide, packaging capacity chart, Pouch.eco" />
+        <meta name="keywords" content={t('pouchSizeGuidePage.meta.keywords')} />
       </Helmet>
 
       {/* Hero Section */}
@@ -53,18 +55,18 @@ export default function PouchSizeGuidePage() {
           <div className="grid md:grid-cols-12 gap-12 items-center">
             {/* Left Info Column */}
             <div className="md:col-span-7 text-center md:text-left space-y-6">
-              <NeoBadge color="lime">SIZE_PROTOCOL_V3.0</NeoBadge>
+              <NeoBadge color="lime">{t('pouchSizeGuidePage.hero.badge')}</NeoBadge>
               <h1 className="font-black text-6xl md:text-8xl leading-none uppercase">
-                Fit.<br/>
-                Feel.<br/>
-                <span className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Finish.</span>
+                {t('pouchSizeGuidePage.hero.heading1')}<br/>
+                {t('pouchSizeGuidePage.hero.heading2')}<br/>
+                <span className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t('pouchSizeGuidePage.hero.heading3')}</span>
               </h1>
               <p className="text-lg md:text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-5 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] leading-normal">
-                Ditch the guesswork. Use our visual reference system to find the exact pouch size for your brand. Metric, Imperial, and Volume comparisons included.
+                {t('pouchSizeGuidePage.hero.description')}
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <NeoButton variant="primary" to="/sample">Order Size Test Pack</NeoButton>
-                <NeoButton variant="secondary" href="https://calendly.com/30-min-free-packaging-consultancy">Free Consultation</NeoButton>
+                <NeoButton variant="primary" to="/sample">{t('pouchSizeGuidePage.hero.ctaPrimary')}</NeoButton>
+                <NeoButton variant="secondary" href="https://calendly.com/30-min-free-packaging-consultancy">{t('pouchSizeGuidePage.hero.ctaSecondary')}</NeoButton>
               </div>
             </div>
             {/* Right Hero Image Column */}
@@ -72,7 +74,7 @@ export default function PouchSizeGuidePage() {
               <div className="absolute inset-0 bg-black translate-x-3 translate-y-3 border-4 border-black" />
               <img 
                 src="/imgs/free/sizing-finder-hero.jpg" 
-                alt="Sizing Finder App Dashboard" 
+                alt={t('pouchSizeGuidePage.hero.heroAlt')} 
                 className="relative z-10 border-4 border-black w-full shadow-xl bg-white"
               />
             </div>
@@ -85,24 +87,24 @@ export default function PouchSizeGuidePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="magenta">MARKET_INTELLIGENCE</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl uppercase mt-6 italic">Volume vs.<br/>Weight.</h2>
+              <NeoBadge color="magenta">{t('pouchSizeGuidePage.density.badge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl uppercase mt-6 italic">{t('pouchSizeGuidePage.density.heading1')}<br/>{t('pouchSizeGuidePage.density.heading2')}</h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                The biggest mistake in packaging is sizing based solely on weight. 250g of puffed rice requires 10x the volume of 250g of salt. Use our density chart to calculate your exact ML requirement.
+                {t('pouchSizeGuidePage.density.description')}
               </p>
               <div className="mt-8 overflow-hidden border-4 border-black">
                 <table className="w-full text-left font-['JetBrains_Mono'] text-sm">
                   <thead className="bg-black text-white">
                     <tr>
-                      <th className="p-4">PRODUCT</th>
-                      <th className="p-4">DENSITY</th>
-                      <th className="p-4">VOL. FACTOR</th>
+                      <th className="p-4">{t('pouchSizeGuidePage.density.tableHeaders.product')}</th>
+                      <th className="p-4">{t('pouchSizeGuidePage.density.tableHeaders.density')}</th>
+                      <th className="p-4">{t('pouchSizeGuidePage.density.tableHeaders.volFactor')}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y-2 divide-black/10">
                     {productDensity.map((p, i) => (
                       <tr key={i} className="hover:bg-yellow-50 transition-colors">
-                        <td className="p-4 font-black">{p.product}</td>
+                        <td className="p-4 font-black">{t(`pouchSizeGuidePage.productDensity.${i}.product`)}</td>
                         <td className="p-4">{p.density}</td>
                         <td className="p-4 font-bold text-magenta-600">{p.factor}</td>
                       </tr>
@@ -115,7 +117,7 @@ export default function PouchSizeGuidePage() {
               <div className="absolute inset-0 bg-yellow-400 translate-x-4 translate-y-4 border-4 border-black" />
               <img 
                 src="/imgs/seo-photos/a_size_reference_dimensions_7506199.webp" 
-                alt="Pouch Size Reference Dimensions" 
+                alt={t('pouchSizeGuidePage.density.altText')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -127,18 +129,18 @@ export default function PouchSizeGuidePage() {
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
-            <NeoBadge color="cyan">VISUAL_SODA_CAN_REF</NeoBadge>
-            <h2 className="font-black text-5xl md:text-8xl uppercase mt-4">Scale Check.</h2>
-            <p className="font-['JetBrains_Mono'] text-xl mt-4 opacity-70 italic font-bold">Standard 330ml Can (122mm Height) used for scale.</p>
+            <NeoBadge color="cyan">{t('pouchSizeGuidePage.scaleCheck.badge')}</NeoBadge>
+            <h2 className="font-black text-5xl md:text-8xl uppercase mt-4">{t('pouchSizeGuidePage.scaleCheck.heading')}</h2>
+            <p className="font-['JetBrains_Mono'] text-xl mt-4 opacity-70 italic font-bold">{t('pouchSizeGuidePage.scaleCheck.subtitle')}</p>
           </div>
 
           {/* Stand-Up Pouches */}
           <div className="mb-24">
             <h3 className="inline-block bg-black text-[#D4FF00] px-8 py-3 font-black text-3xl mb-12 transform -rotate-1 border-4 border-black">
-              STAND-UP RANGE
+              {t('pouchSizeGuidePage.standUp.heading')}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
-              {standUpSizes.map((item) => (
+              {standUpSizes.map((item, i) => (
                 <motion.div 
                   key={item.size}
                   whileHover={{ y: -12, rotate: 1 }}
@@ -157,7 +159,7 @@ export default function PouchSizeGuidePage() {
                       <span className="text-[10px] bg-black text-[#D4FF00] px-2 py-0.5 font-black">{item.capacity}</span>
                     </div>
                     <p className="text-[10px] font-bold font-['JetBrains_Mono'] opacity-60 leading-tight">{item.dim}</p>
-                    <p className="text-[9px] mt-3 font-black uppercase text-magenta-600 border-t border-black/10 pt-2">{item.bestFor}</p>
+                    <p className="text-[9px] mt-3 font-black uppercase text-magenta-600 border-t border-black/10 pt-2">{t(`pouchSizeGuidePage.standUp.sizes.${i}.bestFor`)}</p>
                   </div>
                 </motion.div>
               ))}
@@ -167,10 +169,10 @@ export default function PouchSizeGuidePage() {
           {/* Flat Bottom Bags */}
           <div className="mb-12">
             <h3 className="inline-block bg-[#00FFFF] text-black px-8 py-3 font-black text-3xl mb-12 transform rotate-1 border-4 border-black">
-              FLAT BOTTOM RANGE
+              {t('pouchSizeGuidePage.flatBottom.heading')}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
-              {flatBottomSizes.map((item) => (
+              {flatBottomSizes.map((item, i) => (
                 <motion.div 
                   key={item.size}
                   whileHover={{ y: -12, rotate: -1 }}
@@ -189,7 +191,7 @@ export default function PouchSizeGuidePage() {
                       <span className="text-[10px] bg-cyan-600 text-white px-2 py-0.5 font-black">{item.capacity}</span>
                     </div>
                     <p className="text-[10px] font-bold font-['JetBrains_Mono'] opacity-60 leading-tight">{item.dim}</p>
-                    <p className="text-[9px] mt-3 font-black uppercase text-blue-600 border-t border-black/10 pt-2">{item.bestFor}</p>
+                    <p className="text-[9px] mt-3 font-black uppercase text-blue-600 border-t border-black/10 pt-2">{t(`pouchSizeGuidePage.flatBottom.sizes.${i}.bestFor`)}</p>
                   </div>
                 </motion.div>
               ))}
@@ -203,18 +205,18 @@ export default function PouchSizeGuidePage() {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
           <NeoCard color="bg-white">
             <Ruler className="w-12 h-12 mb-6 text-magenta-600" />
-            <h4 className="font-black text-2xl uppercase mb-4">Precision Tolerances</h4>
-            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Standard manufacturing tolerance is +/- 2mm. Ensure your artwork safe-zone is at least 5mm from all edges and seals.</p>
+            <h4 className="font-black text-2xl uppercase mb-4">{t('pouchSizeGuidePage.techCards.precision.title')}</h4>
+            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">{t('pouchSizeGuidePage.techCards.precision.description')}</p>
           </NeoCard>
           <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(212,255,0,1)]">
             <Settings className="w-12 h-12 mb-6 text-green-600" />
-            <h4 className="font-black text-2xl uppercase mb-4">Headspace Logic</h4>
-            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Always allow 40mm for the heat seal and zipper mechanism. Filling above the zipper line will result in structural seal failure.</p>
+            <h4 className="font-black text-2xl uppercase mb-4">{t('pouchSizeGuidePage.techCards.headspace.title')}</h4>
+            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">{t('pouchSizeGuidePage.techCards.headspace.description')}</p>
           </NeoCard>
           <NeoCard color="bg-white">
             <Download className="w-12 h-12 mb-6 text-blue-600" />
-            <h4 className="font-black text-2xl uppercase mb-4">Dieline Access</h4>
-            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Downloadable PDF/AI dielines are available for all standard sizes once your material selection is finalized.</p>
+            <h4 className="font-black text-2xl uppercase mb-4">{t('pouchSizeGuidePage.techCards.dieline.title')}</h4>
+            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">{t('pouchSizeGuidePage.techCards.dieline.description')}</p>
           </NeoCard>
         </div>
       </section>
@@ -222,15 +224,15 @@ export default function PouchSizeGuidePage() {
       {/* CTA Section */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="magenta">VERIFY_BEFORE_ORDER</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Size.<br/>Sample.</h2>
+          <NeoBadge color="magenta">{t('pouchSizeGuidePage.cta.badge')}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">{t('pouchSizeGuidePage.cta.heading1')}<br/>{t('pouchSizeGuidePage.cta.heading2')}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-white opacity-80 max-w-2xl mx-auto">
-            Avoid costly sizing mistakes. Order our comprehensive "Size Kit" to test-fill your products in real-world conditions.
+            {t('pouchSizeGuidePage.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-[#D4FF00] !text-black">Request Size Kit</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-[#D4FF00] !text-black">{t('pouchSizeGuidePage.cta.ctaPrimary')}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to Sizing Expert
+              {t('pouchSizeGuidePage.cta.ctaSecondary')}
             </NeoButton>
           </div>
         </div>
@@ -255,9 +257,9 @@ export default function PouchSizeGuidePage() {
               className="relative border-8 border-white bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={selectedImage} alt="Size Detail" className="max-w-full max-h-[85vh] object-contain transition-all duration-500" />
+              <img src={selectedImage} alt={t('pouchSizeGuidePage.lightbox.altText')} className="max-w-full max-h-[85vh] object-contain transition-all duration-500" />
               <div className="absolute -bottom-4 left-4 right-4 bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-black p-4 text-center border-4 border-white uppercase text-xl">
-                Visual Comparison Mode: Standard 330ml Can Reference
+                {t('pouchSizeGuidePage.lightbox.caption')}
               </div>
             </motion.div>
           </motion.div>

@@ -20343,5 +20343,1025 @@
             "iso14001Alt": "ISO 14001",
             "speakToExpert": "Parler à un Expert"
         }
+    },
+    "pouchMaterialCatalogPage": {
+        "meta": {
+            "title": "Catalogue de Matériaux | Choisissez le Matériau Parfait pour Pochettes | POUCH.ECO",
+            "description": "Comparez tous les matériaux pour pochettes ! Papier kraft, films transparents, finitions mates. Trouvez la combinaison parfaite d'apparence, de barrière et de prix pour votre produit.",
+            "ogTitle": "Catalogue de Matériaux | Tous les Matériaux de Pochettes Comparés",
+            "ogDescription": "Kraft, Transparent, Mat - comparez tous les matériaux côte à côte !",
+            "twitterTitle": "Catalogue de Matériaux | Matériaux pour Pochettes",
+            "twitterDescription": "Comparez les matériaux kraft, transparents et mats pour vos pochettes"
+        },
+        "hero": {
+            "badge": "CATALOGUE DE MATÉRIAUX",
+            "title": "Catalogue de Matériaux",
+            "titleHighlight": "Trouvez Votre Correspondance Parfaite",
+            "description": "Vous ne savez pas quel matériau choisir ?",
+            "descriptionSub": "Comparez toutes nos options côte à côte ! Nous vous aiderons à trouver la combinaison parfaite d'apparence, de protection et de prix.",
+            "ctaExpert": "Obtenir l'Aide d'un Expert",
+            "ctaSamples": "Demander des Échantillons"
+        },
+        "quickGuide": {
+            "title": "Guide de Décision Rapide",
+            "items": [
+                {
+                    "question": "Vous voulez un look éco naturel ?",
+                    "answer": "Kraft Duplex ou Kraft Triplex"
+                },
+                {
+                    "question": "Besoin de montrer le produit ?",
+                    "answer": "Transparent Haute ou Moyenne Barrière"
+                },
+                {
+                    "question": "Vous voulez un look premium/luxe ?",
+                    "answer": "Black Matte ou Matte White"
+                },
+                {
+                    "question": "Durée de conservation maximale ?",
+                    "answer": "Kraft Triplex ou Transparent Haute Barrière"
+                }
+            ]
+        },
+        "materials": {
+            "title": "Tous les Matériaux",
+            "barrierLabel": "Barrière",
+            "shelfLifeLabel": "Durée de conservation :",
+            "featuresLabel": "Caractéristiques :",
+            "bestForLabel": "Idéal pour :",
+            "learnMore": "En Savoir Plus",
+            "items": {
+                "kraftTriplex": {
+                    "name": "Kraft Triplex",
+                    "tagline": "Look Éco Premium avec Protection Maximale",
+                    "barrier": "Haute",
+                    "shelf": "12-24 mois",
+                    "features": [
+                        "Extérieur kraft naturel",
+                        "Option fenêtre transparente",
+                        "Barrière en feuille d'aluminium",
+                        "Fraîcheur maximale"
+                    ],
+                    "bestFor": [
+                        "Café premium",
+                        "Compléments alimentaires",
+                        "Alimentation bébé",
+                        "Produits pharmaceutiques"
+                    ]
+                },
+                "kraftDuplex": {
+                    "name": "Kraft Duplex",
+                    "tagline": "Look Naturel, Protection Moyenne",
+                    "barrier": "Moyenne",
+                    "shelf": "6-12 mois",
+                    "features": [
+                        "Base en papier kraft",
+                        "Barrière métallisée",
+                        "Excellent rapport qualité-prix",
+                        "Ambiance éco-responsable"
+                    ],
+                    "bestFor": [
+                        "Café",
+                        "Thé",
+                        "Noix",
+                        "Fruits secs"
+                    ]
+                },
+                "clearHigh": {
+                    "name": "Transparent Haute Barrière",
+                    "tagline": "Voyez Votre Produit, Gardez-le Frais",
+                    "barrier": "Haute",
+                    "shelf": "12-18 mois",
+                    "features": [
+                        "Transparent",
+                        "Métallique sans aluminium",
+                        "Mettez en valeur le produit",
+                        "Barrière puissante"
+                    ],
+                    "bestFor": [
+                        "Snacks colorés",
+                        "Granola",
+                        "Friandises pour animaux",
+                        "Produits à fort attrait visuel"
+                    ]
+                },
+                "clearMedium": {
+                    "name": "Transparent Moyenne Barrière",
+                    "tagline": "Visibilité + Bonne Protection",
+                    "barrier": "Moyenne",
+                    "shelf": "6-12 mois",
+                    "features": [
+                        "Cristallin",
+                        "Couche métallisée",
+                        "Économique",
+                        "Visibilité du produit"
+                    ],
+                    "bestFor": [
+                        "Biscuits",
+                        "Bonbons",
+                        "Mélange de fruits secs",
+                        "Snacks sains"
+                    ]
+                },
+                "matteWhite": {
+                    "name": "Blanc Mat",
+                    "tagline": "Toile Vierge pour Votre Marque",
+                    "barrier": "Moyenne",
+                    "shelf": "6-12 mois",
+                    "features": [
+                        "Finition mate lisse",
+                        "Toucher premium",
+                        "Adapté à l'impression",
+                        "Esthétique moderne"
+                    ],
+                    "bestFor": [
+                        "Marques bien-être",
+                        "Produits biologiques",
+                        "Design minimaliste",
+                        "Positionnement premium"
+                    ]
+                },
+                "blackMatte": {
+                    "name": "Noir Mat",
+                    "tagline": "Audacieux et Luxueux",
+                    "barrier": "Moyenne",
+                    "shelf": "6-12 mois",
+                    "features": [
+                        "Noir profond",
+                        "Attrait luxueux",
+                        "Texture mate",
+                        "Présence remarquable en rayon"
+                    ],
+                    "bestFor": [
+                        "Café premium",
+                        "Protéine en poudre",
+                        "Snacks haut de gamme",
+                        "Marques de luxe"
+                    ]
+                }
+            }
+        },
+        "comparison": {
+            "title": "Comparaison Côte à Côte",
+            "colMaterial": "Matériau",
+            "colBarrier": "Barrière",
+            "colShelfLife": "Durée de Conservation",
+            "colLook": "Apparence",
+            "colPrice": "Prix"
+        },
+        "stillNotSure": {
+            "title": "Toujours Indécis ?",
+            "description": "Nous pouvons vous envoyer des <strong>échantillons physiques GRATUITS</strong> de n'importe quel matériau pour que vous puissiez toucher, sentir et voir la qualité par vous-même !",
+            "sampleKitTitle": "Le Kit d'Échantillons Comprend :",
+            "sampleItems": [
+                "3 à 5 échantillons de matériaux de votre choix",
+                "Exemples imprimés (si disponibles)",
+                "Guide de référence des tailles",
+                "Fiche de spécifications du matériau"
+            ],
+            "ctaRequestSamples": "Demander des Échantillons Gratuits"
+        },
+        "cta": {
+            "title": "Vous Avez Trouvé Votre Matériau Parfait ?",
+            "description": "Réservez une consultation gratuite et nous vous aiderons à finaliser votre choix !",
+            "button": "Commencer Maintenant"
+        }
+    },
+    "pouchProductsPage": {
+        "meta": {
+            "title": "Produits | POUCH.ECO",
+            "description": "Découvrez nos options de pochettes écologiques, y compris les matériaux compostables et recyclables. Faibles quantités minimales disponibles."
+        },
+        "hero": {
+            "badge": "CATALOGUE_V1",
+            "titleLine1": "Nos",
+            "titleLine2": "Produits",
+            "subtitle": "Tarification simple. Matériaux durables. Aucun frais caché."
+        },
+        "products": {
+            "0": {
+                "description": "La norme de l'industrie pour la présence en rayon. Parfait pour les snacks, le granola et les compléments alimentaires.",
+                "problem": "Votre marque doit se démarquer, mais l'impression personnalisée nécessite généralement une commande de plus de 10 000 sacs et des frais de clichés coûteux.",
+                "solution": "Nos pochettes Stand Up à impression numérique vous permettent de lancer un emballage professionnel à partir de seulement 500 unités — sans frais de cliché, livraison rapide.",
+                "features": {
+                    "0": "Design autoportant",
+                    "1": "Fermeture à glissière refermable",
+                    "2": "Attrait maximal en rayon"
+                }
+            },
+            "1": {
+                "description": "Le choix premium pour le café et les produits haut de gamme. Stabilité de type boîte avec les avantages du flexible.",
+                "problem": "Le café et le thé premium ont besoin de stabilité en rayon et d'une image de marque distinctive, ce que les pochettes standard offrent rarement.",
+                "solution": "Notre pochette à fond plat (Box Bottom) offre 5 faces imprimables et une stabilité maximale — donnant à votre produit un look haut de gamme.",
+                "features": {
+                    "0": "5 faces imprimables",
+                    "1": "Stabilité de type boîte",
+                    "2": "Apparence et toucher premium"
+                }
+            },
+            "2": {
+                "description": "L'alternative moderne aux bouteilles rigides. Plus légère, incassable et écologique.",
+                "problem": "Vendre des liquides en bouteilles est lourd, fragile et coûteux à expédier — réduisant vos marges.",
+                "solution": "Passez aux pochettes à bec flexible — plus légères, durables et utilisant 80 % moins de plastique que les bouteilles rigides. Parfaites pour les recharges.",
+                "features": {
+                    "0": "Bec anti-fuite",
+                    "1": "80 % moins de plastique",
+                    "2": "Expédition moins chère"
+                }
+            },
+            "3": {
+                "description": "Le moteur de conversion. Pochettes plates à 3 soudures, parfaites pour les portions individuelles et les échantillons.",
+                "problem": "Les clients veulent essayer avant d'acheter, mais un emballage d'échantillon générique dévalue votre marque.",
+                "solution": "Nos sachets à 3 soudures imprimés sur mesure offrent une expérience d'ouverture premium même pour les formats d'essai. Convertissez les curieux en acheteurs.",
+                "features": {
+                    "0": "Économique",
+                    "1": "Compatible courrier",
+                    "2": "Taux de conversion élevé"
+                }
+            },
+            "4": {
+                "description": "Le format café classique. Structure à quatre soudures avec panneaux latéraux extensibles.",
+                "problem": "Les torréfacteurs ont besoin d'une forme classique en bloc qui contient un volume maximal sans prendre trop de largeur en rayon.",
+                "solution": "Nos sacs à soufflets latéraux offrent une soudure quadruple pour une structure rigide et une grande capacité, sans frais de cliché.",
+                "features": {
+                    "0": "Forme café classique",
+                    "1": "Grande capacité de volume",
+                    "2": "Rigidité à soudure quadruple"
+                }
+            }
+        },
+        "labels": {
+            "moq": "QMC :",
+            "barrier": "BARRIÈRE :",
+            "theProblem": "LE_PROBLÈME :",
+            "theSolution": "LA_SOLUTION :",
+            "from": "À PARTIR DE",
+            "viewDetails": "Voir les détails",
+            "bookCall": "Réserver un appel"
+        }
+    },
+    "pouchReclosureOptionsPage": {
+        "meta": {
+            "title": "Options de Refermeture | Gardez vos Produits Frais & vos Clients Satisfaits | Pouch.eco",
+            "description": "Choisissez la fermeture parfaite pour vos pochettes ! Fermetures à glissière, curseurs, becs verseurs et options résistantes aux enfants. À partir de 500 unités seulement. Fraîcheur garantie, clients satisfaits !",
+            "ogTitle": "Options de Refermeture | Gardez vos Produits Frais | Pouch.eco",
+            "ogDescription": "Fermetures à glissière, curseurs, becs verseurs et fermetures résistantes aux enfants. À partir de 500 unités !",
+            "twitterTitle": "Options de Refermeture | Pouch.eco",
+            "twitterDescription": "Gardez vos produits frais avec la bonne fermeture. À partir de 500 unités !",
+            "schemaName": "Options de Refermeture pour Pochettes Écologiques",
+            "schemaDescription": "Guide complet des options de refermeture pour pochettes écologiques"
+        },
+        "hero": {
+            "badge": "GARDEZ LA FRAÎCHEUR",
+            "titleLine1": "Choisissez Votre",
+            "titleLine2": "Type de Fermeture",
+            "subtitle": "La bonne fermeture garde vos produits frais et facilite la vie de vos clients. Trouvons votre solution idéale !"
+        },
+        "quickSelector": {
+            "everyday": {
+                "title": "Produits du Quotidien",
+                "desc": "Collations, café, friandises pour animaux",
+                "badge": "Pression pour Fermer"
+            },
+            "premium": {
+                "title": "Marques Premium",
+                "desc": "Nourriture pour animaux, granola, produits artisanaux",
+                "badge": "Curseur à Glissière"
+            },
+            "safety": {
+                "title": "Sécurité Requise",
+                "desc": "Cannabis, suppléments, médicaments",
+                "badge": "Résistant aux Enfants"
+            }
+        },
+        "closureTypes": {
+            "sectionTitle": "Toutes Vos Options",
+            "sectionSubtitle": "Chaque type de fermeture a ses super-pouvoirs — choisissez ce qui convient à votre produit !",
+            "bestForLabel": "IDÉAL POUR",
+            "seeExamples": "Voir des Exemples",
+            "items": {
+                "0": {
+                    "name": "Fermeture à Pression",
+                    "desc": "Le choix le plus populaire ! Facile à utiliser, fiable et économique.",
+                    "features": {
+                        "0": "Plus de 500 cycles d'ouverture/fermeture",
+                        "1": "Compatible avec tous les styles de pochettes",
+                        "2": "Options transparentes ou colorées",
+                        "3": "Le plus économique"
+                    },
+                    "bestFor": "Collations, café, thé, friandises pour animaux"
+                },
+                "1": {
+                    "name": "Curseur à Glissière",
+                    "desc": "Ouverture premium à une main — les clients adorent le \"clic\" satisfaisant !",
+                    "features": {
+                        "0": "Utilisation à une main",
+                        "1": "Confirmation tactile",
+                        "2": "Valeur perçue plus élevée",
+                        "3": "Durabilité de plus de 1000 cycles"
+                    },
+                    "bestFor": "Nourriture pour animaux, granola, collations premium"
+                },
+                "2": {
+                    "name": "Fermeture Résistante aux Enfants",
+                    "desc": "La sécurité avant tout ! Requis pour le cannabis, la pharmacie et certains suppléments.",
+                    "features": {
+                        "0": "Certifié ASTM D3475",
+                        "1": "Mécanisme pousser-et-glisser",
+                        "2": "Conception adaptée aux personnes âgées",
+                        "3": "Conformité légale"
+                    },
+                    "bestFor": "Cannabis, suppléments, médicaments"
+                },
+                "3": {
+                    "name": "Bec Verseur avec Bouchon",
+                    "desc": "Parfait pour les liquides et les poudres — contrôle du versement sans les dégâts !",
+                    "features": {
+                        "0": "Joint à bouchon vissé",
+                        "1": "Conception anti-goutte",
+                        "2": "Bouchon réutilisable",
+                        "3": "Dosage facile"
+                    },
+                    "bestFor": "Alimentation bébé, sauces, mélanges de smoothies"
+                }
+            }
+        },
+        "benefits": {
+            "title": "Pourquoi Refermable = ",
+            "titleHighlight": "Meilleur Business",
+            "items": {
+                "0": {
+                    "title": "Clients Satisfaits",
+                    "desc": "Les produits restent frais = les clients reviennent"
+                },
+                "1": {
+                    "title": "Sensation Premium",
+                    "desc": "L'emballage refermable paraît plus précieux"
+                },
+                "2": {
+                    "title": "Moins de Retours",
+                    "desc": "Les produits restent frais plus longtemps, moins de gaspillage"
+                },
+                "3": {
+                    "title": "Démarquez-vous",
+                    "desc": "Un meilleur emballage = attrait en rayon"
+                }
+            }
+        },
+        "cta": {
+            "titleLine1": "Pas Sûr de Quelle",
+            "titleLine2": "Fermeture Choisir ?",
+            "subtitle": "Commandez un échantillon gratuit avec tous les types de fermeture, ou discutez avec notre équipe — nous vous aiderons à choisir !",
+            "orderSamplePack": "Commander un Échantillon",
+            "chatWithExpert": "Discuter avec un Expert"
+        }
+    },
+    "pouchSizeGuidePage": {
+        "meta": {
+            "title": "Guide des tailles de pochettes | Référence visuelle et tableau de capacité | Pouch.eco",
+            "description": "Guide ultime des tailles pour pochettes stand-up et sacs à fond plat. Comparez les tailles avec des canettes, vérifiez les capacités métriques/impériales et téléchargez les gabarits.",
+            "keywords": "tailles de pochettes, dimensions pochette stand-up, guide sac fond plat, tableau capacité emballage, Pouch.eco"
+        },
+        "hero": {
+            "badge": "PROTOCOLE_TAILLE_V3.0",
+            "heading1": "Ajuster.",
+            "heading2": "Ressentir.",
+            "heading3": "Parfaire.",
+            "description": "Fini les approximations. Utilisez notre système de référence visuel pour trouver la taille de pochette exacte pour votre marque. Comparaisons métriques, impériales et volumétriques incluses.",
+            "ctaPrimary": "Commander un kit de test de tailles",
+            "ctaSecondary": "Consultation gratuite",
+            "heroAlt": "Tableau de bord de l'application de recherche de tailles"
+        },
+        "density": {
+            "badge": "INTELLIGENCE_MARCHÉ",
+            "heading1": "Volume vs.",
+            "heading2": "Poids.",
+            "description": "La plus grande erreur en emballage est de dimensionner uniquement en fonction du poids. 250g de riz soufflé nécessite 10 fois le volume de 250g de sel. Utilisez notre tableau de densité pour calculer votre besoin exact en ML.",
+            "tableHeaders": {
+                "product": "PRODUIT",
+                "density": "DENSITÉ",
+                "volFactor": "FACTEUR VOL."
+            },
+            "altText": "Dimensions de référence des pochettes"
+        },
+        "productDensity": {
+            "0": {
+                "product": "Café en grains entiers",
+                "note": "Standard pour le dimensionnement"
+            },
+            "1": {
+                "product": "Feuilles de thé",
+                "note": "Nécessite un grand volume"
+            },
+            "2": {
+                "product": "Protéine en poudre",
+                "note": "Dense mais volumineux"
+            },
+            "3": {
+                "product": "Granola",
+                "note": "Forte irrégularité"
+            },
+            "4": {
+                "product": "Noix et graines",
+                "note": "Compact et lourd"
+            }
+        },
+        "scaleCheck": {
+            "badge": "RÉF_VISUELLE_CANETTE",
+            "heading": "Vérification d'échelle.",
+            "subtitle": "Canette standard de 330 ml (hauteur 122 mm) utilisée comme référence."
+        },
+        "standUp": {
+            "heading": "GAMME STAND-UP",
+            "sizes": {
+                "0": {
+                    "bestFor": "Échantillons, Épices"
+                },
+                "1": {
+                    "bestFor": "Thé, Graines"
+                },
+                "2": {
+                    "bestFor": "Granola, Snacks"
+                },
+                "3": {
+                    "bestFor": "Café 250g"
+                },
+                "4": {
+                    "bestFor": "Café détail 500g"
+                },
+                "5": {
+                    "bestFor": "Packs familiaux"
+                },
+                "6": {
+                    "bestFor": "Nourriture animale, Vrac"
+                }
+            }
+        },
+        "flatBottom": {
+            "heading": "GAMME FOND PLAT",
+            "sizes": {
+                "0": {
+                    "bestFor": "Thé de spécialité"
+                },
+                "1": {
+                    "bestFor": "Café premium 100g"
+                },
+                "2": {
+                    "bestFor": "Café 250g"
+                },
+                "3": {
+                    "bestFor": "Café 12oz"
+                },
+                "4": {
+                    "bestFor": "Café 1kg"
+                },
+                "5": {
+                    "bestFor": "Nourriture animale"
+                },
+                "6": {
+                    "bestFor": "Céréales en vrac"
+                }
+            }
+        },
+        "techCards": {
+            "precision": {
+                "title": "Tolérances de précision",
+                "description": "La tolérance de fabrication standard est de +/- 2mm. Assurez-vous que la zone de sécurité de votre illustration est d'au moins 5mm de tous les bords et soudures."
+            },
+            "headspace": {
+                "title": "Logique d'espace de tête",
+                "description": "Prévoyez toujours 40mm pour la soudure thermique et le mécanisme de fermeture zip. Remplir au-dessus de la ligne du zip entraînera une défaillance structurelle de la soudure."
+            },
+            "dieline": {
+                "title": "Accès aux gabarits",
+                "description": "Des gabarits PDF/AI téléchargeables sont disponibles pour toutes les tailles standard une fois votre sélection de matériaux finalisée."
+            }
+        },
+        "cta": {
+            "badge": "VÉRIFIER_AVANT_COMMANDE",
+            "heading1": "Taille.",
+            "heading2": "Échantillon.",
+            "description": "Évitez les erreurs coûteuses de dimensionnement. Commandez notre \"Kit de tailles\" complet pour tester le remplissage de vos produits en conditions réelles.",
+            "ctaPrimary": "Demander le kit de tailles",
+            "ctaSecondary": "Parler à un expert en dimensionnement"
+        },
+        "lightbox": {
+            "altText": "Détail de la taille",
+            "caption": "Mode de comparaison visuelle : Référence canette standard 330 ml"
+        }
+    },
+    "pouchSolutionsPage": {
+        "meta": {
+            "title": "Solutions d'emballage écologique | Dès 500 unités | Pouch.eco",
+            "description": "Pochettes compostables, recyclables et biosourcées pour startups. MOQ faible à partir de 500 unités. Délai rapide, sans pression de minimum.",
+            "ogTitle": "Solutions d'emballage écologique | Dès 500 unités | Pouch.eco",
+            "ogDescription": "Pochettes compostables, recyclables et biosourcées pour startups. MOQ faible à partir de 500 unités.",
+            "twitterTitle": "Solutions d'emballage écologique | Pouch.eco",
+            "twitterDescription": "Lancez votre marque éco avec des pochettes compostables dès 500 unités"
+        },
+        "hero": {
+            "badge": "INDEX_SOLUTIONS",
+            "titleLine1": "Choisissez Votre",
+            "titleLine2": "Voie Éco",
+            "terminalLine1": "> Compostable // Recyclable // Biosourcé",
+            "terminalLine2": "> Tous certifiés. Tous dès 500 unités.",
+            "terminalLine3": "> Lancez votre marque durable aujourd'hui.",
+            "ctaConsultation": "Réserver une consultation gratuite",
+            "ctaMaterials": "Explorer les matériaux"
+        },
+        "solutions": {
+            "title": "Trois",
+            "titleLine2": "Solutions",
+            "badge": "MATÉRIAUX_TOUS_CERTIFIÉS",
+            "getQuote": "Obtenir un devis",
+            "items": {
+                "0": {
+                    "name": "COMPOSTABLE",
+                    "headline": "Retourne à la terre naturellement",
+                    "description": "Parfait pour les marques bio et les startups écoresponsables. Votre emballage se décompose en 1 à 6 mois — sans microplastiques.",
+                    "benefits": {
+                        "0": "Certifié EN13432/ASTM D6400",
+                        "1": "Compost industriel et domestique",
+                        "2": "À partir de 500 unités seulement",
+                        "3": "Idéal pour snacks, thé, compléments"
+                    }
+                },
+                "1": {
+                    "name": "RECYCLABLE",
+                    "headline": "Champion de l'économie circulaire",
+                    "description": "Pochettes mono-matériau PE/PP acceptées dans les filières de recyclage standard. Haute barrière, durée de conservation prolongée.",
+                    "benefits": {
+                        "0": "Jusqu'à 70 % de contenu PCR",
+                        "1": "Recyclable en flux unique",
+                        "2": "Durée de conservation de 9 à 18 mois",
+                        "3": "Idéal pour le café, les aliments pour animaux"
+                    }
+                },
+                "2": {
+                    "name": "BIO_PLASTIQUE",
+                    "headline": "Emballage à base de plantes",
+                    "description": "Fabriqué à partir de canne à sucre et de maïs renouvelables. Empreinte carbone réduite vérifiée par des études récentes.",
+                    "benefits": {
+                        "0": "Réduit l'utilisation de combustibles fossiles",
+                        "1": "Production neutre en carbone",
+                        "2": "Durable et fiable",
+                        "3": "Formes personnalisées disponibles"
+                    }
+                }
+            }
+        },
+        "useCases": {
+            "title": "Parfait pour",
+            "moqLabel": "MOQ :",
+            "items": {
+                "0": {
+                    "title": "Marques de café et thé",
+                    "description": "Les pochettes haute barrière gardent les grains frais pendant 12 à 18 mois. Valves de dégazage disponibles.",
+                    "moq": "500 unités"
+                },
+                "1": {
+                    "title": "Startups de snacks",
+                    "description": "Sachets légers et refermables, parfaits pour les noix, fruits secs, granola. Faciles à expédier.",
+                    "moq": "500 unités"
+                },
+                "2": {
+                    "title": "Marques de friandises pour animaux",
+                    "description": "Pochettes certifiées alimentaires avec barrière renforcée. Fermetures sécurisées enfants disponibles.",
+                    "moq": "1 000 unités"
+                },
+                "3": {
+                    "title": "Entreprises de compléments",
+                    "description": "Pochettes compostables résistantes à l'humidité. Parfaites pour la poudre ou les gélules.",
+                    "moq": "500 unités"
+                }
+            }
+        },
+        "fastFacts": {
+            "title": "Pourquoi Pouch.eco ?",
+            "stat1Value": "500",
+            "stat1Label": "COMMANDE MIN",
+            "stat2Value": "2-3",
+            "stat2Label": "SEMAINES ÉCHANTILLONS",
+            "stat3Value": "100%",
+            "stat3Label": "CERTIFIÉ"
+        }
+    },
+    "pouchSEOPage": {
+        "meta": {
+            "title": "Guide SEO pour les marques d'emballages compostables | POUCH.ECO",
+            "description": "Apprenez à positionner votre marque d'emballages compostables sur Google. Recherche de mots-clés, stratégie de contenu et conseils SEO techniques pour les entreprises de pochettes écologiques.",
+            "keywords": "SEO pour marques d'emballages, SEO pochettes compostables, marketing emballages écologiques, mots-clés emballages durables, SEO sacs biodégradables, optimisation recherche emballages verts"
+        },
+        "hero": {
+            "badge": "Guide de stratégie SEO",
+            "titleLine1": "Positionnez votre",
+            "titleHighlight": "marque éco",
+            "titleLine2": "sur Google",
+            "subtitle": "Des tactiques SEO qui fonctionnent réellement pour les marques d'emballages compostables. Pas de superflu. Juste des résultats.",
+            "ctaConsult": "Réserver une consultation SEO",
+            "ctaKeywords": "Voir les mots-clés"
+        },
+        "tldr": {
+            "label": "En résumé",
+            "text": "Le SEO pour les emballages écologiques = recherche de mots-clés + contenu de qualité + optimisation technique. Ciblez les mots-clés de longue traîne, rédigez des guides complets et obtenez des backlinks de sites de développement durable. Comptez 3 à 6 mois pour les résultats."
+        },
+        "keywords": {
+            "title1": "Mots-clés principaux",
+            "title2": "à cibler",
+            "subtitle": "Voici les termes de recherche les plus convertissants pour les marques d'emballages compostables. Commencez ici.",
+            "tableHeaders": {
+                "keyword": "Mot-clé",
+                "searchVolume": "Volume de recherche",
+                "difficulty": "Difficulté"
+            },
+            "items": {
+                "0": {
+                    "term": "pochettes compostables",
+                    "volume": "1,2K/mois",
+                    "difficulty": "Moyen"
+                },
+                "1": {
+                    "term": "emballages écologiques",
+                    "volume": "5,8K/mois",
+                    "difficulty": "Élevé"
+                },
+                "2": {
+                    "term": "sacs biodégradables",
+                    "volume": "3,4K/mois",
+                    "difficulty": "Moyen"
+                },
+                "3": {
+                    "term": "emballages durables",
+                    "volume": "12K/mois",
+                    "difficulty": "Élevé"
+                },
+                "4": {
+                    "term": "pochettes à base de plantes",
+                    "volume": "890/mois",
+                    "difficulty": "Faible"
+                },
+                "5": {
+                    "term": "sacs compostables à domicile",
+                    "volume": "720/mois",
+                    "difficulty": "Faible"
+                }
+            }
+        },
+        "strategy": {
+            "title1": "Stratégie SEO",
+            "title2": "en 3 étapes",
+            "subtitle": "Suivez ce cadre pour vous positionner plus vite et convertir davantage d'acheteurs éco-responsables.",
+            "items": {
+                "0": {
+                    "title": "Recherche de mots-clés",
+                    "description": "Découvrez ce que vos clients recherchent réellement",
+                    "tips": {
+                        "0": "Ciblez les mots-clés de longue traîne comme « sacs à café compostables certifiés »",
+                        "1": "Utilisez Google Search Console pour trouver des opportunités de positionnement",
+                        "2": "Concentrez-vous sur les mots-clés d'intention d'achat (ex. : « acheter pochettes compostables »)",
+                        "3": "Suivez les mots-clés de vos concurrents avec SEMrush ou Ahrefs"
+                    }
+                },
+                "1": {
+                    "title": "Stratégie de contenu",
+                    "description": "Créez du contenu qui se positionne ET qui convertit",
+                    "tips": {
+                        "0": "Rédigez des guides complets (plus de 1500 mots)",
+                        "1": "Répondez aux questions « qu'est-ce que », « comment » et « vs »",
+                        "2": "Incluez des comparaisons de produits et des cas d'utilisation",
+                        "3": "Ajoutez des témoignages clients et des études de cas"
+                    }
+                },
+                "2": {
+                    "title": "SEO technique",
+                    "description": "Rendez votre site rapide, adapté au mobile et indexable",
+                    "tips": {
+                        "0": "Optimisez la vitesse de chargement (moins de 3 secondes)",
+                        "1": "Utilisez un design responsive pour les utilisateurs mobiles",
+                        "2": "Créez un sitemap XML et un fichier robots.txt",
+                        "3": "Implémentez le balisage schema pour les extraits enrichis"
+                    }
+                }
+            }
+        },
+        "whySeo": {
+            "title1": "Pourquoi le SEO",
+            "titleHighlight": "compte",
+            "title2": "pour les marques éco",
+            "subtitle": "Vos clients recherchent des emballages durables EN CE MOMENT. Si vous n'êtes pas positionné, ils trouvent vos concurrents à votre place.",
+            "benefits": {
+                "0": {
+                    "title": "Trafic organique = Prospects gratuits",
+                    "description": "Les publicités payantes coûtent 3 à 8 $ par clic. Le SEO attire des acheteurs qualifiés gratuitement, mois après mois."
+                },
+                "1": {
+                    "title": "Autorité = Confiance",
+                    "description": "Être en page 1 signale la crédibilité. Les acheteurs font confiance aux marques que Google approuve."
+                },
+                "2": {
+                    "title": "Longue traîne = Meilleure conversion",
+                    "description": "Ciblez des recherches spécifiques comme « sacs à café compostables certifiés » pour attirer des acheteurs prêts à acheter."
+                }
+            },
+            "statsTitle": "Statistiques SEO qui comptent",
+            "stats": {
+                "0": {
+                    "value": "75%",
+                    "description": "des utilisateurs ne dépassent jamais la page 1 des résultats Google"
+                },
+                "1": {
+                    "value": "53%",
+                    "description": "de tout le trafic web provient de la recherche organique"
+                },
+                "2": {
+                    "value": "14,6%",
+                    "description": "taux de conversion moyen pour la recherche organique (contre 1,7 % pour les annonces payantes)"
+                }
+            }
+        },
+        "faqs": {
+            "title1": "Questions",
+            "title2": "SEO fréquentes",
+            "items": {
+                "0": {
+                    "question": "Combien de temps faut-il pour le SEO des marques d'emballage ?",
+                    "answer": "Comptez 3 à 6 mois pour voir des résultats significatifs. L'emballage compostable est une niche en croissance, donc le positionnement peut être plus rapide que dans les industries concurrentielles. Commencez par les mots-clés de longue traîne, puis élargissez à des termes plus généraux à mesure que vous gagnez en autorité."
+                },
+                "1": {
+                    "question": "Quels mots-clés dois-je cibler pour les pochettes compostables ?",
+                    "answer": "Commencez par des termes spécifiques aux produits comme « sacs à café compostables certifiés » ou « pochettes stand-up biodégradables ». Évitez les termes génériques comme « emballage » au début. Utilisez Google Keyword Planner pour trouver le volume de recherche et les niveaux de concurrence."
+                },
+                "2": {
+                    "question": "Ai-je besoin d'un blog pour le SEO ?",
+                    "answer": "Oui. Un blog vous aide à cibler des mots-clés informationnels (ex. : « comment choisir un emballage compostable ») qui attirent les acheteurs plus tôt dans leur phase de recherche. Visez 2 à 4 articles de qualité par mois couvrant les guides de certification, les comparaisons de matériaux et les tendances du secteur."
+                },
+                "3": {
+                    "question": "Quelle est l'importance des backlinks pour le SEO de l'emballage ?",
+                    "answer": "Très importante. Des backlinks de qualité provenant de blogs sur le développement durable, de publications sectorielles et d'annuaires écologiques signalent l'autorité à Google. Concentrez-vous sur l'obtention de liens via des articles invités, des partenariats et la création de contenu partageable comme des infographies ou des rapports de recherche."
+                },
+                "4": {
+                    "question": "Dois-je optimiser pour Google ou Amazon ?",
+                    "answer": "Les deux, mais différemment. Le SEO Google se concentre sur le contenu et l'autorité. Le SEO Amazon privilégie les titres de produits, les puces et les avis. Si vous vendez sur Amazon, optimisez les deux canaux — mais Google capture les acheteurs en phase de recherche avant qu'ils n'atteignent Amazon."
+                }
+            }
+        },
+        "cta": {
+            "title1": "Prêt à",
+            "titleHighlight": "mieux vous positionner ?",
+            "subtitle": "Réservez une consultation SEO GRATUITE de 30 minutes. Nous auditerons votre site, identifierons les gains rapides et construirons une stratégie de mots-clés personnalisée.",
+            "button": "Réservez votre consultation SEO",
+            "disclaimer": "Pas de pitch. Pas d'obligation. Juste des conseils SEO actionnables."
+        }
+    },
+    "pouchUnprintedSamplesPage": {
+        "meta": {
+            "title": "Échantillons non imprimés et génériques - Pouch.eco",
+            "description": "Demandez des échantillons unis non imprimés ou des échantillons génériques imprimés pour vérifier la qualité du matériau, l'épaisseur et les dimensions."
+        },
+        "hero": {
+            "titleLine1": "Échantillons",
+            "titleLine2": "Non imprimés",
+            "badge": "Vérification des matériaux",
+            "subtitle": "Vérifiez la qualité avant l'impression"
+        },
+        "intro": {
+            "text": "Pas encore prêt pour l'impression personnalisée ? Obtenez notre",
+            "highlight": "Kit d'excellence matériaux",
+            "textAfter": "comprenant des pochettes unies non imprimées et des échantillons génériques de haute qualité issus de notre ligne de production."
+        },
+        "unprintedPlain": {
+            "heading": "Échantillons unis non imprimés",
+            "description": "Vérification pure du matériau. Pas d'encre, juste la texture et la structure brutes du matériau.",
+            "item1": "Kraft compostable à domicile",
+            "item2": "Mono-PE recyclable",
+            "item3": "Bio-PE canne à sucre",
+            "item4": "PCR haute barrière"
+        },
+        "genericCustomer": {
+            "heading": "Échantillons clients génériques",
+            "description": "Vrais échantillons de notre ligne de production. Vérifiez la qualité d'impression, le repérage et la finition (Mat/Brillant).",
+            "item1": "Sachets de café avec valves",
+            "item2": "Pochettes pour snacks",
+            "item3": "Pochettes pour aliments pour animaux",
+            "item4": "Pochettes à bec pour jus"
+        },
+        "orderKit": {
+            "title": "Commander le kit d'évaluation",
+            "price": "50 USD",
+            "description": "Comprend 10-15 échantillons assortis couvrant tous nos principaux matériaux et structures. Expédition via FedEx/DHL incluse.",
+            "cta": "Demander le kit maintenant"
+        },
+        "gallery": {
+            "title": "Référence visuelle",
+            "alt1": "Échantillon générique café",
+            "alt2": "Échantillon générique snack",
+            "alt3": "Échantillon générique aliments pour animaux",
+            "alt4": "Échantillon générique alimentation bébé"
+        }
+    },
+    "workshopRegisterPage": {
+        "meta": {
+            "title": "Inscription : Atelier emballage en direct le 26 mai | Achieve Pack",
+            "description": "Inscrivez-vous à notre atelier en direct le 26 mai pour apprendre à appliquer les meilleures pratiques d'emballage durable à votre marque."
+        },
+        "badge": "Atelier en direct",
+        "hero": {
+            "titleLine1": "L'action",
+            "titleHighlight": "génère",
+            "titleLine2": "des résultats",
+            "subtitle": "Rejoignez-nous le 26 mai pour un atelier en direct basé sur les données. Nous donnerons vie aux données du rapport et vous aiderons à les appliquer directement aux exigences uniques de votre marque."
+        },
+        "details": {
+            "date": "26 mai 2026 à 10 h 00 HNE",
+            "duration": "90 minutes d'analyses approfondies",
+            "location": "Atelier numérique en direct (lien par e-mail)",
+            "bonus": "Inclut l'accès anticipé au planificateur de transition"
+        },
+        "whoIsThisFor": {
+            "title": "À qui s'adresse cet atelier ?",
+            "item1": "Fondateurs de marques DTC",
+            "item2": "Responsables du développement durable",
+            "item3": "Développeurs de produits",
+            "item4": "Responsables de la chaîne d'approvisionnement"
+        },
+        "missedReport": {
+            "title": "Vous avez manqué le rapport ?",
+            "description": "Les informations que nous aborderons sont basées sur notre rapport phare « State of Sustainable Packaging 2026 ».",
+            "cta": "Lire le rapport"
+        },
+        "form": {
+            "title": "Réservez votre place",
+            "fullName": "Nom complet",
+            "fullNamePlaceholder": "Ryan Wong",
+            "workEmail": "E-mail professionnel",
+            "workEmailPlaceholder": "ryan@achievepack.com",
+            "companyName": "Nom de l'entreprise",
+            "companyNamePlaceholder": "Achieve Pack",
+            "submit": "S'inscrire maintenant",
+            "limitNotice": "Limité à 10 participants par session."
+        },
+        "success": {
+            "title": "Vous êtes inscrit !",
+            "message": "Nous vous avons envoyé un e-mail de confirmation avec les détails de l'atelier et votre planificateur de transition. À bientôt le 26 mai !",
+            "cta": "Retour à l'accueil"
+        }
+    },
+    "pouchTestimonialsPage": {
+        "meta": {
+            "title": "Témoignages clients | Résultats réels de vraies marques | POUCH.ECO",
+            "description": "Découvrez comment plus de 2 000 marques durables ont lancé avec nos pochettes écologiques. De 500 unités pour les startups à 50 000 unités - histoires et résultats réels.",
+            "ogTitle": "Témoignages de réussite clients | POUCH.ECO",
+            "ogDescription": "De vraies marques, de vrais résultats. Découvrez comment l'emballage durable a transformé ces entreprises."
+        },
+        "hero": {
+            "badge": "REAL_STORIES",
+            "titleLine1": "Plus de 2 000 marques",
+            "titleLine2": "Ont commencé ici",
+            "description": "Des startups de 500 unités aux marques établies commandant plus de 50 000 unités par mois.",
+            "descriptionBold": "Découvrez comment l'emballage durable a transformé ces entreprises."
+        },
+        "stats": {
+            "happyBrands": "Marques satisfaites",
+            "repeatCustomers": "Clients fidèles",
+            "averageRating": "Note moyenne",
+            "minimumOrder": "Commande minimum"
+        },
+        "testimonials": {
+            "0": {
+                "industry": "Torréfaction de café",
+                "quote": "Passer aux sachets compostables était une évidence pour nos clients éco-responsables. Le MOQ de 500 nous a permis de tester sans gros risque. Les ventes ont augmenté de 23 % après le lancement !",
+                "role": "Fondatrice",
+                "highlights": {
+                    "0": "Augmentation des ventes de 23 %",
+                    "1": "Zéro déchet",
+                    "2": "Amour des clients"
+                }
+            },
+            "1": {
+                "industry": "Marque bien-être",
+                "quote": "La finition mate toucher doux a donné à nos pochettes de superaliments une sensation de luxe. Les clients nous disent qu'ils adorent l'expérience tactile. Ça vaut chaque centime !",
+                "role": "Chef de produit",
+                "highlights": {
+                    "0": "Sensation premium",
+                    "1": "Retours clients",
+                    "2": "Image de marque renforcée"
+                }
+            },
+            "2": {
+                "industry": "Marque de superaliments",
+                "quote": "De la demande à la livraison en 3 semaines ! Ryan nous a guidés à chaque étape. La qualité d'impression numérique est époustouflante, et le prix était meilleur que les fournisseurs locaux.",
+                "role": "Co-fondatrice",
+                "highlights": {
+                    "0": "Délai de 3 semaines",
+                    "1": "Excellent support",
+                    "2": "Qualité exceptionnelle"
+                }
+            },
+            "3": {
+                "industry": "Boulangerie artisanale",
+                "quote": "Nous avions besoin d'un emballage correspondant aux valeurs de notre marque artisanale. Les pochettes kraft avec fenêtres transparentes mettent nos produits en valeur tout en restant écologiques !",
+                "role": "Propriétaire",
+                "highlights": {
+                    "0": "Look artisanal",
+                    "1": "Ajustement parfait",
+                    "2": "Valeurs éco"
+                }
+            },
+            "4": {
+                "industry": "Snacks biologiques",
+                "quote": "Les options de barrière étaient déroutantes au début, mais l'équipe nous a aidés à choisir la barrière moyenne parfaite pour nos noix. 8 mois de durée de conservation - exactement ce qu'il nous fallait !",
+                "role": "Responsable des opérations",
+                "highlights": {
+                    "0": "Barrière parfaite",
+                    "1": "Excellent accompagnement",
+                    "2": "8 mois de conservation"
+                }
+            },
+            "5": {
+                "industry": "Café urbain",
+                "quote": "En tant que startup new-yorkaise, un MOQ bas était crucial. Commencé avec 500 sachets, maintenant 5 000 par mois. La valve de dégazage garde nos grains frais pendant des semaines !",
+                "role": "Torréfacteur en chef",
+                "highlights": {
+                    "0": "Petit début",
+                    "1": "Croissance rapide",
+                    "2": "Café frais"
+                }
+            },
+            "6": {
+                "industry": "Marque de thé",
+                "quote": "Nous avons adoré le matériau aspect kraft avec barrière bio-sourcée. Nos clients apprécient l'esthétique naturelle et le fait qu'il soit 100 % compostable. Un vrai game changer pour notre marque !",
+                "role": "Directrice de marque",
+                "highlights": {
+                    "0": "Look naturel",
+                    "1": "Compostable",
+                    "2": "Succès de marque"
+                }
+            },
+            "7": {
+                "industry": "Snacks sains",
+                "quote": "La fenêtre transparente sur nos pochettes était indispensable. Les clients adorent voir le produit avant d'acheter. La réponse a été incroyable - nos partenaires de vente au détail l'adorent aussi !",
+                "role": "Fondateur et PDG",
+                "highlights": {
+                    "0": "Fenêtre transparente",
+                    "1": "Succès en retail",
+                    "2": "Confiance client"
+                }
+            },
+            "8": {
+                "industry": "Bien-être à base de plantes",
+                "quote": "En tant que producteur en petites séries, trouver des minimums de 500 unités était impossible jusqu'à pouch.eco. La qualité rivalise avec des marques 10 fois plus grandes. Nos clients pensent que nous sommes bien plus grands !",
+                "role": "Propriétaire",
+                "highlights": {
+                    "0": "Petites séries",
+                    "1": "Qualité premium",
+                    "2": "Perception de marque"
+                }
+            },
+            "9": {
+                "industry": "Nutrition sportive",
+                "quote": "La finition noir mat avec logo en vernis UV sélectif - absolument génial ! Nos pochettes pré-entraînement ont l'air de coûter 50 $ alors qu'elles ne coûtent que 25 $. L'engagement Instagram a explosé !",
+                "role": "Co-fondateur",
+                "highlights": {
+                    "0": "Noir mat",
+                    "1": "Look premium",
+                    "2": "Succès réseaux sociaux"
+                }
+            },
+            "10": {
+                "industry": "Alimentation bébé",
+                "quote": "Les parents adorent que nos pochettes soient certifiées compostables BPI. La fermeture éclair refermable garde les snacks frais toute la journée. Zéro plainte concernant les fuites ou la qualité !",
+                "role": "Fondatrice",
+                "highlights": {
+                    "0": "Certifié BPI",
+                    "1": "Approuvé par les parents",
+                    "2": "Zéro problème"
+                }
+            },
+            "11": {
+                "industry": "Café de spécialité",
+                "quote": "La valve de dégazage unidirectionnelle était essentielle pour notre micro-torréfaction. Garde les grains frais pendant plus de 6 semaines. Nos clients abonnés remarquent la différence immédiatement !",
+                "role": "Torréfacteur en chef",
+                "highlights": {
+                    "0": "Valve de dégazage",
+                    "1": "6 semaines de fraîcheur",
+                    "2": "Succès abonnement"
+                }
+            }
+        },
+        "trustedBy": {
+            "badge": "TRUSTED_BY",
+            "title": "Rejoignez <1>plus de 500</1> marques",
+            "subtitle": "Des startups aux noms établis - tous ont commencé avec 500 unités"
+        },
+        "cta": {
+            "titleLine1": "Votre histoire",
+            "titleLine2": "Ensuite ?",
+            "description": "Rejoignez plus de 2 000 marques qui ont lancé en toute confiance.",
+            "descriptionBold": "À partir de 500 unités. Zéro compromis sur la qualité ou la planète.",
+            "bookCall": "Réserver un appel gratuit",
+            "requestSamples": "Demander des échantillons",
+            "contactInfo": "📧 ryan@achievepack.com • ⏱️ Réponse sous 24 heures"
+        },
+        "packaging": "emballage"
     }
 }

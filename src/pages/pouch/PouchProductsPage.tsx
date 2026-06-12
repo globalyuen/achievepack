@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { ShoppingBag, Package, Zap } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -7,6 +8,7 @@ import { ThreeFloatingBackground } from '../../components/ThreeFloatingBackgroun
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchProductsPage() {
+  const { t } = useTranslation()
   const PRODUCTS = [
     {
       id: 'stand-up',
@@ -78,8 +80,8 @@ export default function PouchProductsPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>Products | POUCH.ECO</title>
-        <meta name="description" content="Explore our eco-friendly pouch options including compostable and recyclable materials. Low MOQs available." />
+        <title>{t('pouchProductsPage.meta.title')}</title>
+        <meta name="description" content={t('pouchProductsPage.meta.description')} />
       </Helmet>
 
       {/* Hero Section with Video Background */}
@@ -104,13 +106,13 @@ export default function PouchProductsPage() {
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10">
           <div className="inline-block bg-black text-white px-4 py-1 mb-6 font-['JetBrains_Mono'] font-bold transform -rotate-2">
-            CATALOG_V1
+            {t('pouchProductsPage.hero.badge')}
           </div>
           <h1 className="font-black text-6xl md:text-8xl uppercase mb-8 leading-none">
-            Our<br />Products
+            {t('pouchProductsPage.hero.titleLine1')}<br />{t('pouchProductsPage.hero.titleLine2')}
           </h1>
           <p className="font-['JetBrains_Mono'] text-xl max-w-2xl mx-auto">
-            Simple pricing. Sustainable materials. No hidden fees.
+            {t('pouchProductsPage.hero.subtitle')}
           </p>
         </div>
       </section>
@@ -143,39 +145,39 @@ export default function PouchProductsPage() {
                 <div className="w-full md:w-1/2 space-y-6">
                   <h2 className="font-black text-3xl md:text-5xl uppercase break-words">{product.name.replace(/_/g, ' ')}</h2>
                   <div className="flex flex-wrap gap-2 font-['JetBrains_Mono'] font-bold text-xs md:text-sm">
-                    <span className="bg-black text-white px-2 py-1">MOQ: {product.stats.moq}</span>
-                    <span className="border-2 border-black px-2 py-1">BARRIER: {product.stats.barrier}</span>
+                    <span className="bg-black text-white px-2 py-1">{t('pouchProductsPage.labels.moq')} {product.stats.moq}</span>
+                    <span className="border-2 border-black px-2 py-1">{t('pouchProductsPage.labels.barrier')} {product.stats.barrier}</span>
                   </div>
                   
                   <div className="space-y-4 font-['JetBrains_Mono'] text-xs md:text-sm border-y-2 border-black py-4">
                     <div>
-                      <span className="font-bold block bg-black text-white px-2 inline-block mb-1">THE_PROBLEM:</span>
-                      <p className="leading-relaxed text-gray-700">{product.problem}</p>
+                      <span className="font-bold block bg-black text-white px-2 inline-block mb-1">{t('pouchProductsPage.labels.theProblem')}</span>
+                      <p className="leading-relaxed text-gray-700">{t(`pouchProductsPage.products.${index}.problem`)}</p>
                     </div>
                     <div>
-                      <span className="font-bold block bg-[#D4FF00] text-black px-2 inline-block mb-1 border-2 border-black">THE_SOLUTION:</span>
-                      <p className="leading-relaxed font-bold">{product.solution}</p>
+                      <span className="font-bold block bg-[#D4FF00] text-black px-2 inline-block mb-1 border-2 border-black">{t('pouchProductsPage.labels.theSolution')}</span>
+                      <p className="leading-relaxed font-bold">{t(`pouchProductsPage.products.${index}.solution`)}</p>
                     </div>
                   </div>
                   
                   <ul className="space-y-2 font-['JetBrains_Mono'] text-xs md:text-sm">
-                    {product.features.map(feature => (
+                    {product.features.map((feature, fIndex) => (
                       <li key={feature} className="flex items-center gap-2">
-                        <Zap className="w-4 h-4 min-w-[16px]" /> {feature}
+                        <Zap className="w-4 h-4 min-w-[16px]" /> {t(`pouchProductsPage.products.${index}.features.${fIndex}`)}
                       </li>
                     ))}
                   </ul>
 
                   <div className="pt-6 border-t-2 border-black flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="font-black text-2xl md:text-3xl">FROM {product.price}+</div>
+                    <div className="font-black text-2xl md:text-3xl">{t('pouchProductsPage.labels.from')} {product.price}+</div>
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                       {product.link && (
                         <NeoButton className="w-full sm:w-auto !bg-white !text-black" href={product.link}>
-                          View Details
+                          {t('pouchProductsPage.labels.viewDetails')}
                         </NeoButton>
                       )}
                       <NeoButton className="w-full sm:w-auto" href="https://calendly.com/30-min-free-packaging-consultancy">
-                        Book Call
+                        {t('pouchProductsPage.labels.bookCall')}
                       </NeoButton>
                     </div>
                   </div>

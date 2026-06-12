@@ -20345,5 +20345,1025 @@
             "iso14001Alt": "ISO 14001",
             "speakToExpert": "Hablar con un Experto"
         }
+    },
+    "pouchMaterialCatalogPage": {
+        "meta": {
+            "title": "Catálogo de Materiales | Elija el Material Perfecto para Bolsas | POUCH.ECO",
+            "description": "¡Compare todos los materiales para bolsas! Papel kraft, películas transparentes, acabados mate. Encuentre la combinación perfecta de aspecto, barrera y precio para su producto.",
+            "ogTitle": "Catálogo de Materiales | Todos los Materiales de Bolsas Comparados",
+            "ogDescription": "Kraft, Transparente, Mate - ¡compare todos los materiales lado a lado!",
+            "twitterTitle": "Catálogo de Materiales | Materiales para Bolsas",
+            "twitterDescription": "Compare materiales kraft, transparentes y mate para sus bolsas"
+        },
+        "hero": {
+            "badge": "CATÁLOGO DE MATERIALES",
+            "title": "Catálogo de Materiales",
+            "titleHighlight": "Encuentre Su Combinación Perfecta",
+            "description": "¿No está seguro de qué material elegir?",
+            "descriptionSub": "¡Compare todas nuestras opciones lado a lado! Le ayudaremos a encontrar la combinación perfecta de aspecto, protección y precio.",
+            "ctaExpert": "Obtener Ayuda Experta",
+            "ctaSamples": "Solicitar Muestras"
+        },
+        "quickGuide": {
+            "title": "Guía de Decisión Rápida",
+            "items": [
+                {
+                    "question": "¿Quiere un estilo eco natural?",
+                    "answer": "Kraft Duplex o Kraft Triplex"
+                },
+                {
+                    "question": "¿Necesita mostrar el producto?",
+                    "answer": "Transparente Alta o Media Barrera"
+                },
+                {
+                    "question": "¿Quiere un look premium/lujoso?",
+                    "answer": "Black Matte o Matte White"
+                },
+                {
+                    "question": "¿Máxima vida útil?",
+                    "answer": "Kraft Triplex o Transparente Alta Barrera"
+                }
+            ]
+        },
+        "materials": {
+            "title": "Todos los Materiales",
+            "barrierLabel": "Barrera",
+            "shelfLifeLabel": "Vida Útil:",
+            "featuresLabel": "Características:",
+            "bestForLabel": "Ideal para:",
+            "learnMore": "Más Información",
+            "items": {
+                "kraftTriplex": {
+                    "name": "Kraft Triplex",
+                    "tagline": "Aspecto Eco Premium con Máxima Protección",
+                    "barrier": "Alta",
+                    "shelf": "12-24 meses",
+                    "features": [
+                        "Exterior de kraft natural",
+                        "Opción de ventana transparente",
+                        "Barrera de lámina de aluminio",
+                        "Máxima frescura"
+                    ],
+                    "bestFor": [
+                        "Café premium",
+                        "Suplementos",
+                        "Alimentos para bebés",
+                        "Productos farmacéuticos"
+                    ]
+                },
+                "kraftDuplex": {
+                    "name": "Kraft Duplex",
+                    "tagline": "Aspecto Natural, Protección Media",
+                    "barrier": "Media",
+                    "shelf": "6-12 meses",
+                    "features": [
+                        "Base de papel kraft",
+                        "Barrera metalizada",
+                        "Gran valor",
+                        "Estilo eco-amigable"
+                    ],
+                    "bestFor": [
+                        "Café",
+                        "Té",
+                        "Nueces",
+                        "Frutas secas"
+                    ]
+                },
+                "clearHigh": {
+                    "name": "Transparente Alta Barrera",
+                    "tagline": "Vea Su Producto, Manténgalo Fresco",
+                    "barrier": "Alta",
+                    "shelf": "12-18 meses",
+                    "features": [
+                        "Transparente",
+                        "Metálico sin aluminio",
+                        "Muestre su producto",
+                        "Barrera fuerte"
+                    ],
+                    "bestFor": [
+                        "Snacks coloridos",
+                        "Granola",
+                        "Golosinas para mascotas",
+                        "Productos de atractivo visual"
+                    ]
+                },
+                "clearMedium": {
+                    "name": "Transparente Media Barrera",
+                    "tagline": "Visibilidad + Buena Protección",
+                    "barrier": "Media",
+                    "shelf": "6-12 meses",
+                    "features": [
+                        "Cristalino",
+                        "Capa metalizada",
+                        "Económico",
+                        "Visibilidad del producto"
+                    ],
+                    "bestFor": [
+                        "Galletas",
+                        "Dulces",
+                        "Mezcla de frutos secos",
+                        "Snacks saludables"
+                    ]
+                },
+                "matteWhite": {
+                    "name": "Blanco Mate",
+                    "tagline": "Lienzo Limpio para Su Marca",
+                    "barrier": "Media",
+                    "shelf": "6-12 meses",
+                    "features": [
+                        "Acabado mate suave",
+                        "Sensación premium",
+                        "Apto para impresión",
+                        "Estética moderna"
+                    ],
+                    "bestFor": [
+                        "Marcas de bienestar",
+                        "Productos orgánicos",
+                        "Diseño minimalista",
+                        "Posicionamiento premium"
+                    ]
+                },
+                "blackMatte": {
+                    "name": "Negro Mate",
+                    "tagline": "Audaz y Lujoso",
+                    "barrier": "Media",
+                    "shelf": "6-12 meses",
+                    "features": [
+                        "Negro profundo",
+                        "Atractivo lujoso",
+                        "Textura mate",
+                        "Presencia impactante en estante"
+                    ],
+                    "bestFor": [
+                        "Café premium",
+                        "Proteína en polvo",
+                        "Snacks de alta gama",
+                        "Marcas de lujo"
+                    ]
+                }
+            }
+        },
+        "comparison": {
+            "title": "Comparación Lado a Lado",
+            "colMaterial": "Material",
+            "colBarrier": "Barrera",
+            "colShelfLife": "Vida Útil",
+            "colLook": "Aspecto",
+            "colPrice": "Precio"
+        },
+        "stillNotSure": {
+            "title": "¿Aún No Está Seguro?",
+            "description": "¡Podemos enviarle <strong>muestras físicas GRATUITAS</strong> de cualquier material para que pueda tocar, sentir y ver la calidad usted mismo!",
+            "sampleKitTitle": "El Kit de Muestras Incluye:",
+            "sampleItems": [
+                "3-5 muestras de materiales a su elección",
+                "Ejemplos impresos (si están disponibles)",
+                "Guía de referencia de tamaños",
+                "Hoja de especificaciones del material"
+            ],
+            "ctaRequestSamples": "Solicitar Muestras Gratuitas"
+        },
+        "cta": {
+            "title": "¿Encontró Su Material Perfecto?",
+            "description": "¡Reserve una consulta gratuita y le ayudaremos a finalizar su elección!",
+            "button": "Comenzar Ahora"
+        }
+    },
+    "pouchProductsPage": {
+        "meta": {
+            "title": "Productos | POUCH.ECO",
+            "description": "Explore nuestras opciones de bolsas ecológicas, incluyendo materiales compostables y reciclables. Pedidos mínimos bajos disponibles."
+        },
+        "hero": {
+            "badge": "CATÁLOGO_V1",
+            "titleLine1": "Nuestros",
+            "titleLine2": "Productos",
+            "subtitle": "Precios simples. Materiales sostenibles. Sin cargos ocultos."
+        },
+        "products": {
+            "0": {
+                "description": "El estándar de la industria para presencia en estantes. Perfecto para snacks, granola y suplementos.",
+                "problem": "Su marca necesita destacarse, pero la impresión personalizada generalmente requiere pedidos de más de 10,000 bolsas y costosas tarifas de placa.",
+                "solution": "Nuestras bolsas Stand Up con impresión digital le permiten lanzar empaques de nivel profesional desde solo 500 unidades, sin tarifas de placa y con entrega rápida.",
+                "features": {
+                    "0": "Diseño autoportante",
+                    "1": "Cierre resellable",
+                    "2": "Máximo atractivo en estante"
+                }
+            },
+            "1": {
+                "description": "La opción premium para café y productos de alta gama. Estabilidad tipo caja con beneficios flexibles.",
+                "problem": "El café y el té premium necesitan estabilidad en el estante y una marca distintiva, algo que las bolsas estándar rara vez ofrecen.",
+                "solution": "Nuestra bolsa de fondo plano (Box Bottom) ofrece 5 caras imprimibles y máxima estabilidad, dándole a su producto una apariencia de primera.",
+                "features": {
+                    "0": "5 caras imprimibles",
+                    "1": "Estabilidad tipo caja",
+                    "2": "Apariencia y tacto premium"
+                }
+            },
+            "2": {
+                "description": "La alternativa moderna a las botellas rígidas. Más ligera, irrompible y ecológica.",
+                "problem": "Vender líquidos en botellas es pesado, frágil y costoso de enviar, reduciendo sus márgenes.",
+                "solution": "Cambie a bolsas con boquilla flexibles: más ligeras, duraderas y con 80% menos plástico que las botellas rígidas. Perfectas para recargas.",
+                "features": {
+                    "0": "Boquilla a prueba de fugas",
+                    "1": "80% menos plástico",
+                    "2": "Envío más económico"
+                }
+            },
+            "3": {
+                "description": "El motor de conversión. Bolsas planas con sellado de 3 lados, perfectas para porciones individuales y muestras.",
+                "problem": "Los clientes quieren probar antes de comprar, pero el empaque genérico de muestras abarata su marca.",
+                "solution": "Nuestros sachets con sellado de 3 lados impresos a medida brindan una experiencia de apertura premium incluso en tamaños de prueba. Convierta visitantes en compradores.",
+                "features": {
+                    "0": "Económico",
+                    "1": "Apto para correo",
+                    "2": "Alta conversión"
+                }
+            },
+            "4": {
+                "description": "El formato clásico para café. Estructura de sellado cuádruple con paneles laterales expandibles.",
+                "problem": "Los tostadores necesitan una forma clásica en bloque que contenga el máximo volumen sin ocupar demasiado ancho en el estante.",
+                "solution": "Nuestras bolsas con fuelle lateral ofrecen un sellado cuádruple para estructura rígida y gran capacidad, sin tarifas de placa.",
+                "features": {
+                    "0": "Forma clásica de café",
+                    "1": "Alta capacidad de volumen",
+                    "2": "Rigidez de sellado cuádruple"
+                }
+            }
+        },
+        "labels": {
+            "moq": "PMC:",
+            "barrier": "BARRERA:",
+            "theProblem": "EL_PROBLEMA:",
+            "theSolution": "LA_SOLUCIÓN:",
+            "from": "DESDE",
+            "viewDetails": "Ver detalles",
+            "bookCall": "Reservar llamada"
+        }
+    },
+    "pouchReclosureOptionsPage": {
+        "meta": {
+            "title": "Opciones de Recierre | Mantén tus Productos Frescos y Clientes Felices | Pouch.eco",
+            "description": "¡Elige el cierre perfecto para tus bolsas! Cremalleras, deslizadores, boquillas y opciones resistentes a niños. Desde solo 500 unidades. ¡Frescura fácil, clientes felices!",
+            "ogTitle": "Opciones de Recierre | Mantén tus Productos Frescos | Pouch.eco",
+            "ogDescription": "Cremalleras, deslizadores, boquillas y cierres resistentes a niños. ¡Desde 500 unidades!",
+            "twitterTitle": "Opciones de Recierre | Pouch.eco",
+            "twitterDescription": "Mantén tus productos frescos con el cierre adecuado. ¡Desde 500 unidades!",
+            "schemaName": "Opciones de Recierre para Bolsas Ecológicas",
+            "schemaDescription": "Guía completa de opciones de recierre para bolsas ecológicas"
+        },
+        "hero": {
+            "badge": "MANTÉN LA FRESCURA",
+            "titleLine1": "Elige tu",
+            "titleLine2": "Tipo de Cierre",
+            "subtitle": "El cierre adecuado mantiene tus productos frescos y facilita la vida de tus clientes. ¡Encontremos tu opción perfecta!"
+        },
+        "quickSelector": {
+            "everyday": {
+                "title": "Productos del Día a Día",
+                "desc": "Snacks, café, golosinas para mascotas",
+                "badge": "Presionar para Cerrar"
+            },
+            "premium": {
+                "title": "Marcas Premium",
+                "desc": "Alimento para mascotas, granola, productos artesanales",
+                "badge": "Cremallera Deslizante"
+            },
+            "safety": {
+                "title": "Seguridad Requerida",
+                "desc": "Cannabis, suplementos, medicamentos",
+                "badge": "Resistente a Niños"
+            }
+        },
+        "closureTypes": {
+            "sectionTitle": "Todas tus Opciones",
+            "sectionSubtitle": "Cada tipo de cierre tiene sus superpoderes — ¡elige lo que funciona para tu producto!",
+            "bestForLabel": "IDEAL PARA",
+            "seeExamples": "Ver Ejemplos",
+            "items": {
+                "0": {
+                    "name": "Cremallera de Presión",
+                    "desc": "¡La opción más popular! Fácil de usar, confiable y económica.",
+                    "features": {
+                        "0": "Más de 500 ciclos de apertura/cierre",
+                        "1": "Funciona con todos los estilos de bolsa",
+                        "2": "Opciones transparentes o de colores",
+                        "3": "La más económica"
+                    },
+                    "bestFor": "Snacks, café, té, golosinas para mascotas"
+                },
+                "1": {
+                    "name": "Cremallera Deslizante",
+                    "desc": "Apertura premium con una mano — ¡a los clientes les encanta el \"clic\" satisfactorio!",
+                    "features": {
+                        "0": "Operación con una mano",
+                        "1": "Confirmación táctil",
+                        "2": "Mayor valor percibido",
+                        "3": "Durabilidad de más de 1000 ciclos"
+                    },
+                    "bestFor": "Alimento para mascotas, granola, snacks premium"
+                },
+                "2": {
+                    "name": "Cremallera Resistente a Niños",
+                    "desc": "¡La seguridad primero! Requerida para cannabis, farmacéuticos y ciertos suplementos.",
+                    "features": {
+                        "0": "Certificación ASTM D3475",
+                        "1": "Mecanismo de empujar y deslizar",
+                        "2": "Diseño amigable para adultos mayores",
+                        "3": "Cumplimiento legal"
+                    },
+                    "bestFor": "Cannabis, suplementos, medicamentos"
+                },
+                "3": {
+                    "name": "Boquilla con Tapa",
+                    "desc": "¡Perfecto para líquidos y polvos — control de vertido sin desorden!",
+                    "features": {
+                        "0": "Sello con tapa de rosca",
+                        "1": "Diseño antigoteo",
+                        "2": "Tapa reutilizable",
+                        "3": "Dosificación fácil"
+                    },
+                    "bestFor": "Alimento para bebés, salsas, mezclas de smoothies"
+                }
+            }
+        },
+        "benefits": {
+            "title": "¿Por qué Resellable = ",
+            "titleHighlight": "Mejor Negocio",
+            "items": {
+                "0": {
+                    "title": "Clientes Felices",
+                    "desc": "Los productos se mantienen frescos = los clientes regresan"
+                },
+                "1": {
+                    "title": "Sensación Premium",
+                    "desc": "El empaque resellable se percibe más valioso"
+                },
+                "2": {
+                    "title": "Menos Devoluciones",
+                    "desc": "Los productos se mantienen frescos más tiempo, menos desperdicio"
+                },
+                "3": {
+                    "title": "Destácate",
+                    "desc": "Mejor empaque = atractivo en estante"
+                }
+            }
+        },
+        "cta": {
+            "titleLine1": "¿No Estás Seguro de Qué",
+            "titleLine2": "Cierre Elegir?",
+            "subtitle": "Pide un paquete de muestras gratuito con todos los tipos de cierre, o habla con nuestro equipo — ¡te ayudaremos a elegir!",
+            "orderSamplePack": "Pedir Paquete de Muestras",
+            "chatWithExpert": "Hablar con un Experto"
+        }
+    },
+    "pouchSizeGuidePage": {
+        "meta": {
+            "title": "Guía de tamaños de bolsas | Referencia visual y tabla de capacidad | Pouch.eco",
+            "description": "Guía definitiva de tamaños para bolsas stand-up y bolsas de fondo plano. Compare tamaños con latas de refresco, verifique capacidades métricas/imperiales y descargue troqueles.",
+            "keywords": "tamaños de bolsas, dimensiones bolsa stand-up, guía bolsa fondo plano, tabla capacidad empaque, Pouch.eco"
+        },
+        "hero": {
+            "badge": "PROTOCOLO_TAMAÑO_V3.0",
+            "heading1": "Ajustar.",
+            "heading2": "Sentir.",
+            "heading3": "Perfeccionar.",
+            "description": "Deja de adivinar. Usa nuestro sistema de referencia visual para encontrar el tamaño exacto de bolsa para tu marca. Comparaciones métricas, imperiales y volumétricas incluidas.",
+            "ctaPrimary": "Pedir kit de prueba de tamaños",
+            "ctaSecondary": "Consulta gratuita",
+            "heroAlt": "Panel de la aplicación de búsqueda de tamaños"
+        },
+        "density": {
+            "badge": "INTELIGENCIA_MERCADO",
+            "heading1": "Volumen vs.",
+            "heading2": "Peso.",
+            "description": "El mayor error en empaques es dimensionar solo por peso. 250g de arroz inflado requiere 10 veces el volumen de 250g de sal. Usa nuestra tabla de densidad para calcular tu requerimiento exacto en ML.",
+            "tableHeaders": {
+                "product": "PRODUCTO",
+                "density": "DENSIDAD",
+                "volFactor": "FACTOR VOL."
+            },
+            "altText": "Dimensiones de referencia de bolsas"
+        },
+        "productDensity": {
+            "0": {
+                "product": "Café en grano entero",
+                "note": "Estándar para dimensionamiento"
+            },
+            "1": {
+                "product": "Hojas de té",
+                "note": "Requiere gran volumen"
+            },
+            "2": {
+                "product": "Proteína en polvo",
+                "note": "Denso pero esponjoso"
+            },
+            "3": {
+                "product": "Granola",
+                "note": "Alta irregularidad"
+            },
+            "4": {
+                "product": "Frutos secos y semillas",
+                "note": "Compacto y pesado"
+            }
+        },
+        "scaleCheck": {
+            "badge": "REF_VISUAL_LATA",
+            "heading": "Verificación de escala.",
+            "subtitle": "Lata estándar de 330 ml (altura 122 mm) usada como referencia."
+        },
+        "standUp": {
+            "heading": "GAMA STAND-UP",
+            "sizes": {
+                "0": {
+                    "bestFor": "Muestras, Especias"
+                },
+                "1": {
+                    "bestFor": "Té, Semillas"
+                },
+                "2": {
+                    "bestFor": "Granola, Snacks"
+                },
+                "3": {
+                    "bestFor": "Café 250g"
+                },
+                "4": {
+                    "bestFor": "Café minorista 500g"
+                },
+                "5": {
+                    "bestFor": "Packs familiares"
+                },
+                "6": {
+                    "bestFor": "Alimento para mascotas, Granel"
+                }
+            }
+        },
+        "flatBottom": {
+            "heading": "GAMA FONDO PLANO",
+            "sizes": {
+                "0": {
+                    "bestFor": "Té de especialidad"
+                },
+                "1": {
+                    "bestFor": "Café premium 100g"
+                },
+                "2": {
+                    "bestFor": "Café 250g"
+                },
+                "3": {
+                    "bestFor": "Café 12oz"
+                },
+                "4": {
+                    "bestFor": "Café 1kg"
+                },
+                "5": {
+                    "bestFor": "Alimento para mascotas"
+                },
+                "6": {
+                    "bestFor": "Granos a granel"
+                }
+            }
+        },
+        "techCards": {
+            "precision": {
+                "title": "Tolerancias de precisión",
+                "description": "La tolerancia de fabricación estándar es de +/- 2mm. Asegúrate de que la zona segura de tu diseño sea de al menos 5mm de todos los bordes y sellados."
+            },
+            "headspace": {
+                "title": "Lógica de espacio superior",
+                "description": "Siempre permite 40mm para el sellado térmico y el mecanismo de cierre zip. Llenar por encima de la línea del zip resultará en falla estructural del sellado."
+            },
+            "dieline": {
+                "title": "Acceso a troqueles",
+                "description": "Troqueles descargables en PDF/AI están disponibles para todos los tamaños estándar una vez que se finalice la selección de materiales."
+            }
+        },
+        "cta": {
+            "badge": "VERIFICAR_ANTES_DE_PEDIR",
+            "heading1": "Tamaño.",
+            "heading2": "Muestra.",
+            "description": "Evita errores costosos de dimensionamiento. Pide nuestro \"Kit de tamaños\" completo para llenar tus productos en condiciones reales.",
+            "ctaPrimary": "Solicitar kit de tamaños",
+            "ctaSecondary": "Hablar con experto en tamaños"
+        },
+        "lightbox": {
+            "altText": "Detalle de tamaño",
+            "caption": "Modo de comparación visual: Referencia lata estándar 330 ml"
+        }
+    },
+    "pouchSolutionsPage": {
+        "meta": {
+            "title": "Soluciones de embalaje ecológico | Desde 500 unidades | Pouch.eco",
+            "description": "Bolsas compostables, reciclables y de base biológica para startups. MOQ bajo desde 500 unidades. Entrega rápida, sin presión de mínimos.",
+            "ogTitle": "Soluciones de embalaje ecológico | Desde 500 unidades | Pouch.eco",
+            "ogDescription": "Bolsas compostables, reciclables y de base biológica para startups. MOQ bajo desde 500 unidades.",
+            "twitterTitle": "Soluciones de embalaje ecológico | Pouch.eco",
+            "twitterDescription": "Lanza tu marca ecológica con bolsas compostables desde solo 500 unidades"
+        },
+        "hero": {
+            "badge": "ÍNDICE_SOLUCIONES",
+            "titleLine1": "Elige Tu",
+            "titleLine2": "Camino Eco",
+            "terminalLine1": "> Compostable // Reciclable // Base biológica",
+            "terminalLine2": "> Todos certificados. Todos desde 500 unidades.",
+            "terminalLine3": "> Lanza tu marca sostenible hoy.",
+            "ctaConsultation": "Reservar consulta gratuita",
+            "ctaMaterials": "Explorar materiales"
+        },
+        "solutions": {
+            "title": "Tres",
+            "titleLine2": "Soluciones",
+            "badge": "MATERIALES_TODOS_CERTIFICADOS",
+            "getQuote": "Obtener cotización",
+            "items": {
+                "0": {
+                    "name": "COMPOSTABLE",
+                    "headline": "Regresa a la tierra naturalmente",
+                    "description": "Perfecto para marcas orgánicas y startups ecoconscientes. Tu embalaje se descompone en 1-6 meses, sin microplásticos.",
+                    "benefits": {
+                        "0": "Certificado EN13432/ASTM D6400",
+                        "1": "Compost industrial y doméstico",
+                        "2": "Desde solo 500 unidades",
+                        "3": "Ideal para snacks, té, suplementos"
+                    }
+                },
+                "1": {
+                    "name": "RECICLABLE",
+                    "headline": "Campeón de la economía circular",
+                    "description": "Bolsas mono-material PE/PP aceptadas en flujos de reciclaje estándar. Alta barrera, mayor vida útil.",
+                    "benefits": {
+                        "0": "Hasta 70% de contenido PCR",
+                        "1": "Reciclable en flujo único",
+                        "2": "Vida útil de 9 a 18 meses",
+                        "3": "Ideal para café, alimento para mascotas"
+                    }
+                },
+                "2": {
+                    "name": "BIO_PLÁSTICO",
+                    "headline": "Embalaje a base de plantas",
+                    "description": "Hecho de caña de azúcar y maíz renovables. Huella de carbono reducida verificada por estudios recientes.",
+                    "benefits": {
+                        "0": "Reduce el uso de combustibles fósiles",
+                        "1": "Producción carbono neutral",
+                        "2": "Duradero y confiable",
+                        "3": "Formas personalizadas disponibles"
+                    }
+                }
+            }
+        },
+        "useCases": {
+            "title": "Perfecto para",
+            "moqLabel": "MOQ:",
+            "items": {
+                "0": {
+                    "title": "Marcas de café y té",
+                    "description": "Las bolsas de alta barrera mantienen los granos frescos durante 12-18 meses. Válvulas de desgasificación disponibles.",
+                    "moq": "500 unidades"
+                },
+                "1": {
+                    "title": "Startups de snacks",
+                    "description": "Bolsas ligeras y resellables, perfectas para nueces, fruta seca, granola. Fáciles de enviar.",
+                    "moq": "500 unidades"
+                },
+                "2": {
+                    "title": "Marcas de premios para mascotas",
+                    "description": "Bolsas certificadas para alimentos con barrera reforzada. Cremalleras a prueba de niños disponibles.",
+                    "moq": "1,000 unidades"
+                },
+                "3": {
+                    "title": "Empresas de suplementos",
+                    "description": "Bolsas compostables resistentes a la humedad. Perfectas para polvo o cápsulas.",
+                    "moq": "500 unidades"
+                }
+            }
+        },
+        "fastFacts": {
+            "title": "¿Por qué Pouch.eco?",
+            "stat1Value": "500",
+            "stat1Label": "PEDIDO MÍN",
+            "stat2Value": "2-3",
+            "stat2Label": "SEMANAS MUESTRAS",
+            "stat3Value": "100%",
+            "stat3Label": "CERTIFICADO"
+        }
+    },
+    "pouchSEOPage": {
+        "meta": {
+            "title": "Guía SEO para marcas de empaques compostables | POUCH.ECO",
+            "description": "Aprenda cómo posicionar su marca de empaques compostables en Google. Investigación de palabras clave, estrategia de contenido y consejos de SEO técnico para empresas de bolsas ecológicas.",
+            "keywords": "SEO para marcas de empaques, SEO bolsas compostables, marketing empaques ecológicos, palabras clave empaques sostenibles, SEO bolsas biodegradables, optimización búsqueda empaques verdes"
+        },
+        "hero": {
+            "badge": "Guía de estrategia SEO",
+            "titleLine1": "Posicione su",
+            "titleHighlight": "marca eco",
+            "titleLine2": "en Google",
+            "subtitle": "Tácticas SEO que realmente funcionan para marcas de empaques compostables. Sin relleno. Solo resultados.",
+            "ctaConsult": "Reservar consulta SEO",
+            "ctaKeywords": "Ver palabras clave"
+        },
+        "tldr": {
+            "label": "Resumen",
+            "text": "SEO para empaques ecológicos = investigación de palabras clave + contenido de alta calidad + optimización técnica. Apunte a palabras clave de cola larga, escriba guías completas y obtenga backlinks de sitios de sostenibilidad. Espere de 3 a 6 meses para resultados."
+        },
+        "keywords": {
+            "title1": "Palabras clave principales",
+            "title2": "a posicionar",
+            "subtitle": "Estos son los términos de búsqueda con mayor conversión para marcas de empaques compostables. Comience aquí.",
+            "tableHeaders": {
+                "keyword": "Palabra clave",
+                "searchVolume": "Volumen de búsqueda",
+                "difficulty": "Dificultad"
+            },
+            "items": {
+                "0": {
+                    "term": "bolsas compostables",
+                    "volume": "1.2K/mes",
+                    "difficulty": "Medio"
+                },
+                "1": {
+                    "term": "empaques ecológicos",
+                    "volume": "5.8K/mes",
+                    "difficulty": "Alto"
+                },
+                "2": {
+                    "term": "bolsas biodegradables",
+                    "volume": "3.4K/mes",
+                    "difficulty": "Medio"
+                },
+                "3": {
+                    "term": "empaques sostenibles",
+                    "volume": "12K/mes",
+                    "difficulty": "Alto"
+                },
+                "4": {
+                    "term": "bolsas a base de plantas",
+                    "volume": "890/mes",
+                    "difficulty": "Bajo"
+                },
+                "5": {
+                    "term": "bolsas compostables en casa",
+                    "volume": "720/mes",
+                    "difficulty": "Bajo"
+                }
+            }
+        },
+        "strategy": {
+            "title1": "Estrategia SEO",
+            "title2": "en 3 pasos",
+            "subtitle": "Siga este marco para posicionarse más rápido y convertir más compradores eco-conscientes.",
+            "items": {
+                "0": {
+                    "title": "Investigación de palabras clave",
+                    "description": "Descubra lo que sus clientes realmente están buscando",
+                    "tips": {
+                        "0": "Apunte a palabras clave de cola larga como \"bolsas de café compostables certificadas\"",
+                        "1": "Use Google Search Console para encontrar oportunidades de posicionamiento",
+                        "2": "Enfóquese en palabras clave de intención de compra (ej., \"comprar bolsas compostables\")",
+                        "3": "Rastree palabras clave de la competencia usando SEMrush o Ahrefs"
+                    }
+                },
+                "1": {
+                    "title": "Estrategia de contenido",
+                    "description": "Cree contenido que se posicione Y convierta",
+                    "tips": {
+                        "0": "Escriba guías completas (más de 1500 palabras)",
+                        "1": "Responda preguntas de \"qué es\", \"cómo\" y \"vs\"",
+                        "2": "Incluya comparaciones de productos y casos de uso",
+                        "3": "Agregue testimonios de clientes y estudios de caso"
+                    }
+                },
+                "2": {
+                    "title": "SEO técnico",
+                    "description": "Haga su sitio rápido, adaptable a móviles y rastreable",
+                    "tips": {
+                        "0": "Optimice la velocidad de carga (menos de 3 segundos)",
+                        "1": "Use diseño responsivo para usuarios móviles",
+                        "2": "Cree un sitemap XML y robots.txt",
+                        "3": "Implemente marcado schema para fragmentos enriquecidos"
+                    }
+                }
+            }
+        },
+        "whySeo": {
+            "title1": "Por qué el SEO",
+            "titleHighlight": "importa",
+            "title2": "para marcas eco",
+            "subtitle": "Sus clientes están buscando empaques sostenibles AHORA MISMO. Si no está posicionado, están encontrando a sus competidores.",
+            "benefits": {
+                "0": {
+                    "title": "Tráfico orgánico = Prospectos gratis",
+                    "description": "Los anuncios pagados cuestan $3-8 por clic. El SEO atrae compradores calificados gratis, mes tras mes."
+                },
+                "1": {
+                    "title": "Autoridad = Confianza",
+                    "description": "Posicionarse en la página 1 señala credibilidad. Los compradores confían en las marcas que Google confía."
+                },
+                "2": {
+                    "title": "Cola larga = Mayor conversión",
+                    "description": "Apunte a búsquedas específicas como \"bolsas de café compostables certificadas\" para atraer compradores listos para comprar."
+                }
+            },
+            "statsTitle": "Estadísticas SEO que importan",
+            "stats": {
+                "0": {
+                    "value": "75%",
+                    "description": "de los usuarios nunca pasan de la página 1 de los resultados de Google"
+                },
+                "1": {
+                    "value": "53%",
+                    "description": "de todo el tráfico web proviene de búsqueda orgánica"
+                },
+                "2": {
+                    "value": "14.6%",
+                    "description": "tasa de conversión promedio para búsqueda orgánica (vs 1.7% para anuncios pagados)"
+                }
+            }
+        },
+        "faqs": {
+            "title1": "Preguntas",
+            "title2": "SEO frecuentes",
+            "items": {
+                "0": {
+                    "question": "¿Cuánto tiempo toma el SEO para marcas de empaques?",
+                    "answer": "Espere de 3 a 6 meses para ver resultados significativos. El empaque compostable es un nicho en crecimiento, por lo que el posicionamiento puede ocurrir más rápido que en industrias competitivas. Enfóquese primero en palabras clave de cola larga, luego expanda a términos más amplios a medida que gane autoridad."
+                },
+                "1": {
+                    "question": "¿Qué palabras clave debo apuntar para bolsas compostables?",
+                    "answer": "Comience con términos específicos de producto como \"bolsas de café compostables certificadas\" o \"bolsas stand-up biodegradables\". Evite términos genéricos como \"empaque\" inicialmente. Use Google Keyword Planner para encontrar volumen de búsqueda y niveles de competencia."
+                },
+                "2": {
+                    "question": "¿Necesito un blog para el SEO?",
+                    "answer": "Sí. Un blog le ayuda a apuntar palabras clave informativas (ej., \"cómo elegir empaques compostables\") que atraen compradores más temprano en su fase de investigación. Apunte a 2-4 publicaciones de alta calidad por mes cubriendo guías de certificación, comparaciones de materiales y tendencias de la industria."
+                },
+                "3": {
+                    "question": "¿Qué tan importantes son los backlinks para el SEO de empaques?",
+                    "answer": "Muy importantes. Backlinks de calidad de blogs de sostenibilidad, publicaciones del sector y directorios ecológicos señalan autoridad a Google. Enfóquese en obtener enlaces a través de publicaciones invitadas, asociaciones y la creación de contenido compartible como infografías o informes de investigación."
+                },
+                "4": {
+                    "question": "¿Debo optimizar para Google o Amazon?",
+                    "answer": "Ambos, pero de manera diferente. El SEO de Google se enfoca en contenido y autoridad. El SEO de Amazon prioriza títulos de productos, viñetas y reseñas. Si vende en Amazon, optimice ambos canales, pero Google captura compradores en modo de investigación antes de que lleguen a Amazon."
+                }
+            }
+        },
+        "cta": {
+            "title1": "¿Listo para",
+            "titleHighlight": "posicionarse mejor?",
+            "subtitle": "Reserve una consulta SEO GRATUITA de 30 minutos. Auditaremos su sitio, identificaremos victorias rápidas y construiremos una estrategia de palabras clave personalizada.",
+            "button": "Reserve su consulta SEO",
+            "disclaimer": "Sin discurso de venta. Sin obligación. Solo consejos SEO accionables."
+        }
+    },
+    "pouchUnprintedSamplesPage": {
+        "meta": {
+            "title": "Muestras sin impresión y genéricas - Pouch.eco",
+            "description": "Solicite muestras lisas sin impresión o muestras genéricas impresas para verificar la calidad del material, el grosor y las dimensiones."
+        },
+        "hero": {
+            "titleLine1": "Muestras",
+            "titleLine2": "Sin impresión",
+            "badge": "Verificación de materiales",
+            "subtitle": "Verifique la calidad antes de imprimir"
+        },
+        "intro": {
+            "text": "¿No está listo para la impresión personalizada? Obtenga nuestro",
+            "highlight": "Kit de excelencia de materiales",
+            "textAfter": "con bolsas lisas sin impresión y muestras genéricas de alta calidad de nuestra línea de producción."
+        },
+        "unprintedPlain": {
+            "heading": "Muestras lisas sin impresión",
+            "description": "Verificación pura del material. Sin tinta, solo la textura y estructura del material en bruto.",
+            "item1": "Kraft compostable en el hogar",
+            "item2": "Mono-PE reciclable",
+            "item3": "Bio-PE de caña de azúcar",
+            "item4": "PCR de alta barrera"
+        },
+        "genericCustomer": {
+            "heading": "Muestras genéricas de clientes",
+            "description": "Muestras reales de nuestra línea de producción. Verifique la calidad de impresión, el registro y el acabado (Mate/Brillante).",
+            "item1": "Bolsas de café con válvulas",
+            "item2": "Bolsas para snacks",
+            "item3": "Bolsas para alimento de mascotas",
+            "item4": "Bolsas con boquilla para jugos"
+        },
+        "orderKit": {
+            "title": "Solicitar kit de evaluación",
+            "price": "USD $50",
+            "description": "Incluye 10-15 muestras surtidas que cubren todos nuestros principales materiales y estructuras. Envío por FedEx/DHL incluido.",
+            "cta": "Solicitar kit ahora"
+        },
+        "gallery": {
+            "title": "Referencia visual",
+            "alt1": "Muestra genérica de café",
+            "alt2": "Muestra genérica de snack",
+            "alt3": "Muestra genérica de alimento para mascotas",
+            "alt4": "Muestra genérica de alimento para bebé"
+        }
+    },
+    "workshopRegisterPage": {
+        "meta": {
+            "title": "Registro: Taller de embalaje en vivo 26 de mayo | Achieve Pack",
+            "description": "Regístrese en nuestro taller en vivo el 26 de mayo para aprender a aplicar las mejores prácticas de embalaje sostenible a su marca."
+        },
+        "badge": "Taller en vivo",
+        "hero": {
+            "titleLine1": "La acción",
+            "titleHighlight": "impulsa",
+            "titleLine2": "resultados",
+            "subtitle": "Únase a nosotros el 26 de mayo para un taller en vivo basado en datos. Daremos vida a los datos del informe y le ayudaremos a aplicarlos directamente a los requisitos únicos de su marca."
+        },
+        "details": {
+            "date": "26 de mayo de 2026 a las 10:00 AM EST",
+            "duration": "90 minutos de conocimientos profundos",
+            "location": "Taller digital en vivo (enlace por correo electrónico)",
+            "bonus": "Incluye acceso anticipado al planificador de transición"
+        },
+        "whoIsThisFor": {
+            "title": "¿Para quién es este taller?",
+            "item1": "Fundadores de marcas DTC",
+            "item2": "Responsables de sostenibilidad",
+            "item3": "Desarrolladores de productos",
+            "item4": "Gerentes de cadena de suministro"
+        },
+        "missedReport": {
+            "title": "¿Se perdió el informe?",
+            "description": "Los conocimientos que discutiremos se basan en nuestro informe insignia \"State of Sustainable Packaging 2026\".",
+            "cta": "Leer el informe"
+        },
+        "form": {
+            "title": "Reserve su lugar",
+            "fullName": "Nombre completo",
+            "fullNamePlaceholder": "Ryan Wong",
+            "workEmail": "Correo electrónico laboral",
+            "workEmailPlaceholder": "ryan@achievepack.com",
+            "companyName": "Nombre de la empresa",
+            "companyNamePlaceholder": "Achieve Pack",
+            "submit": "Registrarse ahora",
+            "limitNotice": "Limitado a 10 participantes por sesión."
+        },
+        "success": {
+            "title": "¡Está registrado!",
+            "message": "Le hemos enviado un correo de confirmación con los detalles del taller y su planificador de transición. ¡Nos vemos el 26 de mayo!",
+            "cta": "Volver al inicio"
+        }
+    },
+    "pouchTestimonialsPage": {
+        "meta": {
+            "title": "Historias de clientes | Resultados reales de marcas reales | POUCH.ECO",
+            "description": "Descubra cómo más de 2,000 marcas sostenibles lanzaron con nuestras bolsas ecológicas. Desde startups de 500 unidades hasta marcas de 50,000 unidades - historias y resultados reales.",
+            "ogTitle": "Historias de éxito de clientes | POUCH.ECO",
+            "ogDescription": "Marcas reales, resultados reales. Vea cómo el embalaje sostenible transformó estos negocios."
+        },
+        "hero": {
+            "badge": "REAL_STORIES",
+            "titleLine1": "Más de 2,000 marcas",
+            "titleLine2": "Comenzaron aquí",
+            "description": "Desde startups de 500 unidades hasta marcas establecidas que piden más de 50,000 unidades al mes.",
+            "descriptionBold": "Vea cómo el embalaje sostenible transformó estos negocios."
+        },
+        "stats": {
+            "happyBrands": "Marcas satisfechas",
+            "repeatCustomers": "Clientes recurrentes",
+            "averageRating": "Calificación promedio",
+            "minimumOrder": "Pedido mínimo"
+        },
+        "testimonials": {
+            "0": {
+                "industry": "Tostadero de café",
+                "quote": "Cambiar a bolsas compostables fue una decisión obvia para nuestros clientes eco-conscientes. El MOQ de 500 nos permitió probar sin gran riesgo. ¡Las ventas aumentaron un 23% después del lanzamiento!",
+                "role": "Fundadora",
+                "highlights": {
+                    "0": "Aumento del 23% en ventas",
+                    "1": "Cero residuos",
+                    "2": "Amor del cliente"
+                }
+            },
+            "1": {
+                "industry": "Marca de bienestar",
+                "quote": "El acabado mate suave al tacto hizo que nuestras bolsas de superalimentos se sintieran de lujo. Los clientes nos dicen que les encanta la experiencia táctil. ¡Vale cada centavo!",
+                "role": "Gerente de producto",
+                "highlights": {
+                    "0": "Sensación premium",
+                    "1": "Comentarios de clientes",
+                    "2": "Mejora de marca"
+                }
+            },
+            "2": {
+                "industry": "Marca de superalimentos",
+                "quote": "¡De la consulta a la entrega en 3 semanas! Ryan nos guió en cada paso. La calidad de impresión digital es impresionante, y el precio fue mejor que los proveedores locales.",
+                "role": "Cofundadora",
+                "highlights": {
+                    "0": "Entrega en 3 semanas",
+                    "1": "Gran soporte",
+                    "2": "Calidad increíble"
+                }
+            },
+            "3": {
+                "industry": "Panadería artesanal",
+                "quote": "Necesitábamos embalaje que coincidiera con nuestros valores artesanales. ¡Las bolsas kraft con ventanas transparentes dejan brillar nuestros productos mientras siguen siendo ecológicas!",
+                "role": "Propietario",
+                "highlights": {
+                    "0": "Aspecto artesanal",
+                    "1": "Ajuste perfecto",
+                    "2": "Valores ecológicos"
+                }
+            },
+            "4": {
+                "industry": "Snacks orgánicos",
+                "quote": "Las opciones de barrera eran confusas al principio, pero el equipo nos ayudó a elegir la barrera media perfecta para nuestras nueces. 8 meses de vida útil - ¡exactamente lo que necesitábamos!",
+                "role": "Líder de operaciones",
+                "highlights": {
+                    "0": "Barrera perfecta",
+                    "1": "Gran orientación",
+                    "2": "8 meses de vida útil"
+                }
+            },
+            "5": {
+                "industry": "Café urbano",
+                "quote": "Como startup de NYC, un MOQ bajo era crítico. Empezamos con 500 bolsas, ahora pedimos 5,000 por mes. ¡La válvula de desgasificación mantiene nuestros granos frescos por semanas!",
+                "role": "Tostador principal",
+                "highlights": {
+                    "0": "Empezó pequeño",
+                    "1": "Creció rápido",
+                    "2": "Café fresco"
+                }
+            },
+            "6": {
+                "industry": "Marca de té",
+                "quote": "Nos encantó el material con aspecto kraft y barrera de base biológica. Nuestros clientes aprecian la estética natural y que sea 100% compostable. ¡Un cambio radical para nuestra marca!",
+                "role": "Directora de marca",
+                "highlights": {
+                    "0": "Aspecto natural",
+                    "1": "Compostable",
+                    "2": "Éxito de marca"
+                }
+            },
+            "7": {
+                "industry": "Snacks saludables",
+                "quote": "La ventana transparente en nuestras bolsas era imprescindible. A los clientes les encanta ver el producto antes de comprar. ¡La respuesta ha sido increíble - a nuestros socios minoristas también les encanta!",
+                "role": "Fundador y CEO",
+                "highlights": {
+                    "0": "Ventana transparente",
+                    "1": "Éxito en retail",
+                    "2": "Confianza del cliente"
+                }
+            },
+            "8": {
+                "industry": "Bienestar herbal",
+                "quote": "Como productor de lotes pequeños, encontrar mínimos de 500 unidades era imposible hasta que encontramos pouch.eco. La calidad rivaliza con marcas 10 veces más grandes. ¡Nuestros clientes creen que somos mucho más grandes!",
+                "role": "Propietaria",
+                "highlights": {
+                    "0": "Lotes pequeños",
+                    "1": "Calidad premium",
+                    "2": "Percepción de marca"
+                }
+            },
+            "9": {
+                "industry": "Nutrición deportiva",
+                "quote": "El acabado negro mate con logo UV selectivo - ¡absolutamente increíble! Nuestras bolsas pre-entrenamiento parecen costar $50 cuando solo cuestan $25. ¡El engagement en Instagram se disparó!",
+                "role": "Cofundador",
+                "highlights": {
+                    "0": "Negro mate",
+                    "1": "Aspecto premium",
+                    "2": "Éxito en redes sociales"
+                }
+            },
+            "10": {
+                "industry": "Comida para bebés",
+                "quote": "A los padres les encanta que nuestras bolsas tengan certificación compostable BPI. El cierre resellable mantiene los snacks frescos todo el día. ¡Cero quejas sobre fugas o problemas de calidad!",
+                "role": "Fundadora",
+                "highlights": {
+                    "0": "Certificado BPI",
+                    "1": "Aprobado por padres",
+                    "2": "Cero problemas"
+                }
+            },
+            "11": {
+                "industry": "Café de especialidad",
+                "quote": "La válvula de desgasificación unidireccional era esencial para nuestro micro-tostadero. Mantiene los granos frescos por más de 6 semanas. ¡Nuestros clientes de suscripción notan la diferencia de inmediato!",
+                "role": "Tostador principal",
+                "highlights": {
+                    "0": "Válvula de desgasificación",
+                    "1": "6 semanas de frescura",
+                    "2": "Éxito en suscripciones"
+                }
+            }
+        },
+        "trustedBy": {
+            "badge": "TRUSTED_BY",
+            "title": "Únase a <1>más de 500</1> marcas",
+            "subtitle": "Desde startups hasta nombres establecidos - todos comenzaron con 500 unidades"
+        },
+        "cta": {
+            "titleLine1": "¿Su historia",
+            "titleLine2": "es la siguiente?",
+            "description": "Únase a más de 2,000 marcas que lanzaron con confianza.",
+            "descriptionBold": "Desde 500 unidades. Sin compromisos en calidad ni con el planeta.",
+            "bookCall": "Reservar llamada gratuita",
+            "requestSamples": "Solicitar muestras",
+            "contactInfo": "📧 ryan@achievepack.com • ⏱️ Respuesta en 24 horas"
+        },
+        "packaging": "embalaje"
     }
 }

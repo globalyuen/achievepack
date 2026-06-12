@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, X, ChevronLeft, ChevronRight, Factory, Printer, Layers, Scissors, Package, CheckCircle } from 'lucide-react'
@@ -59,6 +60,7 @@ const FACTORY_VIDEOS: Video[] = [
 ]
 
 export default function PouchFactoryTourPage() {
+  const { t } = useTranslation()
   const [activeVideo, setActiveVideo] = useState<Video | null>(null)
 
   const handleNext = () => {
@@ -78,14 +80,14 @@ export default function PouchFactoryTourPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>Factory Tour | See How We Make Eco Pouches | POUCH.ECO</title>
+        <title>{t('pouchFactoryTourPage.meta.title')}</title>
         <meta 
           name="description" 
-          content="Virtual factory tour: Watch our sustainable pouch manufacturing process from printing to bag making. Quality certified eco-packaging production." 
+          content={t('pouchFactoryTourPage.meta.description')} 
         />
         <link rel="canonical" href="https://pouch.eco/factory-tour" />
-        <meta property="og:title" content="Factory Tour | POUCH.ECO" />
-        <meta property="og:description" content="See inside our eco-friendly packaging factory" />
+        <meta property="og:title" content={t('pouchFactoryTourPage.meta.ogTitle')} />
+        <meta property="og:description" content={t('pouchFactoryTourPage.meta.ogDescription')} />
         <meta property="og:url" content="https://pouch.eco/factory-tour" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -113,25 +115,23 @@ export default function PouchFactoryTourPage() {
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
-            <span className="font-['JetBrains_Mono'] font-bold uppercase">FACTORY_TOUR</span>
+            <span className="font-['JetBrains_Mono'] font-bold uppercase">{t('pouchFactoryTourPage.hero.badge')}</span>
           </div>
 
           <h1 className="font-black text-5xl md:text-7xl leading-none mb-6 uppercase">
-            See How We<br/>
-            <span className="text-[#10b981]">Make Magic</span>
+            {t('pouchFactoryTourPage.hero.titleLine1')}<br/>
+            <span className="text-[#10b981]">{t('pouchFactoryTourPage.hero.titleLine2')}</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto font-['Space_Grotesk']">
-            Virtual tour of our <strong>certified facility</strong> where sustainable pouches come to life
-          </p>
+          <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto font-['Space_Grotesk']" dangerouslySetInnerHTML={{ __html: t('pouchFactoryTourPage.hero.subtitle') }} />
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {[
-              { label: 'Production Lines', value: '6' },
-              { label: 'Daily Capacity', value: '100K+' },
-              { label: 'Quality Tests', value: '15+' },
-              { label: 'Years Experience', value: '10+' }
+              { label: t('pouchFactoryTourPage.stats.productionLines'), value: '6' },
+              { label: t('pouchFactoryTourPage.stats.dailyCapacity'), value: '100K+' },
+              { label: t('pouchFactoryTourPage.stats.qualityTests'), value: '15+' },
+              { label: t('pouchFactoryTourPage.stats.yearsExperience'), value: '10+' }
             ].map((stat, idx) => (
               <NeoCard
                 key={idx}
@@ -150,10 +150,10 @@ export default function PouchFactoryTourPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
-              Production <span className="text-[#10b981]">Process</span>
+              {t('pouchFactoryTourPage.videoGrid.title1')}<span className="text-[#10b981]">{t('pouchFactoryTourPage.videoGrid.title2')}</span>
             </h2>
             <p className="text-lg text-gray-700 font-['Space_Grotesk']">
-              Click any video to watch our manufacturing workflow
+              {t('pouchFactoryTourPage.videoGrid.subtitle')}
             </p>
           </div>
 
@@ -192,9 +192,9 @@ export default function PouchFactoryTourPage() {
                     <div className="p-4 bg-white">
                       <div className="flex items-center gap-2 mb-2">
                         <Icon className="w-5 h-5 text-[#10b981]" />
-                        <h3 className="font-black uppercase text-sm">{video.title}</h3>
+                        <h3 className="font-black uppercase text-sm">{t(`pouchFactoryTourPage.videos.${video.id === 'digital-printing' ? 'digitalPrinting' : video.id === 'roto-printing' ? 'rotoPrinting' : video.id === 'bag-making' ? 'bagMaking' : video.id}.title`)}</h3>
                       </div>
-                      <p className="text-sm text-gray-600 font-['Space_Grotesk']">{video.description}</p>
+                      <p className="text-sm text-gray-600 font-['Space_Grotesk']">{t(`pouchFactoryTourPage.videos.${video.id === 'digital-printing' ? 'digitalPrinting' : video.id === 'roto-printing' ? 'rotoPrinting' : video.id === 'bag-making' ? 'bagMaking' : video.id}.description`)}</p>
                     </div>
                   </NeoCard>
                 </motion.div>
@@ -209,26 +209,26 @@ export default function PouchFactoryTourPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block bg-[#10b981] text-white border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
-              <span className="font-['JetBrains_Mono'] font-bold uppercase">QUALITY_FIRST</span>
+              <span className="font-['JetBrains_Mono'] font-bold uppercase">{t('pouchFactoryTourPage.quality.badge')}</span>
             </div>
             <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
-              Certified <span className="text-[#10b981]">Standards</span>
+              {t('pouchFactoryTourPage.quality.title1')}<span className="text-[#10b981]">{t('pouchFactoryTourPage.quality.title2')}</span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                title: 'Material Testing',
-                points: ['Barrier testing (OTR, WVTR)', 'Seal strength measurement', 'Thickness uniformity', 'Migration testing']
+                title: t('pouchFactoryTourPage.quality.materialTesting.title'),
+                points: [t('pouchFactoryTourPage.quality.materialTesting.point1'), t('pouchFactoryTourPage.quality.materialTesting.point2'), t('pouchFactoryTourPage.quality.materialTesting.point3'), t('pouchFactoryTourPage.quality.materialTesting.point4')]
               },
               {
-                title: 'Quality Control',
-                points: ['In-line inspection', 'Color consistency checks', 'Dimensional accuracy', 'Drop testing']
+                title: t('pouchFactoryTourPage.quality.qualityControl.title'),
+                points: [t('pouchFactoryTourPage.quality.qualityControl.point1'), t('pouchFactoryTourPage.quality.qualityControl.point2'), t('pouchFactoryTourPage.quality.qualityControl.point3'), t('pouchFactoryTourPage.quality.qualityControl.point4')]
               },
               {
-                title: 'Certifications',
-                points: ['BPI Certified', 'EN 13432 Compliant', 'FDA Food-Safe', 'GRS Certified']
+                title: t('pouchFactoryTourPage.quality.certifications.title'),
+                points: [t('pouchFactoryTourPage.quality.certifications.point1'), t('pouchFactoryTourPage.quality.certifications.point2'), t('pouchFactoryTourPage.quality.certifications.point3'), t('pouchFactoryTourPage.quality.certifications.point4')]
               }
             ].map((section, idx) => (
               <NeoCard key={idx} className="h-full">
@@ -254,16 +254,16 @@ export default function PouchFactoryTourPage() {
       <section className="py-16 px-4 bg-[#D4FF00] border-b-4 border-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-black text-4xl md:text-5xl uppercase mb-6">
-            Ready to Start?
+            {t('pouchFactoryTourPage.cta.title')}
           </h2>
           <p className="text-xl mb-8 font-['Space_Grotesk']">
-            Book a free consultation to discuss your packaging needs
+            {t('pouchFactoryTourPage.cta.subtitle')}
           </p>
           <NeoButton
             href="https://calendly.com/30-min-free-packaging-consultancy"
             className="text-lg"
           >
-            Book Consultation
+            {t('pouchFactoryTourPage.cta.button')}
           </NeoButton>
         </div>
       </section>
@@ -308,8 +308,8 @@ export default function PouchFactoryTourPage() {
 
               {/* Video Info */}
               <div className="mt-4 bg-white border-4 border-white p-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)]">
-                <h3 className="font-black text-xl uppercase mb-2">{activeVideo.title}</h3>
-                <p className="text-gray-700 font-['Space_Grotesk']">{activeVideo.description}</p>
+                <h3 className="font-black text-xl uppercase mb-2">{t(`pouchFactoryTourPage.videos.${activeVideo.id === 'digital-printing' ? 'digitalPrinting' : activeVideo.id === 'roto-printing' ? 'rotoPrinting' : activeVideo.id === 'bag-making' ? 'bagMaking' : activeVideo.id}.title`)}</h3>
+                <p className="text-gray-700 font-['Space_Grotesk']">{t(`pouchFactoryTourPage.videos.${activeVideo.id === 'digital-printing' ? 'digitalPrinting' : activeVideo.id === 'roto-printing' ? 'rotoPrinting' : activeVideo.id === 'bag-making' ? 'bagMaking' : activeVideo.id}.description`)}</p>
               </div>
 
               {/* Navigation Arrows */}

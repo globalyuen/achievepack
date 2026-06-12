@@ -2,10 +2,12 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Shield, CheckCircle, Award, Leaf, Globe, Factory, Home, ExternalLink, ChevronDown, Recycle } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchCertificationsPage() {
+  const { t } = useTranslation()
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   
   const certifications = [
@@ -150,15 +152,15 @@ export default function PouchCertificationsPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>Compostable Certifications Explained | BPI, EN 13432 | POUCH.ECO</title>
+        <title>{t('pouchCertificationsPage.meta.title')}</title>
         <meta 
           name="description" 
-          content="Understand BPI, EN 13432, AS 4736, and home compostable certifications. Learn which certification your eco-friendly packaging needs for North America, Europe, Australia."
+          content={t('pouchCertificationsPage.meta.description')}
         />
-        <meta name="keywords" content="BPI certified, EN 13432, AS 4736, home compostable, ASTM D6400, BRC packaging, BRCGS, compostable packaging certification, food safety certification" />
+        <meta name="keywords" content={t('pouchCertificationsPage.meta.keywords')} />
         <link rel="canonical" href="https://pouch.eco/certifications" />
-        <meta property="og:title" content="Compostable Certifications Explained | POUCH.ECO" />
-        <meta property="og:description" content="BPI, EN 13432, AS 4736, Home Compostable - which certification does your packaging need?" />
+        <meta property="og:title" content={t('pouchCertificationsPage.meta.ogTitle')} />
+        <meta property="og:description" content={t('pouchCertificationsPage.meta.ogDescription')} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://pouch.eco/certifications" />
       </Helmet>
@@ -186,17 +188,17 @@ export default function PouchCertificationsPage() {
         <div className="relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
-            <span className="font-['JetBrains_Mono'] font-bold text-sm">CERTIFIED_COMPOSTABLE</span>
+            <span className="font-['JetBrains_Mono'] font-bold text-sm">{t('pouchCertificationsPage.hero.badge')}</span>
           </div>
           
           <h1 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] mb-6">
-            Proof Your<br/>Packaging<br/>
-            <span className="text-[#10b981]">Actually Works</span>
+            {t('pouchCertificationsPage.hero.titleLine1')}<br/>
+            {t('pouchCertificationsPage.hero.titleLine2')}<br/>
+            <span className="text-[#10b981]">{t('pouchCertificationsPage.hero.titleLine3')}</span>
           </h1>
           
           <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-            Third-party certifications mean your compostable packaging has been independently tested and verified. 
-            No greenwashing, just documented proof.
+            {t('pouchCertificationsPage.hero.subtitle')}
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -206,20 +208,20 @@ export default function PouchCertificationsPage() {
               className="!text-[#D4FF00]"
             >
               <ExternalLink className="w-5 h-5 mr-2 inline-block" />
-              View BPI Listing
+              {t('pouchCertificationsPage.hero.viewBpiListing')}
             </NeoButton>
             <NeoButton 
               href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf"
               className="bg-[#10b981] !text-white !border-black"
             >
               <ExternalLink className="w-5 h-5 mr-2 inline-block" />
-              Download BPI Cert
+              {t('pouchCertificationsPage.hero.downloadBpiCert')}
             </NeoButton>
             <NeoButton 
               href="https://calendly.com/30-min-free-packaging-consultancy"
               variant="secondary"
             >
-              Get Certified
+              {t('pouchCertificationsPage.hero.getCertified')}
             </NeoButton>
           </div>
         </div>
@@ -230,7 +232,7 @@ export default function PouchCertificationsPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-black text-4xl md:text-5xl uppercase text-center mb-12">
-            Our Certifications
+            {t('pouchCertificationsPage.certifications.heading')}
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -247,23 +249,23 @@ export default function PouchCertificationsPage() {
                     <cert.icon className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-black text-2xl mb-1">{cert.name}</h3>
-                    <p className="font-['JetBrains_Mono'] text-sm font-bold">{cert.region}</p>
+                    <h3 className="font-black text-2xl mb-1">{t(`pouchCertificationsPage.certifications.items.${idx}.name`)}</h3>
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold">{t(`pouchCertificationsPage.certifications.items.${idx}.region`)}</p>
                   </div>
                 </div>
 
                 <img 
                   src={cert.image} 
-                  alt={cert.name}
+                  alt={t(`pouchCertificationsPage.certifications.items.${idx}.name`)}
                   className="w-full h-64 object-contain bg-white border-4 border-black mb-4 p-4"
                   loading="lazy"
                 />
 
-                <p className="text-lg mb-4">{cert.description}</p>
+                <p className="text-lg mb-4">{t(`pouchCertificationsPage.certifications.items.${idx}.description`)}</p>
 
                 <div className="flex gap-2 mb-4">
                   <NeoBadge color="bg-white">{cert.standard}</NeoBadge>
-                  <NeoBadge color="bg-white">{cert.facility}</NeoBadge>
+                  <NeoBadge color="bg-white">{t(`pouchCertificationsPage.certifications.items.${idx}.facility`)}</NeoBadge>
                 </div>
 
                 {cert.downloadUrl ? (
@@ -273,13 +275,13 @@ export default function PouchCertificationsPage() {
                       variant="dark"
                       className="flex-1 !text-[#D4FF00] !py-2 !text-xs"
                     >
-                      LISTING
+                      {t('pouchCertificationsPage.certifications.listing')}
                     </NeoButton>
                     <NeoButton 
                       href={cert.downloadUrl} 
                       className="flex-1 !bg-[#10b981] !text-white !py-2 !text-xs !border-black"
                     >
-                      DOWNLOAD
+                      {t('pouchCertificationsPage.certifications.download')}
                     </NeoButton>
                   </div>
                 ) : null}
@@ -293,7 +295,7 @@ export default function PouchCertificationsPage() {
       <section className="py-16 px-4 bg-[#D4FF00]">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-black text-4xl md:text-5xl uppercase text-center mb-12">
-            Why Certifications Matter
+            {t('pouchCertificationsPage.benefits.heading')}
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -303,8 +305,8 @@ export default function PouchCertificationsPage() {
                 className="bg-white"
               >
                 <benefit.icon className="w-12 h-12 mb-4" />
-                <h3 className="font-black text-xl mb-2">{benefit.title}</h3>
-                <p className="text-sm">{benefit.description}</p>
+                <h3 className="font-black text-xl mb-2">{t(`pouchCertificationsPage.benefits.items.${idx}.title`)}</h3>
+                <p className="text-sm">{t(`pouchCertificationsPage.benefits.items.${idx}.description`)}</p>
               </NeoCard>
             ))}
           </div>
@@ -315,48 +317,48 @@ export default function PouchCertificationsPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-black text-4xl md:text-5xl uppercase text-center mb-12">
-            Standards Comparison
+            {t('pouchCertificationsPage.standards.heading')}
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full border-4 border-black">
               <thead>
                 <tr className="bg-black text-[#D4FF00]">
-                  <th className="border-4 border-black p-4 text-left font-['JetBrains_Mono'] font-bold">Certification</th>
-                  <th className="border-4 border-black p-4 text-left font-['JetBrains_Mono'] font-bold">Region</th>
-                  <th className="border-4 border-black p-4 text-left font-['JetBrains_Mono'] font-bold">Facility Type</th>
-                  <th className="border-4 border-black p-4 text-left font-['JetBrains_Mono'] font-bold">Temperature</th>
+                  <th className="border-4 border-black p-4 text-left font-['JetBrains_Mono'] font-bold">{t('pouchCertificationsPage.standards.thCertification')}</th>
+                  <th className="border-4 border-black p-4 text-left font-['JetBrains_Mono'] font-bold">{t('pouchCertificationsPage.standards.thRegion')}</th>
+                  <th className="border-4 border-black p-4 text-left font-['JetBrains_Mono'] font-bold">{t('pouchCertificationsPage.standards.thFacilityType')}</th>
+                  <th className="border-4 border-black p-4 text-left font-['JetBrains_Mono'] font-bold">{t('pouchCertificationsPage.standards.thTemperature')}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="bg-white">
                   <td className="border-4 border-black p-4 font-bold">BPI (ASTM D6400)</td>
-                  <td className="border-4 border-black p-4">North America</td>
-                  <td className="border-4 border-black p-4">Industrial</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.0.region')}</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.0.facility')}</td>
                   <td className="border-4 border-black p-4">140-160°F</td>
                 </tr>
                 <tr className="bg-[#F0F0F0]">
                   <td className="border-4 border-black p-4 font-bold">EN 13432</td>
-                  <td className="border-4 border-black p-4">Europe</td>
-                  <td className="border-4 border-black p-4">Industrial</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.1.region')}</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.1.facility')}</td>
                   <td className="border-4 border-black p-4">140-160°F</td>
                 </tr>
                 <tr className="bg-white">
                   <td className="border-4 border-black p-4 font-bold">AS 4736</td>
-                  <td className="border-4 border-black p-4">Australia</td>
-                  <td className="border-4 border-black p-4">Industrial</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.2.region')}</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.2.facility')}</td>
                   <td className="border-4 border-black p-4">140-160°F</td>
                 </tr>
                 <tr className="bg-[#F0F0F0]">
                   <td className="border-4 border-black p-4 font-bold">TÜV Austria HOME</td>
-                  <td className="border-4 border-black p-4">Global</td>
-                  <td className="border-4 border-black p-4">Home Compost</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.3.region')}</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.3.facility')}</td>
                   <td className="border-4 border-black p-4">70-80°F</td>
                 </tr>
                 <tr className="bg-white">
                   <td className="border-4 border-black p-4 font-bold">BRC Packaging</td>
-                  <td className="border-4 border-black p-4">Global</td>
-                  <td className="border-4 border-black p-4">Food Safety</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.4.region')}</td>
+                  <td className="border-4 border-black p-4">{t('pouchCertificationsPage.standards.rows.4.facility')}</td>
                   <td className="border-4 border-black p-4">N/A</td>
                 </tr>
               </tbody>
@@ -369,7 +371,7 @@ export default function PouchCertificationsPage() {
       <section className="py-16 px-4 bg-[#F0F0F0]">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-black text-4xl md:text-5xl uppercase text-center mb-12">
-            Common Questions
+            {t('pouchCertificationsPage.faqs.heading')}
           </h2>
           
           <div className="space-y-4">
@@ -382,7 +384,7 @@ export default function PouchCertificationsPage() {
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-[#D4FF00] transition-colors"
                 >
-                  <h3 className="font-black text-lg pr-4">{faq.question}</h3>
+                  <h3 className="font-black text-lg pr-4">{t(`pouchCertificationsPage.faqs.${idx}.question`)}</h3>
                   <ChevronDown 
                     className={`w-6 h-6 flex-shrink-0 transition-transform ${openFaq === idx ? 'rotate-180' : ''}`}
                   />
@@ -390,7 +392,7 @@ export default function PouchCertificationsPage() {
                 
                 {openFaq === idx && (
                   <div className="px-6 pb-6 border-t-4 border-black">
-                    <p className="text-lg pt-4">{faq.answer}</p>
+                    <p className="text-lg pt-4">{t(`pouchCertificationsPage.faqs.${idx}.answer`)}</p>
                   </div>
                 )}
               </NeoCard>
@@ -403,12 +405,12 @@ export default function PouchCertificationsPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-black text-4xl md:text-5xl uppercase text-center mb-12">
-            View Certificates
+            {t('pouchCertificationsPage.viewCertificates.heading')}
           </h2>
              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                <div className="text-center group">
-                 <img src="/imgs/cert/cert-din-home-compost.png" alt="DIN Home Compost" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">DIN Home Compost</p>
+                 <img src="/imgs/cert/cert-din-home-compost.png" alt={t('pouchCertificationsPage.viewCertificates.dinHomeCompost')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">{t('pouchCertificationsPage.viewCertificates.dinHomeCompost')}</p>
                </div>
                 <a 
                   href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" 
@@ -416,37 +418,37 @@ export default function PouchCertificationsPage() {
                   rel="noopener noreferrer" 
                   className="text-center group block"
                 >
-                  <img src="/imgs/company/bpi/bpi.svg" alt="BPI Certified" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                  <p className="mt-2 font-bold group-hover:text-[#10b981]">BPI Compostable</p>
-                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Download →</span>
+                  <img src="/imgs/company/bpi/bpi.svg" alt={t('pouchCertificationsPage.viewCertificates.bpiCompostable')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                  <p className="mt-2 font-bold group-hover:text-[#10b981]">{t('pouchCertificationsPage.viewCertificates.bpiCompostable')}</p>
+                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('pouchCertificationsPage.viewCertificates.downloadLabel')}</span>
                 </a>
                <div className="text-center group">
-                 <img src="/imgs/cert/cert-ABA-as5810.png" alt="ABA Home Compost" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">ABA AS 5810</p>
+                 <img src="/imgs/cert/cert-ABA-as5810.png" alt={t('pouchCertificationsPage.viewCertificates.abaAs5810')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">{t('pouchCertificationsPage.viewCertificates.abaAs5810')}</p>
                </div>
                <div className="text-center group">
-                 <img src="/imgs/cert/cert-pcr-grs.webp" alt="GRS Certified" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">GRS Recycled</p>
+                 <img src="/imgs/cert/cert-pcr-grs.webp" alt={t('pouchCertificationsPage.viewCertificates.grsRecycled')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">{t('pouchCertificationsPage.viewCertificates.grsRecycled')}</p>
                </div>
                <div className="text-center group">
-                 <img src="/imgs/cert/cert-BioPE.webp" alt="Biobased PE" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">Bio-based PE</p>
+                 <img src="/imgs/cert/cert-BioPE.webp" alt={t('pouchCertificationsPage.viewCertificates.bioBasedPe')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">{t('pouchCertificationsPage.viewCertificates.bioBasedPe')}</p>
                </div>
                <div className="text-center group">
-                 <img src="/imgs/cert/cert-fsc.png" alt="FSC Certified" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">FSC Mix</p>
+                 <img src="/imgs/cert/cert-fsc.png" alt={t('pouchCertificationsPage.viewCertificates.fscMix')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">{t('pouchCertificationsPage.viewCertificates.fscMix')}</p>
                </div>
                <div className="text-center group">
-                 <img src="/imgs/cert/cert-ISO9001.webp" alt="ISO 9001" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">ISO 9001</p>
+                 <img src="/imgs/cert/cert-ISO9001.webp" alt={t('pouchCertificationsPage.viewCertificates.iso9001')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">{t('pouchCertificationsPage.viewCertificates.iso9001')}</p>
                </div>
                <div className="text-center group">
-                 <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">ISO 14001</p>
+                 <img src="/imgs/cert/cert-ISO14001-cert.webp" alt={t('pouchCertificationsPage.viewCertificates.iso14001')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">{t('pouchCertificationsPage.viewCertificates.iso14001')}</p>
                </div>
                <div className="text-center group">
-                 <img src="/imgs/cert/cert-brc.webp" alt="BRC Packaging" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">BRC Packaging</p>
+                 <img src="/imgs/cert/cert-brc.webp" alt={t('pouchCertificationsPage.viewCertificates.brcPackaging')} className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">{t('pouchCertificationsPage.viewCertificates.brcPackaging')}</p>
                </div>
              </div>
         </div>
@@ -456,24 +458,24 @@ export default function PouchCertificationsPage() {
       <section className="py-16 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-black text-4xl md:text-6xl uppercase mb-6">
-            Ready to Get Certified?
+            {t('pouchCertificationsPage.cta.heading')}
           </h2>
           <p className="text-xl md:text-2xl mb-8">
-            We'll guide you through the certification process and help you choose the right standards for your market.
+            {t('pouchCertificationsPage.cta.subtitle')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <NeoButton 
               href="https://calendly.com/30-min-free-packaging-consultancy"
               className="text-lg"
             >
-              Book Free Consultation
+              {t('pouchCertificationsPage.cta.bookConsultation')}
             </NeoButton>
             <NeoButton 
               to="/materials"
               variant="secondary"
               className="text-lg"
             >
-              Browse Certified Materials
+              {t('pouchCertificationsPage.cta.browseMaterials')}
             </NeoButton>
           </div>
         </div>

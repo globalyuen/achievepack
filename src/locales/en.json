@@ -20448,5 +20448,1025 @@
             "iso14001Alt": "ISO 14001",
             "speakToExpert": "Speak to an Expert"
         }
+    },
+    "pouchMaterialCatalogPage": {
+        "meta": {
+            "title": "Material Catalog | Choose the Perfect Pouch Material | POUCH.ECO",
+            "description": "Compare all pouch materials! Kraft paper, clear films, matte finishes. Find the perfect combo of look, barrier, and price for your product.",
+            "ogTitle": "Material Catalog | All Pouch Materials Compared",
+            "ogDescription": "Kraft, Clear, Matte - compare all materials side by side!",
+            "twitterTitle": "Material Catalog | Pouch Materials",
+            "twitterDescription": "Compare kraft, clear, and matte materials for your pouches"
+        },
+        "hero": {
+            "badge": "MATERIAL CATALOG",
+            "title": "Material Catalog",
+            "titleHighlight": "Find Your Perfect Match",
+            "description": "Not sure which material to choose?",
+            "descriptionSub": "Compare all our options side-by-side! We'll help you find the perfect combo of look, protection, and price.",
+            "ctaExpert": "Get Expert Help",
+            "ctaSamples": "Request Samples"
+        },
+        "quickGuide": {
+            "title": "Quick Decision Guide",
+            "items": [
+                {
+                    "question": "Want natural eco vibe?",
+                    "answer": "Kraft Duplex or Kraft Triplex"
+                },
+                {
+                    "question": "Need to show product?",
+                    "answer": "Clear High or Medium Barrier"
+                },
+                {
+                    "question": "Want premium/luxury feel?",
+                    "answer": "Black Matte or Matte White"
+                },
+                {
+                    "question": "Maximum shelf life?",
+                    "answer": "Kraft Triplex or Clear High"
+                }
+            ]
+        },
+        "materials": {
+            "title": "All Materials",
+            "barrierLabel": "Barrier",
+            "shelfLifeLabel": "Shelf Life:",
+            "featuresLabel": "Features:",
+            "bestForLabel": "Best for:",
+            "learnMore": "Learn More",
+            "items": {
+                "kraftTriplex": {
+                    "name": "Kraft Triplex",
+                    "tagline": "Premium Eco Look with Max Protection",
+                    "barrier": "High",
+                    "shelf": "12-24 months",
+                    "features": [
+                        "Natural kraft exterior",
+                        "Clear window option",
+                        "Aluminum foil barrier",
+                        "Maximum freshness"
+                    ],
+                    "bestFor": [
+                        "Premium coffee",
+                        "Supplements",
+                        "Baby food",
+                        "Pharmaceuticals"
+                    ]
+                },
+                "kraftDuplex": {
+                    "name": "Kraft Duplex",
+                    "tagline": "Natural Look, Medium Protection",
+                    "barrier": "Medium",
+                    "shelf": "6-12 months",
+                    "features": [
+                        "Kraft paper base",
+                        "Metallized barrier",
+                        "Great value",
+                        "Eco-friendly vibe"
+                    ],
+                    "bestFor": [
+                        "Coffee",
+                        "Tea",
+                        "Nuts",
+                        "Dried fruits"
+                    ]
+                },
+                "clearHigh": {
+                    "name": "Clear High Barrier",
+                    "tagline": "See Your Product, Keep It Fresh",
+                    "barrier": "High",
+                    "shelf": "12-18 months",
+                    "features": [
+                        "Transparent",
+                        "Aluminum-free metallic",
+                        "Show off product",
+                        "Strong barrier"
+                    ],
+                    "bestFor": [
+                        "Colorful snacks",
+                        "Granola",
+                        "Pet treats",
+                        "Visual appeal products"
+                    ]
+                },
+                "clearMedium": {
+                    "name": "Clear Medium Barrier",
+                    "tagline": "Visibility + Good Protection",
+                    "barrier": "Medium",
+                    "shelf": "6-12 months",
+                    "features": [
+                        "Crystal clear",
+                        "Metallized layer",
+                        "Cost-effective",
+                        "Product visibility"
+                    ],
+                    "bestFor": [
+                        "Cookies",
+                        "Candy",
+                        "Trail mix",
+                        "Healthy snacks"
+                    ]
+                },
+                "matteWhite": {
+                    "name": "Matte White",
+                    "tagline": "Clean Canvas for Your Brand",
+                    "barrier": "Medium",
+                    "shelf": "6-12 months",
+                    "features": [
+                        "Smooth matte finish",
+                        "Premium feel",
+                        "Print-friendly",
+                        "Modern aesthetic"
+                    ],
+                    "bestFor": [
+                        "Wellness brands",
+                        "Organic products",
+                        "Minimalist design",
+                        "Premium positioning"
+                    ]
+                },
+                "blackMatte": {
+                    "name": "Black Matte",
+                    "tagline": "Bold & Luxurious",
+                    "barrier": "Medium",
+                    "shelf": "6-12 months",
+                    "features": [
+                        "Deep black",
+                        "Luxury appeal",
+                        "Matte texture",
+                        "Striking shelf presence"
+                    ],
+                    "bestFor": [
+                        "Premium coffee",
+                        "Protein powder",
+                        "High-end snacks",
+                        "Luxury brands"
+                    ]
+                }
+            }
+        },
+        "comparison": {
+            "title": "Side-by-Side Comparison",
+            "colMaterial": "Material",
+            "colBarrier": "Barrier",
+            "colShelfLife": "Shelf Life",
+            "colLook": "Look",
+            "colPrice": "Price"
+        },
+        "stillNotSure": {
+            "title": "Still Not Sure?",
+            "description": "We can send you <strong>FREE physical samples</strong> of any material so you can touch, feel, and see the quality yourself!",
+            "sampleKitTitle": "Sample Kit Includes:",
+            "sampleItems": [
+                "3-5 material samples of your choice",
+                "Printed examples (if available)",
+                "Size reference guide",
+                "Material specification sheet"
+            ],
+            "ctaRequestSamples": "Request Free Samples"
+        },
+        "cta": {
+            "title": "Found Your Perfect Material?",
+            "description": "Book a free consultation and we'll help you finalize your choice!",
+            "button": "Get Started Now"
+        }
+    },
+    "pouchProductsPage": {
+        "meta": {
+            "title": "Products | POUCH.ECO",
+            "description": "Explore our eco-friendly pouch options including compostable and recyclable materials. Low MOQs available."
+        },
+        "hero": {
+            "badge": "CATALOG_V1",
+            "titleLine1": "Our",
+            "titleLine2": "Products",
+            "subtitle": "Simple pricing. Sustainable materials. No hidden fees."
+        },
+        "products": {
+            "0": {
+                "description": "The industry standard for shelf presence. Perfect for snacks, granola, and supplements.",
+                "problem": "Your brand needs to stand out, but custom printing usually requires ordering 10,000+ bags and paying expensive plate fees.",
+                "solution": "Our digital print Stand Up Pouches let you launch with pro-level packaging from just 500 units—no plate fees, fast turnaround.",
+                "features": {
+                    "0": "Self-Standing Design",
+                    "1": "Resealable Zipper",
+                    "2": "Maximum Shelf Appeal"
+                }
+            },
+            "1": {
+                "description": "The premium choice for coffee and high-end goods. Box-like stability with flexible benefits.",
+                "problem": "Premium coffee and tea need stability on the shelf and distinct branding, which standard pouches often lack.",
+                "solution": "Our Flat Bottom Pouch (Box Bottom) offers 5 printable faces and maximum stability—giving your product a top-tier look.",
+                "features": {
+                    "0": "5 Printable Faces",
+                    "1": "Box-Like Stability",
+                    "2": "Premium Look & Feel"
+                }
+            },
+            "2": {
+                "description": "The modern alternative to rigid bottles. Lighter, unbreakable, and eco-friendly.",
+                "problem": "Selling liquids in bottles is heavy, fragile, and expensive to ship—eating into your margins.",
+                "solution": "Switch to flexible Spouted Pouches—lighter, durable, and uses 80% less plastic than rigid bottles. Perfect for refills.",
+                "features": {
+                    "0": "Leak-Proof Spout",
+                    "1": "80% Less Plastic",
+                    "2": "Cheaper Shipping"
+                }
+            },
+            "3": {
+                "description": "The conversion engine. 3-side seal flat pouches perfect for single-serves and samples.",
+                "problem": "Customers want to try before they buy, but generic sample packaging cheapens your brand.",
+                "solution": "Our custom-printed 3-Side Seal Sachets provide a premium unboxing experience even for trial sizes. Convert browsers into buyers.",
+                "features": {
+                    "0": "Cost-Effective",
+                    "1": "Mail-Friendly",
+                    "2": "High Conversion"
+                }
+            },
+            "4": {
+                "description": "The classic coffee format. Quad seal structure with expandable side panels.",
+                "problem": "Roasters need a classic blocky shape that holds maximum volume without taking up too much width on the shelf.",
+                "solution": "Our Side Gusset Bags offer a quad seal for rigid structure and large capacity, with no plate fees.",
+                "features": {
+                    "0": "Classic Coffee Shape",
+                    "1": "High Volume Capacity",
+                    "2": "Quad Seal Rigidity"
+                }
+            }
+        },
+        "labels": {
+            "moq": "MOQ:",
+            "barrier": "BARRIER:",
+            "theProblem": "THE_PROBLEM:",
+            "theSolution": "THE_SOLUTION:",
+            "from": "FROM",
+            "viewDetails": "View Details",
+            "bookCall": "Book Call"
+        }
+    },
+    "pouchReclosureOptionsPage": {
+        "meta": {
+            "title": "Reclosure Options | Keep Products Fresh & Customers Happy | Pouch.eco",
+            "description": "Choose the perfect closure for your pouches! Zippers, sliders, spouts & child-resistant options. From just 500 units. Easy freshness, happy customers!",
+            "ogTitle": "Reclosure Options | Keep Products Fresh | Pouch.eco",
+            "ogDescription": "Zippers, sliders, spouts & child-resistant closures. From 500 units!",
+            "twitterTitle": "Reclosure Options | Pouch.eco",
+            "twitterDescription": "Keep products fresh with the right closure. From 500 units!",
+            "schemaName": "Reclosure Options for Eco Pouches",
+            "schemaDescription": "Complete guide to reclosure options for eco-friendly pouches"
+        },
+        "hero": {
+            "badge": "KEEP IT FRESH",
+            "titleLine1": "Choose Your",
+            "titleLine2": "Closure Type",
+            "subtitle": "The right closure keeps your products fresh and makes your customers' lives easier. Let's find your perfect match!"
+        },
+        "quickSelector": {
+            "everyday": {
+                "title": "Everyday Products",
+                "desc": "Snacks, coffee, pet treats",
+                "badge": "Press-to-Close"
+            },
+            "premium": {
+                "title": "Premium Brands",
+                "desc": "Pet food, granola, artisan goods",
+                "badge": "Slider Zipper"
+            },
+            "safety": {
+                "title": "Safety Required",
+                "desc": "Cannabis, supplements, meds",
+                "badge": "Child-Resistant"
+            }
+        },
+        "closureTypes": {
+            "sectionTitle": "All Your Options",
+            "sectionSubtitle": "Each closure type has its superpowers—pick what works for your product!",
+            "bestForLabel": "BEST FOR",
+            "seeExamples": "See Examples",
+            "items": {
+                "0": {
+                    "name": "Press-to-Close Zipper",
+                    "desc": "The most popular choice! Easy to use, reliable, and budget-friendly.",
+                    "features": {
+                        "0": "500+ open/close cycles",
+                        "1": "Works on all pouch styles",
+                        "2": "Clear or colored options",
+                        "3": "Most economical"
+                    },
+                    "bestFor": "Snacks, coffee, tea, pet treats"
+                },
+                "1": {
+                    "name": "Slider Zipper",
+                    "desc": "Premium one-handed opening—customers love the satisfying \"click\"!",
+                    "features": {
+                        "0": "One-hand operation",
+                        "1": "Tactile confirmation",
+                        "2": "Higher perceived value",
+                        "3": "1000+ cycle durability"
+                    },
+                    "bestFor": "Pet food, granola, premium snacks"
+                },
+                "2": {
+                    "name": "Child-Resistant Zipper",
+                    "desc": "Safety first! Required for cannabis, pharma, and certain supplements.",
+                    "features": {
+                        "0": "ASTM D3475 certified",
+                        "1": "Push-and-slide mechanism",
+                        "2": "Senior-friendly design",
+                        "3": "Legal compliance"
+                    },
+                    "bestFor": "Cannabis, supplements, medications"
+                },
+                "3": {
+                    "name": "Spout with Cap",
+                    "desc": "Perfect for liquids and powders—pour control without the mess!",
+                    "features": {
+                        "0": "Screw-cap seal",
+                        "1": "No-drip design",
+                        "2": "Reusable cap",
+                        "3": "Easy portioning"
+                    },
+                    "bestFor": "Baby food, sauces, smoothie mixes"
+                }
+            }
+        },
+        "benefits": {
+            "title": "Why Resealable = ",
+            "titleHighlight": "Better Business",
+            "items": {
+                "0": {
+                    "title": "Happy Customers",
+                    "desc": "Products stay fresh = customers come back for more"
+                },
+                "1": {
+                    "title": "Premium Feel",
+                    "desc": "Resealable packaging feels more valuable"
+                },
+                "2": {
+                    "title": "Fewer Returns",
+                    "desc": "Products stay fresh longer, less waste"
+                },
+                "3": {
+                    "title": "Stand Out",
+                    "desc": "Better packaging = shelf appeal"
+                }
+            }
+        },
+        "cta": {
+            "titleLine1": "Not Sure Which",
+            "titleLine2": "Closure to Pick?",
+            "subtitle": "Order a free sample pack with all closure types, or chat with our team—we'll help you choose!",
+            "orderSamplePack": "Order Sample Pack",
+            "chatWithExpert": "Chat With Expert"
+        }
+    },
+    "pouchSizeGuidePage": {
+        "meta": {
+            "title": "Pouch Size Guide | Visual Reference & Capacity Chart | Pouch.eco",
+            "description": "Ultimate size guide for stand-up pouches and flat bottom bags. Compare sizes to soda cans, check metric/imperial capacities, and download dielines.",
+            "keywords": "pouch sizes, stand up pouch dimensions, flat bottom bag guide, packaging capacity chart, Pouch.eco"
+        },
+        "hero": {
+            "badge": "SIZE_PROTOCOL_V3.0",
+            "heading1": "Fit.",
+            "heading2": "Feel.",
+            "heading3": "Finish.",
+            "description": "Ditch the guesswork. Use our visual reference system to find the exact pouch size for your brand. Metric, Imperial, and Volume comparisons included.",
+            "ctaPrimary": "Order Size Test Pack",
+            "ctaSecondary": "Free Consultation",
+            "heroAlt": "Sizing Finder App Dashboard"
+        },
+        "density": {
+            "badge": "MARKET_INTELLIGENCE",
+            "heading1": "Volume vs.",
+            "heading2": "Weight.",
+            "description": "The biggest mistake in packaging is sizing based solely on weight. 250g of puffed rice requires 10x the volume of 250g of salt. Use our density chart to calculate your exact ML requirement.",
+            "tableHeaders": {
+                "product": "PRODUCT",
+                "density": "DENSITY",
+                "volFactor": "VOL. FACTOR"
+            },
+            "altText": "Pouch Size Reference Dimensions"
+        },
+        "productDensity": {
+            "0": {
+                "product": "Whole Bean Coffee",
+                "note": "Standard for sizing"
+            },
+            "1": {
+                "product": "Tea Leaves",
+                "note": "Requires large volume"
+            },
+            "2": {
+                "product": "Protein Powder",
+                "note": "Dense but fluffy"
+            },
+            "3": {
+                "product": "Granola",
+                "note": "High irregularity"
+            },
+            "4": {
+                "product": "Nuts & Seeds",
+                "note": "Compact & Heavy"
+            }
+        },
+        "scaleCheck": {
+            "badge": "VISUAL_SODA_CAN_REF",
+            "heading": "Scale Check.",
+            "subtitle": "Standard 330ml Can (122mm Height) used for scale."
+        },
+        "standUp": {
+            "heading": "STAND-UP RANGE",
+            "sizes": {
+                "0": {
+                    "bestFor": "Samples, Spices"
+                },
+                "1": {
+                    "bestFor": "Tea, Seeds"
+                },
+                "2": {
+                    "bestFor": "Granola, Snacks"
+                },
+                "3": {
+                    "bestFor": "Coffee 250g"
+                },
+                "4": {
+                    "bestFor": "Retail Coffee 500g"
+                },
+                "5": {
+                    "bestFor": "Family Packs"
+                },
+                "6": {
+                    "bestFor": "Pet Food, Bulk"
+                }
+            }
+        },
+        "flatBottom": {
+            "heading": "FLAT BOTTOM RANGE",
+            "sizes": {
+                "0": {
+                    "bestFor": "Specialty Tea"
+                },
+                "1": {
+                    "bestFor": "Premium Coffee 100g"
+                },
+                "2": {
+                    "bestFor": "Coffee 250g"
+                },
+                "3": {
+                    "bestFor": "Coffee 12oz"
+                },
+                "4": {
+                    "bestFor": "Coffee 1kg"
+                },
+                "5": {
+                    "bestFor": "Pet Food"
+                },
+                "6": {
+                    "bestFor": "Bulk Grains"
+                }
+            }
+        },
+        "techCards": {
+            "precision": {
+                "title": "Precision Tolerances",
+                "description": "Standard manufacturing tolerance is +/- 2mm. Ensure your artwork safe-zone is at least 5mm from all edges and seals."
+            },
+            "headspace": {
+                "title": "Headspace Logic",
+                "description": "Always allow 40mm for the heat seal and zipper mechanism. Filling above the zipper line will result in structural seal failure."
+            },
+            "dieline": {
+                "title": "Dieline Access",
+                "description": "Downloadable PDF/AI dielines are available for all standard sizes once your material selection is finalized."
+            }
+        },
+        "cta": {
+            "badge": "VERIFY_BEFORE_ORDER",
+            "heading1": "Size.",
+            "heading2": "Sample.",
+            "description": "Avoid costly sizing mistakes. Order our comprehensive \"Size Kit\" to test-fill your products in real-world conditions.",
+            "ctaPrimary": "Request Size Kit",
+            "ctaSecondary": "Speak to Sizing Expert"
+        },
+        "lightbox": {
+            "altText": "Size Detail",
+            "caption": "Visual Comparison Mode: Standard 330ml Can Reference"
+        }
+    },
+    "pouchSolutionsPage": {
+        "meta": {
+            "title": "Eco Packaging Solutions | Start with 500 Units | Pouch.eco",
+            "description": "Compostable, recyclable & bio-based pouches for startups. Low MOQ from 500 units. Fast turnaround, no minimums pressure.",
+            "ogTitle": "Eco Packaging Solutions | Start with 500 Units | Pouch.eco",
+            "ogDescription": "Compostable, recyclable & bio-based pouches for startups. Low MOQ from 500 units.",
+            "twitterTitle": "Eco Packaging Solutions | Pouch.eco",
+            "twitterDescription": "Start your eco brand with compostable pouches from just 500 units"
+        },
+        "hero": {
+            "badge": "SOLUTIONS_INDEX",
+            "titleLine1": "Pick Your",
+            "titleLine2": "Eco Path",
+            "terminalLine1": "> Compostable // Recyclable // Bio-Based",
+            "terminalLine2": "> All certified. All from 500 units.",
+            "terminalLine3": "> Launch your sustainable brand today.",
+            "ctaConsultation": "Book Free Consultation",
+            "ctaMaterials": "Explore Materials"
+        },
+        "solutions": {
+            "title": "Three",
+            "titleLine2": "Solutions",
+            "badge": "ALL_CERTIFIED_MATERIALS",
+            "getQuote": "Get Quote",
+            "items": {
+                "0": {
+                    "name": "COMPOSTABLE",
+                    "headline": "Goes Back to Earth Naturally",
+                    "description": "Perfect for organic brands and eco-conscious startups. Your packaging breaks down in 1-6 months—no microplastics.",
+                    "benefits": {
+                        "0": "Certified EN13432/ASTM D6400",
+                        "1": "Industrial & home compost",
+                        "2": "From just 500 units",
+                        "3": "Great for snacks, tea, supplements"
+                    }
+                },
+                "1": {
+                    "name": "RECYCLABLE",
+                    "headline": "Circular Economy Champion",
+                    "description": "Mono-material PE/PP pouches accepted in standard recycling streams. High barrier, longer shelf life.",
+                    "benefits": {
+                        "0": "Up to 70% PCR content",
+                        "1": "Single-stream recyclable",
+                        "2": "9-18 month shelf life",
+                        "3": "Best for coffee, pet food"
+                    }
+                },
+                "2": {
+                    "name": "BIO_PLASTIC",
+                    "headline": "Plant-Powered Packaging",
+                    "description": "Made from renewable sugarcane & corn. Lower carbon footprint verified by recent studies.",
+                    "benefits": {
+                        "0": "Reduces fossil fuel use",
+                        "1": "Carbon-neutral production",
+                        "2": "Durable & reliable",
+                        "3": "Custom shapes available"
+                    }
+                }
+            }
+        },
+        "useCases": {
+            "title": "Perfect For",
+            "moqLabel": "MOQ:",
+            "items": {
+                "0": {
+                    "title": "Coffee & Tea Brands",
+                    "description": "High barrier pouches keep beans fresh for 12-18 months. Degassing valves available.",
+                    "moq": "500 units"
+                },
+                "1": {
+                    "title": "Snack Startups",
+                    "description": "Lightweight, resealable bags perfect for nuts, dried fruit, granola. Easy to ship.",
+                    "moq": "500 units"
+                },
+                "2": {
+                    "title": "Pet Treat Brands",
+                    "description": "Food-safe certified pouches with strong barrier. Child-safe zippers available.",
+                    "moq": "1,000 units"
+                },
+                "3": {
+                    "title": "Supplement Companies",
+                    "description": "Moisture-resistant compostable pouches. Perfect for powder or capsules.",
+                    "moq": "500 units"
+                }
+            }
+        },
+        "fastFacts": {
+            "title": "Why Pouch.eco?",
+            "stat1Value": "500",
+            "stat1Label": "MIN ORDER",
+            "stat2Value": "2-3",
+            "stat2Label": "WEEKS SAMPLES",
+            "stat3Value": "100%",
+            "stat3Label": "CERTIFIED"
+        }
+    },
+    "pouchSEOPage": {
+        "meta": {
+            "title": "SEO Guide for Compostable Packaging Brands | POUCH.ECO",
+            "description": "Learn how to rank your compostable packaging brand on Google. Keyword research, content strategy, and technical SEO tips for eco-friendly pouch companies.",
+            "keywords": "SEO for packaging brands, compostable pouch SEO, eco packaging marketing, sustainable packaging keywords, biodegradable bag SEO, green packaging search optimization"
+        },
+        "hero": {
+            "badge": "SEO Strategy Guide",
+            "titleLine1": "Rank Your",
+            "titleHighlight": "Eco Brand",
+            "titleLine2": "on Google",
+            "subtitle": "SEO tactics that actually work for compostable packaging brands. No fluff. Just rankings.",
+            "ctaConsult": "Book SEO Consult",
+            "ctaKeywords": "See Keywords"
+        },
+        "tldr": {
+            "label": "TL;DR",
+            "text": "SEO for eco packaging = keyword research + high-quality content + technical optimization. Target long-tail keywords, write comprehensive guides, and earn backlinks from sustainability sites. Expect 3-6 months for results."
+        },
+        "keywords": {
+            "title1": "Top Keywords",
+            "title2": "to Target",
+            "subtitle": "These are the highest-converting search terms for compostable packaging brands. Start here.",
+            "tableHeaders": {
+                "keyword": "Keyword",
+                "searchVolume": "Search Volume",
+                "difficulty": "Difficulty"
+            },
+            "items": {
+                "0": {
+                    "term": "compostable pouches",
+                    "volume": "1.2K/mo",
+                    "difficulty": "Medium"
+                },
+                "1": {
+                    "term": "eco friendly packaging",
+                    "volume": "5.8K/mo",
+                    "difficulty": "High"
+                },
+                "2": {
+                    "term": "biodegradable bags",
+                    "volume": "3.4K/mo",
+                    "difficulty": "Medium"
+                },
+                "3": {
+                    "term": "sustainable packaging",
+                    "volume": "12K/mo",
+                    "difficulty": "High"
+                },
+                "4": {
+                    "term": "plant based pouches",
+                    "volume": "890/mo",
+                    "difficulty": "Low"
+                },
+                "5": {
+                    "term": "home compostable bags",
+                    "volume": "720/mo",
+                    "difficulty": "Low"
+                }
+            }
+        },
+        "strategy": {
+            "title1": "3-Step",
+            "title2": "SEO Strategy",
+            "subtitle": "Follow this framework to rank faster and convert more eco-conscious buyers.",
+            "items": {
+                "0": {
+                    "title": "Keyword Research",
+                    "description": "Find what your customers are actually searching for",
+                    "tips": {
+                        "0": "Target long-tail keywords like \"certified compostable coffee bags\"",
+                        "1": "Use Google Search Console to find ranking opportunities",
+                        "2": "Focus on buyer-intent keywords (e.g., \"buy compostable pouches\")",
+                        "3": "Track competitor keywords using SEMrush or Ahrefs"
+                    }
+                },
+                "1": {
+                    "title": "Content Strategy",
+                    "description": "Create content that ranks AND converts",
+                    "tips": {
+                        "0": "Write comprehensive guides (1500+ words)",
+                        "1": "Answer \"what is,\" \"how to,\" and \"vs\" questions",
+                        "2": "Include product comparisons and use cases",
+                        "3": "Add customer testimonials and case studies"
+                    }
+                },
+                "2": {
+                    "title": "Technical SEO",
+                    "description": "Make your site fast, mobile-friendly, and crawlable",
+                    "tips": {
+                        "0": "Optimize page speed (under 3 seconds load time)",
+                        "1": "Use responsive design for mobile users",
+                        "2": "Create XML sitemap and robots.txt",
+                        "3": "Implement schema markup for rich snippets"
+                    }
+                }
+            }
+        },
+        "whySeo": {
+            "title1": "Why SEO",
+            "titleHighlight": "Matters",
+            "title2": "for Eco Brands",
+            "subtitle": "Your customers are searching for sustainable packaging RIGHT NOW. If you're not ranking, they're finding your competitors instead.",
+            "benefits": {
+                "0": {
+                    "title": "Organic Traffic = Free Leads",
+                    "description": "Paid ads cost $3-8 per click. SEO brings qualified buyers for free, month after month."
+                },
+                "1": {
+                    "title": "Authority = Trust",
+                    "description": "Ranking on page 1 signals credibility. Buyers trust brands that Google trusts."
+                },
+                "2": {
+                    "title": "Long-Tail = Higher Conversion",
+                    "description": "Target specific searches like \"certified compostable coffee bags\" to attract buyers ready to purchase."
+                }
+            },
+            "statsTitle": "SEO Stats That Matter",
+            "stats": {
+                "0": {
+                    "value": "75%",
+                    "description": "of users never scroll past page 1 of Google results"
+                },
+                "1": {
+                    "value": "53%",
+                    "description": "of all website traffic comes from organic search"
+                },
+                "2": {
+                    "value": "14.6%",
+                    "description": "average conversion rate for organic search (vs 1.7% for paid ads)"
+                }
+            }
+        },
+        "faqs": {
+            "title1": "Common",
+            "title2": "SEO Questions",
+            "items": {
+                "0": {
+                    "question": "How long does SEO take for packaging brands?",
+                    "answer": "Expect 3-6 months to see meaningful results. Compostable packaging is a growing niche, so ranking can happen faster than competitive industries. Focus on long-tail keywords first, then expand to broader terms as you gain authority."
+                },
+                "1": {
+                    "question": "What keywords should I target for compostable pouches?",
+                    "answer": "Start with product-specific terms like \"certified compostable coffee bags\" or \"biodegradable stand-up pouches.\" Avoid generic terms like \"packaging\" initially. Use Google Keyword Planner to find search volume and competition levels."
+                },
+                "2": {
+                    "question": "Do I need a blog for SEO?",
+                    "answer": "Yes. A blog helps you target informational keywords (e.g., \"how to choose compostable packaging\") that attract buyers earlier in their research phase. Aim for 2-4 high-quality posts per month covering certification guides, material comparisons, and industry trends."
+                },
+                "3": {
+                    "question": "How important are backlinks for packaging SEO?",
+                    "answer": "Very important. Quality backlinks from sustainability blogs, industry publications, and eco-directories signal authority to Google. Focus on earning links through guest posts, partnerships, and creating shareable content like infographics or research reports."
+                },
+                "4": {
+                    "question": "Should I optimize for Google or Amazon?",
+                    "answer": "Both, but differently. Google SEO focuses on content and authority. Amazon SEO prioritizes product titles, bullet points, and reviews. If you sell on Amazon, optimize both channels—but Google captures buyers in research mode before they reach Amazon."
+                }
+            }
+        },
+        "cta": {
+            "title1": "Ready to",
+            "titleHighlight": "Rank Higher?",
+            "subtitle": "Book a FREE 30-minute SEO consultation. We'll audit your site, identify quick wins, and build a custom keyword strategy.",
+            "button": "Book Your SEO Consult",
+            "disclaimer": "No pitch. No obligation. Just actionable SEO advice."
+        }
+    },
+    "pouchUnprintedSamplesPage": {
+        "meta": {
+            "title": "Unprinted & Generic Samples - Pouch.eco",
+            "description": "Request unprinted plain samples or generic customer printed samples to verify material quality, thickness, and sizing."
+        },
+        "hero": {
+            "titleLine1": "Unprinted",
+            "titleLine2": "Samples",
+            "badge": "Material Check",
+            "subtitle": "Verify Quality Before Printing"
+        },
+        "intro": {
+            "text": "Not ready for custom printing? Get our",
+            "highlight": "Material Excellence Kit",
+            "textAfter": "featuring unprinted plain pouches and high-quality generic samples from our production line."
+        },
+        "unprintedPlain": {
+            "heading": "Unprinted Plain Samples",
+            "description": "Pure material verification. No ink, just the raw material texture and structure.",
+            "item1": "Home Compostable Kraft",
+            "item2": "Recyclable Mono-PE",
+            "item3": "Bio-PE Sugarcane",
+            "item4": "High Barrier PCR"
+        },
+        "genericCustomer": {
+            "heading": "Generic Customer Samples",
+            "description": "Real samples from our production line. Verify print quality, registration, and finish (Matte/Gloss).",
+            "item1": "Coffee Bags with Valves",
+            "item2": "Snack Pouches",
+            "item3": "Pet Food Pouches",
+            "item4": "Spouted Juice Pouches"
+        },
+        "orderKit": {
+            "title": "Order Evaluation Kit",
+            "price": "USD $50",
+            "description": "Includes 10-15 assorted samples covering all our main materials and structures. Shipping via FedEx/DHL included.",
+            "cta": "Request Kit Now"
+        },
+        "gallery": {
+            "title": "Visual Reference",
+            "alt1": "Generic Coffee Sample",
+            "alt2": "Generic Snack Sample",
+            "alt3": "Generic Pet Food Sample",
+            "alt4": "Generic Baby Food Sample"
+        }
+    },
+    "workshopRegisterPage": {
+        "meta": {
+            "title": "Register: Live Packaging Workshop May 26 | Achieve Pack",
+            "description": "Register for our live workshop on May 26 to learn how to apply sustainable packaging best practices to your brand."
+        },
+        "badge": "Live Workshop",
+        "hero": {
+            "titleLine1": "The Action",
+            "titleHighlight": "Powers",
+            "titleLine2": "Results",
+            "subtitle": "Join us on May 26 for a live, data-driven workshop. We'll bring the report data to life and help you apply it directly to your unique brand requirements."
+        },
+        "details": {
+            "date": "May 26, 2026 @ 10:00 AM EST",
+            "duration": "90 Minutes of Pure Insight",
+            "location": "Live Digital Workshop (Link via Email)",
+            "bonus": "Includes Early Access to Transition Planner"
+        },
+        "whoIsThisFor": {
+            "title": "Who is this for?",
+            "item1": "DTC Brand Founders",
+            "item2": "Sustainability Officers",
+            "item3": "Product Developers",
+            "item4": "Supply Chain Managers"
+        },
+        "missedReport": {
+            "title": "Did you miss the report?",
+            "description": "The insights we'll discuss are based on our flagship \"State of Sustainable Packaging 2026\" report.",
+            "cta": "Read the Report"
+        },
+        "form": {
+            "title": "Secure Your Spot",
+            "fullName": "Full Name",
+            "fullNamePlaceholder": "Ryan Wong",
+            "workEmail": "Work Email",
+            "workEmailPlaceholder": "ryan@achievepack.com",
+            "companyName": "Company Name",
+            "companyNamePlaceholder": "Achieve Pack",
+            "submit": "Register Now",
+            "limitNotice": "Limited to 10 participants per session."
+        },
+        "success": {
+            "title": "You're Registered!",
+            "message": "We've sent a confirmation email with the workshop details and your transition planner. See you on May 26!",
+            "cta": "Back to Home"
+        }
+    },
+    "pouchTestimonialsPage": {
+        "meta": {
+            "title": "Customer Stories | Real Results from Real Brands | POUCH.ECO",
+            "description": "See how 2,000+ sustainable brands launched with our eco pouches. From 500 unit startups to 50,000 unit brands - real stories, real results.",
+            "ogTitle": "Customer Success Stories | POUCH.ECO",
+            "ogDescription": "Real brands, real results. See how sustainable packaging transformed these businesses."
+        },
+        "hero": {
+            "badge": "REAL_STORIES",
+            "titleLine1": "2,000+ Brands",
+            "titleLine2": "Started Here",
+            "description": "From 500-unit startups to established brands ordering 50,000+ units monthly.",
+            "descriptionBold": "See how sustainable packaging transformed these businesses."
+        },
+        "stats": {
+            "happyBrands": "Happy Brands",
+            "repeatCustomers": "Repeat Customers",
+            "averageRating": "Average Rating",
+            "minimumOrder": "Minimum Order"
+        },
+        "testimonials": {
+            "0": {
+                "industry": "Coffee Roastery",
+                "quote": "Switching to compostable bags was a no-brainer for our eco-conscious customers. The 500 MOQ meant we could test without huge risk. Sales increased 23% after the launch!",
+                "role": "Founder",
+                "highlights": {
+                    "0": "23% Sales Increase",
+                    "1": "Zero Waste",
+                    "2": "Customer Love"
+                }
+            },
+            "1": {
+                "industry": "Wellness Brand",
+                "quote": "The soft-touch matte finish made our superfood pouches feel luxury. Customers keep telling us they love the tactile experience. Worth every penny!",
+                "role": "Product Manager",
+                "highlights": {
+                    "0": "Premium Feel",
+                    "1": "Customer Feedback",
+                    "2": "Brand Uplift"
+                }
+            },
+            "2": {
+                "industry": "Superfood Brand",
+                "quote": "From inquiry to delivery in 3 weeks! Ryan walked us through every step. The digital printing quality is stunning, and the price was better than local suppliers.",
+                "role": "Co-Founder",
+                "highlights": {
+                    "0": "3-Week Turnaround",
+                    "1": "Great Support",
+                    "2": "Amazing Quality"
+                }
+            },
+            "3": {
+                "industry": "Artisan Bakery",
+                "quote": "We needed packaging that matched our artisan brand values. The kraft pouches with clear windows let our products shine while staying eco-friendly!",
+                "role": "Owner",
+                "highlights": {
+                    "0": "Artisan Look",
+                    "1": "Perfect Fit",
+                    "2": "Eco Values"
+                }
+            },
+            "4": {
+                "industry": "Organic Snacks",
+                "quote": "The barrier options were confusing at first, but the team helped us choose the perfect medium barrier for our nuts. 8-month shelf life - exactly what we needed!",
+                "role": "Operations Lead",
+                "highlights": {
+                    "0": "Perfect Barrier",
+                    "1": "Great Guidance",
+                    "2": "8-Month Shelf Life"
+                }
+            },
+            "5": {
+                "industry": "Urban Coffee",
+                "quote": "As a NYC startup, low MOQ was critical. Started with 500 bags, now ordering 5,000 per month. The degassing valve keeps our beans fresh for weeks!",
+                "role": "Head Roaster",
+                "highlights": {
+                    "0": "Started Small",
+                    "1": "Scaled Fast",
+                    "2": "Fresh Coffee"
+                }
+            },
+            "6": {
+                "industry": "Tea Brand",
+                "quote": "We loved the kraft-look material with bio-based barrier. Our customers appreciate the natural aesthetic and the fact it's 100% compostable. Game changer for our brand!",
+                "role": "Brand Director",
+                "highlights": {
+                    "0": "Natural Look",
+                    "1": "Compostable",
+                    "2": "Brand Win"
+                }
+            },
+            "7": {
+                "industry": "Healthy Snacks",
+                "quote": "The clear window on our pouches was a must-have. Customers love seeing the product before buying. The response has been incredible - our retail partners love it too!",
+                "role": "Founder & CEO",
+                "highlights": {
+                    "0": "Clear Window",
+                    "1": "Retail Success",
+                    "2": "Customer Trust"
+                }
+            },
+            "8": {
+                "industry": "Herbal Wellness",
+                "quote": "As a small batch producer, finding 500 unit minimums was impossible until we found pouch.eco. The quality rivals brands 10x our size. Our customers think we're much bigger!",
+                "role": "Owner",
+                "highlights": {
+                    "0": "Small Batch",
+                    "1": "Premium Quality",
+                    "2": "Brand Perception"
+                }
+            },
+            "9": {
+                "industry": "Sports Nutrition",
+                "quote": "The matte black finish with spot UV logo - absolute fire! Our pre-workout pouches look like they cost $50 when they're only $25. Instagram engagement went through the roof!",
+                "role": "Co-Founder",
+                "highlights": {
+                    "0": "Matte Black",
+                    "1": "Premium Look",
+                    "2": "Social Media Win"
+                }
+            },
+            "10": {
+                "industry": "Baby Food",
+                "quote": "Parents love that our pouches are BPI certified compostable. The resealable zipper keeps snacks fresh all day. We've had zero complaints about leaking or quality issues!",
+                "role": "Founder",
+                "highlights": {
+                    "0": "BPI Certified",
+                    "1": "Parent Approved",
+                    "2": "Zero Issues"
+                }
+            },
+            "11": {
+                "industry": "Specialty Coffee",
+                "quote": "The one-way degassing valve was essential for our micro-roastery. Keeps beans fresh for 6+ weeks. Our subscription customers notice the difference immediately!",
+                "role": "Head Roaster",
+                "highlights": {
+                    "0": "Degassing Valve",
+                    "1": "6-Week Freshness",
+                    "2": "Subscription Hit"
+                }
+            }
+        },
+        "trustedBy": {
+            "badge": "TRUSTED_BY",
+            "title": "Join <1>500+</1> Brands",
+            "subtitle": "From startups to established names - they all started with 500 units"
+        },
+        "cta": {
+            "titleLine1": "Your Story",
+            "titleLine2": "Next?",
+            "description": "Join 2,000+ brands who launched with confidence.",
+            "descriptionBold": "From 500 units. Zero compromise on quality or planet.",
+            "bookCall": "Book Free Call",
+            "requestSamples": "Request Samples",
+            "contactInfo": "📧 ryan@achievepack.com • ⏱️ Response in 24 hours"
+        },
+        "packaging": "packaging"
     }
 }
