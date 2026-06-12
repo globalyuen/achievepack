@@ -2046,7 +2046,93 @@
                         "recyclable coffee bags",
                         "pouch.eco",
                         "sustainable flexible packaging"
-                    ]
+                    ],
+                    "extended": {
+                        "specs": {
+                            "specsHeader": "Technical Specs\n& Purchasing Value",
+                            "specsBadge": "SPECS_V2026_COMPLIANT",
+                            "verified": "Verified",
+                            "rawLabSpec": "[RAW LAB SPEC]: ",
+                            "buyingUtility": "🛒 Commercial Buying Utility:",
+                            "spec1Field": "Barrier Layer Tech",
+                            "spec1Raw": "NatureFlex™ Cellulose or Recyclable Mono-PE EVOH Stacks",
+                            "spec1B2b": "OTR & WVTR < 1.0. Guarantees absolute oxygen and moisture gas lock, keeping roasted coffee, dry foods, and powder formulas fresh for 12+ months.",
+                            "spec2Field": "OEM CAD Calibration",
+                            "spec2Raw": "Custom Millimeter Dielines (Oval, Plow, or Heavy K-Seals)",
+                            "spec2B2b": "Precisely calibrated to your product volumetric density, preventing bottom gusset rupture and ensuring the pouch stands perfectly erect on retail shelves.",
+                            "spec3Field": "High-Speed Sealing",
+                            "spec3Raw": "Seal strength > 35 N/15mm (PBAT/Mono-PE resins)",
+                            "spec3B2b": "Guarantees zero burst leakage under high-speed automatic VFFS/HFFS vertical and horizontal packaging lines operating up to 65+ bags/minute.",
+                            "spec4Field": "Export Logistics Packaging",
+                            "spec4Raw": "Triple-layer double-wall export carton with polybags",
+                            "spec4B2b": "Protects finished pouches from humidity degradation and crushing during long-haul sea-freight and warehousing."
+                        },
+                        "faqs": {
+                            "q1": "1. What is the Minimum Order Quantity (MOQ) for custom pouches?",
+                            "a1": "We support startups and new SKU launches with an industry-low digital printing MOQ of just 500 units. For larger wholesale volumes, we offer high-speed rotogravure plate printing from 5,000 units, providing the ultimate bulk cost efficiency.",
+                            "q2": "2. Do you provide physical pre-production samples?",
+                            "a2": "Yes, we ship a free sustainable sample kit with 10 physical pouches to test barrier properties. For custom orders, we generate a 24-hour PDF soft proof and can build physical sample bags before bulk manufacture.",
+                            "q3": "3. Can you manufacture stand-up pouches according to custom volumetric CAD drawings?",
+                            "a3": "Yes. Our material engineers analyze your product volumetric density and customize bottom gussets and dimensions down to the millimeter scale. We provide a custom dieline layout PDF within 24 hours.",
+                            "q4": "4. What is the production and transit lead time for commercial runs?",
+                            "a4": "Digital runs finish in 7-10 business days; rotogravure plate orders take 12-14 days. Express DHL/FedEx air delivery to USA/EU takes 5-7 business days, and economical ocean freight is available in 20-30 days.",
+                            "q5": "5. What certifications are available to verify eco-friendly compliance?",
+                            "a5": "Our biopolymers carry official certificate numbers from BPI (Biodegradable Products Institute #10529618) and TÜV Austria (OK Compost HOME). Stacks comply with ASTM D6400 (US) and EN 13432 (EU) compostability guidelines.",
+                            "q6": "6. What details must be submitted to receive a wholesale quotation?",
+                            "a6": "Please provide estimated volumetric capacity (or exact dimensions), material preference (compostable kraft, mono-PE recyclable, high barrier), zip/degassing valve requirements, number of SKUs, and vector artwork."
+                        },
+                        "whySup": {
+                            "card1Title": "Shelf Presence",
+                            "card1Desc": "Our precision-folded bottom gusset technology ensures your brand stands tall and stays visible. 360° of customizable surface real estate for striking graphics and compliance badges.",
+                            "card1Badge": "RETAIL_READY",
+                            "card2Title": "Barrier Tech",
+                            "card2Desc": "Industrial high-barrier coatings keep your coffee beans, ingredients, or organic snacks safe. Dynamic gas-barrier properties ensure full O2 and moisture defense for up to 12+ months.",
+                            "card2Badge": "CERTIFIED_BARRIER",
+                            "card3Title": "Eco Matrix",
+                            "card3Desc": "Fully aligned with green retail standards. Available in certified Home Compostable, Industrial Compostable, and Curbside Recyclable Mono-Material structures.",
+                            "card3Badge": "100%_SUSTAINABLE"
+                        },
+                        "useCases": {
+                            "title": "Target Application Scenarios",
+                            "case1Title": "Coffee & Tea",
+                            "case1Desc": "EVOH high gas-lock combined with one-way degassing valves to lock out moisture and preserve roasting freshness.",
+                            "case2Title": "Pet Food & Treats",
+                            "case2Desc": "Heavy-duty K-seal bottoms calibrated for heavy weights (up to 2kg) with anti-scuff, grease-proof layer structures.",
+                            "case3Title": "Dry Snacks & Granola",
+                            "case3Desc": "Certified BPI & OK Compost plant biopolymers matching strict retail shelf stability and structural integrity.",
+                            "case4Title": "Powdered Ingredients",
+                            "case4Desc": "Static-free PLA coatings and leak-proof press-to-close zippers preventing powder sifting and seam rupture.",
+                            "specActive": "Spec Sheet Active"
+                        },
+                        "guide": {
+                            "title": "The Ultimate Guide to",
+                            "titleHighlight": "Stand-Up Pouches",
+                            "p1": "Stand-up pouches (SUP) have revolutionized the flexible packaging industry. Also known as Doypacks, these innovative bags feature a bottom gusset that allows them to stand upright on retail shelves, maximizing brand visibility and shelf appeal. Whether you're packaging packaging specialty coffee, organic pet treats, or premium granola, stand-up pouches offer a versatile and cost-effective solution compared to rigid containers like glass jars or metal tins.",
+                            "fig1": "Figure 1: Custom printed physical stand-up pouches showcasing vivid eco-friendly digital graphics",
+                            "section1Title": "Why Brands Prefer Stand-Up Pouches",
+                            "section1P1": "The primary advantage of the stand-up pouch is its structural design. The bottom gusset expands when the bag is filled, creating a sturdy base. This not only allows the product to act as its own billboard on crowded retail shelves but also makes the pouch incredibly space-efficient during shipping and storage. Before filling, these pouches lie flat, taking up a fraction of the space required for rigid packaging, which significantly reduces shipping costs and carbon footprint.",
+                            "section1P2": "Additionally, stand-up pouches are highly customizable. With our digital printing technology, brands can achieve photo-quality graphics, vibrant colors, and sharp text. You can incorporate clear windows to showcase your product, resealable zippers to maintain freshness after opening, and tear notches for easy consumer access.",
+                            "section2Title": "Sustainability: Compostable and Recyclable Options",
+                            "section2P1": "At POUCH.ECO, we understand the critical shift towards sustainable packaging. Traditional stand-up pouches often rely on mixed-material plastics that are impossible to recycle. We've engineered our pouches to meet the highest sustainability standards without compromising on barrier properties or aesthetic appeal.",
+                            "fig2": "Figure 2: Natural FSC Kraft high moisture barrier stand-up pouches",
+                            "fig3": "Figure 3: Multi-layer certified compostable barrier cellulose film stacks",
+                            "section2P2": "Our product lineup includes TUV-certified home compostable pouches that break down into organic matter within 180 days in a backyard compost bin. For brands requiring different end-of-life solutions, we also offer mono-material recyclable pouches (PE/PE or PP/PP) that are fully compatible with soft plastic recycling streams. By offering these eco-friendly alternatives, we help startup brands align their packaging with their environmental values and meet the growing consumer demand for plastic-free alternatives.",
+                            "section3Title": "Low MOQ for Startups and Emerging Brands",
+                            "section3P1": "Historically, custom printed packaging required massive minimum order quantities (MOQs) of 10,000 to 50,000 units, creating a significant barrier to entry for small businesses. We leverage state-of-the-art digital printing to offer MOQs starting at just 500 units. This allows startups to test new products, launch seasonal flavors, and run promotional campaigns without tying up capital in excessive packaging inventory."
+                        },
+                        "faqSection": {
+                            "title": "Frequently Asked Questions",
+                            "titleHighlight": "Questions",
+                            "subtitle": "Professional B2B buyers require detailed verification. Expand the accordions below to audit our standard commercial policy:"
+                        },
+                        "cta": {
+                            "title": "Ready to Start?",
+                            "desc": "Get premium custom printed stand-up pouches tailored to your exact CAD volume specifications. Low 500 unit MOQ.",
+                            "btn1": "Request Free Sample Kit",
+                            "btn2": "Upload CAD Dieline",
+                            "btn3": "Book Free Call"
+                        }
+                    }
                 },
                 "seoPages": {
                     "breadcrumbs": {

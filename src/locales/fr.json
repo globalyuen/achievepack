@@ -1925,7 +1925,91 @@
                         "sacs de café recyclables",
                         "pouch.eco",
                         "emballage flexible durable"
-                    ]
+                    ],
+                    "extended": {
+                        "specs": {
+                            "specsHeader": "Spécifications Techniques & Valeur d'Achat",
+                            "specsBadge": "CONFORME AUX SPECS_V2026",
+                            "verified": "Vérifié",
+                            "rawLabSpec": "[SPÉCIFICATION LABO BRUTE]: ",
+                            "buyingUtility": "🛒 Utilité Commerciale d'Achat:",
+                            "spec1Field": "Technologie de Couche Barrière",
+                            "spec1Raw": "Cellulose NatureFlex™ ou complexes Mono-PE EVOH recyclables",
+                            "spec1B2b": "OTR & WVTR < 1.0. Garantit un blocage absolu de l'oxygène et de l'humidité, conservant le café torréfié, les aliments secs et les formules en poudre frais pendant plus de 12 mois.",
+                            "spec2Field": "Calibrage CAO OEM",
+                            "spec2Raw": "Lignes de découpe millimétriques personnalisées (fonds ovales, pliés ou soudures en K lourdes)",
+                            "spec2B2b": "Calibré précisément en fonction de la densité volumétrique de votre produit, évitant la rupture du soufflet de fond et garantissant que le sachet se tient parfaitement droit en rayon.",
+                            "spec3Field": "Scellage Haute Vitesse",
+                            "spec3Raw": "Résistance du scellage > 35 N/15mm (résines PBAT/Mono-PE)",
+                            "spec3B2b": "Garantit zéro fuite par éclatement sur les lignes d'ensachage verticales et horizontales automatiques à grande vitesse VFFS/HFFS fonctionnant jusqu'à 65+ sachets/minute.",
+                            "spec4Field": "Emballage Logistique d'Exportation",
+                            "spec4Raw": "Carton d'exportation double cannelure triple couche avec sachets de protection",
+                            "spec4B2b": "Protège les sachets finis de l'humidité et de l'écrasement pendant le transport maritime longue distance et le stockage."
+                        },
+                        "faqs": {
+                            "q1": "1. Quelle est la quantité minimale de commande (MOQ) pour les sachets personnalisés ?",
+                            "a1": "Nous soutenons les startups et les lancements de nouvelles références avec un MOQ d'impression numérique ultra-bas de seulement 500 unités. Pour les volumes de gros plus importants, nous proposons l'impression en héliogravure à partir de 5 000 unités, offrant un coût unitaire optimal.",
+                            "q2": "2. Fournissez-vous des échantillons physiques avant production ?",
+                            "a2": "Oui, nous envoyons un kit d'échantillons écologiques gratuit contenant 10 sachets physiques pour tester les propriétés barrières. Pour les commandes personnalisées, nous générons un bon à tirer (BAT) PDF sous 24 heures et pouvons fabriquer des sachets d'essai physiques avant la production finale.",
+                            "q3": "3. Pouvez-vous fabriquer des sachets tenant debout selon des plans CAO volumétriques personnalisés ?",
+                            "a3": "Oui. Nos ingénieurs matériaux analysent la densité volumétrique de votre produit et personnalisent le soufflet de fond et les dimensions au millimètre près. Nous fournissons une ligne de découpe personnalisée en PDF sous 24 heures.",
+                            "q4": "4. Quel est le délai de production et de livraison pour les commandes commerciales ?",
+                            "a4": "Les tirages numériques prennent 7 à 10 jours ouvrés ; les commandes en héliogravure prennent 12 à 14 jours. La livraison express par DHL/FedEx vers l'Europe/les États-Unis prend 5 à 7 jours ouvrés, et le fret maritime économique est disponible sous 20 à 30 jours.",
+                            "q5": "5. Quelles certifications garantissent la conformité écologique ?",
+                            "a5": "Nos biopolymères possèdent des numéros de certificats officiels de BPI (Biodegradable Products Institute #10529618) et TÜV Austria (OK Compost HOME). Nos complexes respectent les normes de compostabilité ASTM D6400 (USA) et EN 13432 (Europe).",
+                            "q6": "6. Quelles informations doivent être fournies pour obtenir un devis de gros ?",
+                            "a6": "Veuillez fournir la capacité volumétrique estimée (ou les dimensions exactas), votre préférence de matériau (kraft compostable, mono-PE recyclable, haute barrière), les besoins en zip/valve de dégazage, le nombre de références et vos fichiers vectoriels."
+                        },
+                        "whySup": {
+                            "card1Title": "Présence en Rayon",
+                            "card1Desc": "Notre technologie de soufflet de fond plié avec précision garantit que votre marque se tient droite et reste visible. 360° d'espace personnalisable pour des graphismes percutants et des logos de conformité.",
+                            "card1Badge": "PRÊT_POUR_LA_VENTE",
+                            "card2Title": "Technologie Barrière",
+                            "card2Desc": "Des revêtements industriels haute barrière protègent vos grains de café, ingrédients ou encas bio. Des propriétés barrières dynamiques assurent une protection complète contre l'oxygène et l'humidité pendant 12+ mois.",
+                            "card2Badge": "BARRIÈRE_CERTIFIÉE",
+                            "card3Title": "Matrice Éco",
+                            "card3Desc": "Parfaitement conforme aux normes de distribution écologiques. Disponible en structures certifiées Compostable à la Maison, Compostable Industriellement et Recyclable Monomatériau.",
+                            "card3Badge": "100%_DURABLE"
+                        },
+                        "useCases": {
+                            "title": "Scénarios d'Application Cibles",
+                            "case1Title": "Café & Thé",
+                            "case1Desc": "Haute barrière aux gaz EVOH associée à des valves de dégazage unidirectionnelles pour bloquer l'humidité et préserver la fraîcheur de torréfaction.",
+                            "case2Title": "Aliments & Friandises pour Animaux",
+                            "case2Desc": "Soudures de fond en K renforcées calibrées pour des charges lourdes (jusqu'à 2 kg) avec des structures résistantes aux rayures et aux graisses.",
+                            "case3Title": "Encas Secs & Granola",
+                            "case3Desc": "Biopolymères végétaux certifiés BPI & OK Compost offrant une excellente tenue en rayon et une grande intégrité structurelle.",
+                            "case4Title": "Ingrédients en Poudre",
+                            "case4Desc": "Revêtements PLA antistatiques et fermetures éclair étanches pour empêcher la fuite de poudre et la rupture des soudures.",
+                            "specActive": "Fiche technique active"
+                        },
+                        "guide": {
+                            "title": "Le Guide Ultime des",
+                            "titleHighlight": "Sachets Doypack",
+                            "p1": "Le sachet tenant debout (SUP ou Doypack) a révolutionné l'industrie de l'emballage flexible. Ces sachets innovants disposent d'un soufflet de fond qui leur permet de tenir debout sur les étagères de vente, maximisant ainsi la visibilité de la marque et l'impact visuel. Que vous emballiez du café de spécialité, des friandises bio pour animaux ou du granola premium, les sachets Doypack offrent une solution polyvalente et économique par rapport aux contenants rigides comme les bocaux en verre ou les boîtes métalliques.",
+                            "fig1": "Figure 1 : Sachets Doypack personnalisés présentant des graphismes numériques écologiques nets et éclatants",
+                            "section1Title": "Pourquoi les marques préfèrent les sachets Doypack",
+                            "section1P1": "Le principal avantage du sachet Doypack réside dans sa conception structurelle. Le soufflet de fond s'élargit lorsque le sachet est rempli, créant une base solide. Cela permet non seulement au produit de servir de propre panneau publicitaire sur les étagères encombrées, mais rend également le sachet incroyablement économe en espace pendant le transport et le stockage. Avant remplissage, ces sachets sont livrés à plat, occupant une fraction de l'espace requis pour les emballages rigides, ce qui réduit considérablement les coûts de transport et l'empreinte carbone.",
+                            "section1P2": "De plus, les sachets Doypack sont hautement personnalisables. Grâce à notre technologie d'impression numérique, les marques peuvent obtenir des graphismes de qualité photo, des couleurs vibrantes et des textes nets. Vous pouvez intégrer des fenêtres transparentes pour présenter votre produit, des zips refermables pour préserver la fraîcheur après ouverture et des encoches de déchirure pour une ouverture facile.",
+                            "section2Title": "Durabilité : Options Compostables et Recyclables",
+                            "section2P1": "Chez POUCH.ECO, nous comprenons l'importance de la transition vers des emballages durables. Les sachets Doypack traditionnels reposent souvent sur des plastiques complexes impossibles à recycler. Nous avons conçu nos sachets pour répondre aux normes de durabilité les plus strictes sans compromettre les propriétés barrières ni l'esthétique.",
+                            "fig2": "Figure 2 : Sachets Doypack en papier Kraft FSC naturel haute barrière à l'humidité",
+                            "fig3": "Figure 3 : Complexes de films de cellulose barrière compostables multicouches certifiés",
+                            "section2P2": "Notre gamme de produits comprend des sachets compostables à la maison certifiés TÜV qui se décomposent en matière organique en moins de 180 jours dans un composteur de jardin. Pour les marques nécessitant d'autres modes de traitement, nous proposons également des sachets monomatériaux recyclables (PE/PE ou PP/PP) entièrement compatibles avec les filières de recyclage des plastiques souples. En proposant ces alternatives écologiques, nous aidons les marques émergentes à aligner leurs emballages sur leurs valeurs environnementales."
+                        },
+                        "faqSection": {
+                            "title": "Questions Fréquentes",
+                            "titleHighlight": "Questions",
+                            "subtitle": "Les acheteurs B2B professionnels exigent des vérifications détaillées. Ouvrez les accordéons ci-dessous pour consulter nos conditions commerciales standards :"
+                        },
+                        "cta": {
+                            "title": "Prêt à commencer ?",
+                            "desc": "Obtenez des sachets Doypack personnalisés de qualité supérieure, adaptés à vos spécifications de volume CAO exactes. Faible MOQ de 500 unités.",
+                            "btn1": "Demander un kit d'échantillons gratuit",
+                            "btn2": "Téléverser une ligne de découpe CAO",
+                            "btn3": "Réserver un appel gratuit"
+                        }
+                    }
                 },
                 "seoPages": {
                     "breadcrumbs": {

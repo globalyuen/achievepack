@@ -1925,7 +1925,93 @@
                         "bolsas de café reciclables",
                         "pouch.eco",
                         "envases flexibles sostenibles"
-                    ]
+                    ],
+                    "extended": {
+                        "specs": {
+                            "specsHeader": "Especificaciones Técnicas y Valor de Compra",
+                            "specsBadge": "CUMPLIMIENTO CON SPECS_V2026",
+                            "verified": "Verificado",
+                            "rawLabSpec": "[ESPECIFICACIÓN DE LAB ORIGINAL]: ",
+                            "buyingUtility": "🛒 Utilidad Comercial de Compra:",
+                            "spec1Field": "Tecnología de Capa de Barrera",
+                            "spec1Raw": "Pilas de NatureFlex™ Celulosa o Mono-PE EVOH reciclable",
+                            "spec1B2b": "OTR y WVTR < 1.0. Garantiza el bloqueo absoluto de oxígeno y humedad, manteniendo fresco el café tostado, alimentos secos y fórmulas en polvo durante más de 12 meses.",
+                            "spec2Field": "Calibración CAD OEM",
+                            "spec2Raw": "Líneas de troquel milimétricas personalizadas (ovaladas, de arado o sellos K pesados)",
+                            "spec2B2b": "Calibrado con precisión según la densidad volumétrica de su producto, evitando la rotura del fuelle inferior y asegurando que la bolsa se mantenga perfectamente erguida en los estantes minoristas.",
+                            "spec3Field": "Sellado de Alta Velocidad",
+                            "spec3Raw": "Resistencia del sello > 35 N/15mm (resinas PBAT/Mono-PE)",
+                            "spec3B2b": "Garantiza cero fugas de reventón en líneas de envasado vertical y horizontal automáticas de alta velocidad VFFS/HFFS que funcionan hasta más de 65 bolsas/minuto.",
+                            "spec4Field": "Embalaje Logístico de Exportación",
+                            "spec4Raw": "Caja de exportación de doble pared de tres capas con bolsas de polietileno",
+                            "spec4B2b": "Protege las bolsas terminadas de la degradación por humedad y el aplastamiento durante el transporte marítimo de larga distancia y el almacenamiento."
+                        },
+                        "faqs": {
+                            "q1": "1. ¿Cuál es la Cantidad Mínima de Pedido (MOQ) para bolsas personalizadas?",
+                            "a1": "Apoyamos a las empresas emergentes y los lanzamientos de nuevos SKU con una cantidad mínima de pedido de impresión digital de solo 500 unidades. Para volúmenes mayoristas más grandes, ofrecemos impresión por rotograbado de alta velocidad a partir de 5,000 unidades, proporcionando la máxima eficiencia de costos a granel.",
+                            "q2": "2. ¿Proporcionan muestras físicas de preproducción?",
+                            "a2": "Sí, enviamos un kit de muestras sostenible gratuito con 10 bolsas físicas para probar las propiedades de barrera. Para pedidos personalizados, generamos una prueba digital en PDF en 24 horas y podemos fabricar bolsas de muestra físicas antes de la producción a granel.",
+                            "q3": "3. ¿Pueden fabricar bolsas verticales según planos CAD volumétricos personalizados?",
+                            "a3": "Sí. Nuestros ingenieros de materiales analizan la densidad volumétrica de su producto y personalizan los fuelles inferiores y las dimensiones a escala milimétrica. Proporcionamos un diseño de troquel personalizado en PDF en 24 horas.",
+                            "q4": "4. ¿Cuál es el tiempo de entrega de producción y tránsito para tiradas comerciales?",
+                            "a4": "Las tiradas digitales terminan en 7-10 días hábiles; los pedidos de rotograbado tardan 12-14 días. La entrega aérea express por DHL/FedEx a EE. UU./UE demora de 5 a 7 días hábiles, y el transporte marítimo económico está disponible en 20-30 días.",
+                            "q5": "5. ¿Qué certificaciones están disponibles para verificar el cumplimiento ecológico?",
+                            "a5": "Nuestros biopolímeros llevan números de certificado oficiales de BPI (Instituto de Productos Biodegradables #10529618) y TÜV Austria (OK Compost HOME). Las pilas cumplen con las directrices de compostabilidad ASTM D6400 (EE. UU.) y EN 13432 (UE).",
+                            "q6": "6. ¿Qué detalles deben enviarse para recibir una cotización al por mayor?",
+                            "a6": "Proporcione la capacidad volumétrica estimada (o las dimensiones exactas), la preferencia de material (kraft compostable, mono-PE reciclable, alta barrera), los requisitos de cremallera/válvula desgasificadora, el número de SKU y el diseño vectorial."
+                        },
+                        "whySup": {
+                            "card1Title": "Presencia en Estantería",
+                            "card1Desc": "Nuestra tecnología de fuelle inferior plegado con precisión garantiza que su marca se mantenga erguida y visible. 360° de espacio personalizable para gráficos llamativos y distintivos de cumplimiento.",
+                            "card1Badge": "LISTO_PARA_EL_COMERCIO",
+                            "card2Title": "Tecnología de Barrera",
+                            "card2Desc": "Los revestimientos industriales de alta barrera mantienen seguros sus granos de café, ingredientes o refrigerios orgánicos. Las propiedades de barrera de gas dinámicas garantizan una defensa completa de O2 y humedad durante más de 12 meses.",
+                            "card2Badge": "BARRERA_CERTIFICADA",
+                            "card3Title": "Matriz Ecológica",
+                            "card3Desc": "Totalmente alineado con los estándares de comercio verde. Disponible en estructuras certificadas Home Compostable, Industrial Compostable y Curbside Recyclable Mono-Material.",
+                            "card3Badge": "100%_SOSTENIBLE"
+                        },
+                        "useCases": {
+                            "title": "Escenarios de Aplicación Objetivo",
+                            "case1Title": "Café y Té",
+                            "case1Desc": "EVOH con alto bloqueo de gas combinado con válvulas desgasificadoras unidireccionales para bloquear la humedad y preservar la frescura del tostado.",
+                            "case2Title": "Comida y Premios para Mascotas",
+                            "case2Desc": "Fondos de sello K de alta resistencia calibrados para pesos pesados (hasta 2 kg) con estructuras de capa a prueba de grasa y raspaduras.",
+                            "case3Title": "Refrigerios Secos y Granola",
+                            "case3Desc": "Biopolímeros vegetales certificados por BPI y OK Compost que cumplen con una estricta estabilidad en estantes comerciales e integridad estructural.",
+                            "case4Title": "Ingredientes en Polvo",
+                            "case4Desc": "Revestimientos de PLA libres de estática y cremalleras a prueba de fugas que evitan el tamizado de polvo y la rotura de costuras.",
+                            "specActive": "Hoja de especificaciones activa"
+                        },
+                        "guide": {
+                            "title": "La Guía Definitiva de las",
+                            "titleHighlight": "Bolsas Stand-Up",
+                            "p1": "Las bolsas verticales (SUP) han revolucionado la industria del envasado flexible. También conocidas como Doypacks, estas bolsas innovadoras cuentan con un fuelle inferior que les permite mantenerse erguidas en los estantes minoristas, maximizando la visibilidad de la marca y el atractivo en los estantes. Ya sea que esté envasando café de especialidad, golosinas orgánicas para mascotas o granola premium, las bolsas verticales ofrecen una solución versátil y rentable en comparación con los recipientes rígidos como frascos de vidrio o latas de metal.",
+                            "fig1": "Figura 1: Bolsas verticales impresas personalizadas que muestran gráficos digitales ecológicos y vívidos",
+                            "section1Title": "Por qué las marcas prefieren las bolsas stand-up",
+                            "section1P1": "La principal ventaja de la bolsa vertical es su diseño estructural. El fuelle inferior se expande cuando la bolsa se llena, creando una base resistente. Esto no solo permite que el producto actúe como su propio cartel publicitario en estantes minoristas concurridos, sino que también hace que la bolsa sea increíblemente eficiente en espacio durante el transporte y almacenamiento. Antes del llenado, estas bolsas se colocan planas, ocupando una fracción del espacio requerido para el embalaje rígido, lo que reduce significativamente los costos de envío y la huella de carbono.",
+                            "section1P2": "Además, las bolsas verticales son altamente personalizables. Con nuestra tecnología de impresión digital, las marcas pueden lograr gráficos de calidad fotográfica, colores vibrantes y texto nítido. Puede incorporar ventanas transparentes para exhibir su producto, cremalleras resellables para mantener la frescura después de abrir y muescas de rasgado para facilitar el acceso del consumidor.",
+                            "section2Title": "Sostenibilidad: Opciones Compostables y Reciclables",
+                            "section2P1": "En POUCH.ECO, entendemos el cambio crítico hacia el embalaje sostenible. Las bolsas verticales tradicionales a menudo dependen de plásticos de materiales mixtos que son imposibles de reciclar. Hemos diseñado nuestras bolsas para cumplir con los más altos estándares de sostenibilidad sin comprometer las propiedades de barrera ni el atractivo estético.",
+                            "fig2": "Figura 2: Bolsas de pie de papel Kraft FSC natural con alta barrera a la humedad",
+                            "fig3": "Figura 3: Pilas de película de celulosa de barrera compostable certificada multicapa",
+                            "section2P2": "Nuestra línea de productos incluye bolsas compostables en el hogar certificadas por TUV que se descomponen en materia orgánica dentro de los 180 días en un contenedor de compost doméstico. Para las marcas que requieren diferentes soluciones al final de su vida útil, también ofrecemos bolsas reciclables monomateriales (PE/PE o PP/PP) que son totalmente compatibles con los flujos de reciclaje de plástico blando. Al ofrecer estas alternativas ecológicas, ayudamos a las marcas emergentes a alinear sus envases con sus valores ambientales y satisfacer la creciente demanda de alternativas libres de plástico.",
+                            "section3Title": "MOQ bajo para empresas emergentes y marcas emergentes",
+                            "section3P1": "Históricamente, los envases impresos personalizados requerían cantidades mínimas de pedido (MOQ) masivas de 10,000 a 50,000 unidades, creando una barrera de entrada significativa para las pequeñas empresas. Aprovechamos la impresión digital de última generación para ofrecer MOQ que comienzan en solo 500 unidades. Esto permite a las empresas emergentes probar nuevos productos, lanzar sabores de temporada y ejecutar campañas promocionales sin inmovilizar capital en un inventario excesivo de embalaje."
+                        },
+                        "faqSection": {
+                            "title": "Preguntas Frecuentes",
+                            "titleHighlight": "Preguntas",
+                            "subtitle": "Los compradores profesionales B2B requieren una verificación detallada. Expanda los acordeones a continuación para auditar nuestra política comercial estándar:"
+                        },
+                        "cta": {
+                            "title": "¿Listo para empezar?",
+                            "desc": "Obtenga bolsas verticales impresas personalizadas premium adaptadas a sus especificaciones volumétricas de CAD exactas. MOQ bajo de 500 unidades.",
+                            "btn1": "Solicitar kit de muestra gratuito",
+                            "btn2": "Subir dieline CAD",
+                            "btn3": "Reservar llamada gratuita"
+                        }
+                    }
                 },
                 "seoPages": {
                     "breadcrumbs": {
