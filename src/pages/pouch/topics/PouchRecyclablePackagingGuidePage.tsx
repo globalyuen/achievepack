@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Layers } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { Microscope, TrendingUp } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -8,21 +9,22 @@ import ClickableImage from '../../../components/ClickableImage'
 
 const PouchRecyclablePackagingGuidePage: React.FC = () => {
   const baseUrl = getBaseUrl()
+  const { t } = useTranslation()
   
   const RECYCLE_METRICS = [
-    { label: 'Recovery Rate', value: '90%+', unit: 'Stream', desc: 'Mono-PE recovery (Cyclos-HTP).' },
-    { label: 'MDO-PE Tech', value: 'PET', unit: 'Replace', desc: 'Equivalent stiffness/clarity.' },
-    { label: 'Barrier', value: '< 1.0', unit: 'OTR', desc: 'Oxygen Transmission Rate (cc/m²).' },
-    { label: 'Components', value: '100%', unit: 'Mono', desc: 'Recyclable zippers and valves.' }
+    { label: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m1.label'), value: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m1.value'), unit: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m1.unit'), desc: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m1.desc') },
+    { label: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m2.label'), value: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m2.value'), unit: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m2.unit'), desc: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m2.desc') },
+    { label: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m3.label'), value: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m3.value'), unit: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m3.unit'), desc: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m3.desc') },
+    { label: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m4.label'), value: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m4.value'), unit: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m4.unit'), desc: t('pouchRecyclablePackagingGuidePage.engineering.metrics.m4.desc') }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Recyclable Packaging Guide | Mono-Material Engineering | Pouch.eco</title>
-        <meta name="description" content="Technical guide to recyclable packaging. 800+ words of research on Mono-PE, MDO-PE technology, and circular economy compliance." />
+        <title>{t('pouchRecyclablePackagingGuidePage.meta.title')}</title>
+        <meta name="description" content={t('pouchRecyclablePackagingGuidePage.meta.description')} />
         <link rel="canonical" href={`${baseUrl}/topics/recyclable-packaging`} />
-        <meta name="keywords" content="recyclable packaging, mono-material, mono-PE, MDO-PE, circular economy" />
+        <meta name="keywords" content={t('pouchRecyclablePackagingGuidePage.meta.keywords')} />
       </Helmet>
 
       {/* Hero Section */}
@@ -30,21 +32,21 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <NeoBadge color="blue">RECYCLE_TECH_V1.0</NeoBadge>
-              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Circular.<br/>By.<br/><span className="text-blue-900 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Design.</span></h1>
+              <NeoBadge color="blue">{t('pouchRecyclablePackagingGuidePage.hero.badge')}</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic" dangerouslySetInnerHTML={{ __html: t('pouchRecyclablePackagingGuidePage.hero.title') }} />
               <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                The era of non-recyclable multi-layer plastic is over. We engineer 100% <strong>Mono-Material</strong> structures (PE/PE or PP/PP) that are fully compatible with global recycling streams.
+                {t('pouchRecyclablePackagingGuidePage.hero.subtitle')}
               </p>
               <div className="flex flex-wrap gap-6 mt-12">
-                <NeoButton variant="primary" to="/products">Browse Recyclable Pouches</NeoButton>
-                <NeoButton variant="secondary" to="/sample">Request Material Data</NeoButton>
+                <NeoButton variant="primary" to="/products">{t('pouchRecyclablePackagingGuidePage.hero.browse')}</NeoButton>
+                <NeoButton variant="secondary" to="/sample">{t('pouchRecyclablePackagingGuidePage.hero.order')}</NeoButton>
               </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/topics/ocean-bound-plastic-hero.png" 
-                alt="Recyclable Packaging Hero" 
+                alt={t('pouchRecyclablePackagingGuidePage.hero.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -60,15 +62,15 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
               <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_recyclable_mono_pe_card_v2_5619420.webp" 
-                alt="Recyclable Mono-Material Engineering" 
+                alt={t('pouchRecyclablePackagingGuidePage.engineering.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">MONO_MATERIAL_AUDIT</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Measured.<br/>For Recovery.</h2>
+              <NeoBadge color="blue">{t('pouchRecyclablePackagingGuidePage.engineering.badge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic" dangerouslySetInnerHTML={{ __html: t('pouchRecyclablePackagingGuidePage.engineering.title') }} />
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                Recyclability is a function of polymer homogeneity. Traditional 'multi-material' bags (PET/PE) are landfill-bound because they cannot be separated during processing. Our <strong>Mono-Material Revolution</strong> utilizes <strong>MDO-PE (Machine Direction Orientation)</strong> technology to replace the PET outer layer with a specialized Polyethylene film. This creates a 100% PE package that achieving &gt; 90% recovery rates in standard recycling streams. Verified by <strong>Cyclos-HTP</strong> and compatible with 'Store Drop-off' and advanced automated sorting systems.
+                {t('pouchRecyclablePackagingGuidePage.engineering.p1')}
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {RECYCLE_METRICS.map((p, i) => (
@@ -87,35 +89,35 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
       {/* Technical: Sortability & NIR Tech */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="lime">SORT_TECH_STACK</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">Invisible.<br/>To the NIR.</h2>
+          <NeoBadge color="lime">{t('pouchRecyclablePackagingGuidePage.tech.badge')}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16" dangerouslySetInnerHTML={{ __html: t('pouchRecyclablePackagingGuidePage.tech.title') }} />
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="border-l-4 border-blue-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">01. NIR-Sortable Inks</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchRecyclablePackagingGuidePage.tech.t1.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Standard carbon black inks absorb NIR light, making the pouch invisible to sorting sensors. We use specialized non-carbon inks to ensure 100% sortability.
+                {t('pouchRecyclablePackagingGuidePage.tech.t1.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-blue-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">02. EVOH Barrier (&lt;5%)</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchRecyclablePackagingGuidePage.tech.t2.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                We integrate ultra-thin EVOH layers to block oxygen without disrupting the recycling stream. Compliant with CEFLEX and APR design-for-recycling guidelines.
+                {t('pouchRecyclablePackagingGuidePage.tech.t2.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-blue-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">03. PE Degassing Valves</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchRecyclablePackagingGuidePage.tech.t3.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                For coffee roasters, we use 100% Polyethylene one-way valves. This ensures the entire package stays in the PE loop without requiring component removal.
+                {t('pouchRecyclablePackagingGuidePage.tech.t3.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-blue-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">04. EPR Fee Mitigation</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchRecyclablePackagingGuidePage.tech.t4.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Designing for recyclability is a financial decision. Our mono-materials qualify for reduced 'eco-modulated' fees under California SB 54 and UK EPR mandates.
+                {t('pouchRecyclablePackagingGuidePage.tech.t4.desc')}
               </p>
             </div>
           </div>
@@ -127,24 +129,24 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="blue">MATERIAL_LAB_VERIFY</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Verified.<br/>To the Loop.</h2>
+              <NeoBadge color="blue">{t('pouchRecyclablePackagingGuidePage.lab.badge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic" dangerouslySetInnerHTML={{ __html: t('pouchRecyclablePackagingGuidePage.lab.title') }} />
               <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
-                Circular economy claims require laboratory evidence. We perform <strong>FTIR spectroscopy</strong> on every production batch to verify resin purity and co-extrusion accuracy. Our <strong>Mono-PE</strong> structures undergo <strong>Cyclos-HTP</strong> testing to verify that they result in high-quality rPE resin suitable for non-food or even food-contact applications (if using chemical recycling). We provide the technical evidence your brand needs to use 'How2Recycle' or 'Recycle Now' logos with absolute confidence.
+                {t('pouchRecyclablePackagingGuidePage.lab.p1')}
               </p>
               <div className="mt-12 space-y-4">
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <Microscope className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">NIR Sortable</h4>
-                    <p className="text-sm opacity-60">Tested for automated identification in advanced material recovery facilities.</p>
+                    <h4 className="font-black uppercase">{t('pouchRecyclablePackagingGuidePage.lab.f1_title')}</h4>
+                    <p className="text-sm opacity-60">{t('pouchRecyclablePackagingGuidePage.lab.f1_desc')}</p>
                   </div>
                 </div>
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <TrendingUp className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Recovery Score</h4>
-                    <p className="text-sm opacity-60">Achieving 90/100 recyclability scores under global certification protocols.</p>
+                    <h4 className="font-black uppercase">{t('pouchRecyclablePackagingGuidePage.lab.f2_title')}</h4>
+                    <p className="text-sm opacity-60">{t('pouchRecyclablePackagingGuidePage.lab.f2_desc')}</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +155,7 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_monomaterial_warm_4127359.webp" 
-                alt="Verified Recyclable Manufacturing" 
+                alt={t('pouchRecyclablePackagingGuidePage.lab.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -164,14 +166,14 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
       {/* FAQ: Recyclable Intelligence */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="magenta">RECYCLE_FAQ</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <NeoBadge color="magenta">{t('pouchRecyclablePackagingGuidePage.faq.badge')}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12" dangerouslySetInnerHTML={{ __html: t('pouchRecyclablePackagingGuidePage.faq.title') }} />
           <div className="space-y-4">
             {[
-              { q: "Is 'Store Drop-off' the only way to recycle these pouches?", a: "In North America, store drop-off is currently the standard for PE pouches. However, in Europe and emerging markets like California, advanced automated sorting is bringing these into curbside loops." },
-              { q: "Can I use metallic effects on recyclable bags?", a: "Yes. We use vacuum-metallized PE (VMPET replacement) to achieve high-barrier and metallic aesthetics while keeping the structure 100% recyclable." },
-              { q: "What is MDO-PE?", a: "Machine Direction Orientation Polyethylene is a film that has been stretched during manufacturing. This process increases stiffness and heat resistance, allowing us to remove non-recyclable PET." },
-              { q: "Does the zipper need to be removed?", a: "No. Our zippers are manufactured from 100% Polyethylene, meaning the entire pouch can be recycled as a single unit without consumer intervention." }
+              { q: t('pouchRecyclablePackagingGuidePage.faq.q1_q'), a: t('pouchRecyclablePackagingGuidePage.faq.q1_a') },
+              { q: t('pouchRecyclablePackagingGuidePage.faq.q2_q'), a: t('pouchRecyclablePackagingGuidePage.faq.q2_a') },
+              { q: t('pouchRecyclablePackagingGuidePage.faq.q3_q'), a: t('pouchRecyclablePackagingGuidePage.faq.q3_a') },
+              { q: t('pouchRecyclablePackagingGuidePage.faq.q4_q'), a: t('pouchRecyclablePackagingGuidePage.faq.q4_a') }
             ].map((faq, i) => (
               <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
@@ -188,15 +190,15 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-blue-900 text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="lime">RECYCLE_MANDATE</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Think Circular.<br/>Impact Pure.</h2>
+          <NeoBadge color="lime">{t('pouchRecyclablePackagingGuidePage.cta.badge')}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic" dangerouslySetInnerHTML={{ __html: t('pouchRecyclablePackagingGuidePage.cta.title') }} />
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            Ready to secure a recyclable supply chain for your brand? Let's start the technical audit today.
+            {t('pouchRecyclablePackagingGuidePage.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-white !text-blue-900">Order Recyclable Samples</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-blue-900">{t('pouchRecyclablePackagingGuidePage.cta.samples')}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to a Circular Engineer
+              {t('pouchRecyclablePackagingGuidePage.cta.engineer')}
             </NeoButton>
           </div>
         </div>

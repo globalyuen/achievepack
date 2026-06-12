@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Truck, Utensils  , Layers } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { Microscope, Truck } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -8,21 +9,22 @@ import ClickableImage from '../../../components/ClickableImage'
 
 const PouchFoodPackagingSupplierServicePage: React.FC = () => {
   const baseUrl = getBaseUrl()
+  const { t } = useTranslation()
   
   const SUPPLIER_METRICS = [
-    { label: 'Audit Score', value: 'Grade A', unit: 'BRCGS', desc: 'Global hygiene and safety standard.' },
-    { label: 'MOQ Minimum', value: '500', unit: 'Units', desc: 'Low-threshold digital production.' },
-    { label: 'Lead Time', value: '21', unit: 'Days', desc: 'Average turnaround for digital SKUs.' },
-    { label: 'Compliance', value: '100%', unit: 'DoC', desc: 'Full Declaration of Compliance docs.' }
+    { label: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m1.label'), value: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m1.value'), unit: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m1.unit'), desc: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m1.desc') },
+    { label: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m2.label'), value: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m2.value'), unit: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m2.unit'), desc: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m2.desc') },
+    { label: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m3.label'), value: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m3.value'), unit: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m3.unit'), desc: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m3.desc') },
+    { label: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m4.label'), value: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m4.value'), unit: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m4.unit'), desc: t('pouchFoodPackagingSupplierServicePage.engineering.metrics.m4.desc') }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Food Packaging Supplier | Technical Engineering & Scale | Pouch.eco</title>
-        <meta name="description" content="Technical guide to choosing a food packaging supplier. 800+ words of research on BRCGS compliance, factory-direct manufacturing, and supply chain security." />
+        <title>{t('pouchFoodPackagingSupplierServicePage.meta.title')}</title>
+        <meta name="description" content={t('pouchFoodPackagingSupplierServicePage.meta.description')} />
         <link rel="canonical" href={`${baseUrl}/topics/food-packaging-supplier`} />
-        <meta name="keywords" content="food packaging supplier, packaging manufacturer, BRCGS certified, factory direct pouches, circular economy supply chain" />
+        <meta name="keywords" content={t('pouchFoodPackagingSupplierServicePage.meta.keywords')} />
       </Helmet>
 
       {/* Hero Section */}
@@ -30,21 +32,21 @@ const PouchFoodPackagingSupplierServicePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <NeoBadge color="magenta">SUPPLIER_TECH_V1.0</NeoBadge>
-              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Scale.<br/>Pure.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Direct.</span></h1>
+              <NeoBadge color="magenta">{t('pouchFoodPackagingSupplierServicePage.hero.badge')}</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic" dangerouslySetInnerHTML={{ __html: t('pouchFoodPackagingSupplierServicePage.hero.title') }} />
               <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                A supplier is a technical partner, not a middleman. We provide direct-to-factory packaging solutions.
+                {t('pouchFoodPackagingSupplierServicePage.hero.subtitle')}
               </p>
               <div className="flex flex-wrap gap-6 mt-12">
-                <NeoButton variant="primary" to="/products">Browse Factory Solutions</NeoButton>
-                <NeoButton variant="secondary" to="/sample">Request Audit Data</NeoButton>
+                <NeoButton variant="primary" to="/products">{t('pouchFoodPackagingSupplierServicePage.hero.browse')}</NeoButton>
+                <NeoButton variant="secondary" to="/sample">{t('pouchFoodPackagingSupplierServicePage.hero.order')}</NeoButton>
               </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
-                alt="Food Packaging Supplier Hero" 
+                alt={t('pouchFoodPackagingSupplierServicePage.hero.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -60,15 +62,15 @@ const PouchFoodPackagingSupplierServicePage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
-                alt="High-Tech Food Packaging Manufacturing" 
+                alt={t('pouchFoodPackagingSupplierServicePage.engineering.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">SUPPLY_CHAIN_AUDIT</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Verified.<br/>To the Source.</h2>
+              <NeoBadge color="blue">{t('pouchFoodPackagingSupplierServicePage.engineering.badge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic" dangerouslySetInnerHTML={{ __html: t('pouchFoodPackagingSupplierServicePage.engineering.title') }} />
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                In a regulated market, your supplier's certifications are your brand's shield. We operate vertically integrated manufacturing facilities that are <strong>BRCGS Global Standard for Packaging Materials (Grade A)</strong> certified. This ensures that every pouch is produced in a sterile, audited environment with 100% traceability from resin to finished bag. By working <strong>Direct-to-Factory</strong>, you eliminate middleman margins and gain direct access to our <strong>Material Science</strong> lab, allowing for rapid prototyping of high-barrier, sustainable structures (Mono-PE, PCR, and Compostable) that meet the strictest food safety standards of 2026.
+                {t('pouchFoodPackagingSupplierServicePage.engineering.p1')}
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {SUPPLIER_METRICS.map((p, i) => (
@@ -87,35 +89,35 @@ const PouchFoodPackagingSupplierServicePage: React.FC = () => {
       {/* Technical: The Manufacturing Stack */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="lime">FACTORY_TECH_STACK</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">Massive Scale.<br/>Nano Precision.</h2>
+          <NeoBadge color="lime">{t('pouchFoodPackagingSupplierServicePage.tech.badge')}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16" dangerouslySetInnerHTML={{ __html: t('pouchFoodPackagingSupplierServicePage.tech.title') }} />
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">01. Co-Extrusion Tech</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchFoodPackagingSupplierServicePage.tech.t1.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Our multi-layer extrusion lines can integrate up to 9 layers of polymers, including EVOH and PA, for extreme shelf-life preservation without bulk.
+                {t('pouchFoodPackagingSupplierServicePage.tech.t1.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">02. HP Indigo 25K Digital</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchFoodPackagingSupplierServicePage.tech.t2.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Precision digital printing with 100% solvent-free inks. Ideal for low-MOQ multi-SKU food brands requiring rapid speed-to-market.
+                {t('pouchFoodPackagingSupplierServicePage.tech.t2.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">03. Automated Converting</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchFoodPackagingSupplierServicePage.tech.t3.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                High-speed bag-making with in-line zipper and valve insertion, ensuring zero human contact and 100% hermetic seal integrity.
+                {t('pouchFoodPackagingSupplierServicePage.tech.t3.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">04. Global Logistics</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchFoodPackagingSupplierServicePage.tech.t4.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                DDP (Delivered Duty Paid) shipping to major hubs worldwide. We manage the complexity of customs and duties so you receive your order at your door.
+                {t('pouchFoodPackagingSupplierServicePage.tech.t4.desc')}
               </p>
             </div>
           </div>
@@ -127,24 +129,24 @@ const PouchFoodPackagingSupplierServicePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="blue">QUALITY_SCIENCE_V1</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Measured.<br/>To the Pouch.</h2>
+              <NeoBadge color="blue">{t('pouchFoodPackagingSupplierServicePage.lab.badge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic" dangerouslySetInnerHTML={{ __html: t('pouchFoodPackagingSupplierServicePage.lab.title') }} />
               <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
-                Quality is a technical specification, not a promise. Every batch of our food packaging undergoes rigorous <strong>ASTM testing</strong> for seal strength, puncture resistance, and COF (Coefficient of Friction). We provide <strong>Declaration of Compliance (DoC)</strong> documents and <strong>Specific Migration Limit (SML)</strong> data to ensure your brand is 100% legally compliant in the US, EU, and beyond. As your technical supplier, we don't just deliver bags; we deliver <strong>Shelf-Life Certainty</strong> and <strong>Regulatory Security</strong> for your most critical food products.
+                {t('pouchFoodPackagingSupplierServicePage.lab.p1')}
               </p>
               <div className="mt-12 space-y-4">
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <Microscope className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Lab Verified</h4>
-                    <p className="text-sm opacity-60">Tested for OTR, WVTR, and seal integrity on every custom production run.</p>
+                    <h4 className="font-black uppercase">{t('pouchFoodPackagingSupplierServicePage.lab.f1_title')}</h4>
+                    <p className="text-sm opacity-60">{t('pouchFoodPackagingSupplierServicePage.lab.f1_desc')}</p>
                   </div>
                 </div>
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <Truck className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Traceable Supply</h4>
-                    <p className="text-sm opacity-60">Full resin-to-pouch traceability for complete food safety and recall security.</p>
+                    <h4 className="font-black uppercase">{t('pouchFoodPackagingSupplierServicePage.lab.f2_title')}</h4>
+                    <p className="text-sm opacity-60">{t('pouchFoodPackagingSupplierServicePage.lab.f2_desc')}</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +155,7 @@ const PouchFoodPackagingSupplierServicePage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
-                alt="Verified Supplier Manufacturing" 
+                alt={t('pouchFoodPackagingSupplierServicePage.lab.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -164,14 +166,14 @@ const PouchFoodPackagingSupplierServicePage: React.FC = () => {
       {/* FAQ: Supplier Intelligence */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="magenta">SUPPLIER_FAQ</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <NeoBadge color="magenta">{t('pouchFoodPackagingSupplierServicePage.faq.badge')}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12" dangerouslySetInnerHTML={{ __html: t('pouchFoodPackagingSupplierServicePage.faq.title') }} />
           <div className="space-y-4">
             {[
-              { q: "What is your BRCGS audit score?", a: "We consistently maintain a Grade A rating, the highest standard for food-grade packaging safety and manufacturing hygiene." },
-              { q: "Do you offer DDP shipping?", a: "Yes. We handle all logistics, customs, and duties to deliver your packaging directly to your warehouse with no hidden fees." },
-              { q: "Can I audit your factory in person?", a: "Absolutely. We encourage on-site audits for enterprise clients and provide full transparency into our QA/QC protocols and manufacturing lines." },
-              { q: "Do you provide design support?", a: "Yes. Our technical team can assist with die-line creation, file preparation, and ensuring your artwork meets legal requirements for eco-labeling." }
+              { q: t('pouchFoodPackagingSupplierServicePage.faq.q1_q'), a: t('pouchFoodPackagingSupplierServicePage.faq.q1_a') },
+              { q: t('pouchFoodPackagingSupplierServicePage.faq.q2_q'), a: t('pouchFoodPackagingSupplierServicePage.faq.q2_a') },
+              { q: t('pouchFoodPackagingSupplierServicePage.faq.q3_q'), a: t('pouchFoodPackagingSupplierServicePage.faq.q3_a') },
+              { q: t('pouchFoodPackagingSupplierServicePage.faq.q4_q'), a: t('pouchFoodPackagingSupplierServicePage.faq.q4_a') }
             ].map((faq, i) => (
               <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
@@ -188,15 +190,15 @@ const PouchFoodPackagingSupplierServicePage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="lime">FACTORY_MANDATE</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Build Bold.<br/>Direct Power.</h2>
+          <NeoBadge color="lime">{t('pouchFoodPackagingSupplierServicePage.cta.badge')}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic" dangerouslySetInnerHTML={{ __html: t('pouchFoodPackagingSupplierServicePage.cta.title') }} />
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            Ready to secure a technical, factory-direct supply chain for your brand? Let's start the audit today.
+            {t('pouchFoodPackagingSupplierServicePage.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">Request Factory Audit</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">{t('pouchFoodPackagingSupplierServicePage.cta.samples')}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to a Supply Engineer
+              {t('pouchFoodPackagingSupplierServicePage.cta.engineer')}
             </NeoButton>
           </div>
         </div>

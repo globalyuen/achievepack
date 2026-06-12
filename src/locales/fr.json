@@ -26887,5 +26887,767 @@
         "btn": "OBTENIR_UN_PROTOTYPE"
       }
     }
+  },
+  "pouchChildResistantMylarBagsPage": {
+    "meta": {
+      "title": "Sachets Mylar Sécurisés Enfant | Sécurité et Conformité | Pouch.eco",
+      "description": "Guide technique des sachets mylar sécurité enfants. Recherche sur la norme 16 CFR 1700.20, l'ingénierie anti-odeur et les structures CR durables.",
+      "keywords": "sachets mylar sécurité enfant, sachets CR, emballage sécurisé, 16 CFR 1700.20, sachets hermétiques, CR durable"
+    },
+    "hero": {
+      "badge": "SAFETY_HUB_V1.0",
+      "title": "Verrouiller.<br/>Pur.<br/>Sécurisé.",
+      "subtitle": "La résistance aux enfants est une obligation légale, pas une option. Nous concevons des sachets mylar CR certifiés CPSC et haute barrière qui protègent vos produits, vos clients et la planète.",
+      "browse": "Découvrir les Solutions CR",
+      "order": "Commander des Échantillons CR"
+    },
+    "engineering": {
+      "badge": "SAFETY_COMPLIANCE_AUDIT",
+      "title": "Conçu.<br/>Pour la Sécurité.",
+      "p1": "L'emballage sécurité enfant (CR) est défini par l'ingénierie des facteurs humains. En 2026, l'obligation pour les produits à forte puissance (pharmaceutiques, chimiques, cannabis) est absolue. Chez Pouch.eco, nous concevons nos sachets mylar CR pour répondre aux normes fédérales strictes 16 CFR § 1700.20. Nous utilisons une technologie avancée de fermeture à glissière presser-glisser et pincer-tirer, vérifiée en laboratoire pour résister aux enfants tout en restant accessible aux seniors. Mais la sécurité ne signifie pas le gaspillage. Nous proposons des structures de sécurité enfants 100 % recyclables en Mono-PE qui offrent un contrôle total des odeurs et une intégrité haute barrière. Chaque production personnalisée est soutenue par des données de certification CPSC et ASTM D3475, garantissant la protection de votre marque contre la responsabilité réglementaire.",
+      "metrics": {
+        "m1": {
+          "label": "Norme Séc",
+          "value": "16 CFR",
+          "unit": "1700.20",
+          "desc": "Référence fédérale CR."
+        },
+        "m2": {
+          "label": "Barrière Od.",
+          "value": "100%",
+          "unit": "Hermétique",
+          "desc": "Zéro transmission d'odeur."
+        },
+        "m3": {
+          "label": "Perforation",
+          "value": "Haute",
+          "unit": "Jauge",
+          "desc": "Film de sécurité renforcé."
+        },
+        "m4": {
+          "label": "Recyclable",
+          "value": "PE",
+          "unit": "Mono",
+          "desc": "Option CR durable."
+        }
+      }
+    },
+    "tech": {
+      "badge": "SECURITY_TECH_STACK",
+      "title": "Barrière Pure.<br/>Verrou Pur.",
+      "t1": {
+        "title": "01. Certifié CPSC",
+        "desc": "Conformité vérifiée avec 16 CFR § 1700.20. Nos mécanismes de verrouillage sont conçus pour empêcher les empoisonnements accidentels et l'accès des enfants."
+      },
+      "t2": {
+        "title": "02. EVOH Neutre d'Odeur",
+        "desc": "Barrières de gaz intégrées qui bloquent 100 % des composés aromatiques, garantissant une discrétion totale et la fraîcheur des produits puissants."
+      },
+      "t3": {
+        "title": "03. Adapté aux Seniors",
+        "desc": "Points de préhension ergonomiques et mécanismes coulissants faciles à ouvrir pour les adultes ayant une dextérité limitée tout en restant sécurisés."
+      },
+      "t4": {
+        "title": "04. Barrière Ultra-Résistante",
+        "desc": "Utilisation de films multicouches de 100 à 150 microns pratiquement anticrevaison, protégeant le contenu de la lumière, de l'humidité et des chocs."
+      }
+    },
+    "lab": {
+      "badge": "SAFETY_SCIENCE_V1",
+      "title": "Mesuré.<br/>Au Paragraphe.",
+      "p1": "La sécurité enfant est une spécification technique. Nous utilisons les classifications ASTM D3475 pour garantir que nos sachets répondent aux besoins spécifiques de votre catégorie de produits. Notre protocole de sécurité EEAT fournit la traçabilité complète de l'audit de laboratoire requise pour la conformité. Nous ne nous contentons pas de promettre la sécurité ; nous fournissons les documents de certification de l'emballage de sécurité enfant (CRP) dont votre équipe juridique a besoin. En utilisant des sachets CR en Mono-PE recyclable, nous aidons les marques à aligner leurs obligations de sécurité avec leurs objectifs de durabilité. C'est l'avenir de l'emballage haute puissance, conçu pour la sécurité et la circularité.",
+      "f1_title": "Bouclier Légal",
+      "f1_desc": "Garantir la conformité totale de votre marque avec la loi sur la prévention des empoisonnements.",
+      "f2_title": "Garde-Odeur",
+      "f2_desc": "Intégrité de scellage hermétique empêchant les fuites d'odeurs même sous haute pression."
+    },
+    "faq": {
+      "badge": "SAFETY_FAQ",
+      "title": "Intelligence<br/>d'Expert.",
+      "q1_q": "Qu'est-ce qui rend un sachet résistant aux enfants ?",
+      "q1_a": "Un sachet est CR s'il nécessite deux mouvements distincts et non intuitifs pour s'ouvrir (comme pousser et glisser), capacités cognitives et motrices qui font défaut aux enfants de moins de 5 ans.",
+      "q2_q": "Vos sachets CR sont-ils refermables ?",
+      "q2_a": "Oui. Nos fermetures à glissière CR sont conçues pour des utilisations multiples tout en conservant leurs propriétés de résistance aux enfants tout au long de la vie du produit.",
+      "q3_q": "Puis-je obtenir des sachets CR opaques ?",
+      "q3_a": "Absolument. De nombreuses juridictions exigent que les emballages CR soient opaques. Nous proposons des couches barrières blanches et noires haute densité qui garantissent une opacité totale.",
+      "q4_q": "Fournissez-vous des documents de certification ?",
+      "q4_a": "Oui. Chaque commande de nos sachets CR est accompagnée des résultats officiels des tests 16 CFR § 1700.20 pour vos dossiers réglementaires."
+    },
+    "cta": {
+      "badge": "SAFETY_MANDATE",
+      "title": "Penser Sécurité.<br/>Impact Pur.",
+      "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement CR haute barrière et conforme pour votre marque ? Commençons l'audit technique dès aujourd'hui.",
+      "samples": "Demander des Échantillons CR",
+      "engineer": "Parler à un Ingénieur Sécurité"
+    }
+  },
+  "pouchRecyclablePackagingGuidePage": {
+    "meta": {
+      "title": "Guide de l'Emballage Recyclable | Ingénierie Mono-Matériau | Pouch.eco",
+      "description": "Guide technique de l'emballage recyclable. Recherche sur le Mono-PE, la technologie MDO-PE et la conformité à l'économie circulaire.",
+      "keywords": "emballage recyclable, mono-matériau, mono-PE, MDO-PE, économie circulaire"
+    },
+    "hero": {
+      "badge": "RECYCLE_TECH_V1.0",
+      "title": "Circulaire.<br/>Par.<br/>Conception.",
+      "subtitle": "L'ère du plastique multicouche non recyclable est révolue. Nous concevons des structures 100 % mono-matériau (PE/PE ou PP/PP) entièrement compatibles avec les filières de recyclage mondiales.",
+      "browse": "Découvrir les Sachets Recyclables",
+      "order": "Demander des Données Matériaux"
+    },
+    "engineering": {
+      "badge": "MONO_MATERIAL_AUDIT",
+      "title": "Mesuré.<br/>Pour la Récupération.",
+      "p1": "La recyclabilité dépend de l'homogénéité des polymères. Les sachets multi-matériaux traditionnels (PET/PE) sont destinés à la décharge car ils ne peuvent pas être séparés lors du traitement. Notre révolution mono-matériau utilise la technologie MDO-PE (orientation dans le sens de la machine) pour remplacer la couche externe en PET par un film de polyéthylène spécialisé. Cela crée un emballage 100 % PE atteignant des taux de récupération > 90 % dans les filières de recyclage standard. Certifié par Cyclos-HTP et compatible avec les systèmes de dépôt en magasin et de tri automatisé avancé.",
+      "metrics": {
+        "m1": {
+          "label": "Taux de Récup.",
+          "value": "90%+",
+          "unit": "Filière",
+          "desc": "Récupération du Mono-PE (Cyclos-HTP)."
+        },
+        "m2": {
+          "label": "Tech MDO-PE",
+          "value": "PET",
+          "unit": "Remplacer",
+          "desc": "Rigidité/clarté équivalente."
+        },
+        "m3": {
+          "label": "Barrière",
+          "value": "< 1.0",
+          "unit": "OTR",
+          "desc": "Perméabilité à l'oxygène (cc/m²)."
+        },
+        "m4": {
+          "label": "Composants",
+          "value": "100%",
+          "unit": "Mono",
+          "desc": "Zips et valves recyclables."
+        }
+      }
+    },
+    "tech": {
+      "badge": "SORT_TECH_STACK",
+      "title": "Invisible.<br/>Pour le NIR.",
+      "t1": {
+        "title": "01. Encres triables NIR",
+        "desc": "Les encres noires au carbone standard absorbent la lumière NIR, rendant le sachet invisible pour les capteurs de tri. Nous utilisons des encres non carbonées spécialisées pour garantir une triabilité à 100 %."
+      },
+      "t2": {
+        "title": "02. Barrière EVOH (<5%)",
+        "desc": "Nous intégrons des couches d'EVOH ultra-fines pour bloquer l'oxygène sans perturber le tri. Conforme aux directives de conception pour le recyclage de CEFLEX et de l'APR."
+      },
+      "t3": {
+        "title": "03. Valves de dégazage PE",
+        "desc": "Pour les torréfacteurs, nous utilisons des valves unidirectionnelles 100 % polyéthylène. Cela garantit que l'ensemble de l'emballage reste dans la boucle PE sans démontage."
+      },
+      "t4": {
+        "title": "04. Réduction des taxes EPR",
+        "desc": "Concevoir pour le recyclage est un choix financier. Nos mono-matériaux permettent de réduire les taxes éco-modulées selon la réglementation California SB 54 et l'EPR britannique."
+      }
+    },
+    "lab": {
+      "badge": "MATERIAL_LAB_VERIFY",
+      "title": "Vérifié.<br/>Dans la Boucle.",
+      "p1": "Les affirmations d'économie circulaire exigent des preuves de laboratoire. Nous effectuons une spectroscopie FTIR sur chaque lot pour vérifier la pureté de la résine et la précision de la co-extrusion. Nos structures Mono-PE subissent des tests Cyclos-HTP pour s'assurer qu'elles produisent une résine rPE de haute qualité, adaptée aux applications non alimentaires ou même alimentaires (en cas de recyclage chimique). Nous fournissons les preuves techniques nécessaires pour apposer les logos d'identification de tri en toute confiance.",
+      "f1_title": "Triable par NIR",
+      "f1_desc": "Testé pour l'identification automatisée dans les centres de tri de matériaux avancés.",
+      "f2_title": "Score de Récupération",
+      "f2_desc": "Atteignant des scores de recyclabilité de 90/100 selon les protocoles de certification mondiaux."
+    },
+    "faq": {
+      "badge": "RECYCLE_FAQ",
+      "title": "Intelligence<br/>d'Expert.",
+      "q1_q": "Le dépôt en magasin est-il le seul moyen de recycler ces sachets ?",
+      "q1_a": "En Amérique du Nord, le dépôt en magasin est actuellement la norme pour les sachets en PE. Cependant, en Europe et dans les marchés émergents comme la Californie, le tri automatique permet de les intégrer dans la collecte sélective à domicile.",
+      "q2_q": "Puis-je utiliser des effets métallisés sur des sachets recyclables ?",
+      "q2_a": "Oui. Nous utilisons du PE métallisé sous vide (en remplacement du VMPET) pour obtenir un rendu métallique esthétique et une haute barrière tout en maintenant une structure 100 % recyclable.",
+      "q3_q": "Qu'est-ce que le MDO-PE ?",
+      "q3_a": "Le polyéthylène orienté dans le sens de la machine est un film étiré pendant la fabrication. Ce procédé augmente la rigidité et la résistance à la chaleur, nous permettant de nous passer du PET non recyclable.",
+      "q4_q": "Faut-il retirer la fermeture à glissière ?",
+      "q4_a": "Non. Nos fermetures à glissière sont fabriquées en 100 % polyéthylène, ce qui signifie que l'ensemble du sachet peut être recyclé comme une seule unité sans intervention du consommateur."
+    },
+    "cta": {
+      "badge": "RECYCLE_MANDATE",
+      "title": "Penser Circulaire.<br/>Impact Pur.",
+      "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement recyclable pour votre marque ? Commençons l'audit technique dès aujourd'hui.",
+      "samples": "Commander des Échantillons Recyclables",
+      "engineer": "Parler à un Ingénieur Circulaire"
+    }
+  },
+  "pouchDigitalPrintingEcoPackagingPage": {
+    "meta": {
+      "title": "Impression Numérique pour Emballage Éco | Technologie HP Indigo | Pouch.eco",
+      "description": "Guide technique de l'impression numérique pour emballages durables. Recherche sur l'HP Indigo 25K, la durabilité sans plaque et la fabrication agile.",
+      "keywords": "impression numérique emballage éco, HP Indigo 25K, impression sans plaque, fabricant emballages durables, sachets bas MOQ"
+    },
+    "hero": {
+      "badge": "DIGITAL_STRATEGY_V1.0",
+      "title": "Zéro.<br/>Plaque.<br/>Agile.",
+      "subtitle": "L'impression traditionnelle génère trop de déchets. Nous utilisons la technologie numérique HP Indigo 25K pour éliminer les frais de plaques.",
+      "browse": "Découvrir les Styles Numériques",
+      "order": "Demander des Épreuves d'Impression"
+    },
+    "engineering": {
+      "badge": "AGILE_MANUFACTURING",
+      "title": "Conçu.<br/>Pour Pivoter.",
+      "p1": "En 2026, la durabilité se définit par l'efficacité. L'héliogravure et la flexographie traditionnelles nécessitent des centaines de kilos de gâche de réglage et des plaques métalliques toxiques. L'impression numérique élimine ces obstacles. Chez Pouch.eco, nous utilisons la presse numérique HP Indigo 25K pour proposer aux marques une fabrication sans plaque. Cela permet des chaînes d'approvisionnement ultra-agiles avec des MOQ à partir de 500 unités. En éliminant les stocks dormants et en permettant des changements rapides de références, nous aidons les marques à réduire leurs déchets de matériaux de 15 %. Nous certifions notre qualité d'impression par le label G7 Master, garantissant la constance des couleurs de votre marque sur chaque sachet.",
+      "metrics": {
+        "m1": {
+          "label": "Perte de Plaque",
+          "value": "0%",
+          "unit": "Zéro",
+          "desc": "Sans plaque métallique ni chimie."
+        },
+        "m2": {
+          "label": "Résolution",
+          "value": "1200",
+          "unit": "DPI",
+          "desc": "Netteté ultra-haute définition."
+        },
+        "m3": {
+          "label": "Délai de Fab.",
+          "value": "21",
+          "unit": "Jours",
+          "desc": "De la création à la livraison."
+        },
+        "m4": {
+          "label": "MOQ Minimum",
+          "value": "500",
+          "unit": "Unités",
+          "desc": "Solution agile pour startups."
+        }
+      }
+    },
+    "tech": {
+      "badge": "PRINT_TECH_STACK",
+      "title": "Couleur Pure.<br/>Vitesse Pure.",
+      "t1": {
+        "title": "01. HP ElectroInk",
+        "desc": "Encres sans solvant à 100 %, sans danger pour les aliments, conformes aux normes de la FDA et de l'EFSA. Certifiées pour les structures compostables domestiques et industrielles."
+      },
+      "t2": {
+        "title": "02. Données Variables (VDP)",
+        "desc": "Imprimez des codes QR uniques, des numéros de série ou des graphismes ultra-personnalisés sur chaque sachet sans surcoût de production."
+      },
+      "t3": {
+        "title": "03. Correspondance G7",
+        "desc": "La spectrophotométrie automatisée garantit un Delta-E (ΔE) inférieur à 2.0. L'identité de votre marque reste cohérente sur tous les matériaux."
+      },
+      "t4": {
+        "title": "04. Production Rapide",
+        "desc": "Oubliez l'attente de 4 semaines pour fabriquer des plaques. Passez de l'approbation du graphisme aux sachets finis en seulement 14 à 21 jours."
+      }
+    },
+    "lab": {
+      "badge": "PRINT_SCIENCE_V1",
+      "title": "Mesuré.<br/>Au Pixel Près.",
+      "p1": "La qualité de l'impression numérique est une spécification technique. Nous utilisons une technologie haute définition 1200 DPI pour garantir la parfaite lisibilité des plus petites tailles de caractères et des codes-barres complexes. Nos encres sont testées pour leur résistance à la migration et leur neutralité olfactive, garantissant qu'elles ne compromettent jamais les qualités sensorielles de vos produits. En tant que partenaire technique, nous fournissons les données d'analyse du cycle de vie (ACV) prouvant le faible impact environnemental du numérique comparé à l'héliogravure. C'est la fabrication agile validée par la science.",
+      "f1_title": "Intégrité des Couleurs",
+      "f1_desc": "Équilibre des gris certifié G7 et constance visuelle sur l'ensemble de la gamme.",
+      "f2_title": "Réduction des Déchets",
+      "f2_desc": "Réduction de 90 % de la gâche de réglage par rapport aux méthodes d'impression classiques."
+    },
+    "faq": {
+      "badge": "DIGITAL_FAQ",
+      "title": "Intelligence<br/>d'Expert.",
+      "q1_q": "L'impression numérique est-elle adaptée aux emballages alimentaires ?",
+      "q1_a": "Absolument. Nos encres HP ElectroInks sont 100 % sûres pour l'alimentation et répondent aux réglementations internationales les plus strictes en matière de contact alimentaire direct.",
+      "q2_q": "Peut-on imprimer des effets métallisés ou dorés en numérique ?",
+      "q2_a": "Oui. Nous proposons des encres argentées métallisées haute performance et des techniques de sous-couche qui imitent le rendu de la feuille d'aluminium sans son impact environnemental.",
+      "q3_q": "Quelle est la plus petite taille de police imprimable ?",
+      "q3_a": "Grâce à notre résolution de 1200 DPI, nous pouvons imprimer des textes parfaitement lisibles dès 4pt, ce qui est idéal pour les listes d'ingrédients détaillées.",
+      "q4_q": "Proposez-vous des épreuves d'impression physiques ?",
+      "q4_a": "Oui. Nous fournissons des prototypes numériques haute fidélité utilisant les mêmes encres et supports que votre production finale pour éviter toute surprise."
+    },
+    "cta": {
+      "badge": "DIGITAL_MANDATE",
+      "title": "Penser Agile.<br/>Impact Pur.",
+      "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement numérique agile et à faible déchet pour votre marque ? Commençons l'audit technique dès aujourd'hui.",
+      "samples": "Demander des Épreuves d'Impression",
+      "engineer": "Parler à un Ingénieur Impression"
+    }
+  },
+  "pouchHighHeatCandlePackagingPage": {
+    "meta": {
+      "title": "Emballage de Bougies Compostable Haute Chaleur (85°C+) - Pouch.eco",
+      "description": "Sachets compostables résistants à la chaleur pour la coulée de cire. Supporte des températures de 85°C+ avec les matériaux PBS et NatureFlex. Impression numérique pour startups à faible MOQ."
+    },
+    "hero": {
+      "title": "Compost<br/>Résistant<br/>à la Chaleur",
+      "badge": "Coulée Évaluée à 85°C",
+      "subtitle": "Conçu pour la cire de bougie",
+      "side_title": "Oubliez le verre",
+      "intro": "Verser de la cire chaude à 85°C fait généralement fondre le plastique écologique. Nous avons résolu ce problème. En utilisant du PBS et du NatureFlex, nous avons créé un sachet qui résiste à la chaleur tout en restant 100% compostable à la maison.",
+      "t1_title": "Roi de la Température",
+      "t1_desc": "Le PLA se ramollit à 50°C. Nos sachets renforcés en PBS restent rigides de 85°C à 95°C.",
+      "t2_title": "Numérique à Faible MOQ",
+      "t2_desc": "6 designs ? 178 unités chacun ? Aucun problème. L'impression numérique élimine les frais de plaques.",
+      "t3_title": "Bio-NK Compostable",
+      "t3_desc": "La structure NK / Papier Kraft / PBS garantit zéro fuite de parfum et 100% compostabilité à domicile."
+    },
+    "science": {
+      "title": "Science des Matériaux",
+      "h1_title": "La Couche Haute Chaleur",
+      "h1_desc": "Le succinate de polybutylène (PBS) est le héros. Contrairement aux films à base d'amidon, le PBS a un point de fusion élevé et une flexibilité supérieure.",
+      "h1_l1": "Coulée continue à 85°C",
+      "h1_l2": "Certifié ASTM D6400",
+      "h1_l3": "Compostage domestique et industriel",
+      "h2_title": "La Couche Barrière",
+      "h2_desc": "La cellulose NatureFlex™ dérivée de la pâte de bois offre une barrière à l'oxygène et une finition brillante.",
+      "h2_l1": "Zéro fuite de parfum",
+      "h2_l2": "Remplissage sans électricité statique",
+      "h2_l3": "Durable à base de bois"
+    },
+    "spec": {
+      "title": "Spécifications",
+      "dims": "Dimensions",
+      "dims_val": "155 x 229 x 99 mm",
+      "vol": "Volume de Cire",
+      "vol_val": "284 g (Durci)",
+      "print": "Impression",
+      "print_val": "Numérique CMJN",
+      "cert": "Certifications",
+      "cert_val": "OK Compost / BPI / ASTM D6400"
+    },
+    "supply": {
+      "top_bar": "Protocole d'Approvisionnement Propriétaire",
+      "top_bar_right": "Capacité Validée à 85°C",
+      "intro_title": "Nous ne trouvons pas seulement des fournisseurs. Nous concevons la ligne de production.",
+      "intro_desc": "Notre équipe a audité plus de 15 usines de production mondiales pour identifier les trois seules lignes capables de respecter nos normes structurelles à 85°C. Travailler avec Pouch.eco, ce n'est pas seulement acheter un sachet, c'est accéder à une chaîne d'approvisionnement pré-vérifiée et stress-testée par nos ingénieurs.",
+      "launch_title": "Fase de Lancement",
+      "launch_badge": "Spécialiste de l'Impression Numérique",
+      "launch_desc": "Accédez à nos lignes de production boutique conçues pour des commandes fractionnées de 1 000 unités. Sans frais de plaques. Stabilité de coulée directe de cire validée à 95°C.",
+      "growth_title": "Phase de Croissance",
+      "growth_badge": "Partenaire de Production à Grande Échelle",
+      "growth_desc": "Une fois votre marque développée, nous vous transférons vers nos sites à grand volume. Protocole mondial avec prix unitaire minimal (0,80 $/unité). Soudures en PBS certifiées à 100°C.",
+      "footer": "Contactez notre équipe pour auditer votre formule de cire et accéder à notre réseau d'approvisionnement propriétaire."
+    },
+    "structure": {
+      "title": "Structure NK / Kraft / PBS",
+      "l1": "Extérieur NatureFlex (NK) : Cellulose thermo-stable 100 % bio-sourcée pour impression premium.",
+      "l2": "Milieu FSC Kraft : Rigidité structurelle renforcée pour coulée de cire lourde.",
+      "l3": "Soudure PBS : Succinate de polybutylène haute température pour sécurité à 85°C+."
+    },
+    "cta": {
+      "title": "Prêt à abandonner le verre ?",
+      "book": "Prendre Rendez-vous",
+      "sample": "Demander un Kit d'Échantillons",
+      "footer": "NOUS AVONS LE SAVOIR. VOUS AVEZ LA VISION."
+    }
+  },
+  "pouchReduceWasteGuidePage": {
+    "meta": {
+      "title": "Réduire les Déchets d'Emballage | Ingénierie de la Circularité | Pouch.eco",
+      "description": "Guide technique pour réduire les déchets d'emballage. Recherche sur la réduction à la source, l'allègement des matériaux et l'ingénierie de l'économie circulaire.",
+      "keywords": "réduire déchets emballage, réduction à la source, économie circulaire, allègement, recyclage mono-matériau"
+    },
+    "hero": {
+      "badge": "WASTE_REDUCTION_V4",
+      "title": "Moins.<br/>Déchets.<br/>Plus.",
+      "subtitle": "L'efficacité est la forme ultime de durabilité. Nous concevons la réduction à la source dans chaque sachet.",
+      "browse": "Découvrir les Solutions Efficaces",
+      "order": "Demander un Audit des Déchets"
+    },
+    "engineering": {
+      "badge": "SOURCE_REDUCTION_LAB",
+      "title": "Concevoir le<br/>Zéro Déchet.",
+      "p1": "L'emballage le plus durable est celui qui n'a jamais été fabriqué. Nous utilise l'orientation dans le sens de la machine (MDO) pour étirer les molécules de polymère, créant ainsi des films à haute résistance qui offrent une protection barrière identique avec 25 % de matière première en moins. Cette stratégie d'allègement réduit directement votre taxe sur le plastique vierge sur les marchés mondiaux tout en réduisant vos émissions de transport de scope 3.",
+      "metrics": {
+        "m1": {
+          "label": "Plastique Sauvé",
+          "value": "25%+",
+          "unit": "Par Unité",
+          "desc": "Grâce à l'allègement du Mono-PE."
+        },
+        "m2": {
+          "label": "Réduction CO2",
+          "value": "32%",
+          "unit": "ACV Vérifiée",
+          "desc": "Moins d'énergie de production et d'expédition."
+        },
+        "m3": {
+          "label": "Densité Palette",
+          "value": "+15%",
+          "unit": "Rendement",
+          "desc": "Plus de sachets vides par expédition."
+        },
+        "m4": {
+          "label": "Prêt Circulaire",
+          "value": "100%",
+          "unit": "Mono-PE",
+          "desc": "Entièrement recyclable dans les filières standard."
+        }
+      }
+    },
+    "tech": {
+      "badge": "CIRCULAR_TECH_STACK",
+      "title": "Conçu pour le<br/>Démantèlement.",
+      "t1": {
+        "title": "01. Mono-Matériau PE",
+        "desc": "Éliminer de manière organique les complexes multicouches. Nos sachets 100 % Mono-PE sont entièrement recyclables dans les filières de collecte standard, créant ainsi un véritable cycle de vie en boucle fermée."
+      },
+      "t2": {
+        "title": "02. Scellage Sans Solvant",
+        "desc": "Utilisation d'une liaison thermique haute pureté au lieu d'adhésifs chimiques. Cela garantit que la résine recyclée obtenue est de haute qualité et exempte de contaminants."
+      },
+      "t3": {
+        "title": "03. Dimensionnement sur Mesure",
+        "desc": "Ingénierie de précision des dimensions des sachets pour minimiser l'air inutile. Nous réduisons le volume global des expéditions jusqu'à 20 %, limitant ainsi les déchets liés au transport."
+      },
+      "t4": {
+        "title": "04. Certifié ACV",
+        "desc": "Données d'analyse du cycle de vie pour chaque structure. Nous quantifions précisément l'évitement de la décharge et la compensation carbone de votre transition d'emballages."
+      }
+    },
+    "lab": {
+      "badge": "WASTE_AUDIT_PROTOCOL",
+      "title": "Mesuré.<br/>Vérifié.",
+      "p1": "La durabilité ne peut être vague. Nous réalisons des audits d'efficacité volumétrique pour identifier le pourcentage exact de déchets de matériaux dans vos emballages actuels. En passant aux formats flexibles optimisés, nos clients constatent une réduction moyenne de 75 % des déchets mis en décharge par rapport aux flacons rigides en PET ou en verre. Nous ne nous contentons pas de rêver de propreté ; nous concevons les données pour le prouver.",
+      "f1_title": "Évitement de Décharge",
+      "f1_desc": "Chaque millier de sachets économisés évite que 4,5 kg de polymères n'entrent dans les flux de déchets.",
+      "f2_title": "Atténuation des Taxes",
+      "f2_desc": "La réduction à la source réduit directement la taxe sur les emballages plastiques au Royaume-Uni et les directives EPR de l'UE."
+    },
+    "faq": {
+      "badge": "WASTE_FAQ",
+      "title": "Réponses<br/>Pratiques.",
+      "q1_q": "Quel est l'impact de l'allègement sur les propriétés barrières ?",
+      "q1_a": "En utilisant des films orientés comme le MDO-PE, nous alignons plus étroitement les chaînes de polymères, ce qui peut améliorer la barrière à l'humidité tout en réduisant la quantité globale de matériau.",
+      "q2_q": "L'emballage souple est-il préférable à l'emballage rigide pour réduire les déchets ?",
+      "q2_a": "Oui. Les sachets souples utilisent jusqu'à 80 % de plastique en moins en poids que les bouteilles ou flacons rigides, ce qui entraîne une réduction majeure à la source dès le début du cycle de vie.",
+      "q3_q": "Quelle est la principale source de déchets dans l'emballage D2C ?",
+      "q3_a": "Le transport de vide. Expédier de grands cartons à moitié remplis d'air et de coussins de calage en plastique est un immense gaspillage d'énergie et de matière. Les sachets optimisés éliminent totalement ce problème.",
+      "q4_q": "Comment vérifiez-vous vos affirmations de réduction des déchets ?",
+      "q4_a": "Nous fournissons des analyses de cycle de vie (ACV) conformes aux normes ISO 14040/44 qui chiffrent précisément les économies de matières et la compensation carbone de votre commande."
+    },
+    "cta": {
+      "badge": "WASTE_MANDATE",
+      "title": "Moins de Plastique.<br/>Meilleure Image.",
+      "subtitle": "Prêt à auditer vos emballages et à éliminer les déchets inutiles ? Nos ingénieurs sont à votre disposition pour chiffrer votre projet.",
+      "samples": "Commander des Échantillons Efficaces",
+      "audit": "Auditer mes Déchets d'Emballage"
+    }
+  },
+  "pouchEcoFriendlySupplierVerificationPage": {
+    "meta": {
+      "title": "Vérification des Fournisseurs Éco | Ingénierie de la Supply Chain | Pouch.eco",
+      "description": "Guide technique pour la vérification des fournisseurs durables. Recherche sur les audits SMETA, la traçabilité GRS et la conformité de sécurité alimentaire BRCGS.",
+      "keywords": "vérification des fournisseurs éco, supply chain durable, audit d'emballage, traçabilité GRS, audit SMETA"
+    },
+    "hero": {
+      "badge": "SUPPLY_CHAIN_V2.0",
+      "title": "Vérifier.<br/>Auditer.<br/>Sécuriser.",
+      "subtitle": "La durabilité sans vérification n'est que du marketing. Nous concevons la confiance grâce à des audits SEDEX/SMETA rigoureux et à une traçabilité GRS par lot, garantissant que votre marque reste protégée contre le greenwashing.",
+      "standards": "Nos Normes d'Audit",
+      "request": "Demander un Audit Fournisseur"
+    },
+    "engineering": {
+      "badge": "TECHNICAL_ACCOUNTABILITY",
+      "title": "Confiance Basée<br/>sur les Preuves.",
+      "p1": "La confiance est le résultat de la transparence. Nous réalisons des audits SMETA en 4 piliers sur nos principaux sites de fabrication pour vérifier le travail éthique, la santé au travail et les performances environnementales. En intégrant les systèmes de management environnemental ISO 14001 et les protocoles d'hygiène BRCGS de grade A, nous garantissons que vos sachets sont produits selon les normes les plus strictes.",
+      "metrics": {
+        "m1": {
+          "label": "Conformité Sociale",
+          "value": "100%",
+          "unit": "SMETA",
+          "desc": "Vérification de l'éthique de travail et des salaires."
+        },
+        "m2": {
+          "label": "Note Qualité",
+          "value": "A",
+          "unit": "BRCGS",
+          "desc": "Le plus haut standard d'hygiène mondial."
+        },
+        "m3": {
+          "label": "Traçabilité Mat.",
+          "value": "LIÉE",
+          "unit": "GRS/ISCC",
+          "desc": "Historique vérifié du contenu recyclé."
+        },
+        "m4": {
+          "label": "Présence Terrain",
+          "value": "LOCALE",
+          "unit": "Auditeurs",
+          "desc": "Vérification physique sur nos sites principaux."
+        }
+      }
+    },
+    "tech": {
+      "badge": "TRACEABILITY_ENGINE",
+      "title": "La Chaîne de<br/>Contrôle.",
+      "t1": {
+        "title": "01. Certifié GRS",
+        "desc": "Global Recycled Standard. Nous fournissons les certificats de transaction (TC) requis pour prouver le pourcentage précis de matières recyclées dans vos structures. Pas de devinettes. Juste des données."
+      },
+      "t2": {
+        "title": "02. ISCC PLUS",
+        "desc": "Traçabilité du bilan de masse pour les résines bio-circulaires. Ce système suit les matériaux durables à travers la chaîne d'approvisionnement complexe du recyclage chimique."
+      },
+      "t3": {
+        "title": "03. SEDEX/SMETA",
+        "desc": "Vérification par audit social et éthique. Nous veillons à ce que chaque personne de la chaîne d'approvisionnement d'Achieve Pack soit traitée avec dignité, rémunérée équitablement et travaille en sécurité."
+      },
+      "t4": {
+        "title": "04. BRCGS Grade A",
+        "desc": "Norme mondiale pour la sécurité alimentaire. Nos usines sont auditées chaque année pour garantir les niveaux les plus élevés d'hygiène et de contrôle de la contamination."
+      }
+    },
+    "lab": {
+      "badge": "PHYSICAL_VALIDATION",
+      "title": "Sur Place.<br/>En Temps Réel.",
+      "p1": "Nous maintenons une présence active sur le terrain dans tous nos principaux pôles de fabrication. Cela nous permet de réaliser des audits inopinés, de valider le contrôle qualité par lot et de veiller à ce que les normes de durabilité documentées soient respectées. Nous ne croyons pas seulement aux certificats ; nous croyons en ce que nous voyons.",
+      "f1_title": "Contrôle Qualité par Lot",
+      "f1_desc": "Chaque campagne de production est échantillonnée et testée pour valider l'étanchéité et la pureté des matériaux.",
+      "f2_title": "Supervision Éthique",
+      "f2_desc": "Suivi permanent des droits du travail et des normes de sécurité par nos équipes d'audit locales."
+    },
+    "faq": {
+      "badge": "AUDIT_FAQ",
+      "title": "Clarté de la<br/>Chaîne Logistique.",
+      "q1_q": "Comment gérez-vous la non-conformité d'un fournisseur ?",
+      "q1_a": "Nous appliquons une politique de 'Tolérance Zéro' pour les manquements éthiques ou de sécurité majeurs. Pour les écarts mineurs, nous mettons en œuvre un plan d'action corrective (CAP) avec réaudit sous 90 jours.",
+      "q2_q": "Puis-je assister à un audit sur site de la production de mes sachets ?",
+      "q2_a": "Oui. Pour nos grands comptes, nous facilitons les visites sur site et les audits par des tiers de leurs lignes de production dédiées pour une transparence totale.",
+      "q3_q": "Qu'est-ce que l'évaluation EcoVadis et pourquoi est-elle importante ?",
+      "q3_a": "EcoVadis est l'évaluation de la durabilité des entreprises la plus reconnue au monde. Nous l'utilisons pour évaluer nos partenaires en matière d'environnement, de droits humains et d'éthique.",
+      "q4_q": "Comment vérifiez-vous le taux de PCR ?",
+      "q4_a": "Nous exigeons des certificats de transaction (TC) liés au Global Recycled Standard (GRS) pour chaque lot. Cela fournit un suivi infalsifiable jusqu'au site de recyclage."
+    },
+    "cta": {
+      "badge": "AUDIT_ACTION_PLAN",
+      "title": "Vérifié.<br/>Valorisé.",
+      "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement transparente et éthique pour votre marque ? Parlons de vos exigences dès aujourd'hui.",
+      "standards": "Découvrir Nos Standards",
+      "speak": "Parler à un Auditeur"
+    }
+  },
+  "pouchFoodPackagingSupplierServicePage": {
+    "meta": {
+      "title": "Fournisseur d'Emballage Alimentaire | Technique et Échelle | Pouch.eco",
+      "description": "Guide technique pour choisir un fournisseur d'emballage alimentaire. Recherche sur la conformité BRCGS, la fabrication directe d'usine et la sécurité de la chaîne logistique.",
+      "keywords": "fournisseur emballage alimentaire, fabricant emballages, certifié BRCGS, sachets direct usine, supply chain économie circulaire"
+    },
+    "hero": {
+      "badge": "SUPPLIER_TECH_V1.0",
+      "title": "Échelle.<br/>Pur.<br/>Direct.",
+      "subtitle": "Un fournisseur est un partenaire technique, pas un intermédiaire. Nous fournissons des solutions d'emballage en direct de l'usine.",
+      "browse": "Découvrir les Solutions d'Usine",
+      "order": "Demander les Données d'Audit"
+    },
+    "engineering": {
+      "badge": "SUPPLY_CHAIN_AUDIT",
+      "title": "Vérifié.<br/>À la Source.",
+      "p1": "Dans un marché réglementé, les certifications de votre fournisseur sont le bouclier de votre marque. Nous exploitons des usines de fabrication intégrées verticalement qui sont certifiées selon la norme mondiale BRCGS pour les matériaux d'emballage (Grade A). Cela garantit que chaque sachet est produit dans un environnement stérile avec une traçabilité à 100 %, de la résine au sachet fini. En travaillant en direct de l'usine, vous éliminez les marges des intermédiaires et accédez directement à notre laboratoire de science des matériaux, permettant le prototypage rapide de structures haute barrière durables (Mono-PE, PCR et compostable) qui répondent aux normes de sécurité alimentaire les plus strictes de 2026.",
+      "metrics": {
+        "m1": {
+          "label": "Note d'Audit",
+          "value": "Grade A",
+          "unit": "BRCGS",
+          "desc": "Norme mondiale d'hygiène et de sécurité."
+        },
+        "m2": {
+          "label": "MOQ Minimum",
+          "value": "500",
+          "unit": "Unités",
+          "desc": "Production numérique à faible seuil."
+        },
+        "m3": {
+          "label": "Délai de Fab.",
+          "value": "21",
+          "unit": "Jours",
+          "desc": "Délai moyen pour les références numériques."
+        },
+        "m4": {
+          "label": "Conformité",
+          "value": "100%",
+          "unit": "DoC",
+          "desc": "Documents de déclaration de conformité complets."
+        }
+      }
+    },
+    "tech": {
+      "badge": "FACTORY_TECH_STACK",
+      "title": "Grande Échelle.<br/>Précision Nano.",
+      "t1": {
+        "title": "01. Tech Co-Extrusion",
+        "desc": "Nos lignes d'extrusion multicouches peuvent intégrer jusqu'à 9 couches de polymères, y compris l'EVOH et le PA, pour une préservation extrême de la durée de conservation sans surépaisseur."
+      },
+      "t2": {
+        "title": "02. HP Indigo 25K Numérique",
+        "desc": "Impression numérique de précision avec des encres 100 % sans solvant. Idéal pour les marques d'aliments multi-SKU à faible MOQ nécessitant une mise sur le marché rapide."
+      },
+      "t3": {
+        "title": "03. Façonnage Automatisé",
+        "desc": "Fabrication de sachets à haute vitesse avec insertion en ligne de glissières et de valves, garantissant l'absence de contact humain et une intégrité hermétique du scellage à 100 %."
+      },
+      "t4": {
+        "title": "04. Logistique Globale",
+        "desc": "Expédition DDP (Delivered Duty Paid) vers les principaux hubs mondiaux. Nous gérons la complexité des douanes et des taxes pour que vous receviez votre commande à votre porte."
+      }
+    },
+    "lab": {
+      "badge": "QUALITY_SCIENCE_V1",
+      "title": "Mesuré.<br/>Au Sachet Près.",
+      "p1": "La qualité est une spécification technique, pas une promesse. Chaque lot de nos emballages alimentaires subit des tests ASTM rigoureux pour la résistance du scellage, la résistance à la perforation et le coefficient de frottement (COF). Nous fournissons des documents de déclaration de conformité (DoC) et des données de limite de migration spécifique (SML) pour garantir la conformité légale de votre marque aux États-Unis, dans l'UE et au-delà. En tant que fournisseur technique, nous ne livrons pas seulement des sachets ; nous offrons une garantie de durée de conservation et une sécurité réglementaire pour vos produits alimentaires les plus critiques.",
+      "f1_title": "Vérifié en Laboratoire",
+      "f1_desc": "Testé pour l'OTR, le WVTR et l'intégrité du scellage sur chaque cycle de production.",
+      "f2_title": "Approvisionnement Traçable",
+      "f2_desc": "Traçabilité complète de la résine au sachet pour une sécurité alimentaire totale et une sécurité en cas de rappel."
+    },
+    "faq": {
+      "badge": "SUPPLIER_FAQ",
+      "title": "Intelligence<br/>d'Expert.",
+      "q1_q": "Quelle est votre note d'audit BRCGS ?",
+      "q1_a": "Nous maintenons systématiquement une note Grade A, la norme la plus élevée pour la sécurité des emballages alimentaires et l'hygiène de fabrication.",
+      "q2_q": "Proposez-vous la livraison DDP ?",
+      "q2_a": "Oui. Nous gérons toute la logistique, les douanes et les taxes pour livrer votre emballage directement à votre entrepôt, sans frais cachés.",
+      "q3_q": "Puis-je auditer votre usine en personne ?",
+      "q3_a": "Absolument. Nous encourageons les audits sur site pour nos grands comptes et offrons une transparence totale sur nos protocoles de contrôle qualité et nos lignes de production.",
+      "q4_q": "Fournissez-vous une assistance pour le design ?",
+      "q4_a": "Oui. Notre équipe technique peut vous aider à créer des traciés de découpe, à préparer vos fichiers et à veiller à ce que vos créations respectent les exigences réglementaires en matière d'éco-étiquetage."
+    },
+    "cta": {
+      "badge": "FACTORY_MANDATE",
+      "title": "Bâtir Fort.<br/>Puissance Directe.",
+      "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement technique et directe de l'usine pour votre marque ? Commençons l'audit dès aujourd'hui.",
+      "samples": "Demander un Audit d'Usine",
+      "engineer": "Parler à un Ingénieur Supply"
+    }
+  },
+  "pouchCompostablePackagingBlogPage": {
+    "meta": {
+      "title": "La Science de l'Emballage Compostable : Guide Détaillé | Pouch.eco",
+      "description": "Analyse technique de la science des polymères compostables, de la cinétique de biodégradation et de la santé des sols. Plus de 800 mots d'expertise sur les cycles d'emballages biologiques."
+    },
+    "hero": {
+      "badge": "BIO_LOOP_V2",
+      "title": "RÉCUPÉRATION<br/>BIOLOGIQUE<br/>COMPOST_PUR",
+      "subtitle": "Retourner l'emballage à la terre. Nous concevons des barrières biologiques de haute performance utilisant la technologie PBS et NK.",
+      "start": "LANCER_TRANSITION_BIO",
+      "lab": "LABORATOIRE_MATERIAUX"
+    },
+    "kinetics": {
+      "badge": "THE_KINETICS",
+      "title": "Hydrolyse<br/>Thermique",
+      "p1": "La compostabilité n'est pas un tour de magie ; c'est une réaction biologique. Le compostage industriel nécessite des températures de 58°C pour briser les liaisons ester des polymères biosourcés comme le PLA et le Bio-PBS.",
+      "t1_title": "Désintégration",
+      "t1_desc": "L'emballage doit se fragmenter physiquement en morceaux de moins de 2 mm dans les 12 semaines suivant l'exposition aux conditions de compostage industriel.",
+      "t2_title": "Écotoxicité",
+      "t2_desc": "La biomasse finale doit réussir un test du cresson (Cress Test) pour garantir qu'elle favorise une croissance saine des plantes sans résidus de métaux lourds."
+    },
+    "deep": {
+      "title": "La Matrice Barrière : NK et Bio-PBS",
+      "p1": "Protéger votre produit tout en assurant la récupération biologique est le défi d'ingénierie ultime. Nous utilisons une matrice triple couche : du NatureKraft certifié FSC pour la structure, de la cellulose métallisée pour une haute protection barrière (OTR < 1,0) et du Bio-PBS pour un scellage de haute intégrité.",
+      "p2": "Nos matériaux sont strictement certifiés selon les normes EN13432 et ASTM D6400, garantissant qu'ils répondent aux critères les plus rigoureux au monde en matière de fragmentation, de biodégradation et de sécurité des sols.",
+      "specs": {
+        "title": "Spécifications Opérationnelles",
+        "l1": "Durée de conservation : 12-18 mois dans des conditions de stockage contrôlées.",
+        "l2": "Compatibilité : Remplacement direct du PET/PE sur la plupart des lignes VFFS/HFFS.",
+        "l3": "Performance OTR : < 0,5 cc/m²/jour pour les grades de cellulose métallisée."
+      },
+      "home_title": "Compostage Domestique vs. Industriel",
+      "home_p": "La transparence est essentielle. La plupart des sachets haute barrière sont actuellement compostables industriellement. Bien que le compostage domestique soit un objectif, les polymères haute performance requis pour protéger les aliments ont souvent besoin de la chaleur constante de 60°C d'une installation municipale pour se désintégrer efficacement."
+    },
+    "aside": {
+      "title": "STATS_BIODIGESTION",
+      "frag": "Fragmentation (90 Jours)",
+      "carbon": "Teneur en Carbone Biosourcé",
+      "start": "LANCER_TRANSITION_BIO",
+      "title2": "SOL_PROPRE",
+      "non_gmo": "MATIÈRE PREMIÈRE SANS OGM",
+      "heavy_metal": "SANS MÉTAUX LOURDS",
+      "ecotox": "TESTÉ POUR L'ÉCOTOXICITÉ"
+    },
+    "faq": {
+      "title": "INFOS_COMPOST",
+      "q1_q": "Que se passe-t-il dans une décharge ?",
+      "q1_a": "Dans une décharge anaérobie, les sachets compostables resteront intacts pendant très longtemps. Ils sont conçus pour une récupération biologique aérobie.",
+      "q2_q": "Convient-il aux aliments gras ?",
+      "q2_a": "Oui. Notre couche de scellage Bio-PBS présente une grande résistance aux graisses, ce qui la rend parfaite pour les fruits à coque, les graines et le granola.",
+      "q3_q": "Pourquoi est-ce meilleur que le papier ?",
+      "q3_a": "Contrairement au papier, nos films compostables offrent une barrière hermétique à l'oxygène qui garde les aliments frais pendant plus de 12 mois.",
+      "q4_q": "Comment informer les clients ?",
+      "q4_a": "Nous recommandons d'utiliser le logo 'Seedling' ou le label 'OK Compost' avec votre numéro de licence unique pour une transparence totale."
+    },
+    "cta": {
+      "title": "CULTIVER_PAS<//br>DECHET_V2",
+      "btn": "OBTENIR_LE_GUIDE_COMPOSTABLE"
+    }
+  },
+  "dynamicPouchTopicPage": {
+    "requestSamples": "Demander des Échantillons",
+    "materialCatalog": "Catalogue des Matériaux",
+    "aiFaqTitle": "FAQ sur l'Intelligence Artificielle",
+    "freeConsultation": "Consultation Gratuite",
+    "aiIntel": "INTEL_IA"
+  },
+  "pouchEcoFriendlyFoodPackagingPage": {
+    "meta": {
+      "title": "Emballage Alimentaire Écologique | Ingénierie Haute Barrière | Pouch.eco",
+      "description": "Guide technique de l'emballage alimentaire écologique. Plus de 800 mots de recherche sur l'ingénierie haute barrière, la conformité FDA et la sécurité alimentaire durable.",
+      "keywords": "emballage alimentaire écologique, sachets haute barrière, emballage durable de qualité alimentaire, sachets conformes FDA"
+    },
+    "hero": {
+      "badge": "FOOD_SAFE_V1.0",
+      "title": "Frais.<br/>Pur.<br/>Planète.",
+      "subtitle": "La durabilité ne doit pas compromettre la sécurité. Nous concevons des sachets de qualité alimentaire à haute barrière qui protègent la durée de conservation de vos produits tout en respectant les normes environnementales les plus strictes au monde.",
+      "btn_browse": "Découvrir nos Solutions Alimentaires",
+      "btn_request": "Demander des Preuves de Laboratoire"
+    },
+    "engineering": {
+      "badge": "BARRIER_TECH_AUDIT",
+      "title": "Mesuré.<br/>Pour la Fraîcheur.",
+      "p1": "L'emballage le plus durable est celui qui évite le gaspillage alimentaire. Nous utilisons l'ingénierie haute barrière (EVOH, AlOx et PET métallisé) pour garantir que les taux de transmission d'oxygène et d'humidité de votre produit restent inférieurs aux seuils critiques. Chaque structure de matériau de notre catalogue (y compris nos gammes Mono-PE et compostables à domicile) est testée pour la migration (OML/SML) afin de garantir une conformité absolue avec les réglementations de la FDA et de l'EFSA sur le contact alimentaire. Nous ne vendons pas seulement des sachets ; nous concevons la sécurité de la durée de conservation pour une économie circulaire.",
+      "metrics": {
+        "o2_label": "Barrière O2",
+        "o2_desc": "Taux de Transmission d'Oxygène (OTR).",
+        "moist_label": "Barrière Humidité",
+        "moist_desc": "Taux de Transmission de la Vapeur d'Eau (WVTR).",
+        "compliance_label": "Conformité",
+        "compliance_desc": "Certifié pour le contact alimentaire direct.",
+        "seal_label": "Fenêtre de Scellage",
+        "seal_desc": "Optimisé pour le remplissage haute vitesse."
+      }
+    },
+    "technical": {
+      "badge": "SAFETY_TECH_STACK",
+      "title": "Zéro Migration.<br/>Zéro Déchet.",
+      "t1_title": "01. Garantie Sans PFAS",
+      "t1_desc": "Élimination absolue des polluants éternels. Nous utilisons des barrières aqueuses avancées résistantes aux graisses qui dépassent les normes californiennes AB 1200 et européennes REACH.",
+      "t2_title": "02. PCR de Qualité Alimentaire",
+      "t2_desc": "Nous utilisons uniquement des résines post-consommation conformes FDA/EFSA et purifiées par des processus de décontamination certifiés pour le contact alimentaire direct.",
+      "t3_title": "03. Certification BRCGS Grade A",
+      "t3_desc": "Nos sites de fabrication sont certifiés selon les normes d'hygiène les plus strictes, garantissant que vos emballages alimentaires sont produits dans un environnement stérile et audité.",
+      "t4_title": "04. Scellages Hermétiques",
+      "t4_desc": "Ingenierie de couches de scellage de précision (Bio-PBS ou PEBDL) pour garantir une étanchéité parfaite et 100 % d'intégrité barrière pour les produits alimentaires liquides et en poudre."
+    },
+    "lab": {
+      "badge": "MATERIAL_LAB_VERIFY",
+      "title": "Vérifié.<br/>Au Micron Près.",
+      "p1": "La durabilité est une spécification technique. Nous effectuons une spectroscopie infrarouge à transformée de Fourier (FTIR) et une calorimétrie différentielle à balayage (DSC) sur tous les lots de matériaux pour vérifier la pureté du polymère et les performances barrière. Pour nos sachets alimentaires compostables, nous veillons à ce que chaque couche (y compris les valves de dégazage et les fermetures à glissière) soit certifiée selon les normes EN 13432 pour la sécurité biologique. Nous fournissons la Déclaration de Conformité (DoC) pour chaque SKU, offrant à votre marque une sécurité juridique et technique absolue.",
+      "t1_title": "Testé pour la Migration",
+      "t1_desc": "Tests SML et OML réalisés pour vérifier l'absence de lixiviation chimique dans les produits alimentaires.",
+      "t2_title": "Préservation des Arômes",
+      "t2_desc": "Le contrecollage haute performance assure une conservation maximale des composés aromatiques volatils des aliments."
+    },
+    "faq": {
+      "badge": "FOOD_SAFETY_FAQ",
+      "title": "Expertise<br/>Technique.",
+      "q1_q": "Vos sachets durables conviennent-ils à la congélation ?",
+      "q1_a": "Oui. Nous concevons des couches internes à haute ductilité qui restent flexibles à -18°C, évitant ainsi les ruptures fragiles et les fuites de scellage dans les applications d'aliments surgelés.",
+      "q2_q": "Qu'est-ce que l'EVOH et pourquoi en ai-je besoin ?",
+      "q2_a": "L'éthylène-alcool vinylique est une résine barrière haute performance utilisée en couches minces pour bloquer l'oxygène. Elle est essentielle pour prolonger la durée de conservation des snacks et des viandes tout en maintenant l'emballage mince et recyclable.",
+      "q3_q": "Les sachets compostables peuvent-ils contenir des liquides chauds ?",
+      "q3_a": "Les films compostables standard ont une résistance thermique plus faible. Pour les applications de remplissage à chaud, nous recommandons nos structures Bio-PBS ou Mono-PP stabilisées thermiquement.",
+      "q4_q": "Proposez-vous des emballages alimentaires sans BPA ?",
+      "q4_a": "100 % de nos sachets sont garantis sans BPA et fabriqués par contrecollage sans solvant, assurant l'absence de résidus de COV et une pureté chimique absolue."
+    },
+    "cta": {
+      "badge": "FOOD_SAFE_MANDATE",
+      "title": "Penser Frais.<br/>Impact Pur.",
+      "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement sûre et durable pour les produits de votre marque ? Commençons l'audit technique dès aujourd'hui.",
+      "btn_samples": "Commander des Échantillons de Qualité Alimentaire",
+      "btn_consultation": "Parler à un Ingénieur Barrière"
+    }
   }
 }

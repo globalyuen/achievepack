@@ -1,16 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../../components/pouch/PouchLayout';
 import { NeoCard, NeoBadge, NeoButton } from '../../../components/pouch/PouchUI';
 import ClickableImage from '../../../components/ClickableImage';
-import { Thermometer, Zap, Shield, Sparkles, Database, SearchCheck, CheckCircle, ArrowRight } from 'lucide-react';
+import { Thermometer, Zap, Shield, Database, ArrowRight } from 'lucide-react';
 
 const PouchHighHeatCandlePackagingPage: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <PouchLayout>
             <Helmet>
-                <title>High-Heat Compostable Candle Packaging (85°C+) - Pouch.eco</title>
-                <meta name="description" content="Heat-resistant compostable pouches for candle wax pouring. Handle 85°C+ temperatures with PBS and NatureFlex materials. Digital printing for low MOQ startups." />
+                <title>{t('pouchHighHeatCandlePackagingPage.meta.title')}</title>
+                <meta name="description" content={t('pouchHighHeatCandlePackagingPage.meta.description')} />
             </Helmet>
 
             <div className="bg-[#f8f9fa] py-16 px-4">
@@ -21,29 +23,25 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                         
                         <div className="flex flex-col md:flex-row justify-between items-start gap-8 border-b-4 border-black pb-8 mb-8 relative z-10">
                             <div>
-                                <h1 className="text-5xl md:text-7xl font-black uppercase leading-none mb-4">
-                                    Heat<br/>Proof<br/>Compost
-                                </h1>
+                                <h1 className="text-5xl md:text-7xl font-black uppercase leading-none mb-4" dangerouslySetInnerHTML={{ __html: t('pouchHighHeatCandlePackagingPage.hero.title') }} />
                                 <NeoBadge color="magenta">
-                                    85°C Pour Rating
+                                    {t('pouchHighHeatCandlePackagingPage.hero.badge')}
                                 </NeoBadge>
                             </div>
                             <div className="text-right">
-                                <p className="font-['JetBrains_Mono'] font-bold text-sm uppercase opacity-60">Engineered for Candle Wax</p>
-                                <p className="font-['JetBrains_Mono'] font-bold text-xl mt-2">Ditch the Glass</p>
+                                <p className="font-['JetBrains_Mono'] font-bold text-sm uppercase opacity-60">{t('pouchHighHeatCandlePackagingPage.hero.subtitle')}</p>
+                                <p className="font-['JetBrains_Mono'] font-bold text-xl mt-2">{t('pouchHighHeatCandlePackagingPage.hero.side_title')}</p>
                             </div>
                         </div>
 
                         <div className="prose prose-xl mb-12">
-                            <p className="font-bold text-2xl leading-tight">
-                                Pouring hot wax at 85°C usually melts eco-plastic. <span className="bg-[#D4FF00] px-2 italic">We fixed that.</span> Using PBS and NatureFlex, we created a pouch that handles the heat while remaining 100% home compostable.
-                            </p>
+                            <p className="font-bold text-2xl leading-tight" dangerouslySetInnerHTML={{ __html: t('pouchHighHeatCandlePackagingPage.hero.intro') }} />
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-8">
                             <ClickableImage 
                                 src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
-                                alt="Hot wax pouring into pouch" 
+                                alt={t('pouchHighHeatCandlePackagingPage.hero.title').replace(/<br\s*\/?>/gi, ' ')} 
                                 className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" 
                             />
                             <div className="space-y-6">
@@ -52,8 +50,8 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                                         <Thermometer size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="font-black uppercase text-lg">Temperature King</h3>
-                                        <p className="text-sm font-medium">PLA softs at 50°C. Our PBS-reinforced pouches stay rigid at 85°C - 95°C.</p>
+                                        <h3 className="font-black uppercase text-lg">{t('pouchHighHeatCandlePackagingPage.hero.t1_title')}</h3>
+                                        <p className="text-sm font-medium">{t('pouchHighHeatCandlePackagingPage.hero.t1_desc')}</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
@@ -61,8 +59,8 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                                         <Zap size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="font-black uppercase text-lg">Low MOQ Digital</h3>
-                                        <p className="text-sm font-medium">6 designs? 178 units each? No problem. Digital printing means no plate fees.</p>
+                                        <h3 className="font-black uppercase text-lg">{t('pouchHighHeatCandlePackagingPage.hero.t2_title')}</h3>
+                                        <p className="text-sm font-medium">{t('pouchHighHeatCandlePackagingPage.hero.t2_desc')}</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
@@ -70,8 +68,8 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                                         <Shield size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="font-black uppercase text-lg">Compostable Bio-NK</h3>
-                                        <p className="text-sm font-medium">NK / Kraft Paper / PBS structure ensures zero fragrance leakage and 100% home compostability.</p>
+                                        <h3 className="font-black uppercase text-lg">{t('pouchHighHeatCandlePackagingPage.hero.t3_title')}</h3>
+                                        <p className="text-sm font-medium">{t('pouchHighHeatCandlePackagingPage.hero.t3_desc')}</p>
                                     </div>
                                 </div>
 
@@ -83,47 +81,47 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                     <div className="grid md:grid-cols-3 gap-8 mb-12">
                         <NeoCard className="bg-white md:col-span-2">
                             <h3 className="text-3xl font-black uppercase mb-6 italic flex items-center gap-2">
-                                <Database size={32} /> Material Science
+                                <Database size={32} /> {t('pouchHighHeatCandlePackagingPage.science.title')}
                             </h3>
                             <div className="grid sm:grid-cols-2 gap-6">
                                 <div className="space-y-4">
-                                    <h4 className="font-black uppercase border-b-2 border-black pb-1">The High-Heat Layer</h4>
-                                    <p className="text-sm font-bold">Polybutylene succinate (PBS) is the hero. Unlike starch-based films, PBS has a high melting point and superior flexibility.</p>
+                                    <h4 className="font-black uppercase border-b-2 border-black pb-1">{t('pouchHighHeatCandlePackagingPage.science.h1_title')}</h4>
+                                    <p className="text-sm font-bold">{t('pouchHighHeatCandlePackagingPage.science.h1_desc')}</p>
                                     <ul className="text-xs font-bold space-y-1">
-                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> 85°C Continuous Pour</li>
-                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> ASTM D6400 Certified</li>
-                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> Industrial & Home Compost</li>
+                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> {t('pouchHighHeatCandlePackagingPage.science.h1_l1')}</li>
+                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> {t('pouchHighHeatCandlePackagingPage.science.h1_l2')}</li>
+                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> {t('pouchHighHeatCandlePackagingPage.science.h1_l3')}</li>
                                     </ul>
                                 </div>
                                 <div className="space-y-4">
-                                    <h4 className="font-black uppercase border-b-2 border-black pb-1">The Barrier Layer</h4>
-                                    <p className="text-sm font-bold">NatureFlex™ Cellulose derived from wood pulp provides the oxygen barrier and high-gloss finish.</p>
+                                    <h4 className="font-black uppercase border-b-2 border-black pb-1">{t('pouchHighHeatCandlePackagingPage.science.h2_title')}</h4>
+                                    <p className="text-sm font-bold">{t('pouchHighHeatCandlePackagingPage.science.h2_desc')}</p>
                                     <ul className="text-xs font-bold space-y-1">
-                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-magenta-600"></div> Zero Fragrance Leakage</li>
-                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-magenta-600"></div> Static-Free Filling</li>
-                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-magenta-600"></div> Wood-Based Sustainable</li>
+                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-magenta-600"></div> {t('pouchHighHeatCandlePackagingPage.science.h2_l1')}</li>
+                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-magenta-600"></div> {t('pouchHighHeatCandlePackagingPage.science.h2_l2')}</li>
+                                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-magenta-600"></div> {t('pouchHighHeatCandlePackagingPage.science.h2_l3')}</li>
                                     </ul>
                                 </div>
                             </div>
                         </NeoCard>
                         <NeoCard className="bg-black text-white" color="bg-black">
-                            <h3 className="text-2xl font-black uppercase mb-4 text-[#D4FF00]">The Spec</h3>
+                            <h3 className="text-2xl font-black uppercase mb-4 text-[#D4FF00]">{t('pouchHighHeatCandlePackagingPage.spec.title')}</h3>
                             <div className="space-y-4 font-['JetBrains_Mono']">
                                 <div>
-                                    <p className="text-xs opacity-60 uppercase">Dimensions</p>
-                                    <p className="text-lg">155 x 229 x 99mm</p>
+                                    <p className="text-xs opacity-60 uppercase">{t('pouchHighHeatCandlePackagingPage.spec.dims')}</p>
+                                    <p className="text-lg">{t('pouchHighHeatCandlePackagingPage.spec.dims_val')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-xs opacity-60 uppercase">Wax Volume</p>
-                                    <p className="text-lg">284g (Hardened)</p>
+                                    <p className="text-xs opacity-60 uppercase">{t('pouchHighHeatCandlePackagingPage.spec.vol')}</p>
+                                    <p className="text-lg">{t('pouchHighHeatCandlePackagingPage.spec.vol_val')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-xs opacity-60 uppercase">Printing</p>
-                                    <p className="text-lg">Digital CMYK</p>
+                                    <p className="text-xs opacity-60 uppercase">{t('pouchHighHeatCandlePackagingPage.spec.print')}</p>
+                                    <p className="text-lg">{t('pouchHighHeatCandlePackagingPage.spec.print_val')}</p>
                                 </div>
                                 <div className="pt-4 border-t border-white/20">
-                                    <p className="text-[#D4FF00] font-black text-xs uppercase">Certifications</p>
-                                    <p className="text-[10px] mt-1 italic uppercase">OK Compost / BPI / ASTM D6400</p>
+                                    <p className="text-[#D4FF00] font-black text-xs uppercase">{t('pouchHighHeatCandlePackagingPage.spec.cert')}</p>
+                                    <p className="text-[10px] mt-1 italic uppercase">{t('pouchHighHeatCandlePackagingPage.spec.cert_val')}</p>
                                 </div>
                             </div>
                         </NeoCard>
@@ -133,28 +131,28 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                     {/* Supplier Matrix */}
                     <NeoCard className="mb-12 !p-0 overflow-hidden border-4 border-black">
                         <div className="bg-black text-white p-4 font-black uppercase tracking-widest flex justify-between">
-                            <span>Proprietary Supply Protocol</span>
-                            <span className="text-[#D4FF00]">Verified 85°C Capability</span>
+                            <span>{t('pouchHighHeatCandlePackagingPage.supply.top_bar')}</span>
+                            <span className="text-[#D4FF00]">{t('pouchHighHeatCandlePackagingPage.supply.top_bar_right')}</span>
                         </div>
                         <div className="p-8">
                             <div className="prose mb-8">
-                                <p className="font-bold text-xl uppercase italic">We don't just find suppliers. We engineer the production line.</p>
-                                <p className="font-medium">Our team has audited over 15 global production facilities to find the only three lines capable of meeting our 85°C structural standards. When you work with Pouch.eco, you aren't just buying a bag—you're accessing a pre-vetted, stress-tested supply chain managed by our engineers.</p>
+                                <p className="font-bold text-xl uppercase italic">{t('pouchHighHeatCandlePackagingPage.supply.intro_title')}</p>
+                                <p className="font-medium">{t('pouchHighHeatCandlePackagingPage.supply.intro_desc')}</p>
                             </div>
                             <div className="grid sm:grid-cols-2 gap-8">
                                 <div className="border-4 border-black p-6 bg-[#D4FF00]">
-                                    <h4 className="font-black uppercase text-2xl mb-4">Launch Phase</h4>
-                                    <NeoBadge color="black">Digital Printing Specialist</NeoBadge>
-                                    <p className="text-sm font-bold mt-4 leading-tight">Access our boutique production lines designed for 1,000 unit split-design orders. Zero plate fees. Direct wax pour stability verified at 95°C.</p>
+                                    <h4 className="font-black uppercase text-2xl mb-4">{t('pouchHighHeatCandlePackagingPage.supply.launch_title')}</h4>
+                                    <NeoBadge color="black">{t('pouchHighHeatCandlePackagingPage.supply.launch_badge')}</NeoBadge>
+                                    <p className="text-sm font-bold mt-4 leading-tight">{t('pouchHighHeatCandlePackagingPage.supply.launch_desc')}</p>
                                 </div>
                                 <div className="border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                                    <h4 className="font-black uppercase text-2xl mb-4">Growth Phase</h4>
-                                    <NeoBadge color="magenta">Scale Production Partner</NeoBadge>
-                                    <p className="text-sm font-bold mt-4 leading-tight">Once you scale, we transition you to our high-volume facilities. Lowest unit price global protocol ($0.80/unit). 100°C rated PBS sealants.</p>
+                                    <h4 className="font-black uppercase text-2xl mb-4">{t('pouchHighHeatCandlePackagingPage.supply.growth_title')}</h4>
+                                    <NeoBadge color="magenta">{t('pouchHighHeatCandlePackagingPage.supply.growth_badge')}</NeoBadge>
+                                    <p className="text-sm font-bold mt-4 leading-tight">{t('pouchHighHeatCandlePackagingPage.supply.growth_desc')}</p>
                                 </div>
                             </div>
                             <div className="mt-8 pt-8 border-t-4 border-black text-center">
-                                <p className="font-black text-xl uppercase italic">Contact our team to audit your wax formula and access our proprietary supply network.</p>
+                                <p className="font-black text-xl uppercase italic">{t('pouchHighHeatCandlePackagingPage.supply.footer')}</p>
                             </div>
                         </div>
                     </NeoCard>
@@ -164,24 +162,24 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                     <NeoCard className="bg-[#D4FF00] p-8 md:p-12 mb-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
                         <div className="flex flex-col md:flex-row gap-8 items-center">
                             <div className="flex-1">
-                                <h3 className="text-4xl font-black uppercase mb-6 italic">NK / Kraft / PBS Structure</h3>
+                                <h3 className="text-4xl font-black uppercase mb-6 italic">{t('pouchHighHeatCandlePackagingPage.structure.title')}</h3>
                                 <div className="space-y-4 font-bold text-lg">
                                     <p className="flex items-start gap-2">
                                         <ArrowRight className="mt-1 shrink-0" />
-                                        <span>NatureFlex (NK) Outer: 100% bio-based heat-stable cellulose for premium printing.</span>
+                                        <span>{t('pouchHighHeatCandlePackagingPage.structure.l1')}</span>
                                     </p>
                                     <p className="flex items-start gap-2">
                                         <ArrowRight className="mt-1 shrink-0" />
-                                        <span>FSC Kraft Middle: Added structural rigidity for heavy wax pours.</span>
+                                        <span>{t('pouchHighHeatCandlePackagingPage.structure.l2')}</span>
                                     </p>
                                     <p className="flex items-start gap-2">
                                         <ArrowRight className="mt-1 shrink-0" />
-                                        <span>PBS Sealant: High-heat Polybutylene succinate for 85°C+ safety.</span>
+                                        <span>{t('pouchHighHeatCandlePackagingPage.structure.l3')}</span>
                                     </p>
                                 </div>
                             </div>
                             <div className="w-full md:w-1/3">
-                                <ClickableImage src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" alt="NK / Kraft / PBS structure" className="border-4 border-black" />
+                                <ClickableImage src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" alt={t('pouchHighHeatCandlePackagingPage.structure.title')} className="border-4 border-black" />
                             </div>
                         </div>
                     </NeoCard>
@@ -189,24 +187,24 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
 
                     {/* CTA */}
                     <div className="text-center">
-                        <h3 className="text-3xl font-black uppercase mb-8 italic underline decoration-[#D4FF00] decoration-8 underline-offset-8">Ready to Ditch the Glass?</h3>
+                        <h3 className="text-3xl font-black uppercase mb-8 italic underline decoration-[#D4FF00] decoration-8 underline-offset-8">{t('pouchHighHeatCandlePackagingPage.cta.title')}</h3>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <NeoButton 
                                 href="https://calendly.com/30-min-free-packaging-consultancy"
                                 variant="dark"
                                 className="!px-12 !py-6 text-xl"
                             >
-                                Book Consultation
+                                {t('pouchHighHeatCandlePackagingPage.cta.book')}
                             </NeoButton>
                             <NeoButton 
                                 to="/unprinted-samples"
                                 variant="primary"
                                 className="!px-12 !py-6 text-xl"
                             >
-                                Request Sample Kit
+                                {t('pouchHighHeatCandlePackagingPage.cta.sample')}
                             </NeoButton>
                         </div>
-                        <p className="mt-8 font-['JetBrains_Mono'] font-bold text-sm">WE HAVE THE KNOWLEDGE. YOU HAVE THE VISION.</p>
+                        <p className="mt-8 font-['JetBrains_Mono'] font-bold text-sm">{t('pouchHighHeatCandlePackagingPage.cta.footer')}</p>
                     </div>
                 </div>
             </div>

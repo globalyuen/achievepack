@@ -26991,5 +26991,2656 @@
         "btn": "GET_CUSTOM_PROTOTYPE"
       }
     }
+  },
+  "pouchChildResistantMylarBagsPage": {
+    "en": {
+      "meta": {
+        "title": "Child Resistant Mylar Bags | Safety & Compliance | Pouch.eco",
+        "description": "Technical guide to child-resistant mylar bags. 800+ words of research on 16 CFR 1700.20, odor-proof engineering, and sustainable CR structures.",
+        "keywords": "child resistant mylar bags, CR pouches, safety packaging, 16 CFR 1700.20, odor proof bags, sustainable CR"
+      },
+      "hero": {
+        "badge": "SAFETY_HUB_V1.0",
+        "title": "Lock.<br/>Pure.<br/>Secure.",
+        "subtitle": "Child-Resistance is a legal mandate, not an option. We engineer CPSC-certified, high-barrier CR mylar bags that protect your products, your customers, and the planet.",
+        "browse": "Browse CR Solutions",
+        "order": "Order CR Samples"
+      },
+      "engineering": {
+        "badge": "SAFETY_COMPLIANCE_AUDIT",
+        "title": "Engineered.<br/>For Security.",
+        "p1": "Child-Resistant (CR) packaging is defined by Human Factors Engineering. In 2026, the mandate for high-potency products (pharmaceuticals, chemicals, cannabis) is absolute. At Pouch.eco, we engineer our CR mylar bags to meet the strict 16 CFR § 1700.20 federal standards. We utilize advanced Push-and-Slide and Pinch-and-Pull zipper technology that has been laboratory-verified to resist child access while remaining accessible for seniors. But safety doesn't have to mean waste. We offer 100% Recyclable Mono-PE child-resistant structures that deliver Total Odor Control and high-barrier integrity. Every custom run is backed by CPSC and ASTM D3475 certification data, ensuring your brand is protected against regulatory liability and product risk.",
+        "metrics": {
+          "m1": {
+            "label": "Safety Std",
+            "value": "16 CFR",
+            "unit": "1700.20",
+            "desc": "Federal CR benchmark."
+          },
+          "m2": {
+            "label": "Odor Barr",
+            "value": "100%",
+            "unit": "Hermetic",
+            "desc": "Zero scent transmission."
+          },
+          "m3": {
+            "label": "Puncture",
+            "value": "High",
+            "unit": "Gauge",
+            "desc": "Heavy-duty safety film."
+          },
+          "m4": {
+            "label": "Recyclable",
+            "value": "PE",
+            "unit": "Mono",
+            "desc": "Sustainable CR option."
+          }
+        }
+      },
+      "tech": {
+        "badge": "SECURITY_TECH_STACK",
+        "title": "Pure Barrier.<br/>Pure Lock.",
+        "t1": {
+          "title": "01. CPSC Certified",
+          "desc": "Verified compliance with 16 CFR § 1700.20. Our locking mechanisms are designed to prevent accidental poisoning and child access."
+        },
+        "t2": {
+          "title": "02. Odor-Neutral EVOH",
+          "desc": "Integrated gas barriers that block 100% of aromatic compounds, ensuring total discretion and shelf-freshness for potent products."
+        },
+        "t3": {
+          "title": "03. Senior Friendly",
+          "desc": "Ergonomic grip points and sliding mechanisms that are easy for adults with limited dexterity to open while remaining child-proof."
+        },
+        "t4": {
+          "title": "04. Heavy-Duty Barrier",
+          "desc": "Utilizing 100-150 micron multi-layer films that are virtually puncture-proof, protecting the contents from light, moisture, and rough handling."
+        }
+      },
+      "lab": {
+        "badge": "SAFETY_SCIENCE_V1",
+        "title": "Measured.<br/>To the Clause.",
+        "p1": "Child-Resistance is a technical specification. We utilize ASTM D3475 classifications to ensure our pouches meet the specific needs of your product category. Our EEAT Security Protocol provides the full laboratory audit trail required for federal and state compliance. We don't just 'promise' safety; we provide the Child-Resistant Packaging (CRP) certification documents your legal team needs. By utilizing Recyclable Mono-PE CR Pouches, we help brands align their safety mandates with their sustainability goals. This is the future of high-potency packaging, engineered for safety and circularity.",
+        "f1_title": "Legal Shield",
+        "f1_desc": "Ensuring your brand is 100% compliant with the Poison Prevention Packaging Act.",
+        "f2_title": "Odor Guard",
+        "f2_desc": "Hermetic seal integrity that prevents scent leaks even under high pressure."
+      },
+      "faq": {
+        "badge": "SAFETY_FAQ",
+        "title": "Expert<br/>Intelligence.",
+        "q1_q": "What makes a bag 'Child-Resistant'?",
+        "q1_a": "A bag is CR if it requires two distinct, non-intuitive motions to open (like pushing and sliding), which children under 5 lack the cognitive dexterity to perform.",
+        "q2_q": "Are your CR bags re-sealable?",
+        "q2_a": "Yes. Our CR zippers are designed for multiple uses while maintaining their child-resistant properties throughout the life of the product.",
+        "q3_q": "Can I get 'Opaque' CR pouches?",
+        "q3_a": "Absolutely. Many jurisdictions require CR packaging to be opaque. We offer high-density white and black barrier layers that ensure 100% opacity.",
+        "q4_q": "Do you provide certification documents?",
+        "q4_a": "Yes. Every order of our CR pouches is accompanied by the official 16 CFR § 1700.20 test results for your regulatory files."
+      },
+      "cta": {
+        "badge": "SAFETY_MANDATE",
+        "title": "Think Safe.<br/>Impact Pure.",
+        "subtitle": "Ready to secure a legally-compliant, high-barrier CR supply chain for your brand? Let's start the technical audit today.",
+        "samples": "Request CR Samples",
+        "engineer": "Speak to a Safety Engineer"
+      }
+    },
+    "es": {
+      "meta": {
+        "title": "Bolsas Mylar de Seguridad Infantil | Conformidad y Seguridad | Pouch.eco",
+        "description": "Guía técnica para bolsas mylar a prueba de niños. Investigación sobre 16 CFR 1700.20, ingeniería a prueba de olores y estructuras CR sostenibles.",
+        "keywords": "bolsas mylar a prueba de niños, bolsas CR, empaque de seguridad, 16 CFR 1700.20, bolsas herméticas, CR sostenible"
+      },
+      "hero": {
+        "badge": "SAFETY_HUB_V1.0",
+        "title": "Cierre.<br/>Puro.<br/>Seguro.",
+        "subtitle": "La resistencia a los niños es un mandato legal, no una opción. Diseñamos bolsas mylar CR con certificación CPSC de alta barrera que protegen sus productos, sus clientes y el planeta.",
+        "browse": "Ver Soluciones CR",
+        "order": "Pedir Muestras CR"
+      },
+      "engineering": {
+        "badge": "SAFETY_COMPLIANCE_AUDIT",
+        "title": "Diseñado.<br/>Para Seguridad.",
+        "p1": "El empaque a prueba de niños (CR) se define por la Ingeniería de Factores Humanos. En 2026, el mandato para productos de alta potencia (farmacéuticos, químicos, cannabis) es absoluto. En Pouch.eco, diseñamos nuestras bolsas mylar CR para cumplir con las estrictas normas federales 16 CFR § 1700.20. Utilizamos tecnología avanzada de cremallera de presión y deslizamiento y de pellizco y arrastre que ha sido verificada en laboratorio para resistir el acceso de niños mientras sigue siendo accesible para personas mayores. Pero la seguridad no tiene que significar desperdicio. Ofrecemos estructuras CR de Mono-PE 100% reciclables que brindan control total de olores e integridad de alta barrera. Cada lote personalizado está respaldado por datos de certificación CPSC y ASTM D3475, lo que garantiza que su marca esté protegida contra la responsabilidad regulatoria y el riesgo del producto.",
+        "metrics": {
+          "m1": {
+            "label": "Norma Seg",
+            "value": "16 CFR",
+            "unit": "1700.20",
+            "desc": "Referente federal CR."
+          },
+          "m2": {
+            "label": "Barrera Olor",
+            "value": "100%",
+            "unit": "Hermético",
+            "desc": "Cero transmisión de olor."
+          },
+          "m3": {
+            "label": "Punción",
+            "value": "Alta",
+            "unit": "Calibre",
+            "desc": "Película de seguridad reforzada."
+          },
+          "m4": {
+            "label": "Reciclable",
+            "value": "PE",
+            "unit": "Mono",
+            "desc": "Opción CR sostenible."
+          }
+        }
+      },
+      "tech": {
+        "badge": "SECURITY_TECH_STACK",
+        "title": "Barrera Pura.<br/>Cierre Puro.",
+        "t1": {
+          "title": "01. Certificación CPSC",
+          "desc": "Cumplimiento verificado con 16 CFR § 1700.20. Nuestros mecanismos de cierre están diseñados para evitar envenenamientos accidentales y el acceso de niños."
+        },
+        "t2": {
+          "title": "02. EVOH Neutro en Olores",
+          "desc": "Barreras de gas integradas que bloquean el 100% de los compuestos aromáticos, garantizando total discreción y frescura para productos potentes."
+        },
+        "t3": {
+          "title": "03. Apto para Mayores",
+          "desc": "Puntos de agarre ergonómicos y mecanismos deslizantes que son fáciles de abrir para adultos con destreza limitada y a prueba de niños."
+        },
+        "t4": {
+          "title": "04. Barrera de Alta Resistencia",
+          "desc": "Uso de películas multicapa de 100 a 150 micras que son prácticamente a prueba de pinchazos, protegiendo el contenido de la luz, humedad y manipulación brusca."
+        }
+      },
+      "lab": {
+        "badge": "SAFETY_SCIENCE_V1",
+        "title": "Medido.<br/>Al Detalle.",
+        "p1": "La resistencia a los niños es una especificación técnica. Utilizamos clasificaciones ASTM D3475 para asegurar que nuestras bolsas cumplan con las necesidades de su categoría de producto. Nuestro Protocolo de Seguridad EEAT proporciona el historial completo de auditoría de laboratorio requerido para el cumplimiento federal y estatal. No solo 'prometemos' seguridad; entregamos los documentos de certificación de Empaque Resistente a Niños (CRP) que su equipo legal necesita. Al usar bolsas CR de Mono-PE reciclable, ayudamos a las marcas a alinear sus mandatos de seguridad con sus objetivos de sostenibilidad. Este es el futuro del empaque de alta potencia, diseñado para la seguridad y la circularidad.",
+        "f1_title": "Escudo Legal",
+        "f1_desc": "Garantizando que su marca cumpla al 100% con la Ley de Empaques para la Prevención de Envenenamientos.",
+        "f2_title": "Protección contra Olores",
+        "f2_desc": "Integridad de sellado hermético que evita fugas de olor incluso bajo alta presión."
+      },
+      "faq": {
+        "badge": "SAFETY_FAQ",
+        "title": "Inteligencia<br/>Experta.",
+        "q1_q": "¿Qué hace que una bolsa sea 'Resistente a los Niños'?",
+        "q1_a": "Una bolsa es CR si requiere dos movimientos distintos y no intuitivos para abrirse (como presionar y deslizar), algo para lo cual los niños menores de 5 años carecen de la destreza cognitiva para realizar.",
+        "q2_q": "¿Sus bolsas CR son resellables?",
+        "q2_a": "Sí. Nuestras cremalleras CR están diseñadas para múltiples usos manteniendo sus propiedades de resistencia a los niños durante la vida útil del producto.",
+        "q3_q": "¿Puedo obtener bolsas CR opacas?",
+        "q3_a": "Absolutamente. Muchas jurisdicciones requieren que el empaque CR sea opaco. Ofrecemos capas de barrera blancas y negras de alta densidad que garantizan un 100% de opacidad.",
+        "q4_q": "¿Proporcionan documentos de certificación?",
+        "q4_a": "Sí. Cada pedido de nuestras bolsas CR viene acompañado de los resultados oficiales de la prueba 16 CFR § 1700.20 para sus archivos regulatorios."
+      },
+      "cta": {
+        "badge": "SAFETY_MANDATE",
+        "title": "Piense en la Seguridad.<br/>Impacto Puro.",
+        "subtitle": "¿Listo para asegurar una cadena de suministro CR de alta barrera y legalmente conforme para su marca? Comencemos la auditoría técnica hoy.",
+        "samples": "Solicitar Muestras CR",
+        "engineer": "Hable con un Ingeniero de Seguridad"
+      }
+    },
+    "fr": {
+      "meta": {
+        "title": "Sachets Mylar Sécurisés Enfant | Sécurité et Conformité | Pouch.eco",
+        "description": "Guide technique des sachets mylar sécurité enfants. Recherche sur la norme 16 CFR 1700.20, l'ingénierie anti-odeur et les structures CR durables.",
+        "keywords": "sachets mylar sécurité enfant, sachets CR, emballage sécurisé, 16 CFR 1700.20, sachets hermétiques, CR durable"
+      },
+      "hero": {
+        "badge": "SAFETY_HUB_V1.0",
+        "title": "Verrouiller.<br/>Pur.<br/>Sécurisé.",
+        "subtitle": "La résistance aux enfants est une obligation légale, pas une option. Nous concevons des sachets mylar CR certifiés CPSC et haute barrière qui protègent vos produits, vos clients et la planète.",
+        "browse": "Découvrir les Solutions CR",
+        "order": "Commander des Échantillons CR"
+      },
+      "engineering": {
+        "badge": "SAFETY_COMPLIANCE_AUDIT",
+        "title": "Conçu.<br/>Pour la Sécurité.",
+        "p1": "L'emballage sécurité enfant (CR) est défini par l'ingénierie des facteurs humains. En 2026, l'obligation pour les produits à forte puissance (pharmaceutiques, chimiques, cannabis) est absolue. Chez Pouch.eco, nous concevons nos sachets mylar CR pour répondre aux normes fédérales strictes 16 CFR § 1700.20. Nous utilisons une technologie avancée de fermeture à glissière presser-glisser et pincer-tirer, vérifiée en laboratoire pour résister aux enfants tout en restant accessible aux seniors. Mais la sécurité ne signifie pas le gaspillage. Nous proposons des structures de sécurité enfants 100 % recyclables en Mono-PE qui offrent un contrôle total des odeurs et une intégrité haute barrière. Chaque production personnalisée est soutenue par des données de certification CPSC et ASTM D3475, garantissant la protection de votre marque contre la responsabilité réglementaire.",
+        "metrics": {
+          "m1": {
+            "label": "Norme Séc",
+            "value": "16 CFR",
+            "unit": "1700.20",
+            "desc": "Référence fédérale CR."
+          },
+          "m2": {
+            "label": "Barrière Od.",
+            "value": "100%",
+            "unit": "Hermétique",
+            "desc": "Zéro transmission d'odeur."
+          },
+          "m3": {
+            "label": "Perforation",
+            "value": "Haute",
+            "unit": "Jauge",
+            "desc": "Film de sécurité renforcé."
+          },
+          "m4": {
+            "label": "Recyclable",
+            "value": "PE",
+            "unit": "Mono",
+            "desc": "Option CR durable."
+          }
+        }
+      },
+      "tech": {
+        "badge": "SECURITY_TECH_STACK",
+        "title": "Barrière Pure.<br/>Verrou Pur.",
+        "t1": {
+          "title": "01. Certifié CPSC",
+          "desc": "Conformité vérifiée avec 16 CFR § 1700.20. Nos mécanismes de verrouillage sont conçus pour empêcher les empoisonnements accidentels et l'accès des enfants."
+        },
+        "t2": {
+          "title": "02. EVOH Neutre d'Odeur",
+          "desc": "Barrières de gaz intégrées qui bloquent 100 % des composés aromatiques, garantissant une discrétion totale et la fraîcheur des produits puissants."
+        },
+        "t3": {
+          "title": "03. Adapté aux Seniors",
+          "desc": "Points de préhension ergonomiques et mécanismes coulissants faciles à ouvrir pour les adultes ayant une dextérité limitée tout en restant sécurisés."
+        },
+        "t4": {
+          "title": "04. Barrière Ultra-Résistante",
+          "desc": "Utilisation de films multicouches de 100 à 150 microns pratiquement anticrevaison, protégeant le contenu de la lumière, de l'humidité et des chocs."
+        }
+      },
+      "lab": {
+        "badge": "SAFETY_SCIENCE_V1",
+        "title": "Mesuré.<br/>Au Paragraphe.",
+        "p1": "La sécurité enfant est une spécification technique. Nous utilisons les classifications ASTM D3475 pour garantir que nos sachets répondent aux besoins spécifiques de votre catégorie de produits. Notre protocole de sécurité EEAT fournit la traçabilité complète de l'audit de laboratoire requise pour la conformité. Nous ne nous contentons pas de promettre la sécurité ; nous fournissons les documents de certification de l'emballage de sécurité enfant (CRP) dont votre équipe juridique a besoin. En utilisant des sachets CR en Mono-PE recyclable, nous aidons les marques à aligner leurs obligations de sécurité avec leurs objectifs de durabilité. C'est l'avenir de l'emballage haute puissance, conçu pour la sécurité et la circularité.",
+        "f1_title": "Bouclier Légal",
+        "f1_desc": "Garantir la conformité totale de votre marque avec la loi sur la prévention des empoisonnements.",
+        "f2_title": "Garde-Odeur",
+        "f2_desc": "Intégrité de scellage hermétique empêchant les fuites d'odeurs même sous haute pression."
+      },
+      "faq": {
+        "badge": "SAFETY_FAQ",
+        "title": "Intelligence<br/>d'Expert.",
+        "q1_q": "Qu'est-ce qui rend un sachet résistant aux enfants ?",
+        "q1_a": "Un sachet est CR s'il nécessite deux mouvements distincts et non intuitifs pour s'ouvrir (comme pousser et glisser), capacités cognitives et motrices qui font défaut aux enfants de moins de 5 ans.",
+        "q2_q": "Vos sachets CR sont-ils refermables ?",
+        "q2_a": "Oui. Nos fermetures à glissière CR sont conçues pour des utilisations multiples tout en conservant leurs propriétés de résistance aux enfants tout au long de la vie du produit.",
+        "q3_q": "Puis-je obtenir des sachets CR opaques ?",
+        "q3_a": "Absolument. De nombreuses juridictions exigent que les emballages CR soient opaques. Nous proposons des couches barrières blanches et noires haute densité qui garantissent une opacité totale.",
+        "q4_q": "Fournissez-vous des documents de certification ?",
+        "q4_a": "Oui. Chaque commande de nos sachets CR est accompagnée des résultats officiels des tests 16 CFR § 1700.20 pour vos dossiers réglementaires."
+      },
+      "cta": {
+        "badge": "SAFETY_MANDATE",
+        "title": "Penser Sécurité.<br/>Impact Pur.",
+        "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement CR haute barrière et conforme pour votre marque ? Commençons l'audit technique dès aujourd'hui.",
+        "samples": "Demander des Échantillons CR",
+        "engineer": "Parler à un Ingénieur Sécurité"
+      }
+    },
+    "zh-TW": {
+      "meta": {
+        "title": "防兒童開啟避光鋁箔袋 | 安全與合規性 | Pouch.eco",
+        "description": "防兒童開啟（CR）避光袋技術指南。深入探討 16 CFR 1700.20 認證、防潮除臭工程及環保可回收安全包裝結構。",
+        "keywords": "防兒童開啟鋁箔袋, 防童自立袋, 安全包裝, 16 CFR 1700.20, 防潮避光袋, 環保可回收安全袋"
+      },
+      "hero": {
+        "badge": "SAFETY_HUB_V1.0",
+        "title": "安全鎖定.<br/>純粹防禦.<br/>安心防護.",
+        "subtitle": "防兒童開啟是法規強制要求，而非附加選項。我們研發 CPSC 認證、高阻隔性的防童避光自立袋，全面守護您的產品、消費者與地球環境。",
+        "browse": "瀏覽防童包裝方案",
+        "order": "索取防童樣品"
+      },
+      "engineering": {
+        "badge": "SAFETY_COMPLIANCE_AUDIT",
+        "title": "專業結構.<br/>安全工程.",
+        "p1": "防兒童開啟（CR）包裝的核心在於「人因工程學」。在 2026 年，針對高活性或高濃度產品（如藥品、化學品、特定管制草本）的包裝安全規範已是絕對標準。在 Pouch.eco，我們設計的防童避光袋完全符合美國聯邦 16 CFR § 1700.20 的嚴格標準。我們採用先進的「按壓滑動」與「捏擠拉開」專利夾鏈技術，經實驗室證實能有效防止幼童開啟，同時方便年長者操作。但追求安全無需犧牲環境，我們提供 100% 可回收單一材料（Mono-PE）的防童包裝結構，具備極致的防潮除臭性能。每批客製化生產皆附帶 CPSC 及 ASTM D3475 檢驗認證，助您的品牌免除法規風險與產品責任責任。",
+        "metrics": {
+          "m1": {
+            "label": "安全標準",
+            "value": "16 CFR",
+            "unit": "1700.20",
+            "desc": "聯邦防童檢測基準"
+          },
+          "m2": {
+            "label": "防潮除臭",
+            "value": "100%",
+            "unit": "氣密密封",
+            "desc": "氣味零洩漏與極致密封"
+          },
+          "m3": {
+            "label": "防刺穿性",
+            "value": "高強度",
+            "unit": "厚度規",
+            "desc": "重型防護安全薄膜"
+          },
+          "m4": {
+            "label": "可回收性",
+            "value": "單一PE",
+            "unit": "單一材料",
+            "desc": "環保永續安全選擇"
+          }
+        }
+      },
+      "tech": {
+        "badge": "SECURITY_TECH_STACK",
+        "title": "卓越阻隔.<br/>安全鎖鎖.",
+        "t1": {
+          "title": "01. 美國 CPSC 認證",
+          "desc": "通過 16 CFR § 1700.20 規範認證。防開啟結構專為防範幼童誤食與意外中毒而設計。"
+        },
+        "t2": {
+          "title": "02. 無味高阻隔 EVOH",
+          "desc": "內嵌高氣密高分子阻隔層，100% 阻絕有機芳香分子逸散，確保強效產品的隱蔽性與新鮮度。"
+        },
+        "t3": {
+          "title": "03. 友善銀髮族",
+          "desc": "符合人體工學的防滑捏握點與滑軌結構，確保成年人與關節炎患者開關順暢，同時維持防童效果。"
+        },
+        "t4": {
+          "title": "04. 重型防刺穿結構",
+          "desc": "採用 100 至 150 微米多層複合薄膜，極具抗拉防刺穿力，保護袋內免受光照、濕氣與物流震盪影響。"
+        }
+      },
+      "lab": {
+        "badge": "SAFETY_SCIENCE_V1",
+        "title": "精確數據.<br/>合規驗證.",
+        "p1": "防兒童開啟是一項極為精密的技術指標。我們透過 ASTM D3475 標準分類，確保客製包裝能精準對接您的特定行業需求。我們的 EEAT 安全檢測流程提供完整的實驗室審計報告，滿足各國法規監管。我們不僅給予口頭承諾，更隨貨提供品牌法律團隊所需的 CRP 安全防童包裝檢測書。結合「環保可回收單一 PE 防童袋」，我們協助企業兼顧法規安全與 ESG 減碳承諾。這正是引領高活性包裝未來的環保安全方案。",
+        "f1_title": "法律防護盾",
+        "f1_desc": "確保您的包裝 100% 符合防毒包裝法案（PPPA）之嚴苛規範。",
+        "f2_title": "極致防潮防臭",
+        "f2_desc": "高氣密性熱封封口，即使面臨高溫高壓環境也絕不洩漏氣味。"
+      },
+      "faq": {
+        "badge": "SAFETY_FAQ",
+        "title": "專家<br/>深度解答.",
+        "q1_q": "什麼是「防兒童開啟（Child-Resistant）」包裝？",
+        "q1_a": "防童包裝是指必須透過兩個獨立、非直覺的複合動作（例如：按壓並滑動夾鏈）才能開啟的包裝。5歲以下幼童因認知與手部肌肉發育限制，極難獨自開啟此類設計。",
+        "q2_q": "防童鋁箔袋可以重複密封嗎？",
+        "q2_a": "可以。我們的防童複合夾鏈專為多次重覆密封而研發，在產品的整個生命週期中皆能維持穩定可靠的防童開啟效果。",
+        "q3_q": "我可以客製不透光的防童袋嗎？",
+        "q3_a": "完全可以。多數地區的法規均要求防童包裝需具備完全不透光性。我們提供高密度純黑與純白阻隔層，確保達到 100% 的避光遮蔽率。",
+        "q4_q": "你們提供官方的認證檢測報告嗎？",
+        "q4_a": "是的。我們出貨的每一批防童包裝皆可檢附符合美國 16 CFR § 1700.20 規範的第三方實驗室測試認證文件，供您申報建檔使用。"
+      },
+      "cta": {
+        "badge": "SAFETY_MANDATE",
+        "title": "安心防護.<br/>純淨未來.",
+        "subtitle": "準備好為您的品牌建立一個合法合規、具備高阻隔性的防童供應鏈了嗎？即刻與包裝工程專家展開評估。",
+        "samples": "免費索取防童樣品",
+        "engineer": "預約包裝工程師諮詢"
+      }
+    }
+  },
+  "pouchRecyclablePackagingGuidePage": {
+    "en": {
+      "meta": {
+        "title": "Recyclable Packaging Guide | Mono-Material Engineering | Pouch.eco",
+        "description": "Technical guide to recyclable packaging. 800+ words of research on Mono-PE, MDO-PE technology, and circular economy compliance.",
+        "keywords": "recyclable packaging, mono-material, mono-PE, MDO-PE, circular economy"
+      },
+      "hero": {
+        "badge": "RECYCLE_TECH_V1.0",
+        "title": "Circular.<br/>By.<br/>Design.",
+        "subtitle": "The era of non-recyclable multi-layer plastic is over. We engineer 100% Mono-Material structures (PE/PE or PP/PP) that are fully compatible with global recycling streams.",
+        "browse": "Browse Recyclable Pouches",
+        "order": "Request Material Data"
+      },
+      "engineering": {
+        "badge": "MONO_MATERIAL_AUDIT",
+        "title": "Measured.<br/>For Recovery.",
+        "p1": "Recyclability is a function of polymer homogeneity. Traditional 'multi-material' bags (PET/PE) are landfill-bound because they cannot be separated during processing. Our Mono-Material Revolution utilizes MDO-PE (Machine Direction Orientation) technology to replace the PET outer layer with a specialized Polyethylene film. This creates a 100% PE package that achieving > 90% recovery rates in standard recycling streams. Verified by Cyclos-HTP and compatible with 'Store Drop-off' and advanced automated sorting systems.",
+        "metrics": {
+          "m1": {
+            "label": "Recovery Rate",
+            "value": "90%+",
+            "unit": "Stream",
+            "desc": "Mono-PE recovery (Cyclos-HTP)."
+          },
+          "m2": {
+            "label": "MDO-PE Tech",
+            "value": "PET",
+            "unit": "Replace",
+            "desc": "Equivalent stiffness/clarity."
+          },
+          "m3": {
+            "label": "Barrier",
+            "value": "< 1.0",
+            "unit": "OTR",
+            "desc": "Oxygen Transmission Rate (cc/m²)."
+          },
+          "m4": {
+            "label": "Components",
+            "value": "100%",
+            "unit": "Mono",
+            "desc": "Recyclable zippers and valves."
+          }
+        }
+      },
+      "tech": {
+        "badge": "SORT_TECH_STACK",
+        "title": "Invisible.<br/>To the NIR.",
+        "t1": {
+          "title": "01. NIR-Sortable Inks",
+          "desc": "Standard carbon black inks absorb NIR light, making the pouch invisible to sorting sensors. We use specialized non-carbon inks to ensure 100% sortability."
+        },
+        "t2": {
+          "title": "02. EVOH Barrier (<5%)",
+          "desc": "We integrate ultra-thin EVOH layers to block oxygen without disrupting the recycling stream. Compliant with CEFLEX and APR design-for-recycling guidelines."
+        },
+        "t3": {
+          "title": "03. PE Degassing Valves",
+          "desc": "For coffee roasters, we use 100% Polyethylene one-way valves. This ensures the entire package stays in the PE loop without requiring component removal."
+        },
+        "t4": {
+          "title": "04. EPR Fee Mitigation",
+          "desc": "Designing for recyclability is a financial decision. Our mono-materials qualify for reduced 'eco-modulated' fees under California SB 54 and UK EPR mandates."
+        }
+      },
+      "lab": {
+        "badge": "MATERIAL_LAB_VERIFY",
+        "title": "Verified.<br/>To the Loop.",
+        "p1": "Circular economy claims require laboratory evidence. We perform FTIR spectroscopy on every production batch to verify resin purity and co-extrusion accuracy. Our Mono-PE structures undergo Cyclos-HTP testing to verify that they result in high-quality rPE resin suitable for non-food or even food-contact applications (if using chemical recycling). We provide the technical evidence your brand needs to use 'How2Recycle' or 'Recycle Now' logos with absolute confidence.",
+        "f1_title": "NIR Sortable",
+        "f1_desc": "Tested for automated identification in advanced material recovery facilities.",
+        "f2_title": "Recovery Score",
+        "f2_desc": "Achieving 90/100 recyclability scores under global certification protocols."
+      },
+      "faq": {
+        "badge": "RECYCLE_FAQ",
+        "title": "Expert<br/>Intelligence.",
+        "q1_q": "Is 'Store Drop-off' the only way to recycle these pouches?",
+        "q1_a": "In North America, store drop-off is currently the standard for PE pouches. However, in Europe and emerging markets like California, advanced automated sorting is bringing these into curbside loops.",
+        "q2_q": "Can I use metallic effects on recyclable bags?",
+        "q2_a": "Yes. We use vacuum-metallized PE (VMPET replacement) to achieve high-barrier and metallic aesthetics while keeping the structure 100% recyclable.",
+        "q3_q": "What is MDO-PE?",
+        "q3_a": "Machine Direction Orientation Polyethylene is a film that has been stretched during manufacturing. This process increases stiffness and heat resistance, allowing us to remove non-recyclable PET.",
+        "q4_q": "Does the zipper need to be removed?",
+        "q4_a": "No. Our zippers are manufactured from 100% Polyethylene, meaning the entire pouch can be recycled as a single unit without consumer intervention."
+      },
+      "cta": {
+        "badge": "RECYCLE_MANDATE",
+        "title": "Think Circular.<br/>Impact Pure.",
+        "subtitle": "Ready to secure a recyclable supply chain for your brand? Let's start the technical audit today.",
+        "samples": "Order Recyclable Samples",
+        "engineer": "Speak to a Circular Engineer"
+      }
+    },
+    "es": {
+      "meta": {
+        "title": "Guía de Envases Reciclables | Ingeniería de Mono-Materiales | Pouch.eco",
+        "description": "Guía técnica para envases reciclables. Investigación sobre Mono-PE, tecnología MDO-PE y conformidad con la economía circular.",
+        "keywords": "envases reciclables, mono-material, mono-PE, MDO-PE, economía circular"
+      },
+      "hero": {
+        "badge": "RECYCLE_TECH_V1.0",
+        "title": "Circular.<br/>Por.<br/>Diseño.",
+        "subtitle": "La era del plástico multicapa no reciclable ha terminado. Diseñamos estructuras 100% Mono-Material (PE/PE o PP/PP) que son totalmente compatibles con los flujos de reciclaje globales.",
+        "browse": "Ver Bolsas Reciclables",
+        "order": "Solicitar Datos de Materiales"
+      },
+      "engineering": {
+        "badge": "MONO_MATERIAL_AUDIT",
+        "title": "Medido.<br/>Para la Recuperación.",
+        "p1": "La reciclabilidad es una función de la homogeneidad del polímero. Las bolsas 'multimaterial' tradicionales (PET/PE) están destinadas al vertedero porque no se pueden separar durante el procesamiento. Nuestra Revolución de Mono-Materiales utiliza la tecnología MDO-PE (Orientación en Dirección de la Máquina) para reemplazar la capa exterior de PET con una película de polietileno especializada. Esto crea un envase 100% PE que logra tasas de recuperación > 90% en flujos de reciclaje estándar. Verificado por Cyclos-HTP y compatible con sistemas de entrega en tienda y clasificación automatizada avanzada.",
+        "metrics": {
+          "m1": {
+            "label": "Tasa de Recup.",
+            "value": "90%+",
+            "unit": "Flujo",
+            "desc": "Recuperación de Mono-PE (Cyclos-HTP)."
+          },
+          "m2": {
+            "label": "Tecn. MDO-PE",
+            "value": "PET",
+            "unit": "Reemplazo",
+            "desc": "Rigidez/claridad equivalente."
+          },
+          "m3": {
+            "label": "Barrera",
+            "value": "< 1.0",
+            "unit": "OTR",
+            "desc": "Tasa de Transmisión de Oxígeno (cc/m²)."
+          },
+          "m4": {
+            "label": "Componentes",
+            "value": "100%",
+            "unit": "Mono",
+            "desc": "Cremalleras y válvulas reciclables."
+          }
+        }
+      },
+      "tech": {
+        "badge": "SORT_TECH_STACK",
+        "title": "Invisible.<br/>Para el NIR.",
+        "t1": {
+          "title": "01. Tintas clasificables por NIR",
+          "desc": "Las tintas estándar de negro de humo absorben la luz NIR, haciendo que la bolsa sea invisible para los sensores de clasificación. Usamos tintas especializadas sin carbono para garantizar la clasificación al 100%."
+        },
+        "t2": {
+          "title": "02. Barrera EVOH (<5%)",
+          "desc": "Integramos capas ultrafinas de EVOH para bloquear el oxígeno sin alterar el flujo de reciclaje. Cumple con las directrices de diseño para reciclaje de CEFLEX y APR."
+        },
+        "t3": {
+          "title": "03. Válvulas desgasificadoras de PE",
+          "desc": "Para los tostadores de café, utilizamos válvulas unidireccionales de polietileno al 100%. Esto asegura que todo el paquete permanezca en el ciclo de PE sin requerir la extracción de componentes."
+        },
+        "t4": {
+          "title": "04. Mitigación de tarifas EPR",
+          "desc": "Diseñar para la reciclabilidad es una decisión financiera. Nuestros mono-materiales califican para tarifas reducidas 'eco-moduladas' bajo los mandatos de California SB 54 y EPR del Reino Unido."
+        }
+      },
+      "lab": {
+        "badge": "MATERIAL_LAB_VERIFY",
+        "title": "Verificado.<br/>Para el Ciclo.",
+        "p1": "Las afirmaciones sobre economía circular requieren pruebas de laboratorio. Realizamos espectroscopia FTIR en cada lote de producción para verificar la pureza de la resina y la precisión de la coextrusión. Nuestras estructuras de Mono-PE se someten a pruebas Cyclos-HTP para verificar que dan como resultado resina rPE de alta calidad adecuada para aplicaciones que no son de contacto con alimentos o incluso de contacto con alimentos (si se utiliza reciclaje químico). Proporcionamos la evidencia técnica que su marca necesita para utilizar los logotipos 'How2Recycle' o 'Recycle Now' con absoluta confianza.",
+        "f1_title": "Clasificable por NIR",
+        "f1_desc": "Probado para identificación automatizada en instalaciones avanzadas de recuperación de materiales.",
+        "f2_title": "Puntaje de Recuperación",
+        "f2_desc": "Logrando puntajes de reciclabilidad de 90/100 bajo protocolos de certificación globales."
+      },
+      "faq": {
+        "badge": "RECYCLE_FAQ",
+        "title": "Inteligencia<br/>Experta.",
+        "q1_q": "¿Es la entrega en tienda la única forma de reciclar estas bolsas?",
+        "q1_a": "En América del Norte, la entrega en tienda es actualmente la norma para las bolsas de PE. Sin embargo, en Europa y mercados emergentes como California, la clasificación automatizada avanzada las está llevando a los ciclos de recogida selectiva.",
+        "q2_q": "¿Puedo usar efectos metálicos en bolsas reciclables?",
+        "q2_a": "Sí. Utilizamos PE metalizado al vacío (reemplazo de VMPET) para lograr una estética metálica y de alta barrera mientras mantenemos la estructura 100% reciclable.",
+        "q3_q": "¿Qué es MDO-PE?",
+        "q3_a": "El polietileno orientado en dirección de la máquina es una película que se ha estirado durante la fabricación. Este proceso aumenta la rigidez y la resistencia al calor, lo que nos permite eliminar el PET no reciclable.",
+        "q4_q": "¿Es necesario quitar la cremallera?",
+        "q4_a": "No. Nuestras cremalleras están fabricadas con polietileno al 100%, lo que significa que toda la bolsa se puede reciclar como una sola unidad sin intervención del consumidor."
+      },
+      "cta": {
+        "badge": "RECYCLE_MANDATE",
+        "title": "Piense en Circular.<br/>Impacto Puro.",
+        "subtitle": "¿Listo para asegurar una cadena de suministro reciclable para su marca? Comencemos la auditoría técnica hoy.",
+        "samples": "Solicitar Muestras Reciclables",
+        "engineer": "Hable con un Ingeniero Circular"
+      }
+    },
+    "fr": {
+      "meta": {
+        "title": "Guide de l'Emballage Recyclable | Ingénierie Mono-Matériau | Pouch.eco",
+        "description": "Guide technique de l'emballage recyclable. Recherche sur le Mono-PE, la technologie MDO-PE et la conformité à l'économie circulaire.",
+        "keywords": "emballage recyclable, mono-matériau, mono-PE, MDO-PE, économie circulaire"
+      },
+      "hero": {
+        "badge": "RECYCLE_TECH_V1.0",
+        "title": "Circulaire.<br/>Par.<br/>Conception.",
+        "subtitle": "L'ère du plastique multicouche non recyclable est révolue. Nous concevons des structures 100 % mono-matériau (PE/PE ou PP/PP) entièrement compatibles avec les filières de recyclage mondiales.",
+        "browse": "Découvrir les Sachets Recyclables",
+        "order": "Demander des Données Matériaux"
+      },
+      "engineering": {
+        "badge": "MONO_MATERIAL_AUDIT",
+        "title": "Mesuré.<br/>Pour la Récupération.",
+        "p1": "La recyclabilité dépend de l'homogénéité des polymères. Les sachets multi-matériaux traditionnels (PET/PE) sont destinés à la décharge car ils ne peuvent pas être séparés lors du traitement. Notre révolution mono-matériau utilise la technologie MDO-PE (orientation dans le sens de la machine) pour remplacer la couche externe en PET par un film de polyéthylène spécialisé. Cela crée un emballage 100 % PE atteignant des taux de récupération > 90 % dans les filières de recyclage standard. Certifié par Cyclos-HTP et compatible avec les systèmes de dépôt en magasin et de tri automatisé avancé.",
+        "metrics": {
+          "m1": {
+            "label": "Taux de Récup.",
+            "value": "90%+",
+            "unit": "Filière",
+            "desc": "Récupération du Mono-PE (Cyclos-HTP)."
+          },
+          "m2": {
+            "label": "Tech MDO-PE",
+            "value": "PET",
+            "unit": "Remplacer",
+            "desc": "Rigidité/clarté équivalente."
+          },
+          "m3": {
+            "label": "Barrière",
+            "value": "< 1.0",
+            "unit": "OTR",
+            "desc": "Perméabilité à l'oxygène (cc/m²)."
+          },
+          "m4": {
+            "label": "Composants",
+            "value": "100%",
+            "unit": "Mono",
+            "desc": "Zips et valves recyclables."
+          }
+        }
+      },
+      "tech": {
+        "badge": "SORT_TECH_STACK",
+        "title": "Invisible.<br/>Pour le NIR.",
+        "t1": {
+          "title": "01. Encres triables NIR",
+          "desc": "Les encres noires au carbone standard absorbent la lumière NIR, rendant le sachet invisible pour les capteurs de tri. Nous utilisons des encres non carbonées spécialisées pour garantir une triabilité à 100 %."
+        },
+        "t2": {
+          "title": "02. Barrière EVOH (<5%)",
+          "desc": "Nous intégrons des couches d'EVOH ultra-fines pour bloquer l'oxygène sans perturber le tri. Conforme aux directives de conception pour le recyclage de CEFLEX et de l'APR."
+        },
+        "t3": {
+          "title": "03. Valves de dégazage PE",
+          "desc": "Pour les torréfacteurs, nous utilisons des valves unidirectionnelles 100 % polyéthylène. Cela garantit que l'ensemble de l'emballage reste dans la boucle PE sans démontage."
+        },
+        "t4": {
+          "title": "04. Réduction des taxes EPR",
+          "desc": "Concevoir pour le recyclage est un choix financier. Nos mono-matériaux permettent de réduire les taxes éco-modulées selon la réglementation California SB 54 et l'EPR britannique."
+        }
+      },
+      "lab": {
+        "badge": "MATERIAL_LAB_VERIFY",
+        "title": "Vérifié.<br/>Dans la Boucle.",
+        "p1": "Les affirmations d'économie circulaire exigent des preuves de laboratoire. Nous effectuons une spectroscopie FTIR sur chaque lot pour vérifier la pureté de la résine et la précision de la co-extrusion. Nos structures Mono-PE subissent des tests Cyclos-HTP pour s'assurer qu'elles produisent une résine rPE de haute qualité, adaptée aux applications non alimentaires ou même alimentaires (en cas de recyclage chimique). Nous fournissons les preuves techniques nécessaires pour apposer les logos d'identification de tri en toute confiance.",
+        "f1_title": "Triable par NIR",
+        "f1_desc": "Testé pour l'identification automatisée dans les centres de tri de matériaux avancés.",
+        "f2_title": "Score de Récupération",
+        "f2_desc": "Atteignant des scores de recyclabilité de 90/100 selon les protocoles de certification mondiaux."
+      },
+      "faq": {
+        "badge": "RECYCLE_FAQ",
+        "title": "Intelligence<br/>d'Expert.",
+        "q1_q": "Le dépôt en magasin est-il le seul moyen de recycler ces sachets ?",
+        "q1_a": "En Amérique du Nord, le dépôt en magasin est actuellement la norme pour les sachets en PE. Cependant, en Europe et dans les marchés émergents comme la Californie, le tri automatique permet de les intégrer dans la collecte sélective à domicile.",
+        "q2_q": "Puis-je utiliser des effets métallisés sur des sachets recyclables ?",
+        "q2_a": "Oui. Nous utilisons du PE métallisé sous vide (en remplacement du VMPET) pour obtenir un rendu métallique esthétique et une haute barrière tout en maintenant une structure 100 % recyclable.",
+        "q3_q": "Qu'est-ce que le MDO-PE ?",
+        "q3_a": "Le polyéthylène orienté dans le sens de la machine est un film étiré pendant la fabrication. Ce procédé augmente la rigidité et la résistance à la chaleur, nous permettant de nous passer du PET non recyclable.",
+        "q4_q": "Faut-il retirer la fermeture à glissière ?",
+        "q4_a": "Non. Nos fermetures à glissière sont fabriquées en 100 % polyéthylène, ce qui signifie que l'ensemble du sachet peut être recyclé comme une seule unité sans intervention du consommateur."
+      },
+      "cta": {
+        "badge": "RECYCLE_MANDATE",
+        "title": "Penser Circulaire.<br/>Impact Pur.",
+        "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement recyclable pour votre marque ? Commençons l'audit technique dès aujourd'hui.",
+        "samples": "Commander des Échantillons Recyclables",
+        "engineer": "Parler à un Ingénieur Circulaire"
+      }
+    },
+    "zh-TW": {
+      "meta": {
+        "title": "環保可回收包裝指南 | 單一材料結構工程 | Pouch.eco",
+        "description": "環保可回收軟包裝技術指南。深入解析 Mono-PE（單一聚乙烯）、MDO-PE 定向拉伸技術與循環經濟包裝規範。",
+        "keywords": "可回收包裝, 單一材料, Mono-PE, MDO-PE, 循環經濟"
+      },
+      "hero": {
+        "badge": "RECYCLE_TECH_V1.0",
+        "title": "綠色循環.<br/>源於.<br/>設計.",
+        "subtitle": "傳統不可回收的多重複合塑料時代已經結束。我們致力於研發 100% 單一材料（PE/PE 或 PP/PP）結構，完美相容於全球主流回收處理系統。",
+        "browse": "瀏覽可回收袋方案",
+        "order": "索取材料技術數據"
+      },
+      "engineering": {
+        "badge": "MONO_MATERIAL_AUDIT",
+        "title": "科學設計.<br/>高效回收.",
+        "p1": "包裝的可回收性取決於高分子聚合物的單一純度。傳統的複合包裝（如 PET/PE）因處理時無法有效分離，最終只能送往垃圾掩埋場。我們的「單一材料革命」採用 MDO-PE（機械方向拉伸聚乙烯）技術，成功以專利拉伸 PE 薄膜取代外層的 PET。這打造出 100% 聚乙烯組成的單一包裝，在全球主流塑料回收渠道中達到 90% 以上的回收再利用率。此技術榮獲 Cyclos-HTP 官方認證，全面支援商店收集箱與新一代自動化光譜分類回收系統。",
+        "metrics": {
+          "m1": {
+            "label": "可回收率",
+            "value": "90%+",
+            "unit": "回收渠道",
+            "desc": "單一PE高效率回收 (Cyclos-HTP)"
+          },
+          "m2": {
+            "label": "MDO-PE 技術",
+            "value": "替代PET",
+            "unit": "拉伸技術",
+            "desc": "提供同等硬度與高透明度"
+          },
+          "m3": {
+            "label": "阻隔性能",
+            "value": "< 1.0",
+            "unit": "OTR阻隔",
+            "desc": "透氧率指標 (cc/m²/day)"
+          },
+          "m4": {
+            "label": "整體配件",
+            "value": "100%",
+            "unit": "單一材料",
+            "desc": "全袋配置可回收夾鏈與閥門"
+          }
+        }
+      },
+      "tech": {
+        "badge": "SORT_TECH_STACK",
+        "title": "近紅外線.<br/>無所遁形.",
+        "t1": {
+          "title": "01. 近紅外線（NIR）光譜檢出墨水",
+          "desc": "傳統碳黑油墨會吸收近紅外光，導致回收傳感器無法識別。我們採用特殊的無碳油墨，確保包裝可 100% 被回收光譜儀分類檢出。"
+        },
+        "t2": {
+          "title": "02. 極低佔比 EVOH 阻隔層 (<5%)",
+          "desc": "我們融入超薄的 EVOH 阻隔層，在阻絕氧氣滲入的同時，亦完全不干擾塑膠回收品質，符合 CEFLEX 與 APR 可回收設計規範。"
+        },
+        "t3": {
+          "title": "03. 100% PE 單一排氣閥",
+          "desc": "針對客製化咖啡袋，我們開發出純聚乙烯（PE）單向排氣閥。這使得整個咖啡包裝可直接投入 PE 回收桶，無需拆卸閥門。"
+        },
+        "t4": {
+          "title": "04. 節省生產者責任（EPR）稅額",
+          "desc": "走向可回收不僅是環保，更攸關營運財務。我們的單一材料包裝可協助企業在美國加州 SB 54 及英國 EPR 法規下，申請減免高昂的生態調節稅費。"
+        }
+      },
+      "lab": {
+        "badge": "MATERIAL_LAB_VERIFY",
+        "title": "嚴格檢測.<br/>閉環再生.",
+        "p1": "循環經濟的承諾必須建立在真實數據之上。我們針對每一批次的生產進行 FTIR 紅外線光譜檢驗，嚴格管控樹脂純度與多層共擠品質。我們的單一材料 Mono-PE 結構通過 Cyclos-HTP 實驗室驗證，能再生出高品質的 rPE 顆粒，可用於工業塑料甚至食品級包裝（透過化學回收方式）。我們為您的品牌提供完整的技術合規報告，讓您能合法、安心地在包裝印上「How2Recycle」或「Recycle Now」等合規回收標誌。",
+        "f1_title": "NIR 可檢出",
+        "f1_desc": "經測試符合先進材料回收場（MRF）的自動化分選辨識光譜要求。",
+        "f2_title": "回收合規評分",
+        "f2_desc": "在全球循環包裝認證體系中，均榮獲 90/100 以上之高回收評分。"
+      },
+      "faq": {
+        "badge": "RECYCLE_FAQ",
+        "title": "專家<br/>深度解答.",
+        "q1_q": "這些自立袋只能送往「商店回收箱（Store Drop-off）」回收嗎？",
+        "q1_a": "在北美，目前將 PE 軟包裝送往特定商店回收箱是主流做法。然而，在歐洲以及美國加州等新興低碳示範區，地方市政正陸續引進智慧化自動分類系統，逐步將單一材料 PE 包裝納入一般路邊資源回收箱中。",
+        "q2_q": "可回收的環保袋可以做金屬質感或反光效果嗎？",
+        "q2_a": "可以。我們透過真空鍍鋁 PE 薄膜（用來替代傳統 VMPET）來展現精美的金屬光澤與高水準的防潮阻隔性能，同時維持全袋 100% 單一材料的可回收性。",
+        "q3_q": "什麼是 MDO-PE？",
+        "q3_a": "機械方向拉伸聚乙烯（Machine Direction Orientation Polyethylene）是在薄膜吹製過程中進行定向縱向拉伸的工藝。此技術能倍增 PE 薄膜的硬度、光澤度與耐熱阻抗，進而完全省去無法回收的 PET 外層。",
+        "q4_q": "回收時需要剪掉塑膠夾鏈嗎？",
+        "q4_a": "不需要。我們的密合夾鏈是由 100% 聚乙烯同質材料製造，這代表消費者在使用後可直接將整袋投入回收，無需手動拆解零件。"
+      },
+      "cta": {
+        "badge": "RECYCLE_MANDATE",
+        "title": "綠色包裝.<br/>純淨未來.",
+        "subtitle": "準備好為您的產品線換上 100% 可回收的綠色包裝了嗎？即刻與我們的循環工程專家開啟技術評估。",
+        "samples": "免費索取可回收樣品",
+        "engineer": "預約包裝工程師諮詢"
+      }
+    }
+  },
+  "pouchDigitalPrintingEcoPackagingPage": {
+    "en": {
+      "meta": {
+        "title": "Digital Printing for Eco-Packaging | HP Indigo Tech | Pouch.eco",
+        "description": "Technical guide to digital printing for sustainable packaging. 800+ words of research on HP Indigo 25K, zero-plate sustainability, and agile manufacturing.",
+        "keywords": "digital printing eco packaging, HP Indigo 25K, zero plate printing, sustainable packaging manufacturer, low MOQ pouches"
+      },
+      "hero": {
+        "badge": "DIGITAL_STRATEGY_V1.0",
+        "title": "Zero.<br/>Plate.<br/>Agile.",
+        "subtitle": "Traditional printing is a waste engine. We utilize HP Indigo 25K digital technology to eliminate plate fees.",
+        "browse": "Browse Digital Styles",
+        "order": "Request Print Proofs"
+      },
+      "engineering": {
+        "badge": "AGILE_MANUFACTURING",
+        "title": "Engineered.<br/>To Pivot.",
+        "p1": "Sustainability in 2026 is defined by Efficiency. Traditional rotogravure and flexographic printing require hundreds of kilograms of setup waste and toxic metal plates. Digital printing eliminates these hurdles. At Pouch.eco, we utilize the HP Indigo 25K digital press to provide brands with Zero-Plate manufacturing. This allows for hyper-agile supply chains with MOQs as low as 500 units. By eliminating dead inventory and allowing for rapid SKU pivots, we help brands reduce their aggregate material waste by up to 15%. We back our print quality with G7 Master Certification, ensuring your brand colors remain invariant across every single pouch.",
+        "metrics": {
+          "m1": {
+            "label": "Plate Waste",
+            "value": "0%",
+            "unit": "Zero",
+            "desc": "No metal plates or chemicals."
+          },
+          "m2": {
+            "label": "Resolution",
+            "value": "1200",
+            "unit": "DPI",
+            "desc": "Ultra-high definition clarity."
+          },
+          "m3": {
+            "label": "Turnaround",
+            "value": "21",
+            "unit": "Days",
+            "desc": "From artwork to delivery."
+          },
+          "m4": {
+            "label": "MOQ Minimum",
+            "value": "500",
+            "unit": "Units",
+            "desc": "Agile startup-friendly entry."
+          }
+        }
+      },
+      "tech": {
+        "badge": "PRINT_TECH_STACK",
+        "title": "Pure Color.<br/>Pure Speed.",
+        "t1": {
+          "title": "01. HP ElectroInk",
+          "desc": "100% solvent-free, food-safe inks that meet FDA and EFSA standards. Certified for both home and industrial compostable structures."
+        },
+        "t2": {
+          "title": "02. Variable Data (VDP)",
+          "desc": "Print unique QR codes, serialization, or hyper-personalized graphics on every unit without increasing production costs."
+        },
+        "t3": {
+          "title": "03. G7 Color Matching",
+          "desc": "Automated spectrophotometry ensures a Delta-E (ΔE) of < 2.0. Your brand identity remains consistent across all materials and regions."
+        },
+        "t4": {
+          "title": "04. Rapid Turnaround",
+          "desc": "Eliminate the 4-week plate-making wait. Go from artwork approval to finished pouches in as little as 14-21 days."
+        }
+      },
+      "lab": {
+        "badge": "PRINT_SCIENCE_V1",
+        "title": "Measured.<br/>To the Pixel.",
+        "p1": "Digital print quality is a technical specification. We utilize 1200 DPI High-Definition technology to ensure that even the smallest font sizes and complex barcodes are perfectly legible. Our inks are tested for Migration Resistance and Odor Neutrality, ensuring they never compromise the sensory profile of your food products. As your technical partner, we provide the Life Cycle Assessment (LCA) data that proves digital printing's lower environmental impact compared to traditional rotogravure. This is agile manufacturing verified by science.",
+        "f1_title": "Color Integrity",
+        "f1_desc": "Verified G7 gray balance and visual consistency across all SKUs.",
+        "f2_title": "Waste Reduction",
+        "f2_desc": "90% reduction in setup waste compared to traditional printing methods."
+      },
+      "faq": {
+        "badge": "DIGITAL_FAQ",
+        "title": "Expert<br/>Intelligence.",
+        "q1_q": "Is digital printing suitable for food packaging?",
+        "q1_a": "Absolutely. Our HP ElectroInks are 100% food-safe and meet the strictest global regulations for direct food contact.",
+        "q2_q": "Can you print metallic or foil effects digitally?",
+        "q2_a": "Yes. We offer high-performance metallic silver inks and under-printing techniques that replicate the look of foil without the environmental cost.",
+        "q3_q": "What is the smallest font size you can print?",
+        "q3_a": "Thanks to our 1200 DPI resolution, we can print legible text as small as 4pt, ideal for complex ingredient lists and legal disclaimers.",
+        "q4_q": "Do you offer physical print proofs?",
+        "q4_a": "Yes. We offer high-fidelity digital mockups that use the exact same ink and material as your final production run, ensuring no surprises."
+      },
+      "cta": {
+        "badge": "DIGITAL_MANDATE",
+        "title": "Think Agile.<br/>Impact Pure.",
+        "subtitle": "Ready to secure an agile, low-waste digital supply chain for your brand? Let's start the technical audit today.",
+        "samples": "Request Print Proofs",
+        "engineer": "Speak to a Print Engineer"
+      }
+    },
+    "es": {
+      "meta": {
+        "title": "Impresión Digital para Envases Ecológicos | Tecnología HP Indigo | Pouch.eco",
+        "description": "Guía técnica sobre impresión digital para envases sostenibles. Investigación sobre HP Indigo 25K, sostenibilidad sin planchas y fabricación ágil.",
+        "keywords": "impresión digital envases ecológicos, HP Indigo 25K, impresión sin planchas, fabricante envases sostenibles, bolsas bajo MOQ"
+      },
+      "hero": {
+        "badge": "DIGITAL_STRATEGY_V1.0",
+        "title": "Cero.<br/>Plancha.<br/>Ágil.",
+        "subtitle": "La impresión tradicional es una máquina de desperdicio. Utilizamos la tecnología digital HP Indigo 25K para eliminar las tarifas de plancha.",
+        "browse": "Ver Estilos Digitales",
+        "order": "Solicitar Pruebas de Impresión"
+      },
+      "engineering": {
+        "badge": "AGILE_MANUFACTURING",
+        "title": "Diseñado.<br/>Para Pivotar.",
+        "p1": "La sostenibilidad en 2026 se define por la Eficiencia. La impresión por huecograbado y flexografía tradicional requiere cientos de kilogramos de residuos de preparación y planchas de metal tóxicas. La impresión digital elimina estos obstáculos. En Pouch.eco, utilizamos la prensa digital HP Indigo 25K para proporcionar a las marcas una fabricación Sin Planchas. Esto permite cadenas de suministro hiperágiles con MOQs tan bajos como 500 unidades. Al eliminar el inventario muerto y permitir pivotes rápidos de SKU, ayudamos a las marcas a reducir su desperdicio total de material hasta en un 15%. Respaldamos nuestra calidad de impresión con la certificación G7 Master, asegurando que los colores de su marca permanezcan invariables en cada bolsa.",
+        "metrics": {
+          "m1": {
+            "label": "Desperdicio Plancha",
+            "value": "0%",
+            "unit": "Cero",
+            "desc": "Sin planchas metálicas ni químicos."
+          },
+          "m2": {
+            "label": "Resolución",
+            "value": "1200",
+            "unit": "DPI",
+            "desc": "Claridad de definición ultra alta."
+          },
+          "m3": {
+            "label": "Plazo Entrega",
+            "value": "21",
+            "unit": "Días",
+            "desc": "Desde el diseño hasta la entrega."
+          },
+          "m4": {
+            "label": "MOQ Mínimo",
+            "value": "500",
+            "unit": "Unidades",
+            "desc": "Ideal para startups y agilidad."
+          }
+        }
+      },
+      "tech": {
+        "badge": "PRINT_TECH_STACK",
+        "title": "Color Puro.<br/>Velocidad Pura.",
+        "t1": {
+          "title": "01. HP ElectroInk",
+          "desc": "Tintas 100% libres de solventes y aptas para alimentos que cumplen con las normas de la FDA y la EFSA. Certificadas para estructuras compostables domésticas e industriales."
+        },
+        "t2": {
+          "title": "02. Datos Variables (VDP)",
+          "desc": "Imprima códigos QR únicos, serialización o gráficos hiperpersonalizados en cada unidad sin aumentar los costos de producción."
+        },
+        "t3": {
+          "title": "03. Coincidencia de Color G7",
+          "desc": "La espectrofotometría automatizada garantiza un Delta-E (ΔE) de < 2.0. La identidad de su marca se mantiene consistente en todos los materiales y regiones."
+        },
+        "t4": {
+          "title": "04. Plazos de Entrega Rápidos",
+          "desc": "Elimine la espera de 4 semanas para la fabricación de planchas. Pase de la aprobación del diseño a las bolsas terminadas en tan solo 14 a 21 días."
+        }
+      },
+      "lab": {
+        "badge": "PRINT_SCIENCE_V1",
+        "title": "Medido.<br/>Al Píxel.",
+        "p1": "La calidad de impresión digital es una especificación técnica. Utilizamos tecnología de alta definición de 1200 DPI para asegurar que incluso los tamaños de fuente más pequeños y los códigos de barras complejos sean perfectamente legibles. Nuestras tintas se prueban para verificar la resistencia a la migración y la neutralidad del olor, garantizando que nunca comprometan el perfil sensorial de sus productos alimenticios. Como su socio técnico, proporcionamos los datos de la Evaluación del Ciclo de Vida (LCA) que demuestran el menor impacto ambiental de la impresión digital en comparación con el huecograbado tradicional. Esto es fabricación ágil verificada por la ciencia.",
+        "f1_title": "Integridad de Color",
+        "f1_desc": "Equilibrio de grises G7 verificado y consistencia visual en todas las SKU.",
+        "f2_title": "Reducción de Residuos",
+        "f2_desc": "Reducción del 90% en el desperdicio de preparación en comparación con los métodos tradicionales."
+      },
+      "faq": {
+        "badge": "DIGITAL_FAQ",
+        "title": "Inteligencia<br/>Experta.",
+        "q1_q": "¿Es la impresión digital adecuada para envases de alimentos?",
+        "q1_a": "Absolutamente. Nuestras HP ElectroInks son 100% seguras para alimentos y cumplen con las regulaciones globales más estrictas para el contacto directo con alimentos.",
+        "q2_q": "¿Se pueden imprimir efectos metálicos o metalizados digitalmente?",
+        "q2_a": "Sí. Ofrecemos tintas de plata metálica de alto rendimiento y técnicas de subimpresión que replican el aspecto del papel metalizado sin el costo ambiental.",
+        "q3_q": "¿Cuál es el tamaño de letra más pequeño que pueden imprimir?",
+        "q3_a": "Gracias a nuestra resolución de 1200 DPI, podemos imprimir texto legible tan pequeño como 4pt, ideal para listas complejas de ingredientes y descargos de responsabilidad legales.",
+        "q4_q": "¿Ofrecen pruebas de impresión físicas?",
+        "q4_a": "Sí. Ofrecemos maquetas digitales de alta fidelidad que utilizan la misma tinta y material exactos que su lote de producción final, garantizando que no haya sorpresas."
+      },
+      "cta": {
+        "badge": "DIGITAL_MANDATE",
+        "title": "Piense con Agilidad.<br/>Impacto Puro.",
+        "subtitle": "¿Listo para asegurar una cadena de suministro digital ágil y de bajo desperdicio para su marca? Comencemos la auditoría técnica hoy.",
+        "samples": "Solicitar Pruebas de Impresión",
+        "engineer": "Hable con un Ingeniero de Impresión"
+      }
+    },
+    "fr": {
+      "meta": {
+        "title": "Impression Numérique pour Emballage Éco | Technologie HP Indigo | Pouch.eco",
+        "description": "Guide technique de l'impression numérique pour emballages durables. Recherche sur l'HP Indigo 25K, la durabilité sans plaque et la fabrication agile.",
+        "keywords": "impression numérique emballage éco, HP Indigo 25K, impression sans plaque, fabricant emballages durables, sachets bas MOQ"
+      },
+      "hero": {
+        "badge": "DIGITAL_STRATEGY_V1.0",
+        "title": "Zéro.<br/>Plaque.<br/>Agile.",
+        "subtitle": "L'impression traditionnelle génère trop de déchets. Nous utilisons la technologie numérique HP Indigo 25K pour éliminer les frais de plaques.",
+        "browse": "Découvrir les Styles Numériques",
+        "order": "Demander des Épreuves d'Impression"
+      },
+      "engineering": {
+        "badge": "AGILE_MANUFACTURING",
+        "title": "Conçu.<br/>Pour Pivoter.",
+        "p1": "En 2026, la durabilité se définit par l'efficacité. L'héliogravure et la flexographie traditionnelles nécessitent des centaines de kilos de gâche de réglage et des plaques métalliques toxiques. L'impression numérique élimine ces obstacles. Chez Pouch.eco, nous utilisons la presse numérique HP Indigo 25K pour proposer aux marques une fabrication sans plaque. Cela permet des chaînes d'approvisionnement ultra-agiles avec des MOQ à partir de 500 unités. En éliminant les stocks dormants et en permettant des changements rapides de références, nous aidons les marques à réduire leurs déchets de matériaux de 15 %. Nous certifions notre qualité d'impression par le label G7 Master, garantissant la constance des couleurs de votre marque sur chaque sachet.",
+        "metrics": {
+          "m1": {
+            "label": "Perte de Plaque",
+            "value": "0%",
+            "unit": "Zéro",
+            "desc": "Sans plaque métallique ni chimie."
+          },
+          "m2": {
+            "label": "Résolution",
+            "value": "1200",
+            "unit": "DPI",
+            "desc": "Netteté ultra-haute définition."
+          },
+          "m3": {
+            "label": "Délai de Fab.",
+            "value": "21",
+            "unit": "Jours",
+            "desc": "De la création à la livraison."
+          },
+          "m4": {
+            "label": "MOQ Minimum",
+            "value": "500",
+            "unit": "Unités",
+            "desc": "Solution agile pour startups."
+          }
+        }
+      },
+      "tech": {
+        "badge": "PRINT_TECH_STACK",
+        "title": "Couleur Pure.<br/>Vitesse Pure.",
+        "t1": {
+          "title": "01. HP ElectroInk",
+          "desc": "Encres sans solvant à 100 %, sans danger pour les aliments, conformes aux normes de la FDA et de l'EFSA. Certifiées pour les structures compostables domestiques et industrielles."
+        },
+        "t2": {
+          "title": "02. Données Variables (VDP)",
+          "desc": "Imprimez des codes QR uniques, des numéros de série ou des graphismes ultra-personnalisés sur chaque sachet sans surcoût de production."
+        },
+        "t3": {
+          "title": "03. Correspondance G7",
+          "desc": "La spectrophotométrie automatisée garantit un Delta-E (ΔE) inférieur à 2.0. L'identité de votre marque reste cohérente sur tous les matériaux."
+        },
+        "t4": {
+          "title": "04. Production Rapide",
+          "desc": "Oubliez l'attente de 4 semaines pour fabriquer des plaques. Passez de l'approbation du graphisme aux sachets finis en seulement 14 à 21 jours."
+        }
+      },
+      "lab": {
+        "badge": "PRINT_SCIENCE_V1",
+        "title": "Mesuré.<br/>Au Pixel Près.",
+        "p1": "La qualité de l'impression numérique est une spécification technique. Nous utilisons une technologie haute définition 1200 DPI pour garantir la parfaite lisibilité des plus petites tailles de caractères et des codes-barres complexes. Nos encres sont testées pour leur résistance à la migration et leur neutralité olfactive, garantissant qu'elles ne compromettent jamais les qualités sensorielles de vos produits. En tant que partenaire technique, nous fournissons les données d'analyse du cycle de vie (ACV) prouvant le faible impact environnemental du numérique comparé à l'héliogravure. C'est la fabrication agile validée par la science.",
+        "f1_title": "Intégrité des Couleurs",
+        "f1_desc": "Équilibre des gris certifié G7 et constance visuelle sur l'ensemble de la gamme.",
+        "f2_title": "Réduction des Déchets",
+        "f2_desc": "Réduction de 90 % de la gâche de réglage par rapport aux méthodes d'impression classiques."
+      },
+      "faq": {
+        "badge": "DIGITAL_FAQ",
+        "title": "Intelligence<br/>d'Expert.",
+        "q1_q": "L'impression numérique est-elle adaptée aux emballages alimentaires ?",
+        "q1_a": "Absolument. Nos encres HP ElectroInks sont 100 % sûres pour l'alimentation et répondent aux réglementations internationales les plus strictes en matière de contact alimentaire direct.",
+        "q2_q": "Peut-on imprimer des effets métallisés ou dorés en numérique ?",
+        "q2_a": "Oui. Nous proposons des encres argentées métallisées haute performance et des techniques de sous-couche qui imitent le rendu de la feuille d'aluminium sans son impact environnemental.",
+        "q3_q": "Quelle est la plus petite taille de police imprimable ?",
+        "q3_a": "Grâce à notre résolution de 1200 DPI, nous pouvons imprimer des textes parfaitement lisibles dès 4pt, ce qui est idéal pour les listes d'ingrédients détaillées.",
+        "q4_q": "Proposez-vous des épreuves d'impression physiques ?",
+        "q4_a": "Oui. Nous fournissons des prototypes numériques haute fidélité utilisant les mêmes encres et supports que votre production finale pour éviter toute surprise."
+      },
+      "cta": {
+        "badge": "DIGITAL_MANDATE",
+        "title": "Penser Agile.<br/>Impact Pur.",
+        "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement numérique agile et à faible déchet pour votre marque ? Commençons l'audit technique dès aujourd'hui.",
+        "samples": "Demander des Épreuves d'Impression",
+        "engineer": "Parler à un Ingénieur Impression"
+      }
+    },
+    "zh-TW": {
+      "meta": {
+        "title": "環保包裝數位印刷 | HP Indigo 數位技術 | Pouch.eco",
+        "description": "環保包裝數位印刷技術指南。深入了解 HP Indigo 25K、無版印刷減碳優勢及敏捷供應鏈管理。",
+        "keywords": "環保包裝數位印刷, HP Indigo 25K, 無版印刷, 永續包裝製造商, 低MOQ自立袋"
+      },
+      "hero": {
+        "badge": "DIGITAL_STRATEGY_V1.0",
+        "title": "零製版費.<br/>免起印量.<br/>極致敏捷.",
+        "subtitle": "傳統凹版印刷是高耗損的來源。我們採用 HP Indigo 25K 數位印刷技術，為您徹底省去高昂的製版費用。",
+        "browse": "瀏覽數位印刷袋型",
+        "order": "索取數位印刷打樣"
+      },
+      "engineering": {
+        "badge": "AGILE_MANUFACTURING",
+        "title": "彈性調整.<br/>隨心所欲.",
+        "p1": "在 2026 年，永續的核心意義在於「高效率」。傳統凹版與柔版印刷在開機調機時會產生數百公斤的塑料損耗，且需耗費大量重金屬印版。數位印刷則完全打破這些枷鎖。在 Pouch.eco，我們配置 HP Indigo 25K 數位印刷機，提供品牌「免製版」的客製化生產。這能支持極具彈性的供應鏈，起印量（MOQ）僅需 500 袋。透過消除過期庫存與快速更換包裝設計圖稿，我們協助品牌減少高達 15% 的材料浪費。我們的數位印刷通過 G7 卓越色彩認證（G7 Master Certification），確保您的品牌色彩在每一批次、每一袋包裝上都精準一致。",
+        "metrics": {
+          "m1": {
+            "label": "調機損耗",
+            "value": "0%",
+            "unit": "零損耗",
+            "desc": "免除金屬版材與調機版浪費"
+          },
+          "m2": {
+            "label": "印刷解析度",
+            "value": "1200",
+            "unit": "DPI",
+            "desc": "超高清畫質與細緻網點"
+          },
+          "m3": {
+            "label": "交貨週期",
+            "value": "21",
+            "unit": "天",
+            "desc": "從稿件確認到出貨的極速流程"
+          },
+          "m4": {
+            "label": "最低起印量",
+            "value": "500",
+            "unit": "袋",
+            "desc": "友善新創與新品測試的低門檻"
+          }
+        }
+      },
+      "tech": {
+        "badge": "PRINT_TECH_STACK",
+        "title": "色彩驚豔.<br/>出貨極速.",
+        "t1": {
+          "title": "01. HP ElectroInk 電子油墨",
+          "desc": "100% 無溶劑、食品級安全油墨，符合 FDA 與 EFSA 嚴格食品接觸法規。通過家庭與工業堆肥認證。"
+        },
+        "t2": {
+          "title": "02. 可變數據印刷（VDP）",
+          "desc": "可在每袋包裝上列印獨立的 QR Code、防偽防重序列號或個人化圖形，無須額外增加排版印刷成本。"
+        },
+        "t3": {
+          "title": "03. G7 認證色彩控制",
+          "desc": "配合自動化分光儀即時監控，確保 Delta-E (ΔE) 色差值小於 2.0。在全球不同材質上展現高度一致的品牌色彩。"
+        },
+        "t4": {
+          "title": "04. 極速交貨排產",
+          "desc": "免除長達 4 週的版模雕刻等待，稿件批准後僅需 14 至 21 天即可將客製袋交付到您的手中。"
+        }
+      },
+      "lab": {
+        "badge": "PRINT_SCIENCE_V1",
+        "title": "高精細度.<br/>精準呈現.",
+        "p1": "數位印刷品質具備精準的技術規格。我們運用 1200 DPI 高畫質成像技術，即使是極微小的字體與複雜的一維/二維條碼，依然邊緣平滑、清晰易讀。我們的油墨經過食品「遷移阻抗」與「無異味」測試，絕不影響袋內食品的風味與感官體驗。作為您的技術夥伴，我們提供產品生命週期評估（LCA）數據，證實數位印刷的碳排放與環境足跡遠低於傳統凹版印刷。這是以科學引領的敏捷永續製造。",
+        "f1_title": "色彩真實度",
+        "f1_desc": "通過 G7 灰平衡測試，確保所有 SKU 的視覺一致性。",
+        "f2_title": "製程減廢",
+        "f2_desc": "比起傳統印前調機，可大幅降低 90% 以上的塑膠薄膜 setup 廢料。"
+      },
+      "faq": {
+        "badge": "DIGITAL_FAQ",
+        "title": "專家<br/>深度解答.",
+        "q1_q": "數位印刷適合食品包裝嗎？",
+        "q1_a": "完全適合。我們的 HP 電子油墨 100% 符合食品安全規範，滿足國際最嚴格的食品包裝直接接觸標準。",
+        "q2_q": "數位印刷能呈現金屬質感或燙金效果嗎？",
+        "q2_a": "可以。我們提供高效能數位金屬銀墨以及反向套印技術，無需使用傳統難以回收的鋁箔，即可完美重現高質感的金屬反光視覺。",
+        "q3_q": "數位印刷能清晰印出的最小字體是多少？",
+        "q3_a": "得益於 1200 DPI 的超高解析度，我們能清晰呈現小至 4pt 的文字，極適合列印微小的成分表、營養標示及法律警語資訊。",
+        "q4_q": "你們提供實體包裝打樣服務嗎？",
+        "q4_a": "是的。我們提供高保真的數位打樣服務，使用與最終大貨生產完全相同的油墨與軟包裝材料，確保打樣與成品百分之百符合。"
+      },
+      "cta": {
+        "badge": "DIGITAL_MANDATE",
+        "title": "敏捷生產.<br/>純淨環保.",
+        "subtitle": "準備好為您的品牌升級為敏捷、低耗損的數位印刷供應鏈了嗎？即刻啟動印前技術評估。",
+        "samples": "申請數位印刷樣品",
+        "engineer": "預約印刷工程師諮詢"
+      }
+    }
+  },
+  "pouchHighHeatCandlePackagingPage": {
+    "en": {
+      "meta": {
+        "title": "High-Heat Compostable Candle Packaging (85°C+) - Pouch.eco",
+        "description": "Heat-resistant compostable pouches for candle wax pouring. Handle 85°C+ temperatures with PBS and NatureFlex materials. Digital printing for low MOQ startups."
+      },
+      "hero": {
+        "title": "Heat<br/>Proof<br/>Compost",
+        "badge": "85°C Pour Rating",
+        "subtitle": "Engineered for Candle Wax",
+        "side_title": "Ditch the Glass",
+        "intro": "Pouring hot wax at 85°C usually melts eco-plastic. We fixed that. Using PBS and NatureFlex, we created a pouch that handles the heat while remaining 100% home compostable.",
+        "t1_title": "Temperature King",
+        "t1_desc": "PLA softs at 50°C. Our PBS-reinforced pouches stay rigid at 85°C - 95°C.",
+        "t2_title": "Low MOQ Digital",
+        "t2_desc": "6 designs? 178 units each? No problem. Digital printing means no plate fees.",
+        "t3_title": "Compostable Bio-NK",
+        "t3_desc": "NK / Kraft Paper / PBS structure ensures zero fragrance leakage and 100% home compostability."
+      },
+      "science": {
+        "title": "Material Science",
+        "h1_title": "The High-Heat Layer",
+        "h1_desc": "Polybutylene succinate (PBS) is the hero. Unlike starch-based films, PBS has a high melting point and superior flexibility.",
+        "h1_l1": "85°C Continuous Pour",
+        "h1_l2": "ASTM D6400 Certified",
+        "h1_l3": "Industrial & Home Compost",
+        "h2_title": "The Barrier Layer",
+        "h2_desc": "NatureFlex™ Cellulose derived from wood pulp provides the oxygen barrier and high-gloss finish.",
+        "h2_l1": "Zero Fragrance Leakage",
+        "h2_l2": "Static-Free Filling",
+        "h2_l3": "Wood-Based Sustainable"
+      },
+      "spec": {
+        "title": "The Spec",
+        "dims": "Dimensions",
+        "dims_val": "155 x 229 x 99mm",
+        "vol": "Wax Volume",
+        "vol_val": "284g (Hardened)",
+        "print": "Printing",
+        "print_val": "Digital CMYK",
+        "cert": "Certifications",
+        "cert_val": "OK Compost / BPI / ASTM D6400"
+      },
+      "supply": {
+        "top_bar": "Proprietary Supply Protocol",
+        "top_bar_right": "Verified 85°C Capability",
+        "intro_title": "We don't just find suppliers. We engineer the production line.",
+        "intro_desc": "Our team has audited over 15 global production facilities to find the only three lines capable of meeting our 85°C structural standards. When you work with Pouch.eco, you aren't just buying a bag—you're accessing a pre-vetted, stress-tested supply chain managed by our engineers.",
+        "launch_title": "Launch Phase",
+        "launch_badge": "Digital Printing Specialist",
+        "launch_desc": "Access our boutique production lines designed for 1,000 unit split-design orders. Zero plate fees. Direct wax pour stability verified at 95°C.",
+        "growth_title": "Growth Phase",
+        "growth_badge": "Scale Production Partner",
+        "growth_desc": "Once you scale, we transition you to our high-volume facilities. Lowest unit price global protocol ($0.80/unit). 100°C rated PBS sealants.",
+        "footer": "Contact our team to audit your wax formula and access our proprietary supply network."
+      },
+      "structure": {
+        "title": "NK / Kraft / PBS Structure",
+        "l1": "NatureFlex (NK) Outer: 100% bio-based heat-stable cellulose for premium printing.",
+        "l2": "FSC Kraft Middle: Added structural rigidity for heavy wax pours.",
+        "l3": "PBS Sealant: High-heat Polybutylene succinate for 85°C+ safety."
+      },
+      "cta": {
+        "title": "Ready to Ditch the Glass?",
+        "book": "Book Consultation",
+        "sample": "Request Sample Kit",
+        "footer": "WE HAVE THE KNOWLEDGE. YOU HAVE THE VISION."
+      }
+    },
+    "es": {
+      "meta": {
+        "title": "Empaque de Velas Compostable de Alta Temperatura (85°C+) - Pouch.eco",
+        "description": "Bolsas compostables resistentes al calor para vertido de cera de velas. Soporta temperaturas de 85°C+ con materiales PBS y NatureFlex. Impresión digital para startups con bajo MOQ."
+      },
+      "hero": {
+        "title": "Compostaje<br/>Resistente<br/>al Calor",
+        "badge": "Clasificación de Vertido 85°C",
+        "subtitle": "Diseñado para cera de velas",
+        "side_title": "Deje el vidrio",
+        "intro": "Verter cera caliente a 85°C normalmente derrite el plástico ecológico. Lo solucionamos. Usando PBS y NatureFlex, creamos una bolsa que soporta el calor siendo 100% compostable en casa.",
+        "t1_title": "Rey de la Temperatura",
+        "t1_desc": "El PLA se ablanda a 50°C. Nuestras bolsas reforzadas con PBS se mantienen rígidas a 85°C - 95°C.",
+        "t2_title": "Digital con Bajo MOQ",
+        "t2_desc": "¿6 diseños? ¿178 unidades cada uno? Ningún problema. La impresión digital elimina las tarifas de plancha.",
+        "t3_title": "Bio-NK Compostable",
+        "t3_desc": "La estructura NK / Papel Kraft / PBS garantiza cero fugas de fragancia y 100% compostabilidad doméstica."
+      },
+      "science": {
+        "title": "Ciencia de Materiales",
+        "h1_title": "La Capa de Alta Temperatura",
+        "h1_desc": "El succinato de polibutileno (PBS) es el héroe. A diferencia de las películas a base de almidón, el PBS tiene un alto punto de fusión y flexibilidad superior.",
+        "h1_l1": "Vertido continuo a 85°C",
+        "h1_l2": "Certificación ASTM D6400",
+        "h1_l3": "Compostable doméstico e industrial",
+        "h2_title": "La Capa de Barrera",
+        "h2_desc": "La celulosa NatureFlex™ derivada de la pulpa de madera proporciona la barrera de oxígeno y acabado de alto brillo.",
+        "h2_l1": "Cero fugas de fragancia",
+        "h2_l2": "Llenado sin estática",
+        "h2_l3": "Sostenible a base de madera"
+      },
+      "spec": {
+        "title": "Especificaciones",
+        "dims": "Dimensiones",
+        "dims_val": "155 x 229 x 99 mm",
+        "vol": "Volumen de Cera",
+        "vol_val": "284 g (Endurecido)",
+        "print": "Impresión",
+        "print_val": "Digital CMYK",
+        "cert": "Certificaciones",
+        "cert_val": "OK Compost / BPI / ASTM D6400"
+      },
+      "supply": {
+        "top_bar": "Protocolo de Suministro Propietario",
+        "top_bar_right": "Capacidad Verificada 85°C",
+        "intro_title": "No solo buscamos proveedores. Diseñamos la línea de producción.",
+        "intro_desc": "Nuestro equipo ha auditado más de 15 instalaciones de producción globales para encontrar las únicas tres líneas capaces de cumplir con nuestros estándares estructurales de 85°C. Cuando trabaja con Pouch.eco, no solo compra una bolsa: accede a una cadena de suministro pre-evaluada y probada por nuestros ingenieros.",
+        "launch_title": "Fase de Lanzamiento",
+        "launch_badge": "Especialista en Impresión Digital",
+        "launch_desc": "Acceda a nuestras líneas de producción boutique diseñadas para pedidos de 1,000 unidades con diseño dividido. Sin tarifas de plancha. Estabilidad de vertido directo de cera verificada a 95°C.",
+        "growth_title": "Fase de Crecimiento",
+        "growth_badge": "Socio de Producción a Escala",
+        "growth_desc": "Una vez que escale, lo transferimos a nuestras instalaciones de alto volumen. Protocolo global de precio unitario más bajo ($0.80/unidad). Selladores PBS clasificados a 100°C.",
+        "footer": "Contacte a nuestro equipo para auditar su fórmula de cera y acceder a nuestra red de suministro propietaria."
+      },
+      "structure": {
+        "title": "Estructura NK / Kraft / PBS",
+        "l1": "Exterior NatureFlex (NK): Celulosa termoestable 100% bio-basada para impresión premium.",
+        "l2": "Intermedia FSC Kraft: Rigidez estructural añadida para vertidos de cera pesados.",
+        "l3": "Sellador PBS: Succinato de polibutileno de alta temperatura para seguridad a 85°C+."
+      },
+      "cta": {
+        "title": "¿Listo para dejar el vidrio?",
+        "book": "Reservar Consulta",
+        "sample": "Solicitar Kit de Muestras",
+        "footer": "TENEMOS EL CONOCIMIENTO. USTED TIENE LA VISIÓN."
+      }
+    },
+    "fr": {
+      "meta": {
+        "title": "Emballage de Bougies Compostable Haute Chaleur (85°C+) - Pouch.eco",
+        "description": "Sachets compostables résistants à la chaleur pour la coulée de cire. Supporte des températures de 85°C+ avec les matériaux PBS et NatureFlex. Impression numérique pour startups à faible MOQ."
+      },
+      "hero": {
+        "title": "Compost<br/>Résistant<br/>à la Chaleur",
+        "badge": "Coulée Évaluée à 85°C",
+        "subtitle": "Conçu pour la cire de bougie",
+        "side_title": "Oubliez le verre",
+        "intro": "Verser de la cire chaude à 85°C fait généralement fondre le plastique écologique. Nous avons résolu ce problème. En utilisant du PBS et du NatureFlex, nous avons créé un sachet qui résiste à la chaleur tout en restant 100% compostable à la maison.",
+        "t1_title": "Roi de la Température",
+        "t1_desc": "Le PLA se ramollit à 50°C. Nos sachets renforcés en PBS restent rigides de 85°C à 95°C.",
+        "t2_title": "Numérique à Faible MOQ",
+        "t2_desc": "6 designs ? 178 unités chacun ? Aucun problème. L'impression numérique élimine les frais de plaques.",
+        "t3_title": "Bio-NK Compostable",
+        "t3_desc": "La structure NK / Papier Kraft / PBS garantit zéro fuite de parfum et 100% compostabilité à domicile."
+      },
+      "science": {
+        "title": "Science des Matériaux",
+        "h1_title": "La Couche Haute Chaleur",
+        "h1_desc": "Le succinate de polybutylène (PBS) est le héros. Contrairement aux films à base d'amidon, le PBS a un point de fusion élevé et une flexibilité supérieure.",
+        "h1_l1": "Coulée continue à 85°C",
+        "h1_l2": "Certifié ASTM D6400",
+        "h1_l3": "Compostage domestique et industriel",
+        "h2_title": "La Couche Barrière",
+        "h2_desc": "La cellulose NatureFlex™ dérivée de la pâte de bois offre une barrière à l'oxygène et une finition brillante.",
+        "h2_l1": "Zéro fuite de parfum",
+        "h2_l2": "Remplissage sans électricité statique",
+        "h2_l3": "Durable à base de bois"
+      },
+      "spec": {
+        "title": "Spécifications",
+        "dims": "Dimensions",
+        "dims_val": "155 x 229 x 99 mm",
+        "vol": "Volume de Cire",
+        "vol_val": "284 g (Durci)",
+        "print": "Impression",
+        "print_val": "Numérique CMJN",
+        "cert": "Certifications",
+        "cert_val": "OK Compost / BPI / ASTM D6400"
+      },
+      "supply": {
+        "top_bar": "Protocole d'Approvisionnement Propriétaire",
+        "top_bar_right": "Capacité Validée à 85°C",
+        "intro_title": "Nous ne trouvons pas seulement des fournisseurs. Nous concevons la ligne de production.",
+        "intro_desc": "Notre équipe a audité plus de 15 usines de production mondiales pour identifier les trois seules lignes capables de respecter nos normes structurelles à 85°C. Travailler avec Pouch.eco, ce n'est pas seulement acheter un sachet, c'est accéder à une chaîne d'approvisionnement pré-vérifiée et stress-testée par nos ingénieurs.",
+        "launch_title": "Fase de Lancement",
+        "launch_badge": "Spécialiste de l'Impression Numérique",
+        "launch_desc": "Accédez à nos lignes de production boutique conçues pour des commandes fractionnées de 1 000 unités. Sans frais de plaques. Stabilité de coulée directe de cire validée à 95°C.",
+        "growth_title": "Phase de Croissance",
+        "growth_badge": "Partenaire de Production à Grande Échelle",
+        "growth_desc": "Une fois votre marque développée, nous vous transférons vers nos sites à grand volume. Protocole mondial avec prix unitaire minimal (0,80 $/unité). Soudures en PBS certifiées à 100°C.",
+        "footer": "Contactez notre équipe pour auditer votre formule de cire et accéder à notre réseau d'approvisionnement propriétaire."
+      },
+      "structure": {
+        "title": "Structure NK / Kraft / PBS",
+        "l1": "Extérieur NatureFlex (NK) : Cellulose thermo-stable 100 % bio-sourcée pour impression premium.",
+        "l2": "Milieu FSC Kraft : Rigidité structurelle renforcée pour coulée de cire lourde.",
+        "l3": "Soudure PBS : Succinate de polybutylène haute température pour sécurité à 85°C+."
+      },
+      "cta": {
+        "title": "Prêt à abandonner le verre ?",
+        "book": "Prendre Rendez-vous",
+        "sample": "Demander un Kit d'Échantillons",
+        "footer": "NOUS AVONS LE SAVOIR. VOUS AVEZ LA VISION."
+      }
+    },
+    "zh-TW": {
+      "meta": {
+        "title": "耐高溫環保蠟燭包裝自立袋 (85°C+) - Pouch.eco",
+        "description": "專為蠟燭融蠟直灌設計的耐熱環保袋。採用 PBS 與 NatureFlex 複合材料，完美承受 85°C+ 高溫直灌，數位印刷提供低起印量解決方案。"
+      },
+      "hero": {
+        "title": "耐高溫.<br/>環保.<br/>堆肥袋.",
+        "badge": "85°C 融蠟直灌級",
+        "subtitle": "專為融蠟灌裝設計",
+        "side_title": "告別傳統玻璃罐",
+        "intro": "在高溫 85°C 下灌裝熱蠟通常會使一般環保塑料熔化融塌。我們成功解決了此項技術瓶頸！透過 PBS 與 NatureFlex 的黃金比例複合，打造出既能承受熱蠟直灌、又具備 100% 家庭堆肥特性的環保包裝袋。",
+        "t1_title": "卓越的耐熱性能",
+        "t1_desc": "一般 PLA 塑料在 50°C 時便會軟化。我們的 PBS 強化包裝袋即使在高溫 85°C - 95°C 下，依然保持挺立不變形。",
+        "t2_title": "低起印量數位印刷",
+        "t2_desc": "6款設計？每款僅印 178 袋？沒問題！數位印刷無需高昂的製版費用，隨心所欲測試市場。",
+        "t3_title": "可堆肥 Bio-NK 結構",
+        "t3_desc": "採用 NK / 牛皮紙 / PBS 環保複合結構，兼具極致防漏與 100% 家庭堆肥分解特性。"
+      },
+      "science": {
+        "title": "卓越材料科學",
+        "h1_title": "耐高溫熱封層",
+        "h1_desc": "聚丁二酸丁二醇酯 (PBS) 是耐熱英雄。與澱粉基塑料薄膜不同，PBS 擁有極高的熔點與優異的柔韌性。",
+        "h1_l1": "支援 85°C 連續直灌",
+        "h1_l2": "通過 ASTM D6400 堆肥認證",
+        "h1_l3": "適用工業堆肥與家庭堆肥環境",
+        "h2_title": "防潮香氣阻隔層",
+        "h2_desc": "由木漿製成的 NatureFlex™ 纖維素薄膜，提供了優異的氧氣阻隔率與精美的表面亮光質感。",
+        "h2_l1": "精油芳香分子零洩漏",
+        "h2_l2": "防靜電表面，灌裝平順",
+        "h2_l3": "源自永續林木環保基材"
+      },
+      "spec": {
+        "title": "技術規格",
+        "dims": "尺寸規格",
+        "dims_val": "155 x 229 x 99 mm",
+        "vol": "灌蠟容量",
+        "vol_val": "284 g (固化後重量)",
+        "print": "印刷工藝",
+        "print_val": "數位印刷 CMYK",
+        "cert": "堆肥認證",
+        "cert_val": "OK Compost / BPI / ASTM D6400"
+      },
+      "supply": {
+        "top_bar": "專屬技術供應流程",
+        "top_bar_right": "經實測 85°C 耐受力",
+        "intro_title": "我們不僅尋找代工廠，更為您規劃專屬生產線。",
+        "intro_desc": "我們的技術團隊親自審查了全球超過 15 家軟包裝工廠，最終篩選出僅有的三條能完全達到 85°C 熱灌裝結構標準的生產線。與 Pouch.eco 合作，您獲得的不僅僅是一個袋子，而是我們工程師為您把關、經過壓力測試的卓越供應鏈。",
+        "launch_title": "新創啟動階段",
+        "launch_badge": "數位印刷打樣專家",
+        "launch_desc": "針對起印量 1,000 袋的拼版多款設計提供專屬生產。免版費，熱灌裝穩定度達 95°C。",
+        "growth_title": "規模化量產階段",
+        "growth_badge": "大型量產製造夥伴",
+        "growth_desc": "隨著您的品牌成長，我們協助無縫過渡至高產能線。提供極具競爭力的全球化單價與高達 100°C 耐熱等級的 PBS 熱封層技術。",
+        "footer": "即刻聯繫我們的技術專家，評估您的蠟燭配方並對接專屬供應鏈網絡。"
+      },
+      "structure": {
+        "title": "NK / 牛皮紙 / PBS 環保複合結構",
+        "l1": "NatureFlex (NK) 外層: 100% 生物基耐高溫纖維素，專為精美印刷設計。",
+        "l2": "FSC 牛皮紙中層: 補強物理挺度，支撐重型蠟燭注蠟時的垂直承重。",
+        "l3": "PBS 熱封內層: 高耐熱聚丁二酸丁二醇酯，保障 85°C+ 安全灌裝不破袋。"
+      },
+      "cta": {
+        "title": "準備好告別厚重的玻璃罐了嗎？",
+        "book": "預約技術諮詢",
+        "sample": "索取樣品包",
+        "footer": "我們提供專業包裝技術，助您實現綠色品牌願景。"
+      }
+    }
+  },
+  "pouchReduceWasteGuidePage": {
+    "en": {
+      "meta": {
+        "title": "Reduce Packaging Waste | Engineering Circularity | Pouch.eco",
+        "description": "Technical guide to reducing packaging waste. 800+ words of research on source reduction, material lightweighting, and circular economy engineering.",
+        "keywords": "reduce packaging waste, source reduction, circular economy, lightweighting, mono-material recycling"
+      },
+      "hero": {
+        "badge": "WASTE_REDUCTION_V4",
+        "title": "Less.<br/>Waste.<br/>More.",
+        "subtitle": "Efficiency is the ultimate form of sustainability. We engineer source reduction into every pouch structure.",
+        "browse": "Browse Efficient Solutions",
+        "order": "Request a Waste Audit"
+      },
+      "engineering": {
+        "badge": "SOURCE_REDUCTION_LAB",
+        "title": "Engineering<br/>Zero.",
+        "p1": "The most sustainable packaging is the one that was never made. We utilize Machine Direction Orientation (MDO) to stretch polymer molecules, creating high-tensile films that deliver identical barrier protection with 25% less raw material weight. This lightweighting strategy directly reduces your virgin plastic tax liability in global markets while slashing your Scope 3 transport emissions.",
+        "metrics": {
+          "m1": {
+            "label": "Plastic Saved",
+            "value": "25%+",
+            "unit": "Per Unit",
+            "desc": "Through MDO-PE lightweighting."
+          },
+          "m2": {
+            "label": "CO2 Reduction",
+            "value": "32%",
+            "unit": "LCA Verified",
+            "desc": "Lower production and shipping energy."
+          },
+          "m3": {
+            "label": "Pallet Density",
+            "value": "+15%",
+            "unit": "Yield",
+            "desc": "More empty units per shipment."
+          },
+          "m4": {
+            "label": "Circular Ready",
+            "value": "100%",
+            "unit": "Mono-PE",
+            "desc": "Fully recyclable in standard streams."
+          }
+        }
+      },
+      "tech": {
+        "badge": "CIRCULAR_TECH_STACK",
+        "title": "Design for<br/>Disassembly.",
+        "t1": {
+          "title": "01. Mono-Material PE",
+          "desc": "Organically eliminating complex multi-layer laminates. Our 100% Mono-PE pouches are fully recyclable in standard store drop-off streams, creating a true closed-loop lifecycle."
+        },
+        "t2": {
+          "title": "02. Solvent-Free Lamination",
+          "desc": "Utilizing high-purity thermal bonding instead of chemical adhesives. This ensures the resulting recycled resin is high-quality and free from toxic cross-contaminants."
+        },
+        "t3": {
+          "title": "03. High-Yield Sizing",
+          "desc": "Precision engineering of pouch dimensions to minimize 'dead air.' We reduce the aggregate volume of shipments by up to 20%, cutting transport-related waste."
+        },
+        "t4": {
+          "title": "04. LCA Verified",
+          "desc": "Life Cycle Assessment data for every structure. We quantify the exact landfill avoidance and carbon offset of your packaging transition."
+        }
+      },
+      "lab": {
+        "badge": "WASTE_AUDIT_PROTOCOL",
+        "title": "Measured.<br/>Verified.",
+        "p1": "Sustainability cannot be vague. We perform Volumetric Efficiency Audits to identify the exact percentage of material waste in your current packaging. By transitioning to engineered flexible formats, our clients see an average landfill reduction of 75% compared to rigid PET or glass alternatives. We don't just hope for a cleaner future; we engineer the data to prove it.",
+        "f1_title": "Landfill Avoidance",
+        "f1_desc": "Every 1,000 units saved prevents 4.5kg of polymer from entering the waste stream.",
+        "f2_title": "Tax Mitigation",
+        "f2_desc": "Source reduction directly lowers liability under the UK Plastic Packaging Tax and EU EPR mandates."
+      },
+      "faq": {
+        "badge": "WASTE_FAQ",
+        "title": "Actionable<br/>Answers.",
+        "q1_q": "How does lightweighting affect the barrier properties?",
+        "q1_a": "By using oriented films like MDO-PE, we align the polymer chains more tightly, which can actually improve the moisture barrier while using less total material.",
+        "q2_q": "Is flexible packaging better than rigid for waste reduction?",
+        "q2_a": "Yes. Flexible pouches use up to 80% less plastic by weight than rigid bottles or jars, leading to massive source reduction at the start of the life cycle.",
+        "q3_q": "What is the biggest source of waste in D2C packaging?",
+        "q3_a": "Dead air. Shipping large boxes half-full of air and plastic 'pillows' is a major waste of energy and material. Engineered pouches eliminate this entirely.",
+        "q4_q": "How do you verify your waste reduction claims?",
+        "q4_a": "We provide ISO 14040/44 compliant Life Cycle Assessments (LCA) that quantify the material savings and carbon offset of your specific packaging order."
+      },
+      "cta": {
+        "badge": "WASTE_MANDATE",
+        "title": "Less Plastic.<br/>Better Brand.",
+        "subtitle": "Ready to audit your packaging and eliminate unnecessary waste? Our engineers are ready to run the numbers.",
+        "samples": "Order Efficient Samples",
+        "audit": "Audit My Packaging Waste"
+      }
+    },
+    "es": {
+      "meta": {
+        "title": "Reducir Residuos de Envases | Ingeniería de Circularidad | Pouch.eco",
+        "description": "Guía técnica para reducir los residuos de envases. Investigación sobre reducción en origen, aligeramiento de materiales e ingeniería de economía circular.",
+        "keywords": "reducir residuos de envases, reducción en origen, economía circular, aligeramiento, reciclaje de mono-materiales"
+      },
+      "hero": {
+        "badge": "WASTE_REDUCTION_V4",
+        "title": "Menos.<br/>Residuos.<br/>Más.",
+        "subtitle": "La eficiencia es la forma definitiva de sostenibilidad. Diseñamos la reducción en origen en cada estructura de bolsa.",
+        "browse": "Ver Soluciones Eficientes",
+        "order": "Solicitar Auditoría de Residuos"
+      },
+      "engineering": {
+        "badge": "SOURCE_REDUCTION_LAB",
+        "title": "Ingeniería del<br/>Cero.",
+        "p1": "El envase más sostenible es el que nunca se fabricó. Utilizamos la Orientación en Dirección de la Máquina (MDO) para estirar las moléculas del polímero, creando películas de alta resistencia que ofrecen una protección de barrera idéntica con un 25% menos de peso de materia prima. Esta estrategia de aligeramiento reduce directamente su responsabilidad fiscal de plástico virgen en los mercados globales al tiempo que reduce sus emisiones de transporte de Alcance 3.",
+        "metrics": {
+          "m1": {
+            "label": "Plástico Ahorrado",
+            "value": "25%+",
+            "unit": "Por Unidad",
+            "desc": "A través del aligeramiento MDO-PE."
+          },
+          "m2": {
+            "label": "Reducción CO2",
+            "value": "32%",
+            "unit": "LCA Verificado",
+            "desc": "Menor energía de producción y envío."
+          },
+          "m3": {
+            "label": "Densidad Palé",
+            "value": "+15%",
+            "unit": "Rendimiento",
+            "desc": "Más unidades vacías por envío."
+          },
+          "m4": {
+            "label": "Listo Circular",
+            "value": "100%",
+            "unit": "Mono-PE",
+            "desc": "Totalmente reciclable en flujos estándar."
+          }
+        }
+      },
+      "tech": {
+        "badge": "CIRCULAR_TECH_STACK",
+        "title": "Diseño para<br/>Desensamblaje.",
+        "t1": {
+          "title": "01. Mono-Material PE",
+          "desc": "Eliminando de forma orgánica los laminados multicapa complejos. Nuestras bolsas 100% Mono-PE son totalmente reciclables en los flujos estándar de entrega en tiendas, creando un verdadero ciclo de vida de circuito cerrado."
+        },
+        "t2": {
+          "title": "02. Laminación Libre de Solventes",
+          "desc": "Utilización de unión térmica de alta pureza en lugar de adhesivos químicos. Esto asegura que la resina reciclada resultante sea de alta calidad y libre de contaminantes cruzados tóxicos."
+        },
+        "t3": {
+          "title": "03. Tamaño de Alto Rendimiento",
+          "desc": "Ingeniería de precisión de las dimensiones de la bolsa para minimizar el 'aire muerto'. Reducimos el volumen total de los envíos hasta en un 20%, recortando los residuos relacionados con el transporte."
+        },
+        "t4": {
+          "title": "04. Verificado por LCA",
+          "desc": "Datos de Evaluación de Ciclo de Vida para cada estructura. Cuantificamos la evitación exacta de vertederos y la compensación de carbono de su transición de envases."
+        }
+      },
+      "lab": {
+        "badge": "WASTE_AUDIT_PROTOCOL",
+        "title": "Medido.<br/>Verificado.",
+        "p1": "La sostenibilidad no puede ser vaga. Realizamos Auditorías de Eficiencia Volumétrica para identificar el porcentaje exacto de desperdicio de material en sus envases actuales. Al cambiar a formatos flexibles diseñados, nuestros clientes ven una reducción promedio de vertederos del 75% en comparación con las alternativas rígidas de PET o vidrio. No solo esperamos un futuro más limpio; diseñamos los datos para probarlo.",
+        "f1_title": "Evitación de Vertederos",
+        "f1_desc": "Cada 1,000 unidades ahorradas evita que 4.5 kg de polímero entren en el flujo de residuos.",
+        "f2_title": "Mitigación Fiscal",
+        "f2_desc": "La reducción en origen reduce directamente la responsabilidad bajo el Impuesto sobre Envases de Plástico del Reino Unido y los mandatos EPR de la UE."
+      },
+      "faq": {
+        "badge": "WASTE_FAQ",
+        "title": "Respuestas<br/>Prácticas.",
+        "q1_q": "¿Cómo afecta el aligeramiento a las propiedades de barrera?",
+        "q1_a": "Al utilizar películas orientadas como MDO-PE, alineamos las cadenas de polímeros de forma más estrecha, lo que realmente puede mejorar la barrera contra la humedad utilizando menos material total.",
+        "q2_q": "¿Es el envase flexible mejor que el rígido para la reducción de residuos?",
+        "q2_a": "Sí. Las bolsas flexibles utilizan hasta un 80% menos de plástico en peso que las botellas o frascos rígidos, lo que conduce a una enorme reducción en origen al comienzo del ciclo de vida.",
+        "q3_q": "¿Cuál es la mayor fuente de desperdicio en el envasado D2C?",
+        "q3_a": "El aire muerto. Enviar cajas grandes llenas de aire hasta la mitad y 'almohadas' de plástico es un gran desperdicio de energía y material. Las bolsas diseñadas eliminan esto por completo.",
+        "q4_q": "¿Cómo verifica las afirmaciones de reducción de residuos?",
+        "q4_a": "Proporcionamos Evaluaciones de Ciclo de Vida (LCA) que cumplen con la norma ISO 14040/44 que cuantifican el ahorro de material y la compensación de carbono de su pedido específico."
+      },
+      "cta": {
+        "badge": "WASTE_MANDATE",
+        "title": "Menos Plástico.<br/>Mejor Marca.",
+        "subtitle": "¿Listo para auditar sus envases y eliminar residuos innecesarios? Nuestros ingenieros están listos para hacer los números.",
+        "samples": "Solicitar Muestras Eficientes",
+        "audit": "Auditar Residuos de Envases"
+      }
+    },
+    "fr": {
+      "meta": {
+        "title": "Réduire les Déchets d'Emballage | Ingénierie de la Circularité | Pouch.eco",
+        "description": "Guide technique pour réduire les déchets d'emballage. Recherche sur la réduction à la source, l'allègement des matériaux et l'ingénierie de l'économie circulaire.",
+        "keywords": "réduire déchets emballage, réduction à la source, économie circulaire, allègement, recyclage mono-matériau"
+      },
+      "hero": {
+        "badge": "WASTE_REDUCTION_V4",
+        "title": "Moins.<br/>Déchets.<br/>Plus.",
+        "subtitle": "L'efficacité est la forme ultime de durabilité. Nous concevons la réduction à la source dans chaque sachet.",
+        "browse": "Découvrir les Solutions Efficaces",
+        "order": "Demander un Audit des Déchets"
+      },
+      "engineering": {
+        "badge": "SOURCE_REDUCTION_LAB",
+        "title": "Concevoir le<br/>Zéro Déchet.",
+        "p1": "L'emballage le plus durable est celui qui n'a jamais été fabriqué. Nous utilise l'orientation dans le sens de la machine (MDO) pour étirer les molécules de polymère, créant ainsi des films à haute résistance qui offrent une protection barrière identique avec 25 % de matière première en moins. Cette stratégie d'allègement réduit directement votre taxe sur le plastique vierge sur les marchés mondiaux tout en réduisant vos émissions de transport de scope 3.",
+        "metrics": {
+          "m1": {
+            "label": "Plastique Sauvé",
+            "value": "25%+",
+            "unit": "Par Unité",
+            "desc": "Grâce à l'allègement du Mono-PE."
+          },
+          "m2": {
+            "label": "Réduction CO2",
+            "value": "32%",
+            "unit": "ACV Vérifiée",
+            "desc": "Moins d'énergie de production et d'expédition."
+          },
+          "m3": {
+            "label": "Densité Palette",
+            "value": "+15%",
+            "unit": "Rendement",
+            "desc": "Plus de sachets vides par expédition."
+          },
+          "m4": {
+            "label": "Prêt Circulaire",
+            "value": "100%",
+            "unit": "Mono-PE",
+            "desc": "Entièrement recyclable dans les filières standard."
+          }
+        }
+      },
+      "tech": {
+        "badge": "CIRCULAR_TECH_STACK",
+        "title": "Conçu pour le<br/>Démantèlement.",
+        "t1": {
+          "title": "01. Mono-Matériau PE",
+          "desc": "Éliminer de manière organique les complexes multicouches. Nos sachets 100 % Mono-PE sont entièrement recyclables dans les filières de collecte standard, créant ainsi un véritable cycle de vie en boucle fermée."
+        },
+        "t2": {
+          "title": "02. Scellage Sans Solvant",
+          "desc": "Utilisation d'une liaison thermique haute pureté au lieu d'adhésifs chimiques. Cela garantit que la résine recyclée obtenue est de haute qualité et exempte de contaminants."
+        },
+        "t3": {
+          "title": "03. Dimensionnement sur Mesure",
+          "desc": "Ingénierie de précision des dimensions des sachets pour minimiser l'air inutile. Nous réduisons le volume global des expéditions jusqu'à 20 %, limitant ainsi les déchets liés au transport."
+        },
+        "t4": {
+          "title": "04. Certifié ACV",
+          "desc": "Données d'analyse du cycle de vie pour chaque structure. Nous quantifions précisément l'évitement de la décharge et la compensation carbone de votre transition d'emballages."
+        }
+      },
+      "lab": {
+        "badge": "WASTE_AUDIT_PROTOCOL",
+        "title": "Mesuré.<br/>Vérifié.",
+        "p1": "La durabilité ne peut être vague. Nous réalisons des audits d'efficacité volumétrique pour identifier le pourcentage exact de déchets de matériaux dans vos emballages actuels. En passant aux formats flexibles optimisés, nos clients constatent une réduction moyenne de 75 % des déchets mis en décharge par rapport aux flacons rigides en PET ou en verre. Nous ne nous contentons pas de rêver de propreté ; nous concevons les données pour le prouver.",
+        "f1_title": "Évitement de Décharge",
+        "f1_desc": "Chaque millier de sachets économisés évite que 4,5 kg de polymères n'entrent dans les flux de déchets.",
+        "f2_title": "Atténuation des Taxes",
+        "f2_desc": "La réduction à la source réduit directement la taxe sur les emballages plastiques au Royaume-Uni et les directives EPR de l'UE."
+      },
+      "faq": {
+        "badge": "WASTE_FAQ",
+        "title": "Réponses<br/>Pratiques.",
+        "q1_q": "Quel est l'impact de l'allègement sur les propriétés barrières ?",
+        "q1_a": "En utilisant des films orientés comme le MDO-PE, nous alignons plus étroitement les chaînes de polymères, ce qui peut améliorer la barrière à l'humidité tout en réduisant la quantité globale de matériau.",
+        "q2_q": "L'emballage souple est-il préférable à l'emballage rigide pour réduire les déchets ?",
+        "q2_a": "Oui. Les sachets souples utilisent jusqu'à 80 % de plastique en moins en poids que les bouteilles ou flacons rigides, ce qui entraîne une réduction majeure à la source dès le début du cycle de vie.",
+        "q3_q": "Quelle est la principale source de déchets dans l'emballage D2C ?",
+        "q3_a": "Le transport de vide. Expédier de grands cartons à moitié remplis d'air et de coussins de calage en plastique est un immense gaspillage d'énergie et de matière. Les sachets optimisés éliminent totalement ce problème.",
+        "q4_q": "Comment vérifiez-vous vos affirmations de réduction des déchets ?",
+        "q4_a": "Nous fournissons des analyses de cycle de vie (ACV) conformes aux normes ISO 14040/44 qui chiffrent précisément les économies de matières et la compensation carbone de votre commande."
+      },
+      "cta": {
+        "badge": "WASTE_MANDATE",
+        "title": "Moins de Plastique.<br/>Meilleure Image.",
+        "subtitle": "Prêt à auditer vos emballages et à éliminer les déchets inutiles ? Nos ingénieurs sont à votre disposition pour chiffrer votre projet.",
+        "samples": "Commander des Échantillons Efficaces",
+        "audit": "Auditer mes Déchets d'Emballage"
+      }
+    },
+    "zh-TW": {
+      "meta": {
+        "title": "減少包裝廢物 | 綠色循環軟包裝工程 | Pouch.eco",
+        "description": "減少包裝廢棄物的技術指南。探討源頭減廢、包裝材料輕量化設計與綠色循環包裝工程。"
+      },
+      "hero": {
+        "badge": "WASTE_REDUCTION_V4",
+        "title": "極簡減廢.<br/>源頭減量.<br/>效益倍增.",
+        "subtitle": "高效率是綠色永續的終極形式。我們為每一款軟包裝袋結構注入精準的「源頭減量」設計。",
+        "browse": "瀏覽高效減廢包裝",
+        "order": "申請包裝減廢評估"
+      },
+      "engineering": {
+        "badge": "SOURCE_REDUCTION_LAB",
+        "title": "綠色減量.<br/>源頭出發.",
+        "p1": "最環保的包裝，就是從未被製造出來的包裝。我們利用機械方向拉伸（MDO）技術，重新排列並緊密拉伸高分子聚合物分子，生產出高強度的超薄防護膜，以減少 25% 的樹脂原料使用，同時維持同等級的卓越阻隔性能。這種「輕量化設計」不仅能直接降低企業在歐美市場的 virgin plastic 塑膠稅負擔，更能大幅降低 Scope 3 運輸碳足跡。",
+        "metrics": {
+          "m1": {
+            "label": "塑料節省比重",
+            "value": "25%+",
+            "unit": "每袋平均",
+            "desc": "透過 MDO-PE 輕量化工藝達成"
+          },
+          "m2": {
+            "label": "減少碳排放",
+            "value": "32%",
+            "unit": "LCA 驗證",
+            "desc": "大幅降低生產與運輸能源損耗"
+          },
+          "m3": {
+            "label": "棧板裝載密度",
+            "value": "+15%",
+            "unit": "裝載率",
+            "desc": "提升單次貨運的包裝空袋容量"
+          },
+          "m4": {
+            "label": "支援循環體系",
+            "value": "100%",
+            "unit": "單一PE材料",
+            "desc": "可直接投入聚乙烯回收渠道"
+          }
+        }
+      },
+      "tech": {
+        "badge": "CIRCULAR_TECH_STACK",
+        "title": "循環減廢.<br/>拆解回收.",
+        "t1": {
+          "title": "01. 100% 單一材料聚乙烯 (Mono-PE)",
+          "desc": "徹底淘汰難以分離的多層異質塑料。我們開發的 Mono-PE 軟包裝自立袋，可直接在商店收集箱或指定渠道進行完整回收，重塑真正的閉環生命週期。"
+        },
+        "t2": {
+          "title": "02. 無溶劑環保複合工藝",
+          "desc": "以高純度熱封粘合技術取代傳統化學膠水，確保回收產出的再生 rPE 塑膠顆粒品質純正，不含任何毒性交叉污染物。"
+        },
+        "t3": {
+          "title": "03. 高容積率精準規格設計",
+          "desc": "根據產品容積進行精準包裝維度計算，大幅縮減「死角空間」。可減少高達 20% 的貨運物流材積，避免運送非必要的空氣。"
+        },
+        "t4": {
+          "title": "04. 獲得 LCA 生命週期數據",
+          "desc": "出廠即附帶完整的碳足跡與生命週期評估數據，精確量化您換用環保包裝後所減少的垃圾掩埋率與碳中和數據。"
+        }
+      },
+      "lab": {
+        "badge": "WASTE_AUDIT_PROTOCOL",
+        "title": "精準量化.<br/>權威認證.",
+        "p1": "綠色永續容不得模糊空间。我們為客戶執行「容積效率與包裝審計」，為您揪出目前包裝中非必要的材料浪費。透過轉用 Pouch.eco 科學設計的環保軟包裝袋，我們平均為合作品牌降低了 75% 的包裝廢棄物比重（相較於笨重的 PET 塑膠罐或玻璃瓶）。我們不用口頭承諾，只用真實數據說話。",
+        "f1_title": "減少垃圾掩埋",
+        "f1_desc": "每節省 1,000 袋軟包裝，即可避免 4.5kg 的塑膠廢料流入環境或掩埋場。",
+        "f2_title": "碳稅與環保稅減免",
+        "f2_desc": "透過源頭減量，可直接協助企業減輕英國塑料包裝稅（PPT）與歐盟 EPR 規費支出。"
+      },
+      "faq": {
+        "badge": "WASTE_FAQ",
+        "title": "專家<br/>深度解答.",
+        "q1_q": "包裝薄膜「輕量化」後會降低防潮阻隔性能嗎？",
+        "q1_a": "不會。我們採用的拉伸技術（例如 MDO-PE）會使高分子鏈排列得更加緊密，在厚度減薄的同時，物理防潮性能反而能維持甚至更佳，實現少料高效能。",
+        "q2_q": "在減廢方面，軟包裝袋真的優於傳統硬質瓶罐嗎？",
+        "q2_a": "是的。在相同容積下，軟包裝袋所消耗的塑料重量比傳統硬質塑膠瓶、玻璃罐少 80% 以上，從產品生命週期的起點便實現了顯著的源頭減量。",
+        "q3_q": "在 DTC/電商物流包裝中，最常見的浪費是什麼？",
+        "q3_a": "答案是「死角空氣與過度包裝」。大紙箱裝半空產品並塞滿難以回收的充氣塑料袋會耗費極大資源。轉用客製化軟包裝袋能完美貼合產品形狀，完全省去這些包材浪費。",
+        "q4_q": "你們如何向企業客戶驗證減廢與環保成效？",
+        "q4_a": "我們提供符合 ISO 14040/44 標準的官方「生命週期評估（LCA）」合規報告，精確對比並量化您的新舊包裝訂單在塑料節省、運費減省及碳排降幅等面向的技術數據。"
+      },
+      "cta": {
+        "badge": "WASTE_MANDATE",
+        "title": "精簡塑料.<br/>卓越品牌.",
+        "subtitle": "準備好為您的品牌做包裝瘦身，消除非必要的材料浪費了嗎？我們的包裝工程師隨時為您計算最佳方案。",
+        "samples": "免費索取高效包裝樣品",
+        "audit": "預約品牌包裝減廢審計"
+      }
+    }
+  },
+  "pouchEcoFriendlySupplierVerificationPage": {
+    "en": {
+      "meta": {
+        "title": "Eco-Friendly Supplier Verification | Supply Chain Engineering | Pouch.eco",
+        "description": "Technical guide to sustainable supplier verification. 800+ words of research on SMETA audits, GRS traceability, and BRCGS food safety compliance.",
+        "keywords": "eco-friendly supplier verification, sustainable supply chain, packaging audit, GRS traceability, SMETA audit"
+      },
+      "hero": {
+        "badge": "SUPPLY_CHAIN_V2.0",
+        "title": "Verify.<br/>Audit.<br/>Secure.",
+        "subtitle": "Sustainability without verification is just marketing. We engineer trust through rigorous SEDEX/SMETA audits and batch-level GRS traceability, ensuring your brand stays bulletproof against greenwashing risks.",
+        "standards": "Our Audit Standards",
+        "request": "Request a Supplier Audit"
+      },
+      "engineering": {
+        "badge": "TECHNICAL_ACCOUNTABILITY",
+        "title": "Evidence Based<br/>Trust.",
+        "p1": "Trust is a byproduct of transparency. We perform 4-Pillar SMETA audits on our core manufacturing facilities to verify ethical labor, occupational health, and environmental performance. By integrating ISO 14001 environmental management systems and BRCGS Grade A hygiene protocols, we ensure your packaging is manufactured to the world's most demanding technical specifications.",
+        "metrics": {
+          "m1": {
+            "label": "Social Compliance",
+            "value": "100%",
+            "unit": "SMETA",
+            "desc": "Ethical labor and wage verification."
+          },
+          "m2": {
+            "label": "Quality Score",
+            "value": "A",
+            "unit": "BRCGS",
+            "desc": "Highest global hygiene benchmark."
+          },
+          "m3": {
+            "label": "Material Trace",
+            "value": "LINKED",
+            "unit": "GRS/ISCC",
+            "desc": "Verified recycled content trail."
+          },
+          "m4": {
+            "label": "On-Site Presence",
+            "value": "LOCAL",
+            "unit": "Auditors",
+            "desc": "Physical verification in major hubs."
+          }
+        }
+      },
+      "tech": {
+        "badge": "TRACEABILITY_ENGINE",
+        "title": "The Chain of<br/>Custody.",
+        "t1": {
+          "title": "01. GRS Verified",
+          "desc": "Global Recycled Standard. We provide the Transaction Certificates (TC) required to prove the specific percentage of post-consumer waste in your film structure. No guesses. Just data."
+        },
+        "t2": {
+          "title": "02. ISCC PLUS",
+          "desc": "Mass-balance traceability for bio-circular resins. This system tracks sustainable materials through the complex chemical recycling and co-extrusion supply chain."
+        },
+        "t3": {
+          "title": "03. SEDEX/SMETA",
+          "desc": "Social and ethical audit verification. We ensure that every person in the Achieve Pack supply chain is treated with dignity, paid fairly, and works in a safe environment."
+        },
+        "t4": {
+          "title": "04. BRCGS Grade A",
+          "desc": "Global Standard for Food Safety. Our facilities are audited annually to ensure the highest levels of hygiene and contamination control in the flexible packaging industry."
+        }
+      },
+      "lab": {
+        "badge": "PHYSICAL_VALIDATION",
+        "title": "On-Site.<br/>In Real-Time.",
+        "p1": "We maintain an active on-the-ground presence in all our primary manufacturing hubs. This allows us to perform unannounced audits, verify batch-level quality control, and ensure that the documented sustainability standards are being met in daily operations. We don't just trust the certificate; we trust our eyes.",
+        "f1_title": "Batch QA Analysis",
+        "f1_desc": "Every production run is sampled and tested for barrier performance and material purity.",
+        "f2_title": "Ethical Oversight",
+        "f2_desc": "Continuous monitoring of labor rights and safety standards through our local audit teams."
+      },
+      "faq": {
+        "badge": "AUDIT_FAQ",
+        "title": "Supply Chain<br/>Clarity.",
+        "q1_q": "How do you handle supplier non-compliance?",
+        "q1_a": "We maintain a 'Zero-Tolerance' policy for major ethical or safety breaches. For minor deviations, we implement a Corrective Action Plan (CAP) with a mandatory re-audit within 90 days.",
+        "q2_q": "Can I join an on-site audit of my packaging production?",
+        "q2_a": "Yes. For our enterprise clients, we facilitate site visits and third-party audits of their specific production lines to ensure total transparency.",
+        "q3_q": "What is an EcoVadis score and why is it important?",
+        "q3_a": "EcoVadis is the world's most trusted business sustainability rating. We use it to benchmark our suppliers against global peers in Environment, Labor & Human Rights, and Ethics.",
+        "q4_q": "How do you verify PCR content claims?",
+        "q4_a": "We require Transaction Certificates (TC) linked to the Global Recycled Standard (GRS) for every batch. This provides a forensic trail back to the recycling facility."
+      },
+      "cta": {
+        "badge": "AUDIT_ACTION_PLAN",
+        "title": "Verified.<br/>Valued.",
+        "subtitle": "Ready to secure a transparent, ethical supply chain for your brand? Let's discuss your verification requirements today.",
+        "standards": "Review Our Standards",
+        "speak": "Speak to an Auditor"
+      }
+    },
+    "es": {
+      "meta": {
+        "title": "Verificación de Proveedores Ecológicos | Ingeniería de Cadena de Suministro | Pouch.eco",
+        "description": "Guía técnica para la verificación de proveedores sostenibles. Investigación sobre auditorías SMETA, trazabilidad GRS y conformidad de seguridad alimentaria BRCGS.",
+        "keywords": "verificación de proveedores ecológicos, cadena de suministro sostenible, auditoría de envases, trazabilidad GRS, auditoría SMETA"
+      },
+      "hero": {
+        "badge": "SUPPLY_CHAIN_V2.0",
+        "title": "Verificar.<br/>Auditar.<br/>Asegurar.",
+        "subtitle": "La sostenibilidad sin verificación es solo marketing. Diseñamos la confianza a través de auditorías rigurosas SEDEX/SMETA y trazabilidad GRS a nivel de lote, garantizando que su marca permanezca protegida contra riesgos de lavado verde.",
+        "standards": "Nuestros Estándares de Auditoría",
+        "request": "Solicitar Auditoría de Proveedor"
+      },
+      "engineering": {
+        "badge": "TECHNICAL_ACCOUNTABILITY",
+        "title": "Confianza Basada<br/>en Evidencias.",
+        "p1": "La confianza es un subproducto de la transparencia. Realizamos auditorías SMETA de 4 pilares en nuestras instalaciones de fabricación principales para verificar el trabajo ético, la salud ocupacional y el desempeño ambiental. Al integrar sistemas de gestión ambiental ISO 14001 y protocolos de higiene BRCGS Grado A, nos aseguramos de que su empaque se fabrique con las especificaciones técnicas más exigentes del mundo.",
+        "metrics": {
+          "m1": {
+            "label": "Conformidad Social",
+            "value": "100%",
+            "unit": "SMETA",
+            "desc": "Verificación ética de mano de obra y salarios."
+          },
+          "m2": {
+            "label": "Puntuación Calidad",
+            "value": "A",
+            "unit": "BRCGS",
+            "desc": "El estándar de higiene global más alto."
+          },
+          "m3": {
+            "label": "Rastro Material",
+            "value": "VINCULADO",
+            "unit": "GRS/ISCC",
+            "desc": "Historial verificado de contenido reciclado."
+          },
+          "m4": {
+            "label": "Presencia In Situ",
+            "value": "LOCAL",
+            "unit": "Auditores",
+            "desc": "Verificación física en centros principales."
+          }
+        }
+      },
+      "tech": {
+        "badge": "TRACEABILITY_ENGINE",
+        "title": "La Cadena de<br/>Custodia.",
+        "t1": {
+          "title": "01. Verificado por GRS",
+          "desc": "Estándar Global de Reciclaje. Proporcionamos los Certificados de Transacción (TC) necesarios para probar el porcentaje específico de residuos postconsumo en su estructura de película. Sin suposiciones. Solo datos."
+        },
+        "t2": {
+          "title": "02. ISCC PLUS",
+          "desc": "Trazabilidad de balance de masa para resinas biocirculares. Este sistema rastrea materiales sostenibles a través de la compleja cadena de suministro de reciclaje químico y coextrusión."
+        },
+        "t3": {
+          "title": "03. SEDEX/SMETA",
+          "desc": "Verificación de auditoría social y ética. Nos aseguramos de que cada persona en la cadena de suministro de Achieve Pack sea tratada con dignidad, reciba un pago justo y trabaje en un entorno seguro."
+        },
+        "t4": {
+          "title": "04. BRCGS Grado A",
+          "desc": "Estándar Global para la Seguridad Alimentaria. Nuestras instalaciones se auditan anualmente para garantizar los niveles más altos de higiene y control de contaminación en la industria de envases flexibles."
+        }
+      },
+      "lab": {
+        "badge": "PHYSICAL_VALIDATION",
+        "title": "En el Sitio.<br/>En Tiempo Real.",
+        "p1": "Mantenemos una presencia activa sobre el terreno en todos nuestros centros de fabricación principales. Esto nos permite realizar auditorías no anunciadas, verificar el control de calidad a nivel de lote y garantizar que los estándares de sostenibilidad documentados se cumplan en las operaciones diarias. No solo confiamos en el certificado; confiamos en nuestros ojos.",
+        "f1_title": "Análisis de Control de Calidad por Lote",
+        "f1_desc": "Cada lote de producción se somete a muestras y pruebas de rendimiento de barrera y pureza del material.",
+        "f2_title": "Supervisión Ética",
+        "f2_desc": "Monitoreo continuo de los derechos laborales y estándares de seguridad a través de nuestros equipos de auditoría locales."
+      },
+      "faq": {
+        "badge": "AUDIT_FAQ",
+        "title": "Claridad de la<br/>Cadena de Suministro.",
+        "q1_q": "¿Cómo manejan el incumplimiento de los proveedores?",
+        "q1_a": "Mantenemos una política de 'Tolerancia Cero' para infracciones éticas o de seguridad graves. Para desviaciones menores, implementamos un Plan de Acción Correctiva (CAP) con una auditoría obligatoria dentro de los 90 días.",
+        "q2_q": "¿Puedo unirme a una auditoría in situ de la producción de mis envases?",
+        "q2_a": "Sí. Para nuestros clientes corporativos, facilitamos visitas al sitio y auditorías de terceros de sus líneas de producción específicas para garantizar una transparencia total.",
+        "q3_q": "¿Qué es una puntuación EcoVadis y por qué es importante?",
+        "q3_a": "EcoVadis es la calificación de sostenibilidad empresarial más confiable del mundo. La utilizamos para evaluar a nuestros proveedores frente a sus pares globales en medio ambiente, derechos humanos y laborales, y ética.",
+        "q4_q": "¿Cómo verifican las afirmaciones de contenido de PCR?",
+        "q4_a": "Requerimos Certificados de Transacción (TC) vinculados al Estándar Global de Reciclaje (GRS) para cada lote. Esto proporciona un rastro forense de regreso a la instalación de reciclaje."
+      },
+      "cta": {
+        "badge": "AUDIT_ACTION_PLAN",
+        "title": "Verificado.<br/>Valorado.",
+        "subtitle": "¿Listo para asegurar una cadena de suministro transparente y ética para su marca? Hablemos de sus requisitos de verificación hoy.",
+        "standards": "Revisar Nuestros Estándares",
+        "speak": "Hable con un Auditor"
+      }
+    },
+    "fr": {
+      "meta": {
+        "title": "Vérification des Fournisseurs Éco | Ingénierie de la Supply Chain | Pouch.eco",
+        "description": "Guide technique pour la vérification des fournisseurs durables. Recherche sur les audits SMETA, la traçabilité GRS et la conformité de sécurité alimentaire BRCGS.",
+        "keywords": "vérification des fournisseurs éco, supply chain durable, audit d'emballage, traçabilité GRS, audit SMETA"
+      },
+      "hero": {
+        "badge": "SUPPLY_CHAIN_V2.0",
+        "title": "Vérifier.<br/>Auditer.<br/>Sécuriser.",
+        "subtitle": "La durabilité sans vérification n'est que du marketing. Nous concevons la confiance grâce à des audits SEDEX/SMETA rigoureux et à une traçabilité GRS par lot, garantissant que votre marque reste protégée contre le greenwashing.",
+        "standards": "Nos Normes d'Audit",
+        "request": "Demander un Audit Fournisseur"
+      },
+      "engineering": {
+        "badge": "TECHNICAL_ACCOUNTABILITY",
+        "title": "Confiance Basée<br/>sur les Preuves.",
+        "p1": "La confiance est le résultat de la transparence. Nous réalisons des audits SMETA en 4 piliers sur nos principaux sites de fabrication pour vérifier le travail éthique, la santé au travail et les performances environnementales. En intégrant les systèmes de management environnemental ISO 14001 et les protocoles d'hygiène BRCGS de grade A, nous garantissons que vos sachets sont produits selon les normes les plus strictes.",
+        "metrics": {
+          "m1": {
+            "label": "Conformité Sociale",
+            "value": "100%",
+            "unit": "SMETA",
+            "desc": "Vérification de l'éthique de travail et des salaires."
+          },
+          "m2": {
+            "label": "Note Qualité",
+            "value": "A",
+            "unit": "BRCGS",
+            "desc": "Le plus haut standard d'hygiène mondial."
+          },
+          "m3": {
+            "label": "Traçabilité Mat.",
+            "value": "LIÉE",
+            "unit": "GRS/ISCC",
+            "desc": "Historique vérifié du contenu recyclé."
+          },
+          "m4": {
+            "label": "Présence Terrain",
+            "value": "LOCALE",
+            "unit": "Auditeurs",
+            "desc": "Vérification physique sur nos sites principaux."
+          }
+        }
+      },
+      "tech": {
+        "badge": "TRACEABILITY_ENGINE",
+        "title": "La Chaîne de<br/>Contrôle.",
+        "t1": {
+          "title": "01. Certifié GRS",
+          "desc": "Global Recycled Standard. Nous fournissons les certificats de transaction (TC) requis pour prouver le pourcentage précis de matières recyclées dans vos structures. Pas de devinettes. Juste des données."
+        },
+        "t2": {
+          "title": "02. ISCC PLUS",
+          "desc": "Traçabilité du bilan de masse pour les résines bio-circulaires. Ce système suit les matériaux durables à travers la chaîne d'approvisionnement complexe du recyclage chimique."
+        },
+        "t3": {
+          "title": "03. SEDEX/SMETA",
+          "desc": "Vérification par audit social et éthique. Nous veillons à ce que chaque personne de la chaîne d'approvisionnement d'Achieve Pack soit traitée avec dignité, rémunérée équitablement et travaille en sécurité."
+        },
+        "t4": {
+          "title": "04. BRCGS Grade A",
+          "desc": "Norme mondiale pour la sécurité alimentaire. Nos usines sont auditées chaque année pour garantir les niveaux les plus élevés d'hygiène et de contrôle de la contamination."
+        }
+      },
+      "lab": {
+        "badge": "PHYSICAL_VALIDATION",
+        "title": "Sur Place.<br/>En Temps Réel.",
+        "p1": "Nous maintenons une présence active sur le terrain dans tous nos principaux pôles de fabrication. Cela nous permet de réaliser des audits inopinés, de valider le contrôle qualité par lot et de veiller à ce que les normes de durabilité documentées soient respectées. Nous ne croyons pas seulement aux certificats ; nous croyons en ce que nous voyons.",
+        "f1_title": "Contrôle Qualité par Lot",
+        "f1_desc": "Chaque campagne de production est échantillonnée et testée pour valider l'étanchéité et la pureté des matériaux.",
+        "f2_title": "Supervision Éthique",
+        "f2_desc": "Suivi permanent des droits du travail et des normes de sécurité par nos équipes d'audit locales."
+      },
+      "faq": {
+        "badge": "AUDIT_FAQ",
+        "title": "Clarté de la<br/>Chaîne Logistique.",
+        "q1_q": "Comment gérez-vous la non-conformité d'un fournisseur ?",
+        "q1_a": "Nous appliquons une politique de 'Tolérance Zéro' pour les manquements éthiques ou de sécurité majeurs. Pour les écarts mineurs, nous mettons en œuvre un plan d'action corrective (CAP) avec réaudit sous 90 jours.",
+        "q2_q": "Puis-je assister à un audit sur site de la production de mes sachets ?",
+        "q2_a": "Oui. Pour nos grands comptes, nous facilitons les visites sur site et les audits par des tiers de leurs lignes de production dédiées pour une transparence totale.",
+        "q3_q": "Qu'est-ce que l'évaluation EcoVadis et pourquoi est-elle importante ?",
+        "q3_a": "EcoVadis est l'évaluation de la durabilité des entreprises la plus reconnue au monde. Nous l'utilisons pour évaluer nos partenaires en matière d'environnement, de droits humains et d'éthique.",
+        "q4_q": "Comment vérifiez-vous le taux de PCR ?",
+        "q4_a": "Nous exigeons des certificats de transaction (TC) liés au Global Recycled Standard (GRS) pour chaque lot. Cela fournit un suivi infalsifiable jusqu'au site de recyclage."
+      },
+      "cta": {
+        "badge": "AUDIT_ACTION_PLAN",
+        "title": "Vérifié.<br/>Valorisé.",
+        "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement transparente et éthique pour votre marque ? Parlons de vos exigences dès aujourd'hui.",
+        "standards": "Découvrir Nos Standards",
+        "speak": "Parler à un Auditeur"
+      }
+    },
+    "zh-TW": {
+      "meta": {
+        "title": "綠色包裝供應商審計與合規驗證 | 供應鏈工程 | Pouch.eco",
+        "description": "環保軟包裝供應商合規審計與驗證技術指南。解析 SMETA 社會責任審計、GRS 再生料溯源與 BRCGS 食品安全規範。"
+      },
+      "hero": {
+        "badge": "SUPPLY_CHAIN_V2.0",
+        "title": "合規驗證.<br/>嚴格審計.<br/>安全供應.",
+        "subtitle": "缺乏合規驗證的永續只是行銷口號。我們透過嚴苛的 SEDEX/SMETA 審計與批次級 GRS 原料溯源系統，為品牌建構強大的誠信防護，免受綠色漂白誠信風險。",
+        "standards": "審計技術標準",
+        "request": "申請供應鏈驗證審計"
+      },
+      "engineering": {
+        "badge": "TECHNICAL_ACCOUNTABILITY",
+        "title": "用科學數據.<br/>建立信任.",
+        "p1": "信任建立在高度透明的基礎之上。我們對核心合作工廠進行嚴格的 SMETA 四大範疇（4-Pillar）社會責任審計，全面檢驗勞工人權、職業健康與環境安全。透過導入 ISO 14001 環境管理體系與 BRCGS 食品安全全球標準（Grade A）衛生協定，確保您的軟包裝產品在最嚴謹的技術規格與環境下製造。",
+        "metrics": {
+          "m1": {
+            "label": "社會責任合規性",
+            "value": "100%",
+            "unit": "SMETA",
+            "desc": "確保公平勞動與薪酬福利合規性"
+          },
+          "m2": {
+            "label": "衛生安全評級",
+            "value": "A級認證",
+            "unit": "BRCGS",
+            "desc": "國際包裝材料最高安全衛生標準"
+          },
+          "m3": {
+            "label": "再生原料溯源",
+            "value": "雙重鏈結",
+            "unit": "GRS/ISCC",
+            "desc": "具備批次級再生塑料交易證書 (TC)"
+          },
+          "m4": {
+            "label": "駐廠審計密度",
+            "value": "在地化",
+            "unit": "審核團隊",
+            "desc": "在核心生產基地配置在地專業審核員"
+          }
+        }
+      },
+      "tech": {
+        "badge": "TRACEABILITY_ENGINE",
+        "title": "可信賴的.<br/>監管鏈.",
+        "t1": {
+          "title": "01. 全球回收標準（GRS）認證",
+          "desc": "針對大貨生產，我們提供對應的 GRS 交易證書（TC），透明佐證您的包裝袋中所添加的消費後回收塑料（PCR）之具體佔比。拒絕空口無憑，用數據說話。"
+        },
+        "t2": {
+          "title": "02. ISCC PLUS 國際永續與碳認證",
+          "desc": "針對生物基與循環再生塑料膜，採取嚴格的物質平衡（Mass Balance）溯源系統，跨越複雜的共擠複合製程，精確記錄原料鏈流向。"
+        },
+        "t3": {
+          "title": "03. SEDEX / SMETA 社會責任審計",
+          "desc": "我們嚴格審核 Achieve Pack 供應鏈中的每一家工廠，確保所有工作夥伴享有平等的工作環境、合理的工時與薪資報酬，捍衛基本人權。"
+        },
+        "t4": {
+          "title": "04. BRCGS 食品級軟包裝 Grade A 認證",
+          "desc": "食品包裝與接觸材料安全全球標準。我們的生產線每年均通過嚴苛審核，確保物理、化學及微生物污染防範機制皆處於最頂尖的水平。"
+        }
+      },
+      "lab": {
+        "badge": "PHYSICAL_VALIDATION",
+        "title": "現場查核.<br/>即時監管.",
+        "p1": "我們在各大包裝製造中心均部署了在地技術代表與品質審核人員。這使我們能隨時發起不預警工廠查核、監控批次大貨品管，確保環保承諾確實在每日的機台運作中被貫徹執行。我們不只看紙本證書，我們更相信親眼所見的品質監管。",
+        "f1_title": "批次 QA 品質檢測",
+        "f1_desc": "每一生產批次均進行抽樣檢測，驗證氣密密封性與聚合物配方純度。",
+        "f2_title": "合規生產監管",
+        "f2_desc": "透過在地團隊對工作環境與安全標準進行不間斷的定期查核與監察。"
+      },
+      "faq": {
+        "badge": "AUDIT_FAQ",
+        "title": "供應鏈合規.<br/>深度解密.",
+        "q1_q": "當發現合作供應商有不合規事項時，你們如何處置？",
+        "q1_a": "我們對嚴重的倫理、人權或核心安全違規採取「零容忍」政策，將立即暫停其生產資格。若為一般次要瑕疵，我們會限期發起矯正預防措施計劃（CAP），並要求在 90 天內進行強制性實地覆審驗收。",
+        "q2_q": "做為品牌客戶，我能親自參與包裝大貨的實地工廠審計嗎？",
+        "q2_a": "可以。針對我們的大型合約品牌客戶，我們可協助安排與陪同您的品管或第三方審核小組，前往承接您大貨訂單的特定產線進行實地參觀與審計查驗。",
+        "q3_q": "什麼是 EcoVadis 評級？為什麼這項指標至關重要？",
+        "q3_a": "EcoVadis 是全球最具權威性的企業社會責任（CSR）與永續評級平台。我們藉此平台對全線供應商在環境保護、勞工人權、商業道德與永續採購等四大維度進行深度評分，確保完全契合財星五百大企業的綠色採購方針。",
+        "q4_q": "你們如何向客戶證明 PCR（消費後回收塑料）的真實添加佔比？",
+        "q4_a": "我們會隨貨開立由第三方國際認證機構簽發的 GRS 交易證書（TC）。每一份 TC 證書上的原料流水號，皆可直接向上追溯至最早源頭的廢料回收與造粒工廠，建構完整的誠信防衛鏈。"
+      },
+      "cta": {
+        "badge": "AUDIT_ACTION_PLAN",
+        "title": "合規誠信.<br/>核心價值.",
+        "subtitle": "準備好為您的品牌建構一個綠色、健康、完全合規的透明供應鏈了嗎？即刻與我們的品管審計師展開對話。",
+        "standards": "審閱供應鏈合規標準",
+        "speak": "預約合規審計師諮詢"
+      }
+    }
+  },
+  "pouchFoodPackagingSupplierServicePage": {
+    "en": {
+      "meta": {
+        "title": "Food Packaging Supplier | Technical Engineering & Scale | Pouch.eco",
+        "description": "Technical guide to choosing a food packaging supplier. 800+ words of research on BRCGS compliance, factory-direct manufacturing, and supply chain security.",
+        "keywords": "food packaging supplier, packaging manufacturer, BRCGS certified, factory direct pouches, circular economy supply chain"
+      },
+      "hero": {
+        "badge": "SUPPLIER_TECH_V1.0",
+        "title": "Scale.<br/>Pure.<br/>Direct.",
+        "subtitle": "A supplier is a technical partner, not a middleman. We provide direct-to-factory packaging solutions.",
+        "browse": "Browse Factory Solutions",
+        "order": "Request Audit Data"
+      },
+      "engineering": {
+        "badge": "SUPPLY_CHAIN_AUDIT",
+        "title": "Verified.<br/>To the Source.",
+        "p1": "In a regulated market, your supplier's certifications are your brand's shield. We operate vertically integrated manufacturing facilities that are BRCGS Global Standard for Packaging Materials (Grade A) certified. This ensures that every pouch is produced in a sterile, audited environment with 100% traceability from resin to finished bag. By working Direct-to-Factory, you eliminate middleman margins and gain direct access to our Material Science lab, allowing for rapid prototyping of high-barrier, sustainable structures (Mono-PE, PCR, and Compostable) that meet the strictest food safety standards of 2026.",
+        "metrics": {
+          "m1": {
+            "label": "Audit Score",
+            "value": "Grade A",
+            "unit": "BRCGS",
+            "desc": "Global hygiene and safety standard."
+          },
+          "m2": {
+            "label": "MOQ Minimum",
+            "value": "500",
+            "unit": "Units",
+            "desc": "Low-threshold digital production."
+          },
+          "m3": {
+            "label": "Lead Time",
+            "value": "21",
+            "unit": "Days",
+            "desc": "Average turnaround for digital SKUs."
+          },
+          "m4": {
+            "label": "Compliance",
+            "value": "100%",
+            "unit": "DoC",
+            "desc": "Full Declaration of Compliance docs."
+          }
+        }
+      },
+      "tech": {
+        "badge": "FACTORY_TECH_STACK",
+        "title": "Massive Scale.<br/>Nano Precision.",
+        "t1": {
+          "title": "01. Co-Extrusion Tech",
+          "desc": "Our multi-layer extrusion lines can integrate up to 9 layers of polymers, including EVOH and PA, for extreme shelf-life preservation without bulk."
+        },
+        "t2": {
+          "title": "02. HP Indigo 25K Digital",
+          "desc": "Precision digital printing with 100% solvent-free inks. Ideal for low-MOQ multi-SKU food brands requiring rapid speed-to-market."
+        },
+        "t3": {
+          "title": "03. Automated Converting",
+          "desc": "High-speed bag-making with in-line zipper and valve insertion, ensuring zero human contact and 100% hermetic seal integrity."
+        },
+        "t4": {
+          "title": "04. Global Logistics",
+          "desc": "DDP (Delivered Duty Paid) shipping to major hubs worldwide. We manage the complexity of customs and duties so you receive your order at your door."
+        }
+      },
+      "lab": {
+        "badge": "QUALITY_SCIENCE_V1",
+        "title": "Measured.<br/>To the Pouch.",
+        "p1": "Quality is a technical specification, not a promise. Every batch of our food packaging undergoes rigorous ASTM testing for seal strength, puncture resistance, and COF (Coefficient of Friction). We provide Declaration of Compliance (DoC) documents and Specific Migration Limit (SML) data to ensure your brand is 100% legally compliant in the US, EU, and beyond. As your technical supplier, we don't just deliver bags; we deliver Shelf-Life Certainty and Regulatory Security for your most critical food products.",
+        "f1_title": "Lab Verified",
+        "f1_desc": "Tested for OTR, WVTR, and seal integrity on every custom production run.",
+        "f2_title": "Traceable Supply",
+        "f2_desc": "Full resin-to-pouch traceability for complete food safety and recall security."
+      },
+      "faq": {
+        "badge": "SUPPLIER_FAQ",
+        "title": "Expert<br/>Intelligence.",
+        "q1_q": "What is your BRCGS audit score?",
+        "q1_a": "We consistently maintain a Grade A rating, the highest standard for food-grade packaging safety and manufacturing hygiene.",
+        "q2_q": "Do you offer DDP shipping?",
+        "q2_a": "Yes. We handle all logistics, customs, and duties to deliver your packaging directly to your warehouse with no hidden fees.",
+        "q3_q": "Can I audit your factory in person?",
+        "q3_a": "Absolutely. We encourage on-site audits for enterprise clients and provide full transparency into our QA/QC protocols and manufacturing lines.",
+        "q4_q": "Do you provide design support?",
+        "q4_a": "Yes. Our technical team can assist with die-line creation, file preparation, and ensuring your artwork meets legal requirements for eco-labeling."
+      },
+      "cta": {
+        "badge": "FACTORY_MANDATE",
+        "title": "Build Bold.<br/>Direct Power.",
+        "subtitle": "Ready to secure a technical, factory-direct supply chain for your brand? Let's start the audit today.",
+        "samples": "Request Factory Audit",
+        "engineer": "Speak to a Supply Engineer"
+      }
+    },
+    "es": {
+      "meta": {
+        "title": "Proveedor de Envases de Alimentos | Ingeniería Técnica y Escala | Pouch.eco",
+        "description": "Guía técnica para elegir un proveedor de envases de alimentos. Investigación sobre la conformidad con BRCGS, fabricación directa de fábrica y seguridad de la cadena de suministro.",
+        "keywords": "proveedor de envases de alimentos, fabricante de envases, certificado BRCGS, bolsas directas de fábrica, cadena de suministro de economía circular"
+      },
+      "hero": {
+        "badge": "SUPPLIER_TECH_V1.0",
+        "title": "Escala.<br/>Puro.<br/>Directo.",
+        "subtitle": "Un proveedor es un socio técnico, no un intermediario. Proporcionamos soluciones de envasado directas de fábrica.",
+        "browse": "Ver Soluciones de Fábrica",
+        "order": "Solicitar Datos de Auditoría"
+      },
+      "engineering": {
+        "badge": "SUPPLY_CHAIN_AUDIT",
+        "title": "Verificado.<br/>A la Fuente.",
+        "p1": "En un mercado regulado, las certificaciones de su proveedor son el escudo de su marca. Operamos instalaciones de fabricación integradas verticalmente que cuentan con la certificación BRCGS Global Standard for Packaging Materials (Grado A). Esto garantiza que cada bolsa se produzca en un entorno estéril y auditado con una trazabilidad del 100% desde la resina hasta la bolsa terminada. Al trabajar directamente con la fábrica, elimina los márgenes de los intermediarios y obtiene acceso directo a nuestro laboratorio de ciencia de materiales, lo que permite la creación rápida de prototipos de estructuras sostenibles y de alta barrera (Mono-PE, PCR y compostable) que cumplen con los estándares de seguridad alimentaria más estrictos de 2026.",
+        "metrics": {
+          "m1": {
+            "label": "Puntaje Audit",
+            "value": "Grado A",
+            "unit": "BRCGS",
+            "desc": "Estándar global de higiene y seguridad."
+          },
+          "m2": {
+            "label": "MOQ Mínimo",
+            "value": "500",
+            "unit": "Unidades",
+            "desc": "Producción digital de bajo umbral."
+          },
+          "m3": {
+            "label": "Plazo Entrega",
+            "value": "21",
+            "unit": "Días",
+            "desc": "Plazo promedio para SKU digitales."
+          },
+          "m4": {
+            "label": "Conformidad",
+            "value": "100%",
+            "unit": "DoC",
+            "desc": "Documentos de Declaración de Conformidad completos."
+          }
+        }
+      },
+      "tech": {
+        "badge": "FACTORY_TECH_STACK",
+        "title": "Escala Masiva.<br/>Precisión Nano.",
+        "t1": {
+          "title": "01. Tec. Co-Extrusión",
+          "desc": "Nuestras líneas de extrusión multicapa pueden integrar hasta 9 capas de polímeros, incluidos EVOH y PA, para una preservación extrema de la vida útil sin volumen."
+        },
+        "t2": {
+          "title": "02. HP Indigo 25K Digital",
+          "desc": "Impresión digital de precisión con tintas 100% libres de solventes. Ideal para marcas de alimentos multi-SKU de bajo MOQ que requieren rapidez en el mercado."
+        },
+        "t3": {
+          "title": "03. Conversión Automatizada",
+          "desc": "Fabricación de bolsas de alta velocidad con inserción de cremallera y válvula en línea, garantizando cero contacto humano e integridad de sellado hermético al 100%."
+        },
+        "t4": {
+          "title": "04. Logística Global",
+          "desc": "Envío DDP (Delivered Duty Paid) a los principales centros del mundo. Gestionamos la complejidad de aduanas y aranceles para que reciba su pedido en su puerta."
+        }
+      },
+      "lab": {
+        "badge": "QUALITY_SCIENCE_V1",
+        "title": "Medido.<br/>A la Bolsa.",
+        "p1": "La calidad es una especificación técnica, no una promesa. Cada lote de nuestros envases para alimentos se somete a rigurosas pruebas ASTM de resistencia de sellado, resistencia a la perforación y COF (coeficiente de fricción). Proporcionamos documentos de Declaración de Conformidad (DoC) y datos de Límite de Migración Específica (SML) para garantizar que su marca cumpla al 100% legalmente en los EE. UU., la UE y más allá. Como su proveedor técnico, no solo entregamos bolsas; ofrecemos certeza de vida útil y seguridad regulatoria para sus productos alimenticios más críticos.",
+        "f1_title": "Verificado en Laboratorio",
+        "f1_desc": "Probado para OTR, WVTR e integridad de sellado en cada producción personalizada.",
+        "f2_title": "Suministro Trazable",
+        "f2_desc": "Trazabilidad completa de resina a bolsa para una total seguridad alimentaria y seguridad de retiro de mercado."
+      },
+      "faq": {
+        "badge": "SUPPLIER_FAQ",
+        "title": "Inteligencia<br/>Experta.",
+        "q1_q": "¿Cuál es su puntaje de auditoría BRCGS?",
+        "q1_a": "Mantenemos constantemente una calificación de Grado A, el estándar más alto para la seguridad de envases de grado alimenticio y la higiene de fabricación.",
+        "q2_q": "¿Ofrecen envíos DDP?",
+        "q2_a": "Sí. Nos encargamos de toda la logística, aduanas y aranceles para entregar su empaque directamente a su almacén sin tarifas ocultas.",
+        "q3_q": "¿Puedo auditar su fábrica en persona?",
+        "q3_a": "Absolutamente. Fomentamos las auditorías in situ para clientes corporativos y brindamos total transparencia en nuestros protocolos de QA/QC y líneas de fabricación.",
+        "q4_q": "¿Ofrecen soporte de diseño?",
+        "q4_a": "Sí. Nuestro equipo técnico puede ayudar con la creación de líneas de troquel, preparación de archivos y garantizar que su diseño cumpla con los requisitos legales para el ecoetiquetado."
+      },
+      "cta": {
+        "badge": "FACTORY_MANDATE",
+        "title": "Construya con Fuerza.<br/>Poder Directo.",
+        "subtitle": "¿Listo para asegurar una cadena de suministro técnica y directa de fábrica para su marca? Comencemos la auditoría hoy.",
+        "samples": "Solicitar Auditoría de Fábrica",
+        "engineer": "Hable con un Ingeniero de Suministro"
+      }
+    },
+    "fr": {
+      "meta": {
+        "title": "Fournisseur d'Emballage Alimentaire | Technique et Échelle | Pouch.eco",
+        "description": "Guide technique pour choisir un fournisseur d'emballage alimentaire. Recherche sur la conformité BRCGS, la fabrication directe d'usine et la sécurité de la chaîne logistique.",
+        "keywords": "fournisseur emballage alimentaire, fabricant emballages, certifié BRCGS, sachets direct usine, supply chain économie circulaire"
+      },
+      "hero": {
+        "badge": "SUPPLIER_TECH_V1.0",
+        "title": "Échelle.<br/>Pur.<br/>Direct.",
+        "subtitle": "Un fournisseur est un partenaire technique, pas un intermédiaire. Nous fournissons des solutions d'emballage en direct de l'usine.",
+        "browse": "Découvrir les Solutions d'Usine",
+        "order": "Demander les Données d'Audit"
+      },
+      "engineering": {
+        "badge": "SUPPLY_CHAIN_AUDIT",
+        "title": "Vérifié.<br/>À la Source.",
+        "p1": "Dans un marché réglementé, les certifications de votre fournisseur sont le bouclier de votre marque. Nous exploitons des usines de fabrication intégrées verticalement qui sont certifiées selon la norme mondiale BRCGS pour les matériaux d'emballage (Grade A). Cela garantit que chaque sachet est produit dans un environnement stérile avec une traçabilité à 100 %, de la résine au sachet fini. En travaillant en direct de l'usine, vous éliminez les marges des intermédiaires et accédez directement à notre laboratoire de science des matériaux, permettant le prototypage rapide de structures haute barrière durables (Mono-PE, PCR et compostable) qui répondent aux normes de sécurité alimentaire les plus strictes de 2026.",
+        "metrics": {
+          "m1": {
+            "label": "Note d'Audit",
+            "value": "Grade A",
+            "unit": "BRCGS",
+            "desc": "Norme mondiale d'hygiène et de sécurité."
+          },
+          "m2": {
+            "label": "MOQ Minimum",
+            "value": "500",
+            "unit": "Unités",
+            "desc": "Production numérique à faible seuil."
+          },
+          "m3": {
+            "label": "Délai de Fab.",
+            "value": "21",
+            "unit": "Jours",
+            "desc": "Délai moyen pour les références numériques."
+          },
+          "m4": {
+            "label": "Conformité",
+            "value": "100%",
+            "unit": "DoC",
+            "desc": "Documents de déclaration de conformité complets."
+          }
+        }
+      },
+      "tech": {
+        "badge": "FACTORY_TECH_STACK",
+        "title": "Grande Échelle.<br/>Précision Nano.",
+        "t1": {
+          "title": "01. Tech Co-Extrusion",
+          "desc": "Nos lignes d'extrusion multicouches peuvent intégrer jusqu'à 9 couches de polymères, y compris l'EVOH et le PA, pour une préservation extrême de la durée de conservation sans surépaisseur."
+        },
+        "t2": {
+          "title": "02. HP Indigo 25K Numérique",
+          "desc": "Impression numérique de précision avec des encres 100 % sans solvant. Idéal pour les marques d'aliments multi-SKU à faible MOQ nécessitant une mise sur le marché rapide."
+        },
+        "t3": {
+          "title": "03. Façonnage Automatisé",
+          "desc": "Fabrication de sachets à haute vitesse avec insertion en ligne de glissières et de valves, garantissant l'absence de contact humain et une intégrité hermétique du scellage à 100 %."
+        },
+        "t4": {
+          "title": "04. Logistique Globale",
+          "desc": "Expédition DDP (Delivered Duty Paid) vers les principaux hubs mondiaux. Nous gérons la complexité des douanes et des taxes pour que vous receviez votre commande à votre porte."
+        }
+      },
+      "lab": {
+        "badge": "QUALITY_SCIENCE_V1",
+        "title": "Mesuré.<br/>Au Sachet Près.",
+        "p1": "La qualité est une spécification technique, pas une promesse. Chaque lot de nos emballages alimentaires subit des tests ASTM rigoureux pour la résistance du scellage, la résistance à la perforation et le coefficient de frottement (COF). Nous fournissons des documents de déclaration de conformité (DoC) et des données de limite de migration spécifique (SML) pour garantir la conformité légale de votre marque aux États-Unis, dans l'UE et au-delà. En tant que fournisseur technique, nous ne livrons pas seulement des sachets ; nous offrons une garantie de durée de conservation et une sécurité réglementaire pour vos produits alimentaires les plus critiques.",
+        "f1_title": "Vérifié en Laboratoire",
+        "f1_desc": "Testé pour l'OTR, le WVTR et l'intégrité du scellage sur chaque cycle de production.",
+        "f2_title": "Approvisionnement Traçable",
+        "f2_desc": "Traçabilité complète de la résine au sachet pour une sécurité alimentaire totale et une sécurité en cas de rappel."
+      },
+      "faq": {
+        "badge": "SUPPLIER_FAQ",
+        "title": "Intelligence<br/>d'Expert.",
+        "q1_q": "Quelle est votre note d'audit BRCGS ?",
+        "q1_a": "Nous maintenons systématiquement une note Grade A, la norme la plus élevée pour la sécurité des emballages alimentaires et l'hygiène de fabrication.",
+        "q2_q": "Proposez-vous la livraison DDP ?",
+        "q2_a": "Oui. Nous gérons toute la logistique, les douanes et les taxes pour livrer votre emballage directement à votre entrepôt, sans frais cachés.",
+        "q3_q": "Puis-je auditer votre usine en personne ?",
+        "q3_a": "Absolument. Nous encourageons les audits sur site pour nos grands comptes et offrons une transparence totale sur nos protocoles de contrôle qualité et nos lignes de production.",
+        "q4_q": "Fournissez-vous une assistance pour le design ?",
+        "q4_a": "Oui. Notre équipe technique peut vous aider à créer des traciés de découpe, à préparer vos fichiers et à veiller à ce que vos créations respectent les exigences réglementaires en matière d'éco-étiquetage."
+      },
+      "cta": {
+        "badge": "FACTORY_MANDATE",
+        "title": "Bâtir Fort.<br/>Puissance Directe.",
+        "subtitle": "Prêt à sécuriser une chaîne d'approvisionnement technique et directe de l'usine pour votre marque ? Commençons l'audit dès aujourd'hui.",
+        "samples": "Demander un Audit d'Usine",
+        "engineer": "Parler à un Ingénieur Supply"
+      }
+    },
+    "zh-TW": {
+      "meta": {
+        "title": "食品級軟包裝供應商製造廠 | 產能與合規包裝工程 | Pouch.eco",
+        "description": "食品軟包裝供應商選擇技術指南。解析 BRCGS 食品安全規範、原廠直營製造體系及全球供應鏈防護。"
+      },
+      "hero": {
+        "badge": "SUPPLIER_TECH_V1.0",
+        "title": "產能規模.<br/>純淨合規.<br/>工廠直營.",
+        "subtitle": "優秀的供應商是您的包裝技術研發夥伴，而非單純的貿易商。我們提供工廠直連的一站式軟包裝解決方案。",
+        "browse": "瀏覽直營工廠包裝方案",
+        "order": "索取工廠審計報告"
+      },
+      "engineering": {
+        "badge": "SUPPLY_CHAIN_AUDIT",
+        "title": "合規生產.<br/>溯源直供.",
+        "p1": "在法規嚴格的食品市場中，供應商的合規證書是品牌最強大的護盾。我們營運垂直整合的現代化包裝製造基地，全線榮獲 BRCGS 包裝材料全球標準（Grade A）認證。這確保了每一袋包裝均在無塵、無污染、經過嚴格審核的食品級車間中製造，實現從塑料樹脂到成品袋的 100% 批次溯源。透過工廠直達的合作模式，您能省去貿易商差價，並直接對接我們的材料科學實驗室，敏捷開發高阻隔、永續的軟包裝結構（Mono-PE、PCR 再生塑料及堆肥袋），完全契合 2026 年最嚴苛的各國食品包裝法規範。",
+        "metrics": {
+          "m1": {
+            "label": "工廠審計評級",
+            "value": "A級認證",
+            "unit": "BRCGS",
+            "desc": "全球食品與包裝安全衛生之黃金標準"
+          },
+          "m2": {
+            "label": "最低起印量",
+            "value": "500",
+            "unit": "袋起印",
+            "desc": "超低起印門檻數位印刷產線"
+          },
+          "m3": {
+            "label": "交貨週期",
+            "value": "21",
+            "unit": "天交期",
+            "desc": "數位印刷大貨的極速排產週期"
+          },
+          "m4": {
+            "label": "法規合規性",
+            "value": "100%",
+            "unit": "符合性聲明",
+            "desc": "隨貨提供完整的食品接觸符合性聲明 (DoC)"
+          }
+        }
+      },
+      "tech": {
+        "badge": "FACTORY_TECH_STACK",
+        "title": "規模化產能.<br/>奈米級精度.",
+        "t1": {
+          "title": "01. 九層共擠吹膜技術",
+          "desc": "我們的共擠吹膜線可整合高達 9 層的聚合物，包括高效能的 EVOH 與阻氧尼龍（PA），在極薄的厚度下賦予極致的保鮮期防潮性能。"
+        },
+        "t2": {
+          "title": "02. HP Indigo 25K 數位印刷機",
+          "desc": "配備高精細數位印刷與 100% 無溶劑環保油墨。針對擁有多款 SKU 的食品品牌，提供無版費的敏捷打樣與量產方案。"
+        },
+        "t3": {
+          "title": "03. 自動化製袋與配件插入",
+          "desc": "高速自立袋製袋機，整合在線拉鍊、夾鏈與吸嘴插入工藝，製程無人工接觸，確保 100% 氣密熱封強度與無塵品質。"
+        },
+        "t4": {
+          "title": "04. 雙域 DDP 全球物流",
+          "desc": "提供 Delivered Duty Paid（完稅後交貨）物流，承擔進口報關、關稅與增值稅申報，將客製包裝安全送達您的倉庫門口。"
+        }
+      },
+      "lab": {
+        "badge": "QUALITY_SCIENCE_V1",
+        "title": "精密數據.<br/>大貨品質.",
+        "p1": "食品安全與品質是精確的物理數據。我們的每一批大貨包裝皆經過 ASTM 檢測，涵蓋熱封強度、抗刺穿力以及拉伸摩擦係數（COF）。我們提供詳細的符合性聲明（DoC）與特定遷移限量（SML）數據，確保您的食品袋完全符合美國 FDA 及歐盟食品安全局的法規。作為您的技術供應商，我們為您的食品提供全方位的保鮮防潮護航。",
+        "f1_title": "實驗室級檢測",
+        "f1_desc": "每批次均進行透氧率 (OTR)、透濕率 (WVTR) 及密封強度測試。",
+        "f2_title": "原料可追溯鏈",
+        "f2_desc": "從原料樹脂到大貨包裝，具備完整的可追溯批次編號，保障食品防偽與召回安全。"
+      },
+      "faq": {
+        "badge": "SUPPLIER_FAQ",
+        "title": "專家<br/>深度解答.",
+        "q1_q": "你們的 BRCGS 審計得分是多少？",
+        "q1_a": "我們始終維持 BRCGS Grade A（A級）評分，這是全球公認在食品級包裝安全、工廠衛生管理上的頂尖評級。",
+        "q2_q": "你們提供 DDP（包稅運送）服務嗎？",
+        "q2_a": "提供。我們為客戶打通了全球多個國家的 DDP 雙清物流渠道，負責處理所有的報關手續、港口雜費及進口稅金，無任何隱藏規費。",
+        "q3_q": "我們可以派品管或第三方機構去你們工廠實地驗廠嗎？",
+        "q3_a": "完全歡迎。我們支持大型合約品牌與企業客戶派遣專業人員前往工廠進行產線實地審計，並提供完整的品管檢測歷史記錄備查。",
+        "q4_q": "你們提供包裝設計與排版方面的技術支援嗎？",
+        "q4_a": "是的。我們的印前工程團隊會協助進行刀模線（Dieline）繪製、檔案網點預飛（Preflight）檢查，並確保您的包裝標示符合歐美環保標籤的合規法規。"
+      },
+      "cta": {
+        "badge": "FACTORY_MANDATE",
+        "title": "精湛製造.<br/>工廠直供.",
+        "subtitle": "準備好為您的食品品牌建立合法合規、穩定的工廠直營軟包裝供應鏈了嗎？即刻預約工廠審計。",
+        "samples": "申請工廠實地審核",
+        "engineer": "預約供應鏈工程師諮詢"
+      }
+    }
+  },
+  "pouchCompostablePackagingBlogPage": {
+    "meta": {
+      "title": "The Science of Compostable Packaging: Deep Guide | Pouch.eco",
+      "description": "Technical deep-dive into compostable polymer science, biodegradation kinetics, and soil health. 800+ words of expertise on biological packaging loops."
+    },
+    "hero": {
+      "badge": "BIO_LOOP_V2",
+      "title": "BIOLOGICAL<br/>RECOVERY<br/>PURE_COMPOST",
+      "subtitle": "Returning packaging to the earth. We engineer high-performance biological barriers using PBS and NK technology.",
+      "start": "START_BIO_TRANSITION",
+      "lab": "MATERIAL_LAB"
+    },
+    "kinetics": {
+      "badge": "THE_KINETICS",
+      "title": "Thermal<br/>Hydrolysis",
+      "p1": "Compostability isn't a magic trick; it's a biological reaction. Industrial composting requires temperatures of 58°C to break the ester bonds in plant-based polymers like PLA and Bio-PBS.",
+      "t1_title": "Disintegration",
+      "t1_desc": "The package must physically fragment into pieces smaller than 2mm within 12 weeks of exposure to industrial compost conditions.",
+      "t2_title": "Ecotoxicity",
+      "t2_desc": "The final biomass must pass a Cress Test to ensure it supports healthy plant growth without heavy metal residue."
+    },
+    "deep": {
+      "title": "The Barrier Matrix: NK & Bio-PBS",
+      "p1": "Protecting your product while ensuring biological recovery is the ultimate engineering challenge. We utilize a Triple-Layer Matrix: FSC-certified NatureKraft for structure, Metallized Cellulose for high-barrier protection (OTR < 1.0), and Bio-PBS for high-integrity sealing.",
+      "p2": "Our materials are strictly certified under EN13432 and ASTM D6400, ensuring they meet the world's most rigorous benchmarks for fragmentation, biodegradation, and soil safety.",
+      "specs": {
+        "title": "Operational Specs",
+        "l1": "Shelf Life: 12-18 months in controlled storage environments.",
+        "l2": "Compatibility: Drop-in replacement for PET/PE on most VFFS/HFFS lines.",
+        "l3": "OTR Performance: < 0.5 cc/m²/day for metallized cellulose grades."
+      },
+      "home_title": "Home vs. Industrial Composting",
+      "home_p": "Transparency is key. Most high-barrier pouches are currently Industrial Compostable. While home composting is a goal, the high-performance polymers required to protect food often need the consistent 60°C heat of a municipal facility to disintegrate efficiently."
+    },
+    "aside": {
+      "title": "BIODIGEST_STATS",
+      "frag": "Fragmentation (90 Days)",
+      "carbon": "Bio-Carbon Content",
+      "start": "START_BIO_TRANSITION",
+      "title2": "SOIL_SAFE",
+      "non_gmo": "NON-GMO FEEDSTOCK",
+      "heavy_metal": "HEAVY METAL FREE",
+      "ecotox": "ECOTOXICITY TESTED"
+    },
+    "faq": {
+      "title": "COMPOST_INTEL",
+      "q1_q": "What if it goes to a landfill?",
+      "q1_a": "In an anaerobic landfill, compostable bags will remain intact for a very long time. They are designed for aerobic biological recovery.",
+      "q2_q": "Is it suitable for oily foods?",
+      "q2_a": "Yes. Our Bio-PBS sealant layer has high fat-resistance, making it perfect for nuts, seeds, and granola.",
+      "q3_q": "Why is it better than paper?",
+      "q3_a": "Unlike paper, our compostable films provide an airtight oxygen barrier that keeps food fresh for 12+ months.",
+      "q4_q": "How to tell customers?",
+      "q4_a": "We recommend using the 'Seedling' logo or 'OK Compost' mark with your unique license number for full transparency."
+    },
+    "cta": {
+      "title": "GROW_NOT<br/>WASTE_V2",
+      "btn": "GET_COMPOSTABLE_GUIDE"
+    }
+  },
+  "dynamicPouchTopicPage": {
+    "requestSamples": "Request Samples",
+    "materialCatalog": "Material Catalog",
+    "aiFaqTitle": "AI Intelligence FAQ",
+    "freeConsultation": "Free Consultation",
+    "aiIntel": "AI_INTEL"
+  },
+  "pouchEcoFriendlyFoodPackagingPage": {
+    "meta": {
+      "title": "Eco-Friendly Food Packaging | High-Barrier Engineering | Pouch.eco",
+      "description": "Technical guide to eco-friendly food packaging. 800+ words of research on high-barrier engineering, FDA compliance, and sustainable food safety.",
+      "keywords": "eco-friendly food packaging, high barrier pouches, food safe sustainable packaging, FDA compliant pouches"
+    },
+    "hero": {
+      "badge": "FOOD_SAFE_V1.0",
+      "title": "Fresh.<br/>Pure.<br/>Planet.",
+      "subtitle": "Sustainability must not compromise safety. We engineer high-barrier, food-safe pouches that protect your product's shelf life while meeting the world's strictest environmental standards.",
+      "btn_browse": "Browse Food Solutions",
+      "btn_request": "Request Lab Evidence"
+    },
+    "engineering": {
+      "badge": "BARRIER_TECH_AUDIT",
+      "title": "Measured.<br/>For Freshness.",
+      "p1": "The most sustainable package is the one that prevents food waste. We utilize High-Barrier engineering (EVOH, AlOx, and Metalized PET) to ensure that your product's Oxygen and Moisture transmission rates remain below critical thresholds. Every material structure in our catalog—including our Mono-PE and Home-Compostable lines—is tested for Migration (OML/SML) to ensure absolute compliance with FDA and EFSA food-contact regulations. We don't just sell bags; we engineer shelf-life security for a circular economy.",
+      "metrics": {
+        "o2_label": "O2 Barrier",
+        "o2_desc": "Oxygen Transmission Rate (OTR).",
+        "moist_label": "Moist Barrier",
+        "moist_desc": "Water Vapor Transmission Rate (WVTR).",
+        "compliance_label": "Compliance",
+        "compliance_desc": "Direct food contact certified.",
+        "seal_label": "Seal Window",
+        "seal_desc": "Optimized for high-speed filling."
+      }
+    },
+    "technical": {
+      "badge": "SAFETY_TECH_STACK",
+      "title": "Zero Migration.<br/>Zero Waste.",
+      "t1_title": "01. PFAS-Free Guarantee",
+      "t1_desc": "Absolute elimination of 'forever chemicals.' We utilize advanced aqueous grease-proof barriers that exceed California AB 1200 and EU REACH standards.",
+      "t2_title": "02. Food-Grade PCR",
+      "t2_desc": "We only use FDA/EFSA compliant post-consumer resins that have been purified through certified decontamination processes for direct food contact.",
+      "t3_title": "03. BRCGS A-Grade",
+      "t3_desc": "Our manufacturing facilities are certified to the highest hygiene standards, ensuring your food packaging is produced in a sterile, audited environment.",
+      "t4_title": "04. Hermetic Seals",
+      "t4_desc": "Engineering precision seal layers (Bio-PBS or LLDPE) to ensure zero leakers and 100% barrier integrity for liquid and powder food products."
+    },
+    "lab": {
+      "badge": "MATERIAL_LAB_VERIFY",
+      "title": "Verified.<br/>To the Micron.",
+      "p1": "Sustainability is a technical specification. We perform Fourier-transform infrared spectroscopy (FTIR) and Differential Scanning Calorimetry (DSC) on all material batches to verify polymer purity and barrier performance. For our compostable food bags, we ensure every layer—including the degassing valves and zippers—is certified to EN 13432 standards for biological safety. We provide the Declaration of Compliance (DoC) for every SKU, giving your brand absolute legal and technical security.",
+      "t1_title": "Migration Tested",
+      "t1_desc": "SML and OML testing performed to verify zero chemical leaching into food products.",
+      "t2_title": "Aroma Lock",
+      "t2_desc": "High-performance lamination ensures maximum preservation of volatile food aromatics."
+    },
+    "faq": {
+      "badge": "FOOD_SAFETY_FAQ",
+      "title": "Expert<br/>Intelligence.",
+      "q1_q": "Are your sustainable pouches suitable for freezing?",
+      "q1_a": "Yes. We engineer high-ductility internal layers that remain flexible at -18°C, preventing brittle failure and seal leaks in frozen food applications.",
+      "q2_q": "What is EVOH and why do I need it?",
+      "q2_a": "Ethylene Vinyl Alcohol is a high-performance barrier resin used in thin layers to block oxygen. It is essential for extending the shelf life of snacks and meats while keeping the package thin and recyclable.",
+      "q3_q": "Can compostable bags hold hot liquids?",
+      "q3_a": "Standard compostable films have lower heat resistance. For hot-fill applications, we recommend our heat-stabilized Bio-PBS or Mono-PP structures.",
+      "q4_q": "Do you offer BPA-free food packaging?",
+      "q4_a": "100% of our pouches are BPA-free and manufactured using solvent-free lamination, ensuring zero VOC residues and absolute chemical purity."
+    },
+    "cta": {
+      "badge": "FOOD_SAFE_MANDATE",
+      "title": "Think Fresh.<br/>Impact Pure.",
+      "subtitle": "Ready to secure a food-safe, sustainable supply chain for your brand? Let's start the technical audit today.",
+      "btn_samples": "Order Food Safe Samples",
+      "btn_consultation": "Speak to a Barrier Engineer"
+    }
   }
 }

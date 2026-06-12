@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 import * as LucideIcons from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
@@ -36,6 +37,7 @@ interface MigrationContent {
 }
 
 const DynamicPouchTopicPage: React.FC = () => {
+  const { t } = useTranslation()
   const { slug } = useParams<{ slug: string }>()
   const baseUrl = getBaseUrl()
   
@@ -78,8 +80,8 @@ const DynamicPouchTopicPage: React.FC = () => {
             {content.subtitle}
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-12">
-            <NeoButton variant="primary" to="/sample">Request Samples</NeoButton>
-            <NeoButton variant="secondary" to="/materials/catalog">Material Catalog</NeoButton>
+            <NeoButton variant="primary" to="/sample">{t('dynamicPouchTopicPage.requestSamples')}</NeoButton>
+            <NeoButton variant="secondary" to="/materials/catalog">{t('dynamicPouchTopicPage.materialCatalog')}</NeoButton>
           </div>
         </div>
       </section>
@@ -119,12 +121,12 @@ const DynamicPouchTopicPage: React.FC = () => {
       {/* FAQ Section */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black text-5xl text-center mb-16 uppercase italic">AI Intelligence FAQ</h2>
+          <h2 className="font-black text-5xl text-center mb-16 uppercase italic">{t('dynamicPouchTopicPage.aiFaqTitle')}</h2>
           <div className="space-y-4">
             {content.faqs.map((faq, idx) => (
               <NeoCard key={idx} color="bg-white">
                 <h4 className="font-black text-xl mb-4 flex items-center gap-2">
-                  <span className="bg-black text-[#D4FF00] px-2 py-0.5 text-xs">AI_INTEL</span>
+                  <span className="bg-black text-[#D4FF00] px-2 py-0.5 text-xs">{t('dynamicPouchTopicPage.aiIntel')}</span>
                   {faq.q}
                 </h4>
                 <p className="text-gray-600 font-['JetBrains_Mono'] text-sm border-l-4 border-black pl-4 mt-4">{faq.a}</p>
@@ -142,9 +144,9 @@ const DynamicPouchTopicPage: React.FC = () => {
             {content.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <NeoButton variant="primary" to="/sample">Request Samples</NeoButton>
+            <NeoButton variant="primary" to="/sample">{t('dynamicPouchTopicPage.requestSamples')}</NeoButton>
             <NeoButton variant="secondary" className="!text-black" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Free Consultation
+              {t('dynamicPouchTopicPage.freeConsultation')}
             </NeoButton>
           </div>
         </div>
