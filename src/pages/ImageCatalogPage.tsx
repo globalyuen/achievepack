@@ -61,9 +61,8 @@ export default function ImageCatalogPage() {
 
   const [copiedJson, setCopiedJson] = useState<string | null>(null)
 
-  // Check if user is admin
   useEffect(() => {
-    if (!authLoading && (!user || user.email !== ADMIN_EMAIL)) {
+    if (!authLoading && (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase())) {
       navigate('/signin')
     }
   }, [user, authLoading, navigate])
@@ -551,7 +550,7 @@ Respond ONLY with valid JSON, no other text.`
   }
 
   // Redirect if not admin
-  if (!user || user.email !== ADMIN_EMAIL) {
+  if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
     return null
   }
 

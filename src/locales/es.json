@@ -22097,5 +22097,201 @@
         "tinTie": "Lazo Hojalata"
       }
     }
+  },
+  "smartDegassingStickerPage": {
+    "title": "Etiqueta Desgasificadora Inteligente para Envases de Líquidos | POUCH.ECO",
+    "metaDesc": "Soluciones de ventilación para envases de líquidos que liberan gas como el kimchi. Explore válvulas adhesivas desgasificadoras, bolsas con cabezal suspendido y absorbedores de CO2. 100% a prueba de fugas y aprobados por la FDA.",
+    "hero": {
+      "badge": "ENVASE ACTIVO · DESGASIFICACIÓN UNIDIRECCIONAL · CERO EXPLOSIONES",
+      "title": "Etiquetas Desgasificadoras Inteligentes",
+      "titleColored": " para Envases de Líquidos",
+      "desc": "Evite que los envases de kimchi se hinchen o exploten. Nuestras válvulas adhesivas cuadradas y planas de alto rendimiento liberan el exceso de gas CO₂ manteniendo una barrera 100% a prueba de fugas contra líquidos y oxígeno.",
+      "requestSamples": "Solicitar Muestras",
+      "bookMeeting": "Reservar Reunión"
+    },
+    "gasControl": {
+      "title": "Control de Gas para ",
+      "titleColored": "Alimentos Fermentados",
+      "desc": "Los productos fermentados frescos como el kimchi liberan continuamente gas de dióxido de carbono (CO₂). Si se sellan en bolsas estándar, estas se hincharán y explotarán. Ofrecemos tres soluciones de ventilación aptas para B2C y venta minorista:",
+      "showcaseTitle": "Válvula de Etiqueta Inteligente Achieve Pack (AO002)",
+      "showcaseDesc": "Una etiqueta de desgasificación plana y cuadrada que se integra perfectamente sobre los orificios de ventilación perforados."
+    },
+    "gallery": {
+      "smart-valve": {
+        "name": "Válvula de Etiqueta Inteligente (AO002)",
+        "desc": "Etiqueta desgasificadora plana y cuadrada, totalmente a prueba de fugas"
+      },
+      "squeeze-test": {
+        "name": "Prueba de Presión y Compresión",
+        "desc": "Verificación de prueba de compresión de kimchi con cero fugas"
+      },
+      "production": {
+        "name": "Aplicación Automatizada en Línea",
+        "desc": "Integración en línea de envasado automatizado de alta velocidad"
+      },
+      "sticker-liner": {
+        "name": "Válvulas en Rollo de Soporte",
+        "desc": "Válvulas de desgasificación adhesivas cuadradas en etiqueta"
+      },
+      "header-pocket": {
+        "name": "Compartimento de Cabezal Sellado",
+        "desc": "Compartimento tipo sachet suspendido en cabezal estilo Jongga"
+      },
+      "absorber-packet": {
+        "name": "Paquete Absorbedor de Gas CO2",
+        "desc": "Absorbedor de gas dióxido de carbono de grado alimenticio StayFresh"
+      }
+    },
+    "options": {
+      "opt1": {
+        "badge": "Opción 01",
+        "title": "Bolsita Absorbedora de CO2",
+        "desc": "Una bolsita apta para alimentos (StayFresh) se coloca directamente dentro del envase. Atrapa activamente el CO₂ de forma química para evitar que el paquete se hinche. Aunque es rentable y fácil de automatizar, el paquete suelto puede causar confusión al comprador ya que no es comestible."
+      },
+      "opt2": {
+        "badge": "Opción 02",
+        "title": "Sellado de Cabezal Suspendido",
+        "desc": "Una solución premium pionera por marcas coreanas. Una barra de sellado crea un compartimento distinto en la parte superior media del stand-up pouch, manteniendo la bolsita de forma segura por encima de la línea de llenado de líquido. Esto evita que el absorbedor entre en contacto directo con la salsa de los alimentos."
+      },
+      "opt3": {
+        "badge": "Opción 03",
+        "title": "Válvula Adhesiva Desgasificadora",
+        "desc": "Una etiqueta adhesiva cuadrada plana externa. Aplicada sobre un micro-orificio perforado de 1.5 mm, su membrana hidrofóbica permite que la presión interna escape automáticamente mientras bloquea completamente el líquido y evita que el aire externo entre en la bolsa."
+      }
+    },
+    "comparison": {
+      "title": "Guía de Comparación de Opciones",
+      "thOption": "Opción de Ventilación",
+      "thPlacement": "Colocación",
+      "thCost": "Nivel de Coste",
+      "thLiquid": "A Prueba de Líquidos",
+      "thExperience": "Experiencia de Marca",
+      "thApplication": "Mejor Aplicación",
+      "rows": {
+        "absorber": {
+          "option": "Paquete Absorbedor de CO2",
+          "placement": "Suelto en la bolsa",
+          "cost": "★☆☆☆☆ (El más bajo)",
+          "liquidProof": "Sí (actúa en el interior)",
+          "buyerPerception": "Bueno (no apto para consumo)",
+          "optimalFor": "Bajo presupuesto, paquetes a granel"
+        },
+        "header": {
+          "option": "Compartimento de Cabezal Sellado",
+          "placement": "Suspendido sobre el líquido",
+          "cost": "★★☆☆☆ (Bajo)",
+          "liquidProof": "Sí (sellado arriba)",
+          "buyerPerception": "Muy bueno (bolsita aislada)",
+          "optimalFor": "Kimchi DTC, alimentos líquidos"
+        },
+        "sticker": {
+          "option": "Válvula Adhesiva Desgasificadora",
+          "placement": "Aplicada sobre micro-ventilación",
+          "cost": "★★★☆☆ (Medio)",
+          "liquidProof": "Sí (hidrofóbica)",
+          "buyerPerception": "Excelente (sin bolsita química)",
+          "optimalFor": "Kimchi Premium, Salsas, DTC"
+        }
+      }
+    },
+    "science": {
+      "title": "Control de Presión ",
+      "titleColored": "100% a Prueba de Fugas",
+      "desc": "¿Se filtrará líquido si se presiona la bolsa? Nuestras válvulas adhesivas cuadradas están diseñadas con una membrana microporosa hidrofóbica y oleofóbica especializada. Los poros son de tamaño micrométrico, permitiendo que moléculas individuales de gas (dióxido de carbono) escapen bajo presión mientras bloquean completamente las moléculas grandes de agua y aceite.",
+      "points": {
+        "leak": {
+          "title": "Cero fugas de líquido:",
+          "desc": "Verificado bajo pruebas de compresión. El líquido y las salsas permanecen completamente dentro."
+        },
+        "oxygen": {
+          "title": "Bloqueo de oxígeno y humedad:",
+          "desc": "Se cierra instantáneamente una vez liberada la presión interna, evitando la entrada de oxígeno."
+        },
+        "coffee": {
+          "title": "No apto como sustituto de café:",
+          "desc": "Ajustado específicamente para alimentos de alta humedad; el café tostado requiere válvulas de desgasificación secas independientes."
+        }
+      },
+      "viewInfographic": "Ver Infografía de Prueba de Compresión"
+    },
+    "videos": {
+      "badge": "VALVE_PERFORMANCE_TEST",
+      "title": "VIDEOS DE PRUEBAS DE RENDIMIENTO FUNCIONAL",
+      "desc": "Sometemos nuestras soluciones de ventilación a presiones extremas localizadas. Vea los videos de prueba comparativos a continuación para ver el rendimiento físico de nuestras etiquetas desgasificadoras inteligentes frente a las válvulas de café estándar:",
+      "v1": {
+        "badge": "APROBADO / 测验合格",
+        "title": "Prueba de Válvula a Prueba de Fugas",
+        "sub": "Prueba de compresión de válvula inteligente",
+        "desc": "Vea nuestra válvula cuadrada plana especializada (AO002) en acción bajo una severa prueba de compresión. Incluso cuando se aplica presión localizada sobre la bolsa llena de líquido, la membrana hidrofóbica resiste, evitando que escape una sola gota de líquido o salsa mientras permite la salida del gas.",
+        "chineseCaption": "对包装袋进行大力挤压时，内部空气与气体得以自由排出，而液体被100%封锁在内，即使在强压力下也无任何渗漏。"
+      },
+      "v2": {
+        "badge": "FALLIDO / 无法防漏",
+        "title": "Válvula de Café Estándar",
+        "sub": "Prueba de compresión de válvula de café común",
+        "desc": "Las válvulas de café redondas estándar están diseñadas solo para gases secos. Bajo presión de compresión líquida, el sello interno falla, lo que provoca una fuga de líquido inmediata. Esto resalta por qué las válvulas de café estándar no son adecuadas para alimentos ricos en líquidos.",
+        "chineseCaption": "该阀门仅针对干燥气体设计，在酱汁液体挤压下，其内部橡胶密封圈失效，导致液体立刻渗漏。这说明了普通咖啡阀不适用于富含液体的食品。"
+      },
+      "v3": {
+        "badge": "VENTILACIÓN ACTIVA / 正在排气",
+        "title": "Demostración de Ventilación Activa",
+        "sub": "Demostración del proceso de排气 unidireccional",
+        "desc": "Primer plano que muestra la liberación de burbujas de gas de dióxido de carbono bajo presión mientras bloquea completamente el reflujo de líquido. La válvula mantiene la integridad del sello físico durante todo el proceso de desgasificación.",
+        "chineseCaption": "近距离观察二氧化碳气体在微小气压下排出，同时彻底阻断外部空气和液体倒流。在整个排气过程中，阀门始终保持其物理密封。"
+      }
+    },
+    "guide": {
+      "title": "Guía de Aplicación ",
+      "titleColored": "Paso a Paso",
+      "titleSuffix": "",
+      "desc": "Para aplicar la etiqueta desgasificadora cuadrada correctamente en las bolsas y evitar fugas en los bordes, siga este proceso:",
+      "viewAssembly": "Ver Maqueta de la Línea de Montaje",
+      "steps": {
+        "1": {
+          "title": "Llenar y sellar:",
+          "desc": "Llene el stand-up pouch con kimchi o alimento líquido y selle completamente el cierre principal o la abertura termosellada."
+        },
+        "2": {
+          "title": "Perforar el micro-orificio:",
+          "desc": "Perfore un orificio de 1-2 mm en el tercio superior de la bolsa (por encima del nivel del producto). Use una base de apoyo para un corte limpio."
+        },
+        "3": {
+          "title": "Despegar y pegar:",
+          "desc": "Despegue la válvula adhesiva de su soporte. Alinéela precisamente sobre el orificio perforado, evitando el contacto de la piel con el adhesivo."
+        },
+        "4": {
+          "title": "Asegurar el sellado:",
+          "desc": "Frote y presione firmemente los bordes sobre la superficie de la bolsa para asegurar un contacto adhesivo hermético y sin arrugas."
+        }
+      }
+    },
+    "faq": {
+      "title": "Preguntas ",
+      "titleColored": "Frecuentes",
+      "questions": [
+        {
+          "q": "¿Si los clientes presionan la bolsa de kimchi, se filtrará líquido por la válvula adhesiva?",
+          "a": "¡En absoluto! Nuestras válvulas desgasificadoras adhesivas cuadradas (AO002) están diseñadas con una membrana microporosa hidrofóbica y oleofóbica de alto rendimiento. Esto permite que las moléculas de gas de dióxido de carbono pasen y escapen bajo una presión mínima (~0.05-0.1 PSI) mientras bloquea las moléculas grandes de agua líquida o aceite. Incluso bajo pruebas de compresión localizada, la válvula permanece 100% a prueba de fugas."
+        },
+        {
+          "q": "¿Puedo usar válvulas adhesivas desgasificadoras de CO2 de kimchi para bolsas de café?",
+          "a": "No recomendamos el uso de absorbedores de gas o válvulas adhesivas de kimchi para café tostado. El café es muy sensible a la exposición al oxígeno y requiere una válvula de desgasificación seca redonda para preservar los aceites aromáticos y liberar el dióxido de carbono sin secar los granos. Por el contrario, las válvulas de café no están diseñadas para soportar un alto contacto con líquidos y humedad, por lo que se necesita una válvula adhesiva hidrofóbica específica para el kimchi."
+        },
+        {
+          "q": "¿Cómo se aplica la válvula adhesiva sobre un stand-up pouch?",
+          "a": "El proceso consiste en: 1) llenar y sellar el kimchi o producto líquido en la bolsa, 2) perforar un micro-orificio limpio de 1-2 mm en el tercio superior de la bolsa (bien por encima del nivel del líquido), 3) despegar la válvula adhesiva cuadrada de su soporte y 4) presionarla firmemente sobre el micro-orificio para asegurar un sellado adhesivo hermético en los bordes."
+        },
+        {
+          "q": "¿Son los materiales y adhesivos aptos para alimentos?",
+          "a": "Sí, todos los materiales, membranas y adhesivos utilizados en nuestras etiquetas desgasificadoras inteligentes y paquetes absorbedores de CO2 cumplen con las normas de la FDA, no son tóxicos y están certificados como seguros para alimentos. Se fabrican en instalaciones libres de polvo certificadas por BRC para garantizar cero contaminación."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Mejore las Bolsas de Fermentación de su Marca",
+      "desc": "Ordene válvulas adhesivas desgasificadoras cuadradas al por mayor, bolsas stand-up con válvulas preinstaladas o bolsas con cabezal suspendido estilo Jongga. Los paquetes de muestras están listos para enviar.",
+      "orderSamples": "Pedir Muestras",
+      "emailSpecs": "Enviar Especificaciones por Email"
+    }
   }
 }

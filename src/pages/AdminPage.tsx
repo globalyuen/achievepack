@@ -268,9 +268,8 @@ const AdminPage: React.FC = () => {
     ],
   }
 
-  // Check if user is admin
   useEffect(() => {
-    if (!authLoading && (!user || user.email !== ADMIN_EMAIL)) {
+    if (!authLoading && (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase())) {
       navigate('/signin')
     }
   }, [user, authLoading, navigate])
@@ -1600,7 +1599,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
     </div>
   }
 
-  if (!user || user.email !== ADMIN_EMAIL) return null
+  if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) return null
 
   // Stats
   const totalRevenue = orders.reduce((sum, o) => sum + (o.total_amount || 0), 0)

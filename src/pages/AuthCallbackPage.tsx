@@ -38,7 +38,7 @@ const AuthCallbackPage: React.FC = () => {
         }
 
         // Redirect based on user role
-        if (session.user.email === ADMIN_EMAIL) {
+        if (session.user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
           navigate('/ctrl-x9k7m')
         } else {
           navigate('/dashboard')

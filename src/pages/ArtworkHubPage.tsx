@@ -61,16 +61,15 @@ export default function ArtworkHubPage() {
   const [contentInput, setContentInput] = useState('')
   const [recommendationsInput, setRecommendationsInput] = useState('')
 
-  // Check if user is admin
   useEffect(() => {
-    if (!authLoading && (!user || user.email !== ADMIN_EMAIL)) {
+    if (!authLoading && (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase())) {
       navigate('/signin')
     }
   }, [user, authLoading, navigate])
 
   // Fetch artworks
   useEffect(() => {
-    if (user?.email === ADMIN_EMAIL) {
+    if (user?.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
       fetchArtworks()
     }
   }, [user])
@@ -415,8 +414,7 @@ export default function ArtworkHubPage() {
     )
   }
 
-  // Auth check
-  if (!user || user.email !== ADMIN_EMAIL) {
+  if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
     return null
   }
 

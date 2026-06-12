@@ -89,7 +89,7 @@ const QuotationBatchesPage: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (user && user.email === ADMIN_EMAIL) fetchBatches()
+    if (user && user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase()) fetchBatches()
   }, [user, fetchBatches])
 
   useEffect(() => {
@@ -343,7 +343,7 @@ const QuotationBatchesPage: React.FC = () => {
 
   if (authLoading) return <div className="min-h-screen bg-gray-50 flex items-center justify-center"><RefreshCw className="w-8 h-8 animate-spin text-gray-400" /></div>
   
-  if (!user || user.email !== ADMIN_EMAIL) return (
+  if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="text-center">
         <Lock className="w-16 h-16 text-gray-300 mx-auto mb-4" />

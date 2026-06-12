@@ -530,16 +530,15 @@ const OrderManagementPage: React.FC = () => {
     }
   }, [searchParams])
 
-  // Check if user is admin
   useEffect(() => {
-    if (!authLoading && (!user || user.email !== ADMIN_EMAIL)) {
+    if (!authLoading && (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase())) {
       navigate('/signin')
     }
   }, [user, authLoading, navigate])
 
   // Fetch data
   useEffect(() => {
-    if (user && user.email === ADMIN_EMAIL) {
+    if (user && user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
       fetchData()
     }
   }, [user])
@@ -1209,7 +1208,7 @@ const OrderManagementPage: React.FC = () => {
     </div>
   }
 
-  if (!user || user.email !== ADMIN_EMAIL) return null
+  if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) return null
 
   const pendingQuotes = quotes.filter(q => q.status === 'pending').length
   const pendingArtworks = artworks.filter(a => a.status === 'pending_review').length

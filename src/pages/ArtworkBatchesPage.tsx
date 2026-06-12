@@ -323,7 +323,7 @@ const ArtworkBatchesPage: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (user && user.email === ADMIN_EMAIL) {
+    if (user && user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
       fetchBatches()
     }
   }, [user, fetchBatches])
@@ -2296,7 +2296,7 @@ const ArtworkBatchesPage: React.FC = () => {
     )
   }
 
-  if (!user || user.email !== ADMIN_EMAIL) {
+  if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
     return null
   }
 

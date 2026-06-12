@@ -22095,5 +22095,201 @@
         "tinTie": "Barrette Métal"
       }
     }
+  },
+  "smartDegassingStickerPage": {
+    "title": "Autocollant de Dégazage Intelligent pour Emballages Liquides | POUCH.ECO",
+    "metaDesc": "Solutions d'évacuation pour emballages de liquides dégageant des gaz comme le kimchi. Découvrez les valves de dégazage autocollantes, les sachets suspendus et les absorbeurs de CO2. 100% étanches et conformes FDA.",
+    "hero": {
+      "badge": "EMBALLAGE ACTIF · DÉGAZAGE UNIDIRECTIONNEL · ZÉRO ÉCLATEMENT",
+      "title": "Autocollants de Dégazage",
+      "titleColored": " pour Emballages Liquides",
+      "desc": "Fini les emballages de kimchi gonflés et éclatés. Nos valves autocollantes carrées et plates haute performance libèrent l'excès de CO₂ tout en maintenant une barrière 100% étanche aux liquides et à l'oxygène.",
+      "requestSamples": "Demander des Échantillons",
+      "bookMeeting": "Prendre Rendez-vous"
+    },
+    "gasControl": {
+      "title": "Contrôle du Gaz pour ",
+      "titleColored": "Aliments Fermentés",
+      "desc": "Les produits fermentés frais comme le kimchi dégagent continuellement du dioxyde de carbone (CO₂). S'ils sont scellés dans des sachets standard, ces derniers gonflent et finissent par éclater. Nous proposons trois solutions de dégazage adaptées au B2C et au commerce de détail :",
+      "showcaseTitle": "Valve Autocollante Intelligente Achieve Pack (AO002)",
+      "showcaseDesc": "Un autocollant de dégazage plat et carré qui s'intègre parfaitement sur les trous d'aération perforés."
+    },
+    "gallery": {
+      "smart-valve": {
+        "name": "Valve Autocollante Intelligente (AO002)",
+        "desc": "Autocollant de dégazage plat et carré, entièrement étanche"
+      },
+      "squeeze-test": {
+        "name": "Test de Pression et Compression",
+        "desc": "Vérification du test de compression sur kimchi, zéro fuite"
+      },
+      "production": {
+        "name": "Application Automatisée en Ligne",
+        "desc": "Intégration sur ligne d'emballage automatisée haute vitesse"
+      },
+      "sticker-liner": {
+        "name": "Valves Autocollantes sur Support",
+        "desc": "Valves de dégazage autocollantes carrées en rouleau"
+      },
+      "header-pocket": {
+        "name": "Compartiment de Tête Scellé",
+        "desc": "Compartiment pour sachet suspendu en tête de style Jongga"
+      },
+      "absorber-packet": {
+        "name": "Sachet Absorbeur de Gaz CO2",
+        "desc": "Absorbeur de dioxyde de carbone StayFresh de qualité alimentaire"
+      }
+    },
+    "options": {
+      "opt1": {
+        "badge": "Option 01",
+        "title": "Sachet Absorbeur de CO2",
+        "desc": "Un sachet de qualité alimentaire (StayFresh) est déposé directement à l'intérieur du sachet. Il capture activement et chimiquement le CO₂ pour éviter le gonflement. Bien qu'économique et facile à automatiser, le sachet libre peut prêter à confusion pour le consommateur car il n'est pas comestible."
+      },
+      "opt2": {
+        "badge": "Option 02",
+        "title": "Scellage de Tête Suspendu",
+        "desc": "Une solution premium mise au point par des marques coréennes. Une barre de soudure crée un compartiment distinct dans la partie supérieure du sachet stand-up, maintenant le sachet absorbeur en sécurité au-dessus de la ligne de remplissage du liquide. Cela évite tout contact direct entre l'absorbeur et la sauce."
+      },
+      "opt3": {
+        "badge": "Option 03",
+        "title": "Valve Autocollante de Dégazage",
+        "desc": "Un autocollant carré plat appliqué à l'extérieur. Posée sur un micro-trou de 1.5 mm, sa membrane hydrophobe permet à la pression interne de s'évacuer automatiquement tout en bloquant complètement les liquides et en empêchant l'air extérieur de pénétrer dans le sachet."
+      }
+    },
+    "comparison": {
+      "title": "Guide de Comparaison des Options",
+      "thOption": "Option d'Évacuation",
+      "thPlacement": "Emplacement",
+      "thCost": "Niveau de Coût",
+      "thLiquid": "Étanche aux Liquides",
+      "thExperience": "Expérience de Marque",
+      "thApplication": "Meilleure Application",
+      "rows": {
+        "absorber": {
+          "option": "Sachet Absorbeur de CO2",
+          "placement": "Libre dans le sachet",
+          "cost": "★☆☆☆☆ (Le plus bas)",
+          "liquidProof": "Oui (le sachet agit à l'intérieur)",
+          "buyerPerception": "Bon (non comestible)",
+          "optimalFor": "Petit budget, emballages en vrac"
+        },
+        "header": {
+          "option": "Compartiment de Tête Scellé",
+          "placement": "Suspendu au-dessus du liquide",
+          "cost": "★★☆☆☆ (Bas)",
+          "liquidProof": "Oui (scellé en haut)",
+          "buyerPerception": "Très Bon (sachet isolé)",
+          "optimalFor": "Kimchi DTC, aliments liquides"
+        },
+        "sticker": {
+          "option": "Valve Autocollante de Dégazage",
+          "placement": "Appliquée sur micro-trou",
+          "cost": "★★★☆☆ (Moyen)",
+          "liquidProof": "Oui (hydrophobe)",
+          "buyerPerception": "Excellent (sans sachet chimique)",
+          "optimalFor": "Kimchi Premium, Sauces, DTC"
+        }
+      }
+    },
+    "science": {
+      "title": "Contrôle de la Pression ",
+      "titleColored": "100% Étanche",
+      "desc": "Le liquide va-t-il fuir si le sachet est pressé ? Nos valves autocollantes carrées sont conçues avec une membrane microporeuse hydrophobe et oléophobe spécialisée. Les pores sont de taille microscopique, permettant aux molécules individuelles de gaz (dioxyde de carbone) de s'échapper sous pression tout en bloquant complètement les grosses molécules d'eau et d'huile.",
+      "points": {
+        "leak": {
+          "title": "Zéro fuite de liquide :",
+          "desc": "Vérifié lors de tests de pression par compression. Le liquide et les sauces restent entièrement à l'intérieur."
+        },
+        "oxygen": {
+          "title": "Barrière oxygène & humidité :",
+          "desc": "Se referme instantanément dès que la pression interne est relâchée, évitant toute pénétration d'oxygène."
+        },
+        "coffee": {
+          "title": "Pas de substitut pour le café :",
+          "desc": "Spécifiquement calibré pour les aliments très humides ; le café torréfié nécessite des valves de dégazage sèches distinctes."
+        }
+      },
+      "viewInfographic": "Voir l'Infographie du Test de Pression"
+    },
+    "videos": {
+      "badge": "VALVE_PERFORMANCE_TEST",
+      "title": "VIDÉOS DE TESTS DE RENDEMENT FONCTIONNEL",
+      "desc": "Nous soumettons nos solutions d'évacuation à des pressions localisées extrêmes. Regardez les vidéos comparatives ci-dessous pour apprécier les performances physiques de nos autocollants de dégazage intelligents par rapport aux valves de café standard :",
+      "v1": {
+        "badge": "RÉUSSI / 测验合格",
+        "title": "Test de la Valve Étanche",
+        "sub": "Test de pression sur valve intelligente",
+        "desc": "Regardez notre valve carrée plate spécialisée (AO002) en action lors d'un test de compression sévère. Même lorsque la pression est appliquée directement sur le sachet rempli de liquide, la membrane hydrophobe résiste, empêchant la moindre goutte de fuir tout en laissant le gaz s'échapper.",
+        "chineseCaption": "对包装袋进行大力挤压时，内部空气与气体得以自由排出，而液体被100%封锁在内，即使在强压力下也无任何渗漏。"
+      },
+      "v2": {
+        "badge": "ÉCHEC / 无法防漏",
+        "title": "Valve à Café Standard",
+        "sub": "Test de pression sur valve à café classique",
+        "desc": "Les valves à café rondes classiques sont conçues uniquement pour les gaz secs. Sous la pression d'un liquide, le joint interne cède, entraînant une fuite immédiate. Cela montre pourquoi les valves à café standard ne conviennent pas aux aliments contenant beaucoup de liquide.",
+        "chineseCaption": "该阀门仅针对干燥气体设计，在酱汁液体挤压下，其内部橡胶密封圈失效，导致液体立刻渗漏。这说明了普通咖啡阀不适用于富含液体的食品。"
+      },
+      "v3": {
+        "badge": "DÉGAZAGE ACTIF / 正在排气",
+        "title": "Démo de Dégazage Actif",
+        "sub": "Démonstration du processus d'évacuation unidirectionnel",
+        "desc": "Gros plan montrant l'évacuation des bulles de gaz CO₂ sous pression tout en empêchant tout reflux de liquide. La valve conserve une parfaite étanchéité physique tout au long du dégazage.",
+        "chineseCaption": "近距离观察二氧化碳气体在微小气压下排出，同时彻底阻断外部空气和液体倒流。在整个排气过程中，阀门始终保持其物理密封。"
+      }
+    },
+    "guide": {
+      "title": "Guide d'Application ",
+      "titleColored": "Étape par Étape",
+      "titleSuffix": "",
+      "desc": "Pour appliquer correctement l'autocollant de dégazage carré sur vos sachets et éviter toute fuite sur les bords, suivez cette méthode :",
+      "viewAssembly": "Voir le Modèle de Ligne d'Assemblage",
+      "steps": {
+        "1": {
+          "title": "Remplissage et scellage :",
+          "desc": "Remplissez le sachet stand-up de kimchi ou de produit liquide, puis fermez complètement le zip ou la fermeture thermosoudée."
+        },
+        "2": {
+          "title": "Perforation du micro-trou :",
+          "desc": "Perforez un trou de 1 à 2 mm dans le tiers supérieur du sachet (au-dessus du niveau du produit). Utilisez un support rigide pour une coupe nette."
+        },
+        "3": {
+          "title": "Décoller & coller :",
+          "desc": "Décollez la valve autocollante de son support. Alignez-la précisément sur le trou perforé, en évitant de toucher l'adhésif avec les doigts."
+        },
+        "4": {
+          "title": "Fixer l'étanchéité :",
+          "desc": "Appuyez fermement sur les bords de l'autocollant pour assurer un contact hermétique parfait sans plis."
+        }
+      }
+    },
+    "faq": {
+      "title": "Questions ",
+      "titleColored": "Fréquentes",
+      "questions": [
+        {
+          "q": "Si les clients pressent le sachet de kimchi, le liquide va-t-il s'échapper par la valve autocollante ?",
+          "a": "Absolument pas ! Nos valves de dégazage autocollantes carrées (AO002) sont dotées d'une membrane microporeuse hydrophobe et oléophobe haute performance. Elle permet aux molécules de gaz CO₂ de s'échapper sous une pression minime (~0,05-0,1 PSI) tout en bloquant les molécules d'eau liquide ou d'huile. Même lors de fortes pressions localisées, la valve reste 100% étanche."
+        },
+        {
+          "q": "Puis-je utiliser les valves autocollantes de kimchi pour des sachets de café ?",
+          "a": "Nous déconseillons l'utilisation de sachets absorbeurs de gaz ou de valves autocollantes de kimchi pour le café torréfié. Le café est très sensible à l'oxygène et nécessite une valve de dégazage sèche et ronde pour préserver les huiles aromatiques et évacuer le CO₂ sans assécher les grains. À l'inverse, les valves à café ne sont pas conçues pour supporter des liquides et de l'humidité élevée, c'est pourquoi une valve autocollante hydrophobe spécifique est nécessaire pour le kimchi."
+        },
+        {
+          "q": "Comment applique-t-on la valve autocollante sur un sachet stand-up ?",
+          "a": "Le processus comprend : 1) le remplissage et le scellage du kimchi ou produit liquide dans le sachet, 2) la perforation d'un micro-trou net de 1-2 mm dans le tiers supérieur (au-dessus du niveau du liquide), 3) le décollage de la valve carrée de son support, et 4) sa pose et pression ferme sur le micro-trou pour un scellage périphérique étanche."
+        },
+        {
+          "q": "Les matériaux et adhésifs sont-ils adaptés au contact alimentaire ?",
+          "a": "Oui, tous les matériaux, membranes et adhésifs utilisés dans nos autocollants de dégazage intelligents et sachets absorbeurs de CO2 sont conformes aux normes FDA, non toxiques et certifiés de qualité alimentaire. Ils sont fabriqués dans des installations sans poussière certifiées BRC pour garantir une hygiène absolue."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Améliorez les Sachets de Fermentation de votre Marque",
+      "desc": "Commandez en gros des valves autocollantes de dégazage carrées, des sachets stand-up équipés de valves, ou des sachets avec compartiment suspendu de style Jongga. Échantillons prêts à l'envoi.",
+      "orderSamples": "Commander des Échantillons",
+      "emailSpecs": "Envoyer les Spécifications par E-mail"
+    }
   }
 }

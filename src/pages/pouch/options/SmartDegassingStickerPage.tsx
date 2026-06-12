@@ -2,58 +2,81 @@ import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Package, Leaf, Zap, Shield, Sparkles, ChevronDown, ChevronUp, Calendar, Mail } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 
-// Gallery of degassing options
-const DEGASSING_GALLERY = [
-  { id: 'smart-valve', name: 'Smart Sticker Valve (AO002)', description: 'Flat square degassing sticker, fully leak-proof', image: '/imgs/function/smart_sticker_valve_detail.png' },
-  { id: 'squeeze-test', name: 'Squeeze & Pressure Test', description: 'Zero leak kimchi squeeze test verification', image: '/imgs/function/kimchi_valve_squeeze_test.png' },
-  { id: 'production', name: 'Inline Automated Applying', description: 'High-speed automated packaging line integration', image: '/imgs/function/pouch_production_line_valves.png' },
-  { id: 'sticker-liner', name: 'Sticker Valves on Liner', description: 'Self-adhesive square sticker degassing valves', image: '/imgs/function/square_sticker_valves.png' },
-  { id: 'header-pocket', name: 'Sealed Header Pocket', description: 'Jongga-style suspended header sachet compartment', image: '/imgs/function/jongga_kimchi_bag_seal.png' },
-  { id: 'absorber-packet', name: 'CO2 Gas Absorber Packet', description: 'StayFresh food-grade carbon dioxide gas absorber', image: '/imgs/function/stayfresh_co2_absorber.png' },
-]
-
-// Comparison table data
-const OPTION_COMPARISON = [
-  { option: 'CO2 Absorber Packet', placement: 'Loose in bag', cost: '★☆☆☆☆ (Lowest)', liquidProof: 'Yes (packet acts inside)', buyerPerception: 'Good (not for eating)', optimalFor: 'Low budget, bulk packs' },
-  { option: 'Sealed Header Pocket', placement: 'Suspended above liquid', cost: '★★☆☆☆ (Low)', liquidProof: 'Yes (sealed in top)', buyerPerception: 'Very Good (isolated sachet)', optimalFor: 'DTC Kimchi, liquid foods' },
-  { option: 'Degassing Sticker Valve', placement: 'Applied over micro-vent', cost: '★★★☆☆ (Medium)', liquidProof: 'Yes (hydrophobic)', buyerPerception: 'Excellent (no chemical sachet)', optimalFor: 'Premium Kimchi, Sauces, DTC' },
-]
-
-const FAQ_DATA = [
-  {
-    question: 'If customers squeeze the kimchi bag, will liquid leak out of the sticker valve?',
-    answer: 'Absolutely not! Our square sticker degassing valves (AO002) are engineered with a high-performance hydrophobic and oleophobic micro-porous membrane. This allows carbon dioxide gas molecules to pass through and escape under minimal pressure (~0.05-0.1 PSI) while blocking large liquid water or oil molecules. Even under localized squeeze testing, the valve remains 100% leak-proof.'
-  },
-  {
-    question: 'Can I use kimchi CO2 degassing sticker valves for coffee bags?',
-    answer: 'We do not recommend using kimchi gas absorbers or sticker valves for roasted coffee. Coffee is highly sensitive to oxygen exposure and requires a round dry degassing valve to preserve flavor oils and release carbon dioxide without drying the beans. Conversely, coffee valves are not designed to handle high liquid and moisture contact, which is why a dedicated hydrophobic sticker valve is needed for kimchi.'
-  },
-  {
-    question: 'How do you apply the sticker valve onto a stand-up pouch?',
-    answer: 'The process involves: 1) filling and sealing your kimchi or liquid product in the pouch, 2) punching a clean 1-2 mm micro-vent hole in the upper third of the bag (well above the liquid level), 3) peeling the square sticker valve from its liner, and 4) pressing it firmly over the micro-vent hole to ensure an airtight adhesive edge seal.'
-  },
-  {
-    question: 'Are the materials and adhesives food-safe?',
-    answer: 'Yes, all materials, membranes, and adhesives used in our Smart Degassing Stickers and CO2 Absorber Packets are FDA-compliant, non-toxic, and certified food-safe. They are manufactured in dust-free BRC-certified facilities to guarantee zero contamination.'
-  },
-]
-
 export default function SmartDegassingStickerPage() {
+  const { t } = useTranslation()
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
   const [lightboxImage, setLightboxImage] = useState<string | null>(null)
+
+  // Gallery of degassing options
+  const DEGASSING_GALLERY = [
+    { id: 'smart-valve', name: t('smartDegassingStickerPage.gallery.smart-valve.name'), description: t('smartDegassingStickerPage.gallery.smart-valve.desc'), image: '/imgs/function/smart_sticker_valve_detail.png' },
+    { id: 'squeeze-test', name: t('smartDegassingStickerPage.gallery.squeeze-test.name'), description: t('smartDegassingStickerPage.gallery.squeeze-test.desc'), image: '/imgs/function/kimchi_valve_squeeze_test.png' },
+    { id: 'production', name: t('smartDegassingStickerPage.gallery.production.name'), description: t('smartDegassingStickerPage.gallery.production.desc'), image: '/imgs/function/pouch_production_line_valves.png' },
+    { id: 'sticker-liner', name: t('smartDegassingStickerPage.gallery.sticker-liner.name'), description: t('smartDegassingStickerPage.gallery.sticker-liner.desc'), image: '/imgs/function/square_sticker_valves.png' },
+    { id: 'header-pocket', name: t('smartDegassingStickerPage.gallery.header-pocket.name'), description: t('smartDegassingStickerPage.gallery.header-pocket.desc'), image: '/imgs/function/jongga_kimchi_bag_seal.png' },
+    { id: 'absorber-packet', name: t('smartDegassingStickerPage.gallery.absorber-packet.name'), description: t('smartDegassingStickerPage.gallery.absorber-packet.desc'), image: '/imgs/function/stayfresh_co2_absorber.png' },
+  ]
+
+  // Comparison table data
+  const OPTION_COMPARISON = [
+    { 
+      option: t('smartDegassingStickerPage.comparison.rows.absorber.option'), 
+      placement: t('smartDegassingStickerPage.comparison.rows.absorber.placement'), 
+      cost: t('smartDegassingStickerPage.comparison.rows.absorber.cost'), 
+      liquidProof: t('smartDegassingStickerPage.comparison.rows.absorber.liquidProof'), 
+      buyerPerception: t('smartDegassingStickerPage.comparison.rows.absorber.buyerPerception'), 
+      optimalFor: t('smartDegassingStickerPage.comparison.rows.absorber.optimalFor') 
+    },
+    { 
+      option: t('smartDegassingStickerPage.comparison.rows.header.option'), 
+      placement: t('smartDegassingStickerPage.comparison.rows.header.placement'), 
+      cost: t('smartDegassingStickerPage.comparison.rows.header.cost'), 
+      liquidProof: t('smartDegassingStickerPage.comparison.rows.header.liquidProof'), 
+      buyerPerception: t('smartDegassingStickerPage.comparison.rows.header.buyerPerception'), 
+      optimalFor: t('smartDegassingStickerPage.comparison.rows.header.optimalFor') 
+    },
+    { 
+      option: t('smartDegassingStickerPage.comparison.rows.sticker.option'), 
+      placement: t('smartDegassingStickerPage.comparison.rows.sticker.placement'), 
+      cost: t('smartDegassingStickerPage.comparison.rows.sticker.cost'), 
+      liquidProof: t('smartDegassingStickerPage.comparison.rows.sticker.liquidProof'), 
+      buyerPerception: t('smartDegassingStickerPage.comparison.rows.sticker.buyerPerception'), 
+      optimalFor: t('smartDegassingStickerPage.comparison.rows.sticker.optimalFor') 
+    },
+  ]
+
+  const FAQ_DATA = [
+    {
+      question: t('smartDegassingStickerPage.faq.questions.0.q'),
+      answer: t('smartDegassingStickerPage.faq.questions.0.a')
+    },
+    {
+      question: t('smartDegassingStickerPage.faq.questions.1.q'),
+      answer: t('smartDegassingStickerPage.faq.questions.1.a')
+    },
+    {
+      question: t('smartDegassingStickerPage.faq.questions.2.q'),
+      answer: t('smartDegassingStickerPage.faq.questions.2.a')
+    },
+    {
+      question: t('smartDegassingStickerPage.faq.questions.3.q'),
+      answer: t('smartDegassingStickerPage.faq.questions.3.a')
+    },
+  ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Smart Degassing Sticker for Liquid Packaging | POUCH.ECO</title>
-        <meta name="description" content="Venting solutions for gas-releasing liquid packaging like kimchi. Explore square sticker degassing valves, suspended header sachets, and CO2 absorbers. 100% leak-proof and FDA-compliant." />
+        <title>{t('smartDegassingStickerPage.title')}</title>
+        <meta name="description" content={t('smartDegassingStickerPage.metaDesc')} />
         <link rel="canonical" href="https://pouch.eco/options/smart-degassing-sticker" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Smart Degassing Sticker for Liquid Packaging | POUCH.ECO" />
-        <meta property="og:description" content="Venting solutions for gas-releasing liquid packaging like kimchi. Explore square sticker degassing valves, suspended header sachets, and CO2 absorbers. 100% leak-proof and FDA-compliant." />
+        <meta property="og:title" content={t('smartDegassingStickerPage.title')} />
+        <meta property="og:description" content={t('smartDegassingStickerPage.metaDesc')} />
         <meta property="og:url" content="https://pouch.eco/options/smart-degassing-sticker" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="https://pouch.eco/imgs/function/smart_sticker_valve_detail.png" />
@@ -68,14 +91,14 @@ export default function SmartDegassingStickerPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-sm uppercase tracking-[4px] text-[#10B981] font-black mb-4">
-              ACTIVE PACKAGING · ONE-WAY DEGASSING · ZERO BURSTING
+              {t('smartDegassingStickerPage.hero.badge')}
             </p>
             <h1 className="text-4xl md:text-6xl font-['Space_Grotesk'] font-black uppercase mb-6 leading-tight">
-              Smart Degassing Stickers
-              <span className="text-[#10B981]"> for Liquid Packaging</span>
+              {t('smartDegassingStickerPage.hero.title')}
+              <span className="text-[#10B981]">{t('smartDegassingStickerPage.hero.titleColored')}</span>
             </h1>
             <p className="text-lg md:text-xl font-['JetBrains_Mono'] mb-8 text-gray-300">
-              Stop bloated, swollen, and bursting kimchi packages. Our high-performance flat square sticker valves release excess CO₂ gas while maintaining a 100% leak-proof barrier against liquids and oxygen.
+              {t('smartDegassingStickerPage.hero.desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -83,7 +106,7 @@ export default function SmartDegassingStickerPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#10B981] text-white font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Package className="w-6 h-6 text-black" />
-                <span className="text-black">Request Samples</span>
+                <span className="text-black">{t('smartDegassingStickerPage.hero.requestSamples')}</span>
                 <ArrowRight className="w-6 h-6 text-black" />
               </Link>
               <a
@@ -93,7 +116,7 @@ export default function SmartDegassingStickerPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-black text-[#10B981] font-black uppercase border-4 border-[#10B981] shadow-[8px_8px_0px_0px_#10B981] hover:shadow-[12px_12px_0px_0px_#10B981] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
-                Book Meeting
+                {t('smartDegassingStickerPage.hero.bookMeeting')}
               </a>
             </div>
           </div>
@@ -105,10 +128,10 @@ export default function SmartDegassingStickerPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-4">
-              Gas Control for <span className="text-[#10B981]">Fermenting Foods</span>
+              {t('smartDegassingStickerPage.gasControl.title')}<span className="text-[#10B981]">{t('smartDegassingStickerPage.gasControl.titleColored')}</span>
             </h2>
             <p className="text-lg font-['JetBrains_Mono'] text-gray-600 max-w-3xl mx-auto">
-              Fresh fermented products like kimchi continually release carbon dioxide (CO₂) gas. If sealed in standard pouches, the bags will bloat and burst. We offer three B2C and retail-friendly venting solutions:
+              {t('smartDegassingStickerPage.gasControl.desc')}
             </p>
           </div>
 
@@ -124,9 +147,9 @@ export default function SmartDegassingStickerPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white text-center">
-              <h3 className="font-['Space_Grotesk'] text-xl font-bold uppercase mb-1">Achieve Pack Smart Sticker Valve (AO002)</h3>
+              <h3 className="font-['Space_Grotesk'] text-xl font-bold uppercase mb-1">{t('smartDegassingStickerPage.gasControl.showcaseTitle')}</h3>
               <p className="font-['JetBrains_Mono'] text-sm text-gray-200">
-                A flat, square degassing sticker that integrates seamlessly over punched venting holes.
+                {t('smartDegassingStickerPage.gasControl.showcaseDesc')}
               </p>
             </div>
           </div>
@@ -159,10 +182,10 @@ export default function SmartDegassingStickerPage() {
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="border-4 border-black p-6 rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-neutral-50 flex flex-col justify-between">
               <div>
-                <span className="inline-block px-3 py-1 bg-black text-[#10B981] font-black text-xs uppercase border border-black mb-4 font-['JetBrains_Mono']">Option 01</span>
-                <h3 className="text-xl font-black uppercase mb-3 font-['Space_Grotesk']">CO2 Absorber Sachet</h3>
+                <span className="inline-block px-3 py-1 bg-black text-[#10B981] font-black text-xs uppercase border border-black mb-4 font-['JetBrains_Mono']">{t('smartDegassingStickerPage.options.opt1.badge')}</span>
+                <h3 className="text-xl font-black uppercase mb-3 font-['Space_Grotesk']">{t('smartDegassingStickerPage.options.opt1.title')}</h3>
                 <p className="font-['JetBrains_Mono'] text-xs text-gray-600 mb-4 leading-relaxed">
-                  A food-safe sachet (StayFresh) is dropped directly inside the pouch. It actively traps CO₂ chemically to avoid package swelling. While cost-effective and easy to automate, the loose packet might cause buyer confusion as it is not edible.
+                  {t('smartDegassingStickerPage.options.opt1.desc')}
                 </p>
               </div>
               <img src="/imgs/function/stayfresh_co2_absorber.png" alt="StayFresh sachet" className="w-full h-32 object-cover rounded-lg border-2 border-black" />
@@ -170,10 +193,10 @@ export default function SmartDegassingStickerPage() {
 
             <div className="border-4 border-black p-6 rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-neutral-50 flex flex-col justify-between">
               <div>
-                <span className="inline-block px-3 py-1 bg-black text-[#10B981] font-black text-xs uppercase border border-black mb-4 font-['JetBrains_Mono']">Option 02</span>
-                <h3 className="text-xl font-black uppercase mb-3 font-['Space_Grotesk']">Suspended Header Seal</h3>
+                <span className="inline-block px-3 py-1 bg-black text-[#10B981] font-black text-xs uppercase border border-black mb-4 font-['JetBrains_Mono']">{t('smartDegassingStickerPage.options.opt2.badge')}</span>
+                <h3 className="text-xl font-black uppercase mb-3 font-['Space_Grotesk']">{t('smartDegassingStickerPage.options.opt2.title')}</h3>
                 <p className="font-['JetBrains_Mono'] text-xs text-gray-600 mb-4 leading-relaxed">
-                  A premium solution pioneered by Korean brands. A seal bar creates a distinct pocket at the top middle of the stand-up pouch, holding the sachet safely above the liquid fill line. This keeps the absorber out of direct contact with the food sauce.
+                  {t('smartDegassingStickerPage.options.opt2.desc')}
                 </p>
               </div>
               <img src="/imgs/function/jongga_kimchi_bag_seal.png" alt="Header seal sachet placement" className="w-full h-32 object-cover rounded-lg border-2 border-black" />
@@ -181,10 +204,10 @@ export default function SmartDegassingStickerPage() {
 
             <div className="border-4 border-black p-6 rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-neutral-50 flex flex-col justify-between">
               <div>
-                <span className="inline-block px-3 py-1 bg-black text-[#10B981] font-black text-xs uppercase border border-black mb-4 font-['JetBrains_Mono']">Option 03</span>
-                <h3 className="text-xl font-black uppercase mb-3 font-['Space_Grotesk']">Degassing Sticker Valve</h3>
+                <span className="inline-block px-3 py-1 bg-black text-[#10B981] font-black text-xs uppercase border border-black mb-4 font-['JetBrains_Mono']">{t('smartDegassingStickerPage.options.opt3.badge')}</span>
+                <h3 className="text-xl font-black uppercase mb-3 font-['Space_Grotesk']">{t('smartDegassingStickerPage.options.opt3.title')}</h3>
                 <p className="font-['JetBrains_Mono'] text-xs text-gray-600 mb-4 leading-relaxed">
-                  An external flat adhesive square sticker. Applied over a punched 1.5mm hole, its hydrophobic membrane lets internal pressure vent out automatically while fully blocking liquid and preventing external air from entering the bag.
+                  {t('smartDegassingStickerPage.options.opt3.desc')}
                 </p>
               </div>
               <img src="/imgs/function/square_sticker_valves.png" alt="Degassing sticker valves" className="w-full h-32 object-cover rounded-lg border-2 border-black" />
@@ -193,16 +216,16 @@ export default function SmartDegassingStickerPage() {
 
           {/* Comparison Table */}
           <div className="bg-[#D4FF00] border-4 border-black rounded-2xl p-6 mb-16 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-x-auto">
-            <h3 className="text-xl font-black uppercase mb-4 text-center font-['Space_Grotesk']">Option Comparison Guide</h3>
+            <h3 className="text-xl font-black uppercase mb-4 text-center font-['Space_Grotesk']">{t('smartDegassingStickerPage.comparison.title')}</h3>
             <table className="w-full min-w-[650px] border-collapse font-['JetBrains_Mono'] text-xs">
               <thead>
                 <tr className="border-b-2 border-black">
-                  <th className="p-3 text-left font-black uppercase">Venting Option</th>
-                  <th className="p-3 text-left font-black uppercase">Placement</th>
-                  <th className="p-3 text-left font-black uppercase">Cost Level</th>
-                  <th className="p-3 text-left font-black uppercase">Liquid Proof</th>
-                  <th className="p-3 text-left font-black uppercase">Brand Experience</th>
-                  <th className="p-3 text-left font-black uppercase">Best Application</th>
+                  <th className="p-3 text-left font-black uppercase">{t('smartDegassingStickerPage.comparison.thOption')}</th>
+                  <th className="p-3 text-left font-black uppercase">{t('smartDegassingStickerPage.comparison.thPlacement')}</th>
+                  <th className="p-3 text-left font-black uppercase">{t('smartDegassingStickerPage.comparison.thCost')}</th>
+                  <th className="p-3 text-left font-black uppercase">{t('smartDegassingStickerPage.comparison.thLiquid')}</th>
+                  <th className="p-3 text-left font-black uppercase">{t('smartDegassingStickerPage.comparison.thExperience')}</th>
+                  <th className="p-3 text-left font-black uppercase">{t('smartDegassingStickerPage.comparison.thApplication')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -228,23 +251,23 @@ export default function SmartDegassingStickerPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
               <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-6">
-                100% Leak-Proof <span className="text-[#10B981]">Pressure Control</span>
+                {t('smartDegassingStickerPage.science.title')}<span className="text-[#10B981]">{t('smartDegassingStickerPage.science.titleColored')}</span>
               </h2>
               <p className="font-['JetBrains_Mono'] text-sm text-gray-700 leading-relaxed mb-4">
-                Will liquid leak if the bag is squeezed? Our square sticker valves are engineered with a specialized hydrophobic and oleophobic micro-porous membrane. The pores are micro-sized, allowing single molecules of gas (carbon dioxide) to escape under pressure while completely blocking large water and oil molecules.
+                {t('smartDegassingStickerPage.science.desc')}
               </p>
               <div className="space-y-3 font-['JetBrains_Mono'] text-xs text-gray-600">
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>Zero Liquid Leak:</strong> Verified under squeeze pressure tests. Liquid and sauces stay completely inside.</span>
+                  <span><strong>{t('smartDegassingStickerPage.science.points.leak.title')}</strong> {t('smartDegassingStickerPage.science.points.leak.desc')}</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>Oxygen & Moisture Block:</strong> Seals shut instantly once internal pressure is released, avoiding oxygen ingress.</span>
+                  <span><strong>{t('smartDegassingStickerPage.science.points.oxygen.title')}</strong> {t('smartDegassingStickerPage.science.points.oxygen.desc')}</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>No Coffee Substitute:</strong> Tuned specifically for high-humidity foods; roasted coffee requires separate dry degassing valves.</span>
+                  <span><strong>{t('smartDegassingStickerPage.science.points.coffee.title')}</strong> {t('smartDegassingStickerPage.science.points.coffee.desc')}</span>
                 </div>
               </div>
             </div>
@@ -253,20 +276,20 @@ export default function SmartDegassingStickerPage() {
               className="border-4 border-black rounded-xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white cursor-zoom-in group"
             >
               <img src="/imgs/function/kimchi_valve_squeeze_test.png" alt="Venting Squeeze Test Infographic" className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300" />
-              <div className="bg-neutral-50 px-3 py-2 text-xs text-center border-t-2 border-black font-['JetBrains_Mono'] text-gray-500">View Squeeze Test Infographic</div>
+              <div className="bg-neutral-50 px-3 py-2 text-xs text-center border-t-2 border-black font-['JetBrains_Mono'] text-gray-500">{t('smartDegassingStickerPage.science.viewInfographic')}</div>
             </div>
           </div>
 
           {/* Functional Performance Testing Videos Block */}
           <div className="border-4 border-black bg-white p-6 md:p-8 rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-16">
             <span className="inline-block bg-[#00FFFF] border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4 font-mono text-black">
-              VALVE_PERFORMANCE_TEST
+              {t('smartDegassingStickerPage.videos.badge')}
             </span>
             <h3 className="font-black text-2xl md:text-4xl uppercase tracking-tighter leading-none mb-4">
-              FUNCTIONAL PERFORMANCE TESTING VIDEOS
+              {t('smartDegassingStickerPage.videos.title')}
             </h3>
             <p className="font-['Space_Grotesk'] text-base font-bold text-neutral-800 mb-8 max-w-3xl leading-snug">
-              We subject our venting solutions to extreme localized pressure. Watch the comparative testing videos below to see the physical performance of our smart degassing stickers vs. standard coffee valves:
+              {t('smartDegassingStickerPage.videos.desc')}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -284,16 +307,16 @@ export default function SmartDegassingStickerPage() {
                     />
                   </div>
                   <div className="inline-block bg-green-600 text-white text-[10px] font-black uppercase px-2 py-0.5 mb-2 font-mono border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                    PASSED / 测验合格
+                    {t('smartDegassingStickerPage.videos.v1.badge')}
                   </div>
-                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">Leak-Proof Valve Test</h4>
-                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">智能排气阀挤压测试</p>
+                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">{t('smartDegassingStickerPage.videos.v1.title')}</h4>
+                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">{t('smartDegassingStickerPage.videos.v1.sub')}</p>
                   <p className="text-xs text-neutral-700 font-bold leading-relaxed font-['Space_Grotesk'] mb-3">
-                    Watch our specialized flat square valve (AO002) in action under a severe squeeze test. Even when localized pressure is applied to the liquid-rich pouch, the hydrophobic membrane holds firm, preventing a single drop of liquid or sauce from escaping while allowing gas to vent.
+                    {t('smartDegassingStickerPage.videos.v1.desc')}
                   </p>
                 </div>
                 <div className="mt-4 border-t-2 border-black pt-3 text-[11px] font-bold font-mono text-neutral-500 italic leading-relaxed">
-                  对包装袋进行大力挤压时，内部空气与气体得以自由排出，而液体被100%封锁在内，即使在强压力下也无任何渗漏。
+                  {t('smartDegassingStickerPage.videos.v1.chineseCaption')}
                 </div>
               </div>
 
@@ -311,16 +334,16 @@ export default function SmartDegassingStickerPage() {
                     />
                   </div>
                   <div className="inline-block bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 mb-2 font-mono border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                    FAILED / 无法防漏
+                    {t('smartDegassingStickerPage.videos.v2.badge')}
                   </div>
-                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">Standard Coffee Valve</h4>
-                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">普通咖啡阀挤压测试</p>
+                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">{t('smartDegassingStickerPage.videos.v2.title')}</h4>
+                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">{t('smartDegassingStickerPage.videos.v2.sub')}</p>
                   <p className="text-xs text-neutral-700 font-bold leading-relaxed font-['Space_Grotesk'] mb-3">
-                    Standard round coffee valves are designed only for dry gases. Under liquid squeeze pressure, the internal seal fails, leading to immediate liquid leak. This highlights why standard coffee valves are not suitable for liquid-rich foods.
+                    {t('smartDegassingStickerPage.videos.v2.desc')}
                   </p>
                 </div>
                 <div className="mt-4 border-t-2 border-black pt-3 text-[11px] font-bold font-mono text-neutral-500 italic leading-relaxed">
-                  该阀门仅针对干燥气体设计，在酱汁液体挤压下，其内部橡胶密封圈失效，导致液体立刻渗漏。这说明了普通咖啡阀不适用于富含液体的食品。
+                  {t('smartDegassingStickerPage.videos.v2.chineseCaption')}
                 </div>
               </div>
 
@@ -338,16 +361,16 @@ export default function SmartDegassingStickerPage() {
                     />
                   </div>
                   <div className="inline-block bg-blue-600 text-white text-[10px] font-black uppercase px-2 py-0.5 mb-2 font-mono border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                    ACTIVE VENTING / 正在排气
+                    {t('smartDegassingStickerPage.videos.v3.badge')}
                   </div>
-                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">Active Venting Demo</h4>
-                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">单向排气过程演示</p>
+                  <h4 className="font-black text-lg uppercase tracking-tight mb-1">{t('smartDegassingStickerPage.videos.v3.title')}</h4>
+                  <p className="text-xxs text-gray-500 font-black font-mono uppercase tracking-wider mb-2">{t('smartDegassingStickerPage.videos.v3.sub')}</p>
                   <p className="text-xs text-neutral-700 font-bold leading-relaxed font-['Space_Grotesk'] mb-3">
-                    Close-up showing carbon dioxide gas bubble venting under pressure while completely blocking liquid backflow. The valve maintains physical seal integrity throughout the off-gassing process.
+                    {t('smartDegassingStickerPage.videos.v3.desc')}
                   </p>
                 </div>
                 <div className="mt-4 border-t-2 border-black pt-3 text-[11px] font-bold font-mono text-neutral-500 italic leading-relaxed">
-                  近距离观察二氧化碳气体在微小气压下排出，同时彻底阻断外部空气和液体倒流。在整个排气过程中，阀门始终保持其物理密封。
+                  {t('smartDegassingStickerPage.videos.v3.chineseCaption')}
                 </div>
               </div>
             </div>
@@ -359,31 +382,31 @@ export default function SmartDegassingStickerPage() {
               className="order-2 md:order-1 border-4 border-black rounded-xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white cursor-zoom-in group"
             >
               <img src="/imgs/function/pouch_production_line_valves.png" alt="Inline Application Process" className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300" />
-              <div className="bg-neutral-50 px-3 py-2 text-xs text-center border-t-2 border-black font-['JetBrains_Mono'] text-gray-500">View Assembly Line Mockup</div>
+              <div className="bg-neutral-50 px-3 py-2 text-xs text-center border-t-2 border-black font-['JetBrains_Mono'] text-gray-500">{t('smartDegassingStickerPage.guide.viewAssembly')}</div>
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-6">
-                Step-by-Step <span className="text-[#10B981]">Application</span> Guide
+                {t('smartDegassingStickerPage.guide.title')}<span className="text-[#10B981]">{t('smartDegassingStickerPage.guide.titleColored')}</span>{t('smartDegassingStickerPage.guide.titleSuffix')}
               </h2>
               <p className="font-['JetBrains_Mono'] text-sm text-gray-700 leading-relaxed mb-6">
-                To apply the square degassing sticker correctly onto pouches and avoid any edge leaks, follow this process:
+                {t('smartDegassingStickerPage.guide.desc')}
               </p>
               <ol className="font-['JetBrains_Mono'] text-xs text-gray-600 space-y-4">
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black text-[#10B981] font-bold flex items-center justify-center">1</span>
-                  <span><strong>Fill and Seal:</strong> Fill the stand-up pouch with kimchi or liquid food and seal the main ziplock or heat-seal opening fully.</span>
+                  <span><strong>{t('smartDegassingStickerPage.guide.steps.1.title')}</strong> {t('smartDegassingStickerPage.guide.steps.1.desc')}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black text-[#10B981] font-bold flex items-center justify-center">2</span>
-                  <span><strong>Punch Micro-Hole:</strong> Punch a 1–2 mm hole in the upper third of the bag (above product level). Use a backing pad for a clean cut.</span>
+                  <span><strong>{t('smartDegassingStickerPage.guide.steps.2.title')}</strong> {t('smartDegassingStickerPage.guide.steps.2.desc')}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black text-[#10B981] font-bold flex items-center justify-center">3</span>
-                  <span><strong>Peel & Paste:</strong> Peel the sticker valve from the liner. Align it precisely over the punched hole, avoiding skin contact with the adhesive.</span>
+                  <span><strong>{t('smartDegassingStickerPage.guide.steps.3.title')}</strong> {t('smartDegassingStickerPage.guide.steps.3.desc')}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black text-[#10B981] font-bold flex items-center justify-center">4</span>
-                  <span><strong>Secure Seal:</strong> Rub and press the edges firmly onto the bag surface to ensure an airtight adhesive contact with no wrinkles.</span>
+                  <span><strong>{t('smartDegassingStickerPage.guide.steps.4.title')}</strong> {t('smartDegassingStickerPage.guide.steps.4.desc')}</span>
                 </li>
               </ol>
             </div>
@@ -395,7 +418,7 @@ export default function SmartDegassingStickerPage() {
       <section className="py-16 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-10 text-center">
-            Frequently Asked <span className="text-[#10B981]">Questions</span>
+            {t('smartDegassingStickerPage.faq.title')}<span className="text-[#10B981]">{t('smartDegassingStickerPage.faq.titleColored')}</span>
           </h2>
           <div className="space-y-4">
             {FAQ_DATA.map((faq, idx) => (
@@ -431,10 +454,10 @@ export default function SmartDegassingStickerPage() {
       <section className="py-16 bg-[#10B981] border-t-4 border-b-4 border-black shadow-[0_8px_0_0_rgba(0,0,0,1)]">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-4 text-black">
-            Upgrade Your Brand's Fermenting Pouch
+            {t('smartDegassingStickerPage.cta.title')}
           </h2>
           <p className="text-md md:text-lg font-['JetBrains_Mono'] mb-8 text-black/80 max-w-xl mx-auto">
-            Order bulk square degassing sticker valves, pre-valved stand-up pouches, or Jongga-style suspended header bags. Sample packs are ready to ship.
+            {t('smartDegassingStickerPage.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -442,7 +465,7 @@ export default function SmartDegassingStickerPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-black text-[#10B981] font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] transition-all"
             >
               <Package className="w-6 h-6" />
-              Order Sample Pack
+              {t('smartDegassingStickerPage.cta.orderSamples')}
               <ArrowRight className="w-6 h-6" />
             </Link>
             <a
@@ -450,7 +473,7 @@ export default function SmartDegassingStickerPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
             >
               <Mail className="w-6 h-6" />
-              Email Specifications
+              {t('smartDegassingStickerPage.cta.emailSpecs')}
             </a>
           </div>
         </div>
