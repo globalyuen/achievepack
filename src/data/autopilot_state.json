@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T11:30:45.227Z",
+  "lastUnifiedRun": "2026-06-13T11:45:49.729Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2562,17 +2562,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-flat-bottom-pouches-wholesale",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "kraft paper flat bottom pouches wholesale",
-      "difficulty": "Medium",
-      "slug": "kraft-paper-flat-bottom-pouches-wholesale"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "compostable retort bags dimensions chart",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-retort-bags-dimensions-chart"
     },
     {
       "status": "Pending",
@@ -2637,9 +2638,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T11:30:33.523Z",
+      "timestamp": "2026-06-13T11:45:40.480Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper flat bottom pouches wholesale\" to /blog/kraft-paper-flat-bottom-pouches-wholesale (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort bags dimensions chart\" to /blog/compostable-retort-bags-dimensions-chart (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper flat bottom pouches wholesale\" to /blog/kraft-paper-flat-bottom-pouches-wholesale (Pending Approval)",
+      "timestamp": "2026-06-13T11:30:33.523Z"
     },
     {
       "action": "Autopilot Generation Draft",
