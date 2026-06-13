@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T05:00:35.526Z",
+  "lastUnifiedRun": "2026-06-13T05:15:35.067Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2380,17 +2380,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-stand-up-pouch-dimensions-for-pet-food",
       "status": "Pending Approval",
       "volume": 740,
       "keyword": "recyclable stand up pouch dimensions for pet food",
-      "difficulty": "Low",
-      "slug": "recyclable-stand-up-pouch-dimensions-for-pet-food"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1800,
       "keyword": "compostable stand up pouch sizes for coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-stand-up-pouch-sizes-for-coffee"
     },
     {
       "status": "Pending",
@@ -2497,9 +2498,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T05:00:27.719Z",
+      "timestamp": "2026-06-13T05:15:27.333Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouch dimensions for pet food\" to /blog/recyclable-stand-up-pouch-dimensions-for-pet-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable stand up pouch sizes for coffee\" to /blog/compostable-stand-up-pouch-sizes-for-coffee (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouch dimensions for pet food\" to /blog/recyclable-stand-up-pouch-dimensions-for-pet-food (Pending Approval)",
+      "timestamp": "2026-06-13T05:00:27.719Z"
     },
     {
       "action": "Autopilot Generation Draft",
