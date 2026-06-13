@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T10:00:39.050Z",
+  "lastUnifiedRun": "2026-06-13T10:15:39.535Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2520,17 +2520,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-sachet-dimensions-for-powders",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "recyclable sachet dimensions for powders",
-      "difficulty": "Low",
-      "slug": "recyclable-sachet-dimensions-for-powders"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "digital print stand up pouches small batch",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-print-stand-up-pouches-small-batch"
     },
     {
       "status": "Pending",
@@ -2631,9 +2632,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T10:00:30.689Z",
+      "timestamp": "2026-06-13T10:15:31.397Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable sachet dimensions for powders\" to /blog/recyclable-sachet-dimensions-for-powders (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital print stand up pouches small batch\" to /blog/digital-print-stand-up-pouches-small-batch (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable sachet dimensions for powders\" to /blog/recyclable-sachet-dimensions-for-powders (Pending Approval)",
+      "timestamp": "2026-06-13T10:00:30.689Z"
     },
     {
       "action": "Autopilot Generation Draft",
