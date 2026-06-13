@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T21:18:54.081Z",
+  "lastUnifiedRun": "2026-06-13T22:48:12.355Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2681,10 +2681,11 @@
       "slug": "custom-shape-pouches-for-pet-food"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "recyclable sachet dimensions for spices",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-sachet-dimensions-for-spices"
     },
     {
       "status": "Pending",
@@ -2760,6 +2761,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-13T22:48:06.017Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable sachet dimensions for spices\" to /blog/recyclable-sachet-dimensions-for-spices (Pending Approval)"
+    },
     {
       "timestamp": "2026-06-13T20:47:40.202Z",
       "action": "Autopilot Generation Draft",
