@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T16:53:31.259Z",
+  "lastUnifiedRun": "2026-06-13T18:45:26.962Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2660,17 +2660,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "mono-material-film-suppliers-for-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 600,
       "keyword": "mono material film suppliers for stand up pouches",
-      "difficulty": "Low",
-      "slug": "mono-material-film-suppliers-for-stand-up-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "sustainable packaging sizes chart for liquids",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-packaging-sizes-chart-for-liquids"
     },
     {
       "status": "Pending",
@@ -2759,9 +2760,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T16:53:24.510Z",
+      "timestamp": "2026-06-13T18:45:20.801Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono material film suppliers for stand up pouches\" to /blog/mono-material-film-suppliers-for-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging sizes chart for liquids\" to /blog/sustainable-packaging-sizes-chart-for-liquids (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono material film suppliers for stand up pouches\" to /blog/mono-material-film-suppliers-for-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-13T16:53:24.510Z"
     },
     {
       "action": "Autopilot Generation Draft",
