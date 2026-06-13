@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T11:45:49.729Z",
+  "lastUnifiedRun": "2026-06-13T12:00:48.300Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2569,17 +2569,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "compostable-retort-bags-dimensions-chart",
       "status": "Pending Approval",
       "volume": 800,
       "keyword": "compostable retort bags dimensions chart",
-      "difficulty": "Low",
-      "slug": "compostable-retort-bags-dimensions-chart"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1300,
       "keyword": "mono material flexible packaging for pet food",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-material-flexible-packaging-for-pet-food"
     },
     {
       "status": "Pending",
@@ -2638,9 +2639,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T11:45:40.480Z",
+      "timestamp": "2026-06-13T12:00:39.073Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort bags dimensions chart\" to /blog/compostable-retort-bags-dimensions-chart (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono material flexible packaging for pet food\" to /blog/mono-material-flexible-packaging-for-pet-food (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort bags dimensions chart\" to /blog/compostable-retort-bags-dimensions-chart (Pending Approval)",
+      "timestamp": "2026-06-13T11:45:40.480Z"
     },
     {
       "action": "Autopilot Generation Draft",
