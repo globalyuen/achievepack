@@ -31474,5 +31474,342 @@
     "string_176": "Contact",
     "string_177": "Schedule Meeting",
     "string_178": "View Full Profile"
+  },
+  "carouselData": {
+    "work_0": {
+      "title": "Compostable Coffee Stand-Up Pouch",
+      "desc": "Plant-based high-barrier stand-up pouches with degassing valves.",
+      "tag": "Compostable"
+    },
+    "work_1": {
+      "title": "Kraft Flat-Bottom Tea Pouch",
+      "desc": "Earthy, organic kraft outer layers with certified compostable barrier lining.",
+      "tag": "Kraft Paper"
+    },
+    "work_2": {
+      "title": "Recyclable Matte Snack Bag",
+      "desc": "100% recyclable mono-PE film with matte soft-touch finish.",
+      "tag": "Recyclable"
+    },
+    "work_3": {
+      "title": "Metallic Luxury Stand-Up Pouch",
+      "desc": "Premium metalized lining providing ultra-high moisture and oxygen barriers.",
+      "tag": "High Barrier"
+    },
+    "work_4": {
+      "title": "Clear-Window Compostable Pouch",
+      "desc": "Compostable kraft stand-up pouch featuring a clear plant-based window.",
+      "tag": "Eco-Friendly"
+    },
+    "work_5": {
+      "title": "Spouted Juice & Liquid Pouch",
+      "desc": "Heavy-duty laminated structures with rigid spouts for leakproof transit.",
+      "tag": "Liquids"
+    },
+    "work_6": {
+      "title": "Custom Printed Stand-Up Pouch",
+      "desc": "High-resolution digital print sample with low minimum order quantity.",
+      "tag": "Digital Print"
+    },
+    "work_7": {
+      "title": "Premium Black Matte Coffee Bag",
+      "desc": "Sleek matte black flat bottom bag with integrated pocket zipper.",
+      "tag": "Specialty"
+    },
+    "work_8": {
+      "title": "Recyclable Mono-PE Zipper Pouch",
+      "desc": "Fully circular design with recyclable press-to-close zippers.",
+      "tag": "Recyclable"
+    },
+    "work_9": {
+      "title": "Bio-PE SugarCane Supplement Bag",
+      "desc": "Sugarcane-derived bioplastics helping brands reduce carbon emissions.",
+      "tag": "Bio-PE"
+    },
+    "work_10": {
+      "title": "PCR Recycled Plastic Pouch",
+      "desc": "Incorporating post-consumer recycled plastics into structural layers.",
+      "tag": "PCR Plastic"
+    },
+    "work_11": {
+      "title": "Ecosential Kraft Mailer Bag",
+      "desc": "Heavy-duty recycled kraft paper mailer bags with self-sealing adhesive strips.",
+      "tag": "Paper Mailer"
+    },
+    "work_12": {
+      "title": "Home Compostable Nuts Pouch",
+      "desc": "TÜV OK Compost HOME certified stand-up pouch for organic snacks.",
+      "tag": "Home Compost"
+    },
+    "work_13": {
+      "title": "Gusseted Side Coffee Pouch",
+      "desc": "Expandable side gussets with quad seal structure for stable shelf layout.",
+      "tag": "Side Gusset"
+    },
+    "work_14": {
+      "title": "Holographic High-Luxe Box",
+      "desc": "Corrugated shipping mailers with vibrant holographic foil designs.",
+      "tag": "Rigid Box"
+    },
+    "work_15": {
+      "title": "Eco-Friendly Pet Treat Bag",
+      "desc": "Puncture-resistant laminations designed for shelf longevity and grease-resistance.",
+      "tag": "Pet Treats"
+    },
+    "work_16": {
+      "title": "Compostable Matte White Pouch",
+      "desc": "Eco-friendly matte white stand-up pouches with organic sugar cane paper styling.",
+      "tag": "Compostable"
+    },
+    "work_17": {
+      "title": "Kraft Side-Gusset Tea Bag",
+      "desc": "High-barrier side-gusset bags for herbal teas with block bottom.",
+      "tag": "Kraft Paper"
+    },
+    "work_18": {
+      "title": "Mono-PE Circular Supplement Bag",
+      "desc": "Recyclable matte mono-PE supplement bag with heavy-duty zipper.",
+      "tag": "Recyclable"
+    },
+    "work_19": {
+      "title": "Clear-Front Compostable Pouch",
+      "desc": "Clear barrier front structure showcasing gourmet coffee beans.",
+      "tag": "Eco-Friendly"
+    },
+    "work_20": {
+      "title": "High-Barrier Spouted Purée Pouch",
+      "desc": "Spouted pure-PE packaging for organic baby food and purées.",
+      "tag": "Liquids"
+    },
+    "work_21": {
+      "title": "Matte Black Custom Coffee Bag",
+      "desc": "Modern matte black flat bottom bag featuring front pocket zipper.",
+      "tag": "Specialty"
+    },
+    "work_22": {
+      "title": "Holographic Metallic Gift Pouch",
+      "desc": "Shimmering holographic stand-up bag with premium aroma barrier.",
+      "tag": "High Barrier"
+    },
+    "work_23": {
+      "title": "Circular Mono-PE Jerky Pouch",
+      "desc": "High oxygen barrier mono-PE film suitable for cured meats and jerky.",
+      "tag": "Recyclable"
+    },
+    "work_24": {
+      "title": "Sugarcane Bio-PE Protein Pack",
+      "desc": "Sugarcane base material for heavy supplement pouches.",
+      "tag": "Bio-PE"
+    },
+    "work_25": {
+      "title": "Corrugated Kraft Shipping Mailer",
+      "desc": "Rigid biodegradable cardboard shipping mailers with double adhesive.",
+      "tag": "Paper Mailer"
+    },
+    "work_26": {
+      "title": "Certified Compostable Nut Bag",
+      "desc": "Safe home-composting pouch designed for dry nuts and seeds.",
+      "tag": "Home Compost"
+    },
+    "work_27": {
+      "title": "Expandable Side Gusset Coffee Pack",
+      "desc": "Quad seal side gusset bag with internal degassing valve.",
+      "tag": "Side Gusset"
+    },
+    "work_28": {
+      "title": "Premium Glossy Coffee Pouch",
+      "desc": "Vibrant high-gloss digital printing on recyclable barrier films.",
+      "tag": "Digital Print"
+    },
+    "work_29": {
+      "title": "Puncture-Resistant Pet Food Pack",
+      "desc": "Reinforced structure preventing tears and securing freshness.",
+      "tag": "Pet Treats"
+    },
+    "work_30": {
+      "title": "Certified Compostable Snacks Pouch",
+      "desc": "High-barrier plant-based flexible stand-up packaging for organic snacks and granola.",
+      "tag": "Compostable"
+    },
+    "work_31": {
+      "title": "Eco-Luxe Matte Box & Pouch Set",
+      "desc": "Vibrant custom-printed rigid boxes paired with matching barrier stand-up pouches.",
+      "tag": "Custom Set"
+    },
+    "work_32": {
+      "title": "Premium Kraft Paper Flat-Bottom Bag",
+      "desc": "Block bottom bag with organic kraft outer layer and compostable high-barrier lining.",
+      "tag": "Kraft Paper"
+    },
+    "work_33": {
+      "title": "Heavy-Duty Recyclable Side-Gusset Pouch",
+      "desc": "Mono-PE side-gusseted structures designed for stable retail shelving and durability.",
+      "tag": "Recyclable"
+    },
+    "work_34": {
+      "title": "High-Barrier Spouted Purée Pouch",
+      "desc": "Heavy-duty laminated spouted pouch with tamper-evident caps for liquids and purees.",
+      "tag": "Liquids"
+    },
+    "work_35": {
+      "title": "Luxury Holographic Supplement Bag",
+      "desc": "Stunning holographic foil printing on heavy supplement packaging with press-to-close zipper.",
+      "tag": "High Luxe"
+    },
+    "work_36": {
+      "title": "Eco-Friendly Recycled Kraft Mailer",
+      "desc": "Heavy-duty recycled kraft mailing bags featuring self-sealing double adhesive strips.",
+      "tag": "PCR Paper"
+    },
+    "knowhow_0": {
+      "title": "Compostable vs Recyclable",
+      "desc": "Deciding between circular plastic recovery and organic composting paths for your packaging.",
+      "tag": "Analysis"
+    },
+    "knowhow_1": {
+      "title": "Packaging Cost Guide",
+      "desc": "Complete breakdown of plate charges, setup fees, material costs, and wholesale volume tiers.",
+      "tag": "Finance"
+    },
+    "knowhow_2": {
+      "title": "Eco Packaging Mistakes",
+      "desc": "Avoid common design and material selection errors that disrupt commercial supply chains.",
+      "tag": "Strategy"
+    },
+    "knowhow_3": {
+      "title": "EU PPWR Compliance",
+      "desc": "Understanding the new European Union packaging regulations and recycling requirements.",
+      "tag": "Regulations"
+    },
+    "knowhow_4": {
+      "title": "Compostable Zippers",
+      "desc": "How biodegradable press-to-close zippers preserve freshness without polluting composting streams.",
+      "tag": "Technology"
+    },
+    "knowhow_5": {
+      "title": "Foil Stamping Recyclability",
+      "desc": "Assessing the impact of hot and cold foil stamping on paperboard and plastic recycling.",
+      "tag": "Design"
+    },
+    "knowhow_6": {
+      "title": "Compostable Materials",
+      "desc": "Overview of organic starch-based polymers and plant cell membranes that biodegrade safely.",
+      "tag": "Materials"
+    },
+    "knowhow_7": {
+      "title": "Recyclable Mono-PE",
+      "desc": "Engineered single-polymer films with EVOH barrier that qualify for standard recycling streams.",
+      "tag": "Materials"
+    },
+    "knowhow_8": {
+      "title": "Sugarcane Bio-PE",
+      "desc": "Plant-based polyethylene films derived from sugarcane that reduce carbon footprint.",
+      "tag": "Materials"
+    },
+    "knowhow_9": {
+      "title": "Post-Consumer Recycled",
+      "desc": "Reusing plastic ocean waste and curbside recyclables to fabricate premium composite barrier films.",
+      "tag": "Materials"
+    },
+    "knowhow_10": {
+      "title": "Stand Up Pouches",
+      "desc": "The classic retail packaging format with bottom gusset and custom resealable zippers.",
+      "tag": "Packaging"
+    },
+    "knowhow_11": {
+      "title": "Flat Bottom Bags",
+      "desc": "Maximum stability with five printable panels, ideal for heavy coffee beans and dry pet food.",
+      "tag": "Packaging"
+    },
+    "knowhow_12": {
+      "title": "Spouted Liquid Pouches",
+      "desc": "Flexible bottle-shaped pouches with fitment caps designed to hold cosmetics, drinks, and purees.",
+      "tag": "Packaging"
+    },
+    "knowhow_13": {
+      "title": "Custom Printed Boxes",
+      "desc": "Sturdy corrugated cardboard boxes, mailers, and custom retail displays with custom finishes.",
+      "tag": "Packaging"
+    },
+    "knowhow_14": {
+      "title": "Startup Founder Solutions",
+      "desc": "Low MOQ, design support, and rapid prototyping workflows for launching products.",
+      "tag": "Solutions"
+    },
+    "knowhow_15": {
+      "title": "Ecommerce Brand Packaging",
+      "desc": "Optimizing mailers, shipping boxes, and secondary pouches for D2C transit safety.",
+      "tag": "Solutions"
+    },
+    "knowhow_16": {
+      "title": "Coffee Roaster Packaging",
+      "desc": "High-barrier foil stand-up and flat bottom bags equipped with degassing valves.",
+      "tag": "Solutions"
+    },
+    "knowhow_17": {
+      "title": "Snack Brand Packaging",
+      "desc": "Lightproof and air-tight pouches to maintain crispness and extend retail shelf life.",
+      "tag": "Solutions"
+    },
+    "knowhow_18": {
+      "title": "Minimalist D2C Branding",
+      "desc": "Designing clean packaging layouts that reduce ink waste and capture consumer interest.",
+      "tag": "Branding"
+    },
+    "knowhow_19": {
+      "title": "Low MOQ Startup Tips",
+      "desc": "Strategic advice on split-shipping, template reuse, and digital runs for multi-SKU brands.",
+      "tag": "Strategy"
+    },
+    "knowhow_20": {
+      "title": "Home Compostable Coffee",
+      "desc": "Integrating plant-based degassing valves and compostable films to create home-friendly coffee bags.",
+      "tag": "Coffee"
+    },
+    "knowhow_21": {
+      "title": "Recyclable Snacks Pouch",
+      "desc": "Preserving chips and granola freshness using EVOH-coated recyclable polyethylene structures.",
+      "tag": "Snacks"
+    },
+    "knowhow_22": {
+      "title": "Mono-Material PE Guide",
+      "desc": "Technical deep-dive on single-polymer laminates that fulfill circular economy requirements.",
+      "tag": "Technology"
+    },
+    "knowhow_23": {
+      "title": "PFAS-Free Food Packaging",
+      "desc": "Ensuring compliance with local environmental acts by utilizing PFAS-free barriers.",
+      "tag": "Compliance"
+    },
+    "knowhow_24": {
+      "title": "USA Compostable Standards",
+      "desc": "Guidelines on ASTM D6400 certification, BPI labels, and local state labeling mandates.",
+      "tag": "USA"
+    },
+    "knowhow_25": {
+      "title": "USA Coffee Bags Market",
+      "desc": "US retail trends in organic specialty coffee packaging and eco-friendly packaging rules.",
+      "tag": "USA"
+    },
+    "knowhow_26": {
+      "title": "Coffee Roastery Case Study",
+      "desc": "How a specialty Seattle roastery shifted to 100% compostable bags without dropping speed.",
+      "tag": "Case Study"
+    },
+    "knowhow_27": {
+      "title": "Tea Brand Case Study",
+      "desc": "Transitioning to plastic-free kraft bags to align with clean label values.",
+      "tag": "Case Study"
+    },
+    "knowhow_28": {
+      "title": "Pet Treats Case Study",
+      "desc": "Developing high-volume pet food pouches with puncture-resistant layers and durable zippers.",
+      "tag": "Case Study"
+    },
+    "knowhow_29": {
+      "title": "Chocolate Brand Case Study",
+      "desc": "Eco-luxe chocolate brand showcases premium rigid box and compostable pouch designs.",
+      "tag": "Case Study"
+    }
   }
 }

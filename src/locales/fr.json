@@ -29474,5 +29474,342 @@
     "string_176": "Contact",
     "string_177": "Planifier une Réunion",
     "string_178": "Voir el Profil Complet"
+  },
+  "carouselData": {
+    "work_0": {
+      "title": "Sachet de Café Compostable",
+      "desc": "Sachets à haute barrière à base de plantes avec valves de dégazage.",
+      "tag": "Compostable"
+    },
+    "work_1": {
+      "title": "Sachet de Thé à Fond Plat Kraft",
+      "desc": "Couches extérieures en kraft biologique avec doublure barrière compostable certifiée.",
+      "tag": "Papier Kraft"
+    },
+    "work_2": {
+      "title": "Sachet de Snacks Mat Recyclable",
+      "desc": "Film 100 % mono-PE recyclable avec finition mate douce au toucher.",
+      "tag": "Recyclable"
+    },
+    "work_3": {
+      "title": "Sachet Métallisé de Luxe",
+      "desc": "Doublure métallisée premium offrant des barrières ultra-hautes contre l'humidité et l'oxygène.",
+      "tag": "Haute Barrière"
+    },
+    "work_4": {
+      "title": "Sachet Compostable avec Fenêtre Transparente",
+      "desc": "Sachet en kraft compostable avec fenêtre transparente à base de plantes.",
+      "tag": "Éco-responsable"
+    },
+    "work_5": {
+      "title": "Sachet pour Liquides avec Bec",
+      "desc": "Structures laminées robustes avec becs rigides pour un transport étanche.",
+      "tag": "Liquides"
+    },
+    "work_6": {
+      "title": "Sachet Imprimé Personnalisé",
+      "desc": "Échantillon d'impression numérique haute résolution avec une faible quantité minimale.",
+      "tag": "Impression Numérique"
+    },
+    "work_7": {
+      "title": "Sachet de Café Noir Mat Premium",
+      "desc": "Sachet élégant à fond plat noir mat avec fermeture à glissière de poche intégrée.",
+      "tag": "Spécialité"
+    },
+    "work_8": {
+      "title": "Sachet avec Zip Mono-PE Recyclable",
+      "desc": "Conception entièrement circulaire avec zips press-to-close recyclables.",
+      "tag": "Recyclable"
+    },
+    "work_9": {
+      "title": "Sachet de Suppléments en Bio-PE Canne à Sucre",
+      "desc": "Bioplastiques dérivés de la canne à sucre aidant les marques à réduire leurs émissions de carbone.",
+      "tag": "Bio-PE"
+    },
+    "work_10": {
+      "title": "Sachet en Plastique Recyclé PCR",
+      "desc": "Intègre des plastiques recyclés post-consommation dans les couches structurelles.",
+      "tag": "Plastique PCR"
+    },
+    "work_11": {
+      "title": "Enveloppe Kraft Ecosential",
+      "desc": "Enveloppes d'expédition en papier kraft recyclé robuste avec bandes adhésives auto-scellantes.",
+      "tag": "Enveloppe Papier"
+    },
+    "work_12": {
+      "title": "Sachet de Noix Compostable à Domicile",
+      "desc": "Sachet certifié TÜV OK Compost HOME pour snacks biologiques.",
+      "tag": "Compostable à Domicile"
+    },
+    "work_13": {
+      "title": "Sachet de Café à Soufflet Latéral",
+      "desc": "Soufflets latéraux extensibles avec structure quad-seal pour un agencement stable en rayon.",
+      "tag": "Soufflet Latéral"
+    },
+    "work_14": {
+      "title": "Boîte de Luxe Holographique",
+      "desc": "Boîtes d'expédition en carton ondulé avec des motifs holographiques vibrants.",
+      "tag": "Boîte Rigide"
+    },
+    "work_15": {
+      "title": "Sachet de Friandises pour Animaux",
+      "desc": "Laminations résistantes aux perforations conçues pour la longévité en rayon et la résistance aux graisses.",
+      "tag": "Animaux"
+    },
+    "work_16": {
+      "title": "Sachet Blanc Mat Compostable",
+      "desc": "Sachets blancs mats éco-responsables avec un style de papier de canne à sucre organique.",
+      "tag": "Compostable"
+    },
+    "work_17": {
+      "title": "Sachet de Thé à Soufflet Latéral Kraft",
+      "desc": "Sachets à haute barrière avec soufflets latéraux pour thés aux herbes et fond bloc.",
+      "tag": "Papier Kraft"
+    },
+    "work_18": {
+      "title": "Sachet de Supplément Circulaire Mono-PE",
+      "desc": "Sachet de supplément mat en mono-PE recyclable avec zip robuste.",
+      "tag": "Recyclable"
+    },
+    "work_19": {
+      "title": "Sachet Compostable avec Face Transparente",
+      "desc": "Structure avant transparente à haute barrière mettant en valeur les grains de café gourmet.",
+      "tag": "Éco-responsable"
+    },
+    "work_20": {
+      "title": "Sachet de Purée avec Bec Haute Barrière",
+      "desc": "Emballage en PE pur avec bec pour aliments pour bébés et purées organiques.",
+      "tag": "Liquides"
+    },
+    "work_21": {
+      "title": "Sachet de Café Noir Mat Personnalisé",
+      "desc": "Sachet moderne à fond plat noir mat avec zip de poche frontal.",
+      "tag": "Spécialité"
+    },
+    "work_22": {
+      "title": "Sachet Cadeau Métallisé Holographique",
+      "desc": "Sachet holographique scintillant avec une barrière aromatique premium.",
+      "tag": "Haute Barrière"
+    },
+    "work_23": {
+      "title": "Sachet de Viande Séchée Mono-PE",
+      "desc": "Film mono-PE à haute barrière contre l'oxygène adapté aux viandes séchées.",
+      "tag": "Recyclable"
+    },
+    "work_24": {
+      "title": "Pack Protéine Canne à Sucre Bio-PE",
+      "desc": "Matériau à base de canne à sucre pour sachets de suppléments lourds.",
+      "tag": "Bio-PE"
+    },
+    "work_25": {
+      "title": "Enveloppe en Carton Ondulé Kraft",
+      "desc": "Enveloppes d'expédition rigides en carton biodégradable avec double adhésif.",
+      "tag": "Enveloppe Papier"
+    },
+    "work_26": {
+      "title": "Sachet de Noix Compostable Certifié",
+      "desc": "Sachet sûr pour compostage domestique conçu pour noix et graines sèches.",
+      "tag": "Compostable à Domicile"
+    },
+    "work_27": {
+      "title": "Sachet de Café avec Soufflet Extensible",
+      "desc": "Sachet à soufflet latéral quad-seal avec valve de dégazage interne.",
+      "tag": "Soufflet Latéral"
+    },
+    "work_28": {
+      "title": "Sachet de Café Brillant Premium",
+      "desc": "Impression numérique brillante et vibrante sur des films barrières recyclables.",
+      "tag": "Impression Numérique"
+    },
+    "work_29": {
+      "title": "Pack Nourriture Animaux Résistant",
+      "desc": "Structure renforcée prévenant les déchirures et préservant la fraîcheur.",
+      "tag": "Animaux"
+    },
+    "work_30": {
+      "title": "Sachet de Snacks Compostable",
+      "desc": "Emballage flexible à haute barrière à base de plantes pour snacks et granola.",
+      "tag": "Compostable"
+    },
+    "work_31": {
+      "title": "Ensemble Boîte & Sachet Mat",
+      "desc": "Boîtes rigides imprimées sur mesure assorties aux sachets barrières.",
+      "tag": "Ensemble Sur Mesure"
+    },
+    "work_32": {
+      "title": "Sachet Fond Plat Kraft Premium",
+      "desc": "Sachet à fond bloc avec extérieur kraft organique et doublure compostable à haute barrière.",
+      "tag": "Papier Kraft"
+    },
+    "work_33": {
+      "title": "Sachet Soufflet Latéral Recyclable Robuste",
+      "desc": "Structures mono-PE avec soufflets latéraux conçues pour la stabilité et la durabilité.",
+      "tag": "Recyclable"
+    },
+    "work_34": {
+      "title": "Sachet Purée avec Bec Haute Barrière",
+      "desc": "Sachet laminé robuste avec bec et bouchons inviolables pour liquides et purées.",
+      "tag": "Liquides"
+    },
+    "work_35": {
+      "title": "Sachet Supplément Holographique",
+      "desc": "Superbe impression holographique sur emballages de suppléments lourds avec zip de fermeture.",
+      "tag": "Luxe"
+    },
+    "work_36": {
+      "title": "Enveloppe Kraft Recyclé Éco-responsable",
+      "desc": "Enveloppes robustes en kraft recyclé avec doubles bandes adhésives auto-scellantes.",
+      "tag": "Papier PCR"
+    },
+    "knowhow_0": {
+      "title": "Compostable vs Recyclable",
+      "desc": "Décider entre la récupération circulaire du plastique et les voies de compostage organique.",
+      "tag": "Analyse"
+    },
+    "knowhow_1": {
+      "title": "Guide des Coûts",
+      "desc": "Détail complet des frais de plaques, d'installation, coûts des matériaux et volumes de gros.",
+      "tag": "Finances"
+    },
+    "knowhow_2": {
+      "title": "Erreurs d'Emballage Éco",
+      "desc": "Évitez les erreurs courantes de conception et de matériaux qui perturbent les chaînes d'approvisionnement.",
+      "tag": "Stratégie"
+    },
+    "knowhow_3": {
+      "title": "Conformité EU PPWR",
+      "desc": "Comprendre les nouvelles réglementations européennes sur les emballages et le recyclage.",
+      "tag": "Réglementations"
+    },
+    "knowhow_4": {
+      "title": "Zips Compostables",
+      "desc": "Comment les zips biodégradables préservent la fraîcheur sans polluer les flux de compostage.",
+      "tag": "Technologie"
+    },
+    "knowhow_5": {
+      "title": "Recyclabilité de la Dorure",
+      "desc": "Évaluation de l'impact de la dorure à chaud/froid sur le recyclage des cartons et plastiques.",
+      "tag": "Design"
+    },
+    "knowhow_6": {
+      "title": "Matériaux Compostables",
+      "desc": "Aperçu des polymères à base d'amidon et membranes végétales qui se biodégradent en toute sécurité.",
+      "tag": "Matériaux"
+    },
+    "knowhow_7": {
+      "title": "Mono-PE Recyclable",
+      "desc": "Films mono-polymères avec barrière EVOH éligibles aux flux de recyclage standards.",
+      "tag": "Matériaux"
+    },
+    "knowhow_8": {
+      "title": "Bio-PE Canne à Sucre",
+      "desc": "Films polyéthylène d'origine végétale dérivés de la canne à sucre réduisant l'empreinte carbone.",
+      "tag": "Matériaux"
+    },
+    "knowhow_9": {
+      "title": "Recyclé Post-Consommation",
+      "desc": "Réutilisation de déchets plastiques océaniques pour fabriquer des films barrières composites.",
+      "tag": "Matériaux"
+    },
+    "knowhow_10": {
+      "title": "Sachets Doypack",
+      "desc": "Le format d'emballage classique avec soufflet de fond et zips refermables.",
+      "tag": "Emballage"
+    },
+    "knowhow_11": {
+      "title": "Sachets Fond Plat",
+      "desc": "Stabilité maximale avec cinq panneaux imprimables, idéal pour le café en grains.",
+      "tag": "Emballage"
+    },
+    "knowhow_12": {
+      "title": "Sachets à Bec Verseur",
+      "desc": "Sachets flexibles avec bouchons pour liquides, cosmétiques et purées.",
+      "tag": "Emballage"
+    },
+    "knowhow_13": {
+      "title": "Boîtes Personnalisées",
+      "desc": "Boîtes en carton ondulé, enveloppes d'expédition et présentoirs personnalisés.",
+      "tag": "Emballage"
+    },
+    "knowhow_14": {
+      "title": "Solutions pour Startups",
+      "desc": "Faible MOQ, support design et prototypage rapide pour le lancement de produits.",
+      "tag": "Solutions"
+    },
+    "knowhow_15": {
+      "title": "Emballage E-commerce",
+      "desc": "Optimisation des enveloppes, boîtes et sachets secondaires pour la sécurité D2C.",
+      "tag": "Solutions"
+    },
+    "knowhow_16": {
+      "title": "Emballage Torréfacteur",
+      "desc": "Sachets à haute barrière Doypack et fond plat avec valves de dégazage.",
+      "tag": "Solutions"
+    },
+    "knowhow_17": {
+      "title": "Emballage Snacks",
+      "desc": "Sachets opaques et hermétiques pour préserver le croquant et prolonger la durée de conservation.",
+      "tag": "Solutions"
+    },
+    "knowhow_18": {
+      "title": "Branding D2C Minimaliste",
+      "desc": "Concevoir des emballages épurés qui réduisent l'encre et captent l'attention.",
+      "tag": "Branding"
+    },
+    "knowhow_19": {
+      "title": "Conseils Faible MOQ",
+      "desc": "Conseils stratégiques sur l'expédition fractionnée et l'impression numérique multi-SKU.",
+      "tag": "Stratégie"
+    },
+    "knowhow_20": {
+      "title": "Café Compostable à Domicile",
+      "desc": "Intégration de valves végétales et films compostables pour sachets de café.",
+      "tag": "Café"
+    },
+    "knowhow_21": {
+      "title": "Sachet de Snacks Recyclable",
+      "desc": "Préservation de la fraîcheur grâce aux structures en polyéthylène recyclable EVOH.",
+      "tag": "Snacks"
+    },
+    "knowhow_22": {
+      "title": "Guide Mono-Matériau PE",
+      "desc": "Analyse technique des laminés mono-polymères répondant à l'économie circulaire.",
+      "tag": "Technologie"
+    },
+    "knowhow_23": {
+      "title": "Emballage Sans PFAS",
+      "desc": "Garantir la conformité environnementale en utilisant des barrières sans PFAS.",
+      "tag": "Conformité"
+    },
+    "knowhow_24": {
+      "title": "Normes Compostables US",
+      "desc": "Directives sur la certification ASTM D6400, labels BPI et lois étatiques.",
+      "tag": "USA"
+    },
+    "knowhow_25": {
+      "title": "Marché des Sachets de Café US",
+      "desc": "Tendances retail aux États-Unis pour les emballages de café de spécialité.",
+      "tag": "USA"
+    },
+    "knowhow_26": {
+      "title": "Cas: Torréfacteur de Café",
+      "desc": "Comment un torréfacteur de spécialité est passé au 100 % compostable sans perte de vitesse.",
+      "tag": "Cas Pratique"
+    },
+    "knowhow_27": {
+      "title": "Cas: Marque de Thé",
+      "desc": "Transition vers des sachets kraft sans plastique pour s'aligner sur des valeurs clean label.",
+      "tag": "Cas Pratique"
+    },
+    "knowhow_28": {
+      "title": "Cas: Friandises Animaux",
+      "desc": "Développement de sachets avec couches anti-perforation et zips durables.",
+      "tag": "Cas Pratique"
+    },
+    "knowhow_29": {
+      "title": "Cas: Marque de Chocolat",
+      "desc": "Une marque éco-luxe présente ses boîtes rigides premium et sachets compostables.",
+      "tag": "Cas Pratique"
+    }
   }
 }

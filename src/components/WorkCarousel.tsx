@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { ourWorkCards, seoKnowHowCards, WorkCard } from '../data/carouselData';
+import { useTranslation } from "react-i18next";
 
 interface WorkCarouselProps {
   theme?: 'achieve' | 'pouch';
@@ -17,6 +18,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 export default function WorkCarousel({ theme = 'achieve' }: WorkCarouselProps) {
+    const { t } = useTranslation();
   const [cards, setCards] = useState<WorkCard[]>([]);
   const [activeWorkDot, setActiveWorkDot] = useState(0);
   const workScrollerRef = useRef<HTMLDivElement>(null);
@@ -162,7 +164,7 @@ export default function WorkCarousel({ theme = 'achieve' }: WorkCarouselProps) {
                 <div className="absolute inset-0 z-0">
                   <img 
                     src={item.image} 
-                    alt={item.title} 
+                    alt={t(`carouselData.${item.keyPrefix}.title`, item.title)} 
                     className="w-full h-full object-cover select-none pointer-events-none transition-transform duration-500 group-hover:scale-105" 
                   />
                 </div>
@@ -182,16 +184,16 @@ export default function WorkCarousel({ theme = 'achieve' }: WorkCarouselProps) {
                       ? 'bg-purple-600/90 text-white border-purple-500/10'
                       : 'bg-orange-600/90 text-white border-orange-500/10'
                   }`}>
-                    {item.tag}
+                    {t(`carouselData.${item.keyPrefix}.tag`, item.tag)}
                   </span>
                 </div>
 
                 <div className="relative z-20 p-6 w-full flex flex-col items-start mt-auto h-full justify-end">
                   <h3 className="text-white font-bold text-base md:text-lg mb-1 leading-snug">
-                    {item.title}
+                    {t(`carouselData.${item.keyPrefix}.title`, item.title)}
                   </h3>
                   <p className="text-neutral-200 text-xs font-light mb-4 leading-normal line-clamp-2">
-                    {item.desc}
+                    {t(`carouselData.${item.keyPrefix}.desc`, item.desc)}
                   </p>
                   
                   {isWorkDragging ? (

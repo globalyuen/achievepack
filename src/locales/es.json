@@ -29481,5 +29481,342 @@
     "string_176": "Contacto",
     "string_177": "Programar Reunión",
     "string_178": "Ver Perfil Completo"
+  },
+  "carouselData": {
+    "work_0": {
+      "title": "Bolsa de Café Compostable",
+      "desc": "Bolsas de pie de alta barrera a base de plantas con válvulas de desgasificación.",
+      "tag": "Compostable"
+    },
+    "work_1": {
+      "title": "Bolsa de Té de Fondo Plano Kraft",
+      "desc": "Capas exteriores de kraft orgánico con forro de barrera compostable certificado.",
+      "tag": "Papel Kraft"
+    },
+    "work_2": {
+      "title": "Bolsa de Snacks Mate Reciclable",
+      "desc": "Película 100% mono-PE reciclable con acabado mate suave al tacto.",
+      "tag": "Reciclable"
+    },
+    "work_3": {
+      "title": "Bolsa Metálica de Lujo",
+      "desc": "Forro metalizado premium que proporciona barreras ultra altas contra la humedad y el oxígeno.",
+      "tag": "Alta Barrera"
+    },
+    "work_4": {
+      "title": "Bolsa Compostable con Ventana Transparente",
+      "desc": "Bolsa de pie de kraft compostable que presenta una ventana transparente a base de plantas.",
+      "tag": "Ecológico"
+    },
+    "work_5": {
+      "title": "Bolsa de Líquidos con Boquilla",
+      "desc": "Estructuras laminadas resistentes con boquillas rígidas para transporte a prueba de fugas.",
+      "tag": "Líquidos"
+    },
+    "work_6": {
+      "title": "Bolsa de Pie Impresa Personalizada",
+      "desc": "Muestra de impresión digital de alta resolución con baja cantidad mínima de pedido.",
+      "tag": "Impresión Digital"
+    },
+    "work_7": {
+      "title": "Bolsa de Café Negra Mate Premium",
+      "desc": "Elegante bolsa de fondo plano negra mate con cremallera de bolsillo integrada.",
+      "tag": "Especialidad"
+    },
+    "work_8": {
+      "title": "Bolsa de Cremallera Mono-PE Reciclable",
+      "desc": "Diseño totalmente circular con cremalleras de cierre a presión reciclables.",
+      "tag": "Reciclable"
+    },
+    "work_9": {
+      "title": "Bolsa de Suplementos de Caña de Azúcar Bio-PE",
+      "desc": "Bioplásticos derivados de la caña de azúcar que ayudan a las marcas a reducir emisiones de carbono.",
+      "tag": "Bio-PE"
+    },
+    "work_10": {
+      "title": "Bolsa de Plástico Reciclado PCR",
+      "desc": "Incorpora plásticos reciclados posconsumo en capas estructurales.",
+      "tag": "Plástico PCR"
+    },
+    "work_11": {
+      "title": "Sobre de Kraft Ecosential",
+      "desc": "Sobres de papel kraft reciclado resistente con tiras adhesivas de autosellado.",
+      "tag": "Sobre de Papel"
+    },
+    "work_12": {
+      "title": "Bolsa de Nueces Compostable en Casa",
+      "desc": "Bolsa de pie certificada TÜV OK Compost HOME para snacks orgánicos.",
+      "tag": "Compostable en Casa"
+    },
+    "work_13": {
+      "title": "Bolsa de Café con Fuelle Lateral",
+      "desc": "Fuelles laterales expandibles con estructura de sello cuádruple para un diseño estable en estantería.",
+      "tag": "Fuelle Lateral"
+    },
+    "work_14": {
+      "title": "Caja de Lujo Holográfica",
+      "desc": "Sobres de envío corrugados con diseños de papel holográfico vibrantes.",
+      "tag": "Caja Rígida"
+    },
+    "work_15": {
+      "title": "Bolsa de Premios para Mascotas",
+      "desc": "Laminaciones resistentes a pinchazos diseñadas para longevidad en el estante y resistencia a la grasa.",
+      "tag": "Mascotas"
+    },
+    "work_16": {
+      "title": "Bolsa Blanca Mate Compostable",
+      "desc": "Bolsas de pie ecológicas blancas mate con estilo de papel de caña de azúcar orgánica.",
+      "tag": "Compostable"
+    },
+    "work_17": {
+      "title": "Bolsa de Té de Fuelle Lateral Kraft",
+      "desc": "Bolsas de fuelle lateral de alta barrera para tés herbales con fondo de bloque.",
+      "tag": "Papel Kraft"
+    },
+    "work_18": {
+      "title": "Bolsa de Suplemento Circular Mono-PE",
+      "desc": "Bolsa de suplemento mono-PE mate reciclable con cremallera resistente.",
+      "tag": "Reciclable"
+    },
+    "work_19": {
+      "title": "Bolsa Compostable de Frente Transparente",
+      "desc": "Estructura frontal de barrera transparente que muestra granos de café gourmet.",
+      "tag": "Ecológico"
+    },
+    "work_20": {
+      "title": "Bolsa de Puré con Boquilla de Alta Barrera",
+      "desc": "Envase de PE puro con boquilla para alimentos para bebés orgánicos y purés.",
+      "tag": "Líquidos"
+    },
+    "work_21": {
+      "title": "Bolsa de Café Negra Mate Personalizada",
+      "desc": "Moderna bolsa de fondo plano negra mate que cuenta con una cremallera de bolsillo frontal.",
+      "tag": "Especialidad"
+    },
+    "work_22": {
+      "title": "Bolsa de Regalo Metálica Holográfica",
+      "desc": "Bolsa de pie holográfica reluciente con barrera de aroma premium.",
+      "tag": "Alta Barrera"
+    },
+    "work_23": {
+      "title": "Bolsa de Cecina Mono-PE Circular",
+      "desc": "Película mono-PE con alta barrera de oxígeno adecuada para carnes curadas y cecina.",
+      "tag": "Reciclable"
+    },
+    "work_24": {
+      "title": "Paquete de Proteína de Caña de Azúcar",
+      "desc": "Material base de caña de azúcar para bolsas de suplementos pesados.",
+      "tag": "Bio-PE"
+    },
+    "work_25": {
+      "title": "Sobre de Envío de Kraft Corrugado",
+      "desc": "Sobres de cartón rígido biodegradable con adhesivo doble.",
+      "tag": "Sobre de Papel"
+    },
+    "work_26": {
+      "title": "Bolsa de Nueces Compostable Certificada",
+      "desc": "Bolsa de compostaje casero seguro diseñada para nueces secas y semillas.",
+      "tag": "Compostable en Casa"
+    },
+    "work_27": {
+      "title": "Paquete de Café con Fuelle Lateral Expandible",
+      "desc": "Bolsa de fuelle lateral de sello cuádruple con válvula de desgasificación interna.",
+      "tag": "Fuelle Lateral"
+    },
+    "work_28": {
+      "title": "Bolsa de Café Brillante Premium",
+      "desc": "Impresión digital vibrante de alto brillo en películas de barrera reciclables.",
+      "tag": "Impresión Digital"
+    },
+    "work_29": {
+      "title": "Paquete de Comida para Mascotas Resistente",
+      "desc": "Estructura reforzada que previene desgarros y asegura la frescura.",
+      "tag": "Mascotas"
+    },
+    "work_30": {
+      "title": "Bolsa de Snacks Compostable Certificada",
+      "desc": "Envasado de pie flexible a base de plantas de alta barrera para snacks orgánicos y granola.",
+      "tag": "Compostable"
+    },
+    "work_31": {
+      "title": "Set de Caja y Bolsa Mate Eco-Luxe",
+      "desc": "Cajas rígidas vibrantes impresas a medida combinadas con bolsas de pie de barrera a juego.",
+      "tag": "Set Personalizado"
+    },
+    "work_32": {
+      "title": "Bolsa de Fondo Plano Kraft Premium",
+      "desc": "Bolsa de fondo de bloque con capa exterior de kraft orgánico y forro compostable de alta barrera.",
+      "tag": "Papel Kraft"
+    },
+    "work_33": {
+      "title": "Bolsa de Fuelle Lateral Reciclable Pesada",
+      "desc": "Estructuras mono-PE con fuelle lateral diseñadas para estanterías minoristas estables y durabilidad.",
+      "tag": "Reciclable"
+    },
+    "work_34": {
+      "title": "Bolsa de Puré con Boquilla de Alta Barrera",
+      "desc": "Bolsa laminada resistente con boquilla y tapas a prueba de manipulaciones para líquidos y purés.",
+      "tag": "Líquidos"
+    },
+    "work_35": {
+      "title": "Bolsa de Suplemento Holográfica de Lujo",
+      "desc": "Impresionante impresión holográfica en envases pesados de suplementos con cremallera de cierre a presión.",
+      "tag": "Alto Lujo"
+    },
+    "work_36": {
+      "title": "Sobre de Kraft Reciclado Ecológico",
+      "desc": "Sobres de envío de kraft reciclado resistentes con tiras adhesivas de autosellado doble.",
+      "tag": "Papel PCR"
+    },
+    "knowhow_0": {
+      "title": "Compostable vs Reciclable",
+      "desc": "Decidiendo entre la recuperación circular de plásticos y los caminos de compostaje orgánico para sus envases.",
+      "tag": "Análisis"
+    },
+    "knowhow_1": {
+      "title": "Guía de Costos de Empaque",
+      "desc": "Desglose completo de cargos de placas, tarifas de configuración, costos de materiales y niveles de volumen mayorista.",
+      "tag": "Finanzas"
+    },
+    "knowhow_2": {
+      "title": "Errores de Empaque Ecológico",
+      "desc": "Evite errores comunes en diseño y selección de materiales que interrumpen las cadenas de suministro.",
+      "tag": "Estrategia"
+    },
+    "knowhow_3": {
+      "title": "Cumplimiento EU PPWR",
+      "desc": "Comprendiendo las nuevas regulaciones de empaque y requisitos de reciclaje de la Unión Europea.",
+      "tag": "Regulaciones"
+    },
+    "knowhow_4": {
+      "title": "Cremalleras Compostables",
+      "desc": "Cómo las cremalleras biodegradables conservan la frescura sin contaminar los flujos de compostaje.",
+      "tag": "Tecnología"
+    },
+    "knowhow_5": {
+      "title": "Reciclabilidad del Estampado Metalizado",
+      "desc": "Evaluación del impacto del estampado en caliente y en frío en el reciclaje de cartón y plástico.",
+      "tag": "Diseño"
+    },
+    "knowhow_6": {
+      "title": "Materiales Compostables",
+      "desc": "Descripción general de polímeros orgánicos a base de almidón y membranas celulares de plantas que se biodegradan de forma segura.",
+      "tag": "Materiales"
+    },
+    "knowhow_7": {
+      "title": "Mono-PE Reciclable",
+      "desc": "Películas de un solo polímero diseñadas con barrera EVOH que califican para flujos de reciclaje estándar.",
+      "tag": "Materiales"
+    },
+    "knowhow_8": {
+      "title": "Bio-PE de Caña de Azúcar",
+      "desc": "Películas de polietileno a base de plantas derivadas de la caña de azúcar que reducen la huella de carbono.",
+      "tag": "Materiales"
+    },
+    "knowhow_9": {
+      "title": "Reciclado Postconsumo",
+      "desc": "Reutilizando residuos plásticos del océano y reciclables en la acera para fabricar películas de barrera compuestas premium.",
+      "tag": "Materiales"
+    },
+    "knowhow_10": {
+      "title": "Bolsas de Pie",
+      "desc": "El formato clásico de envasado minorista con fuelle inferior y cremalleras resellables personalizadas.",
+      "tag": "Empaque"
+    },
+    "knowhow_11": {
+      "title": "Bolsas de Fondo Plano",
+      "desc": "Máxima estabilidad con cinco paneles imprimibles, ideal para granos de café pesados y comida seca para mascotas.",
+      "tag": "Empaque"
+    },
+    "knowhow_12": {
+      "title": "Bolsas de Líquidos con Boquilla",
+      "desc": "Bolsas flexibles con forma de botella con tapas diseñadas para contener cosméticos, bebidas y purés.",
+      "tag": "Empaque"
+    },
+    "knowhow_13": {
+      "title": "Cajas Impresas Personalizadas",
+      "desc": "Cajas de cartón corrugado resistentes, sobres de envío y exhibidores minoristas con acabados personalizados.",
+      "tag": "Empaque"
+    },
+    "knowhow_14": {
+      "title": "Soluciones para Fundadores de Startups",
+      "desc": "Baja cantidad mínima, soporte de diseño y flujos de trabajo de creación rápida de prototipos para lanzar productos.",
+      "tag": "Soluciones"
+    },
+    "knowhow_15": {
+      "title": "Empaque para Marcas Ecommerce",
+      "desc": "Optimizando sobres, cajas de envío y bolsas secundarias para la seguridad en tránsito D2C.",
+      "tag": "Soluciones"
+    },
+    "knowhow_16": {
+      "title": "Empaque para Tostadores de Café",
+      "desc": "Bolsas de alta barrera de pie y de fondo plano equipadas con válvulas de desgasificación.",
+      "tag": "Soluciones"
+    },
+    "knowhow_17": {
+      "title": "Empaque para Marcas de Snacks",
+      "desc": "Bolsas a prueba de luz y herméticas para mantener la textura crujiente y extender la vida útil.",
+      "tag": "Soluciones"
+    },
+    "knowhow_18": {
+      "title": "Branding D2C Minimalista",
+      "desc": "Diseñando diseños de empaque limpios que reducen el desperdicio de tinta y captan el interés del consumidor.",
+      "tag": "Branding"
+    },
+    "knowhow_19": {
+      "title": "Consejos para Startups con Baja Cantidad",
+      "desc": "Asesoramiento estratégico sobre envíos divididos, reutilización de plantillas y tiradas digitales para marcas con múltiples SKU.",
+      "tag": "Estrategia"
+    },
+    "knowhow_20": {
+      "title": "Café Compostable en Casa",
+      "desc": "Integrando válvulas de desgasificación a base de plantas y películas compostables para crear bolsas de café.",
+      "tag": "Café"
+    },
+    "knowhow_21": {
+      "title": "Bolsa de Snacks Reciclable",
+      "desc": "Conservando la frescura de chips y granola utilizando estructuras de polietileno reciclable con recubrimiento EVOH.",
+      "tag": "Snacks"
+    },
+    "knowhow_22": {
+      "title": "Guía de Mono-Material PE",
+      "desc": "Análisis técnico profundo de laminados de un solo polímero que cumplen con los requisitos de la economía circular.",
+      "tag": "Tecnología"
+    },
+    "knowhow_23": {
+      "title": "Empaque de Alimentos Libre de PFAS",
+      "desc": "Asegurando el cumplimiento de las leyes ambientales locales utilizando barreras libres de PFAS.",
+      "tag": "Cumplimiento"
+    },
+    "knowhow_24": {
+      "title": "Estándares Compostables de USA",
+      "desc": "Pautas sobre la certificación ASTM D6400, etiquetas BPI y mandatos de etiquetado de los estados locales.",
+      "tag": "USA"
+    },
+    "knowhow_25": {
+      "title": "Mercado de Bolsas de Café USA",
+      "desc": "Tendencias minoristas en EE. UU. en empaques de café orgánico especial y reglas de empaque ecológico.",
+      "tag": "USA"
+    },
+    "knowhow_26": {
+      "title": "Caso de Estudio: Tostaduría de Café",
+      "desc": "Cómo una tostaduría de especialidad cambió a bolsas 100% compostables sin perder velocidad.",
+      "tag": "Caso de Estudio"
+    },
+    "knowhow_27": {
+      "title": "Caso de Estudio: Marca de Té",
+      "desc": "Transición a bolsas de kraft sin plástico para alinearse con los valores de etiqueta limpia.",
+      "tag": "Caso de Estudio"
+    },
+    "knowhow_28": {
+      "title": "Caso de Estudio: Premios para Mascotas",
+      "desc": "Desarrollando bolsas de alta capacidad con capas resistentes a pinchazos y cremalleras duraderas.",
+      "tag": "Caso de Estudio"
+    },
+    "knowhow_29": {
+      "title": "Caso de Estudio: Marca de Chocolate",
+      "desc": "Marca de chocolate Eco-luxe exhibe diseños de cajas rígidas premium y bolsas compostables.",
+      "tag": "Caso de Estudio"
+    }
   }
 }

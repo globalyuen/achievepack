@@ -1,4 +1,5 @@
 export interface WorkCard {
+  keyPrefix: string;
   title: string;
   tag: string;
   desc: string;
@@ -8,6 +9,7 @@ export interface WorkCard {
 }
 
 export interface KnowHowCard {
+  keyPrefix: string;
   title: string;
   desc: string;
   link: string;
@@ -18,6 +20,7 @@ export interface KnowHowCard {
 
 export const ourWorkCards: WorkCard[] = [
   {
+    keyPrefix: "work_0",
     title: "Compostable Coffee Stand-Up Pouch",
     tag: "Compostable",
     desc: "Plant-based high-barrier stand-up pouches with degassing valves.",
@@ -26,6 +29,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_1",
     title: "Kraft Flat-Bottom Tea Pouch",
     tag: "Kraft Paper",
     desc: "Earthy, organic kraft outer layers with certified compostable barrier lining.",
@@ -34,6 +38,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/flat-bottom"
   },
   {
+    keyPrefix: "work_2",
     title: "Recyclable Matte Snack Bag",
     tag: "Recyclable",
     desc: "100% recyclable mono-PE film with matte soft-touch finish.",
@@ -42,6 +47,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/three-side-seal"
   },
   {
+    keyPrefix: "work_3",
     title: "Metallic Luxury Stand-Up Pouch",
     tag: "High Barrier",
     desc: "Premium metalized lining providing ultra-high moisture and oxygen barriers.",
@@ -50,6 +56,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_4",
     title: "Clear-Window Compostable Pouch",
     tag: "Eco-Friendly",
     desc: "Compostable kraft stand-up pouch featuring a clear plant-based window.",
@@ -58,6 +65,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_5",
     title: "Spouted Juice & Liquid Pouch",
     tag: "Liquids",
     desc: "Heavy-duty laminated structures with rigid spouts for leakproof transit.",
@@ -66,6 +74,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/spouted-pouch"
   },
   {
+    keyPrefix: "work_6",
     title: "Custom Printed Stand-Up Pouch",
     tag: "Digital Print",
     desc: "High-resolution digital print sample with low minimum order quantity.",
@@ -74,6 +83,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_7",
     title: "Premium Black Matte Coffee Bag",
     tag: "Specialty",
     desc: "Sleek matte black flat bottom bag with integrated pocket zipper.",
@@ -82,6 +92,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/flat-bottom"
   },
   {
+    keyPrefix: "work_8",
     title: "Recyclable Mono-PE Zipper Pouch",
     tag: "Recyclable",
     desc: "Fully circular design with recyclable press-to-close zippers.",
@@ -90,6 +101,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/three-side-seal"
   },
   {
+    keyPrefix: "work_9",
     title: "Bio-PE SugarCane Supplement Bag",
     tag: "Bio-PE",
     desc: "Sugarcane-derived bioplastics helping brands reduce carbon emissions.",
@@ -98,6 +110,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_10",
     title: "PCR Recycled Plastic Pouch",
     tag: "PCR Plastic",
     desc: "Incorporating post-consumer recycled plastics into structural layers.",
@@ -106,6 +119,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_11",
     title: "Ecosential Kraft Mailer Bag",
     tag: "Paper Mailer",
     desc: "Heavy-duty recycled kraft paper mailer bags with self-sealing adhesive strips.",
@@ -114,6 +128,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/store"
   },
   {
+    keyPrefix: "work_12",
     title: "Home Compostable Nuts Pouch",
     tag: "Home Compost",
     desc: "TÜV OK Compost HOME certified stand-up pouch for organic snacks.",
@@ -122,6 +137,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_13",
     title: "Gusseted Side Coffee Pouch",
     tag: "Side Gusset",
     desc: "Expandable side gussets with quad seal structure for stable shelf layout.",
@@ -130,6 +146,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/flat-bottom"
   },
   {
+    keyPrefix: "work_14",
     title: "Holographic High-Luxe Box",
     tag: "Rigid Box",
     desc: "Corrugated shipping mailers with vibrant holographic foil designs.",
@@ -138,6 +155,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/store?category=boxes"
   },
   {
+    keyPrefix: "work_15",
     title: "Eco-Friendly Pet Treat Bag",
     tag: "Pet Treats",
     desc: "Puncture-resistant laminations designed for shelf longevity and grease-resistance.",
@@ -146,6 +164,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_16",
     title: "Compostable Matte White Pouch",
     tag: "Compostable",
     desc: "Eco-friendly matte white stand-up pouches with organic sugar cane paper styling.",
@@ -154,6 +173,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_17",
     title: "Kraft Side-Gusset Tea Bag",
     tag: "Kraft Paper",
     desc: "High-barrier side-gusset bags for herbal teas with block bottom.",
@@ -162,6 +182,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/flat-bottom"
   },
   {
+    keyPrefix: "work_18",
     title: "Mono-PE Circular Supplement Bag",
     tag: "Recyclable",
     desc: "Recyclable matte mono-PE supplement bag with heavy-duty zipper.",
@@ -170,6 +191,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/three-side-seal"
   },
   {
+    keyPrefix: "work_19",
     title: "Clear-Front Compostable Pouch",
     tag: "Eco-Friendly",
     desc: "Clear barrier front structure showcasing gourmet coffee beans.",
@@ -178,6 +200,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_20",
     title: "High-Barrier Spouted Purée Pouch",
     tag: "Liquids",
     desc: "Spouted pure-PE packaging for organic baby food and purées.",
@@ -186,6 +209,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/spouted-pouch"
   },
   {
+    keyPrefix: "work_21",
     title: "Matte Black Custom Coffee Bag",
     tag: "Specialty",
     desc: "Modern matte black flat bottom bag featuring front pocket zipper.",
@@ -194,6 +218,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/flat-bottom"
   },
   {
+    keyPrefix: "work_22",
     title: "Holographic Metallic Gift Pouch",
     tag: "High Barrier",
     desc: "Shimmering holographic stand-up bag with premium aroma barrier.",
@@ -202,6 +227,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_23",
     title: "Circular Mono-PE Jerky Pouch",
     tag: "Recyclable",
     desc: "High oxygen barrier mono-PE film suitable for cured meats and jerky.",
@@ -210,6 +236,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/three-side-seal"
   },
   {
+    keyPrefix: "work_24",
     title: "Sugarcane Bio-PE Protein Pack",
     tag: "Bio-PE",
     desc: "Sugarcane base material for heavy supplement pouches.",
@@ -218,6 +245,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_25",
     title: "Corrugated Kraft Shipping Mailer",
     tag: "Paper Mailer",
     desc: "Rigid biodegradable cardboard shipping mailers with double adhesive.",
@@ -226,6 +254,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/store"
   },
   {
+    keyPrefix: "work_26",
     title: "Certified Compostable Nut Bag",
     tag: "Home Compost",
     desc: "Safe home-composting pouch designed for dry nuts and seeds.",
@@ -234,6 +263,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_27",
     title: "Expandable Side Gusset Coffee Pack",
     tag: "Side Gusset",
     desc: "Quad seal side gusset bag with internal degassing valve.",
@@ -242,6 +272,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/flat-bottom"
   },
   {
+    keyPrefix: "work_28",
     title: "Premium Glossy Coffee Pouch",
     tag: "Digital Print",
     desc: "Vibrant high-gloss digital printing on recyclable barrier films.",
@@ -250,6 +281,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_29",
     title: "Puncture-Resistant Pet Food Pack",
     tag: "Pet Treats",
     desc: "Reinforced structure preventing tears and securing freshness.",
@@ -258,6 +290,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_30",
     title: "Certified Compostable Snacks Pouch",
     tag: "Compostable",
     desc: "High-barrier plant-based flexible stand-up packaging for organic snacks and granola.",
@@ -266,6 +299,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_31",
     title: "Eco-Luxe Matte Box & Pouch Set",
     tag: "Custom Set",
     desc: "Vibrant custom-printed rigid boxes paired with matching barrier stand-up pouches.",
@@ -274,6 +308,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_32",
     title: "Premium Kraft Paper Flat-Bottom Bag",
     tag: "Kraft Paper",
     desc: "Block bottom bag with organic kraft outer layer and compostable high-barrier lining.",
@@ -282,6 +317,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/flat-bottom"
   },
   {
+    keyPrefix: "work_33",
     title: "Heavy-Duty Recyclable Side-Gusset Pouch",
     tag: "Recyclable",
     desc: "Mono-PE side-gusseted structures designed for stable retail shelving and durability.",
@@ -290,6 +326,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/flat-bottom"
   },
   {
+    keyPrefix: "work_34",
     title: "High-Barrier Spouted Purée Pouch",
     tag: "Liquids",
     desc: "Heavy-duty laminated spouted pouch with tamper-evident caps for liquids and purees.",
@@ -298,6 +335,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/spouted-pouch"
   },
   {
+    keyPrefix: "work_35",
     title: "Luxury Holographic Supplement Bag",
     tag: "High Luxe",
     desc: "Stunning holographic foil printing on heavy supplement packaging with press-to-close zipper.",
@@ -306,6 +344,7 @@ export const ourWorkCards: WorkCard[] = [
     link: "/quotes/stand-up-pouch"
   },
   {
+    keyPrefix: "work_36",
     title: "Eco-Friendly Recycled Kraft Mailer",
     tag: "PCR Paper",
     desc: "Heavy-duty recycled kraft mailing bags featuring self-sealing double adhesive strips.",
@@ -317,6 +356,7 @@ export const ourWorkCards: WorkCard[] = [
 
 export const seoKnowHowCards: KnowHowCard[] = [
   {
+    keyPrefix: "knowhow_0",
     title: "Compostable vs Recyclable",
     desc: "Deciding between circular plastic recovery and organic composting paths for your packaging.",
     link: "/blog/compostable-vs-recyclable",
@@ -325,6 +365,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_1",
     title: "Packaging Cost Guide",
     desc: "Complete breakdown of plate charges, setup fees, material costs, and wholesale volume tiers.",
     link: "/blog/packaging-cost-guide",
@@ -333,6 +374,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "accent"
   },
   {
+    keyPrefix: "knowhow_2",
     title: "Eco Packaging Mistakes",
     desc: "Avoid common design and material selection errors that disrupt commercial supply chains.",
     link: "/blog/eco-packaging-mistakes",
@@ -341,6 +383,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "luxury"
   },
   {
+    keyPrefix: "knowhow_3",
     title: "EU PPWR Compliance",
     desc: "Understanding the new European Union packaging regulations and recycling requirements.",
     link: "/blog/eu-ppwr-compliance-guide",
@@ -349,6 +392,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_4",
     title: "Compostable Zippers",
     desc: "How biodegradable press-to-close zippers preserve freshness without polluting composting streams.",
     link: "/blog/compostable-zipper-no-removal",
@@ -357,6 +401,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_5",
     title: "Foil Stamping Recyclability",
     desc: "Assessing the impact of hot and cold foil stamping on paperboard and plastic recycling.",
     link: "/blog/stamp-foil-recyclability",
@@ -365,6 +410,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "luxury"
   },
   {
+    keyPrefix: "knowhow_6",
     title: "Compostable Materials",
     desc: "Overview of organic starch-based polymers and plant cell membranes that biodegrade safely.",
     link: "/materials/compostable",
@@ -373,6 +419,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_7",
     title: "Recyclable Mono-PE",
     desc: "Engineered single-polymer films with EVOH barrier that qualify for standard recycling streams.",
     link: "/materials/recyclable-mono-pe",
@@ -381,6 +428,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "accent"
   },
   {
+    keyPrefix: "knowhow_8",
     title: "Sugarcane Bio-PE",
     desc: "Plant-based polyethylene films derived from sugarcane that reduce carbon footprint.",
     link: "/materials/bio-pe",
@@ -389,6 +437,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_9",
     title: "Post-Consumer Recycled",
     desc: "Reusing plastic ocean waste and curbside recyclables to fabricate premium composite barrier films.",
     link: "/materials/pcr",
@@ -397,6 +446,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "luxury"
   },
   {
+    keyPrefix: "knowhow_10",
     title: "Stand Up Pouches",
     desc: "The classic retail packaging format with bottom gusset and custom resealable zippers.",
     link: "/packaging/stand-up-pouches",
@@ -405,6 +455,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_11",
     title: "Flat Bottom Bags",
     desc: "Maximum stability with five printable panels, ideal for heavy coffee beans and dry pet food.",
     link: "/packaging/flat-bottom-bags",
@@ -413,6 +464,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "accent"
   },
   {
+    keyPrefix: "knowhow_12",
     title: "Spouted Liquid Pouches",
     desc: "Flexible bottle-shaped pouches with fitment caps designed to hold cosmetics, drinks, and purees.",
     link: "/packaging/spout-pouches",
@@ -421,6 +473,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "liquid"
   },
   {
+    keyPrefix: "knowhow_13",
     title: "Custom Printed Boxes",
     desc: "Sturdy corrugated cardboard boxes, mailers, and custom retail displays with custom finishes.",
     link: "/packaging/custom-boxes",
@@ -429,6 +482,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "luxury"
   },
   {
+    keyPrefix: "knowhow_14",
     title: "Startup Founder Solutions",
     desc: "Low MOQ, design support, and rapid prototyping workflows for launching products.",
     link: "/solutions/startup-founder",
@@ -437,6 +491,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "accent"
   },
   {
+    keyPrefix: "knowhow_15",
     title: "Ecommerce Brand Packaging",
     desc: "Optimizing mailers, shipping boxes, and secondary pouches for D2C transit safety.",
     link: "/solutions/ecommerce-brand",
@@ -445,6 +500,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "luxury"
   },
   {
+    keyPrefix: "knowhow_16",
     title: "Coffee Roaster Packaging",
     desc: "High-barrier foil stand-up and flat bottom bags equipped with degassing valves.",
     link: "/solutions/coffee-roaster",
@@ -453,6 +509,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "accent"
   },
   {
+    keyPrefix: "knowhow_17",
     title: "Snack Brand Packaging",
     desc: "Lightproof and air-tight pouches to maintain crispness and extend retail shelf life.",
     link: "/solutions/snack-brand-manager",
@@ -461,6 +518,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "liquid"
   },
   {
+    keyPrefix: "knowhow_18",
     title: "Minimalist D2C Branding",
     desc: "Designing clean packaging layouts that reduce ink waste and capture consumer interest.",
     link: "/topics/minimalist-d2c-packaging",
@@ -469,6 +527,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_19",
     title: "Low MOQ Startup Tips",
     desc: "Strategic advice on split-shipping, template reuse, and digital runs for multi-SKU brands.",
     link: "/topics/low-moq-startup-packaging",
@@ -477,6 +536,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "luxury"
   },
   {
+    keyPrefix: "knowhow_20",
     title: "Home Compostable Coffee",
     desc: "Integrating plant-based degassing valves and compostable films to create home-friendly coffee bags.",
     link: "/topics/home-compostable-coffee-bags",
@@ -485,6 +545,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_21",
     title: "Recyclable Snacks Pouch",
     desc: "Preserving chips and granola freshness using EVOH-coated recyclable polyethylene structures.",
     link: "/topics/recyclable-snack-packaging",
@@ -493,6 +554,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "liquid"
   },
   {
+    keyPrefix: "knowhow_22",
     title: "Mono-Material PE Guide",
     desc: "Technical deep-dive on single-polymer laminates that fulfill circular economy requirements.",
     link: "/topics/mono-material-pe-pouches",
@@ -501,6 +563,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "accent"
   },
   {
+    keyPrefix: "knowhow_23",
     title: "PFAS-Free Food Packaging",
     desc: "Ensuring compliance with local environmental acts by utilizing PFAS-free barriers.",
     link: "/topics/pfas-free-food-packaging",
@@ -509,6 +572,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_24",
     title: "USA Compostable Standards",
     desc: "Guidelines on ASTM D6400 certification, BPI labels, and local state labeling mandates.",
     link: "/usa/compostable-packaging",
@@ -517,6 +581,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_25",
     title: "USA Coffee Bags Market",
     desc: "US retail trends in organic specialty coffee packaging and eco-friendly packaging rules.",
     link: "/usa/coffee-packaging",
@@ -525,6 +590,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "accent"
   },
   {
+    keyPrefix: "knowhow_26",
     title: "Coffee Roastery Case Study",
     desc: "How a specialty Seattle roastery shifted to 100% compostable bags without dropping speed.",
     link: "/case-studies/coffee-roastery",
@@ -533,6 +599,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "accent"
   },
   {
+    keyPrefix: "knowhow_27",
     title: "Tea Brand Case Study",
     desc: "Transitioning to plastic-free kraft bags to align with clean label values.",
     link: "/case-studies/tea-brand",
@@ -541,6 +608,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "eco"
   },
   {
+    keyPrefix: "knowhow_28",
     title: "Pet Treats Case Study",
     desc: "Developing high-volume pet food pouches with puncture-resistant layers and durable zippers.",
     link: "/case-studies/pet-treats",
@@ -549,6 +617,7 @@ export const seoKnowHowCards: KnowHowCard[] = [
     badgeType: "liquid"
   },
   {
+    keyPrefix: "knowhow_29",
     title: "Chocolate Brand Case Study",
     desc: "Eco-luxe chocolate brand showcases premium rigid box and compostable pouch designs.",
     link: "/case-studies/chocolate-brand",
