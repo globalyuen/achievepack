@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T10:45:36.445Z",
+  "lastUnifiedRun": "2026-06-13T11:00:47.210Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2541,17 +2541,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-packaging-pouch-sizes-for-nuts",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "sustainable packaging pouch sizes for nuts",
-      "difficulty": "Low",
-      "slug": "sustainable-packaging-pouch-sizes-for-nuts"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "high barrier mono pe stand up pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-mono-pe-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -2634,9 +2635,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T10:45:28.510Z",
+      "timestamp": "2026-06-13T11:00:39.297Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging pouch sizes for nuts\" to /blog/sustainable-packaging-pouch-sizes-for-nuts (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono pe stand up pouches\" to /blog/high-barrier-mono-pe-stand-up-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging pouch sizes for nuts\" to /blog/sustainable-packaging-pouch-sizes-for-nuts (Pending Approval)",
+      "timestamp": "2026-06-13T10:45:28.510Z"
     },
     {
       "action": "Autopilot Generation Draft",
