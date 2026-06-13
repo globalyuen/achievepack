@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T08:30:38.273Z",
+  "lastUnifiedRun": "2026-06-13T08:46:01.718Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2478,17 +2478,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-retort-pouch-dimensions-for-sauces",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "compostable retort pouch dimensions for sauces",
-      "difficulty": "Medium",
-      "slug": "compostable-retort-pouch-dimensions-for-sauces"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1150,
       "keyword": "sustainable flexible packaging sachet sourcing",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-flexible-packaging-sachet-sourcing"
     },
     {
       "status": "Pending",
@@ -2625,9 +2626,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T08:30:29.550Z",
+      "timestamp": "2026-06-13T08:45:40.202Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch dimensions for sauces\" to /blog/compostable-retort-pouch-dimensions-for-sauces (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable flexible packaging sachet sourcing\" to /blog/sustainable-flexible-packaging-sachet-sourcing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch dimensions for sauces\" to /blog/compostable-retort-pouch-dimensions-for-sauces (Pending Approval)",
+      "timestamp": "2026-06-13T08:30:29.550Z"
     },
     {
       "action": "Autopilot Generation Draft",
