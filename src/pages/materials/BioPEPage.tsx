@@ -10,6 +10,12 @@ const BioPEPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.bioPE'
+  
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+
   const sections = [
     {
       id: 'infographic',
@@ -85,7 +91,7 @@ const BioPEPage: React.FC = () => {
           <div className="bg-green-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.overview.keyBenefits`)}</h4>
             <ul className="space-y-1 text-sm text-green-700">
-              {(t(`${p}.sections.overview.benefits`, { returnObjects: true }) as string[]).map((b, i) => <li key={i}>✓ {b}</li>)}
+              {getTranslationArray(`${p}.sections.overview.benefits`).map((b, i) => <li key={i}>✓ {b}</li>)}
             </ul>
           </div>
         </div>
@@ -180,7 +186,7 @@ const BioPEPage: React.FC = () => {
           <div className="bg-green-50 p-4 rounded-lg">
             <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.carbon.comparisonTitle`)}</h4>
             <ul className="space-y-2 text-sm">
-              {(t(`${p}.sections.carbon.items`, { returnObjects: true }) as string[]).map((item, i) => <li key={i}>✓ {item}</li>)}
+              {getTranslationArray(`${p}.sections.carbon.items`).map((item, i) => <li key={i}>✓ {item}</li>)}
             </ul>
           </div>
           
@@ -459,7 +465,7 @@ const BioPEPage: React.FC = () => {
           <p>{t(`${p}.sections.applications.intro`)}</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+            {getTranslationArray(`${p}.sections.applications.items`).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
                 <span className="text-sm text-green-800">{item}</span>

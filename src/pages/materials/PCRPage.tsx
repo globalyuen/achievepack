@@ -10,6 +10,12 @@ const PCRPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.pcr'
+  
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+
   const sections = [
     {
       id: 'infographic',
@@ -69,7 +75,7 @@ const PCRPage: React.FC = () => {
           <div className="bg-emerald-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-emerald-800 mb-2">{t(`${p}.sections.overview.keyBenefits`)}</h4>
             <ul className="space-y-1 text-sm text-emerald-700">
-              {(t(`${p}.sections.overview.benefits`, { returnObjects: true }) as string[]).map((b, i) => <li key={i}>✓ {b}</li>)}
+              {getTranslationArray(`${p}.sections.overview.benefits`).map((b, i) => <li key={i}>✓ {b}</li>)}
             </ul>
           </div>
         </div>
@@ -113,7 +119,7 @@ const PCRPage: React.FC = () => {
           
           <div className="bg-neutral-50 p-4 rounded-lg">
             <ul className="space-y-2 text-sm">
-              {(t(`${p}.sections.foodSafety.items`, { returnObjects: true }) as string[]).map((item, i) => <li key={i}>✓ {item}</li>)}
+              {getTranslationArray(`${p}.sections.foodSafety.items`).map((item, i) => <li key={i}>✓ {item}</li>)}
             </ul>
           </div>
           
@@ -418,7 +424,7 @@ const PCRPage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+            {getTranslationArray(`${p}.sections.applications.items`).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-emerald-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-emerald-500 flex-shrink-0" />
                 <span className="text-sm text-emerald-800">{item}</span>
@@ -539,8 +545,8 @@ const PCRPage: React.FC = () => {
     {
       title: t(`${p}.table.title`),
       data: {
-        headers: t(`${p}.table.headers`, { returnObjects: true }) as string[],
-        rows: t(`${p}.table.rows`, { returnObjects: true }) as string[][]
+        headers: getTranslationArray(`${p}.table.headers`),
+        rows: getTranslationArray<string[]>(`${p}.table.rows`)
       }
     }
   ]

@@ -1272,13 +1272,13 @@ function App() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 text-xs font-semibold uppercase tracking-wider mb-4 border border-emerald-500/20">
               <Sparkles className="h-3.5 w-3.5" />
-              <span>Interactive 3D Experience</span>
+              <span>{t("seoPages.pages.achievePackHome.interactive3d.badge", "Interactive 3D Experience")}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tight leading-tight">
-              Eco Packaging Reimagined in 3D
+              {t("seoPages.pages.achievePackHome.interactive3d.title", "Eco Packaging Reimagined in 3D")}
             </h2>
             <p className="text-lg text-neutral-600 mt-4 leading-relaxed">
-              Explore the tactile geometry and sustainable structure of our premium certified pouches. Move your mouse to tilt, scroll to rotate, or toggle the models below to inspect detailed laminations.
+              {t("seoPages.pages.achievePackHome.interactive3d.desc", "Explore the tactile geometry and sustainable structure of our premium certified pouches. Move your mouse to tilt, scroll to rotate, or toggle the models below to inspect detailed laminations.")}
             </p>
           </div>
 
@@ -1297,27 +1297,27 @@ function App() {
                 <div className="flex justify-between items-start gap-4">
                   <div>
                     <span className="inline-block px-2.5 py-1 rounded-md text-[10px] font-bold tracking-widest bg-emerald-100 text-emerald-700 uppercase mb-2">
-                      💧 Liquids & Purees
+                      {t("seoPages.pages.pouchHomePage.showcase.spouted.tag", "💧 Liquids & Purees")}
                     </span>
                     <h3 className="text-xl font-bold text-neutral-900">
-                      Industrial Compostable Spouted Pouch
+                      {t("seoPages.pages.pouchHomePage.showcase.spouted.title", "Industrial Compostable Spouted Pouch")}
                     </h3>
                   </div>
                   <span className="text-2xl">🥤</span>
                 </div>
                 
                 <p className="text-sm text-neutral-600 mt-3 leading-relaxed">
-                  Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.
+                  {t("seoPages.pages.pouchHomePage.showcase.spouted.desc", "Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.")}
                 </p>
 
                 <div className="mt-4 pt-4 border-t border-neutral-100 grid grid-cols-2 gap-4 text-xs font-semibold text-neutral-500">
                   <div>
-                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">MOQ</span>
-                    <span className="text-neutral-800 font-bold">2,000 units</span>
+                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">{t("seoPages.pages.pouchHomePage.showcase.spouted.moqLabel", "MOQ")}</span>
+                    <span className="text-neutral-800 font-bold">{t("seoPages.pages.pouchHomePage.showcase.spouted.moqVal", "2,000 units")}</span>
                   </div>
                   <div>
-                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">Certifications</span>
-                    <span className="text-emerald-600 font-bold">EN 13432, ASTM D6400</span>
+                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">{t("seoPages.pages.pouchHomePage.showcase.spouted.certLabel", "Certifications")}</span>
+                    <span className="text-emerald-600 font-bold">{t("seoPages.pages.pouchHomePage.showcase.spouted.certVal", "EN 13432, ASTM D6400")}</span>
                   </div>
                 </div>
               </button>
@@ -1325,7 +1325,7 @@ function App() {
               {/* Card 2: Flat Bottom Pouch */}
               <button
                 onClick={() => setActivePouchModel('flat-bottom')}
-                className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
+                className={`w-full text-left p-8 rounded-2xl border-2 transition-all duration-300 ${
                   activePouchModel === 'flat-bottom'
                     ? 'bg-white border-emerald-500 shadow-xl shadow-emerald-500/5 ring-1 ring-emerald-500'
                     : 'bg-white/60 hover:bg-white border-neutral-200 shadow-sm hover:shadow-md hover:border-neutral-300'
@@ -1334,27 +1334,27 @@ function App() {
                 <div className="flex justify-between items-start gap-4">
                   <div>
                     <span className="inline-block px-2.5 py-1 rounded-md text-[10px] font-bold tracking-widest bg-emerald-100 text-emerald-700 uppercase mb-2">
-                      🌱 Dry Goods & Coffee
+                      {t("seoPages.pages.pouchHomePage.showcase.flatBottom.tag", "🌱 Dry Goods & Coffee")}
                     </span>
                     <h3 className="text-xl font-bold text-neutral-900">
-                      Home Compostable Flat Bottom Pouch
+                      {t("seoPages.pages.pouchHomePage.showcase.flatBottom.title", "Home Compostable Flat Bottom Pouch")}
                     </h3>
                   </div>
                   <span className="text-2xl">☕</span>
                 </div>
                 
                 <p className="text-sm text-neutral-600 mt-3 leading-relaxed">
-                  Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.
+                  {t("seoPages.pages.pouchHomePage.showcase.flatBottom.desc", "Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.")}
                 </p>
 
                 <div className="mt-4 pt-4 border-t border-neutral-100 grid grid-cols-2 gap-4 text-xs font-semibold text-neutral-500">
                   <div>
-                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">MOQ</span>
-                    <span className="text-neutral-800 font-bold">1,000 units</span>
+                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">{t("seoPages.pages.pouchHomePage.showcase.flatBottom.moqLabel", "MOQ")}</span>
+                    <span className="text-neutral-800 font-bold">{t("seoPages.pages.pouchHomePage.showcase.flatBottom.moqVal", "1,000 units")}</span>
                   </div>
                   <div>
-                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">Certifications</span>
-                    <span className="text-emerald-600 font-bold">OK Compost HOME</span>
+                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">{t("seoPages.pages.pouchHomePage.showcase.flatBottom.certLabel", "Certifications")}</span>
+                    <span className="text-emerald-600 font-bold">{t("seoPages.pages.pouchHomePage.showcase.flatBottom.certVal", "OK Compost HOME")}</span>
                   </div>
                 </div>
               </button>

@@ -1337,6 +1337,14 @@
         "ctaButtonText": "Request Free Sample",
         "sections": {
           "overview": {
+            "keyBenefits": "核心優勢：",
+            "benefits": [
+              "可在標準 PE 回收流中回收（回收編碼 #4 LDPE）",
+              "出色的柔韌性與抗穿刺性",
+              "高性能 EVOH 氣體與異味阻隔層選擇",
+              "與傳統複合材質相比，大幅降低碳足跡",
+              "廣泛適用於商店回收和路邊回收計劃"
+            ],
             "symbol": {
               "title": "回收編碼 #4 (LDPE) / #5 (PP)",
               "desc": "我們的單材質 PE 袋由單一材料聚乙烯製成，適用於大多數路邊回收和商店回收計劃。回收編碼可以印刷在您的包裝上。",
@@ -19079,6 +19087,304 @@
         "ctaTitle": "烘焙。印刷。包裝。",
         "ctaDesc": "準備好提升您咖啡品牌在美國的形象了嗎？立即取得免費樣品或客製化報價。",
         "ctaButton": "取得客製化報價"
+      },
+      "pouchHomePage": {
+        "meta": {
+          "title": "POUCH.ECO - 專為新創品牌打造的永續環保包裝",
+          "description": "永續包裝，簡單上手。專為新創設計的超低起訂量（MOQ 500個）可堆肥自立袋。現在就開始吧。"
+        },
+        "hero": {
+          "ecoSystem": "生態系統 v2026",
+          "start": "開創。",
+          "scale": "擴張。",
+          "sustain": "永續。",
+          "eco": "環保。",
+          "digital": "數位。",
+          "bullets": {
+            "moq": "環保包裝 500 個即可起訂。",
+            "materials": "可堆肥 // 可回收 // 生物基材質。",
+            "speed": "快速交期，絕不拖延。"
+          },
+          "alts": {
+            "compostable": "可堆肥",
+            "recyclable": "可回收",
+            "biobased": "生物基",
+            "pcr": "PCR 再生塑料"
+          },
+          "buttons": {
+            "book": "預約諮詢",
+            "materials": "查看材質"
+          },
+          "tags": {
+            "compostable": "可堆肥合格",
+            "recyclable": "可回收合格",
+            "industrial": "工業堆肥合格",
+            "pcr": "再生塑料高阻隔合格",
+            "biobased": "生物基合格"
+          },
+          "badge": "500個起！"
+        },
+        "trusted": {
+          "badge": "品牌信任",
+          "title": "加入 500+ 個品牌行列",
+          "subtitle": "從新創小店到成熟品牌——全部都從 500 個包裝開始"
+        },
+        "showcase": {
+          "badge": "✨ 互動式 3D 展示",
+          "title": "3D 空間環保袋結構",
+          "subtitle": "旋轉、傾斜並檢查我們環保袋經過認證的有機結構阻隔層。移動滑鼠即可傾斜，滾動即可旋轉，或切換下方模型。",
+          "spouted": {
+            "tag": "💧 液體與流質食品",
+            "title": "工業可堆肥吸嘴袋",
+            "desc": "經認證的工業可堆肥軟包裝袋，配備全植物基硬質吸嘴。完全取代傳統塑料吸嘴選項，達到零塑料腳印。",
+            "moqLabel": "起訂量 (MOQ):",
+            "moqVal": "2,000 個",
+            "certLabel": "認證標章:",
+            "certVal": "EN 13432, ASTM D6400"
+          },
+          "flatBottom": {
+            "tag": "🌱 乾貨與咖啡",
+            "title": "家用可堆肥平底八邊封袋",
+            "desc": "頂級 100% 家用可堆肥平底箱型結構，提供卓越的貨架展示效果。可在家庭後院堆肥箱中安全自然降解。",
+            "moqLabel": "起訂量 (MOQ):",
+            "moqVal": "1,000 個",
+            "certLabel": "認證標章:",
+            "certVal": "OK Compost HOME"
+          }
+        },
+        "social": {
+          "badge": "真實產品 • 真實品牌",
+          "title": "社群熱烈開箱",
+          "desc": "看看我們的包裝如何幫助品牌瘋傳。顧客最愛分享的質感開箱體驗。"
+        },
+        "features": {
+          "title": "核心優勢",
+          "selectMaterial": "請選擇下方材質",
+          "moq": {
+            "title": "低起訂量協定",
+            "desc": "只需 500 個即可開始起訂。測試您的市場，無需承擔龐大庫存壓力。極適合新創品牌及新品發表。",
+            "badge1": "最小起訂500",
+            "badge2": "快速啟動"
+          },
+          "compostable": {
+            "title": "生物基矩陣",
+            "desc": "經認證的可堆肥材質。支援工業堆肥與家用有機堆肥。",
+            "statusLabel": "認證狀態:",
+            "statusVal": "BPI 認證"
+          },
+          "fast": {
+            "title": "快速出貨",
+            "desc": "樣品 2-3 週。大貨生產 6-8 週。準時交貨不延遲。",
+            "speedLabel": "交貨速度:",
+            "speedVal": "極速優化"
+          },
+          "barrier": {
+            "title": "高阻隔技術",
+            "desc": "多層複合阻隔結構。強效阻氧、防潮。保持產品新鮮度，延長架上壽命達 6-18 個月。",
+            "btn": "查看技術規格"
+          }
+        },
+        "appSuite": {
+          "badge": "⚡ 互動式包裝工具",
+          "title": "包裝設計應用套件",
+          "subtitle": "立即計算您的袋型尺寸與材質規格。無需猜測，絕無誤差，純技術精準度。",
+          "sizing": {
+            "badge": "尺寸工具",
+            "title": "【袋型尺寸計算器】",
+            "desc": "根據產品重量和密度預設，計算精確的自立袋尺寸與容積。立即與標準生產模板進行配對。",
+            "bullets": [
+              "密度預設（咖啡、粉末、點心）",
+              "容量計算（盎司、公克、毫升）",
+              "標準最小起訂量與袋型參考配對"
+            ],
+            "btn": "啟動袋型計算器 →"
+          },
+          "spec": {
+            "badge": "材質規格",
+            "title": "【材質規格篩選器】",
+            "desc": "搜尋、篩選和比較 15 種以上認證可堆肥、可回收、PCR 再生塑料和植物基生物聚合物結構的透水率與透氧率 (OTR/WVTR)。",
+            "bullets": [
+              "15 種以上環保雙層與三層複合結構",
+              "透氧透濕性能等級篩選",
+              "完整厚度與重量規格表下載"
+            ],
+            "btn": "啟動材質篩選器 →"
+          }
+        },
+        "choosePlan": {
+          "title": "選擇包裝方案",
+          "standUp": {
+            "name": "自立袋 (Stand Up Pouch)",
+            "desc": "行業經典袋型。最適合零食、點心與保健食品。",
+            "moq": "500 個",
+            "mat": "生物基/再生塑料",
+            "bar": "高阻隔"
+          },
+          "flatBottom": {
+            "name": "平底袋/八邊封袋 (Flat Bottom)",
+            "desc": "精美箱型直立穩定度。咖啡與茶葉包裝的首選。",
+            "moq": "500 個",
+            "mat": "可回收材質",
+            "bar": "極高阻隔"
+          },
+          "spouted": {
+            "name": "吸嘴袋 (Spouted Pouch)",
+            "desc": "瓶罐的輕量化替代方案。重量更輕、成本更低。",
+            "moq": "1K (1,000個)",
+            "mat": "單一聚乙烯 (Mono-PE)",
+            "bar": "液體阻隔"
+          },
+          "bookCall": "預約通話"
+        },
+        "knowledge": {
+          "badge": "📚 包裝知識庫",
+          "title": "環保資源與文獻庫",
+          "subtitle": "由認證包裝專家撰寫的深度技術報告、全球合規指南和循環經濟研究，幫助您的品牌符合最新的永續規範。",
+          "guides": {
+            "compliance": {
+              "tag": "合規指南_2026",
+              "title": "歐盟 PPWR 包裝新規指南",
+              "desc": "詳細分析空置空間比例、統一的回收分類標籤，以及歐盟品牌包裝綠色點數基金（Eco-modulation fees）的減免方法。",
+              "btn": "閱讀指南 →"
+            },
+            "foil": {
+              "tag": "回收規格",
+              "title": "燙金箔對回收的影響",
+              "desc": "研究熱燙印金屬箔和金屬感裝飾圖案如何影響都市單一材質回收流程中的光電分選遙測系統。",
+              "btn": "閱讀研究報告 →"
+            },
+            "zipper": {
+              "tag": "材料科學",
+              "title": "可堆肥夾鏈耐用度研究",
+              "desc": "分析 100% 植物基可重複密封夾鏈的透氧率和抗拉強度，無須拆卸即可隨袋直接堆肥處理。",
+              "btn": "閱讀技術研究 →"
+            },
+            "roi": {
+              "tag": "採購投資報酬率",
+              "title": "標準公版現貨 vs. 客製化規格",
+              "desc": "比較線上預製公版包裝現貨與客製化工廠大批生產規格的決策矩陣，協助優化單個包裝的採購單價。",
+              "btn": "比較規格表 →"
+            }
+          },
+          "links": {
+            "sustainability": "🌱 真實世界中的循環永續性",
+            "spoutedComposting": "💧 軟吸嘴生物聚合物堆肥",
+            "citrus": "🍊 柑橘油強效防護阻隔層"
+          }
+        },
+        "testimonial": {
+          "quote": "「當初在 POUCH.ECO 訂購 500 個袋子試水溫，是我做過最正確的決定。現在我們每個月都訂購超過 1 萬個。」",
+          "author": "- Sarah M.，品牌創辦人"
+        }
+      },
+      "achievePackHome": {
+        "interactive3d": {
+          "badge": "互動式 3D 體驗",
+          "title": "以 3D 重新想像環保包裝",
+          "desc": "探索我們頂級認證袋型的幾何觸感與永續結構。移動滑鼠即可傾斜，滾動即可旋轉，或切換下方模型以檢查詳細的貼合層結構。"
+        },
+        "shopSection": {
+          "title": "選購可堆肥與可回收包裝袋",
+          "subtitle": "瀏覽所有環保包裝選項",
+          "compostable": "可堆肥材質",
+          "recyclable": "可回收材質",
+          "pcr": "PCR 再生塑料",
+          "biope": "生物基聚乙烯 (Bio-PE)"
+        },
+        "engineeringSuite": {
+          "badge": "互動式包裝設計套件",
+          "title": "專業包裝工具程式",
+          "desc": "無需猜測。使用我們量身定制的互動式網頁應用程式，在幾秒鐘內為您的品牌設計、計算尺寸並規劃永續包裝規格。",
+          "sizing": {
+            "badge": "尺寸工具",
+            "title": "自立袋尺寸計算器",
+            "desc": "根據您的目標重量、產品類型和物質密度，計算精確的自立自撐袋尺寸和側邊折邊（底部折邊）容量。立即在 100 多種標準尺寸網格中進行配對。",
+            "bullet1": "產品專屬密度預設（咖啡、茶葉、粉末、零食點心）",
+            "bullet2": "精確的容量計算（液體盎司、公克、毫升）",
+            "bullet3": "公版起訂量與尺寸規格配對",
+            "btn": "啟動袋型計算器"
+          },
+          "spec": {
+            "badge": "材質工具",
+            "title": "材質規格篩選器",
+            "desc": "搜尋、篩選和比較我們完整認證環保貼合結構的精確機械與阻隔性能（透氧率 OTR 及透濕率 WVTR）。",
+            "bullet1": "15 種以上永續雙層與三層貼合結構選項",
+            "bullet2": "即時阻隔性能篩選（高阻隔、中阻隔、低阻隔規格）",
+            "bullet3": "包含厚度與起訂量的完整規格表",
+            "btn": "啟動材質篩選器"
+          }
+        },
+        "trustedBy": {
+          "badge": "業界領導品牌信任",
+          "title": "為什麼全球 500+ 個品牌選擇 Achieve Pack"
+        },
+        "aboutSection": {
+          "definitionTitle": "什麼是可堆肥包裝？",
+          "definitionDesc": "可堆肥包裝是經認證的包裝材料，在工業堆肥條件下，可在 180 天內完全生物降解為天然元素。與普通塑料不同，可堆肥包裝袋會分解為水、二氧化碳和生物質，不會殘留",
+          "plasticFreeTitle": "無傳統石油基塑料",
+          "plasticFreeDesc": "我們的可堆肥包裝袋不含任何石油基塑料。由植物基 PLA 與 PBAT 生物聚合物製成，它們能回歸大自然，而不是作為微塑料殘留在海洋與土壤中。",
+          "plasticFreeLink": "瞭解無塑料 vs 可堆肥的差異",
+          "lifecycleAlt": "可堆肥包裝生命週期——從植物基材料到土壤養分",
+          "table": {
+            "feature": "特點",
+            "compostable": "可堆肥材質",
+            "recyclable": "可回收單一 PE 袋",
+            "traditional": "傳統塑料袋",
+            "decompositionRow": "降解時間",
+            "decompositionCompost": "堆肥箱中 180 天",
+            "decompositionFacility": "需特定回收設施",
+            "decompositionYears": "長達數百年",
+            "sourceRow": "材料來源",
+            "sourceCompost": "植物基（玉米、甘蔗）",
+            "sourceRecycle": "單一聚合物 (PE/PP)",
+            "sourceTraditional": "石油基",
+            "certsRow": "認證標章",
+            "certsCompost": "EN13432, ASTM D6400",
+            "certsRecycle": "ISO 15270",
+            "certsTraditional": "無",
+            "bestRow": "最適合應用",
+            "bestCompost": "咖啡、零食點心、乾貨",
+            "bestRecycle": "所有乾燥產品",
+            "bestTraditional": "一般用途",
+            "moqRow": "Achieve Pack 起訂量",
+            "moqCompost": "100 個起",
+            "moqRecycle": "100 個起",
+            "moqTraditional": "通常需 5,000 個以上"
+          },
+          "compareLink": "瞭解可堆肥 vs 可生物降解包裝的深入比較"
+        },
+        "exploreFullShop": "探索完整商店",
+        "freeServices": {
+          "badge": "100% 免費 • 無約束力",
+          "title": "為您的品牌提供免費包裝加值服務",
+          "desc": "專家免費協助——包裝設計諮詢、3D 實物效果圖模型、網站設計與客戶中心管理系統。",
+          "design": {
+            "title": "設計諮詢服務",
+            "desc": "專業的軟包裝設計建議與客製化刀模線 keyline 製作"
+          },
+          "mockup": {
+            "title": "3D 實物模型",
+            "desc": "高擬真 3D 渲染效果圖，完美呈現包裝設計"
+          },
+          "website": {
+            "title": "網站建置設計",
+            "desc": "為您的品牌打造現代化精美登陸頁面"
+          },
+          "customer": {
+            "title": "客戶中心系統",
+            "desc": "數位後台管理系統，隨時追蹤訂單與管理詢價單"
+          },
+          "btn": "探索所有免費包裝服務"
+        },
+        "scrollFaqs": "向下滾動以查看更多常見問題 FAQs",
+        "team": {
+          "EEAT": "自 2011 年以來，我們的專業團隊已協助美國、歐盟、紐西蘭和亞洲的 500 多家品牌，涵蓋咖啡、點心、寵物零食和保健食品等多種品類。",
+          "profile": "查看簡介",
+          "profileAria": "查看 Ryan Wong 的詳細介紹"
+        },
+        "buttons": {
+          "shopNow": "立即選購"
+        }
       }
     },
     "compostableStandUpPouches": {
@@ -28643,6 +28949,167 @@
       "description": "準備好為您的品牌打造低風險、大廠級的永續包裝供應鏈了嗎？今天就開始進行技術審查。",
       "btnReview": "索取新創包裝樣品",
       "btnEngineer": "與新創包裝工程師對話"
+    }
+  },
+  "pouchHomePage": {
+    "meta": {
+      "title": "POUCH.ECO - 新創品牌永續環保包裝",
+      "description": "永續包裝輕鬆搞定。低起訂量可堆肥自立袋，專為新創品牌設計。最低500個起訂。"
+    },
+    "hero": {
+      "badge": "環保_系統 v2026",
+      "h1Line1": "啟動。",
+      "h1Line2": "擴展。",
+      "typewriterWords": [
+        "永續。",
+        "環保。",
+        "數位。"
+      ],
+      "terminalLine1": "> 環保包裝，500個起訂。",
+      "terminalLine2": "> 可堆肥 // 可回收 // 生物基材。",
+      "terminalLine3": "> 快速交貨。絕不敷衍。",
+      "ctaBook": "預約諮詢",
+      "ctaMaterials": "瀏覽材料"
+    },
+    "trustedBy": {
+      "badge": "值得信賴",
+      "titlePrefix": "加入 ",
+      "titleHighlight": "500+",
+      "titleSuffix": " 品牌行列",
+      "subtitle": "從新創到知名品牌 — 都從500個起訂開始"
+    },
+    "showcase3d": {
+      "badge": "✨ 互動式3D展示",
+      "title": "環保袋的 ",
+      "titleHighlight": "3D空間",
+      "description": "旋轉、傾斜並檢視我們環保自立袋的認證有機結構阻隔層。移動滑鼠可傾斜，滾動可旋轉，或切換下方模型。",
+      "spouted": {
+        "tag": "💧 液態與泥狀食品",
+        "title": "工業可堆肥吸嘴袋",
+        "description": "認證工業可堆肥軟質包裝袋，搭載全植物基硬質吸嘴。以零塑膠足跡取代傳統塑膠吸嘴阻隔方案。",
+        "moqLabel": "最低起訂量：",
+        "moqValue": "2,000個",
+        "certLabel": "認證：",
+        "certValue": "EN 13432, ASTM D6400"
+      },
+      "flatBottom": {
+        "tag": "🌱 乾貨與咖啡",
+        "title": "家庭可堆肥平底袋",
+        "description": "高級100%家庭可堆肥箱型底部結構，提供卓越的貨架展示效果。在家庭後院堆肥箱中安全自然分解。",
+        "moqLabel": "最低起訂量：",
+        "moqValue": "1,000個",
+        "certLabel": "認證：",
+        "certValue": "OK Compost HOME"
+      }
+    },
+    "social": {
+      "badge": "真實產品 • 真實品牌",
+      "title": "社群 ",
+      "titleHighlight": "實證分享",
+      "description": "觀看我們的自立袋如何幫助品牌爆紅。顧客愛分享的開箱體驗。"
+    },
+    "features": {
+      "sectionTitleLine1": "核心",
+      "sectionTitleLine2": "功能",
+      "badge": "選擇下方材料",
+      "lowMoq": {
+        "title": "低起訂量方案",
+        "description": "僅需500個即可起訂。無需大量庫存承諾即可測試市場。非常適合新創品牌和新品上市。",
+        "badge1": "500_起訂",
+        "badge2": "快速_上市"
+      },
+      "bioMatrix": {
+        "title": "生物基材",
+        "description": "認證可堆肥材料。工業+家庭堆肥皆可。",
+        "status": "狀態：",
+        "statusValue": "BPI認證"
+      },
+      "fastShip": {
+        "title": "快速出貨",
+        "description": "打樣2-3週。量產6-8週。絕不延遲。",
+        "speed": "速度：",
+        "speedValue": "已優化"
+      },
+      "barrier": {
+        "title": "高阻隔技術",
+        "description": "多層阻隔結構。阻隔O2+防潮。保持產品新鮮6-18個月保質期。",
+        "cta": "查看技術規格"
+      }
+    },
+    "apps": {
+      "badge": "⚡ 互動式工具",
+      "title": "包裝應用程式套組",
+      "description": "即時設計您的自立袋尺寸和材料規格。無需猜測，零失誤。純粹的技術精準度。",
+      "sizing": {
+        "badgeLabel": "尺寸應用",
+        "title": "[尺寸查找器]",
+        "description": "根據產品重量和密度預設計算精確尺寸和容量。即時匹配標準製造模板的尺寸。",
+        "feature1": "密度預設（咖啡、粉末、零食）",
+        "feature2": "容量計算（盎司、克、毫升）",
+        "feature3": "標準起訂量和尺寸參考匹配",
+        "cta": "啟動尺寸應用 →"
+      },
+      "spec": {
+        "badgeLabel": "材料規格",
+        "title": "[規格查找器]",
+        "description": "搜尋、篩選並比較15+種認證可堆肥、可回收、PCR和植物基生物聚合物結構的水蒸氣和氧氣透過率（OTR/WVTR）。",
+        "feature1": "15+種環保雙層和三層結構",
+        "feature2": "OTR和WVTR性能等級篩選",
+        "feature3": "完整厚度和重量數據表下載",
+        "cta": "啟動規格查找器 →"
+      }
+    },
+    "products": {
+      "title": "選擇方案",
+      "standUp": {
+        "name": "自立袋",
+        "description": "業界標準。非常適合零食和營養補充品。"
+      },
+      "flatBottom": {
+        "name": "平底袋",
+        "description": "高級箱型穩定性。最適合咖啡和茶葉。"
+      },
+      "spouted": {
+        "name": "吸嘴袋",
+        "description": "瓶裝的靈活替代方案。更輕更經濟。"
+      },
+      "bookCall": "預約通話"
+    },
+    "library": {
+      "badge": "📚 知識入口",
+      "title": "環保資源與圖書館",
+      "description": "由認證專家撰寫的深度技術報告、全球合規指南和循環經濟研究，幫助您的品牌保持合規一致。",
+      "guide1": {
+        "badge": "合規_2026",
+        "title": "歐盟PPWR合規指南",
+        "description": "針對歐盟市場品牌所有者的空間比率、統一回收分類標籤和生態調節費用減免的詳細分析。",
+        "cta": "閱讀指南 →"
+      },
+      "guide2": {
+        "badge": "回收規格",
+        "title": "燙金箔可回收性",
+        "description": "熱燙金箔和金屬裝飾元素如何影響市政單一材料回收流中的分類遙測。",
+        "cta": "閱讀研究 →"
+      },
+      "guide3": {
+        "badge": "材料科學",
+        "title": "可堆肥夾鏈耐久性",
+        "description": "分析100%植物基可重複密封夾鏈的氧氣透過率和拉伸握持耐久性，無需拆除要求。",
+        "cta": "閱讀技術研究 →"
+      },
+      "guide4": {
+        "badge": "採購投資回報",
+        "title": "標準生產 vs. 客製化規格",
+        "description": "比較預製線上包裝庫存模型與客製化批量B2B生產規格的決策矩陣，以優化單價。",
+        "cta": "比較規格表 →"
+      },
+      "link1": "🌱 真實世界循環永續",
+      "link2": "💧 吸嘴生物聚合物堆肥",
+      "link3": "🍊 柑橘精油保護阻隔"
+    },
+    "testimonial": {
+      "quote": "「從POUCH.ECO訂購了500個袋子起步。有史以來最好的決定。現在每月訂購超過10K。」",
+      "author": "- Sarah M.，品牌創辦人"
     }
   }
 }

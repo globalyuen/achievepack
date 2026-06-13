@@ -7946,8 +7946,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     customPrintNote: 'Custom prints available for bulk orders. Contact our support team.'
   },
   {
-    id: 'semi-transparent-cotton-paper-tea-bag',
-    name: 'Food-Grade Semi-Transparent White Cotton Paper Tea Bag (Conventional Stock)',
+    id: 'semi-transparent-cotton-rice-paper-tea-bag',
+    name: 'Food-Grade Semi-Transparent White Cotton Rice Paper Tea Bag (Conventional Stock)',
     category: 'conventional-stock',
     shape: 'Side Gusset Pouch',
     material: 'PE + Cotton Paper (Food-Grade Semi-Transparent)',
@@ -7961,9 +7961,9 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       'Tear-Notch Openings: Convenient tear notches at the header for quick and easy opening by consumers.'
     ],
     images: [
-      '/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-1.png',
-      '/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-2.png',
-      '/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-3.png'
+      '/imgs/store/products/semi-transparent-cotton-rice-paper-tea-bag-side-gusset-pouch-thumbnail-1.png',
+      '/imgs/store/products/semi-transparent-cotton-rice-paper-tea-bag-side-gusset-pouch-thumbnail-2.png',
+      '/imgs/store/products/semi-transparent-cotton-rice-paper-tea-bag-side-gusset-pouch-thumbnail-3.png'
     ],
     badge: '🌱 Premium Tea',
     rating: 4.9,

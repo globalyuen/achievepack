@@ -11,6 +11,11 @@ const RecyclableMonoPEPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.recyclableMonoPE'
   
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+
   const sections = [
     {
       id: 'infographic',
@@ -61,7 +66,7 @@ const RecyclableMonoPEPage: React.FC = () => {
           <div className="bg-blue-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.overview.keyBenefits`)}</h4>
             <ul className="space-y-1 text-sm text-blue-700">
-              {(t(`${p}.sections.overview.benefits`, { returnObjects: true }) as string[]).map((b, i) => <li key={i}>✓ {b}</li>)}
+              {getTranslationArray(`${p}.sections.overview.benefits`).map((b, i) => <li key={i}>✓ {b}</li>)}
             </ul>
           </div>
         </div>
@@ -105,7 +110,7 @@ const RecyclableMonoPEPage: React.FC = () => {
           <p>{t(`${p}.sections.applications.intro`)}</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+            {getTranslationArray(`${p}.sections.applications.items`).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-blue-500 flex-shrink-0" />
                 <span className="text-sm text-blue-800">{item}</span>
@@ -124,7 +129,7 @@ const RecyclableMonoPEPage: React.FC = () => {
           <div className="bg-green-50 p-4 rounded-lg">
             <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.recycling.whereTitle`)}</h4>
             <ul className="space-y-2 text-sm">
-              {(t(`${p}.sections.recycling.options`, { returnObjects: true }) as string[]).map((opt, i) => <li key={i}>✓ {opt}</li>)}
+              {getTranslationArray(`${p}.sections.recycling.options`).map((opt, i) => <li key={i}>✓ {opt}</li>)}
             </ul>
           </div>
           
@@ -247,13 +252,13 @@ const RecyclableMonoPEPage: React.FC = () => {
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50">
                   <tr>
-                    {(t(`${p}.sections.marketData.headers`, { returnObjects: true }) as string[]).map((head, i) => (
+                    {getTranslationArray(`${p}.sections.marketData.headers`).map((head, i) => (
                       <th key={i} className="px-4 py-3 text-left font-semibold text-neutral-700">{head}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
-                  {(t(`${p}.sections.marketData.rows`, { returnObjects: true }) as string[][]).map((row, idx) => (
+                  {getTranslationArray<string[]>(`${p}.sections.marketData.rows`).map((row, idx) => (
                     <tr key={idx} className={idx % 2 === 1 ? 'bg-neutral-50' : ''}>
                       <td className="px-4 py-3 font-medium">{row[0]}</td>
                       <td className="px-4 py-3">{row[1]}</td>
@@ -303,13 +308,13 @@ const RecyclableMonoPEPage: React.FC = () => {
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50">
                   <tr>
-                    {(t(`${p}.sections.comparison.headers`, { returnObjects: true }) as string[]).map((head, i) => (
+                    {getTranslationArray(`${p}.sections.comparison.headers`).map((head, i) => (
                       <th key={i} className="px-4 py-3 text-center first:text-left font-semibold text-neutral-700">{head}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
-                  {(t(`${p}.sections.comparison.rows`, { returnObjects: true }) as string[][]).map((row, idx) => (
+                  {getTranslationArray<string[]>(`${p}.sections.comparison.rows`).map((row, idx) => (
                     <tr key={idx} className={idx % 2 === 1 ? 'bg-neutral-50' : ''}>
                       <td className="px-4 py-3 font-medium text-left">{row[0]}</td>
                       <td className="px-4 py-3 text-center">{row[1]}</td>
@@ -328,7 +333,7 @@ const RecyclableMonoPEPage: React.FC = () => {
               <div>
                 <p className="font-semibold text-blue-700">{t(`${p}.sections.comparison.choosePE`)}</p>
                 <ul className="mt-2 space-y-1 text-blue-600">
-                  {(t(`${p}.sections.comparison.pePoints`, { returnObjects: true }) as string[]).map((item, i) => (
+                  {getTranslationArray(`${p}.sections.comparison.pePoints`).map((item, i) => (
                     <li key={i}>• {item}</li>
                   ))}
                 </ul>
@@ -336,7 +341,7 @@ const RecyclableMonoPEPage: React.FC = () => {
               <div>
                 <p className="font-semibold text-purple-700">{t(`${p}.sections.comparison.choosePP`)}</p>
                 <ul className="mt-2 space-y-1 text-purple-600">
-                  {(t(`${p}.sections.comparison.ppPoints`, { returnObjects: true }) as string[]).map((item, i) => (
+                  {getTranslationArray(`${p}.sections.comparison.ppPoints`).map((item, i) => (
                     <li key={i}>
                       {i === 2 ? (
                         <Link to="/materials/recyclable-mono-pp" className="underline">{item}</Link>
@@ -350,7 +355,7 @@ const RecyclableMonoPEPage: React.FC = () => {
               <div>
                 <p className="font-semibold text-green-700">{t(`${p}.sections.comparison.chooseCompostable`)}</p>
                 <ul className="mt-2 space-y-1 text-green-600">
-                  {(t(`${p}.sections.comparison.compostablePoints`, { returnObjects: true }) as string[]).map((item, i) => (
+                  {getTranslationArray(`${p}.sections.comparison.compostablePoints`).map((item, i) => (
                     <li key={i}>
                       {i === 2 ? (
                         <Link to="/materials/compostable" className="underline">{item}</Link>
@@ -374,7 +379,7 @@ const RecyclableMonoPEPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <p>{t(`${p}.sections.aiSearch.intro`)}</p>
           <ul className="list-disc pl-6 space-y-2">
-            {(t(`${p}.sections.aiSearch.points`, { returnObjects: true }) as string[]).map((pt, i) => {
+            {getTranslationArray(`${p}.sections.aiSearch.points`).map((pt, i) => {
               if (i === 2) {
                 return (
                   <li key={i}>
@@ -405,7 +410,7 @@ const RecyclableMonoPEPage: React.FC = () => {
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
             <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.aiSearch.askTitle`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              {(t(`${p}.sections.aiSearch.questions`, { returnObjects: true }) as string[]).map((q, i) => (
+              {getTranslationArray(`${p}.sections.aiSearch.questions`).map((q, i) => (
                 <li key={i}>• {q}</li>
               ))}
             </ul>
@@ -489,8 +494,8 @@ const RecyclableMonoPEPage: React.FC = () => {
     {
       title: t(`${p}.table.title`),
       data: {
-        headers: t(`${p}.table.headers`, { returnObjects: true }) as string[],
-        rows: t(`${p}.table.rows`, { returnObjects: true }) as string[][]
+        headers: getTranslationArray(`${p}.table.headers`),
+        rows: getTranslationArray<string[]>(`${p}.table.rows`)
       }
     }
   ]

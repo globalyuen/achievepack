@@ -2283,8 +2283,13 @@ const ProductPage: React.FC = () => {
                       <dd className="text-neutral-900 col-span-2">{ecoStockProduct.shape}</dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
-                      <dt className="text-neutral-500">Certification</dt>
-                      <dd className="text-neutral-900 col-span-2">{(ecoStockProduct as any).certification || (isBoxes ? 'FSC Certified' : 'Industrial Composting Approved')}</dd>
+                      <dt className="text-neutral-500">Sustainability</dt>
+                      <dd className="text-neutral-900 col-span-2">
+                        {product?.category === 'conventional-stock' || product?.category === 'conventional-digital'
+                          ? 'Recycle Number 7'
+                          : (ecoStockProduct as any).certification || (isBoxes ? 'FSC Certified' : 'Recycle Number 7')
+                        }
+                      </dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <dt className="text-neutral-500">Shelf Life</dt>

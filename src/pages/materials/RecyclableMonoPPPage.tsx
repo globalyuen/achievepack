@@ -14,6 +14,11 @@ const RecyclableMonoPPPage: React.FC = () => {
   const p = 'seoPages.pages.recyclableMonoPP'
   const isPouchDomain = getDomain() === 'pouch'
 
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+
   // B2C Specific Content & Layout
   const b2cSections = [
     {
@@ -266,7 +271,7 @@ const RecyclableMonoPPPage: React.FC = () => {
           <div className="bg-purple-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.overview.keyBenefits`)}</h4>
             <ul className="space-y-1 text-sm text-purple-700">
-              {(t(`${p}.sections.overview.benefits`, { returnObjects: true }) as string[]).map((b, i) => <li key={i}>✓ {b}</li>)}
+              {getTranslationArray(`${p}.sections.overview.benefits`).map((b, i) => <li key={i}>✓ {b}</li>)}
             </ul>
           </div>
         </div>
@@ -282,13 +287,13 @@ const RecyclableMonoPPPage: React.FC = () => {
             <div className="border border-purple-200 rounded-lg p-4">
               <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.vsPe.choosePP`)}</h4>
               <ul className="text-sm space-y-1 text-purple-700">
-                {(t(`${p}.sections.vsPe.ppReasons`, { returnObjects: true }) as string[]).map((r, i) => <li key={i}>• {r}</li>)}
+                {getTranslationArray(`${p}.sections.vsPe.ppReasons`).map((r, i) => <li key={i}>• {r}</li>)}
               </ul>
             </div>
             <div className="border border-blue-200 rounded-lg p-4">
               <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.vsPe.choosePE`)}</h4>
               <ul className="text-sm space-y-1 text-blue-700">
-                {(t(`${p}.sections.vsPe.peReasons`, { returnObjects: true }) as string[]).map((r, i) => <li key={i}>• {r}</li>)}
+                {getTranslationArray(`${p}.sections.vsPe.peReasons`).map((r, i) => <li key={i}>• {r}</li>)}
               </ul>
             </div>
           </div>
@@ -304,7 +309,7 @@ const RecyclableMonoPPPage: React.FC = () => {
           <p>{t(`${p}.sections.applications.intro`)}</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+            {getTranslationArray(`${p}.sections.applications.items`).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-purple-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-purple-500 flex-shrink-0" />
                 <span className="text-sm text-purple-800">{item}</span>
@@ -322,7 +327,7 @@ const RecyclableMonoPPPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-neutral-50 p-4 rounded-lg">
             <ul className="space-y-2 text-sm">
-              {(t(`${p}.sections.specifications.specs`, { returnObjects: true }) as string[]).map((s, i) => <li key={i}>✓ {s}</li>)}
+              {getTranslationArray(`${p}.sections.specifications.specs`).map((s, i) => <li key={i}>✓ {s}</li>)}
             </ul>
           </div>
         </div>

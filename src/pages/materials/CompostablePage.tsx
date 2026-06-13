@@ -13,6 +13,11 @@ const CompostablePage: React.FC = () => {
   // Translation key prefix
   const p = 'seoPages.pages.compostable'
   
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+
   const sections = [
     {
       id: 'infographic',
@@ -568,7 +573,7 @@ const CompostablePage: React.FC = () => {
           <p>{t(`${p}.sections.applications.intro`)}</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+            {getTranslationArray(`${p}.sections.applications.items`).map((item: string, idx: number) => (
               <div key={idx} className="flex items-center gap-2 bg-primary-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-primary-500 flex-shrink-0" />
                 <span className="text-sm text-primary-800">{item}</span>
@@ -831,19 +836,19 @@ const CompostablePage: React.FC = () => {
     }
   ]
 
-  const tableHeaders = t(`${p}.table.headers`, { returnObjects: true }) as string[]
+  const tableHeaders = getTranslationArray(`${p}.table.headers`)
   const tables = [
     {
       title: t(`${p}.table.title`),
       data: {
         headers: tableHeaders,
         rows: [
-          t(`${p}.table.row1`, { returnObjects: true }) as string[],
-          t(`${p}.table.row2`, { returnObjects: true }) as string[],
-          t(`${p}.table.row3`, { returnObjects: true }) as string[],
-          t(`${p}.table.row4`, { returnObjects: true }) as string[],
-          t(`${p}.table.row5`, { returnObjects: true }) as string[]
-        ]
+          getTranslationArray(`${p}.table.row1`),
+          getTranslationArray(`${p}.table.row2`),
+          getTranslationArray(`${p}.table.row3`),
+          getTranslationArray(`${p}.table.row4`),
+          getTranslationArray(`${p}.table.row5`)
+        ].filter(r => r.length > 0)
       }
     }
   ]

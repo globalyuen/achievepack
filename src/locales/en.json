@@ -1458,6 +1458,14 @@
         "ctaButtonText": "Get Free Samples",
         "sections": {
           "overview": {
+            "keyBenefits": "Key Benefits:",
+            "benefits": [
+              "Recyclable in standard PE streams (resin code #4 LDPE)",
+              "Excellent flexibility and puncture resistance",
+              "High-performance EVOH gas and odor barrier option",
+              "Substantial carbon footprint reduction vs traditional laminates",
+              "Widely accepted in store drop-off and curbside programs"
+            ],
             "symbol": {
               "title": "Recycling Code #4 (LDPE) / #5 (PP)",
               "desc": "Our mono-PE pouches are made from single-material polyethylene, accepted in most curbside and store drop-off recycling programs. The resin code can be printed on your packaging.",
@@ -19178,6 +19186,304 @@
         "ctaTitle": "Roast. Print. Pack.",
         "ctaDesc": "Ready to upgrade your coffee brand's presentation in the USA? Get free samples or a custom quote today.",
         "ctaButton": "Get Your Custom Quote"
+      },
+      "pouchHomePage": {
+        "meta": {
+          "title": "POUCH.ECO - Sustainable Eco Packaging for Startups",
+          "description": "Sustainable packaging made simple. Low MOQ compostable pouches for startups. Get started with 500 units."
+        },
+        "hero": {
+          "ecoSystem": "ECO_SYSTEM v2026",
+          "start": "Start.",
+          "scale": "Scale.",
+          "sustain": "Sustain.",
+          "eco": "Eco.",
+          "digital": "Digital.",
+          "bullets": {
+            "moq": "Eco packaging from 500 units.",
+            "materials": "Compostable // Recyclable // Bio-based.",
+            "speed": "Fast turnaround. No BS."
+          },
+          "alts": {
+            "compostable": "Compostable",
+            "recyclable": "Recyclable",
+            "biobased": "Bio-based",
+            "pcr": "PCR"
+          },
+          "buttons": {
+            "book": "Book Consultation",
+            "materials": "View Materials"
+          },
+          "tags": {
+            "compostable": "COMPOSTABLE_OK",
+            "recyclable": "RECYCLABLE_OK",
+            "industrial": "INDUSTRIAL_OK",
+            "pcr": "PCR_BARRIER_OK",
+            "biobased": "BIO_BASED_OK"
+          },
+          "badge": "500!"
+        },
+        "trusted": {
+          "badge": "TRUSTED_BY",
+          "title": "Join 500+ Brands",
+          "subtitle": "From startups to established names - they all started with 500 units"
+        },
+        "showcase": {
+          "badge": "✨ Interactive 3D Showcase",
+          "title": "Eco Bags in 3D Space",
+          "subtitle": "Rotate, tilt, and inspect the certified organic structural barriers of our green pouches. Move your mouse to tilt, scroll to spin, or toggle models below.",
+          "spouted": {
+            "tag": "💧 Liquids & Purees",
+            "title": "Industrial Compostable Spouted Pouch",
+            "desc": "Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.",
+            "moqLabel": "MOQ:",
+            "moqVal": "2,000 units",
+            "certLabel": "Certifications:",
+            "certVal": "EN 13432, ASTM D6400"
+          },
+          "flatBottom": {
+            "tag": "🌱 Dry Goods & Coffee",
+            "title": "Home Compostable Flat Bottom Pouch",
+            "desc": "Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.",
+            "moqLabel": "MOQ:",
+            "moqVal": "1,000 units",
+            "certLabel": "Certifications:",
+            "certVal": "OK Compost HOME"
+          }
+        },
+        "social": {
+          "badge": "REAL PRODUCTS • REAL BRANDS",
+          "title": "As Seen In Social",
+          "desc": "Watch how our pouches help brands go viral. Unboxing experiences that customers love to share."
+        },
+        "features": {
+          "title": "Core Features",
+          "selectMaterial": "SELECT_MATERIAL_BELOW",
+          "moq": {
+            "title": "Low MOQ Protocol",
+            "desc": "Start with just 500 units. Test your market without massive inventory commitment. Perfect for startups and new product launches.",
+            "badge1": "500_MIN",
+            "badge2": "Fast_Launch"
+          },
+          "compostable": {
+            "title": "Bio_Matrix",
+            "desc": "Certified compostable materials. Industrial + home compost ready.",
+            "statusLabel": "STATUS:",
+            "statusVal": "BPI_CERTIFIED"
+          },
+          "fast": {
+            "title": "Fast_Ship",
+            "desc": "Samples in 2-3 weeks. Production in 6-8 weeks. No delays.",
+            "speedLabel": "SPEED:",
+            "speedVal": "OPTIMIZED"
+          },
+          "barrier": {
+            "title": "High-Barrier Tech",
+            "desc": "Multi-layer barrier structures. O2 + moisture blocking. Keeps product fresh for 6-18 months shelf life.",
+            "btn": "View Tech Specs"
+          }
+        },
+        "appSuite": {
+          "badge": "⚡ INTERACTIVE_UTILITIES",
+          "title": "PACKAGING APP SUITE",
+          "subtitle": "Engineer your pouch sizing and material specifications instantly. No guessing, no errors. Pure technical precision.",
+          "sizing": {
+            "badge": "SIZING APP",
+            "title": "[SIZING FINDER APP]",
+            "desc": "Calculate exact dimensions and capacity based on product weight & density presets. Match dimensions instantly with standard manufacturing templates.",
+            "bullets": [
+              "Density presets (Coffee, Powders, Snacks)",
+              "Volume calculations (Ounces, Grams, ML)",
+              "Standard MoQ and size reference matching"
+            ],
+            "btn": "LAUNCH SIZING APP →"
+          },
+          "spec": {
+            "badge": "MATERIAL SPEC",
+            "title": "[SPEC FINDER APP]",
+            "desc": "Search, filter, and compare water vapor & oxygen transmission rates (OTR/WVTR) across 15+ certified compostable, recyclable, PCR, and plant-based biopolymer structures.",
+            "bullets": [
+              "15+ eco duplex & triplex structures",
+              "OTR & WVTR performance level filtering",
+              "Full thickness & weight sheets download"
+            ],
+            "btn": "LAUNCH SPEC FINDER →"
+          }
+        },
+        "choosePlan": {
+          "title": "Choose Plan",
+          "standUp": {
+            "name": "Stand Up Pouch",
+            "desc": "The industry standard. Perfect for snacks & supplements.",
+            "moq": "500",
+            "mat": "BIO/PCR",
+            "bar": "HIGH"
+          },
+          "flatBottom": {
+            "name": "Flat Bottom",
+            "desc": "Premium box-like stability. Best for coffee & tea.",
+            "moq": "500",
+            "mat": "RECYCLABLE",
+            "bar": "MAX"
+          },
+          "spouted": {
+            "name": "Spouted Pouch",
+            "desc": "Flexible alternative to bottles. Lighter & cheaper.",
+            "moq": "1K",
+            "mat": "MONO-PE",
+            "bar": "LIQUID"
+          },
+          "bookCall": "BOOK CALL"
+        },
+        "knowledge": {
+          "badge": "📚 KNOWLEDGE_PORTAL",
+          "title": "ECO RESOURCE & LIBRARY",
+          "subtitle": "Deep-dive technical reports, global compliance playbooks, and circular economy research drafted by certified experts to keep your brand aligned.",
+          "guides": {
+            "compliance": {
+              "tag": "COMPLIANCE_2026",
+              "title": "EU PPWR Compliance Guide",
+              "desc": "Detailed analysis of void space ratios, harmonized recycling sorting labels, and eco-modulated modulation fees relief for EU-bound brand owners.",
+              "btn": "Read Playbook →"
+            },
+            "foil": {
+              "tag": "RECYCLING_SPECS",
+              "title": "Stamp Foil Recyclability",
+              "desc": "How hot stamp foils and metallic decorative embellishments affect sorting telemetry in municipal mono-material recycling streams.",
+              "btn": "Read Research →"
+            },
+            "zipper": {
+              "tag": "MATERIAL_SCIENCE",
+              "title": "Compostable Zipper Durability",
+              "desc": "Analyzing oxygen transmission rates and tensile grip durability of 100% plant-based reclosure zippers without removal requirements.",
+              "btn": "Read Technical Study →"
+            },
+            "roi": {
+              "tag": "PROCUREMENT_ROI",
+              "title": "Standard Runs vs. Custom Specs",
+              "desc": "Decision matrix comparing pre-made online packaging stock models with custom-engineered bulk B2B production specs to optimize unit pricing.",
+              "btn": "Compare Spec Sheets →"
+            }
+          },
+          "links": {
+            "sustainability": "🌱 Real-World Circular Sustainability",
+            "spoutedComposting": "💧 Spouted Biopolymer Composting",
+            "citrus": "🍊 Citrus Oil Protective Barriers"
+          }
+        },
+        "testimonial": {
+          "quote": "\"Started with 500 pouches from POUCH.ECO. Best decision ever. Now ordering 10K+ monthly.\"",
+          "author": "- Sarah M., Brand Founder"
+        }
+      },
+      "achievePackHome": {
+        "interactive3d": {
+          "badge": "Interactive 3D Experience",
+          "title": "Eco Packaging Reimagined in 3D",
+          "desc": "Explore the tactile geometry and sustainable structure of our premium certified pouches. Move your mouse to tilt, scroll to rotate, or toggle the models below to inspect detailed laminations."
+        },
+        "shopSection": {
+          "title": "Shop Compostable & Recyclable Packaging",
+          "subtitle": "Browse all eco-friendly packaging options",
+          "compostable": "Compostable",
+          "recyclable": "Recyclable",
+          "pcr": "PCR",
+          "biope": "Bio-PE"
+        },
+        "engineeringSuite": {
+          "badge": "Interactive Engineering Suite",
+          "title": "Professional Packaging Apps",
+          "desc": "Skip the guesswork. Design, size, and engineer your brand's sustainable packaging in seconds with our bespoke interactive web applications.",
+          "sizing": {
+            "badge": "Sizing Tool",
+            "title": "Pouch Sizing Finder App",
+            "desc": "Calculate exact stand-up pouch dimensions and gusset volume based on your target weight, product type, and substance density. Matches dimensions instantly across 100+ standard sizing grids.",
+            "bullet1": "Product-specific density presets (Coffee, Tea, Powders, Snacks)",
+            "bullet2": "Accurate volume calculations (Fluid Ounces, Grams, Milliliters)",
+            "bullet3": "Standard MOQ and size reference matching",
+            "btn": "Launch Sizing Finder"
+          },
+          "spec": {
+            "badge": "Material Tool",
+            "title": "Material Spec Finder App",
+            "desc": "Search, filter, and compare precise mechanical and barrier properties (Oxygen Transmission OTR & Water Vapor WVTR) across our full catalog of certified eco-friendly laminates.",
+            "bullet1": "15+ sustainable duplex and triplex lamination options",
+            "bullet2": "Live barrier level filtering (High, Medium, Light barrier specs)",
+            "bullet3": "Full specification sheets with thickness and MOQs list",
+            "btn": "Launch Spec Finder"
+          }
+        },
+        "trustedBy": {
+          "badge": "Trusted by Industry Leaders",
+          "title": "Why 500+ Global Brands Choose Achieve Pack"
+        },
+        "aboutSection": {
+          "definitionTitle": "What is Compostable Packaging?",
+          "definitionDesc": "Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no",
+          "plasticFreeTitle": "Conventional Plastic-Free",
+          "plasticFreeDesc": "Our compostable pouches contain zero petroleum-based plastics. Made from plant-based PLA and PBAT biopolymers, they return to nature—not persist as microplastics in oceans and soil.",
+          "plasticFreeLink": "Learn about plastic-free vs compostable",
+          "lifecycleAlt": "Compostable packaging lifecycle - from plant-based materials to soil nutrients",
+          "table": {
+            "feature": "Feature",
+            "compostable": "Compostable",
+            "recyclable": "Recyclable Mono-PE",
+            "traditional": "Traditional Plastic",
+            "decompositionRow": "Decomposition",
+            "decompositionCompost": "180 days in composting",
+            "decompositionFacility": "Requires recycling facility",
+            "decompositionYears": "Hundreds of years",
+            "sourceRow": "Material Source",
+            "sourceCompost": "Plant-based (corn, sugarcane)",
+            "sourceRecycle": "Single polymer (PE/PP)",
+            "sourceTraditional": "Petroleum-based",
+            "certsRow": "Certifications",
+            "certsCompost": "EN13432, ASTM D6400",
+            "certsRecycle": "ISO 15270",
+            "certsTraditional": "None",
+            "bestRow": "Best For",
+            "bestCompost": "Coffee, snacks, dry goods",
+            "bestRecycle": "All dry products",
+            "bestTraditional": "General use",
+            "moqRow": "MOQ at Achieve Pack",
+            "moqCompost": "100 pieces",
+            "moqRecycle": "100 pieces",
+            "moqTraditional": "5,000+ typical"
+          },
+          "compareLink": "Learn more about compostable vs biodegradable packaging"
+        },
+        "exploreFullShop": "Explore Full Shop",
+        "freeServices": {
+          "badge": "100% Free • No Obligation",
+          "title": "Free Services for Your Brand",
+          "desc": "Expert help at absolutely no cost—design consultation, 3D mockups, website design, and customer portal.",
+          "design": {
+            "title": "Design Consultation",
+            "desc": "Expert packaging design advice with custom dielines"
+          },
+          "mockup": {
+            "title": "3D Mockup",
+            "desc": "Photorealistic renders of your packaging design"
+          },
+          "website": {
+            "title": "Website Design",
+            "desc": "Modern landing page for your brand"
+          },
+          "customer": {
+            "title": "Customer Center",
+            "desc": "Dashboard to track orders and manage quotes"
+          },
+          "btn": "Explore All Free Services"
+        },
+        "scrollFaqs": "Scroll for more FAQs",
+        "team": {
+          " EEAT": "Our team has supported over 500+ brands in US, EU, NZ and Asia since 2011, across coffee, snacks, pet treats and supplements categories.",
+          "profile": "View Profile",
+          "profileAria": "View Ryan Wong's Profile"
+        },
+        "buttons": {
+          "shopNow": "Shop Now"
+        }
       }
     },
     "compostableStandUpPouches": {
@@ -30642,6 +30948,169 @@
       "description": "Ready to secure a low-risk, enterprise-grade sustainable supply chain for your brand? Let's start the technical audit today.",
       "btnReview": "Order Startup Samples",
       "btnEngineer": "Speak to a Startup Engineer"
+    }
+  },
+  "pouchHomePage": {
+    "meta": {
+      "title": "POUCH.ECO - Sustainable Eco Packaging for Startups",
+      "description": "Sustainable packaging made simple. Low MOQ compostable pouches for startups. Get started with 500 units."
+    },
+    "hero": {
+      "badge": "ECO_SYSTEM v2026",
+      "h1Line1": "Start.",
+      "h1Line2": "Scale.",
+      "typewriterWords": [
+        "Sustain.",
+        "Eco.",
+        "Digital."
+      ],
+      "terminalLine1": "> Eco packaging from 500 units.",
+      "terminalLine2": "> Compostable // Recyclable // Bio-based.",
+      "terminalLine3": "> Fast turnaround. No BS.",
+      "ctaBook": "Book Consultation",
+      "ctaMaterials": "View Materials"
+    },
+    "trustedBy": {
+      "badge": "TRUSTED_BY",
+      "title": "Join <1>500+</1> Brands",
+      "titlePrefix": "Join ",
+      "titleHighlight": "500+",
+      "titleSuffix": " Brands",
+      "subtitle": "From startups to established names - they all started with 500 units"
+    },
+    "showcase3d": {
+      "badge": "✨ Interactive 3D Showcase",
+      "title": "Eco Bags in ",
+      "titleHighlight": "3D Space",
+      "description": "Rotate, tilt, and inspect the certified organic structural barriers of our green pouches. Move your mouse to tilt, scroll to spin, or toggle models below.",
+      "spouted": {
+        "tag": "💧 Liquids & Purees",
+        "title": "Industrial Compostable Spouted Pouch",
+        "description": "Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.",
+        "moqLabel": "MOQ:",
+        "moqValue": "2,000 units",
+        "certLabel": "Certifications:",
+        "certValue": "EN 13432, ASTM D6400"
+      },
+      "flatBottom": {
+        "tag": "🌱 Dry Goods & Coffee",
+        "title": "Home Compostable Flat Bottom Pouch",
+        "description": "Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.",
+        "moqLabel": "MOQ:",
+        "moqValue": "1,000 units",
+        "certLabel": "Certifications:",
+        "certValue": "OK Compost HOME"
+      }
+    },
+    "social": {
+      "badge": "REAL PRODUCTS • REAL BRANDS",
+      "title": "As Seen In ",
+      "titleHighlight": "Social",
+      "description": "Watch how our pouches help brands go viral. Unboxing experiences that customers love to share."
+    },
+    "features": {
+      "sectionTitle": "Core\nFeatures",
+      "sectionTitleLine1": "Core",
+      "sectionTitleLine2": "Features",
+      "badge": "SELECT_MATERIAL_BELOW",
+      "lowMoq": {
+        "title": "Low MOQ Protocol",
+        "description": "Start with just 500 units. Test your market without massive inventory commitment. Perfect for startups and new product launches.",
+        "badge1": "500_MIN",
+        "badge2": "Fast_Launch"
+      },
+      "bioMatrix": {
+        "title": "Bio_Matrix",
+        "description": "Certified compostable materials. Industrial + home compost ready.",
+        "status": "STATUS: ",
+        "statusValue": "BPI_CERTIFIED"
+      },
+      "fastShip": {
+        "title": "Fast_Ship",
+        "description": "Samples in 2-3 weeks. Production in 6-8 weeks. No delays.",
+        "speed": "SPEED: ",
+        "speedValue": "OPTIMIZED"
+      },
+      "barrier": {
+        "title": "High-Barrier Tech",
+        "description": "Multi-layer barrier structures. O2 + moisture blocking. Keeps product fresh for 6-18 months shelf life.",
+        "cta": "View Tech Specs"
+      }
+    },
+    "apps": {
+      "badge": "⚡ INTERACTIVE_UTILITIES",
+      "title": "PACKAGING APP SUITE",
+      "description": "Engineer your pouch sizing and material specifications instantly. No guessing, no errors. Pure technical precision.",
+      "sizing": {
+        "badgeLabel": "SIZING APP",
+        "title": "[SIZING FINDER APP]",
+        "description": "Calculate exact dimensions and capacity based on product weight & density presets. Match dimensions instantly with standard manufacturing templates.",
+        "feature1": "Density presets (Coffee, Powders, Snacks)",
+        "feature2": "Volume calculations (Ounces, Grams, ML)",
+        "feature3": "Standard MoQ and size reference matching",
+        "cta": "LAUNCH SIZING APP →"
+      },
+      "spec": {
+        "badgeLabel": "MATERIAL SPEC",
+        "title": "[SPEC FINDER APP]",
+        "description": "Search, filter, and compare water vapor & oxygen transmission rates (OTR/WVTR) across 15+ certified compostable, recyclable, PCR, and plant-based biopolymer structures.",
+        "feature1": "15+ eco duplex & triplex structures",
+        "feature2": "OTR & WVTR performance level filtering",
+        "feature3": "Full thickness & weight sheets download",
+        "cta": "LAUNCH SPEC FINDER →"
+      }
+    },
+    "products": {
+      "title": "Choose Plan",
+      "standUp": {
+        "name": "Stand Up Pouch",
+        "description": "The industry standard. Perfect for snacks & supplements."
+      },
+      "flatBottom": {
+        "name": "Flat Bottom",
+        "description": "Premium box-like stability. Best for coffee & tea."
+      },
+      "spouted": {
+        "name": "Spouted Pouch",
+        "description": "Flexible alternative to bottles. Lighter & cheaper."
+      },
+      "bookCall": "BOOK CALL"
+    },
+    "library": {
+      "badge": "📚 KNOWLEDGE_PORTAL",
+      "title": "ECO RESOURCE & LIBRARY",
+      "description": "Deep-dive technical reports, global compliance playbooks, and circular economy research drafted by certified experts to keep your brand aligned.",
+      "guide1": {
+        "badge": "COMPLIANCE_2026",
+        "title": "EU PPWR Compliance Guide",
+        "description": "Detailed analysis of void space ratios, harmonized recycling sorting labels, and eco-modulated modulation fees relief for EU-bound brand owners.",
+        "cta": "Read Playbook →"
+      },
+      "guide2": {
+        "badge": "RECYCLING_SPECS",
+        "title": "Stamp Foil Recyclability",
+        "description": "How hot stamp foils and metallic decorative embellishments affect sorting telemetry in municipal mono-material recycling streams.",
+        "cta": "Read Research →"
+      },
+      "guide3": {
+        "badge": "MATERIAL_SCIENCE",
+        "title": "Compostable Zipper Durability",
+        "description": "Analyzing oxygen transmission rates and tensile grip durability of 100% plant-based reclosure zippers without removal requirements.",
+        "cta": "Read Technical Study →"
+      },
+      "guide4": {
+        "badge": "PROCUREMENT_ROI",
+        "title": "Standard Runs vs. Custom Specs",
+        "description": "Decision matrix comparing pre-made online packaging stock models with custom-engineered bulk B2B production specs to optimize unit pricing.",
+        "cta": "Compare Spec Sheets →"
+      },
+      "link1": "🌱 Real-World Circular Sustainability",
+      "link2": "💧 Spouted Biopolymer Composting",
+      "link3": "🍊 Citrus Oil Protective Barriers"
+    },
+    "testimonial": {
+      "quote": "\"Started with 500 pouches from POUCH.ECO. Best decision ever. Now ordering 10K+ monthly.\"",
+      "author": "- Sarah M., Brand Founder"
     }
   }
 }
