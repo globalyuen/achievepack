@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T09:00:33.436Z",
+  "lastUnifiedRun": "2026-06-13T09:15:48.657Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2492,17 +2492,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printing-kraft-paper-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "digital printing kraft paper stand up pouches",
-      "difficulty": "Low",
-      "slug": "digital-printing-kraft-paper-stand-up-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 550,
       "keyword": "high barrier eco friendly sachet for dry goods",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "high-barrier-eco-friendly-sachet-for-dry-goods"
     },
     {
       "status": "Pending",
@@ -2627,9 +2628,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T09:00:25.321Z",
+      "timestamp": "2026-06-13T09:15:37.390Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printing kraft paper stand up pouches\" to /blog/digital-printing-kraft-paper-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier eco friendly sachet for dry goods\" to /blog/high-barrier-eco-friendly-sachet-for-dry-goods (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printing kraft paper stand up pouches\" to /blog/digital-printing-kraft-paper-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-13T09:00:25.321Z"
     },
     {
       "action": "Autopilot Generation Draft",
