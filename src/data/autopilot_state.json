@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T07:15:46.038Z",
+  "lastUnifiedRun": "2026-06-13T07:30:46.490Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2443,17 +2443,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "kraft-paper-custom-shaped-sachets",
       "status": "Pending Approval",
       "volume": 750,
       "keyword": "kraft paper custom shaped sachets",
-      "difficulty": "Low",
-      "slug": "kraft-paper-custom-shaped-sachets"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "mono pe film for sustainable packaging solutions",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-pe-film-for-sustainable-packaging-solutions"
     },
     {
       "status": "Pending",
@@ -2502,13 +2503,132 @@
       "volume": 1000,
       "keyword": "biodegradable pouch sizes for pet food powders",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "biodegradable pouch sizes for liquids",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable sachet dimensions for powders",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print stand up pouches small batch",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable barrier film suppliers low moq",
+      "difficulty": "Medium",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging pouch sizes for nuts",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier mono pe stand up pouches",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped eco friendly sachets",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper flat bottom pouches wholesale",
+      "difficulty": "Medium",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort bags dimensions chart",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material flexible packaging for pet food",
+      "difficulty": "Low",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed sustainable pouches for beverages",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly sachet filling equipment small business",
+      "difficulty": "Medium",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable barrier film roll stock",
+      "difficulty": "Low",
+      "volume": 1150,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch size guide for baby food",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed compostable flat bottom bags",
+      "difficulty": "Low",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable high barrier pouches for coffee",
+      "difficulty": "Low",
+      "volume": 1250,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable stand up pouch suppliers for snacks",
+      "difficulty": "Medium",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "low moq digital printing flexible packaging",
+      "difficulty": "Low",
+      "volume": 1350,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable pouch dimensions for spices",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T07:15:37.320Z",
+      "timestamp": "2026-06-13T07:30:37.794Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper custom shaped sachets\" to /blog/kraft-paper-custom-shaped-sachets (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe film for sustainable packaging solutions\" to /blog/mono-pe-film-for-sustainable-packaging-solutions (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper custom shaped sachets\" to /blog/kraft-paper-custom-shaped-sachets (Pending Approval)",
+      "timestamp": "2026-06-13T07:15:37.320Z"
     },
     {
       "action": "Autopilot Generation Draft",
