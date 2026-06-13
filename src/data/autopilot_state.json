@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T04:15:45.599Z",
+  "lastUnifiedRun": "2026-06-13T04:30:42.758Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2359,17 +2359,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-retort-pouch-size-guide",
       "status": "Pending Approval",
       "volume": 820,
       "keyword": "compostable retort pouch size guide",
-      "difficulty": "Low",
-      "slug": "compostable-retort-pouch-size-guide"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 670,
       "keyword": "digital printed custom shaped pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-printed-custom-shaped-pouches"
     },
     {
       "status": "Pending",
@@ -2494,9 +2495,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T04:15:37.544Z",
+      "timestamp": "2026-06-13T04:30:33.562Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch size guide\" to /blog/compostable-retort-pouch-size-guide (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed custom shaped pouches\" to /blog/digital-printed-custom-shaped-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch size guide\" to /blog/compostable-retort-pouch-size-guide (Pending Approval)",
+      "timestamp": "2026-06-13T04:15:37.544Z"
     },
     {
       "action": "Autopilot Generation Draft",
