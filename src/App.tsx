@@ -866,9 +866,9 @@ function App() {
                   </button>
                   {isLangMenuOpen && (
                     <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
-                      <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
-                      <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Français</button>
-                      <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Español</button>
+                      <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">{t('appHome.string_1')}</button>
+                      <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">{t('appHome.string_2')}</button>
+                      <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">{t('appHome.string_3')}</button>
                       <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
                     </div>
                   )}
@@ -1027,9 +1027,9 @@ function App() {
               <div className="py-2 border-t border-neutral-100">
                 <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-2">{t('achievePackHome.nav.language', 'Language')}</div>
                 <div className="grid grid-cols-4 gap-2 px-2">
-                  <button onClick={() => changeLanguage('en')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'en' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>EN</button>
-                  <button onClick={() => changeLanguage('fr')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'fr' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>FR</button>
-                  <button onClick={() => changeLanguage('es')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'es' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>ES</button>
+                  <button onClick={() => changeLanguage('en')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'en' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>{t('appHome.string_4')}</button>
+                  <button onClick={() => changeLanguage('fr')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'fr' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>{t('appHome.string_5')}</button>
+                  <button onClick={() => changeLanguage('es')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'es' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>{t('appHome.string_6')}</button>
                   <button onClick={() => changeLanguage('zh-TW')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'zh-TW' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>中文</button>
                 </div>
               </div>
@@ -1045,8 +1045,8 @@ function App() {
               onClick={() => setIsMenuOpen(false)}
               className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-4 rounded-xl font-semibold text-center shadow-lg hover:from-green-600 hover:to-emerald-600 active:scale-[0.98] transition-all"
             >
-              📅 Book Free Consultation
-            </a>
+              {t('appHome.string_7')}
+                                          </a>
           </div>
         </div>
       </div>
@@ -1137,8 +1137,8 @@ function App() {
                   
                   {/* Floating Tag */}
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
-                    Compostable OK
-                  </motion.div>
+                    {t('appHome.string_8')}
+                                                            </motion.div>
                 </div>
               </motion.div>
 
@@ -1163,8 +1163,8 @@ function App() {
                   
                   {/* Floating Tag */}
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
-                    Recyclable OK
-                  </motion.div>
+                    {t('appHome.string_9')}
+                                                            </motion.div>
                 </div>
               </motion.div>
 
@@ -1189,8 +1189,8 @@ function App() {
                   
                   {/* Floating Tag */}
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
-                    Industrial OK
-                  </motion.div>
+                    {t('appHome.string_10')}
+                                                            </motion.div>
                 </div>
               </motion.div>
 
@@ -1215,8 +1215,8 @@ function App() {
                   
                   {/* Floating Tag */}
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
-                    PCR Barrier OK
-                  </motion.div>
+                    {t('appHome.string_11')}
+                                                            </motion.div>
                 </div>
               </motion.div>
 
@@ -1241,14 +1241,14 @@ function App() {
                   
                   {/* Floating Tag */}
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
-                    Bio-based OK
-                  </motion.div>
+                    {t('appHome.string_12')}
+                                                            </motion.div>
                 </div>
               </motion.div>
 
               {/* Decorative Foreground Badge */}
               <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-primary-600 rounded-full flex items-center justify-center animate-bounce z-[70] shadow-lg text-white font-bold">
-                <span className="font-extrabold text-sm md:text-lg rotate-[-15deg]">MOQ 500!</span>
+                <span className="font-extrabold text-sm md:text-lg rotate-[-15deg]">{t('appHome.string_13')}</span>
               </div>
             </div>
           </div>
@@ -1392,20 +1392,20 @@ function App() {
             {/* Eco Material Badges */}
             <div className="flex flex-wrap items-center justify-center gap-6 mt-6 mb-4">
               <Link to="/materials/compostable" className="group flex flex-col items-center transition-transform hover:scale-105">
-                <img src="/eco-logo/transparent-bkg/compost.png" alt="Compostable" className="h-16 w-auto mb-2" />
+                <img src="/eco-logo/transparent-bkg/compost.png" alt={t('appHome.string_14')} className="h-16 w-auto mb-2" />
                 <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('achievePackHome.shop.compostable', 'Compostable')}</span>
               </Link>
               <Link to="/materials/recyclable-mono-pe" className="group flex flex-col items-center transition-transform hover:scale-105">
-                <img src="/eco-logo/transparent-bkg/recycle.png" alt="Recyclable" className="h-16 w-auto mb-2" />
+                <img src="/eco-logo/transparent-bkg/recycle.png" alt={t('appHome.string_15')} className="h-16 w-auto mb-2" />
                 <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('achievePackHome.shop.recyclable', 'Recyclable')}</span>
               </Link>
               <Link to="/materials/pcr" className="group flex flex-col items-center transition-transform hover:scale-105">
-                <img src="/eco-logo/transparent-bkg/pcr.png" alt="PCR" className="h-16 w-auto mb-2" />
-                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">PCR</span>
+                <img src="/eco-logo/transparent-bkg/pcr.png" alt={t('appHome.string_16')} className="h-16 w-auto mb-2" />
+                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('appHome.string_16')}</span>
               </Link>
               <Link to="/materials/biope" className="group flex flex-col items-center transition-transform hover:scale-105">
-                <img src="/eco-logo/transparent-bkg/biope.png" alt="Bio-PE" className="h-16 w-auto mb-2" />
-                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">Bio-PE</span>
+                <img src="/eco-logo/transparent-bkg/biope.png" alt={t('appHome.string_17')} className="h-16 w-auto mb-2" />
+                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('appHome.string_17')}</span>
               </Link>
             </div>
             
@@ -1712,7 +1712,7 @@ function App() {
               <div className="grid grid-cols-2 gap-4">
                 <img
                   src={img("cert-home-compost")}
-                  alt="Home Compost Certification"
+                  alt={t('appHome.string_18')}
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
                   onClick={() => {
                     setModalImage(img("cert-home-compost"))
@@ -1722,7 +1722,7 @@ function App() {
                 />
                 <img
                   src={img("cert-pcr-grs")}
-                  alt="PCR GRS Certification"
+                  alt={t('appHome.string_19')}
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
                   onClick={() => {
                     setModalImage(img("cert-pcr-grs"))
@@ -1732,7 +1732,7 @@ function App() {
                 />
                 <img
                   src={img("cert-brc")}
-                  alt="BRC Food Safety Certification"
+                  alt={t('appHome.string_20')}
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
                   onClick={() => {
                     setModalImage(img("cert-brc"))
@@ -1742,7 +1742,7 @@ function App() {
                 />
                 <img
                   src={img("cert-biope")}
-                  alt="BioPE Sustainable Certification"
+                  alt={t('appHome.string_21')}
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
                   onClick={() => {
                     setModalImage(img("cert-biope"))
@@ -1762,7 +1762,7 @@ function App() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 text-center">{t('achievePackHome.seoBlock.title', 'What is Compostable Packaging?')}</h2>
             <p className="text-lg text-neutral-700 leading-relaxed mb-8">
-              {t('achievePackHome.seoBlock.desc1', 'Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no ')}<Link to="/composting/plastic-free" className="text-primary-600 hover:underline font-medium">{t('achievePackHome.seoBlock.microplastics', 'microplastics')}</Link>{t('achievePackHome.seoBlock.desc2', ". Achieve Pack's compostable bags are certified to ")}<Link to="/composting/home-vs-industrial-compostable" className="text-primary-600 hover:underline font-medium">EN13432</Link>{t('achievePackHome.seoBlock.desc3', ' and ')}<Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">ASTM D6400</Link>{t('achievePackHome.seoBlock.desc4', ' standards, ensuring genuine environmental credentials.')}
+              {t('achievePackHome.seoBlock.desc1', 'Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no ')}<Link to="/composting/plastic-free" className="text-primary-600 hover:underline font-medium">{t('achievePackHome.seoBlock.microplastics', 'microplastics')}</Link>{t('achievePackHome.seoBlock.desc2', ". Achieve Pack's compostable bags are certified to ")}<Link to="/composting/home-vs-industrial-compostable" className="text-primary-600 hover:underline font-medium">{t('appHome.string_22')}</Link>{t('achievePackHome.seoBlock.desc3', ' and ')}<Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">{t('appHome.string_23')}</Link>{t('achievePackHome.seoBlock.desc4', ' standards, ensuring genuine environmental credentials.')}
             </p>
             
             {/* Plastic-Free Highlight Block with Image */}
@@ -1789,7 +1789,7 @@ function App() {
                 <Link to="/composting/plastic-free" className="block">
                   <img 
                     src="/imgs/composting/plastic-free/a_lifecycle_journey_compostable_1656229.webp" 
-                    alt="Compostable packaging lifecycle - from plant-based materials to soil nutrients"
+                    alt={t('appHome.string_24')}
                     className="w-full rounded-lg shadow-md hover:shadow-lg transition-shadow"
                     loading="lazy"
                   />
@@ -2011,7 +2011,7 @@ function App() {
             <Link to="/industry/snacks-food" className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100 block">
               <img
                 src={img("solution-food-beverage")}
-                alt="Food & Beverage Packaging"
+                alt={t('appHome.string_25')}
                 className="w-full h-32 object-cover rounded-lg mb-4"
               />
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -2427,7 +2427,7 @@ function App() {
                       <button
                         onClick={openRyanProfile}
                         className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors"
-                        title="View Profile"
+                        title={t('appHome.string_26')}
                         aria-label="View Ryan Wong's Profile"
                       >
                         <User className="h-5 w-5 text-primary-600" />
@@ -2616,7 +2616,7 @@ function App() {
                 </div>
               ) : (
                 <>
-                  <div className="mb-4 text-sm text-primary-600 font-medium">{t('contact.form.sendTo')}: ryan@achievepack.com</div>
+                  <div className="mb-4 text-sm text-primary-600 font-medium">{t('contact.form.sendTo')}{t('appHome.string_27')}</div>
                   
                   {formError && (
                     <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-700 text-sm">
@@ -2755,10 +2755,10 @@ function App() {
               {/* B Corp & BPI Logos */}
               <div className="flex items-center gap-3 mb-3">
                 <Link to="/company/b-corp">
-                  <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+                  <img src="/bcorp.svg" alt={t('appHome.string_28')} className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
                 </Link>
                 <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer">
-                  <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+                  <img src="/imgs/bpi.svg" alt={t('appHome.string_29')} className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
                 </a>
               </div>
               <p className="text-neutral-400 text-xs mb-3">
@@ -2820,7 +2820,7 @@ function App() {
                 <li><Link to="/industry/supplements-powders" className="hover:text-primary-500">{t('footer.links.supplements')}</Link></li>
                 <li><Link to="/industry/baby-food" className="hover:text-primary-500">{t('footer.links.babyFood')}</Link></li>
                 <li><Link to="/industry/frozen-food" className="hover:text-primary-500">{t('footer.links.frozenFood')}</Link></li>
-                <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-500 font-medium text-primary-500">{t('footer.links.citrusOil')} <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-500 font-medium text-primary-500">{t('footer.links.citrusOil')} <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">{t('appHome.string_30')}</span></Link></li>
               </ul>
             </div>
           </div>
@@ -2842,162 +2842,162 @@ function App() {
 
             {/* USA */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">🇺🇸 USA</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_31')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/usa/compostable-packaging" className="hover:text-primary-500">Compostable Hub</Link></li>
-                <li><Link to="/usa/coffee-packaging" className="hover:text-primary-500">Coffee Packaging</Link></li>
-                <li><Link to="/usa/snacks-packaging" className="hover:text-primary-500">Snacks Packaging</Link></li>
-                <li><Link to="/usa/labeling-guide" className="hover:text-primary-500">Labeling Guide</Link></li>
+                <li><Link to="/usa/compostable-packaging" className="hover:text-primary-500">{t('appHome.string_32')}</Link></li>
+                <li><Link to="/usa/coffee-packaging" className="hover:text-primary-500">{t('appHome.string_33')}</Link></li>
+                <li><Link to="/usa/snacks-packaging" className="hover:text-primary-500">{t('appHome.string_34')}</Link></li>
+                <li><Link to="/usa/labeling-guide" className="hover:text-primary-500">{t('appHome.string_35')}</Link></li>
               </ul>
             </div>
 
             {/* Product Guides */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Product Guides</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_36')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-500">Compostable Coffee Bags</Link></li>
-                <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-500">Compostable Side Gusset</Link></li>
-                <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-500">Compostable Stand-Up</Link></li>
-                <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-500">Recyclable Mono-Material</Link></li>
-                <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-500">Coffee Degassing Valve</Link></li>
-                <li><Link to="/products/low-moq-packaging" className="hover:text-primary-500">Low MOQ Packaging</Link></li>
+                <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-500">{t('appHome.string_37')}</Link></li>
+                <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-500">{t('appHome.string_38')}</Link></li>
+                <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-500">{t('appHome.string_39')}</Link></li>
+                <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-500">{t('appHome.string_40')}</Link></li>
+                <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-500">{t('appHome.string_41')}</Link></li>
+                <li><Link to="/products/low-moq-packaging" className="hover:text-primary-500">{t('appHome.string_42')}</Link></li>
               </ul>
             </div>
 
             {/* Solutions */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Solutions</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_43')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/solutions/startup-founder" className="hover:text-primary-500">For Startups</Link></li>
-                <li><Link to="/solutions/ecommerce-brand" className="hover:text-primary-500">For E-commerce</Link></li>
-                <li><Link to="/solutions/coffee-roaster" className="hover:text-primary-500">For Coffee Roasters</Link></li>
-                <li><Link to="/solutions/artisan-producer" className="hover:text-primary-500">For Artisan Makers</Link></li>
-                <li><Link to="/solutions/snack-brand-manager" className="hover:text-primary-500">For Snack Brands</Link></li>
-                <li><Link to="/solutions/corporate-sustainability" className="hover:text-primary-500">For Corporate ESG</Link></li>
-                <li><Link to="/solutions/food-manufacturer" className="hover:text-primary-500">For Food Manufacturers</Link></li>
-                <li><Link to="/solutions/product-developer" className="hover:text-primary-500">For Product Developers</Link></li>
+                <li><Link to="/solutions/startup-founder" className="hover:text-primary-500">{t('appHome.string_44')}</Link></li>
+                <li><Link to="/solutions/ecommerce-brand" className="hover:text-primary-500">{t('appHome.string_45')}</Link></li>
+                <li><Link to="/solutions/coffee-roaster" className="hover:text-primary-500">{t('appHome.string_46')}</Link></li>
+                <li><Link to="/solutions/artisan-producer" className="hover:text-primary-500">{t('appHome.string_47')}</Link></li>
+                <li><Link to="/solutions/snack-brand-manager" className="hover:text-primary-500">{t('appHome.string_48')}</Link></li>
+                <li><Link to="/solutions/corporate-sustainability" className="hover:text-primary-500">{t('appHome.string_49')}</Link></li>
+                <li><Link to="/solutions/food-manufacturer" className="hover:text-primary-500">{t('appHome.string_50')}</Link></li>
+                <li><Link to="/solutions/product-developer" className="hover:text-primary-500">{t('appHome.string_51')}</Link></li>
               </ul>
             </div>
 
             {/* Topics */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Topics</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_52')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/topics/eco-friendly-food-packaging" className="hover:text-primary-500">Eco Food Packaging</Link></li>
-                <li><Link to="/topics/dtc-sustainable-packaging" className="hover:text-primary-500">DTC Packaging</Link></li>
-                <li><Link to="/topics/green-coffee-materials" className="hover:text-primary-500">Coffee Materials</Link></li>
-                <li><Link to="/topics/digital-printing-eco-packaging" className="hover:text-primary-500">Digital Printing</Link></li>
-                <li><Link to="/topics/recyclable-snack-packaging" className="hover:text-primary-500">Recyclable Snacks</Link></li>
-                <li><Link to="/topics/eco-packaging-regulations" className="hover:text-primary-500">Regulations Guide</Link></li>
-                <li><Link to="/topics/compostable-pouch-suppliers" className="hover:text-primary-500">Compostable Suppliers</Link></li>
-                <li><Link to="/topics/low-moq-startup-packaging" className="hover:text-primary-500">Low MOQ Startup</Link></li>
-                <li><Link to="/topics/compostable-baby-food-bags" className="hover:text-primary-500">Baby Food Bags</Link></li>
-                <li><Link to="/topics/custom-printed-sustainable-pouches" className="hover:text-primary-500">Custom Printed Pouches</Link></li>
-                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">Zipper Durability</Link></li>
-                <li><Link to="/topics/custom-vs-standard-packaging" className="hover:text-primary-500">Custom vs. Standard</Link></li>
+                <li><Link to="/topics/eco-friendly-food-packaging" className="hover:text-primary-500">{t('appHome.string_53')}</Link></li>
+                <li><Link to="/topics/dtc-sustainable-packaging" className="hover:text-primary-500">{t('appHome.string_54')}</Link></li>
+                <li><Link to="/topics/green-coffee-materials" className="hover:text-primary-500">{t('appHome.string_55')}</Link></li>
+                <li><Link to="/topics/digital-printing-eco-packaging" className="hover:text-primary-500">{t('appHome.string_56')}</Link></li>
+                <li><Link to="/topics/recyclable-snack-packaging" className="hover:text-primary-500">{t('appHome.string_57')}</Link></li>
+                <li><Link to="/topics/eco-packaging-regulations" className="hover:text-primary-500">{t('appHome.string_58')}</Link></li>
+                <li><Link to="/topics/compostable-pouch-suppliers" className="hover:text-primary-500">{t('appHome.string_59')}</Link></li>
+                <li><Link to="/topics/low-moq-startup-packaging" className="hover:text-primary-500">{t('appHome.string_60')}</Link></li>
+                <li><Link to="/topics/compostable-baby-food-bags" className="hover:text-primary-500">{t('appHome.string_61')}</Link></li>
+                <li><Link to="/topics/custom-printed-sustainable-pouches" className="hover:text-primary-500">{t('appHome.string_62')}</Link></li>
+                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">{t('appHome.string_63')}</Link></li>
+                <li><Link to="/topics/custom-vs-standard-packaging" className="hover:text-primary-500">{t('appHome.string_64')}</Link></li>
               </ul>
             </div>
 
             {/* Function */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Function</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_65')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-500">Microwave Steam Bags</Link></li>
-                <li><Link to="/function/smart-degassing-sticker" className="hover:text-primary-500">Smart Degassing Sticker</Link></li>
-                <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-500">Carbon Neutral Bags</Link></li>
-                <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-500">Spout Pouches Juice</Link></li>
-                <li><Link to="/function/child-resistant-bags" className="hover:text-primary-500">Child-Resistant Bags</Link></li>
-                <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-500">Pre-Zippered Rollstock</Link></li>
-                <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-500">Digital Printed Retort</Link></li>
-                <li><Link to="/function/rice-paper-bags" className="hover:text-primary-500">Rice Paper Bags</Link></li>
-                <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-500">PVA Water-Soluble Bags</Link></li>
-                <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-500">compostable Heat-Resistant Pouches</Link></li>
+                <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-500">{t('appHome.string_66')}</Link></li>
+                <li><Link to="/function/smart-degassing-sticker" className="hover:text-primary-500">{t('appHome.string_67')}</Link></li>
+                <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-500">{t('appHome.string_68')}</Link></li>
+                <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-500">{t('appHome.string_69')}</Link></li>
+                <li><Link to="/function/child-resistant-bags" className="hover:text-primary-500">{t('appHome.string_70')}</Link></li>
+                <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-500">{t('appHome.string_71')}</Link></li>
+                <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-500">{t('appHome.string_72')}</Link></li>
+                <li><Link to="/function/rice-paper-bags" className="hover:text-primary-500">{t('appHome.string_73')}</Link></li>
+                <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-500">{t('appHome.string_74')}</Link></li>
+                <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-500">{t('appHome.string_75')}</Link></li>
 
               </ul>
             </div>
 
             {/* Lab Bag */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Lab Bag</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_76')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/lab/lateral-filter-bags" className="hover:text-primary-500">Lateral Filter Bags</Link></li>
-                <li><Link to="/lab/wire-closure-bags" className="hover:text-primary-500">Wire Closure Bags</Link></li>
-                <li><Link to="/lab/lab-blender-bags" className="hover:text-primary-500">Lab Blender Bags</Link></li>
+                <li><Link to="/lab/lateral-filter-bags" className="hover:text-primary-500">{t('appHome.string_77')}</Link></li>
+                <li><Link to="/lab/wire-closure-bags" className="hover:text-primary-500">{t('appHome.string_78')}</Link></li>
+                <li><Link to="/lab/lab-blender-bags" className="hover:text-primary-500">{t('appHome.string_79')}</Link></li>
               </ul>
             </div>
 
             {/* Composting */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Composting</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_80')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-500 font-semibold text-[#10b981]">🌱 Compostable Side Gusset Bags</Link></li>
-                <li><Link to="/composting/composting-benefits" className="hover:text-primary-500">Composting Benefits</Link></li>
-                <li><Link to="/composting/composting-services" className="hover:text-primary-500">Service Finder</Link></li>
-                <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-500">Biodegradable vs Compostable</Link></li>
-                <li><Link to="/composting/commercial-composting" className="hover:text-primary-500">Commercial Composting</Link></li>
-                <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-500">Home vs Industrial</Link></li>
-                <li><Link to="/composting/plastic-free" className="hover:text-primary-500">Plastic-Free vs Compostable</Link></li>
-                <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-500">Compost Bag Humidity Control</Link></li>
-                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">Compostable Zipper Durability</Link></li>
+                <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-500 font-semibold text-[#10b981]">{t('appHome.string_81')}</Link></li>
+                <li><Link to="/composting/composting-benefits" className="hover:text-primary-500">{t('appHome.string_82')}</Link></li>
+                <li><Link to="/composting/composting-services" className="hover:text-primary-500">{t('appHome.string_83')}</Link></li>
+                <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-500">{t('appHome.string_84')}</Link></li>
+                <li><Link to="/composting/commercial-composting" className="hover:text-primary-500">{t('appHome.string_85')}</Link></li>
+                <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-500">{t('appHome.string_86')}</Link></li>
+                <li><Link to="/composting/plastic-free" className="hover:text-primary-500">{t('appHome.string_87')}</Link></li>
+                <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-500">{t('appHome.string_88')}</Link></li>
+                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">{t('appHome.string_89')}</Link></li>
               </ul>
             </div>
 
             {/* BioPE */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">BioPE</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_90')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/biope/what-is-bio-pe" className="hover:text-primary-500">What is Bio-PE?</Link></li>
-                <li><Link to="/biope/bio-pe-vs-compostable" className="hover:text-primary-500">Bio-PE vs Compostable</Link></li>
-                <li><Link to="/biope/bio-pe-epr-regulations" className="hover:text-primary-500">Bio-PE & EPR</Link></li>
-                <li><Link to="/biope/inside-im-green-bio-pe" className="hover:text-primary-500">Inside I'm green™</Link></li>
+                <li><Link to="/biope/what-is-bio-pe" className="hover:text-primary-500">{t('appHome.string_91')}</Link></li>
+                <li><Link to="/biope/bio-pe-vs-compostable" className="hover:text-primary-500">{t('appHome.string_92')}</Link></li>
+                <li><Link to="/biope/bio-pe-epr-regulations" className="hover:text-primary-500">{t('appHome.string_93')}</Link></li>
+                <li><Link to="/biope/inside-im-green-bio-pe" className="hover:text-primary-500">{t('appHome.string_94')}</Link></li>
               </ul>
             </div>
 
             {/* PCR */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">PCR</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_16')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-500">What Is PCR Plastic?</Link></li>
-                <li><Link to="/pcr/7-checklist" className="hover:text-primary-500">PCR 7-Point Checklist</Link></li>
-                <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-500">Realistic PCR Content</Link></li>
-                <li><Link to="/pcr/recyclable-vs-pcr-biobased" className="hover:text-primary-500">Recyclable vs PCR vs Bio-Based</Link></li>
-                <li><Link to="/materials/pcr" className="hover:text-primary-500">PCR Materials</Link></li>
+                <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-500">{t('appHome.string_95')}</Link></li>
+                <li><Link to="/pcr/7-checklist" className="hover:text-primary-500">{t('appHome.string_96')}</Link></li>
+                <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-500">{t('appHome.string_97')}</Link></li>
+                <li><Link to="/pcr/recyclable-vs-pcr-biobased" className="hover:text-primary-500">{t('appHome.string_98')}</Link></li>
+                <li><Link to="/materials/pcr" className="hover:text-primary-500">{t('appHome.string_99')}</Link></li>
               </ul>
             </div>
 
             {/* Recyclable */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Recyclable</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_15')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-500">What Is 100% Recyclable?</Link></li>
-                <li><Link to="/recyclable/roadmap-sme" className="hover:text-primary-500">3-Step SME Roadmap</Link></li>
-                <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-500">Mono-Material Foundation</Link></li>
-                <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-500">Recyclable Mono-PE</Link></li>
-                <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-500">Recyclable Mono-PP</Link></li>
+                <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-500">{t('appHome.string_100')}</Link></li>
+                <li><Link to="/recyclable/roadmap-sme" className="hover:text-primary-500">{t('appHome.string_101')}</Link></li>
+                <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-500">{t('appHome.string_102')}</Link></li>
+                <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-500">{t('appHome.string_103')}</Link></li>
+                <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-500">{t('appHome.string_104')}</Link></li>
               </ul>
             </div>
 
             {/* Structure Specs */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_105')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-500">PCR Structures</Link></li>
-                <li><Link to="/spec/mono-pe-duplex-clear" className="hover:text-primary-500">Mono PE/PP</Link></li>
-                <li><Link to="/spec/bio-cello-duplex-clear" className="hover:text-primary-500">Compostable Bio</Link></li>
-                <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-500">Bio-PE Structures</Link></li>
+                <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-500">{t('appHome.string_106')}</Link></li>
+                <li><Link to="/spec/mono-pe-duplex-clear" className="hover:text-primary-500">{t('appHome.string_107')}</Link></li>
+                <li><Link to="/spec/bio-cello-duplex-clear" className="hover:text-primary-500">{t('appHome.string_108')}</Link></li>
+                <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-500">{t('appHome.string_109')}</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold mb-2">Trending Topics</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_110')}</h4>
               <ul className="text-xs space-y-1 text-neutral-400">
-                <li><Link to="/topics/pfas-free-food-packaging" className="hover:text-primary-500">PFAS-Free Food</Link></li>
-                <li><Link to="/topics/home-compostable-coffee-bags" className="hover:text-primary-500">Compostable Coffee</Link></li>
-                <li><Link to="/topics/mono-material-pe-pouches" className="hover:text-primary-500">Mono-PE Pouches</Link></li>
-                <li><Link to="/topics/child-resistant-mylar-bags" className="hover:text-primary-500">Child-Resistant</Link></li>
-                <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:text-primary-500">Ocean Plastic</Link></li>
-                <li><Link to="/topics/minimalist-d2c-packaging" className="hover:text-primary-500">Minimalist D2C</Link></li>
-                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">Zipper Durability</Link></li>
+                <li><Link to="/topics/pfas-free-food-packaging" className="hover:text-primary-500">{t('appHome.string_111')}</Link></li>
+                <li><Link to="/topics/home-compostable-coffee-bags" className="hover:text-primary-500">{t('appHome.string_112')}</Link></li>
+                <li><Link to="/topics/mono-material-pe-pouches" className="hover:text-primary-500">{t('appHome.string_113')}</Link></li>
+                <li><Link to="/topics/child-resistant-mylar-bags" className="hover:text-primary-500">{t('appHome.string_114')}</Link></li>
+                <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:text-primary-500">{t('appHome.string_115')}</Link></li>
+                <li><Link to="/topics/minimalist-d2c-packaging" className="hover:text-primary-500">{t('appHome.string_116')}</Link></li>
+                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">{t('appHome.string_63')}</Link></li>
               </ul>
             </div>
 
@@ -3007,10 +3007,10 @@ function App() {
               <ul className="space-y-1 text-neutral-400 text-xs">
                 <li><Link to="/support/faqs" className="hover:text-primary-500">{t('footer.links.faqs')}</Link></li>
                 <li><Link to="/support/lead-time" className="hover:text-primary-500">{t('footer.links.leadTime')}</Link></li>
-                <li><Link to="/support/unprinted-samples" className="hover:text-primary-500">Unprinted Samples</Link></li>
-                <li><Link to="/support/sample-quote" className="hover:text-primary-500">Custom Printed Sample</Link></li>
+                <li><Link to="/support/unprinted-samples" className="hover:text-primary-500">{t('appHome.string_117')}</Link></li>
+                <li><Link to="/support/sample-quote" className="hover:text-primary-500">{t('appHome.string_118')}</Link></li>
                 <li><Link to="/knowledge/workflow" className="hover:text-primary-500">{t('footer.links.workflow')}</Link></li>
-                <li><Link to="/reviews" className="hover:text-primary-500">Customer Reviews</Link></li>
+                <li><Link to="/reviews" className="hover:text-primary-500">{t('appHome.string_119')}</Link></li>
                 <li><Link to="/company/about" className="hover:text-primary-500">{t('footer.links.aboutUs')}</Link></li>
                 <li><Link to="/company/certificates" className="hover:text-primary-500">{t('footer.links.certificates')}</Link></li>
                 <li><Link to="/company/factory-tour" className="hover:text-primary-500">{t('footer.links.factoryTour')}</Link></li>
@@ -3023,7 +3023,7 @@ function App() {
               <ul className="space-y-1.5 text-neutral-400 text-xs">
                 <li className="flex items-center gap-1">
                   <Mail className="h-3 w-3 text-primary-500" />
-                  <a href="mailto:ryan@achievepack.com" className="hover:text-primary-500">ryan@achievepack.com</a>
+                  <a href="mailto:ryan@achievepack.com" className="hover:text-primary-500">{t('appHome.string_120')}</a>
                 </li>
                 <li className="flex items-center gap-1">
                   <Phone className="h-3 w-3 text-primary-500" />
@@ -3034,37 +3034,37 @@ function App() {
 
             {/* Blog & Store */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Blog & Store</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_121')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/blog" className="hover:text-primary-500">All Articles</Link></li>
-                <li><Link to="/store" className="hover:text-primary-500">Online Store</Link></li>
+                <li><Link to="/blog" className="hover:text-primary-500">{t('appHome.string_122')}</Link></li>
+                <li><Link to="/store" className="hover:text-primary-500">{t('appHome.string_123')}</Link></li>
               </ul>
             </div>
 
             {/* Free Services */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Free Services</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_124')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/free-service/packaging-design-consultation" className="hover:text-primary-500">Free Design Consultation</Link></li>
-                <li><Link to="/free-service/website-upgrade" className="hover:text-primary-500">Free Website Upgrade</Link></li>
-                <li><Link to="/free-service/packaging-mockup" className="hover:text-primary-500">Free Packaging Mockup</Link></li>
-                <li><Link to="/free-service/customer-center" className="hover:text-primary-500">Free Customer Center</Link></li>
+                <li><Link to="/free-service/packaging-design-consultation" className="hover:text-primary-500">{t('appHome.string_125')}</Link></li>
+                <li><Link to="/free-service/website-upgrade" className="hover:text-primary-500">{t('appHome.string_126')}</Link></li>
+                <li><Link to="/free-service/packaging-mockup" className="hover:text-primary-500">{t('appHome.string_127')}</Link></li>
+                <li><Link to="/free-service/customer-center" className="hover:text-primary-500">{t('appHome.string_128')}</Link></li>
               </ul>
             </div>
 
             {/* Knowledge */}
             <div>
-              <h4 className="text-sm font-semibold mb-2">Knowledge</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('appHome.string_129')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/knowledge/pouch-sizing" className="hover:text-primary-500">Pouch Sizing Guide</Link></li>
-                <li><Link to="/knowledge/size-guide" className="hover:text-primary-500">Size Reference</Link></li>
-                <li><Link to="/knowledge/all-options" className="hover:text-primary-500">All Options</Link></li>
-                <li><Link to="/knowledge/printing-types" className="hover:text-primary-500">Printing Types</Link></li>
-                <li><Link to="/support/sample-quote" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Custom Printed Sample <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-                <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-500">K-Seal Pouches</Link></li>
-                <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-500">White Ink Underprint</Link></li>
-                <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-500">Fin vs Lap Seal</Link></li>
-                <li><Link to="/knowledge/flat-bottom-vs-gusset" className="hover:text-primary-500">Flat Bottom vs. Side Gusset</Link></li>
+                <li><Link to="/knowledge/pouch-sizing" className="hover:text-primary-500">{t('appHome.string_130')}</Link></li>
+                <li><Link to="/knowledge/size-guide" className="hover:text-primary-500">{t('appHome.string_131')}</Link></li>
+                <li><Link to="/knowledge/all-options" className="hover:text-primary-500">{t('appHome.string_132')}</Link></li>
+                <li><Link to="/knowledge/printing-types" className="hover:text-primary-500">{t('appHome.string_133')}</Link></li>
+                <li><Link to="/support/sample-quote" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('appHome.string_118')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">{t('appHome.string_30')}</span></Link></li>
+                <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-500">{t('appHome.string_134')}</Link></li>
+                <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-500">{t('appHome.string_135')}</Link></li>
+                <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-500">{t('appHome.string_136')}</Link></li>
+                <li><Link to="/knowledge/flat-bottom-vs-gusset" className="hover:text-primary-500">{t('appHome.string_137')}</Link></li>
               </ul>
             </div>
           </div>
@@ -3073,7 +3073,7 @@ function App() {
           <div className="border-t border-neutral-800 py-8">
             <div className="flex flex-col items-center gap-4">
               {/* BPI & B Corp Logos */}
-              <img src="/bpi-bcorp-logos.svg" alt="BPI & B Corp Certified" className="h-12 w-auto" loading="lazy" decoding="async" />
+              <img src="/bpi-bcorp-logos.svg" alt={t('appHome.string_138')} className="h-12 w-auto" loading="lazy" decoding="async" />
               {/* 1% Carbon Removal */}
               <a 
                 href="https://climate.stripe.com/WPsfbU" 
@@ -3085,20 +3085,20 @@ function App() {
                   <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"/>
                   <path d="M12 8v8M8 12h8"/>
                 </svg>
-                <span>At Achieve Pack pouch.eco, we contribute 1% of our revenue to carbon removal</span>
+                <span>{t('appHome.string_139')}</span>
               </a>
               {/* Payment Logos */}
-              <img src="/pay-logos.svg" alt="Payment Methods" className="h-8 w-auto" loading="lazy" decoding="async" />
+              <img src="/pay-logos.svg" alt={t('appHome.string_140')} className="h-8 w-auto" loading="lazy" decoding="async" />
               {/* SSL Secure Badge */}
               <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
                 <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
-                <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
+                <span className="text-xs text-neutral-300 font-medium">{t('appHome.string_141')}</span>
               </div>
               {/* Connect with Us */}
               <div className="text-center mt-2">
-                <h4 className="text-neutral-400 text-sm font-medium mb-3">Connect with us</h4>
+                <h4 className="text-neutral-400 text-sm font-medium mb-3">{t('appHome.string_142')}</h4>
                 <div className="flex items-center justify-center gap-3">
                   {/* Instagram */}
                   <a href="https://www.instagram.com/pouch_eco/" target="_blank" rel="noopener noreferrer" 
@@ -3201,7 +3201,7 @@ function App() {
           
           <img 
             src={pouchShapeEnlarged.src} 
-            alt="Enlarged view" 
+            alt={t('appHome.string_143')} 
             className="max-w-full max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
@@ -3241,7 +3241,7 @@ function App() {
           
           <img 
             src={surfaceEnlarged.src} 
-            alt="Enlarged view" 
+            alt={t('appHome.string_143')} 
             className="max-w-full max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
@@ -3281,7 +3281,7 @@ function App() {
           
           <img 
             src={recloseEnlarged.src} 
-            alt="Enlarged view" 
+            alt={t('appHome.string_143')} 
             className="max-w-full max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
@@ -3321,7 +3321,7 @@ function App() {
           
           <img 
             src={barrierEnlarged.src} 
-            alt="Enlarged view" 
+            alt={t('appHome.string_143')} 
             className="max-w-full max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
@@ -3414,13 +3414,13 @@ Please contact me to discuss custom solutions.`;
                   ))}
                 </div>
                 <span className="text-neutral-600">{selectedProduct.rating}</span>
-                <Link to="/reviews" onClick={closeProductModal} className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({selectedProduct.reviews} reviews)</Link>
+                <Link to="/reviews" onClick={closeProductModal} className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({selectedProduct.reviews} {t('appHome.string_144')}</Link>
               </div>
 
               {/* Price */}
               <div className="mb-4">
-                <span className="text-3xl font-bold text-primary-600">US${selectedProduct.basePrice}</span>
-                <span className="text-neutral-500 ml-2">for {selectedProduct.minOrder} pcs</span>
+                <span className="text-3xl font-bold text-primary-600">{t('appHome.string_145')}{selectedProduct.basePrice}</span>
+                <span className="text-neutral-500 ml-2">{t('appHome.string_146')} {selectedProduct.minOrder} {t('appHome.string_147')}</span>
               </div>
 
               {/* Description */}
@@ -3430,7 +3430,7 @@ Please contact me to discuss custom solutions.`;
 
               {/* Features */}
               <div className="mb-6">
-                <h3 className="font-semibold text-neutral-900 mb-3">Features</h3>
+                <h3 className="font-semibold text-neutral-900 mb-3">{t('appHome.string_148')}</h3>
                 <ul className="grid grid-cols-2 gap-2">
                   {selectedProduct.features.map((feature, index) => (
                     <li key={index} className="flex items-center gap-2 text-sm text-neutral-700">
@@ -3450,7 +3450,7 @@ Please contact me to discuss custom solutions.`;
                 {selectedProduct.inStock && (
                   <div className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span className="text-green-600">In Stock</span>
+                    <span className="text-green-600">{t('appHome.string_149')}</span>
                   </div>
                 )}
               </div>
@@ -3473,15 +3473,15 @@ Please contact me to discuss custom solutions.`;
                   className="flex-1 flex items-center justify-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  Add to Cart
-                </button>
+                  {t('appHome.string_150')}
+                                                      </button>
                 <Link
                   to="/store"
                   onClick={closeProductModal}
                   className="flex items-center justify-center gap-2 border-2 border-primary-500 text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
                 >
-                  Explore More
-                  <ArrowRight className="h-5 w-5" />
+                  {t('appHome.string_151')}
+                                                        <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>
             </div>
@@ -3506,18 +3506,18 @@ Please contact me to discuss custom solutions.`;
               <div className="flex flex-col md:flex-row gap-6 items-center">
                 <img 
                   src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
-                  alt="Ryan Wong" 
+                  alt={t('appHome.string_152')} 
                   className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl"
                 />
                 <div className="text-center md:text-left">
-                  <h2 className="text-3xl font-bold mb-2" style={{color: '#ffffff'}}>Ryan Wong</h2>
-                  <p className="text-xl mb-2" style={{color: '#ffffff'}}>Packaging Development Specialist</p>
+                  <h2 className="text-3xl font-bold mb-2" style={{color: '#ffffff'}}>{t('appHome.string_152')}</h2>
+                  <p className="text-xl mb-2" style={{color: '#ffffff'}}>{t('appHome.string_153')}</p>
                   <p className="text-sm" style={{color: '#ffffff'}}>
-                    14 years experience | 8 countries | Fortune 500 & DTC startups
-                  </p>
+                    {t('appHome.string_154')}
+                                                            </p>
                   <p className="text-sm mt-2" style={{color: '#ffffff'}}>
-                    🎓 The Hong Kong Polytechnic University (Honor Degree)
-                  </p>
+                    {t('appHome.string_155')}
+                                                            </p>
                 </div>
               </div>
             </div>
@@ -3528,31 +3528,31 @@ Please contact me to discuss custom solutions.`;
               <div className="mb-6">
                 <img 
                   src="/imgs/team/ryan-in-exhib.webp" 
-                  alt="Ryan Wong at Packaging Exhibition" 
+                  alt={t('appHome.string_156')} 
                   className="w-full rounded-lg shadow-md"
                 />
-                <p className="text-sm text-neutral-500 mt-2 text-center italic">Ryan at international packaging exhibition</p>
+                <p className="text-sm text-neutral-500 mt-2 text-center italic">{t('appHome.string_157')}</p>
               </div>
 
               {/* About */}
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-4">About Ryan</h3>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-4">{t('appHome.string_158')}</h3>
                 <div className="space-y-3 text-neutral-700">
                   <p>
-                    With <strong>14 years of dedicated experience</strong> in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutual beneficial and long-lasting business relationships.
-                  </p>
+                    {t('appHome.string_159')} <strong>{t('appHome.string_160')}</strong> {t('appHome.string_161')}
+                                                            </p>
                   <p>
-                    Ryan's packaging experience and business relationships span <strong>8 countries</strong>: Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. As a <strong>Hong Kong Polytechnic University Honor Degree</strong> graduate in Global Supply Chain and Business Administration, he combines academic excellence with practical expertise.
-                  </p>
+                    {t('appHome.string_162')} <strong>{t('appHome.string_163')}</strong>{t('appHome.string_164')} <strong>{t('appHome.string_165')}</strong> {t('appHome.string_166')}
+                                                            </p>
                   <p>
-                    At Achieve Pack, Ryan specializes in <strong>100% compostable digital print solutions</strong> with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike.
-                  </p>
+                    {t('appHome.string_167')} <strong>{t('appHome.string_168')}</strong> {t('appHome.string_169')}
+                                                            </p>
                 </div>
               </div>
 
               {/* Core Expertise */}
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-neutral-900 mb-3">Core Expertise</h3>
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">{t('appHome.string_170')}</h3>
                 <div className="grid sm:grid-cols-2 gap-2">
                   {[
                     'Compostable coffee pouches for DTC brands',
@@ -3574,19 +3574,19 @@ Please contact me to discuss custom solutions.`;
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 <div className="bg-primary-50 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-primary-700">14</div>
-                  <div className="text-xs text-neutral-600">Years Experience</div>
+                  <div className="text-xs text-neutral-600">{t('appHome.string_171')}</div>
                 </div>
                 <div className="bg-primary-50 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-primary-700">8</div>
-                  <div className="text-xs text-neutral-600">Countries Served</div>
+                  <div className="text-xs text-neutral-600">{t('appHome.string_172')}</div>
                 </div>
                 <div className="bg-primary-50 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-primary-700">100</div>
-                  <div className="text-xs text-neutral-600">Minimum Order</div>
+                  <div className="text-xs text-neutral-600">{t('appHome.string_173')}</div>
                 </div>
                 <div className="bg-primary-50 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-primary-700">4</div>
-                  <div className="text-xs text-neutral-600">Days Rush</div>
+                  <div className="text-xs text-neutral-600">{t('appHome.string_174')}</div>
                 </div>
               </div>
 
@@ -3600,7 +3600,7 @@ Please contact me to discuss custom solutions.`;
                   style={{color: '#ffffff'}}
                 >
                   <Linkedin className="h-5 w-5" style={{color: '#ffffff'}} />
-                  <span style={{color: '#ffffff'}}>LinkedIn Profile</span>
+                  <span style={{color: '#ffffff'}}>{t('appHome.string_175')}</span>
                 </a>
                 <a 
                   href="mailto:ryan@achievepack.com"
@@ -3608,7 +3608,7 @@ Please contact me to discuss custom solutions.`;
                   style={{color: '#16a34a'}}
                 >
                   <Mail className="h-5 w-5" style={{color: '#16a34a'}} />
-                  <span style={{color: '#16a34a'}}>Contact</span>
+                  <span style={{color: '#16a34a'}}>{t('appHome.string_176')}</span>
                 </a>
                 <a 
                   href="https://calendly.com/30-min-free-packaging-consultancy"
@@ -3618,14 +3618,14 @@ Please contact me to discuss custom solutions.`;
                   style={{color: '#ffffff'}}
                 >
                   <Calendar className="h-5 w-5" style={{color: '#ffffff'}} />
-                  <span style={{color: '#ffffff'}}>Schedule Meeting</span>
+                  <span style={{color: '#ffffff'}}>{t('appHome.string_177')}</span>
                 </a>
                 <Link
                   to="/team/ryan-wong"
                   className="inline-flex items-center gap-2 bg-neutral-100 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-200 transition"
                   style={{color: '#1f2937'}}
                 >
-                  <span style={{color: '#1f2937'}}>View Full Profile</span>
+                  <span style={{color: '#1f2937'}}>{t('appHome.string_178')}</span>
                   <ArrowRight className="h-5 w-5" style={{color: '#1f2937'}} />
                 </Link>
               </div>

@@ -1,0 +1,892 @@
+[
+  {
+    "key": "appHome.string_1",
+    "text": "English",
+    "original": "English"
+  },
+  {
+    "key": "appHome.string_2",
+    "text": "Français",
+    "original": "Français"
+  },
+  {
+    "key": "appHome.string_3",
+    "text": "Español",
+    "original": "Español"
+  },
+  {
+    "key": "appHome.string_4",
+    "text": "EN",
+    "original": "EN"
+  },
+  {
+    "key": "appHome.string_5",
+    "text": "FR",
+    "original": "FR"
+  },
+  {
+    "key": "appHome.string_6",
+    "text": "ES",
+    "original": "ES"
+  },
+  {
+    "key": "appHome.string_7",
+    "text": "📅 Book Free Consultation",
+    "original": "📅 Book Free Consultation\n            "
+  },
+  {
+    "key": "appHome.string_8",
+    "text": "Compostable OK",
+    "original": "Compostable OK\n                  "
+  },
+  {
+    "key": "appHome.string_9",
+    "text": "Recyclable OK",
+    "original": "Recyclable OK\n                  "
+  },
+  {
+    "key": "appHome.string_10",
+    "text": "Industrial OK",
+    "original": "Industrial OK\n                  "
+  },
+  {
+    "key": "appHome.string_11",
+    "text": "PCR Barrier OK",
+    "original": "PCR Barrier OK\n                  "
+  },
+  {
+    "key": "appHome.string_12",
+    "text": "Bio-based OK",
+    "original": "Bio-based OK\n                  "
+  },
+  {
+    "key": "appHome.string_13",
+    "text": "MOQ 500!",
+    "original": "MOQ 500!"
+  },
+  {
+    "key": "appHome.string_14",
+    "text": "Compostable",
+    "original": "\"Compostable\""
+  },
+  {
+    "key": "appHome.string_15",
+    "text": "Recyclable",
+    "original": "\"Recyclable\""
+  },
+  {
+    "key": "appHome.string_16",
+    "text": "PCR",
+    "original": "\"PCR\""
+  },
+  {
+    "key": "appHome.string_17",
+    "text": "Bio-PE",
+    "original": "\"Bio-PE\""
+  },
+  {
+    "key": "appHome.string_18",
+    "text": "Home Compost Certification",
+    "original": "\"Home Compost Certification\""
+  },
+  {
+    "key": "appHome.string_19",
+    "text": "PCR GRS Certification",
+    "original": "\"PCR GRS Certification\""
+  },
+  {
+    "key": "appHome.string_20",
+    "text": "BRC Food Safety Certification",
+    "original": "\"BRC Food Safety Certification\""
+  },
+  {
+    "key": "appHome.string_21",
+    "text": "BioPE Sustainable Certification",
+    "original": "\"BioPE Sustainable Certification\""
+  },
+  {
+    "key": "appHome.string_22",
+    "text": "EN13432",
+    "original": "EN13432"
+  },
+  {
+    "key": "appHome.string_23",
+    "text": "ASTM D6400",
+    "original": "ASTM D6400"
+  },
+  {
+    "key": "appHome.string_24",
+    "text": "Compostable packaging lifecycle - from plant-based materials to soil nutrients",
+    "original": "\"Compostable packaging lifecycle - from plant-based materials to soil nutrients\""
+  },
+  {
+    "key": "appHome.string_25",
+    "text": "Food & Beverage Packaging",
+    "original": "\"Food & Beverage Packaging\""
+  },
+  {
+    "key": "appHome.string_26",
+    "text": "View Profile",
+    "original": "\"View Profile\""
+  },
+  {
+    "key": "appHome.string_27",
+    "text": ": ryan@achievepack.com",
+    "original": ": ryan@achievepack.com"
+  },
+  {
+    "key": "appHome.string_28",
+    "text": "Certified B Corporation",
+    "original": "\"Certified B Corporation\""
+  },
+  {
+    "key": "appHome.string_29",
+    "text": "BPI Certified",
+    "original": "\"BPI Certified\""
+  },
+  {
+    "key": "appHome.string_30",
+    "text": "New",
+    "original": "New"
+  },
+  {
+    "key": "appHome.string_31",
+    "text": "🇺🇸 USA",
+    "original": "🇺🇸 USA"
+  },
+  {
+    "key": "appHome.string_32",
+    "text": "Compostable Hub",
+    "original": "Compostable Hub"
+  },
+  {
+    "key": "appHome.string_33",
+    "text": "Coffee Packaging",
+    "original": "Coffee Packaging"
+  },
+  {
+    "key": "appHome.string_34",
+    "text": "Snacks Packaging",
+    "original": "Snacks Packaging"
+  },
+  {
+    "key": "appHome.string_35",
+    "text": "Labeling Guide",
+    "original": "Labeling Guide"
+  },
+  {
+    "key": "appHome.string_36",
+    "text": "Product Guides",
+    "original": "Product Guides"
+  },
+  {
+    "key": "appHome.string_37",
+    "text": "Compostable Coffee Bags",
+    "original": "Compostable Coffee Bags"
+  },
+  {
+    "key": "appHome.string_38",
+    "text": "Compostable Side Gusset",
+    "original": "Compostable Side Gusset"
+  },
+  {
+    "key": "appHome.string_39",
+    "text": "Compostable Stand-Up",
+    "original": "Compostable Stand-Up"
+  },
+  {
+    "key": "appHome.string_40",
+    "text": "Recyclable Mono-Material",
+    "original": "Recyclable Mono-Material"
+  },
+  {
+    "key": "appHome.string_41",
+    "text": "Coffee Degassing Valve",
+    "original": "Coffee Degassing Valve"
+  },
+  {
+    "key": "appHome.string_42",
+    "text": "Low MOQ Packaging",
+    "original": "Low MOQ Packaging"
+  },
+  {
+    "key": "appHome.string_43",
+    "text": "Solutions",
+    "original": "Solutions"
+  },
+  {
+    "key": "appHome.string_44",
+    "text": "For Startups",
+    "original": "For Startups"
+  },
+  {
+    "key": "appHome.string_45",
+    "text": "For E-commerce",
+    "original": "For E-commerce"
+  },
+  {
+    "key": "appHome.string_46",
+    "text": "For Coffee Roasters",
+    "original": "For Coffee Roasters"
+  },
+  {
+    "key": "appHome.string_47",
+    "text": "For Artisan Makers",
+    "original": "For Artisan Makers"
+  },
+  {
+    "key": "appHome.string_48",
+    "text": "For Snack Brands",
+    "original": "For Snack Brands"
+  },
+  {
+    "key": "appHome.string_49",
+    "text": "For Corporate ESG",
+    "original": "For Corporate ESG"
+  },
+  {
+    "key": "appHome.string_50",
+    "text": "For Food Manufacturers",
+    "original": "For Food Manufacturers"
+  },
+  {
+    "key": "appHome.string_51",
+    "text": "For Product Developers",
+    "original": "For Product Developers"
+  },
+  {
+    "key": "appHome.string_52",
+    "text": "Topics",
+    "original": "Topics"
+  },
+  {
+    "key": "appHome.string_53",
+    "text": "Eco Food Packaging",
+    "original": "Eco Food Packaging"
+  },
+  {
+    "key": "appHome.string_54",
+    "text": "DTC Packaging",
+    "original": "DTC Packaging"
+  },
+  {
+    "key": "appHome.string_55",
+    "text": "Coffee Materials",
+    "original": "Coffee Materials"
+  },
+  {
+    "key": "appHome.string_56",
+    "text": "Digital Printing",
+    "original": "Digital Printing"
+  },
+  {
+    "key": "appHome.string_57",
+    "text": "Recyclable Snacks",
+    "original": "Recyclable Snacks"
+  },
+  {
+    "key": "appHome.string_58",
+    "text": "Regulations Guide",
+    "original": "Regulations Guide"
+  },
+  {
+    "key": "appHome.string_59",
+    "text": "Compostable Suppliers",
+    "original": "Compostable Suppliers"
+  },
+  {
+    "key": "appHome.string_60",
+    "text": "Low MOQ Startup",
+    "original": "Low MOQ Startup"
+  },
+  {
+    "key": "appHome.string_61",
+    "text": "Baby Food Bags",
+    "original": "Baby Food Bags"
+  },
+  {
+    "key": "appHome.string_62",
+    "text": "Custom Printed Pouches",
+    "original": "Custom Printed Pouches"
+  },
+  {
+    "key": "appHome.string_63",
+    "text": "Zipper Durability",
+    "original": "Zipper Durability"
+  },
+  {
+    "key": "appHome.string_64",
+    "text": "Custom vs. Standard",
+    "original": "Custom vs. Standard"
+  },
+  {
+    "key": "appHome.string_65",
+    "text": "Function",
+    "original": "Function"
+  },
+  {
+    "key": "appHome.string_66",
+    "text": "Microwave Steam Bags",
+    "original": "Microwave Steam Bags"
+  },
+  {
+    "key": "appHome.string_67",
+    "text": "Smart Degassing Sticker",
+    "original": "Smart Degassing Sticker"
+  },
+  {
+    "key": "appHome.string_68",
+    "text": "Carbon Neutral Bags",
+    "original": "Carbon Neutral Bags"
+  },
+  {
+    "key": "appHome.string_69",
+    "text": "Spout Pouches Juice",
+    "original": "Spout Pouches Juice"
+  },
+  {
+    "key": "appHome.string_70",
+    "text": "Child-Resistant Bags",
+    "original": "Child-Resistant Bags"
+  },
+  {
+    "key": "appHome.string_71",
+    "text": "Pre-Zippered Rollstock",
+    "original": "Pre-Zippered Rollstock"
+  },
+  {
+    "key": "appHome.string_72",
+    "text": "Digital Printed Retort",
+    "original": "Digital Printed Retort"
+  },
+  {
+    "key": "appHome.string_73",
+    "text": "Rice Paper Bags",
+    "original": "Rice Paper Bags"
+  },
+  {
+    "key": "appHome.string_74",
+    "text": "PVA Water-Soluble Bags",
+    "original": "PVA Water-Soluble Bags"
+  },
+  {
+    "key": "appHome.string_75",
+    "text": "compostable Heat-Resistant Pouches",
+    "original": "compostable Heat-Resistant Pouches"
+  },
+  {
+    "key": "appHome.string_76",
+    "text": "Lab Bag",
+    "original": "Lab Bag"
+  },
+  {
+    "key": "appHome.string_77",
+    "text": "Lateral Filter Bags",
+    "original": "Lateral Filter Bags"
+  },
+  {
+    "key": "appHome.string_78",
+    "text": "Wire Closure Bags",
+    "original": "Wire Closure Bags"
+  },
+  {
+    "key": "appHome.string_79",
+    "text": "Lab Blender Bags",
+    "original": "Lab Blender Bags"
+  },
+  {
+    "key": "appHome.string_80",
+    "text": "Composting",
+    "original": "Composting"
+  },
+  {
+    "key": "appHome.string_81",
+    "text": "🌱 Compostable Side Gusset Bags",
+    "original": "🌱 Compostable Side Gusset Bags"
+  },
+  {
+    "key": "appHome.string_82",
+    "text": "Composting Benefits",
+    "original": "Composting Benefits"
+  },
+  {
+    "key": "appHome.string_83",
+    "text": "Service Finder",
+    "original": "Service Finder"
+  },
+  {
+    "key": "appHome.string_84",
+    "text": "Biodegradable vs Compostable",
+    "original": "Biodegradable vs Compostable"
+  },
+  {
+    "key": "appHome.string_85",
+    "text": "Commercial Composting",
+    "original": "Commercial Composting"
+  },
+  {
+    "key": "appHome.string_86",
+    "text": "Home vs Industrial",
+    "original": "Home vs Industrial"
+  },
+  {
+    "key": "appHome.string_87",
+    "text": "Plastic-Free vs Compostable",
+    "original": "Plastic-Free vs Compostable"
+  },
+  {
+    "key": "appHome.string_88",
+    "text": "Compost Bag Humidity Control",
+    "original": "Compost Bag Humidity Control"
+  },
+  {
+    "key": "appHome.string_89",
+    "text": "Compostable Zipper Durability",
+    "original": "Compostable Zipper Durability"
+  },
+  {
+    "key": "appHome.string_90",
+    "text": "BioPE",
+    "original": "BioPE"
+  },
+  {
+    "key": "appHome.string_91",
+    "text": "What is Bio-PE?",
+    "original": "What is Bio-PE?"
+  },
+  {
+    "key": "appHome.string_92",
+    "text": "Bio-PE vs Compostable",
+    "original": "Bio-PE vs Compostable"
+  },
+  {
+    "key": "appHome.string_93",
+    "text": "Bio-PE & EPR",
+    "original": "Bio-PE & EPR"
+  },
+  {
+    "key": "appHome.string_94",
+    "text": "Inside I'm green™",
+    "original": "Inside I'm green™"
+  },
+  {
+    "key": "appHome.string_95",
+    "text": "What Is PCR Plastic?",
+    "original": "What Is PCR Plastic?"
+  },
+  {
+    "key": "appHome.string_96",
+    "text": "PCR 7-Point Checklist",
+    "original": "PCR 7-Point Checklist"
+  },
+  {
+    "key": "appHome.string_97",
+    "text": "Realistic PCR Content",
+    "original": "Realistic PCR Content"
+  },
+  {
+    "key": "appHome.string_98",
+    "text": "Recyclable vs PCR vs Bio-Based",
+    "original": "Recyclable vs PCR vs Bio-Based"
+  },
+  {
+    "key": "appHome.string_99",
+    "text": "PCR Materials",
+    "original": "PCR Materials"
+  },
+  {
+    "key": "appHome.string_100",
+    "text": "What Is 100% Recyclable?",
+    "original": "What Is 100% Recyclable?"
+  },
+  {
+    "key": "appHome.string_101",
+    "text": "3-Step SME Roadmap",
+    "original": "3-Step SME Roadmap"
+  },
+  {
+    "key": "appHome.string_102",
+    "text": "Mono-Material Foundation",
+    "original": "Mono-Material Foundation"
+  },
+  {
+    "key": "appHome.string_103",
+    "text": "Recyclable Mono-PE",
+    "original": "Recyclable Mono-PE"
+  },
+  {
+    "key": "appHome.string_104",
+    "text": "Recyclable Mono-PP",
+    "original": "Recyclable Mono-PP"
+  },
+  {
+    "key": "appHome.string_105",
+    "text": "Structure Specs",
+    "original": "Structure Specs"
+  },
+  {
+    "key": "appHome.string_106",
+    "text": "PCR Structures",
+    "original": "PCR Structures"
+  },
+  {
+    "key": "appHome.string_107",
+    "text": "Mono PE/PP",
+    "original": "Mono PE/PP"
+  },
+  {
+    "key": "appHome.string_108",
+    "text": "Compostable Bio",
+    "original": "Compostable Bio"
+  },
+  {
+    "key": "appHome.string_109",
+    "text": "Bio-PE Structures",
+    "original": "Bio-PE Structures"
+  },
+  {
+    "key": "appHome.string_110",
+    "text": "Trending Topics",
+    "original": "Trending Topics"
+  },
+  {
+    "key": "appHome.string_111",
+    "text": "PFAS-Free Food",
+    "original": "PFAS-Free Food"
+  },
+  {
+    "key": "appHome.string_112",
+    "text": "Compostable Coffee",
+    "original": "Compostable Coffee"
+  },
+  {
+    "key": "appHome.string_113",
+    "text": "Mono-PE Pouches",
+    "original": "Mono-PE Pouches"
+  },
+  {
+    "key": "appHome.string_114",
+    "text": "Child-Resistant",
+    "original": "Child-Resistant"
+  },
+  {
+    "key": "appHome.string_115",
+    "text": "Ocean Plastic",
+    "original": "Ocean Plastic"
+  },
+  {
+    "key": "appHome.string_116",
+    "text": "Minimalist D2C",
+    "original": "Minimalist D2C"
+  },
+  {
+    "key": "appHome.string_117",
+    "text": "Unprinted Samples",
+    "original": "Unprinted Samples"
+  },
+  {
+    "key": "appHome.string_118",
+    "text": "Custom Printed Sample",
+    "original": "Custom Printed Sample"
+  },
+  {
+    "key": "appHome.string_119",
+    "text": "Customer Reviews",
+    "original": "Customer Reviews"
+  },
+  {
+    "key": "appHome.string_120",
+    "text": "ryan@achievepack.com",
+    "original": "ryan@achievepack.com"
+  },
+  {
+    "key": "appHome.string_121",
+    "text": "Blog & Store",
+    "original": "Blog & Store"
+  },
+  {
+    "key": "appHome.string_122",
+    "text": "All Articles",
+    "original": "All Articles"
+  },
+  {
+    "key": "appHome.string_123",
+    "text": "Online Store",
+    "original": "Online Store"
+  },
+  {
+    "key": "appHome.string_124",
+    "text": "Free Services",
+    "original": "Free Services"
+  },
+  {
+    "key": "appHome.string_125",
+    "text": "Free Design Consultation",
+    "original": "Free Design Consultation"
+  },
+  {
+    "key": "appHome.string_126",
+    "text": "Free Website Upgrade",
+    "original": "Free Website Upgrade"
+  },
+  {
+    "key": "appHome.string_127",
+    "text": "Free Packaging Mockup",
+    "original": "Free Packaging Mockup"
+  },
+  {
+    "key": "appHome.string_128",
+    "text": "Free Customer Center",
+    "original": "Free Customer Center"
+  },
+  {
+    "key": "appHome.string_129",
+    "text": "Knowledge",
+    "original": "Knowledge"
+  },
+  {
+    "key": "appHome.string_130",
+    "text": "Pouch Sizing Guide",
+    "original": "Pouch Sizing Guide"
+  },
+  {
+    "key": "appHome.string_131",
+    "text": "Size Reference",
+    "original": "Size Reference"
+  },
+  {
+    "key": "appHome.string_132",
+    "text": "All Options",
+    "original": "All Options"
+  },
+  {
+    "key": "appHome.string_133",
+    "text": "Printing Types",
+    "original": "Printing Types"
+  },
+  {
+    "key": "appHome.string_134",
+    "text": "K-Seal Pouches",
+    "original": "K-Seal Pouches"
+  },
+  {
+    "key": "appHome.string_135",
+    "text": "White Ink Underprint",
+    "original": "White Ink Underprint"
+  },
+  {
+    "key": "appHome.string_136",
+    "text": "Fin vs Lap Seal",
+    "original": "Fin vs Lap Seal"
+  },
+  {
+    "key": "appHome.string_137",
+    "text": "Flat Bottom vs. Side Gusset",
+    "original": "Flat Bottom vs. Side Gusset"
+  },
+  {
+    "key": "appHome.string_138",
+    "text": "BPI & B Corp Certified",
+    "original": "\"BPI & B Corp Certified\""
+  },
+  {
+    "key": "appHome.string_139",
+    "text": "At Achieve Pack pouch.eco, we contribute 1% of our revenue to carbon removal",
+    "original": "At Achieve Pack pouch.eco, we contribute 1% of our revenue to carbon removal"
+  },
+  {
+    "key": "appHome.string_140",
+    "text": "Payment Methods",
+    "original": "\"Payment Methods\""
+  },
+  {
+    "key": "appHome.string_141",
+    "text": "SSL 100% Secure Transactions",
+    "original": "SSL 100% Secure Transactions"
+  },
+  {
+    "key": "appHome.string_142",
+    "text": "Connect with us",
+    "original": "Connect with us"
+  },
+  {
+    "key": "appHome.string_143",
+    "text": "Enlarged view",
+    "original": "\"Enlarged view\""
+  },
+  {
+    "key": "appHome.string_144",
+    "text": "reviews)",
+    "original": "reviews)"
+  },
+  {
+    "key": "appHome.string_145",
+    "text": "US$",
+    "original": "US$"
+  },
+  {
+    "key": "appHome.string_146",
+    "text": "for",
+    "original": "for "
+  },
+  {
+    "key": "appHome.string_147",
+    "text": "pcs",
+    "original": "pcs"
+  },
+  {
+    "key": "appHome.string_148",
+    "text": "Features",
+    "original": "Features"
+  },
+  {
+    "key": "appHome.string_149",
+    "text": "In Stock",
+    "original": "In Stock"
+  },
+  {
+    "key": "appHome.string_150",
+    "text": "Add to Cart",
+    "original": "Add to Cart\n                "
+  },
+  {
+    "key": "appHome.string_151",
+    "text": "Explore More",
+    "original": "Explore More\n                  "
+  },
+  {
+    "key": "appHome.string_152",
+    "text": "Ryan Wong",
+    "original": "\"Ryan Wong\""
+  },
+  {
+    "key": "appHome.string_153",
+    "text": "Packaging Development Specialist",
+    "original": "Packaging Development Specialist"
+  },
+  {
+    "key": "appHome.string_154",
+    "text": "14 years experience | 8 countries | Fortune 500 & DTC startups",
+    "original": "14 years experience | 8 countries | Fortune 500 & DTC startups\n                  "
+  },
+  {
+    "key": "appHome.string_155",
+    "text": "🎓 The Hong Kong Polytechnic University (Honor Degree)",
+    "original": "🎓 The Hong Kong Polytechnic University (Honor Degree)\n                  "
+  },
+  {
+    "key": "appHome.string_156",
+    "text": "Ryan Wong at Packaging Exhibition",
+    "original": "\"Ryan Wong at Packaging Exhibition\""
+  },
+  {
+    "key": "appHome.string_157",
+    "text": "Ryan at international packaging exhibition",
+    "original": "Ryan at international packaging exhibition"
+  },
+  {
+    "key": "appHome.string_158",
+    "text": "About Ryan",
+    "original": "About Ryan"
+  },
+  {
+    "key": "appHome.string_159",
+    "text": "With",
+    "original": "With "
+  },
+  {
+    "key": "appHome.string_160",
+    "text": "14 years of dedicated experience",
+    "original": "14 years of dedicated experience"
+  },
+  {
+    "key": "appHome.string_161",
+    "text": "in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutual beneficial and long-lasting business relationships.",
+    "original": "in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutual beneficial and long-lasting business relationships.\n                  "
+  },
+  {
+    "key": "appHome.string_162",
+    "text": "Ryan's packaging experience and business relationships span",
+    "original": "Ryan's packaging experience and business relationships span "
+  },
+  {
+    "key": "appHome.string_163",
+    "text": "8 countries",
+    "original": "8 countries"
+  },
+  {
+    "key": "appHome.string_164",
+    "text": ": Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. As a",
+    "original": ": Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. As a "
+  },
+  {
+    "key": "appHome.string_165",
+    "text": "Hong Kong Polytechnic University Honor Degree",
+    "original": "Hong Kong Polytechnic University Honor Degree"
+  },
+  {
+    "key": "appHome.string_166",
+    "text": "graduate in Global Supply Chain and Business Administration, he combines academic excellence with practical expertise.",
+    "original": "graduate in Global Supply Chain and Business Administration, he combines academic excellence with practical expertise.\n                  "
+  },
+  {
+    "key": "appHome.string_167",
+    "text": "At Achieve Pack, Ryan specializes in",
+    "original": "At Achieve Pack, Ryan specializes in "
+  },
+  {
+    "key": "appHome.string_168",
+    "text": "100% compostable digital print solutions",
+    "original": "100% compostable digital print solutions"
+  },
+  {
+    "key": "appHome.string_169",
+    "text": "with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike.",
+    "original": "with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike.\n                  "
+  },
+  {
+    "key": "appHome.string_170",
+    "text": "Core Expertise",
+    "original": "Core Expertise"
+  },
+  {
+    "key": "appHome.string_171",
+    "text": "Years Experience",
+    "original": "Years Experience"
+  },
+  {
+    "key": "appHome.string_172",
+    "text": "Countries Served",
+    "original": "Countries Served"
+  },
+  {
+    "key": "appHome.string_173",
+    "text": "Minimum Order",
+    "original": "Minimum Order"
+  },
+  {
+    "key": "appHome.string_174",
+    "text": "Days Rush",
+    "original": "Days Rush"
+  },
+  {
+    "key": "appHome.string_175",
+    "text": "LinkedIn Profile",
+    "original": "LinkedIn Profile"
+  },
+  {
+    "key": "appHome.string_176",
+    "text": "Contact",
+    "original": "Contact"
+  },
+  {
+    "key": "appHome.string_177",
+    "text": "Schedule Meeting",
+    "original": "Schedule Meeting"
+  },
+  {
+    "key": "appHome.string_178",
+    "text": "View Full Profile",
+    "original": "View Full Profile"
+  }
+]
