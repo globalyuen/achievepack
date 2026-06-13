@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T05:45:41.836Z",
+  "lastUnifiedRun": "2026-06-13T06:00:34.895Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2401,17 +2401,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-sachet-sizes-for-baby-food",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "sustainable sachet sizes for baby food",
-      "difficulty": "Low",
-      "slug": "sustainable-sachet-sizes-for-baby-food"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "high barrier mono material stand up pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-mono-material-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -2500,9 +2501,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T05:45:31.110Z",
+      "timestamp": "2026-06-13T06:00:26.342Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet sizes for baby food\" to /blog/sustainable-sachet-sizes-for-baby-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono material stand up pouches\" to /blog/high-barrier-mono-material-stand-up-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet sizes for baby food\" to /blog/sustainable-sachet-sizes-for-baby-food (Pending Approval)",
+      "timestamp": "2026-06-13T05:45:31.110Z"
     },
     {
       "action": "Autopilot Generation Draft",
