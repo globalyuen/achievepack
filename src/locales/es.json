@@ -28974,6 +28974,23 @@
       "terminalLine1": "> Empaque ecológico desde 500 unidades.",
       "terminalLine2": "> Compostable // Reciclable // Base biológica.",
       "terminalLine3": "> Entrega rápida. Sin complicaciones.",
+      "alts": {
+        "compostable": "Compostable",
+        "recyclable": "Reciclable",
+        "biobased": "Base biológica",
+        "pcr": "PCR"
+      },
+      "buttons": {
+        "prev": "Video anterior",
+        "next": "Video siguiente"
+      },
+      "tags": {
+        "compostable": "COMPOSTABLE_OK",
+        "recyclable": "RECICLABLE_OK",
+        "industrial": "INDUSTRIAL_OK",
+        "pcr": "PCR_BARRERA_OK",
+        "biobased": "BASE_BIO_OK"
+      },
       "ctaBook": "Reservar Consulta",
       "ctaMaterials": "Ver Materiales"
     },
@@ -28984,89 +29001,93 @@
       "titleSuffix": " Marcas",
       "subtitle": "Desde startups hasta nombres establecidos - todos comenzaron con 500 unidades"
     },
-    "showcase3d": {
+    "showcase": {
       "badge": "✨ Exhibición 3D Interactiva",
-      "title": "Bolsas Eco en ",
-      "titleHighlight": "Espacio 3D",
-      "description": "Gire, incline e inspeccione las barreras estructurales orgánicas certificadas de nuestras bolsas ecológicas. Mueva el mouse para inclinar, desplace para girar o alterne modelos abajo.",
+      "title": "Bolsas Eco en Espacio 3D",
+      "subtitle": "Gire, incline e inspeccione las barreras estructurales orgánicas certificadas de nuestras bolsas ecológicas. Mueva el mouse para inclinar, desplace para girar o alterne modelos abajo.",
       "spouted": {
         "tag": "💧 Líquidos y Purés",
         "title": "Bolsa con Boquilla Compostable Industrial",
-        "description": "Bolsa flexible compostable industrial certificada con boquilla rígida 100% vegetal. Reemplaza opciones de barrera con boquilla plástica convencional con huella plástica cero.",
+        "desc": "Bolsa flexible compostable industrial certificada con boquilla rígida 100% vegetal. Reemplaza opciones de barrera con boquilla plástica convencional con huella plástica cero.",
         "moqLabel": "MOQ:",
-        "moqValue": "2,000 unidades",
+        "moqVal": "2,000 unidades",
         "certLabel": "Certificaciones:",
-        "certValue": "EN 13432, ASTM D6400"
+        "certVal": "EN 13432, ASTM D6400"
       },
       "flatBottom": {
-        "tag": "🌱 Productos Secos y Café",
+        "tag": "🌱 Productos Secs y Café",
         "title": "Bolsa Fondo Plano Compostable Doméstica",
-        "description": "Estructura premium 100% compostable doméstica con fondo de caja que ofrece excelente presencia en estante. Se descompone de forma segura y natural en composteras domésticas.",
+        "desc": "Estructura premium 100% compostable doméstica con fondo de caja que ofrece excelente presencia en estante. Se descompone de forma segura y natural en composteras domésticas.",
         "moqLabel": "MOQ:",
-        "moqValue": "1,000 unidades",
+        "moqVal": "1,000 unidades",
         "certLabel": "Certificaciones:",
-        "certValue": "OK Compost HOME"
+        "certVal": "OK Compost HOME"
       }
     },
     "social": {
       "badge": "PRODUCTOS REALES • MARCAS REALES",
-      "title": "Visto en ",
-      "titleHighlight": "Redes Sociales",
-      "description": "Vea cómo nuestras bolsas ayudan a las marcas a viralizarse. Experiencias de unboxing que los clientes adoran compartir."
+      "title": "Visto en Redes Sociales",
+      "desc": "Vea cómo nuestras bolsas ayudan a las marcas a viralizarse. Experiencias de unboxing que los clientes adoran compartir."
     },
     "features": {
-      "sectionTitleLine1": "Características",
-      "sectionTitleLine2": "Principales",
-      "badge": "SELECCIONE_MATERIAL_ABAJO",
-      "lowMoq": {
+      "title": "Características Principales",
+      "selectMaterial": "SELECCIONE_MATERIAL_ABAJO",
+      "moq": {
         "title": "Protocolo MOQ Bajo",
-        "description": "Comience con solo 500 unidades. Pruebe su mercado sin comprometer un inventario masivo. Perfecto para startups y lanzamientos de nuevos productos.",
+        "desc": "Comience con solo 500 unidades. Pruebe su mercado sin comprometer un inventario masivo. Perfecto para startups y lanzamientos de nuevos productos.",
         "badge1": "500_MÍN",
         "badge2": "Lanzamiento_Rápido"
       },
-      "bioMatrix": {
+      "compostable": {
         "title": "Bio_Matrix",
-        "description": "Materiales compostables certificados. Listo para compost industrial + doméstico.",
-        "status": "ESTADO: ",
-        "statusValue": "BPI_CERTIFICADO"
+        "desc": "Materiales compostables certificados. Listo para compost industrial + doméstico.",
+        "statusLabel": "ESTADO:",
+        "statusVal": "BPI_CERTIFICADO"
       },
-      "fastShip": {
+      "fast": {
         "title": "Envío_Rápido",
-        "description": "Muestras en 2-3 semanas. Producción en 6-8 semanas. Sin retrasos.",
-        "speed": "VELOCIDAD: ",
-        "speedValue": "OPTIMIZADA"
+        "desc": "Muestras en 2-3 semanas. Producción en 6-8 semanas. Sin retrasos.",
+        "speedLabel": "VELOCIDAD:",
+        "speedVal": "OPTIMIZADA"
       },
       "barrier": {
         "title": "Tecnología Alta Barrera",
-        "description": "Estructuras de barrera multicapa. Bloqueo de O2 + humedad. Mantiene el producto fresco de 6 a 18 meses de vida útil.",
-        "cta": "Ver Especificaciones Técnicas"
+        "desc": "Estructuras de barrera multicapa. Bloqueo de O2 + humedad. Mantiene el producto fresco de 6 a 18 meses de vida útil.",
+        "btn": "Ver Especificaciones Técnicas"
       }
     },
-    "apps": {
+    "appSuite": {
       "badge": "⚡ UTILIDADES_INTERACTIVAS",
       "title": "SUITE DE APPS DE EMPAQUE",
-      "description": "Diseñe el tamaño de su bolsa y especificaciones de material al instante. Sin adivinanzas, sin errores. Pura precisión técnica.",
+      "subtitle": "Diseñe el tamaño de su bolsa y especificaciones de material al instante. Sin adivinanzas, sin errores. Pura precisión técnica.",
       "sizing": {
-        "badgeLabel": "APP DE TAMAÑO",
+        "badge": "APP DE TAMAÑO",
         "title": "[APP BUSCADOR DE TAMAÑO]",
-        "description": "Calcule dimensiones exactas y capacidad basadas en peso del producto y presets de densidad. Coincida dimensiones al instante con plantillas de fabricación estándar.",
-        "feature1": "Presets de densidad (Café, Polvos, Snacks)",
-        "feature2": "Cálculos de volumen (Onzas, Gramos, ML)",
-        "feature3": "Referencia estándar de MoQ y tamaño",
-        "cta": "INICIAR APP DE TAMAÑO →"
+        "desc": "Calcule dimensiones exactas y capacidad basadas en peso del producto y presets de densidad. Coincida dimensiones al instante con plantillas de fabricación estándar.",
+        "bullets": [
+          "Presets de densidad (Café, Polvos, Snacks)",
+          "Cálculos de volumen (Onzas, Gramos, ML)",
+          "Referencia estándar de MoQ y tamaño"
+        ],
+        "btn": "INICIAR APP DE TAMAÑO →"
       },
       "spec": {
-        "badgeLabel": "ESPEC. MATERIAL",
+        "badge": "ESPEC. MATERIAL",
         "title": "[APP BUSCADOR DE ESPECIFICACIONES]",
-        "description": "Busque, filtre y compare tasas de transmisión de vapor de agua y oxígeno (OTR/WVTR) en 15+ estructuras certificadas compostables, reciclables, PCR y biopolímeros vegetales.",
-        "feature1": "15+ estructuras eco dúplex y tríplex",
-        "feature2": "Filtrado de nivel de rendimiento OTR y WVTR",
-        "feature3": "Descarga de hojas de espesor y peso completas",
-        "cta": "INICIAR BUSCADOR DE ESPEC. →"
+        "desc": "Busque, filtre y compare tasas de transmisión de vapor de agua y oxígeno (OTR/WVTR) en 15+ estructuras certificadas compostables, reciclables, PCR y biopolímeros vegetales.",
+        "bullets": [
+          "15+ estructuras eco dúplex y tríplex",
+          "Filtrado de nivel de rendimiento OTR y WVTR",
+          "Descarga de hojas de espesor y peso completas"
+        ],
+        "btn": "INICIAR BUSCADOR DE ESPEC. →"
       }
     },
-    "products": {
+    "choosePlan": {
       "title": "Elegir Plan",
+      "bookCall": "RESERVAR LLAMADA"
+    },
+    "products": {
       "standUp": {
         "name": "Bolsa Stand Up",
         "description": "El estándar de la industria. Perfecta para snacks y suplementos."
@@ -29078,40 +29099,43 @@
       "spouted": {
         "name": "Bolsa con Boquilla",
         "description": "Alternativa flexible a las botellas. Más ligera y económica."
-      },
-      "bookCall": "RESERVAR LLAMADA"
+      }
     },
-    "library": {
+    "knowledge": {
       "badge": "📚 PORTAL_CONOCIMIENTO",
       "title": "ECO RECURSOS Y BIBLIOTECA",
-      "description": "Informes técnicos detallados, guías de cumplimiento global y estudios de economía circular redactados por expertos certificados para mantener su marca alineada.",
-      "guide1": {
-        "badge": "CUMPLIMIENTO_2026",
-        "title": "Guía de Cumplimiento EU PPWR",
-        "description": "Análisis detallado de ratios de espacio vacío, etiquetas de clasificación de reciclaje armonizadas y alivio de tasas de eco-modulación para propietarios de marcas destinadas a la UE.",
-        "cta": "Leer Guía →"
+      "subtitle": "Informes técnicos detallados, guías de cumplimiento global y estudios de economía circular redactados por expertos certificados para mantener su marca alineada.",
+      "guides": {
+        "compliance": {
+          "tag": "CUMPLIMIENTO_2026",
+          "title": "Guía de Cumplimiento EU PPWR",
+          "desc": "Análisis detallado de ratios de espacio vacío, etiquetas de clasificación de reciclaje armonizadas y alivio de tasas de eco-modulación para propietarios de marcas destinadas a la UE.",
+          "btn": "Leer Guía →"
+        },
+        "foil": {
+          "tag": "ESPEC_RECICLAJE",
+          "title": "Reciclabilidad del Foil Estampado",
+          "desc": "Cómo los foils de estampado en caliente y los adornos metálicos decorativos afectan la telemetría de clasificación en flujos de reciclaje mono-material municipal.",
+          "btn": "Leer Investigación →"
+        },
+        "zipper": {
+          "tag": "CIENCIA_MATERIAL",
+          "title": "Durabilidad del Cierre Compostable",
+          "desc": "Análisis de tasas de transmisión de oxígeno y durabilidad de agarre tensil de cierres reclosables 100% vegetales sin requisitos de remoción.",
+          "btn": "Leer Estudio Técnico →"
+        },
+        "roi": {
+          "tag": "ROI_ADQUISICIÓN",
+          "title": "Producción Estándar vs. Especificaciones Personalizadas",
+          "desc": "Matriz de decisión comparando modelos de empaque en stock pre-fabricados con especificaciones de producción B2B a granel diseñadas a medida para optimizar precios unitarios.",
+          "btn": "Comparar Especificaciones →"
+        }
       },
-      "guide2": {
-        "badge": "ESPEC_RECICLAJE",
-        "title": "Reciclabilidad del Foil Estampado",
-        "description": "Cómo los foils de estampado en caliente y los adornos metálicos decorativos afectan la telemetría de clasificación en flujos de reciclaje mono-material municipal.",
-        "cta": "Leer Investigación →"
-      },
-      "guide3": {
-        "badge": "CIENCIA_MATERIAL",
-        "title": "Durabilidad del Cierre Compostable",
-        "description": "Análisis de tasas de transmisión de oxígeno y durabilidad de agarre tensil de cierres reclosables 100% vegetales sin requisitos de remoción.",
-        "cta": "Leer Estudio Técnico →"
-      },
-      "guide4": {
-        "badge": "ROI_ADQUISICIÓN",
-        "title": "Producción Estándar vs. Especificaciones Personalizadas",
-        "description": "Matriz de decisión comparando modelos de empaque en stock pre-fabricados con especificaciones de producción B2B a granel diseñadas a medida para optimizar precios unitarios.",
-        "cta": "Comparar Especificaciones →"
-      },
-      "link1": "🌱 Sostenibilidad Circular del Mundo Real",
-      "link2": "💧 Compostaje de Biopolímeros con Boquilla",
-      "link3": "🍊 Barreras Protectoras de Aceite Cítrico"
+      "links": {
+        "sustainability": "🌱 Sostenibilidad Circular del Mundo Real",
+        "spoutedComposting": "💧 Compostaje de Biopolímeros con Boquilla",
+        "citrus": "🍊 Barreras Protectoras de Aceite Cítrico"
+      }
     },
     "testimonial": {
       "quote": "\"Empecé con 500 bolsas de POUCH.ECO. La mejor decisión. Ahora pido más de 10K mensuales.\"",
