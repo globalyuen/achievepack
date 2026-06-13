@@ -31134,5 +31134,165 @@
       "quote": "\"Started with 500 pouches from POUCH.ECO. Best decision ever. Now ordering 10K+ monthly.\"",
       "author": "- Sarah M., Brand Founder"
     }
+  },
+  "achievePackHome": {
+    "nav": {
+      "materials": "Materials",
+      "compostable": "Compostable",
+      "homeCompostable": "Home Compostable",
+      "recyclableMonoPE": "Recyclable Mono-PE",
+      "bioPE": "Bio-PE",
+      "packagingShapes": "Packaging Shapes",
+      "pouchShapes": "Pouch Shapes",
+      "standUpPouch": "Stand-Up Pouch",
+      "boxBottomPouch": "Box Bottom Pouch",
+      "sideGussetPouch": "Side Gusset Pouch",
+      "threeSideSeal": "3-Side Seal",
+      "industries": "Industries",
+      "coffeeTea": "Coffee & Tea",
+      "snacksFood": "Snacks & Food",
+      "supplements": "Supplements",
+      "petFood": "Pet Food",
+      "babyFood": "Baby Food",
+      "frozenFood": "Frozen Food",
+      "citrusOil": "Citrus Oil Packaging",
+      "shopAll": "Shop All",
+      "standUpPouches": "Stand-Up Pouches",
+      "flatBottomBags": "Flat Bottom Bags",
+      "spoutPouches": "Spout Pouches",
+      "sideGussetBags": "Side Gusset Bags",
+      "learnCenter": "Learn Center",
+      "viewAllLearn": "View All Learn Pages →",
+      "blog": "📝 Blog",
+      "allArticles": "All Articles",
+      "packagingTips": "Packaging Tips",
+      "sustainability": "Sustainability",
+      "industryNews": "Industry News",
+      "unprintedSamples": "📦 Unprinted Samples",
+      "customPrintedSample": "✨ Custom Printed Sample",
+      "customerCenter": "Customer Center",
+      "language": "Language"
+    },
+    "hero": {
+      "transformText": "Transform your business with certified",
+      "solutionsFrom": "packaging solutions. From ",
+      "coffeeBags": "coffee bags with degassing valves",
+      "to": " to ",
+      "customPouches": "custom printed food pouches",
+      "reduceImpact": ", reduce your environmental impact while delivering exceptional business value.",
+      "shopNow": "Shop Now"
+    },
+    "shop": {
+      "title": "Shop Compostable & Recyclable Packaging",
+      "compostable": "Compostable",
+      "recyclable": "Recyclable",
+      "en13432": "EN13432 certified compostable pouches",
+      "comma": ", ",
+      "coffeeBags": "coffee bags",
+      "and": ", and ",
+      "customBoxes": "custom boxes",
+      "with": " with ",
+      "lowMoq": "low MOQ from 100pcs",
+      "browseAll": "Browse all eco-friendly packaging options"
+    },
+    "apps": {
+      "tag": "Interactive Engineering Suite",
+      "title": "Professional Packaging Apps",
+      "desc": "Skip the guesswork. Design, size, and engineer your brand's sustainable packaging in seconds with our bespoke interactive web applications.",
+      "sizingTool": "Sizing Tool",
+      "sizingTitle": "Pouch Sizing Finder App",
+      "sizingDesc": "Calculate exact stand-up pouch dimensions and gusset volume based on your target weight, product type, and substance density. Matches dimensions instantly across 100+ standard sizing grids.",
+      "sizingL1": "Product-specific density presets (Coffee, Tea, Powders, Snacks)",
+      "sizingL2": "Accurate volume calculations (Fluid Ounces, Grams, Milliliters)",
+      "sizingL3": "Interactive size charts and standard MoQ requirements",
+      "launchSizing": "Launch Sizing Finder",
+      "materialTool": "Material Tool",
+      "materialTitle": "Material Spec Finder App",
+      "materialDesc": "Search, filter, and compare precise mechanical and barrier properties (Oxygen Transmission OTR & Water Vapor WVTR) across our full catalog of certified eco-friendly laminates.",
+      "materialL1": "15+ sustainable duplex and triplex lamination options",
+      "materialL2": "Live barrier level filtering (High, Medium, Light barrier specs)",
+      "materialL3": "Full specification sheets with thickness and MOQs list",
+      "launchMaterial": "Launch Spec Finder"
+    },
+    "clients": {
+      "tag": "Trusted by Industry Leaders",
+      "title": "Why 500+ Global Brands Choose Achieve Pack"
+    },
+    "seoBlock": {
+      "title": "What is Compostable Packaging?",
+      "desc1": "Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no ",
+      "microplastics": "microplastics",
+      "desc2": ". Achieve Pack's compostable bags are certified to ",
+      "desc3": " and ",
+      "desc4": " standards, ensuring genuine environmental credentials.",
+      "plasticFreeTitle": "Conventional Plastic-Free",
+      "plasticFreeDesc": "Our compostable pouches contain zero petroleum-based plastics. Made from plant-based PLA and PBAT biopolymers, they return to nature—not persist as microplastics in oceans and soil.",
+      "plasticFreeLink": "Learn about plastic-free vs compostable"
+    },
+    "table": {
+      "feature": "Feature",
+      "compostable": "Compostable",
+      "recyclable": "Recyclable Mono-PE",
+      "traditional": "Traditional Plastic",
+      "decomposition": "Decomposition",
+      "180days": "180 days in composting",
+      "reqRecycling": "Requires recycling facility",
+      "hundredsYears": "Hundreds of years",
+      "materialSource": "Material Source",
+      "plantBased": "Plant-based (corn, sugarcane)",
+      "singlePolymer": "Single polymer (PE/PP)",
+      "petroleum": "Petroleum-based",
+      "certs": "Certifications",
+      "enastm": "EN13432, ASTM D6400",
+      "iso15270": "ISO 15270",
+      "none": "None",
+      "bestFor": "Best For",
+      "coffeeSnacks": "Coffee, snacks, dry goods",
+      "dryProducts": "All dry products",
+      "generalUse": "General use",
+      "moq": "MOQ at Achieve Pack",
+      "100pcs": "100 pieces",
+      "5000pcs": "5,000+ typical",
+      "learnBiodegradable": "Learn more about compostable vs biodegradable packaging"
+    },
+    "products": {
+      "shopAll": "Shop All",
+      "exploreFullShop": "Explore Full Shop"
+    },
+    "learnMore": "Learn more",
+    "team": {
+      "trustSignal": "Our team has supported over 500+ brands in US, EU, NZ and Asia since 2011, across coffee, snacks, pet treats and supplements categories."
+    },
+    "freeServices": {
+      "badge": "100% Free • No Obligation",
+      "title": "Free Services for Your Brand",
+      "desc": "Expert help at absolutely no cost—design consultation, 3D mockups, website design, and customer portal.",
+      "designTitle": "Design Consultation",
+      "designDesc": "Expert packaging design advice with custom dielines",
+      "mockupTitle": "3D Mockup",
+      "mockupDesc": "Photorealistic renders of your packaging design",
+      "webTitle": "Website Design",
+      "webDesc": "Modern landing page for your brand",
+      "portalTitle": "Customer Center",
+      "portalDesc": "Dashboard to track orders and manage quotes",
+      "exploreAll": "Explore All Free Services"
+    },
+    "faq": {
+      "scrollMore": "Scroll for more FAQs"
+    },
+    "contact": {
+      "successTitle": "Message Sent Successfully!",
+      "successDesc": "Thank you for contacting us. We'll respond within 24 hours.",
+      "sendAnother": "Send another message",
+      "sending": "Sending..."
+    },
+    "footer": {
+      "customBoxes": "Custom Boxes",
+      "labelsStickers": "Labels & Stickers",
+      "labBags": "Lab Bags",
+      "lowBarrier": "Low Barrier",
+      "mediumBarrier": "Medium Barrier",
+      "highBarrier": "High Barrier"
+    }
   }
 }

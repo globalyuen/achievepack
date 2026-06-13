@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T02:15:33.376Z",
+  "lastUnifiedRun": "2026-06-13T02:45:48.129Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2303,23 +2303,25 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-sachet-sizes-for-baby-food",
       "status": "Pending Approval",
       "volume": 1050,
       "keyword": "compostable sachet sizes for baby food",
-      "difficulty": "Low",
-      "slug": "compostable-sachet-sizes-for-baby-food"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "slug": "recyclable-pouch-dimensions-for-spices",
+      "status": "Pending Approval",
       "volume": 620,
       "keyword": "recyclable pouch dimensions for spices",
       "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "flexible packaging size chart for liquids",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "flexible-packaging-size-chart-for-liquids"
     },
     {
       "status": "Pending",
@@ -2378,9 +2380,19 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T02:15:24.835Z",
+      "timestamp": "2026-06-13T02:45:36.968Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable sachet sizes for baby food\" to /blog/compostable-sachet-sizes-for-baby-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"flexible packaging size chart for liquids\" to /blog/flexible-packaging-size-chart-for-liquids (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable pouch dimensions for spices\" to /blog/recyclable-pouch-dimensions-for-spices (Pending Approval)",
+      "timestamp": "2026-06-13T02:30:28.088Z"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable sachet sizes for baby food\" to /blog/compostable-sachet-sizes-for-baby-food (Pending Approval)",
+      "timestamp": "2026-06-13T02:15:24.835Z"
     },
     {
       "action": "Autopilot Generation Draft",

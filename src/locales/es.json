@@ -29141,5 +29141,165 @@
       "quote": "\"Empecé con 500 bolsas de POUCH.ECO. La mejor decisión. Ahora pido más de 10K mensuales.\"",
       "author": "- Sarah M., Fundadora de Marca"
     }
+  },
+  "achievePackHome": {
+    "nav": {
+      "materials": "Materiales",
+      "compostable": "Compostable",
+      "homeCompostable": "Compostable en Casa",
+      "recyclableMonoPE": "Reciclable Mono-PE",
+      "bioPE": "Bio-PE",
+      "packagingShapes": "Formatos de Envases",
+      "pouchShapes": "Formatos de Bolsas",
+      "standUpPouch": "Bolsa Stand-Up",
+      "boxBottomPouch": "Bolsa de Fondo Plano",
+      "sideGussetPouch": "Bolsa con Fuelle Lateral",
+      "threeSideSeal": "Sello de 3 Lados",
+      "industries": "Industrias",
+      "coffeeTea": "Café y Té",
+      "snacksFood": "Snacks y Alimentos",
+      "supplements": "Suplementos",
+      "petFood": "Alimentos para Mascotas",
+      "babyFood": "Alimentos para Bebés",
+      "frozenFood": "Alimentos Congelados",
+      "citrusOil": "Envases de Aceite Cítrico",
+      "shopAll": "Ver Todo",
+      "standUpPouches": "Bolsas Stand-Up",
+      "flatBottomBags": "Bolsas de Fondo Plano",
+      "spoutPouches": "Bolsas con Boquilla",
+      "sideGussetBags": "Bolsas con Fuelle Lateral",
+      "learnCenter": "Centro de Aprendizaje",
+      "viewAllLearn": "Ver todas las páginas de aprendizaje →",
+      "blog": "📝 Blog",
+      "allArticles": "Todos los Artículos",
+      "packagingTips": "Consejos de Envasado",
+      "sustainability": "Sostenibilidad",
+      "industryNews": "Noticias de la Industria",
+      "unprintedSamples": "📦 Muestras sin Imprimir",
+      "customPrintedSample": "✨ Muestra Impresa Personalizada",
+      "customerCenter": "Centro de Clientes",
+      "language": "Idioma"
+    },
+    "hero": {
+      "transformText": "Transforme su negocio con soluciones de",
+      "solutionsFrom": "envasado certificadas. Desde ",
+      "coffeeBags": "bolsas de café con válvula desgasificadora",
+      "to": " hasta ",
+      "customPouches": "bolsas de alimentos impresas personalizadas",
+      "reduceImpact": ", reduzca su impacto ambiental mientras ofrece un valor comercial excepcional.",
+      "shopNow": "Comprar Ahora"
+    },
+    "shop": {
+      "title": "Comprar Envases Compostables y Reciclables",
+      "compostable": "Compostable",
+      "recyclable": "Reciclable",
+      "en13432": "Bolsas compostables certificadas EN13432",
+      "comma": ", ",
+      "coffeeBags": "bolsas de café",
+      "and": ", y ",
+      "customBoxes": "cajas personalizadas",
+      "with": " con ",
+      "lowMoq": "bajo MOQ desde 100 uds",
+      "browseAll": "Explorar todas las opciones de envases ecológicos"
+    },
+    "apps": {
+      "tag": "Suite de Ingeniería Interactiva",
+      "title": "Aplicaciones Profesionales de Envasado",
+      "desc": "Evite conjeturas. Diseñe, dimensione e ingenie los envases sostenibles de su marca en segundos con nuestras aplicaciones web interactivas a medida.",
+      "sizingTool": "Herramienta de Dimensionado",
+      "sizingTitle": "App Buscador de Tamaños de Bolsas",
+      "sizingDesc": "Calcule dimensiones exactas de bolsas stand-up y volumen de fuelle basado en el peso objetivo, tipo de producto y densidad. Coincide instantáneamente con más de 100 cuadrículas estándar.",
+      "sizingL1": "Presets de densidad específicos de producto (Café, Té, Polvos, Snacks)",
+      "sizingL2": "Cálculos de volumen precisos (Onzas Líquidas, Gramos, Mililitros)",
+      "sizingL3": "Tablas de tamaños interactivas y requisitos de MOQ estándar",
+      "launchSizing": "Iniciar Buscador de Tamaño",
+      "materialTool": "Herramienta de Materiales",
+      "materialTitle": "App Buscador de Especificaciones de Material",
+      "materialDesc": "Busque, filtre y compare propiedades mecánicas y barrera precisas (Transmisión de Oxígeno OTR y Vapor de Agua WVTR) en todo nuestro catálogo de laminados ecológicos certificados.",
+      "materialL1": "Más de 15 opciones de laminación sostenible dúplex y triplex",
+      "materialL2": "Filtro de nivel de barrera en vivo (Alta, Media, Ligera)",
+      "materialL3": "Fichas técnicas completas con grosores y lista de MOQ",
+      "launchMaterial": "Iniciar Buscador de Especificaciones"
+    },
+    "clients": {
+      "tag": "Confiado por Líderes de la Industria",
+      "title": "Por qué más de 500 Marcas Globales Eligen Achieve Pack"
+    },
+    "seoBlock": {
+      "title": "¿Qué son los Envases Compostables?",
+      "desc1": "El envase compostable es un material certificado que se biodegrada completamente en elementos naturales en 180 días bajo condiciones de compostaje industrial. A diferencia de los plásticos normales, las bolsas compostables se descomponen en agua, CO₂ y biomasa, sin dejar ",
+      "microplastics": "microplásticos",
+      "desc2": ". Las bolsas compostables de Achieve Pack están certificadas bajo los estándares ",
+      "desc3": " y ",
+      "desc4": ", garantizando credenciales ambientales genuinas.",
+      "plasticFreeTitle": "Libre de Plástico Convencional",
+      "plasticFreeDesc": "Nuestras bolsas compostables no contienen plásticos a base de petróleo. Hechas de biopolímeros PLA y PBAT a base de plantas, vuelven a la naturaleza—no persisten como microplásticos en océanos y suelo.",
+      "plasticFreeLink": "Aprenda sobre libre de plástico vs compostable"
+    },
+    "table": {
+      "feature": "Característica",
+      "compostable": "Compostable",
+      "recyclable": "Reciclable Mono-PE",
+      "traditional": "Plástico Tradicional",
+      "decomposition": "Descomposición",
+      "180days": "180 días en compostaje",
+      "reqRecycling": "Requiere instalación de reciclaje",
+      "hundredsYears": "Cientos de años",
+      "materialSource": "Fuente de Material",
+      "plantBased": "A base de plantas (maíz, caña de azúcar)",
+      "singlePolymer": "Polímero único (PE/PP)",
+      "petroleum": "A base de petróleo",
+      "certs": "Certificaciones",
+      "enastm": "EN13432, ASTM D6400",
+      "iso15270": "ISO 15270",
+      "none": "Ninguna",
+      "bestFor": "Ideal Para",
+      "coffeeSnacks": "Café, snacks, productos secos",
+      "dryProducts": "Todos los productos secos",
+      "generalUse": "Uso general",
+      "moq": "MOQ en Achieve Pack",
+      "100pcs": "100 piezas",
+      "5000pcs": "5,000+ típico",
+      "learnBiodegradable": "Aprenda más sobre envases compostables vs biodegradables"
+    },
+    "products": {
+      "shopAll": "Ver Todo",
+      "exploreFullShop": "Explorar Toda la Tienda"
+    },
+    "learnMore": "Saber más",
+    "team": {
+      "trustSignal": "Nuestro equipo ha apoyado a más de 500 marcas en EE. UU., UE, NZ y Asia desde 2011, en las categorías de café, snacks, golosinas para mascotas y suplementos."
+    },
+    "freeServices": {
+      "badge": "100% Gratis • Sin Compromiso",
+      "title": "Servicios Gratuitos para su Marca",
+      "desc": "Ayuda experta sin costo alguno—consultoría de diseño, maquetas 3D, diseño de páginas web y portal de clientes.",
+      "designTitle": "Consultoría de Diseño",
+      "designDesc": "Asesoramiento experto en diseño de envases con dielines personalizados",
+      "mockupTitle": "Maqueta 3D",
+      "mockupDesc": "Renders fotorrealistas de su diseño de envase",
+      "webTitle": "Diseño Web",
+      "webDesc": "Landing page moderna para su marca",
+      "portalTitle": "Centro de Clientes",
+      "portalDesc": "Panel para rastrear pedidos y gestionar presupuestos",
+      "exploreAll": "Explorar Todos los Servicios Gratuitos"
+    },
+    "faq": {
+      "scrollMore": "Desplácese para más preguntas frecuentes"
+    },
+    "contact": {
+      "successTitle": "¡Mensaje Enviado con Éxito!",
+      "successDesc": "Gracias por contactarnos. Responderemos dentro de 24 horas.",
+      "sendAnother": "Enviar otro mensaje",
+      "sending": "Enviando..."
+    },
+    "footer": {
+      "customBoxes": "Cajas Personalizadas",
+      "labelsStickers": "Etiquetas y Pegatinas",
+      "labBags": "Bolsas de Laboratorio",
+      "lowBarrier": "Barrera Baja",
+      "mediumBarrier": "Barrera Media",
+      "highBarrier": "Barrera Alta"
+    }
   }
 }

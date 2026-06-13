@@ -29141,5 +29141,158 @@
       "quote": "\"J'ai commencé avec 500 sachets de POUCH.ECO. Meilleure décision jamais prise. Je commande maintenant 10K+ par mois.\"",
       "author": "- Sarah M., Fondatrice de Marque"
     }
+  },
+  "achievePackHome": {
+    "nav": {
+      "materials": "Matériaux",
+      "compostable": "Compostable",
+      "homeCompostable": "Compostable à Domicile",
+      "recyclableMonoPE": "Recyclable Mono-PE",
+      "bioPE": "Bio-PE",
+      "packagingShapes": "Formats d'Emballage",
+      "pouchShapes": "Formats de Sachets",
+      "standUpPouch": "Sachet Tient Debout",
+      "boxBottomPouch": "Sachet à Fond Plat",
+      "sideGussetPouch": "Sachet à Soufflets Latéraux",
+      "threeSideSeal": "Soudure 3 Côtés",
+      "industries": "Industries",
+      "coffeeTea": "Café et Thé",
+      "snacksFood": "Snacks et Nourriture",
+      "supplements": "Compléments Alimentaires",
+      "petFood": "Aliments pour Animaux",
+      "babyFood": "Aliments pour Bébés",
+      "frozenFood": "Aliments Surgelés",
+      "citrusOil": "Emballages pour Huiles d'Agrumes",
+      "shopAll": "Tout Voir",
+      "standUpPouches": "Sachets Tiennent Debout",
+      "flatBottomBags": "Sachets à Fond Plat",
+      "spoutPouches": "Sachets avec Bouchon",
+      "sideGussetBags": "Sachets à Soufflets Latéraux",
+      "learnCenter": "Centre d'Apprentissage",
+      "viewAllLearn": "Voir toutes les pages d'apprentissage →",
+      "blog": "📝 Blog",
+      "allArticles": "Tous les Articles",
+      "packagingTips": "Conseils d'Emballage",
+      "sustainability": "Durabilité",
+      "industryNews": "Actualités de l'Industrie",
+      "unprintedSamples": "📦 Échantillons non Imprimés",
+      "customPrintedSample": "✨ Échantillon Imprimé Personnalisé",
+      "customerCenter": "Espace Client",
+      "language": "Langue"
+    },
+    "hero": {
+      "transformText": "Transformez votre entreprise avec des solutions",
+      "solutionsFrom": "d'emballage certifiées. Des ",
+      "coffeeBags": "sachets de café avec valves de dégazage",
+      "to": " aux ",
+      "customPouches": "sachets alimentaires imprimés personnalisés",
+      "reduceImpact": ", réduisez votre impact environnemental tout en offrant une valeur commerciale exceptionnelle.",
+      "shopNow": "Acheter Maintenant"
+    },
+    "shop": {
+      "title": "Acheter des Emballages Compostables & Recyclables",
+      "compostable": "Compostable",
+      "recyclable": "Recyclable",
+      "en13432": "Sachets compostables certifiés EN13432",
+      "comma": ", ",
+      "coffeeBags": "sachets de café",
+      "and": ", et ",
+      "customBoxes": "boîtes personnalisées",
+      "with": " avec ",
+      "lowMoq": "faible MOQ à partir de 100 pièces",
+      "browseAll": "Parcourir toutes les options d'emballage écologiques"
+    },
+    "apps": {
+      "tag": "Suite d'Ingénierie Interactive",
+      "title": "Applications Professionnelles d'Emballage",
+      "desc": "Fini les devinettes. Concevez, dimensionnez et concevez les emballages durables de votre marque en quelques secondes grâce à nos applications web interactives sur mesure.",
+      "sizingTool": "Outil de Dimensionnement",
+      "sizingTitle": "Application de Calcul de Taille",
+      "sizingDesc": "Calculez les dimensions exactes des sachets tient-debout et le volume du soufflet en fonction de votre poids cible, du type de produit et de la densité. Correspond instantanément à plus de 100 grilles standards.",
+      "sizingL1": "Préréglages de densité spécifiques aux produits (Café, Thé, Poudres, Snacks)",
+      "sizingL2": "Calculs de volume précis (Onces Liquides, Grammes, Millilitres)",
+      "sizingL3": "Tableaux de tailles interactifs et exigences MOQ standards",
+      "launchSizing": "Lancer le Calcul de Taille"
+    },
+    "clients": {
+      "tag": "Reconnu par les Leaders de l'Industrie",
+      "title": "Pourquoi plus de 500 Marques Mondiales Choisissent Achieve Pack"
+    },
+    "seoBlock": {
+      "title": "Qu'est-ce que l'Emballage Compostable?",
+      "desc1": "L'emballage compostable est un matériau certifié qui se biodégrade entièrement en éléments naturels en 180 jours dans des conditions de compostage industriel. Contrairement aux plastiques ordinaires, les sachets compostables se décomposent en eau, CO₂ et biomasse, sans laisser de ",
+      "microplastics": "microplastiques",
+      "desc2": ". Les sachets compostables d'Achieve Pack sont certifiés selon les normes ",
+      "desc3": " et ",
+      "desc4": ", garantissant de véritables références environnementales.",
+      "plasticFreeTitle": "Sans Plastique Conventionnel",
+      "plasticFreeDesc": "Nos sachets compostables ne contiennent aucun plastique à base de pétrole. Fabriqués à partir de biopolymères végétaux PLA et PBAT, ils retournent à la nature sans persister sous forme de microplastiques dans les océans et les sols.",
+      "plasticFreeLink": "En savoir plus sur sans plastique vs compostable"
+    },
+    "table": {
+      "feature": "Caractéristique",
+      "compostable": "Compostable",
+      "recyclable": "Recyclable Mono-PE",
+      "traditional": "Plastique Traditionnel",
+      "decomposition": "Décomposition",
+      "180days": "180 jours en compostage",
+      "reqRecycling": "Nécessite une installation de recyclage",
+      "hundredsYears": "Des centaines d'années",
+      "materialSource": "Source du Matériau",
+      "plantBased": "D'origine végétale (maïs, canne à sucre)",
+      "singlePolymer": "Polymère unique (PE/PP)",
+      "petroleum": "À base de pétrole",
+      "certs": "Certifications",
+      "enastm": "EN13432, ASTM D6400",
+      "iso15270": "ISO 15270",
+      "none": "Aucune",
+      "bestFor": "Idéal Pour",
+      "coffeeSnacks": "Café, snacks, produits secs",
+      "dryProducts": "Tous les produits secs",
+      "generalUse": "Usage général",
+      "moq": "MOQ chez Achieve Pack",
+      "100pcs": "100 pièces",
+      "5000pcs": "Plus de 5000 typiquement",
+      "learnBiodegradable": "En savoir plus sur les emballages compostables vs biodégradables"
+    },
+    "products": {
+      "shopAll": "Tout Voir",
+      "exploreFullShop": "Explorer Toute la Boutique"
+    },
+    "learnMore": "En savoir plus",
+    "team": {
+      "trustSignal": "Notre équipe accompagne plus de 500 marques aux États-Unis, dans l'UE, en Nouvelle-Zélande et en Asie depuis 2011, dans les secteurs du café, des snacks, des friandises pour animaux et des compléments."
+    },
+    "freeServices": {
+      "badge": "100% Gratuit • Sans Engagement",
+      "title": "Services Gratuits pour Votre Marque",
+      "desc": "Aide d'experts sans aucun frais — consultation de design, maquettes 3D, conception de site web et portail client.",
+      "designTitle": "Consultation de Design",
+      "designDesc": "Conseils d'experts en design d'emballage avec tracés sur mesure",
+      "mockupTitle": "Maquette 3D",
+      "mockupDesc": "Rendus photoréalistes du design de votre emballage",
+      "webTitle": "Conception Web",
+      "webDesc": "Page de renvoi moderne pour votre marque",
+      "portalTitle": "Espace Client",
+      "portalDesc": "Tableau de bord pour suivre les commandes et gérer les devis",
+      "exploreAll": "Explorer Tous les Services Gratuits"
+    },
+    "faq": {
+      "scrollMore": "Faites défiler pour plus de FAQ"
+    },
+    "contact": {
+      "successTitle": "Message Envoyé avec Succès!",
+      "successDesc": "Merci de nous avoir contactés. Nous vous répondrons sous 24 heures.",
+      "sendAnother": "Envoyer un autre message",
+      "sending": "Envoi..."
+    },
+    "footer": {
+      "customBoxes": "Boîtes Personnalisées",
+      "labelsStickers": "Étiquettes et Autocollants",
+      "labBags": "Sacs de Laboratoire",
+      "lowBarrier": "Basse Barrière",
+      "mediumBarrier": "Moyenne Barrière",
+      "highBarrier": "Haute Barrière"
+    }
   }
 }

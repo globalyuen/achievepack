@@ -943,89 +943,89 @@ function App() {
           <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 pb-24">
             {/* Shop Section */}
             <Link to="/store" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 w-full text-left text-base font-semibold text-neutral-900 py-3 px-2 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
-              🛒 Shop All Products
+              {t('achievePackHome.nav.shopAll', '🛒 Shop All Products')}
             </Link>
             <div className="border-t border-neutral-100 pt-3">
-              <p className="text-xs font-bold text-primary-600 uppercase mb-2 px-2">Pouch Shapes</p>
+              <p className="text-xs font-bold text-primary-600 uppercase mb-2 px-2">{t('achievePackHome.nav.pouchShapes', 'Pouch Shapes')}</p>
               <div className="grid grid-cols-2 gap-1">
-                <Link to="/store?shape=stand-up" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Stand Up Pouch</Link>
-                <Link to="/store?shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Box Bottom Pouch</Link>
-                <Link to="/store?shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Side Gusset Pouch</Link>
-                <Link to="/store?shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">3 Side Seal Pouch</Link>
+                <Link to="/store?shape=stand-up" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.standUpPouch', 'Stand Up Pouch')}</Link>
+                <Link to="/store?shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.boxBottomPouch', 'Box Bottom Pouch')}</Link>
+                <Link to="/store?shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.sideGussetPouch', 'Side Gusset Pouch')}</Link>
+                <Link to="/store?shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.threeSideSeal', '3 Side Seal Pouch')}</Link>
               </div>
             </div>
             
             {/* Learn Section */}
             <div className="border-t border-neutral-100 pt-3">
               <p className="text-xs font-bold text-primary-600 uppercase mb-2 px-2 flex items-center gap-1">
-                📚 Learn Center
+                {t('achievePackHome.nav.learnCenter', '📚 Learn Center')}
               </p>
               <div className="space-y-2">
                 <div>
-                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">Materials</p>
+                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">{t('achievePackHome.nav.materials', 'Materials')}</p>
                   <div className="grid grid-cols-2 gap-1">
-                    <Link to="/materials/compostable" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Compostable</Link>
-                    <Link to="/materials/home-compostable" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Home Compostable</Link>
-                    <Link to="/materials/recyclable-mono-pe" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Recyclable Mono PE</Link>
-                    <Link to="/materials/bio-pe" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Bio-PE</Link>
+                    <Link to="/materials/compostable" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.compostable', 'Compostable')}</Link>
+                    <Link to="/materials/home-compostable" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.homeCompostable', 'Home Compostable')}</Link>
+                    <Link to="/materials/recyclable-mono-pe" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.recyclableMonoPE', 'Recyclable Mono PE')}</Link>
+                    <Link to="/materials/bio-pe" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.bioPE', 'Bio-PE')}</Link>
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">Packaging Shapes</p>
+                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">{t('achievePackHome.nav.packagingShapes', 'Packaging Shapes')}</p>
                   <div className="grid grid-cols-2 gap-1">
-                    <Link to="/packaging/stand-up-pouches" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Stand Up Pouches</Link>
-                    <Link to="/packaging/flat-bottom-bags" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Flat Bottom Bags</Link>
-                    <Link to="/packaging/side-gusset-bags" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Side Gusset Bags</Link>
-                    <Link to="/packaging/spout-pouches" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Spout Pouches</Link>
+                    <Link to="/packaging/stand-up-pouches" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.standUpPouches', 'Stand Up Pouches')}</Link>
+                    <Link to="/packaging/flat-bottom-bags" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.flatBottomBags', 'Flat Bottom Bags')}</Link>
+                    <Link to="/packaging/side-gusset-bags" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.sideGussetBags', 'Side Gusset Bags')}</Link>
+                    <Link to="/packaging/spout-pouches" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.spoutPouches', 'Spout Pouches')}</Link>
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">Industries</p>
+                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">{t('achievePackHome.nav.industries', 'Industries')}</p>
                   <div className="grid grid-cols-2 gap-1">
-                    <Link to="/industry/coffee-tea" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Coffee & Tea</Link>
-                    <Link to="/industry/snacks-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Snacks & Food</Link>
-                    <Link to="/industry/pet-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Pet Food</Link>
-                    <Link to="/industry/supplements-powders" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Supplements</Link>
-                    <Link to="/industry/baby-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Baby Food</Link>
-                    <Link to="/industry/frozen-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Frozen Food</Link>
-                    <Link to="/solutions/citrus-oil-packaging" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-primary-600 rounded-lg hover:bg-primary-50 active:bg-primary-100 font-medium">Citrus Oil Packaging</Link>
+                    <Link to="/industry/coffee-tea" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.coffeeTea', 'Coffee & Tea')}</Link>
+                    <Link to="/industry/snacks-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.snacksFood', 'Snacks & Food')}</Link>
+                    <Link to="/industry/pet-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.petFood', 'Pet Food')}</Link>
+                    <Link to="/industry/supplements-powders" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.supplements', 'Supplements')}</Link>
+                    <Link to="/industry/baby-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.babyFood', 'Baby Food')}</Link>
+                    <Link to="/industry/frozen-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.frozenFood', 'Frozen Food')}</Link>
+                    <Link to="/solutions/citrus-oil-packaging" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-primary-600 rounded-lg hover:bg-primary-50 active:bg-primary-100 font-medium">{t('achievePackHome.nav.citrusOil', 'Citrus Oil Packaging')}</Link>
                   </div>
                 </div>
-                <Link to="/learn" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-primary-600 font-medium rounded-lg hover:bg-primary-50 active:bg-primary-100">View All Learn Pages →</Link>
+                <Link to="/learn" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-primary-600 font-medium rounded-lg hover:bg-primary-50 active:bg-primary-100">{t('achievePackHome.nav.viewAllLearn', 'View All Learn Pages →')}</Link>
               </div>
             </div>
 
             {/* Blog Section */}
             <div className="border-t border-neutral-100 pt-3">
               <p className="text-xs font-bold text-primary-600 uppercase mb-2 px-2 flex items-center gap-1">
-                📝 Blog
+                {t('achievePackHome.nav.blog', '📝 Blog')}
               </p>
               <div className="grid grid-cols-2 gap-1">
-                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">All Articles</Link>
-                <Link to="/blog?category=Packaging" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Packaging Tips</Link>
-                <Link to="/blog?category=Sustainability" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Sustainability</Link>
-                <Link to="/blog?category=Industry" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Industry News</Link>
+                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.allArticles', 'All Articles')}</Link>
+                <Link to="/blog?category=Packaging" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.packagingTips', 'Packaging Tips')}</Link>
+                <Link to="/blog?category=Sustainability" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.sustainability', 'Sustainability')}</Link>
+                <Link to="/blog?category=Industry" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">{t('achievePackHome.nav.industryNews', 'Industry News')}</Link>
               </div>
             </div>
 
             {/* Other Links */}
             <div className="border-t border-neutral-100 pt-3">
               <Link to="/support/unprinted-samples" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 py-3 px-2 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
-                📦 Unprinted Samples
+                {t('achievePackHome.nav.unprintedSamples', '📦 Unprinted Samples')}
               </Link>
               <Link to="/support/sample-quote" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 py-3 px-2 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
-                ✨ Custom Printed Sample
+                {t('achievePackHome.nav.customPrintedSample', '✨ Custom Printed Sample')}
               </Link>
               <Link to="/signin" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 py-3 px-2 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
                 <User className="h-4 w-4" />
-                Customer Center
+                {t('achievePackHome.nav.customerCenter', 'Customer Center')}
               </Link>
             </div>
             
             {/* Mobile Language Options */}
             {showLanguageSelector && (
               <div className="py-2 border-t border-neutral-100">
-                <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-2">Language</div>
+                <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-2">{t('achievePackHome.nav.language', 'Language')}</div>
                 <div className="grid grid-cols-4 gap-2 px-2">
                   <button onClick={() => changeLanguage('en')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'en' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>EN</button>
                   <button onClick={() => changeLanguage('fr')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'fr' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>FR</button>
@@ -1063,14 +1063,14 @@ function App() {
                 <span className="text-primary-500"> {slogan.suffix}</span>
               </h1>
               <p className="text-xl text-neutral-600 leading-relaxed mb-8 max-w-xl">
-                Transform your business with certified{' '}
+                {t('achievePackHome.hero.transformText', 'Transform your business with certified')}{' '}
                 <TextRotate
                   words={['eco-friendly', 'compostable', 'PCR', 'BioPE', 'recyclable', 'FSC']}
                   className="text-primary-500 font-semibold"
                   interval={2500}
                   animationType="flip"
                 />{' '}
-                packaging solutions. From <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">coffee bags with degassing valves</Link> to <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">custom printed food pouches</Link>, reduce your environmental impact while delivering exceptional business value.
+                {t('achievePackHome.hero.solutionsFrom', 'packaging solutions. From ')}<Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">{t('achievePackHome.hero.coffeeBags', 'coffee bags with degassing valves')}</Link>{t('achievePackHome.hero.to', ' to ')}<Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">{t('achievePackHome.hero.customPouches', 'custom printed food pouches')}</Link>{t('achievePackHome.hero.reduceImpact', ', reduce your environmental impact while delivering exceptional business value.')}
               </p>
 
               {/* CTA Buttons */}
@@ -1080,7 +1080,7 @@ function App() {
                   className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  <span>Shop Now</span>
+                  <span>{t('achievePackHome.hero.shopNow', 'Shop Now')}</span>
                 </Link>
                 <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 border-2 border-neutral-200 text-neutral-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-neutral-50 transition-colors">
                   <Calendar className="h-5 w-5" />
@@ -1387,17 +1387,17 @@ function App() {
       <section className="py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900">Shop Compostable & Recyclable Packaging</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900">{t('achievePackHome.shop.title', 'Shop Compostable & Recyclable Packaging')}</h2>
             
             {/* Eco Material Badges */}
             <div className="flex flex-wrap items-center justify-center gap-6 mt-6 mb-4">
               <Link to="/materials/compostable" className="group flex flex-col items-center transition-transform hover:scale-105">
                 <img src="/eco-logo/transparent-bkg/compost.png" alt="Compostable" className="h-16 w-auto mb-2" />
-                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">Compostable</span>
+                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('achievePackHome.shop.compostable', 'Compostable')}</span>
               </Link>
               <Link to="/materials/recyclable-mono-pe" className="group flex flex-col items-center transition-transform hover:scale-105">
                 <img src="/eco-logo/transparent-bkg/recycle.png" alt="Recyclable" className="h-16 w-auto mb-2" />
-                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">Recyclable</span>
+                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('achievePackHome.shop.recyclable', 'Recyclable')}</span>
               </Link>
               <Link to="/materials/pcr" className="group flex flex-col items-center transition-transform hover:scale-105">
                 <img src="/eco-logo/transparent-bkg/pcr.png" alt="PCR" className="h-16 w-auto mb-2" />
@@ -1410,13 +1410,13 @@ function App() {
             </div>
             
             <p className="text-lg md:text-xl text-neutral-600 mt-2 max-w-3xl mx-auto">
-              <Link to="/materials/compostable" className="text-primary-600 hover:underline">EN13432 certified compostable pouches</Link>, <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">coffee bags</Link>, and <Link to="/packaging/custom-boxes" className="text-primary-600 hover:underline">custom boxes</Link> with <Link to="/solutions/startup-founder" className="text-primary-600 hover:underline">low MOQ from 100pcs</Link>
+              <Link to="/materials/compostable" className="text-primary-600 hover:underline">{t('achievePackHome.shop.en13432', 'EN13432 certified compostable pouches')}</Link>{t('achievePackHome.shop.comma', ', ')}<Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">{t('achievePackHome.shop.coffeeBags', 'coffee bags')}</Link>{t('achievePackHome.shop.and', ', and ')}<Link to="/packaging/custom-boxes" className="text-primary-600 hover:underline">{t('achievePackHome.shop.customBoxes', 'custom boxes')}</Link>{t('achievePackHome.shop.with', ' with ')}<Link to="/solutions/startup-founder" className="text-primary-600 hover:underline">{t('achievePackHome.shop.lowMoq', 'low MOQ from 100pcs')}</Link>
             </p>
             <Link 
               to="/store" 
               className="inline-flex text-base font-semibold text-primary-600 hover:text-primary-700 transition-colors items-center gap-1 mt-3"
             >
-              Browse all eco-friendly packaging options <ArrowRight className="h-5 w-5" />
+              {t('achievePackHome.shop.browseAll', 'Browse all eco-friendly packaging options')} <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
           
@@ -1453,13 +1453,13 @@ function App() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-500/20 text-primary-400 text-xs font-semibold uppercase tracking-wider mb-4 border border-primary-500/30">
               <Zap className="h-3.5 w-3.5 text-primary-400 fill-current animate-pulse" />
-              <span>Interactive Engineering Suite</span>
+              <span>{t('achievePackHome.apps.tag', 'Interactive Engineering Suite')}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
-              Professional Packaging Apps
+              {t('achievePackHome.apps.title', 'Professional Packaging Apps')}
             </h2>
             <p className="text-lg text-neutral-400 mt-4 leading-relaxed">
-              Skip the guesswork. Design, size, and engineer your brand's sustainable packaging in seconds with our bespoke interactive web applications.
+              {t('achievePackHome.apps.desc', "Skip the guesswork. Design, size, and engineer your brand's sustainable packaging in seconds with our bespoke interactive web applications.")}
             </p>
           </div>
 
@@ -1472,29 +1472,29 @@ function App() {
                     <SizingFinderIcon className="w-8 h-8 text-primary-400" strokeWidth={2} />
                   </div>
                   <span className="bg-primary-500/20 text-primary-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-primary-500/30">
-                    Sizing Tool
+                    {t('achievePackHome.apps.sizingTool', 'Sizing Tool')}
                   </span>
                 </div>
                 
                 <h3 className="text-2xl font-bold text-white mb-3">
-                  Pouch Sizing Finder App
+                  {t('achievePackHome.apps.sizingTitle', 'Pouch Sizing Finder App')}
                 </h3>
                 <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
-                  Calculate exact stand-up pouch dimensions and gusset volume based on your target weight, product type, and substance density. Matches dimensions instantly across 100+ standard sizing grids.
+                  {t('achievePackHome.apps.sizingDesc', 'Calculate exact stand-up pouch dimensions and gusset volume based on your target weight, product type, and substance density. Matches dimensions instantly across 100+ standard sizing grids.')}
                 </p>
 
                 <ul className="space-y-3 mb-8 text-sm text-neutral-300">
                   <li className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
-                    <span>Product-specific density presets (Coffee, Tea, Powders, Snacks)</span>
+                    <span>{t('achievePackHome.apps.sizingL1', 'Product-specific density presets (Coffee, Tea, Powders, Snacks)')}</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
-                    <span>Accurate volume calculations (Fluid Ounces, Grams, Milliliters)</span>
+                    <span>{t('achievePackHome.apps.sizingL2', 'Accurate volume calculations (Fluid Ounces, Grams, Milliliters)')}</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
-                    <span>Interactive size charts and standard MoQ requirements</span>
+                    <span>{t('achievePackHome.apps.sizingL3', 'Interactive size charts and standard MoQ requirements')}</span>
                   </li>
                 </ul>
               </div>
@@ -1503,7 +1503,7 @@ function App() {
                 to="/knowledge/pouch-sizing" 
                 className="w-full text-center py-4 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-primary-500/10 hover:shadow-primary-500/25 flex items-center justify-center gap-2 group/btn"
               >
-                <span>Launch Sizing Finder</span>
+                <span>{t('achievePackHome.apps.launchSizing', 'Launch Sizing Finder')}</span>
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -1516,29 +1516,29 @@ function App() {
                     <MaterialSpecFinderIcon className="w-8 h-8 text-emerald-400" strokeWidth={2} />
                   </div>
                   <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-emerald-500/30">
-                    Material Tool
+                    {t('achievePackHome.apps.materialTool', 'Material Tool')}
                   </span>
                 </div>
                 
                 <h3 className="text-2xl font-bold text-white mb-3">
-                  Material Spec Finder App
+                  {t('achievePackHome.apps.materialTitle', 'Material Spec Finder App')}
                 </h3>
                 <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
-                  Search, filter, and compare precise mechanical and barrier properties (Oxygen Transmission OTR & Water Vapor WVTR) across our full catalog of certified eco-friendly laminates.
+                  {t('achievePackHome.apps.materialDesc', 'Search, filter, and compare precise mechanical and barrier properties (Oxygen Transmission OTR & Water Vapor WVTR) across our full catalog of certified eco-friendly laminates.')}
                 </p>
 
                 <ul className="space-y-3 mb-8 text-sm text-neutral-300">
                   <li className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <span>15+ sustainable duplex and triplex lamination options</span>
+                    <span>{t('achievePackHome.apps.materialL1', '15+ sustainable duplex and triplex lamination options')}</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <span>Live barrier level filtering (High, Medium, Light barrier specs)</span>
+                    <span>{t('achievePackHome.apps.materialL2', 'Live barrier level filtering (High, Medium, Light barrier specs)')}</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <span>Full specification sheets with thickness and MOQs list</span>
+                    <span>{t('achievePackHome.apps.materialL3', 'Full specification sheets with thickness and MOQs list')}</span>
                   </li>
                 </ul>
               </div>
@@ -1547,7 +1547,7 @@ function App() {
                 to="/tech-specs" 
                 className="w-full text-center py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/25 flex items-center justify-center gap-2 group/btn"
               >
-                <span>Launch Spec Finder</span>
+                <span>{t('achievePackHome.apps.launchMaterial', 'Launch Spec Finder')}</span>
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -1574,8 +1574,8 @@ function App() {
         <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]" />
         
         <div className="text-center mb-8 relative z-10">
-          <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">Trusted by Industry Leaders</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">Why 500+ Global Brands Choose Achieve Pack</h2>
+          <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">{t('achievePackHome.clients.tag', 'Trusted by Industry Leaders')}</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">{t('achievePackHome.clients.title', 'Why 500+ Global Brands Choose Achieve Pack')}</h2>
         </div>
         
         {/* Strip 1 - Deep Forest Green */}
@@ -1760,9 +1760,9 @@ function App() {
       <section className="py-16 bg-gradient-to-b from-primary-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 text-center">What is Compostable Packaging?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 text-center">{t('achievePackHome.seoBlock.title', 'What is Compostable Packaging?')}</h2>
             <p className="text-lg text-neutral-700 leading-relaxed mb-8">
-              Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no <Link to="/composting/plastic-free" className="text-primary-600 hover:underline font-medium">microplastics</Link>. Achieve Pack's compostable bags are certified to <Link to="/composting/home-vs-industrial-compostable" className="text-primary-600 hover:underline font-medium">EN13432</Link> and <Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">ASTM D6400</Link> standards, ensuring genuine environmental credentials.
+              {t('achievePackHome.seoBlock.desc1', 'Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no ')}<Link to="/composting/plastic-free" className="text-primary-600 hover:underline font-medium">{t('achievePackHome.seoBlock.microplastics', 'microplastics')}</Link>{t('achievePackHome.seoBlock.desc2', ". Achieve Pack's compostable bags are certified to ")}<Link to="/composting/home-vs-industrial-compostable" className="text-primary-600 hover:underline font-medium">EN13432</Link>{t('achievePackHome.seoBlock.desc3', ' and ')}<Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">ASTM D6400</Link>{t('achievePackHome.seoBlock.desc4', ' standards, ensuring genuine environmental credentials.')}
             </p>
             
             {/* Plastic-Free Highlight Block with Image */}
@@ -1773,16 +1773,16 @@ function App() {
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Leaf className="h-5 w-5 text-green-600" />
                     </div>
-                    <h3 className="text-lg font-bold text-green-800">Conventional Plastic-Free</h3>
+                    <h3 className="text-lg font-bold text-green-800">{t('achievePackHome.seoBlock.plasticFreeTitle', 'Conventional Plastic-Free')}</h3>
                   </div>
                   <p className="text-green-700 text-sm leading-relaxed mb-4">
-                    Our compostable pouches contain zero petroleum-based plastics. Made from plant-based PLA and PBAT biopolymers, they return to nature—not persist as microplastics in oceans and soil.
+                    {t('achievePackHome.seoBlock.plasticFreeDesc', 'Our compostable pouches contain zero petroleum-based plastics. Made from plant-based PLA and PBAT biopolymers, they return to nature—not persist as microplastics in oceans and soil.')}
                   </p>
                   <Link
                     to="/composting/plastic-free"
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700 hover:text-green-800 transition"
                   >
-                    Learn about plastic-free vs compostable
+                    {t('achievePackHome.seoBlock.plasticFreeLink', 'Learn about plastic-free vs compostable')}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -1802,42 +1802,42 @@ function App() {
               <table className="w-full border-collapse bg-white rounded-xl shadow-lg overflow-hidden">
                 <thead className="bg-primary-600 text-white">
                   <tr>
-                    <th className="px-4 py-3 text-left text-sm font-semibold">Feature</th>
-                    <th className="px-4 py-3 text-center text-sm font-semibold">Compostable</th>
-                    <th className="px-4 py-3 text-center text-sm font-semibold">Recyclable Mono-PE</th>
-                    <th className="px-4 py-3 text-center text-sm font-semibold">Traditional Plastic</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">{t('achievePackHome.table.feature', 'Feature')}</th>
+                    <th className="px-4 py-3 text-center text-sm font-semibold">{t('achievePackHome.table.compostable', 'Compostable')}</th>
+                    <th className="px-4 py-3 text-center text-sm font-semibold">{t('achievePackHome.table.recyclable', 'Recyclable Mono-PE')}</th>
+                    <th className="px-4 py-3 text-center text-sm font-semibold">{t('achievePackHome.table.traditional', 'Traditional Plastic')}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-200">
                   <tr className="hover:bg-neutral-50">
-                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">Decomposition</td>
-                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">180 days in composting</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-600">Requires recycling facility</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-500">Hundreds of years</td>
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">{t('achievePackHome.table.decomposition', 'Decomposition')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">{t('achievePackHome.table.180days', '180 days in composting')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-600">{t('achievePackHome.table.reqRecycling', 'Requires recycling facility')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">{t('achievePackHome.table.hundredsYears', 'Hundreds of years')}</td>
                   </tr>
                   <tr className="hover:bg-neutral-50">
-                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">Material Source</td>
-                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">Plant-based (corn, sugarcane)</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-600">Single polymer (PE/PP)</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-500">Petroleum-based</td>
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">{t('achievePackHome.table.materialSource', 'Material Source')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">{t('achievePackHome.table.plantBased', 'Plant-based (corn, sugarcane)')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-600">{t('achievePackHome.table.singlePolymer', 'Single polymer (PE/PP)')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">{t('achievePackHome.table.petroleum', 'Petroleum-based')}</td>
                   </tr>
                   <tr className="hover:bg-neutral-50">
-                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">Certifications</td>
-                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">EN13432, ASTM D6400</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-600">ISO 15270</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-500">None</td>
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">{t('achievePackHome.table.certs', 'Certifications')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">{t('achievePackHome.table.enastm', 'EN13432, ASTM D6400')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-600">{t('achievePackHome.table.iso15270', 'ISO 15270')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">{t('achievePackHome.table.none', 'None')}</td>
                   </tr>
                   <tr className="hover:bg-neutral-50">
-                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">Best For</td>
-                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">Coffee, snacks, dry goods</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-600">All dry products</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-500">General use</td>
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">{t('achievePackHome.table.bestFor', 'Best For')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">{t('achievePackHome.table.coffeeSnacks', 'Coffee, snacks, dry goods')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-600">{t('achievePackHome.table.dryProducts', 'All dry products')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">{t('achievePackHome.table.generalUse', 'General use')}</td>
                   </tr>
                   <tr className="hover:bg-neutral-50">
-                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">MOQ at Achieve Pack</td>
-                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-semibold">100 pieces</td>
-                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-semibold">100 pieces</td>
-                    <td className="px-4 py-3 text-sm text-center text-neutral-500">5,000+ typical</td>
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">{t('achievePackHome.table.moq', 'MOQ at Achieve Pack')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-semibold">{t('achievePackHome.table.100pcs', '100 pieces')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-semibold">{t('achievePackHome.table.100pcs', '100 pieces')}</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">{t('achievePackHome.table.5000pcs', '5,000+ typical')}</td>
                   </tr>
                 </tbody>
               </table>
@@ -1848,7 +1848,7 @@ function App() {
                 to="/composting/biodegradable-vs-compostable"
                 className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
               >
-                Learn more about compostable vs biodegradable packaging
+                {t('achievePackHome.table.learnBiodegradable', 'Learn more about compostable vs biodegradable packaging')}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -1966,7 +1966,7 @@ function App() {
               to="/store" 
               className="inline-flex text-base font-semibold text-primary-600 hover:text-primary-700 transition-colors items-center gap-1 mt-3"
             >
-              Shop All <ArrowRight className="h-5 w-5" />
+              {t('achievePackHome.products.shopAll', 'Shop All')} <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
 
@@ -1986,7 +1986,7 @@ function App() {
               className="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
             >
               <ShoppingCart className="h-5 w-5" />
-              Explore Full Shop
+              {t('achievePackHome.products.exploreFullShop', 'Explore Full Shop')}
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
@@ -2019,7 +2019,7 @@ function App() {
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('solutions.items.food.title')}</h3>
               <p className="text-neutral-700">{t('solutions.items.food.desc')}</p>
-              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">Learn more <ArrowRight className="h-4 w-4" /></span>
+              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">{t('achievePackHome.learnMore', 'Learn more')} <ArrowRight className="h-4 w-4" /></span>
             </Link>
 
             <Link to="/industry/coffee-tea" className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100 block">
@@ -2033,7 +2033,7 @@ function App() {
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('solutions.items.cosmetics.title')}</h3>
               <p className="text-neutral-700">{t('solutions.items.cosmetics.desc')}</p>
-              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">Learn more <ArrowRight className="h-4 w-4" /></span>
+              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">{t('achievePackHome.learnMore', 'Learn more')} <ArrowRight className="h-4 w-4" /></span>
             </Link>
 
             <Link to="/industry/supplements-powders" className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100 block">
@@ -2047,7 +2047,7 @@ function App() {
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('solutions.items.health.title')}</h3>
               <p className="text-neutral-700">{t('solutions.items.health.desc')}</p>
-              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">Learn more <ArrowRight className="h-4 w-4" /></span>
+              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">{t('achievePackHome.learnMore', 'Learn more')} <ArrowRight className="h-4 w-4" /></span>
             </Link>
 
             <Link to="/industry/pet-food" className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100 block">
@@ -2061,7 +2061,7 @@ function App() {
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('solutions.items.pet.title')}</h3>
               <p className="text-neutral-700">{t('solutions.items.pet.desc')}</p>
-              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">Learn more <ArrowRight className="h-4 w-4" /></span>
+              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">{t('achievePackHome.learnMore', 'Learn more')} <ArrowRight className="h-4 w-4" /></span>
             </Link>
           </div>
         </div>
@@ -2087,7 +2087,7 @@ function App() {
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-neutral-900">{t('features.barrier.title')}</h3>
                 <Link to="/features/barrier-options" className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm hover:text-primary-700">
-                  Learn more <ArrowRight className="h-4 w-4" />
+                  {t('achievePackHome.learnMore', 'Learn more')} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="mb-4">
@@ -2150,7 +2150,7 @@ function App() {
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-neutral-900">{t('features.shapes.title')}</h3>
                 <Link to="/knowledge/all-options" className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm hover:text-primary-700">
-                  Learn more <ArrowRight className="h-4 w-4" />
+                  {t('achievePackHome.learnMore', 'Learn more')} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="mb-4">
@@ -2183,7 +2183,7 @@ function App() {
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-neutral-900">{t('features.printing.title')}</h3>
                 <Link to="/features/surface-finish" className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm hover:text-primary-700">
-                  Learn more <ArrowRight className="h-4 w-4" />
+                  {t('achievePackHome.learnMore', 'Learn more')} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="mb-4">
@@ -2242,7 +2242,7 @@ function App() {
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-neutral-900">{t('features.reclosure.title')}</h3>
                 <Link to="/features/reclosure-options" className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm hover:text-primary-700">
-                  Learn more <ArrowRight className="h-4 w-4" />
+                  {t('achievePackHome.learnMore', 'Learn more')} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="mb-4">
@@ -2363,7 +2363,7 @@ function App() {
             </p>
             {/* E-E-A-T Trust Signal */}
             <p className="text-base text-primary-600 font-medium mt-4 bg-primary-50 py-3 px-6 rounded-full inline-block">
-              Our team has supported over 500+ brands in US, EU, NZ and Asia since 2011, across coffee, snacks, pet treats and supplements categories.
+              {t('achievePackHome.team.trustSignal', 'Our team has supported over 500+ brands in US, EU, NZ and Asia since 2011, across coffee, snacks, pet treats and supplements categories.')}
             </p>
           </div>
 
@@ -2468,10 +2468,10 @@ function App() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-green-100 mb-6">
               <Gift className="h-5 w-5 text-green-600" />
-              <span className="text-sm font-medium text-neutral-700">100% Free • No Obligation</span>
+              <span className="text-sm font-medium text-neutral-700">{t('achievePackHome.freeServices.badge', '100% Free • No Obligation')}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Free Services for Your Brand</h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">Expert help at absolutely no cost—design consultation, 3D mockups, website design, and customer portal.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">{t('achievePackHome.freeServices.title', 'Free Services for Your Brand')}</h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">{t('achievePackHome.freeServices.desc', 'Expert help at absolutely no cost—design consultation, 3D mockups, website design, and customer portal.')}</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -2479,39 +2479,39 @@ function App() {
               <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
                 <Palette className="h-6 w-6 text-white" />
               </div>
-              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-green-600 transition-colors">Design Consultation</h3>
-              <p className="text-sm text-neutral-600">Expert packaging design advice with custom dielines</p>
+              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-green-600 transition-colors">{t('achievePackHome.freeServices.designTitle', 'Design Consultation')}</h3>
+              <p className="text-sm text-neutral-600">{t('achievePackHome.freeServices.designDesc', 'Expert packaging design advice with custom dielines')}</p>
             </Link>
             
             <Link to="/free-service/packaging-mockup" className="group bg-white rounded-2xl p-6 shadow-sm border border-orange-100 hover:shadow-xl hover:border-orange-300 transition-all hover:-translate-y-1">
               <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
                 <Package className="h-6 w-6 text-white" />
               </div>
-              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-orange-600 transition-colors">3D Mockup</h3>
-              <p className="text-sm text-neutral-600">Photorealistic renders of your packaging design</p>
+              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-orange-600 transition-colors">{t('achievePackHome.freeServices.mockupTitle', '3D Mockup')}</h3>
+              <p className="text-sm text-neutral-600">{t('achievePackHome.freeServices.mockupDesc', 'Photorealistic renders of your packaging design')}</p>
             </Link>
             
             <Link to="/free-service/website-upgrade" className="group bg-white rounded-2xl p-6 shadow-sm border border-blue-100 hover:shadow-xl hover:border-blue-300 transition-all hover:-translate-y-1">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
                 <Globe className="h-6 w-6 text-white" />
               </div>
-              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-blue-600 transition-colors">Website Design</h3>
-              <p className="text-sm text-neutral-600">Modern landing page for your brand</p>
+              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-blue-600 transition-colors">{t('achievePackHome.freeServices.webTitle', 'Website Design')}</h3>
+              <p className="text-sm text-neutral-600">{t('achievePackHome.freeServices.webDesc', 'Modern landing page for your brand')}</p>
             </Link>
             
             <Link to="/free-service/customer-center" className="group bg-white rounded-2xl p-6 shadow-sm border border-purple-100 hover:shadow-xl hover:border-purple-300 transition-all hover:-translate-y-1">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
                 <Users className="h-6 w-6 text-white" />
               </div>
-              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-purple-600 transition-colors">Customer Center</h3>
-              <p className="text-sm text-neutral-600">Dashboard to track orders and manage quotes</p>
+              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-purple-600 transition-colors">{t('achievePackHome.freeServices.portalTitle', 'Customer Center')}</h3>
+              <p className="text-sm text-neutral-600">{t('achievePackHome.freeServices.portalDesc', 'Dashboard to track orders and manage quotes')}</p>
             </Link>
           </div>
           
           <div className="text-center mt-10">
             <Link to="/free-service" className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:from-green-600 hover:to-emerald-600 transition-all hover:shadow-xl">
               <Gift className="h-5 w-5" />
-              Explore All Free Services
+              {t('achievePackHome.freeServices.exploreAll', 'Explore All Free Services')}
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
@@ -2555,7 +2555,7 @@ function App() {
           <div className="text-center mt-4 text-sm text-neutral-500">
             <span className="inline-flex items-center gap-1">
               <ChevronDown className="h-4 w-4" />
-              Scroll for more FAQs
+              {t('achievePackHome.faq.scrollMore', 'Scroll for more FAQs')}
             </span>
           </div>
         </div>
@@ -2605,13 +2605,13 @@ function App() {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="h-8 w-8 text-green-600" />
                   </div>
-                  <h4 className="text-xl font-semibold text-neutral-900 mb-2">Message Sent Successfully!</h4>
-                  <p className="text-neutral-600 mb-6">Thank you for contacting us. We'll respond within 24 hours.</p>
+                  <h4 className="text-xl font-semibold text-neutral-900 mb-2">{t('achievePackHome.contact.successTitle', 'Message Sent Successfully!')}</h4>
+                  <p className="text-neutral-600 mb-6">{t('achievePackHome.contact.successDesc', "Thank you for contacting us. We'll respond within 24 hours.")}</p>
                   <button
                     onClick={() => setFormSubmitted(false)}
                     className="text-primary-600 hover:underline"
                   >
-                    Send another message
+                    {t('achievePackHome.contact.sendAnother', 'Send another message')}
                   </button>
                 </div>
               ) : (
@@ -2683,7 +2683,7 @@ function App() {
                   disabled={formSubmitting || !homeTurnstileToken}
                   className="w-full bg-primary-500 text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {formSubmitting ? 'Sending...' : t('contact.form.submit')}
+                  {formSubmitting ? t('achievePackHome.contact.sending', 'Sending...') : t('contact.form.submit')}
                 </button>
               </form>
                 </>
@@ -2776,9 +2776,9 @@ function App() {
                 <li><Link to="/packaging/vacuum-pouches" className="hover:text-primary-500">{t('footer.links.vacuumPouches')}</Link></li>
                 <li><Link to="/packaging/flat-pouches" className="hover:text-primary-500">{t('footer.links.flatPouches')}</Link></li>
                 <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-500">{t('footer.links.sideGussetBags')}</Link></li>
-                <li><Link to="/packaging/custom-boxes" className="hover:text-primary-500">Custom Boxes</Link></li>
-                <li><Link to="/products/labels-and-stickers" className="hover:text-primary-500">Labels & Stickers</Link></li>
-                <li><Link to="/products/lab-bags" className="hover:text-primary-500">Lab Bags</Link></li>
+                <li><Link to="/packaging/custom-boxes" className="hover:text-primary-500">{t('achievePackHome.footer.customBoxes', 'Custom Boxes')}</Link></li>
+                <li><Link to="/products/labels-and-stickers" className="hover:text-primary-500">{t('achievePackHome.footer.labelsStickers', 'Labels & Stickers')}</Link></li>
+                <li><Link to="/products/lab-bags" className="hover:text-primary-500">{t('achievePackHome.footer.labBags', 'Lab Bags')}</Link></li>
               </ul>
             </div>
 
@@ -2804,9 +2804,9 @@ function App() {
                 <li><Link to="/features/reclosure-options" className="hover:text-primary-500">{t('footer.links.reclosureOptions')}</Link></li>
                 <li><Link to="/features/surface-finish" className="hover:text-primary-500">{t('footer.links.surfaceFinishes')}</Link></li>
                 <li><Link to="/features/barrier-options" className="hover:text-primary-500">{t('footer.links.barrierOptions')}</Link></li>
-                <li><Link to="/features/low-barrier" className="hover:text-primary-500">Low Barrier</Link></li>
-                <li><Link to="/features/medium-barrier" className="hover:text-primary-500">Medium Barrier</Link></li>
-                <li><Link to="/features/high-barrier" className="hover:text-primary-500">High Barrier</Link></li>
+                <li><Link to="/features/low-barrier" className="hover:text-primary-500">{t('achievePackHome.footer.lowBarrier', 'Low Barrier')}</Link></li>
+                <li><Link to="/features/medium-barrier" className="hover:text-primary-500">{t('achievePackHome.footer.mediumBarrier', 'Medium Barrier')}</Link></li>
+                <li><Link to="/features/high-barrier" className="hover:text-primary-500">{t('achievePackHome.footer.highBarrier', 'High Barrier')}</Link></li>
               </ul>
             </div>
 
