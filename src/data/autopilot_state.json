@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T10:30:37.216Z",
+  "lastUnifiedRun": "2026-06-13T10:45:36.445Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2534,17 +2534,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-barrier-film-suppliers-low-moq",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "compostable barrier film suppliers low moq",
-      "difficulty": "Medium",
-      "slug": "compostable-barrier-film-suppliers-low-moq"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "sustainable packaging pouch sizes for nuts",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-packaging-pouch-sizes-for-nuts"
     },
     {
       "status": "Pending",
@@ -2633,9 +2634,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T10:30:29.062Z",
+      "timestamp": "2026-06-13T10:45:28.510Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film suppliers low moq\" to /blog/compostable-barrier-film-suppliers-low-moq (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging pouch sizes for nuts\" to /blog/sustainable-packaging-pouch-sizes-for-nuts (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film suppliers low moq\" to /blog/compostable-barrier-film-suppliers-low-moq (Pending Approval)",
+      "timestamp": "2026-06-13T10:30:29.062Z"
     },
     {
       "action": "Autopilot Generation Draft",
