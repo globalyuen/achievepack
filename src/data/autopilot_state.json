@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-13T03:15:48.032Z",
+  "lastUnifiedRun": "2026-06-13T03:30:45.831Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2331,17 +2331,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-shape-sachets-for-beverages-eco-friendly",
       "status": "Pending Approval",
       "volume": 710,
       "keyword": "custom shape sachets for beverages eco friendly",
-      "difficulty": "Low",
-      "slug": "custom-shape-sachets-for-beverages-eco-friendly"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 930,
       "keyword": "small batch mono material pouch printing",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-mono-material-pouch-printing"
     },
     {
       "status": "Pending",
@@ -2490,9 +2491,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-13T03:15:39.924Z",
+      "timestamp": "2026-06-13T03:30:36.588Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shape sachets for beverages eco friendly\" to /blog/custom-shape-sachets-for-beverages-eco-friendly (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch mono material pouch printing\" to /blog/small-batch-mono-material-pouch-printing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape sachets for beverages eco friendly\" to /blog/custom-shape-sachets-for-beverages-eco-friendly (Pending Approval)",
+      "timestamp": "2026-06-13T03:15:39.924Z"
     },
     {
       "action": "Autopilot Generation Draft",
