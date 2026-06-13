@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Truck, Sparkles } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -7,22 +8,24 @@ import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
 const PouchDTCSustainablePackagingPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'pouchDTCSustainablePackagingPage'
   const baseUrl = getBaseUrl()
   
   const DTC_METRICS = [
-    { label: 'DIM Weight', value: '-82%', unit: 'Reduction', desc: 'vs. Glass/Rigid shipping.' },
-    { label: 'Freight Sav', value: '$0.40', unit: 'per Unit', desc: 'Average shipping cost save.' },
-    { label: 'Unboxing', value: '10/10', unit: 'Score', desc: 'Premium matte/tactile finish.' },
-    { label: 'MOQ Entry', value: '500', unit: 'Units', desc: 'Low-risk digital production.' }
+    { label: t(`${p}.metrics.dimWeight.label`), value: t(`${p}.metrics.dimWeight.value`), unit: t(`${p}.metrics.dimWeight.unit`), desc: t(`${p}.metrics.dimWeight.desc`) },
+    { label: t(`${p}.metrics.freightSav.label`), value: t(`${p}.metrics.freightSav.value`), unit: t(`${p}.metrics.freightSav.unit`), desc: t(`${p}.metrics.freightSav.desc`) },
+    { label: t(`${p}.metrics.unboxing.label`), value: t(`${p}.metrics.unboxing.value`), unit: t(`${p}.metrics.unboxing.unit`), desc: t(`${p}.metrics.unboxing.desc`) },
+    { label: t(`${p}.metrics.moqEntry.label`), value: t(`${p}.metrics.moqEntry.value`), unit: t(`${p}.metrics.moqEntry.unit`), desc: t(`${p}.metrics.moqEntry.desc`) }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>DTC Sustainable Packaging | Logistics & UX Tech | Pouch.eco</title>
-        <meta name="description" content="Technical guide to DTC sustainable packaging. 800+ words of research on DIM weight optimization, premium unboxing, and logistics engineering." />
+        <title>{t(`${p}.meta.title`)}</title>
+        <meta name="description" content={t(`${p}.meta.description`)} />
         <link rel="canonical" href={`${baseUrl}/topics/dtc-sustainable-packaging`} />
-        <meta name="keywords" content="DTC sustainable packaging, D2C packaging, logistics engineering, unboxing experience, flexible pouches" />
+        <meta name="keywords" content={t(`${p}.meta.keywords`)} />
       </Helmet>
 
       {/* Hero Section */}
@@ -30,21 +33,25 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <NeoBadge color="magenta">DTC_STRATEGY_V1.0</NeoBadge>
-              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Ship.<br/>Pure.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Profit.</span></h1>
+              <NeoBadge color="magenta">{t(`${p}.hero.badge`)}</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">
+                {t(`${p}.hero.titlePart1`)}<br/>
+                {t(`${p}.hero.titlePart2`)}<br/>
+                <span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">{t(`${p}.hero.titlePart3`)}</span>
+              </h1>
               <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                DTC packaging is a balance of logistics and loyalty. We engineer lightweight flexible pouches that slash shipping costs.
+                {t(`${p}.hero.subtitle`)}
               </p>
               <div className="flex flex-wrap gap-6 mt-12">
-                <NeoButton variant="primary" to="/products">Browse DTC Solutions</NeoButton>
-                <NeoButton variant="secondary" to="/sample">Request Logistics Audit</NeoButton>
+                <NeoButton variant="primary" to="/products">{t(`${p}.hero.btnBrowse`)}</NeoButton>
+                <NeoButton variant="secondary" to="/sample">{t(`${p}.hero.btnRequest`)}</NeoButton>
               </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/topics/minimalist-d2c-unboxing-hero.png" 
-                alt="DTC Sustainable Packaging Hero" 
+                alt={t(`${p}.hero.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -60,15 +67,18 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/topics/minimalist-d2c-unboxing-hero.png" 
-                alt="Sustainable DTC Packaging Logistics" 
+                alt={t(`${p}.engineering.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">LOGISTICS_BY_DESIGN</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Engineered.<br/>To Deliver.</h2>
+              <NeoBadge color="blue">{t(`${p}.engineering.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.engineering.titlePart1`)}<br/>
+                {t(`${p}.engineering.titlePart2`)}
+              </h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                In the direct-to-consumer (DTC) world, your packaging is your primary physical brand touchpoint. But it's also your biggest logistics liability. In 2026, shipping air is a carbon and financial crime. At Pouch.eco, we perform a <strong>Dimensional Weight (DIM) Audit</strong> on your current packaging structure. By switching from rigid jars or boxes to lightweight flexible pouches, you can reduce primary packaging weight by up to 82%. This isn't just about 'using less plastic'; it's about <strong>Volumetric Optimization</strong>. A lighter, denser package means more units per pallet, lower fuel surcharges, and a significant reduction in your brand's <strong>Scope 3 carbon footprint</strong>.
+                {t(`${p}.engineering.description`)}
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {DTC_METRICS.map((p, i) => (
@@ -87,35 +97,38 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
       {/* Technical: The Unboxing Tech Stack */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="lime">UNBOXING_TECH_STACK</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">High Tech.<br/>High Tactile.</h2>
+          <NeoBadge color="lime">{t(`${p}.tech.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">
+            {t(`${p}.tech.titlePart1`)}<br/>
+            {t(`${p}.tech.titlePart2`)}
+          </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">01. Premium Soft-Touch</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item1Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                We utilize specialized coatings to create a velvety, premium hand-feel that signals luxury and quality to the consumer immediately upon contact.
+                {t(`${p}.tech.item1Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">02. Digital Color Purity</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item2Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Our HP Indigo 25K lines deliver G7-certified color accuracy (ΔE &lt; 2.0), ensuring your brand's identity is consistent across every single unit.
+                {t(`${p}.tech.item2Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">03. Right-Sized Engineering</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item3Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Custom-dimensioned pouches designed to fit perfectly into standard shipping mailers, eliminating the need for excessive void-fill and bubble wrap.
+                {t(`${p}.tech.item3Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">04. 100% Recyclability</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item4Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Verified mono-material structures that allow your customers to dispose of their packaging responsibly via curbside or store drop-off programs.
+                {t(`${p}.tech.item4Desc`)}
               </p>
             </div>
           </div>
@@ -127,24 +140,27 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="blue">DTC_UX_SCIENCE_V1</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Tactile.<br/>To the Customer.</h2>
+              <NeoBadge color="blue">{t(`${p}.science.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.science.titlePart1`)}<br/>
+                {t(`${p}.science.titlePart2`)}
+              </h2>
               <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
-                In a digital-first world, your packaging is your only physical connection to your audience. We use <strong>Delta-E spectrophotometry</strong> and <strong>Coefficient of Friction (CoF)</strong> testing to ensure that the unboxing experience is not just visually stunning, but physically premium. Our <strong>EEAT Design Protocol</strong> focuses on the 'Zero Moment of Truth'—when the customer first touches your product. By utilizing <strong>100% Recyclable Mono-PE</strong> structures with premium matte finishes, we help DTC brands align their physical product with their sustainability promises. This is brand building through material science.
+                {t(`${p}.science.description`)}
               </p>
               <div className="mt-12 space-y-4">
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <Sparkles className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Luxury Finish</h4>
-                    <p className="text-sm opacity-60">Matte, Gloss, and Soft-Touch options optimized for D2C unboxing.</p>
+                    <h4 className="font-black uppercase">{t(`${p}.science.item1Title`)}</h4>
+                    <p className="text-sm opacity-60">{t(`${p}.science.item1Desc`)}</p>
                   </div>
                 </div>
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <TrendingUp className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Logistics Verified</h4>
-                    <p className="text-sm opacity-60">Verified reduction in DIM weight and shipping fuel consumption.</p>
+                    <h4 className="font-black uppercase">{t(`${p}.science.item2Title`)}</h4>
+                    <p className="text-sm opacity-60">{t(`${p}.science.item2Desc`)}</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +169,7 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
-                alt="Verified DTC Packaging Manufacturing" 
+                alt={t(`${p}.science.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -164,14 +180,17 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
       {/* FAQ: DTC Intelligence */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="magenta">DTC_FAQ</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <NeoBadge color="magenta">{t(`${p}.faq.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">
+            {t(`${p}.faq.titlePart1`)}<br/>
+            {t(`${p}.faq.titlePart2`)}
+          </h2>
           <div className="space-y-4">
             {[
-              { q: "How much weight can a flexible pouch save?", a: "Replacing a glass jar with a flexible pouch can reduce primary packaging weight by up to 90%, directly lowering your per-unit shipping costs." },
-              { q: "Can pouches withstand the rough DTC shipping cycle?", a: "Yes. We engineer our pouches with high-tenacity co-extruded films like NY/PE or MDO-PE to ensure they are puncture-resistant and leak-proof during transit." },
-              { q: "What is your MOQ for new DTC brands?", a: "With our digital print lines, we offer custom-branded pouches with MOQs as low as 500 units per SKU, allowing for rapid market testing." },
-              { q: "Do you offer 'Right-Sized' engineering?", a: "Absolutely. We can custom-size your pouches to fit perfectly inside standard carrier mailers, eliminating the need for extra void-fill and reducing DIM weight." }
+              { q: t(`${p}.faq.q1.q`), a: t(`${p}.faq.q1.a`) },
+              { q: t(`${p}.faq.q2.q`), a: t(`${p}.faq.q2.a`) },
+              { q: t(`${p}.faq.q3.q`), a: t(`${p}.faq.q3.a`) },
+              { q: t(`${p}.faq.q4.q`), a: t(`${p}.faq.q4.a`) }
             ].map((faq, i) => (
               <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
@@ -188,15 +207,18 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="lime">DTC_MANDATE</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Ship Lighter.<br/>Impact Pure.</h2>
+          <NeoBadge color="lime">{t(`${p}.cta.badge`)}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">
+            {t(`${p}.cta.titlePart1`)}<br/>
+            {t(`${p}.cta.titlePart2`)}
+          </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            Ready to secure a logistics-optimized, sustainable supply chain for your brand? Let's start the technical audit today.
+            {t(`${p}.cta.description`)}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">Order DTC Samples</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">{t(`${p}.cta.btnReview`)}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to a Logistics Engineer
+              {t(`${p}.cta.btnEngineer`)}
             </NeoButton>
           </div>
         </div>

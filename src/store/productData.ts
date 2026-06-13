@@ -1,5 +1,5 @@
 // Store category types
-export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock' | 'boxes' | 'conventional-stock'
+export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock' | 'boxes' | 'conventional-stock' | 'custom-pouches'
 
 // NEW: Product type for Stock vs Custom distinction
 export type ProductType = 'sample' | 'stock' | 'custom'
@@ -13,6 +13,7 @@ export type ProductSubCategory =
   | 'eco-digital'               // Custom: Eco Digital (custom sizes)
   | 'eco-stock-custom-print'    // Custom: Eco Stock Custom Print
   | 'boxes'                     // Custom: Boxes
+  | 'custom-pouches'            // Custom: Custom Pouches with Live Quote
 
 // Legacy product interface (keeping for backward compatibility)
 export interface PouchProduct {
@@ -7892,6 +7893,157 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     customPrintNote: 'Custom prints available from 2,000+ pieces. Please consult our team.'
   },
   {
+    id: 'white-cotton-paper-vacuum-bag',
+    name: 'White Cotton Paper Vacuum Seal Bag (Conventional Stock)',
+    category: 'conventional-stock',
+    shape: 'Side Gusset Pouch',
+    material: 'PE + Cotton Paper (Ultra-Thick 28-Silk Strength)',
+    description: 'Premium white cotton paper vacuum seal bag with side gussets, engineered for packaging grains, rice bricks, tea leaves, and blueberries. Crafted with a thick PE inner liner and soft-touch cotton paper outer, this bag provides a highly durable and airtight seal under vacuum conditions. The gusseted side folds expand to form a neat brick shape when vacuum sealed, ideal for retail display and heavy-duty storage.',
+    shortDesc: 'Premium soft-touch white cotton paper vacuum seal side gusset bags for rice bricks, grains, and blueberries',
+    features: [
+      'Natural Cotton Paper Outer: Soft, tactile, organic paper texture that gives a clean and premium look.',
+      'High-Strength PE Lining: Formulated to withstand strong vacuum pressure without punctures or leaks.',
+      'Gusseted Side Fold Design: Expandable sides create structured, stackable brick shapes once vacuum sealed.',
+      'Airtight Heat Sealable: Designed for vacuum sealing machines and continuous band sealers for long-term freshness.',
+      'Food-Grade Protection: Puncture-resistant, food-contact safe, and ideal for preservation of grains, seeds, and fruits.'
+    ],
+    images: [
+      '/imgs/store/products/white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-1.png',
+      '/imgs/store/products/white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-2.png',
+      '/imgs/store/products/white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-3.png'
+    ],
+    badge: '⚡ Heavy Duty Vacuum',
+    rating: 4.9,
+    reviews: 15,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    minQuantity: 100,
+    quantityStep: 100,
+    basePrice: 19.04,
+    pricePerPiece: 0.1904,
+    sizeInfo: 'Available in 1斤 (0.5 kg) and 2斤 (1 kg) capacity sizes',
+    sizeVariants: [
+      { 
+        id: 'white-cotton-vacuum-bag-1jin', 
+        label: '1斤 (0.5 kg) Capacity 8+5×25cm - 100 Pcs', 
+        dimensions: '8 + 5 × 25 cm • Holds 1斤 (0.5 kg) Rice/Grains', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 19.04, 
+        unitPrice: 0.1904 
+      },
+      { 
+        id: 'white-cotton-vacuum-bag-2jin', 
+        label: '2斤 (1 kg) Capacity 10+5×34cm - 100 Pcs', 
+        dimensions: '10 + 5 × 34 cm • Holds 2斤 (1 kg) Rice/Grains', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 26.32, 
+        unitPrice: 0.2632 
+      }
+    ],
+    customPrintNote: 'Custom prints available for bulk orders. Contact our support team.'
+  },
+  {
+    id: 'semi-transparent-cotton-paper-tea-bag',
+    name: 'Food-Grade Semi-Transparent White Cotton Paper Tea Bag (Conventional Stock)',
+    category: 'conventional-stock',
+    shape: 'Side Gusset Pouch',
+    material: 'PE + Cotton Paper (Food-Grade Semi-Transparent)',
+    description: 'Premium food-grade semi-transparent white cotton paper side gusset pouch, specially designed for premium loose leaf tea, matcha powders, and herbal infusions. Crafted with a food-safe PE inner lining and a soft-touch, breathable cotton paper outer shell. This pouch preserves delicate tea aromas and protects leaves from moisture, while its semi-transparent texture offers a subtle, luxurious preview of the premium contents inside.',
+    shortDesc: 'Premium semi-transparent white cotton paper side gusset pouches for loose leaf tea and herbal infusions',
+    features: [
+      'Artisan Cotton Paper Outer: Soft, breathable, organic paper texture with a premium semi-transparent aesthetic.',
+      'Food-Grade Protection: Non-toxic, odor-free PE inner layer safe for direct loose leaf tea and herbal contact.',
+      'Side Gusset Design: Expandable side gussets maximize storage capacity and display elegantly on shelves.',
+      'Airtight Heat Sealable: Easy to seal using continuous band sealers or impulse sealers for long-lasting aroma preservation.',
+      'Tear-Notch Openings: Convenient tear notches at the header for quick and easy opening by consumers.'
+    ],
+    images: [
+      '/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-1.png',
+      '/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-2.png',
+      '/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-3.png'
+    ],
+    badge: '🌱 Premium Tea',
+    rating: 4.9,
+    reviews: 16,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    minQuantity: 100,
+    quantityStep: 100,
+    basePrice: 10.08,
+    pricePerPiece: 0.1008,
+    sizeInfo: 'Multiple capacity sizes available: 50g, 100g, 150g, 200g, 250g, 400g, and 500g',
+    sizeVariants: [
+      { 
+        id: 'semi-transparent-tea-bag-50g', 
+        label: '50g Capacity 180×60+40mm - 100 Pcs', 
+        dimensions: '180 × 60 + 40 mm • Holds 50g Tea', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 10.08, 
+        unitPrice: 0.1008 
+      },
+      { 
+        id: 'semi-transparent-tea-bag-100g', 
+        label: '100g Capacity 210×75+40mm - 100 Pcs', 
+        dimensions: '210 × 75 + 40 mm • Holds 100g Tea', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 17.36, 
+        unitPrice: 0.1736 
+      },
+      { 
+        id: 'semi-transparent-tea-bag-150g', 
+        label: '150g Capacity 235×80+50mm - 100 Pcs', 
+        dimensions: '235 × 80 + 50 mm • Holds 150g Tea', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 19.60, 
+        unitPrice: 0.1960 
+      },
+      { 
+        id: 'semi-transparent-tea-bag-200g', 
+        label: '200g Capacity 280×100+50mm - 100 Pcs', 
+        dimensions: '280 × 100 + 50 mm • Holds 200g Tea', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 24.64, 
+        unitPrice: 0.2464 
+      },
+      { 
+        id: 'semi-transparent-tea-bag-250g', 
+        label: '250g Capacity 300×90+70mm - 100 Pcs', 
+        dimensions: '300 × 90 + 70 mm • Holds 250g Tea', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 29.12, 
+        unitPrice: 0.2912 
+      },
+      { 
+        id: 'semi-transparent-tea-bag-400g', 
+        label: '400g Capacity 300×130+65mm - 100 Pcs', 
+        dimensions: '300 × 130 + 65 mm • Holds 400g Tea', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 31.36, 
+        unitPrice: 0.3136 
+      },
+      { 
+        id: 'semi-transparent-tea-bag-500g', 
+        label: '500g Capacity 330×175+75mm - 100 Pcs', 
+        dimensions: '330 × 175 + 75 mm • Holds 500g Tea', 
+        hasHole: false, 
+        quantity: 100, 
+        totalPrice: 39.20, 
+        unitPrice: 0.3920 
+      }
+    ],
+    customPrintNote: 'Custom logos and patterns available for bulk orders from 5,000+ pieces. Please consult our team.'
+  },
+  {
     id: 'water-soluble-fishing-bait-bags-pva-3-side-seal',
     name: 'Water-Soluble Fishing Bait Bags (PVA / Instant-Dissolve)',
     category: 'eco-stock',
@@ -8070,6 +8222,11 @@ export const getProductImage = (shape: string): string => {
 
 // Helper function to get product type based on category and id
 export const getProductType = (product: StoreProduct): ProductType => {
+  // If product has a live quote link, it is custom
+  if (product.viewQuoteLink && product.viewQuoteLink.startsWith('/view-quote/')) {
+    return 'custom'
+  }
+
   // Check if productType exists on the product
   if ('productType' in product && product.productType) {
     return product.productType as ProductType
@@ -8094,6 +8251,11 @@ export const getProductType = (product: StoreProduct): ProductType => {
 
 // Helper function to get sub-category for sidebar menu
 export const getProductSubCategory = (product: StoreProduct): ProductSubCategory => {
+  // If product has a live quote link, it belongs to custom-pouches
+  if (product.viewQuoteLink && product.viewQuoteLink.startsWith('/view-quote/')) {
+    return 'custom-pouches'
+  }
+
   // Check if subCategory exists on the product
   if ('subCategory' in product && product.subCategory) {
     return product.subCategory as ProductSubCategory

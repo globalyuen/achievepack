@@ -414,28 +414,28 @@ const getStewardshipTextForLogos = (logos: string[]): string => {
   }
   const texts: string[] = [];
   if (logos.includes('bio_pe')) {
-    texts.push("This structure utilizes Bio PE (I'm Green trademark), which can be added to the printing artwork to represent the bio-based material used.");
+    texts.push("Utilizes Bio PE (I'm Green trademark), representing renewable bio-based material.");
   }
   if (logos.includes('pcr')) {
-    texts.push("This structure incorporates PCR (Post-Consumer Recycled) content, helping to reduce virgin plastic usage and support circular recycling.");
+    texts.push("Incorporates PCR (Post-Consumer Recycled) polymer content to reduce virgin plastic usage.");
   }
   if (logos.includes('seed_industrial')) {
-    texts.push("This packaging is certified Industrial Compostable (Seed logo) under European Standard EN 13432 and American Standard ASTM D6400.");
+    texts.push("Certified Industrial Compostable (Seed logo) under EN 13432 and ASTM D6400.");
   }
   if (logos.includes('aba_home')) {
-    texts.push("This material is certified Home Compostable under the Australasian Bioplastics Association standard AS5810.");
+    texts.push("Certified Home Compostable under the Australasian Bioplastics Association standard AS5810.");
   }
   if (logos.includes('fsc')) {
-    texts.push("The paper components used in this packaging are FSC certified, sourced from responsibly managed forests.");
+    texts.push("Paper components are FSC certified, sourced from responsibly managed forests.");
   }
   if (logos.includes('recycle_pe')) {
-    texts.push("This packaging is classified under Plastics Identification Code 4 (PE) and is recyclable where soft plastic recycling facilities exist.");
+    texts.push("Classified under Plastics Identification Code 4 (PE), recyclable in soft plastic streams.");
   }
   if (logos.includes('recycle_pp')) {
-    texts.push("This packaging is classified under Plastics Identification Code 5 (PP) and is recyclable in PP recycling streams.");
+    texts.push("Classified under Plastics Identification Code 5 (PP), recyclable in PP streams.");
   }
   if (logos.includes('recycle_other')) {
-    texts.push("This film covered by the specification can be classified under Plastics Identification Code 7 (OTHER). Flexible packaging cannot be disposed of currently in curbside collection although clean film can be recycled using industrial recyclers. Cardboard cores can be recycled by industrial recyclers if the film and tape is removed. Cardboard layer pads used as packaging on the pallet can be recycled using industrial recyclers. Where AchievePack has suggested that our product and/or packaging can be Recycled AchievePack can assist with identifying suitable recyclers.");
+    texts.push("Classified under Plastics Identification Code 7 (OTHER). Flexible packaging is not currently recyclable in standard curbside collection but clean film can be recycled via industrial recyclers.");
   }
   return texts.join(' ');
 };
@@ -1967,11 +1967,11 @@ export default function SpecSheetTab() {
 
         {/* PRINT PAGE 2 */}
         <div className="print-page">
-          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
+          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-0.5 mb-1.5 uppercase tracking-wider">
             C. Physical Property Specifications & Tolerances
           </h4>
-          <p className="text-[9px] text-gray-500 mb-3">The following testing metrics reflect minimal threshold tolerances, ranges, or industrial packaging parameters:</p>
-          <table className="w-full mb-6">
+          <p className="text-[9px] text-gray-500 mb-1.5">The following testing metrics reflect minimal threshold tolerances, ranges, or industrial packaging parameters:</p>
+          <table className="w-full mb-2">
             <tbody>
               <tr>
                 <td className="bg-gray-50 font-bold w-[140px]">Opacity (White Films):</td>
@@ -2012,7 +2012,7 @@ export default function SpecSheetTab() {
             </tbody>
           </table>
 
-          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
+          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-0.5 mb-1.5 uppercase tracking-wider">
             D. Other Technical Information
           </h4>
           <table className="w-full">
@@ -2027,16 +2027,16 @@ export default function SpecSheetTab() {
               </tr>
               <tr>
                 <td className="bg-gray-50 font-bold align-top">Product Stewardship & Sustainability:</td>
-                <td className="leading-relaxed text-gray-700">
-                  <div>{data.stewardshipRecyclability || 'N/A'}</div>
+                <td className="leading-relaxed text-gray-700" style={{ fontSize: '8px', padding: '4px' }}>
+                  <div style={{ marginBottom: '4px', lineHeight: '1.2' }}>{data.stewardshipRecyclability || 'N/A'}</div>
                   {data.selectedLogos && data.selectedLogos.length > 0 && (
-                    <div className="mt-2 pt-2" style={{ borderTop: '1px solid #e5e7eb' }}>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>
+                    <div className="mt-1 pt-1" style={{ borderTop: '1px solid #e5e7eb' }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
                         {data.selectedLogos.map(logoKey => (
-                          <RenderCroppedLogo key={logoKey} logoKey={logoKey} height={55} />
+                          <RenderCroppedLogo key={logoKey} logoKey={logoKey} height={42} />
                         ))}
                       </div>
-                      <p style={{ fontSize: '9px', color: '#6b7280', fontStyle: 'italic', margin: '4px 0 0 0' }}>
+                      <p style={{ fontSize: '7.5px', color: '#6b7280', fontStyle: 'italic', margin: '2px 0 0 0', lineHeight: 1.1 }}>
                         * The selected logo(s) can be added to the artwork for printing to represent the material used.
                       </p>
                     </div>

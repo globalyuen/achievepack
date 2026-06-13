@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-12",
-  "total_images": 3069,
+  "total_images": 3075,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1531,
+    ".png": 1537,
     ".jpg": 232,
     ".svg": 3
   },
@@ -15326,8 +15326,44 @@
       ]
     },
     "store/products": {
-      "count": 300,
+      "count": 306,
       "images": [
+        {
+          "filename": "semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-3.png",
+          "path": "/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-3.png",
+          "extension": ".png",
+          "modified": "2026-06-12T23:56:04.679Z"
+        },
+        {
+          "filename": "semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-2.png",
+          "path": "/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-06-12T23:56:04.677Z"
+        },
+        {
+          "filename": "semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-1.png",
+          "path": "/imgs/store/products/semi-transparent-cotton-paper-tea-bag-side-gusset-pouch-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-06-12T23:56:04.675Z"
+        },
+        {
+          "filename": "white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-3.png",
+          "path": "/imgs/store/products/white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-3.png",
+          "extension": ".png",
+          "modified": "2026-06-12T23:32:48.446Z"
+        },
+        {
+          "filename": "white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-2.png",
+          "path": "/imgs/store/products/white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-06-12T23:32:48.444Z"
+        },
+        {
+          "filename": "white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-1.png",
+          "path": "/imgs/store/products/white-cotton-paper-vacuum-seal-bag-side-gusset-pouch-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-06-12T23:32:48.441Z"
+        },
         {
           "filename": "water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-3.png",
           "path": "/imgs/store/products/water-soluble-fishing-bait-bags-pva-3-side-seal-thumbnail-3.png",

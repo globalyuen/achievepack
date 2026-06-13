@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Truck, ClipboardCheck, Users, ShieldCheck } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -7,22 +8,24 @@ import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
 const PouchEcoFriendlySupplierServicePage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'pouchEcoFriendlySupplierServicePage'
   const baseUrl = getBaseUrl()
   
   const SUPPLIER_METRICS = [
-    { label: 'Ethical Audit', value: 'SMETA', unit: '4-Pillar', desc: 'Social and labor standards verified.' },
-    { label: 'Environment', value: 'ISO', unit: '14001', desc: 'Verified Environmental Management.' },
-    { label: 'EcoVadis', value: 'Gold', unit: 'Rating', desc: 'Top 5% of sustainable suppliers.' },
-    { label: 'Traceability', value: '100%', unit: 'GRS', desc: 'Chain of custody for all resins.' }
+    { label: t(`${p}.metrics.ethicalAudit.label`), value: t(`${p}.metrics.ethicalAudit.value`), unit: t(`${p}.metrics.ethicalAudit.unit`), desc: t(`${p}.metrics.ethicalAudit.desc`) },
+    { label: t(`${p}.metrics.environment.label`), value: t(`${p}.metrics.environment.value`), unit: t(`${p}.metrics.environment.unit`), desc: t(`${p}.metrics.environment.desc`) },
+    { label: t(`${p}.metrics.ecoVadis.label`), value: t(`${p}.metrics.ecoVadis.value`), unit: t(`${p}.metrics.ecoVadis.unit`), desc: t(`${p}.metrics.ecoVadis.desc`) },
+    { label: t(`${p}.metrics.traceability.label`), value: t(`${p}.metrics.traceability.value`), unit: t(`${p}.metrics.traceability.unit`), desc: t(`${p}.metrics.traceability.desc`) }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Eco-Friendly Supplier Verification | Technical Audits | Pouch.eco</title>
-        <meta name="description" content="Technical guide to sustainable supplier verification. 800+ words of research on SMETA audits, ISO 14001, and GRS traceability protocols." />
+        <title>{t(`${p}.meta.title`)}</title>
+        <meta name="description" content={t(`${p}.meta.description`)} />
         <link rel="canonical" href={`${baseUrl}/topics/eco-friendly-supplier-verification`} />
-        <meta name="keywords" content="eco-friendly supplier, sustainable supply chain, SMETA audit, GRS traceability, ISO 14001 packaging" />
+        <meta name="keywords" content={t(`${p}.meta.keywords`)} />
       </Helmet>
 
       {/* Hero Section */}
@@ -30,21 +33,25 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <NeoBadge color="magenta">SUPPLY_AUDIT_V1.0</NeoBadge>
-              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Pure.<br/>Truth.<br/><span className="text-emerald-900 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Verified.</span></h1>
+              <NeoBadge color="magenta">{t(`${p}.hero.badge`)}</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">
+                {t(`${p}.hero.titlePart1`)}<br/>
+                {t(`${p}.hero.titlePart2`)}<br/>
+                <span className="text-emerald-900 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">{t(`${p}.hero.titlePart3`)}</span>
+              </h1>
               <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                Sustainability without verification is just greenwashing. We provide a transparent, audit-ready supply chain backed by global standards.
+                {t(`${p}.hero.subtitle`)}
               </p>
               <div className="flex flex-wrap gap-6 mt-12">
-                <NeoButton variant="primary" to="/products">Browse Verified Solutions</NeoButton>
-                <NeoButton variant="secondary" to="/sample">Request Audit Reports</NeoButton>
+                <NeoButton variant="primary" to="/products">{t(`${p}.hero.btnBrowse`)}</NeoButton>
+                <NeoButton variant="secondary" to="/sample">{t(`${p}.hero.btnRequest`)}</NeoButton>
               </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
-                alt="Eco-Friendly Supplier Service Hero" 
+                alt={t(`${p}.hero.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -60,15 +67,18 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
-                alt="Sustainable Packaging Manufacturing Verification" 
+                alt={t(`${p}.engineering.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">SUPPLY_CHAIN_TRANSPARENCY</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Accountable.<br/>By Protocol.</h2>
+              <NeoBadge color="blue">{t(`${p}.engineering.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.engineering.titlePart1`)}<br/>
+                {t(`${p}.engineering.titlePart2`)}
+              </h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                Sustainability is a data-driven science, not a marketing claim. To protect your brand from the 2026 anti-greenwashing regulations (like the EU Green Claims Directive), every packaging supplier must provide a verifiable <strong>Chain of Custody</strong>. At Pouch.eco, we utilize the <strong>SMETA 4-Pillar</strong> framework to verify labor rights, health and safety, and environmental ethics on-site. We back our material claims with <strong>GRS (Global Recycled Standard)</strong> and <strong>ISCC PLUS</strong> mass-balance traceability, ensuring that every gram of post-consumer resin or bio-material is accounted for. This is technical accountability for the circular economy.
+                {t(`${p}.engineering.description`)}
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {SUPPLIER_METRICS.map((p, i) => (
@@ -87,35 +97,38 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
       {/* Technical: The Audit Stack */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="lime">AUDIT_TECH_STACK</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">Global Proof.<br/>Local Impact.</h2>
+          <NeoBadge color="lime">{t(`${p}.tech.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">
+            {t(`${p}.tech.titlePart1`)}<br/>
+            {t(`${p}.tech.titlePart2`)}
+          </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="border-l-4 border-emerald-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">01. SMETA Social Audit</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item1Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                We perform comprehensive 4-pillar audits covering labor, health, safety, and business ethics. Your packaging is manufactured in a facility that respects human rights and fair pay.
+                {t(`${p}.tech.item1Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-emerald-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">02. ISO 14001 EMS</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item2Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Verification of a formal Environmental Management System. We track and reduce water usage, energy consumption, and volatile organic compound (VOC) emissions during production.
+                {t(`${p}.tech.item2Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-emerald-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">03. GRS Chain of Custody</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item3Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Every shipment of recycled content is accompanied by a Transaction Certificate (TC), proving the post-consumer origin of the resin and the ethical integrity of the recovery process.
+                {t(`${p}.tech.item3Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-emerald-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">04. BRCGS Compliance</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item4Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Our manufacturing partners maintain Grade A BRCGS certification, ensuring the highest level of product safety and hygiene for food-grade flexible packaging.
+                {t(`${p}.tech.item4Desc`)}
               </p>
             </div>
           </div>
@@ -127,24 +140,27 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="blue">PHYSICAL_SITE_AUDIT</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Eyes on the<br/>Factory Floor.</h2>
+              <NeoBadge color="blue">{t(`${p}.science.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.science.titlePart1`)}<br/>
+                {t(`${p}.science.titlePart2`)}
+              </h2>
               <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
-                Digital certificates can be falsified; physical presence cannot. We maintain an <strong>on-the-ground presence</strong> in our primary manufacturing hubs to perform unannounced site visits and physical quality checks. From <strong>ASTM seal-strength testing</strong> to verifying the segregation of recycled and virgin resin stocks, we provide the forensic level of oversight required for enterprise-grade ESG reporting. We don't just trust the paperwork; we verify the process at the micron and the machine level.
+                {t(`${p}.science.description`)}
               </p>
               <div className="mt-12 space-y-4">
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <ClipboardCheck className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Audit Ready</h4>
-                    <p className="text-sm opacity-60">Full documentation sets available for your internal compliance and ESG audits.</p>
+                    <h4 className="font-black uppercase">{t(`${p}.science.item1Title`)}</h4>
+                    <p className="text-sm opacity-60">{t(`${p}.science.item1Desc`)}</p>
                   </div>
                 </div>
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <ShieldCheck className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Risk Mitigation</h4>
-                    <p className="text-sm opacity-60">Continuous monitoring of supplier geopolitical and environmental risk profiles.</p>
+                    <h4 className="font-black uppercase">{t(`${p}.science.item2Title`)}</h4>
+                    <p className="text-sm opacity-60">{t(`${p}.science.item2Desc`)}</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +169,7 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
-                alt="On-site Supplier Verification" 
+                alt={t(`${p}.science.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -164,14 +180,17 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
       {/* FAQ: Supplier Intelligence */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="magenta">SUPPLIER_FAQ</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <NeoBadge color="magenta">{t(`${p}.faq.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">
+            {t(`${p}.faq.titlePart1`)}<br/>
+            {t(`${p}.faq.titlePart2`)}
+          </h2>
           <div className="space-y-4">
             {[
-              { q: "How do you verify a supplier's GRS claims?", a: "We require Transaction Certificates (TCs) for every batch of resin. These are third-party verified documents that link the specific material in your pouch back to the certified recycler." },
-              { q: "What is a SMETA 4-Pillar audit?", a: "It is a comprehensive assessment covering Labor, Health & Safety, Environment, and Business Ethics. It is the global benchmark for social and ethical supply chain accountability." },
-              { q: "Can I use your audit data for my ESG report?", a: "Yes. We provide all relevant ISO, BRCGS, and SMETA documentation to our clients to support their annual sustainability and ethics disclosures." },
-              { q: "How do you handle non-compliance?", a: "Any supplier failing our physical or documentation audits is immediately placed on a corrective action plan (CAP). Failure to rectify issues results in termination of the partnership." }
+              { q: t(`${p}.faq.q1.q`), a: t(`${p}.faq.q1.a`) },
+              { q: t(`${p}.faq.q2.q`), a: t(`${p}.faq.q2.a`) },
+              { q: t(`${p}.faq.q3.q`), a: t(`${p}.faq.q3.a`) },
+              { q: t(`${p}.faq.q4.q`), a: t(`${p}.faq.q4.a`) }
             ].map((faq, i) => (
               <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
@@ -188,15 +207,18 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-emerald-950 text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="lime">VERIFY_MANDATE</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Trust Pure.<br/>Audit Bold.</h2>
+          <NeoBadge color="lime">{t(`${p}.cta.badge`)}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">
+            {t(`${p}.cta.titlePart1`)}<br/>
+            {t(`${p}.cta.titlePart2`)}
+          </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            Ready to secure a verified, high-performance sustainable supply chain for your brand? Let's start the audit today.
+            {t(`${p}.cta.description`)}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-white !text-emerald-950">Request Supplier Audit</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-emerald-950">{t(`${p}.cta.btnReview`)}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to an Audit Engineer
+              {t(`${p}.cta.btnEngineer`)}
             </NeoButton>
           </div>
         </div>

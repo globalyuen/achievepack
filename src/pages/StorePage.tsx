@@ -60,6 +60,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
     icon: '🎨',
     badge: 'RFQ',
     children: [
+      { id: 'custom-pouches', label: 'Custom Pouches', count: 0 },
       { id: 'eco-digital', label: 'Eco Digital', count: 9 },
       { id: 'eco-stock-custom-print', label: 'Eco Stock Custom Print', count: 2 },
       { id: 'boxes', label: 'Custom Boxes', count: 2 },
@@ -81,6 +82,7 @@ const CATEGORIES = [
   { id: 'eco-stock-custom-print', label: 'Eco Stock Custom Print' },
   { id: 'boxes', label: 'Boxes' },
   { id: 'mailer', label: 'Mailer Bags' },
+  { id: 'custom-pouches', label: 'Custom Pouches' },
 ]
 
 const SHAPES = [
@@ -443,6 +445,7 @@ const StorePage: React.FC = () => {
       'eco-digital': 0,
       'eco-stock-custom-print': 0,
       boxes: 0,
+      'custom-pouches': 0,
     }
     FEATURED_PRODUCTS.forEach(product => {
       const subCategory = getProductSubCategory(product)
@@ -675,7 +678,7 @@ const StorePage: React.FC = () => {
       // Special handling for different category filters
       let matchesCategory = false
       if (selectedCategory === 'all') {
-        matchesCategory = true
+        matchesCategory = productSubCategory !== 'custom-pouches'
       } else if (selectedCategory === 'mailer') {
         // Mailer category filters by shape 'Mailer Bag'
         const productShape = getProductShape(product)

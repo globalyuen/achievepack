@@ -27649,5 +27649,1006 @@
       "btn_samples": "Solicitar Muestras de Grado Alimentario",
       "btn_consultation": "Hablar con un Ingeniero de Barreras"
     }
+  },
+  "pouchEcoPackagingRegulationsPage": {
+    "meta": {
+      "title": "Regulaciones de Eco-Embalaje | Centro de Cumplimiento Global | Pouch.eco",
+      "description": "Guía técnica sobre regulaciones globales de eco-embalaje. Análisis del cumplimiento de PPWR de la UE, SB 54 de California y las Guías Verdes de la FTC.",
+      "keywords": "regulaciones de eco-embalaje, PPWR de la UE, SB 54, cumplimiento de embalajes, ley de economía circular"
+    },
+    "hero": {
+      "badge": "REG_HUB_V1.0",
+      "titlePart1": "Ley.",
+      "titlePart2": "Pura.",
+      "titlePart3": "Probada.",
+      "subtitle": "La sostenibilidad voluntaria ha muerto. En 2026, el embalaje es un entregable legal. Diseñamos estructuras que cumplen con los mandatos más estrictos.",
+      "btnBrowse": "Explorar Diseños Cumplidores",
+      "btnRequest": "Solicitar Pruebas Legales",
+      "imageAlt": "Héroe de Regulaciones de Eco-Embalaje"
+    },
+    "engineering": {
+      "badge": "INFORME_DE_AUDITORÍA_LEGAL",
+      "imageAlt": "Pruebas de Cumplimiento Regulatorio",
+      "titlePart1": "Cumplimiento.",
+      "titlePart2": "Por Diseño.",
+      "description": "La regulación de envases ha pasado del 'estímulo' a la 'aplicación obligatoria'. En 2026, el Reglamento de Envases y Residuos de Envases de la UE (PPWR) y la SB 54 de California han creado un estándar global de Responsabilidad Ampliada del Productor (EPR). Las marcas ahora están legalmente obligadas a demostrar la reciclabilidad y el contenido reciclado de sus envases. En Pouch.eco, diseñamos nuestras bolsas Mono-PE y Mono-PP para lograr un rendimiento de reciclabilidad de 'Grado A', lo que garantiza que califiquen para las tarifas de EPR más bajas y la mayor confianza del consumidor. Respaldamos cada afirmación con Evaluaciones de Ciclo de Vida ISO 14040/44 y certificaciones de laboratorio Cyclos-HTP."
+    },
+    "metrics": {
+      "ppwr": {
+        "label": "Grado PPWR",
+        "value": "Grado A",
+        "unit": "UE",
+        "desc": "Máxima calificación de reciclabilidad."
+      },
+      "sourceRed": {
+        "label": "Red. Origen",
+        "value": "-25%",
+        "unit": "SB 54",
+        "desc": "Mandato de reducción de California."
+      },
+      "recycledCont": {
+        "label": "Cont. Reciclado",
+        "value": "30%",
+        "unit": "Impuesto UK",
+        "desc": "Umbral de exención fiscal."
+      },
+      "claimsVerif": {
+        "label": "Verif. Reclamaciones",
+        "value": "ISO",
+        "unit": "14040",
+        "desc": "Datos de impacto ACV verificables."
+      }
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_REGULATORIA",
+      "titlePart1": "Ley Global.",
+      "titlePart2": "Prueba Nano.",
+      "item1Title": "01. Preparación para PPWR de la UE",
+      "item1Desc": "Adhesión obligatoria a 'Diseño para el Reciclaje'. Nuestros monomateriales están optimizados para la clasificación NIR y la recuperación de materiales según los últimos mandatos de la UE para 2030.",
+      "item2Title": "02. California SB 54",
+      "item2Desc": "Exceeding the 25% source reduction and recyclability mandates required for all single-use packaging sold in the California market by 2032.",
+      "item3Title": "03. UK Plastic Tax",
+      "item3Desc": "Integrating a minimum of 30% GRS-certified PCR content to ensure your pouches are exempt from the UK Plastic Packaging Tax (£217/tonne).",
+      "item4Title": "04. Anti-Greenwashing",
+      "item4Desc": "Full compliance with FTC Green Guides and UK CMA codes. All environmental claims are specific, prominent, and backed by laboratory data."
+    },
+    "science": {
+      "badge": "CIENCIA_LEGAL_V1",
+      "titlePart1": "Verificado.",
+      "titlePart2": "Hasta la Cláusula.",
+      "description": "El cumplimiento es una especificación técnica. Proporcionamos documentos de Declaración de Cumplimiento (DoC) que detallan la composición de materiales y el perfil de seguridad química de sus envases. Esto incluye verificación libre de PFAS (California AB 1200) y certificaciones libres de bisfenol. No solo 'prometemos' seguridad; entregamos las pruebas de laboratorio necesarias para su departamento legal y los reguladores globales. Como su socio técnico, gestionamos la complejidad regulatoria para que pueda enfocarse en su marca.",
+      "item1Title": "Documentos a Prueba de Auditorías",
+      "item1Desc": "Fichas técnicas (TDS) y fichas de datos de seguridad (SDS) completas para cada estructura.",
+      "item2Title": "Escudo de Riesgo",
+      "item2Desc": "Verificación respaldada por seguros del cumplimiento de los materiales con las normas globales de seguridad alimentaria.",
+      "imageAlt": "Descripción Técnica Regulatoria"
+    },
+    "faq": {
+      "badge": "PREGUNTAS_FRECUENTES_REG",
+      "titlePart1": "Inteligencia",
+      "titlePart2": "Experta.",
+      "q1": {
+        "q": "¿Sigue siendo legal el etiquetado 'Store Drop-Off' (Entrega en Tienda)?",
+        "a": "Las regulaciones se están endureciendo. Bajo la ley SB 343 de California, solo puede usar las 'flechas de reciclaje' si demuestra que el material realmente se recupera en la mayoría de las jurisdicciones locales. Proporcionamos los datos para respaldar esto."
+      },
+      "q2": {
+        "q": "¿Qué es la modulación de tarifas de EPR?",
+        "a": "Es un sistema donde 'el que contamina paga', en el cual los materiales no reciclables pagan tarifas más altas. Nuestros monomateriales califican para los niveles de tarifas más bajos en los mercados de la UE y EE. UU."
+      },
+      "q3": {
+        "q": "¿Cómo gestionan el cumplimiento libre de PFAS?",
+        "a": "Utilizamos barreras contra la grasa a base de soluciones acuosas y aditivos certificados libres de PFAS. Proporcionamos informes de laboratorio independientes que confirman 0 ppm de flúor orgánico."
+      },
+      "q4": {
+        "q": "¿Proporcionan datos de ACV para el informe de carbono?",
+        "a": "Sí. Cada estructura personalizada puede suministrarse con un ACV compatible con la norma ISO 14040 para respaldar sus requisitos de divulgación de carbono de Alcance 3."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_LEGAL",
+      "titlePart1": "Enfoque Legal.",
+      "titlePart2": "Impacto Puro.",
+      "description": "¿Listo para asegurar una cadena de suministro legalmente defendible y a prueba de auditorías para su marca? Comencemos la auditoría técnica hoy mismo.",
+      "btnReview": "Solicitar Revisión de Cumplimiento",
+      "btnEngineer": "Hablar con un Ingeniero de Cumplimiento"
+    }
+  },
+  "pouchCustomCompostablePouchSuppliersPage": {
+    "meta": {
+      "title": "Proveedores de Bolsas Compostables | Bioingeniería Certificada | Pouch.eco",
+      "description": "Guía técnica para proveedores de bolsas compostables personalizadas. Investigación sobre certificaciones TUV y ciencia de biobarreras.",
+      "keywords": "compostable pouch suppliers, custom compostable packaging, TUV certified, BPI compostable, bio-polymer engineering"
+    },
+    "hero": {
+      "badge": "BIO_SUPPLY_V1.0",
+      "titlePart1": "Bio.",
+      "titlePart2": "Pura.",
+      "titlePart3": "Probada.",
+      "subtitle": "Las afirmaciones compostables requieren pruebas de ingeniería. Somos un proveedor directo de fábrica de bolsas compostables de alta barrera con certificación TUV.",
+      "btnBrowse": "Explorar Soluciones Bio",
+      "btnRequest": "Solicitar Muestras Bio",
+      "imageAlt": "Héroe de Proveedores de Bolsas Compostables"
+    },
+    "engineering": {
+      "badge": "AUDITORÍA_INTEGRIDAD_BIO",
+      "imageAlt": "Bioingeniería de Envases Compostables",
+      "titlePart1": "Diseñado.",
+      "titlePart2": "Para Desaparecer.",
+      "description": "En el mercado de envases compostables, su proveedor es su principal riesgo o su mayor activo. En 2026, el 'bioplástico' no es suficiente; debe ser certificado como compostable. En Pouch.eco, actuamos como socio técnico directo de fábrica. Utilizamos PBS y Bio-EVOH para diseñar estructuras que ofrezcan altas barreras de oxígeno y humedad mientras siguen siendo 100% compostables en el hogar."
+    },
+    "metrics": {
+      "bioDegrade": {
+        "label": "Biodegradación",
+        "value": "180",
+        "unit": "Días",
+        "desc": "Verificado doméstico/industrial."
+      },
+      "barrier": {
+        "label": "Barrera",
+        "value": "Alta",
+        "unit": "PBS",
+        "desc": "A prueba de aroma y humedad."
+      },
+      "certification": {
+        "label": "Certificación",
+        "value": "TUV",
+        "unit": "BPI",
+        "desc": "Alineación regulatoria global."
+      },
+      "moqEntry": {
+        "label": "Entrada MOQ",
+        "value": "500",
+        "unit": "Unidades",
+        "desc": "Bioinnovación de bajo riesgo."
+      }
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_BIO",
+      "titlePart1": "Cero Plástico.",
+      "titlePart2": "Barrera Total.",
+      "item1Title": "01. Certificación Compostable en el Hogar",
+      "item1Desc": "Verificación TUV Austria OK Compost Home. Nuestras bolsas se descomponen en contenedores de compostaje domésticos en 180 días.",
+      "item2Title": "02. Barrera Bio-EVOH",
+      "item2Desc": "Logrando barreras contra gases equivalentes a los plásticos tradicionales, protegiendo contra la oxidación.",
+      "item3Title": "03. Sellado de Alta Resistencia",
+      "item3Desc": "Capas sellantes bio-optimizadas que proporcionan integridad hermética (ASTM F88) durante la logística.",
+      "item4Title": "04. Seguridad Alimentaria BRCGS",
+      "item4Desc": "Fabricado en instalaciones BRCGS Grado A con laminación 100% libre de solventes."
+    },
+    "science": {
+      "badge": "CIENCIA_BIO_V1",
+      "titlePart1": "Verificado.",
+      "titlePart2": "Al Proveedor.",
+      "description": "La biopureza es una especificación técnica. Utilizamos espectroscopia FTIR para verificar el perfil químico de nuestros biopolímeros. Al elegir un proveedor de bolsas compostables directo de fábrica, elimina riesgos de intermediarios no certificados.",
+      "item1Title": "Biomateriales Puros",
+      "item1Desc": "Polímeros sintéticos compostables o 100% de origen vegetal sin residuos plásticos permanentes.",
+      "item2Title": "Liderazgo en el Mercado",
+      "item2Desc": "Posicionando su marca a la vanguardia absoluta de la bioeconomía global.",
+      "imageAlt": "Fabricación Compostable Verificada"
+    },
+    "faq": {
+      "badge": "BIO_FAQ",
+      "titlePart1": "Inteligencia",
+      "titlePart2": "Experta.",
+      "q1": {
+        "q": "¿Es un fabricante directo?",
+        "a": "Sí. Poseemos y operamos la instalación de fabricación, asegurando un control total sobre la certificación."
+      },
+      "q2": {
+        "q": "¿Cuál es la vida útil de las bolsas compostables?",
+        "a": "Con nuestras barreras avanzadas, logramos una vida útil de 6 a 12 meses para la mayoría de los productos secos."
+      },
+      "q3": {
+        "q": "¿Proporcionan copias de certificados TUV?",
+        "a": "Por supuesto. Proporcionamos certificados TUV Austria OK Compost y BPI completos para todas nuestras estructuras estándar."
+      },
+      "q4": {
+        "q": "¿Cuál es el MOQ para bolsas compostables personalizadas?",
+        "a": "Con nuestra tecnología digital, ofrecemos bolsas compostables personalizadas desde solo 500 unidades por SKU."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_BIO",
+      "titlePart1": "Piense en Bio.",
+      "titlePart2": "Impacto Puro.",
+      "description": "¿Listo para asegurar una cadena de suministro bio certificada de alto rendimiento?",
+      "btnRequest": "Solicitar Muestras Bio",
+      "btnEngineer": "Hablar con un Bioingeniero"
+    }
+  },
+  "pouchMonoPEPouchesPage": {
+    "meta": {
+      "title": "Bolsas Reciclables Mono-PE | Ingeniería Circular | Pouch.eco",
+      "description": "Guía técnica para envases reciclables de Mono-PE. Investigación sobre estiramiento MDO-PE y ciencia de barreras EVOH-PE.",
+      "keywords": "mono-PE pouches, recyclable packaging, MDO-PE, circular economy, EVOH barrier PE"
+    },
+    "hero": {
+      "badge": "SISTEMA_CIRCULAR_V2",
+      "titlePart1": "Pura.",
+      "titlePart2": "Reciclada.",
+      "titlePart3": "Probada.",
+      "subtitle": "Los laminados multicapa son obsoletos. Diseñamos bolsas 100% Mono-PE de alta rigidez y barrera.",
+      "btnBrowse": "Ver Diseños Mono-PE",
+      "btnRequest": "Solicitar Muestra de Material",
+      "imageAlt": "Héroe de Bolsas Mono-PE"
+    },
+    "engineering": {
+      "badge": "INNOVACIÓN_ESTRUCTURAL",
+      "imageAlt": "Ingeniería Estructural Mono-PE",
+      "titlePart1": "Fuerza Mediante",
+      "titlePart2": "Orientación.",
+      "description": "El desafío técnico del Mono-PE siempre ha sido su suavidad intrínseca. Resolvemos esto mediante la Orientación en la Dirección de la Máquina (MDO). Al estirar la película de polietileno a nivel molecular, aumentamos su rigidez para igualar la del PET convencional."
+    },
+    "metrics": {
+      "recyclability": {
+        "label": "Reciclabilidad",
+        "value": "100%",
+        "unit": "Mono-PE",
+        "desc": "Estructura de una sola familia de polímeros."
+      },
+      "stiffness": {
+        "label": "Índice Rigidez",
+        "value": "0.9",
+        "unit": "Relativo a PET",
+        "desc": "Rigidez alta gracias a MDO-PE."
+      },
+      "oxygen": {
+        "label": "Barrera Oxígeno",
+        "value": "< 0.5",
+        "unit": "OTR",
+        "desc": "Escudo de gas de alto rendimiento EVOH-PE."
+      },
+      "sealStrength": {
+        "label": "Fuerza Sellado",
+        "value": "45+",
+        "unit": "N/15mm",
+        "desc": "Integridad estructural de grado industrial."
+      }
+    },
+    "tech": {
+      "badge": "INGENIERÍA_BARRERA_V4",
+      "titlePart1": "La Ciencia de la",
+      "titlePart2": "Separación.",
+      "item1Title": "01. Núcleo EVOH-PE",
+      "item1Desc": "Barrera de oxígeno coextruida ligada molecularmente a las capas de PE. Con menos del 5% del peso total, es totalmente compatible con el reciclaje de PE.",
+      "item2Title": "02. Tecnología BOPE",
+      "item2Desc": "Polietileno orientado biaxialmente. Logramos claridad similar al vidrio y resistencia superior a la perforación.",
+      "item3Title": "03. Sellado Térmico",
+      "item3Desc": "Nuestras capas de sellado están diseñadas con una amplia ventana térmica (80-120°C) para evitar quemaduras.",
+      "item4Title": "04. Cremalleras Reciclables",
+      "item4Desc": "Sin materiales mezclados. Las cremalleras de autocierre (zippers) y boquillas se fabrican con la misma familia de PE."
+    },
+    "science": {
+      "badge": "AUDITORÍA_CIRCULARIDAD",
+      "titlePart1": "Verificado.",
+      "titlePart2": "No Solo Declarado.",
+      "description": "Las bolsas Mono-PE se diseñan bajo las directrices de CEFLEX y RecyClass. Proporcionamos certificaciones de laboratorios independientes (Cyclos-HTP) que demuestran una puntuación de reciclabilidad superior al 95%.",
+      "item1Title": "Listo para Código SPI 4",
+      "item1Desc": "Totalmente compatible con los flujos estándar de reciclaje de LDPE y LLDPE.",
+      "item2Title": "Eficiencia de Carbono",
+      "item2Desc": "30% menos huella de carbono comparado con laminados multicapa de aluminio.",
+      "imageAlt": "Verificación de Fabricación Mono-PE"
+    },
+    "faq": {
+      "badge": "MONO_FAQ",
+      "titlePart1": "Inteligencia Pura.",
+      "titlePart2": "",
+      "q1": {
+        "q": "¿Puede el Mono-PE reemplazar a las bolsas de café con aluminio?",
+        "a": "Sí. Usando EVOH-PE y recubrimientos de AlOx, logramos tasas de transmisión de oxígeno (OTR) de < 0.5 cc/m2/día, protegiendo el aroma en formato reciclable."
+      },
+      "q2": {
+        "q": "¿Por qué es importante el MDO-PE?",
+        "a": "El estiramiento MDO orienta las cadenas de polímero, aumentando la rigidez y resistencia al calor. Sin esto, la bolsa sería demasiado blanda para líneas automatizadas."
+      },
+      "q3": {
+        "q": "¿Es el EVOH realmente reciclable en el flujo de PE?",
+        "a": "Sí, siempre que represente menos del 5% del peso total de la estructura y esté coextruido con capas de enlace compatibles."
+      },
+      "q4": {
+        "q": "¿Cuál es el impacto en la vida útil al cambiar a Mono-PE?",
+        "a": "Nuestras estructuras de Mono-PE proporcionan el 95-100% de la vida útil de los laminados mezclados convencionales."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_CIRCULAR",
+      "titlePart1": "Piense en Puro.",
+      "titlePart2": "Pásese a Mono.",
+      "description": "¿Listo para la transición a envases mono-PE 100% reciclables de alto rendimiento?",
+      "btnReview": "Solicitar Muestras Mono-PE",
+      "btnEngineer": "Consultar a un Ingeniero Circular"
+    }
+  },
+  "pouchCompostableHumidityControlPage": {
+    "meta": {
+      "title": "Control de Humedad Compostable | Ingeniería de Alta Barrera | Pouch.eco",
+      "description": "Guía técnica para el control de humedad compostable. Investigación sobre métricas de WVTR y ciencia de barreras Bio-EVOH.",
+      "keywords": "compostable humidity control, high barrier compostable, WVTR, bio-EVOH, compostable coffee valves, moisture proof"
+    },
+    "hero": {
+      "badge": "TECNOLOGÍA_BARRERA_V1.0",
+      "titlePart1": "Seco.",
+      "titlePart2": "Puro.",
+      "titlePart3": "Probado.",
+      "subtitle": "La humedad es el enemigo de la calidad. Diseñamos bolsas compostables de alta barrera que ofrecen una protección contra la humedad equivalente a la del plástico.",
+      "btnBrowse": "Browse Barrier Styles",
+      "btnRequest": "Request Barrier Proofs"
+    },
+    "engineering": {
+      "badge": "AUDITORÍA_INTEGRIDAD_BARRERA",
+      "titlePart1": "Diseñado.",
+      "titlePart2": "Para la Frescura.",
+      "description": "En la bioeconomía, la protección contra la humedad ha sido tradicionalmente una debilidad. En 2026, la protección de productos sensibles (café, especias) exige alta barrera. En Pouch.eco, utilizamos laminados de Bio-EVOH y PBS para lograr una tasa de transmisión de vapor de agua (WVTR) de < 0.5 g/m²/día."
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_BARRERA",
+      "titlePart1": "Cero Infiltración.",
+      "titlePart2": "Puridad Total.",
+      "item1Title": "01. Escudo Bio-EVOH",
+      "item1Desc": "Capas de EVOH de origen vegetal que bloquean el 99.9% de la transmisión de oxígeno, protegiendo los aromas.",
+      "item2Title": "02. Protector contra Humedad PBS",
+      "item2Desc": "Selladores PBS de alta pureza que ofrecen un rendimiento de barrera contra la humedad líder en la industria.",
+      "item3Title": "03. Válvulas de Desgasificación Compostables",
+      "item3Desc": "Válvulas integradas que permiten la salida de CO2 del café tostado fresco sin dejar entrar oxígeno exterior.",
+      "item4Title": "04. Cremalleras Bio Herméticas",
+      "item4Desc": "Cremalleras de autocierre (zippers) compostables que mantienen un sellado a prueba de humedad después de varios usos."
+    },
+    "science": {
+      "badge": "CIENCIA_BARRERA_V1",
+      "titlePart1": "Medido.",
+      "titlePart2": "Al Milímetro.",
+      "description": "El rendimiento de barrera se verifica mediante pruebas MOCON (ASTM F1249 / ASTM D3985) para comprobar WVTR y OTR.",
+      "item1Title": "Defensa Humedad",
+      "item1Desc": "Transmisión de humedad de < 0.5 g/m² verificada para la máxima protección de productos secos.",
+      "item2Title": "Estabilidad en貨架",
+      "item2Desc": "Frescura garantizada por más de 12 meses para productos secos como café de especialidad.",
+      "imageAlt": "Fabricación con Control de Humedad Verificada"
+    },
+    "faq": {
+      "badge": "PREGUNTAS_BARRERA",
+      "titlePart1": "Preguntas Frecuentes.",
+      "titlePart2": "",
+      "q1": {
+        "q": "¿Pueden las bolsas compostables bloquear la humedad?",
+        "a": "Sí. Utilizando estructuras laminadas con PBS y Bio-EVOH logramos igualar la barrera de humedad (WVTR) del PET y LDPE."
+      },
+      "q2": {
+        "q": "¿Son compostables las válvulas de desgasificación?",
+        "a": "Sí. Ofrecemos válvulas certificadas por TUV Austria OK Compost que se degradan junto con la bolsa."
+      },
+      "q3": {
+        "q": "¿Cuál es el OTR de sus películas compostables?",
+        "a": "Nuestras biopelículas de alta barrera logran una tasa de transmisión de oxígeno (OTR) de < 0.1 cc/m2/día."
+      },
+      "q4": {
+        "q": "¿Ofrecen control de humedad reciclable?",
+        "a": "Sí. Si no requiere compostaje, ofrecemos estructuras Mono-PE de alta barrera 100% reciclables."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_BARRERA",
+      "titlePart1": "Pense en Frescura.",
+      "titlePart2": "Impacto Puro.",
+      "description": "¿Listo para asegurar una cadena de suministro de alta barrera y rendimiento para su marca?",
+      "btnReview": "Solicitar Pruebas de Barrera",
+      "btnEngineer": "Hablar con un Ingeniero de Barreras"
+    }
+  },
+  "pouchHomeCompostableCoffeeBagsPage": {
+    "meta": {
+      "title": "Bolsas de Café Compostables en el Hogar | Ingeniería del Aroma | Pouch.eco",
+      "description": "Guía técnica sobre bolsas de café compostables en casa. Investigación sobre válvulas desgasificadoras y laminados de alta barrera NK/PBS.",
+      "keywords": "home compostable coffee bags, kraft pouches, degassing valve, aroma retention, OK compost HOME"
+    },
+    "hero": {
+      "badge": "ESCUDO_AROMA_V4.0",
+      "titlePart1": "Tostar.",
+      "titlePart2": "Proteger.",
+      "titlePart3": "Compostar.",
+      "subtitle": "El café de especialidad exige una barrera absoluta. Diseñamos bolsas de café compostables en el hogar utilizando laminados NK/PBS y válvulas de desgasificación.",
+      "btnBrowse": "Browse Roaster Styles",
+      "btnRequest": "Request Freshness Pack"
+    },
+    "engineering": {
+      "badge": "LAB_CONTROL_GAS",
+      "titlePart1": "Liberación",
+      "titlePart2": "Unidireccional.",
+      "description": "El café recién tostado libera CO2. Sin una válvula, la bolsa se rompería. Nuestro equipo de ingeniería integra válvulas de desgasificación 100% de base biológica y compostables en casa que se abren a una presión interna precisa de 2 a 5 mbar."
+    },
+    "metrics": {
+      "aroma": {
+        "label": "Retención Aroma",
+        "value": "12-18",
+        "unit": "Meses",
+        "desc": "Preserva los aceites volátiles del grano."
+      },
+      "valve": {
+        "label": "Calificación Válvula",
+        "value": "2-5",
+        "unit": "mbar",
+        "desc": "Liberación de presión de CO2 precisa."
+      },
+      "compost": {
+        "label": "Velocidad Compost",
+        "value": "26-52",
+        "unit": "Semanas",
+        "desc": "Ciclo completo de compostaje en casa."
+      },
+      "cert": {
+        "label": "Certificación",
+        "value": "OK HOME",
+        "unit": "TUV",
+        "desc": "El estándar de compostaje doméstico más alto."
+      }
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_MATERIALES",
+      "titlePart1": "El Estándar",
+      "titlePart2": "NK/PBS.",
+      "item1Title": "01. Kraft Natural (NK)",
+      "item1Desc": "Papel de fibra larga certificado FSC que proporciona una resistencia superior a perforaciones y una estética artesanal.",
+      "item2Title": "02. PLA Metalizado",
+      "item2Desc": "El ácido poliláctico metalizado al vacío ofrece un OTR de < 0.5 cc/m2/día, imitando al papel de aluminio compostable.",
+      "item3Title": "03. Sellador Bio-PBS",
+      "item3Desc": "El succinato de polibutileno (PBS) proporciona una excelente fuerza de sellado (45N+) para soportar el peso de los granos.",
+      "item4Title": "04. Certificación OK HOME",
+      "item4Desc": "Verificado para descomponerse en compost doméstico en 52 semanas sin dejar residuos plásticos ni metales pesados."
+    },
+    "science": {
+      "badge": "PROTOCOLO_FRESCO",
+      "titlePart1": "Matemática de",
+      "titlePart2": "la Frescura.",
+      "item1Title": "Lavado con Nitrógeno",
+      "item1Desc": "Compatible con lavado con N2 para lograr < 2% de oxígeno residual y extender la vida útil.",
+      "item2Title": "Estabilidad del Tueste",
+      "item2Desc": "Preservación comprobada de perfiles de lípidos y aceites aromáticos por 12 meses.",
+      "item3Title": "Rendimiento Logístico",
+      "item3Desc": "Estructuras de Kraft/PBS de alta tenacidad que reducen perforaciones de transporte en un 18%.",
+      "imageAlt": "Ingeniería de Válvulas de Café Compostables"
+    },
+    "faq": {
+      "badge": "PREGUNTAS_CAFÉ",
+      "titlePart1": "Preguntas de Tostadores.",
+      "titlePart2": "",
+      "q1": {
+        "q": "¿Cómo se diferencia la válvula compostable de las estándar?",
+        "a": "Nuestras válvulas están hechas de mezclas bio-poliméricas (PLA/PBS) y están certificadas para biodegradarse al mismo ritmo que la bolsa."
+      },
+      "q2": {
+        "q": "¿Se pueden usar para café en grano y molido?",
+        "a": "Sí. Las capas metalizadas de alta barrera y el sellado hermético protegen tanto el grano como la mayor superficie del café molido."
+      },
+      "q3": {
+        "q": "¿Absorberá el papel Kraft los aceites del café?",
+        "a": "No. El Kraft es solo la capa exterior estética. Las capas internas de Bio-PBS y metalizado son 100% resistentes a las grasas."
+      },
+      "q4": {
+        "q": "¿Cuál es la vida útil del café en estas bolsas?",
+        "a": "Con inyección de nitrógeno, nuestras bolsas de Kraft/PBS logran una vida útil de 12 a 18 meses, equivalente a las tradicionales."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_TOSTADOR",
+      "titlePart1": "Proteja el",
+      "titlePart2": "Tueste.",
+      "description": "¿Listo para la transición a envases de café compostables en el hogar de alto rendimiento?",
+      "btnReview": "Solicitar Muestras de Café",
+      "btnEngineer": "Hablar con un Experto en Tueste"
+    }
+  },
+  "pouchCompostableCertificationFAQPage": {
+    "meta": {
+      "title": "Preguntas Frecuentes sobre Certificación Compostable | Pouch.eco",
+      "description": "Guía técnica para certificaciones de envases compostables. Información sobre EN 13432, ASTM D6400 y OK Compost.",
+      "keywords": "compostable certification, EN 13432, ASTM D6400, OK Compost HOME, BPI certified"
+    },
+    "hero": {
+      "badge": "VERIFICACIÓN_CERT_V1.0",
+      "titlePart1": "Probado.",
+      "titlePart2": "Puro.",
+      "titlePart3": "Planta.",
+      "subtitle": "La compostabilidad no es una afirmación de marketing, es una especificación técnica verificada por laboratorio. Explicamos EN 13432 y ASTM D6400.",
+      "btnBrowse": "Browse Certified Styles",
+      "btnRequest": "Request Lab Reports",
+      "imageAlt": "Compostable Certification Hero"
+    },
+    "engineering": {
+      "badge": "VERIFICACIÓN_LAB_MATERIAL",
+      "imageAlt": "Compostability Testing Engineering",
+      "titlePart1": "Medido.",
+      "titlePart2": "A Cero.",
+      "description": "Para que un material sea verdaderamente compostable, debe someterse a una rigurosa prueba de biodegradación de 180 días que mide la conversión de carbono en CO2 por microorganismos."
+    },
+    "metrics": {
+      "biodegradation": {
+        "label": "Biodegradación",
+        "value": "90%",
+        "unit": "180 Días",
+        "desc": "Conversión de carbono en CO2."
+      },
+      "disintegration": {
+        "label": "Desintegración",
+        "value": "12",
+        "unit": "Semanas",
+        "desc": "Desglose físico a menos de 2 mm."
+      },
+      "ecotoxicity": {
+        "label": "Ecotoxicidad",
+        "value": "APTO",
+        "unit": "Prueba Planta",
+        "desc": "Seguro para el suelo y el crecimiento."
+      },
+      "standard": {
+        "label": "Estándar",
+        "value": "EN13432",
+        "unit": "ASTM D6400",
+        "desc": "Cumplimiento industrial global."
+      }
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_CERT",
+      "titlePart1": "Protocolos Globales",
+      "titlePart2": "de Seguridad.",
+      "item1Title": "01. EN 13432 (Europa)",
+      "item1Desc": "La norma industrial europea clave. Exige desintegración en 12 semanas y límites estrictos en metales pesados.",
+      "item2Title": "02. ASTM D6400 (EE. UU.)",
+      "item2Desc": "La base técnica de la certificación BPI en EE. UU. Centrada en el compostaje aeróbico industrial.",
+      "item3Title": "03. OK HOME (TUV)",
+      "item3Desc": "Certificación compostable en casa, garantizando que el material se degrada a temperaturas ambiente (20-30°C).",
+      "item4Title": "04. AS 4736 (Australia)",
+      "item4Desc": "Incluye la prueba de toxicidad para lombrices para garantizar que el compost sea biológicamente seguro."
+    },
+    "science": {
+      "badge": "MATRIZ_VERIFICACIÓN_CERT",
+      "titlePart1": "Confíe en el",
+      "titlePart2": "Análisis.",
+      "item1Title": "Auditoría de Metales",
+      "item1Desc": "Análisis de laboratorio para más de 12 metales pesados tóxicos garantizando la inocuidad del compost.",
+      "item2Title": "Prueba de Ecotoxicidad",
+      "item2Desc": "Ensayos de crecimiento certificados confirmando cero efectos adversos en la germinación.",
+      "item3Title": "Libre de Solventes",
+      "item3Desc": "Laminación 100% base agua para asegurar que ningún residuo interfiera con el compostaje."
+    },
+    "faq": {
+      "badge": "CERT_FAQ",
+      "titlePart1": "Inteligencia",
+      "titlePart2": "Experta.",
+      "q1": {
+        "q": "¿Cuál es la diferencia entre OK Compost HOME e INDUSTRIAL?",
+        "a": "La industrial (EN 13432) requiere temperaturas de 60°C+. La doméstica (OK Compost HOME) garantiza degradación en pilas caseras a 20-30°C."
+      },
+      "q2": {
+        "q": "¿Tienen fecha de vencimiento estas certificaciones?",
+        "a": "Sí. Los certificados TUV y BPI suelen tener una validez de 3 a 5 años y requieren re-ensayos periódicos de la estructura."
+      },
+      "q3": {
+        "q": "¿Puedo imprimir el logo de la plántula (seedling) en mi bolsa?",
+        "a": "Solo si su diseño de bolsa específico está registrado con la entidad certificadora. Facilitamos los datos técnicos para ello."
+      },
+      "q4": {
+        "q": "¿Los bioplásticos son siempre compostables?",
+        "a": "No. Algunos bioplásticos son molecularmente idénticos a los plásticos convencionales y son reciclables, no compostables."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_CERT",
+      "titlePart1": "Piense en Puro.",
+      "titlePart2": "Certifíquese.",
+      "description": "¿Listo para asegurar una cadena de suministro certificada como compostable para su marca?",
+      "btnReview": "Solicitar Muestras Certificadas",
+      "btnEngineer": "Hablar con un Experto en Certificación"
+    }
+  },
+  "pouchDTCSustainablePackagingPage": {
+    "meta": {
+      "title": "Envases Sostenibles DTC | Logística y Experiencia de Usuario | Pouch.eco",
+      "description": "Guía técnica para envases sostenibles DTC. Optimización del peso dimensional (DIM), experiencia de unboxing y logística.",
+      "keywords": "DTC sustainable packaging, D2C packaging, logistics engineering, unboxing experience, flexible pouches"
+    },
+    "hero": {
+      "badge": "ESTRATEGIA_DTC_V1.0",
+      "titlePart1": "Enviar.",
+      "titlePart2": "Puro.",
+      "titlePart3": "Rentable.",
+      "subtitle": "El envase DTC equilibra la logística y la fidelidad. Diseñamos bolsas flexibles ligeras que reducen drásticamente los costes de envío.",
+      "btnBrowse": "Browse DTC Solutions",
+      "btnRequest": "Request Logistics Audit",
+      "imageAlt": "DTC Sustainable Packaging Hero"
+    },
+    "engineering": {
+      "badge": "LOGÍSTICA_POR_DISEÑO",
+      "imageAlt": "Sustainable DTC Packaging Logistics",
+      "titlePart1": "Diseñado.",
+      "titlePart2": "Para Entregar.",
+      "description": "En el sector directo al consumidor (DTC), el envase es su principal punto de contacto físico. Al cambiar tarros rígidos por bolsas flexibles ligeras, reduce el peso del envase en un 82%."
+    },
+    "metrics": {
+      "dimWeight": {
+        "label": "Peso DIM",
+        "value": "-82%",
+        "unit": "Reducción",
+        "desc": "Frente a envíos de vidrio/rígido."
+      },
+      "freightSav": {
+        "label": "Ahorro Flete",
+        "value": "$0.40",
+        "unit": "por Unidad",
+        "desc": "Ahorro medio en coste de envío."
+      },
+      "unboxing": {
+        "label": "Unboxing",
+        "value": "10/10",
+        "unit": "Puntuación",
+        "desc": "Acabado mate/táctil de primera calidad."
+      },
+      "moqEntry": {
+        "label": "Entrada MOQ",
+        "value": "500",
+        "unit": "Unidades",
+        "desc": "Producción digital de bajo riesgo."
+      }
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_UNBOXING",
+      "titlePart1": "Alta Tecnología.",
+      "titlePart2": "Alto Tacto.",
+      "item1Title": "01. Tacto Suave Premium",
+      "item1Desc": "Utilizamos recubrimientos especiales para crear un tacto aterciopelado que comunica lujo al consumidor.",
+      "item2Title": "02. Pureza de Color Digital",
+      "item2Desc": "Nuestras líneas HP Indigo 25K ofrecen precisión de color certificada G7 (ΔE < 2.0).",
+      "item3Title": "03. Dimensiones a Medida",
+      "item3Desc": "Bolsas diseñadas para caber en sobres estándar, eliminando rellenos de plástico innecesarios.",
+      "item4Title": "04. 100% Reciclable",
+      "item4Desc": "Estructuras monomateriales que permiten a los clientes reciclar su embalaje de forma sencilla."
+    },
+    "science": {
+      "badge": "CIENCIA_DTC_UX_V1",
+      "titlePart1": "Táctil.",
+      "titlePart2": "Para el Cliente.",
+      "description": "Medimos la experiencia con pruebas de fricción y espectrofotometría. Nuestras bolsas de Mono-PE reciclable con acabado mate premium ayudan a las marcas DTC a cumplir sus promesas ecológicas.",
+      "item1Title": "Acabado de Lujo",
+      "item1Desc": "Opciones mate, brillante y de tacto suave optimizadas para unboxing D2C.",
+      "item2Title": "Logística Verificada",
+      "item2Desc": "Reducción probada en peso dimensional y consumo de combustible de transporte.",
+      "imageAlt": "Fabricación de Envases DTC Verificada"
+    },
+    "faq": {
+      "badge": "DTC_FAQ",
+      "titlePart1": "Inteligencia",
+      "titlePart2": "DTC.",
+      "q1": {
+        "q": "¿Cuánto peso puede ahorrar una bolsa flexible?",
+        "a": "Sustituir tarros de vidrio por bolsas flexibles reduce el peso del envase hasta en un 90%, abaratando el flete."
+      },
+      "q2": {
+        "q": "¿Soportan las bolsas las duras condiciones de envío DTC?",
+        "a": "Sí. Las fabricamos con películas coextruidas de alta tenacidad (MDO-PE o NY/PE) resistentes a pinchazos y fugas."
+      },
+      "q3": {
+        "q": "¿Cuál es su MOQ para marcas DTC nuevas?",
+        "a": "Con impresión digital, ofrecemos bolsas personalizadas desde 500 unidades por SKU para testar el mercado rápidamente."
+      },
+      "q4": {
+        "q": "¿Ofrecen ingeniería a la medida del sobre de envío?",
+        "a": "Sí. Ajustamos las dimensiones de la bolsa al formato de sus sobres para optimizar el peso dimensional."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_DTC",
+      "titlePart1": "Envíe Ligero.",
+      "titlePart2": "Impacto Puro.",
+      "description": "¿Listo para optimizar la logística y la sostenibilidad de su marca DTC?",
+      "btnReview": "Solicitar Muestras DTC",
+      "btnEngineer": "Hablar con un Ingeniero de Logística"
+    }
+  },
+  "pouchRealWorldSustainabilityPage": {
+    "meta": {
+      "title": "Sostenibilidad Real | Ingeniería ACV | Pouch.eco",
+      "description": "Guía técnica para la sostenibilidad real en envases. Análisis de ciclo de vida ISO 14040, huella de carbono y cumplimiento global.",
+      "keywords": "real-world sustainability, LCA, carbon footprint, packaging compliance, ISO 14040"
+    },
+    "hero": {
+      "badge": "MOTOR_IMPACTO_V1.0",
+      "titlePart1": "Datos.",
+      "titlePart2": "No.",
+      "titlePart3": "Marketing.",
+      "subtitle": "La sostenibilidad es un entregable de ingeniería. Proporcionamos los datos del Análisis de Ciclo de Vida (ACV) ISO 14040 y las certificaciones necesarias.",
+      "btnBrowse": "Browse Verified Solutions",
+      "btnRequest": "Order Evidence Kit",
+      "imageAlt": "Real-World Sustainability Hero"
+    },
+    "engineering": {
+      "badge": "AUDITORÍA_CICLO_VIDA",
+      "imageAlt": "Real-World Sustainable Packaging Case Study",
+      "titlePart1": "De la Cuna",
+      "titlePart2": "al Consumidor.",
+      "description": "La sostenibilidad es una métrica, no un concepto abstracto. Utilizamos la norma ISO 14040/44 para cuantificar el impacto ambiental de sus envases. Al pasar a bolsas flexibles, se logra una reducción del 75% del peso enviado a vertedero."
+    },
+    "metrics": {
+      "carbonProof": {
+        "label": "Prueba Carbono",
+        "value": "ISO",
+        "unit": "14040",
+        "desc": "Impacto cuna a tumba verificado."
+      },
+      "landfillAvoid": {
+        "label": "Evita Vertedero",
+        "value": "75%",
+        "unit": "En Peso",
+        "desc": "Frente a envases de vidrio/PET rígidos."
+      },
+      "eprMitigation": {
+        "label": "Mitigación EPR",
+        "value": "-20%",
+        "unit": "Tarifas",
+        "desc": "Optimizado para impuestos al plástico."
+      },
+      "compliance": {
+        "label": "Cumplimiento",
+        "value": "APTO",
+        "unit": "Auditoría",
+        "desc": "Listo para las normas FTC y UK CMA."
+      }
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_REGULATORIA",
+      "titlePart1": "Proteja",
+      "titlePart2": "sus Declaraciones.",
+      "item1Title": "01. Guías Verdes de la FTC",
+      "item1Desc": "Cumplimiento con las normas de consumo de EE. UU. Aportamos pruebas fiables para sus afirmaciones ambientales.",
+      "item2Title": "02. Directrices CMA",
+      "item2Desc": "Preparados para el Green Claims Code del Reino Unido. Garantizamos que cada ventaja sostenible sea cuantificable.",
+      "item3Title": "03. Optimización del EPR",
+      "item3Desc": "Minimizamos su responsabilidad de pago maximizando las puntuaciones de reciclabilidad del envase.",
+      "item4Title": "04. Declaraciones EPD",
+      "item4Desc": "Declaraciones Ambientales de Producto. Documentos estandarizados para su reporte anual de ESG."
+    },
+    "science": {
+      "badge": "VERIFICACIÓN_CADENA_SUMINISTRO",
+      "titlePart1": "Verificado.",
+      "titlePart2": "En el Terreno.",
+      "description": "Realizamos auditorías SMETA de 4 pilares a nuestros proveedores principales. La integración de sistemas ISO 14001 nos permite medir y reducir la energía empleada en la producción.",
+      "item1Title": "Trazabilidad Técnica",
+      "item1Desc": "Cadena de custodia certificada por GRS e ISCC PLUS para todas nuestras resinas recicladas.",
+      "item2Title": "Divulgación de Carbono",
+      "item2Desc": "Datos cuantificados de kg CO2e por SKU para apoyar su hoja de ruta de cero emisiones.",
+      "imageAlt": "Operaciones de Envase Sostenible Verificadas"
+    },
+    "faq": {
+      "badge": "PREGUNTAS_IMPACTO",
+      "titlePart1": "Respuestas Claras.",
+      "titlePart2": "",
+      "q1": {
+        "q": "¿Qué es un Análisis de Ciclo de Vida (ACV) ISO 14040?",
+        "a": "Es la norma científica global para medir el impacto ambiental de un producto desde la extracción de materias primas hasta su desecho."
+      },
+      "q2": {
+        "q": "¿Cómo definen la sostenibilidad 'real'?",
+        "a": "Es la intersección de la ciencia de materiales y la infraestructura local de residuos. Soluciones que funcionan hoy, no solo en laboratorio."
+      },
+      "q3": {
+        "q": "¿Protegen sus datos frente a demandas por greenwashing?",
+        "a": "Sí. Siguiendo las directrices FTC y CMA con pruebas científicas creíbles, blindará su marca legalmente."
+      },
+      "q4": {
+        "q": "¿Cuánto carbono se puede ahorrar con bolsas flexibles?",
+        "a": "En promedio, cambiar vidrio o PET rígido por bolsas flexibles reduce las emisiones totales de ciclo de vida entre un 60 y 80%."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_IMPACTO",
+      "titlePart1": "Basado en Pruebas.",
+      "titlePart2": "Planeta Aprobado.",
+      "description": "¿Listo para conseguir las pruebas técnicas de sostenibilidad que su marca necesita?",
+      "btnReview": "Solicitar Muestras de Pruebas",
+      "btnEngineer": "Hablar con un Ingeniero de ACV"
+    }
+  },
+  "pouchEcoFriendlySupplierServicePage": {
+    "meta": {
+      "title": "Verificación de Proveedor Sostenible | Auditorías Técnicas | Pouch.eco",
+      "description": "Guía técnica para verificar proveedores sostenibles. Investigación sobre auditorías SMETA, ISO 14001 y trazabilidad GRS.",
+      "keywords": "eco-friendly supplier, sustainable supply chain, SMETA audit, GRS traceability, ISO 14001 packaging"
+    },
+    "hero": {
+      "badge": "AUDITORÍA_PROVEEDOR_V1.0",
+      "titlePart1": "Pura.",
+      "titlePart2": "Verdad.",
+      "titlePart3": "Verificada.",
+      "subtitle": "La sostenibilidad sin verificación es lavado verde. Proporcionamos una cadena de suministro transparente y auditable respaldada por normas globales.",
+      "btnBrowse": "Browse Verified Solutions",
+      "btnRequest": "Request Audit Reports",
+      "imageAlt": "Eco-Friendly Supplier Service Hero"
+    },
+    "engineering": {
+      "badge": "TRANSPARENCIA_CADENA_SUMINISTRO",
+      "imageAlt": "Sustainable Packaging Manufacturing Verification",
+      "titlePart1": "Responsable.",
+      "titlePart2": "Por Protocolo.",
+      "description": "La sostenibilidad es una ciencia basada en datos. En Pouch.eco, utilizamos el marco SMETA de 4 pilares para verificar los derechos laborales, salud y seguridad, y ética ambiental en las fábricas."
+    },
+    "metrics": {
+      "ethicalAudit": {
+        "label": "Auditoría Ética",
+        "value": "SMETA",
+        "unit": "4-Pillar",
+        "desc": "Estándares sociales y laborales verificados."
+      },
+      "environment": {
+        "label": "Medio Ambiente",
+        "value": "ISO",
+        "unit": "14001",
+        "desc": "Gestión ambiental verificada."
+      },
+      "ecoVadis": {
+        "label": "EcoVadis",
+        "value": "Oro",
+        "unit": "Rating",
+        "desc": "En el top 5% de proveedores sostenibles."
+      },
+      "traceability": {
+        "label": "Trazabilidad",
+        "value": "100%",
+        "unit": "GRS",
+        "desc": "Cadena de custodia para todas las resinas."
+      }
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_AUDITORÍA",
+      "titlePart1": "Prueba Global.",
+      "titlePart2": "Impacto Local.",
+      "item1Title": "01. Auditoría Social SMETA",
+      "item1Desc": "Auditorías exhaustivas sobre condiciones de trabajo y salarios éticos en la planta.",
+      "item2Title": "02. ISO 14001 EMS",
+      "item2Desc": "Acreditación de un sistema que reduce consumos de agua y energía durante la fabricación.",
+      "item3Title": "03. Certificado GRS",
+      "item3Desc": "Cada envío de bolsas recicladas se acompaña de un Transaction Certificate (TC) oficial.",
+      "item4Title": "04. Certificación BRCGS",
+      "item4Desc": "Nuestros socios mantienen la certificación BRCGS Grado A para garantizar envases de grado alimentario."
+    },
+    "science": {
+      "badge": "AUDITORÍA_SITIO_FÍSICO",
+      "titlePart1": "Ojos en la",
+      "titlePart2": "Planta de Producción.",
+      "description": "Realizamos visitas sorpresa a las fábricas para comprobar el sellado de las bolsas y la separación de las resinas recicladas.",
+      "item1Title": "Listo para Auditoría",
+      "item1Desc": "Documentación completa disponible para sus auditorías internas y reportes ESG.",
+      "item2Title": "Mitigación de Riesgos",
+      "item2Desc": "Monitoreo continuo de perfiles de riesgo geopolítico y ambiental del proveedor.",
+      "imageAlt": "Verificación de Proveedores Sostenibles"
+    },
+    "faq": {
+      "badge": "PROVEEDOR_FAQ",
+      "titlePart1": "Preguntas de Trazabilidad.",
+      "titlePart2": "",
+      "q1": {
+        "q": "¿Cómo verifican el certificado GRS?",
+        "a": "Exigimos Transaction Certificates (TCs) de terceras partes para cada lote de resina plástica."
+      },
+      "q2": {
+        "q": "¿Qué evalúa la auditoría SMETA de 4 pilares?",
+        "a": "Derechos Laborales, Salud y Seguridad, Medio Ambiente y Ética de Negocio."
+      },
+      "q3": {
+        "q": "¿Puedo usar sus datos en mi informe ESG anual?",
+        "a": "Sí. Facilitamos todos los documentos ISO, BRCGS y SMETA requeridos por su departamento de sostenibilidad."
+      },
+      "q4": {
+        "q": "¿Cómo gestionan el incumplimiento de un proveedor?",
+        "a": "El proveedor entra en un plan de acción correctiva inmediato; si no se resuelve, cancelamos la relación comercial."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_VERIFICACIÓN",
+      "titlePart1": "Confíe en lo Puro.",
+      "titlePart2": "Audite con Fuerza.",
+      "description": "¿Listo para asegurar una cadena de suministro verificada y de alto rendimiento?",
+      "btnReview": "Solicitar Auditoría de Proveedor",
+      "btnEngineer": "Hablar con un Ingeniero de Auditoría"
+    }
+  },
+  "pouchLowMOQStartupPackagingPage": {
+    "meta": {
+      "title": "Envases de Bajo MOQ para Startups | Ágiles y Sostenibles | Pouch.eco",
+      "description": "Guía técnica para envases con bajo MOQ para startups. Impresión digital, sostenibilidad sin clichés y entrada al mercado ágil.",
+      "keywords": "low MOQ packaging, startup pouches, digital printing, zero plate, sustainable packaging, agile manufacturing"
+    },
+    "hero": {
+      "badge": "STARTUP_AGIL_V1.0",
+      "titlePart1": "Empezar.",
+      "titlePart2": "Puro.",
+      "titlePart3": "Escalar.",
+      "subtitle": "Los MOQs altos son la muerte de la innovación. Ofrecemos a las startups envases sostenibles de nivel corporativo con bajos MOQs.",
+      "btnBrowse": "Browse Startup Styles",
+      "btnRequest": "Order Starter Kit",
+      "imageAlt": "Low MOQ Startup Packaging Hero"
+    },
+    "engineering": {
+      "badge": "AUDITORÍA_ENTRADA_MERCADO",
+      "imageAlt": "Startup Packaging Agility",
+      "titlePart1": "Diseñado.",
+      "titlePart2": "Para Lanzar.",
+      "description": "Para una startup, el flujo de caja es la supervivencia. En Pouch.eco, actuamos como incubadora técnica. Utilizamos tecnología digital HP Indigo 25K para ofrecer MOQs de solo 500 unidades y cero costes de clichés (planchas)."
+    },
+    "metrics": {
+      "minEntry": {
+        "label": "Entrada Mínima",
+        "value": "500",
+        "unit": "Unidades",
+        "desc": "El MOQ más bajo de la industria."
+      },
+      "plateFee": {
+        "label": "Coste Plancha",
+        "value": "$0",
+        "unit": "USD",
+        "desc": "Impresión digital elimina clichés."
+      },
+      "launchSpd": {
+        "label": "Velocidad",
+        "value": "21",
+        "unit": "Días",
+        "desc": "Desde el diseño hasta la entrega."
+      },
+      "riskRed": {
+        "label": "Riesgo Red.",
+        "value": "95%",
+        "unit": "Ahorro",
+        "desc": "Menor responsabilidad de inventario."
+      }
+    },
+    "tech": {
+      "badge": "TECNOLOGÍA_STARTUP",
+      "titlePart1": "Bajo Riesgo.",
+      "titlePart2": "Alto Impacto.",
+      "item1Title": "01. Precisión Digital",
+      "item1Desc": "Una resolución de 1200 DPI garantiza que la imagen de su startup luzca profesional desde el primer día.",
+      "item2Title": "02. Soporte de Múltiples SKUs",
+      "item2Desc": "Imprima múltiples sabores o diseños en una misma tirada, ideal para pruebas de mercado.",
+      "item3Title": "03. Entrega Rápida",
+      "item3Desc": "Bolsas listas en 14-21 días desde la aprobación del diseño. Sea el primero en el mercado.",
+      "item4Title": "04. Crecimiento Escalable",
+      "item4Desc": "Acompañamos su crecimiento. Al escalar pasamos a impresión por huecograbado para abaratar unitarios."
+    },
+    "science": {
+      "badge": "CIENCIA_STARTUP_V1",
+      "titlePart1": "Verificado.",
+      "titlePart2": "Para la Startup.",
+      "description": "Proporcionamos a las startups certificaciones de material de grado corporativo (TUV, GRS, BRCGS) desde el primer día para ayudarles a ganar espacio en las grandes cadenas de supermercados.",
+      "item1Title": "Prototipo Rápido",
+      "item1Desc": "Obtenga muestras físicas reales antes de comprometerse con su primera producción.",
+      "item2Title": "Optimizado para Crecer",
+      "item2Desc": "Capacidad de fabricación flexible que escala tan rápido como su marca.",
+      "imageAlt": "Fabricación de Envases para Startups"
+    },
+    "faq": {
+      "badge": "STARTUP_FAQ",
+      "titlePart1": "Preguntas de Lanzamiento.",
+      "titlePart2": "",
+      "q1": {
+        "q": "¿Cuál es el pedido mínimo absoluto?",
+        "a": "Gracias a la impresión digital, podemos fabricar desde 500 unidades por SKU."
+      },
+      "q2": {
+        "q": "¿Ofrecen soporte de diseño para startups?",
+        "a": "Sí. Nuestro equipo técnico revisa sus archivos para que cumplan los requisitos de impresión y法規."
+      },
+      "q3": {
+        "q": "¿Las bolsas de bajo MOQ son de la misma calidad que las de gran volumen?",
+        "a": "Absolutamente. Utilizamos las mismas películas certificadas y tintas aptas para alimentación en todos los pedidos."
+      },
+      "q4": {
+        "q": "¿Cuánto tarda en entregarse el primer pedido?",
+        "a": "Habitualmente entre 14 y 21 días desde la aprobación del diseño, mucho más rápido que las 8-10 semanas del huecograbado."
+      }
+    },
+    "cta": {
+      "badge": "MANDATO_STARTUP",
+      "titlePart1": "Empiece Ágil.",
+      "titlePart2": "Impacto Puro.",
+      "description": "¿Listo para un suministro sostenible de nivel profesional y bajo riesgo financiero?",
+      "btnReview": "Solicitar Muestras para Startup",
+      "btnEngineer": "Hablar con un Ingeniero de Startups"
+    }
   }
 }

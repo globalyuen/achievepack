@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Leaf, Coffee, CheckCircle, Award, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Layers } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -7,35 +8,41 @@ import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
 const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'pouchHomeCompostableCoffeeBagsPage'
   const baseUrl = getBaseUrl()
   
   const COFFEE_METRICS = [
-    { label: 'Aroma Retention', value: '12-18', unit: 'Months', desc: 'Preserving volatile bean oils.' },
-    { label: 'Valve Rating', value: '2-5', unit: 'mbar', desc: 'Precision CO2 pressure release.' },
-    { label: 'Compost Speed', value: '26-52', unit: 'Weeks', desc: 'Full home decomposition cycle.' },
-    { label: 'Certification', value: 'OK HOME', unit: 'TUV', desc: 'Highest global compost benchmark.' }
+    { label: t(`${p}.metrics.aroma.label`), value: t(`${p}.metrics.aroma.value`), unit: t(`${p}.metrics.aroma.unit`), desc: t(`${p}.metrics.aroma.desc`) },
+    { label: t(`${p}.metrics.valve.label`), value: t(`${p}.metrics.valve.value`), unit: t(`${p}.metrics.valve.unit`), desc: t(`${p}.metrics.valve.desc`) },
+    { label: t(`${p}.metrics.compost.label`), value: t(`${p}.metrics.compost.value`), unit: t(`${p}.metrics.compost.unit`), desc: t(`${p}.metrics.compost.desc`) },
+    { label: t(`${p}.metrics.cert.label`), value: t(`${p}.metrics.cert.value`), unit: t(`${p}.metrics.cert.unit`), desc: t(`${p}.metrics.cert.desc`) }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Home Compostable Coffee Bags | Aroma Engineering | Pouch.eco</title>
-        <meta name="description" content="Technical guide to home compostable coffee bags. 800+ words of research on degassing valves, high-barrier NK/PBS laminates, and OK Compost HOME standards." />
+        <title>{t(`${p}.meta.title`)}</title>
+        <meta name="description" content={t(`${p}.meta.description`)} />
         <link rel="canonical" href={`${baseUrl}/topics/home-compostable-coffee-bags`} />
-        <meta name="keywords" content="home compostable coffee bags, kraft pouches, degassing valve, aroma retention, OK compost HOME" />
+        <meta name="keywords" content={t(`${p}.meta.keywords`)} />
       </Helmet>
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#78350f_1px,transparent_1px)] [background-size:24px_24px] bg-amber-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">AROMA_SHIELD_V4.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Roast.<br/>Protect.<br/><span className="text-amber-800 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Compost.</span></h1>
+          <NeoBadge color="magenta">{t(`${p}.hero.badge`)}</NeoBadge>
+          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">
+            {t(`${p}.hero.titlePart1`)}<br/>
+            {t(`${p}.hero.titlePart2`)}<br/>
+            <span className="text-amber-800 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">{t(`${p}.hero.titlePart3`)}</span>
+          </h1>
           <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Elite coffee demands an absolute barrier. We engineer home compostable coffee pouches using high-barrier NK/PBS laminates and precision-molded degassing valves to preserve your roast profile for up to 18 months.
+            {t(`${p}.hero.subtitle`)}
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse Roaster Styles</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Request Freshness Pack</NeoButton>
+            <NeoButton variant="primary" to="/products">{t(`${p}.hero.btnBrowse`)}</NeoButton>
+            <NeoButton variant="secondary" to="/sample">{t(`${p}.hero.btnRequest`)}</NeoButton>
           </div>
         </div>
       </section>
@@ -48,15 +55,18 @@ const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
               <div className="absolute inset-0 bg-amber-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/seo-photos/usa/coffee/a_coffee_sustainability_roaster_guide_0801372.webp" 
-                alt="Compostable Coffee Valve Engineering" 
+                alt={t(`${p}.science.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">GAS_CONTROL_LAB</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">One-Way<br/>Release.</h2>
+              <NeoBadge color="blue">{t(`${p}.engineering.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.engineering.titlePart1`)}<br/>
+                {t(`${p}.engineering.titlePart2`)}
+              </h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                Freshly roasted coffee off-gasses CO2. Without a valve, the bag will rupture; without a barrier, the beans will oxidize. Our engineering team integrates 100% bio-based, <strong>Home Compostable Degassing Valves</strong> that open at a precise 2-5 mbar internal pressure. This allows CO2 to escape while creating a hermetic seal against atmospheric oxygen, maintaining the volatile aromatic compounds (terpenes) that define specialty coffee.
+                {t(`${p}.engineering.description`)}
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {COFFEE_METRICS.map((p, i) => (
@@ -75,35 +85,38 @@ const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
       {/* Deep Dive: High-Barrier Stack */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="lime">MATERIAL_TECH_STACK</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">The NK/PBS<br/>Standard.</h2>
+          <NeoBadge color="lime">{t(`${p}.tech.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">
+            {t(`${p}.tech.titlePart1`)}<br/>
+            {t(`${p}.tech.titlePart2`)}
+          </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="border-l-4 border-amber-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">01. Natural Kraft (NK)</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item1Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                FSC-certified long-fiber paper providing superior puncture resistance and a tactile, premium aesthetic that consumers associate with craft roasting.
+                {t(`${p}.tech.item1Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-amber-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">02. Metallized PLA</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item2Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Vacuum-metalized Polylactic Acid provides an OTR (Oxygen Transmission Rate) of &lt; 0.5 cc/m2/day. This mimics the performance of aluminum foil in a compostable format.
+                {t(`${p}.tech.item2Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-amber-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">03. Bio-PBS Sealant</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item3Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Polybutylene Succinate (PBS) provides industrial-grade seal strength (45N+) and high hot-tack, ensuring bags don't delaminate under the weight of whole beans.
+                {t(`${p}.tech.item3Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-amber-500 pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">04. OK HOME Certified</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item4Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Verified to decompose in backyard compost environments within 52 weeks. No microplastics. No heavy metals. Just healthy biomass.
+                {t(`${p}.tech.item4Desc`)}
               </p>
             </div>
           </div>
@@ -113,23 +126,26 @@ const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
       {/* Freshness & Logistics */}
       <section className="py-24 bg-amber-50 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="blue">AROMA_VERIFICATION_PROTOCOL</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">The Math of<br/>Freshness.</h2>
+          <NeoBadge color="blue">{t(`${p}.science.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">
+            {t(`${p}.science.titlePart1`)}<br/>
+            {t(`${p}.science.titlePart2`)}
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <NeoCard>
               <Wind className="w-12 h-12 mb-6 mx-auto" />
-              <h4 className="font-black text-2xl uppercase mb-4">Gas Flush Ready</h4>
-              <p className="font-['JetBrains_Mono'] text-sm opacity-70">Compatible with Nitrogen (N2) flushing to achieve &lt; 2% residual oxygen for ultra-extended shelf life.</p>
+              <h4 className="font-black text-2xl uppercase mb-4">{t(`${p}.science.item1Title`)}</h4>
+              <p className="font-['JetBrains_Mono'] text-sm opacity-70">{t(`${p}.science.item1Desc`)}</p>
             </NeoCard>
             <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(212,255,0,1)]">
               <Coffee className="w-12 h-12 mb-6 mx-auto" />
-              <h4 className="font-black text-2xl uppercase mb-4">Roast Stability</h4>
-              <p className="font-['JetBrains_Mono'] text-sm opacity-70">Proven preservation of lipid profiles and aromatic oils for 12 months under standard retail conditions.</p>
+              <h4 className="font-black text-2xl uppercase mb-4">{t(`${p}.science.item2Title`)}</h4>
+              <p className="font-['JetBrains_Mono'] text-sm opacity-70">{t(`${p}.science.item2Desc`)}</p>
             </NeoCard>
             <NeoCard>
               <BarChart3 className="w-12 h-12 mb-6 mx-auto" />
-              <h4 className="font-black text-2xl uppercase mb-4">Supply Chain Yield</h4>
-              <p className="font-['JetBrains_Mono'] text-sm opacity-70">High-tensile Kraft/PBS structures reduce shipping-related punctures by 18% compared to standard bio-films.</p>
+              <h4 className="font-black text-2xl uppercase mb-4">{t(`${p}.science.item3Title`)}</h4>
+              <p className="font-['JetBrains_Mono'] text-sm opacity-70">{t(`${p}.science.item3Desc`)}</p>
             </NeoCard>
           </div>
         </div>
@@ -138,14 +154,17 @@ const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
       {/* FAQ: Technical Roasting */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="magenta">ROASTER_FAQ</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <NeoBadge color="magenta">{t(`${p}.faq.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">
+            {t(`${p}.faq.titlePart1`)}<br/>
+            {t(`${p}.faq.titlePart2`)}
+          </h2>
           <div className="space-y-4">
             {[
-              { q: "How does the compostable valve differ from standard valves?", a: "Our valves are made from a proprietary blend of bio-based polymers (PLA/PBS) that are certified to biodegrade at the same rate as the bag. They provide identical one-way pressure release (2-5 mbar)." },
-              { q: "Can these bags be used for whole bean and ground coffee?", a: "Yes. The high-barrier metallized layer and hermetic seals protect both whole beans and the higher surface area of ground coffee from oxidation." },
-              { q: "Will the Kraft paper soak up the coffee oils?", a: "No. The Natural Kraft is an outer aesthetic layer. The internal Bio-PBS and metallized layers are 100% grease-proof, preventing oil migration and staining." },
-              { q: "What is the shelf life for roasted coffee in these bags?", a: "With proper nitrogen flushing, our NK/PBS structures provide a 12-18 month shelf life, comparable to traditional PET/Alu/PE structures." }
+              { q: t(`${p}.faq.q1.q`), a: t(`${p}.faq.q1.a`) },
+              { q: t(`${p}.faq.q2.q`), a: t(`${p}.faq.q2.a`) },
+              { q: t(`${p}.faq.q3.q`), a: t(`${p}.faq.q3.a`) },
+              { q: t(`${p}.faq.q4.q`), a: t(`${p}.faq.q4.a`) }
             ].map((faq, i) => (
               <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
@@ -162,15 +181,18 @@ const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-amber-900 text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="lime">ROASTER_MANDATE</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Protect the<br/>Roast.</h2>
+          <NeoBadge color="lime">{t(`${p}.cta.badge`)}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">
+            {t(`${p}.cta.titlePart1`)}<br/>
+            {t(`${p}.cta.titlePart2`)}
+          </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            Ready to transition to high-performance, home-compostable coffee packaging? Let's start the aroma-barrier audit today.
+            {t(`${p}.cta.description`)}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-white !text-amber-900">Order Coffee Samples</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-amber-900">{t(`${p}.cta.btnReview`)}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to a Roasting Expert
+              {t(`${p}.cta.btnEngineer`)}
             </NeoButton>
           </div>
         </div>

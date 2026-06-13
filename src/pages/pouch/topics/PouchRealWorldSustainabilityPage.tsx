@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Trash2, FileSearch } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -7,22 +8,24 @@ import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
 const PouchRealWorldSustainabilityPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'pouchRealWorldSustainabilityPage'
   const baseUrl = getBaseUrl()
   
   const IMPACT_METRICS = [
-    { label: 'Carbon Proof', value: 'ISO', unit: '14040', desc: 'Cradle-to-grave impact verified.' },
-    { label: 'Landfill Avoid', value: '75%', unit: 'By Weight', desc: 'Relative to rigid PET/Glass.' },
-    { label: 'EPR Mitigation', value: '-20%', unit: 'Fees', desc: 'Optimized for global plastic taxes.' },
-    { label: 'Compliance', value: 'GREEN', unit: 'Audit', desc: 'FTC and UK CMA standards ready.' }
+    { label: t(`${p}.metrics.carbonProof.label`), value: t(`${p}.metrics.carbonProof.value`), unit: t(`${p}.metrics.carbonProof.unit`), desc: t(`${p}.metrics.carbonProof.desc`) },
+    { label: t(`${p}.metrics.landfillAvoid.label`), value: t(`${p}.metrics.landfillAvoid.value`), unit: t(`${p}.metrics.landfillAvoid.unit`), desc: t(`${p}.metrics.landfillAvoid.desc`) },
+    { label: t(`${p}.metrics.eprMitigation.label`), value: t(`${p}.metrics.eprMitigation.value`), unit: t(`${p}.metrics.eprMitigation.unit`), desc: t(`${p}.metrics.eprMitigation.desc`) },
+    { label: t(`${p}.metrics.compliance.label`), value: t(`${p}.metrics.compliance.value`), unit: t(`${p}.metrics.compliance.unit`), desc: t(`${p}.metrics.compliance.desc`) }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Real-World Sustainability | LCA Engineering | Pouch.eco</title>
-        <meta name="description" content="Technical guide to real-world packaging sustainability. 800+ words of research on ISO 14040 LCA, carbon footprinting, and global regulatory compliance." />
+        <title>{t(`${p}.meta.title`)}</title>
+        <meta name="description" content={t(`${p}.meta.description`)} />
         <link rel="canonical" href={`${baseUrl}/topics/real-world-sustainability`} />
-        <meta name="keywords" content="real-world sustainability, LCA, carbon footprint, packaging compliance, ISO 14040" />
+        <meta name="keywords" content={t(`${p}.meta.keywords`)} />
       </Helmet>
 
       {/* Hero Section */}
@@ -30,21 +33,25 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <NeoBadge color="magenta">IMPACT_ENGINE_V1.0</NeoBadge>
-              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Data.<br/>Not.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Hype.</span></h1>
+              <NeoBadge color="magenta">{t(`${p}.hero.badge`)}</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">
+                {t(`${p}.hero.titlePart1`)}<br/>
+                {t(`${p}.hero.titlePart2`)}<br/>
+                <span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">{t(`${p}.hero.titlePart3`)}</span>
+              </h1>
               <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                Sustainability is an engineering deliverable. We provide the ISO 14040 Life Cycle Assessment (LCA) data and third-party certifications required to back your brand's claims.
+                {t(`${p}.hero.subtitle`)}
               </p>
               <div className="flex flex-wrap gap-6 mt-12">
-                <NeoButton variant="primary" to="/products">Browse Verified Solutions</NeoButton>
-                <NeoButton variant="secondary" to="/sample">Order Evidence Kit</NeoButton>
+                <NeoButton variant="primary" to="/products">{t(`${p}.hero.btnBrowse`)}</NeoButton>
+                <NeoButton variant="secondary" to="/sample">{t(`${p}.hero.btnRequest`)}</NeoButton>
               </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp" 
-                alt="Real-World Sustainability Hero" 
+                alt={t(`${p}.hero.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -60,15 +67,18 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_pet_food_hero_v3_7652587.webp" 
-                alt="Real-World Sustainable Packaging Case Study" 
+                alt={t(`${p}.engineering.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">LIFE_CYCLE_AUDIT</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Cradle to<br/>Consumer.</h2>
+              <NeoBadge color="blue">{t(`${p}.engineering.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.engineering.titlePart1`)}<br/>
+                {t(`${p}.engineering.titlePart2`)}
+              </h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                Sustainability is a measurement, not a state of being. We utilize the <strong>ISO 14040/44</strong> Life Cycle Assessment framework to quantify the total environmental impact of your packaging assets. We measure <strong>Scope 3 emissions</strong>, water consumption, and land-use impact for every material structure in our catalog. By transitioning from rigid containers to <strong>source-reduced flexible pouches</strong>, our clients achieve an average 75% reduction in landfill waste by weight—data we verify through third-party material audits.
+                {t(`${p}.engineering.description`)}
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {IMPACT_METRICS.map((p, i) => (
@@ -87,35 +97,38 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
       {/* Technical: Regulatory Compliance */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="lime">REGULATORY_TECH_STACK</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">Future-Proof<br/>Your Claims.</h2>
+          <NeoBadge color="lime">{t(`${p}.tech.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">
+            {t(`${p}.tech.titlePart1`)}<br/>
+            {t(`${p}.tech.titlePart2`)}
+          </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">01. FTC Green Guides</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item1Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Absolute compliance with US consumer protection standards. We provide the reliable evidence required to make unqualified environmental claims on your product's primary container.
+                {t(`${p}.tech.item1Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">02. CMA Guidelines</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item2Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Ready for the UK's Green Claims Code. We ensure every sustainability benefit is clear, accurate, and substantiated by quantifiable laboratory and logistics data.
+                {t(`${p}.tech.item2Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">03. EPR Optimization</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item3Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Extended Producer Responsibility is a financial reality. We engineer pouches to minimize your annual fee liability by maximizing recyclability scores and minimizing material mass.
+                {t(`${p}.tech.item3Desc`)}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">04. EPD Documentation</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t(`${p}.tech.item4Title`)}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                Environmental Product Declarations. We offer standardized technical documents summarizing the environmental performance of your specific packaging order for ESG reporting.
+                {t(`${p}.tech.item4Desc`)}
               </p>
             </div>
           </div>
@@ -127,24 +140,27 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="blue">SUPPLY_CHAIN_VERIFICATION</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Verified.<br/>In the Field.</h2>
+              <NeoBadge color="blue">{t(`${p}.science.badge`)}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {t(`${p}.science.titlePart1`)}<br/>
+                {t(`${p}.science.titlePart2`)}
+              </h2>
               <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
-                Sustainability is only as strong as the ethics of the manufacturing plant. We perform <strong>4-Pillar SMETA audits</strong> on all primary suppliers to verify labor rights, health and safety, and environmental performance. By integrating <strong>ISO 14001</strong> environmental management systems, we ensure that the energy used to create your "eco-friendly" bag is being measured and reduced annually. We don't just sell bags; we manage a verified, sustainable ecosystem.
+                {t(`${p}.science.description`)}
               </p>
               <div className="mt-12 space-y-4">
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <FileSearch className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Technical Traceability</h4>
-                    <p className="text-sm opacity-60">GRS and ISCC PLUS certified chain of custody for all recycled and bio-circular resins.</p>
+                    <h4 className="font-black uppercase">{t(`${p}.science.item1Title`)}</h4>
+                    <p className="text-sm opacity-60">{t(`${p}.science.item1Desc`)}</p>
                   </div>
                 </div>
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <TrendingUp className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">Carbon Disclosure</h4>
-                    <p className="text-sm opacity-60">Quantified kg CO2e data per SKU to support your brand's net-zero roadmap.</p>
+                    <h4 className="font-black uppercase">{t(`${p}.science.item2Title`)}</h4>
+                    <p className="text-sm opacity-60">{t(`${p}.science.item2Desc`)}</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +169,7 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
-                alt="Verified Sustainable Packaging Operations" 
+                alt={t(`${p}.science.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -164,14 +180,17 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
       {/* FAQ: Technical Sustainability */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="magenta">IMPACT_FAQ</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Hard Answers.<br/>No Fluff.</h2>
+          <NeoBadge color="magenta">{t(`${p}.faq.badge`)}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">
+            {t(`${p}.faq.titlePart1`)}<br/>
+            {t(`${p}.faq.titlePart2`)}
+          </h2>
           <div className="space-y-4">
             {[
-              { q: "What is an ISO 14040 Life Cycle Assessment?", a: "It is the global scientific standard for measuring environmental impact. It tracks every stage from raw material extraction to transport, manufacturing, and final disposal." },
-              { q: "How do you define 'Real-World' sustainability?", a: "It is the intersection of material science and local waste infrastructure. We focus on solutions that actually work in today's recycling and composting systems, not just in a lab." },
-              { q: "Can your data protect me from greenwashing lawsuits?", a: "Yes. By following FTC and CMA guidelines and using third-party lab evidence, you build a 'bulletproof' case for any sustainability claim you make." },
-              { q: "How much carbon can I save by switching to flexible pouches?", a: "On average, transitioning from glass or rigid PET to flexible pouches reduces total life-cycle carbon emissions by 60-80% due to material and transport efficiency." }
+              { q: t(`${p}.faq.q1.q`), a: t(`${p}.faq.q1.a`) },
+              { q: t(`${p}.faq.q2.q`), a: t(`${p}.faq.q2.a`) },
+              { q: t(`${p}.faq.q3.q`), a: t(`${p}.faq.q3.a`) },
+              { q: t(`${p}.faq.q4.q`), a: t(`${p}.faq.q4.a`) }
             ].map((faq, i) => (
               <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
@@ -188,15 +207,18 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="lime">IMPACT_MANDATE</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Evidence Based.<br/>Planet Approved.</h2>
+          <NeoBadge color="lime">{t(`${p}.cta.badge`)}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">
+            {t(`${p}.cta.titlePart1`)}<br/>
+            {t(`${p}.cta.titlePart2`)}
+          </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            Ready to secure the technical evidence your brand needs? Let's start with a Life Cycle Assessment of your packaging.
+            {t(`${p}.cta.description`)}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">Order Evidence Samples</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">{t(`${p}.cta.btnReview`)}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to an LCA Engineer
+              {t(`${p}.cta.btnEngineer`)}
             </NeoButton>
           </div>
         </div>

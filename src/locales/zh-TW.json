@@ -27643,5 +27643,1006 @@
       "btn_samples": "訂購食品級安全樣品",
       "btn_consultation": "與阻隔包裝工程師洽談"
     }
+  },
+  "pouchEcoPackagingRegulationsPage": {
+    "meta": {
+      "title": "環保包裝法規 | 全球合規中心 | Pouch.eco",
+      "description": "全球環保包裝法規技術指南。針對歐盟 PPWR、加州 SB 54 及美國 FTC 綠色指南合規性的 800 字以上深入研究。",
+      "keywords": "環保包裝法規, 歐盟 PPWR, SB 54, 包裝合規性, 循環經濟法"
+    },
+    "hero": {
+      "badge": "REG_HUB_V1.0",
+      "titlePart1": "法律法規",
+      "titlePart2": "純淨無瑕",
+      "titlePart3": "實證研發",
+      "subtitle": "自願性的環保已成過去。在 2026 年，包裝合規是一項法律義務。我們專為滿足嚴格法規而設計包裝結構。",
+      "btnBrowse": "瀏覽合規包裝款式",
+      "btnRequest": "索取法律實證資料",
+      "imageAlt": "環保包裝法規主圖"
+    },
+    "engineering": {
+      "badge": "法律合規審計報告",
+      "imageAlt": "法規合規性測試",
+      "titlePart1": "合規標準",
+      "titlePart2": "源自設計",
+      "description": "包裝法規已從「鼓勵性質」轉變為「強制執行」。2026 年，歐盟《包裝與包裝廢棄物條例》(PPWR) 與加州《SB 54 法案》為「生產者延伸責任 (EPR)」奠定了全球標準。品牌現在法律上被要求必須證明其包裝的回收率與再生材料含量。在 Pouch.eco，我們專門研發 Mono-PE（單一聚乙烯）與 Mono-PP（單一聚丙烯）自立袋，以達到「A 級」回收效能，確保品牌享有最低的 EPR 稅費和最高的消費者信任。我們為每一項聲明提供 ISO 14040/44 生命週期評估 (LCA) 和 Cyclos-HTP 實驗室認證。"
+    },
+    "metrics": {
+      "ppwr": {
+        "label": "PPWR 等級",
+        "value": "A 級",
+        "unit": "歐盟",
+        "desc": "最高回收等級評分。"
+      },
+      "sourceRed": {
+        "label": "源頭減量",
+        "value": "-25%",
+        "unit": "SB 54",
+        "desc": "加州減量強制令。"
+      },
+      "recycledCont": {
+        "label": "再生材料含量",
+        "value": "30%",
+        "unit": "英國塑膠稅",
+        "desc": "免稅起徵點。"
+      },
+      "claimsVerif": {
+        "label": "聲明核實",
+        "value": "ISO",
+        "unit": "14040",
+        "desc": "可驗證的生命週期評估數據。"
+      }
+    },
+    "tech": {
+      "badge": "法規技術體系",
+      "titlePart1": "全球法律",
+      "titlePart2": "微觀實證",
+      "item1Title": "01. 歐盟 PPWR 規範就緒",
+      "item1Desc": "強制遵循「易回收設計」。我們的單一材質包裝已針對近紅外線 (NIR) 分選及材料回收進行優化，完全符合最新 2030 年歐盟指令。",
+      "item2Title": "02. California SB 54",
+      "item2Desc": "Exceeding the 25% source reduction and recyclability mandates required for all single-use packaging sold in the California market by 2032.",
+      "item3Title": "03. UK Plastic Tax",
+      "item3Desc": "Integrating a minimum of 30% GRS-certified PCR content to ensure your pouches are exempt from the UK Plastic Packaging Tax (£217/tonne).",
+      "item4Title": "04. Anti-Greenwashing",
+      "item4Desc": "Full compliance with FTC Green Guides and UK CMA codes. All environmental claims are specific, prominent, and backed by laboratory data."
+    },
+    "science": {
+      "badge": "法律科學檢驗 V1",
+      "titlePart1": "精確核實",
+      "titlePart2": "符合條款",
+      "description": "合規是一項嚴謹的技術指標。我們提供符合性聲明 (DoC) 文件，詳細列出包裝的完整材料層級與化學安全資訊。這包括無 PFAS 殘留驗證（加州 AB 1200 法案）與無雙酚認證。我們不只給予口頭「承諾」，更為您的法律部門與全球監管機構提供所需的實驗室檢驗報告。作為您的技術夥伴，我們處理複雜的法規，讓您專注於品牌發展。",
+      "item1Title": "耐得起審計的文件",
+      "item1Desc": "每種結構均提供完整的技術規格書 (TDS) 和安全資料表 (SDS)。",
+      "item2Title": "風險防護罩",
+      "item2Desc": "經保險擔保的材料安全性，符合全球食品安全標準。",
+      "imageAlt": "法規技術細節圖"
+    },
+    "faq": {
+      "badge": "法規常見問題",
+      "titlePart1": "專家",
+      "titlePart2": "解答。",
+      "q1": {
+        "q": "「商店回收點 (Store Drop-Off)」標籤依然合法嗎？",
+        "a": "法規正日益收緊。根據加州 SB 343 法案，除非您能證明該材料在大多數地方行政區內確實能被回收回收，否則不能隨意使用「循環箭頭」標誌。我們能提供支持此聲明的數據。"
+      },
+      "q2": {
+        "q": "什麼是生產者延伸責任 (EPR) 差別化收費？",
+        "a": "這是一種「污染者付費」的機制，不可回收的材料需繳納更高額的稅費。我們的單一材質包裝符合歐美市場最低的稅費級別。"
+      },
+      "q3": {
+        "q": "你們如何確保無 PFAS 合規？",
+        "a": "我們採用水性防油阻隔塗層和經認證無 PFAS 的添加劑，並提供獨立實驗室報告以證實有機氟含量為 0ppm。"
+      },
+      "q4": {
+        "q": "你們是否提供用於碳申報的生命週期評估 (LCA) 數據？",
+        "a": "是的。我們可以為每種客製化包裝結構提供符合 ISO 14040 標準的 LCA 報告，以支持您的範疇三 (Scope 3) 碳排放資訊揭露需求。"
+      }
+    },
+    "cta": {
+      "badge": "法規強制力",
+      "titlePart1": "法律思維",
+      "titlePart2": "極致環保",
+      "description": "準備好為您的品牌打造一條合法防禦、禁得起審計的供應鏈了嗎？今天就開始進行技術審查。",
+      "btnReview": "申請合規性評估",
+      "btnEngineer": "與合規工程師對話"
+    }
+  },
+  "pouchCustomCompostablePouchSuppliersPage": {
+    "meta": {
+      "title": "可堆肥包裝袋供應商 | 認證生物工程 | Pouch.eco",
+      "description": "客製化可堆肥自立袋供應商技術指南。針對 TUV 認證、生物阻隔科學及供應鏈安全性的 800 字以上深入研究。",
+      "keywords": "可堆肥自立袋供應商, 客製化可堆肥包裝, TUV 認證, BPI 可堆肥, 生物聚合物工程"
+    },
+    "hero": {
+      "badge": "BIO_SUPPLY_V1.0",
+      "titlePart1": "生物科技",
+      "titlePart2": "純淨無瑕",
+      "titlePart3": "實證研發",
+      "subtitle": "可堆肥聲明需要工程實證。我們是工廠直營的 TUV 認證高阻隔可堆肥自立袋供應商。",
+      "btnBrowse": "瀏覽環保生物方案",
+      "btnRequest": "索取生物材質樣品",
+      "imageAlt": "可堆肥自立袋供應商主圖"
+    },
+    "engineering": {
+      "badge": "生物完整性審計",
+      "imageAlt": "可堆肥包裝生物工程",
+      "titlePart1": "精心研發",
+      "titlePart2": "歸於自然",
+      "description": "在可堆肥包裝市場中，您的供應商可能成為您主要的風險來源或最強大的資產。2026 年，光是宣稱「生物塑膠」已經不夠，必須是「認證可堆肥」。在 Pouch.eco，我們擔任工廠直營的技術合作夥伴。我們採用 PBS（聚丁二酸丁二醇酯）與 Bio-EVOH 研發包裝結構，在提供極佳的高氧氣與高防潮阻隔性的同時，仍保持 100% 家庭可堆肥性。我們生產的每款客製化包裝袋均獲得奧地利 TUV Austria OK Compost Home 及美國 BPI (ASTM D6400) 認證。我們不只供應包裝袋，更提供全球零售合規與消費者信賴所需的技術審計追蹤路徑。這就是以科學實證的生物經濟。"
+    },
+    "metrics": {
+      "bioDegrade": {
+        "label": "生物降解",
+        "value": "180",
+        "unit": "天",
+        "desc": "經家庭/工業堆肥驗證。"
+      },
+      "barrier": {
+        "label": "阻隔效能",
+        "value": "極高",
+        "unit": "PBS",
+        "desc": "鎖香防潮阻隔性。"
+      },
+      "certification": {
+        "label": "權威認證",
+        "value": "TUV",
+        "unit": "BPI",
+        "desc": "完全符合全球法規。"
+      },
+      "moqEntry": {
+        "label": "起訂量",
+        "value": "500",
+        "unit": "個",
+        "desc": "低風險生物包裝創新。"
+      }
+    },
+    "tech": {
+      "badge": "生物技術體系",
+      "titlePart1": "杜絕塑膠",
+      "titlePart2": "極致阻隔",
+      "item1Title": "01. 家庭可堆肥認證",
+      "item1Desc": "榮獲 TUV Austria OK Compost Home 驗證。我們的包裝袋能在一般家庭後院堆肥環境中，於常溫下 180 天內分解。",
+      "item2Title": "02. Bio-EVOH Barrier",
+      "item2Desc": "Achieving gas barriers equivalent to traditional plastics. Protecting your coffee, snacks, and superfoods from oxidation and staling.",
+      "item3Title": "03. High-Strength Seal",
+      "item3Desc": "Optimized bio-sealant layers that provide hermetic integrity (ASTM F88), preventing leaks and product contamination during logistics.",
+      "item4Title": "04. Food Safety BRCGS",
+      "item4Desc": "Manufactured in Grade A BRCGS facilities. 100% solvent-free lamination and migration-tested resins for total consumer safety."
+    },
+    "science": {
+      "badge": "生物科學檢驗 V1",
+      "titlePart1": "嚴格驗證",
+      "titlePart2": "直營保障",
+      "description": "生物純淨度是一項嚴格的技術指標。我們使用傅立葉轉換紅外線光譜儀 (FTIR) 來驗證生物聚合物的化學組成。我們的 EEAT 生物協定確保您的環保包裝不僅是行銷口號，而是具備法律保障的資產。每款結構均提供符合性聲明 (DoC) 文件，載明其堆肥認證、材質安全與食品級狀態。選擇工廠直營的可堆肥包裝供應商，您能徹底規避無證中間商與材質批次不穩定的風險。這正是今日實現的循環經濟未來。",
+      "item1Title": "純淨生物材料",
+      "item1Desc": "100% 植物性或可堆肥合成聚合物，完全不殘留永久性塑膠。",
+      "item2Title": "市場領導地位",
+      "item2Desc": "讓您的品牌處於全球生物經濟的絕對前沿。",
+      "imageAlt": "認證可堆肥製造流程"
+    },
+    "faq": {
+      "badge": "生物包裝問答",
+      "titlePart1": "專家",
+      "titlePart2": "解答。",
+      "q1": {
+        "q": "你們是直營製造商嗎？",
+        "a": "是的。我們擁有並營運自有的生產工廠，確保對認證與材質純淨度進行全面控制。"
+      },
+      "q2": {
+        "q": "可堆肥自立袋的保存期限有多長？",
+        "a": "憑藉我們先進的生物阻隔層，能為大多數乾燥食品提供 6-12 個月的保存期限，效果媲美傳統塑膠。"
+      },
+      "q3": {
+        "q": "你們是否提供 TUV 證書副本？",
+        "a": "絕對提供。我們為所有標準結構提供完整的 TUV Austria OK Compost Home/Industrial 和 BPI 認證證書。"
+      },
+      "q4": {
+        "q": "客製化可堆肥包裝袋的起訂量是多少？",
+        "a": "採用我們的數位印刷技術，客製化品牌可堆肥自立袋的起訂量 (MOQ) 低至每個品項 (SKU) 500 個。"
+      }
+    },
+    "cta": {
+      "badge": "生物環保倡議",
+      "titlePart1": "生物思維",
+      "titlePart2": "極致環保",
+      "description": "準備好為您的品牌建立經過認證、高屏障的生物供應鏈了嗎？今天就開始進行技術審查。",
+      "btnRequest": "索取生物材質樣品",
+      "btnEngineer": "與生物工程師對話"
+    }
+  },
+  "pouchMonoPEPouchesPage": {
+    "meta": {
+      "title": "Mono-PE 可回收自立袋 | 循環包裝工程 | Pouch.eco",
+      "description": "Mono-PE 可回收包裝技術指南。針對 MDO-PE 拉伸、EVOH-PE 阻隔科學及循環設計標準的 800 字以上深入研究。",
+      "keywords": "mono-PE 自立袋, 可回收包裝, MDO-PE, 循環經濟, EVOH 阻隔聚乙烯"
+    },
+    "hero": {
+      "badge": "CIRCULAR_SYSTEM_V2",
+      "titlePart1": "純淨無瑕",
+      "titlePart2": "綠色循環",
+      "titlePart3": "實證研發",
+      "subtitle": "多層複合材料已落伍。我們專門研發高剛性、高阻隔性的 100% Mono-PE（單一聚乙烯）可回收自立袋。",
+      "btnBrowse": "瀏覽 Mono-PE 包裝款式",
+      "btnRequest": "索取材質實證樣品",
+      "imageAlt": "Mono-PE 可回收袋主圖"
+    },
+    "engineering": {
+      "badge": "包裝結構創新",
+      "imageAlt": "Mono-PE 結構工程",
+      "titlePart1": "分子拉伸",
+      "titlePart2": "提升強度",
+      "description": "Mono-PE 單一材質包裝的技術難題在於其材質天生偏軟。我們透過縱向拉伸技術 (MDO-PE) 解決了這一瓶頸。藉由在分子層面拉伸聚乙烯薄膜，我們顯著提高了其楊氏模數，使其剛性與耐熱性達到傳統 PET 薄膜的水平。這使 Mono-PE 自立袋能適用於高速自動化充填包裝機 (VFFS/HFFS)，並提供在零售貨架上挺立展現品牌質感所需的優質挺度。"
+    },
+    "metrics": {
+      "recyclability": {
+        "label": "回收率",
+        "value": "100%",
+        "unit": "Mono-PE",
+        "desc": "單一聚合物家族結構。"
+      },
+      "stiffness": {
+        "label": "剛性指數",
+        "value": "0.9",
+        "unit": "對比 PET",
+        "desc": "經 MDO-PE 優化的高剛性。"
+      },
+      "oxygen": {
+        "label": "阻氧效能",
+        "value": "< 0.5",
+        "unit": "OTR",
+        "desc": "EVOH-PE 高效氣體阻隔防護。"
+      },
+      "sealStrength": {
+        "label": "熱封強度",
+        "value": "45+",
+        "unit": "N/15mm",
+        "desc": "工業級包裝結構強度。"
+      }
+    },
+    "tech": {
+      "badge": "阻隔引擎 V4",
+      "titlePart1": "微觀阻隔",
+      "titlePart2": "科學防護",
+      "item1Title": "01. EVOH-PE 共擠核心",
+      "item1Desc": "分子鍵合於 PE 層中的共擠阻氧阻隔層。厚度佔總重小於 5%，在提供頂級氣體防護的同時，完全符合 PE 回收管道標準。",
+      "item2Title": "02. BOPE 雙向拉伸技術",
+      "item2Desc": "雙向拉伸聚乙烯薄膜。通過雙向拉伸，我們實現了如同玻璃般的透明度與 150N 以上的超強抗穿刺強度，性能超越傳統多層複合膜。",
+      "item3Title": "03. 寬溫熱封技術",
+      "item3Desc": "熱封層經特殊配方設計，具備極寬的熱封窗口 (80-120°C)，能有效防止高溫封口時燒穿，確保高速包裝線上的密合度。",
+      "item4Title": "04. 100% 同材質夾鏈",
+      "item4Desc": "杜絕材質混雜。包裝袋上所配備的夾鏈 (zipper) 及吸嘴均採用同系列的 PE 材質，確保整套包裝能 100% 進行單一循環回收。"
+    },
+    "science": {
+      "badge": "循環回收審計",
+      "titlePart1": "實驗室驗證",
+      "titlePart2": "非虛報聲明",
+      "description": "Achieve Pack 生產的 Mono-PE 可回收袋嚴格遵循 CEFLEX 及 RecyClass 設計指南。我們提供經第三方獨立實驗室 (Cyclos-HTP) 認證的報告，證實其回收率高達 95% 以上。這項技術驗證對於協助品牌降低生產者延伸責任 (EPR) 稅費及符合全球塑膠包裝稅免稅法案至關重要。",
+      "item1Title": "相容於塑膠回收 4 號",
+      "item1Desc": "完全相容於現有的標準 LDPE 及 LLDPE 資源回收管道。",
+      "item2Title": "低碳製造效益",
+      "item2Desc": "比傳統的多層複合鋁箔包裝袋減少達 30% 的碳足跡。",
+      "imageAlt": "Mono-PE 可回收袋製造驗證"
+    },
+    "faq": {
+      "badge": "單一材質問答",
+      "titlePart1": "專業解答",
+      "titlePart2": "",
+      "q1": {
+        "q": "Mono-PE 可以取代咖啡包裝中的鋁箔袋嗎？",
+        "a": "可以。藉由高純度 EVOH-PE 及氧化鋁 (AlOx) 塗層技術，我們能將氧氣透過率 (OTR) 壓低至 < 0.5 cc/m²/day，為烘焙咖啡豆鎖住香氣，同時具備 100% 可回收性。"
+      },
+      "q2": {
+        "q": "為什麼 MDO-PE 技術如此關鍵？",
+        "a": "縱向拉伸 (MDO) 技術能重新排列聚合物分子鏈，進而提高薄膜剛性與耐熱性。若沒有 MDO 技術，Mono-PE 自立袋將會過於鬆軟，無法在自動化充填包裝機上順暢運行。"
+      },
+      "q3": {
+        "q": "EVOH 真的能在 PE 資源回收管道中被回收嗎？",
+        "a": "可以。只要 EVOH 佔整個結構的總重量比例低於 5%，且採用相容的黏著層共擠生產，這即是 CEFLEX 和美國塑料回收商協會 (APR) 所訂定的全球合規標準。"
+      },
+      "q4": {
+        "q": "更換為 Mono-PE 包裝會影響食品的保存期限嗎？",
+        "a": "不會。我們研發的 Mono-PE 包裝結構能達到傳統複合材料 95% 至 100% 的阻隔效果，確保您的食品在貨架期內新鮮如初。"
+      }
+    },
+    "cta": {
+      "badge": "綠色循環倡議",
+      "titlePart1": "單一材質",
+      "titlePart2": "極致環保",
+      "description": "準備好將您的包裝升級為高性能、100% 可回收的 Mono-PE 包裝袋了嗎？今天就開始進行結構評估。",
+      "btnReview": "索取 Mono-PE 材質樣品",
+      "btnEngineer": "與循環包裝工程師諮詢"
+    }
+  },
+  "pouchCompostableHumidityControlPage": {
+    "meta": {
+      "title": "可堆肥防潮包裝袋 | 高阻隔包裝工程 | Pouch.eco",
+      "description": "可堆肥防潮包裝技術指南。針對水氣透過率 (WVTR)、Bio-EVOH 阻隔科學及主動保鮮技術的 800 字以上深入研究。",
+      "keywords": "可堆肥防潮包裝, 高阻隔可堆肥, 水氣透過率, bio-EVOH, 可堆肥咖啡氣閥, 防潮袋"
+    },
+    "hero": {
+      "badge": "BARRIER_TECH_V1.0",
+      "titlePart1": "乾燥防潮",
+      "titlePart2": "純淨無瑕",
+      "titlePart3": "實證研發",
+      "subtitle": "濕氣是品質的大敵。我們研發的高阻隔可堆肥自立袋，能提供媲美塑膠的防潮防護，在不破壞環境的前提下，維持您產品的新鮮度與品質。",
+      "btnBrowse": "Browse Barrier Styles",
+      "btnRequest": "Request Barrier Proofs"
+    },
+    "engineering": {
+      "badge": "阻隔完整性審計",
+      "titlePart1": "精心研發",
+      "titlePart2": "極致保鮮",
+      "description": "在生物環保包裝領域，防潮性能在過去一直是一大罩門。2026 年，保護對水氣極度敏感的產品（如咖啡、香料、藥品）需要「高阻隔純淨技術」。在 Pouch.eco，我們將防潮控制視為一項嚴謹的熱力學技術指標。我們採用 Bio-EVOH 與 PBS（聚丁二酸丁二醇酯）複合結構，使水氣透過率 (WVTR) 達到 < 0.5g/m²/day 的頂級水準。此性能完全能與傳統石化塑膠媲美，確保您的乾燥食品在 12 個月內依然保持原有的香氣、質地與活性。我們不單只供應「包裝袋」，更透過整合可堆肥單向排氣閥和密封生物夾鏈，打造「主動微氣候」。這就是為循環未來實證的防潮科學。"
+    },
+    "tech": {
+      "badge": "防潮阻隔技術體系",
+      "titlePart1": "阻絕水氣",
+      "titlePart2": "完美密封",
+      "item1Title": "01. Bio-EVOH 阻隔防護",
+      "item1Desc": "採用植物性 EVOH 層，有效阻斷 99.9% 的氧氣透過，防止食品氧化並鎖住產品的揮發性香氣。",
+      "item2Title": "02. PBS 防潮封口層",
+      "item2Desc": "研發高純度聚丁二酸丁二醇酯 (PBS) 封口材料，在 100% 可堆肥的前提下，提供業界領先的低水氣透過率 (WVTR) 性能。",
+      "item3Title": "03. 可堆肥單向排氣閥",
+      "item3Desc": "整合生物排氣閥 (degassing valve)，讓新鮮烘焙咖啡豆產生的二氧化碳順利排出，同時防止外部氧氣與濕氣進入袋內。",
+      "item4Title": "04. 密封生物夾鏈",
+      "item4Desc": "特製模組化可堆肥夾鏈 (zipper)，即使經過多次重複開關，依然能維持出色的防潮密封效果，確保消費者享受到最後一口的新鮮。"
+    },
+    "science": {
+      "badge": "阻隔科學檢驗 V1",
+      "titlePart1": "精確量化",
+      "titlePart2": "科學實證",
+      "description": "阻隔性能是一項嚴格的技術規格。我們使用 MOCON 滲透測試儀（符合 ASTM F1249 / ASTM D3985 標準）來檢驗每一批客製化生產的 WVTR 及 OTR。我們的 EEAT 阻隔協定確保您的環保包裝不僅具有環境友善的純淨性，更具備科學上的優越性能。我們為每種包裝結構提供技術規格書 (TDS)，載明在不同濕度和溫度條件下的精確阻隔表現。選擇高阻隔可堆肥防潮包裝袋，即代表您的產品與材料科學及循環包裝的最前沿接軌。",
+      "item1Title": "極致防潮",
+      "item1Desc": "經證實水氣透過率 < 0.5g/m²，為乾燥食品提供極致保護。",
+      "item2Title": "貨架穩定性",
+      "item2Desc": "為精品咖啡與香料等敏感產品，確保 12 個月以上的新鮮度。",
+      "imageAlt": "經驗證的防潮自立袋製造"
+    },
+    "faq": {
+      "badge": "防潮包裝問答",
+      "titlePart1": "專家",
+      "titlePart2": "解答。",
+      "q1": {
+        "q": "可堆肥自立袋真的能有效阻絕濕氣嗎？",
+        "a": "可以。藉由結合 PBS 與 Bio-EVOH 的多層複合結構，我們能達到媲美傳統 PET 與 LDPE 塑膠薄膜的防潮水氣透過率 (WVTR)。"
+      },
+      "q2": {
+        "q": "排氣閥也是可堆肥的嗎？",
+        "a": "是的。我們提供獲得 TUV Austria OK Compost 完整認證的可堆肥排氣閥，能在堆肥環境中與包裝袋本身同步分解。"
+      },
+      "q3": {
+        "q": "你們的可堆肥薄膜阻氧率 (OTR) 是多少？",
+        "a": "我們的高阻隔生物薄膜可達到氧氣透過率 (OTR) < 0.1 cc/m²/day，防護性能等同於高性能塑膠。"
+      },
+      "q4": {
+        "q": "你們是否提供可回收的防潮包裝？",
+        "a": "是的。若您不需要堆肥，我們亦提供 100% 可回收的 Mono-PE 高阻隔結構，同樣能提供極致防潮保護。"
+      }
+    },
+    "cta": {
+      "badge": "阻隔保鮮倡議",
+      "titlePart1": "主動保鮮",
+      "titlePart2": "極致環保",
+      "description": "準備好為您的品牌打造高性能、高阻隔性的供應鏈了嗎？今天就開始進行技術審查。",
+      "btnReview": "申請阻隔性評估",
+      "btnEngineer": "與阻隔包裝工程師對話"
+    }
+  },
+  "pouchHomeCompostableCoffeeBagsPage": {
+    "meta": {
+      "title": "家用可堆肥咖啡包裝袋 | 香氣鎖鮮工程 | Pouch.eco",
+      "description": "家用可堆肥咖啡袋技術指南。針對單向排氣閥、高阻隔牛皮紙 (Kraft)/PBS 複合材質及 OK Compost HOME 標準的 800 字以上深入研究。",
+      "keywords": "家用可堆肥咖啡袋, 牛皮紙自立袋, 單向排氣閥, 鎖鮮防潮, OK compost HOME"
+    },
+    "hero": {
+      "badge": "AROMA_SHIELD_V4.0",
+      "titlePart1": "精心烘焙",
+      "titlePart2": "極致鎖鮮",
+      "titlePart3": "歸於自然",
+      "subtitle": "頂級咖啡需要絕對的阻隔防護。我們採用高阻隔牛皮紙/PBS 複合結構與精密排氣閥，為您的烘焙咖啡提供長達 18 個月的完美鎖鮮。",
+      "btnBrowse": "瀏覽烘焙商專用款式",
+      "btnRequest": "索取鎖鮮測試包"
+    },
+    "engineering": {
+      "badge": "氣體控制實驗室",
+      "titlePart1": "單向排氣",
+      "titlePart2": "完美阻隔",
+      "description": "新鮮烘焙的咖啡會釋放二氧化碳 (CO2)。若包裝沒有排氣閥，包裝袋將會脹破；但若包裝沒有氣體阻隔，咖啡豆則會迅速氧化。我們的工程團隊整合了 100% 生物基的「家用可堆肥單向排氣閥」，可在精確的 2-5 mbar 內部壓力下自動開啟排氣。這能讓二氧化碳順利排出，同時對外部氧氣維持氣密密封，完美鎖住定義精品咖啡的揮發性香氣化合物（萜烯）。"
+    },
+    "metrics": {
+      "aroma": {
+        "label": "香氣鎖鮮期",
+        "value": "12-18",
+        "unit": "個月",
+        "desc": "完整保留咖啡豆油脂與香氣。"
+      },
+      "valve": {
+        "label": "排氣閥壓力",
+        "value": "2-5",
+        "unit": "mbar",
+        "desc": "精密單向二氧化碳排壓。"
+      },
+      "compost": {
+        "label": "堆肥降解速度",
+        "value": "26-52",
+        "unit": "週",
+        "desc": "完整家用常溫堆肥降解週期。"
+      },
+      "cert": {
+        "label": "權威認證",
+        "value": "OK HOME",
+        "unit": "TUV",
+        "desc": "全球最高標準家用堆肥基準。"
+      }
+    },
+    "tech": {
+      "badge": "材料技術體系",
+      "titlePart1": "牛皮紙/PBS",
+      "titlePart2": "複合標準",
+      "item1Title": "01. FSC 認證天然牛皮紙",
+      "item1Desc": "採用 FSC 認證的長纖維紙張，提供優異的抗穿刺強度，並賦予消費者喜愛的 craft 手感與自然環保質感。",
+      "item2Title": "02. 真空金屬化 PLA 阻隔層",
+      "item2Desc": "真空金屬化聚乳酸薄膜能提供 < 0.5 cc/m²/day 的極低氧氣透過率 (OTR)，在可堆肥材質中重現了傳統鋁箔的頂級阻隔效能。",
+      "item3Title": "03. 生物 PBS 高強韌熱封層",
+      "item3Desc": "聚丁二酸丁二醇酯 (PBS) 提供高達 45N+ 的工業級熱封強度與極佳的熱粘性，確保包裝袋不會因咖啡豆的重力而開裂脫層。",
+      "item4Title": "04. 榮獲 OK HOME 堆肥認證",
+      "item4Desc": "證實能在家庭後院堆肥環境中於 52 週內完全降解。不殘留微塑膠、不含重金屬，完全轉化為健康肥沃的有機質。"
+    },
+    "science": {
+      "badge": "香氣驗證協定",
+      "titlePart1": "科學鎖鮮",
+      "titlePart2": "精確量化",
+      "item1Title": "相容氮氣充填",
+      "item1Desc": "完全相容於充氮包裝製程，使袋內殘留氧氣低於 2%，大幅延長咖啡豆的貨架保鮮期。",
+      "item2Title": "烘焙風味穩定性",
+      "item2Desc": "經證實能在常溫貨架環境下，妥善保護咖啡豆的脂質與揮發性香氣油長達 12 個月。",
+      "item3Title": "供應鏈強韌度",
+      "item3Desc": "高抗拉牛皮紙/PBS 複合結構，比一般單一生物薄膜降低達 18% 的運輸穿刺破損率。",
+      "imageAlt": "可堆肥咖啡排氣閥工程"
+    },
+    "faq": {
+      "badge": "咖啡包裝問答",
+      "titlePart1": "專家",
+      "titlePart2": "解答。",
+      "q1": {
+        "q": "可堆肥排氣閥與一般傳統排氣閥有何不同？",
+        "a": "我們的排氣閥採用獨家配方的生物基聚合物 (PLA/PBS) 製成，證實能在堆肥環境中與包裝袋同步降解，且提供完全相同的 2-5 mbar 精密單向排氣壓力。"
+      },
+      "q2": {
+        "q": "這些包裝袋適用於咖啡豆及咖啡粉嗎？",
+        "a": "是的。我們配備的高阻隔真空金屬化層與氣密熱封結構，能同時保護整顆咖啡豆以及表面積更大的研磨咖啡粉免於氧化受潮。"
+      },
+      "q3": {
+        "q": "外層的牛皮紙會吸收咖啡豆釋放的油脂而產生油漬嗎？",
+        "a": "不會。牛皮紙僅為外層的視覺與觸覺設計，包裝袋內層的 Bio-PBS 與金屬化阻隔層為 100% 防油阻隔，能完全防止油脂滲透與汙損外觀。"
+      },
+      "q4": {
+        "q": "咖啡存放在這種可堆肥袋子中的保存期限有多長？",
+        "a": "配合充氮製程，我們的牛皮紙/PBS 結構能提供長達 12-18 個月的保存期限，防護效能媲美傳統的 PET/鋁箔/PE 包裝袋。"
+      }
+    },
+    "cta": {
+      "badge": "烘焙商專業承諾",
+      "titlePart1": "鎖住新鮮",
+      "titlePart2": "環保無損",
+      "description": "準備好將您的咖啡包裝升級為高性能、家用可堆肥的咖啡袋了嗎？今天就開始進行香氣阻隔審查。",
+      "btnReview": "索取咖啡袋樣品",
+      "btnEngineer": "與咖啡烘焙包裝專家對話"
+    }
+  },
+  "pouchCompostableCertificationFAQPage": {
+    "meta": {
+      "title": "可堆肥認證常見問題 | 技術檢驗標準 | Pouch.eco",
+      "description": "可堆肥包裝認證技術指南。針對歐盟 EN 13432、美國 ASTM D6400 及奧地利 TUV OK Compost 標準的 800 字以上深入解答。",
+      "keywords": "可堆肥認證, EN 13432, ASTM D6400, OK Compost HOME, BPI 認證"
+    },
+    "hero": {
+      "badge": "CERT_VERIFY_V1.0",
+      "titlePart1": "科學實證",
+      "titlePart2": "純淨無瑕",
+      "titlePart3": "綠色環保",
+      "subtitle": "可堆肥性並非口頭上的行銷口號，而是必須經過實驗室嚴格驗證的技術規格。我們為您解析 EN 13432 與 ASTM D6400 等全球標準。",
+      "btnBrowse": "瀏覽認證環保款式",
+      "btnRequest": "索取實驗室檢驗報告",
+      "imageAlt": "可堆肥認證主圖"
+    },
+    "engineering": {
+      "badge": "包裝材質實驗室驗證",
+      "imageAlt": "可堆肥測試工程",
+      "titlePart1": "精確量化",
+      "titlePart2": "終歸大地",
+      "description": "包裝材料若要宣稱真正可堆肥，必須通過長達 180 天的「生物降解測試」。此項測試測量微生物將包裝材質中的碳含量轉化為二氧化碳 (CO2) 的百分比。若要通過歐洲 EN 13432 或美國 ASTM D6400 標準，材料必須在 6 個月內達到 90% 以上的轉化率。我們嚴格檢驗每一個包裝細節—從 Bio-PBS 熱封層到水性印刷油墨，確保它們分解後完全不殘留微塑膠，並順利通過關鍵的「夏大麥生態毒性」植物生長測試。"
+    },
+    "metrics": {
+      "biodegradation": {
+        "label": "生物降解率",
+        "value": "90%",
+        "unit": "180 天內",
+        "desc": "碳元素完全轉化為 CO2。"
+      },
+      "disintegration": {
+        "label": "物理崩解度",
+        "value": "12",
+        "unit": "週內",
+        "desc": "物理破碎至小於 2mm 碎片。"
+      },
+      "ecotoxicity": {
+        "label": "生態無毒性",
+        "value": "通過",
+        "unit": "植物測試",
+        "desc": "對植物生長與土壤完全安全。"
+      },
+      "standard": {
+        "label": "合規標準",
+        "value": "EN13432",
+        "unit": "ASTM D6400",
+        "desc": "符合全球工業堆肥規範。"
+      }
+    },
+    "tech": {
+      "badge": "認證技術標準體系",
+      "titlePart1": "全球安全",
+      "titlePart2": "檢驗協定",
+      "item1Title": "01. 歐盟 EN 13432 標準",
+      "item1Desc": "歐洲主流的工業堆肥標準。強制要求包裝在 12 週內物理崩解至小於 2mm，且對鉛、鎘、汞、鉻、銅等重金屬含量有極嚴格的限制。",
+      "item2Title": "02. 美國 ASTM D6400 標準",
+      "item2Desc": "美國可堆肥材料協會 (BPI) 認證的技術核心。專注於生物塑料在工業有氧堆肥環境中的物理降解表現。",
+      "item3Title": "03. 奧地利 TUV OK HOME 認證",
+      "item3Desc": "家用堆肥最高權威認證。要求材料能在一般家庭後院的常溫環境下 (20-30°C) 自主分解，適合一般家庭堆肥處置。",
+      "item4Title": "04. 澳洲 AS 4736 標準",
+      "item4Desc": "包含獨特且關鍵的「蚯蚓毒性測試」。這能確保堆肥降解後的有機質對蚯蚓生態與長期土壤健康完全無害。"
+    },
+    "science": {
+      "badge": "認證檢驗矩陣",
+      "titlePart1": "信賴數據",
+      "titlePart2": "科學審查",
+      "item1Title": "重金屬安全審計",
+      "item1Desc": "經實驗室精密篩檢 12 種以上有害重金屬，確保降解後的土壤 100% 安全無虞。",
+      "item2Title": "生態無毒生長測試",
+      "item2Desc": "透過水芹與大麥等植物的發芽生長試驗，證實對植物生長無任何負面干擾。",
+      "item3Title": "無溶劑綠色層壓",
+      "item3Desc": "採用 100% 水性貼合技術，確保包裝不含化學溶劑殘留，不抑制微生物降解活動。"
+    },
+    "faq": {
+      "badge": "認證常見問題",
+      "titlePart1": "專家",
+      "titlePart2": "解答。",
+      "q1": {
+        "q": "「OK Compost HOME（家用）」與「OK Compost INDUSTRIAL（工業）」有何差別？",
+        "a": "工業堆肥認證 (EN 13432) 需要在 60°C 以上的高溫高濕專業設施中才能分解。而家用堆肥認證 (OK Compost HOME) 則保證包裝能在一般家庭後院堆肥箱的 20-30°C 常溫下自行崩解歸於自然。"
+      },
+      "q2": {
+        "q": "可堆肥認證證書會過期嗎？",
+        "a": "會的。TUV 與 BPI 證書的有效期通常為 3-5 年，期間必須定期對包裝結構進行重新檢測，以維持其有效性。"
+      },
+      "q3": {
+        "q": "我可以直接在包裝袋上印刷「 seedling（幼苗）」標誌嗎？",
+        "a": "不行。品牌必須將您特定規格的自立袋設計向認證機構進行正式註冊登記後方能印刷標誌。我們可以為您的註冊申請提供所需的完整技術檢驗報告。"
+      },
+      "q4": {
+        "q": "只要宣稱是「生物塑膠」就一定是可以堆肥的嗎？",
+        "a": "不是。部分生物基塑膠（例如 Bio-PET）在分子結構上與傳統石化塑膠完全一致，它們只能被回收回收，而無法進行堆肥。您必須認明 ASTM D6400 或 EN 13432 等標準字樣。"
+      }
+    },
+    "cta": {
+      "badge": "認證合規承諾",
+      "titlePart1": "純淨環保",
+      "titlePart2": "權威認證",
+      "description": "準備好為您的品牌打造一條經過權威認證的可堆肥包裝供應鏈了嗎？今天就開始進行技術審查。",
+      "btnReview": "索取認證材質樣品",
+      "btnEngineer": "與包裝認證專家對話"
+    }
+  },
+  "pouchDTCSustainablePackagingPage": {
+    "meta": {
+      "title": "DTC 品牌環保包裝 | 物流優化與開箱體驗 | Pouch.eco",
+      "description": "DTC/D2C 品牌環保包裝技術指南。深入研究材積重量 (DIM) 優化、高質感開箱體驗及電商物流包裝工程。",
+      "keywords": "DTC環保包裝, D2C包裝, 物流包裝工程, 開箱體驗, 軟包裝自立袋"
+    },
+    "hero": {
+      "badge": "DTC_STRATEGY_V1.0",
+      "titlePart1": "綠色物流",
+      "titlePart2": "純淨無瑕",
+      "titlePart3": "提升利潤",
+      "subtitle": "DTC 包裝必須兼顧物流效率與品牌忠誠度。我們研發的輕量化自立袋能為您大幅降低快遞與空運成本。",
+      "btnBrowse": "瀏覽 DTC 包裝方案",
+      "btnRequest": "申請物流材積評估",
+      "imageAlt": "DTC 環保包裝袋主圖"
+    },
+    "engineering": {
+      "badge": "源自設計的物流優化",
+      "imageAlt": "DTC 環保包裝物流",
+      "titlePart1": "精心研發",
+      "titlePart2": "安全送達",
+      "description": "在直面消費者 (DTC/D2C) 的時代，包裝是您的品牌與消費者接觸的實體橋樑，但也可能成為您沉重的物流負擔。2026 年，運送含有過多空氣的包裝不只增加碳排放，也是財務上的浪費。在 Pouch.eco，我們為您現有的包裝進行「材積重量 (DIM) 審計」。藉由將傳統的玻璃罐或厚重紙盒換成輕量化的軟塑料自立袋，能降低包裝總重達 82% 以上。這不只是「減少塑膠用量」，更是「材積空間的優化」。更輕、更緊湊的包裝意味著每片棧板能容納更多商品、降低碳稅附加費，並顯著降低您品牌的範疇三 (Scope 3) 物流碳足跡。"
+    },
+    "metrics": {
+      "dimWeight": {
+        "label": "材積重量減量",
+        "value": "-82%",
+        "unit": "減幅",
+        "desc": "對比玻璃罐或硬質包裝容器。"
+      },
+      "freightSav": {
+        "label": "單件運費節省",
+        "value": "$0.40",
+        "unit": "美元",
+        "desc": "快遞空運單件節省費用估計。"
+      },
+      "unboxing": {
+        "label": "開箱評分",
+        "value": "10/10",
+        "unit": "高分",
+        "desc": "極致霧面與沙面觸感質感。"
+      },
+      "moqEntry": {
+        "label": "起訂量",
+        "value": "500",
+        "unit": "個",
+        "desc": "低風險數位印刷生產起訂量。"
+      }
+    },
+    "tech": {
+      "badge": "開箱體驗技術體系",
+      "titlePart1": "尖端工藝",
+      "titlePart2": "極致質感",
+      "item1Title": "01. 觸感 Soft-Touch 塗層",
+      "item1Desc": "採用特殊的觸感油墨，在包裝袋表面營造出如絲絨般的 premium 手感，讓消費者在觸摸的第一時間便能感受到品牌的用心與品質。",
+      "item2Title": "02. 數位高保真印刷",
+      "item2Desc": "採用 HP Indigo 25K 數位印刷線，提供經 G7 認證的極致色彩精準度 (ΔE < 2.0)，確保您品牌的主視覺色彩在每批包裝上完美呈現。",
+      "item3Title": "03. 電商 Right-Sized 規格研發",
+      "item3Desc": "根據各大物流快遞袋規格客製化包裝袋尺寸，使其完美契合，徹底省去氣泡袋及防撞填充物的耗費。",
+      "item4Title": "04. 100% 可回收性",
+      "item4Desc": "經認證的單一材質結構，方便您的消費者在拆封後，直接投入當地的塑膠回收體系，落實品牌永續承諾。"
+    },
+    "science": {
+      "badge": "DTC 使用者體驗科學 V1",
+      "titlePart1": "觸摸質感",
+      "titlePart2": "感動人心",
+      "description": "在數位電商的世界裡，實體包裝是您與客戶唯一的實體接觸。我們使用 Delta-E 分光光度法與摩擦係數 (CoF) 測試，確保開箱體驗不僅是視覺盛宴，更是實體質感享受。我們的 EEAT 設計協定專注於「第一眼與第一手觸碰的關鍵時刻」。藉由提供兼具高質感霧面外觀與 100% 可回收的 Mono-PE 包裝袋，我們協助 DTC 品牌將其產品品質與對環保的承諾緊密結合。這正是以材料科學建立品牌價值的典範。",
+      "item1Title": "極致外觀工藝",
+      "item1Desc": "提供霧面、亮面及觸感膜等選項，專為 D2C 品牌開箱優化設計。",
+      "item2Title": "物流效率驗證",
+      "item2Desc": "證實能顯著降低材積重，進而減少空運快遞油耗與碳排放。",
+      "imageAlt": "經驗證的 DTC 包裝袋製造"
+    },
+    "faq": {
+      "badge": "DTC包裝問答",
+      "titlePart1": "專家",
+      "titlePart2": "解答。",
+      "q1": {
+        "q": "使用軟包裝袋能幫產品減輕多少重量？",
+        "a": "將玻璃瓶或馬口鐵罐換成 Achieve Pack 軟包裝袋，平均可為您的商品主包裝減重達 90%，直接降低您的電商出貨運費成本。"
+      },
+      "q2": {
+        "q": "軟包裝袋足夠強韌，能禁得起快遞運輸途中的擠壓碰撞嗎？",
+        "a": "絕對可以。我們為 DTC 物流研發的自立袋採用高韌性複合結構薄膜（如 MDO-PE 或共擠尼龍/PE），具備極佳的耐衝擊與抗刺穿防漏性能。"
+      },
+      "q3": {
+        "q": "你們對 DTC 初創品牌的起訂量是多少？",
+        "a": "藉由我們的數位印刷設備，起訂量低至每個品項 (SKU) 500 個即可排版生產，非常適合品牌早期進行市場測試與快速迭代。"
+      },
+      "q4": {
+        "q": "什麼是「合身包裝 (Right-Sized) 」？",
+        "a": "這是指我們能根據您的外箱或快遞袋，為您客製化最完美的包裝袋尺寸，減少多餘的空間耗費，降低材積，同時免去填充泡泡紙。"
+      }
+    },
+    "cta": {
+      "badge": "DTC品牌專業承諾",
+      "titlePart1": "物流減量",
+      "titlePart2": "純淨無瑕",
+      "description": "準備好為您的 DTC 品牌升級為物流優化、100% 可回收的包裝袋了嗎？今天就開始進行技術審查。",
+      "btnReview": "索取 DTC 包裝樣品",
+      "btnEngineer": "與物流包裝工程師對話"
+    }
+  },
+  "pouchRealWorldSustainabilityPage": {
+    "meta": {
+      "title": "真實世界永續包裝 | 生命週期評估工程 | Pouch.eco",
+      "description": "真實世界包裝永續性技術指南。深入研究符合 ISO 14040 生命週期評估 (LCA)、碳足跡量化及全球環保法規合規性的 800 字以上專業分析。",
+      "keywords": "永續包裝, 生命週期評估, 碳足跡, 包裝法規合規性, ISO 14040"
+    },
+    "hero": {
+      "badge": "IMPACT_ENGINE_V1.0",
+      "titlePart1": "數據導向",
+      "titlePart2": "謝絕漂綠",
+      "titlePart3": "實證研發",
+      "subtitle": "永續性是一項可量化的工程指標。我們提供符合 ISO 14040 標準的生命週期評估 (LCA) 數據與第三方權威認證，全力支持您品牌的環保聲明。",
+      "btnBrowse": "瀏覽經科學驗證的方案",
+      "btnRequest": "索取實證數據包",
+      "imageAlt": "真實世界永續包裝主圖"
+    },
+    "engineering": {
+      "badge": "包裝生命週期審計",
+      "imageAlt": "永續包裝生命週期案例研究",
+      "titlePart1": "源頭製造",
+      "titlePart2": "回歸自然",
+      "description": "永續性是具體的測量數據，而非抽象的口號。我們採用 ISO 14040/44 生命週期評估 (LCA) 標準，量化您品牌包裝的整體環境影響。我們為產品庫中的每種包裝材料結構測量範疇三 (Scope 3) 碳排放、水足跡與土地利用率影響。藉由將硬質容器升級為「源頭減量的輕量軟塑料自立袋」，我們的客戶平均能減少達 75% 的垃圾掩埋重量—此數據均經第三方材料審計嚴格證實。"
+    },
+    "metrics": {
+      "carbonProof": {
+        "label": "碳足跡實證",
+        "value": "ISO",
+        "unit": "14040",
+        "desc": "經驗證的全生命週期評估。"
+      },
+      "landfillAvoid": {
+        "label": "掩埋減量率",
+        "value": "75%",
+        "unit": "按重量",
+        "desc": "對比玻璃罐或硬質 PET 容器。"
+      },
+      "eprMitigation": {
+        "label": "EPR 差別化稅額",
+        "value": "-20%",
+        "unit": "稅費",
+        "desc": "針對全球塑膠包裝稅進行優化。"
+      },
+      "compliance": {
+        "label": "法規審查",
+        "value": "符合",
+        "unit": "綠色審計",
+        "desc": "完全符合 FTC 及英國 CMA 規範。"
+      }
+    },
+    "tech": {
+      "badge": "法規與合規技術體系",
+      "titlePart1": "規避漂綠",
+      "titlePart2": "實證宣稱",
+      "item1Title": "01. 美國 FTC 綠色指南",
+      "item1Desc": "完全符合美國消費者保護標準。我們提供詳實的第三方實證數據，讓您能合法在產品的主包裝上做出無條件的環保聲明。",
+      "item2Title": "02. 英國 CMA 環保聲明法",
+      "item2Desc": "完全對接英國綠色聲明指引 (Green Claims Code)。確保您所宣稱的每一項永續優勢都具備清晰、可量化的實驗室數據支持。",
+      "item3Title": "03. EPR 生產者延伸責任優化",
+      "item3Desc": "生產者責任稅已成商業現實。我們通過最大化包裝的回收評分並降低材料質量，協助您將年繳稅款降至最低。",
+      "item4Title": "04. EPD 環境產品聲明書",
+      "item4Desc": "提供標準化的 EPD 環境技術文件，詳細彙整您該批包裝訂單的環保數據表現，以支持品牌的 ESG 年度報告。"
+    },
+    "science": {
+      "badge": "供應鏈合規性驗證",
+      "titlePart1": "工廠現場",
+      "titlePart2": "嚴格稽核",
+      "description": "包裝的永續性取決於製造廠的合規道德。我們對所有核心合作工廠進行 SMETA 四大支柱道德審計，嚴格檢驗勞工權益、職業健康安全與環境管理表現。通過導入 ISO 14001 環境管理體系，我們確保生產您環保袋時所耗用的能源每年均受到量化監督與改善。我們不只是銷售袋子，更是在經營一個透明、可追溯的永續製造生態系。",
+      "item1Title": "供應鏈追溯性技術",
+      "item1Desc": "針對所有再生或生物基樹脂原料，均提供 GRS 與 ISCC PLUS 認證的監管鏈證書。",
+      "item2Title": "產品碳資訊揭露",
+      "item2Desc": "為每個品項 (SKU) 提供量化的 kg CO2e 數據，全力支持您品牌的淨零碳排放路徑。",
+      "imageAlt": "經驗證的永續包裝工廠營運"
+    },
+    "faq": {
+      "badge": "永續數據問答",
+      "titlePart1": "專業解答",
+      "titlePart2": "拒絕空話",
+      "q1": {
+        "q": "什麼是符合 ISO 14040 的生命週期評估 (LCA) ？",
+        "a": "這是測量產品對環境衝擊的全球通用科學標準。它追蹤從原材料開採、運輸、工廠加工、到最終消費者棄置處置的每一個階段。"
+      },
+      "q2": {
+        "q": "你們如何定義「真實世界 (Real-World) 」的永續包裝？",
+        "a": "我們定義為材料科學與在地資源回收設施的交集。我們專注於在現今大眾回收與堆肥體系中真正能落實的方案，而非僅在實驗室中成立的理論。"
+      },
+      "q3": {
+        "q": "你們的數據能保護品牌免受「漂綠訴訟」的威脅嗎？",
+        "a": "可以。藉由嚴格遵循美國 FTC 綠色指南與英國 CMA 規範，並使用第三方檢驗報告做支持，您能為品牌的任何環保宣稱建立合法、牢靠的法律防禦防線。"
+      },
+      "q4": {
+        "q": "將包裝更換為軟包裝自立袋能幫品牌省下多少碳排放？",
+        "a": "平均而言，將玻璃瓶或重質硬 PET 瓶換成輕量化的軟塑料自立袋，由於材料用量大幅減少且運輸材積密度提高，能為您省下 60% 至 80% 的生命週期碳排放。"
+      }
+    },
+    "cta": {
+      "badge": "科學永續倡議",
+      "titlePart1": "科學實證",
+      "titlePart2": "極致環保",
+      "description": "準備好為您的品牌取得無可爭辯的永續性技術實證了嗎？今天就從為您的包裝進行生命週期評估開始。",
+      "btnReview": "索取實證樣品包",
+      "btnEngineer": "與生命週期評估工程師對話"
+    }
+  },
+  "pouchEcoFriendlySupplierServicePage": {
+    "meta": {
+      "title": "環保供應商認證服務 | 技術與工廠審計 | Pouch.eco",
+      "description": "永續包裝供應商驗證與工廠審計技術指南。針對 SMETA 倫理稽核、ISO 14001 環境管理及 GRS 原料可追溯性協定的 800 字以上深入研究。",
+      "keywords": "環保包裝供應商, 永續供應鏈, SMETA稽核, GRS認證, ISO 14001包裝"
+    },
+    "hero": {
+      "badge": "SUPPLY_AUDIT_V1.0",
+      "titlePart1": "純淨無瑕",
+      "titlePart2": "誠實公開",
+      "titlePart3": "實證審查",
+      "subtitle": "未經審計核實的「永續」只是漂綠行為。我們為品牌提供符合國際最高標準的透明、隨時可接受審計的綠色供應鏈。",
+      "btnBrowse": "瀏覽經科學驗證的方案",
+      "btnRequest": "索取工廠審計報告",
+      "imageAlt": "環保供應商服務主圖"
+    },
+    "engineering": {
+      "badge": "供應鏈透明度保障",
+      "imageAlt": "永續包裝工廠製造驗證",
+      "titlePart1": "精心研發",
+      "titlePart2": "有法可依",
+      "description": "永續包裝是一門嚴謹的數據科學，而非任人解讀的行銷名詞。為了保護您的品牌完全符合 2026 年最新實施的歐盟《反漂綠綠色聲明指令》，每家包裝供應商都必須提供可核實的「原料監管鏈 (Chain of Custody)」。在 Pouch.eco，我們採用國際主流的 SMETA 四大支柱 (SMETA 4-Pillar) 倫理稽核架構，實地稽核工廠的勞工權益、職業健康安全及環境倫理表現。我們為每一批綠色材料提供全球回收標準 (GRS) 及 ISCC PLUS 質能平衡可追溯性證書，確保您袋上的每一公克回收或生物基原料都真實可靠。這正是循環經濟所需的技術誠信。"
+    },
+    "metrics": {
+      "ethicalAudit": {
+        "label": "道德審計",
+        "value": "SMETA",
+        "unit": "四大支柱",
+        "desc": "實地驗證社會與勞工標準。"
+      },
+      "environment": {
+        "label": "環境管理",
+        "value": "ISO",
+        "unit": "14001",
+        "desc": "經核實的環境管理體系認證。"
+      },
+      "ecoVadis": {
+        "label": "EcoVadis 評級",
+        "value": "金獎",
+        "unit": "榮譽",
+        "desc": "名列全球前 5% 永續供應商。"
+      },
+      "traceability": {
+        "label": "原料追溯性",
+        "value": "100%",
+        "unit": "GRS",
+        "desc": "所有塑料樹脂均有完整監管鏈。"
+      }
+    },
+    "tech": {
+      "badge": "供應鏈審計技術體系",
+      "titlePart1": "全球標準",
+      "titlePart2": "在地把關",
+      "item1Title": "01. SMETA 社會責任稽核",
+      "item1Desc": "執行涵蓋勞工福利、工廠安全、環境健康及商業道德的全面性審查。確保您的品牌包裝產自尊重人權與公平薪資的工廠環境。",
+      "item2Title": "02. ISO 14001 EMS",
+      "item2Desc": "Verification of a formal Environmental Management System. We track and reduce water usage, energy consumption, and volatile organic compound (VOC) emissions during production.",
+      "item3Title": "03. GRS Chain of Custody",
+      "item3Desc": "Every shipment of recycled content is accompanied by a Transaction Certificate (TC), proving the post-consumer origin of the resin and the ethical integrity of the recovery process.",
+      "item4Title": "04. BRCGS Compliance",
+      "item4Desc": "Our manufacturing partners maintain Grade A BRCGS certification, ensuring the highest level of product safety and hygiene for food-grade flexible packaging."
+    },
+    "science": {
+      "badge": "工廠現場實地審查",
+      "titlePart1": "實地監督",
+      "titlePart2": "眼見為實",
+      "description": "書面證書可能有偽造風險，但工廠現場實地稽核無法作假。我們在核心包裝製造基地派駐了專業的技術團隊，隨時進行不定期工廠現場抽查。從檢驗 ASTM 熱封強度，到現場核實再生與原生塑料樹脂的分流 segregation 儲藏，我們為跨國品牌客戶的 ESG 年度披露提供最嚴謹的法務級監管。我們不只看書面報告，更深入到機械微米級層面核實生產過程。",
+      "item1Title": "隨時迎接審計",
+      "item1Desc": "為您的內部法規合規部門與第三方 ESG 稽核提供最完整的技術支持文件。",
+      "item2Title": "供應鏈風險控管",
+      "item2Desc": "持續監控供應商的地緣環境、產能與供應鏈環境風險 profile。",
+      "imageAlt": "現場供應商審核"
+    },
+    "faq": {
+      "badge": "供應商審計問答",
+      "titlePart1": "專家",
+      "titlePart2": "解答。",
+      "q1": {
+        "q": "你們如何核實合作供應商的 GRS 回收聲明？",
+        "a": "我們要求每批次的再生原料都必須檢附由認證機構核發的 Transaction Certificate (TC) 交易憑證，這能將您袋中的再生樹脂一路追溯至源頭回收站。"
+      },
+      "q2": {
+        "q": "什麼是 SMETA 四大支柱倫理稽核？",
+        "a": "這是全球最受認可的道德供應鏈稽核標準，評估範疇涵蓋：勞工權益 (Labor)、健康與安全 (Health & Safety)、環境管理 (Environment) 和商業道德 (Business Ethics)。"
+      },
+      "q3": {
+        "q": "我能將你們的審計報告直接用於我們品牌的 ESG 報告嗎？",
+        "a": "完全可以。我們為客戶提供完整的 ISO 14001、BRCGS 以及 SMETA 工廠審計證書與現場報告，支持品牌落實年度永續責任揭露。"
+      },
+      "q4": {
+        "q": "若工廠被查出不合規項目，你們會如何處理？",
+        "a": "任何在抽查中不合格的供應工廠，會被要求立即進入「限期整改計畫 (CAP)」。若逾期未能完成整改並通過複查，我們將終止其合作資格以維護供應鏈純淨。"
+      }
+    },
+    "cta": {
+      "badge": "合規審查倡議",
+      "titlePart1": "誠實信賴",
+      "titlePart2": "實地稽核",
+      "description": "準備好為您的品牌打造一條透明、可追溯且經過嚴格實地審核的永續包裝供應鏈了嗎？今天就開始進行技術審查。",
+      "btnReview": "申請供應商審計報告",
+      "btnEngineer": "與供應鏈稽核工程師對話"
+    }
+  },
+  "pouchLowMOQStartupPackagingPage": {
+    "meta": {
+      "title": "初創品牌低起訂量包裝 | 靈活與永續 | Pouch.eco",
+      "description": "初創品牌低起訂量 (MOQ) 包裝技術指南。深入研究數位印刷、零版費永續性及靈活市場切入的 800 字以上專業分析。",
+      "keywords": "小額包裝起訂量, 初創品牌自立袋, 數位印刷包裝, 零版費包裝, 永續環保包裝, 靈活製造"
+    },
+    "hero": {
+      "badge": "STARTUP_AGILE_V1.0",
+      "titlePart1": "靈活起步",
+      "titlePart2": "純淨無瑕",
+      "titlePart3": "輕鬆規模化",
+      "subtitle": "高起訂量是包裝創新的死穴。我們為初創品牌提供與大企業同等級的低起訂量 (MOQ) 永續包裝解決方案。",
+      "btnBrowse": "瀏覽初創品牌款式",
+      "btnRequest": "索取新創體驗包",
+      "imageAlt": "初創品牌小額包裝袋主圖"
+    },
+    "engineering": {
+      "badge": "市場切入包裝審核",
+      "imageAlt": "初創品牌包裝靈活性",
+      "titlePart1": "精心研發",
+      "titlePart2": "助力啟航",
+      "description": "對於初創品牌而言，現金流即是生存的關鍵。傳統包裝製造動輒要求每個品項至少 20,000 個起訂量，並需預付數萬元的金屬版費，這對推廣永續環保包裝是一道巨大的門檻。在 Pouch.eco，我們扮演您的「技術孵化器」。我們採用 HP Indigo 25K 數位印刷技術，提供低至 500 個起訂量且「免收製版費」的方案。這讓您的初創產品在發布第一天，就能採用與跨國大品牌完全相同的高阻隔、獲得堆肥或回收認證的永續包裝材料（如 Mono-PE 或可堆肥材質），但只需承擔極小額的初期資金風險。透過大幅降低庫存壓力，我們協助您保持靈活敏捷、快速測試市場反應，並隨著品牌的成長而進行綠色規模化。"
+    },
+    "metrics": {
+      "minEntry": {
+        "label": "最低门槛",
+        "value": "500",
+        "unit": "個",
+        "desc": "業界極低的包裝起訂量。"
+      },
+      "plateFee": {
+        "label": "金屬版費",
+        "value": "$0",
+        "unit": "元",
+        "desc": "數位印刷完全免收製版費。"
+      },
+      "launchSpd": {
+        "label": "交貨速度",
+        "value": "21",
+        "unit": "天內",
+        "desc": "從設計定稿到成品送達。"
+      },
+      "riskRed": {
+        "label": "庫存風險降低",
+        "value": "95%",
+        "unit": "幅度",
+        "desc": "大幅減少資金積壓與庫存風險。"
+      }
+    },
+    "tech": {
+      "badge": "初創包裝技術體系",
+      "titlePart1": "低度風險",
+      "titlePart2": "極致成效",
+      "item1Title": "01. 數位高解析印刷",
+      "item1Desc": "高達 1200 DPI 的超高解析度，確保您的新創品牌在外觀質感上從第一天起就展現行業領先者風采，視覺品質毫無妥協。",
+      "item2Title": "02. 支援多品項 (SKUs) 混印",
+      "item2Desc": "允許在同一批次生產中同時印製多種口味或包裝設計。非常適合推出綜合裝或進行季節性產品市場測試。",
+      "item3Title": "03. 快速打樣與交貨",
+      "item3Desc": "從稿件確認到成品出廠僅需 14-21 天，協助您迅速將創新的永續商品推向市場，搶占先機。",
+      "item4Title": "04. 無縫過渡規模化生產",
+      "item4Desc": "我們陪伴您的品牌一起成長。當您的銷量攀升後，我們能協助無縫過渡至高速凹版印刷線，進一步壓低單個包裝成本。"
+    },
+    "science": {
+      "badge": "初創包裝科學 V1",
+      "titlePart1": "工廠認證",
+      "titlePart2": "品牌加分",
+      "description": "敏捷的市場反應是一項極具競爭力的技術優勢。我們從第一天起就為新創企業提供大廠級的材料認證證書（如 TUV 堆肥、GRS 回收及 BRCGS 食品安全認證），讓您的產品能順利進駐各大要求嚴格合規證明的大型連鎖通路。我們的 EEAT 新創協定旨在降低永續包裝的切入難題。我們不只提供包裝袋，更提供產品責任險與零售商審計所需的完整技術規格書 (TDS)。透過低起訂量的數位印刷，我們協助您完全消滅「死庫存廢棄物」—這是包裝行業中最常被忽視但影響甚鉅的環境隱憂。",
+      "item1Title": "快速樣品打樣",
+      "item1Desc": "在正式大貨生產前，可先取得極高還原度的實體打樣袋進行確認。",
+      "item2Title": "伴隨品牌成長",
+      "item2Desc": "提供極具彈性的生產產能，隨著您品牌銷量增長無縫無痛擴張。",
+      "imageAlt": "經驗證的新創包裝製造"
+    },
+    "faq": {
+      "badge": "初創包裝問答",
+      "titlePart1": "專家",
+      "titlePart2": "解答。",
+      "q1": {
+        "q": "單個品項最少的起訂量是多少？",
+        "a": "憑藉先進的數位印刷設備，單個 SKU 起訂量低至 500 個即可排程生產，極大化降低新品牌起步的門檻與庫存壓力。"
+      },
+      "q2": {
+        "q": "你們是否為初創品牌提供設計與規格上的支援？",
+        "a": "是的。我們的技術團隊會協助審核您的設計檔案，確保其完全符合數位印刷規範以及當地法規的相關要求。"
+      },
+      "q3": {
+        "q": "低起訂量包裝的材質品質與大品牌的批量包裝相同嗎？",
+        "a": "完全相同。我們在數位印刷線上使用的薄膜、阻隔層以及食品級安全油墨，與為跨國大品牌生產時所用的原料規格完全一致。"
+      },
+      "q4": {
+        "q": "從下單到收到包裝袋通常需要多久時間？",
+        "a": "設計圖定稿後通常僅需 14-21 天即可出貨，相較於傳統印刷的 8-10 週交期，能幫助您大幅縮短商品上市時間。"
+      }
+    },
+    "cta": {
+      "badge": "新創品牌專業承諾",
+      "titlePart1": "靈活新創",
+      "titlePart2": "純淨無瑕",
+      "description": "準備好為您的品牌打造低風險、大廠級的永續包裝供應鏈了嗎？今天就開始進行技術審查。",
+      "btnReview": "索取新創包裝樣品",
+      "btnEngineer": "與新創包裝工程師對話"
+    }
   }
 }
