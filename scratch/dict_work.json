@@ -1,0 +1,187 @@
+{
+  "work_0": {
+    "es": { "title": "Bolsa de Café Compostable", "desc": "Bolsas de pie de alta barrera a base de plantas con válvulas de desgasificación.", "tag": "Compostable" },
+    "fr": { "title": "Sachet de Café Compostable", "desc": "Sachets à haute barrière à base de plantes avec valves de dégazage.", "tag": "Compostable" },
+    "zh": { "title": "可堆肥咖啡自立袋", "desc": "帶有單向排氣閥的植物基高阻隔自立袋。", "tag": "可堆肥" }
+  },
+  "work_1": {
+    "es": { "title": "Bolsa de Té de Fondo Plano Kraft", "desc": "Capas exteriores de kraft orgánico con forro de barrera compostable certificado.", "tag": "Papel Kraft" },
+    "fr": { "title": "Sachet de Thé à Fond Plat Kraft", "desc": "Couches extérieures en kraft biologique avec doublure barrière compostable certifiée.", "tag": "Papier Kraft" },
+    "zh": { "title": "牛皮紙平底茶葉袋", "desc": "天然有機牛皮紙外層，內襯認證可堆肥高阻隔層。", "tag": "牛皮紙" }
+  },
+  "work_2": {
+    "es": { "title": "Bolsa de Snacks Mate Reciclable", "desc": "Película 100% mono-PE reciclable con acabado mate suave al tacto.", "tag": "Reciclable" },
+    "fr": { "title": "Sachet de Snacks Mat Recyclable", "desc": "Film 100 % mono-PE recyclable avec finition mate douce au toucher.", "tag": "Recyclable" },
+    "zh": { "title": "可回收霧面零食袋", "desc": "100% 可回收的單一材質 PE 薄膜，表面具備霧面觸感。", "tag": "可回收" }
+  },
+  "work_3": {
+    "es": { "title": "Bolsa Metálica de Lujo", "desc": "Forro metalizado premium que proporciona barreras ultra altas contra la humedad y el oxígeno.", "tag": "Alta Barrera" },
+    "fr": { "title": "Sachet Métallisé de Luxe", "desc": "Doublure métallisée premium offrant des barrières ultra-hautes contre l'humidité et l'oxygène.", "tag": "Haute Barrière" },
+    "zh": { "title": "金屬質感奢華自立袋", "desc": "頂級金屬鍍膜內層，提供超高防潮及抗氧化的阻隔效果。", "tag": "高阻隔" }
+  },
+  "work_4": {
+    "es": { "title": "Bolsa Compostable con Ventana Transparente", "desc": "Bolsa de pie de kraft compostable que presenta una ventana transparente a base de plantas.", "tag": "Ecológico" },
+    "fr": { "title": "Sachet Compostable avec Fenêtre Transparente", "desc": "Sachet en kraft compostable avec fenêtre transparente à base de plantes.", "tag": "Éco-responsable" },
+    "zh": { "title": "開窗式可堆肥袋", "desc": "帶有植物基透明開窗設計的可堆肥牛皮紙自立袋。", "tag": "環保" }
+  },
+  "work_5": {
+    "es": { "title": "Bolsa de Líquidos con Boquilla", "desc": "Estructuras laminadas resistentes con boquillas rígidas para transporte a prueba de fugas.", "tag": "Líquidos" },
+    "fr": { "title": "Sachet pour Liquides avec Bec", "desc": "Structures laminées robustes avec becs rigides pour un transport étanche.", "tag": "Liquides" },
+    "zh": { "title": "果汁及液體吸嘴袋", "desc": "重型複合結構搭配硬式吸嘴，確保運送防漏。", "tag": "液體" }
+  },
+  "work_6": {
+    "es": { "title": "Bolsa de Pie Impresa Personalizada", "desc": "Muestra de impresión digital de alta resolución con baja cantidad mínima de pedido.", "tag": "Impresión Digital" },
+    "fr": { "title": "Sachet Imprimé Personnalisé", "desc": "Échantillon d'impression numérique haute résolution avec une faible quantité minimale.", "tag": "Impression Numérique" },
+    "zh": { "title": "客製化數位印刷自立袋", "desc": "高解析度數位印刷樣本，支援低起訂量。", "tag": "數位印刷" }
+  },
+  "work_7": {
+    "es": { "title": "Bolsa de Café Negra Mate Premium", "desc": "Elegante bolsa de fondo plano negra mate con cremallera de bolsillo integrada.", "tag": "Especialidad" },
+    "fr": { "title": "Sachet de Café Noir Mat Premium", "desc": "Sachet élégant à fond plat noir mat avec fermeture à glissière de poche intégrée.", "tag": "Spécialité" },
+    "zh": { "title": "頂級霧黑咖啡袋", "desc": "時尚的霧面黑色平底袋，附有內建隱藏式夾鏈。", "tag": "精品" }
+  },
+  "work_8": {
+    "es": { "title": "Bolsa de Cremallera Mono-PE Reciclable", "desc": "Diseño totalmente circular con cremalleras de cierre a presión reciclables.", "tag": "Reciclable" },
+    "fr": { "title": "Sachet avec Zip Mono-PE Recyclable", "desc": "Conception entièrement circulaire avec zips press-to-close recyclables.", "tag": "Recyclable" },
+    "zh": { "title": "可回收單一 PE 夾鏈袋", "desc": "完全循環經濟設計，採用可回收的按壓式夾鏈。", "tag": "可回收" }
+  },
+  "work_9": {
+    "es": { "title": "Bolsa de Suplementos de Caña de Azúcar Bio-PE", "desc": "Bioplásticos derivados de la caña de azúcar que ayudan a las marcas a reducir emisiones de carbono.", "tag": "Bio-PE" },
+    "fr": { "title": "Sachet de Suppléments en Bio-PE Canne à Sucre", "desc": "Bioplastiques dérivés de la canne à sucre aidant les marques à réduire leurs émissions de carbone.", "tag": "Bio-PE" },
+    "zh": { "title": "甘蔗生質 PE 營養品袋", "desc": "源自甘蔗的生物塑膠，協助品牌減少碳排放。", "tag": "生質 PE" }
+  },
+  "work_10": {
+    "es": { "title": "Bolsa de Plástico Reciclado PCR", "desc": "Incorpora plásticos reciclados posconsumo en capas estructurales.", "tag": "Plástico PCR" },
+    "fr": { "title": "Sachet en Plastique Recyclé PCR", "desc": "Intègre des plastiques recyclés post-consommation dans les couches structurelles.", "tag": "Plastique PCR" },
+    "zh": { "title": "PCR 綠色回收塑膠袋", "desc": "將消費後回收塑膠整合入結構層中的環保包裝。", "tag": "PCR 塑膠" }
+  },
+  "work_11": {
+    "es": { "title": "Sobre de Kraft Ecosential", "desc": "Sobres de papel kraft reciclado resistente con tiras adhesivas de autosellado.", "tag": "Sobre de Papel" },
+    "fr": { "title": "Enveloppe Kraft Ecosential", "desc": "Enveloppes d'expédition en papier kraft recyclé robuste avec bandes adhésives auto-scellantes.", "tag": "Enveloppe Papier" },
+    "zh": { "title": "環保牛皮紙破壞袋", "desc": "高強度再生牛皮紙物流袋，附雙層自黏封條。", "tag": "紙製快遞袋" }
+  },
+  "work_12": {
+    "es": { "title": "Bolsa de Nueces Compostable en Casa", "desc": "Bolsa de pie certificada TÜV OK Compost HOME para snacks orgánicos.", "tag": "Compostable en Casa" },
+    "fr": { "title": "Sachet de Noix Compostable à Domicile", "desc": "Sachet certifié TÜV OK Compost HOME pour snacks biologiques.", "tag": "Compostable à Domicile" },
+    "zh": { "title": "家庭可堆肥堅果袋", "desc": "獲得 TÜV OK Compost HOME 認證的有機零食自立袋。", "tag": "家庭可堆肥" }
+  },
+  "work_13": {
+    "es": { "title": "Bolsa de Café con Fuelle Lateral", "desc": "Fuelles laterales expandibles con estructura de sello cuádruple para un diseño estable en estantería.", "tag": "Fuelle Lateral" },
+    "fr": { "title": "Sachet de Café à Soufflet Latéral", "desc": "Soufflets latéraux extensibles avec structure quad-seal pour un agencement stable en rayon.", "tag": "Soufflet Latéral" },
+    "zh": { "title": "側邊折角咖啡袋", "desc": "可擴展的側折角四面封袋，在貨架上提供極佳穩定性。", "tag": "側折角" }
+  },
+  "work_14": {
+    "es": { "title": "Caja de Lujo Holográfica", "desc": "Sobres de envío corrugados con diseños de papel holográfico vibrantes.", "tag": "Caja Rígida" },
+    "fr": { "title": "Boîte de Luxe Holographique", "desc": "Boîtes d'expédition en carton ondulé avec des motifs holographiques vibrants.", "tag": "Boîte Rigide" },
+    "zh": { "title": "全息雷射高奢紙盒", "desc": "帶有鮮豔全息雷射燙印設計的瓦楞紙物流盒。", "tag": "硬紙盒" }
+  },
+  "work_15": {
+    "es": { "title": "Bolsa de Premios para Mascotas", "desc": "Laminaciones resistentes a pinchazos diseñadas para longevidad en el estante y resistencia a la grasa.", "tag": "Mascotas" },
+    "fr": { "title": "Sachet de Friandises pour Animaux", "desc": "Laminations résistantes aux perforations conçues pour la longévité en rayon et la résistance aux graisses.", "tag": "Animaux" },
+    "zh": { "title": "環保寵物零食袋", "desc": "防刺穿複合材質，專為延長貨架期及防油脂設計。", "tag": "寵物零食" }
+  },
+  "work_16": {
+    "es": { "title": "Bolsa Blanca Mate Compostable", "desc": "Bolsas de pie ecológicas blancas mate con estilo de papel de caña de azúcar orgánica.", "tag": "Compostable" },
+    "fr": { "title": "Sachet Blanc Mat Compostable", "desc": "Sachets blancs mats éco-responsables avec un style de papier de canne à sucre organique.", "tag": "Compostable" },
+    "zh": { "title": "霧白可堆肥袋", "desc": "結合有機甘蔗紙質感的環保霧白自立袋。", "tag": "可堆肥" }
+  },
+  "work_17": {
+    "es": { "title": "Bolsa de Té de Fuelle Lateral Kraft", "desc": "Bolsas de fuelle lateral de alta barrera para tés herbales con fondo de bloque.", "tag": "Papel Kraft" },
+    "fr": { "title": "Sachet de Thé à Soufflet Latéral Kraft", "desc": "Sachets à haute barrière avec soufflets latéraux pour thés aux herbes et fond bloc.", "tag": "Papier Kraft" },
+    "zh": { "title": "牛皮紙側折角茶葉袋", "desc": "高阻隔側折角草本茶袋，具平底結構。", "tag": "牛皮紙" }
+  },
+  "work_18": {
+    "es": { "title": "Bolsa de Suplemento Circular Mono-PE", "desc": "Bolsa de suplemento mono-PE mate reciclable con cremallera resistente.", "tag": "Reciclable" },
+    "fr": { "title": "Sachet de Supplément Circulaire Mono-PE", "desc": "Sachet de supplément mat en mono-PE recyclable avec zip robuste.", "tag": "Recyclable" },
+    "zh": { "title": "單一 PE 循環營養品袋", "desc": "可回收霧面單一 PE 營養品袋，配備重型夾鏈。", "tag": "可回收" }
+  },
+  "work_19": {
+    "es": { "title": "Bolsa Compostable de Frente Transparente", "desc": "Estructura frontal de barrera transparente que muestra granos de café gourmet.", "tag": "Ecológico" },
+    "fr": { "title": "Sachet Compostable avec Face Transparente", "desc": "Structure avant transparente à haute barrière mettant en valeur les grains de café gourmet.", "tag": "Éco-responsable" },
+    "zh": { "title": "透明正面可堆肥袋", "desc": "透明阻隔正面結構，完美展示精品咖啡豆。", "tag": "環保" }
+  },
+  "work_20": {
+    "es": { "title": "Bolsa de Puré con Boquilla de Alta Barrera", "desc": "Envase de PE puro con boquilla para alimentos para bebés orgánicos y purés.", "tag": "Líquidos" },
+    "fr": { "title": "Sachet de Purée avec Bec Haute Barrière", "desc": "Emballage en PE pur avec bec pour aliments pour bébés et purées organiques.", "tag": "Liquides" },
+    "zh": { "title": "高阻隔純泥吸嘴袋", "desc": "純 PE 結構的吸嘴袋，適用於有機嬰兒食品及果泥。", "tag": "液體" }
+  },
+  "work_21": {
+    "es": { "title": "Bolsa de Café Negra Mate Personalizada", "desc": "Moderna bolsa de fondo plano negra mate que cuenta con una cremallera de bolsillo frontal.", "tag": "Especialidad" },
+    "fr": { "title": "Sachet de Café Noir Mat Personnalisé", "desc": "Sachet moderne à fond plat noir mat avec zip de poche frontal.", "tag": "Spécialité" },
+    "zh": { "title": "客製化霧黑咖啡袋", "desc": "現代霧黑平底袋，採用前置隱藏式夾鏈設計。", "tag": "精品" }
+  },
+  "work_22": {
+    "es": { "title": "Bolsa de Regalo Metálica Holográfica", "desc": "Bolsa de pie holográfica reluciente con barrera de aroma premium.", "tag": "Alta Barrera" },
+    "fr": { "title": "Sachet Cadeau Métallisé Holographique", "desc": "Sachet holographique scintillant avec une barrière aromatique premium.", "tag": "Haute Barrière" },
+    "zh": { "title": "全息金屬質感禮物袋", "desc": "閃亮的全息雷射自立袋，具備頂級香氣阻隔。", "tag": "高阻隔" }
+  },
+  "work_23": {
+    "es": { "title": "Bolsa de Cecina Mono-PE Circular", "desc": "Película mono-PE con alta barrera de oxígeno adecuada para carnes curadas y cecina.", "tag": "Reciclable" },
+    "fr": { "title": "Sachet de Viande Séchée Mono-PE", "desc": "Film mono-PE à haute barrière contre l'oxygène adapté aux viandes séchées.", "tag": "Recyclable" },
+    "zh": { "title": "單一 PE 循環肉乾袋", "desc": "高氧阻隔的單一 PE 薄膜，非常適合醃肉與肉乾。", "tag": "可回收" }
+  },
+  "work_24": {
+    "es": { "title": "Paquete de Proteína de Caña de Azúcar", "desc": "Material base de caña de azúcar para bolsas de suplementos pesados.", "tag": "Bio-PE" },
+    "fr": { "title": "Pack Protéine Canne à Sucre Bio-PE", "desc": "Matériau à base de canne à sucre pour sachets de suppléments lourds.", "tag": "Bio-PE" },
+    "zh": { "title": "甘蔗生質 PE 蛋白粉袋", "desc": "採用甘蔗基底材料，專為大容量營養品袋設計。", "tag": "生質 PE" }
+  },
+  "work_25": {
+    "es": { "title": "Sobre de Envío de Kraft Corrugado", "desc": "Sobres de cartón rígido biodegradable con adhesivo doble.", "tag": "Sobre de Papel" },
+    "fr": { "title": "Enveloppe en Carton Ondulé Kraft", "desc": "Enveloppes d'expédition rigides en carton biodégradable avec double adhésif.", "tag": "Enveloppe Papier" },
+    "zh": { "title": "瓦楞牛皮物流袋", "desc": "硬挺的生物可降解瓦楞紙物流袋，附有雙層自黏封條。", "tag": "紙製快遞袋" }
+  },
+  "work_26": {
+    "es": { "title": "Bolsa de Nueces Compostable Certificada", "desc": "Bolsa de compostaje casero seguro diseñada para nueces secas y semillas.", "tag": "Compostable en Casa" },
+    "fr": { "title": "Sachet de Noix Compostable Certifié", "desc": "Sachet sûr pour compostage domestique conçu pour noix et graines sèches.", "tag": "Compostable à Domicile" },
+    "zh": { "title": "認證家庭可堆肥堅果袋", "desc": "安全的家庭可堆肥袋，專為乾燥堅果與種子設計。", "tag": "家庭可堆肥" }
+  },
+  "work_27": {
+    "es": { "title": "Paquete de Café con Fuelle Lateral Expandible", "desc": "Bolsa de fuelle lateral de sello cuádruple con válvula de desgasificación interna.", "tag": "Fuelle Lateral" },
+    "fr": { "title": "Sachet de Café avec Soufflet Extensible", "desc": "Sachet à soufflet latéral quad-seal avec valve de dégazage interne.", "tag": "Soufflet Latéral" },
+    "zh": { "title": "可擴展側折角咖啡袋", "desc": "四面封側折角袋，內建單向排氣閥。", "tag": "側折角" }
+  },
+  "work_28": {
+    "es": { "title": "Bolsa de Café Brillante Premium", "desc": "Impresión digital vibrante de alto brillo en películas de barrera reciclables.", "tag": "Impresión Digital" },
+    "fr": { "title": "Sachet de Café Brillant Premium", "desc": "Impression numérique brillante et vibrante sur des films barrières recyclables.", "tag": "Impression Numérique" },
+    "zh": { "title": "頂級亮面咖啡袋", "desc": "可回收阻隔膜上的鮮豔高光澤數位印刷。", "tag": "數位印刷" }
+  },
+  "work_29": {
+    "es": { "title": "Paquete de Comida para Mascotas Resistente", "desc": "Estructura reforzada que previene desgarros y asegura la frescura.", "tag": "Mascotas" },
+    "fr": { "title": "Pack Nourriture Animaux Résistant", "desc": "Structure renforcée prévenant les déchirures et préservant la fraîcheur.", "tag": "Animaux" },
+    "zh": { "title": "防刺穿寵物食品袋", "desc": "強化結構防止撕裂，牢固鎖住新鮮度。", "tag": "寵物零食" }
+  },
+  "work_30": {
+    "es": { "title": "Bolsa de Snacks Compostable Certificada", "desc": "Envasado de pie flexible a base de plantas de alta barrera para snacks orgánicos y granola.", "tag": "Compostable" },
+    "fr": { "title": "Sachet de Snacks Compostable", "desc": "Emballage flexible à haute barrière à base de plantes pour snacks et granola.", "tag": "Compostable" },
+    "zh": { "title": "認證可堆肥零食袋", "desc": "適用於有機零食和燕麥片的高阻隔植物基軟包裝自立袋。", "tag": "可堆肥" }
+  },
+  "work_31": {
+    "es": { "title": "Set de Caja y Bolsa Mate Eco-Luxe", "desc": "Cajas rígidas vibrantes impresas a medida combinadas con bolsas de pie de barrera a juego.", "tag": "Set Personalizado" },
+    "fr": { "title": "Ensemble Boîte & Sachet Mat", "desc": "Boîtes rigides imprimées sur mesure assorties aux sachets barrières.", "tag": "Ensemble Sur Mesure" },
+    "zh": { "title": "環保奢華霧面禮盒與袋組", "desc": "鮮豔的客製化硬盒搭配相同設計的阻隔自立袋。", "tag": "客製套裝" }
+  },
+  "work_32": {
+    "es": { "title": "Bolsa de Fondo Plano Kraft Premium", "desc": "Bolsa de fondo de bloque con capa exterior de kraft orgánico y forro compostable de alta barrera.", "tag": "Papel Kraft" },
+    "fr": { "title": "Sachet Fond Plat Kraft Premium", "desc": "Sachet à fond bloc avec extérieur kraft organique et doublure compostable à haute barrière.", "tag": "Papier Kraft" },
+    "zh": { "title": "頂級牛皮紙平底袋", "desc": "採用有機牛皮外層及高阻隔可堆肥內襯的平底袋。", "tag": "牛皮紙" }
+  },
+  "work_33": {
+    "es": { "title": "Bolsa de Fuelle Lateral Reciclable Pesada", "desc": "Estructuras mono-PE con fuelle lateral diseñadas para estanterías minoristas estables y durabilidad.", "tag": "Reciclable" },
+    "fr": { "title": "Sachet Soufflet Latéral Recyclable Robuste", "desc": "Structures mono-PE avec soufflets latéraux conçues pour la stabilité et la durabilité.", "tag": "Recyclable" },
+    "zh": { "title": "重型可回收側折角袋", "desc": "單一 PE 側折角結構，專為零售貨架穩定性與耐用度設計。", "tag": "可回收" }
+  },
+  "work_34": {
+    "es": { "title": "Bolsa de Puré con Boquilla de Alta Barrera", "desc": "Bolsa laminada resistente con boquilla y tapas a prueba de manipulaciones para líquidos y purés.", "tag": "Líquidos" },
+    "fr": { "title": "Sachet Purée avec Bec Haute Barrière", "desc": "Sachet laminé robuste avec bec et bouchons inviolables pour liquides et purées.", "tag": "Liquides" },
+    "zh": { "title": "高阻隔吸嘴果泥袋", "desc": "適用於液體與果泥的重型複合吸嘴袋，配有防拆瓶蓋。", "tag": "液體" }
+  },
+  "work_35": {
+    "es": { "title": "Bolsa de Suplemento Holográfica de Lujo", "desc": "Impresionante impresión holográfica en envases pesados de suplementos con cremallera de cierre a presión.", "tag": "Alto Lujo" },
+    "fr": { "title": "Sachet Supplément Holographique", "desc": "Superbe impression holographique sur emballages de suppléments lourds avec zip de fermeture.", "tag": "Luxe" },
+    "zh": { "title": "奢華全息營養品袋", "desc": "重型營養品包裝上的驚豔全息雷射印刷，配有按壓式夾鏈。", "tag": "奢華" }
+  },
+  "work_36": {
+    "es": { "title": "Sobre de Kraft Reciclado Ecológico", "desc": "Sobres de envío de kraft reciclado resistentes con tiras adhesivas de autosellado doble.", "tag": "Papel PCR" },
+    "fr": { "title": "Enveloppe Kraft Recyclé Éco-responsable", "desc": "Enveloppes robustes en kraft recyclé avec doubles bandes adhésives auto-scellantes.", "tag": "Papier PCR" },
+    "zh": { "title": "環保再生牛皮紙破壞袋", "desc": "重型再生牛皮快遞袋，具備雙層自黏封條。", "tag": "PCR 紙" }
+  }
+}

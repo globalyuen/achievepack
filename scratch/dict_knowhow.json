@@ -1,0 +1,152 @@
+{
+  "knowhow_0": {
+    "es": { "title": "Compostable vs Reciclable", "desc": "Decidiendo entre la recuperación circular de plásticos y los caminos de compostaje orgánico para sus envases.", "tag": "Análisis" },
+    "fr": { "title": "Compostable vs Recyclable", "desc": "Décider entre la récupération circulaire du plastique et les voies de compostage organique.", "tag": "Analyse" },
+    "zh": { "title": "可堆肥 vs 可回收", "desc": "為您的包裝決定循環塑膠回收與有機堆肥的路徑。", "tag": "分析" }
+  },
+  "knowhow_1": {
+    "es": { "title": "Guía de Costos de Empaque", "desc": "Desglose completo de cargos de placas, tarifas de configuración, costos de materiales y niveles de volumen mayorista.", "tag": "Finanzas" },
+    "fr": { "title": "Guide des Coûts", "desc": "Détail complet des frais de plaques, d'installation, coûts des matériaux et volumes de gros.", "tag": "Finances" },
+    "zh": { "title": "包裝成本指南", "desc": "版費、開機費、材料成本及批發批量階梯定價的完整解析。", "tag": "財務" }
+  },
+  "knowhow_2": {
+    "es": { "title": "Errores de Empaque Ecológico", "desc": "Evite errores comunes en diseño y selección de materiales que interrumpen las cadenas de suministro.", "tag": "Estrategia" },
+    "fr": { "title": "Erreurs d'Emballage Éco", "desc": "Évitez les erreurs courantes de conception et de matériaux qui perturbent les chaînes d'approvisionnement.", "tag": "Stratégie" },
+    "zh": { "title": "環保包裝常見錯誤", "desc": "避免在設計與材料選擇上犯下擾亂商業供應鏈的常見錯誤。", "tag": "策略" }
+  },
+  "knowhow_3": {
+    "es": { "title": "Cumplimiento EU PPWR", "desc": "Comprendiendo las nuevas regulaciones de empaque y requisitos de reciclaje de la Unión Europea.", "tag": "Regulaciones" },
+    "fr": { "title": "Conformité EU PPWR", "desc": "Comprendre les nouvelles réglementations européennes sur les emballages et le recyclage.", "tag": "Réglementations" },
+    "zh": { "title": "歐盟 PPWR 合規", "desc": "了解歐盟最新的包裝法規與回收要求。", "tag": "法規" }
+  },
+  "knowhow_4": {
+    "es": { "title": "Cremalleras Compostables", "desc": "Cómo las cremalleras biodegradables conservan la frescura sin contaminar los flujos de compostaje.", "tag": "Tecnología" },
+    "fr": { "title": "Zips Compostables", "desc": "Comment les zips biodégradables préservent la fraîcheur sans polluer les flux de compostage.", "tag": "Technologie" },
+    "zh": { "title": "可堆肥夾鏈", "desc": "生物可降解夾鏈如何保鮮且不污染堆肥回收流。", "tag": "技術" }
+  },
+  "knowhow_5": {
+    "es": { "title": "Reciclabilidad del Estampado Metalizado", "desc": "Evaluación del impacto del estampado en caliente y en frío en el reciclaje de cartón y plástico.", "tag": "Diseño" },
+    "fr": { "title": "Recyclabilité de la Dorure", "desc": "Évaluation de l'impact de la dorure à chaud/froid sur le recyclage des cartons et plastiques.", "tag": "Design" },
+    "zh": { "title": "燙金的可回收性", "desc": "評估冷燙與熱燙金對紙板與塑膠回收的影響。", "tag": "設計" }
+  },
+  "knowhow_6": {
+    "es": { "title": "Materiales Compostables", "desc": "Descripción general de polímeros orgánicos a base de almidón y membranas celulares de plantas que se biodegradan de forma segura.", "tag": "Materiales" },
+    "fr": { "title": "Matériaux Compostables", "desc": "Aperçu des polymères à base d'amidon et membranes végétales qui se biodégradent en toute sécurité.", "tag": "Matériaux" },
+    "zh": { "title": "可堆肥材料", "desc": "能安全生物降解的有機澱粉聚合物及植物細胞膜概覽。", "tag": "材料" }
+  },
+  "knowhow_7": {
+    "es": { "title": "Mono-PE Reciclable", "desc": "Películas de un solo polímero diseñadas con barrera EVOH que califican para flujos de reciclaje estándar.", "tag": "Materiales" },
+    "fr": { "title": "Mono-PE Recyclable", "desc": "Films mono-polymères avec barrière EVOH éligibles aux flux de recyclage standards.", "tag": "Matériaux" },
+    "zh": { "title": "可回收單一 PE", "desc": "具備 EVOH 阻隔層的單一聚合物薄膜，符合標準回收流規範。", "tag": "材料" }
+  },
+  "knowhow_8": {
+    "es": { "title": "Bio-PE de Caña de Azúcar", "desc": "Películas de polietileno a base de plantas derivadas de la caña de azúcar que reducen la huella de carbono.", "tag": "Materiales" },
+    "fr": { "title": "Bio-PE Canne à Sucre", "desc": "Films polyéthylène d'origine végétale dérivés de la canne à sucre réduisant l'empreinte carbone.", "tag": "Matériaux" },
+    "zh": { "title": "甘蔗生質 PE", "desc": "提取自甘蔗的植物基聚乙烯薄膜，能有效減少碳足跡。", "tag": "材料" }
+  },
+  "knowhow_9": {
+    "es": { "title": "Reciclado Postconsumo", "desc": "Reutilizando residuos plásticos del océano y reciclables en la acera para fabricar películas de barrera compuestas premium.", "tag": "Materiales" },
+    "fr": { "title": "Recyclé Post-Consommation", "desc": "Réutilisation de déchets plastiques océaniques pour fabriquer des films barrières composites.", "tag": "Matériaux" },
+    "zh": { "title": "消費後回收 (PCR)", "desc": "再利用海洋廢棄塑膠與路邊回收物，製造頂級複合阻隔膜。", "tag": "材料" }
+  },
+  "knowhow_10": {
+    "es": { "title": "Bolsas de Pie", "desc": "El formato clásico de envasado minorista con fuelle inferior y cremalleras resellables personalizadas.", "tag": "Empaque" },
+    "fr": { "title": "Sachets Doypack", "desc": "Le format d'emballage classique avec soufflet de fond et zips refermables.", "tag": "Emballage" },
+    "zh": { "title": "自立袋", "desc": "具備底折角及客製化夾鏈的經典零售包裝形式。", "tag": "包裝" }
+  },
+  "knowhow_11": {
+    "es": { "title": "Bolsas de Fondo Plano", "desc": "Máxima estabilidad con cinco paneles imprimibles, ideal para granos de café pesados y comida seca para mascotas.", "tag": "Empaque" },
+    "fr": { "title": "Sachets Fond Plat", "desc": "Stabilité maximale avec cinq panneaux imprimables, idéal pour le café en grains.", "tag": "Emballage" },
+    "zh": { "title": "平底袋", "desc": "提供最大穩定性及五個印刷面，適合重型咖啡豆及乾燥寵物食品。", "tag": "包裝" }
+  },
+  "knowhow_12": {
+    "es": { "title": "Bolsas de Líquidos con Boquilla", "desc": "Bolsas flexibles con forma de botella con tapas diseñadas para contener cosméticos, bebidas y purés.", "tag": "Empaque" },
+    "fr": { "title": "Sachets à Bec Verseur", "desc": "Sachets flexibles avec bouchons pour liquides, cosmétiques et purées.", "tag": "Emballage" },
+    "zh": { "title": "液體吸嘴袋", "desc": "具有瓶蓋的柔性瓶狀袋，專為化妝品、飲料及果泥設計。", "tag": "包裝" }
+  },
+  "knowhow_13": {
+    "es": { "title": "Cajas Impresas Personalizadas", "desc": "Cajas de cartón corrugado resistentes, sobres de envío y exhibidores minoristas con acabados personalizados.", "tag": "Empaque" },
+    "fr": { "title": "Boîtes Personnalisées", "desc": "Boîtes en carton ondulé, enveloppes d'expédition et présentoirs personnalisés.", "tag": "Emballage" },
+    "zh": { "title": "客製化印刷紙盒", "desc": "堅固的瓦楞紙盒、物流箱與客製化表面處理的零售展示盒。", "tag": "包裝" }
+  },
+  "knowhow_14": {
+    "es": { "title": "Soluciones para Fundadores de Startups", "desc": "Baja cantidad mínima, soporte de diseño y flujos de trabajo de creación rápida de prototipos para lanzar productos.", "tag": "Soluciones" },
+    "fr": { "title": "Solutions pour Startups", "desc": "Faible MOQ, support design et prototypage rapide pour le lancement de produits.", "tag": "Solutions" },
+    "zh": { "title": "新創創辦人解決方案", "desc": "低起訂量、設計支援以及快速打樣流程，助您成功推出產品。", "tag": "解決方案" }
+  },
+  "knowhow_15": {
+    "es": { "title": "Empaque para Marcas Ecommerce", "desc": "Optimizando sobres, cajas de envío y bolsas secundarias para la seguridad en tránsito D2C.", "tag": "Soluciones" },
+    "fr": { "title": "Emballage E-commerce", "desc": "Optimisation des enveloppes, boîtes et sachets secondaires pour la sécurité D2C.", "tag": "Solutions" },
+    "zh": { "title": "電商首選包裝", "desc": "優化物流袋、運輸箱與次級包裝袋，確保 D2C 運輸安全。", "tag": "解決方案" }
+  },
+  "knowhow_16": {
+    "es": { "title": "Empaque para Tostadores de Café", "desc": "Bolsas de alta barrera de pie y de fondo plano equipadas con válvulas de desgasificación.", "tag": "Soluciones" },
+    "fr": { "title": "Emballage Torréfacteur", "desc": "Sachets à haute barrière Doypack et fond plat avec valves de dégazage.", "tag": "Solutions" },
+    "zh": { "title": "咖啡烘焙包裝", "desc": "配有單向排氣閥的高阻隔鋁箔自立袋及平底袋。", "tag": "解決方案" }
+  },
+  "knowhow_17": {
+    "es": { "title": "Empaque para Marcas de Snacks", "desc": "Bolsas a prueba de luz y herméticas para mantener la textura crujiente y extender la vida útil.", "tag": "Soluciones" },
+    "fr": { "title": "Emballage Snacks", "desc": "Sachets opaques et hermétiques pour préserver le croquant et prolonger la durée de conservation.", "tag": "Solutions" },
+    "zh": { "title": "零食品牌包裝", "desc": "避光防潮密封袋，保持食品酥脆並延長貨架期。", "tag": "解決方案" }
+  },
+  "knowhow_18": {
+    "es": { "title": "Branding D2C Minimalista", "desc": "Diseñando diseños de empaque limpios que reducen el desperdicio de tinta y captan el interés del consumidor.", "tag": "Branding" },
+    "fr": { "title": "Branding D2C Minimaliste", "desc": "Concevoir des emballages épurés qui réduisent l'encre et captent l'attention.", "tag": "Branding" },
+    "zh": { "title": "極簡 D2C 品牌設計", "desc": "設計簡潔的包裝排版，減少油墨浪費同時吸引消費者目光。", "tag": "品牌" }
+  },
+  "knowhow_19": {
+    "es": { "title": "Consejos para Startups con Baja Cantidad", "desc": "Asesoramiento estratégico sobre envíos divididos, reutilización de plantillas y tiradas digitales para marcas con múltiples SKU.", "tag": "Estrategia" },
+    "fr": { "title": "Conseils Faible MOQ", "desc": "Conseils stratégiques sur l'expédition fractionnée et l'impression numérique multi-SKU.", "tag": "Stratégie" },
+    "zh": { "title": "低 MOQ 新創指南", "desc": "針對多 SKU 品牌的分批出貨、模板重用及數位印刷的策略建議。", "tag": "策略" }
+  },
+  "knowhow_20": {
+    "es": { "title": "Café Compostable en Casa", "desc": "Integrando válvulas de desgasificación a base de plantas y películas compostables para crear bolsas de café.", "tag": "Café" },
+    "fr": { "title": "Café Compostable à Domicile", "desc": "Intégration de valves végétales et films compostables pour sachets de café.", "tag": "Café" },
+    "zh": { "title": "家庭可堆肥咖啡袋", "desc": "結合植物基單向排氣閥與可堆肥薄膜，打造家庭環保咖啡袋。", "tag": "咖啡" }
+  },
+  "knowhow_21": {
+    "es": { "title": "Bolsa de Snacks Reciclable", "desc": "Conservando la frescura de chips y granola utilizando estructuras de polietileno reciclable con recubrimiento EVOH.", "tag": "Snacks" },
+    "fr": { "title": "Sachet de Snacks Recyclable", "desc": "Préservation de la fraîcheur grâce aux structures en polyéthylène recyclable EVOH.", "tag": "Snacks" },
+    "zh": { "title": "可回收零食袋", "desc": "使用塗覆 EVOH 的可回收 PE 結構，保持洋芋片與燕麥片的新鮮度。", "tag": "零食" }
+  },
+  "knowhow_22": {
+    "es": { "title": "Guía de Mono-Material PE", "desc": "Análisis técnico profundo de laminados de un solo polímero que cumplen con los requisitos de la economía circular.", "tag": "Tecnología" },
+    "fr": { "title": "Guide Mono-Matériau PE", "desc": "Analyse technique des laminés mono-polymères répondant à l'économie circulaire.", "tag": "Technologie" },
+    "zh": { "title": "單一材質 PE 指南", "desc": "符合循環經濟要求的單一聚合物複合膜深度技術解析。", "tag": "技術" }
+  },
+  "knowhow_23": {
+    "es": { "title": "Empaque de Alimentos Libre de PFAS", "desc": "Asegurando el cumplimiento de las leyes ambientales locales utilizando barreras libres de PFAS.", "tag": "Cumplimiento" },
+    "fr": { "title": "Emballage Sans PFAS", "desc": "Garantir la conformité environnementale en utilisant des barrières sans PFAS.", "tag": "Conformité" },
+    "zh": { "title": "無 PFAS 食品包裝", "desc": "採用無 PFAS 阻隔層，確保符合當地環保法規。", "tag": "合規" }
+  },
+  "knowhow_24": {
+    "es": { "title": "Estándares Compostables de USA", "desc": "Pautas sobre la certificación ASTM D6400, etiquetas BPI y mandatos de etiquetado de los estados locales.", "tag": "USA" },
+    "fr": { "title": "Normes Compostables US", "desc": "Directives sur la certification ASTM D6400, labels BPI et lois étatiques.", "tag": "USA" },
+    "zh": { "title": "美國可堆肥標準", "desc": "ASTM D6400 認證、BPI 標籤及各州當地標籤法規指南。", "tag": "美國" }
+  },
+  "knowhow_25": {
+    "es": { "title": "Mercado de Bolsas de Café USA", "desc": "Tendencias minoristas en EE. UU. en empaques de café orgánico especial y reglas de empaque ecológico.", "tag": "USA" },
+    "fr": { "title": "Marché des Sachets de Café US", "desc": "Tendances retail aux États-Unis pour les emballages de café de spécialité.", "tag": "USA" },
+    "zh": { "title": "美國咖啡袋市場", "desc": "美國有機精品咖啡包裝及環保包裝法規的零售趨勢。", "tag": "美國" }
+  },
+  "knowhow_26": {
+    "es": { "title": "Caso de Estudio: Tostaduría de Café", "desc": "Cómo una tostaduría de especialidad cambió a bolsas 100% compostables sin perder velocidad.", "tag": "Caso de Estudio" },
+    "fr": { "title": "Cas: Torréfacteur de Café", "desc": "Comment un torréfacteur de spécialité est passé au 100 % compostable sans perte de vitesse.", "tag": "Cas Pratique" },
+    "zh": { "title": "咖啡烘焙廠案例分析", "desc": "西雅圖精品咖啡烘焙廠如何轉換為 100% 可堆肥袋，且不影響包裝速度。", "tag": "案例分析" }
+  },
+  "knowhow_27": {
+    "es": { "title": "Caso de Estudio: Marca de Té", "desc": "Transición a bolsas de kraft sin plástico para alinearse con los valores de etiqueta limpia.", "tag": "Caso de Estudio" },
+    "fr": { "title": "Cas: Marque de Thé", "desc": "Transition vers des sachets kraft sans plastique pour s'aligner sur des valeurs clean label.", "tag": "Cas Pratique" },
+    "zh": { "title": "茶葉品牌案例分析", "desc": "轉換為無塑膠牛皮紙袋，以符合清潔標籤 (Clean Label) 的品牌價值。", "tag": "案例分析" }
+  },
+  "knowhow_28": {
+    "es": { "title": "Caso de Estudio: Premios para Mascotas", "desc": "Desarrollando bolsas de alta capacidad con capas resistentes a pinchazos y cremalleras duraderas.", "tag": "Caso de Estudio" },
+    "fr": { "title": "Cas: Friandises Animaux", "desc": "Développement de sachets avec couches anti-perforation et zips durables.", "tag": "Cas Pratique" },
+    "zh": { "title": "寵物零食案例分析", "desc": "開發大容量寵物食品袋，採用防刺穿層及耐用夾鏈。", "tag": "案例分析" }
+  },
+  "knowhow_29": {
+    "es": { "title": "Caso de Estudio: Marca de Chocolate", "desc": "Marca de chocolate Eco-luxe exhibe diseños de cajas rígidas premium y bolsas compostables.", "tag": "Caso de Estudio" },
+    "fr": { "title": "Cas: Marque de Chocolat", "desc": "Une marque éco-luxe présente ses boîtes rigides premium et sachets compostables.", "tag": "Cas Pratique" },
+    "zh": { "title": "巧克力品牌案例分析", "desc": "環保奢華巧克力品牌展示其頂級硬盒與可堆肥自立袋設計。", "tag": "案例分析" }
+  }
+}
