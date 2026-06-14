@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-14T15:30:26.682Z",
+  "lastUnifiedRun": "2026-06-14T15:45:25.268Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2786,17 +2786,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printed-flat-bottom-pouches-low-moq",
       "status": "Pending Approval",
       "volume": 1400,
       "keyword": "digital printed flat bottom pouches low moq",
-      "difficulty": "Low",
-      "slug": "digital-printed-flat-bottom-pouches-low-moq"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "recyclable barrier film for sachet packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-barrier-film-for-sachet-packaging"
     },
     {
       "status": "Pending",
@@ -2885,9 +2886,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-14T15:30:21.288Z",
+      "timestamp": "2026-06-14T15:45:21.275Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printed flat bottom pouches low moq\" to /blog/digital-printed-flat-bottom-pouches-low-moq (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable barrier film for sachet packaging\" to /blog/recyclable-barrier-film-for-sachet-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed flat bottom pouches low moq\" to /blog/digital-printed-flat-bottom-pouches-low-moq (Pending Approval)",
+      "timestamp": "2026-06-14T15:30:21.288Z"
     },
     {
       "action": "Autopilot Generation Draft",
