@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-14T13:45:26.923Z",
+  "lastUnifiedRun": "2026-06-14T14:00:34.277Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2737,17 +2737,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "custom-printed-mono-pe-sachets",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "custom printed mono pe sachets",
-      "difficulty": "Low",
-      "slug": "custom-printed-mono-pe-sachets"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 600,
       "keyword": "sustainable pouch filling solutions for beverages",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-pouch-filling-solutions-for-beverages"
     },
     {
       "status": "Pending",
@@ -2878,9 +2879,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-14T13:45:21.978Z",
+      "timestamp": "2026-06-14T14:00:29.014Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom printed mono pe sachets\" to /blog/custom-printed-mono-pe-sachets (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable pouch filling solutions for beverages\" to /blog/sustainable-pouch-filling-solutions-for-beverages (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed mono pe sachets\" to /blog/custom-printed-mono-pe-sachets (Pending Approval)",
+      "timestamp": "2026-06-14T13:45:21.978Z"
     },
     {
       "action": "Autopilot Generation Draft",
