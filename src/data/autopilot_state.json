@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-14T02:00:38.018Z",
+  "lastUnifiedRun": "2026-06-14T02:15:35.752Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2702,17 +2702,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-pouch-sizes-for-coffee-beans",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "kraft paper pouch sizes for coffee beans",
-      "difficulty": "Low",
-      "slug": "kraft-paper-pouch-sizes-for-coffee-beans"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "compostable retort bags for sauces",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-retort-bags-for-sauces"
     },
     {
       "status": "Pending",
@@ -2761,13 +2762,126 @@
       "volume": 1200,
       "keyword": "compostable sachet packaging for pet food",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "biodegradable pouch sizes for coffee beans",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material stand up pouch size chart",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed flat bottom pouches low moq",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable barrier film for sachet packaging",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable pouch with zipper for dry goods",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging dimensions for 12 oz powders",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper flat bottom pouch sizes",
+      "difficulty": "Low",
+      "volume": 1600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier mono pe film suppliers",
+      "difficulty": "Medium",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch recyclable pouch printing",
+      "difficulty": "Low",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch filling equipment for small business",
+      "difficulty": "Low",
+      "volume": 1800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped barrier pouches for snacks",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort packaging for baby food sizes",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly digital print on mono material",
+      "difficulty": "Low",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable sachet sizes for pet food",
+      "difficulty": "Low",
+      "volume": 1150,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable flat bottom pouch dimensions chart",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printing on kraft paper flexible packaging",
+      "difficulty": "Low",
+      "volume": 1250,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe film roll stock for custom pouches",
+      "difficulty": "Medium",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable packaging for beverages",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-14T02:00:31.076Z",
+      "timestamp": "2026-06-14T02:15:28.952Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouch sizes for coffee beans\" to /blog/kraft-paper-pouch-sizes-for-coffee-beans (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort bags for sauces\" to /blog/compostable-retort-bags-for-sauces (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouch sizes for coffee beans\" to /blog/kraft-paper-pouch-sizes-for-coffee-beans (Pending Approval)",
+      "timestamp": "2026-06-14T02:00:31.076Z"
     },
     {
       "action": "Autopilot Generation Draft",
