@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-14T00:30:32.726Z",
+  "lastUnifiedRun": "2026-06-14T01:46:04.937Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2688,17 +2688,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-film-for-compostable-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "high barrier film for compostable stand up pouches",
-      "difficulty": "Medium",
-      "slug": "high-barrier-film-for-compostable-stand-up-pouches"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 500,
       "keyword": "small batch digital printing on barrier film",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-digital-printing-on-barrier-film"
     },
     {
       "status": "Pending",
@@ -2763,9 +2764,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-14T00:30:26.384Z",
+      "timestamp": "2026-06-14T01:45:57.503Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for compostable stand up pouches\" to /blog/high-barrier-film-for-compostable-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital printing on barrier film\" to /blog/small-batch-digital-printing-on-barrier-film (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for compostable stand up pouches\" to /blog/high-barrier-film-for-compostable-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-14T00:30:26.384Z"
     },
     {
       "action": "Autopilot Error",
