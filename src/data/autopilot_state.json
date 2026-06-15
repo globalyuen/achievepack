@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-14T16:45:28.329Z",
+  "lastUnifiedRun": "2026-06-15T00:04:30.576Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2821,17 +2821,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-mono-pe-film-suppliers",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "high barrier mono pe film suppliers",
-      "difficulty": "Medium",
-      "slug": "high-barrier-mono-pe-film-suppliers"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1300,
       "keyword": "small batch recyclable pouch printing",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-recyclable-pouch-printing"
     },
     {
       "status": "Pending",
@@ -2890,9 +2891,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-14T16:45:24.061Z",
+      "timestamp": "2026-06-15T00:04:07.570Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono pe film suppliers\" to /blog/high-barrier-mono-pe-film-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch recyclable pouch printing\" to /blog/small-batch-recyclable-pouch-printing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono pe film suppliers\" to /blog/high-barrier-mono-pe-film-suppliers (Pending Approval)",
+      "timestamp": "2026-06-14T16:45:24.061Z"
     },
     {
       "action": "Autopilot Generation Draft",
