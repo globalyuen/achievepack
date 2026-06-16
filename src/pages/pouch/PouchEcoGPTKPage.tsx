@@ -707,661 +707,644 @@ export default function PouchEcoGPTKPage() {
           </div>
         </section>
 
-        {/* LINEAR-STYLE TOP CONTROLS & SELECTORS */}
-        <section className="max-w-4xl mx-auto px-4 md:px-6 relative z-20 pb-8">
-          <div className="bg-neutral-50/40 border border-neutral-200/75 rounded-3xl p-6 md:p-8 space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.02)] backdrop-blur-sm">
+        {/* SPLIT-PANE DASHBOARD LAYOUT */}
+        <section className="max-w-7xl mx-auto px-4 md:px-6 relative z-20 pb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
             
-            {/* Control 1: Sizes Toggles (Standard Sizes vs Custom Size) */}
-            <div className="space-y-2.5">
-              <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">1. Sizing Mode Selector (選擇規格模式)</span>
-              <div className="bg-neutral-100 border border-neutral-200 p-1 rounded-2xl grid grid-cols-2 text-center text-xs font-bold font-sans">
-                <button 
-                  type="button" 
-                  onClick={() => setSizeMode('standard')}
-                  className={`py-2.5 px-2 rounded-xl transition-all duration-200 ${sizeMode === 'standard' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500 hover:text-neutral-900'}`}
-                >
-                  Standard Sizes
-                </button>
-                <button 
-                  type="button" 
-                  onClick={() => setSizeMode('custom')}
-                  className={`py-2.5 px-2 rounded-xl transition-all duration-200 ${sizeMode === 'custom' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500 hover:text-neutral-900'}`}
-                >
-                  Custom Size (Millimeter scale)
-                </button>
-              </div>
-            </div>
-
-            {/* Sizing controls depending on standard vs custom */}
-            {sizeMode === 'standard' ? (
-              <div className="space-y-2.5">
-                <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">2. Standard Weight & Capacity Selector (選定規格重量)</span>
-                <div className="grid grid-cols-4 gap-2 bg-neutral-100 border border-neutral-200 p-1.5 rounded-2xl text-center text-xs font-bold">
-                  {BAG_SIZES.map(s => (
-                    <button 
-                      key={s.id} 
-                      type="button" 
-                      onClick={() => setSelectedSize(s)}
-                      className={`py-2.5 px-2 rounded-xl transition-all duration-200 flex flex-col justify-center items-center ${selectedSize.id === s.id ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/60 font-black' : 'text-neutral-500 hover:text-neutral-950'}`}
-                    >
-                      <span className="text-[12px]">{s.label}</span>
-                      <span className="text-[9px] text-neutral-400 font-medium font-mono mt-0.5">{s.dimensions.replace(' + 80 mm', '').replace(' × ', 'x')}</span>
-                    </button>
-                  ))}
-                </div>
+            {/* LEFT COLUMN: Sticky Control Panel */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
+              <div className="bg-neutral-50/60 border border-neutral-200/80 rounded-3xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.02)] backdrop-blur-md space-y-6">
                 
-                {/* Size Guide & Sizing Guide & Dieline Finder links */}
-                <div className="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-3 pt-2 border-t border-neutral-100 mt-3 text-xs font-semibold">
-                  <Link 
-                    to="/size-guide" 
-                    className="inline-flex items-center gap-1 text-[#10b981] hover:underline whitespace-nowrap"
-                  >
-                    <Ruler className="w-3.5 h-3.5" /> View Visual Size Guide (Cola Can)
-                  </Link>
-                  <Link 
-                    to="/knowledge/pouch-sizing" 
-                    className="inline-flex items-center gap-1 text-indigo-600 hover:underline whitespace-nowrap"
-                  >
-                    <Info className="w-3.5 h-3.5 text-indigo-500" /> Pouch Sizing Calculator
-                  </Link>
-                  <Link 
-                    to="/dieline-finder" 
-                    className="inline-flex items-center gap-1 text-neutral-500 hover:text-emerald-600 transition whitespace-nowrap"
-                  >
-                    <HelpCircle className="w-3.5 h-3.5" /> Open Dieline Finder
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 space-y-2 text-xs font-semibold text-emerald-800 leading-relaxed font-sans">
-                <div className="flex items-center gap-1.5 font-bold uppercase text-emerald-950">
-                  <Sparkles className="w-4 h-4 text-emerald-600" /> Custom Sizing Range Mode Active
-                </div>
-                <div>
-                  Any customizable width or height dimension smaller than **260 × 340 + 80 mm** is fully allowed at no extra cylinder setup premium. Under Custom Size mode:
-                  <ul className="list-disc pl-5 mt-1 space-y-0.5 text-[11px] text-emerald-900">
-                    <li>**Stock Conventional** is constrained to standard sizes and Lasts subject to stock list.</li>
-                    <li>**Custom printed eco cards (Oval & Flat bottom)** allow millimeter-level dimensions tailoring at exactly the same unit rates as the closest standard categories!</li>
-                  </ul>
-                </div>
-                <div className="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-3 pt-2 border-t border-emerald-100 mt-2 text-xs font-semibold">
-                  <Link 
-                    to="/size-guide" 
-                    className="inline-flex items-center gap-1 text-emerald-700 hover:underline whitespace-nowrap"
-                  >
-                    <Ruler className="w-3.5 h-3.5" /> View Visual Size Guide
-                  </Link>
-                  <Link 
-                    to="/knowledge/pouch-sizing" 
-                    className="inline-flex items-center gap-1 text-emerald-800 hover:underline whitespace-nowrap"
-                  >
-                    <Info className="w-3.5 h-3.5 text-emerald-600" /> Pouch Sizing Guide
-                  </Link>
-                  <Link 
-                    to="/dieline-finder" 
-                    className="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-900 transition whitespace-nowrap"
-                  >
-                    <HelpCircle className="w-3.5 h-3.5" /> View Dieline Guide
-                  </Link>
-                </div>
-              </div>
-            )}
-
-            <div className="grid md:grid-cols-12 gap-6 pt-2">
-              {/* Order Run Quantity */}
-              <div className="md:col-span-8 space-y-2.5">
-                <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-neutral-400">
-                  <span>3. Order Run Quantity (單款起訂量)</span>
-                  {qtyPerDesign === 100 && (
-                    <span className="text-amber-600 font-bold bg-amber-50 border border-amber-100 px-2 py-0.5 rounded text-[10px]">Stock Only (Custom MOQ is 500)</span>
-                  )}
-                </div>
-                <div className="bg-neutral-100 border border-neutral-200 p-1 rounded-2xl grid grid-cols-4 text-center text-xs font-bold font-sans">
-                  {[100, 500, 1000, 5000].map(q => (
+                {/* Control 1: Sizing Mode */}
+                <div className="space-y-2.5">
+                  <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">1. Sizing Mode Selector (選擇規格模式)</span>
+                  <div className="bg-neutral-100 border border-neutral-200 p-1 rounded-2xl grid grid-cols-2 text-center text-xs font-bold font-sans">
                     <button 
-                      key={q} 
                       type="button" 
-                      onClick={() => setQtyPerDesign(q)}
-                      className={`py-2.5 px-2 rounded-xl transition-all duration-200 ${qtyPerDesign === q ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/80 font-black' : 'text-neutral-500 hover:text-neutral-900'}`}
+                      onClick={() => setSizeMode('standard')}
+                      className={`py-2.5 px-2 rounded-xl transition-all duration-200 ${sizeMode === 'standard' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500 hover:text-neutral-900'}`}
                     >
-                      {q.toLocaleString()} pcs
+                      Standard Sizes
                     </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Stepper counter designs */}
-              <div className="md:col-span-4 space-y-2.5">
-                <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">4. Designs SKUs (款式數)</span>
-                <div className="flex items-center justify-between bg-neutral-100 border border-neutral-200 p-1.5 rounded-2xl">
-                  <button 
-                    type="button" 
-                    onClick={() => setNumDesigns(prev => Math.max(1, prev - 1))}
-                    className="w-8 h-8 rounded-xl bg-white border border-neutral-200 hover:bg-neutral-50 active:scale-95 text-neutral-600 font-extrabold flex items-center justify-center transition"
-                  >
-                    -
-                  </button>
-                  <span className="text-xs font-black text-neutral-800">{numDesigns} SKU{numDesigns > 1 ? 's' : ''}</span>
-                  <button 
-                    type="button" 
-                    onClick={() => setNumDesigns(prev => Math.min(10, prev + 1))}
-                    className="w-8 h-8 rounded-xl bg-white border border-neutral-200 hover:bg-neutral-50 active:scale-95 text-neutral-600 font-extrabold flex items-center justify-center transition"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Config Summarizer Dispatch Telemetry */}
-            <div className="pt-4 border-t border-dashed border-neutral-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs font-semibold">
-              <div className="text-neutral-500">
-                Selected: <span className="text-neutral-950 font-bold">{sizeMode === 'custom' ? 'Custom size' : selectedSize.dimensions}</span> size &middot; <span className="text-neutral-950 font-bold">{(qtyPerDesign * numDesigns).toLocaleString()} total pouches</span> run ({qtyPerDesign} per SKU design).
-              </div>
-              <div className="flex gap-2 shrink-0">
-                <button 
-                  onClick={handleWhatsappCopy} 
-                  className="bg-neutral-950 hover:bg-neutral-900 text-white font-extrabold uppercase text-[10px] px-4 py-2.5 rounded-xl transition duration-150 active:scale-98 flex items-center gap-1.5 shadow-sm shadow-black/5 cursor-pointer"
-                >
-                  <Phone className="w-3.5 h-3.5 fill-white stroke-none" /> Send WhatsApp RFQ
-                </button>
-              </div>
-            </div>
-            {whatsappCopied && (
-              <p className="text-[10px] text-emerald-600 font-bold text-right -mt-2">
-                ✓ Setup parameters copied to clipboard! Opening WhatsApp Chat...
-              </p>
-            )}
-
-          </div>
-        </section>
-
-        {/* LINEAR-STYLE PLANS GRID (4 COLUMNS) */}
-        <section className="max-w-7xl mx-auto px-4 md:px-6 pt-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch max-w-7xl mx-auto">
-            
-            {/* TIER 1 CARD: STOCK CONVENTIONAL */}
-            <div className={`bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between relative group transition-all duration-300 ${sizeMode === 'custom' ? 'opacity-50 hover:border-neutral-200' : 'hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md'}`}>
-              <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between items-start">
-                    <span className="inline-block bg-neutral-100 text-neutral-600 border border-neutral-200 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
-                      Stock Modular
-                    </span>
-                    <span className="text-[10px] text-neutral-400 font-semibold font-mono">MOQ: 100pcs</span>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
-                    Stock Conventional
-                  </h3>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                    Premade high-barrier stock pouches with attachments. Fast 3-5 days delivery, $0 Cylinder plate wavied.
-                  </p>
-                </div>
-
-                {/* Stock Options Sub-Toggle (Card, Tag, Sticker) */}
-                <div className="bg-neutral-50 border border-neutral-250/70 p-1 rounded-xl grid grid-cols-3 text-center text-[10px] font-bold font-sans">
-                  <button 
-                    type="button" 
-                    onClick={() => { setStockOption('card'); setSizeMode('standard'); }}
-                    className={`py-1.5 rounded-lg transition ${stockOption === 'card' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    Insert Card
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={() => { setStockOption('tag'); setSizeMode('standard'); }}
-                    className={`py-1.5 rounded-lg transition ${stockOption === 'tag' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    Roped Tag
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={() => { setStockOption('sticker'); setSizeMode('standard'); }}
-                    className={`py-1.5 rounded-lg transition ${stockOption === 'sticker' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    Stickers
-                  </button>
-                </div>
-
-                {/* Dynamic Product Visual Thumbnail with Click to enlarge Lightbox zoom */}
-                <div 
-                  onClick={() => setEnlargedImage(cardData.image)}
-                  className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
-                >
-                  <img src={cardData.image} alt={cardData.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
-                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
+                    <button 
+                      type="button" 
+                      onClick={() => setSizeMode('custom')}
+                      className={`py-2.5 px-2 rounded-xl transition-all duration-200 ${sizeMode === 'custom' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500 hover:text-neutral-900'}`}
+                    >
+                      Custom Size (Millimeter scale)
+                    </button>
                   </div>
                 </div>
 
-                {/* Primary Price - Big Bold & Obvious */}
-                <div className="border-t border-b border-neutral-100 py-5">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-5xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
-                      ${cardData.unitPrice.toFixed(2)}
-                    </span>
-                    <span className="text-sm text-neutral-450 font-bold">/ pouch</span>
-                  </div>
-                  <div className="text-[11px] text-neutral-500 font-bold mt-1.5">
-                    Estimated Total: <span className="text-neutral-900">${cardData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD</span> for {numDesigns} SKUs
-                  </div>
-                </div>
-
-                {/* Sizing & Material labels under price */}
-                <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-3 text-center">
-                  <span className="text-[10px] text-neutral-400 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
-                  <div className="text-xs font-black text-neutral-800 mt-0.5 truncate">
-                    approx {selectedSize.dimensions}
-                  </div>
-                  <span className="text-[9px] text-amber-700 bg-amber-50 border border-amber-100/50 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
-                    Size & material subject to stock availability
-                  </span>
-                </div>
-
-                {/* Features points */}
-                <div className="space-y-3 pt-2">
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">Included in Stock Conventional</h4>
-                  <ul className="space-y-2 text-xs font-semibold text-neutral-600">
-                    {cardData.points.map((pt, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-8">
-                <button
-                  onClick={() => setExpandedOption('stock-cards')}
-                  className="w-full bg-neutral-50 hover:bg-neutral-100 text-neutral-800 border border-neutral-200 font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 select-none cursor-pointer"
-                >
-                  View Technical Specs
-                </button>
-              </div>
-            </div>
-
-            {/* TIER 2 CARD: CUSTOM CONVENTIONAL */}
-            <div className={`bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between relative group transition-all duration-300 ${sizeMode === 'custom' ? 'opacity-50 hover:border-neutral-200' : 'hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md'}`}>
-              <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between items-start">
-                    <span className="inline-block bg-indigo-50 text-indigo-700 border border-indigo-100 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
-                      Custom Conventional
-                    </span>
-                    <span className="text-[10px] text-neutral-400 font-semibold font-mono">MOQ: 100pcs</span>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
-                    Custom Conventional
-                  </h3>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                    Stand-Up Doypack shape with custom print. Let you select Matt Metallised or Glossy Clear. Low MOQ, $0 plate cylinder setup.
-                  </p>
-                </div>
-
-                {/* Sub-options for Card 2 */}
-                <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-2 text-center text-[10px] font-bold font-sans">
-                  <button 
-                    type="button" 
-                    onClick={() => { setConvenOption('matt-metallised'); setSizeMode('standard'); }}
-                    className={`py-1.5 rounded-lg transition ${convenOption === 'matt-metallised' ? 'bg-white text-indigo-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    Matt Metallised
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={() => { setConvenOption('glossy-clear'); setSizeMode('standard'); }}
-                    className={`py-1.5 rounded-lg transition ${convenOption === 'glossy-clear' ? 'bg-white text-indigo-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    Glossy Clear
-                  </button>
-                </div>
-
-                {/* Click to Zoom Visual Pouch Image */}
-                <div 
-                  onClick={() => setEnlargedImage(convenData.image)}
-                  className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
-                >
-                  <img src={convenData.image} alt={convenData.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
-                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
-                  </div>
-                </div>
-
-                {/* Primary Price */}
-                <div className="border-t border-b border-neutral-100 py-5">
-                  {convenData.isBelowMoq ? (
-                    <div className="py-2">
-                      <span className="text-2xl font-extrabold text-red-500 uppercase tracking-wider block font-['Outfit']">Below MOQ</span>
-                      <span className="text-[10px] text-neutral-400 font-semibold mt-1 block">Conventional custom print requires 100+ pcs</span>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-5xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
-                          ${convenData.unitPrice.toFixed(2)}
-                        </span>
-                        <span className="text-sm text-neutral-450 font-bold">/ pouch</span>
-                      </div>
-                      <div className="text-[11px] text-neutral-500 font-bold mt-1.5 flex items-center gap-1">
-                        <Zap className="w-3.5 h-3.5 text-indigo-500 fill-indigo-100" /> 
-                        <span>
-                          Estimated Total: <span className="text-neutral-900">${convenData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD</span> for {numDesigns} SKU{numDesigns > 1 ? 's' : ''}
-                        </span>
-                      </div>
-                    </>
-                  )}
-                </div>
-
-                {/* Sizing details */}
-                <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-3 text-center">
-                  <span className="text-[10px] text-neutral-400 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
-                  <div className="text-xs font-black text-neutral-800 mt-0.5 truncate">
-                    {sizeMode === 'custom' ? 'Standard dimensions only' : `approx ${selectedSize.dimensions}`}
-                  </div>
-                  <span className="text-[9px] text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
-                    Standard Sizes Only
-                  </span>
-                </div>
-
-                {/* Features points */}
-                <div className="space-y-3 pt-2">
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">Conventional print features</h4>
-                  <ul className="space-y-2 text-xs font-semibold text-neutral-600">
-                    {convenData.points.map((pt, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-8">
-                <button
-                  onClick={() => setExpandedOption('custom-conven')}
-                  className="w-full bg-neutral-50 hover:bg-neutral-100 text-neutral-800 border border-neutral-200 font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 select-none cursor-pointer"
-                >
-                  View Technical Specs
-                </button>
-              </div>
-            </div>
-
-            {/* TIER 3 CARD: CUSTOM OVAL BOTTOM */}
-            <div className={`bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between relative group transition-all duration-300 hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md`}>
-              <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between items-start">
-                    <span className="inline-block bg-blue-50 text-blue-700 border border-blue-100 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
-                      Custom Oval Stand-Up
-                    </span>
-                    <span className="text-[10px] text-emerald-600 font-bold font-mono">MOQ: 500pcs</span>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
-                    Custom printed/sized Oval Bottom
-                  </h3>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                    Stand-Up Pouch Shape (Doypack). Saves 50% material costs compared to flat bottom designs. Waived Cylinder plates.
-                  </p>
-                </div>
-
-                {/* Custom Oval Options Sub-Toggle (PE+EVOH vs Compostable vs Conventional) */}
-                <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-3 text-center text-[10px] font-bold font-sans">
-                  <button 
-                    type="button" 
-                    onClick={() => setOvalEcoOption('pe-evoh')}
-                    className={`py-1.5 rounded-lg transition ${ovalEcoOption === 'pe-evoh' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    ♻️ Recyclable PE
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={() => setOvalEcoOption('compostable')}
-                    className={`py-1.5 rounded-lg transition ${ovalEcoOption === 'compostable' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    🌱 Compostable
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={() => setOvalEcoOption('conventional')}
-                    className={`py-1.5 rounded-lg transition ${ovalEcoOption === 'conventional' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    📄 Conventional
-                  </button>
-                </div>
-
-
-                {/* Dynamic Inline Selector ONLY when Custom Size is active inside Oval Bottom Eco card */}
-                {sizeMode === 'custom' && (
-                  <div className="bg-emerald-50/50 border border-emerald-100 p-2.5 rounded-xl space-y-1.5 mt-2">
-                    <span className="block text-[10px] font-bold uppercase text-emerald-950 font-mono tracking-wider">
-                      Reference Capacity (選擇起算容量)
-                    </span>
-                    <div className="grid grid-cols-4 gap-1 text-[10px] text-center font-bold">
+                {/* Control 2: Capacity Selector */}
+                {sizeMode === 'standard' ? (
+                  <div className="space-y-2.5">
+                    <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">2. Standard Weight & Capacity Selector (選定規格重量)</span>
+                    <div className="grid grid-cols-4 gap-2 bg-neutral-100 border border-neutral-200 p-1.5 rounded-2xl text-center text-xs font-bold">
                       {BAG_SIZES.map(s => (
-                        <button
-                          key={s.id}
-                          type="button"
+                        <button 
+                          key={s.id} 
+                          type="button" 
                           onClick={() => setSelectedSize(s)}
-                          className={`py-1.5 rounded-lg border transition ${selectedSize.id === s.id ? 'bg-white border-emerald-600 text-emerald-700 shadow-sm font-black' : 'bg-transparent border-neutral-200 text-neutral-500 hover:text-neutral-900'}`}
+                          className={`py-2.5 px-1 rounded-xl transition-all duration-200 flex flex-col justify-center items-center ${selectedSize.id === s.id ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/60 font-black' : 'text-neutral-505 hover:text-neutral-955'}`}
                         >
-                          {s.label}
+                          {/* Pouch Silhouette based on size */}
+                          {s.id === 'size-1' && (
+                            <svg className="w-5 h-6 mb-1.5 text-current" viewBox="0 0 20 24" fill="currentColor">
+                              <path d="M4 5h12l1 12c0 2-3 3-7 3s-7-1-7-3L4 5z" opacity="0.35" />
+                              <path d="M4 5h12l1 12c0 2-3 3-7 3s-7-1-7-3L4 5z" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                              <path d="M3 5h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                            </svg>
+                          )}
+                          {s.id === 'size-2' && (
+                            <svg className="w-5.5 h-6.5 mb-1.5 text-current" viewBox="0 0 22 26" fill="currentColor">
+                              <path d="M4.5 4.5h13l1 14.5c0 2-3.5 2.5-7.5 2.5s-7.5-0.5-7.5-2.5L4.5 4.5z" opacity="0.35" />
+                              <path d="M4.5 4.5h13l1 14.5c0 2-3.5 2.5-7.5 2.5s-7.5-0.5-7.5-2.5L4.5 4.5z" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                              <path d="M3.5 4.5h15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                            </svg>
+                          )}
+                          {s.id === 'size-3' && (
+                            <svg className="w-6 h-7 mb-1 text-current" viewBox="0 0 24 30" fill="currentColor">
+                              <path d="M5 4h14l1 18c0 2.5-4 3-8 3s-8-0.5-8-3L5 4z" opacity="0.35" />
+                              <path d="M5 4h14l1 18c0 2.5-4 3-8 3s-8-0.5-8-3L5 4z" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                              <path d="M4 4h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                            </svg>
+                          )}
+                          {s.id === 'size-4' && (
+                            <svg className="w-7 h-8.5 mb-1 text-current" viewBox="0 0 28 34" fill="currentColor">
+                              <path d="M5.5 3h17L24 25c0 3-4.5 3.5-10 3.5S4 28 4 25L5.5 3z" opacity="0.35" />
+                              <path d="M5.5 3h17L24 25c0 3-4.5 3.5-10 3.5S4 28 4 25L5.5 3z" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                              <path d="M8 3v22.5" stroke="currentColor" strokeWidth="1" strokeDasharray="1.5 1.5" opacity="0.5" />
+                              <path d="M20 3v22.5" stroke="currentColor" strokeWidth="1" strokeDasharray="1.5 1.5" opacity="0.5" />
+                              <path d="M4.5 3h19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                            </svg>
+                          )}
+                          <span className="text-[12px]">{s.label}</span>
+                          <span className="text-[9px] text-neutral-400 font-medium font-mono mt-0.5">{s.dimensions.replace(' + 80 mm', '').replace(' × ', 'x')}</span>
                         </button>
                       ))}
+                    </div>
+
+                    {/* Sizing scale reference panel with transparent Cola Can silhouette */}
+                    <div className="bg-neutral-100/50 border border-neutral-200/50 rounded-2xl p-4 flex items-center justify-around mt-3">
+                      <div className="flex flex-col items-center gap-1">
+                        <span className="text-[9px] text-neutral-400 font-bold uppercase tracking-wider font-mono">Reference scale</span>
+                        <div className="w-12 h-20 flex items-end justify-center bg-neutral-200/20 border border-neutral-300/20 rounded-xl p-1">
+                          <div className="w-7 h-14 bg-neutral-450/20 border border-neutral-400/40 rounded-lg flex flex-col justify-between p-0.5 items-center relative">
+                            <div className="w-4 h-1 bg-neutral-400/50 rounded-t-sm" />
+                            <span className="text-[7.5px] text-neutral-400 font-bold leading-none rotate-90 my-auto">COLA</span>
+                            <div className="w-6 h-0.5 bg-neutral-400/30" />
+                          </div>
+                        </div>
+                        <span className="text-[9px] font-bold text-neutral-450">Cola Can (12cm)</span>
+                      </div>
+                      <div className="text-neutral-300 text-xs font-black uppercase font-mono">VS</div>
+                      <div className="flex flex-col items-center gap-1">
+                        <span className="text-[9px] text-emerald-600 font-bold uppercase tracking-wider font-mono">Pouch height</span>
+                        <div className="w-16 h-20 flex items-end justify-center bg-emerald-50/20 border border-emerald-100/30 rounded-xl p-1">
+                          {selectedSize.id === 'size-1' && (
+                            <div className="w-9 h-13 bg-emerald-600/15 border border-emerald-500/35 rounded-t-lg rounded-b-sm flex items-center justify-center">
+                              <span className="text-[8px] text-emerald-800 font-bold">150g</span>
+                            </div>
+                          )}
+                          {selectedSize.id === 'size-2' && (
+                            <div className="w-10 h-15 bg-emerald-600/15 border border-emerald-500/35 rounded-t-lg rounded-b-sm flex items-center justify-center">
+                              <span className="text-[8px] text-emerald-800 font-bold">250g</span>
+                            </div>
+                          )}
+                          {selectedSize.id === 'size-3' && (
+                            <div className="w-11 h-17 bg-emerald-600/15 border border-emerald-500/35 rounded-t-lg rounded-b-sm flex items-center justify-center">
+                              <span className="text-[8px] text-emerald-800 font-bold">500g</span>
+                            </div>
+                          )}
+                          {selectedSize.id === 'size-4' && (
+                            <div className="w-12 h-[74px] bg-emerald-600/15 border border-emerald-500/35 rounded-t-lg rounded-b-sm flex items-center justify-center">
+                              <span className="text-[8px] text-emerald-800 font-bold">1kg</span>
+                            </div>
+                          )}
+                        </div>
+                        <span className="text-[9px] font-bold text-emerald-700">{selectedSize.label} size</span>
+                      </div>
+                    </div>
+                    
+                    {/* Size Guide links */}
+                    <div className="flex flex-wrap gap-x-4 gap-y-2 pt-2 text-[11px] font-semibold text-neutral-450 border-t border-neutral-100 mt-2">
+                      <Link to="/size-guide" className="inline-flex items-center gap-1 text-[#10b981] hover:underline">
+                        <Ruler className="w-3.5 h-3.5" /> Size Guide
+                      </Link>
+                      <Link to="/knowledge/pouch-sizing" className="inline-flex items-center gap-1 text-indigo-600 hover:underline">
+                        <Info className="w-3.5 h-3.5" /> Pouch Calculator
+                      </Link>
+                      <Link to="/dieline-finder" className="inline-flex items-center gap-1 hover:text-emerald-600 transition">
+                        <HelpCircle className="w-3.5 h-3.5" /> Dieline Finder
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 space-y-2 text-xs font-semibold text-emerald-800 leading-relaxed font-sans">
+                    <div className="flex items-center gap-1.5 font-bold uppercase text-emerald-950">
+                      <Sparkles className="w-4 h-4 text-emerald-600" /> Custom Sizing Mode Active
+                    </div>
+                    <p className="text-[11px] text-emerald-905 font-medium">
+                      We support precise custom width, height, and gusset sizes. The calculator applies the pricing of the nearest standard template.
+                    </p>
+                    <div className="flex gap-4 pt-1 border-t border-emerald-100/50 mt-1">
+                      <Link to="/size-guide" className="text-emerald-700 hover:underline">Size Guide</Link>
+                      <Link to="/knowledge/pouch-sizing" className="text-emerald-700 hover:underline">Calculator</Link>
                     </div>
                   </div>
                 )}
 
-                {/* Click to Zoom Visual Pouch Image */}
-                <div 
-                  onClick={() => setEnlargedImage(ovalData.image)}
-                  className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
-                >
-                  <img src={ovalData.image} alt={ovalData.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
-                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
-                  </div>
-                </div>
-
-                {/* Primary Price - Big Bold & Obvious */}
-                <div className="border-t border-b border-neutral-100 py-5">
-                  {ovalData.isBelowMoq ? (
-                    <div className="py-2">
-                      <span className="text-2xl font-extrabold text-red-500 uppercase tracking-wider block font-['Outfit']">Below MOQ</span>
-                      <span className="text-[10px] text-neutral-400 font-semibold mt-1 block">Custom printed orders require 500+ pcs</span>
+                {/* Control 3: Order Run Quantity & Stepper SKU */}
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-neutral-400">
+                      <span>3. Order Run Quantity (單款起訂量)</span>
+                      {qtyPerDesign === 100 && (
+                        <span className="text-amber-700 font-bold bg-amber-50 border border-amber-100 px-2 py-0.5 rounded text-[10px]">Stock Only</span>
+                      )}
                     </div>
-                  ) : (
-                    <>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-5xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
-                          ${ovalData.unitPrice.toFixed(2)}
-                        </span>
-                        <span className="text-sm text-neutral-450 font-bold">/ pouch</span>
-                      </div>
-                      <div className="text-[11px] text-emerald-600 font-bold mt-1.5 flex items-center gap-1">
-                        <Zap className="w-3.5 h-3.5 text-emerald-500 fill-emerald-100" /> <span className="text-neutral-900">${ovalData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD total</span>
-                      </div>
-                    </>
-                  )}
-                </div>
-
-                {/* Sizing & Material labels under price */}
-                <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-3 text-center">
-                  <span className="text-[10px] text-neutral-400 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
-                  <div className="text-xs font-black text-neutral-800 mt-0.5 truncate">
-                    {sizeMode === 'custom' ? 'Millimeter Scale customizable size' : `approx ${selectedSize.dimensions}`}
-                  </div>
-                  <span className="text-[9px] text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
-                    {sizeMode === 'custom' ? 'Fully Customizable Sizing' : 'Customizable Size'}
-                  </span>
-                </div>
-
-                {/* Features points */}
-                <div className="space-y-3 pt-2">
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">Oval bottom features</h4>
-                  <ul className="space-y-2 text-xs font-semibold text-neutral-600">
-                    {ovalData.points.map((pt, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-8">
-                <button
-                  onClick={() => setExpandedOption('custom-oval')}
-                  className="w-full bg-neutral-50 hover:bg-neutral-100 text-neutral-800 border border-neutral-200 font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 select-none cursor-pointer"
-                >
-                  View Technical Specs
-                </button>
-              </div>
-            </div>
-
-            {/* TIER 4 CARD: CUSTOM FLAT BOTTOM */}
-            <div className={`bg-white border rounded-3xl p-6 flex flex-col justify-between relative group transition-all duration-300 scale-[1.02] shadow-[0_12px_36px_rgba(0,0,0,0.06)] border-emerald-600/30 ring-4 ring-emerald-500/5`}>
-              <div className="absolute top-0 right-6 -translate-y-1/2 bg-emerald-600 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
-                HERO FLAT BOTTOM BOX Gusset
-              </div>
-
-              <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between items-start">
-                    <span className="inline-block bg-emerald-50 text-emerald-700 border border-emerald-100 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
-                      Custom Premium Flat Bottom
-                    </span>
-                    <span className="text-[10px] text-emerald-600 font-bold font-mono">MOQ: 500pcs</span>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
-                    Custom printed/sized Flat Bottom
-                  </h3>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                    Box-Style Flat Bottom Shape with Side Gussets. Maximizes volume and retail shelf presentation. Waived digital cylinder setups.
-                  </p>
-                </div>
-
-                {/* Custom Flat bottom Options Sub-Toggle (PE+EVOH vs Compostable vs Conventional) */}
-                <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-3 text-center text-[10px] font-bold font-sans">
-                  <button 
-                    type="button" 
-                    onClick={() => setFlatEcoOption('pe-evoh')}
-                    className={`py-1.5 rounded-lg transition ${flatEcoOption === 'pe-evoh' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    ♻️ Recyclable PE
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={() => setFlatEcoOption('compostable')}
-                    className={`py-1.5 rounded-lg transition ${flatEcoOption === 'compostable' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    🌱 Compostable
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={() => setFlatEcoOption('conventional')}
-                    className={`py-1.5 rounded-lg transition ${flatEcoOption === 'conventional' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
-                  >
-                    📄 Conventional
-                  </button>
-                </div>
-
-
-                {/* Dynamic Inline Selector ONLY when Custom Size is active inside Flat Bottom Eco card */}
-                {sizeMode === 'custom' && (
-                  <div className="bg-emerald-50/50 border border-emerald-100 p-2.5 rounded-xl space-y-1.5">
-                    <span className="block text-[10px] font-bold uppercase text-emerald-950 font-mono tracking-wider">
-                      Reference Capacity (選擇起算容量)
-                    </span>
-                    <div className="grid grid-cols-4 gap-1 text-[10px] text-center font-bold">
-                      {BAG_SIZES.map(s => (
-                        <button
-                          key={s.id}
-                          type="button"
-                          onClick={() => setSelectedSize(s)}
-                          className={`py-1.5 rounded-lg border transition ${selectedSize.id === s.id ? 'bg-white border-emerald-600 text-emerald-700 shadow-sm font-black' : 'bg-transparent border-neutral-200 text-neutral-500 hover:text-neutral-900'}`}
+                    <div className="bg-neutral-100 border border-neutral-200 p-1 rounded-2xl grid grid-cols-4 text-center text-xs font-bold font-sans">
+                      {[100, 500, 1000, 5000].map(q => (
+                        <button 
+                          key={q} 
+                          type="button" 
+                          onClick={() => setQtyPerDesign(q)}
+                          className={`py-2.5 px-1 rounded-xl transition-all duration-200 ${qtyPerDesign === q ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/80 font-black' : 'text-neutral-500 hover:text-neutral-900'}`}
                         >
-                          {s.label}
+                          {q.toLocaleString()} pcs
                         </button>
                       ))}
                     </div>
                   </div>
-                )}
 
-                {/* Click to Zoom Visual Pouch Image */}
-                <div 
-                  onClick={() => setEnlargedImage(flatData.image)}
-                  className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
-                >
-                  <img src={flatData.image} alt={flatData.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
-                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
+                  {/* Volume Discount Progress Tracker */}
+                  <div className="space-y-2 pt-2 border-t border-neutral-200/50">
+                    <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider text-neutral-455">
+                      <span>Volume Discount Tracker (量大減價進度)</span>
+                      <span className="text-indigo-700 bg-indigo-50 border border-indigo-100/50 px-2 py-0.5 rounded font-black font-sans">
+                        {qtyPerDesign === 100 && 'Startup Tier'}
+                        {qtyPerDesign === 500 && 'MOQ Unlocked'}
+                        {qtyPerDesign === 1000 && '30% Savings'}
+                        {qtyPerDesign === 5000 && 'Flexo Price Unlocked'}
+                      </span>
+                    </div>
+
+                    <div className="relative py-2.5">
+                      <div className="absolute top-1/2 left-0 right-0 h-1 bg-neutral-200 -translate-y-1/2 rounded-full" />
+                      <div 
+                        className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-emerald-500 to-indigo-500 -translate-y-1/2 rounded-full transition-all duration-300"
+                        style={{
+                          width: qtyPerDesign === 100 ? '0%' : 
+                                 qtyPerDesign === 500 ? '33.33%' : 
+                                 qtyPerDesign === 1000 ? '66.66%' : '100%'
+                        }}
+                      />
+                      <div className="relative flex justify-between">
+                        {[100, 500, 1000, 5000].map((q) => {
+                          const isActive = q <= qtyPerDesign;
+                          const isSelected = q === qtyPerDesign;
+                          return (
+                            <div key={q} className="flex flex-col items-center">
+                              <button
+                                type="button"
+                                onClick={() => setQtyPerDesign(q)}
+                                className={`w-3.5 h-3.5 rounded-full border-2 transition-all duration-300 relative z-10 ${isSelected ? 'bg-white border-indigo-600 scale-125 ring-4 ring-indigo-500/20' : isActive ? 'bg-emerald-500 border-emerald-500' : 'bg-white border-neutral-300 hover:border-neutral-400'}`}
+                              />
+                              <span className={`text-[10px] mt-1 font-bold ${isSelected ? 'text-indigo-600 font-extrabold' : 'text-neutral-400'}`}>
+                                {q >= 1000 ? `${q/1000}k` : q}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-emerald-50/40 to-indigo-50/40 border border-neutral-200/40 rounded-2xl p-3 text-[11px] font-semibold text-neutral-600 leading-normal flex items-start gap-2 shadow-inner">
+                      <Sparkles className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
+                      <div>
+                        {qtyPerDesign === 100 && (
+                          <span>再增加 <strong className="text-neutral-900">400 個總量 (至 500pcs)</strong>，即可解鎖客製印刷自立袋/方底袋，單價更划算！</span>
+                        )}
+                        {qtyPerDesign === 500 && (
+                          <span>再增加 <strong className="text-neutral-900">500 個總量 (至 1,000pcs)</strong>，單價平均可節省高達 <strong className="text-emerald-700">30% 成本</strong>！</span>
+                        )}
+                        {qtyPerDesign === 1000 && (
+                          <span>再增加 <strong className="text-neutral-900">4,000 個總量 (至 5,000pcs)</strong>，即可解鎖批量柔印/凹版價格檔位，單價最高節省 <strong className="text-indigo-700">50% 以上</strong>！</span>
+                        )}
+                        {qtyPerDesign === 5000 && (
+                          <span>🎉 <strong className="text-indigo-700">已解鎖 5,000pcs 批量印刷價格檔位！</strong> 首單版費全免，性價比最優選。</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SKU stepper counter */}
+                  <div className="space-y-2 pt-2 border-t border-neutral-200/50">
+                    <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">4. Designs SKUs (款式數)</span>
+                    <div className="flex items-center justify-between bg-neutral-100 border border-neutral-200 p-1.5 rounded-2xl">
+                      <button 
+                        type="button" 
+                        onClick={() => setNumDesigns(prev => Math.max(1, prev - 1))}
+                        className="w-8 h-8 rounded-xl bg-white border border-neutral-200 hover:bg-neutral-50 active:scale-95 text-neutral-600 font-extrabold flex items-center justify-center transition"
+                      >
+                        -
+                      </button>
+                      <span className="text-xs font-black text-neutral-800">{numDesigns} SKU{numDesigns > 1 ? 's' : ''}</span>
+                      <button 
+                        type="button" 
+                        onClick={() => setNumDesigns(prev => Math.min(10, prev + 1))}
+                        className="w-8 h-8 rounded-xl bg-white border border-neutral-200 hover:bg-neutral-50 active:scale-95 text-neutral-600 font-extrabold flex items-center justify-center transition"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                {/* Primary Price - Big Bold & Obvious */}
-                <div className="border-t border-b border-neutral-100 py-5">
-                  {flatData.isBelowMoq ? (
-                    <div className="py-2">
-                      <span className="text-2xl font-extrabold text-red-500 uppercase tracking-wider block font-['Outfit']">Below MOQ</span>
-                      <span className="text-[10px] text-neutral-400 font-semibold mt-1 block">Custom printed orders require 500+ pcs</span>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-5xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
-                          ${flatData.unitPrice.toFixed(2)}
-                        </span>
-                        <span className="text-sm text-neutral-450 font-bold">/ pouch</span>
-                      </div>
-                      <div className="text-[11px] text-neutral-500 font-bold mt-1.5">
-                        Estimated Total: <span className="text-neutral-900">${flatData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD</span> for {numDesigns} SKUs
-                      </div>
-                    </>
+                {/* Config Summary & WhatsApp Dispatch */}
+                <div className="pt-4 border-t border-dashed border-neutral-200/80 flex flex-col gap-3 text-xs font-semibold">
+                  <div className="text-neutral-500 text-[11px] leading-relaxed">
+                    Selected: <strong className="text-neutral-950">{sizeMode === 'custom' ? 'Custom size' : selectedSize.dimensions}</strong> &middot; <strong className="text-neutral-950">{(qtyPerDesign * numDesigns).toLocaleString()} total pouches</strong> ({qtyPerDesign} per design).
+                  </div>
+                  <button 
+                    onClick={handleWhatsappCopy} 
+                    className="w-full bg-neutral-950 hover:bg-neutral-900 text-white font-extrabold uppercase text-[11px] py-3 rounded-xl transition duration-150 active:scale-98 flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
+                  >
+                    <Phone className="w-3.5 h-3.5 fill-white stroke-none" /> Send WhatsApp RFQ
+                  </button>
+                  {whatsappCopied && (
+                    <p className="text-[10px] text-emerald-600 font-bold text-center mt-1">
+                      ✓ Configuration copied! Opening WhatsApp Chat...
+                    </p>
                   )}
                 </div>
 
-                {/* Sizing & Material labels under price */}
-                <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-3 text-center">
-                  <span className="text-[10px] text-neutral-400 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
-                  <div className="text-xs font-black text-neutral-800 mt-0.5 truncate">
-                    {sizeMode === 'custom' ? 'Millimeter Scale customizable size' : `approx ${selectedSize.dimensions}`}
-                  </div>
-                  <span className="text-[9px] text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
-                    {sizeMode === 'custom' ? 'Fully Customizable Sizing' : 'Customizable Size'}
-                  </span>
-                </div>
-
-                {/* Features points */}
-                <div className="space-y-3 pt-2">
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">Flat bottom features</h4>
-                  <ul className="space-y-2 text-xs font-semibold text-neutral-600">
-                    {flatData.points.map((pt, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
+            </div>
 
-              <div className="pt-8">
-                <button
-                  onClick={() => setExpandedOption('custom-flat')}
-                  className="w-full bg-neutral-900 hover:bg-neutral-850 text-white font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 select-none cursor-pointer"
-                >
-                  View Technical Specs
-                </button>
+            {/* RIGHT COLUMN: Comparison Pricing Cards Grid */}
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+                
+                {/* CARD 1: STOCK CONVENTIONAL */}
+                <div className={`relative bg-white/70 backdrop-blur-md border border-neutral-200/50 rounded-3xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(16,185,129,0.05)] hover:border-emerald-500/20 group ${sizeMode === 'custom' ? 'opacity-50 pointer-events-none' : ''}`}>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-start">
+                      <span className="inline-block bg-neutral-100 text-neutral-600 border border-neutral-200 px-2 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                        Stock Modular
+                      </span>
+                      <span className="text-[10px] text-neutral-400 font-semibold font-mono">MOQ: 100pcs</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-black text-neutral-900 font-['Outfit']">Stock Conventional</h3>
+                      <p className="text-[11px] text-neutral-400 leading-normal mt-1">
+                        Premade high-barrier stock pouches. Quick 3-5 days dispatch.
+                      </p>
+                    </div>
+
+                    {/* Stock Sub-Options */}
+                    <div className="bg-neutral-100/50 border border-neutral-200 p-1 rounded-xl grid grid-cols-3 text-center text-[10px] font-bold">
+                      {['card', 'tag', 'sticker'].map((opt) => (
+                        <button 
+                          key={opt}
+                          type="button" 
+                          onClick={() => { setStockOption(opt as any); setSizeMode('standard'); }}
+                          className={`py-1.5 rounded-lg capitalize transition-all ${stockOption === opt ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/30 font-black' : 'text-neutral-500'}`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Thumbnail Click-to-Zoom */}
+                    <div 
+                      onClick={() => setEnlargedImage(cardData.image)}
+                      className="w-full aspect-[16/10] border border-neutral-200/60 bg-neutral-50 rounded-2xl overflow-hidden shadow-inner relative group/thumb cursor-zoom-in"
+                    >
+                      <img src={cardData.image} alt={cardData.badge} className="w-full h-full object-cover transition duration-300 group-hover/thumb:scale-103" />
+                      <div className="absolute inset-0 bg-black/5 opacity-0 group-hover/thumb:opacity-100 transition duration-150 flex items-center justify-center">
+                        <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-neutral-250/30 shadow-md">Click to Zoom</span>
+                      </div>
+                    </div>
+
+                    {/* Pricing */}
+                    <div className="border-t border-b border-neutral-100 py-3.5">
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-4xl font-extrabold text-neutral-955 tracking-tight font-['Outfit']">${cardData.unitPrice.toFixed(2)}</span>
+                        <span className="text-xs text-neutral-455 font-bold">/ pouch</span>
+                      </div>
+                      <div className="text-[11px] text-neutral-500 font-bold mt-1">
+                        Total: <span className="text-neutral-955">${cardData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD</span>
+                      </div>
+                    </div>
+
+                    {/* Short Specs Summary */}
+                    <ul className="space-y-1.5 text-xs text-neutral-600">
+                      <li className="flex items-start gap-1.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>Ready in standard {selectedSize.dimensions.split(' + ')[0]}mm size</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>Modular stick-on label/tag layout</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-neutral-100">
+                    <button
+                      onClick={() => setExpandedOption('stock-cards')}
+                      className="w-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200/50 font-bold text-xs py-2.5 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 cursor-pointer"
+                    >
+                      View Technical Specs
+                    </button>
+                  </div>
+                </div>
+
+                {/* CARD 2: CUSTOM CONVENTIONAL */}
+                <div className={`relative bg-white/70 backdrop-blur-md border border-neutral-200/50 rounded-3xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(79,70,229,0.05)] hover:border-indigo-500/20 group ${sizeMode === 'custom' ? 'opacity-50 pointer-events-none' : ''}`}>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-start">
+                      <span className="inline-block bg-indigo-50 text-indigo-700 border border-indigo-100 px-2 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                        Custom Conventional
+                      </span>
+                      <span className="text-[10px] text-neutral-400 font-semibold font-mono">MOQ: 100pcs</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-black text-neutral-900 font-['Outfit']">Custom Conventional</h3>
+                      <p className="text-[11px] text-neutral-400 leading-normal mt-1">
+                        Edge-to-edge custom digital printed. Stand-up doypack layout.
+                      </p>
+                    </div>
+
+                    {/* Conventional Sub-Options */}
+                    <div className="bg-neutral-100/50 border border-neutral-200 p-1 rounded-xl grid grid-cols-2 text-center text-[10px] font-bold">
+                      <button 
+                        type="button" 
+                        onClick={() => { setConvenOption('matt-metallised'); setSizeMode('standard'); }}
+                        className={`py-1.5 rounded-lg transition-all ${convenOption === 'matt-metallised' ? 'bg-white text-indigo-700 shadow-sm border border-neutral-200/30 font-black' : 'text-neutral-505'}`}
+                      >
+                        Matt Metalised
+                      </button>
+                      <button 
+                        type="button" 
+                        onClick={() => { setConvenOption('glossy-clear'); setSizeMode('standard'); }}
+                        className={`py-1.5 rounded-lg transition-all ${convenOption === 'glossy-clear' ? 'bg-white text-indigo-700 shadow-sm border border-neutral-200/30 font-black' : 'text-neutral-500'}`}
+                      >
+                        Glossy Clear
+                      </button>
+                    </div>
+
+                    {/* Thumbnail */}
+                    <div 
+                      onClick={() => setEnlargedImage(convenData.image)}
+                      className="w-full aspect-[16/10] border border-neutral-200/60 bg-neutral-50 rounded-2xl overflow-hidden shadow-inner relative group/thumb cursor-zoom-in"
+                    >
+                      <img src={convenData.image} alt={convenData.badge} className="w-full h-full object-cover transition duration-300 group-hover/thumb:scale-103" />
+                      <div className="absolute inset-0 bg-black/5 opacity-0 group-hover/thumb:opacity-100 transition duration-150 flex items-center justify-center">
+                        <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-neutral-250/30 shadow-md">Click to Zoom</span>
+                      </div>
+                    </div>
+
+                    {/* Pricing */}
+                    <div className="border-t border-b border-neutral-100 py-3.5">
+                      {convenData.isBelowMoq ? (
+                        <div className="py-2.5 text-center">
+                          <span className="text-xl font-bold text-red-500 block">Below MOQ</span>
+                          <span className="text-[9px] text-neutral-400 block mt-0.5">Requires 100+ pcs run</span>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-4xl font-extrabold text-neutral-955 tracking-tight font-['Outfit']">${convenData.unitPrice.toFixed(2)}</span>
+                            <span className="text-xs text-neutral-455 font-bold">/ pouch</span>
+                          </div>
+                          <div className="text-[11px] text-neutral-505 font-bold mt-1">
+                            Total: <span className="text-neutral-955">${convenData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD</span>
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Short Specs */}
+                    <ul className="space-y-1.5 text-xs text-neutral-600">
+                      <li className="flex items-start gap-1.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>Oval-bottom Stand-up pouch shape</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>High barrier laminate foil or clarity film</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-neutral-100">
+                    <button
+                      onClick={() => setExpandedOption('custom-conven')}
+                      className="w-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200/50 font-bold text-xs py-2.5 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 cursor-pointer"
+                    >
+                      View Technical Specs
+                    </button>
+                  </div>
+                </div>
+
+                {/* CARD 3: CUSTOM OVAL BOTTOM */}
+                <div className="relative bg-white/70 backdrop-blur-md border border-neutral-200/50 rounded-3xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(59,130,246,0.05)] hover:border-blue-500/20 group">
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-start">
+                      <span className="inline-block bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                        Custom Oval Stand-Up
+                      </span>
+                      <span className="text-[10px] text-emerald-600 font-bold font-mono">MOQ: 500pcs</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-black text-neutral-900 font-['Outfit']">Custom Oval Bottom</h3>
+                      <p className="text-[11px] text-neutral-400 leading-normal mt-1">
+                        Millimeter customizable sizing stand-up. Saves 50% unit price vs flat bottom box bags.
+                      </p>
+                    </div>
+
+                    {/* Oval Materials Sub-Options */}
+                    <div className="bg-neutral-100/50 border border-neutral-200 p-0.5 rounded-xl grid grid-cols-3 text-center text-[9px] font-bold">
+                      {['pe-evoh', 'compostable', 'conventional'].map((mat) => (
+                        <button 
+                          key={mat}
+                          type="button" 
+                          onClick={() => setOvalEcoOption(mat as any)}
+                          className={`py-1.5 rounded-lg transition-all ${ovalEcoOption === mat ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/30 font-black' : 'text-neutral-550'}`}
+                        >
+                          {mat === 'pe-evoh' ? 'Mono-PE' : mat === 'compostable' ? 'Bio Kraft' : 'Conventional'}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Thumbnail */}
+                    <div 
+                      onClick={() => setEnlargedImage(ovalData.image)}
+                      className="w-full aspect-[16/10] border border-neutral-200/60 bg-neutral-50 rounded-2xl overflow-hidden shadow-inner relative group/thumb cursor-zoom-in"
+                    >
+                      <img src={ovalData.image} alt={ovalData.badge} className="w-full h-full object-cover transition duration-300 group-hover/thumb:scale-103" />
+                      <div className="absolute inset-0 bg-black/5 opacity-0 group-hover/thumb:opacity-100 transition duration-150 flex items-center justify-center">
+                        <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-neutral-250/30 shadow-md">Click to Zoom</span>
+                      </div>
+                    </div>
+
+                    {/* Pricing with smart MOQ button */}
+                    <div className="border-t border-b border-neutral-100 py-3.5">
+                      {ovalData.isBelowMoq ? (
+                        <div className="py-2 text-center space-y-2">
+                          <span className="text-xl font-bold text-red-500 block">Below MOQ</span>
+                          <span className="text-[9.5px] text-neutral-450 block leading-tight">Total run count must reach 500+ pcs</span>
+                          <button
+                            type="button"
+                            onClick={() => setQtyPerDesign(500)}
+                            className="bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-[9px] uppercase px-3 py-1.5 rounded-lg transition-all active:scale-95 shadow-sm"
+                          >
+                            一鍵提升至 500pcs MOQ
+                          </button>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-4xl font-extrabold text-neutral-955 tracking-tight font-['Outfit']">${ovalData.unitPrice.toFixed(2)}</span>
+                            <span className="text-xs text-neutral-455 font-bold">/ pouch</span>
+                          </div>
+                          <div className="text-[11px] text-emerald-600 font-bold mt-1">
+                            Total: <span className="text-neutral-955">${ovalData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD</span>
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Short Specs */}
+                    <ul className="space-y-1.5 text-xs text-neutral-600">
+                      <li className="flex items-start gap-1.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>Saves 50% material costs vs Flat Bottom</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>Millimeter scale custom size supported</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-neutral-100">
+                    <button
+                      onClick={() => setExpandedOption('custom-oval')}
+                      className="w-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200/50 font-bold text-xs py-2.5 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 cursor-pointer"
+                    >
+                      View Technical Specs
+                    </button>
+                  </div>
+                </div>
+
+                {/* CARD 4: CUSTOM FLAT BOTTOM */}
+                <div className="relative bg-white/75 backdrop-blur-md border rounded-3xl p-6 flex flex-col justify-between scale-[1.01] shadow-[0_12px_40px_rgba(0,0,0,0.06)] border-emerald-600/30 ring-4 ring-emerald-500/5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(16,185,129,0.1)] group">
+                  <div className="absolute top-0 right-6 -translate-y-1/2 bg-emerald-600 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm z-10">
+                    PREMIUM BOX GUSSET
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-start">
+                      <span className="inline-block bg-emerald-50 text-emerald-750 border border-emerald-100 px-2 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                        Custom Premium Flat Bottom
+                      </span>
+                      <span className="text-[10px] text-emerald-600 font-bold font-mono">MOQ: 500pcs</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-black text-neutral-900 font-['Outfit']">Custom Flat Bottom</h3>
+                      <p className="text-[11px] text-neutral-400 leading-normal mt-1">
+                        Premium box-shape bag with side-gussets for maximum retail branding.
+                      </p>
+                    </div>
+
+                    {/* Flat materials Sub-Options */}
+                    <div className="bg-neutral-100/50 border border-neutral-200 p-0.5 rounded-xl grid grid-cols-3 text-center text-[9px] font-bold">
+                      {['pe-evoh', 'compostable', 'conventional'].map((mat) => (
+                        <button 
+                          key={mat}
+                          type="button" 
+                          onClick={() => setFlatEcoOption(mat as any)}
+                          className={`py-1.5 rounded-lg transition-all ${flatEcoOption === mat ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/30 font-black' : 'text-neutral-500'}`}
+                        >
+                          {mat === 'pe-evoh' ? 'Mono-PE' : mat === 'compostable' ? 'Bio Kraft' : 'Conventional'}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Thumbnail */}
+                    <div 
+                      onClick={() => setEnlargedImage(flatData.image)}
+                      className="w-full aspect-[16/10] border border-neutral-200/60 bg-neutral-50 rounded-2xl overflow-hidden shadow-inner relative group/thumb cursor-zoom-in"
+                    >
+                      <img src={flatData.image} alt={flatData.badge} className="w-full h-full object-cover transition duration-300 group-hover/thumb:scale-103" />
+                      <div className="absolute inset-0 bg-black/5 opacity-0 group-hover/thumb:opacity-100 transition duration-150 flex items-center justify-center">
+                        <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-neutral-250/30 shadow-md">Click to Zoom</span>
+                      </div>
+                    </div>
+
+                    {/* Pricing with smart MOQ button */}
+                    <div className="border-t border-b border-neutral-100 py-3.5">
+                      {flatData.isBelowMoq ? (
+                        <div className="py-2 text-center space-y-2">
+                          <span className="text-xl font-bold text-red-500 block">Below MOQ</span>
+                          <span className="text-[9.5px] text-neutral-450 block leading-tight">Total run count must reach 500+ pcs</span>
+                          <button
+                            type="button"
+                            onClick={() => setQtyPerDesign(500)}
+                            className="bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-[9px] uppercase px-3 py-1.5 rounded-lg transition-all active:scale-95 shadow-sm"
+                          >
+                            一鍵提升至 500pcs MOQ
+                          </button>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-4xl font-extrabold text-neutral-950 tracking-tight font-['Outfit']">${flatData.unitPrice.toFixed(2)}</span>
+                            <span className="text-xs text-neutral-455 font-bold">/ pouch</span>
+                          </div>
+                          <div className="text-[11px] text-neutral-500 font-bold mt-1">
+                            Total: <span className="text-neutral-950">${flatData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD</span>
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Short Specs */}
+                    <ul className="space-y-1.5 text-xs text-neutral-600">
+                      <li className="flex items-start gap-1.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>Maximum shelf volume display aesthetics</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>Millimeter custom sizing & DDP delivery</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-emerald-100">
+                    <button
+                      onClick={() => setExpandedOption('custom-flat')}
+                      className="w-full bg-neutral-950 hover:bg-neutral-900 text-white font-bold text-xs py-2.5 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 cursor-pointer"
+                    >
+                      View Technical Specs
+                    </button>
+                  </div>
+                </div>
+
               </div>
             </div>
 
           </div>
         </section>
-
         {/* ENTERPRISE CONTRACTS SECTION */}
         <section className="max-w-7xl mx-auto px-4 md:px-6 pt-16">
           <div className="relative rounded-3xl border border-neutral-200/80 bg-white p-6 md:p-8 shadow-sm flex flex-col md:grid md:grid-cols-12 gap-8 items-center text-left max-w-5xl mx-auto">
@@ -2340,7 +2323,7 @@ export default function PouchEcoGPTKPage() {
         )}
       </AnimatePresence>
 
-      {/* Product Specifications & Details Lightbox Modal */}
+      {/* Product Specifications & Details Slide-out Drawer */}
       <AnimatePresence>
         {expandedOption && (() => {
           let data = { unitPrice: 0, totalCost: 0, isBelowMoq: true, moq: 500, badge: '', desc: '', certLogo: '', leadTime: '', image: '', points: [] as string[] };
@@ -2353,103 +2336,191 @@ export default function PouchEcoGPTKPage() {
           } else if (expandedOption === 'custom-flat') {
             data = flatData;
           }
+
+          // Calculate estimated shipment weight based on quantity
+          const totalQty = qtyPerDesign * numDesigns;
+          // Approximate weight: 150g = 6g, 250g = 8g, 500g = 12g, 1kg = 18g
+          const weightPerUnit = selectedSize.id === 'size-1' ? 6 : selectedSize.id === 'size-2' ? 8 : selectedSize.id === 'size-3' ? 12 : 18;
+          const totalWeightKg = (weightPerUnit * totalQty) / 1000;
+
+          // Define material stack layers based on option
+          let materialLayers: { name: string; desc: string; thickness: string }[] = [];
+          let otrValue = '';
+          let wvtrValue = '';
+
+          if (expandedOption === 'stock-cards' || expandedOption === 'custom-conven' || (expandedOption === 'custom-oval' && ovalEcoOption === 'conventional') || (expandedOption === 'custom-flat' && flatEcoOption === 'conventional')) {
+            materialLayers = [
+              { name: 'PET (Polyester Outer)', desc: 'Provides high tensile strength, print clarity, and thermal stability.', thickness: '12 μm' },
+              { name: 'AL (Pure Aluminum Core)', desc: '100% complete barrier protecting fresh beans from light, oxygen, and moisture.', thickness: '7 μm' },
+              { name: 'LLDPE (Inner Sealant)', desc: 'Food-safe liner ensuring strong seals and airtight closure.', thickness: '80-100 μm' }
+            ];
+            otrValue = '< 0.1 cc/m²/24h (Ultra High)';
+            wvtrValue = '< 0.1 g/m²/24h (Ultra High)';
+          } else if ((expandedOption === 'custom-oval' && ovalEcoOption === 'pe-evoh') || (expandedOption === 'custom-flat' && flatEcoOption === 'pe-evoh')) {
+            materialLayers = [
+              { name: 'MDO-PE (Outer Film)', desc: 'Recyclable high-durability print surface.', thickness: '25-30 μm' },
+              { name: 'EVOH Gas Barrier Core', desc: 'Sustained gas lock replacing metal foil to preserve coffee aroma.', thickness: '4-5 μm' },
+              { name: 'LLDPE (Inner Layer)', desc: 'Recyclable sealant film for high structural integrity.', thickness: '75-90 μm' }
+            ];
+            otrValue = '< 0.5 cc/m²/24h (High Barrier)';
+            wvtrValue = '< 0.3 g/m²/24h (High Barrier)';
+          } else {
+            // Compostable
+            materialLayers = [
+              { name: 'Sustainably Sourced Kraft Paper', desc: 'Beautiful, natural organic presentation shell.', thickness: '50-60 gsm' },
+              { name: 'Metalised PLA / NK Core Film', desc: 'Certified biodegradable aroma and moisture barrier layer.', thickness: '19 μm' },
+              { name: 'PBAT / PLA Heat Sealant', desc: '100% home compostable food-safe sealant layer.', thickness: '60 μm' }
+            ];
+            otrValue = '< 1.0 cc/m²/24h (Good Barrier)';
+            wvtrValue = '< 0.8 g/m²/24h (Good Barrier)';
+          }
+
           return (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setExpandedOption(null)}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4 cursor-zoom-out"
-            >
+            <div className="fixed inset-0 z-50 flex justify-end overflow-hidden" role="dialog" aria-modal="true">
+              {/* Semi-transparent Backdrop */}
               <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                className="relative max-w-xl w-full border border-neutral-200 bg-white rounded-3xl p-6 text-neutral-850 shadow-2xl max-h-[90vh] overflow-y-auto cursor-default font-sans"
-                onClick={(e) => e.stopPropagation()}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setExpandedOption(null)}
+                className="absolute inset-0 bg-neutral-900/60 backdrop-blur-sm transition-opacity cursor-zoom-out"
+              />
+
+              {/* Drawer panel */}
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'spring', damping: 26, stiffness: 200 }}
+                className="relative w-screen max-w-lg bg-white shadow-2xl flex flex-col h-full z-10 border-l border-neutral-200"
               >
-                {/* Modal Header */}
-                <div className="flex justify-between items-start border-b border-neutral-100 pb-4 mb-4">
-                  <div>
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700">
-                      {data.certLogo || 'Spec Sheet'}
+                {/* Drawer Header */}
+                <div className="px-6 py-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
+                  <div className="space-y-1">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-50 border border-emerald-100 text-emerald-700">
+                      {data.certLogo || 'Technical Specifications'}
                     </span>
-                    <h2 className="text-xl font-extrabold text-neutral-900 mt-1 leading-tight font-['Outfit']">
-                      {data.badge}
+                    <h2 className="text-lg font-black text-neutral-950 font-['Outfit']">
+                      {data.badge.split(' (')[0]} Specs
                     </h2>
                   </div>
                   <button
                     onClick={() => setExpandedOption(null)}
-                    className="font-bold uppercase text-[10px] px-2.5 py-1 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-600 transition duration-150 active:scale-95 cursor-pointer"
+                    className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 flex items-center justify-center transition active:scale-95 cursor-pointer font-bold"
                   >
-                    ✕ Close
+                    ✕
                   </button>
                 </div>
 
-                {/* Modal Body */}
-                <div className="space-y-4">
-                  {expandedOption === 'stock-cards' && stockOption === 'sticker' ? (
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="relative group overflow-hidden border border-neutral-200 rounded-xl bg-neutral-50 aspect-square flex items-center justify-center shadow-inner">
-                        <img src="/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg" alt="Matte White Kraft Pouch" className="w-full h-full object-cover rounded-lg" />
-                        <span className="absolute bottom-1 right-1 bg-black/75 text-[9px] font-bold text-white px-1.5 py-0.5 rounded">
-                          White / Kraft
-                        </span>
-                      </div>
-                      <div className="relative group overflow-hidden border border-neutral-200 rounded-xl bg-neutral-50 aspect-square flex items-center justify-center shadow-inner">
-                        <img src="/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-3.jpg" alt="High Clarity Transparent Pouch" className="w-full h-full object-cover rounded-lg" />
-                        <span className="absolute bottom-1 right-1 bg-emerald-900/80 text-[9px] font-bold text-white px-1.5 py-0.5 rounded">
-                          Transparent Option
-                        </span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="relative group overflow-hidden border border-neutral-200 rounded-xl bg-neutral-50 aspect-[16/9] flex items-center justify-center max-w-sm mx-auto shadow-sm">
-                      <img src={data.image} alt={data.badge} className="w-full h-full object-cover rounded-lg" />
-                    </div>
-                  )}
+                {/* Drawer Body (Scrollable) */}
+                <div className="flex-1 overflow-y-auto p-6 space-y-8 font-sans">
+                  
+                  {/* Photo Preview */}
+                  <div className="relative group overflow-hidden border border-neutral-200 bg-neutral-50 rounded-2xl aspect-[16/10] flex items-center justify-center shadow-inner">
+                    <img src={data.image} alt={data.badge} className="w-full h-full object-cover" />
+                  </div>
 
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">Product Overview</h4>
-                      <p className="text-xs font-semibold leading-relaxed text-neutral-500 mt-1">
-                        {data.desc}
-                      </p>
+                  {/* Summary / Description */}
+                  <div className="space-y-2">
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">Overview</h4>
+                    <p className="text-xs font-semibold leading-relaxed text-neutral-500">
+                      {data.desc}
+                    </p>
+                  </div>
+
+                  {/* 1. Material Layer Architecture */}
+                  <div className="space-y-3">
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">1. Material Layer Architecture (材料層級架構)</h4>
+                    <div className="space-y-2.5">
+                      {materialLayers.map((layer, idx) => (
+                        <div key={idx} className="relative pl-4 border-l-2 border-emerald-500 py-0.5">
+                          <div className="flex justify-between items-baseline">
+                            <span className="text-xs font-extrabold text-neutral-900">{layer.name}</span>
+                            <span className="text-[10px] font-black text-neutral-400 font-mono">{layer.thickness}</span>
+                          </div>
+                          <p className="text-[10px] text-neutral-450 mt-0.5 leading-normal">{layer.desc}</p>
+                        </div>
+                      ))}
                     </div>
+                  </div>
 
-                    <div>
-                      <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400 mb-2">Key Highlights</h4>
-                      <ul className="space-y-2 text-xs font-semibold text-neutral-600">
-                        {data.points?.map((pt, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
-                            <span>{pt}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {(expandedOption === 'custom-oval' || expandedOption === 'custom-flat') && (
-                      <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-3 text-[10px] text-emerald-700 leading-normal">
-                        💡 **Custom sizing & layout** is fully supported! Achieve Pack can adjust exact pouch width/height dimensions to perfectly optimize your packaging cost margins.
+                  {/* 2. OTR / WVTR Gas & Moisture comparison */}
+                  <div className="space-y-3">
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">2. Gas & Moisture Protection (水氧阻隔指標)</h4>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-neutral-50 border border-neutral-200/60 p-3.5 rounded-2xl space-y-1 shadow-sm">
+                        <span className="text-[9px] font-black uppercase text-neutral-400 tracking-wider font-mono">OTR (Oxygen Transmission)</span>
+                        <div className="text-xs font-black text-neutral-800">{otrValue}</div>
+                        <p className="text-[9px] text-neutral-450 leading-tight">Protects volatile roasted coffee oils from oxidation.</p>
                       </div>
-                    )}
-
-                    <div className="border-t border-neutral-100 pt-4 flex justify-between items-center text-xs font-bold font-sans">
-                      <div>
-                        <span className="text-neutral-400 block uppercase text-[10px]">Lead Time</span>
-                        <span className="text-neutral-800">{data.leadTime}</span>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-neutral-400 block uppercase text-[10px]">Minimum Order (MOQ)</span>
-                        <span className="text-emerald-600">{data.moq.toLocaleString()} pcs</span>
+                      <div className="bg-neutral-50 border border-neutral-200/60 p-3.5 rounded-2xl space-y-1 shadow-sm">
+                        <span className="text-[9px] font-black uppercase text-neutral-400 tracking-wider font-mono">WVTR (Water Vapor)</span>
+                        <div className="text-xs font-black text-neutral-800">{wvtrValue}</div>
+                        <p className="text-[9px] text-neutral-450 leading-tight">Prevents atmospheric humidity staling the beans.</p>
                       </div>
                     </div>
                   </div>
+
+                  {/* 3. Shipping & Weight Estimator */}
+                  <div className="space-y-3">
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">3. Estimated Shipping Weight & Logistics (物流估算)</h4>
+                    <div className="bg-gradient-to-r from-emerald-500/5 to-indigo-500/5 border border-neutral-200/50 p-4 rounded-2xl space-y-3 shadow-sm">
+                      <div className="flex justify-between items-center text-xs font-bold text-neutral-800">
+                        <span>Total Pouches:</span>
+                        <span className="font-mono">{totalQty.toLocaleString()} pcs</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs font-bold text-neutral-800">
+                        <span>Est. Weight (Net):</span>
+                        <span className="text-indigo-650 font-black font-mono">~ {totalWeightKg.toFixed(1)} kg ({ (totalWeightKg * 2.2).toFixed(1) } lbs)</span>
+                      </div>
+
+                      <div className="border-t border-neutral-200/50 pt-3 space-y-2 text-[11px] font-semibold text-neutral-600">
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                          <div>
+                            <span className="text-neutral-900 font-extrabold block">Ocean Sea Freight DDP (recommended)</span>
+                            Estimated 25-35 days transit. Delivers straight to your warehouse, tax-inclusive DDP. Saves over 85% compared to air cargo.
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 rounded-full bg-neutral-400 mt-1.5 shrink-0" />
+                          <div>
+                            <span className="text-neutral-900 font-extrabold block">Express Air Cargo</span>
+                            Estimated 7-10 days transit. Recommended for fast pilot batch sample verification and test launches.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Custom Sizing Notice */}
+                  {data.moq >= 500 && (
+                    <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-3.5 text-[11px] font-semibold text-emerald-800 leading-relaxed shadow-sm">
+                      💡 <strong>Tailored Pouch Dimensions</strong>: For custom runs over 500 units, we fully support millimeters scale sizing adjustments (e.g. customized side-gusset widths) at zero plate charge.
+                    </div>
+                  )}
+
+                </div>
+
+                {/* Drawer Footer */}
+                <div className="p-4 border-t border-neutral-100 bg-neutral-50 flex items-center justify-between text-xs font-bold font-sans">
+                  <div>
+                    <span className="text-neutral-400 block uppercase text-[9px] font-mono">Estimated Lead Time</span>
+                    <span className="text-neutral-900 text-sm">{data.leadTime}</span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setExpandedOption(null);
+                      handleWhatsappCopy();
+                    }}
+                    className="bg-neutral-950 hover:bg-neutral-900 text-white font-extrabold uppercase text-[10.5px] px-5 py-3 rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-md"
+                  >
+                    <Phone className="w-3.5 h-3.5 fill-white stroke-none" /> RFQ via WhatsApp
+                  </button>
                 </div>
 
               </motion.div>
-            </motion.div>
+            </div>
           );
         })()}
       </AnimatePresence>
