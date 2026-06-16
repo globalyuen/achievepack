@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-16",
-  "total_images": 3163,
+  "total_images": 3164,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1625,
+    ".png": 1626,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 452,
+      "count": 453,
       "images": [
+        {
+          "filename": "low-moq-flexible-packaging-printing-hero.png",
+          "path": "/imgs/blog/heros/low-moq-flexible-packaging-printing-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-16T07:30:31.808Z"
+        },
         {
           "filename": "custom-digital-print-stand-up-pouches-hero.png",
           "path": "/imgs/blog/heros/custom-digital-print-stand-up-pouches-hero.png",

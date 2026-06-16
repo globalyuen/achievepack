@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-16T07:15:35.617Z",
+  "lastUnifiedRun": "2026-06-16T07:30:42.902Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2912,17 +2912,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-digital-print-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "custom digital print stand up pouches",
-      "difficulty": "Low",
-      "slug": "custom-digital-print-stand-up-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 700,
       "keyword": "low moq flexible packaging printing",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "low-moq-flexible-packaging-printing"
     },
     {
       "status": "Pending",
@@ -3005,9 +3006,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-16T07:15:29.600Z",
+      "timestamp": "2026-06-16T07:30:32.998Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom digital print stand up pouches\" to /blog/custom-digital-print-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"low moq flexible packaging printing\" to /blog/low-moq-flexible-packaging-printing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom digital print stand up pouches\" to /blog/custom-digital-print-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-16T07:15:29.600Z"
     },
     {
       "action": "Autopilot Generation Draft",

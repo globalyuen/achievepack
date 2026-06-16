@@ -999,7 +999,7 @@ Real-time Options Quotation:
             </div>
 
             {/* RIGHT COLUMN: Comparison Pricing Cards Grid */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 lg:sticky lg:top-24 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto pr-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
                 
                 {/* CARD 1: STOCK CONVENTIONAL */}
