@@ -43,24 +43,24 @@ interface TableCategory {
 
 const TABLE_CATEGORIES: TableCategory[] = [
   {
-    title: '📦 Structural Design & Base Specifications (採購材料與合規基礎)',
+    title: '📦 Structural Design & Base Specifications',
     rows: [
       {
-        name: 'Base Material (材料架構 - 影響保鮮與認證)',
+        name: 'Base Material (Barrier & Certification)',
         stockCards: 'Pre-made Foil Laminated structure (Matte Finish)',
         customConven: 'Conventional Multi-Laminate Foil (High-barrier PET/AL/PE)',
         customOval: '♻️ Mono-PE (EVOH gas lock) OR 🌱 Bio Kraft (ASTM D6400 Home compostable PBAT layers)',
         customFlat: '♻️ Mono-PE (EVOH gas lock) OR 🌱 Bio Kraft (ASTM D6400 Home compostable PBAT layers)'
       },
       {
-        name: 'Pouch Shape (袋型設計 - 影響貨架陳列與容量)',
+        name: 'Pouch Shape (Shelf Display & Capacity)',
         stockCards: 'Flat Bottom / Box Pouch Shape (Side Gussets)',
         customConven: 'Oval Stand-Up Pouch Shape (Doypack)',
         customOval: 'Oval Stand-Up Pouch Shape (Doypack - saves 50% material unit cost)',
         customFlat: 'Box-Style Flat Bottom Pouch Shape (Side Gussets for maximum display volume)'
       },
       {
-        name: 'Logistics Protection (包裝防禦 - 降低海運破損率)',
+        name: 'Logistics Protection (Ocean Freight Proof)',
         stockCards: 'Standard single-wall corrugated transport packing',
         customConven: 'Heavy-duty double-wall master cartons',
         customOval: 'Heavy-duty double-wall master cartons + inner moisture-barrier polybags (Ocean-Freight Proof)',
@@ -69,24 +69,24 @@ const TABLE_CATEGORIES: TableCategory[] = [
     ]
   },
   {
-    title: '🎨 Customization & Printing Mechanics (客製印刷與版費政策)',
+    title: '🎨 Customization & Printing Mechanics',
     rows: [
       {
-        name: 'Printing Method (印刷工藝 - 匹配起訂量與成本)',
+        name: 'Printing Method (MOQ & Costs)',
         stockCards: 'Modular branding (card inserts, tags, or matte stickers)',
         customConven: 'High-Resolution CMYK Digital Print (Waived cylinder setups)',
         customOval: 'High-Resolution CMYK Digital Print (Short runs) OR Rotogravure CMYK+3 Spot (Bulk runs)',
         customFlat: 'High-Resolution CMYK Digital Print (Short runs) OR Rotogravure CMYK+3 Spot (Bulk runs)'
       },
       {
-        name: 'Cylinder Setup Fees (印刷版費 - 降低首單試錯成本)',
+        name: 'Cylinder Setup Fees (Setup Costs)',
         stockCards: '$0 Waived completely',
         customConven: '$0 Waived completely (Digital setup)',
         customOval: '$0 Waived (Digital) OR $160 per color (Waived on first gravure run over 10k)',
         customFlat: '$0 Waived (Digital) OR $160 per color (Waived on first gravure run over 10k)'
       },
       {
-        name: 'Mechanical Tolerances (機械灌裝拉力 - 確保灌裝線不爆袋)',
+        name: 'Mechanical Tolerances (Aseptic Filling Strength)',
         stockCards: 'Standard manual loading parameters',
         customConven: 'Durable side-seals, drop-test rated up to 1.5 meters',
         customOval: 'High tensile-strength seals, optimized for high-speed automated VFFS filling lines (65 bags/min)',
@@ -95,24 +95,24 @@ const TABLE_CATEGORIES: TableCategory[] = [
     ]
   },
   {
-    title: '🛡️ Closure & Aroma Preservation (拉鏈與單向閥保鮮效能)',
+    title: '🛡️ Closure & Aroma Preservation',
     rows: [
       {
-        name: 'Zipper Closure (密封拉鏈 - 確保開封後防潮防漏)',
+        name: 'Zipper Closure (Leakproof Reclosure)',
         stockCards: 'Premium airtight reclosable zipper',
         customConven: 'Premium airtight reclosable zipper',
         customOval: '♻️ Mono-PE Recyclable Zipper OR 🌱 EN 13432 certified Biodegradable Zip closure',
         customFlat: '♻️ Mono-PE Recyclable Zipper OR 🌱 EN 13432 certified Biodegradable Zip closure'
       },
       {
-        name: 'Degassing Valve (單向排氣閥 - 防止排氣胀袋爆袋)',
+        name: 'Degassing Valve (One-way Gas Release)',
         stockCards: 'Optional pre-installed degassing valve',
         customConven: 'One-way aroma preservation degassing valve integrated',
         customOval: 'Integrated custom PE/Bio-valve (OTR < 1.0 cc/m²/24h for fresh organic roasted beans)',
         customFlat: 'Integrated custom PE/Bio-valve (OTR < 1.0 cc/m²/24h for fresh organic roasted beans)'
       },
       {
-        name: 'Barrier OTR / WVTR (隔絕水氧性能 - 保證12個月保質期)',
+        name: 'Barrier OTR / WVTR (Oxygen & Moisture Block)',
         stockCards: 'High (Standard metal foil lock)',
         customConven: 'High (Durable aluminum-foil aroma barrier)',
         customOval: 'Ultra-High (< 1.0 OTR/WVTR matching metal foil, protecting organic beans against staling)',
@@ -382,7 +382,9 @@ export default function PouchEcoGPTKPage() {
     }
 
     // For Custom printed standard and eco, MOQ is 500 total pouches (run)
-    const totalQty = qtyPerDesign * numDesigns;
+    const totalQty = (optionId === 'custom-flat' || optionId === 'custom-oval')
+      ? qtyPerDesign
+      : qtyPerDesign * numDesigns;
     if (optionId === 'custom-flat' || optionId === 'custom-oval') {
       if (totalQty < 500) {
         isBelowMoq = true;
@@ -615,32 +617,35 @@ export default function PouchEcoGPTKPage() {
 
   // Telemetry values for the "WhatsApp Configurator Summary"
   const getBilingualRfqText = () => {
-    const cardStatus = cardData.isBelowMoq ? 'Below MOQ' : `$${cardData.unitPrice.toFixed(2)} USD (Total: $${cardData.totalCost.toFixed(2)})`;
-    const convenStatus = convenData.isBelowMoq ? 'Below MOQ' : `$${convenData.unitPrice.toFixed(2)} USD (Total: $${convenData.totalCost.toFixed(2)})`;
-    const ovalStatus = ovalData.isBelowMoq ? 'Below MOQ' : `$${ovalData.unitPrice.toFixed(2)} USD (Total: $${ovalData.totalCost.toFixed(2)})`;
-    const flatStatus = flatData.isBelowMoq ? 'Below MOQ' : `$${flatData.unitPrice.toFixed(2)} USD (Total: $${flatData.totalCost.toFixed(2)})`;
+    const cardStatus = cardData.isBelowMoq ? 'Below MOQ' : `${cardData.unitPrice.toFixed(2)} USD (Total: ${cardData.totalCost.toFixed(2)})`;
+    const convenStatus = convenData.isBelowMoq ? 'Below MOQ' : `${convenData.unitPrice.toFixed(2)} USD (Total: ${convenData.totalCost.toFixed(2)})`;
+    const ovalStatus = ovalData.isBelowMoq ? 'Below MOQ' : `${ovalData.unitPrice.toFixed(2)} USD (Total: ${ovalData.totalCost.toFixed(2)})`;
+    const flatStatus = flatData.isBelowMoq ? 'Below MOQ' : `${flatData.unitPrice.toFixed(2)} USD (Total: ${flatData.totalCost.toFixed(2)})`;
 
-    return `Achieve Pack 咖啡品牌包裝詢價配置 (Pricing Telemetry PaaS RFQ Summary):
+    return `Achieve Pack Coffee Packaging RFQ Summary:
 --------------------------------------------------
-📐 規格尺寸 (Selected Dimension): ${sizeMode === 'custom' ? 'Custom size' : selectedSize.dimensions} (capacity: ${selectedSize.label})
-🎨 印刷款式 (Number of Designs): ${numDesigns} 款 (Designs)
-📦 單款印量 (Quantity per Design): ${qtyPerDesign} 個 (pcs)
-🎁 袋子總數 (Total Bags Quantity): ${numDesigns * qtyPerDesign} 個
+📐 Selected Dimension: ${sizeMode === 'custom' ? 'Custom size' : selectedSize.dimensions} (capacity: ${selectedSize.label})
+🎨 Number of Designs: ${numDesigns} Designs
 
-方案實時估算 (Real-time Options Quotation):
-1️⃣ Stock Conventional 方案 (Modular: ${stockOption === 'card' ? 'Insert Card' : stockOption === 'tag' ? 'Roped Tag' : 'Sticker'}):
+[For Stock & Custom Conventional]:
+📦 Quantity per Design: ${qtyPerDesign} pcs
+🎁 Total Bags Quantity: ${numDesigns * qtyPerDesign} pcs
+
+[For Custom Oval & Flat Bottom]:
+📦 Quantity per Design: ${Math.round(qtyPerDesign / numDesigns)} pcs
+🎁 Total Bags Quantity: ${qtyPerDesign} pcs
+
+Real-time Options Quotation:
+1️⃣ Stock Conventional Option (Modular: ${stockOption === 'card' ? 'Insert Card' : stockOption === 'tag' ? 'Roped Tag' : 'Sticker'}):
    - ${cardStatus}
-2️⃣ Custom Conventional 客製常規印刷方案 (${convenOption === 'matt-metallised' ? 'Matt Metallised' : 'Glossy Clear'}):
+2️⃣ Custom Conventional Printed (${convenOption === 'matt-metallised' ? 'Matt Metallised' : 'Glossy Clear'}):
    - ${convenStatus}
-3️⃣ Custom printed/sized Oval Bottom 客製自立袋方案 (Oval Stand-Up - ${ovalEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : ovalEcoOption === 'compostable' ? 'Compostable' : 'Conventional'}):
+3️⃣ Custom Oval Stand-Up (${ovalEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : ovalEcoOption === 'compostable' ? 'Compostable' : 'Conventional'}):
    - ${ovalStatus}
-4️⃣ Custom printed/sized Flat Bottom 客製方底袋方案 (Premium Flat Bottom - ${flatEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : flatEcoOption === 'compostable' ? 'Compostable' : 'Conventional'}):
+4️⃣ Custom Premium Flat Bottom (${flatEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : flatEcoOption === 'compostable' ? 'Compostable' : 'Conventional'}):
    - ${flatStatus}
-
-
 --------------------------------------------------
-💬 我已使用網頁版按揭式預算計算器配置完成。請客服團隊為我安排專屬樣品及設計對接！
-(I have verified my configuration. Please arrange sample packages and packaging layout assistance.)`
+💬 I have completed the configuration using the online pricing calculator. Please assist with samples and design onboarding!`;
   }
 
   const handleWhatsappCopy = () => {
@@ -712,12 +717,12 @@ export default function PouchEcoGPTKPage() {
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             
             {/* LEFT COLUMN: Sticky Control Panel */}
-            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
+            <div className="lg:col-span-5 lg:sticky lg:top-24 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto pr-2 space-y-6">
               <div className="bg-neutral-50/60 border border-neutral-200/80 rounded-3xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.02)] backdrop-blur-md space-y-6">
                 
                 {/* Control 1: Sizing Mode */}
                 <div className="space-y-2.5">
-                  <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">1. Sizing Mode Selector (選擇規格模式)</span>
+                  <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">1. Sizing Mode Selector</span>
                   <div className="bg-neutral-100 border border-neutral-200 p-1 rounded-2xl grid grid-cols-2 text-center text-xs font-bold font-sans">
                     <button 
                       type="button" 
@@ -739,7 +744,7 @@ export default function PouchEcoGPTKPage() {
                 {/* Control 2: Capacity Selector */}
                 {sizeMode === 'standard' ? (
                   <div className="space-y-2.5">
-                    <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">2. Standard Weight & Capacity Selector (選定規格重量)</span>
+                    <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">2. Standard Weight & Capacity Selector</span>
                     <div className="grid grid-cols-4 gap-2 bg-neutral-100 border border-neutral-200 p-1.5 rounded-2xl text-center text-xs font-bold">
                       {BAG_SIZES.map(s => (
                         <button 
@@ -750,28 +755,28 @@ export default function PouchEcoGPTKPage() {
                         >
                           {/* Pouch Silhouette based on size */}
                           {s.id === 'size-1' && (
-                            <svg className="w-5 h-6 mb-1.5 text-current" viewBox="0 0 20 24" fill="currentColor">
+                            <svg className="w-[20px] h-[24px] mb-1.5 text-current" viewBox="0 0 20 24" fill="currentColor">
                               <path d="M4 5h12l1 12c0 2-3 3-7 3s-7-1-7-3L4 5z" opacity="0.35" />
                               <path d="M4 5h12l1 12c0 2-3 3-7 3s-7-1-7-3L4 5z" fill="none" stroke="currentColor" strokeWidth="1.5" />
                               <path d="M3 5h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                             </svg>
                           )}
                           {s.id === 'size-2' && (
-                            <svg className="w-5.5 h-6.5 mb-1.5 text-current" viewBox="0 0 22 26" fill="currentColor">
+                            <svg className="w-[22px] h-[26px] mb-1.5 text-current" viewBox="0 0 22 26" fill="currentColor">
                               <path d="M4.5 4.5h13l1 14.5c0 2-3.5 2.5-7.5 2.5s-7.5-0.5-7.5-2.5L4.5 4.5z" opacity="0.35" />
                               <path d="M4.5 4.5h13l1 14.5c0 2-3.5 2.5-7.5 2.5s-7.5-0.5-7.5-2.5L4.5 4.5z" fill="none" stroke="currentColor" strokeWidth="1.5" />
                               <path d="M3.5 4.5h15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                             </svg>
                           )}
                           {s.id === 'size-3' && (
-                            <svg className="w-6 h-7 mb-1 text-current" viewBox="0 0 24 30" fill="currentColor">
+                            <svg className="w-[24px] h-[30px] mb-1 text-current" viewBox="0 0 24 30" fill="currentColor">
                               <path d="M5 4h14l1 18c0 2.5-4 3-8 3s-8-0.5-8-3L5 4z" opacity="0.35" />
                               <path d="M5 4h14l1 18c0 2.5-4 3-8 3s-8-0.5-8-3L5 4z" fill="none" stroke="currentColor" strokeWidth="1.5" />
                               <path d="M4 4h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                             </svg>
                           )}
                           {s.id === 'size-4' && (
-                            <svg className="w-7 h-8.5 mb-1 text-current" viewBox="0 0 28 34" fill="currentColor">
+                            <svg className="w-[28px] h-[34px] mb-1 text-current" viewBox="0 0 28 34" fill="currentColor">
                               <path d="M5.5 3h17L24 25c0 3-4.5 3.5-10 3.5S4 28 4 25L5.5 3z" opacity="0.35" />
                               <path d="M5.5 3h17L24 25c0 3-4.5 3.5-10 3.5S4 28 4 25L5.5 3z" fill="none" stroke="currentColor" strokeWidth="1.5" />
                               <path d="M8 3v22.5" stroke="currentColor" strokeWidth="1" strokeDasharray="1.5 1.5" opacity="0.5" />
@@ -859,7 +864,7 @@ export default function PouchEcoGPTKPage() {
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-neutral-400">
-                      <span>3. Order Run Quantity (單款起訂量)</span>
+                      <span>3. Order Run Quantity</span>
                       {qtyPerDesign === 100 && (
                         <span className="text-amber-700 font-bold bg-amber-50 border border-amber-100 px-2 py-0.5 rounded text-[10px]">Stock Only</span>
                       )}
@@ -881,7 +886,7 @@ export default function PouchEcoGPTKPage() {
                   {/* Volume Discount Progress Tracker */}
                   <div className="space-y-2 pt-2 border-t border-neutral-200/50">
                     <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider text-neutral-455">
-                      <span>Volume Discount Tracker (量大減價進度)</span>
+                      <span>Volume Discount Tracker</span>
                       <span className="text-indigo-700 bg-indigo-50 border border-indigo-100/50 px-2 py-0.5 rounded font-black font-sans">
                         {qtyPerDesign === 100 && 'Startup Tier'}
                         {qtyPerDesign === 500 && 'MOQ Unlocked'}
@@ -924,16 +929,16 @@ export default function PouchEcoGPTKPage() {
                       <Sparkles className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
                       <div>
                         {qtyPerDesign === 100 && (
-                          <span>再增加 <strong className="text-neutral-900">400 個總量 (至 500pcs)</strong>，即可解鎖客製印刷自立袋/方底袋，單價更划算！</span>
+                          <span>Add <strong className="text-neutral-900">400 more total bags (to reach 500pcs)</strong> to unlock edge-to-edge Custom printed Stand-Up or Box Gusset pouches at better prices!</span>
                         )}
                         {qtyPerDesign === 500 && (
-                          <span>再增加 <strong className="text-neutral-900">500 個總量 (至 1,000pcs)</strong>，單價平均可節省高達 <strong className="text-emerald-700">30% 成本</strong>！</span>
+                          <span>Add <strong className="text-neutral-900">500 more total bags (to reach 1,000pcs)</strong> to save up to <strong className="text-emerald-700">30% on average unit price</strong>!</span>
                         )}
                         {qtyPerDesign === 1000 && (
-                          <span>再增加 <strong className="text-neutral-900">4,000 個總量 (至 5,000pcs)</strong>，即可解鎖批量柔印/凹版價格檔位，單價最高節省 <strong className="text-indigo-700">50% 以上</strong>！</span>
+                          <span>Add <strong className="text-neutral-900">4,000 more total bags (to reach 5,000pcs)</strong> to unlock flexo/gravure high-run bulk pricing tiers, saving up to <strong className="text-indigo-700">50% or more</strong>!</span>
                         )}
                         {qtyPerDesign === 5000 && (
-                          <span>🎉 <strong className="text-indigo-700">已解鎖 5,000pcs 批量印刷價格檔位！</strong> 首單版費全免，性價比最優選。</span>
+                          <span>🎉 <strong className="text-indigo-700">5,000pcs Flexo Bulk Tier unlocked!</strong> Plate setup fees are fully waived, giving you the best cost-to-performance ratio.</span>
                         )}
                       </div>
                     </div>
@@ -941,7 +946,7 @@ export default function PouchEcoGPTKPage() {
 
                   {/* SKU stepper counter */}
                   <div className="space-y-2 pt-2 border-t border-neutral-200/50">
-                    <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">4. Designs SKUs (款式數)</span>
+                    <span className="block text-xs font-bold uppercase tracking-wider text-neutral-400">4. Designs SKUs</span>
                     <div className="flex items-center justify-between bg-neutral-100 border border-neutral-200 p-1.5 rounded-2xl">
                       <button 
                         type="button" 
@@ -964,8 +969,18 @@ export default function PouchEcoGPTKPage() {
 
                 {/* Config Summary & WhatsApp Dispatch */}
                 <div className="pt-4 border-t border-dashed border-neutral-200/80 flex flex-col gap-3 text-xs font-semibold">
-                  <div className="text-neutral-500 text-[11px] leading-relaxed">
-                    Selected: <strong className="text-neutral-950">{sizeMode === 'custom' ? 'Custom size' : selectedSize.dimensions}</strong> &middot; <strong className="text-neutral-950">{(qtyPerDesign * numDesigns).toLocaleString()} total pouches</strong> ({qtyPerDesign} per design).
+                  <div className="text-neutral-550 text-[11px] leading-relaxed space-y-1.5">
+                    <div>
+                      Selected Dimensions: <strong className="text-neutral-950">{sizeMode === 'custom' ? 'Custom size' : selectedSize.dimensions}</strong>
+                    </div>
+                    <div className="border-t border-neutral-200/50 pt-1.5">
+                      <span className="text-neutral-450 block text-[9px] uppercase font-mono tracking-wider">Stock & Conventional:</span>
+                      <strong className="text-neutral-950">{(qtyPerDesign * numDesigns).toLocaleString()} total pouches</strong> ({qtyPerDesign.toLocaleString()} per design)
+                    </div>
+                    <div className="border-t border-neutral-200/50 pt-1.5">
+                      <span className="text-neutral-455 block text-[9px] uppercase font-mono tracking-wider">Custom Oval & Flat Bottom:</span>
+                      <strong className="text-neutral-950">{qtyPerDesign.toLocaleString()} total pouches</strong> ({Math.round(qtyPerDesign / numDesigns).toLocaleString()} per design)
+                    </div>
                   </div>
                   <button 
                     onClick={handleWhatsappCopy} 
@@ -1205,7 +1220,7 @@ export default function PouchEcoGPTKPage() {
                             onClick={() => setQtyPerDesign(500)}
                             className="bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-[9px] uppercase px-3 py-1.5 rounded-lg transition-all active:scale-95 shadow-sm"
                           >
-                            一鍵提升至 500pcs MOQ
+                            Upgrade to 500pcs MOQ
                           </button>
                         </div>
                       ) : (
@@ -1301,7 +1316,7 @@ export default function PouchEcoGPTKPage() {
                             onClick={() => setQtyPerDesign(500)}
                             className="bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-[9px] uppercase px-3 py-1.5 rounded-lg transition-all active:scale-95 shadow-sm"
                           >
-                            一鍵提升至 500pcs MOQ
+                            Upgrade to 500pcs MOQ
                           </button>
                         </div>
                       ) : (
@@ -2338,7 +2353,9 @@ export default function PouchEcoGPTKPage() {
           }
 
           // Calculate estimated shipment weight based on quantity
-          const totalQty = qtyPerDesign * numDesigns;
+          const totalQty = (expandedOption === 'custom-oval' || expandedOption === 'custom-flat')
+            ? qtyPerDesign
+            : qtyPerDesign * numDesigns;
           // Approximate weight: 150g = 6g, 250g = 8g, 500g = 12g, 1kg = 18g
           const weightPerUnit = selectedSize.id === 'size-1' ? 6 : selectedSize.id === 'size-2' ? 8 : selectedSize.id === 'size-3' ? 12 : 18;
           const totalWeightKg = (weightPerUnit * totalQty) / 1000;
@@ -2430,7 +2447,7 @@ export default function PouchEcoGPTKPage() {
 
                   {/* 1. Material Layer Architecture */}
                   <div className="space-y-3">
-                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">1. Material Layer Architecture (材料層級架構)</h4>
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">1. Material Layer Architecture</h4>
                     <div className="space-y-2.5">
                       {materialLayers.map((layer, idx) => (
                         <div key={idx} className="relative pl-4 border-l-2 border-emerald-500 py-0.5">
@@ -2446,7 +2463,7 @@ export default function PouchEcoGPTKPage() {
 
                   {/* 2. OTR / WVTR Gas & Moisture comparison */}
                   <div className="space-y-3">
-                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">2. Gas & Moisture Protection (水氧阻隔指標)</h4>
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">2. Gas & Moisture Protection</h4>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-neutral-50 border border-neutral-200/60 p-3.5 rounded-2xl space-y-1 shadow-sm">
                         <span className="text-[9px] font-black uppercase text-neutral-400 tracking-wider font-mono">OTR (Oxygen Transmission)</span>
@@ -2463,7 +2480,7 @@ export default function PouchEcoGPTKPage() {
 
                   {/* 3. Shipping & Weight Estimator */}
                   <div className="space-y-3">
-                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">3. Estimated Shipping Weight & Logistics (物流估算)</h4>
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">3. Estimated Shipping Weight & Logistics</h4>
                     <div className="bg-gradient-to-r from-emerald-500/5 to-indigo-500/5 border border-neutral-200/50 p-4 rounded-2xl space-y-3 shadow-sm">
                       <div className="flex justify-between items-center text-xs font-bold text-neutral-800">
                         <span>Total Pouches:</span>

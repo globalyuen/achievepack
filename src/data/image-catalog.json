@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-16",
-  "total_images": 3162,
+  "total_images": 3163,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1624,
+    ".png": 1625,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 451,
+      "count": 452,
       "images": [
+        {
+          "filename": "custom-digital-print-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/custom-digital-print-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-16T07:15:28.596Z"
+        },
         {
           "filename": "sustainable-barrier-packaging-for-snacks-hero.png",
           "path": "/imgs/blog/heros/sustainable-barrier-packaging-for-snacks-hero.png",
