@@ -304,7 +304,7 @@ const SharedQuotePage: React.FC = () => {
             ${item.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${item.notes}</div>` : ''}
           </div>
 
-          <div style="background:#f8fafc;border-radius:8px;overflow:hidden;margin-top:15px;">
+          <div class="table-container">
             <div style="background:#1e293b;padding:8px 15px;display:flex;justify-content:space-between;align-items:center">
               <span style="color:#fff;font-weight:700;font-size:11px">Pricing Tiers (USD - Total Rounded)</span>
               <span style="color:#94a3b8;font-size:8px">Incoterm: DDP Handle-to-Door</span>
@@ -354,6 +354,18 @@ const SharedQuotePage: React.FC = () => {
             table { width: 100%; border-collapse: collapse; font-size: 9px; table-layout: auto; }
             th { padding: 8px 10px; font-weight: 800; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 8px; white-space: nowrap; }
             td { vertical-align: middle; padding: 8px 10px; }
+            .table-container {
+              background: #f8fafc;
+              border-radius: 8px;
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+              margin-top: 15px;
+            }
+            @media (max-width: 768px) {
+              table {
+                min-width: 650px !important;
+              }
+            }
             .footer { margin-top: 30px; padding-top: 15px; border-top: 1px solid #e2e8f0; font-size: 8px; color: #94a3b8; text-align: center; }
             @media print { 
               body { padding: 0; } 
@@ -513,6 +525,25 @@ const SharedQuotePage: React.FC = () => {
               font-weight: 700 !important; 
               color: #1e293b !important; 
               line-height: 1.4 !important; 
+            }
+
+            /* Responsive Table Container Override for Mobile Swiping */
+            div:has(> table) {
+              overflow-x: auto !important;
+              -webkit-overflow-scrolling: touch !important;
+              max-width: 100% !important;
+            }
+            .table-container {
+              overflow-x: auto !important;
+              -webkit-overflow-scrolling: touch !important;
+              max-width: 100% !important;
+            }
+            @media (max-width: 768px) {
+              table {
+                min-width: 650px !important;
+                display: table !important;
+                width: 100% !important;
+              }
             }
           </style>
           <script>
