@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-16T07:30:42.902Z",
+  "lastUnifiedRun": "2026-06-16T07:45:37.136Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2919,17 +2919,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "low-moq-flexible-packaging-printing",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "low moq flexible packaging printing",
-      "difficulty": "Low",
-      "slug": "low-moq-flexible-packaging-printing"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "recyclable sachet sizes for spices",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-sachet-sizes-for-spices"
     },
     {
       "status": "Pending",
@@ -3006,9 +3007,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-16T07:30:32.998Z",
+      "timestamp": "2026-06-16T07:45:30.247Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"low moq flexible packaging printing\" to /blog/low-moq-flexible-packaging-printing (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable sachet sizes for spices\" to /blog/recyclable-sachet-sizes-for-spices (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"low moq flexible packaging printing\" to /blog/low-moq-flexible-packaging-printing (Pending Approval)",
+      "timestamp": "2026-06-16T07:30:32.998Z"
     },
     {
       "action": "Autopilot Generation Draft",
