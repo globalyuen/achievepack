@@ -176,9 +176,10 @@ export default function PouchEcoGPTKPage() {
   // State for sub-options in Card 2 (Custom Conventional)
   const [convenOption, setConvenOption] = useState<'matt-metallised' | 'glossy-clear'>('matt-metallised')
 
-  // State for sub-options in the Custom printed cards (PE+EVOH Recyclable vs Compostable)
-  const [ovalEcoOption, setOvalEcoOption] = useState<'pe-evoh' | 'compostable'>('pe-evoh')
-  const [flatEcoOption, setFlatEcoOption] = useState<'pe-evoh' | 'compostable'>('pe-evoh')
+  // State for sub-options in the Custom printed cards (PE+EVOH Recyclable vs Compostable vs Conventional)
+  const [ovalEcoOption, setOvalEcoOption] = useState<'pe-evoh' | 'compostable' | 'conventional'>('pe-evoh')
+  const [flatEcoOption, setFlatEcoOption] = useState<'pe-evoh' | 'compostable' | 'conventional'>('pe-evoh')
+
 
   // Sachet specific states
   const [sachetUnprintedColor, setSachetUnprintedColor] = useState<string>('off-white-105')
@@ -380,84 +381,142 @@ export default function PouchEcoGPTKPage() {
       };
     }
 
-    // For Custom printed standard and eco, MOQ is 500
-    if (qtyPerDesign < 500) {
-      isBelowMoq = true;
+    // For Custom printed standard and eco, MOQ is 500 total pouches (run)
+    const totalQty = qtyPerDesign * numDesigns;
+    if (optionId === 'custom-flat' || optionId === 'custom-oval') {
+      if (totalQty < 500) {
+        isBelowMoq = true;
+      }
     }
 
     if (optionId === 'custom-flat') {
       const isCompostable = subOption === 'compostable';
-      if (!isCompostable) {
-        // Option A: PE+EVOH Recyclable
-        if (isSize1) {
-          if (qtyPerDesign === 500) unitPrice = 2.50;
-          else if (qtyPerDesign === 1000) unitPrice = 1.70;
-          else if (qtyPerDesign === 5000) unitPrice = 0.85;
-        } else if (isSize2) {
-          if (qtyPerDesign === 500) unitPrice = 2.60;
-          else if (qtyPerDesign === 1000) unitPrice = 1.80;
-          else if (qtyPerDesign === 5000) unitPrice = 0.90;
-        } else if (isSize3) {
-          if (qtyPerDesign === 500) unitPrice = 2.70;
-          else if (qtyPerDesign === 1000) unitPrice = 1.90;
-          else if (qtyPerDesign === 5000) unitPrice = 0.95;
-        } else {
-          // size 4
-          if (qtyPerDesign === 500) unitPrice = 2.90;
-          else if (qtyPerDesign === 1000) unitPrice = 2.10;
-          else if (qtyPerDesign === 5000) unitPrice = 1.05;
-        }
+      const isConventional = subOption === 'conventional';
+      
+      // Determine tier based on total run quantity
+      let lookupQty = 500;
+      if (totalQty >= 5000) lookupQty = 5000;
+      else if (totalQty >= 1000) lookupQty = 1000;
+      else lookupQty = 500;
+
+      // Base compostable prices
+      let compostablePrice = 0;
+      if (isSize1) {
+        if (lookupQty === 500) compostablePrice = 2.70;
+        else if (lookupQty === 1000) compostablePrice = 1.90;
+        else if (lookupQty === 5000) compostablePrice = 0.95;
+      } else if (isSize2) {
+        if (lookupQty === 500) compostablePrice = 2.80;
+        else if (lookupQty === 1000) compostablePrice = 2.00;
+        else if (lookupQty === 5000) compostablePrice = 1.00;
+      } else if (isSize3) {
+        if (lookupQty === 500) compostablePrice = 2.90;
+        else if (lookupQty === 1000) compostablePrice = 2.10;
+        else if (lookupQty === 5000) compostablePrice = 1.05;
       } else {
-        // Option B: Compostable
-        if (isSize1) {
-          if (qtyPerDesign === 500) unitPrice = 2.70;
-          else if (qtyPerDesign === 1000) unitPrice = 1.90;
-          else if (qtyPerDesign === 5000) unitPrice = 0.95;
-        } else if (isSize2) {
-          if (qtyPerDesign === 500) unitPrice = 2.80;
-          else if (qtyPerDesign === 1000) unitPrice = 2.00;
-          else if (qtyPerDesign === 5000) unitPrice = 1.00;
-        } else if (isSize3) {
-          if (qtyPerDesign === 500) unitPrice = 2.90;
-          else if (qtyPerDesign === 1000) unitPrice = 2.10;
-          else if (qtyPerDesign === 5000) unitPrice = 1.05;
-        } else {
-          // size 4
-          if (qtyPerDesign === 500) unitPrice = 3.10;
-          else if (qtyPerDesign === 1000) unitPrice = 2.30;
-          else if (qtyPerDesign === 5000) unitPrice = 1.15;
-        }
+        // size 4
+        if (lookupQty === 500) compostablePrice = 3.10;
+        else if (lookupQty === 1000) compostablePrice = 2.30;
+        else if (lookupQty === 5000) compostablePrice = 1.15;
       }
 
-      const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign * numDesigns;
+      // Base Recyclable PE prices
+      let recyclablePEPrice = 0;
+      if (isSize1) {
+        if (lookupQty === 500) recyclablePEPrice = 2.50;
+        else if (lookupQty === 1000) recyclablePEPrice = 1.70;
+        else if (lookupQty === 5000) recyclablePEPrice = 0.85;
+      } else if (isSize2) {
+        if (lookupQty === 500) recyclablePEPrice = 2.60;
+        else if (lookupQty === 1000) recyclablePEPrice = 1.80;
+        else if (lookupQty === 5000) recyclablePEPrice = 0.90;
+      } else if (isSize3) {
+        if (lookupQty === 500) recyclablePEPrice = 2.70;
+        else if (lookupQty === 1000) recyclablePEPrice = 1.90;
+        else if (lookupQty === 5000) recyclablePEPrice = 0.95;
+      } else {
+        // size 4
+        if (lookupQty === 500) recyclablePEPrice = 2.90;
+        else if (lookupQty === 1000) recyclablePEPrice = 2.10;
+        else if (lookupQty === 5000) recyclablePEPrice = 1.05;
+      }
+
+      // Assign unit price based on material selection
+      if (isCompostable) {
+        unitPrice = compostablePrice;
+      } else if (isConventional) {
+        unitPrice = compostablePrice * 0.65; // 35% less than compostable price
+      } else {
+        unitPrice = recyclablePEPrice; // Recyclable PE
+      }
+
+      // If adding 1 more SKU, unit price adds 10% (i.e. +10% per extra design)
+      if (numDesigns > 1) {
+        unitPrice = unitPrice * (1 + (numDesigns - 1) * 0.1);
+      }
+
+      const totalCost = isBelowMoq ? 0 : unitPrice * totalQty;
+      
+      let badge = '';
+      let desc = '';
+      let accentColor = '#10b981';
+      let certLogo = '♻️ SPI Code 4';
+      let image = '/imgs/store/products/pe-flat-bottom-premium.png';
+      let points: string[] = [];
+
+      if (isCompostable) {
+        badge = 'Custom printed/sized Flat Bottom (Compostable)';
+        desc = '100% Home & Industrial certified compostable Kraft laminate flat bottom pouch with side gussets, degassing valve and bio-adhesives.';
+        accentColor = '#10b981';
+        certLogo = '🌱 Certified Bio';
+        image = '/imgs/store/products/compostable-kraft-premium.png';
+        points = [
+          'Sturdy Box-Style Flat Bottom Shape with Side Gussets',
+          '100% Biodegradable & Compostable Bio-Liner',
+          'Sustainably Sourced Kraft Paper Shell',
+          'Degassing Valve & Compostable Resealable Zip',
+          'Full Width & Height Customizable Sizing Available'
+        ];
+      } else if (isConventional) {
+        badge = 'Custom printed/sized Flat Bottom (Conventional)';
+        desc = 'Conventional multi-laminate foil flat bottom pouch with side gussets and high protective barrier layers at 35% less cost than compostable.';
+        accentColor = '#6366f1';
+        certLogo = '📄 Standard Foil';
+        image = '/imgs/store/products/pe-flat-bottom-premium.png';
+        points = [
+          'Sturdy Box-Style Flat Bottom Shape with Side Gussets',
+          'High-Barrier Conventional Foil Laminate (PET/AL/PE)',
+          '35% Less Cost than Compostable Options',
+          'Integrated One-Way Degassing Valve & Zip Lock',
+          'Custom Sizing with Zero Cylinder Setup Fees'
+        ];
+      } else {
+        badge = 'Custom printed/sized Flat Bottom (Recyclable)';
+        desc = 'Recyclable Mono-PE flat bottom pouch with EVOH high oxygen barrier layer and side gussets, supporting zero microplastic footprints.';
+        accentColor = '#059669';
+        certLogo = '♻️ SPI Code 4';
+        image = '/imgs/store/products/pe-flat-bottom-premium.png';
+        points = [
+          'Sturdy Box-Style Flat Bottom Shape with Side Gussets',
+          'Premium Recyclable Mono-PE Mono-Material',
+          'EVOH Layer for Superior Gas & Light Barrier',
+          'Zero Microplastic & Recyclable Resealable Zip',
+          'Customizable Millimeter Sizing at $0 Setup Fee'
+        ];
+      }
+
       return {
         unitPrice,
         totalCost,
         isBelowMoq,
         moq,
-        badge: isCompostable ? 'Custom printed/sized Flat Bottom (Compostable)' : 'Custom printed/sized Flat Bottom (Recyclable)',
-        desc: isCompostable
-          ? '100% Home & Industrial certified compostable Kraft laminate flat bottom pouch with side gussets, degassing valve and bio-adhesives.'
-          : 'Recyclable Mono-PE flat bottom pouch with EVOH high oxygen barrier layer and side gussets, supporting zero microplastic footprints.',
-        accentColor: '#10b981',
-        certLogo: isCompostable ? '🌱 Certified Bio' : '♻️ SPI Code 4',
+        badge,
+        desc,
+        accentColor,
+        certLogo,
         leadTime: '20 - 25 Days',
-        image: isCompostable ? '/imgs/store/products/compostable-kraft-premium.png' : '/imgs/store/products/pe-flat-bottom-premium.png',
-        points: isCompostable
-          ? [
-              'Sturdy Box-Style Flat Bottom Shape with Side Gussets',
-              '100% Biodegradable & Compostable Bio-Liner',
-              'Sustainably Sourced Kraft Paper Shell',
-              'Degassing Valve & Compostable Resealable Zip',
-              'Full Width & Height Customizable Sizing Available'
-            ]
-          : [
-              'Sturdy Box-Style Flat Bottom Shape with Side Gussets',
-              'Premium Recyclable Mono-PE Mono-Material',
-              'EVOH Layer for Superior Gas & Light Barrier',
-              'Zero Microplastic & Recyclable Resealable Zip',
-              'Customizable Millimeter Sizing at $0 Setup Fee'
-            ]
+        image,
+        points
       };
     }
 
@@ -465,39 +524,73 @@ export default function PouchEcoGPTKPage() {
       // Oval Bottom is stand-up Doypack pouch shape, priced at exactly half of the Flat Bottom price!
       const flatPrices = calculateOptionPrice('custom-flat', subOption);
       unitPrice = flatPrices.unitPrice / 2;
-      const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign * numDesigns;
+      const totalCost = isBelowMoq ? 0 : unitPrice * totalQty;
       const isCompostable = subOption === 'compostable';
+      const isConventional = subOption === 'conventional';
+
+      let badge = '';
+      let desc = '';
+      let accentColor = '#3b82f6';
+      let certLogo = '♻️ Eco-Saver 50%';
+      let image = '/imgs/store/products/pe-oval-doypack-premium.png';
+      let points: string[] = [];
+
+      if (isCompostable) {
+        badge = 'Custom printed/sized Oval Bottom (Compostable)';
+        desc = 'Stand-Up Doypack pouch shape with an oval bottom gusset. Saves 50% material costs while retaining certified bio-compostable Kraft papers and valve seals.';
+        accentColor = '#3b82f6';
+        certLogo = '🌱 Bio-Saver 50%';
+        image = '/imgs/store/products/compostable-oval-doypack-premium.png';
+        points = [
+          'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
+          'Saves 50% Material & Unit Cost Compared to Flat Bottom',
+          '100% Compostable Bio-Liner & Kraft Paper Shell',
+          'BPI certified degassing valve & bio zipper closure',
+          '500pcs low MOQ with waived cylinder setups'
+        ];
+      } else if (isConventional) {
+        badge = 'Custom printed/sized Oval Bottom (Conventional)';
+        desc = 'Stand-Up Doypack pouch shape with an oval bottom gusset. Saves 50% material costs while retaining high-barrier conventional foil layers and zip lock.';
+        accentColor = '#6366f1';
+        certLogo = '📄 Foil-Saver 50%';
+        image = '/imgs/store/products/pe-oval-doypack-premium.png';
+        points = [
+          'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
+          'Saves 50% Material & Unit Cost Compared to Flat Bottom',
+          'Conventional Foil Laminate (35% less than compostable)',
+          'One-way degassing valve & airtight zip closure',
+          '500pcs low MOQ with waived cylinder setups'
+        ];
+      } else {
+        badge = 'Custom printed/sized Oval Bottom (Recyclable)';
+        desc = 'Stand-Up Doypack pouch shape with an oval bottom gusset. Saves 50% material costs while retaining premium recyclable Mono-PE EVOH gas barriers and zip seals.';
+        accentColor = '#10b981';
+        certLogo = '♻️ Eco-Saver 50%';
+        image = '/imgs/store/products/pe-oval-doypack-premium.png';
+        points = [
+          'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
+          'Saves 50% Material & Unit Cost Compared to Flat Bottom',
+          'Mono-PE Recyclable construction with EVOH gas lock',
+          'Airtight resealable zipper & integrated degassing valve',
+          '500pcs low MOQ with waived cylinder setups'
+        ];
+      }
 
       return {
         unitPrice,
         totalCost,
         isBelowMoq,
         moq,
-        badge: isCompostable ? 'Custom printed/sized Oval Bottom (Compostable)' : 'Custom printed/sized Oval Bottom (Recyclable)',
-        desc: isCompostable
-          ? 'Stand-Up Doypack pouch shape with an oval bottom gusset. Saves 50% material costs while retaining certified bio-compostable Kraft papers and valve seals.'
-          : 'Stand-Up Doypack pouch shape with an oval bottom gusset. Saves 50% material costs while retaining premium recyclable Mono-PE EVOH gas barriers and zip seals.',
-        accentColor: '#3b82f6',
-        certLogo: isCompostable ? '🌱 Bio-Saver 50%' : '♻️ Eco-Saver 50%',
+        badge,
+        desc,
+        accentColor,
+        certLogo,
         leadTime: '20 - 25 Days',
-        image: isCompostable ? '/imgs/store/products/compostable-oval-doypack-premium.png' : '/imgs/store/products/pe-oval-doypack-premium.png',
-        points: isCompostable
-          ? [
-              'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
-              'Saves 50% Material & Unit Cost Compared to Flat Bottom',
-              '100% Compostable Bio-Liner & Kraft Paper Shell',
-              'BPI certified degassing valve & bio zipper closure',
-              '500pcs low MOQ with waived cylinder setups'
-            ]
-          : [
-              'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
-              'Saves 50% Material & Unit Cost Compared to Flat Bottom',
-              'Mono-PE Recyclable construction with EVOH gas lock',
-              'Airtight resealable zipper & integrated degassing valve',
-              '500pcs low MOQ with waived cylinder setups'
-            ]
+        image,
+        points
       };
     }
+
 
     return {
       unitPrice: 0,
@@ -539,10 +632,11 @@ export default function PouchEcoGPTKPage() {
    - ${cardStatus}
 2️⃣ Custom Conventional 客製常規印刷方案 (${convenOption === 'matt-metallised' ? 'Matt Metallised' : 'Glossy Clear'}):
    - ${convenStatus}
-3️⃣ Custom printed/sized Oval Bottom 客製自立袋方案 (Oval Stand-Up - ${ovalEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : 'Compostable'}):
+3️⃣ Custom printed/sized Oval Bottom 客製自立袋方案 (Oval Stand-Up - ${ovalEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : ovalEcoOption === 'compostable' ? 'Compostable' : 'Conventional'}):
    - ${ovalStatus}
-4️⃣ Custom printed/sized Flat Bottom 客製方底袋方案 (Premium Flat Bottom - ${flatEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : 'Compostable'}):
+4️⃣ Custom printed/sized Flat Bottom 客製方底袋方案 (Premium Flat Bottom - ${flatEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : flatEcoOption === 'compostable' ? 'Compostable' : 'Conventional'}):
    - ${flatStatus}
+
 
 --------------------------------------------------
 💬 我已使用網頁版按揭式預算計算器配置完成。請客服團隊為我安排專屬樣品及設計對接！
@@ -1013,8 +1107,8 @@ export default function PouchEcoGPTKPage() {
                   </p>
                 </div>
 
-                {/* Custom Oval Options Sub-Toggle (PE+EVOH vs Compostable) */}
-                <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-2 text-center text-[10px] font-bold font-sans">
+                {/* Custom Oval Options Sub-Toggle (PE+EVOH vs Compostable vs Conventional) */}
+                <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-3 text-center text-[10px] font-bold font-sans">
                   <button 
                     type="button" 
                     onClick={() => setOvalEcoOption('pe-evoh')}
@@ -1029,7 +1123,15 @@ export default function PouchEcoGPTKPage() {
                   >
                     🌱 Compostable
                   </button>
+                  <button 
+                    type="button" 
+                    onClick={() => setOvalEcoOption('conventional')}
+                    className={`py-1.5 rounded-lg transition ${ovalEcoOption === 'conventional' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
+                  >
+                    📄 Conventional
+                  </button>
                 </div>
+
 
                 {/* Dynamic Inline Selector ONLY when Custom Size is active inside Oval Bottom Eco card */}
                 {sizeMode === 'custom' && (
@@ -1142,8 +1244,8 @@ export default function PouchEcoGPTKPage() {
                   </p>
                 </div>
 
-                {/* Custom Flat bottom Options Sub-Toggle (PE+EVOH vs Compostable) */}
-                <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-2 text-center text-[10px] font-bold font-sans">
+                {/* Custom Flat bottom Options Sub-Toggle (PE+EVOH vs Compostable vs Conventional) */}
+                <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-3 text-center text-[10px] font-bold font-sans">
                   <button 
                     type="button" 
                     onClick={() => setFlatEcoOption('pe-evoh')}
@@ -1158,7 +1260,15 @@ export default function PouchEcoGPTKPage() {
                   >
                     🌱 Compostable
                   </button>
+                  <button 
+                    type="button" 
+                    onClick={() => setFlatEcoOption('conventional')}
+                    className={`py-1.5 rounded-lg transition ${flatEcoOption === 'conventional' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
+                  >
+                    📄 Conventional
+                  </button>
                 </div>
+
 
                 {/* Dynamic Inline Selector ONLY when Custom Size is active inside Flat Bottom Eco card */}
                 {sizeMode === 'custom' && (

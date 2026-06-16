@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-16T05:45:39.636Z",
+  "lastUnifiedRun": "2026-06-16T06:45:27.692Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2891,17 +2891,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "high-barrier-compostable-packaging-for-beverages",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "high barrier compostable packaging for beverages",
-      "difficulty": "Low",
-      "slug": "high-barrier-compostable-packaging-for-beverages"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "compostable pouch dimensions chart",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-pouch-dimensions-chart"
     },
     {
       "status": "Pending",
@@ -3002,9 +3003,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-16T05:45:29.504Z",
+      "timestamp": "2026-06-16T06:45:21.163Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable packaging for beverages\" to /blog/high-barrier-compostable-packaging-for-beverages (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch dimensions chart\" to /blog/compostable-pouch-dimensions-chart (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable packaging for beverages\" to /blog/high-barrier-compostable-packaging-for-beverages (Pending Approval)",
+      "timestamp": "2026-06-16T05:45:29.504Z"
     },
     {
       "action": "Autopilot Generation Draft",
