@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-16T12:30:33.294Z",
+  "lastUnifiedRun": "2026-06-16T12:45:32.657Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3003,17 +3003,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-mono-material-films-suppliers",
       "status": "Pending Approval",
       "volume": 1050,
       "keyword": "high barrier mono material films suppliers",
-      "difficulty": "Medium",
-      "slug": "high-barrier-mono-material-films-suppliers"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1300,
       "keyword": "stand up pouch size guide for 10 oz coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "stand-up-pouch-size-guide-for-10-oz-coffee"
     },
     {
       "status": "Pending",
@@ -3120,9 +3121,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-16T12:30:27.149Z",
+      "timestamp": "2026-06-16T12:45:26.772Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono material films suppliers\" to /blog/high-barrier-mono-material-films-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size guide for 10 oz coffee\" to /blog/stand-up-pouch-size-guide-for-10-oz-coffee (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono material films suppliers\" to /blog/high-barrier-mono-material-films-suppliers (Pending Approval)",
+      "timestamp": "2026-06-16T12:30:27.149Z"
     },
     {
       "action": "Autopilot Generation Draft",
