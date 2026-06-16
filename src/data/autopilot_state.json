@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-16T14:45:29.109Z",
+  "lastUnifiedRun": "2026-06-16T15:00:47.660Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3066,17 +3066,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-compostable-film-for-food",
       "status": "Pending Approval",
       "volume": 1250,
       "keyword": "high barrier compostable film for food",
-      "difficulty": "Medium",
-      "slug": "high-barrier-compostable-film-for-food"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "custom shape pouches for powders",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-shape-pouches-for-powders"
     },
     {
       "status": "Pending",
@@ -3125,13 +3126,138 @@
       "volume": 980,
       "keyword": "high barrier sustainable films for packaging",
       "difficulty": "Medium"
+    },
+    {
+      "keyword": "compostable zipper pouches for coffee wholesale",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed mono material sachets for powders",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly stand up pouch size chart for snacks",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier recyclable films for custom pouches",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch compostable flat bottom bags for pet food",
+      "difficulty": "Low",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper barrier film for sachet packaging",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable spout pouches dimensions for beverages",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable retort packaging suppliers for sauces",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe film roll stock for sustainable packaging",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped eco friendly barrier bags low moq",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging solutions for liquid sachets",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable high barrier stand up pouches for dry goods",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print low minimum order flexible pouches",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable kraft paper pouches with window for nuts",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "barrier film suppliers for mono material packaging",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch filling equipment for compostable bags",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly sachet sizes for baby food powders",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed recyclable flat bottom pouches for coffee",
+      "difficulty": "Low",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable film for pet food packaging",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small run digital printing on kraft stand up pouches",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-16T14:45:22.957Z",
+      "timestamp": "2026-06-16T15:00:39.410Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film for food\" to /blog/high-barrier-compostable-film-for-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape pouches for powders\" to /blog/custom-shape-pouches-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film for food\" to /blog/high-barrier-compostable-film-for-food (Pending Approval)",
+      "timestamp": "2026-06-16T14:45:22.957Z"
     },
     {
       "action": "Autopilot Generation Draft",
