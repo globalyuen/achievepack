@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-16T08:45:41.370Z",
+  "lastUnifiedRun": "2026-06-16T11:00:35.972Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2954,17 +2954,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "eco-friendly-retort-pouch-suppliers",
       "status": "Pending Approval",
       "volume": 750,
       "keyword": "eco friendly retort pouch suppliers",
-      "difficulty": "Low",
-      "slug": "eco-friendly-retort-pouch-suppliers"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "mono pe film for sustainable packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-pe-film-for-sustainable-packaging"
     },
     {
       "status": "Pending",
@@ -3009,113 +3010,118 @@
       "difficulty": "Low"
     },
     {
-      "keyword": "custom printed stand up pouches for herbs",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 800,
-      "status": "Pending"
+      "keyword": "custom printed stand up pouches for herbs",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sustainable flat bottom pouch for tea",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 650,
-      "status": "Pending"
+      "keyword": "sustainable flat bottom pouch for tea",
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital printed mono material bags",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "digital printed mono material bags",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "compostable pouch sizes for spices",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "compostable pouch sizes for spices",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable barrier film for nuts",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 750,
-      "status": "Pending"
+      "keyword": "recyclable barrier film for nuts",
+      "difficulty": "Low"
     },
     {
-      "keyword": "stand up pouch size chart for coffee",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1600,
-      "status": "Pending"
+      "keyword": "stand up pouch size chart for coffee",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "eco friendly sachet dimensions for snacks",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 550,
-      "status": "Pending"
+      "keyword": "eco friendly sachet dimensions for snacks",
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier compostable film for food",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1250,
-      "status": "Pending"
+      "keyword": "high barrier compostable film for food",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "custom shape pouches for powders",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "custom shape pouches for powders",
+      "difficulty": "Low"
     },
     {
-      "keyword": "biodegradable stand up pouches wholesale",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1050,
-      "status": "Pending"
+      "keyword": "biodegradable stand up pouches wholesale",
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono pe film for flexible packaging",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 620,
-      "status": "Pending"
+      "keyword": "mono pe film for flexible packaging",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "sustainable pouch printing low moq",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 920,
-      "status": "Pending"
+      "keyword": "sustainable pouch printing low moq",
+      "difficulty": "Low"
     },
     {
-      "keyword": "kraft paper pouch with window for snacks",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1150,
-      "status": "Pending"
+      "keyword": "kraft paper pouch with window for snacks",
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital print barrier pouches for liquids",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 530,
-      "status": "Pending"
+      "keyword": "digital print barrier pouches for liquids",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "recyclable flat bottom pouches for coffee",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 820,
-      "status": "Pending"
+      "keyword": "recyclable flat bottom pouches for coffee",
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom digital printed sachets for baby food",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 610,
-      "status": "Pending"
+      "keyword": "custom digital printed sachets for baby food",
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier sustainable films for packaging",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 980,
-      "status": "Pending"
+      "keyword": "high barrier sustainable films for packaging",
+      "difficulty": "Medium"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-16T08:45:35.015Z",
+      "timestamp": "2026-06-16T11:00:29.885Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly retort pouch suppliers\" to /blog/eco-friendly-retort-pouch-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe film for sustainable packaging\" to /blog/mono-pe-film-for-sustainable-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly retort pouch suppliers\" to /blog/eco-friendly-retort-pouch-suppliers (Pending Approval)",
+      "timestamp": "2026-06-16T08:45:35.015Z"
     },
     {
       "action": "Autopilot Generation Draft",
