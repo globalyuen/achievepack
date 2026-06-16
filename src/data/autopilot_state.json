@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-16T15:45:27.269Z",
+  "lastUnifiedRun": "2026-06-16T16:00:30.729Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3094,17 +3094,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-pouch-printing-low-moq",
       "status": "Pending Approval",
       "volume": 920,
       "keyword": "sustainable pouch printing low moq",
-      "difficulty": "Low",
-      "slug": "sustainable-pouch-printing-low-moq"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1150,
       "keyword": "kraft paper pouch with window for snacks",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "kraft-paper-pouch-with-window-for-snacks"
     },
     {
       "status": "Pending",
@@ -3253,9 +3254,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-16T15:45:20.505Z",
+      "timestamp": "2026-06-16T16:00:23.638Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable pouch printing low moq\" to /blog/sustainable-pouch-printing-low-moq (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouch with window for snacks\" to /blog/kraft-paper-pouch-with-window-for-snacks (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable pouch printing low moq\" to /blog/sustainable-pouch-printing-low-moq (Pending Approval)",
+      "timestamp": "2026-06-16T15:45:20.505Z"
     },
     {
       "action": "Autopilot Generation Draft",
