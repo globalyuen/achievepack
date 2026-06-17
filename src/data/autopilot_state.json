@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T16:15:28.888Z",
+  "lastUnifiedRun": "2026-06-17T16:30:28.975Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3437,17 +3437,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-flat-bottom-pouch-with-zipper",
       "status": "Pending Approval",
       "volume": 790,
       "keyword": "kraft paper flat bottom pouch with zipper",
-      "difficulty": "Low",
-      "slug": "kraft-paper-flat-bottom-pouch-with-zipper"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 620,
       "keyword": "small batch sustainable sachet printing services",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-sustainable-sachet-printing-services"
     },
     {
       "status": "Pending",
@@ -3518,9 +3519,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T16:15:22.762Z",
+      "timestamp": "2026-06-17T16:30:23.074Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper flat bottom pouch with zipper\" to /blog/kraft-paper-flat-bottom-pouch-with-zipper (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch sustainable sachet printing services\" to /blog/small-batch-sustainable-sachet-printing-services (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper flat bottom pouch with zipper\" to /blog/kraft-paper-flat-bottom-pouch-with-zipper (Pending Approval)",
+      "timestamp": "2026-06-17T16:15:22.762Z"
     },
     {
       "action": "Autopilot Generation Draft",
