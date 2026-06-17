@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T18:15:33.753Z",
+  "lastUnifiedRun": "2026-06-17T22:00:37.304Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3472,10 +3472,11 @@
       "slug": "custom-shaped-recyclable-pouches-for-liquids"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 910,
       "keyword": "biodegradable barrier film roll stock wholesale",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "biodegradable-barrier-film-roll-stock-wholesale"
     },
     {
       "status": "Pending",
@@ -3629,6 +3630,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-17T22:00:31.090Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier film roll stock wholesale\" to /blog/biodegradable-barrier-film-roll-stock-wholesale (Pending Approval)"
+    },
     {
       "timestamp": "2026-06-17T18:15:27.322Z",
       "action": "Autopilot Generation Draft",
