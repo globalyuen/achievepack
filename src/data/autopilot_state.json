@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T04:45:30.362Z",
+  "lastUnifiedRun": "2026-06-17T05:00:26.161Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3199,17 +3199,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-shaped-eco-friendly-barrier-bags-low-moq",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "custom shaped eco friendly barrier bags low moq",
-      "difficulty": "Low",
-      "slug": "custom-shaped-eco-friendly-barrier-bags-low-moq"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1000,
       "keyword": "sustainable packaging solutions for liquid sachets",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-packaging-solutions-for-liquid-sachets"
     },
     {
       "status": "Pending",
@@ -3268,9 +3269,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T04:45:24.046Z",
+      "timestamp": "2026-06-17T05:00:20.164Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shaped eco friendly barrier bags low moq\" to /blog/custom-shaped-eco-friendly-barrier-bags-low-moq (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for liquid sachets\" to /blog/sustainable-packaging-solutions-for-liquid-sachets (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped eco friendly barrier bags low moq\" to /blog/custom-shaped-eco-friendly-barrier-bags-low-moq (Pending Approval)",
+      "timestamp": "2026-06-17T04:45:24.046Z"
     },
     {
       "action": "Autopilot Generation Draft",
