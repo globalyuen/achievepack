@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T01:00:38.079Z",
+  "lastUnifiedRun": "2026-06-17T01:01:21.801Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3136,10 +3136,11 @@
       "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "compostable zipper pouches for coffee wholesale",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-zipper-pouches-for-coffee-wholesale"
     },
     {
       "status": "Pending",
@@ -3258,9 +3259,9 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T01:00:33.387Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"compostable zipper pouches for coffee wholesale\": TypeError: fetch failed"
+      "timestamp": "2026-06-17T01:01:15.713Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable zipper pouches for coffee wholesale\" to /blog/compostable-zipper-pouches-for-coffee-wholesale (Pending Approval)"
     },
     {
       "action": "Autopilot Generation Draft",
