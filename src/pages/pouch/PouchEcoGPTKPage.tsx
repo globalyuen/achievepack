@@ -790,47 +790,7 @@ Real-time Options Quotation:
                       ))}
                     </div>
 
-                    {/* Sizing scale reference panel with transparent Cola Can silhouette */}
-                    <div className="bg-neutral-100/50 border border-neutral-200/50 rounded-2xl p-4 flex items-center justify-around mt-3">
-                      <div className="flex flex-col items-center gap-1">
-                        <span className="text-[9px] text-neutral-400 font-bold uppercase tracking-wider font-mono">Reference scale</span>
-                        <div className="w-12 h-20 flex items-end justify-center bg-neutral-200/20 border border-neutral-300/20 rounded-xl p-1">
-                          <div className="w-7 h-14 bg-neutral-450/20 border border-neutral-400/40 rounded-lg flex flex-col justify-between p-0.5 items-center relative">
-                            <div className="w-4 h-1 bg-neutral-400/50 rounded-t-sm" />
-                            <span className="text-[7.5px] text-neutral-400 font-bold leading-none rotate-90 my-auto">COLA</span>
-                            <div className="w-6 h-0.5 bg-neutral-400/30" />
-                          </div>
-                        </div>
-                        <span className="text-[9px] font-bold text-neutral-450">Cola Can (12cm)</span>
-                      </div>
-                      <div className="text-neutral-300 text-xs font-black uppercase font-mono">VS</div>
-                      <div className="flex flex-col items-center gap-1">
-                        <span className="text-[9px] text-emerald-600 font-bold uppercase tracking-wider font-mono">Pouch height</span>
-                        <div className="w-16 h-20 flex items-end justify-center bg-emerald-50/20 border border-emerald-100/30 rounded-xl p-1">
-                          {selectedSize.id === 'size-1' && (
-                            <div className="w-9 h-13 bg-emerald-600/15 border border-emerald-500/35 rounded-t-lg rounded-b-sm flex items-center justify-center">
-                              <span className="text-[8px] text-emerald-800 font-bold">150g</span>
-                            </div>
-                          )}
-                          {selectedSize.id === 'size-2' && (
-                            <div className="w-10 h-15 bg-emerald-600/15 border border-emerald-500/35 rounded-t-lg rounded-b-sm flex items-center justify-center">
-                              <span className="text-[8px] text-emerald-800 font-bold">250g</span>
-                            </div>
-                          )}
-                          {selectedSize.id === 'size-3' && (
-                            <div className="w-11 h-17 bg-emerald-600/15 border border-emerald-500/35 rounded-t-lg rounded-b-sm flex items-center justify-center">
-                              <span className="text-[8px] text-emerald-800 font-bold">500g</span>
-                            </div>
-                          )}
-                          {selectedSize.id === 'size-4' && (
-                            <div className="w-12 h-[74px] bg-emerald-600/15 border border-emerald-500/35 rounded-t-lg rounded-b-sm flex items-center justify-center">
-                              <span className="text-[8px] text-emerald-800 font-bold">1kg</span>
-                            </div>
-                          )}
-                        </div>
-                        <span className="text-[9px] font-bold text-emerald-700">{selectedSize.label} size</span>
-                      </div>
-                    </div>
+
                     
                     {/* Size Guide links */}
                     <div className="flex flex-wrap gap-x-4 gap-y-2 pt-2 text-[11px] font-semibold text-neutral-450 border-t border-neutral-100 mt-2">
