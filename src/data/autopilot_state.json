@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T14:45:35.764Z",
+  "lastUnifiedRun": "2026-06-17T15:00:32.744Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3395,17 +3395,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "flat-bottom-compostable-pouches-for-nuts",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "flat bottom compostable pouches for nuts",
-      "difficulty": "Low",
-      "slug": "flat-bottom-compostable-pouches-for-nuts"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "eco friendly barrier pouches for dry fruits",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-barrier-pouches-for-dry-fruits"
     },
     {
       "status": "Pending",
@@ -3512,9 +3513,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T14:45:28.995Z",
+      "timestamp": "2026-06-17T15:00:23.836Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"flat bottom compostable pouches for nuts\" to /blog/flat-bottom-compostable-pouches-for-nuts (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier pouches for dry fruits\" to /blog/eco-friendly-barrier-pouches-for-dry-fruits (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"flat bottom compostable pouches for nuts\" to /blog/flat-bottom-compostable-pouches-for-nuts (Pending Approval)",
+      "timestamp": "2026-06-17T14:45:28.995Z"
     },
     {
       "action": "Autopilot Generation Draft",
