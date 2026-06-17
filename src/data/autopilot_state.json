@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T13:45:29.357Z",
+  "lastUnifiedRun": "2026-06-17T14:00:28.578Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3367,17 +3367,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-packaging-solutions-for-custom-pouches",
       "status": "Pending Approval",
       "volume": 1400,
       "keyword": "sustainable packaging solutions for custom pouches",
-      "difficulty": "Medium",
-      "slug": "sustainable-packaging-solutions-for-custom-pouches"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 550,
       "keyword": "compostable retort bags with spout",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-retort-bags-with-spout"
     },
     {
       "status": "Pending",
@@ -3508,9 +3509,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T13:45:23.511Z",
+      "timestamp": "2026-06-17T14:00:22.999Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for custom pouches\" to /blog/sustainable-packaging-solutions-for-custom-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort bags with spout\" to /blog/compostable-retort-bags-with-spout (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for custom pouches\" to /blog/sustainable-packaging-solutions-for-custom-pouches (Pending Approval)",
+      "timestamp": "2026-06-17T13:45:23.511Z"
     },
     {
       "action": "Autopilot Generation Draft",
