@@ -314,14 +314,14 @@ const SHAPE_ITEMS = [
     )
   }
 ]
-const getCustomQuoteRoute = (id: string): string => {
+const getCustomQuoteRoute = (id: string): string | null => {
   switch (id) {
     case 'rollstock-custom': return '/quotes/rollstock';
     case 'flat-bottom-custom': return '/quotes/flat-bottom';
     case 'three-side-seal-custom': return '/quotes/three-side-seal';
     case 'stand-up-pouch-custom': return '/quotes/stand-up-pouch';
     case 'spouted-pouch-custom': return '/quotes/spouted-pouch';
-    default: return '/store';
+    default: return null;
   }
 };
 
@@ -1536,7 +1536,7 @@ const StorePage: React.FC = () => {
                       <span className="hidden sm:inline">Quote</span>
                     </button>
                     <Link
-                      to={product.id.endsWith('-custom') ? getCustomQuoteRoute(product.id) : `/store/product/${product.id}`}
+                      to={(product.id.endsWith('-custom') ? getCustomQuoteRoute(product.id) : null) || `/store/product/${product.id}`}
                       className="block"
                     >
                     <div className="relative aspect-square bg-neutral-50 overflow-hidden p-2 sm:p-4">
@@ -1597,7 +1597,7 @@ const StorePage: React.FC = () => {
                       <span>Quote</span>
                     </button>
                     <Link
-                      to={product.id.endsWith('-custom') ? getCustomQuoteRoute(product.id) : `/store/product/${product.id}`}
+                      to={(product.id.endsWith('-custom') ? getCustomQuoteRoute(product.id) : null) || `/store/product/${product.id}`}
                       className="flex flex-col sm:flex-row flex-1"
                     >
                     <div className="relative w-full sm:w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
