@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T17:00:29.799Z",
+  "lastUnifiedRun": "2026-06-17T18:15:33.753Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3458,17 +3458,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "compostable-retort-pouch-suppliers-for-sauces",
       "status": "Pending Approval",
       "volume": 880,
       "keyword": "compostable retort pouch suppliers for sauces",
-      "difficulty": "Low",
-      "slug": "compostable-retort-pouch-suppliers-for-sauces"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 740,
       "keyword": "custom shaped recyclable pouches for liquids",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-shaped-recyclable-pouches-for-liquids"
     },
     {
       "status": "Pending",
@@ -3517,13 +3518,126 @@
       "volume": 650,
       "keyword": "high barrier mono material film suppliers small batch",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "compostable pouches for protein bars",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable sachets for vitamins",
+      "difficulty": "Low",
+      "volume": 620,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly barrier pouches for jerky",
+      "difficulty": "Medium",
+      "volume": 780,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed flat bottom bags for seeds",
+      "difficulty": "Low",
+      "volume": 540,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging for matcha powder",
+      "difficulty": "Low",
+      "volume": 910,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable sachets for salad dressings",
+      "difficulty": "Low",
+      "volume": 670,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable pouches with degassing valve",
+      "difficulty": "Medium",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed kraft paper bags for cookies",
+      "difficulty": "Low",
+      "volume": 730,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable film for chocolate",
+      "difficulty": "Low",
+      "volume": 820,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch size for 5 lb coffee",
+      "difficulty": "Medium",
+      "volume": 590,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable packaging for freeze dried fruits",
+      "difficulty": "Low",
+      "volume": 680,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print flexible packaging for pharmaceuticals",
+      "difficulty": "Medium",
+      "volume": 760,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe recyclable pouches for condiments",
+      "difficulty": "Low",
+      "volume": 510,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper stand up pouches for granola",
+      "difficulty": "Low",
+      "volume": 880,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort pouches for ready meals",
+      "difficulty": "Medium",
+      "volume": 640,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch printed barrier bags for herbs",
+      "difficulty": "Low",
+      "volume": 570,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable sachet packaging for sauces",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable flat bottom pouches for pet treats",
+      "difficulty": "Medium",
+      "volume": 710,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T17:00:23.658Z",
+      "timestamp": "2026-06-17T18:15:27.322Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch suppliers for sauces\" to /blog/compostable-retort-pouch-suppliers-for-sauces (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped recyclable pouches for liquids\" to /blog/custom-shaped-recyclable-pouches-for-liquids (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch suppliers for sauces\" to /blog/compostable-retort-pouch-suppliers-for-sauces (Pending Approval)",
+      "timestamp": "2026-06-17T17:00:23.658Z"
     },
     {
       "action": "Autopilot Generation Draft",
