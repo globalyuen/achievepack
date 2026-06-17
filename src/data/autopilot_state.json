@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T12:00:30.004Z",
+  "lastUnifiedRun": "2026-06-17T12:15:29.610Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3325,17 +3325,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "low-moq-sustainable-flexible-packaging",
       "status": "Pending Approval",
       "volume": 1000,
       "keyword": "low moq sustainable flexible packaging",
-      "difficulty": "Low",
-      "slug": "low-moq-sustainable-flexible-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "high barrier compostable film roll stock",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-compostable-film-roll-stock"
     },
     {
       "status": "Pending",
@@ -3394,9 +3395,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T12:00:23.199Z",
+      "timestamp": "2026-06-17T12:15:23.616Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"low moq sustainable flexible packaging\" to /blog/low-moq-sustainable-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film roll stock\" to /blog/high-barrier-compostable-film-roll-stock (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"low moq sustainable flexible packaging\" to /blog/low-moq-sustainable-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-17T12:00:23.199Z"
     },
     {
       "action": "Autopilot Generation Draft",
