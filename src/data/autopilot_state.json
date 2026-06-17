@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T09:01:02.889Z",
+  "lastUnifiedRun": "2026-06-17T09:15:33.628Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3241,17 +3241,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "stand-up-pouch-filling-equipment-for-compostable-bags",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "stand up pouch filling equipment for compostable bags",
-      "difficulty": "Low",
-      "slug": "stand-up-pouch-filling-equipment-for-compostable-bags"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "eco friendly sachet sizes for baby food powders",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-sachet-sizes-for-baby-food-powders"
     },
     {
       "status": "Pending",
@@ -3382,9 +3383,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T09:00:56.559Z",
+      "timestamp": "2026-06-17T09:15:27.825Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch filling equipment for compostable bags\" to /blog/stand-up-pouch-filling-equipment-for-compostable-bags (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly sachet sizes for baby food powders\" to /blog/eco-friendly-sachet-sizes-for-baby-food-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch filling equipment for compostable bags\" to /blog/stand-up-pouch-filling-equipment-for-compostable-bags (Pending Approval)",
+      "timestamp": "2026-06-17T09:00:56.559Z"
     },
     {
       "action": "Autopilot Error",
