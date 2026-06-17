@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T13:00:32.543Z",
+  "lastUnifiedRun": "2026-06-17T13:16:01.647Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3505,6 +3505,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-17T13:15:46.633Z",
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"eco friendly barrier sachets for beverages\": X.AI API error: Failed after 3 attempts."
+    },
     {
       "timestamp": "2026-06-17T13:00:26.834Z",
       "action": "Autopilot Generation Draft",
