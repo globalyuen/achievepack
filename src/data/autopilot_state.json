@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T05:00:26.161Z",
+  "lastUnifiedRun": "2026-06-17T05:15:31.648Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3206,17 +3206,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-packaging-solutions-for-liquid-sachets",
       "status": "Pending Approval",
       "volume": 1000,
       "keyword": "sustainable packaging solutions for liquid sachets",
-      "difficulty": "Low",
-      "slug": "sustainable-packaging-solutions-for-liquid-sachets"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "compostable high barrier stand up pouches for dry goods",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-high-barrier-stand-up-pouches-for-dry-goods"
     },
     {
       "status": "Pending",
@@ -3265,13 +3266,126 @@
       "volume": 750,
       "keyword": "small run digital printing on kraft stand up pouches",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "eco friendly custom shaped pouches for snacks",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable barrier film for retort applications",
+      "difficulty": "Medium",
+      "volume": 1500,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material stand up pouches with spout",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed flat bottom pouches for pet food",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable sachet packaging dimensions for liquids",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable high barrier pouches wholesale",
+      "difficulty": "Medium",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper stand up pouches for spices",
+      "difficulty": "Low",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "low moq sustainable flexible packaging",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable film roll stock",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed mono pe stand up pouches",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable pouch sizes for dry goods",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch filling equipment for small runs",
+      "difficulty": "Medium",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly barrier sachets for beverages",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging solutions for custom pouches",
+      "difficulty": "Medium",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort bags with spout",
+      "difficulty": "Low",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print on recyclable barrier film",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material high barrier sachets",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "flat bottom compostable pouches for nuts",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T05:00:20.164Z",
+      "timestamp": "2026-06-17T05:15:25.693Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for liquid sachets\" to /blog/sustainable-packaging-solutions-for-liquid-sachets (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable high barrier stand up pouches for dry goods\" to /blog/compostable-high-barrier-stand-up-pouches-for-dry-goods (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for liquid sachets\" to /blog/sustainable-packaging-solutions-for-liquid-sachets (Pending Approval)",
+      "timestamp": "2026-06-17T05:00:20.164Z"
     },
     {
       "action": "Autopilot Generation Draft",
