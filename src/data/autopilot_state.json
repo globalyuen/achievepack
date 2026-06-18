@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-18T02:15:29.915Z",
+  "lastUnifiedRun": "2026-06-18T02:30:39.860Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3514,17 +3514,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "kraft-paper-sachet-with-spout-for-beverages",
       "status": "Pending Approval",
       "volume": 710,
       "keyword": "kraft paper sachet with spout for beverages",
-      "difficulty": "Low",
-      "slug": "kraft-paper-sachet-with-spout-for-beverages"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "high barrier mono material film suppliers small batch",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-mono-material-film-suppliers-small-batch"
     },
     {
       "status": "Pending",
@@ -3637,9 +3638,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-18T02:15:23.567Z",
+      "timestamp": "2026-06-18T02:30:33.204Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper sachet with spout for beverages\" to /blog/kraft-paper-sachet-with-spout-for-beverages (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono material film suppliers small batch\" to /blog/high-barrier-mono-material-film-suppliers-small-batch (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper sachet with spout for beverages\" to /blog/kraft-paper-sachet-with-spout-for-beverages (Pending Approval)",
+      "timestamp": "2026-06-18T02:15:23.567Z"
     },
     {
       "action": "Autopilot Generation Draft",
