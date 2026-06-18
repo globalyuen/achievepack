@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-18T15:45:31.587Z",
+  "lastUnifiedRun": "2026-06-18T19:09:08.906Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3577,17 +3577,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "custom-printed-kraft-paper-bags-for-cookies",
       "status": "Pending Approval",
       "volume": 730,
       "keyword": "custom printed kraft paper bags for cookies",
-      "difficulty": "Low",
-      "slug": "custom-printed-kraft-paper-bags-for-cookies"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 820,
       "keyword": "high barrier compostable film for chocolate",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-compostable-film-for-chocolate"
     },
     {
       "status": "Pending",
@@ -3646,9 +3647,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-18T15:45:25.980Z",
+      "timestamp": "2026-06-18T19:06:55.756Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom printed kraft paper bags for cookies\" to /blog/custom-printed-kraft-paper-bags-for-cookies (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film for chocolate\" to /blog/high-barrier-compostable-film-for-chocolate (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed kraft paper bags for cookies\" to /blog/custom-printed-kraft-paper-bags-for-cookies (Pending Approval)",
+      "timestamp": "2026-06-18T15:45:25.980Z"
     },
     {
       "action": "Autopilot Generation Draft",
