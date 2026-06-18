@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-18T02:30:39.860Z",
+  "lastUnifiedRun": "2026-06-18T02:45:54.663Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3521,17 +3521,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-mono-material-film-suppliers-small-batch",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "high barrier mono material film suppliers small batch",
-      "difficulty": "Low",
-      "slug": "high-barrier-mono-material-film-suppliers-small-batch"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "compostable pouches for protein bars",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-pouches-for-protein-bars"
     },
     {
       "status": "Pending",
@@ -3638,9 +3639,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-18T02:30:33.204Z",
+      "timestamp": "2026-06-18T02:45:48.404Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono material film suppliers small batch\" to /blog/high-barrier-mono-material-film-suppliers-small-batch (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouches for protein bars\" to /blog/compostable-pouches-for-protein-bars (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono material film suppliers small batch\" to /blog/high-barrier-mono-material-film-suppliers-small-batch (Pending Approval)",
+      "timestamp": "2026-06-18T02:30:33.204Z"
     },
     {
       "action": "Autopilot Generation Draft",
