@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { 
-  Recycle, CheckCircle, Calendar, Shield, Package, X, ChevronDown, 
-  HelpCircle, ArrowRight, Zap, Target, ClipboardList, Layers, 
-  AlertTriangle, TrendingUp, Factory, Settings 
-} from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { Recycle, CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Target, ClipboardList, AlertTriangle, TrendingUp, Factory, Settings, Layers } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
@@ -119,48 +115,56 @@ const ImageTextRow: React.FC<{
 }
 
 const RecyclableRoadmapPage: React.FC = () => {
-  const { t } = useTranslation()
-  const p = 'seoPages.pages.recyclableRoadmap'
   const { openCalendly } = useCalendly()
+  const { t } = useTranslation()
 
-  const faqs = [
-    {
-      question: t(`${p}.faqs.q1`),
-      answer: t(`${p}.faqs.a1`)
-    },
-    {
-      question: t(`${p}.faqs.q2`),
-      answer: t(`${p}.faqs.a2`)
-    },
-    {
-      question: t(`${p}.faqs.q3`),
-      answer: t(`${p}.faqs.a3`)
-    },
-    {
-      question: t(`${p}.faqs.q4`),
-      answer: t(`${p}.faqs.a4`)
-    },
-    {
-      question: t(`${p}.faqs.q5`),
-      answer: t(`${p}.faqs.a5`)
-    },
-    {
-      question: t(`${p}.faqs.q6`),
-      answer: t(`${p}.faqs.a6`)
-    }
-  ]
+  const takeawaysData = t('seoPages.pages.recyclableRoadmap.takeaways.items', { returnObjects: true })
+  const takeaways = Array.isArray(takeawaysData) ? takeawaysData : []
+
+  const step1ItemsData = t('seoPages.pages.recyclableRoadmap.step1.boxItems', { returnObjects: true })
+  const step1Items = Array.isArray(step1ItemsData) ? step1ItemsData : []
+
+  const step1RiskItemsData = t('seoPages.pages.recyclableRoadmap.step1Risk.items', { returnObjects: true })
+  const step1RiskItems = Array.isArray(step1RiskItemsData) ? step1RiskItemsData : []
+
+  const step2ItemsData = t('seoPages.pages.recyclableRoadmap.step2.boxItems', { returnObjects: true })
+  const step2Items = Array.isArray(step2ItemsData) ? step2ItemsData : []
+
+  const step2RedesignItemsData = t('seoPages.pages.recyclableRoadmap.step2Redesign.items', { returnObjects: true })
+  const step2RedesignItems = Array.isArray(step2RedesignItemsData) ? step2RedesignItemsData : []
+
+  const step3ItemsData = t('seoPages.pages.recyclableRoadmap.step3.boxItems', { returnObjects: true })
+  const step3Items = Array.isArray(step3ItemsData) ? step3ItemsData : []
+
+  const optimizeBoxesData = t('seoPages.pages.recyclableRoadmap.step3Optimize.boxes', { returnObjects: true })
+  const optimizeBoxes = Array.isArray(optimizeBoxesData) ? optimizeBoxesData : [{}, {}, {}]
+
+  const pitfallsItemsData = t('seoPages.pages.recyclableRoadmap.pitfalls.items', { returnObjects: true })
+  const pitfallsItems = Array.isArray(pitfallsItemsData) ? pitfallsItemsData : []
+
+  const supportCardsData = t('seoPages.pages.recyclableRoadmap.support.cards', { returnObjects: true })
+  const supportCards = Array.isArray(supportCardsData) ? supportCardsData : []
+
+  const faqsData = t('seoPages.pages.recyclableRoadmap.faqs', { returnObjects: true })
+  const faqs = Array.isArray(faqsData) ? faqsData : []
+
+  const ctaItemsData = t('seoPages.pages.recyclableRoadmap.cta.items', { returnObjects: true })
+  const ctaItems = Array.isArray(ctaItemsData) ? ctaItemsData : []
+
+  const aiFaqData = t('seoPages.pages.recyclableRoadmap.aiFaq', { returnObjects: true })
+  const aiFaq = Array.isArray(aiFaqData) ? aiFaqData : []
 
   return (
     <>
       <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
+        <title>{t('seoPages.pages.recyclableRoadmap.title')}</title>
+        <meta name="description" content={t('seoPages.pages.recyclableRoadmap.description')} />
         <link rel="canonical" href="https://achievepack.com/recyclable/roadmap-sme" />
-        <meta name="keywords" content="recyclable packaging roadmap, 100% recyclable pouches, mono-PE conversion, SME sustainable packaging, recyclable flexible packaging, packaging audit, Eco Digital" />
+        <meta name="keywords" content={t('seoPages.pages.recyclableRoadmap.keywords')} />
         
         {/* Open Graph */}
-        <meta property="og:title" content={t(`${p}.title`)} />
-        <meta property="og:description" content={t(`${p}.heroSubtitle`)} />
+        <meta property="og:title" content={t('seoPages.pages.recyclableRoadmap.ogTitle')} />
+        <meta property="og:description" content={t('seoPages.pages.recyclableRoadmap.ogDescription')} />
         <meta property="og:image" content="https://achievepack.com/imgs/recyclable/roadmap/hero.webp" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://achievepack.com/recyclable/roadmap-sme" />
@@ -170,8 +174,8 @@ const RecyclableRoadmapPage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": t(`${p}.heroTitle`),
-            "description": t(`${p}.description`),
+            "headline": t('seoPages.pages.recyclableRoadmap.schemaArticleHeadline'),
+            "description": t('seoPages.pages.recyclableRoadmap.schemaArticleDescription'),
             "image": "https://achievepack.com/imgs/recyclable/roadmap/hero.webp",
             "author": {
               "@type": "Organization",
@@ -194,7 +198,7 @@ const RecyclableRoadmapPage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
+            "mainEntity": faqs.map((faq: any) => ({
               "@type": "Question",
               "name": faq.question,
               "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
@@ -213,14 +217,14 @@ const RecyclableRoadmapPage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {t(`${p}.heroBadge`)}
+                    {t('seoPages.pages.recyclableRoadmap.hero.tag')}
                   </span>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                  {t(`${p}.heroTitle`)}
+                  {t('seoPages.pages.recyclableRoadmap.hero.title')}
                 </h1>
                 <p className="text-lg text-green-100 mb-8">
-                  {t(`${p}.heroSubtitle`)}
+                  {t('seoPages.pages.recyclableRoadmap.hero.subtitle')}
                 </p>
                 
                 <div className="flex flex-wrap gap-4">
@@ -229,14 +233,14 @@ const RecyclableRoadmapPage: React.FC = () => {
                     className="flex items-center gap-2 bg-white text-green-800 hover:bg-green-50 px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Calendar className="h-5 w-5" />
-                    {t(`${p}.heroBtn1`)}
+                    {t('seoPages.pages.recyclableRoadmap.hero.btnConsultation')}
                   </button>
                   <Link 
                     to="/store"
                     className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Package className="h-5 w-5" />
-                    {t(`${p}.heroBtn2`)}
+                    {t('seoPages.pages.recyclableRoadmap.hero.btnStore')}
                   </Link>
                 </div>
 
@@ -244,15 +248,15 @@ const RecyclableRoadmapPage: React.FC = () => {
                 <div className="flex items-center gap-4 mt-8 text-sm text-green-200">
                   <div className="flex items-center gap-1">
                     <ClipboardList className="h-4 w-4 text-green-400" />
-                    <span>{t(`${p}.trustBadge1`)}</span>
+                    <span>{t('seoPages.pages.recyclableRoadmap.hero.badgeStepGuide')}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Recycle className="h-4 w-4 text-green-400" />
-                    <span>{t(`${p}.trustBadge2`)}</span>
+                    <span>{t('seoPages.pages.recyclableRoadmap.hero.badgeMonoPE')}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Target className="h-4 w-4 text-green-400" />
-                    <span>{t(`${p}.trustBadge3`)}</span>
+                    <span>{t('seoPages.pages.recyclableRoadmap.hero.badgeSmeTailored')}</span>
                   </div>
                 </div>
               </div>
@@ -260,7 +264,7 @@ const RecyclableRoadmapPage: React.FC = () => {
               <div className="relative">
                 <ClickableImage 
                   src={IMAGES.hero}
-                  alt={t(`${p}.heroTitle`)}
+                  alt="3-step roadmap to 100% recyclable pouches"
                   className="w-full rounded-xl shadow-2xl"
                 />
               </div>
@@ -275,18 +279,18 @@ const RecyclableRoadmapPage: React.FC = () => {
               <div className="flex items-start justify-between mb-4">
                 <h2 className="text-xl font-bold text-green-900 flex items-center gap-2">
                   <Zap className="h-6 w-6 text-green-600" />
-                  {t(`${p}.takeaways.title`)}
+                  {t('seoPages.pages.recyclableRoadmap.takeaways.title')}
                 </h2>
                 <SocialShareButtons 
                   url="https://achievepack.com/recyclable/roadmap-sme"
-                  title={t(`${p}.heroTitle`)}
+                  title={t('seoPages.pages.recyclableRoadmap.title')}
                 />
               </div>
               <ul className="space-y-3 text-green-800">
-                {(t(`${p}.takeaways.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {takeaways.map((item: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -299,18 +303,18 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Target className="h-8 w-8 text-green-600" />
-              {t(`${p}.introduction.title`)}
+              {t('seoPages.pages.recyclableRoadmap.intro.title')}
             </h2>
             <div className="prose prose-lg text-neutral-700 space-y-4">
               <p>
-                {t(`${p}.introduction.p1`, {
-                  interpolation: { escapeValue: false }
-                })}
+                {t('seoPages.pages.recyclableRoadmap.intro.p1')}
               </p>
               <p>
-                {t(`${p}.introduction.p2`, {
-                  interpolation: { escapeValue: false }
-                })}
+                {t('seoPages.pages.recyclableRoadmap.intro.p2.part1')}
+                <Link to="/materials/recyclable-mono-pe" className="text-primary-600 underline">
+                  {t('seoPages.pages.recyclableRoadmap.intro.p2.link')}
+                </Link>
+                {t('seoPages.pages.recyclableRoadmap.intro.p2.part2')}
               </p>
             </div>
           </div>
@@ -321,27 +325,29 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.step1AuditComplexity}
-              imageAlt={t(`${p}.step1.title`)}
-              imageCaption={t(`${p}.step1.caption`)}
+              imageAlt="Step 1: Audit current flexible packaging structures"
+              imageCaption={t('seoPages.pages.recyclableRoadmap.step1.imageCaption')}
               imageLeft={true}
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">1</span>
                 <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
-                  {t(`${p}.step1.title`)}
+                  {t('seoPages.pages.recyclableRoadmap.step1.title')}
                 </h2>
               </div>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  {t(`${p}.step1.intro`, {
-                    interpolation: { escapeValue: false }
-                  })}
+                  {t('seoPages.pages.recyclableRoadmap.step1.p1')}
                 </p>
                 <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-bold text-green-800 mb-2">{t(`${p}.step1.taskTitle`)}</h4>
-                  <p className="text-sm text-green-700 mb-2">{t(`${p}.step1.taskSubtitle`)}</p>
+                  <h4 className="font-bold text-green-800 mb-2">
+                    {t('seoPages.pages.recyclableRoadmap.step1.boxTitle')}
+                  </h4>
+                  <p className="text-sm text-green-700 mb-2">
+                    {t('seoPages.pages.recyclableRoadmap.step1.boxIntro')}
+                  </p>
                   <ul className="text-sm text-green-700 space-y-1">
-                    {(t(`${p}.step1.taskItems`, { returnObjects: true }) as string[]).map((item, idx) => (
+                    {step1Items.map((item: string, idx: number) => (
                       <li key={idx}>• {item}</li>
                     ))}
                   </ul>
@@ -356,18 +362,18 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.step1SkuPrioritization}
-              imageAlt={t(`${p}.highRisk.title`)}
-              imageCaption={t(`${p}.highRisk.caption`)}
+              imageAlt="Identify high-risk packaging structures for prioritization"
+              imageCaption={t('seoPages.pages.recyclableRoadmap.step1Risk.imageCaption')}
               imageLeft={false}
             >
               <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <AlertTriangle className="h-7 w-7 text-amber-600" />
-                {t(`${p}.highRisk.title`)}
+                {t('seoPages.pages.recyclableRoadmap.step1Risk.title')}
               </h3>
               <div className="space-y-4 text-neutral-700">
-                <p>{t(`${p}.highRisk.intro`)}</p>
+                <p>{t('seoPages.pages.recyclableRoadmap.step1Risk.p1')}</p>
                 <ul className="space-y-2">
-                  {(t(`${p}.highRisk.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  {step1RiskItems.map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2">
                       <span className="text-amber-600 mt-0.5 flex-shrink-0">⚠</span>
                       <span>{item}</span>
@@ -376,7 +382,7 @@ const RecyclableRoadmapPage: React.FC = () => {
                 </ul>
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg mt-4">
                   <p className="text-amber-800 text-sm">
-                    {t(`${p}.highRisk.footerText`)}
+                    {t('seoPages.pages.recyclableRoadmap.step1Risk.highlight')}
                   </p>
                 </div>
               </div>
@@ -389,27 +395,27 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.step2EcoDigitalShowcase}
-              imageAlt={t(`${p}.step2.title`)}
-              imageCaption={t(`${p}.step2.caption`)}
+              imageAlt="Step 2: Redesign priority SKUs as mono-PE pouches"
+              imageCaption={t('seoPages.pages.recyclableRoadmap.step2.imageCaption')}
               imageLeft={true}
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="bg-teal-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">2</span>
                 <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
-                  {t(`${p}.step2.title`)}
+                  {t('seoPages.pages.recyclableRoadmap.step2.title')}
                 </h2>
               </div>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  {t(`${p}.step2.intro`, {
-                    interpolation: { escapeValue: false }
-                  })}
+                  {t('seoPages.pages.recyclableRoadmap.step2.p1')}
                 </p>
                 <div className="bg-teal-50 p-4 rounded-lg">
-                  <h4 className="font-bold text-teal-800 mb-2">{t(`${p}.step2.taskTitle`)}</h4>
+                  <h4 className="font-bold text-teal-800 mb-2">
+                    {t('seoPages.pages.recyclableRoadmap.step2.boxTitle')}
+                  </h4>
                   <ul className="text-sm text-teal-700 space-y-1">
-                    {(t(`${p}.step2.taskItems`, { returnObjects: true }) as string[]).map((item, idx) => (
-                      <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
+                    {step2Items.map((item: string, idx: number) => (
+                      <li key={idx}>• {item}</li>
                     ))}
                   </ul>
                 </div>
@@ -423,28 +429,26 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.step2DigitalFlexibility}
-              imageAlt={t(`${p}.flexibility.title`)}
-              imageCaption={t(`${p}.flexibility.caption`)}
+              imageAlt="Eco Digital printing flexibility for prototyping"
+              imageCaption={t('seoPages.pages.recyclableRoadmap.step2Redesign.imageCaption')}
               imageLeft={false}
             >
               <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Settings className="h-7 w-7 text-teal-600" />
-                {t(`${p}.flexibility.title`)}
+                {t('seoPages.pages.recyclableRoadmap.step2Redesign.title')}
               </h3>
               <div className="space-y-4 text-neutral-700">
                 <ul className="space-y-3">
-                  {(t(`${p}.flexibility.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  {step2RedesignItems.map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                      <span dangerouslySetInnerHTML={{ __html: item }} />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
                 <div className="bg-teal-50 border border-teal-200 p-4 rounded-lg mt-4">
                   <p className="text-teal-800 text-sm">
-                    {t(`${p}.flexibility.footerText`, {
-                      interpolation: { escapeValue: false }
-                    })}
+                    {t('seoPages.pages.recyclableRoadmap.step2Redesign.highlight')}
                   </p>
                 </div>
               </div>
@@ -457,27 +461,27 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.step3OptimizeEnhance}
-              imageAlt={t(`${p}.step3.title`)}
-              imageCaption={t(`${p}.step3.caption`)}
+              imageAlt="Step 3: Extend, optimize and layer in PCR and bio-PE"
+              imageCaption={t('seoPages.pages.recyclableRoadmap.step3.imageCaption')}
               imageLeft={true}
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="bg-emerald-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">3</span>
                 <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
-                  {t(`${p}.step3.title`)}
+                  {t('seoPages.pages.recyclableRoadmap.step3.title')}
                 </h2>
               </div>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  {t(`${p}.step3.intro`, {
-                    interpolation: { escapeValue: false }
-                  })}
+                  {t('seoPages.pages.recyclableRoadmap.step3.p1')}
                 </p>
                 <div className="bg-emerald-50 p-4 rounded-lg">
-                  <h4 className="font-bold text-emerald-800 mb-2">{t(`${p}.step3.taskTitle`)}</h4>
+                  <h4 className="font-bold text-emerald-800 mb-2">
+                    {t('seoPages.pages.recyclableRoadmap.step3.boxTitle')}
+                  </h4>
                   <ul className="text-sm text-emerald-700 space-y-1">
-                    {(t(`${p}.step3.taskItems`, { returnObjects: true }) as string[]).map((item, idx) => (
-                      <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
+                    {step3Items.map((item: string, idx: number) => (
+                      <li key={idx}>• {item}</li>
                     ))}
                   </ul>
                 </div>
@@ -491,37 +495,43 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.step3DowngaugeOptimization}
-              imageAlt={t(`${p}.optimize.title`)}
-              imageCaption={t(`${p}.optimize.caption`)}
+              imageAlt="Material optimization and down-gauging opportunities"
+              imageCaption={t('seoPages.pages.recyclableRoadmap.step3Optimize.imageCaption')}
               imageLeft={false}
             >
               <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <TrendingUp className="h-7 w-7 text-emerald-600" />
-                {t(`${p}.optimize.title`)}
+                {t('seoPages.pages.recyclableRoadmap.step3Optimize.title')}
               </h3>
               <div className="space-y-4 text-neutral-700">
                 <div className="space-y-3">
                   <div className="bg-blue-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-blue-800 mb-1">{t(`${p}.optimize.section1Title`)}</h4>
-                    <p className="text-sm text-blue-700">{t(`${p}.optimize.section1Desc`)}</p>
+                    <h4 className="font-bold text-blue-800 mb-1">{optimizeBoxes[0]?.title}</h4>
+                    <p className="text-sm text-blue-700">{optimizeBoxes[0]?.desc}</p>
                   </div>
                   <div className="bg-teal-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-teal-800 mb-1">{t(`${p}.optimize.section2Title`)}</h4>
+                    <h4 className="font-bold text-teal-800 mb-1">{optimizeBoxes[1]?.title}</h4>
                     <p className="text-sm text-teal-700">
-                      Introduce <Link to="/materials/pcr" className="underline">PCR content</Link> {t(`${p}.optimize.section2Desc`).replace('Introduce PCR content ', '')}
+                      {optimizeBoxes[1]?.desc?.part1}
+                      <Link to="/materials/pcr" className="underline">
+                        {optimizeBoxes[1]?.desc?.link}
+                      </Link>
+                      {optimizeBoxes[1]?.desc?.part2}
                     </p>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-green-800 mb-1">{t(`${p}.optimize.section3Title`)}</h4>
+                    <h4 className="font-bold text-green-800 mb-1">{optimizeBoxes[2]?.title}</h4>
                     <p className="text-sm text-green-700">
-                      For selected SKUs, integrate <Link to="/materials/bio-pe" className="underline">bio‑PE</Link> {t(`${p}.optimize.section3Desc`).replace('For selected SKUs, integrate bio‑PE ', '')}
+                      {optimizeBoxes[2]?.desc?.part1}
+                      <Link to="/materials/bio-pe" className="underline">
+                        {optimizeBoxes[2]?.desc?.link}
+                      </Link>
+                      {optimizeBoxes[2]?.desc?.part2}
                     </p>
                   </div>
                 </div>
                 <p className="text-sm text-neutral-600 mt-4">
-                  {t(`${p}.optimize.footerText`, {
-                    interpolation: { escapeValue: false }
-                  })}
+                  {t('seoPages.pages.recyclableRoadmap.step3Optimize.footer')}
                 </p>
               </div>
             </ImageTextRow>
@@ -533,34 +543,24 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
               <AlertTriangle className="h-8 w-8 text-amber-600" />
-              {t(`${p}.pitfalls.title`)}
+              {t('seoPages.pages.recyclableRoadmap.pitfalls.title')}
             </h2>
-            <p className="text-neutral-700 mb-6">{t(`${p}.pitfalls.intro`)}</p>
+            <p className="text-neutral-700 mb-6">
+              {t('seoPages.pages.recyclableRoadmap.pitfalls.intro')}
+            </p>
             <div className="space-y-4">
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-200">
-                <h3 className="font-bold text-amber-800 mb-2 flex items-center gap-2">
-                  <span className="text-amber-600">⚠</span>
-                  {t(`${p}.pitfalls.pitfall1Title`)}
-                </h3>
-                <p className="text-neutral-700 text-sm" dangerouslySetInnerHTML={{ __html: t(`${p}.pitfalls.pitfall1Desc`) }} />
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-200">
-                <h3 className="font-bold text-amber-800 mb-2 flex items-center gap-2">
-                  <span className="text-amber-600">⚠</span>
-                  {t(`${p}.pitfalls.pitfall2Title`)}
-                </h3>
-                <p className="text-neutral-700 text-sm" dangerouslySetInnerHTML={{ __html: t(`${p}.pitfalls.pitfall2Desc`) }} />
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-200">
-                <h3 className="font-bold text-amber-800 mb-2 flex items-center gap-2">
-                  <span className="text-amber-600">⚠</span>
-                  {t(`${p}.pitfalls.pitfall3Title`)}
-                </h3>
-                <p className="text-neutral-700 text-sm" dangerouslySetInnerHTML={{ __html: t(`${p}.pitfalls.pitfall3Desc`) }} />
-              </div>
+              {pitfallsItems.map((item: any, idx: number) => (
+                <div key={idx} className="bg-white rounded-xl p-6 shadow-sm border border-amber-200">
+                  <h3 className="font-bold text-amber-800 mb-2 flex items-center gap-2">
+                    <span className="text-amber-600">⚠</span>
+                    {item.title}
+                  </h3>
+                  <p className="text-neutral-700 text-sm">{item.desc}</p>
+                </div>
+              ))}
             </div>
             <p className="text-neutral-600 mt-6 text-sm">
-              {t(`${p}.pitfalls.footerText`)}
+              {t('seoPages.pages.recyclableRoadmap.pitfalls.footer')}
             </p>
           </div>
         </section>
@@ -570,25 +570,21 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
               <Factory className="h-8 w-8 text-primary-600" />
-              {t(`${p}.support.title`)}
+              {t('seoPages.pages.recyclableRoadmap.support.title')}
             </h2>
-            <p className="text-neutral-700 mb-6">{t(`${p}.support.intro`)}</p>
+            <p className="text-neutral-700 mb-6">
+              {t('seoPages.pages.recyclableRoadmap.support.intro')}
+            </p>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-primary-50 rounded-xl p-6">
-                <Shield className="h-8 w-8 text-primary-600 mb-3" />
-                <h3 className="font-bold text-primary-900 mb-2">{t(`${p}.support.col1Title`)}</h3>
-                <p className="text-sm text-primary-700">{t(`${p}.support.col1Desc`)}</p>
-              </div>
-              <div className="bg-primary-50 rounded-xl p-6">
-                <Layers className="h-8 w-8 text-primary-600 mb-3" />
-                <h3 className="font-bold text-primary-900 mb-2">{t(`${p}.support.col2Title`)}</h3>
-                <p className="text-sm text-primary-700">{t(`${p}.support.col2Desc`)}</p>
-              </div>
-              <div className="bg-primary-50 rounded-xl p-6">
-                <ClipboardList className="h-8 w-8 text-primary-600 mb-3" />
-                <h3 className="font-bold text-primary-900 mb-2">{t(`${p}.support.col3Title`)}</h3>
-                <p className="text-sm text-primary-700">{t(`${p}.support.col3Desc`)}</p>
-              </div>
+              {supportCards.map((card: any, idx: number) => (
+                <div key={idx} className="bg-primary-50 rounded-xl p-6">
+                  {idx === 0 && <Shield className="h-8 w-8 text-primary-600 mb-3" />}
+                  {idx === 1 && <Layers className="h-8 w-8 text-primary-600 mb-3" />}
+                  {idx === 2 && <ClipboardList className="h-8 w-8 text-primary-600 mb-3" />}
+                  <h3 className="font-bold text-primary-900 mb-2">{card.title}</h3>
+                  <p className="text-sm text-primary-700">{card.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -598,10 +594,10 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
               <HelpCircle className="h-8 w-8 text-green-600" />
-              {t(`${p}.faqs.title`)}
+              {t('seoPages.faq')}
             </h2>
             <div className="space-y-4">
-              {faqs.map((faq, idx) => (
+              {faqs.map((faq: any, idx: number) => (
                 <details key={idx} className="group bg-white rounded-xl overflow-hidden shadow-sm">
                   <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-50 transition">
                     <span className="font-semibold text-neutral-900 pr-4">{faq.question}</span>
@@ -621,21 +617,19 @@ const RecyclableRoadmapPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-2xl md:text-4xl font-bold mb-6">
-                {t(`${p}.cta.title`)}
+                {t('seoPages.pages.recyclableRoadmap.cta.title')}
               </h2>
               <p className="text-lg text-green-100 mb-6">
-                {t(`${p}.cta.intro`, {
-                  interpolation: { escapeValue: false }
-                })}
+                {t('seoPages.pages.recyclableRoadmap.cta.p1')}
               </p>
               <p className="text-green-200 mb-8">
-                {t(`${p}.cta.subTitle`)}
+                {t('seoPages.pages.recyclableRoadmap.cta.p2')}
               </p>
               <ul className="text-left max-w-xl mx-auto space-y-3 text-green-100 mb-8">
-                {(t(`${p}.cta.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {ctaItems.map((item: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -646,21 +640,21 @@ const RecyclableRoadmapPage: React.FC = () => {
                   className="flex items-center justify-center gap-2 bg-white text-green-800 hover:bg-green-50 px-6 py-3 rounded-lg font-semibold transition"
                 >
                   <Calendar className="h-5 w-5" />
-                  {t(`${p}.cta.btn1`)}
+                  {t('seoPages.pages.recyclableRoadmap.cta.btnConsultation')}
                 </button>
                 <Link 
                   to="/store?category=sample"
                   className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition"
                 >
                   <Package className="h-5 w-5" />
-                  {t(`${p}.cta.btn2`)}
+                  {t('seoPages.pages.recyclableRoadmap.cta.btnSamples')}
                 </Link>
                 <Link 
                   to="/store"
                   className="flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/50 text-white px-6 py-3 rounded-lg font-semibold transition"
                 >
                   <ArrowRight className="h-5 w-5" />
-                  {t(`${p}.cta.btn3`)}
+                  {t('seoPages.pages.recyclableRoadmap.cta.btnStore')}
                 </Link>
               </div>
             </div>
@@ -670,26 +664,16 @@ const RecyclableRoadmapPage: React.FC = () => {
         {/* AI-Optimized Hidden Content */}
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-            <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{t(`${p}.hiddenFaqs.q1Title`)}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{t(`${p}.hiddenFaqs.q1Desc`)}</p>
-              </div>
-            </article>
-
-            <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{t(`${p}.hiddenFaqs.q2Title`)}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{t(`${p}.hiddenFaqs.q2Desc`)}</p>
-              </div>
-            </article>
-
-            <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{t(`${p}.hiddenFaqs.q3Title`)}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{t(`${p}.hiddenFaqs.q3Desc`)}</p>
-              </div>
-            </article>
+            {aiFaq.map((faq: any, idx: number) => (
+              <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+                <h3 itemProp="name">{faq.q}</h3>
+                <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                  <p itemProp="text">
+                    {faq.a}
+                  </p>
+                </div>
+              </article>
+            ))}
           </section>
         </div>
 

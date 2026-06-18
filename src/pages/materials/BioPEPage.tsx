@@ -10,26 +10,34 @@ const BioPEPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.bioPE'
-  
-  const getTranslationArray = <T = string,>(key: string): T[] => {
-    const val = t(key, { returnObjects: true });
-    return Array.isArray(val) ? (val as T[]) : [];
-  };
+
+  // Helper to render bold prefixes (split by colon or Chinese full-width colon)
+  const renderBullet = (text: string) => {
+    const match = text.match(/^([^:：]+)[:：](.*)$/)
+    if (match) {
+      return (
+        <span>
+          <strong>{match[1]}:</strong>{match[2]}
+        </span>
+      )
+    }
+    return <span>{text}</span>
+  }
 
   const sections = [
     {
       id: 'infographic',
-      title: 'Bio-PE Packaging Infographic',
+      title: t(`${p}.sections.infographic.title`),
       icon: <Image className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="text-sm text-neutral-600">Click the infographic below to view in full size:</p>
+          <p className="text-sm text-neutral-600">{t(`${p}.sections.infographic.intro`)}</p>
           <div className="flex justify-center">
             <ClickableImage 
               src="/imgs/4-infograhic/Bio-PE.webp" 
               alt="Bio-PE Packaging Infographic - Plant-based polyethylene guide" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
-              caption="Bio-PE Packaging Infographic"
+              caption={t(`${p}.sections.infographic.caption`)}
             />
           </div>
         </div>
@@ -37,26 +45,26 @@ const BioPEPage: React.FC = () => {
     },
     {
       id: 'scenario-trigger',
-      title: 'Is This Page For You?',
+      title: t(`${p}.sections.targetAudience.title`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              If you're a <strong>sustainability-focused brand</strong> that wants packaging to shrink your carbon footprint while delivering the same performance as conventional plastic—Bio-PE might just be your answer.
+              {t(`${p}.sections.targetAudience.intro`)}
             </p>
             <div className="grid md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
-                <p className="font-semibold text-green-800">Carbon-Conscious Brands</p>
-                <p className="text-sm text-neutral-600">Reduce CO2 footprint with plant-based materials</p>
+                <p className="font-semibold text-green-800">{t(`${p}.sections.targetAudience.carbon.title`)}</p>
+                <p className="text-sm text-neutral-600">{t(`${p}.sections.targetAudience.carbon.desc`)}</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="font-semibold text-green-800">Recyclability Priority</p>
-                <p className="text-sm text-neutral-600">Same recyclability as conventional PE</p>
+                <p className="font-semibold text-green-800">{t(`${p}.sections.targetAudience.recycling.title`)}</p>
+                <p className="text-sm text-neutral-600">{t(`${p}.sections.targetAudience.recycling.desc`)}</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="font-semibold text-green-800">Performance Needs</p>
-                <p className="text-sm text-neutral-600">Identical barrier and sealing properties</p>
+                <p className="font-semibold text-green-800">{t(`${p}.sections.targetAudience.performance.title`)}</p>
+                <p className="text-sm text-neutral-600">{t(`${p}.sections.targetAudience.performance.desc`)}</p>
               </div>
             </div>
           </div>
@@ -73,7 +81,6 @@ const BioPEPage: React.FC = () => {
             <strong>{t(`${p}.sections.overview.intro`)}</strong>
           </p>
           
-          {/* I'm Green Logo Section */}
           <div className="flex items-center gap-6 bg-green-50 p-4 rounded-lg border border-green-200 my-4">
             <ClickableImage 
               src="/imgs/cert/logo-imgreen-biope.png" 
@@ -82,16 +89,16 @@ const BioPEPage: React.FC = () => {
               caption="I'm Green™ by Braskem"
             />
             <div>
-              <h4 className="font-semibold text-green-800 mb-1">I'm Green™ Bio-based Polyethylene</h4>
-              <p className="text-sm text-green-700">Our Bio-PE is sourced from Braskem's I'm Green™ sugarcane-based polyethylene. This logo can be displayed on your packaging to communicate sustainable sourcing to consumers.</p>
-              <p className="text-xs text-green-600 mt-2"><strong>Artwork Usage:</strong> Brands using our Bio-PE materials can display the I'm Green logo on their packaging upon verification of material sourcing.</p>
+              <h4 className="font-semibold text-green-800 mb-1">{t(`${p}.sections.overview.logoSection.title`)}</h4>
+              <p className="text-sm text-green-700">{t(`${p}.sections.overview.logoSection.desc`)}</p>
+              <p className="text-xs text-green-600 mt-2">{t(`${p}.sections.overview.logoSection.artworkUsage`)}</p>
             </div>
           </div>
           
           <div className="bg-green-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.overview.keyBenefits`)}</h4>
             <ul className="space-y-1 text-sm text-green-700">
-              {getTranslationArray(`${p}.sections.overview.benefits`).map((b, i) => <li key={i}>✓ {b}</li>)}
+              {(t(`${p}.sections.overview.benefits`, { returnObjects: true }) as string[]).map((b, i) => <li key={i}>✓ {b}</li>)}
             </ul>
           </div>
         </div>
@@ -99,38 +106,38 @@ const BioPEPage: React.FC = () => {
     },
     {
       id: 'important-clarification',
-      title: 'Important: What Bio-PE Is (and Isn\'t)',
+      title: t(`${p}.sections.clarification.title`),
       icon: <Shield className="h-5 w-5 text-amber-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-amber-50 border-2 border-amber-300 p-5 rounded-lg">
-            <h4 className="font-bold text-amber-800 mb-3">⚠️ Key Clarification</h4>
+            <h4 className="font-bold text-amber-800 mb-3">⚠️ {t(`${p}.sections.clarification.keyClarification`)}</h4>
             <p className="text-amber-900 mb-4">
-              <strong>Bio-PE is NOT biodegradable or compostable.</strong> It is chemically identical to conventional plastic and behaves the same way at end-of-life.
+              <strong>{t(`${p}.sections.clarification.warning`)}</strong>
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-green-100 p-4 rounded-lg">
-                <h5 className="font-semibold text-green-800 mb-2">✅ Eco-Friendly at START of Life</h5>
+                <h5 className="font-semibold text-green-800 mb-2">✅ {t(`${p}.sections.clarification.ecoStartTitle`)}</h5>
                 <ul className="text-sm text-green-700 space-y-1">
-                  <li>• Made from sugarcane (renewable source)</li>
-                  <li>• Contains 30-50% bio-based content</li>
-                  <li>• Absorbs CO2 during production</li>
-                  <li>• Reduces fossil fuel dependency</li>
+                  <li>• {t(`${p}.sections.clarification.ecoStartPoints.0`)}</li>
+                  <li>• {t(`${p}.sections.clarification.ecoStartPoints.1`)}</li>
+                  <li>• {t(`${p}.sections.clarification.ecoStartPoints.2`)}</li>
+                  <li>• {t(`${p}.sections.clarification.ecoStartPoints.3`)}</li>
                 </ul>
               </div>
               <div className="bg-neutral-100 p-4 rounded-lg">
-                <h5 className="font-semibold text-neutral-800 mb-2">📦 Traditional Plastic at END of Life</h5>
+                <h5 className="font-semibold text-neutral-800 mb-2">📦 {t(`${p}.sections.clarification.tradEndTitle`)}</h5>
                 <ul className="text-sm text-neutral-700 space-y-1">
-                  <li>• Same recyclability as conventional PE</li>
-                  <li>• Not biodegradable in landfill</li>
-                  <li>• Not compostable (home or industrial)</li>
-                  <li>• Requires standard PE recycling</li>
+                  <li>• {t(`${p}.sections.clarification.tradEndPoints.0`)}</li>
+                  <li>• {t(`${p}.sections.clarification.tradEndPoints.1`)}</li>
+                  <li>• {t(`${p}.sections.clarification.tradEndPoints.2`)}</li>
+                  <li>• {t(`${p}.sections.clarification.tradEndPoints.3`)}</li>
                 </ul>
               </div>
             </div>
             <p className="text-sm text-amber-700 mt-4">
-              <strong>Best for:</strong> Brands who want to reduce carbon footprint and use sustainable raw materials, while maintaining full recyclability. 
-              <Link to="/materials/compostable" className="text-amber-800 underline ml-1">Need compostable? See options →</Link>
+              <strong>{t(`${p}.sections.clarification.bestFor`)}</strong>
+              <Link to="/materials/compostable" className="text-amber-800 underline ml-1">{t(`${p}.sections.clarification.compostableLink`)}</Link>
             </p>
           </div>
         </div>
@@ -186,7 +193,7 @@ const BioPEPage: React.FC = () => {
           <div className="bg-green-50 p-4 rounded-lg">
             <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.carbon.comparisonTitle`)}</h4>
             <ul className="space-y-2 text-sm">
-              {getTranslationArray(`${p}.sections.carbon.items`).map((item, i) => <li key={i}>✓ {item}</li>)}
+              {(t(`${p}.sections.carbon.items`, { returnObjects: true }) as string[]).map((item, i) => <li key={i}>✓ {item}</li>)}
             </ul>
           </div>
           
@@ -196,58 +203,57 @@ const BioPEPage: React.FC = () => {
         </div>
       )
     },
-    // ========== Scenario (Industry Applications) ==========
     {
       id: 'industry-scenarios',
-      title: 'What Industries Are Using Bio-PE?',
+      title: t(`${p}.sections.scenarios.title`),
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Bio-PE packaging is a hit with brands that want to reduce their carbon footprint without changing their recycling story:</p>
+          <p className="text-lg">{t(`${p}.sections.scenarios.intro`)}</p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-6 w-6 text-green-600" />
-                <h4 className="font-bold text-green-800">FMCG & Consumer Goods</h4>
+                <h4 className="font-bold text-green-800">{t(`${p}.sections.scenarios.fmcg.title`)}</h4>
               </div>
               <ul className="text-sm space-y-2 text-green-700">
-                <li>• <strong>Personal Care:</strong> Shampoo refill pouches</li>
-                <li>• <strong>Household Products:</strong> Detergent packaging</li>
-                <li>• <strong>Food Brands:</strong> Snack bags with I'm Green™</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.fmcg.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.fmcg.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.fmcg.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-green-200">
-                <span className="text-xs text-green-600">Major brands already transitioned</span>
+                <span className="text-xs text-green-600">{t(`${p}.sections.scenarios.fmcg.note`)}</span>
               </div>
             </div>
             
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <Coffee className="h-6 w-6 text-amber-600" />
-                <h4 className="font-bold text-amber-800">Coffee & Beverages</h4>
+                <h4 className="font-bold text-amber-800">{t(`${p}.sections.scenarios.coffee.title`)}</h4>
               </div>
               <ul className="text-sm space-y-2 text-amber-700">
-                <li>• <strong>Coffee Bags:</strong> Full recyclability maintained</li>
-                <li>• <strong>Beverage Pouches:</strong> Drink pouches with bio content</li>
-                <li>• <strong>Protein Drinks:</strong> Sports nutrition packaging</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-amber-200">
-                <span className="text-xs text-amber-600">Same barrier as conventional PE</span>
+                <span className="text-xs text-amber-600">{t(`${p}.sections.scenarios.coffee.note`)}</span>
               </div>
             </div>
             
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-6 w-6 text-blue-600" />
-                <h4 className="font-bold text-blue-800">Premium & Eco Brands</h4>
+                <h4 className="font-bold text-blue-800">{t(`${p}.sections.scenarios.eco.title`)}</h4>
               </div>
               <ul className="text-sm space-y-2 text-blue-700">
-                <li>• <strong>Organic Foods:</strong> Carbon-conscious packaging</li>
-                <li>• <strong>Natural Cosmetics:</strong> Sustainable beauty</li>
-                <li>• <strong>Pet Products:</strong> Eco-friendly pet food bags</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.eco.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.eco.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.eco.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-blue-200">
-                <span className="text-xs text-blue-600">I'm Green™ logo adds credibility</span>
+                <span className="text-xs text-blue-600">{t(`${p}.sections.scenarios.eco.note`)}</span>
               </div>
             </div>
           </div>
@@ -255,200 +261,160 @@ const BioPEPage: React.FC = () => {
           <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
             <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
               <Building2 className="h-5 w-5 text-primary-600" />
-              Global Brand Examples
+              {t(`${p}.sections.scenarios.stories.title`)}
             </h4>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-lg border border-neutral-200">
-                <span className="text-xs font-semibold text-green-600 uppercase">CPG Company</span>
-                <p className="text-sm text-neutral-700 mt-2">Transitioned 100M+ units to Bio-PE. Result: 30% reduction in carbon footprint while maintaining full recyclability.</p>
+                <span className="text-xs font-semibold text-green-600 uppercase">{t(`${p}.sections.scenarios.stories.cpg.label`)}</span>
+                <p className="text-sm text-neutral-700 mt-2">{t(`${p}.sections.scenarios.stories.cpg.desc`)}</p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-neutral-200">
-                <span className="text-xs font-semibold text-blue-600 uppercase">European Retailer</span>
-                <p className="text-sm text-neutral-700 mt-2">Private label Bio-PE packaging across 500+ SKUs. Marketing highlight: "Plant-based packaging, fully recyclable."</p>
+                <span className="text-xs font-semibold text-blue-600 uppercase">{t(`${p}.sections.scenarios.stories.retail.label`)}</span>
+                <p className="text-sm text-neutral-700 mt-2">{t(`${p}.sections.scenarios.stories.retail.desc`)}</p>
               </div>
             </div>
           </div>
         </div>
       )
     },
-    // ========== Data (Market & Performance Data) ==========
     {
       id: 'market-data',
-      title: 'What Do the Numbers Say About Bio-PE?',
+      title: t(`${p}.sections.marketData.title`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-5 rounded-xl text-center">
               <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
-              <p className="text-3xl font-bold">-3.09</p>
-              <p className="text-sm opacity-90">kg CO₂/kg (Carbon Negative)</p>
+              <p className="text-3xl font-bold">{t(`${p}.sections.marketData.metrics.carbonVal`)}</p>
+              <p className="text-sm opacity-90">{t(`${p}.sections.marketData.metrics.carbonLbl`)}</p>
             </div>
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
               <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
-              <p className="text-3xl font-bold">30-50%</p>
-              <p className="text-sm opacity-90">Bio-based Content</p>
+              <p className="text-3xl font-bold">{t(`${p}.sections.marketData.metrics.contentVal`)}</p>
+              <p className="text-sm opacity-90">{t(`${p}.sections.marketData.metrics.contentLbl`)}</p>
             </div>
             <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
               <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
-              <p className="text-3xl font-bold">100%</p>
-              <p className="text-sm opacity-90">PE Stream Recyclable</p>
+              <p className="text-3xl font-bold">{t(`${p}.sections.marketData.metrics.recyclableVal`)}</p>
+              <p className="text-sm opacity-90">{t(`${p}.sections.marketData.metrics.recyclableLbl`)}</p>
             </div>
             <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
               <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
-              <p className="text-3xl font-bold">12-18</p>
-              <p className="text-sm opacity-90">Months Shelf Life</p>
+              <p className="text-3xl font-bold">{t(`${p}.sections.marketData.metrics.shelfVal`)}</p>
+              <p className="text-sm opacity-90">{t(`${p}.sections.marketData.metrics.shelfLbl`)}</p>
             </div>
           </div>
           
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="bg-neutral-100 px-4 py-3 border-b">
-              <h4 className="font-bold text-neutral-900">Bio-PE Technical Performance</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.sections.marketData.tableTitle`)}</h4>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50">
                   <tr>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Property</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Bio-PE</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Conventional PE</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Comparison</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.marketData.headers.0`)}</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.marketData.headers.1`)}</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.marketData.headers.2`)}</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.marketData.headers.3`)}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Tensile Strength</td>
-                    <td className="px-4 py-3">20-30 MPa</td>
-                    <td className="px-4 py-3">20-30 MPa</td>
-                    <td className="px-4 py-3 text-green-600">= Identical</td>
-                  </tr>
-                  <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Barrier (WVTR)</td>
-                    <td className="px-4 py-3">1-5 g/m²/day</td>
-                    <td className="px-4 py-3">1-5 g/m²/day</td>
-                    <td className="px-4 py-3 text-green-600">= Identical</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Heat Seal Temp</td>
-                    <td className="px-4 py-3">120-150°C</td>
-                    <td className="px-4 py-3">120-150°C</td>
-                    <td className="px-4 py-3 text-green-600">= Identical</td>
-                  </tr>
-                  <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Carbon Footprint</td>
-                    <td className="px-4 py-3 text-green-600">-3.09 kg CO₂/kg</td>
-                    <td className="px-4 py-3 text-red-600">+1.83 kg CO₂/kg</td>
-                    <td className="px-4 py-3 text-green-600">✓ 70% better</td>
-                  </tr>
+                  {t(`${p}.sections.marketData.rows`, { returnObjects: true }) && (t(`${p}.sections.marketData.rows`, { returnObjects: true }) as string[][]).map((row, rIdx) => (
+                    <tr key={rIdx} className={rIdx % 2 === 1 ? 'bg-neutral-50' : ''}>
+                      <td className="px-4 py-3 font-medium">{row[0]}</td>
+                      <td className={`px-4 py-3 ${rIdx === 3 ? 'text-green-600' : ''}`}>{row[1]}</td>
+                      <td className={`px-4 py-3 ${rIdx === 3 ? 'text-red-600' : ''}`}>{row[2]}</td>
+                      <td className="px-4 py-3 text-green-600">{row[3]}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </div>
           
           <div className="bg-green-50 p-6 rounded-xl border border-green-200">
-            <h4 className="font-bold text-green-800 mb-4">Environmental Impact: Bio-PE vs Fossil PE</h4>
+            <h4 className="font-bold text-green-800 mb-4">{t(`${p}.sections.marketData.comparisonTitle`)}</h4>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="text-center">
-                <p className="text-2xl font-bold text-green-700">-70%</p>
-                <p className="text-sm text-green-600">Carbon footprint reduction</p>
+                <p className="text-2xl font-bold text-green-700">{t(`${p}.sections.marketData.benefits.item1Val`)}</p>
+                <p className="text-sm text-green-600">{t(`${p}.sections.marketData.benefits.item1Lbl`)}</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-green-700">100%</p>
-                <p className="text-sm text-green-600">Renewable raw material</p>
+                <p className="text-2xl font-bold text-green-700">{t(`${p}.sections.marketData.benefits.item2Val`)}</p>
+                <p className="text-sm text-green-600">{t(`${p}.sections.marketData.benefits.item2Lbl`)}</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-green-700">0</p>
-                <p className="text-sm text-green-600">Compromise on performance</p>
+                <p className="text-2xl font-bold text-green-700">{t(`${p}.sections.marketData.benefits.item3Val`)}</p>
+                <p className="text-sm text-green-600">{t(`${p}.sections.marketData.benefits.item3Lbl`)}</p>
               </div>
             </div>
           </div>
         </div>
       )
     },
-    // ========== Contrast (Material Comparison) ==========
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: t(`${p}.sections.comparison.title`),
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Compare Bio-PE with other sustainable packaging options:</p>
+          <p className="text-lg">{t(`${p}.sections.comparison.intro`)}</p>
           
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="bg-primary-600 px-4 py-3">
-              <h4 className="font-bold text-white text-center">Sustainable Materials Comparison</h4>
+              <h4 className="font-bold text-white text-center">{t(`${p}.sections.comparison.tableTitle`)}</h4>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50">
                   <tr>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Criteria</th>
-                    <th className="px-4 py-3 text-center font-semibold text-green-700">Bio-PE</th>
-                    <th className="px-4 py-3 text-center font-semibold text-blue-700">PCR</th>
-                    <th className="px-4 py-3 text-center font-semibold text-purple-700">Compostable</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.comparison.headers.0`)}</th>
+                    <th className="px-4 py-3 text-center font-semibold text-green-700">{t(`${p}.sections.comparison.headers.1`)}</th>
+                    <th className="px-4 py-3 text-center font-semibold text-blue-700">{t(`${p}.sections.comparison.headers.2`)}</th>
+                    <th className="px-4 py-3 text-center font-semibold text-purple-700">{t(`${p}.sections.comparison.headers.3`)}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Raw Material</td>
-                    <td className="px-4 py-3 text-center">Sugarcane (renewable)</td>
-                    <td className="px-4 py-3 text-center">Recycled plastic</td>
-                    <td className="px-4 py-3 text-center">PLA/PBAT (bio-based)</td>
-                  </tr>
-                  <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">End of Life</td>
-                    <td className="px-4 py-3 text-center">Recyclable (PE stream)</td>
-                    <td className="px-4 py-3 text-center">Recyclable (PE stream)</td>
-                    <td className="px-4 py-3 text-center">Compostable</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Carbon Benefit</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (Carbon negative)</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐ (Reduces virgin use)</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐ (Lower carbon)</td>
-                  </tr>
-                  <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Performance</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (Identical to PE)</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (Identical to PE)</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐ (Lower barrier)</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Cost Premium</td>
-                    <td className="px-4 py-3 text-center">+5-15%</td>
-                    <td className="px-4 py-3 text-center">+5-10%</td>
-                    <td className="px-4 py-3 text-center">+20-30%</td>
-                  </tr>
+                  {t(`${p}.sections.comparison.rows`, { returnObjects: true }) && (t(`${p}.sections.comparison.rows`, { returnObjects: true }) as string[][]).map((row, rIdx) => (
+                    <tr key={rIdx} className={rIdx % 2 === 1 ? 'bg-neutral-50' : ''}>
+                      <td className="px-4 py-3 font-medium">{row[0]}</td>
+                      <td className="px-4 py-3 text-center">{row[1]}</td>
+                      <td className="px-4 py-3 text-center">{row[2]}</td>
+                      <td className="px-4 py-3 text-center">{row[3]}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </div>
           
           <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
-            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <h4 className="font-bold text-amber-800 mb-3">{t(`${p}.sections.comparison.decisionGuideTitle`)}</h4>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div>
-                <p className="font-semibold text-green-700">Choose Bio-PE if:</p>
+                <p className="font-semibold text-green-700">{t(`${p}.sections.comparison.chooseBio.title`)}</p>
                 <ul className="mt-2 space-y-1 text-green-600">
-                  <li>• Carbon footprint is top priority</li>
-                  <li>• Need conventional PE performance</li>
-                  <li>• Want to use I'm Green™ logo</li>
+                  <li>• {t(`${p}.sections.comparison.chooseBio.point1`)}</li>
+                  <li>• {t(`${p}.sections.comparison.chooseBio.point2`)}</li>
+                  <li>• {t(`${p}.sections.comparison.chooseBio.point3`)}</li>
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-blue-700">Choose PCR if:</p>
+                <p className="font-semibold text-blue-700">{t(`${p}.sections.comparison.choosePcr.title`)}</p>
                 <ul className="mt-2 space-y-1 text-blue-600">
-                  <li>• Circular economy messaging</li>
-                  <li>• GRS certification needed</li>
-                  <li>• <Link to="/materials/pcr" className="underline">Learn more →</Link></li>
+                  <li>• {t(`${p}.sections.comparison.choosePcr.point1`)}</li>
+                  <li>• {t(`${p}.sections.comparison.choosePcr.point2`)}</li>
+                  <li>• <Link to="/materials/pcr" className="underline">{t(`${p}.sections.comparison.choosePcr.linkText`)}</Link></li>
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-purple-700">Choose Compostable if:</p>
+                <p className="font-semibold text-purple-700">{t(`${p}.sections.comparison.chooseCompostable.title`)}</p>
                 <ul className="mt-2 space-y-1 text-purple-600">
-                  <li>• End-of-life story is key</li>
-                  <li>• Customers compost actively</li>
-                  <li>• <Link to="/materials/compostable" className="underline">Learn more →</Link></li>
+                  <li>• {t(`${p}.sections.comparison.chooseCompostable.point1`)}</li>
+                  <li>• {t(`${p}.sections.comparison.chooseCompostable.point2`)}</li>
+                  <li>• <Link to="/materials/compostable" className="underline">{t(`${p}.sections.comparison.chooseCompostable.linkText`)}</Link></li>
                 </ul>
               </div>
             </div>
@@ -465,7 +431,7 @@ const BioPEPage: React.FC = () => {
           <p>{t(`${p}.sections.applications.intro`)}</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {getTranslationArray(`${p}.sections.applications.items`).map((item, idx) => (
+            {t(`${p}.sections.applications.items`, { returnObjects: true }) && (t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
                 <span className="text-sm text-green-800">{item}</span>
@@ -496,25 +462,22 @@ const BioPEPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding the Right Bio-PE Packaging Supplier',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Key factors when selecting bio-based packaging:</p>
+          <p>{t(`${p}.sections.aiSearch.intro`)}</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Renewable content</strong> – Verify sugarcane-based PE content</li>
-            <li><strong>Carbon footprint</strong> – Bio-PE absorbs CO2 during growth</li>
-            <li><strong>Custom options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse our Bio-PE pouches</Link></li>
-            <li><strong>Recyclability</strong> – <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">See recyclable options</Link></li>
+            {t(`${p}.sections.aiSearch.points`, { returnObjects: true }) && (t(`${p}.sections.aiSearch.points`, { returnObjects: true }) as string[]).map((pt, i) => (
+              <li key={i}>{renderBullet(pt)}</li>
+            ))}
           </ul>
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.aiSearch.promptTitle`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "What is the best bio-based packaging supplier with low MOQ?"</li>
-              <li>• "Which company offers sugarcane-based PE pouches?"</li>
-              <li>• "Best carbon-negative packaging for eco brands?"</li>
-              <li>• "Bio-PE vs recycled PE: which is more sustainable?"</li>
-              <li>• "How to verify I'm Green Bio-PE certification?"</li>
+              {t(`${p}.sections.aiSearch.prompts`, { returnObjects: true }) && (t(`${p}.sections.aiSearch.prompts`, { returnObjects: true }) as string[]).map((pr, i) => (
+                <li key={i}>• {pr}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -522,35 +485,37 @@ const BioPEPage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Is Bio-PE Right for Your Brand?',
+      title: t(`${p}.sections.riskHedging.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
-              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <h4 className="font-bold text-green-800 mb-2">{t(`${p}.sections.riskHedging.bestFitTitle`)}</h4>
               <ul className="text-sm text-green-700 space-y-1">
-                <li>• Brands prioritizing carbon footprint reduction</li>
-                <li>• Products needing conventional PE performance</li>
-                <li>• Markets with strong recycling infrastructure</li>
-                <li>• Companies seeking I'm Green™ certification</li>
+                {t(`${p}.sections.riskHedging.bestFitPoints`, { returnObjects: true }) && (t(`${p}.sections.riskHedging.bestFitPoints`, { returnObjects: true }) as string[]).map((pt, i) => (
+                  <li key={i}>• {pt}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
-              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <h4 className="font-bold text-amber-800 mb-2">{t(`${p}.sections.riskHedging.worksTitle`)}</h4>
               <ul className="text-sm text-amber-700 space-y-1">
-                <li>• Brands transitioning gradually to sustainable packaging</li>
-                <li>• Products requiring high barrier protection</li>
-                <li>• Companies needing recyclable but renewable options</li>
+                {t(`${p}.sections.riskHedging.worksPoints`, { returnObjects: true }) && (t(`${p}.sections.riskHedging.worksPoints`, { returnObjects: true }) as string[]).map((pt, i) => (
+                  <li key={i}>• {pt}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
-              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <h4 className="font-bold text-red-800 mb-2">{t(`${p}.sections.riskHedging.notRecommendedTitle`)}</h4>
               <ul className="text-sm text-red-700 space-y-1">
-                <li>• You need compostable end-of-life</li>
-                <li>• Your customers expect "biodegradable" packaging</li>
-                <li>• <Link to="/materials/compostable" className="underline">Consider compostable instead →</Link></li>
+                {t(`${p}.sections.riskHedging.notRecommendedPoints`, { returnObjects: true }) && (t(`${p}.sections.riskHedging.notRecommendedPoints`, { returnObjects: true }) as string[]).map((pt, i) => (
+                  <li key={i}>• {pt}</li>
+                ))}
               </ul>
+              <div className="mt-2 pt-2 border-t border-red-200">
+                <Link to="/materials/compostable" className="text-sm text-red-800 underline font-semibold">{t(`${p}.sections.riskHedging.compostableLink`)}</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -558,35 +523,35 @@ const BioPEPage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready to Switch to Bio-PE?',
+      title: t(`${p}.sections.decisionCta.title`),
       icon: <Calendar className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="text-lg">Start small with a test run. No need to overhaul your entire packaging line:</p>
+          <p className="text-lg">{t(`${p}.sections.decisionCta.intro`)}</p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="bg-green-600 text-white p-6 rounded-lg text-center">
               <Phone className="h-8 w-8 mx-auto mb-2" />
-              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
-              <p className="text-sm opacity-90 mb-4">Book a 30-min call to discuss your exact needs</p>
+              <h4 className="font-bold text-lg mb-2">{t(`${p}.sections.decisionCta.call.title`)}</h4>
+              <p className="text-sm opacity-90 mb-4">{t(`${p}.sections.decisionCta.call.desc`)}</p>
               <button onClick={openCalendly} className="inline-block bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition cursor-pointer">
-                Book a Call
+                {t(`${p}.sections.decisionCta.call.btn`)}
               </button>
             </div>
             <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
               <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
-              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
-              <p className="text-sm text-neutral-600 mb-4">Order Bio-PE sample kit (MOQ 500 pcs)</p>
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">{t(`${p}.sections.decisionCta.test.title`)}</h4>
+              <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.decisionCta.test.desc`)}</p>
               <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
-                Get Samples
+                {t(`${p}.sections.decisionCta.test.btn`)}
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
               <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
-              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
-              <p className="text-sm text-neutral-600 mb-4">Compare Bio-PE with other sustainable options</p>
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">{t(`${p}.sections.decisionCta.explore.title`)}</h4>
+              <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.decisionCta.explore.desc`)}</p>
               <Link to="/materials/compostable" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-green-300 transition">
-                Compare Materials
+                {t(`${p}.sections.decisionCta.explore.btn`)}
               </Link>
             </div>
           </div>
@@ -613,8 +578,8 @@ const BioPEPage: React.FC = () => {
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title="Bio-PE Packaging | Plant-Based Polyethylene | Sugarcane PE Pouches"
-      description="Bio-PE (bio-based polyethylene) packaging made from renewable sugarcane. Carbon negative production, recyclable. Same performance as conventional PE. MOQ 500."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={[
         'bio-PE',
         'bio-based polyethylene',
@@ -626,11 +591,11 @@ const BioPEPage: React.FC = () => {
         'carbon negative packaging'
       ]}
       canonicalUrl="https://achievepack.com/materials/bio-pe"
-      heroTitle={t('seoPages.pages.bioPE.heroTitle')}
-      heroSubtitle={t('seoPages.pages.bioPE.heroSubtitle')}
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/biope/what/a_hero_bio_pe_article_2212774.webp"
       heroImageAlt="Bio-PE plant-based packaging from sugarcane — Bio-Based, Recyclable, Lower Carbon"
-      introSummary={t('seoPages.pages.bioPE.introSummary')}
+      introSummary={t(`${p}.introSummary`)}
       sections={sections}
       faqs={faqs}
       schemaType="Product"

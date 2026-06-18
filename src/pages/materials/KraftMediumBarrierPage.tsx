@@ -7,77 +7,91 @@ import { Link } from 'react-router-dom';
 const KraftMediumBarrierPage: React.FC = () => {
   const { t } = useTranslation();
   const p = 'seoPages.pages.kraftMediumBarrier';
+
+  // Helper to render bold prefixes (split by colon or Chinese full-width colon)
+  const renderBullet = (text: string) => {
+    const match = text.match(/^([^:：]+)[:：](.*)$/);
+    if (match) {
+      return (
+        <span>
+          <strong>{match[1]}:</strong>{match[2]}
+        </span>
+      );
+    }
+    return <span>{text}</span>;
+  };
+
   const sections = [
     {
       id: 'overview',
-      title: 'Overview',
+      title: t(`${p}.sections.overview.title`),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            <strong>Kraft Medium Barrier packaging</strong> offers enhanced protection with metallized or aluminum layers, extending shelf life to 6-12 months for moderately sensitive products.
+            <strong>{t(`${p}.sections.overview.intro`)}</strong>
           </p>
           
           <div className="bg-primary-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-primary-800 mb-2">Key Features</h4>
+            <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.overview.keyFeaturesTitle`)}</h4>
             <ul className="space-y-1 text-sm">
-              <li>• Natural kraft exterior with enhanced barrier layers</li>
-              <li>• Medium oxygen and moisture protection (6-12 month shelf life)</li>
-              <li>• Ideal for coffee, nuts, dried fruits, and supplements</li>
-              <li>• Metallized or aluminum foil barrier options</li>
-              <li>• Premium aesthetic with functional performance</li>
+              <li>• {t(`${p}.sections.overview.features.0`)}</li>
+              <li>• {t(`${p}.sections.overview.features.1`)}</li>
+              <li>• {t(`${p}.sections.overview.features.2`)}</li>
+              <li>• {t(`${p}.sections.overview.features.3`)}</li>
+              <li>• {t(`${p}.sections.overview.features.4`)}</li>
             </ul>
           </div>
           
           <p className="mt-4">
-            Perfect for roasted coffee, premium snacks, dried fruits, protein powders, vitamins, organic nuts, and specialty teas requiring extended freshness.
+            {t(`${p}.sections.overview.summary`)}
           </p>
         </div>
       )
     },
     {
       id: 'specifications',
-      title: 'Technical Specifications',
+      title: t(`${p}.sections.specifications.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Our kraft medium barrier structure provides balanced protection for moderate shelf life requirements.</p>
+          <p>{t(`${p}.sections.specifications.intro`)}</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="border border-amber-200 rounded-lg p-4 bg-amber-50/50">
-              <h4 className="font-semibold text-amber-800 mb-2">Material Structure</h4>
-              <p className="text-sm">Kraft Paper / Metallized Layer / PE</p>
+              <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.specifications.structure.title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.specifications.structure.desc`)}</p>
               <ul className="text-xs mt-2 space-y-1 text-amber-700">
-                <li>• 80-120g kraft paper base</li>
-                <li>• 12-15µm metallized film or aluminum foil</li>
-                <li>• Food-grade PE sealant layer</li>
+                <li>• {t(`${p}.sections.specifications.structure.points.0`)}</li>
+                <li>• {t(`${p}.sections.specifications.structure.points.1`)}</li>
+                <li>• {t(`${p}.sections.specifications.structure.points.2`)}</li>
               </ul>
             </div>
             <div className="border border-blue-200 rounded-lg p-4 bg-blue-50/50">
-              <h4 className="font-semibold text-blue-800 mb-2">Barrier Properties</h4>
-              <p className="text-sm">Medium-high oxygen and moisture barrier</p>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.specifications.properties.title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.specifications.properties.desc`)}</p>
               <ul className="text-xs mt-2 space-y-1 text-blue-700">
-                <li>• MVTR: 1-3 g/m²/day</li>
-                <li>• OTR: 5-20 cc/m²/day</li>
-                <li>• Shelf life: 6-12 months</li>
+                <li>• {t(`${p}.sections.specifications.properties.points.0`)}</li>
+                <li>• {t(`${p}.sections.specifications.properties.points.1`)}</li>
+                <li>• {t(`${p}.sections.specifications.properties.points.2`)}</li>
               </ul>
             </div>
             <div className="border border-green-200 rounded-lg p-4 bg-green-50/50">
-              <h4 className="font-semibold text-green-800 mb-2">Available Formats</h4>
+              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.specifications.formats.title`)}</h4>
               <ul className="text-sm space-y-1 text-green-700">
-                <li>• Stand-up pouches with valve</li>
-                <li>• Flat bottom bags</li>
-                <li>• Side gusset bags</li>
-                <li>• Quad seal bags</li>
+                <li>• {t(`${p}.sections.specifications.formats.points.0`)}</li>
+                <li>• {t(`${p}.sections.specifications.formats.points.1`)}</li>
+                <li>• {t(`${p}.sections.specifications.formats.points.2`)}</li>
+                <li>• {t(`${p}.sections.specifications.formats.points.3`)}</li>
               </ul>
             </div>
             <div className="border border-purple-200 rounded-lg p-4 bg-purple-50/50">
-              <h4 className="font-semibold text-purple-800 mb-2">Special Features</h4>
+              <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.specifications.premium.title`)}</h4>
               <ul className="text-sm space-y-1 text-purple-700">
-                <li>• Degassing valves for coffee</li>
-                <li>• Resealable zippers</li>
-                <li>• Tear notches</li>
-                <li>• Spot UV printing</li>
+                <li>• {t(`${p}.sections.specifications.premium.points.0`)}</li>
+                <li>• {t(`${p}.sections.specifications.premium.points.1`)}</li>
+                <li>• {t(`${p}.sections.specifications.premium.points.2`)}</li>
+                <li>• {t(`${p}.sections.specifications.premium.points.3`)}</li>
               </ul>
             </div>
           </div>
@@ -86,30 +100,17 @@ const KraftMediumBarrierPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Ideal Applications',
+      title: t(`${p}.sections.applications.title`),
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Kraft medium barrier is the sweet spot for products requiring moderate protection without the cost of high barrier materials.</p>
+          <p>{t(`${p}.sections.applications.intro`)}</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {[
-              'Roasted coffee beans',
-              'Specialty ground coffee',
-              'Premium loose leaf tea',
-              'Roasted nuts & seeds',
-              'Dried fruits',
-              'Protein powders',
-              'Superfood powders',
-              'Nutritional supplements',
-              'Energy bars',
-              'Chocolate & cocoa',
-              'Spice blends',
-              'Artisan granola'
-            ].map((item, idx) => (
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((idx) => (
               <div key={idx} className="flex items-center gap-2 bg-primary-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-primary-500 flex-shrink-0" />
-                <span className="text-sm text-primary-800">{item}</span>
+                <span className="text-sm text-primary-800">{t(`${p}.sections.applications.items.${idx}`)}</span>
               </div>
             ))}
           </div>
@@ -118,86 +119,85 @@ const KraftMediumBarrierPage: React.FC = () => {
     },
     {
       id: 'advantages',
-      title: 'Advantages & Limitations',
+      title: t(`${p}.sections.advantages.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-green-800 mb-2">Best For</h4>
+              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.advantages.bestForTitle`)}</h4>
               <ul className="text-sm space-y-1 text-green-700">
-                <li>✓ Coffee and tea products</li>
-                <li>✓ 6-12 month shelf life needs</li>
-                <li>✓ Moderately sensitive to oxygen/moisture</li>
-                <li>✓ Premium brand positioning</li>
-                <li>✓ Natural aesthetic with protection</li>
+                <li>✓ {t(`${p}.sections.advantages.bestForPoints.0`)}</li>
+                <li>✓ {t(`${p}.sections.advantages.bestForPoints.1`)}</li>
+                <li>✓ {t(`${p}.sections.advantages.bestForPoints.2`)}</li>
+                <li>✓ {t(`${p}.sections.advantages.bestForPoints.3`)}</li>
+                <li>✓ {t(`${p}.sections.advantages.bestForPoints.4`)}</li>
               </ul>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-amber-800 mb-2">Considerations</h4>
+              <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.advantages.considerationsTitle`)}</h4>
               <ul className="text-sm space-y-1 text-amber-700">
-                <li>• Higher cost than low barrier</li>
-                <li>• Not suitable for very long shelf life (18+ months)</li>
-                <li>• Metallized layer reduces recyclability</li>
-                <li>• Requires proper storage conditions</li>
+                <li>• {t(`${p}.sections.advantages.considerationsPoints.0`)}</li>
+                <li>• {t(`${p}.sections.advantages.considerationsPoints.1`)}</li>
+                <li>• {t(`${p}.sections.advantages.considerationsPoints.2`)}</li>
+                <li>• {t(`${p}.sections.advantages.considerationsPoints.3`)}</li>
               </ul>
             </div>
           </div>
         </div>
       )
     },
-    // ========== Scenario (Industry Applications) ==========
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: t(`${p}.sections.scenarios.title`),
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Kraft medium barrier is the most popular choice for coffee roasters and premium food brands:</p>
+          <p className="text-lg">{t(`${p}.sections.scenarios.intro`)}</p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <Coffee className="h-6 w-6 text-amber-600" />
-                <h4 className="font-bold text-amber-800">Coffee Roasters</h4>
+                <h4 className="font-bold text-amber-800">{t(`${p}.sections.scenarios.coffee.title`)}</h4>
               </div>
               <ul className="text-sm space-y-2 text-amber-700">
-                <li>• <strong>Specialty Coffee:</strong> 9-12 month freshness with valve</li>
-                <li>• <strong>Ground Coffee:</strong> Excellent aroma retention</li>
-                <li>• <strong>Third Wave:</strong> Premium craft aesthetic</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-amber-200">
-                <span className="text-xs text-amber-600">Most popular choice for roasters</span>
+                <span className="text-xs text-amber-600">{t(`${p}.sections.scenarios.coffee.note`)}</span>
               </div>
             </div>
             
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-6 w-6 text-green-600" />
-                <h4 className="font-bold text-green-800">Premium Snacks</h4>
+                <h4 className="font-bold text-green-800">{t(`${p}.sections.scenarios.snacks.title`)}</h4>
               </div>
               <ul className="text-sm space-y-2 text-green-700">
-                <li>• <strong>Roasted Nuts:</strong> Maintain crunch & freshness</li>
-                <li>• <strong>Dried Fruits:</strong> Preserve natural moisture</li>
-                <li>• <strong>Granola:</strong> Keep clusters crispy</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.snacks.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.snacks.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.snacks.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-green-200">
-                <span className="text-xs text-green-600">Natural look + protection</span>
+                <span className="text-xs text-green-600">{t(`${p}.sections.scenarios.snacks.note`)}</span>
               </div>
             </div>
             
             <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-6 w-6 text-purple-600" />
-                <h4 className="font-bold text-purple-800">Health & Wellness</h4>
+                <h4 className="font-bold text-purple-800">{t(`${p}.sections.scenarios.wellness.title`)}</h4>
               </div>
               <ul className="text-sm space-y-2 text-purple-700">
-                <li>• <strong>Protein Powders:</strong> Keep dry & fresh</li>
-                <li>• <strong>Superfood Blends:</strong> Preserve nutrients</li>
-                <li>• <strong>Tea Blends:</strong> Aroma protection</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.wellness.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.wellness.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.wellness.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-purple-200">
-                <span className="text-xs text-purple-600">Natural positioning for health brands</span>
+                <span className="text-xs text-purple-600">{t(`${p}.sections.scenarios.wellness.note`)}</span>
               </div>
             </div>
           </div>
@@ -205,26 +205,25 @@ const KraftMediumBarrierPage: React.FC = () => {
           <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
             <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
               <Building2 className="h-5 w-5 text-primary-600" />
-              Customer Success Stories
+              {t(`${p}.sections.scenarios.stories.title`)}
             </h4>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-lg border border-neutral-200">
-                <span className="text-xs font-semibold text-amber-600 uppercase">US Specialty Roaster</span>
-                <p className="text-sm text-neutral-700 mt-2">"Kraft medium barrier with valve is our sweet spot - 9 month shelf life, beautiful craft look, and customers love the natural aesthetic."</p>
+                <span className="text-xs font-semibold text-amber-600 uppercase">{t(`${p}.sections.scenarios.stories.roaster.label`)}</span>
+                <p className="text-sm text-neutral-700 mt-2">{t(`${p}.sections.scenarios.stories.roaster.desc`)}</p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-neutral-200">
-                <span className="text-xs font-semibold text-green-600 uppercase">EU Organic Snack Brand</span>
-                <p className="text-sm text-neutral-700 mt-2">"Switched from plastic to kraft medium barrier. Sales up 20% - customers associate kraft with natural and organic."</p>
+                <span className="text-xs font-semibold text-green-600 uppercase">{t(`${p}.sections.scenarios.stories.organic.label`)}</span>
+                <p className="text-sm text-neutral-700 mt-2">{t(`${p}.sections.scenarios.stories.organic.desc`)}</p>
               </div>
             </div>
           </div>
         </div>
       )
     },
-    // ========== Data (Market & Performance Data) ==========
     {
       id: 'market-data',
-      title: 'MarketData Market & Performance Data',
+      title: t(`${p}.sections.marketData.title`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -232,57 +231,57 @@ const KraftMediumBarrierPage: React.FC = () => {
             <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
               <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
               <p className="text-3xl font-bold">1-3</p>
-              <p className="text-sm opacity-90">MVTR (g/m²/day)</p>
+              <p className="text-sm opacity-90">{t(`${p}.sections.marketData.metrics.mvtr`)}</p>
             </div>
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
               <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
               <p className="text-3xl font-bold">5-20</p>
-              <p className="text-sm opacity-90">OTR (cc/m²/day)</p>
+              <p className="text-sm opacity-90">{t(`${p}.sections.marketData.metrics.otr`)}</p>
             </div>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-5 rounded-xl text-center">
               <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
               <p className="text-3xl font-bold">6-12</p>
-              <p className="text-sm opacity-90">Months Shelf Life</p>
+              <p className="text-sm opacity-90">{t(`${p}.sections.marketData.metrics.shelfLife`)}</p>
             </div>
             <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
               <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
               <p className="text-3xl font-bold">60-70%</p>
-              <p className="text-sm opacity-90">Renewable Content</p>
+              <p className="text-sm opacity-90">{t(`${p}.sections.marketData.metrics.renewable`)}</p>
             </div>
           </div>
           
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="bg-neutral-100 px-4 py-3 border-b">
-              <h4 className="font-bold text-neutral-900">Medium Barrier Structure Options</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.sections.marketData.tableTitle`)}</h4>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50">
                   <tr>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Structure</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Barrier Layer</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Shelf Life</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Best For</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.marketData.headers.0`)}</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.marketData.headers.1`)}</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.marketData.headers.2`)}</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.marketData.headers.3`)}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
                   <tr>
-                    <td className="px-4 py-3 font-medium">Kraft/MET PET/PE</td>
-                    <td className="px-4 py-3">Metallized PET</td>
-                    <td className="px-4 py-3">9-12 months</td>
-                    <td className="px-4 py-3">Coffee, premium snacks</td>
+                    <td className="px-4 py-3 font-medium">{t(`${p}.sections.marketData.rows.0.0`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.0.1`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.0.2`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.0.3`)}</td>
                   </tr>
                   <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Kraft/ALU/PE</td>
-                    <td className="px-4 py-3">Thin Aluminum</td>
-                    <td className="px-4 py-3">12 months</td>
-                    <td className="px-4 py-3">Supplements, tea</td>
+                    <td className="px-4 py-3 font-medium">{t(`${p}.sections.marketData.rows.1.0`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.1.1`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.1.2`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.1.3`)}</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-medium">Kraft/VMPET/PE</td>
-                    <td className="px-4 py-3">Vacuum Metallized</td>
-                    <td className="px-4 py-3">6-9 months</td>
-                    <td className="px-4 py-3">Nuts, dried fruits</td>
+                    <td className="px-4 py-3 font-medium">{t(`${p}.sections.marketData.rows.2.0`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.2.1`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.2.2`)}</td>
+                    <td className="px-4 py-3">{t(`${p}.sections.marketData.rows.2.3`)}</td>
                   </tr>
                 </tbody>
               </table>
@@ -290,72 +289,71 @@ const KraftMediumBarrierPage: React.FC = () => {
           </div>
           
           <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-            <h4 className="font-bold text-blue-800 mb-4">Why Brands Choose Medium Barrier</h4>
+            <h4 className="font-bold text-blue-800 mb-4">{t(`${p}.sections.marketData.impactTitle`)}</h4>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="text-center">
                 <p className="text-2xl font-bold text-blue-700">Best Value</p>
-                <p className="text-sm text-blue-600">Protection vs cost balance</p>
+                <p className="text-sm text-blue-600">{t(`${p}.sections.marketData.impact.value`)}</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-blue-700">60-70%</p>
-                <p className="text-sm text-blue-600">Renewable kraft content</p>
+                <p className="text-sm text-blue-600">{t(`${p}.sections.marketData.impact.renewable`)}</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-blue-700">#1</p>
-                <p className="text-sm text-blue-600">Choice for coffee roasters</p>
+                <p className="text-sm text-blue-600">{t(`${p}.sections.marketData.impact.roasterChoice`)}</p>
               </div>
             </div>
           </div>
         </div>
       )
     },
-    // ========== Contrast (Material Comparison) ==========
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: t(`${p}.sections.comparison.title`),
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Compare kraft medium barrier with other options:</p>
+          <p className="text-lg">{t(`${p}.sections.comparison.intro`)}</p>
           
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="bg-primary-600 px-4 py-3">
-              <h4 className="font-bold text-white text-center">Kraft Barrier Options</h4>
+              <h4 className="font-bold text-white text-center">{t(`${p}.sections.comparison.tableTitle`)}</h4>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50">
                   <tr>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Criteria</th>
-                    <th className="px-4 py-3 text-center font-semibold text-blue-700">Medium Barrier</th>
-                    <th className="px-4 py-3 text-center font-semibold text-amber-700">High Barrier</th>
-                    <th className="px-4 py-3 text-center font-semibold text-green-700">Low Barrier</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">{t(`${p}.sections.comparison.headers.0`)}</th>
+                    <th className="px-4 py-3 text-center font-semibold text-blue-700">{t(`${p}.sections.comparison.headers.1`)}</th>
+                    <th className="px-4 py-3 text-center font-semibold text-amber-700">{t(`${p}.sections.comparison.headers.2`)}</th>
+                    <th className="px-4 py-3 text-center font-semibold text-green-700">{t(`${p}.sections.comparison.headers.3`)}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
                   <tr>
-                    <td className="px-4 py-3 font-medium">Ideal Products</td>
-                    <td className="px-4 py-3 text-center">Coffee, nuts, snacks</td>
-                    <td className="px-4 py-3 text-center">Pharma, freeze-dried</td>
-                    <td className="px-4 py-3 text-center">Bakery, dry goods</td>
+                    <td className="px-4 py-3 font-medium">{t(`${p}.sections.comparison.rows.0.0`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.0.1`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.0.2`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.0.3`)}</td>
                   </tr>
                   <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Shelf Life</td>
-                    <td className="px-4 py-3 text-center">6-12 months</td>
-                    <td className="px-4 py-3 text-center">12-24+ months</td>
-                    <td className="px-4 py-3 text-center">3-6 months</td>
+                    <td className="px-4 py-3 font-medium">{t(`${p}.sections.comparison.rows.1.0`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.1.1`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.1.2`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.1.3`)}</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-medium">Value Rating</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ Best</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐ Premium</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐ Budget</td>
+                    <td className="px-4 py-3 font-medium">{t(`${p}.sections.comparison.rows.2.0`)}</td>
+                    <td className="px-4 py-3 text-center text-blue-600">{t(`${p}.sections.comparison.rows.2.1`)}</td>
+                    <td className="px-4 py-3 text-center text-amber-600">{t(`${p}.sections.comparison.rows.2.2`)}</td>
+                    <td className="px-4 py-3 text-center text-green-600">{t(`${p}.sections.comparison.rows.2.3`)}</td>
                   </tr>
                   <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Sustainability</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐ (metallized)</td>
-                    <td className="px-4 py-3 text-center">⭐⭐ (aluminum)</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (recyclable)</td>
+                    <td className="px-4 py-3 font-medium">{t(`${p}.sections.comparison.rows.3.0`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.3.1`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.3.2`)}</td>
+                    <td className="px-4 py-3 text-center">{t(`${p}.sections.comparison.rows.3.3`)}</td>
                   </tr>
                 </tbody>
               </table>
@@ -363,30 +361,30 @@ const KraftMediumBarrierPage: React.FC = () => {
           </div>
           
           <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
-            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <h4 className="font-bold text-amber-800 mb-3">{t(`${p}.sections.comparison.decisionGuideTitle`)}</h4>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div>
-                <p className="font-semibold text-blue-700">Choose Medium Barrier if:</p>
+                <p className="font-semibold text-blue-700">{t(`${p}.sections.comparison.chooseMedium`)}</p>
                 <ul className="mt-2 space-y-1 text-blue-600">
-                  <li>• Coffee, nuts, or snacks</li>
-                  <li>• 6-12 month shelf life works</li>
-                  <li>• Best value-protection balance</li>
+                  <li>• {t(`${p}.sections.comparison.mediumPoints.0`)}</li>
+                  <li>• {t(`${p}.sections.comparison.mediumPoints.1`)}</li>
+                  <li>• {t(`${p}.sections.comparison.mediumPoints.2`)}</li>
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-amber-700">Choose High Barrier if:</p>
+                <p className="font-semibold text-amber-700">{t(`${p}.sections.comparison.chooseHigh`)}</p>
                 <ul className="mt-2 space-y-1 text-amber-600">
-                  <li>• Need 12-24+ month shelf life</li>
-                  <li>• Very sensitive products</li>
-                  <li>• <Link to="/materials/kraft-high-barrier" className="underline">Learn more →</Link></li>
+                  <li>• {t(`${p}.sections.comparison.highPoints.0`)}</li>
+                  <li>• {t(`${p}.sections.comparison.highPoints.1`)}</li>
+                  <li>• <Link to="/materials/kraft-high-barrier" className="underline">{t(`${p}.sections.comparison.highPoints.2`)}</Link></li>
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-green-700">Choose Low Barrier if:</p>
+                <p className="font-semibold text-green-700">{t(`${p}.sections.comparison.chooseLow`)}</p>
                 <ul className="mt-2 space-y-1 text-green-600">
-                  <li>• 3-6 month shelf life OK</li>
-                  <li>• Sustainability priority</li>
-                  <li>• <Link to="/materials/kraft-low-barrier" className="underline">Learn more →</Link></li>
+                  <li>• {t(`${p}.sections.comparison.lowPoints.0`)}</li>
+                  <li>• {t(`${p}.sections.comparison.lowPoints.1`)}</li>
+                  <li>• <Link to="/materials/kraft-low-barrier" className="underline">{t(`${p}.sections.comparison.lowPoints.2`)}</Link></li>
                 </ul>
               </div>
             </div>
@@ -396,24 +394,24 @@ const KraftMediumBarrierPage: React.FC = () => {
     },
     {
       id: 'sustainability',
-      title: 'Sustainability',
+      title: t(`${p}.sections.sustainability.title`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>While medium barrier packaging includes barrier layers, it still maintains a lower environmental impact than traditional plastic packaging.</p>
+          <p>{t(`${p}.sections.sustainability.intro`)}</p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border border-green-200">
-              <h4 className="font-semibold text-green-800 mb-2">Renewable Content</h4>
-              <p className="text-sm text-green-700">60-70% renewable kraft paper content from sustainable forests.</p>
+              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.sustainability.renewable.title`)}</h4>
+              <p className="text-sm text-green-700">{t(`${p}.sections.sustainability.renewable.desc`)}</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">Reduced Plastic</h4>
-              <p className="text-sm text-blue-700">50% less plastic compared to all-plastic pouches.</p>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.sustainability.reduced.title`)}</h4>
+              <p className="text-sm text-blue-700">{t(`${p}.sections.sustainability.reduced.desc`)}</p>
             </div>
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-xl border border-amber-200">
-              <h4 className="font-semibold text-amber-800 mb-2">Lower Emissions</h4>
-              <p className="text-sm text-amber-700">40-50% reduction in carbon footprint vs. plastic packaging.</p>
+              <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.sustainability.emissions.title`)}</h4>
+              <p className="text-sm text-amber-700">{t(`${p}.sections.sustainability.emissions.desc`)}</p>
             </div>
           </div>
         </div>

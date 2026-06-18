@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Recycle, CheckCircle, Calendar, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Target, Layers, Box, Palette, Leaf, TrendingUp, Settings } from 'lucide-react'
+import { Recycle, CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Target, Layers, Box, Palette, Leaf, TrendingUp, Settings } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
@@ -29,6 +29,7 @@ const ClickableImage: React.FC<{
   caption?: string
 }> = ({ src, alt, className = '', caption }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const { t } = useTranslation()
 
   return (
     <>
@@ -117,48 +118,44 @@ const ImageTextRow: React.FC<{
 }
 
 const MonoMaterialFoundationPage: React.FC = () => {
-  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
-  const p = 'seoPages.pages.monoMaterialFoundation'
+  const { t } = useTranslation()
 
-  const faqs = [
-    {
-      question: t(`${p}.faqs.q1`),
-      answer: t(`${p}.faqs.a1`)
-    },
-    {
-      question: t(`${p}.faqs.q2`),
-      answer: t(`${p}.faqs.a2`)
-    },
-    {
-      question: t(`${p}.faqs.q3`),
-      answer: t(`${p}.faqs.a3`)
-    },
-    {
-      question: t(`${p}.faqs.q4`),
-      answer: t(`${p}.faqs.a4`)
-    },
-    {
-      question: t(`${p}.faqs.q5`),
-      answer: t(`${p}.faqs.a5`)
-    },
-    {
-      question: t(`${p}.faqs.q6`),
-      answer: t(`${p}.faqs.a6`)
-    }
-  ]
+  const faqsData = t('seoPages.pages.monoMaterialFoundation.faqs', { returnObjects: true })
+  const faqs = Array.isArray(faqsData) ? faqsData : []
+
+  const takeawaysData = t('seoPages.pages.monoMaterialFoundation.takeaways.items', { returnObjects: true })
+  const takeaways = Array.isArray(takeawaysData) ? takeawaysData : []
+
+  const box1ItemsData = t('seoPages.pages.monoMaterialFoundation.designChoices.box1Items', { returnObjects: true })
+  const box1Items = Array.isArray(box1ItemsData) ? box1ItemsData : []
+
+  const box2ItemsData = t('seoPages.pages.monoMaterialFoundation.designChoices.box2Items', { returnObjects: true })
+  const box2Items = Array.isArray(box2ItemsData) ? box2ItemsData : []
+
+  const decItemsData = t('seoPages.pages.monoMaterialFoundation.decoration.items', { returnObjects: true })
+  const decItems = Array.isArray(decItemsData) ? decItemsData : []
+
+  const ecoDigitalItemsData = t('seoPages.pages.monoMaterialFoundation.ecoDigital.box2Items', { returnObjects: true })
+  const ecoDigitalItems = Array.isArray(ecoDigitalItemsData) ? ecoDigitalItemsData : []
+
+  const ctaItemsData = t('seoPages.pages.monoMaterialFoundation.cta.items', { returnObjects: true })
+  const ctaItems = Array.isArray(ctaItemsData) ? ctaItemsData : []
+
+  const aiFaqData = t('seoPages.pages.monoMaterialFoundation.aiFaq', { returnObjects: true })
+  const aiFaq = Array.isArray(aiFaqData) ? aiFaqData : []
 
   return (
     <>
       <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
+        <title>{t('seoPages.pages.monoMaterialFoundation.title')}</title>
+        <meta name="description" content={t('seoPages.pages.monoMaterialFoundation.description')} />
         <link rel="canonical" href="https://achievepack.com/recyclable/mono-material-foundation" />
-        <meta name="keywords" content={t(`${p}.keywords`)} />
+        <meta name="keywords" content={t('seoPages.pages.monoMaterialFoundation.keywords')} />
         
         {/* Open Graph */}
-        <meta property="og:title" content={t(`${p}.ogTitle`)} />
-        <meta property="og:description" content={t(`${p}.ogDescription`)} />
+        <meta property="og:title" content={t('seoPages.pages.monoMaterialFoundation.ogTitle')} />
+        <meta property="og:description" content={t('seoPages.pages.monoMaterialFoundation.ogDescription')} />
         <meta property="og:image" content="https://achievepack.com/imgs/recyclable/foundation/hero.webp" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://achievepack.com/recyclable/mono-material-foundation" />
@@ -168,8 +165,8 @@ const MonoMaterialFoundationPage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": t(`${p}.ogTitle`),
-            "description": t(`${p}.description`),
+            "headline": t('seoPages.pages.monoMaterialFoundation.schemaArticleHeadline'),
+            "description": t('seoPages.pages.monoMaterialFoundation.schemaArticleDescription'),
             "image": "https://achievepack.com/imgs/recyclable/foundation/hero.webp",
             "author": {
               "@type": "Organization",
@@ -192,7 +189,7 @@ const MonoMaterialFoundationPage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
+            "mainEntity": faqs.map((faq: any) => ({
               "@type": "Question",
               "name": faq.question,
               "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
@@ -211,14 +208,14 @@ const MonoMaterialFoundationPage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {t(`${p}.hero.badge`)}
+                    {t('seoPages.pages.monoMaterialFoundation.hero.tag')}
                   </span>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                  {t(`${p}.hero.title`)}
+                  {t('seoPages.pages.monoMaterialFoundation.hero.title')}
                 </h1>
                 <p className="text-lg text-teal-100 mb-8">
-                  {t(`${p}.hero.subtitle`)}
+                  {t('seoPages.pages.monoMaterialFoundation.hero.subtitle')}
                 </p>
                 
                 <div className="flex flex-wrap gap-4">
@@ -227,14 +224,14 @@ const MonoMaterialFoundationPage: React.FC = () => {
                     className="flex items-center gap-2 bg-white text-teal-800 hover:bg-teal-50 px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Calendar className="h-5 w-5" />
-                    {t(`${p}.hero.btn1`)}
+                    {t('seoPages.pages.monoMaterialFoundation.hero.btnConsultation')}
                   </button>
                   <Link 
                     to="/store"
                     className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Package className="h-5 w-5" />
-                    {t(`${p}.hero.btn2`)}
+                    {t('seoPages.pages.monoMaterialFoundation.hero.btnStore')}
                   </Link>
                 </div>
 
@@ -242,15 +239,15 @@ const MonoMaterialFoundationPage: React.FC = () => {
                 <div className="flex items-center gap-4 mt-8 text-sm text-teal-200">
                   <div className="flex items-center gap-1">
                     <Layers className="h-4 w-4 text-teal-400" />
-                    <span>{t(`${p}.hero.badge1`)}</span>
+                    <span>{t('seoPages.pages.monoMaterialFoundation.hero.badgeSingle')}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Recycle className="h-4 w-4 text-teal-400" />
-                    <span>{t(`${p}.hero.badge2`)}</span>
+                    <span>{t('seoPages.pages.monoMaterialFoundation.hero.badgePEStream')}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Target className="h-4 w-4 text-teal-400" />
-                    <span>{t(`${p}.hero.badge3`)}</span>
+                    <span>{t('seoPages.pages.monoMaterialFoundation.hero.badgeRetailer')}</span>
                   </div>
                 </div>
               </div>
@@ -258,7 +255,7 @@ const MonoMaterialFoundationPage: React.FC = () => {
               <div className="relative">
                 <ClickableImage 
                   src={IMAGES.hero}
-                  alt={t(`${p}.hero.imageAlt`)}
+                  alt="Mono-material design foundation for recyclable pouches"
                   className="w-full rounded-xl shadow-2xl"
                 />
               </div>
@@ -273,26 +270,20 @@ const MonoMaterialFoundationPage: React.FC = () => {
               <div className="flex items-start justify-between mb-4">
                 <h2 className="text-xl font-bold text-teal-900 flex items-center gap-2">
                   <Zap className="h-6 w-6 text-teal-600" />
-                  {t(`${p}.takeaways.title`)}
+                  {t('seoPages.pages.monoMaterialFoundation.takeaways.title')}
                 </h2>
                 <SocialShareButtons 
                   url="https://achievepack.com/recyclable/mono-material-foundation"
-                  title={t(`${p}.ogTitle`)}
+                  title={t('seoPages.pages.monoMaterialFoundation.title')}
                 />
               </div>
               <ul className="space-y-3 text-teal-800">
-                {(t(`${p}.takeaways.items`, { returnObjects: true }) as string[]).map((item, idx) => {
-                  const parts = item.split(':')
-                  return (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                      <span>
-                        <strong>{parts[0]}:</strong>
-                        {parts.slice(1).join(':')}
-                      </span>
-                    </li>
-                  )
-                })}
+                {takeaways.map((item: string, idx: number) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -303,14 +294,18 @@ const MonoMaterialFoundationPage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Target className="h-8 w-8 text-teal-600" />
-              {t(`${p}.intro.title`)}
+              {t('seoPages.pages.monoMaterialFoundation.intro.title')}
             </h2>
             <div className="prose prose-lg text-neutral-700 space-y-4">
               <p>
-                {t(`${p}.intro.p1Part1`)}<strong>{t(`${p}.intro.p1Strong`)}</strong>{t(`${p}.intro.p1Part2`)}
+                {t('seoPages.pages.monoMaterialFoundation.intro.p1')}
               </p>
               <p>
-                {t(`${p}.intro.p2Part1`)}<Link to="/materials/recyclable-mono-pe" className="text-primary-600 underline">{t(`${p}.intro.p2Link`)}</Link>{t(`${p}.intro.p2Part2`)}
+                {t('seoPages.pages.monoMaterialFoundation.intro.p2.part1')}
+                <Link to="/materials/recyclable-mono-pe" className="text-primary-600 underline">
+                  {t('seoPages.pages.monoMaterialFoundation.intro.p2.link')}
+                </Link>
+                {t('seoPages.pages.monoMaterialFoundation.intro.p2.part2')}
               </p>
             </div>
           </div>
@@ -321,28 +316,30 @@ const MonoMaterialFoundationPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.laminateComparison}
-              imageAlt={t(`${p}.definition.imageAlt`)}
-              imageCaption={t(`${p}.definition.imageCaption`)}
+              imageAlt="Mono-material vs multi-material laminate comparison"
+              imageCaption={t('seoPages.pages.monoMaterialFoundation.workingDef.imageCaption')}
               imageLeft={true}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Layers className="h-8 w-8 text-teal-600" />
-                {t(`${p}.definition.title`)}
+                {t('seoPages.pages.monoMaterialFoundation.workingDef.title')}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  {t(`${p}.definition.p1Part1`)}<strong>{t(`${p}.definition.p1Strong`)}</strong>{t(`${p}.definition.p1Part2`)}
+                  {t('seoPages.pages.monoMaterialFoundation.workingDef.p1')}
                 </p>
                 <div className="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-500">
-                  <p className="font-medium text-teal-800 mb-2">{t(`${p}.definition.boxTitle`)}</p>
+                  <p className="font-medium text-teal-800 mb-2">
+                    {t('seoPages.pages.monoMaterialFoundation.workingDef.highlightTitle')}
+                  </p>
                   <ul className="text-sm text-teal-700 space-y-1">
-                    {(t(`${p}.definition.boxItems`, { returnObjects: true }) as string[]).map((item, idx) => (
+                    {(t('seoPages.pages.monoMaterialFoundation.workingDef.highlightItems', { returnObjects: true }) as string[] || []).map((item: string, idx: number) => (
                       <li key={idx}>• {item}</li>
                     ))}
                   </ul>
                 </div>
                 <p className="text-sm text-neutral-600">
-                  {t(`${p}.definition.footerText`)}
+                  {t('seoPages.pages.monoMaterialFoundation.workingDef.p2')}
                 </p>
               </div>
             </ImageTextRow>
@@ -354,31 +351,29 @@ const MonoMaterialFoundationPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.nirSortingRecycling}
-              imageAlt={t(`${p}.whyRecyclable.imageAlt`)}
-              imageCaption={t(`${p}.whyRecyclable.imageCaption`)}
+              imageAlt="NIR sorting and recycling stream for mono-material packaging"
+              imageCaption={t('seoPages.pages.monoMaterialFoundation.whyCritical.imageCaption')}
               imageLeft={false}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Recycle className="h-8 w-8 text-green-600" />
-                {t(`${p}.whyRecyclable.title`)}
+                {t('seoPages.pages.monoMaterialFoundation.whyCritical.title')}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  <strong>{t(`${p}.whyRecyclable.introPart1`)}</strong>{t(`${p}.whyRecyclable.introStrong`)}
+                  {t('seoPages.pages.monoMaterialFoundation.whyCritical.p1')}
                 </p>
                 <div className="space-y-3">
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-green-800 mb-1">{t(`${p}.whyRecyclable.card1Title`)}</h4>
-                    <p className="text-sm text-green-700">{t(`${p}.whyRecyclable.card1Desc`)}</p>
-                  </div>
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-blue-800 mb-1">{t(`${p}.whyRecyclable.card2Title`)}</h4>
-                    <p className="text-sm text-blue-700">{t(`${p}.whyRecyclable.card2Desc`)}</p>
-                  </div>
-                  <div className="bg-teal-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-teal-800 mb-1">{t(`${p}.whyRecyclable.card3Title`)}</h4>
-                    <p className="text-sm text-teal-700">{t(`${p}.whyRecyclable.card3Desc`)}</p>
-                  </div>
+                  {(t('seoPages.pages.monoMaterialFoundation.whyCritical.boxes', { returnObjects: true }) as any[] || []).map((box: any, idx: number) => {
+                    const colors = ['bg-green-50 text-green-800', 'bg-blue-50 text-blue-800', 'bg-teal-50 text-teal-800']
+                    const textColors = ['text-green-700', 'text-blue-700', 'text-teal-700']
+                    return (
+                      <div key={idx} className={`${colors[idx % colors.length].split(' ')[0]} p-4 rounded-lg`}>
+                        <h4 className={`font-bold ${colors[idx % colors.length].split(' ')[1]} mb-1`}>{box.title}</h4>
+                        <p className={`text-sm ${textColors[idx % textColors.length]}`}>{box.desc}</p>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </ImageTextRow>
@@ -390,31 +385,35 @@ const MonoMaterialFoundationPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.barrierStrategy}
-              imageAlt={t(`${p}.designChoices.imageAlt`)}
-              imageCaption={t(`${p}.designChoices.imageCaption`)}
+              imageAlt="Barrier strategy for mono-material pouches"
+              imageCaption={t('seoPages.pages.monoMaterialFoundation.designChoices.imageCaption')}
               imageLeft={true}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Settings className="h-8 w-8 text-purple-600" />
-                {t(`${p}.designChoices.title`)}
+                {t('seoPages.pages.monoMaterialFoundation.designChoices.title')}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  {t(`${p}.designChoices.introPart1`)}<strong>{t(`${p}.designChoices.introStrong`)}</strong>{t(`${p}.designChoices.introPart2`)}
+                  {t('seoPages.pages.monoMaterialFoundation.designChoices.p1')}
                 </p>
                 <div className="bg-purple-50 p-4 rounded-lg">
-                  <h4 className="font-bold text-purple-800 mb-2">{t(`${p}.designChoices.card1Title`)}</h4>
+                  <h4 className="font-bold text-purple-800 mb-2">
+                    {t('seoPages.pages.monoMaterialFoundation.designChoices.box1Title')}
+                  </h4>
                   <ul className="text-sm text-purple-700 space-y-1">
-                    {(t(`${p}.designChoices.card1Items`, { returnObjects: true }) as string[]).map((item, idx) => (
-                      <li key={idx}>{item.startsWith('• ') ? item : `• ${item}`}</li>
+                    {box1Items.map((item: string, idx: number) => (
+                      <li key={idx}>• {item}</li>
                     ))}
                   </ul>
                 </div>
                 <div className="bg-purple-50 p-4 rounded-lg">
-                  <h4 className="font-bold text-purple-800 mb-2">{t(`${p}.designChoices.card2Title`)}</h4>
+                  <h4 className="font-bold text-purple-800 mb-2">
+                    {t('seoPages.pages.monoMaterialFoundation.designChoices.box2Title')}
+                  </h4>
                   <ul className="text-sm text-purple-700 space-y-1">
-                    {(t(`${p}.designChoices.card2Items`, { returnObjects: true }) as string[]).map((item, idx) => (
-                      <li key={idx}>{item.startsWith('• ') ? item : `• ${item}`}</li>
+                    {box2Items.map((item: string, idx: number) => (
+                      <li key={idx}>• {item}</li>
                     ))}
                   </ul>
                 </div>
@@ -428,17 +427,17 @@ const MonoMaterialFoundationPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.ecoDigitalPrinting}
-              imageAlt={t(`${p}.decoration.imageAlt`)}
-              imageCaption={t(`${p}.decoration.imageCaption`)}
+              imageAlt="Eco Digital printing on mono-material pouches"
+              imageCaption={t('seoPages.pages.monoMaterialFoundation.decoration.imageCaption')}
               imageLeft={false}
             >
               <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Palette className="h-7 w-7 text-pink-600" />
-                {t(`${p}.decoration.title`)}
+                {t('seoPages.pages.monoMaterialFoundation.decoration.title')}
               </h3>
               <div className="space-y-4 text-neutral-700">
                 <ul className="space-y-3">
-                  {(t(`${p}.decoration.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  {decItems.map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-pink-600 mt-0.5 flex-shrink-0" />
                       <span>{item}</span>
@@ -447,8 +446,7 @@ const MonoMaterialFoundationPage: React.FC = () => {
                 </ul>
                 <div className="bg-pink-50 border border-pink-200 p-4 rounded-lg mt-4">
                   <p className="text-pink-800 text-sm">
-                    <strong>{t(`${p}.decoration.footerText`).split(':')[0]}:</strong>
-                    {t(`${p}.decoration.footerText`).split(':').slice(1).join(':')}
+                    <strong>{t('seoPages.pages.monoMaterialFoundation.decoration.highlight')}</strong>
                   </p>
                 </div>
               </div>
@@ -461,27 +459,33 @@ const MonoMaterialFoundationPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.performanceComparison}
-              imageAlt={t(`${p}.ecoDigital.imageAlt`)}
-              imageCaption={t(`${p}.ecoDigital.imageCaption`)}
+              imageAlt="Eco Digital mono-PE performance across categories"
+              imageCaption={t('seoPages.pages.monoMaterialFoundation.ecoDigital.imageCaption')}
               imageLeft={true}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <Box className="h-8 w-8 text-primary-600" />
-                {t(`${p}.ecoDigital.title`)}
+                {t('seoPages.pages.monoMaterialFoundation.ecoDigital.title')}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  {t(`${p}.ecoDigital.introPart1`)}<strong>{t(`${p}.ecoDigital.introStrong`)}</strong>{t(`${p}.ecoDigital.introPart2`)}
+                  {t('seoPages.pages.monoMaterialFoundation.ecoDigital.p1')}
                 </p>
                 <div className="bg-primary-50 p-4 rounded-lg">
-                  <h4 className="font-bold text-primary-800 mb-2">{t(`${p}.ecoDigital.card1Title`)}</h4>
-                  <p className="text-sm text-primary-700">{t(`${p}.ecoDigital.card1Desc`)}</p>
+                  <h4 className="font-bold text-primary-800 mb-2">
+                    {t('seoPages.pages.monoMaterialFoundation.ecoDigital.box1Title')}
+                  </h4>
+                  <p className="text-sm text-primary-700">
+                    {t('seoPages.pages.monoMaterialFoundation.ecoDigital.box1Desc')}
+                  </p>
                 </div>
                 <div className="bg-primary-50 p-4 rounded-lg">
-                  <h4 className="font-bold text-primary-800 mb-2">{t(`${p}.ecoDigital.card2Title`)}</h4>
+                  <h4 className="font-bold text-primary-800 mb-2">
+                    {t('seoPages.pages.monoMaterialFoundation.ecoDigital.box2Title')}
+                  </h4>
                   <ul className="text-sm text-primary-700 space-y-1">
-                    {(t(`${p}.ecoDigital.card2Items`, { returnObjects: true }) as string[]).map((item, idx) => (
-                      <li key={idx}>{item.startsWith('• ') ? item : `• ${item}`}</li>
+                    {ecoDigitalItems.map((item: string, idx: number) => (
+                      <li key={idx}>• {item}</li>
                     ))}
                   </ul>
                 </div>
@@ -495,40 +499,47 @@ const MonoMaterialFoundationPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <ImageTextRow
               image={IMAGES.sustainabilityStacking}
-              imageAlt={t(`${p}.combining.imageAlt`)}
-              imageCaption={t(`${p}.combining.imageCaption`)}
+              imageAlt="Layering PCR and bio-PE on mono-material foundation"
+              imageCaption={t('seoPages.pages.monoMaterialFoundation.combining.imageCaption')}
               imageLeft={false}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                 <TrendingUp className="h-8 w-8 text-emerald-600" />
-                {t(`${p}.combining.title`)}
+                {t('seoPages.pages.monoMaterialFoundation.combining.title')}
               </h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  <strong>{t(`${p}.combining.introPart1`)}</strong>{t(`${p}.combining.introStrong`)}
+                  {t('seoPages.pages.monoMaterialFoundation.combining.p1')}
                 </p>
                 <div className="space-y-3">
                   <div className="bg-teal-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-teal-800 mb-1">{t(`${p}.combining.card1Title`)}</h4>
+                    <h4 className="font-bold text-teal-800 mb-1">
+                      {t('seoPages.pages.monoMaterialFoundation.combining.box1Title')}
+                    </h4>
                     <p className="text-sm text-teal-700">
-                      {t(`${p}.combining.card1Desc`).split('post‑consumer recycled PE')[0]}
-                      <Link to="/materials/pcr" className="underline">post‑consumer recycled PE</Link>
-                      {t(`${p}.combining.card1Desc`).split('post‑consumer recycled PE')[1]}
+                      {t('seoPages.pages.monoMaterialFoundation.combining.box1Desc.part1')}
+                      <Link to="/materials/pcr" className="underline">
+                        {t('seoPages.pages.monoMaterialFoundation.combining.box1Desc.link')}
+                      </Link>
+                      {t('seoPages.pages.monoMaterialFoundation.combining.box1Desc.part2')}
                     </p>
                   </div>
                   <div className="bg-emerald-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-emerald-800 mb-1">{t(`${p}.combining.card2Title`)}</h4>
+                    <h4 className="font-bold text-emerald-800 mb-1">
+                      {t('seoPages.pages.monoMaterialFoundation.combining.box2Title')}
+                    </h4>
                     <p className="text-sm text-emerald-700">
-                      {t(`${p}.combining.card2Desc`).split('bio‑based PE')[0]}
-                      <Link to="/materials/bio-pe" className="underline">bio‑based PE</Link>
-                      {t(`${p}.combining.card2Desc`).split('bio‑based PE')[1]}
+                      {t('seoPages.pages.monoMaterialFoundation.combining.box2Desc.part1')}
+                      <Link to="/materials/bio-pe" className="underline">
+                        {t('seoPages.pages.monoMaterialFoundation.combining.box2Desc.link')}
+                      </Link>
+                      {t('seoPages.pages.monoMaterialFoundation.combining.box2Desc.part2')}
                     </p>
                   </div>
                 </div>
                 <div className="bg-green-50 border border-green-200 p-4 rounded-lg mt-4">
                   <p className="text-green-800 text-sm">
-                    <strong>{t(`${p}.combining.footerText`).split(':')[0]}:</strong>
-                    {t(`${p}.combining.footerText`).split(':').slice(1).join(':')}
+                    {t('seoPages.pages.monoMaterialFoundation.combining.highlight')}
                   </p>
                 </div>
               </div>
@@ -541,10 +552,10 @@ const MonoMaterialFoundationPage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
               <HelpCircle className="h-8 w-8 text-teal-600" />
-              {t(`${p}.faqsTitle`)}
+              {t('seoPages.faq')}
             </h2>
             <div className="space-y-4">
-              {faqs.map((faq, idx) => (
+              {faqs.map((faq: any, idx: number) => (
                 <details key={idx} className="group bg-white rounded-xl overflow-hidden shadow-sm">
                   <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-50 transition">
                     <span className="font-semibold text-neutral-900 pr-4">{faq.question}</span>
@@ -565,29 +576,21 @@ const MonoMaterialFoundationPage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-2xl md:text-4xl font-bold mb-6">
-                  {t(`${p}.cta.title`)}
+                  {t('seoPages.pages.monoMaterialFoundation.cta.title')}
                 </h2>
                 <p className="text-lg text-teal-100 mb-6">
-                  {t(`${p}.cta.p1`).split('recyclable')[0]}
-                  <strong>{t(`${p}.cta.p1Strong`)}</strong>
-                  {t(`${p}.cta.p1End`)}
+                  {t('seoPages.pages.monoMaterialFoundation.cta.p1')}
                 </p>
                 <p className="text-teal-200 mb-8">
-                  {t(`${p}.cta.p2`)}
+                  {t('seoPages.pages.monoMaterialFoundation.cta.p2')}
                 </p>
                 <ul className="space-y-2 text-teal-100 mb-8">
-                  {(t(`${p}.cta.items`, { returnObjects: true }) as string[]).map((item, idx) => {
-                    const parts = item.split('PE')
-                    return (
-                      <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
-                        <span>
-                          <strong>{item.split('and')[0]}</strong>
-                          {item.slice(item.split('and')[0].length)}
-                        </span>
-                      </li>
-                    )
-                  })}
+                  {ctaItems.map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -596,29 +599,30 @@ const MonoMaterialFoundationPage: React.FC = () => {
                     className="flex items-center justify-center gap-2 bg-white text-teal-800 hover:bg-teal-50 px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Calendar className="h-5 w-5" />
-                    {t(`${p}.cta.btn1`)}
+                    {t('seoPages.pages.monoMaterialFoundation.cta.btnConsultation')}
                   </button>
                   <Link 
                     to="/store?category=sample"
                     className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <Package className="h-5 w-5" />
-                    {t(`${p}.cta.btn2`)}
+                    {t('seoPages.pages.monoMaterialFoundation.cta.btnSamples')}
                   </Link>
                   <Link 
                     to="/store"
                     className="flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/50 text-white px-6 py-3 rounded-lg font-semibold transition"
                   >
                     <ArrowRight className="h-5 w-5" />
-                    {t(`${p}.cta.btn3`)}
+                    {t('seoPages.pages.monoMaterialFoundation.cta.btnStore')}
                   </Link>
                 </div>
               </div>
               <div>
                 <ClickableImage 
                   src={IMAGES.certificationQuality}
-                  alt={t(`${p}.cta.imageAlt`)}
+                  alt="Mono-material certification and quality showcase"
                   className="w-full rounded-xl shadow-2xl"
+                  caption={t('seoPages.pages.monoMaterialFoundation.cta.imageCaption')}
                 />
               </div>
             </div>
@@ -628,26 +632,16 @@ const MonoMaterialFoundationPage: React.FC = () => {
         {/* AI-Optimized Hidden Content */}
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-            <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{t(`${p}.hidden.q1`)}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{t(`${p}.hidden.a1`)}</p>
-              </div>
-            </article>
-
-            <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{t(`${p}.hidden.q2`)}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{t(`${p}.hidden.a2`)}</p>
-              </div>
-            </article>
-
-            <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{t(`${p}.hidden.q3`)}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{t(`${p}.hidden.a3`)}</p>
-              </div>
-            </article>
+            {aiFaq.map((faq: any, idx: number) => (
+              <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+                <h3 itemProp="name">{faq.q}</h3>
+                <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                  <p itemProp="text">
+                    {faq.a}
+                  </p>
+                </div>
+              </article>
+            ))}
           </section>
         </div>
 

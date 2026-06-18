@@ -9,29 +9,55 @@ const IndustrialCompostablePage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.industrialCompostable'
+
+  // Helper to render bold prefixes (split by colon or Chinese full-width colon)
+  const renderBullet = (text: string) => {
+    const match = text.match(/^([^:：]+)[:：](.*)$/)
+    if (match) {
+      return (
+        <span>
+          <strong>{match[1]}:</strong>{match[2]}
+        </span>
+      )
+    }
+    return <span>{text}</span>
+  }
+
   const sections = [
     {
       id: 'scenario-trigger',
-      title: 'Is This Page For You?',
+      title: t(`${p}.sections.targetAudience.title`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-primary-50 to-blue-50 p-6 rounded-lg border border-primary-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              If you are a <strong>US specialty coffee roaster</strong>, <strong>EU food brand</strong>, or <strong>organic snack company</strong> looking for certified compostable packaging with better barrier protection than home compostable options—industrial compostable is your solution.
+              {t(`${p}.sections.targetAudience.intro`)}
             </p>
             <div className="grid md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
-                <p className="font-semibold text-primary-800">Coffee & Tea Brands</p>
-                <p className="text-sm text-neutral-600">Higher barrier for freshness + BPI/EN13432 certified</p>
+                <p className="font-semibold text-primary-800">
+                  {t(`${p}.sections.targetAudience.coffee.title`)}
+                </p>
+                <p className="text-sm text-neutral-600">
+                  {t(`${p}.sections.targetAudience.coffee.desc`)}
+                </p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="font-semibold text-primary-800">Organic Food Companies</p>
-                <p className="text-sm text-neutral-600">Meet sustainability claims with real certifications</p>
+                <p className="font-semibold text-primary-800">
+                  {t(`${p}.sections.targetAudience.organic.title`)}
+                </p>
+                <p className="text-sm text-neutral-600">
+                  {t(`${p}.sections.targetAudience.organic.desc`)}
+                </p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="font-semibold text-primary-800">EU Market Sellers</p>
-                <p className="text-sm text-neutral-600">EN 13432 required for many EU countries</p>
+                <p className="font-semibold text-primary-800">
+                  {t(`${p}.sections.targetAudience.markets.title`)}
+                </p>
+                <p className="text-sm text-neutral-600">
+                  {t(`${p}.sections.targetAudience.markets.desc`)}
+                </p>
               </div>
             </div>
           </div>
@@ -87,58 +113,69 @@ const IndustrialCompostablePage: React.FC = () => {
         </div>
       )
     },
-    // ========== Scenario (Industry Applications) ==========
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: t(`${p}.sections.scenarios.title`),
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Industrial compostable packaging is the standard for brands needing certified compostability with better barrier performance:</p>
+          <p className="text-lg">{t(`${p}.sections.scenarios.intro`)}</p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <Coffee className="h-6 w-6 text-amber-600" />
-                <h4 className="font-bold text-amber-800">Coffee Industry</h4>
+                <h4 className="font-bold text-amber-800">
+                  {t(`${p}.sections.scenarios.coffee.title`)}
+                </h4>
               </div>
               <ul className="text-sm space-y-2 text-amber-700">
-                <li>• <strong>Specialty Roasters:</strong> BPI certified bags with degassing valves</li>
-                <li>• <strong>Third Wave Cafes:</strong> Premium kraft/PLA structures</li>
-                <li>• <strong>Subscription Services:</strong> EN 13432 for EU markets</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.coffee.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-amber-200">
-                <span className="text-xs text-amber-600">9-12 month shelf life achievable</span>
+                <span className="text-xs text-amber-600">
+                  {t(`${p}.sections.scenarios.coffee.note`)}
+                </span>
               </div>
             </div>
             
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-6 w-6 text-green-600" />
-                <h4 className="font-bold text-green-800">Organic & Natural Foods</h4>
+                <h4 className="font-bold text-green-800">
+                  {t(`${p}.sections.scenarios.organicFood.title`)}
+                </h4>
               </div>
               <ul className="text-sm space-y-2 text-green-700">
-                <li>• <strong>Organic Snacks:</strong> Certified compostable packaging</li>
-                <li>• <strong>Dried Foods:</strong> Medium-high barrier options</li>
-                <li>• <strong>Health Foods:</strong> Premium market positioning</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.organicFood.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.organicFood.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.organicFood.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-green-200">
-                <span className="text-xs text-green-600">Aligns with organic certification values</span>
+                <span className="text-xs text-green-600">
+                  {t(`${p}.sections.scenarios.organicFood.note`)}
+                </span>
               </div>
             </div>
             
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-6 w-6 text-blue-600" />
-                <h4 className="font-bold text-blue-800">EU & US Markets</h4>
+                <h4 className="font-bold text-blue-800">
+                  {t(`${p}.sections.scenarios.markets.title`)}
+                </h4>
               </div>
               <ul className="text-sm space-y-2 text-blue-700">
-                <li>• <strong>EU:</strong> EN 13432 required for many retailers</li>
-                <li>• <strong>US:</strong> BPI certification for commercial facilities</li>
-                <li>• <strong>California:</strong> Strong composting infrastructure</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.markets.item1`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.markets.item2`))}</li>
+                <li>• {renderBullet(t(`${p}.sections.scenarios.markets.item3`))}</li>
               </ul>
               <div className="mt-3 pt-3 border-t border-blue-200">
-                <span className="text-xs text-blue-600">Meets regional compliance requirements</span>
+                <span className="text-xs text-blue-600">
+                  {t(`${p}.sections.scenarios.markets.note`)}
+                </span>
               </div>
             </div>
           </div>
@@ -146,26 +183,33 @@ const IndustrialCompostablePage: React.FC = () => {
           <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
             <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
               <Building2 className="h-5 w-5 text-primary-600" />
-              Customer Success Stories
+              {t(`${p}.sections.scenarios.stories.title`)}
             </h4>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-lg border border-neutral-200">
-                <span className="text-xs font-semibold text-amber-600 uppercase">US Coffee Roaster</span>
-                <p className="text-sm text-neutral-700 mt-2">Switched 50,000 units/month to BPI certified bags. "Our cafe partners love the sustainability story - it's a key selling point."</p>
+                <span className="text-xs font-semibold text-amber-600 uppercase">
+                  {t(`${p}.sections.scenarios.stories.usCoffee.label`)}
+                </span>
+                <p className="text-sm text-neutral-700 mt-2">
+                  {t(`${p}.sections.scenarios.stories.usCoffee.desc`)}
+                </p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-neutral-200">
-                <span className="text-xs font-semibold text-green-600 uppercase">EU Organic Brand</span>
-                <p className="text-sm text-neutral-700 mt-2">EN 13432 certified pouches enabled entry into Whole Foods EU. 25% premium retail placement increase.</p>
+                <span className="text-xs font-semibold text-green-600 uppercase">
+                  {t(`${p}.sections.scenarios.stories.euOrganic.label`)}
+                </span>
+                <p className="text-sm text-neutral-700 mt-2">
+                  {t(`${p}.sections.scenarios.stories.euOrganic.desc`)}
+                </p>
               </div>
             </div>
           </div>
         </div>
       )
     },
-    // ========== Data (Market & Performance Data) ==========
     {
       id: 'market-data',
-      title: 'MarketData Market & Performance Data',
+      title: t(`${p}.sections.marketData.title`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -173,173 +217,179 @@ const IndustrialCompostablePage: React.FC = () => {
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
               <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
               <p className="text-3xl font-bold">$15.2B</p>
-              <p className="text-sm opacity-90">Global Market Size 2024</p>
+              <p className="text-sm opacity-90">
+                {t(`${p}.sections.marketData.metrics.marketSize`)}
+              </p>
             </div>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-5 rounded-xl text-center">
               <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
               <p className="text-3xl font-bold">14.5%</p>
-              <p className="text-sm opacity-90">CAGR 2024-2030</p>
+              <p className="text-sm opacity-90 font-sans">
+                {t(`${p}.sections.marketData.metrics.cagr`)}
+              </p>
             </div>
             <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
               <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
               <p className="text-3xl font-bold">90-180</p>
-              <p className="text-sm opacity-90">Days to Decompose</p>
+              <p className="text-sm opacity-90 font-sans">
+                {t(`${p}.sections.marketData.metrics.decompTime`)}
+              </p>
             </div>
             <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
               <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
               <p className="text-3xl font-bold">58°C+</p>
-              <p className="text-sm opacity-90">Composting Temperature</p>
+              <p className="text-sm opacity-90 font-sans">
+                {t(`${p}.sections.marketData.metrics.tempRange`)}
+              </p>
             </div>
           </div>
           
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="bg-neutral-100 px-4 py-3 border-b">
-              <h4 className="font-bold text-neutral-900">Industrial Compostable Material Performance</h4>
+              <h4 className="font-bold text-neutral-900">
+                {t(`${p}.sections.marketData.tableTitle`)}
+              </h4>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50">
                   <tr>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Material</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Barrier Level</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Shelf Life</th>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Certifications</th>
+                    {(t(`${p}.sections.marketData.headers`, { returnObjects: true }) as string[]).map((header, idx) => (
+                      <th key={idx} className="px-4 py-3 text-left font-semibold text-neutral-700">
+                        {header}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
-                  <tr>
-                    <td className="px-4 py-3 font-medium">PLA Film</td>
-                    <td className="px-4 py-3">Low-Medium</td>
-                    <td className="px-4 py-3">6-9 months</td>
-                    <td className="px-4 py-3">EN 13432, ASTM D6400</td>
-                  </tr>
-                  <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">PLA + PBAT Blend</td>
-                    <td className="px-4 py-3">Medium</td>
-                    <td className="px-4 py-3">9-12 months</td>
-                    <td className="px-4 py-3">EN 13432, BPI</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Kraft + PLA Barrier</td>
-                    <td className="px-4 py-3">Medium</td>
-                    <td className="px-4 py-3">9-12 months</td>
-                    <td className="px-4 py-3">EN 13432, BPI</td>
-                  </tr>
-                  <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Bio-PBS</td>
-                    <td className="px-4 py-3">Medium-High</td>
-                    <td className="px-4 py-3">12+ months</td>
-                    <td className="px-4 py-3">EN 13432</td>
-                  </tr>
+                  {(t(`${p}.sections.marketData.rows`, { returnObjects: true }) as string[][]).map((row, rowIdx) => (
+                    <tr key={rowIdx} className={rowIdx % 2 === 1 ? 'bg-neutral-50' : ''}>
+                      <td className="px-4 py-3 font-medium">{row[0]}</td>
+                      <td className="px-4 py-3 text-neutral-700">{row[1]}</td>
+                      <td className="px-4 py-3 text-neutral-700">{row[2]}</td>
+                      <td className="px-4 py-3 text-neutral-700">{row[3]}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </div>
           
           <div className="bg-green-50 p-6 rounded-xl border border-green-200">
-            <h4 className="font-bold text-green-800 mb-4">Environmental Impact Metrics</h4>
+            <h4 className="font-bold text-green-800 mb-4">
+              {t(`${p}.sections.marketData.impactTitle`)}
+            </h4>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="text-center">
                 <p className="text-2xl font-bold text-green-700">-65%</p>
-                <p className="text-sm text-green-600">CO₂ vs conventional plastic</p>
+                <p className="text-sm text-green-600">
+                  {t(`${p}.sections.marketData.impact.co2`)}
+                </p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-green-700">0</p>
-                <p className="text-sm text-green-600">Microplastics after composting</p>
+                <p className="text-sm text-green-600 font-sans">
+                  {t(`${p}.sections.marketData.impact.microplastics`)}
+                </p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-green-700">100%</p>
-                <p className="text-sm text-green-600">Biodegrades to biomass</p>
+                <p className="text-sm text-green-600">
+                  {t(`${p}.sections.marketData.impact.biomass`)}
+                </p>
               </div>
             </div>
           </div>
         </div>
       )
     },
-    // ========== Contrast (Material Comparison) ==========
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: t(`${p}.sections.comparison.title`),
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Compare industrial compostable with other eco-friendly options:</p>
+          <p className="text-lg">
+            {t(`${p}.sections.comparison.intro`)}
+          </p>
           
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="bg-primary-600 px-4 py-3">
-              <h4 className="font-bold text-white text-center">Eco-Friendly Materials Comparison</h4>
+              <h4 className="font-bold text-white text-center font-sans">
+                {t(`${p}.sections.comparison.tableTitle`)}
+              </h4>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50">
                   <tr>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Criteria</th>
-                    <th className="px-4 py-3 text-center font-semibold text-blue-700">Industrial Compostable</th>
-                    <th className="px-4 py-3 text-center font-semibold text-green-700">Home Compostable</th>
-                    <th className="px-4 py-3 text-center font-semibold text-purple-700">Recyclable Mono-PE</th>
+                    {(t(`${p}.sections.comparison.headers`, { returnObjects: true }) as string[]).map((header, idx) => (
+                      <th 
+                        key={idx} 
+                        className={`px-4 py-3 text-left font-semibold ${
+                          idx === 1 ? 'text-blue-700' : idx === 2 ? 'text-green-700' : idx === 3 ? 'text-purple-700' : 'text-neutral-700'
+                        }`}
+                      >
+                        {header}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
-                  <tr>
-                    <td className="px-4 py-3 font-medium">End of Life</td>
-                    <td className="px-4 py-3 text-center">Commercial facility</td>
-                    <td className="px-4 py-3 text-center">Backyard bin</td>
-                    <td className="px-4 py-3 text-center">Recycling stream</td>
-                  </tr>
-                  <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Barrier Level</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐</td>
-                    <td className="px-4 py-3 text-center">⭐⭐</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Shelf Life</td>
-                    <td className="px-4 py-3 text-center">9-12+ months</td>
-                    <td className="px-4 py-3 text-center">3-6 months</td>
-                    <td className="px-4 py-3 text-center">12-18 months</td>
-                  </tr>
-                  <tr className="bg-neutral-50">
-                    <td className="px-4 py-3 font-medium">Consumer Appeal</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
-                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Cost Premium</td>
-                    <td className="px-4 py-3 text-center">+15-25%</td>
-                    <td className="px-4 py-3 text-center">+25-35%</td>
-                    <td className="px-4 py-3 text-center">+5-10%</td>
-                  </tr>
+                  {(t(`${p}.sections.comparison.rows`, { returnObjects: true }) as string[][]).map((row, rowIdx) => (
+                    <tr key={rowIdx} className={rowIdx % 2 === 1 ? 'bg-neutral-50' : ''}>
+                      <td className="px-4 py-3 font-medium">{row[0]}</td>
+                      <td className="px-4 py-3 text-center text-blue-600">{row[1]}</td>
+                      <td className="px-4 py-3 text-center text-green-600">{row[2]}</td>
+                      <td className="px-4 py-3 text-center text-purple-600">{row[3]}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </div>
           
           <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
-            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <h4 className="font-bold text-amber-800 mb-3">
+              {t(`${p}.sections.comparison.decisionGuideTitle`)}
+            </h4>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div>
-                <p className="font-semibold text-blue-700">Choose Industrial Compostable if:</p>
+                <p className="font-semibold text-blue-700">
+                  {t(`${p}.sections.comparison.chooseIndustrial`)}
+                </p>
                 <ul className="mt-2 space-y-1 text-blue-600">
-                  <li>• Need 9-12+ month shelf life</li>
-                  <li>• Customers have composting access</li>
-                  <li>• BPI/EN 13432 required</li>
+                  {(t(`${p}.sections.comparison.industrialPoints`, { returnObjects: true }) as string[]).map((pt, idx) => (
+                    <li key={idx}>• {pt}</li>
+                  ))}
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-green-700">Choose Home Compostable if:</p>
+                <p className="font-semibold text-green-700">
+                  {t(`${p}.sections.comparison.chooseHome`)}
+                </p>
                 <ul className="mt-2 space-y-1 text-green-600">
-                  <li>• Customers compost at home</li>
-                  <li>• AU/UK markets</li>
-                  <li>• <Link to="/materials/home-compostable" className="underline">Learn more →</Link></li>
+                  {(t(`${p}.sections.comparison.homePoints`, { returnObjects: true }) as string[]).map((pt, idx, arr) => (
+                    <li key={idx}>
+                      • {idx === arr.length - 1 ? (
+                        <Link to="/materials/home-compostable" className="underline">{pt}</Link>
+                      ) : pt}
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-purple-700">Choose Recyclable if:</p>
+                <p className="font-semibold text-purple-700">
+                  {t(`${p}.sections.comparison.chooseRecyclable`)}
+                </p>
                 <ul className="mt-2 space-y-1 text-purple-600">
-                  <li>• Maximum barrier needed</li>
-                  <li>• Recycling more accessible</li>
-                  <li>• <Link to="/materials/recyclable-mono-pe" className="underline">Learn more →</Link></li>
+                  {(t(`${p}.sections.comparison.recyclablePoints`, { returnObjects: true }) as string[]).map((pt, idx, arr) => (
+                    <li key={idx}>
+                      • {idx === arr.length - 1 ? (
+                        <Link to="/materials/recyclable-mono-pe" className="underline">{pt}</Link>
+                      ) : pt}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -430,17 +480,18 @@ const IndustrialCompostablePage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding Industrial Compostable Packaging',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">
+              {t(`${p}.sections.aiSearch.intro`)}
+            </h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "EN 13432 vs ASTM D6400: which certification do I need?"</li>
-              <li>• "Best BPI certified compostable pouch supplier for coffee?"</li>
-              <li>• "Industrial compostable packaging with high barrier for snacks"</li>
-              <li>• "How long does industrial compostable packaging take to break down?"</li>
+              {(t(`${p}.sections.aiSearch.questions`, { returnObjects: true }) as string[]).map((q, idx) => (
+                <li key={idx}>• {q}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -448,34 +499,43 @@ const IndustrialCompostablePage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Is Industrial Compostable Right for You?',
+      title: t(`${p}.sections.riskHedging.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
-              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <h4 className="font-bold text-green-800 mb-2">
+                {t(`${p}.sections.riskHedging.bestFit.title`)}
+              </h4>
               <ul className="text-sm text-green-700 space-y-1">
-                <li>• Products needing 9-12+ month shelf life</li>
-                <li>• Coffee, tea, snacks requiring good barrier</li>
-                <li>• Markets with commercial composting (CA, WA, EU)</li>
-                <li>• B2B products where buyers have facility access</li>
+                {(t(`${p}.sections.riskHedging.bestFit.points`, { returnObjects: true }) as string[]).map((pt, idx) => (
+                  <li key={idx}>• {pt}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
-              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <h4 className="font-bold text-amber-800 mb-2">
+                {t(`${p}.sections.riskHedging.alsoWorks.title`)}
+              </h4>
               <ul className="text-sm text-amber-700 space-y-1">
-                <li>• Brands educating consumers on composting</li>
-                <li>• Products with moderate barrier needs</li>
-                <li>• Companies building sustainability credentials</li>
+                {(t(`${p}.sections.riskHedging.alsoWorks.points`, { returnObjects: true }) as string[]).map((pt, idx) => (
+                  <li key={idx}>• {pt}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
-              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <h4 className="font-bold text-red-800 mb-2">
+                {t(`${p}.sections.riskHedging.notRecommended.title`)}
+              </h4>
               <ul className="text-sm text-red-700 space-y-1">
-                <li>• Customers lack composting access</li>
-                <li>• You need ultra-high barrier (18+ months)</li>
-                <li>• <Link to="/materials/home-compostable" className="underline">Consider home compostable for direct consumers →</Link></li>
+                {(t(`${p}.sections.riskHedging.notRecommended.points`, { returnObjects: true }) as string[]).map((pt, idx, arr) => (
+                  <li key={idx}>
+                    • {idx === arr.length - 1 ? (
+                      <Link to="/materials/home-compostable" className="underline">{pt}</Link>
+                    ) : pt}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -484,33 +544,45 @@ const IndustrialCompostablePage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready to Go Industrial Compostable?',
+      title: t(`${p}.sections.decisionCta.title`),
       icon: <Calendar className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-primary-600 text-white p-6 rounded-lg text-center">
-              <Phone className="h-8 w-8 mx-auto mb-2" />
-              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
-              <p className="text-sm opacity-90 mb-4">Book a call to discuss your certification needs</p>
+            <div className="bg-primary-600 text-white p-6 rounded-lg text-center font-sans">
+              <Phone className="h-8 w-8 mx-auto mb-2 text-white" />
+              <h4 className="font-bold text-lg mb-2 text-white">
+                {t(`${p}.sections.decisionCta.call.title`)}
+              </h4>
+              <p className="text-sm opacity-90 mb-4 text-white">
+                {t(`${p}.sections.decisionCta.call.desc`)}
+              </p>
               <button onClick={openCalendly} className="inline-block bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition cursor-pointer">
-                Book a Call
+                {t(`${p}.sections.decisionCta.call.btn`)}
               </button>
             </div>
-            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300 font-sans">
               <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
-              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
-              <p className="text-sm text-neutral-600 mb-4">Order industrial compostable samples</p>
+              <h4 className="font-bold text-lg mb-2 text-neutral-900 font-sans">
+                {t(`${p}.sections.decisionCta.samples.title`)}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-4 text-neutral-600 font-sans">
+                {t(`${p}.sections.decisionCta.samples.desc`)}
+              </p>
               <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
-                Get Samples
+                {t(`${p}.sections.decisionCta.samples.btn`)}
               </Link>
             </div>
-            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200 font-sans">
               <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
-              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
-              <p className="text-sm text-neutral-600 mb-4">Compare with home compostable or recyclable</p>
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">
+                {t(`${p}.sections.decisionCta.explore.title`)}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-4 text-neutral-600">
+                {t(`${p}.sections.decisionCta.explore.desc`)}
+              </p>
               <Link to="/materials/compostable" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-primary-300 transition">
-                Compare Options
+                {t(`${p}.sections.decisionCta.explore.btn`)}
               </Link>
             </div>
           </div>
@@ -538,11 +610,11 @@ const IndustrialCompostablePage: React.FC = () => {
       description="EN 13432 and ASTM D6400 certified industrial compostable pouches. Breaks down in 90-180 days at commercial facilities. Higher barrier than home compostable."
       keywords={['industrial compostable', 'EN 13432', 'ASTM D6400', 'commercial compostable', 'BPI certified', 'compostable flexible packaging']}
       canonicalUrl="https://achievepack.com/materials/industrial-compostable"
-      heroTitle={t('seoPages.pages.industrialCompostable.heroTitle')}
-      heroSubtitle={t('seoPages.pages.industrialCompostable.heroSubtitle')}
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp"
       heroImageAlt="Industrial compostable packaging materials"
-      introSummary={t('seoPages.pages.industrialCompostable.introSummary')}
+      introSummary={t(`${p}.introSummary`)}
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}

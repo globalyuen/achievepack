@@ -1,0 +1,1887 @@
+Scanning /Users/ryanmacmini/Desktop/webp/achieve-pack/src/pages for hardcoded JSX strings...
+
+Found 421 files with potential hardcoded strings:
+
+📄 src/pages/quotes/StandUpPouchQuotePage.tsx
+   Hardcoded Tags: 211, Props: 1
+   Sample Tags: ["setActiveTab('kraft')", "setActiveTab('pla')", "setActiveTab('biope')"]
+   Sample Props: ['Copy link to share this tab']
+--------------------------------------------------
+📄 src/pages/OrderManagementPage.tsx
+   Hardcoded Tags: 188, Props: 8
+   Sample Tags: ['Loading...', "setActiveTab('quotes')", "setActiveTab('artwork')"]
+   Sample Props: ['Quick Access', 'Right-click on items to update status', 'Quick Access']
+--------------------------------------------------
+📄 src/pages/ProductPage.tsx
+   Hardcoded Tags: 183, Props: 8
+   Sample Tags: ['Product Not Found', "Sorry, this product doesn't exist or may have been moved.", 'Popular Categories']
+   Sample Props: ['The requested product was not found on Achieve Pack. Browse our selection of sustainable and high-barrier custom packaging.', 'Share Configuration', 'Get Custom Quote']
+--------------------------------------------------
+📄 src/pages/pouch/PouchEcoGPTKPage.tsx
+   Hardcoded Tags: 163, Props: 0
+   Sample Tags: ['Custom Packaging', 'Pricing Calculator', 'B2B Packaging Pricing Plans']
+--------------------------------------------------
+📄 src/pages/DashboardPage.tsx
+   Hardcoded Tags: 133, Props: 6
+   Sample Tags: ['setShowNotifications(!showNotifications)', 'Notifications', 'Welcome back,']
+   Sample Props: ['Quick Access', 'Your pinned items and recent activity', 'List View']
+--------------------------------------------------
+📄 src/pages/products/CustomCompostableLabelsPage.tsx
+   Hardcoded Tags: 122, Props: 5
+   Sample Tags: ['COMPOSTABLE', 'ECOLOGICAL', 'Food-Grade Adhesive']
+   Sample Props: ['Certified compostable custom adhesive labels from 1,000 units. FDA food-grade, water-resistant, zero microplastics. Perfect for organic cosmetics, bottles, and boxes. Fast global shipping.', 'Premium 4-Layer Ecological Structure', 'Zero Microplastics. Complete Biodegradability.']
+--------------------------------------------------
+📄 src/pages/function/RicePaperBagsPage.tsx
+   Hardcoded Tags: 104, Props: 7
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['High-Quality Custom Printing', 'Designed for Sustainable Brands', 'Give your startup coffee, tea, or snack brand a tactile, premium organic aesthetic with certified compostable natural-fiber textured pouches.']
+--------------------------------------------------
+📄 src/pages/legal/TermsOfUsePage.tsx
+   Hardcoded Tags: 107, Props: 0
+   Sample Tags: ['AchievePack', 'Table of Contents', 'scrollToSection(section.id)']
+--------------------------------------------------
+📄 src/pages/pouch/blog/USACoffeePackaging.tsx
+   Hardcoded Tags: 101, Props: 1
+   Sample Tags: ['The US specialty coffee market is booming', "What's Driving The Shift", 'The Coffee Freshness Crisis']
+   Sample Props: ['Get Your Coffee Packaging Right the First Time']
+--------------------------------------------------
+📄 src/pages/function/CarbonNeutralBagsPage.tsx
+   Hardcoded Tags: 86, Props: 15
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Carbon-Neutral Cooking Bags', 'From Material Choice to Offsets', 'Carbon Footprint, Managed End to End']
+--------------------------------------------------
+📄 src/pages/ArtworkBatchesPage.tsx
+   Hardcoded Tags: 78, Props: 22
+   Sample Tags: ['Waiting for upload...', 'Upload Now', 'handleRenameFile(item.id)']
+   Sample Props: ['Delete artwork', 'Delete reply', 'Attach Image']
+--------------------------------------------------
+📄 src/pages/function/PVAWaterSolubleBagsPage.tsx
+   Hardcoded Tags: 93, Props: 7
+   Sample Tags: ["For eco-conscious DTC startups in the home care, laundry, and personal care spaces, traditional plastic packaging is the ultimate enemy. Consumers are actively demanding zero-waste alternatives. That's where", 'Our high-strength PVA films dissolve completely in cold water (even at temperatures as low as 5', 'setGalleryEnlarged(']
+   Sample Props: ['Hook Hidden Inside the Bait', 'Clean Casting - Precise Baiting', 'Scale your eco-conscious laundry, cleaning, or personal care brand with premium cold-water soluble polymer films. High tensile strength, zero microplastics, and low MOQs.']
+--------------------------------------------------
+📄 src/pages/composting/CompostingBenefitsPage.tsx
+   Hardcoded Tags: 98, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/products/CustomStickersPage.tsx
+   Hardcoded Tags: 84, Props: 11
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Four Sticker Types for Every Need', 'Premium Material Selection', 'Sustainable Material Options']
+--------------------------------------------------
+📄 src/pages/composting/CommercialCompostingPage.tsx
+   Hardcoded Tags: 95, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/PouchDielineCreatorPage.tsx
+   Hardcoded Tags: 93, Props: 0
+   Sample Tags: ['Interactive Custom Creator', 'Stand-up Pouch Dieline Creator', 'Input your custom packaging dimensions below to instantly compute seal lines, zipper placements, tear notch points, and corner cuts. Review the blueprint in real-time, then download a 1']
+--------------------------------------------------
+📄 src/pages/products/LabBagsPage.tsx
+   Hardcoded Tags: 85, Props: 7
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Advanced Lateral Filtration Technology', 'High-Quality Non-Woven Filter Membrane', 'Classic Sterile Blender Bags']
+--------------------------------------------------
+📄 src/pages/admin/DailyReportsPage.tsx
+   Hardcoded Tags: 85, Props: 7
+   Sample Tags: ['Cloudflare returned an HTML error page. Please wait 30 seconds and try again.', 'Pricing Tiers (USD - Total Rounded)', 'FOB SZ Unit']
+   Sample Props: ['Open PaddleOCR for document extraction', 'Watch Heat Sealer reference video for production setup', 'Open Search Index Directory for ap and ep pages']
+--------------------------------------------------
+📄 src/pages/pouch/blog/USASnacksPackagingGuide.tsx
+   Hardcoded Tags: 88, Props: 0
+   Sample Tags: ['Why Snack Brands Care About Packaging', 'ASTM certification', 'The Snack Aisle Problem']
+--------------------------------------------------
+📄 src/pages/products/LowMOQPackagingPage.tsx
+   Hardcoded Tags: 84, Props: 4
+   Sample Tags: ['Starting a new brand or testing new products?', 'Why Low MOQ Matters', 'Our MOQ Options']
+   Sample Props: ['Custom printed sustainable packaging with low MOQ from 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands.', 'Custom printed sustainable packaging with low MOQ from 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands. Fast USA delivery.', 'Low MOQ Packaging']
+--------------------------------------------------
+📄 src/pages/features/SurfaceFinishPage.tsx
+   Hardcoded Tags: 87, Props: 1
+   Sample Tags: ['If you want to', 'Premium Brands', 'Soft-touch, spot UV, hot foil']
+   Sample Props: ['Premium surface finishes for eco-friendly pouches. Matte, gloss, soft-touch coating, spot UV, hot foil stamping, and embossing options for sustainable packaging.']
+--------------------------------------------------
+📄 src/pages/materials/CompostablePage.tsx
+   Hardcoded Tags: 86, Props: 0
+   Sample Tags: ['Click the infographic below to view in full size', "If you're a", 'Coffee Roasters']
+--------------------------------------------------
+📄 src/pages/function/SpoutPouchesJuicePage.tsx
+   Hardcoded Tags: 68, Props: 18
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Eco-Friendly Spout Pouches for Juice', 'Food-Grade Materials for Beverages', 'Custom-Shaped Pouches for Adults']
+--------------------------------------------------
+📄 src/pages/free-service/MaxiFoodsDemoPage.tsx
+   Hardcoded Tags: 85, Props: 0
+   Sample Tags: ['This is a demo website created by Achieve Pack', 'Browse Packaging', 'setIsMenuOpen(!isMenuOpen)']
+--------------------------------------------------
+📄 src/pages/pouch/blog/IndustrialCompostableGuide.tsx
+   Hardcoded Tags: 83, Props: 1
+   Sample Tags: ['The industrial compostable packaging market is exploding at a', 'Key B2B Market Drivers', 'Increasing at 14.5']
+   Sample Props: ['Custom Industrial Compostable Packaging for Sustainable Brands']
+--------------------------------------------------
+📄 src/pages/composting/CompostServiceFinderPage.tsx
+   Hardcoded Tags: 79, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/knowledge/FlatBottomVsGussetPage.tsx
+   Hardcoded Tags: 79, Props: 0
+   Sample Tags: ['setEnlargedImage(src)', 'Flat Bottom Pouch vs.', 'An analytical structural comparison of box-bottom bases versus folding gusset seals. Understand visual presentation, volumetric efficiency, filling performance, and financial parameters.']
+--------------------------------------------------
+📄 src/pages/features/ReclosureOptionsPage.tsx
+   Hardcoded Tags: 77, Props: 1
+   Sample Tags: ['If your product needs to', 'Resealable zippers for freshness', 'Spout pouches with caps']
+   Sample Props: ['Sustainable reclosure solutions for flexible packaging. Press-to-close zippers, slider zippers, spout caps, tin-ties, and child-resistant options for eco-friendly pouches.']
+--------------------------------------------------
+📄 src/pages/function/MicrowaveSteamBagsPage.tsx
+   Hardcoded Tags: 59, Props: 19
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Eco-Friendly Microwave Cooking Bags', 'Certified Food-Contact Material', 'Easy to Seal, Easy to Stand']
+--------------------------------------------------
+📄 src/pages/products/LabelsAndStickersPage.tsx
+   Hardcoded Tags: 70, Props: 7
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Professional Sheet Labels for Any Product', 'Perfect Pairing with Flexible Packaging', 'Four Sticker Types for Every Need']
+--------------------------------------------------
+📄 src/pages/products/CustomLabelsPage.tsx
+   Hardcoded Tags: 67, Props: 8
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Wide Range of Applications', 'Perfect for Packaging Integration', 'Rich Material Selection']
+--------------------------------------------------
+📄 src/pages/features/BarrierOptionsPage.tsx
+   Hardcoded Tags: 74, Props: 1
+   Sample Tags: ['If you need to', 'Coffee, snacks, pet food shelf life', 'Supplements']
+   Sample Props: ['Choose the right barrier level for your sustainable packaging. Low, medium, and high barrier options in recyclable and compostable materials. Free shelf-life testing available.']
+--------------------------------------------------
+📄 src/pages/solutions/StartupFounderPage.tsx
+   Hardcoded Tags: 73, Props: 2
+   Sample Tags: ["You're building a", 'Common Frustrations', 'What You Actually Need']
+   Sample Props: ['Launch your brand with certified sustainable packaging. Low MOQ from 100 pieces, free design support, fast turnaround for startups.', 'Packaging for Startup Founders']
+--------------------------------------------------
+📄 src/pages/pouch/blog/BPICertifiedGuide.tsx
+   Hardcoded Tags: 72, Props: 2
+   Sample Tags: ['The Biodegradable Products Institute (BPI) is the', "Pouch.eco's direct-factory bio-PBS and composite films carry active certifications. This official", 'The B2B Legal']
+   Sample Props: ['Custom BPI Certified Compostable Pouches for Sustainable Food Brands', 'Verify North American compliance (ASTM D6400) and unlock retail placement. Pre-certified materials direct from OEM factory.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/HomeCompostableGuide.tsx
+   Hardcoded Tags: 70, Props: 1
+   Sample Tags: ['Home compostable packaging breaks down in your customer', 'Market Reality Check', 'Australian households compost at home']
+   Sample Props: ['Complete guide to home compostable packaging for brands targeting eco-conscious consumers in Australia, UK, and EU. Includes certification comparison, material options, transparent pricing, and real case studies.']
+--------------------------------------------------
+📄 src/pages/knowledge/PrintingTypesPage.tsx
+   Hardcoded Tags: 71, Props: 0
+   Sample Tags: ['Understanding your options helps you make the best choice for your brand', 'Let us guide you through the key differences and help you decide.', 'Explore different printing finishes and surface treatments. Click any image to enlarge']
+--------------------------------------------------
+📄 src/pages/products/CompostableStandUpPouchesPage.tsx
+   Hardcoded Tags: 68, Props: 2
+   Sample Tags: ['Why Brands Choose Compostable Stand-Up Pouches', 'Compostable stand-up pouches are ideal for', 'With degassing valves for fresh roast']
+   Sample Props: ['Compostable Stand-Up Pouches', 'Certified compostable stand-up pouches perfect for snacks, coffee, tea, and dry goods. Our eco-friendly bags feature resealable zippers and are available with custom printing from just 100 pieces.']
+--------------------------------------------------
+📄 src/pages/materials/PCRPage.tsx
+   Hardcoded Tags: 69, Props: 0
+   Sample Tags: ['Click the infographic below to view in full size', 'If you are a brand with', 'Corporate Sustainability']
+--------------------------------------------------
+📄 src/pages/solutions/CorporateSustainabilityPage.tsx
+   Hardcoded Tags: 66, Props: 3
+   Sample Tags: ['Corporate Challenges', 'What You Need', 'Every environmental claim we make is backed by']
+   Sample Props: ['Corporate-grade sustainable packaging with third-party certifications for ESG reporting. Quantifiable impact data and multi-brand solutions.', 'Corporate Sustainability Packaging', 'Meet corporate sustainability targets with packaging backed by quantifiable data. Third-party certifications, supply chain transparency, and scalable solutions for multi-brand portfolios.']
+--------------------------------------------------
+📄 src/pages/free-service/FreeWebsiteUpgradePage.tsx
+   Hardcoded Tags: 69, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/pouch/blog/LowMOQPackagingGuide.tsx
+   Hardcoded Tags: 67, Props: 1
+   Sample Tags: ['The Startup Packaging Trap', 'Traditional Rotogravure Demands', 'Pouch.eco Low MOQ Solution']
+   Sample Props: ['Launch your DTC or consumer brand with professional-tier printed barrier pouches. Low MOQ starts at 500 units with zero plate setup fees.']
+--------------------------------------------------
+📄 src/pages/products/CoffeeBagsDegassingValvePage.tsx
+   Hardcoded Tags: 65, Props: 3
+   Sample Tags: ['Why Degassing Valves Matter', 'We offer multiple valve options to suit your needs', 'Standard Degassing Valve']
+   Sample Props: ['Premium coffee bags with one-way degassing valves. Protect freshly roasted coffee with CO2 release. Available in compostable and recyclable options.', 'Coffee Bags with Degassing Valves', 'Professional coffee bags featuring integrated one-way degassing valves that release CO2 while preventing oxygen entry. Available in compostable and recyclable materials from 100 pieces MOQ.']
+--------------------------------------------------
+📄 src/pages/solutions/SnackBrandManagerPage.tsx
+   Hardcoded Tags: 65, Props: 2
+   Sample Tags: ['Internal Challenges', 'What You Need', 'Snack portfolios are complex']
+   Sample Props: ['Sustainable packaging for organic snack brands. Multi-product solutions with verified sustainability claims.', 'Snack Brand Packaging Solutions']
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchFlatBottomVsGussetPage.tsx
+   Hardcoded Tags: 66, Props: 0
+   Sample Tags: ['The Bottom', 'Difference.', 'Flat bottom pouches and side gusset pouches look similar, but their bottoms are completely different. Master the mechanics, volume, stability, and pricing index.']
+--------------------------------------------------
+📄 src/pages/knowledge/WhiteInkUnderprintPage.tsx
+   Hardcoded Tags: 66, Props: 0
+   Sample Tags: ['setEnlargedImage(src)', 'The Hidden Secret Behind Eye-Catching Packaging', 'Should Your Gold Print Have a White Underneath?']
+--------------------------------------------------
+📄 src/pages/company/BPICertifiedPage.tsx
+   Hardcoded Tags: 66, Props: 0
+   Sample Tags: ['Achieve Pack', 'Book Meeting', 'BPI License Holder']
+--------------------------------------------------
+📄 src/pages/pouch/blog/USALabelingGuide.tsx
+   Hardcoded Tags: 65, Props: 0
+   Sample Tags: ['Real Penalties in 2025-2026', 'Common Labeling Mistakes', 'The 3 States You MUST Get Right']
+--------------------------------------------------
+📄 src/pages/products/RecyclableMonoMaterialPage.tsx
+   Hardcoded Tags: 64, Props: 1
+   Sample Tags: ['Why Choose Mono-Material Recyclable', 'Mono-PE (Polyethylene)', 'View Mono-PE specs']
+   Sample Props: ['Recyclable Mono-Material Pouches']
+--------------------------------------------------
+📄 src/pages/knowledge/EcoPackagingRealityPage.tsx
+   Hardcoded Tags: 65, Props: 0
+   Sample Tags: ['setEnlargedImage(src)', 'Click to Zoom', 'Eco-Packaging Reality']
+--------------------------------------------------
+📄 src/pages/composting/NaturalCelluloseFiberPage.tsx
+   Hardcoded Tags: 63, Props: 1
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'Sustainable Materials']
+   Sample Props: ['Natural Cellulose Fiber in AchievePack Solutions']
+--------------------------------------------------
+📄 src/pages/industry/SaucesCondimentsPage.tsx
+   Hardcoded Tags: 63, Props: 1
+   Sample Tags: ['If you are a', 'Sauce Brands', 'Spout pouches with reclosable caps']
+   Sample Props: ['Flexible packaging for sauces, condiments, oils, and spreads. Spout pouches, refill packs, sachets. Hot-fill and retort capable. MOQ 500 units.']
+--------------------------------------------------
+📄 src/pages/solutions/CoffeeRoasterPage.tsx
+   Hardcoded Tags: 61, Props: 2
+   Sample Tags: ['Current Concerns', 'What You Need', 'Freshly roasted coffee releases CO2 for days.']
+   Sample Props: ['Sustainable coffee packaging for specialty roasters. Degassing valve compatible with proven freshness performance.', 'Coffee Roaster Packaging']
+--------------------------------------------------
+📄 src/pages/products/CompostableCoffeeBagsPage.tsx
+   Hardcoded Tags: 60, Props: 2
+   Sample Tags: ['Why Roasters Choose Our Compostable Coffee Bags', 'We offer several compostable material options specifically designed for coffee', 'Kraft Paper']
+   Sample Props: ['Compostable Coffee Bags', 'Premium compostable coffee bags designed for specialty roasters. Our ASTM D6400 and EN 13432 certified packaging features integrated degassing valves, resealable closures, and is available from just 100 pieces minimum order.']
+--------------------------------------------------
+📄 src/pages/quotes/FlatBottomQuotePage.tsx
+   Hardcoded Tags: 57, Props: 5
+   Sample Tags: ['Quotation', 'Included Details', 'Home Compostable Zipper']
+   Sample Props: ['Click to enlarge', 'Click to enlarge', 'Click to view BPI Listing']
+--------------------------------------------------
+📄 src/pages/knowledge/FinSealLapSealPage.tsx
+   Hardcoded Tags: 62, Props: 0
+   Sample Tags: ['setEnlargedImage(src)', 'Knowledge Base', 'Fin Seal vs Lap Seal']
+--------------------------------------------------
+📄 src/pages/function/LargeFormatKraftHeavyBagPage.tsx
+   Hardcoded Tags: 55, Props: 6
+   Sample Tags: ['For premium organic food, specialty coffee, and high-end pet treat startups, standard industrial bags are a disaster. Single-layer plastic bags look cheap and sweat moisture, while pure paper bags break under heavy weight.', 'Technical Parameters Matrix', 'Bag Structure']
+   Sample Props: ['Ditch cheap plastic. Scale your organic bulk retail with beautiful natural Kraft texture laminated to a puncture-proof PP woven core. Starting at 500 units.', 'Ditch Cheap Plastic Bags Today', 'Secure your bulk transit and wow B2C retail buyers with beautiful natural FSC Kraft sacks. Book a free 30-minute consultation with packaging engineers.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/CoffeePackagingGuide.tsx
+   Hardcoded Tags: 57, Props: 3
+   Sample Tags: ["Here's the truth", 'The Coffee Freshness Trinity', 'Oxygen Barrier']
+   Sample Props: ['Compostable vs recyclable, barrier performance decoded, and low MOQ options from 100 pieces. For specialty roasters who care about freshness.', 'Ready to Upgrade Your Coffee Packaging?', 'Start with just 100 pieces. Book a free consultation to get expert recommendations for your roastery.']
+--------------------------------------------------
+📄 src/pages/solutions/EcommerceBrandPage.tsx
+   Hardcoded Tags: 58, Props: 2
+   Sample Tags: ['You built your', "What's Costing You Money", 'What Drives Growth']
+   Sample Props: ['E-commerce Brand Packaging', 'Lightweight flexible pouches designed for DTC shipping. Reduce costs, create shareable unboxing experiences, and protect products in transit. Low MOQ from 100 pieces.']
+--------------------------------------------------
+📄 src/pages/legal/PrivacyPolicyPage.tsx
+   Hardcoded Tags: 60, Props: 0
+   Sample Tags: ['AchievePack', 'Table of Contents', 'scrollToSection(section.id)']
+--------------------------------------------------
+📄 src/pages/free-service/FreeCustomerCenterPage.tsx
+   Hardcoded Tags: 60, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/lab/WireClosureBagsPage.tsx
+   Hardcoded Tags: 51, Props: 7
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Reinforced Wire for Stable Sealing Performance', 'Step-by-Step Sealing Instructions', 'Reinforced Film for Demanding Applications']
+--------------------------------------------------
+📄 src/pages/solutions/ProductDeveloperPage.tsx
+   Hardcoded Tags: 55, Props: 3
+   Sample Tags: ['Innovation Challenges', 'What You Need', "Don't wait months for packaging samples."]
+   Sample Props: ['Packaging for product innovators. Rapid prototyping in 48 hours, cutting-edge materials, flexible iteration with no plate costs.', 'Packaging for Product Innovators', 'Bring innovative products to market faster with packaging that matches your pace. Rapid prototyping, cutting-edge sustainable materials, and flexible iteration cycles.']
+--------------------------------------------------
+📄 src/pages/materials/KraftLowBarrierPage.tsx
+   Hardcoded Tags: 57, Props: 0
+   Sample Tags: ['Key Features', "Perfect for bakery items, dry snacks, coffee beans (short-term), nuts, granola, and other low-moisture products that don't require extended shelf life.", 'Our kraft low barrier structure provides basic protection for short-to-medium shelf life products.']
+--------------------------------------------------
+📄 src/pages/pouch/legal/PouchPrivacyPage.tsx
+   Hardcoded Tags: 56, Props: 0
+   Sample Tags: ['Table of Contents', 'scrollToSection(section.id)', 'Privacy Policy']
+--------------------------------------------------
+📄 src/pages/solutions/FoodManufacturerPage.tsx
+   Hardcoded Tags: 53, Props: 3
+   Sample Tags: ['Regulatory Challenges', 'What You Need', 'Our packaging meets']
+   Sample Props: ['Food-grade packaging compliant with FDA, EFSA, and international regulations. BRC certified manufacturing with comprehensive documentation.', 'Regulatory-Compliant Food Packaging', 'Navigate complex food packaging regulations with confidence. Our packaging meets FDA, EFSA, and international standards with full documentation for audits and export.']
+--------------------------------------------------
+📄 src/pages/features/MediumBarrierPage.tsx
+   Hardcoded Tags: 55, Props: 0
+   Sample Tags: ['Technical Specifications', 'Explore our medium barrier packaging solutions. Click any image to enlarge', 'setGalleryEnlarged(']
+--------------------------------------------------
+📄 src/pages/knowledge/WorkflowPage.tsx
+   Hardcoded Tags: 55, Props: 0
+   Sample Tags: ['Every project follows this proven workflow', 'With dedicated support at each stage, you are never left wondering what comes next.', 'Our Production Process']
+--------------------------------------------------
+📄 src/pages/recyclable/RecyclableRoadmapPage.tsx
+   Hardcoded Tags: 55, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'Implementation Roadmap']
+--------------------------------------------------
+📄 src/pages/PouchDielineFinderPage.tsx
+   Hardcoded Tags: 54, Props: 0
+   Sample Tags: ['Certified Dieline Finder', 'Search, inspect dimensions in real-time, toggle blueprint prepress layers, and download verified high-fidelity vector templates (.PDF', 'Prepress Dieline Catalog']
+--------------------------------------------------
+📄 src/pages/usa/USACompostableHubPage.tsx
+   Hardcoded Tags: 49, Props: 5
+   Sample Tags: ['Achieve Pack', 'Why US Brands Choose Achieve Pack', 'With growing consumer demand and new state regulations on plastic packaging, compostable pouches offer US food and beverage brands a genuine path to sustainability that resonates with eco-conscious consumers.']
+   Sample Props: ['Certified Compostable Packaging for US Brands', 'Achieve Pack provides certified compostable packaging solutions specifically designed for the US market, meeting ASTM D6400, BPI, and state-level labeling requirements.', 'Get Compostable Samples for Your US Brand']
+--------------------------------------------------
+📄 src/pages/pouch/industry/PouchCoffeeTeaPage.tsx
+   Hardcoded Tags: 54, Props: 0
+   Sample Tags: ['Compostable Pouches for', 'Degassing valves. High-barrier protection. Home compostable.', 'Perfect for specialty roasters and tea brands. Start with 500 pieces.']
+--------------------------------------------------
+📄 src/pages/lab/LateralFilterBagsPage.tsx
+   Hardcoded Tags: 51, Props: 3
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Compatible with All Major Lab Blenders', 'Pour Clear Filtrate, Leave Residue Behind', 'Lateral Filter Blender Bags']
+--------------------------------------------------
+📄 src/pages/spec/CompostablePouchGeoPage.tsx
+   Hardcoded Tags: 53, Props: 1
+   Sample Tags: ['POUCH.ECO Spec Hub', 'setIsAdminView(!isAdminView)', 'Certified Compostable']
+   Sample Props: ['Preview 12h Summary Email']
+--------------------------------------------------
+📄 src/pages/ProjectDetailPage.tsx
+   Hardcoded Tags: 53, Props: 0
+   Sample Tags: ['Loading Project Details...', 'Project Not Found', "We couldn't find the project you're looking for. It might have been deleted or the link is incorrect."]
+--------------------------------------------------
+📄 src/pages/usa/USASnacksPage.tsx
+   Hardcoded Tags: 46, Props: 7
+   Sample Tags: ['Compostable stand-up pouches', 'Market Drivers for Sustainable Snack Packaging', 'Achieve Pack']
+   Sample Props: ['ASTM D6400 certified compostable snack pouches for US food brands. Stand-up pouches with resealable zippers, low MOQ from 100 pieces, ships to USA in 15-20 days.', 'Compostable Snack Packaging for US Brands', 'ASTM D6400 certified stand-up pouches with resealable zippers. Perfect for chips, granola, nuts, and organic snacks targeting natural food retailers.']
+--------------------------------------------------
+📄 src/pages/pcr/PCRRealisticPage.tsx
+   Hardcoded Tags: 52, Props: 1
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'PCR Percentage Guide']
+   Sample Props: ['How Much PCR Content Is Realistic for My Packaging?']
+--------------------------------------------------
+📄 src/pages/spec/PcrPetDuplexClearPage.tsx
+   Hardcoded Tags: 51, Props: 2
+   Sample Tags: ['Thickness', 'OTR (Oxygen Transmission Rate)', 'WVTR (Water Vapor Transmission Rate)']
+   Sample Props: ['PCR PET Duplex Clear Structure', 'A sustainable duplex structure combining K-coated PET for oxygen barrier with recycled or bio-based PE sealant. Ideal for coffee, snacks, and dried foods requiring mid-level barrier protection with window visibility option.']
+--------------------------------------------------
+📄 src/pages/features/HighBarrierPage.tsx
+   Hardcoded Tags: 52, Props: 0
+   Sample Tags: ['Technical Specifications', 'Explore our high barrier packaging solutions. Click any image to enlarge', 'setGalleryEnlarged(']
+--------------------------------------------------
+📄 src/pages/pouch/blog/OrganicComplianceSupportGuide.tsx
+   Hardcoded Tags: 48, Props: 3
+   Sample Tags: ['For organic-licensed brands, the packaging is just as important as the product inside.', 'To maintain your certification (USDA Organic, EU Organic, HKORC, etc.), your packaging must meet strict', 'Why Packaging Matters for Organic']
+   Sample Props: ["Supporting Your Brand's Organic Integrity with Certified Compostable Packaging. Download the exact documents your auditor needs.", 'Need Help Updating Your Organic System Plan?', 'Book a quick call with our compliance specialists to ensure your packaging choice is aligned with your certification.']
+--------------------------------------------------
+📄 src/pages/features/LowBarrierPage.tsx
+   Hardcoded Tags: 51, Props: 0
+   Sample Tags: ['Technical Specifications', 'Explore our low barrier eco-friendly solutions. Click any image to enlarge', 'setGalleryEnlarged(']
+--------------------------------------------------
+📄 src/pages/spec/BioPePetDuplexClearPage.tsx
+   Hardcoded Tags: 50, Props: 1
+   Sample Tags: ['Thickness', 'Bio-Based Content', 'KPET12 (Outer Layer)']
+   Sample Props: ['Bio-PE PET Duplex Clear Structure']
+--------------------------------------------------
+📄 src/pages/knowledge/AllOptionsPage.tsx
+   Hardcoded Tags: 50, Props: 1
+   Sample Tags: ['Endless Customization', 'Our packaging specialists help you choose the perfect combination for your specific product requirements. Every option can be mixed and matched.', 'Choose from our eco-friendly material options']
+   Sample Props: ['Additional Features - with Images']
+--------------------------------------------------
+📄 src/pages/team/RyanWongPage.tsx
+   Hardcoded Tags: 50, Props: 0
+   Sample Tags: ['Ryan Wong', 'Packaging Development Specialist', 'LinkedIn Profile']
+--------------------------------------------------
+📄 src/pages/legal/CookiePolicyPage.tsx
+   Hardcoded Tags: 50, Props: 0
+   Sample Tags: ['AchievePack', 'Cookie Policy', 'Last updated']
+--------------------------------------------------
+📄 src/pages/ArtworkReviewPage.tsx
+   Hardcoded Tags: 47, Props: 2
+   Sample Tags: ['setShowOverallApproval(true)', 'Submit Review', 'Important Notice - Please Read Before Approval']
+   Sample Props: ['View Original Source File', 'Attach Image']
+--------------------------------------------------
+📄 src/pages/pcr/PCRGuidePage.tsx
+   Hardcoded Tags: 48, Props: 1
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'PCR Complete Guide']
+   Sample Props: ['What Is PCR Plastic? Impact on Packaging Quality']
+--------------------------------------------------
+📄 src/pages/pcr/RecyclableVsPCRPage.tsx
+   Hardcoded Tags: 49, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'Prioritisation Guide']
+--------------------------------------------------
+📄 src/pages/composting/PlasticFreePage.tsx
+   Hardcoded Tags: 48, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/pouch/options/SurfaceAndReclosureOptionsPage.tsx
+   Hardcoded Tags: 45, Props: 2
+   Sample Tags: ['ELEVATE YOUR BRAND', 'Complete Customization Guide', 'Surface Finishes']
+   Sample Props: ['Surface Finishes Database', 'Re-closure Options Database']
+--------------------------------------------------
+📄 src/pages/spec/BioPePpDuplexClearPage.tsx
+   Hardcoded Tags: 46, Props: 1
+   Sample Tags: ['Thickness', 'Key Benefit', 'Best Moisture Barrier']
+   Sample Props: ['Bio-PE PP Duplex Clear Structure']
+--------------------------------------------------
+📄 src/pages/usa/USACoffeePage.tsx
+   Hardcoded Tags: 39, Props: 7
+   Sample Tags: ['If you are a', 'Small Batch Roasters', 'Sustainable packaging that resonates with eco-conscious consumers']
+   Sample Props: ['ASTM D6400 certified compostable coffee bags with degassing valves for US specialty roasters. Kraft paper pouches, low MOQ from 100 pieces, ships to USA in 15-20 days.', 'Compostable Coffee Packaging for US Roasters', 'ASTM D6400 certified kraft paper pouches with compostable degassing valves. Perfect for specialty roasters who want sustainable packaging without compromising freshness.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/EcoFriendlyFoodPackagingGuide.tsx
+   Hardcoded Tags: 45, Props: 1
+   Sample Tags: ['The Dilemma', 'Food brands face mounting pressure', 'The Risks']
+   Sample Props: ['Stop choosing between shelf life and sustainability. A complete guide to high-barrier compostable and recyclable options for food brands.']
+--------------------------------------------------
+📄 src/pages/quotes/SpoutedPouchQuotePage.tsx
+   Hardcoded Tags: 46, Props: 0
+   Sample Tags: ['Quotation', 'Included Details', 'Spout 9.6mm']
+--------------------------------------------------
+📄 src/pages/function/HeatResistantCandlePackagingPage.tsx
+   Hardcoded Tags: 40, Props: 6
+   Sample Tags: ['Eco-Friendly Materials', 'Heat-Resistant Candle Bags', 'setGalleryEnlarged(']
+   Sample Props: ['Ditch Heavy Glass Jars Today', 'Book a quick 30-minute packaging audit with our specialists to review candle wax formulas, sizes, and order free custom stamp sample kits.', 'The High-Heat Eco Pouch for Candle Makers']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveBathDemoPage.tsx
+   Hardcoded Tags: 44, Props: 2
+   Sample Tags: ['Achieve Bath.', 'setIsOpen(!isOpen)', 'The Clarity Collection']
+   Sample Props: ['Pure Ingredients', 'Direct Print']
+--------------------------------------------------
+📄 src/pages/usa/USALabelingGuidePage.tsx
+   Hardcoded Tags: 40, Props: 5
+   Sample Tags: ['If you are a', 'California Sellers', 'Multi-State Brands']
+   Sample Props: ['Complete guide to US compostable packaging labeling requirements. California SB 343, AB 1201, Washington, and Colorado compliance. ASTM D6400 certification and label design guidance.', 'Navigate California, Washington, and Colorado labeling requirements for compostable packaging. ASTM D6400 certification, proper terminology, and compliant label design.', 'Get Compliant Compostable Packaging']
+--------------------------------------------------
+📄 src/pages/pouch/PouchHomePage.tsx
+   Hardcoded Tags: 45, Props: 0
+   Sample Tags: ['From startups to established names - they all started with 500 units', 'Eco Bags in', 'Rotate, tilt, and inspect the certified organic structural barriers of our green pouches. Move your mouse to tilt, scroll to spin, or toggle models below.']
+--------------------------------------------------
+📄 src/pages/pouch/options/SmartDegassingStickerPage.tsx
+   Hardcoded Tags: 45, Props: 0
+   Sample Tags: ['ACTIVE PACKAGING', 'Smart Degassing Stickers', 'for Liquid Packaging']
+--------------------------------------------------
+📄 src/pages/company/BCorpPage.tsx
+   Hardcoded Tags: 45, Props: 0
+   Sample Tags: ['Achieve Pack', 'Book Meeting', 'Pending Certification']
+--------------------------------------------------
+📄 src/pages/pcr/PCR7ChecklistPage.tsx
+   Hardcoded Tags: 44, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'PCR Checklist Guide']
+--------------------------------------------------
+📄 src/pages/function/SmartDegassingStickerPage.tsx
+   Hardcoded Tags: 34, Props: 10
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['The Smart Degassing Sticker Solution', 'Rigorous Pressure and Leak Testing', 'Automated Inline Application']
+--------------------------------------------------
+📄 src/pages/knowledge/KSealStandUpPouchesPage.tsx
+   Hardcoded Tags: 44, Props: 0
+   Sample Tags: ['setEnlargedImage(src)', 'Knowledge Base', 'K-Seal Stand Up Pouches']
+--------------------------------------------------
+📄 src/pages/pouch/blog/CoffeeDegassingValveGuide.tsx
+   Hardcoded Tags: 40, Props: 3
+   Sample Tags: ['Freshly roasted coffee beans release up to', 'Commercial Packaging Value', 'Pack beans directly from the roaster. Eliminates the 48-hour wait, speeding up your inventory turnover.']
+   Sample Props: ['Maximize freshness and avoid packaging swelling. ASTM D6400 BPI-certified compostable and recyclable mono-PE coffee bags with integrated one-way degassing valves, starting from low MOQ.', 'Scale Your Specialty Coffee Brand Compliancy', 'Leverage our pre-certified ASTM D6400 compostable valve sublicenses to print verified compostable marks. Request a free sample box or upload your packaging dielines for immediate pre-flight checking.']
+--------------------------------------------------
+📄 src/pages/spec/BioPeKraftDuplexLowPage.tsx
+   Hardcoded Tags: 42, Props: 1
+   Sample Tags: ['Simple Natural Kraft', 'Thickness', 'Barrier Level']
+   Sample Props: ['Bio-PE Kraft Duplex Low Barrier Structure']
+--------------------------------------------------
+📄 src/pages/spec/BioPePetKraftTriplexClearPage.tsx
+   Hardcoded Tags: 41, Props: 2
+   Sample Tags: ['Natural Kraft', 'Thickness', 'Stiffness']
+   Sample Props: ['Bio-PE PET Kraft Triplex Clear Structure', 'A premium triplex structure combining natural kraft paper aesthetics with plant-based Bio-PE sealant. Supports clear window panels while delivering the authentic, sustainable look consumers love.']
+--------------------------------------------------
+📄 src/pages/free-service/FreeMockupPage.tsx
+   Hardcoded Tags: 43, Props: 0
+   Sample Tags: ['Free Custom Packaging Mockups', 'Visualize your new eco-friendly packaging before production and launch with studio-quality mockups and marketing images,', 'Realistic 3D mockups of your stand up pouches, flat bottom bags, and boxes.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/CustomCompostablePouchSuppliersGuide.tsx
+   Hardcoded Tags: 41, Props: 1
+   Sample Tags: ['Sourcing custom compostable packaging requires rigorous due diligence. Unlike conventional plastic, bio-based films have complex shelf-life parameters and legal compliance rules.', 'Red Flags', 'If they say "Biodegradable" but show no certificate... RUN.']
+   Sample Props: ['Stop dealing with brokers and fakes. Learn how to verify certifications, negotiate MOQs, and source directly from the factory.']
+--------------------------------------------------
+📄 src/pages/quotes/ThreeSideSealQuotePage.tsx
+   Hardcoded Tags: 41, Props: 1
+   Sample Tags: ['Quotation', 'Included Details', 'Surface Kraft Texture']
+   Sample Props: ['Copy link to share this quote']
+--------------------------------------------------
+📄 src/pages/spec/BioPePpKraftQuadlexAluminumPage.tsx
+   Hardcoded Tags: 41, Props: 1
+   Sample Tags: ['Ultimate Kraft - Lowest WVTR', 'Thickness', 'Key Benefit']
+   Sample Props: ['Bio-PE PP Kraft Quadlex Aluminum Structure']
+--------------------------------------------------
+📄 src/pages/spec/BioPeKraftVmpetPage.tsx
+   Hardcoded Tags: 41, Props: 1
+   Sample Tags: ['Natural Kraft', 'Thickness', 'Key Feature']
+   Sample Props: ['Bio-PE Kraft VMPET Triplex Structure']
+--------------------------------------------------
+📄 src/pages/spec/BioPePetKraftQuadlexAluminumPage.tsx
+   Hardcoded Tags: 41, Props: 1
+   Sample Tags: ['Premium Kraft', 'Thickness', 'Structure']
+   Sample Props: ['Bio-PE PET Kraft Quadlex Aluminum Structure']
+--------------------------------------------------
+📄 src/pages/knowledge/PouchSizingPage.tsx
+   Hardcoded Tags: 38, Props: 4
+   Sample Tags: ['Our algorithm maps volumetric density instantly to compute the perfect envelope size.', 'setProductType(prod.id)', "setWeightUnit('g')"]
+   Sample Props: ['Complete pouch sizing guide with visual size comparison, dimensions in mm and inches, and capacity in grams. Use our volume density calculator for coffee, snacks, powders, and pet food. XXXS to XXL sizes.', 'Ready to Order?', 'Choose your size and order eco-friendly printed pouches with low MOQ starting from 1,000 pieces.']
+--------------------------------------------------
+📄 src/pages/knowledge/SizeGuidePage.tsx
+   Hardcoded Tags: 42, Props: 0
+   Sample Tags: ['How We Measure Pouches', 'Dimensions are expressed as', 'Measured flat, left to right edge']
+--------------------------------------------------
+📄 src/pages/pouch/industry/PouchFrozenFoodPage.tsx
+   Hardcoded Tags: 41, Props: 0
+   Sample Tags: ['Frozen products demand specialized polymer structures. Our Arctic-Grade films are engineered to remain flexible at -40', 'Beyond the', 'Our frozen food pouches use high-performance PE-based films designed specifically for sub-zero temperatures. No cracking, no peeling, no barrier failure.']
+--------------------------------------------------
+📄 src/pages/lab/LabBlenderBagsPage.tsx
+   Hardcoded Tags: 33, Props: 8
+   Sample Tags: ['setGalleryEnlarged(', 'Click to enlarge Click to enlarge', 'setGalleryEnlarged(']
+   Sample Props: ['Sterile Lab Blender Bags for Microbiology', 'Gamma Irradiated for Guaranteed Sterility', 'Built to Withstand Intensive Blending']
+--------------------------------------------------
+📄 src/pages/admin/prospects/ProspectFinderPage.tsx
+   Hardcoded Tags: 39, Props: 2
+   Sample Tags: ['Prospect Finder', 'AI-powered cold outreach', 'Manage Lists']
+   Sample Props: ['Manually trigger one automation cycle', 'Generate AI Search Phrase']
+--------------------------------------------------
+📄 src/pages/pouch/industry/PouchPetFoodPage.tsx
+   Hardcoded Tags: 40, Props: 0
+   Sample Tags: ['Pet Food Packaging', 'Compostable Pet Food', 'Heavy-duty. Pet-safe. Home compostable.']
+--------------------------------------------------
+📄 src/pages/pouch/industry/PouchBabyFoodPage.tsx
+   Hardcoded Tags: 40, Props: 0
+   Sample Tags: ["Baby food brands face the world's strictest packaging scrutiny. Our materials undergo rigorous independent lab testing to guarantee zero leaching of BPA, phthalates, or microplastics.", 'No Compromise.', 'FDA 21 CFR']
+--------------------------------------------------
+📄 src/pages/spec/BioPePpKraftTriplexClearPage.tsx
+   Hardcoded Tags: 39, Props: 1
+   Sample Tags: ['Natural Kraft', 'Thickness', 'Key Benefit']
+   Sample Props: ['Bio-PE PP Kraft Triplex Clear Structure']
+--------------------------------------------------
+📄 src/pages/spec/BioPePetTriplexAluminumPage.tsx
+   Hardcoded Tags: 39, Props: 1
+   Sample Tags: ['Thickness', 'Barrier Level', 'Ultimate Barrier']
+   Sample Props: ['Bio-PE PET Triplex Aluminum Structure']
+--------------------------------------------------
+📄 src/pages/spec/BioPePpDuplexNoWindowPage.tsx
+   Hardcoded Tags: 39, Props: 1
+   Sample Tags: ['Thickness', 'Key Benefit', 'Best Moisture']
+   Sample Props: ['Bio-PE PP Duplex No Window Structure']
+--------------------------------------------------
+📄 src/pages/spec/BioPePetTriplexMetalisedPage.tsx
+   Hardcoded Tags: 39, Props: 1
+   Sample Tags: ['Thickness', 'Barrier Level', 'High Barrier']
+   Sample Props: ['Bio-PE PET Triplex Metalised Structure']
+--------------------------------------------------
+📄 src/pages/spec/BioPePetDuplexNoWindowPage.tsx
+   Hardcoded Tags: 39, Props: 1
+   Sample Tags: ['Thickness', 'Print Coverage', 'PET12 (Outer Layer)']
+   Sample Props: ['Bio-PE PET Duplex No Window Structure']
+--------------------------------------------------
+📄 src/pages/pouch/blog/EcoPackagingRegulationsGuide.tsx
+   Hardcoded Tags: 38, Props: 1
+   Sample Tags: ['Adapt or Pay Fines.', 'The era of voluntary sustainability is over. Governments are taxing plastic and mandating certifications.', 'Extended Producer Responsibility (EPR)']
+   Sample Props: ['Global regulations are tightening. Plastic taxes, EPR fees, and aggressive bans. Is your packaging compliant for 2026?']
+--------------------------------------------------
+📄 src/pages/spec/BioPePpTriplexMetalisedPage.tsx
+   Hardcoded Tags: 38, Props: 1
+   Sample Tags: ['Thickness', 'Key Benefit', 'Best Moisture in Metalised']
+   Sample Props: ['Bio-PE PP Triplex Metalised Structure']
+--------------------------------------------------
+📄 src/pages/spec/BioPePpTriplexAluminumPage.tsx
+   Hardcoded Tags: 38, Props: 1
+   Sample Tags: ['Thickness', 'Key Benefit', 'Best Moisture in Foil']
+   Sample Props: ['Bio-PE PP Triplex Aluminum Structure']
+--------------------------------------------------
+📄 src/pages/admin/LinkBuildingPage.tsx
+   Hardcoded Tags: 39, Props: 0
+   Sample Tags: ['Link Building', 'Manage backlink opportunities and outreach campaigns', 'setShowAddOpportunity(true)']
+--------------------------------------------------
+📄 src/pages/recyclable/WhatIsRecyclablePage.tsx
+   Hardcoded Tags: 39, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'Recyclable Packaging Guide']
+--------------------------------------------------
+📄 src/pages/topics/EUPPWRCompliancePage.tsx
+   Hardcoded Tags: 34, Props: 5
+   Sample Tags: ['Adapt Early or Face Regulatory Penalties', 'The voluntary phase of eco-marketing is officially over. The newly adopted Packaging and Packaging Waste Regulation (PPWR) establishes uniform legally-binding mandates across all EU Member States.', "Oversized boxes and double-walled containers designed purely to inflate a brand's shelf presence are facing a strict phase-out. Under the PPWR, all packaging volume and weight must be reduced to the absolute technical minimum required for product integrity and transportation."]
+   Sample Props: ['The countdown to mid-August 2026 has begun. From mandatory recyclability to strict packaging minimization rules, master the technical compliance roadmap.', 'A technical guide for procurement directors auditing materials, labels, and minimization rules before the 2026 enforcement.', 'Compliant. Minimized. Certified.']
+--------------------------------------------------
+📄 src/pages/PouchEcoHomePage.tsx
+   Hardcoded Tags: 36, Props: 2
+   Sample Tags: ['setIsCartOpen(true)', 'Packaging.', 'Trusted by Global Brands']
+   Sample Props: ['Eco Packaging for Startups - From 500 Units', 'Beautiful compostable and recyclable pouches from just 500 units. Perfect for small brands starting their sustainability journey. BPI certified, 8 premium finishes, fast turnaround.']
+--------------------------------------------------
+📄 src/pages/StorePage.tsx
+   Hardcoded Tags: 36, Props: 2
+   Sample Tags: ['setIsMobileMenuOpen(!isMobileMenuOpen)', 'setIsMobileMenuOpen(false)', 'Eco Digital']
+   Sample Props: ['Get Custom Quote', 'Get Custom Quote']
+--------------------------------------------------
+📄 src/pages/pouch/blog/DTCSustainablePackagingGuide.tsx
+   Hardcoded Tags: 37, Props: 1
+   Sample Tags: ['In modern direct-to-consumer ecommerce, packaging is your only physical touchpoint with your buyer. It must offer premium unboxing quality while strictly meeting strict state environmental mandates.', 'The Truth', 'Your packaging is the ONLY physical touchpoint you have. Make it count.']
+   Sample Props: ['The ultimate guide for startups and scaling brands. From 100 units to IPO. How to choose packaging that sells AND saves the planet.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/GreenCoffeeMaterialsGuide.tsx
+   Hardcoded Tags: 37, Props: 1
+   Sample Tags: ['Specialty roasted coffee is highly sensitive to external variables. Preserving volatile aromas and prevention of rancidity requires high-barrier protection.', 'Oxygen is the Enemy.', "You spend months sourcing green beans and perfecting the roast. Don't let cheap packaging kill your"]
+   Sample Props: ['Your beans deserve better than landfill. Discover high-barrier compostable and recyclable solutions that keep oxygen out and flavor in.']
+--------------------------------------------------
+📄 src/pages/pouch/industry/PouchSnacksPage.tsx
+   Hardcoded Tags: 38, Props: 0
+   Sample Tags: ['Snack Packaging', 'Compostable Snack', 'Grease-resistant. Keeps crunch. Home compostable.']
+--------------------------------------------------
+📄 src/pages/spec/CompostableMaterialStructurePage.tsx
+   Hardcoded Tags: 36, Props: 2
+   Sample Tags: ['Thickness', 'Certification', 'TUV OK Compost']
+   Sample Props: ['Compostable Material Structure', 'A certified compostable packaging structure with clear window capability. Combines high barrier cellulose or PLA outer layer with biodegradable PBAT sealant. Fully breaks down in industrial composting facilities.']
+--------------------------------------------------
+📄 src/pages/industry/SnacksFoodPage.tsx
+   Hardcoded Tags: 36, Props: 2
+   Sample Tags: ['Gourmet snacks, nuts, dried fruits, and organic chips are highly sensitive to environmental factors. Exposure to moisture instantly degrades texture', 'Compare our five top-tier sustainable snack packaging formats engineered for high barrier performance and low carbon footprints.', 'Low Cost MVP']
+   Sample Props: ['Premium material engineering guide for packaging organic snacks, chips, gourmet nuts, and dry ingredients. Explore certified compostable, recyclable and oil-resistant selections.', 'Startup snack companies and gourmet food brands require packaging that arrests moisture ingress, prevents fat rancidity, and stands out on retail shelves. Compare our five high-performance packaging formats.']
+--------------------------------------------------
+📄 src/pages/industry/SupplementsPowdersPage.tsx
+   Hardcoded Tags: 36, Props: 2
+   Sample Tags: ['Nutritional powders, protein blends, collagen peptides, and capsule supplements are highly vulnerable to atmospheric degradation. Fine powders are highly hygroscopic', 'Explore our five engineered sustainable packaging formats designed to maintain active vitamin potency and prevent powder caking.', 'Low Cost MVP']
+   Sample Props: ['Premium material engineering guide for packaging organic protein powders, collagen blends, vitamins, and daily wellness capsules. Discover certified compostable, recyclable and powder-proof selections.', 'Startup supplement brands and premium wellness manufacturers require packaging that arrests moisture ingress, prevents dusting leaks, and stands out on retail shelves. Compare our five high-performance packaging formats.']
+--------------------------------------------------
+📄 src/pages/industry/PetFoodPage.tsx
+   Hardcoded Tags: 36, Props: 2
+   Sample Tags: ['Pet food, organic dog treats, and raw kibble are rich in animal fats, active proteins, and strong organic odors. Standard retail plastics fail quickly under direct grease exposure, leading to oily packaging exteriors and bad-smelling rancid spoilage. Furthermore, dehydrated treats and dense dry kibble have sharp edges that can easily puncture ordinary packaging during heavy logistics.', 'Choose from our range of five engineered sustainable packaging formats designed for raw strength, odor retention, and eco-friendly claims.', 'Low Cost MVP']
+   Sample Props: ['Premium material engineering guide for packaging organic dog treats, kibble, cat jerks, and pet supplements. Discover certified compostable, recyclable and puncture-proof selections.', 'Startup pet treats brands and organic kibble manufacturers require packaging that blocks grease migration, locks in heavy animal odors, and handles high physical stress. Compare our five high-strength packaging formats.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/LowMOQStartupPackagingGuide.tsx
+   Hardcoded Tags: 36, Props: 1
+   Sample Tags: ["Don't Buy 10,000 Bags.", 'The old way', 'You order 10k bags for "Flavor A".']
+   Sample Props: ['The ultimate guide to Low MOQ packaging. Why buying 10,000 bags is a mistake, and how to start with just 100 professionally printed pouches.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/DigitalPrintingEcoPackagingGuide.tsx
+   Hardcoded Tags: 36, Props: 1
+   Sample Tags: ['Flexible packaging has traditionally required massive setup costs and plates for rotogravure printing. Our HP Indigo plateless digital printing process transfers graphics directly from vector files, eliminating waste entirely.', 'No Plates. No Waste.', 'Traditional "Flexo" printing requires huge copper plates for every color and massive setup waste. Digital is just...']
+   Sample Props: ['Stop paying for plates. Stop wasting ink. Start launching closer to demand with 15-day turnarounds and 100 unit MOQs.']
+--------------------------------------------------
+📄 src/pages/pouch/industry/PouchSupplementsPage.tsx
+   Hardcoded Tags: 37, Props: 0
+   Sample Tags: ['Supplement Packaging', 'Compostable Supplement', 'High-barrier. Moisture-proof. Home compostable.']
+--------------------------------------------------
+📄 src/pages/industry/BabyFoodPage.tsx
+   Hardcoded Tags: 36, Props: 1
+   Sample Tags: ['Organic baby purees, infant formulas, and baby snacks demands the absolute highest tier of packaging safety and structural integrity. Pureed fruit and vegetable blends undergo severe hot-fill sterilization or pasteurization (up to 85', 'Compare our five top-tier sustainable baby food packaging options engineered for absolute safety and puncture resistance.', 'Retail Puree MVP']
+   Sample Props: ['Premium material engineering guide for packaging organic baby purees, dry baby puffs, and infant formula. Discover certified compostable, recyclable and non-toxic selections.']
+--------------------------------------------------
+📄 src/pages/industry/CoffeeTeaPage.tsx
+   Hardcoded Tags: 35, Props: 2
+   Sample Tags: ['Specialty coffee beans and fine loose-leaf teas are highly sensitive agricultural products. Immediately after roasting, coffee beans release large volumes of carbon dioxide (CO2), which can swell or rupture a sealed pouch. At the same time, oxygen exposure destroys delicate roasted coffee oils and tea terpenes within days, turning vibrant aromatics flat and stale.', 'We provide a complete range of certified sustainable packaging options designed to preserve volatile aromas while minimizing your carbon footprint.', 'Low Cost MVP']
+   Sample Props: ['Premium material engineering guide for packaging specialty whole beans, ground coffee, and loose leaf tea. Discover certified compostable, recyclable and high-barrier selections.', 'Startup coffee roasters and premium tea brands require packaging that blocks oxygen, locks in volatile aromas, and fulfills corporate carbon-reduction goals. Explore our five engineered packaging formats for bean and leaf preservation.']
+--------------------------------------------------
+📄 src/pages/industry/FrozenFoodPage.tsx
+   Hardcoded Tags: 36, Props: 1
+   Sample Tags: ['Frozen food, organic frozen berries, seafood, and ready-meals face extreme environmental conditions during sub-zero logistics. At typical storage temperatures of -18', 'Compare our five top-tier sustainable frozen food packaging options engineered for absolute puncture defense and cold flexibility.', 'Low Cost MVP']
+   Sample Props: ['Premium material engineering guide for packaging organic frozen vegetables, berries, seafood, and ready-meals. Discover certified compostable, recyclable and cold-flexible selections.']
+--------------------------------------------------
+📄 src/pages/ArtworkHubPage.tsx
+   Hardcoded Tags: 33, Props: 3
+   Sample Tags: ['Loading...', 'setShowOnlyNoJson(!showOnlyNoJson)', 'setSortByNewest(!sortByNewest)']
+   Sample Props: ['Edit JSON', 'Copy JSON', 'Edit JSON']
+--------------------------------------------------
+📄 src/pages/pouch/PouchTechSpecsPage.tsx
+   Hardcoded Tags: 36, Props: 0
+   Sample Tags: ['Technical', 'Deep dive into material structures, barrier properties, and certification data. Transparency is our policy.', 'Input your target criteria to dynamically fetch compliant laminates.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/CompostableStandUpPouchesGuide.tsx
+   Hardcoded Tags: 35, Props: 1
+   Sample Tags: ['Sustainable packaging is no longer just a marketing differentiator', 'Core Commercial Incentives for B2B Buyers', 'Operational Advantages of Stand-Up Pouches']
+   Sample Props: ["Scale Your Brand's Retail Compliancy"]
+--------------------------------------------------
+📄 src/pages/pouch/blog/CompostableBabyFoodPackagingGuide.tsx
+   Hardcoded Tags: 33, Props: 3
+   Sample Tags: ['In baby food manufacturing, packaging chemistry is evaluated with the same scrutiny as the raw ingredients. Parents inspect labels and brand footprints closely, meaning procurement managers must verify absolute zero-chemical-migration bounds before any product hits the shipping docks.', 'Zero Compromise Chemical Registry', 'We manufacture all baby food packaging under ISO 22000 clean-room conditions, guaranteeing compliance with global organic baby food retail standards.']
+   Sample Props: ['Maximize brand trust and retail compliance. FDA-compliant, ASTM D6400 certified sugarcane-derived baby food spout pouches with child-safe anti-choke caps, starting from low MOQ.', 'Secure Organic Retail Compliance Today', 'Leverage our pre-certified ASTM D6400 baby food spout pouches to fast-track your BPI sublicensing. Request a free sample box or upload your packaging dielines for pre-flight checking.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/CustomPrintedMaterialsGuide.tsx
+   Hardcoded Tags: 35, Props: 1
+   Sample Tags: ['Many brands assume that moving to sustainable films means accepting dull, faded graphics. Modern HP Indigo 20000 digital printing delivers high-definition color depth and precise detail without compromising biodegradability.', 'Myth Busted.', 'HP Indigo 20000 Digital Presses']
+   Sample Props: ['Digital printing technology meets sustainable materials. Photo-quality, full bleed, and zero plate fees. Learn how to design for eco-materials.']
+--------------------------------------------------
+📄 src/pages/products/CompostableSideGussetPage.tsx
+   Hardcoded Tags: 32, Props: 4
+   Sample Tags: ['Certified under strict global standards including', 'Technical Advantages of Side Gusset Pouches', 'To achieve high-barrier coffee protection without using standard aluminum foils or fossil-fuel plastics, we engineer a premium']
+   Sample Props: ['Ready to Transition to Eco Gusset Packaging?', 'Book a free 30-minute consultation with our expert team to review your material stack, custom sizing, and volume pricing.', 'Compostable Side Gusset Pouches']
+--------------------------------------------------
+📄 src/pages/quotes/RollstockQuotePage.tsx
+   Hardcoded Tags: 35, Props: 1
+   Sample Tags: ['Quotation', 'Rollstock Film Format', 'Professional rollstock film suitable for automated form-fill-seal (FFS) packaging machines, ideal for small sachets and portion packaging.']
+   Sample Props: ['Copy link to share this quote']
+--------------------------------------------------
+📄 src/pages/quotes/CoffeePouchQuotePage.tsx
+   Hardcoded Tags: 36, Props: 0
+   Sample Tags: ['Premium Coffee Packaging', 'Custom Kraft Paper', 'Professional flat bottom pouches with degassing valve, perfect for preserving coffee freshness and showcasing your brand.']
+--------------------------------------------------
+📄 src/pages/admin/ShipmentHubPage.tsx
+   Hardcoded Tags: 34, Props: 2
+   Sample Tags: ['Access denied', 'Back to Admin', 'Shipment Hub']
+   Sample Props: ['Copy customer link', 'Preview customer view']
+--------------------------------------------------
+📄 src/pages/solutions/CitrusOilPackagingPage.tsx
+   Hardcoded Tags: 34, Props: 2
+   Sample Tags: ['Citrus-derived oils, rich in active organic compounds like', 'We provide a complete spectrum of certified packaging solutions for direct-to-consumer launches, small-batch demand testing, and massive wholesale production.', 'Low Cost MVP']
+   Sample Props: ['Premium material engineering guide for packaging liquid citrus and terpene-based cosmetics. Choose from high-barrier, recyclable, and bio-based PE options.', 'Startup-level demand testing demands packaging that balances active chemical protection, leak-resistance, and carbon-reduction goals. Compare our five engineered packaging options for citrus extracts, skincare oils, and organic refills.']
+--------------------------------------------------
+📄 src/pages/composting/OrganicComplianceSupportPage.tsx
+   Hardcoded Tags: 36, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/knowledge/WritableStampablePouchesPage.tsx
+   Hardcoded Tags: 33, Props: 3
+   Sample Tags: ['In the eco-conscious packaging community (frequently detailed in zero-waste and startup forums on Reddit), the standard practice of applying adhesive labels to biodegradable bags is increasingly recognized as a major packaging design flaw. Conventional paper or plastic stickers utilize synthetic acrylic adhesives that do not compost. When these labels are applied to certified compostable pouches, they contaminate the organic waste stream, leaving behind toxic microplastics and non-biodegradable adhesive residues.', 'Key Operational Advantages', 'Our writable and stampable stand-up pouches are engineered using advanced, high-barrier bio-laminates that protect delicate products (like coffee beans or loose tea) while maintaining full compliance with food-safety standards.']
+   Sample Props: ['Ditch Toxic Sticker Labels Today', 'Book a quick 30-minute consultation with our packaging specialists to discover custom stamps, eco inks, and order free sample swatches.', 'Optimize sustainable packaging circularity. Stamp directly on compostable Kraft or White Matte paper stand-up pouches to eliminate non-compostable vinyl adhesive stickers.']
+--------------------------------------------------
+📄 src/pages/recyclable/MonoMaterialFoundationPage.tsx
+   Hardcoded Tags: 36, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'Design Principles']
+--------------------------------------------------
+📄 src/pages/free-service/FreePackagingDesignPage.tsx
+   Hardcoded Tags: 36, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveChipsDemoPage.tsx
+   Hardcoded Tags: 36, Props: 0
+   Sample Tags: ['This is a demo website created by Achieve Pack', 'Browse Packaging', 'setIsMenuOpen(!isMenuOpen)']
+--------------------------------------------------
+📄 src/pages/SharedQuotePage.tsx
+   Hardcoded Tags: 32, Props: 3
+   Sample Tags: ['Pricing Tiers (USD - Total Rounded)', 'FOB SZ Unit', 'Estimated Lead Times']
+   Sample Props: ['View your official customized packaging quotation from Achieve Pack.', 'Force refresh the visual quote preview to reflect recent HTML edits', 'Official Quote']
+--------------------------------------------------
+📄 src/pages/packaging/SideGussetBagsPage.tsx
+   Hardcoded Tags: 34, Props: 1
+   Sample Tags: ['Key Characteristics', 'Panel Structure', 'Closure Options']
+   Sample Props: ['Custom side gusset bags (quad seal) for coffee, tea, and bulk products. Expandable gussets for high capacity. Tin tie, zipper, and valve options. MOQ 500.']
+--------------------------------------------------
+📄 src/pages/legal/ShippingPolicyPage.tsx
+   Hardcoded Tags: 35, Props: 0
+   Sample Tags: ['AchievePack', 'Shipping Policy', 'Worldwide delivery to 100']
+--------------------------------------------------
+📄 src/pages/pouch/blog/USACompostableGuide.tsx
+   Hardcoded Tags: 33, Props: 1
+   Sample Tags: ['American consumers are no longer satisfied with', 'The Specialty Food Paradigm Shift', 'Many brands fall into the trap of using']
+   Sample Props: ['Stop choosing between branding and legality. A comprehensive guide to certified industrial and home compostable coffee, snack, and food packaging for American brands.']
+--------------------------------------------------
+📄 src/pages/free-service/PencilDemoPage.tsx
+   Hardcoded Tags: 34, Props: 0
+   Sample Tags: ['Interactive 3D Prototyping Demo Engine powered by Achieve Pack', 'Browse Store', 'setCartCount(c']
+--------------------------------------------------
+📄 src/pages/topics/PCRPackagingGuidePage.tsx
+   Hardcoded Tags: 31, Props: 3
+   Sample Tags: ['The Virgin Plastic Problem', 'The PCR Solution', 'At Achieve Pack, we specialize in high-performance']
+   Sample Props: ['Establishing technical authority in post-consumer recycled resin integration and traceability.', 'Recycled. Not Reduced.', 'The most sustainable material is the one that already exists. This guide provides the technical breakdown of how we integrate Post-Consumer Recycled (PCR) resin into high-performance packaging structures, ensuring your brand meets 2026 circularity mandates while maintaining absolute product integrity.']
+--------------------------------------------------
+📄 src/pages/pouch/PouchSurfaceFinishPage.tsx
+   Hardcoded Tags: 33, Props: 0
+   Sample Tags: ['Packaging Options', 'Surface Finishes', 'Professional Surface']
+--------------------------------------------------
+📄 src/pages/materials/ConventionalPrintedSachetsPage.tsx
+   Hardcoded Tags: 28, Props: 5
+   Sample Tags: ['While the exterior utilizes premium textured', 'Unlike compostable bio-plastics which exhibit medium gas barriers, the conventional laminated', 'We support three premium custom printing options for the 8x8cm Small Sachet based on your order run requirements. Choose the process that matches your design and volume target']
+   Sample Props: ['Calculate printing pricing matrices for conventional plastic-lined small sachets. Low MOQ hot stamping and digital color options with high-barrier aluminum laminated cores.', 'High-Barrier Laminated Structures with Premium Silk Paper Visual Styling', 'Configure Your Sachets Today']
+--------------------------------------------------
+📄 src/pages/support/LeadTimePage.tsx
+   Hardcoded Tags: 33, Props: 0
+   Sample Tags: ['Lead time is the total time from order confirmation to delivery at your door. Understanding our timelines helps you plan inventory and product launches effectively.', 'Production times vary by printing method and complexity. Shipping adds 1-5 weeks depending on the method you choose.', 'Order Type']
+--------------------------------------------------
+📄 src/pages/OrderWorkflowPage.tsx
+   Hardcoded Tags: 32, Props: 0
+   Sample Tags: ["navigate('", 'Order Workflow Instructions', 'DoneSolveIfWhatUseOrderManagementSystemProcessing RFQ']
+--------------------------------------------------
+📄 src/pages/pouch/composting/PouchCompostingBenefitsPage.tsx
+   Hardcoded Tags: 32, Props: 0
+   Sample Tags: ['Eco-Academy', 'Composting Benefits', 'CIRCULARITY']
+--------------------------------------------------
+📄 src/pages/pouch/blog/RecyclableSnackPackagingGuide.tsx
+   Hardcoded Tags: 31, Props: 1
+   Sample Tags: ['You Are Selling Trash.', 'Traditional chip bags', 'Enter Mono-PE.']
+   Sample Props: ['Stop selling trash. Switch to high-barrier Mono-PE recyclable pouches that keep your snacks fresh and the planet clean.']
+--------------------------------------------------
+📄 src/pages/materials/PlasticFreeKraftPage.tsx
+   Hardcoded Tags: 30, Props: 2
+   Sample Tags: ['There is a common misconception that choosing a', 'The Reality Check', 'Most kraft paper bags used for coffee, snacks, or pet food are actually "laminated." This means they have a hidden internal layer of plastic (PE or PP) to provide a moisture and oxygen barrier. Without this lining, the bag would leak oil and your product would go stale in days.']
+   Sample Props: ['Is kraft paper really plastic-free? Discover the truth about laminated paper bags, the role of PLA, and 5 fun facts about sustainable kraft packaging for coffee and snacks.', 'Separating Fact from Fiction in Sustainable Packaging']
+--------------------------------------------------
+📄 src/pages/spec/MonoPeDuplexClearPage.tsx
+   Hardcoded Tags: 31, Props: 1
+   Sample Tags: ['Thickness', 'Recyclability', 'PE Recycling Stream']
+   Sample Props: ['Mono PE Duplex Clear - Fully Recyclable']
+--------------------------------------------------
+📄 src/pages/pouch/PouchCertificationsPage.tsx
+   Hardcoded Tags: 31, Props: 0
+   Sample Tags: ['CERTIFIED', 'Proof Your', 'Actually Works']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchHighHeatCandlePackagingPage.tsx
+   Hardcoded Tags: 31, Props: 0
+   Sample Tags: ['Engineered for Candle Wax', 'Ditch the Glass', 'Pouring hot wax at 85']
+--------------------------------------------------
+📄 src/pages/ContactPage.tsx
+   Hardcoded Tags: 29, Props: 1
+   Sample Tags: ['navigate(-1)', 'Get in Touch', "Have questions about sustainable packaging? Need a quote? We're here to help. Our team responds within 24 hours."]
+   Sample Props: ['Contact Achieve Pack for custom sustainable packaging quotes, samples, and inquiries. Email, WhatsApp, or book a free 30-min consultation call.']
+--------------------------------------------------
+📄 src/pages/QuotationBatchesPage.tsx
+   Hardcoded Tags: 28, Props: 2
+   Sample Tags: ['Admin Access Required', 'Quotation Manager', 'setShowCreateModal(true)']
+   Sample Props: ['Copy share link', 'AI Analyze']
+--------------------------------------------------
+📄 src/pages/pouch/industry/PouchSaucesPage.tsx
+   Hardcoded Tags: 30, Props: 0
+   Sample Tags: ['Spouted Pouches for', 'Liquid Foods', 'Leak-proof. Hot-fill ready. Space-saving.']
+--------------------------------------------------
+📄 src/pages/free-service/AchievePouchEcoDemoPage.tsx
+   Hardcoded Tags: 30, Props: 0
+   Sample Tags: ['Get Samples', 'setIsOpen(!isOpen)', 'Trusted by 500']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveCleaningDemoPage.tsx
+   Hardcoded Tags: 30, Props: 0
+   Sample Tags: ['setCartCount(c', 'setIsMenuOpen(!isMenuOpen)', 'setIsMenuOpen(false)']
+--------------------------------------------------
+📄 src/pages/PouchEcoGPTKPage.tsx
+   Hardcoded Tags: 27, Props: 2
+   Sample Tags: ['Kraft Paper', 'Natural brown kraft exterior with optional clear window. Industrial compostable. Perfect for coffee, tea, and organic snacks. 6-12 month shelf life.', 'Min Order']
+   Sample Props: ['Kraft Paper Pouches with Clear Window - GPTK Material', 'Compostable kraft paper pouches with optional cellulose window. 6-12 month shelf life. Perfect for coffee, tea, snacks, and pet treats. Industrial compostable. From 500 units.']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchPCRPage.tsx
+   Hardcoded Tags: 29, Props: 0
+   Sample Tags: ['Post-Consumer Recycled (PCR) content. 30-100', 'PCR gives a second life to plastic waste that would otherwise end up in landfills or oceans. By incorporating 30', 'Mandate Compliant']
+--------------------------------------------------
+📄 src/pages/blog/CompostableVsRecyclablePage.tsx
+   Hardcoded Tags: 22, Props: 7
+   Sample Tags: ['End of Life', 'Breaks down to soil in 180 days', 'Melted and remade into new products']
+   Sample Props: ['In-depth comparison of compostable vs recyclable packaging for food brands. Compare costs, shelf life, certifications, and environmental impact. Free decision guide included.', 'Compostable vs Recyclable Packaging', 'An Honest Comparison to Help You Choose the Right Material']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveSuperfoodDemoPage.tsx
+   Hardcoded Tags: 29, Props: 0
+   Sample Tags: ['Superfood', 'setCartCount(c', 'setIsMenuOpen(!isMenuOpen)']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveBabyDemoPage.tsx
+   Hardcoded Tags: 29, Props: 0
+   Sample Tags: ['BACK TO DEMOS', 'By AchievePack', 'Pure Love in']
+--------------------------------------------------
+📄 src/pages/topics/DigitalPrintingEcoPackagingPage.tsx
+   Hardcoded Tags: 26, Props: 3
+   Sample Tags: ['Digital printing is no longer just for small batches', 'Traditional Print Waste', 'The Digital Advantage']
+   Sample Props: ['Establishing technical authority in zero-plate, low-waste digital manufacturing for sustainable flexible packaging.', 'Fast. Precise. Pure.', "Digital printing is the technical solution to the packaging industry's waste problem. This guide outlines how we use the world's most advanced digital presses to eliminate plate waste, reduce dead inventory, and deliver ultra-high-resolution sustainable packaging for brands of all scales."]
+--------------------------------------------------
+📄 src/pages/ImageCatalogPage.tsx
+   Hardcoded Tags: 21, Props: 7
+   Sample Tags: ['Loading...', 'setShowOnlyEmpty(!showOnlyEmpty)', 'setShowOnlyNoJson(!showOnlyNoJson)']
+   Sample Props: ['Analyze with xAI', 'Copy JSON', 'Copy path']
+--------------------------------------------------
+📄 src/pages/pouch/packaging/PouchStandUpPouchesPage.tsx
+   Hardcoded Tags: 28, Props: 0
+   Sample Tags: ['SUSTAINABLE', 'PACKAGING', 'Shelf Presence']
+--------------------------------------------------
+📄 src/pages/pouch/composting/PouchPlasticFreePage.tsx
+   Hardcoded Tags: 28, Props: 0
+   Sample Tags: ['Eco-Academy', 'Plastic Free vs Compostable', 'Plastic Free.']
+--------------------------------------------------
+📄 src/pages/pouch/blog/PouchStampFoilRecyclabilityPage.tsx
+   Hardcoded Tags: 28, Props: 0
+   Sample Tags: ['Recycled?', 'Does foil stamping compromise circular packaging? Learn the international 95', 'According to global sorting and recycling standards (such as APR in North America and RecyClass in Europe), flexible pouches must contain']
+--------------------------------------------------
+📄 src/pages/materials/MaterialDataSheetPage.tsx
+   Hardcoded Tags: 24, Props: 4
+   Sample Tags: ['This technical data sheet details the performance metrics and structural composition of our premium', 'Product Name', 'Material Structure']
+   Sample Props: ['Technical Data Sheet', 'Need a custom composite spec?', 'Our engineering team can formulate custom barrier layers, custom paper thicknesses, and specialized sealing biopolymers tailored to your exact application.']
+--------------------------------------------------
+📄 src/pages/topics/CustomBrandPackagingPage.tsx
+   Hardcoded Tags: 24, Props: 4
+   Sample Tags: ['Custom packaging is more than just a logo on a bag', 'The Design Dilemma', 'The Achieve Pack Process']
+   Sample Props: ['Custom Brand Packaging Engineering', 'Transforming brand identity into high-performance packaging through structural engineering and elite color science.', 'Your Brand. Our Engineering.']
+--------------------------------------------------
+📄 src/pages/topics/RecyclablePackagingGuidePage.tsx
+   Hardcoded Tags: 26, Props: 2
+   Sample Tags: ['Recyclability is the cornerstone of the 2026 Circular Economy. However, "recyclable" is no longer just a label', 'The Recyclability Crisis', 'Achieve Pack Engineering']
+   Sample Props: ['Establishing technical authority in certified, circular-economy packaging solutions.', 'Circular. Certified. Circular.']
+--------------------------------------------------
+📄 src/pages/topics/RealWorldSustainabilityPage.tsx
+   Hardcoded Tags: 26, Props: 2
+   Sample Tags: ['Sustainability in packaging is often treated as a marketing buzzword. However, in 2026, global regulators (FTC Green Guides, UK CMA Green Claims Code) are demanding', 'The Greenwashing Gap', 'Achieve Pack Real-World Tech']
+   Sample Props: ['Establishing technical authority through verifiable Life Cycle Assessments and global regulatory compliance.', 'Data. Not Distraction.']
+--------------------------------------------------
+📄 src/pages/topics/DTCSustainablePackagingPage.tsx
+   Hardcoded Tags: 25, Props: 3
+   Sample Tags: ['Direct-to-Consumer (DTC) brands face a unique packaging challenge', 'The DTC Friction', 'The Achieve Pack Solution']
+   Sample Props: ['Establishing technical authority in direct-to-consumer packaging engineering and sustainable unboxing experiences.', 'Lighter. Faster. Sustainable.', "In the competitive DTC landscape, your packaging is your brand's physical representative. This guide outlines how we use material science and logistics engineering to help you reduce shipping costs, eliminate waste, and deliver a sustainable unboxing experience that builds lasting customer loyalty."]
+--------------------------------------------------
+📄 src/pages/case-studies/CoffeeRoasteryCaseStudy.tsx
+   Hardcoded Tags: 27, Props: 0
+   Sample Tags: ['Specialty Coffee', 'Portland, Oregon, USA', 'Package Type']
+--------------------------------------------------
+📄 src/pages/topics/EcoFriendlyFoodPackagingPage.tsx
+   Hardcoded Tags: 25, Props: 2
+   Sample Tags: ['Food packaging is the ultimate technical challenge in sustainability. In 2026, a package must be', 'The Food-Safety Gap', 'Achieve Pack Solutions']
+   Sample Props: ['Establishing technical authority in high-barrier, food-grade sustainable packaging solutions.', 'Safe. Pure. Planet-First.']
+--------------------------------------------------
+📄 src/pages/topics/FoodPackagingSupplierServicePage.tsx
+   Hardcoded Tags: 25, Props: 2
+   Sample Tags: ['In 2026, a food packaging supplier must be more than a vendor', 'Supplier Failures', 'Achieve Pack Standards']
+   Sample Props: ['Establishing technical authority in factory-direct food packaging manufacturing and supply chain management.', 'Expertise. Scale. Security.']
+--------------------------------------------------
+📄 src/pages/pouch/PouchDigitalPrintingPage.tsx
+   Hardcoded Tags: 26, Props: 0
+   Sample Tags: ['Digital Printing', 'From Just 500 Units!', 'Why Choose Digital Printing?']
+--------------------------------------------------
+📄 src/pages/pouch/packaging/PouchSideGussetBagsPage.tsx
+   Hardcoded Tags: 26, Props: 0
+   Sample Tags: ['Eco-Products', 'Side Gusset Bags', 'PACKAGING']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchBioPEPage.tsx
+   Hardcoded Tags: 26, Props: 0
+   Sample Tags: ['Sugarcane-derived Bio-PE. Carbon negative. Fossil-free. 100', 'Bio-PE is produced from ethanol derived from sustainably grown sugarcane. Every ton of Bio-PE captures up to 3.09 tons of CO2 from the atmosphere during its growth cycle.', 'Carbon Footprint']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchCelloKraftPage.tsx
+   Hardcoded Tags: 26, Props: 0
+   Sample Tags: ['Cello Kraft', 'Triplex Pouch', 'Why Brands']
+--------------------------------------------------
+📄 src/pages/case-studies/TeaBrandCaseStudy.tsx
+   Hardcoded Tags: 26, Props: 0
+   Sample Tags: ['Milano Botanica', 'Premium Organic Tea', 'Milan, Italy']
+--------------------------------------------------
+📄 src/pages/support/ColorAccuracyDigitalPrintingPage.tsx
+   Hardcoded Tags: 18, Props: 8
+   Sample Tags: ['Digital values like hex codes (e.g.,', 'Every monitor displays color differently depending on its brightness, contrast, and calibration profile. The exact shade you see on your smartphone will inherently look different than on a professional design monitor.', 'Because light (screen) and ink (paper']
+   Sample Props: ['Color Accuracy in Digital Packaging Printing', 'Understand the technical realities of digital color matching, screen variance, and how Achieve Pack ensures the best result for your B2B packaging production.', 'Understanding Color Accuracy in Digital Printing']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveHoneyDemoPage.tsx
+   Hardcoded Tags: 26, Props: 0
+   Sample Tags: ['setCartCount(c', 'setIsMenuOpen(!isMenuOpen)', 'setIsMenuOpen(false)']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveSpreadsDemoPage.tsx
+   Hardcoded Tags: 24, Props: 2
+   Sample Tags: ['setIsOpen(!isOpen)', 'Spread Sustainable.', 'Nano Banana Pro']
+   Sample Props: ['Mess-Free Design', 'Ethically Sourced']
+--------------------------------------------------
+📄 src/pages/free-service/FreeServicesPage.tsx
+   Hardcoded Tags: 26, Props: 0
+   Sample Tags: ['Free Services', 'Free Services for', 'Eco-Friendly']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveSupplementDemoPage.tsx
+   Hardcoded Tags: 26, Props: 0
+   Sample Tags: ['This is a demo website created by Achieve Pack', 'View Stick Pack Specs', 'setCartCount(c']
+--------------------------------------------------
+📄 src/pages/topics/HomeCompostableCoffeeBagsPage.tsx
+   Hardcoded Tags: 22, Props: 4
+   Sample Tags: ['Coffee is a highly sensitive product that requires an absolute barrier against oxygen and moisture to preserve its volatile aromatic compounds. Traditionally, this required non-recyclable multi-layers of PET', 'The Aroma Crisis', 'Achieve Pack Coffee Tech']
+   Sample Props: ['Home Compostable Coffee Packaging Engineering', 'Preserving aroma and acidity through certified home compostable high-barrier technology.', 'Fresh Coffee. Zero Waste.']
+--------------------------------------------------
+📄 src/pages/topics/RecyclableSnackPackagingPage.tsx
+   Hardcoded Tags: 24, Props: 2
+   Sample Tags: ['Snack packaging is notoriously difficult to recycle due to', 'The Snack Waste Problem', 'The Achieve Pack Solution']
+   Sample Props: ['Establishing technical authority in high-barrier recyclable mono-materials for the global snack industry.', 'Crunchy. Fresh. Recyclable.']
+--------------------------------------------------
+📄 src/pages/topics/ChildResistantMylarBagsPage.tsx
+   Hardcoded Tags: 24, Props: 2
+   Sample Tags: ['Child-Resistant (CR) packaging is a', 'The Regulatory Burden', 'The Achieve Pack Solution']
+   Sample Props: ['Establishing technical authority in CPSC-certified, high-barrier child-resistant packaging.', 'Certified Safety. Pure Integrity.']
+--------------------------------------------------
+📄 src/pages/ReviewsPage.tsx
+   Hardcoded Tags: 22, Props: 3
+   Sample Tags: ['navigate(-1)', 'Customer Reviews', 'Real feedback from businesses who trust Eco Pouch for their sustainable packaging needs.']
+   Sample Props: ['Read verified customer reviews and testimonials. See why businesses trust Eco Pouch for sustainable, high-quality custom packaging solutions.', 'Watch video testimonial', 'Watch video']
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchWhiteInkUnderprintPage.tsx
+   Hardcoded Tags: 25, Props: 0
+   Sample Tags: ['KNOWLEDGE', 'The Invisible', 'Unlock the secret to vibrant colors on metallic and clear pouches. Learn how to strategically use White Ink Underprinting in your artwork files.']
+--------------------------------------------------
+📄 src/pages/blog/PackagingCostGuidePage.tsx
+   Hardcoded Tags: 22, Props: 3
+   Sample Tags: ['Package Type', 'Stand Up Pouch (Compostable)', 'Flat Bottom Bag (Recyclable)']
+   Sample Props: ['How Much Does Custom Packaging Cost?', 'Get Your Custom Quote', 'Request Free Quote']
+--------------------------------------------------
+📄 src/pages/case-studies/SuperfoodBrandCaseStudy.tsx
+   Hardcoded Tags: 24, Props: 1
+   Sample Tags: ['VitalGreen Superfoods', 'Superfood', 'Chicago, Illinois, USA']
+   Sample Props: ['How VitalGreen Superfoods achieved B-Corp certification with recyclable mono-PE packaging. 18-month shelf life, 8 SKUs launched, GRS certification documentation.']
+--------------------------------------------------
+📄 src/pages/topics/PFASFreePackagingPage.tsx
+   Hardcoded Tags: 21, Props: 4
+   Sample Tags: ['Per- and polyfluoroalkyl substances (PFAS) are a class of over 12,000 synthetic chemicals used for decades to provide grease and water resistance in food packaging. However, their persistence in the environment and human body has led to a global', 'The PFAS Risk', 'Achieve Pack Assurance']
+   Sample Props: ['PFAS-Free Packaging Engineering', "Eliminating 'Forever Chemicals' through advanced material science and rigorous regulatory verification.", 'Pure. Safe. PFAS-Free.']
+--------------------------------------------------
+📄 src/pages/topics/GreenCoffeeMaterialsPage.tsx
+   Hardcoded Tags: 22, Props: 3
+   Sample Tags: ['Coffee is one of the most chemically complex products in the food industry. Protecting its', 'The Coffee Degradation Crisis', 'The Achieve Pack Solution']
+   Sample Props: ['Establishing technical authority in high-barrier sustainable coffee packaging and aroma preservation.', 'Fresh Coffee. Future-Proofed.', "Specialty coffee demands absolute barrier integrity. This guide provides the technical breakdown of how we replace non-recyclable multi-layer foil with high-performance mono-materials and certified compostables that preserve your roast's complex aromatic profile while meeting global sustainability mandates."]
+--------------------------------------------------
+📄 src/pages/topics/EcoPackagingRegulationsPage.tsx
+   Hardcoded Tags: 23, Props: 2
+   Sample Tags: ['Compliance is the new baseline for brand survival. In 2026, packaging regulations have shifted from voluntary guidelines to', 'Regulatory Hurdles', 'Achieve Pack Compliance']
+   Sample Props: ['Establishing technical authority in global packaging law, EPR mandates, and anti-greenwashing compliance.', 'Compliant. Not Confused.']
+--------------------------------------------------
+📄 src/pages/topics/SustainablePackagingPillarPage.tsx
+   Hardcoded Tags: 22, Props: 3
+   Sample Tags: ['True sustainability is not a single feature', 'The Problem', 'The 5 Pillar Solution']
+   Sample Props: ['Establishing technical authority through a multi-dimensional strategy for the circular economy.', 'Engineering. Not Emotion.', 'The era of single-feature sustainability is over. To succeed in 2026, brands must adopt a multi-pillar strategy that balances material efficiency, recyclability, and carbon impact. This guide provides the technical roadmap for building a future-proof packaging architecture that satisfies regulators, retailers, and the planet.']
+--------------------------------------------------
+📄 src/pages/topics/CustomCompostablePouchSuppliersPage.tsx
+   Hardcoded Tags: 23, Props: 2
+   Sample Tags: ['Finding a reliable', 'The Supplier Dilemma', 'The Achieve Pack Standard']
+   Sample Props: ['Establishing technical authority in certified, high-performance compostable packaging manufacturing.', 'Certified. Proven. Bio-Pure.']
+--------------------------------------------------
+📄 src/pages/topics/MinimalistD2CPackagingPage.tsx
+   Hardcoded Tags: 23, Props: 2
+   Sample Tags: ['Minimalism in 2026 is a', 'The Over-Packaging Crisis', 'The Minimalist Solution']
+   Sample Props: ['Establishing technical authority in high-performance material reduction and logistics-optimized D2C branding.', 'Less Waste. More Brand.']
+--------------------------------------------------
+📄 src/pages/topics/LowMOQStartupPackagingPage.tsx
+   Hardcoded Tags: 23, Props: 2
+   Sample Tags: ['For startups, high', 'The Startup Barrier', 'The Achieve Pack Solution']
+   Sample Props: ['Establishing technical authority in agile, low-risk sustainable manufacturing for emerging brands.', 'Launch. Test. Scale.']
+--------------------------------------------------
+📄 src/pages/PouchEcoPTNPage.tsx
+   Hardcoded Tags: 23, Props: 1
+   Sample Tags: ['Kraft Duplex', 'Natural brown kraft duplex structure. Budget-friendly eco packaging. \n                Perfect for startups and market testing. 3-6 month shelf life.', 'Month Shelf']
+   Sample Props: ['Natural kraft paper pouches with basic barrier protection. Perfect for startups and small brands. Ultra-low 500 unit MOQ. Quick turnaround. Budget-friendly eco packaging.']
+--------------------------------------------------
+📄 src/pages/pouch/PouchBarrierOverviewPage.tsx
+   Hardcoded Tags: 24, Props: 0
+   Sample Tags: ['Barrier Options', 'Explained Simply', 'What\'s a "Barrier" Anyway?']
+--------------------------------------------------
+📄 src/pages/pouch/blog/CompostableHumidityControlGuide.tsx
+   Hardcoded Tags: 21, Props: 3
+   Sample Tags: ['Cellulose-based compostable pouches are highly praised for their mechanical barrier characteristics. However, organic cellulose films possess a critical vulnerability', 'Under dry warehouse environments or low-humidity ocean transport (', 'The Logistics Risk Profile']
+   Sample Props: ['Maximize ocean freight survivability for organic and BCorp brands. Implement active 2-way humidity regulating cards inside heavy-duty double-wall master packaging.', 'Eliminate Packaging Structural Failure', 'Verify our active humidity control before you ship. Request a custom sample kit or upload your shipping routing details for a free engineering microclimate assessment.']
+--------------------------------------------------
+📄 src/pages/pouch/company/PouchAboutPage.tsx
+   Hardcoded Tags: 24, Props: 0
+   Sample Tags: ['About Our Mission', 'Beautiful.', 'Our Core Values']
+--------------------------------------------------
+📄 src/pages/materials/IndustrialCompostablePage.tsx
+   Hardcoded Tags: 23, Props: 1
+   Sample Tags: ['Barrier Level', 'Shelf Life', 'Low-Medium']
+   Sample Props: ['EN 13432 and ASTM D6400 certified industrial compostable pouches. Breaks down in 90-180 days at commercial facilities. Higher barrier than home compostable.']
+--------------------------------------------------
+📄 src/pages/spec/BioKraftPbatLowPage.tsx
+   Hardcoded Tags: 22, Props: 2
+   Sample Tags: ['Simple Structure - Home Compostable Potential', 'Thickness', 'Barrier Level']
+   Sample Props: ['Bio Kraft PBAT - Simple Compostable Structure', 'The simplest compostable kraft structure offering fast breakdown (60-120 days) and potential home composting certification. Perfect for fast-moving products at farmers markets, bakeries, and artisan retailers.']
+--------------------------------------------------
+📄 src/pages/blog/BlogPostPage.tsx
+   Hardcoded Tags: 24, Props: 0
+   Sample Tags: ['ACTIVE METADATA SEEDS', 'Brand Seed', 'Target Country']
+--------------------------------------------------
+📄 src/pages/topics/CompostableBabyFoodBagsPage.tsx
+   Hardcoded Tags: 22, Props: 2
+   Sample Tags: ['Baby food packaging requires the', 'The Safety Risks', 'The Achieve Pack Solution']
+   Sample Props: ['Establishing technical authority in high-purity, non-toxic compostable packaging for the next generation.', 'Pure for Baby. Pure for Earth.']
+--------------------------------------------------
+📄 src/pages/pouch/PouchSEOPage.tsx
+   Hardcoded Tags: 23, Props: 0
+   Sample Tags: ['Rank Your', 'Eco Brand', 'SEO tactics that actually work for compostable packaging brands. No fluff. Just rankings.']
+--------------------------------------------------
+📄 src/pages/pouch/PouchCustomPrintedSamplePage.tsx
+   Hardcoded Tags: 23, Props: 0
+   Sample Tags: ['Custom Printed', 'Hand Make Sample', 'Commercial Sample']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchKraftDuplexPage.tsx
+   Hardcoded Tags: 23, Props: 0
+   Sample Tags: ['Kraft Duplex', 'Medium Barrier', 'Why Choose Kraft Duplex?']
+--------------------------------------------------
+📄 src/pages/blog/EcoPackagingMistakesPage.tsx
+   Hardcoded Tags: 21, Props: 2
+   Sample Tags: ['What brands do wrong', 'Pick "compostable" because it sounds good, then discover their moisture-sensitive product goes stale in 3 months.', 'What to do instead']
+   Sample Props: ['Not sure where to start? Our team will review your product and recommend the best packaging solution.', 'Book Free Consultation']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveMuesliDemoPage.tsx
+   Hardcoded Tags: 20, Props: 3
+   Sample Tags: ['setIsOpen(!isOpen)', 'Nano Banana Pro', 'GET THE BUNDLE']
+   Sample Props: ['Nano Banana Tech', 'Full Body Print', 'Energy Dense']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveChocolateDemoPage.tsx
+   Hardcoded Tags: 23, Props: 0
+   Sample Tags: ['This is a demo website created by Achieve Pack', 'See Packaging Specs', 'setCartCount(c']
+--------------------------------------------------
+📄 src/pages/topics/CompostableZipperDurabilityPage.tsx
+   Hardcoded Tags: 20, Props: 3
+   Sample Tags: ["If you have ever had a customer complain that their compostable bag's zipper ripped off the paper lining, or simply refused to stay shut, you are not alone. Flimsy closures are a massive B2B pain point that damages brand reputation.", 'Primary Failure Causes', 'The Achieve Pack Solution']
+   Sample Props: ['Establishing technical authority in advanced co-extrusion and ultrasonic welding for zero-defect bio-closures.', 'Durable. Double-Lock. Zero-Defect.', 'Zipper failures are a major threat to eco-friendly brand integrity. This engineering guide outlines why compostable closures break and how Achieve Pack utilizes advanced co-extrusion, co-polymer crystallization control, and ultrasonic bonding to construct high-durability seals that protect your product and satisfy customers.']
+--------------------------------------------------
+📄 src/pages/topics/CompostableHumidityControlPage.tsx
+   Hardcoded Tags: 21, Props: 2
+   Sample Tags: ['Humidity control is the most difficult technical challenge in the bio-economy. In 2026, protecting moisture-sensitive products like', 'The Moisture Crisis', 'The Achieve Pack Solution']
+   Sample Props: ['Establishing technical authority in high-performance moisture and aroma protection for the bio-economy.', 'Dry. Aroma-Pure. Bio-Certified.']
+--------------------------------------------------
+📄 src/pages/topics/RecycledOceanPlasticPackagingPage.tsx
+   Hardcoded Tags: 20, Props: 3
+   Sample Tags: ['Every year, over 11 million metric tons of plastic enter our oceans.', 'The OBP Crisis', 'Achieve Pack OBP Tech']
+   Sample Props: ['Transforming high-risk coastal waste into high-performance packaging through certified OBP recovery.', 'Clean Oceans. Clear Mission.', 'Ocean-Bound Plastic (OBP) is the front line of the marine pollution crisis. We provide brands with a technical solution to recover high-risk coastal waste and reprocess it into high-barrier flexible packaging, creating a tangible positive impact on global marine ecosystems.']
+--------------------------------------------------
+📄 src/pages/topics/CustomVsStandardPackagingPage.tsx
+   Hardcoded Tags: 19, Props: 4
+   Sample Tags: ['When sourcing custom flexible packaging, brands are often surprised by the pricing variance between a', 'Standard Store (Group Production)', 'Designed to minimize baseline setup costs by combining multiple brand print runs onto the same production web. To make this possible, several strict standards are maintained']
+   Sample Props: ['Custom vs. Standard Flexible Packaging Sourcing Guide', 'Understanding tailored B2B custom quote mechanics vs. budget-friendly group production runs.', 'Custom Sourcing vs. Standard Store runs']
+--------------------------------------------------
+📄 src/pages/PouchEcoSizeGuidePage.tsx
+   Hardcoded Tags: 21, Props: 1
+   Sample Tags: ['setSelectedImage(null)', 'Find your perfect pouch size. Visual comparisons with cola cans. \n              From 10g samples to 2kg bulk packs. No guesswork needed!', 'Measured flat, from left to right edge. This is how wide your pouch will be when laying flat.']
+   Sample Props: ['Visual size guide for eco-friendly pouches. Compare stand-up and flat-bottom bags with real-world references. From 10g sample packs to 2kg bulk sizes. Find the perfect fit for your product.']
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchPouchSizingPage.tsx
+   Hardcoded Tags: 20, Props: 2
+   Sample Tags: ['KNOWLEDGE', 'Save time and money by utilizing our standard tooling. Browse comprehensive sizing charts for both Stand-Up Pouches and Flat Bottom Bags.', 'Stand-Up Pouch']
+   Sample Props: ['Stand-Up Pouch Dimensions', 'Flat Bottom Bag Dimensions']
+--------------------------------------------------
+📄 src/pages/packaging/SpoutPouchesPage.tsx
+   Hardcoded Tags: 21, Props: 1
+   Sample Tags: ['Learn more', 'Learn more', 'Key considerations for spout pouch packaging']
+   Sample Props: ['Custom spout pouches for liquids, baby food, sauces, and beverages. Resealable caps, multiple spout sizes. Hot-fill and retort capable. MOQ 500 units.']
+--------------------------------------------------
+📄 src/pages/spec/PcrKraftDuplexLowPage.tsx
+   Hardcoded Tags: 20, Props: 2
+   Sample Tags: ['Natural Kraft', 'Thickness', 'Barrier Level']
+   Sample Props: ['Kraft Paper Duplex Low Barrier Structure', 'A simple two-layer kraft structure offering authentic natural appearance with basic protection. Perfect for fast-moving artisan products at farmers markets and local retail with 3-6 month shelf life.']
+--------------------------------------------------
+📄 src/pages/support/CustomPrintedSamplePage.tsx
+   Hardcoded Tags: 16, Props: 6
+   Sample Tags: ['Material Prototype', 'Handcrafted sample used to verify sizing, material feel, and basic construction. Ideal for initial physical check.', 'Most Popular']
+   Sample Props: ['Custom Printed Sample Packaging', 'Request high-fidelity custom printed samples of your stand-up pouches and flat bottom bags. Validate your artwork, color accuracy, and branding before bulk production.', 'See your brand come to life. Experience your custom artwork on our premium eco-friendly materials before committing to full-scale production.']
+--------------------------------------------------
+📄 src/pages/legal/ReturnPolicyPage.tsx
+   Hardcoded Tags: 22, Props: 0
+   Sample Tags: ['AchievePack', 'Clear, fair, and straightforward policies for our B2B customers.', 'Quick Summary']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveTeaDemoPage.tsx
+   Hardcoded Tags: 22, Props: 0
+   Sample Tags: ['Demo Concept by Achieve Pack', 'Get This Packaging', 'setCartCount(c']
+--------------------------------------------------
+📄 src/pages/topics/ReduceWasteGuidePage.tsx
+   Hardcoded Tags: 20, Props: 2
+   Sample Tags: ['In 2026, the primary goal of sustainable packaging is', 'The Waste Reduction Pyramid', 'Achieve Pack Waste Tech']
+   Sample Props: ['A technical roadmap to eliminating waste through engineered source reduction and circular design protocols.', 'Minimum Material. Maximum Impact.']
+--------------------------------------------------
+📄 src/pages/topics/MonoMaterialSolutionPage.tsx
+   Hardcoded Tags: 20, Props: 2
+   Sample Tags: ['The primary barrier to a circular economy in packaging is the "multi-material" laminate. In 2026,', 'The Problem', 'The Mono-Solution']
+   Sample Props: ['Establishing technical authority in homogeneous polymer engineering for the circular economy.', 'One Polymer. Zero Waste.']
+--------------------------------------------------
+📄 src/pages/topics/CustomPrintedSustainablePouchesPage.tsx
+   Hardcoded Tags: 20, Props: 2
+   Sample Tags: ['Custom printing is the final layer of your brand\'s sustainable narrative. In 2026, a "sustainable" pouch is only effective if its', 'The Branding Conflict', 'The Achieve Pack Standard']
+   Sample Props: ['Transforming sustainable materials into powerful brand assets through elite printing technology and color science.', 'Your Brand. Our Tech.']
+--------------------------------------------------
+📄 src/pages/topics/EcoFriendlySupplierServicePage.tsx
+   Hardcoded Tags: 19, Props: 3
+   Sample Tags: ['Sustainability is only as strong as its weakest link. For brands today,', 'The Verification Crisis', 'The Achieve Pack Standard']
+   Sample Props: ['Eco-Friendly Supplier Verification', 'Establishing technical accountability and ethical transparency across your sustainable packaging supply chain.', 'Transparency. Not Greenwashing.']
+--------------------------------------------------
+📄 src/pages/PouchEcoReclosurePage.tsx
+   Hardcoded Tags: 20, Props: 1
+   Sample Tags: ['Resealable zippers, spout caps', 'RECLOSURE?', 'CHOOSE YOUR']
+   Sample Props: ['Keep products fresh with resealable zippers, spout caps, and tin-ties. From just 500 units. Perfect for coffee, snacks, baby food, and more. Easy to use, loved by customers.']
+--------------------------------------------------
+📄 src/pages/pouch/packaging/PouchFlatBottomBagsPage.tsx
+   Hardcoded Tags: 21, Props: 0
+   Sample Tags: ['Superior.', 'Print on the front, back, bottom, and two side gussets. Unrivaled visibility in the retail ecosystem.', 'Flat Foundation']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchCompostablePage.tsx
+   Hardcoded Tags: 21, Props: 0
+   Sample Tags: ['The Science of', 'Our compostable pouches are engineered from renewable resources like corn starch, wood pulp, and sugarcane. They break down into water, CO2, and biomass within 90-180 days in commercial composting environments.', 'Degrades in garden composters']
+--------------------------------------------------
+📄 src/pages/pouch/support/PouchColorAccuracyPage.tsx
+   Hardcoded Tags: 21, Props: 0
+   Sample Tags: ['The Digital vs.', 'Physical Gap', 'To ensure we achieve the best result for your packaging, there are a few technical realities regarding color that are important to consider before we move to production. The hex code you provided (e.g.,']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCustomBrandPackagingServicePage.tsx
+   Hardcoded Tags: 21, Props: 0
+   Sample Tags: ['Your brand is a visual asset. Our custom engineering ensures your packaging looks as good as it performs on the retail shelf.', "We don't just print on bags. We engineer structures. From", 'Right-Sizing']
+--------------------------------------------------
+📄 src/pages/spec/BioCelloTriplexMetalisedPage.tsx
+   Hardcoded Tags: 20, Props: 1
+   Sample Tags: ['High Barrier - Fully Compostable', 'Thickness', 'Barrier Level']
+   Sample Props: ['Bio Cellulose Triplex Metalised - High Barrier']
+--------------------------------------------------
+📄 src/pages/spec/BioCelloTriplexHighestPage.tsx
+   Hardcoded Tags: 20, Props: 1
+   Sample Tags: ['Maximum Barrier - Fully Compostable', 'Thickness', 'Barrier Level']
+   Sample Props: ['Bio Cellulose Triplex - Highest Barrier Compostable']
+--------------------------------------------------
+📄 src/pages/spec/PcrPetTriplexAluminumPage.tsx
+   Hardcoded Tags: 19, Props: 2
+   Sample Tags: ['Maximum Barrier - Aluminum Foil', 'Thickness', 'Barrier Level']
+   Sample Props: ['PET Aluminum Foil Triplex Structure', 'The ultimate barrier structure using aluminum foil for absolute protection against oxygen, moisture, and light. Essential for products requiring guaranteed long shelf life like coffee, baby food, and pharmaceuticals.']
+--------------------------------------------------
+📄 src/pages/admin/ShipmentDetailPage.tsx
+   Hardcoded Tags: 21, Props: 0
+   Sample Tags: ['Access denied', 'Shipment not found', 'Copy Link']
+--------------------------------------------------
+📄 src/pages/case-studies/PetTreatsCaseStudy.tsx
+   Hardcoded Tags: 21, Props: 0
+   Sample Tags: ['Pawsome Naturals', 'Premium Pet Treats', 'Austin, Texas, USA']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveEnergyDemoPage.tsx
+   Hardcoded Tags: 21, Props: 0
+   Sample Tags: ['setCartCount(c', 'setIsMenuOpen(!isMenuOpen)', 'setIsMenuOpen(false)']
+--------------------------------------------------
+📄 src/pages/topics/CompostableSpoutedPouchesPage.tsx
+   Hardcoded Tags: 18, Props: 3
+   Sample Tags: ['Conventional spouted pouches are a recycling nightmare. They consist of complex multi-layer plastics fused to rigid PE', 'Conventional Pouch Risks', 'Achieve Pack Circular Design']
+   Sample Props: ['Compostable Spouted Pouches', 'Setting the industry benchmark in food-safe, leak-proof liquid packaging and true circular economy design.', 'Circular. Certified. Leak-Proof.']
+--------------------------------------------------
+📄 src/pages/topics/MonoPEPouchesPage.tsx
+   Hardcoded Tags: 20, Props: 1
+   Sample Tags: ['Traditionally, flexible pouches have been "multi-layer" (e.g., PET', 'The Recyclability Barrier', 'Achieve Pack Mono Tech']
+   Sample Props: ['Recyclable. Without Compromise.']
+--------------------------------------------------
+📄 src/pages/pouch/MaterialDataSheetPage.tsx
+   Hardcoded Tags: 20, Props: 0
+   Sample Tags: ['SPECIFICATION', 'Technical Data Sheet', 'Preliminary Specification']
+--------------------------------------------------
+📄 src/pages/pouch/PouchMaterialBarrierPropertiesPage.tsx
+   Hardcoded Tags: 20, Props: 0
+   Sample Tags: ['Barrier Properties', 'The Hard Data', 'Key Metrics']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCustomBrandPackagingPage.tsx
+   Hardcoded Tags: 20, Props: 0
+   Sample Tags: ['Stop guessing your packaging dimensions. We engineer custom-branded pouches using CAD-optimized structural designs.', 'Engineering', 'Packaging is a physical extension of your brand\'s promise. We don\'t just "print bags"']
+--------------------------------------------------
+📄 src/pages/packaging/FlatBottomBagsPage.tsx
+   Hardcoded Tags: 20, Props: 0
+   Sample Tags: ['Consider stand-up pouches for budget-friendly option', 'Ready to Move Fast?', 'Book a call to discuss your exact specs']
+--------------------------------------------------
+📄 src/pages/spec/PcrKraftVmpetPage.tsx
+   Hardcoded Tags: 18, Props: 2
+   Sample Tags: ['Premium Kraft', 'Thickness', 'Stiffness']
+   Sample Props: ['Kraft Paper VMPET High Barrier Structure', 'Combines the natural, eco-friendly appearance of kraft paper with full high-barrier protection from vacuum-metalised PET. Perfect for premium products requiring both natural aesthetics and extended shelf life.']
+--------------------------------------------------
+📄 src/pages/spec/BioKraftVmCelloPage.tsx
+   Hardcoded Tags: 20, Props: 0
+   Sample Tags: ['Natural Kraft', 'Thickness', 'Stiffness']
+--------------------------------------------------
+📄 src/pages/spec/MonoPpDuplexClearPage.tsx
+   Hardcoded Tags: 19, Props: 1
+   Sample Tags: ['Thickness', 'Key Benefit', 'Best Moisture']
+   Sample Props: ['Mono PP Duplex Clear - Best Barrier Recyclable']
+--------------------------------------------------
+📄 src/pages/admin/DocumentTemplatesPage.tsx
+   Hardcoded Tags: 19, Props: 1
+   Sample Tags: ['Access denied', 'Document Templates', 'setShowUploadModal(true)']
+   Sample Props: ['Extract with XAI']
+--------------------------------------------------
+📄 src/pages/company/FactoryTourPage.tsx
+   Hardcoded Tags: 20, Props: 0
+   Sample Tags: ['Step inside our state-of-the-art manufacturing facility where sustainable packaging comes to life. Our factory combines cutting-edge technology with rigorous quality control to produce eco-friendly pouches that meet the highest international standards.', "While we can't bring you physically to our facility, this virtual tour gives you insight into how we manufacture your packaging with precision, care, and environmental responsibility.", 'Factory Video Tour']
+--------------------------------------------------
+📄 src/pages/QuotationViewPage.tsx
+   Hardcoded Tags: 19, Props: 0
+   Sample Tags: ['Quotation Not Found', 'This quotation may have been deleted or expired.', 'Quotation']
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchFinSealLapSealPage.tsx
+   Hardcoded Tags: 19, Props: 0
+   Sample Tags: ['KNOWLEDGE', "Learn the critical differences between a Fin Seal and a Lap Seal. Understand how the back of your pouch is formed and why it matters for your product's safety.", 'FIN SEAL (Inside to Inside)']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCustomVsStandardPackagingPage.tsx
+   Hardcoded Tags: 19, Props: 0
+   Sample Tags: ['Tailored Quote.', 'Optimize ROI.', 'Deciding between off-the-shelf standardized checkout runs and specialized B2B dynamic quotes? This technical guide highlights co-printed co-extrusion runs, combined SKU hacks, and tactile Velcro closure tracks.']
+--------------------------------------------------
+📄 src/pages/printing/DigitalPrintingPage.tsx
+   Hardcoded Tags: 18, Props: 1
+   Sample Tags: ['Digital Printing Advantages', 'We use HP Indigo 25K digital presses, the gold standard for flexible packaging printing', 'Print Quality']
+   Sample Props: ['Low MOQ digital printing on sustainable pouches. No plate costs, unlimited colors, 500pc minimum. HP Indigo quality with 2-3 week turnaround. Perfect for startups and small batches.']
+--------------------------------------------------
+📄 src/pages/spec/PcrPetKraftTriplexClearPage.tsx
+   Hardcoded Tags: 17, Props: 2
+   Sample Tags: ['Thickness', 'Stiffness', 'With Paper Lining (Stiffer)']
+   Sample Props: ['PCR PET Kraft Triplex Clear Structure', 'A three-layer premium structure combining PET oxygen barrier with natural kraft paper for tactile appeal and stiffness. Ideal for specialty coffee, artisan products, and premium foods requiring natural aesthetics.']
+--------------------------------------------------
+📄 src/pages/spec/PcrPetTriplexMetalisedPage.tsx
+   Hardcoded Tags: 18, Props: 1
+   Sample Tags: ['High Barrier - Metalised Layer', 'Thickness', 'Barrier Level']
+   Sample Props: ['PCR PET Metalised Triplex Structure']
+--------------------------------------------------
+📄 src/pages/spec/PcrPpTriplexMetalisedPage.tsx
+   Hardcoded Tags: 17, Props: 2
+   Sample Tags: ['High Barrier - Best Moisture Protection', 'Thickness', 'Key Benefit']
+   Sample Props: ['PCR PP Metalised Triplex Structure', "The best moisture barrier in the high-barrier sustainable category. Combines OPP's inherent moisture resistance with metalised PET oxygen barrier for ultimate protection. Ideal for instant coffee, protein powders, and hygroscopic products."]
+--------------------------------------------------
+📄 src/pages/spec/PcrPpKraftTriplexClearPage.tsx
+   Hardcoded Tags: 17, Props: 2
+   Sample Tags: ['Thickness', 'Key Benefit', 'Best Moisture']
+   Sample Props: ['PCR PP Kraft Triplex Clear Structure', "The best moisture barrier in the kraft paper category, combining PP's inherent moisture resistance with premium kraft aesthetics. Ideal for protein powders, instant coffee, and moisture-sensitive products."]
+--------------------------------------------------
+📄 src/pages/spec/PcrPpKraftQuadlexAluminumPage.tsx
+   Hardcoded Tags: 18, Props: 1
+   Sample Tags: ['Premium Kraft', 'Thickness', 'Key Benefit']
+   Sample Props: ['PP Kraft Quadlex Aluminum Structure']
+--------------------------------------------------
+📄 src/pages/topics/CompostableCertificationFAQPage.tsx
+   Hardcoded Tags: 16, Props: 3
+   Sample Tags: ['Sustainability claims are only as strong as the certifications that back them. In 2026, saying a package is "compostable" without specifying the standard (e.g.,', 'Industrial vs. Home', 'Achieve Pack Assurance']
+   Sample Props: ["Navigating the world's most rigorous environmental standards through verified material science.", 'Certified. Not Claimed.', 'The technical distinction between lab-certified and environmental claim is the difference between brand authority and greenwashing risk. This guide breaks down the global testing protocols and certifications from disintegration to eco-toxicity that ensure your compostable packaging truly delivers on its promise.']
+--------------------------------------------------
+📄 src/pages/ShipmentTrackingPage.tsx
+   Hardcoded Tags: 18, Props: 0
+   Sample Tags: ['Shipment Tracking', 'Enter your access password to view shipment details', 'Back to Achieve Pack']
+--------------------------------------------------
+📄 src/pages/PouchEcoSolutionsPage.tsx
+   Hardcoded Tags: 17, Props: 1
+   Sample Tags: ['Find Your', 'Perfect Fit', "Whether you're launching a startup, scaling an ecommerce brand, or creating custom packaging, we have eco-friendly solutions tailored to your needs."]
+   Sample Props: ['Eco Packaging Solutions for Every Need']
+--------------------------------------------------
+📄 src/pages/pouch/usa/PouchUSALabelingGuidePage.tsx
+   Hardcoded Tags: 18, Props: 0
+   Sample Tags: ['Print It.', 'Perfect It.', "Don't let a labeling violation pull your product off the shelf. Master the essential FDA, FTC, and state-level compliance requirements for flexible packaging in the USA."]
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchWorkflowPage.tsx
+   Hardcoded Tags: 18, Props: 0
+   Sample Tags: ['KNOWLEDGE', 'Behind the', 'From a digital PDF to a physical pouch on the retail shelf. Discover the exact 5-step manufacturing workflow we use to create world-class flexible packaging.']
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchSizeGuidePage.tsx
+   Hardcoded Tags: 18, Props: 0
+   Sample Tags: ['KNOWLEDGE', 'Stop guessing. Learn exactly how to measure pouch dimensions, understand gusset depth, and calculate the right volume for your specific product density.', 'DIMENSIONS']
+--------------------------------------------------
+📄 src/pages/spec/PcrPpTriplexAluminumPage.tsx
+   Hardcoded Tags: 16, Props: 2
+   Sample Tags: ['Maximum Barrier - Best Moisture Protection', 'Thickness', 'Key Benefit']
+   Sample Props: ['PP Aluminum Foil Triplex Structure', "The lowest moisture barrier available in flexible packaging, combining OPP's moisture resistance with aluminum foil's absolute barrier. Essential for extremely hygroscopic products like powdered milk, protein isolates, and pharmaceutical powders."]
+--------------------------------------------------
+📄 src/pages/admin/EmailCampaignPage.tsx
+   Hardcoded Tags: 18, Props: 0
+   Sample Tags: ['Achieve more results from your product launches using quantified best practices.', 'We analyzed 5,000', "Achieve Pack's"]
+--------------------------------------------------
+📄 src/pages/pouch/usa/PouchUSACoffeePage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['Roast Local.', 'Custom printed coffee bags engineered for the US specialty coffee market. Featuring FDA-compliant materials, high-barrier degassing valves, and sustainable profiles.', 'High-Barrier Freshness']
+--------------------------------------------------
+📄 src/pages/pouch/packaging/PouchCustomBoxesPage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['Eco-Products', 'Custom Printed Boxes', 'FSC RECYCLED']
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchKSealStandUpPouchesPage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['KNOWLEDGE', 'Crack the', 'Not all stand-up pouches are created equal. Dive into the engineering behind bottom gussets and why the K-Seal is the undisputed champion for holding weight.']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchRecycledOceanPlasticPackagingPage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ["Don't just talk about the ocean", 'Preventative', 'Ocean-Bound Plastic (OBP) is defined as plastic waste located within 50km of an unprotected coastline. Our engineering team partners with']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCustomPrintedSustainablePouchesPage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['Identity.', 'Your brand is a story. We engineer custom printed sustainable pouches that deliver that story with precision.', 'Engineered.']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchRecyclablePackagingGuidePage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['Circular.', 'The era of non-recyclable multi-layer plastic is over. We engineer 100', 'Measured.']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchReduceWasteGuidePage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['Efficiency is the ultimate form of sustainability. We engineer source reduction into every pouch structure.', 'Engineering', 'The most sustainable packaging is the one that was never made. We utilize']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCompostablePackagingBlogPage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['BIOLOGICAL', 'Returning packaging to the earth. We engineer high-performance biological barriers using PBS and NK technology.', "Compostability isn't a magic trick"]
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchRealWorldSustainabilityPage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ["Sustainability is an engineering deliverable. We provide the ISO 14040 Life Cycle Assessment (LCA) data and third-party certifications required to back your brand's claims.", 'Cradle to', 'Sustainability is a measurement, not a state of being. We utilize the']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchEcoFriendlySupplierServicePage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['Verified.', 'Sustainability without verification is just greenwashing. We provide a transparent, audit-ready supply chain backed by global standards.', 'Accountable.']
+--------------------------------------------------
+📄 src/pages/packaging/CustomBoxesPage.tsx
+   Hardcoded Tags: 16, Props: 1
+   Sample Tags: ['View Pricing', 'View Pricing', 'boxestypetypes']
+   Sample Props: ['Custom printed rigid boxes for chocolate, tea, coffee, and artisan foods. Premium finishes including gold foil, embossing, matte lamination. FSC certified. MOQ 200 pieces. Sea freight included.']
+--------------------------------------------------
+📄 src/pages/spec/PcrPpDuplexNoWindowPage.tsx
+   Hardcoded Tags: 16, Props: 1
+   Sample Tags: ['No Window - Full Print Coverage', 'Thickness', 'Key Feature']
+   Sample Props: ['PCR PP Duplex No Window Structure']
+--------------------------------------------------
+📄 src/pages/spec/PcrPpDuplexClearPage.tsx
+   Hardcoded Tags: 16, Props: 1
+   Sample Tags: ['Thickness', 'OTR (Oxygen Transmission Rate)', 'WVTR (Water Vapor Transmission Rate)']
+   Sample Props: ['PCR PP Duplex Clear Structure']
+--------------------------------------------------
+📄 src/pages/spec/PcrPetDuplexNoWindowPage.tsx
+   Hardcoded Tags: 16, Props: 1
+   Sample Tags: ['No Window - Full Print Coverage', 'Thickness', 'Barrier Level']
+   Sample Props: ['PCR PET Duplex No Window Structure']
+--------------------------------------------------
+📄 src/pages/admin/BookkeepingPage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['setShowBusinessManager(true)', 'setShowRateSettings(true)', 'setActiveTab(tab.id as any)']
+--------------------------------------------------
+📄 src/pages/admin/EmailFollowUpPage.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['Scanning emails...', 'Contacts who reached out via your website', 'setShowFilterPanel(!showFilterPanel)']
+--------------------------------------------------
+📄 src/pages/case-studies/ChocolateBrandCaseStudy.tsx
+   Hardcoded Tags: 17, Props: 0
+   Sample Tags: ['Artisan Cocoa Emirates', 'Luxury Artisan Chocolate', 'Abu Dhabi, UAE']
+--------------------------------------------------
+📄 src/pages/topics/CustomBrandPackagingServicePage.tsx
+   Hardcoded Tags: 16, Props: 1
+   Sample Tags: ['In the competitive retail landscape of 2026, custom packaging is more than just a canvas for a logo', 'We engineer the', 'Our structural team calculates the']
+   Sample Props: ['Transforming your brand vision into high-performance packaging assets through advanced color science and structural dieline modeling.']
+--------------------------------------------------
+📄 src/pages/RyanHologramPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['INITIALIZING PORTFOLIO', 'RYAN WONG', 'LOADING SHADERS...']
+--------------------------------------------------
+📄 src/pages/Product3DShowcasePage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['See Your Product', 'In 3D Reality', 'Generate photorealistic 3D mockups instantly. No design skills needed.']
+--------------------------------------------------
+📄 src/pages/pouch/PouchReclosureOptionsPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Choose Your', 'Closure Type', "The right closure keeps your products fresh and makes your customers' lives easier. Let's find your perfect match!"]
+--------------------------------------------------
+📄 src/pages/pouch/PouchSizeGuidePage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Ditch the guesswork. Use our visual reference system to find the exact pouch size for your brand. Metric, Imperial, and Volume comparisons included.', 'Volume vs.', 'The biggest mistake in packaging is sizing based solely on weight. 250g of puffed rice requires 10x the volume of 250g of salt. Use our density chart to calculate your exact ML requirement.']
+--------------------------------------------------
+📄 src/pages/pouch/usa/PouchUSASnacksPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['High-barrier, FDA-compliant stand-up pouches designed for the booming US snack market. Perfect for beef jerky, trail mix, cookies, and dried fruit.', 'Ultimate Freshness', 'Mastering']
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchPrintingTypesPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['KNOWLEDGE', 'Ink meets', 'Demystifying the packaging printing process. Compare Digital vs. Rotogravure printing to determine the most cost-effective and visually stunning method for your brand.']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchPFASFreePackagingPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Beyond the', 'PFAS (per- and polyfluoroalkyl substances) have historically been used for grease-proofing, but their environmental persistence is a catastrophic failure of engineering. Our', 'The Clean']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchPCRPackagingGuidePage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Stop digging, start recovering. We integrate up to 50', 'Engineered.', 'Post-Consumer Recycled (PCR) resin is the engine of the 2026']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCompostableBabyFoodBagsPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Infant health demands zero compromise. We engineer compostable baby food pouches that are free from microplastics, PFAS, and BPA', 'Engineered.', "Baby food is the most chemically sensitive category in the global supply chain. In 2026, parents are no longer accepting 'traditional' plastic pouches that shed microplastics or contain endocrine disruptors. At Pouch.eco, we treat baby food packaging as a"]
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchReducePackagingWasteGuidePage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['The most sustainable package is the one that was never made. We engineer waste reduction through technical lightweighting, mono-material purity, and logistics optimization.', 'Engineered.', 'Reducing packaging waste is an engineering discipline, not a marketing slogan. In the 2026']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchMonoMaterialSolutionPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Traditional multi-layer plastic is a recycling failure. We solve the circularity puzzle with 100', 'Engineered.', 'Circularity requires polymer homogeneity. By replacing the traditional PET (Polyester) outer layer with']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchGreenCoffeeMaterialsPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Aroma is everything. We engineer high-barrier sustainable coffee pouches with integrated degassing valves.', 'Engineered.', 'Coffee is a volatile organic product. Protecting its delicate lipid profile and aromatic compounds from oxidation is the ultimate test of a packaging material. In 2026, the transition from multi-layer foil to']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchChildResistantMylarBagsPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Child-Resistance is a legal mandate, not an option. We engineer CPSC-certified, high-barrier CR mylar bags that protect your products, your customers, and the planet.', 'Engineered.', 'Child-Resistant (CR) packaging is defined by']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchEcoFriendlySupplierVerificationPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Sustainability without verification is just marketing. We engineer trust through rigorous SEDEX', 'Evidence Based', 'Trust is a byproduct of transparency. We perform']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchFoodPackagingSupplierServicePage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['A supplier is a technical partner, not a middleman. We provide direct-to-factory packaging solutions.', 'Verified.', "In a regulated market, your supplier's certifications are your brand's shield. We operate vertically integrated manufacturing facilities that are"]
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchEcoFriendlyFoodPackagingPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ["Sustainability must not compromise safety. We engineer high-barrier, food-safe pouches that protect your product's shelf life while meeting the world's strictest environmental standards.", 'Measured.', 'The most sustainable package is the one that prevents food waste. We utilize']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchEcoPackagingRegulationsPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Voluntary sustainability is dead. In 2026, packaging is a legal deliverable. We engineer structures that meet the strict mandates.', 'Compliant.', "Packaging regulation has shifted from 'encouragement' to 'enforcement'. In 2026, the"]
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchMonoPEPouchesPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Multi-layer laminates are obsolete. We engineer high-stiffness, high-barrier 100', 'Strength Through', 'The technical challenge of Mono-PE has always been its inherent softness. We solve this through']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCompostableCertificationFAQPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Compostability is not a marketing claim', 'Measured.', 'For a material to be truly compostable, it must undergo a rigorous 180-day']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCompostableZipperDurabilityPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Zero Breaks.', 'Microplastics.', 'The Physics of']
+--------------------------------------------------
+📄 src/pages/pouch/reports/PackagingReport2026.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['The State of', 'Sustainable', 'We analyzed 5,000']
+--------------------------------------------------
+📄 src/pages/spec/MonoPpDuplexNoWindowPage.tsx
+   Hardcoded Tags: 15, Props: 1
+   Sample Tags: ['Thickness', 'Key Benefit', 'Best Barrier']
+   Sample Props: ['Mono PP Duplex No Window - Best Barrier Opaque']
+--------------------------------------------------
+📄 src/pages/admin/QuoteAnalyticsPage.tsx
+   Hardcoded Tags: 15, Props: 1
+   Sample Tags: ['Quote Analytics', 'Authorized Personnel Only', 'ENGAGEMENT INTEL']
+   Sample Props: ['Refresh Data']
+--------------------------------------------------
+📄 src/pages/admin/rfq/RFQComparisonPage.tsx
+   Hardcoded Tags: 16, Props: 0
+   Sample Tags: ['Loading...', 'RFQ Comparison', 'Comparing']
+--------------------------------------------------
+📄 src/pages/pouch/usa/PouchUSACompostableHubPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Zero Waste', 'Navigate ASTM D6400, BPI certifications, and state EPR laws with our fully compliant, 100', 'Navigating Compostable Packaging in the']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchPlasticFreeKraftPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['DEBUNKING', 'The Kraft', 'Most kraft paper bags are']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCompostableSpoutedPouchesPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Liquid Safe.', 'Compostable.', 'The Science of']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCustomCompostablePouchSuppliersPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Compostable claims require engineering proof. We are a factory-direct supplier of TUV-certified, high-barrier compostable pouches.', 'Engineered.', "In the compostable packaging market, your supplier is your primary risk or your greatest asset. In 2026, 'bio-plastic' is not enough"]
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCompostableHumidityControlPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Humidity is the enemy of quality. We engineer high-barrier compostable pouches that deliver plastic-equivalent moisture protection, keeping your products fresh and potent without the environmental cost.', 'Engineered.', 'In the bio-economy, humidity protection has historically been a significant weakness. In 2026, protecting moisture-sensitive products (coffee, spices, pharmaceuticals) demands']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchHomeCompostableCoffeeBagsPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Elite coffee demands an absolute barrier. We engineer home compostable coffee pouches using high-barrier NK', 'Freshly roasted coffee off-gasses CO2. Without a valve, the bag will rupture', 'FSC-certified long-fiber paper providing superior puncture resistance and a tactile, premium aesthetic that consumers associate with craft roasting.']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchDTCSustainablePackagingPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['DTC packaging is a balance of logistics and loyalty. We engineer lightweight flexible pouches that slash shipping costs.', 'Engineered.', "In the direct-to-consumer (DTC) world, your packaging is your primary physical brand touchpoint. But it's also your biggest logistics liability. In 2026, shipping air is a carbon and financial crime. At Pouch.eco, we perform a"]
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchLowMOQStartupPackagingPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['High MOQs are the death of innovation. We provide startups with enterprise-grade sustainable packaging with low MOQs.', 'Engineered.', 'For a startup, cash flow is survival. Traditional packaging manufacturing forces brands into 20,000']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchMinimalistD2CPackagingPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Minimalism is a logistics superpower. We engineer lightweight flexible pouches that reduce material waste and shipping costs.', 'Engineered.', 'In 2026, minimalism is a']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchRecyclableSnackPackagingPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Snack packaging is the final frontier of recycling. We engineer high-barrier mono-material pouches.', 'Engineered.', 'The snack industry has long relied on metallized multi-layer films to protect products from moisture and light. But these films are a recycling nightmare. In 2026, the mandate is']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchSustainablePackagingPillarPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Sustainability is not a feature', 'Engineered.', 'To thrive in the 2026']
+--------------------------------------------------
+📄 src/pages/spec/MonoPeDuplexNoWindowPage.tsx
+   Hardcoded Tags: 14, Props: 1
+   Sample Tags: ['Thickness', 'Print Area', 'PE60 (Outer Layer)']
+   Sample Props: ['Mono PE Duplex No Window - Opaque Recyclable']
+--------------------------------------------------
+📄 src/pages/blog/CompostableZipperNoRemovalPage.tsx
+   Hardcoded Tags: 15, Props: 0
+   Sample Tags: ['Protocol.', 'Stop Ripping Your', 'Compostable Bags']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchKraftHighBarrierPage.tsx
+   Hardcoded Tags: 14, Props: 0
+   Sample Tags: ['Artisan aesthetic meets industrial protection. Premium Japanese Kraft paper fused with high-barrier aluminum or clear EVOH for 24', 'The 3-Layer', "Our Kraft High Barrier pouches aren't just paper. They are complex multi-layer laminates engineered to block oxygen, moisture, and UV light with 99.9"]
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchDigitalPrintingEcoPackagingPage.tsx
+   Hardcoded Tags: 14, Props: 0
+   Sample Tags: ['Traditional printing is a waste engine. We utilize HP Indigo 25K digital technology to eliminate plate fees.', 'Engineered.', 'Sustainability in 2026 is defined by']
+--------------------------------------------------
+📄 src/pages/packaging/VacuumPouchesPage.tsx
+   Hardcoded Tags: 13, Props: 1
+   Sample Tags: ['Material Type', 'Heat Resistant', 'Eco-Friendly']
+   Sample Props: ['High-barrier vacuum pouches for meat, seafood, cheese, and coffee. Chamber and external types. Sous vide compatible, retort available. MOQ 500 units.']
+--------------------------------------------------
+📄 src/pages/case-studies/OrganicNutsCaseStudy.tsx
+   Hardcoded Tags: 14, Props: 0
+   Sample Tags: ['NutriVie Organic', 'Organic Nuts', 'Lyon, France']
+--------------------------------------------------
+📄 src/pages/case-studies/BathProductsCaseStudy.tsx
+   Hardcoded Tags: 14, Props: 0
+   Sample Tags: ['Bavarian Bliss Bath Co.', 'Bath Bombs', 'Munich, Bavaria, Germany']
+--------------------------------------------------
+📄 src/pages/case-studies/CandleBrandCaseStudy.tsx
+   Hardcoded Tags: 14, Props: 0
+   Sample Tags: ['Luminara Candles', 'Artisan Candles', 'Munich, Germany']
+--------------------------------------------------
+📄 src/pages/case-studies/BakeryCaseStudy.tsx
+   Hardcoded Tags: 14, Props: 0
+   Sample Tags: ['Wholesome Bakes', 'Artisan Bakery', 'Vancouver, British Columbia']
+--------------------------------------------------
+📄 src/pages/case-studies/WellnessBrandCaseStudy.tsx
+   Hardcoded Tags: 14, Props: 0
+   Sample Tags: ['NourishNow Wellness', 'Supplements', 'Seattle, Washington, USA']
+--------------------------------------------------
+📄 src/pages/free-service/AchieveSkinDemoPage.tsx
+   Hardcoded Tags: 14, Props: 0
+   Sample Tags: ['Back to Achieve', 'Achieve Skin', 'setCartCount(c']
+--------------------------------------------------
+📄 src/pages/topics/CompostablePackagingBlogPage.tsx
+   Hardcoded Tags: 13, Props: 1
+   Sample Tags: ['In 2026, compostable packaging is no longer a niche alternative', 'Thermal Triggers', 'Industrial composting requires sustained temperatures of']
+   Sample Props: ['Moving beyond the hype into the technical reality of biological polymers, disintegration kinetics, and soil health.']
+--------------------------------------------------
+📄 src/pages/topics/FoodPackagingSupplierPage.tsx
+   Hardcoded Tags: 13, Props: 1
+   Sample Tags: ['In 2026, selecting a food packaging supplier is no longer just a procurement task', 'We strictly audit our production facilities against', 'Every line in our facility operates under a']
+   Sample Props: ['Mastering the technical complexity of food safety benchmarks, migration chemistry, and global supply chain transparency.']
+--------------------------------------------------
+📄 src/pages/topics/ReducePackagingWasteGuidePage.tsx
+   Hardcoded Tags: 13, Props: 1
+   Sample Tags: ['In the sustainable packaging strategy of 2026, the first and most critical pillar is', 'By utilizing advanced', 'Reducing material at the source means less water consumed during manufacturing, less energy used in transportation, and less waste for consumers to manage at end-of-life.']
+   Sample Props: ['Moving beyond the bin into the science of source reduction, volumetric modeling, and carbon-optimized logistics.']
+--------------------------------------------------
+📄 src/pages/PouchEcoDemo.tsx
+   Hardcoded Tags: 11, Props: 2
+   Sample Tags: ['setCartCount(c', 'Low MOQ Protocol', 'Start with just 500 units. Test your market without massive inventory commitment. \n              Perfect for startups and new product launches.']
+   Sample Props: ['POUCH.ECO - Eco Packaging Protocol', 'Low MOQ compostable, recyclable, and bio-based pouches starting from 500 units.']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchIndustrialCompostablePage.tsx
+   Hardcoded Tags: 13, Props: 0
+   Sample Tags: ['Built for', 'Industrial composting facilities provide the managed heat (60', 'Facility Compatible']
+--------------------------------------------------
+📄 src/pages/pouch/knowledge/PouchAllOptionsPage.tsx
+   Hardcoded Tags: 13, Props: 0
+   Sample Tags: ['KNOWLEDGE', 'Possibilities.', 'Master the anatomy of the perfect pouch. Discover every material, structure, closure, and printing finish available for your brand.']
+--------------------------------------------------
+📄 src/pages/case-studies/OutdoorSnacksCaseStudy.tsx
+   Hardcoded Tags: 13, Props: 0
+   Sample Tags: ['TrailFuel Adventures', 'Denver, Colorado, USA', 'Package Type']
+--------------------------------------------------
+📄 src/pages/free-service/AchievePetDemoPage.tsx
+   Hardcoded Tags: 13, Props: 0
+   Sample Tags: ['AchievePack', 'setCartCount(c', 'setIsMenuOpen(!isMenuOpen)']
+--------------------------------------------------
+📄 src/pages/CheckoutPage.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['No items in your quote request', 'Add custom products to get a personalized quote', 'Your cart is empty']
+--------------------------------------------------
+📄 src/pages/pouch/PouchMaterialCatalogPage.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['Material Catalog', 'Find Your Perfect Match', 'Quick Decision Guide']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchRecyclableMonoPEPage.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['Eco-Materials', 'Recyclable Mono-PE', 'Circular.']
+--------------------------------------------------
+📄 src/pages/pouch/solutions/PouchCitrusOilPackagingPage.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['Citrus Oil', 'Packaging', 'Citrus oils contain high levels of active terpenes (like d-limonene) which act as organic solvents. In ordinary thin plastic sachets, these compounds swell the polymer matrix, leading to rapid aroma leakage, packaging deflation, and eventual stress-cracking.']
+--------------------------------------------------
+📄 src/pages/pouch/composting/PouchCompostingServicesPage.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['Eco-Academy', 'Composting Finder', 'Find Your.']
+--------------------------------------------------
+📄 src/pages/pouch/topics/PouchCompostableZipperNoRemovalPage.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['Stop Ripping.', 'Composting.', 'The Ultimate Guide to']
+--------------------------------------------------
+📄 src/pages/pouch/company/PouchFactoryTourPage.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['Factory Tour', 'See How We', 'Make Magic']
+--------------------------------------------------
+📄 src/pages/biope/WhatIsBioPEPage.tsx
+   Hardcoded Tags: 11, Props: 1
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+   Sample Props: ['Bio-PE Sustainable Flexible Packaging Guide']
+--------------------------------------------------
+📄 src/pages/printing/PlatePrintingPage.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['Plate Printing Advantages', 'Our state-of-the-art gravure presses deliver unmatched print quality', 'Print Excellence']
+--------------------------------------------------
+📄 src/pages/blog/StampFoilRecyclabilityPage.tsx
+   Hardcoded Tags: 8, Props: 4
+   Sample Tags: ['Foil stamping adds a luxurious metallic finish to skincare, coffee, and specialty packaging. However, when transitioning to sustainable solutions, brands often ask', 'The answer depends on the', 'According to international packaging sorting and recycling standards (such as APR in North America and RecyClass in Europe), flexible packaging must contain']
+   Sample Props: ['Does Foil Stamping Affect Packaging Recyclability?', 'Looking for Recyclable Pouch Samples?', 'Test our certified MDO-PE and LLDPE pouches with your custom metallic foil artwork.']
+--------------------------------------------------
+📄 src/pages/case-studies/AdaptogensCaseStudy.tsx
+   Hardcoded Tags: 12, Props: 0
+   Sample Tags: ['Zen Botanics Asia', 'Adaptogens', 'Singapore']
+--------------------------------------------------
+📄 src/pages/pouch/PouchUnprintedSamplesPage.tsx
+   Hardcoded Tags: 11, Props: 0
+   Sample Tags: ['Unprinted', 'Verify Quality Before Printing', 'Not ready for custom printing? Get our']
+--------------------------------------------------
+📄 src/pages/pouch/materials/PouchHomeCompostablePage.tsx
+   Hardcoded Tags: 11, Props: 0
+   Sample Tags: ['TUV OK Home Certified. Breaks down in 180 days in ambient backyard conditions. No industrial heat, no chemical catalysts', 'Standard "compostable" plastics require 60', 'The Barrier Breakthrough']
+--------------------------------------------------
+📄 src/pages/materials/RecyclableMonoPEPage.tsx
+   Hardcoded Tags: 11, Props: 0
+   Sample Tags: ['Checklist Before Ordering', 'See how snack brands transitioned to our recyclable pouches', 'See how brands have successfully switched to recyclable mono-PE packaging']
+--------------------------------------------------
+📄 src/pages/admin/rfq/RFQGeneratorPage.tsx
+   Hardcoded Tags: 11, Props: 0
+   Sample Tags: ['Batch Created!', 'Your multi-supplier RFQ hub is live. Share this link with suppliers', 'window.location.reload()']
+--------------------------------------------------
+📄 src/pages/support/UnprintedSamplesPage.tsx
+   Hardcoded Tags: 6, Props: 5
+   Sample Tags: ['Raw Material Verification', 'Focus purely on the material. These samples are unprinted, allowing you to see the true texture, transparency, and structure of our eco-friendly films.', 'Production Quality Proof']
+   Sample Props: ['Verify material quality, thickness, and barrier properties with our unprinted plain samples or generic production-run examples.', 'Get a physical feel for our certified sustainable materials and verify production quality with real-world generic samples.', 'Verify Quality Before You Print']
+--------------------------------------------------
+📄 src/pages/topics/EcoFriendlySupplierVerificationPage.tsx
+   Hardcoded Tags: 10, Props: 1
+   Sample Tags: ['In the 2026 marketplace, "Eco-Friendly" is no longer a self-declared status', 'We only partner with facilities that maintain', 'Our verification process includes providing brands with']
+   Sample Props: ['Mastering the technical complexity of environmental audits, carbon reporting, and global supply chain transparency.']
+--------------------------------------------------
+📄 src/pages/LearnSearchPage.tsx
+   Hardcoded Tags: 9, Props: 1
+   Sample Tags: ['Learn Center', 'Packaging Knowledge Center', 'Everything you need to know about sustainable packaging materials, shapes, and solutions']
+   Sample Props: ['Explore our comprehensive knowledge base on sustainable packaging materials, shapes, features, and industry solutions.']
+--------------------------------------------------
+📄 src/pages/pouch/PouchFactoryTourPage.tsx
+   Hardcoded Tags: 10, Props: 0
+   Sample Tags: ['See How We', 'Make Magic', 'Virtual tour of our']
+--------------------------------------------------
+📄 src/pages/admin/ImageGeneratorPage.tsx
+   Hardcoded Tags: 10, Props: 0
+   Sample Tags: ['AI Image Generator', 'setShowSettings(!showSettings)', 'API Settings']
+--------------------------------------------------
+📄 src/pages/ProductsPage.tsx
+   Hardcoded Tags: 8, Props: 1
+   Sample Tags: ['Our Catalog', 'Premium Flexible', 'Packaging Solutions']
+   Sample Props: ["Explore Achieve Pack's full range of custom flexible packaging products, from Stand Up Pouches to Flat Bottom Bags. Shop our store for low MOQ printing."]
+--------------------------------------------------
+📄 src/pages/RfqConfirmation.tsx
+   Hardcoded Tags: 9, Props: 0
+   Sample Tags: ['Quote Request Submitted!', 'Thank you for your inquiry. Our team will review your request and prepare a personalized quote.', 'Reference Number']
+--------------------------------------------------
+📄 src/pages/pouch/PouchBlogPage.tsx
+   Hardcoded Tags: 9, Props: 0
+   Sample Tags: ['KNOWLEDGE', 'Learn About', 'Sustainable Packaging']
+--------------------------------------------------
+📄 src/pages/biope/BioPEVsCompostablePage.tsx
+   Hardcoded Tags: 8, Props: 1
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'B2B Sustainability Guide']
+   Sample Props: ['Bio-PE vs Compostable Films Guide']
+--------------------------------------------------
+📄 src/pages/quotes/CertificateDownloadPage.tsx
+   Hardcoded Tags: 9, Props: 0
+   Sample Tags: ['Password Required', 'Please enter the password to access certificate downloads.', 'Certificate Downloads']
+--------------------------------------------------
+📄 src/pages/blog/BlogPage.tsx
+   Hardcoded Tags: 9, Props: 0
+   Sample Tags: ['The Packaging Stuff Nobody Tells You', 'Real talk about materials, suppliers, and what actually works', 'setSelectedCategory(category)']
+--------------------------------------------------
+📄 src/pages/UnsubscribePage.tsx
+   Hardcoded Tags: 8, Props: 0
+   Sample Tags: ['Processing your request...', 'Successfully Unsubscribed', 'Something Went Wrong']
+--------------------------------------------------
+📄 src/pages/pouch/WorkshopRegisterPage.tsx
+   Hardcoded Tags: 8, Props: 0
+   Sample Tags: ['The Action', "Join us on May 26 for a live, data-driven workshop. We'll bring the report data to life and help you apply it directly to your unique brand requirements.", 'Did you miss the report?']
+--------------------------------------------------
+📄 src/pages/company/CertificatesPage.tsx
+   Hardcoded Tags: 8, Props: 0
+   Sample Tags: ['EU Seedling', 'Home Compost', 'AU AS5810']
+--------------------------------------------------
+📄 src/pages/LoginPage.tsx
+   Hardcoded Tags: 7, Props: 0
+   Sample Tags: ['Sign in to Achieve Pack', "Don't have an account?", 'Create a free account']
+--------------------------------------------------
+📄 src/pages/SignInPage.tsx
+   Hardcoded Tags: 7, Props: 0
+   Sample Tags: ['Or continue with', 'Resend code in', 'Resend Code']
+--------------------------------------------------
+📄 src/pages/CustomerMapPage.tsx
+   Hardcoded Tags: 7, Props: 0
+   Sample Tags: ['Customer Locations Map', 'Reset View', 'Customers by Country']
+--------------------------------------------------
+📄 src/pages/NotFoundPage.tsx
+   Hardcoded Tags: 6, Props: 1
+   Sample Tags: ['Page Not Found', "The page you're looking for doesn't exist or has been moved.", 'Browse Products']
+   Sample Props: ["The page you're looking for doesn't exist or has been moved."]
+--------------------------------------------------
+📄 src/pages/pouch/PouchSolutionsPage.tsx
+   Hardcoded Tags: 7, Props: 0
+   Sample Tags: ['SOLUTIONS', 'Pick Your', 'Perfect For']
+--------------------------------------------------
+📄 src/pages/function/PreZipperedRollstockPage.tsx
+   Hardcoded Tags: 7, Props: 0
+   Sample Tags: ['setGalleryEnlarged(', 'setGalleryEnlarged(', 'setGalleryEnlarged(']
+--------------------------------------------------
+📄 src/pages/function/ChildResistantBagsPage.tsx
+   Hardcoded Tags: 7, Props: 0
+   Sample Tags: ['setGalleryEnlarged(', 'setGalleryEnlarged(', 'setGalleryEnlarged(']
+--------------------------------------------------
+📄 src/pages/RegisterPage.tsx
+   Hardcoded Tags: 6, Props: 0
+   Sample Tags: ['Or continue with', 'Resend code in', 'Resend Code']
+--------------------------------------------------
+📄 src/pages/ForgotPasswordPage.tsx
+   Hardcoded Tags: 6, Props: 0
+   Sample Tags: ['Check your email', "We've sent a password reset link to", "Click the link in the email to reset your password. If you don't see it, check your spam folder."]
+--------------------------------------------------
+📄 src/pages/ResetPasswordPage.tsx
+   Hardcoded Tags: 6, Props: 0
+   Sample Tags: ['Password updated!', 'Your password has been successfully updated.', 'Redirecting to dashboard...']
+--------------------------------------------------
+📄 src/pages/packaging/StandUpPouchesPage.tsx
+   Hardcoded Tags: 6, Props: 0
+   Sample Tags: ['setGalleryEnlarged(', 'setGalleryEnlarged(null)', 'setGalleryEnlarged(null)']
+--------------------------------------------------
+📄 src/pages/pouch/PouchMaterialsPage.tsx
+   Hardcoded Tags: 5, Props: 0
+   Sample Tags: ['Not all "eco" is created equal. We prioritize verified, certified, and honest materials.', 'Technical', 'Need exact barrier properties, thickness options, and seal strengths? Access our full library of technical specifications and downloadable PDFs.']
+--------------------------------------------------
+📄 src/pages/admin/prospects/ProspectListsPage.tsx
+   Hardcoded Tags: 5, Props: 0
+   Sample Tags: ['List Management', 'Manage Unsubscribes and Blocked Domains', 'No unsubscribed emails found.']
+--------------------------------------------------
+📄 src/pages/support/FAQsPage.tsx
+   Hardcoded Tags: 5, Props: 0
+   Sample Tags: ['For digital printing, our MOQ is', 'Our materials carry various certifications including EN 13432, ASTM D6400 (compostable), GRS (recycled content), and food safety certifications. See our', 'Certificates page']
+--------------------------------------------------
+📄 src/pages/TermsPage.tsx
+   Hardcoded Tags: 3, Props: 1
+   Sample Tags: ['AchievePack', 'scrollToSection(section.id)', 'Hong Kong Business Registration Number']
+   Sample Props: ['Achieve Pack terms of service covering production, shipping, payment, and quality guarantees for custom eco-friendly packaging orders.']
+--------------------------------------------------
+📄 src/pages/features/MaterialBarrierPropertiesPage.tsx
+   Hardcoded Tags: 4, Props: 0
+   Sample Tags: ['Oxygen barrier performance.', 'Water Vapor Trans. Rate (WVTR)', 'Moisture barrier performance.']
+--------------------------------------------------
+📄 src/pages/function/DigitalPrintedRetortBagsPage.tsx
+   Hardcoded Tags: 4, Props: 0
+   Sample Tags: ['setGalleryEnlarged(', 'setGalleryEnlarged(', 'setGalleryEnlarged(null)']
+--------------------------------------------------
+📄 src/pages/free-service/FreeServicesHubPage.tsx
+   Hardcoded Tags: 4, Props: 0
+   Sample Tags: ['Exclusive Free Services', 'Unlock premium packaging benefits at no extra cost. Elevate your brand with our complimentary expert tools.', 'Explore Service']
+--------------------------------------------------
+📄 src/pages/materials/HomeCompostablePage.tsx
+   Hardcoded Tags: 3, Props: 0
+   Sample Tags: ['Australia', 'EU Standard', 'US Standard']
+--------------------------------------------------
+📄 src/pages/composting/BiodegradableVsCompostablePage.tsx
+   Hardcoded Tags: 3, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/composting/HomeVsIndustrialCompostPage.tsx
+   Hardcoded Tags: 3, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/company/AboutPage.tsx
+   Hardcoded Tags: 3, Props: 0
+   Sample Tags: ['Ryan Wong', 'Eric Kwok', 'Jericha Kwok']
+--------------------------------------------------
+📄 src/pages/pouch/blog/PouchBlogArticlePage.tsx
+   Hardcoded Tags: 2, Props: 0
+   Sample Tags: ['Article Not Found', "case 'info'"]
+--------------------------------------------------
+📄 src/pages/biope/InsideImGreenBioPEPage.tsx
+   Hardcoded Tags: 2, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/biope/BioPEEPRPage.tsx
+   Hardcoded Tags: 2, Props: 0
+   Sample Tags: ['Click to enlarge', 'setIsOpen(false)']
+--------------------------------------------------
+📄 src/pages/rfq/SupplierHubPage.tsx
+   Hardcoded Tags: 2, Props: 0
+   Sample Tags: ['Powered by Achieve Pack AI', 'window.location.reload()']
+--------------------------------------------------
+📄 src/pages/pouch/PouchProductsPage.tsx
+   Hardcoded Tags: 1, Props: 0
+   Sample Tags: ['Simple pricing. Sustainable materials. No hidden fees.']
+--------------------------------------------------
+📄 src/pages/pouch/legal/PouchTermsPage.tsx
+   Hardcoded Tags: 1, Props: 0
+   Sample Tags: ['scrollToSection(section.id)']
+--------------------------------------------------
+📄 src/pages/pouch/topics/DynamicPouchTopicPage.tsx
+   Hardcoded Tags: 1, Props: 0
+   Sample Tags: ['AI Intelligence FAQ']
+--------------------------------------------------
+📄 src/pages/materials/KraftMediumBarrierPage.tsx
+   Hardcoded Tags: 1, Props: 0
+   Sample Tags: ['Best Value']
+--------------------------------------------------

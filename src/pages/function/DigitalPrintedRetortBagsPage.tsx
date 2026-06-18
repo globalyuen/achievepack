@@ -1,38 +1,42 @@
 import React, { useState } from 'react'
-import { Flame, Shield, Package, Layers, Thermometer, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Zap, Award, Users, Globe, FileCheck, Building2, Sparkles, Printer, Tag, Info } from 'lucide-react'
+import { Flame, Shield, Package, Layers, Thermometer, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Zap, Award, Users, Globe, FileCheck, Building2, Sparkles, Printer, Tag, Recycle, Copy, Check, Info, FileText, Leaf, Droplets } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import { isPouch, getBrandConfig } from '../../utils/domain'
 import { useTranslation } from 'react-i18next'
 
+// Gallery images from /imgs/function/retort/
+const retortGallery = [
+  { src: '/imgs/function/retort/retort-hero.webp' },
+  { src: '/imgs/function/retort/what-is-retort.webp' },
+  { src: '/imgs/function/retort/layers.webp' },
+  { src: '/imgs/function/retort/high-temp.webp' },
+  { src: '/imgs/function/retort/barrier.webp' },
+  { src: '/imgs/function/retort/stront-seals.webp' },
+  { src: '/imgs/function/retort/ready-to-heat.webp' },
+  { src: '/imgs/function/retort/shelf-stable.webp' },
+  { src: '/imgs/function/retort/more-meals.webp' },
+  { src: '/imgs/function/retort/custom-retort.webp' },
+  { src: '/imgs/function/retort/100pcs.webp' },
+  { src: '/imgs/function/retort/Full-color digital printing.webp' },
+  { src: '/imgs/function/retort/Launch a full flavor line with low MOQ.webp' },
+]
+
 const DigitalPrintedRetortBagsPage: React.FC = () => {
+  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
 
   const isPouchDomain = isPouch()
   const brand = getBrandConfig()
-  const { t } = useTranslation()
-  const p = 'seoPages.pages.digitalRetort'
-
-  const retortGallery = [
-    { src: '/imgs/function/retort/retort-hero.webp', title: t(`${p}.gallery.0.title`), desc: t(`${p}.gallery.0.desc`) },
-    { src: '/imgs/function/retort/what-is-retort.webp', title: t(`${p}.gallery.1.title`), desc: t(`${p}.gallery.1.desc`) },
-    { src: '/imgs/function/retort/layers.webp', title: t(`${p}.gallery.2.title`), desc: t(`${p}.gallery.2.desc`) },
-    { src: '/imgs/function/retort/high-temp.webp', title: t(`${p}.gallery.3.title`), desc: t(`${p}.gallery.3.desc`) },
-    { src: '/imgs/function/retort/barrier.webp', title: t(`${p}.gallery.4.title`), desc: t(`${p}.gallery.4.desc`) },
-    { src: '/imgs/function/retort/stront-seals.webp', title: t(`${p}.gallery.5.title`), desc: t(`${p}.gallery.5.desc`) },
-    { src: '/imgs/function/retort/ready-to-heat.webp', title: t(`${p}.gallery.6.title`), desc: t(`${p}.gallery.6.desc`) },
-    { src: '/imgs/function/retort/shelf-stable.webp', title: t(`${p}.gallery.7.title`), desc: t(`${p}.gallery.7.desc`) },
-    { src: '/imgs/function/retort/more-meals.webp', title: t(`${p}.gallery.8.title`), desc: t(`${p}.gallery.8.desc`) },
-    { src: '/imgs/function/retort/custom-retort.webp', title: t(`${p}.gallery.9.title`), desc: t(`${p}.gallery.9.desc`) },
-    { src: '/imgs/function/retort/100pcs.webp', title: t(`${p}.gallery.10.title`), desc: t(`${p}.gallery.10.desc`) },
-    { src: '/imgs/function/retort/Full-color digital printing.webp', title: t(`${p}.gallery.11.title`), desc: t(`${p}.gallery.11.desc`) },
-    { src: '/imgs/function/retort/Launch a full flavor line with low MOQ.webp', title: t(`${p}.gallery.12.title`), desc: t(`${p}.gallery.12.desc`) },
-  ]
+  const p = 'seoPages.pages.digitalPrintedRetortBags'
 
   // Theme colors
   const primaryThemeColor = isPouchDomain ? '#10b981' : '#8b5cf6' // Green for pouch.eco, Purple for achievepack
+  const primaryBtnClass = isPouchDomain 
+    ? 'bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-emerald-500' 
+    : 'bg-violet-600 hover:bg-violet-700 text-white focus:ring-violet-500'
 
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
@@ -47,18 +51,14 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     image, 
     imageAlt, 
     title, 
-    titleCn, 
     content, 
-    contentCn,
     imageLeft = true,
     index
   }: { 
     image: string
     imageAlt: string
     title: string
-    titleCn: string
     content: string
-    contentCn: string
     imageLeft?: boolean
     index: number
   }) => (
@@ -74,18 +74,14 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
-            <p className="text-sm font-medium" style={{ color: primaryThemeColor }}>{titleCn}</p>
             <p className="text-neutral-700">{content}</p>
-            <p className="text-neutral-600 text-sm">{contentCn}</p>
           </div>
         </>
       ) : (
         <>
           <div className="space-y-4 md:order-1">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
-            <p className="text-sm font-medium" style={{ color: primaryThemeColor }}>{titleCn}</p>
             <p className="text-neutral-700">{content}</p>
-            <p className="text-neutral-600 text-sm">{contentCn}</p>
           </div>
           <button 
             onClick={() => setGalleryEnlarged({ src: image, index })}
@@ -102,26 +98,24 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
   const sections = [
     {
       id: 'intro',
-      title: t(`${p}.secIntroTitle`),
+      title: t(`${p}.sections.intro.title`),
       icon: <Flame className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <div className="bg-gradient-to-r from-neutral-50 to-neutral-100 p-6 rounded-xl border border-neutral-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>{isPouchDomain ? t(`${p}.secIntroPouchText`) : t(`${p}.secIntroApText`)}</strong> — {t(`${p}.secIntroSummary`)}
+              <strong>{isPouchDomain ? t(`${p}.sections.intro.highlightPouch`) : t(`${p}.sections.intro.highlightAP`)}</strong>{t(`${p}.sections.intro.highlightDesc`)}
             </p>
             <p className="text-neutral-600 text-sm leading-relaxed">
-              {t(`${p}.secIntroSummaryCn`)}
+              {t(`${p}.sections.intro.desc`)}
             </p>
           </div>
           
           <AlternatingSection
             image="/imgs/function/retort/retort-hero.webp"
             imageAlt="High-Barrier Retort Pouches Hero"
-            title={t(`${p}.secIntroAltTitle`)}
-            titleCn={t(`${p}.secIntroAltTitleCn`)}
-            content={t(`${p}.secIntroAltContent`)}
-            contentCn={t(`${p}.secIntroAltContentCn`)}
+            title={t(`${p}.sections.intro.altTitle`)}
+            content={t(`${p}.sections.intro.altContent`)}
             imageLeft={true}
             index={0}
           />
@@ -130,21 +124,23 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'showdown',
-      title: t(`${p}.secShowdownTitle`),
+      title: t(`${p}.sections.showdown.title`),
       icon: <Layers className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
             <h3 className="text-lg font-bold text-neutral-900 mb-3 flex items-center gap-2">
               <Info className="h-5 w-5" style={{ color: primaryThemeColor }} />
-              {t(`${p}.secShowdownH3`)}
+              {t(`${p}.sections.showdown.scienceTitle`)}
             </h3>
             <p className="text-neutral-700 text-sm leading-relaxed mb-4">
-              {t(`${p}.secShowdownP1`)}
+              {t(`${p}.sections.showdown.scienceDesc`)}
             </p>
             <div className="bg-white p-4 rounded-lg border border-neutral-200/80 shadow-sm text-sm">
-              <h4 className="font-bold text-neutral-800 mb-1">{t(`${p}.secShowdownSolTitle`)}</h4>
-              <p className="text-neutral-600" dangerouslySetInnerHTML={{ __html: t(`${p}.secShowdownSolDesc`) }} />
+              <h4 className="font-bold text-neutral-800 mb-1">{t(`${p}.sections.showdown.solutionTitle`)}</h4>
+              <p className="text-neutral-600">
+                {t(`${p}.sections.showdown.solutionDesc`)}
+              </p>
             </div>
           </div>
 
@@ -152,59 +148,62 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             {/* Glass Jar */}
             <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
               <div>
-                <span className="text-xs font-bold bg-neutral-100 text-neutral-600 px-2.5 py-1 rounded-full">{t(`${p}.glassJarBadge`)}</span>
-                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">{t(`${p}.glassJarTitle`)}</h4>
-                <p className="text-xs text-neutral-500 mb-4">{t(`${p}.glassJarDesc`)}</p>
+                <span className="text-xs font-bold bg-neutral-100 text-neutral-600 px-2.5 py-1 rounded-full">{t(`${p}.sections.showdown.glassLabel`)}</span>
+                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">{t(`${p}.sections.showdown.glassTitle`)}</h4>
+                <p className="text-xs text-neutral-500 mb-4">{t(`${p}.sections.showdown.glassDesc`)}</p>
                 <ul className="space-y-2.5 text-xs text-neutral-600 border-t border-neutral-100 pt-4">
-                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.glassJarBullet1`)}</li>
-                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.glassJarBullet2`)}</li>
-                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.glassJarBullet3`)}</li>
-                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.glassJarBullet4`)}</li>
+                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.sections.showdown.glassItem1`)}</li>
+                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.sections.showdown.glassItem2`)}</li>
+                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.sections.showdown.glassItem3`)}</li>
+                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.sections.showdown.glassItem4`)}</li>
                 </ul>
               </div>
               <div className="mt-6 border-t border-neutral-100 pt-4 flex justify-between items-center text-xs">
-                <span className="text-neutral-500">{t(`${p}.glassJarCostBallpark`)}</span>
+                <span className="text-neutral-500">{t(`${p}.sections.showdown.glassCostLabel`)}</span>
+                <span className="font-bold text-neutral-900">{t(`${p}.sections.showdown.glassCostVal`)}</span>
               </div>
             </div>
 
             {/* Valve Pouches */}
             <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
               <div>
-                <span className="text-xs font-bold bg-amber-50 text-amber-700 px-2.5 py-1 rounded-full">{t(`${p}.valvePouchBadge`)}</span>
-                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">{t(`${p}.valvePouchTitle`)}</h4>
-                <p className="text-xs text-neutral-500 mb-4">{t(`${p}.valvePouchDesc`)}</p>
+                <span className="text-xs font-bold bg-amber-50 text-amber-700 px-2.5 py-1 rounded-full">{t(`${p}.sections.showdown.valveLabel`)}</span>
+                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">{t(`${p}.sections.showdown.valveTitle`)}</h4>
+                <p className="text-xs text-neutral-500 mb-4">{t(`${p}.sections.showdown.valveDesc`)}</p>
                 <ul className="space-y-2.5 text-xs text-neutral-600 border-t border-neutral-100 pt-4">
-                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.valvePouchBullet1`)}</li>
-                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.valvePouchBullet2`)}</li>
-                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.valvePouchBullet3`)}</li>
-                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.valvePouchBullet4`)}</li>
+                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.sections.showdown.valveItem1`)}</li>
+                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.sections.showdown.valveItem2`)}</li>
+                  <li className="flex items-center gap-2 text-red-600">{t(`${p}.sections.showdown.valveItem3`)}</li>
+                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.sections.showdown.valveItem4`)}</li>
                 </ul>
               </div>
               <div className="mt-6 border-t border-neutral-100 pt-4 flex justify-between items-center text-xs">
-                <span className="text-neutral-500">{t(`${p}.valvePouchCostBallpark`)}</span>
+                <span className="text-neutral-500">{t(`${p}.sections.showdown.valveCostLabel`)}</span>
+                <span className="font-bold text-neutral-900">{t(`${p}.sections.showdown.valveCostVal`)}</span>
               </div>
             </div>
 
             {/* VitoPouch */}
             <div className="rounded-xl p-6 shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow border-2 relative overflow-hidden"
                  style={{ borderColor: primaryThemeColor, backgroundColor: isPouchDomain ? 'rgba(16, 185, 129, 0.03)' : 'rgba(139, 92, 246, 0.03)' }}>
-              <div className="absolute top-0 right-0 bg-primary-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider"
+              <div className="absolute top-0 right-0 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider"
                    style={{ backgroundColor: primaryThemeColor }}>
-                {t(`${p}.vitoBadge`)}
+                {t(`${p}.sections.showdown.vitoLabel`)}
               </div>
               <div>
-                <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ backgroundColor: primaryThemeColor }}>{t(`${p}.vitoTag`)}</span>
-                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">{t(`${p}.vitoTitle`)}</h4>
-                <p className="text-xs text-neutral-500 mb-4">{t(`${p}.vitoDesc`)}</p>
+                <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ backgroundColor: primaryThemeColor }}>{t(`${p}.sections.showdown.vitoSubtitle`)}</span>
+                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">{t(`${p}.sections.showdown.vitoTitle`)}</h4>
+                <p className="text-xs text-neutral-500 mb-4">{t(`${p}.sections.showdown.vitoDesc`)}</p>
                 <ul className="space-y-2.5 text-xs text-neutral-600 border-t border-neutral-100 pt-4">
-                  <li className="flex items-center gap-2 text-emerald-600" dangerouslySetInnerHTML={{ __html: t(`${p}.vitoBullet1`) }} />
-                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.vitoBullet2`)}</li>
-                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.vitoBullet3`)}</li>
-                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.vitoBullet4`)}</li>
+                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.sections.showdown.vitoItem1`)}</li>
+                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.sections.showdown.vitoItem2`)}</li>
+                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.sections.showdown.vitoItem3`)}</li>
+                  <li className="flex items-center gap-2 text-emerald-600">{t(`${p}.sections.showdown.vitoItem4`)}</li>
                 </ul>
               </div>
               <div className="mt-6 border-t border-neutral-100 pt-4 flex justify-between items-center text-xs">
-                <span className="font-bold" style={{ color: primaryThemeColor }}>{t(`${p}.vitoCostBallpark`)}</span>
+                <span className="text-neutral-500">{t(`${p}.sections.showdown.vitoCostLabel`)}</span>
+                <span className="font-bold text-neutral-900" style={{ color: primaryThemeColor }}>{t(`${p}.sections.showdown.vitoCostVal`)}</span>
               </div>
             </div>
           </div>
@@ -214,17 +213,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
 
     {
       id: 'what-is-retort',
-      title: t(`${p}.secWhatIsTitle`),
+      title: t(`${p}.sections.whatIsRetort.title`),
       icon: <Shield className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/what-is-retort.webp"
             imageAlt="What Is Retort Packaging"
-            title={t(`${p}.secWhatIsAltTitle`)}
-            titleCn={t(`${p}.secWhatIsAltTitleCn`)}
-            content={t(`${p}.secWhatIsAltContent`)}
-            contentCn={t(`${p}.secWhatIsAltContentCn`)}
+            title={t(`${p}.sections.whatIsRetort.altTitle`)}
+            content={t(`${p}.sections.whatIsRetort.altContent`)}
             imageLeft={false}
             index={1}
           />
@@ -232,18 +229,18 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
               <Thermometer className="h-5 w-5 mb-2" style={{ color: primaryThemeColor }} />
-              <h4 className="font-semibold text-neutral-800">{t(`${p}.secWhatIsPoint1`)}</h4>
-              <p className="text-xs text-neutral-500">{t(`${p}.secWhatIsPoint1Sub`)}</p>
+              <h4 className="font-semibold text-neutral-800">{t(`${p}.sections.whatIsRetort.col1Title`)}</h4>
+              <p className="text-xs text-neutral-500">{t(`${p}.sections.whatIsRetort.col1Desc`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
               <Package className="h-5 w-5 mb-2" style={{ color: primaryThemeColor }} />
-              <h4 className="font-semibold text-neutral-800">{t(`${p}.secWhatIsPoint2`)}</h4>
-              <p className="text-xs text-neutral-500">{t(`${p}.secWhatIsPoint2Sub`)}</p>
+              <h4 className="font-semibold text-neutral-800">{t(`${p}.sections.whatIsRetort.col2Title`)}</h4>
+              <p className="text-xs text-neutral-500">{t(`${p}.sections.whatIsRetort.col2Desc`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
               <CheckCircle className="h-5 w-5 mb-2" style={{ color: primaryThemeColor }} />
-              <h4 className="font-semibold text-neutral-800">{t(`${p}.secWhatIsPoint3`)}</h4>
-              <p className="text-xs text-neutral-500">{t(`${p}.secWhatIsPoint3Sub`)}</p>
+              <h4 className="font-semibold text-neutral-800">{t(`${p}.sections.whatIsRetort.col3Title`)}</h4>
+              <p className="text-xs text-neutral-500">{t(`${p}.sections.whatIsRetort.col3Desc`)}</p>
             </div>
           </div>
         </div>
@@ -251,37 +248,35 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'layers',
-      title: t(`${p}.secLayersTitle`),
+      title: t(`${p}.sections.layers.title`),
       icon: <Layers className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/layers.webp"
             imageAlt="4-Layer Retort Structure"
-            title={t(`${p}.secLayersAltTitle`)}
-            titleCn={t(`${p}.secLayersAltTitleCn`)}
-            content={t(`${p}.secLayersAltContent`)}
-            contentCn={t(`${p}.secLayersAltContentCn`)}
+            title={t(`${p}.sections.layers.altTitle`)}
+            content={t(`${p}.sections.layers.altContent`)}
             imageLeft={true}
             index={2}
           />
           
           <div className="grid grid-cols-4 gap-3 mt-6">
             <div className="bg-gray-100 p-3 rounded-lg text-center">
-              <div className="font-bold text-gray-800 text-sm">{t(`${p}.secLayersPet`)}</div>
-              <p className="text-[10px] text-gray-600">{t(`${p}.secLayersPetSub`)}</p>
+              <div className="font-bold text-gray-800 text-sm">{t(`${p}.sections.layers.petTitle`)}</div>
+              <p className="text-[10px] text-gray-600">{t(`${p}.sections.layers.petDesc`)}</p>
             </div>
             <div className="bg-gray-200 p-3 rounded-lg text-center">
-              <div className="font-bold text-gray-800 text-sm">{t(`${p}.secLayersAl`)}</div>
-              <p className="text-[10px] text-gray-600">{t(`${p}.secLayersAlSub`)}</p>
+              <div className="font-bold text-gray-800 text-sm">{t(`${p}.sections.layers.alTitle`)}</div>
+              <p className="text-[10px] text-gray-600">{t(`${p}.sections.layers.alDesc`)}</p>
             </div>
             <div className="bg-gray-300 p-3 rounded-lg text-center">
-              <div className="font-bold text-gray-800 text-sm">{t(`${p}.secLayersNy`)}</div>
-              <p className="text-[10px] text-gray-600">{t(`${p}.secLayersNySub`)}</p>
+              <div className="font-bold text-gray-800 text-sm">{t(`${p}.sections.layers.nyTitle`)}</div>
+              <p className="text-[10px] text-gray-600">{t(`${p}.sections.layers.nyDesc`)}</p>
             </div>
             <div className="bg-neutral-100 p-3 rounded-lg text-center border" style={{ borderColor: primaryThemeColor }}>
-              <div className="font-bold text-sm" style={{ color: primaryThemeColor }}>{t(`${p}.secLayersCpp`)}</div>
-              <p className="text-[10px] text-neutral-600">{t(`${p}.secLayersCppSub`)}</p>
+              <div className="font-bold text-sm" style={{ color: primaryThemeColor }}>{t(`${p}.sections.layers.cppTitle`)}</div>
+              <p className="text-[10px] text-neutral-600">{t(`${p}.sections.layers.cppDesc`)}</p>
             </div>
           </div>
         </div>
@@ -289,17 +284,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'high-temp',
-      title: t(`${p}.secHighTempTitle`),
+      title: t(`${p}.sections.highTemp.title`),
       icon: <Thermometer className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/high-temp.webp"
             imageAlt="High-Temperature Sterilization Ready"
-            title={t(`${p}.secHighTempAltTitle`)}
-            titleCn={t(`${p}.secHighTempAltTitleCn`)}
-            content={t(`${p}.secHighTempAltContent`)}
-            contentCn={t(`${p}.secHighTempAltContentCn`)}
+            title={t(`${p}.sections.highTemp.altTitle`)}
+            content={t(`${p}.sections.highTemp.altContent`)}
             imageLeft={false}
             index={3}
           />
@@ -308,17 +301,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'barrier',
-      title: t(`${p}.secBarrierTitle`),
+      title: t(`${p}.sections.barrier.title`),
       icon: <Shield className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/barrier.webp"
             imageAlt="Extreme Barrier Protection"
-            title={t(`${p}.secBarrierAltTitle`)}
-            titleCn={t(`${p}.secBarrierAltTitleCn`)}
-            content={t(`${p}.secBarrierAltContent`)}
-            contentCn={t(`${p}.secBarrierAltContentCn`)}
+            title={t(`${p}.sections.barrier.altTitle`)}
+            content={t(`${p}.sections.barrier.altContent`)}
             imageLeft={true}
             index={4}
           />
@@ -327,17 +318,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'seals',
-      title: t(`${p}.secSealsTitle`),
+      title: t(`${p}.sections.seals.title`),
       icon: <CheckCircle className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/stront-seals.webp"
             imageAlt="Strong Hermetic Seals"
-            title={t(`${p}.secSealsAltTitle`)}
-            titleCn={t(`${p}.secSealsAltTitleCn`)}
-            content={t(`${p}.secSealsAltContent`)}
-            contentCn={t(`${p}.secSealsAltContentCn`)}
+            title={t(`${p}.sections.seals.altTitle`)}
+            content={t(`${p}.sections.seals.altContent`)}
             imageLeft={false}
             index={5}
           />
@@ -346,17 +335,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'convenience',
-      title: t(`${p}.secConvenienceTitle`),
+      title: t(`${p}.sections.convenience.title`),
       icon: <Zap className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/ready-to-heat.webp"
             imageAlt="Ready-to-Heat Convenience Features"
-            title={t(`${p}.secConvenienceAltTitle`)}
-            titleCn={t(`${p}.secConvenienceAltTitleCn`)}
-            content={t(`${p}.secConvenienceAltContent`)}
-            contentCn={t(`${p}.secConvenienceAltContentCn`)}
+            title={t(`${p}.sections.convenience.altTitle`)}
+            content={t(`${p}.sections.convenience.altContent`)}
             imageLeft={true}
             index={6}
           />
@@ -365,17 +352,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'shelf-stable',
-      title: t(`${p}.secStableTitle`),
+      title: t(`${p}.sections.shelfStable.title`),
       icon: <Package className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/shelf-stable.webp"
             imageAlt="Shelf-Stable Ready Meals"
-            title={t(`${p}.secStableAltTitle`)}
-            titleCn={t(`${p}.secStableAltTitleCn`)}
-            content={t(`${p}.secStableAltContent`)}
-            contentCn={t(`${p}.secStableAltContentCn`)}
+            title={t(`${p}.sections.shelfStable.altTitle`)}
+            content={t(`${p}.sections.shelfStable.altContent`)}
             imageLeft={false}
             index={7}
           />
@@ -384,17 +369,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'logistics',
-      title: t(`${p}.secLogisticsTitle`),
+      title: t(`${p}.sections.logistics.title`),
       icon: <Package className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/more-meals.webp"
             imageAlt="More Meals Per Pallet"
-            title={t(`${p}.secLogisticsAltTitle`)}
-            titleCn={t(`${p}.secLogisticsAltTitleCn`)}
-            content={t(`${p}.secLogisticsAltContent`)}
-            contentCn={t(`${p}.secLogisticsAltContentCn`)}
+            title={t(`${p}.sections.logistics.altTitle`)}
+            content={t(`${p}.sections.logistics.altContent`)}
             imageLeft={true}
             index={8}
           />
@@ -403,43 +386,39 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'low-moq',
-      title: t(`${p}.secLowMoqTitle`),
+      title: t(`${p}.sections.lowMoq.title`),
       icon: <Tag className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/100pcs.webp"
             imageAlt="100 pcs Low MOQ"
-            title={t(`${p}.secLowMoqAltTitle`)}
-            titleCn={t(`${p}.secLowMoqAltTitleCn`)}
-            content={t(`${p}.secLowMoqAltContent`)}
-            contentCn={t(`${p}.secLowMoqAltContentCn`)}
+            title={t(`${p}.sections.lowMoq.altTitle`)}
+            content={t(`${p}.sections.lowMoq.altContent`)}
             imageLeft={false}
             index={10}
           />
           
           <div className="p-6 rounded-xl border text-center shadow-sm" 
                style={{ borderColor: primaryThemeColor, backgroundColor: isPouchDomain ? 'rgba(16, 185, 129, 0.05)' : 'rgba(139, 92, 246, 0.05)' }}>
-            <div className="text-4xl font-extrabold mb-2" style={{ color: primaryThemeColor }}>{t(`${p}.secLowMoqStat`)}</div>
-            <p className="font-bold text-neutral-800">{t(`${p}.secLowMoqStatTitle`)}</p>
-            <p className="text-sm text-neutral-600 mt-2">{t(`${p}.secLowMoqStatDesc`)}</p>
+            <div className="text-4xl font-extrabold mb-2" style={{ color: primaryThemeColor }}>{t(`${p}.sections.lowMoq.box1Title`)}</div>
+            <p className="font-bold text-neutral-800">{t(`${p}.sections.lowMoq.box1Desc`)}</p>
+            <p className="text-sm text-neutral-600 mt-2">{t(`${p}.sections.lowMoq.box1Info`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'digital-print',
-      title: t(`${p}.secDigitalTitle`),
+      title: t(`${p}.sections.digitalPrint.title`),
       icon: <Printer className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/Full-color digital printing.webp"
             imageAlt="Full-Color Digital Printing"
-            title={t(`${p}.secDigitalAltTitle`)}
-            titleCn={t(`${p}.secDigitalAltTitleCn`)}
-            content={t(`${p}.secDigitalAltContent`)}
-            contentCn={t(`${p}.secDigitalAltContentCn`)}
+            title={t(`${p}.sections.digitalPrint.altTitle`)}
+            content={t(`${p}.sections.digitalPrint.altContent`)}
             imageLeft={true}
             index={11}
           />
@@ -448,17 +427,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'multi-sku',
-      title: t(`${p}.secMultiSkuTitle`),
+      title: t(`${p}.sections.multiSku.title`),
       icon: <Package className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/Launch a full flavor line with low MOQ.webp"
             imageAlt="Low MOQ for Many SKUs"
-            title={t(`${p}.secMultiSkuAltTitle`)}
-            titleCn={t(`${p}.secMultiSkuAltTitleCn`)}
-            content={t(`${p}.secMultiSkuAltContent`)}
-            contentCn={t(`${p}.secMultiSkuAltContentCn`)}
+            title={t(`${p}.sections.multiSku.altTitle`)}
+            content={t(`${p}.sections.multiSku.altContent`)}
             imageLeft={false}
             index={12}
           />
@@ -467,43 +444,41 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'custom-system',
-      title: t(`${p}.secCustomTitle`),
+      title: t(`${p}.sections.customSystem.title`),
       icon: <Package className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/retort/custom-retort.webp"
             imageAlt="Design Your Custom Retort System"
-            title={t(`${p}.secCustomAltTitle`)}
-            titleCn={t(`${p}.secCustomAltTitleCn`)}
-            content={t(`${p}.secCustomAltContent`)}
-            contentCn={t(`${p}.secCustomAltContentCn`)}
+            title={t(`${p}.sections.customSystem.altTitle`)}
+            content={t(`${p}.sections.customSystem.altContent`)}
             imageLeft={true}
             index={9}
           />
           
           <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
-            <h4 className="font-bold text-neutral-900 mb-4">{t(`${p}.secCustom3StepsTitle`)}</h4>
+            <h4 className="font-bold text-neutral-900 mb-4">{t(`${p}.sections.customSystem.stepsTitle`)}</h4>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0" style={{ backgroundColor: primaryThemeColor }}>1</div>
                 <div>
-                  <p className="font-semibold text-neutral-800 text-sm">{t(`${p}.secCustomStep1`)}</p>
-                  <p className="text-xs text-neutral-500">{t(`${p}.secCustomStep1Sub`)}</p>
+                  <p className="font-semibold text-neutral-800 text-sm">{t(`${p}.sections.customSystem.step1Title`)}</p>
+                  <p className="text-xs text-neutral-500">{t(`${p}.sections.customSystem.step1Desc`)}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0" style={{ backgroundColor: primaryThemeColor }}>2</div>
                 <div>
-                  <p className="font-semibold text-neutral-800 text-sm">{t(`${p}.secCustomStep2`)}</p>
-                  <p className="text-xs text-neutral-500">{t(`${p}.secCustomStep2Sub`)}</p>
+                  <p className="font-semibold text-neutral-800 text-sm">{t(`${p}.sections.customSystem.step2Title`)}</p>
+                  <p className="text-xs text-neutral-500">{t(`${p}.sections.customSystem.step2Desc`)}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0" style={{ backgroundColor: primaryThemeColor }}>3</div>
                 <div>
-                  <p className="font-semibold text-neutral-800 text-sm">{t(`${p}.secCustomStep3`)}</p>
-                  <p className="text-xs text-neutral-500">{t(`${p}.secCustomStep3Sub`)}</p>
+                  <p className="font-semibold text-neutral-800 text-sm">{t(`${p}.sections.customSystem.step3Title`)}</p>
+                  <p className="text-xs text-neutral-500">{t(`${p}.sections.customSystem.step3Desc`)}</p>
                 </div>
               </div>
             </div>
@@ -513,40 +488,73 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'trust-eeat',
-      title: t(`${p}.secTrustTitle`),
+      title: t(`${p}.sections.trustEeat.title`),
       icon: <Award className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <div className="bg-gradient-to-r from-neutral-50 to-neutral-100 p-6 rounded-xl border border-neutral-200">
-            <h3 className="text-xl font-bold text-neutral-900 mb-4">{t(`${p}.secTrustH3`)}</h3>
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">{t(`${p}.sections.trustEeat.title`)}</h3>
             <p className="text-neutral-700 text-sm leading-relaxed mb-4">
-              {t(`${p}.secTrustP1`, { brandName: brand.name })}
+              {t(`${p}.sections.trustEeat.desc1`)}
             </p>
             <p className="text-neutral-700 text-sm leading-relaxed">
-              {t(`${p}.secTrustP2`)} <Link to="/pricing" className="text-primary-600 underline hover:text-primary-800">retort pouches</Link> using 100% FDA-compliant, food-safe high-temperature polymers.
+              {t(`${p}.sections.trustEeat.desc2`)}
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center shadow-sm">
               <FileCheck className="h-8 w-8 mx-auto mb-2 text-blue-600" />
-              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.secTrustCard1`)}</h4>
-              <p className="text-[10px] text-neutral-500">{t(`${p}.secTrustCard1Sub`)}</p>
+              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.trustEeat.col1Title`)}</h4>
+              <p className="text-[10px] text-neutral-500">{t(`${p}.sections.trustEeat.col1Desc`)}</p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center shadow-sm">
               <Shield className="h-8 w-8 mx-auto mb-2 text-green-600" />
-              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.secTrustCard2`)}</h4>
-              <p className="text-[10px] text-neutral-500">{t(`${p}.secTrustCard2Sub`)}</p>
+              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.trustEeat.col2Title`)}</h4>
+              <p className="text-[10px] text-neutral-500">{t(`${p}.sections.trustEeat.col2Desc`)}</p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center shadow-sm">
               <Building2 className="h-8 w-8 mx-auto mb-2 text-purple-600" />
-              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.secTrustCard3`)}</h4>
-              <p className="text-[10px] text-neutral-500">{t(`${p}.secTrustCard3Sub`)}</p>
+              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.trustEeat.col3Title`)}</h4>
+              <p className="text-[10px] text-neutral-500">{t(`${p}.sections.trustEeat.col3Desc`)}</p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center shadow-sm">
               <Globe className="h-8 w-8 mx-auto mb-2 text-amber-600" />
-              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.secTrustCard4`)}</h4>
-              <p className="text-[10px] text-neutral-500">{t(`${p}.secTrustCard4Sub`)}</p>
+              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.trustEeat.col4Title`)}</h4>
+              <p className="text-[10px] text-neutral-500">{t(`${p}.sections.trustEeat.col4Desc`)}</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-6 rounded-lg">
+            <h4 className="font-semibold text-neutral-800 mb-3">{t(`${p}.sections.trustEeat.exploreTitle`)}</h4>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <Link to="/materials/recyclable-mono-pe" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <Recycle className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkMonoPe`)}
+              </Link>
+              <Link to="/materials/pcr" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <CheckCircle className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkPcr`)}
+              </Link>
+              <Link to="/features/barrier-options" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <Shield className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkBarrier`)}
+              </Link>
+              <Link to="/materials/compostable" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <Leaf className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkCompostable`)}
+              </Link>
+              <Link to="/packaging/stand-up-pouches" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <Package className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkStandUp`)}
+              </Link>
+              <Link to="/packaging/flat-pouches" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <FileText className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkFlatPouches`)}
+              </Link>
+              <Link to="/packaging/spout-pouches" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <Droplets className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkSpoutPouches`)}
+              </Link>
+              <Link to="/features/reclosure-options" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <X className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkReclosure`)}
+              </Link>
+              <Link to="/printing/digital-printing" className="flex items-center gap-2 text-primary-600 hover:text-primary-800 text-xs">
+                <Printer className="h-3.5 w-3.5" /> {t(`${p}.sections.trustEeat.linkPrinting`)}
+              </Link>
             </div>
           </div>
         </div>
@@ -554,32 +562,32 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: t(`${p}.secCtaTitle`),
+      title: t('common.cta.title', 'Ready to Get Started?'),
       icon: <Flame className="h-5 w-5 text-white" />,
       content: (
         <div className="bg-gradient-to-br from-neutral-800 to-neutral-900 text-white p-8 rounded-xl border border-neutral-700 shadow-lg">
-          <h3 className="text-2xl font-bold mb-6 text-center">{t(`${p}.secCtaTitleBox`)}</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center">{t('common.cta.connectHeader', "Choose How You'd Like to Connect")}</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white/5 backdrop-blur p-6 rounded-lg text-center border border-white/10 hover:border-white/20 transition">
               <Calendar className="h-8 w-8 mx-auto mb-3 text-neutral-300" />
-              <h4 className="font-semibold mb-2">{t(`${p}.secCtaCard1`)}</h4>
-              <p className="text-xs text-white/60 mb-4">{t(`${p}.secCtaCard1Sub`)}</p>
+              <h4 className="font-semibold mb-2">{t('common.cta.bookConsultation', 'Book a Consultation')}</h4>
+              <p className="text-xs text-white/60 mb-4">{t('common.cta.freeSession', '30-min free session with our engineering team')}</p>
               <button 
                 onClick={openCalendly} 
                 className="w-full bg-white text-neutral-900 py-2.5 rounded-lg text-sm font-semibold hover:bg-neutral-100 transition cursor-pointer"
               >
-                {t(`${p}.secCtaCard1Btn`)}
+                {t('common.cta.scheduleFreeCall', 'Schedule Free Call')}
               </button>
             </div>
             <div className="bg-white/5 backdrop-blur p-6 rounded-lg text-center border border-white/10 hover:border-white/20 transition">
               <Mail className="h-8 w-8 mx-auto mb-3 text-neutral-300" />
-              <h4 className="font-semibold mb-2">{t(`${p}.secCtaCard2`)}</h4>
-              <p className="text-xs text-white/60 mb-4">{t(`${p}.secCtaCard2Sub`)}</p>
+              <h4 className="font-semibold mb-2">{t('common.cta.requestInstantQuote', 'Request an Instant Quote')}</h4>
+              <p className="text-xs text-white/60 mb-4">{t('common.cta.sendDimensions', 'Send dimensions and get detailed pricing breaks')}</p>
               <a 
                 href={`mailto:${brand.email}?subject=Digital Printed Retort Pouch Quote - VitoPouch`} 
                 className="block w-full py-2.5 rounded-lg text-sm font-semibold text-center border border-white/30 hover:border-white/50 text-white transition"
               >
-                {t(`${p}.secCtaCard2Btn`)}
+                {t('common.cta.sendEmail', 'Send Email')}
               </a>
             </div>
           </div>
@@ -588,42 +596,36 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     }
   ]
 
-  const faqs = t(`${p}.faqs`, { returnObjects: true }) as Array<{ question: string; answer: string }> || []
-  const relatedLinks = t(`${p}.relatedLinks`, { returnObjects: true }) as Array<{ title: string; description: string }> || []
-  const formattedRelatedLinks = relatedLinks.map(link => {
-    let url = '/'
-    if (link.title.toLowerCase().includes('mono-pe')) url = '/materials/recyclable-mono-pe'
-    else if (link.title.toLowerCase().includes('pcr')) url = '/materials/pcr'
-    else if (link.title.toLowerCase().includes('high barrier')) url = '/features/barrier-options'
-    else if (link.title.toLowerCase().includes('compostable')) url = '/materials/compostable'
-    else if (link.title.toLowerCase().includes('stand up')) url = '/packaging/stand-up-pouches'
-    else if (link.title.toLowerCase().includes('flat')) url = '/packaging/flat-pouches'
-    else if (link.title.toLowerCase().includes('spout')) url = '/packaging/spout-pouches'
-    else if (link.title.toLowerCase().includes('barrier')) url = '/features/barrier-options'
-    else if (link.title.toLowerCase().includes('reclosure')) url = '/features/reclosure-options'
-    else if (link.title.toLowerCase().includes('printing')) url = '/printing/digital-printing'
-    return { title: link.title, url, description: link.description }
-  })
+  const faqs = [0, 1, 2, 3, 4, 5].map(idx => ({
+    question: t(`${p}.faqs.${idx}.q`),
+    answer: t(`${p}.faqs.${idx}.a`)
+  }))
+
+  const relatedLinks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(idx => ({
+    title: t(`${p}.relatedLinks.${idx}.title`),
+    url: t(`${p}.relatedLinks.${idx}.url`),
+    description: t(`${p}.relatedLinks.${idx}.description`)
+  }))
 
   return (
     <>
       <SEOPageLayout 
         heroBgColor="#171717"
-        title={t(`${p}.metaTitle`)}
-        description={t(`${p}.metaDescription`)}
-        keywords={t(`${p}.keywords`, { returnObjects: true }) as string[] || []}
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['retort pouches', 'retort bags', 'digital printed pouches', 'sterilization pouches', 'ready meal packaging', 'baby food pouches', 'pet food bags', 'shelf stable packaging', 'high barrier pouches', 'low MOQ pouches', 'aluminum foil pouches', 'vitopouch', 'kimchi pouch', 'soft can packaging']}
         canonicalUrl="https://achievepack.com/function/digital-printed-retort-bags"
         heroTitle={t(`${p}.heroTitle`)}
-        heroSubtitle={isPouchDomain ? t(`${p}.heroSubtitlePouch`) : t(`${p}.heroSubtitleAp`)}
+        heroSubtitle={isPouchDomain ? t(`${p}.heroSubtitlePouch`) : t(`${p}.heroSubtitleAP`)}
         heroImage="/imgs/function/retort/retort-hero.webp"
-        heroImageAlt="Achieve Pack Digital Printed High-Barrier Retort Pouches"
-        introSummary={isPouchDomain ? t(`${p}.introSummaryPouch`) : t(`${p}.introSummaryAp`)}
+        heroImageAlt={t(`${p}.heroImageAlt`)}
+        introSummary={isPouchDomain ? t(`${p}.introSummaryPouch`) : t(`${p}.introSummaryAP`)}
         sections={sections}
         faqs={faqs}
-        relatedLinks={formattedRelatedLinks}
-        ctaTitle={t(`${p}.secCtaTitle`)}
-        ctaDescription={t(`${p}.secCtaTitleBox`)}
-        ctaButtonText={t(`${p}.secCtaCard1Btn`)}
+        relatedLinks={relatedLinks}
+        ctaTitle={t(`${p}.ctaTitle`)}
+        ctaDescription={t(`${p}.ctaDescription`)}
+        ctaButtonText={t(`${p}.ctaButtonText`)}
       />
 
       {/* Gallery Lightbox Modal */}
@@ -638,13 +640,13 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
           <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2 bg-white/5 rounded-full">
             <ChevronLeft className="h-8 w-8" />
           </button>
-          <img src={galleryEnlarged.src} alt={retortGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl" onClick={(e) => e.stopPropagation()} />
+          <img src={galleryEnlarged.src} alt={t(`${p}.gallery.${galleryEnlarged.index}.title`) || 'Enlarged view'} className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl" onClick={(e) => e.stopPropagation()} />
           <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2 bg-white/5 rounded-full">
             <ChevronRight className="h-8 w-8" />
           </button>
           <div className="absolute bottom-6 text-center text-white max-w-xl px-4 bg-black/50 backdrop-blur-md py-2.5 rounded-xl">
-            <p className="text-base font-semibold">{retortGallery[galleryEnlarged.index]?.title}</p>
-            <p className="text-xs text-neutral-300 mt-1">{retortGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-base font-semibold">{t(`${p}.gallery.${galleryEnlarged.index}.title`)}</p>
+            <p className="text-xs text-neutral-300 mt-1">{t(`${p}.gallery.${galleryEnlarged.index}.desc`)}</p>
             <p className="text-[10px] mt-2 text-neutral-400 font-semibold">{galleryEnlarged.index + 1} / {retortGallery.length}</p>
           </div>
         </div>

@@ -1,20 +1,22 @@
 import { Helmet } from 'react-helmet-async'
-import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
 export default function PouchFlatPouchesPage() {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchFlatPouches'
+
   const floatAnim = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
-  const title = t('pouchFlatPouchesPage.title')
-  const description = t('pouchFlatPouchesPage.description')
+  const title = t(`${p}.title`)
+  const description = t(`${p}.description`)
 
   return (
     <PouchLayout>
@@ -30,24 +32,24 @@ export default function PouchFlatPouchesPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="inline-block bg-[#FF00FF] text-white border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t('pouchFlatPouchesPage.flatType')}</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t(`${p}.heroClass`)}</span>
               </div>
               
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                {t('pouchFlatPouchesPage.hero.part1')}<br/>
-                {t('pouchFlatPouchesPage.hero.part2')}<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t('pouchFlatPouchesPage.hero.part3')}</span>
+                {t(`${p}.heroTitleFlat`)}<br/>
+                {t(`${p}.heroTitleFast`)}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t(`${p}.heroTitleSleek`)}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; {t('pouchFlatPouchesPage.hero.descLine1')}<br/>
-                &gt; {t('pouchFlatPouchesPage.hero.descLine2')}<br/>
-                &gt; {t('pouchFlatPouchesPage.hero.descLine3')}
+                &gt; {t(`${p}.heroBullet1`)}<br/>
+                &gt; {t(`${p}.heroBullet2`)}<br/>
+                &gt; {t(`${p}.heroBullet3`)}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t('pouchFlatPouchesPage.hero.quoteSamples')}</NeoButton>
-                <NeoButton variant="secondary">{t('pouchFlatPouchesPage.hero.materialGuide')}</NeoButton>
+                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t(`${p}.heroBtnExplore`)}</NeoButton>
+                <NeoButton variant="secondary">{t(`${p}.heroBtnDownload`)}</NeoButton>
               </div>
             </div>
 
@@ -69,29 +71,29 @@ export default function PouchFlatPouchesPage() {
         <div className="grid md:grid-cols-3 gap-8">
           <NeoCard color="bg-white">
             <Zap className="w-12 h-12 mb-4 text-[#FF00FF]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchFlatPouchesPage.benefits.sampleReady.title')}</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t(`${p}.card1Title`)}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              {t('pouchFlatPouchesPage.benefits.sampleReady.desc')}
+              {t(`${p}.card1Desc`)}
             </p>
-            <NeoBadge color="bg-[#D4FF00]">{t('pouchFlatPouchesPage.benefits.sampleReady.badge')}</NeoBadge>
+            <NeoBadge color="bg-[#D4FF00]">{t(`${p}.card1Badge`)}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#00FFFF]">
             <Shield className="w-12 h-12 mb-4 text-black" />
-            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchFlatPouchesPage.benefits.barrierArmor.title')}</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t(`${p}.card2Title`)}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              {t('pouchFlatPouchesPage.benefits.barrierArmor.desc')}
+              {t(`${p}.card2Desc`)}
             </p>
-            <NeoBadge color="bg-[#FF00FF]">{t('pouchFlatPouchesPage.benefits.barrierArmor.badge')}</NeoBadge>
+            <NeoBadge color="bg-[#FF00FF]">{t(`${p}.card2Badge`)}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#D4FF00]">
             <Award className="w-12 h-12 mb-4 text-[#FF00FF]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">{t('pouchFlatPouchesPage.benefits.versatility.title')}</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t(`${p}.card3Title`)}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              {t('pouchFlatPouchesPage.benefits.versatility.desc')}
+              {t(`${p}.card3Desc`)}
             </p>
-            <NeoBadge color="bg-white">{t('pouchFlatPouchesPage.benefits.versatility.badge')}</NeoBadge>
+            <NeoBadge color="bg-white">{t(`${p}.card3Badge`)}</NeoBadge>
           </NeoCard>
         </div>
       </section>
@@ -99,13 +101,13 @@ export default function PouchFlatPouchesPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#FF00FF] border-t-4 border-black text-white">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <h2 className="font-black text-5xl md:text-7xl uppercase">{t('pouchFlatPouchesPage.cta.heading')}</h2>
+          <h2 className="font-black text-5xl md:text-7xl uppercase">{t(`${p}.ctaTitle`)}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl">
-            {t('pouchFlatPouchesPage.cta.desc')}
+            {t(`${p}.ctaDesc`)}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t('pouchFlatPouchesPage.cta.startMySample')}</NeoButton>
-            <NeoButton variant="secondary" className="!text-black">{t('pouchFlatPouchesPage.cta.priceCalculator')}</NeoButton>
+            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t(`${p}.ctaBtnConsult`)}</NeoButton>
+            <NeoButton variant="secondary" className="!text-black">{t(`${p}.ctaBtnPrice`)}</NeoButton>
           </div>
         </div>
       </section>

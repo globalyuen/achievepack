@@ -279,6 +279,7 @@ const PouchKSealStandUpPouchesPage = lazyWithRetry(() => import('./pages/pouch/k
 const PouchWhiteInkUnderprintPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchWhiteInkUnderprintPage'))
 const PouchFinSealLapSealPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchFinSealLapSealPage'))
 const PouchFlatBottomVsGussetPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchFlatBottomVsGussetPage'))
+const PouchColorMatchingPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchColorMatchingPage'))
 const PouchRecycledOceanPlasticPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecycledOceanPlasticPackagingPage'))
 const PouchMinimalistD2CPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMinimalistD2CPackagingPage'))
 const DynamicPouchTopicPage = lazyWithRetry(() => import('./pages/pouch/topics/DynamicPouchTopicPage'))
@@ -345,6 +346,7 @@ const FinSealLapSealPage = lazyWithRetry(() => import('./pages/knowledge/FinSeal
 const FlatBottomVsGussetPage = lazyWithRetry(() => import('./pages/knowledge/FlatBottomVsGussetPage'))
 const EcoPackagingRealityPage = lazyWithRetry(() => import('./pages/knowledge/EcoPackagingRealityPage'))
 const WritableStampablePouchesPage = lazyWithRetry(() => import('./pages/knowledge/WritableStampablePouchesPage'))
+const ColorMatchingPage = lazyWithRetry(() => import('./pages/knowledge/ColorMatchingPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -741,6 +743,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/flat-bottom-vs-gusset" element={<PouchFlatBottomVsGussetPage />} />
                   <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
                   <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
+                  <Route path="/knowledge/digital-printing-pantone-color-matching" element={<PouchColorMatchingPage />} />
                   {/* <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} /> */}
                   {/* <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} /> */}
                   {/* <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} /> */}
@@ -1255,6 +1258,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/flat-bottom-vs-gusset" element={<FlatBottomVsGussetPage />} />
                         <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
                         <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
+                        <Route path="/knowledge/digital-printing-pantone-color-matching" element={<ColorMatchingPage />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />

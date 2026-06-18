@@ -92,6 +92,7 @@ const LEARN_PAGES = {
       { name: 'Workflow', link: '/knowledge/workflow', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
       { name: 'Eco-Packaging Reality', link: '/knowledge/eco-packaging-reality', image: '/imgs/knowledge/eco-packaging-reality.png' },
       { name: 'Writable & Stampable Pouches', link: '/knowledge/writable-stampable-pouches', image: '/imgs/knowledge/writable-stampable-pouches.jpg' },
+      { name: 'Color Matching Guide', link: '/knowledge/digital-printing-pantone-color-matching', image: '/imgs/knowledge/color-matching/pms-cmyk-deviation.png' },
     ]
   },
   support: {
