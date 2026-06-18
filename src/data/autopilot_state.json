@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T23:30:30.726Z",
+  "lastUnifiedRun": "2026-06-18T00:15:28.085Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3479,17 +3479,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-packaging-solutions-for-custom-shaped-sachets",
       "status": "Pending Approval",
       "volume": 670,
       "keyword": "sustainable packaging solutions for custom shaped sachets",
-      "difficulty": "Low",
-      "slug": "sustainable-packaging-solutions-for-custom-shaped-sachets"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 830,
       "keyword": "mono pe high barrier stand up pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-pe-high-barrier-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -3632,9 +3633,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T23:30:24.580Z",
+      "timestamp": "2026-06-18T00:15:22.115Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for custom shaped sachets\" to /blog/sustainable-packaging-solutions-for-custom-shaped-sachets (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe high barrier stand up pouches\" to /blog/mono-pe-high-barrier-stand-up-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for custom shaped sachets\" to /blog/sustainable-packaging-solutions-for-custom-shaped-sachets (Pending Approval)",
+      "timestamp": "2026-06-17T23:30:24.580Z"
     },
     {
       "action": "Autopilot Generation Draft",
