@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-17T22:00:37.304Z",
+  "lastUnifiedRun": "2026-06-17T23:30:30.726Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3465,24 +3465,25 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-shaped-recyclable-pouches-for-liquids",
       "status": "Pending Approval",
       "volume": 740,
       "keyword": "custom shaped recyclable pouches for liquids",
-      "difficulty": "Low",
-      "slug": "custom-shaped-recyclable-pouches-for-liquids"
+      "difficulty": "Low"
     },
     {
+      "slug": "biodegradable-barrier-film-roll-stock-wholesale",
       "status": "Pending Approval",
       "volume": 910,
       "keyword": "biodegradable barrier film roll stock wholesale",
-      "difficulty": "Medium",
-      "slug": "biodegradable-barrier-film-roll-stock-wholesale"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 670,
       "keyword": "sustainable packaging solutions for custom shaped sachets",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-packaging-solutions-for-custom-shaped-sachets"
     },
     {
       "status": "Pending",
@@ -3521,124 +3522,129 @@
       "difficulty": "Low"
     },
     {
-      "keyword": "compostable pouches for protein bars",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "compostable pouches for protein bars",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable sachets for vitamins",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 620,
-      "status": "Pending"
+      "keyword": "recyclable sachets for vitamins",
+      "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly barrier pouches for jerky",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 780,
-      "status": "Pending"
+      "keyword": "eco friendly barrier pouches for jerky",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "digital printed flat bottom bags for seeds",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 540,
-      "status": "Pending"
+      "keyword": "digital printed flat bottom bags for seeds",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sustainable packaging for matcha powder",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 910,
-      "status": "Pending"
+      "keyword": "sustainable packaging for matcha powder",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable sachets for salad dressings",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 670,
-      "status": "Pending"
+      "keyword": "compostable sachets for salad dressings",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable pouches with degassing valve",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1050,
-      "status": "Pending"
+      "keyword": "recyclable pouches with degassing valve",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "custom printed kraft paper bags for cookies",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 730,
-      "status": "Pending"
+      "keyword": "custom printed kraft paper bags for cookies",
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier compostable film for chocolate",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 820,
-      "status": "Pending"
+      "keyword": "high barrier compostable film for chocolate",
+      "difficulty": "Low"
     },
     {
-      "keyword": "stand up pouch size for 5 lb coffee",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 590,
-      "status": "Pending"
+      "keyword": "stand up pouch size for 5 lb coffee",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "biodegradable packaging for freeze dried fruits",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 680,
-      "status": "Pending"
+      "keyword": "biodegradable packaging for freeze dried fruits",
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital print flexible packaging for pharmaceuticals",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 760,
-      "status": "Pending"
+      "keyword": "digital print flexible packaging for pharmaceuticals",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "mono pe recyclable pouches for condiments",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 510,
-      "status": "Pending"
+      "keyword": "mono pe recyclable pouches for condiments",
+      "difficulty": "Low"
     },
     {
-      "keyword": "kraft paper stand up pouches for granola",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 880,
-      "status": "Pending"
+      "keyword": "kraft paper stand up pouches for granola",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable retort pouches for ready meals",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 640,
-      "status": "Pending"
+      "keyword": "compostable retort pouches for ready meals",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "small batch printed barrier bags for herbs",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 570,
-      "status": "Pending"
+      "keyword": "small batch printed barrier bags for herbs",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable sachet packaging for sauces",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "recyclable sachet packaging for sauces",
+      "difficulty": "Low"
     },
     {
-      "keyword": "biodegradable flat bottom pouches for pet treats",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 710,
-      "status": "Pending"
+      "keyword": "biodegradable flat bottom pouches for pet treats",
+      "difficulty": "Medium"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-17T22:00:31.090Z",
+      "timestamp": "2026-06-17T23:30:24.580Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier film roll stock wholesale\" to /blog/biodegradable-barrier-film-roll-stock-wholesale (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for custom shaped sachets\" to /blog/sustainable-packaging-solutions-for-custom-shaped-sachets (Pending Approval)"
     },
     {
-      "timestamp": "2026-06-17T18:15:27.322Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shaped recyclable pouches for liquids\" to /blog/custom-shaped-recyclable-pouches-for-liquids (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier film roll stock wholesale\" to /blog/biodegradable-barrier-film-roll-stock-wholesale (Pending Approval)",
+      "timestamp": "2026-06-17T22:00:31.090Z"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped recyclable pouches for liquids\" to /blog/custom-shaped-recyclable-pouches-for-liquids (Pending Approval)",
+      "timestamp": "2026-06-17T18:15:27.322Z"
     },
     {
       "action": "Autopilot Generation Draft",
