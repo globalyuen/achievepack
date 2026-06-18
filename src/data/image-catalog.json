@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-18",
-  "total_images": 3254,
+  "total_images": 3255,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1716,
+    ".png": 1717,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 543,
+      "count": 544,
       "images": [
+        {
+          "filename": "sustainable-packaging-for-matcha-powder-hero.png",
+          "path": "/imgs/blog/heros/sustainable-packaging-for-matcha-powder-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-18T03:45:39.144Z"
+        },
         {
           "filename": "digital-printed-flat-bottom-bags-for-seeds-hero.png",
           "path": "/imgs/blog/heros/digital-printed-flat-bottom-bags-for-seeds-hero.png",

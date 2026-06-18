@@ -340,9 +340,10 @@ function App() {
     suffix: t("slogans.default.suffix", "Your Packaging Should Too.")
   };
 
-  const slogan = sloganIdx >= 0 ? {
-    prefix: t(`slogans.b2b.${sloganIdx}.prefix`),
-    suffix: t(`slogans.b2b.${sloganIdx}.suffix`)
+  const slogansB2b = t('slogans.b2b', { returnObjects: true });
+  const slogan = sloganIdx >= 0 && Array.isArray(slogansB2b) && slogansB2b[sloganIdx] ? {
+    prefix: slogansB2b[sloganIdx].prefix || '',
+    suffix: slogansB2b[sloganIdx].suffix || ''
   } : defaultSlogan;
 
   // 3D Pouch Interactive states

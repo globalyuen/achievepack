@@ -335,8 +335,9 @@ export default function PouchHomePage() {
 
   const defaultSlogan = t("slogans.default.full", "Your Customers Care What Their Products Are Made Of & Where They End Up. Your Packaging Should Too.");
 
-  const slogan = sloganIdx >= 0
-    ? t(`slogans.b2c.${sloganIdx}`)
+  const slogansB2c = t('slogans.b2c', { returnObjects: true });
+  const slogan = sloganIdx >= 0 && Array.isArray(slogansB2c) && slogansB2c[sloganIdx]
+    ? slogansB2c[sloganIdx]
     : defaultSlogan;
 
   const scrollToProducts = () => {

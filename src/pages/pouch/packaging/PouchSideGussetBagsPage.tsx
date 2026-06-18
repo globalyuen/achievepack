@@ -332,7 +332,7 @@ export default function PouchSideGussetBagsPage() {
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
               <img
-                src="/imgs/store/pouch shape/side-gusset.webp"
+                src="/imgs/store/pouch shape/side -seal.webp"
                 alt={t('pouchSideGussetBagsPage.imgAlt1')}
                 className="w-full h-80 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />

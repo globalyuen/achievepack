@@ -711,7 +711,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
           {
             title: t('seoPages.pages.spoutPouchesJuice.title_compostableStandUpPouchesHighbarrier'),
             url: '/products/compostable-stand-up-pouches',
-            image: '/imgs/store/products/compostable-stand-up-collection.png'
+            image: '/imgs/store/products/compostable-stand-up-pouches.png'
           }
         ]}
       />
