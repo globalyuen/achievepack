@@ -6,6 +6,11 @@ import { useTranslation } from 'react-i18next'
 const MaterialDataSheetPage: React.FC = () => {
   const { t } = useTranslation();
 
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+
   const sections = [
     {
       id: 'overview',
@@ -69,7 +74,7 @@ const MaterialDataSheetPage: React.FC = () => {
                 {t('seoPages.pages.materialDataSheet.achievePack.sections.features.highlightsTitle')}
               </h4>
               <ul className="space-y-3">
-                {((t('seoPages.pages.materialDataSheet.achievePack.sections.features.list', { returnObjects: true }) || []) as string[]).map((feature, idx) => (
+                {getTranslationArray<string>('seoPages.pages.materialDataSheet.achievePack.sections.features.list').map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
                     <CheckCircle className="h-5 w-5 text-primary-600 shrink-0 mt-0.5" />
                     <span className="text-sm text-neutral-600">{feature}</span>
@@ -84,7 +89,7 @@ const MaterialDataSheetPage: React.FC = () => {
                 {t('seoPages.pages.materialDataSheet.achievePack.sections.features.appsTitle')}
               </h4>
               <div className="flex flex-wrap gap-2 mb-6">
-                {((t('seoPages.pages.materialDataSheet.achievePack.sections.features.tags', { returnObjects: true }) || []) as string[]).map(tag => (
+                {getTranslationArray<string>('seoPages.pages.materialDataSheet.achievePack.sections.features.tags').map(tag => (
                   <span key={tag} className="text-xs font-medium text-primary-800 bg-primary-50 border border-primary-100 px-3 py-1.5 rounded-full">
                     {tag}
                   </span>
@@ -219,7 +224,7 @@ const MaterialDataSheetPage: React.FC = () => {
               {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.notesTitle')}
             </h5>
             <ul className="space-y-2 text-xs text-neutral-500 list-disc list-inside">
-              {((t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.notes', { returnObjects: true }) || []) as string[]).map((note, idx) => (
+              {getTranslationArray<string>('seoPages.pages.materialDataSheet.achievePack.sections.specifications.notes').map((note, idx) => (
                 <li key={idx} dangerouslySetInnerHTML={{ __html: note }} />
               ))}
             </ul>
@@ -247,7 +252,7 @@ const MaterialDataSheetPage: React.FC = () => {
     <SEOPageLayout
       title={t('seoPages.pages.materialDataSheet.achievePack.seo.title')}
       description={t('seoPages.pages.materialDataSheet.achievePack.seo.description')}
-      keywords={t('seoPages.pages.materialDataSheet.achievePack.seo.keywords', { returnObjects: true }) as string[]}
+      keywords={getTranslationArray<string>('seoPages.pages.materialDataSheet.achievePack.seo.keywords')}
       heroTitle={t('seoPages.pages.materialDataSheet.achievePack.seo.heroTitle')}
       heroSubtitle={t('seoPages.pages.materialDataSheet.achievePack.seo.heroSubtitle')}
       introSummary={t('seoPages.pages.materialDataSheet.achievePack.seo.introSummary')}

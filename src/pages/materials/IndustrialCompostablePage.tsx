@@ -9,6 +9,11 @@ const IndustrialCompostablePage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.industrialCompostable'
+
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
   const sections = [
     {
       id: 'scenario-trigger',
@@ -69,14 +74,14 @@ const IndustrialCompostablePage: React.FC = () => {
               <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.certifications.en13432.title`)}</h4>
               <p className="text-sm text-primary-700 mb-2">{t(`${p}.sections.certifications.en13432.subtitle`)}</p>
               <ul className="text-sm space-y-1">
-                {(t(`${p}.sections.certifications.en13432.features`, { returnObjects: true }) as string[]).map((f, i) => <li key={i}>• {f}</li>)}
+                {getTranslationArray<string>(`${p}.sections.certifications.en13432.features`).map((f, i) => <li key={i}>• {f}</li>)}
               </ul>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border-2 border-blue-200">
               <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.certifications.astm.title`)}</h4>
               <p className="text-sm text-blue-700 mb-2">{t(`${p}.sections.certifications.astm.subtitle`)}</p>
               <ul className="text-sm space-y-1">
-                {(t(`${p}.sections.certifications.astm.features`, { returnObjects: true }) as string[]).map((f, i) => <li key={i}>• {f}</li>)}
+                {getTranslationArray<string>(`${p}.sections.certifications.astm.features`).map((f, i) => <li key={i}>• {f}</li>)}
               </ul>
             </div>
           </div>

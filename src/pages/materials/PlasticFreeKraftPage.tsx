@@ -10,6 +10,11 @@ const PlasticFreeKraftPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+  
   const sections = [
     {
       id: 'the-myth',
@@ -42,7 +47,7 @@ const PlasticFreeKraftPage: React.FC = () => {
       icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="grid md:grid-cols-2 gap-6 mt-4">
-          {((t('seoPages.pages.plasticFreeKraft.achievePack.sections.funFacts.facts', { returnObjects: true }) || []) as Array<{ num: string; title: string; desc: string }>).slice(0, 4).map((fact, idx) => (
+          {getTranslationArray<{ num: string; title: string; desc: string }>('seoPages.pages.plasticFreeKraft.achievePack.sections.funFacts.facts').slice(0, 4).map((fact, idx) => (
             <div key={idx} className="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition">
               <div className="flex items-start gap-3">
                 <div className="bg-primary-100 p-2 rounded-lg text-primary-700 font-bold">{fact.num}</div>
@@ -53,7 +58,7 @@ const PlasticFreeKraftPage: React.FC = () => {
               </div>
             </div>
           ))}
-          {((t('seoPages.pages.plasticFreeKraft.achievePack.sections.funFacts.facts', { returnObjects: true }) || []) as Array<{ num: string; title: string; desc: string }>).slice(4, 5).map((fact, idx) => (
+          {getTranslationArray<{ num: string; title: string; desc: string }>('seoPages.pages.plasticFreeKraft.achievePack.sections.funFacts.facts').slice(4, 5).map((fact, idx) => (
             <div key={idx} className="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition col-span-2">
               <div className="flex items-start gap-3">
                 <div className="bg-primary-100 p-2 rounded-lg text-primary-700 font-bold">{fact.num}</div>
@@ -92,7 +97,7 @@ const PlasticFreeKraftPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100 text-center">
-                {((t('seoPages.pages.plasticFreeKraft.achievePack.sections.comparison.rows', { returnObjects: true }) || []) as Array<{ type: string; material: string; plasticFree: string; score: string }>).map((row, idx) => {
+                {getTranslationArray<{ type: string; material: string; plasticFree: string; score: string }>('seoPages.pages.plasticFreeKraft.achievePack.sections.comparison.rows').map((row, idx) => {
                   let pfColor = "text-red-600";
                   const pfLower = (row.plasticFree || "").toLowerCase();
                   if (pfLower.includes("yes") || pfLower.includes("oui") || pfLower.includes("sí") || pfLower.includes("si") || pfLower.includes("是")) {
@@ -124,7 +129,7 @@ const PlasticFreeKraftPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <p>{t('seoPages.pages.plasticFreeKraft.achievePack.sections.geo.p1')}</p>
           <div className="grid md:grid-cols-3 gap-4">
-            {((t('seoPages.pages.plasticFreeKraft.achievePack.sections.geo.regions', { returnObjects: true }) || []) as Array<{ title: string; desc: string }>).map((region, idx) => (
+            {getTranslationArray<{ title: string; desc: string }>('seoPages.pages.plasticFreeKraft.achievePack.sections.geo.regions').map((region, idx) => (
               <div key={idx} className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
                 <h4 className="font-bold text-neutral-900 mb-1">{region.title}</h4>
                 <p className="text-xs text-neutral-600">{region.desc}</p>
@@ -146,7 +151,7 @@ const PlasticFreeKraftPage: React.FC = () => {
           </h4>
           <p className="text-sm text-blue-700 mb-4">{t('seoPages.pages.plasticFreeKraft.achievePack.sections.aieo.desc')}</p>
           <ul className="grid md:grid-cols-2 gap-2 text-xs text-blue-800">
-            {((t('seoPages.pages.plasticFreeKraft.achievePack.sections.aieo.list', { returnObjects: true }) || []) as string[]).map((item, idx) => (
+            {getTranslationArray<string>('seoPages.pages.plasticFreeKraft.achievePack.sections.aieo.list').map((item, idx) => (
               <li key={idx} className="bg-white/50 p-2 rounded">{item}</li>
             ))}
           </ul>
@@ -185,7 +190,7 @@ const PlasticFreeKraftPage: React.FC = () => {
       title={t('seoPages.pages.plasticFreeKraft.achievePack.seo.title')}
       description={t('seoPages.pages.plasticFreeKraft.achievePack.seo.description')}
       introSummary={t('seoPages.pages.plasticFreeKraft.achievePack.seo.introSummary')}
-      keywords={t('seoPages.pages.plasticFreeKraft.achievePack.seo.keywords', { returnObjects: true }) as string[]}
+      keywords={getTranslationArray<string>('seoPages.pages.plasticFreeKraft.achievePack.seo.keywords')}
       sections={sections}
       heroTitle={t('seoPages.pages.plasticFreeKraft.achievePack.seo.heroTitle')}
       heroSubtitle={t('seoPages.pages.plasticFreeKraft.achievePack.seo.heroSubtitle')}

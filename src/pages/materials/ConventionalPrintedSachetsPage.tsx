@@ -8,6 +8,11 @@ const ConventionalPrintedSachetsPage: React.FC = () => {
   const { t } = useTranslation();
   const [activeImgTab, setActiveImgTab] = useState<number>(0);
 
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+
   const images = [
     {
       src: '/imgs/store/products/small-sachet-conventional-thumbnail-1.png',
@@ -373,14 +378,14 @@ const ConventionalPrintedSachetsPage: React.FC = () => {
     }
   ];
 
-  const faqs = (t('seoPages.pages.conventionalPrintedSachets.achievePack.faqs', { returnObjects: true }) || []) as { question: string; answer: string }[];
+  const faqs = getTranslationArray<{ question: string; answer: string }>('seoPages.pages.conventionalPrintedSachets.achievePack.faqs');
 
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
       <SEOPageLayout
         title={t('seoPages.pages.conventionalPrintedSachets.achievePack.seo.title')}
         description={t('seoPages.pages.conventionalPrintedSachets.achievePack.seo.description')}
-        keywords={t('seoPages.pages.conventionalPrintedSachets.achievePack.seo.keywords', { returnObjects: true }) as string[]}
+        keywords={getTranslationArray<string>('seoPages.pages.conventionalPrintedSachets.achievePack.seo.keywords')}
         canonicalUrl="https://achievepack.com/materials/conventional-printed-sachets"
         heroTitle={t('seoPages.pages.conventionalPrintedSachets.achievePack.seo.heroTitle')}
         heroSubtitle={t('seoPages.pages.conventionalPrintedSachets.achievePack.seo.heroSubtitle')}

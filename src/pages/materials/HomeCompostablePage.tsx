@@ -12,6 +12,11 @@ const HomeCompostablePage: React.FC = () => {
   
   const p = 'seoPages.pages.homeCompostable'
   
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true });
+    return Array.isArray(val) ? (val as T[]) : [];
+  };
+  
   const sections = [
     {
       id: 'scenario-trigger',
@@ -510,7 +515,7 @@ const HomeCompostablePage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+            {getTranslationArray<string>(`${p}.sections.applications.items`).map((item: string, idx: number) => (
               <div key={idx} className="flex items-center gap-2 bg-neutral-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-primary-500 flex-shrink-0" />
                 <span className="text-sm">{item}</span>
