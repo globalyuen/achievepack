@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { 
   Palette, Droplet, Eye, HelpCircle, ChevronDown, CheckCircle, 
-  ArrowRight, Award, Sparkles, ZoomIn, Info, AlertTriangle, Monitor, Sliders
+  ArrowRight, Award, Sparkles, ZoomIn, Info, AlertTriangle, Monitor, Sliders, Globe
 } from 'lucide-react'
 import LearnNavigation from '../../components/LearnNavigation'
 import Footer from '../../components/Footer'
@@ -17,9 +17,12 @@ export default function ColorMatchingPage() {
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
   const [scrollPercent, setScrollPercent] = useState(0)
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
 
   const isPouchDomain = isPouch()
   const brand = getBrandConfig()
+
+  const { i18n } = useTranslation()
 
   const p = 'seoPages.pages.colorMatching'
 
@@ -159,10 +162,34 @@ export default function ColorMatchingPage() {
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7">
-                <span className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-full text-sm font-semibold text-emerald-400 mb-6 uppercase tracking-wider">
-                  <Sparkles className="h-4 w-4" />
-                  Technical Guide
-                </span>
+                <div className="flex items-center gap-3 flex-wrap mb-6">
+                  <span className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-full text-sm font-semibold text-emerald-400 uppercase tracking-wider">
+                    <Sparkles className="h-4 w-4" />
+                    Technical Guide
+                  </span>
+                  
+                  {/* Language Selector */}
+                  <div className="relative">
+                    <button 
+                      onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                      className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/10 px-4 py-2 rounded-full text-sm font-semibold text-neutral-200 transition-all"
+                    >
+                      <Globe className="h-4 w-4 text-emerald-400" />
+                      <span>
+                        {i18n.language === 'zh-TW' ? '繁體中文' : i18n.language === 'fr' ? 'Français' : i18n.language === 'es' ? 'Español' : 'English'}
+                      </span>
+                      <ChevronDown className="h-3.5 w-3.5 opacity-60" />
+                    </button>
+                    {isLangMenuOpen && (
+                      <div className="absolute left-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-neutral-200 py-1 z-50 text-neutral-800">
+                        <button onClick={() => { i18n.changeLanguage('en'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">English</button>
+                        <button onClick={() => { i18n.changeLanguage('fr'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">Français</button>
+                        <button onClick={() => { i18n.changeLanguage('es'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">Español</button>
+                        <button onClick={() => { i18n.changeLanguage('zh-TW'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">繁體中文</button>
+                      </div>
+                    )}
+                  </div>
+                </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
                   {t(`${p}.heroTitle`)}
                 </h1>
@@ -358,7 +385,7 @@ export default function ColorMatchingPage() {
         <section className="py-16 max-w-4xl mx-auto px-4">
           <div className="bg-neutral-900 text-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center border border-neutral-800 shadow-xl">
             <div className="w-24 h-24 rounded-full overflow-hidden bg-neutral-800 border-2 border-emerald-500 shrink-0">
-              <img src="/imgs/team/ryan-wong.png" alt="Ryan Wong" className="w-full h-full object-cover" onError={(e) => {
+              <img src="/imgs/team/Ryan Wong - Packaging Specialist.png" alt="Ryan Wong" className="w-full h-full object-cover" onError={(e) => {
                 // Fallback avatar
                 e.currentTarget.src = "https://www.gravatar.com/avatar/placeholder?d=mp";
               }} />
@@ -368,9 +395,9 @@ export default function ColorMatchingPage() {
                 <h4 className="text-xl font-bold">Ryan Wong</h4>
                 <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30 uppercase font-semibold">Author</span>
               </div>
-              <p className="text-sm text-emerald-400 font-medium mb-3">Co-Founder & Packaging Engineer (14+ Years Experience)</p>
+              <p className="text-sm text-emerald-400 font-medium mb-3">Co-Founder & Packaging Development Specialist (14+ Years Experience)</p>
               <p className="text-neutral-400 text-sm leading-relaxed">
-                Ryan holds a degree in polymer processing and handles material lamination engineering at Achieve Pack. Having audited over 80+ GRS and FSC certified facilities, he helps global food and snack brands avoid costly printing shifts by establishing strict CMYK physical proofs.
+                Ryan holds an Honours Degree in Global Supply Chain Management and Business Administration from The Hong Kong Polytechnic University (PolyU). With 14+ years of industrial flexible packaging R&D and supply chain experience across 8 countries, he helps DTC coffee, chocolate, and tea brands transition to sustainable packaging and avoid costly color shifts through digital proofing.
               </p>
             </div>
           </div>

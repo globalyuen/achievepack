@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { CheckCircle, ArrowRight, Palette, Droplet, AlertTriangle, Monitor, Sparkles, Sliders } from 'lucide-react'
+import { CheckCircle, ArrowRight, Palette, Droplet, AlertTriangle, Monitor, Sparkles, Sliders, Globe, ChevronDown } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 import { useCalendly } from '../../../contexts/CalendlyContext'
 
 export default function PouchColorMatchingPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
 
   const p = 'seoPages.pages.colorMatching'
 
@@ -53,8 +54,30 @@ export default function PouchColorMatchingPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
-              <div className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm tracking-wider uppercase">KNOWLEDGE_BASE // COLOR_ACCURACY</span>
+              <div className="flex items-center gap-4 flex-wrap">
+                <div className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="font-['JetBrains_Mono'] font-bold text-sm tracking-wider uppercase">KNOWLEDGE_BASE // COLOR_ACCURACY</span>
+                </div>
+                
+                {/* Neo-brutalist Language Selector */}
+                <div className="relative">
+                  <button 
+                    onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                    className="inline-flex items-center gap-1.5 bg-white border-4 border-black px-4 py-2 font-['JetBrains_Mono'] font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
+                  >
+                    <Globe className="h-4 w-4" />
+                    <span>{i18n.language === 'zh-TW' ? '繁中' : i18n.language.toUpperCase()}</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                  {isLangMenuOpen && (
+                    <div className="absolute left-0 mt-2 w-36 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-1 z-50 text-black font-['JetBrains_Mono'] font-bold text-xs">
+                      <button onClick={() => { i18n.changeLanguage('en'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">ENGLISH</button>
+                      <button onClick={() => { i18n.changeLanguage('fr'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">FRANÇAIS</button>
+                      <button onClick={() => { i18n.changeLanguage('es'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">ESPAÑOL</button>
+                      <button onClick={() => { i18n.changeLanguage('zh-TW'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">繁體中文</button>
+                    </div>
+                  )}
+                </div>
               </div>
               
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase text-black drop-shadow-[4px_4px_0px_rgba(255,255,255,1)]">
