@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-18T21:51:57.712Z",
+  "lastUnifiedRun": "2026-06-19T00:45:49.419Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3584,11 +3584,10 @@
       "difficulty": "Low"
     },
     {
-      "status": "Pending Approval",
+      "status": "Pending",
       "volume": 820,
       "keyword": "high barrier compostable film for chocolate",
-      "difficulty": "Low",
-      "slug": "high-barrier-compostable-film-for-chocolate"
+      "difficulty": "Low"
     },
     {
       "status": "Pending",
@@ -3647,24 +3646,9 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-18T21:51:56.328Z",
+      "timestamp": "2026-06-19T00:45:44.621Z",
       "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"stand up pouch size for 5 lb coffee\": X.AI API error: Failed after 3 attempts."
-    },
-    {
-      "timestamp": "2026-06-18T20:30:49.445Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"stand up pouch size for 5 lb coffee\": X.AI API error: Failed after 3 attempts."
-    },
-    {
-      "timestamp": "2026-06-18T19:15:52.734Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"stand up pouch size for 5 lb coffee\": X.AI API error: Failed after 3 attempts."
-    },
-    {
-      "timestamp": "2026-06-18T19:06:55.756Z",
-      "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film for chocolate\" to /blog/high-barrier-compostable-film-for-chocolate (Pending Approval)"
+      "message": "Pipeline generation failed for keyword \"high barrier compostable film for chocolate\": X.AI API error: Failed after 3 attempts."
     },
     {
       "action": "Autopilot Generation Draft",
