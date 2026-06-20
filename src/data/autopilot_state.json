@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T04:01:10.461Z",
+  "lastUnifiedRun": "2026-06-20T04:16:10.149Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3619,17 +3619,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-stand-up-pouches-for-granola",
       "status": "Pending Approval",
       "volume": 880,
       "keyword": "kraft paper stand up pouches for granola",
-      "difficulty": "Low",
-      "slug": "kraft-paper-stand-up-pouches-for-granola"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 640,
       "keyword": "compostable retort pouches for ready meals",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "compostable-retort-pouches-for-ready-meals"
     },
     {
       "status": "Pending",
@@ -3766,9 +3767,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T04:00:58.102Z",
+      "timestamp": "2026-06-20T04:15:46.806Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper stand up pouches for granola\" to /blog/kraft-paper-stand-up-pouches-for-granola (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouches for ready meals\" to /blog/compostable-retort-pouches-for-ready-meals (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper stand up pouches for granola\" to /blog/kraft-paper-stand-up-pouches-for-granola (Pending Approval)",
+      "timestamp": "2026-06-20T04:00:58.102Z"
     },
     {
       "action": "Autopilot Generation Draft",
