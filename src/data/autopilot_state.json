@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T10:30:34.406Z",
+  "lastUnifiedRun": "2026-06-20T10:45:42.838Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3731,17 +3731,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "compostable-pouch-suppliers-for-dry-goods",
       "status": "Pending Approval",
       "volume": 1150,
       "keyword": "compostable pouch suppliers for dry goods",
-      "difficulty": "Low",
-      "slug": "compostable-pouch-suppliers-for-dry-goods"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 750,
       "keyword": "recyclable stand up pouch dimensions for snacks",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-stand-up-pouch-dimensions-for-snacks"
     },
     {
       "status": "Pending",
@@ -3890,9 +3891,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T10:30:26.581Z",
+      "timestamp": "2026-06-20T10:45:25.518Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch suppliers for dry goods\" to /blog/compostable-pouch-suppliers-for-dry-goods (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouch dimensions for snacks\" to /blog/recyclable-stand-up-pouch-dimensions-for-snacks (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch suppliers for dry goods\" to /blog/compostable-pouch-suppliers-for-dry-goods (Pending Approval)",
+      "timestamp": "2026-06-20T10:30:26.581Z"
     },
     {
       "action": "Autopilot Generation Draft",
