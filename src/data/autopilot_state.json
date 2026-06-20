@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T05:00:49.662Z",
+  "lastUnifiedRun": "2026-06-20T05:15:47.420Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3647,17 +3647,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "biodegradable-flat-bottom-pouches-for-pet-treats",
       "status": "Pending Approval",
       "volume": 710,
       "keyword": "biodegradable flat bottom pouches for pet treats",
-      "difficulty": "Medium",
-      "slug": "biodegradable-flat-bottom-pouches-for-pet-treats"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "eco friendly sachet packaging for tea",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-sachet-packaging-for-tea"
     },
     {
       "status": "Pending",
@@ -3770,9 +3771,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T05:00:37.980Z",
+      "timestamp": "2026-06-20T05:15:31.372Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"biodegradable flat bottom pouches for pet treats\" to /blog/biodegradable-flat-bottom-pouches-for-pet-treats (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly sachet packaging for tea\" to /blog/eco-friendly-sachet-packaging-for-tea (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable flat bottom pouches for pet treats\" to /blog/biodegradable-flat-bottom-pouches-for-pet-treats (Pending Approval)",
+      "timestamp": "2026-06-20T05:00:37.980Z"
     },
     {
       "action": "Autopilot Generation Draft",
