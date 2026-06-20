@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T04:30:55.183Z",
+  "lastUnifiedRun": "2026-06-20T04:45:40.439Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3633,17 +3633,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "small-batch-printed-barrier-bags-for-herbs",
       "status": "Pending Approval",
       "volume": 570,
       "keyword": "small batch printed barrier bags for herbs",
-      "difficulty": "Low",
-      "slug": "small-batch-printed-barrier-bags-for-herbs"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 950,
       "keyword": "recyclable sachet packaging for sauces",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-sachet-packaging-for-sauces"
     },
     {
       "status": "Pending",
@@ -3768,9 +3769,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T04:30:42.745Z",
+      "timestamp": "2026-06-20T04:45:29.915Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"small batch printed barrier bags for herbs\" to /blog/small-batch-printed-barrier-bags-for-herbs (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable sachet packaging for sauces\" to /blog/recyclable-sachet-packaging-for-sauces (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"small batch printed barrier bags for herbs\" to /blog/small-batch-printed-barrier-bags-for-herbs (Pending Approval)",
+      "timestamp": "2026-06-20T04:30:42.745Z"
     },
     {
       "action": "Autopilot Generation Draft",
