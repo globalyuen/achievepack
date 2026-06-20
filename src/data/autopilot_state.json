@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T10:00:40.856Z",
+  "lastUnifiedRun": "2026-06-20T10:15:56.720Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3717,17 +3717,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "biodegradable-sachet-sizes-for-liquids",
       "status": "Pending Approval",
       "volume": 800,
       "keyword": "biodegradable sachet sizes for liquids",
-      "difficulty": "Low",
-      "slug": "biodegradable-sachet-sizes-for-liquids"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1000,
       "keyword": "small batch digital printing on flexible packaging",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "small-batch-digital-printing-on-flexible-packaging"
     },
     {
       "status": "Pending",
@@ -3776,13 +3777,126 @@
       "volume": 850,
       "keyword": "digital print low moq pouches for beverages",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "compostable flat bottom pouches for protein powder",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed mono material stand up pouches",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly sachet packaging for supplements",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable barrier film for custom pouches",
+      "difficulty": "Medium",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch dimensions for 1 lb coffee",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort pouches for pet food",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper flat bottom pouches with window",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe high barrier film for sachets",
+      "difficulty": "Medium",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable pouch printing for small businesses",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable stand up pouches for freeze dried snacks",
+      "difficulty": "Low",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped recyclable pouches for beverages",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable film for chocolate bars",
+      "difficulty": "Medium",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print low moq stand up pouches for herbs",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable sachet dimensions for baby food",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly barrier pouches for jerky snacks",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable pouch with spout for sauces",
+      "difficulty": "Medium",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable flat bottom pouches for matcha",
+      "difficulty": "Low",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material recyclable film suppliers for flexible packaging",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T10:00:28.962Z",
+      "timestamp": "2026-06-20T10:15:34.538Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"biodegradable sachet sizes for liquids\" to /blog/biodegradable-sachet-sizes-for-liquids (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital printing on flexible packaging\" to /blog/small-batch-digital-printing-on-flexible-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable sachet sizes for liquids\" to /blog/biodegradable-sachet-sizes-for-liquids (Pending Approval)",
+      "timestamp": "2026-06-20T10:00:28.962Z"
     },
     {
       "action": "Autopilot Generation Draft",
