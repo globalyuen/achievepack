@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T01:01:07.273Z",
+  "lastUnifiedRun": "2026-06-20T03:46:10.317Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3612,10 +3612,11 @@
       "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 510,
       "keyword": "mono pe recyclable pouches for condiments",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-pe-recyclable-pouches-for-condiments"
     },
     {
       "status": "Pending",
@@ -3764,34 +3765,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T01:01:06.195Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"mono pe recyclable pouches for condiments\": X.AI API error: Failed after 3 attempts."
+      "timestamp": "2026-06-20T03:45:41.907Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe recyclable pouches for condiments\" to /blog/mono-pe-recyclable-pouches-for-condiments (Pending Approval)"
     },
     {
-      "timestamp": "2026-06-19T23:16:55.427Z",
       "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"mono pe recyclable pouches for condiments\": X.AI API error: Failed after 3 attempts."
-    },
-    {
-      "timestamp": "2026-06-19T16:45:42.618Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"mono pe recyclable pouches for condiments\": X.AI API error: Failed after 3 attempts."
-    },
-    {
-      "timestamp": "2026-06-19T16:30:42.476Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"mono pe recyclable pouches for condiments\": X.AI API error: Failed after 3 attempts."
-    },
-    {
-      "timestamp": "2026-06-19T16:15:42.548Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"mono pe recyclable pouches for condiments\": X.AI API error: Failed after 3 attempts."
-    },
-    {
-      "timestamp": "2026-06-19T16:00:45.538Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"mono pe recyclable pouches for condiments\": X.AI API error: Failed after 3 attempts."
+      "message": "Pipeline generation failed for keyword \"mono pe recyclable pouches for condiments\": X.AI API error: Failed after 3 attempts.",
+      "timestamp": "2026-06-19T16:00:45.538Z"
     },
     {
       "action": "Autopilot Error",
