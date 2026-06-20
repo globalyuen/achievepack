@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T07:16:04.460Z",
+  "lastUnifiedRun": "2026-06-20T07:30:53.659Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3689,17 +3689,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-shaped-stand-up-pouches-low-minimum",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "custom shaped stand up pouches low minimum",
-      "difficulty": "Low",
-      "slug": "custom-shaped-stand-up-pouches-low-minimum"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "sustainable packaging solutions for spices",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "sustainable-packaging-solutions-for-spices"
     },
     {
       "status": "Pending",
@@ -3776,9 +3777,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T07:15:26.511Z",
+      "timestamp": "2026-06-20T07:30:28.559Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shaped stand up pouches low minimum\" to /blog/custom-shaped-stand-up-pouches-low-minimum (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for spices\" to /blog/sustainable-packaging-solutions-for-spices (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped stand up pouches low minimum\" to /blog/custom-shaped-stand-up-pouches-low-minimum (Pending Approval)",
+      "timestamp": "2026-06-20T07:15:26.511Z"
     },
     {
       "action": "Autopilot Generation Draft",
