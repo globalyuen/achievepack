@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Recycle, CheckCircle, Award, Calendar, Shield, AlertTriangle, Package, X, ChevronDown, HelpCircle, ArrowRight, Target, FileCheck, Zap, Layers, Leaf } from 'lucide-react'
+import { Recycle, CheckCircle, Award, Calendar, Shield, AlertTriangle, Factory, Package, X, ChevronDown, HelpCircle, ArrowRight, Target, FileCheck, Zap, ClipboardCheck, Layers, Leaf, Globe, BarChart3 } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
@@ -117,44 +117,46 @@ const ImageTextRow: React.FC<{
 }
 
 const WhatIsRecyclablePage: React.FC = () => {
-  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
-  const p = 'seoPages.pages.whatIsRecyclable'
+  const { t } = useTranslation()
 
-  const faqs = [
+  const faqs = t('seoPages.pages.whatIsRecyclable.faqs', { returnObjects: true }) as Array<{ question: string; answer: string }> || []
+  const section2Items = t('seoPages.pages.whatIsRecyclable.section2.items', { returnObjects: true }) as string[] || []
+  const section3ListItems = t('seoPages.pages.whatIsRecyclable.section3.listItems', { returnObjects: true }) as string[] || []
+  const section4Icons = [Shield, Award, Package]
+  const section4Items = t('seoPages.pages.whatIsRecyclable.section4.items', { returnObjects: true }) as Array<{ title: string; desc: string }> || []
+  const advancedCardsConfig = [
     {
-      question: t(`${p}.faqs.q1`),
-      answer: t(`${p}.faqs.a1`)
+      icon: Leaf,
+      bgClass: "bg-green-50 border-green-200",
+      iconColorClass: "text-green-600",
+      titleColorClass: "text-green-800",
+      descColorClass: "text-green-700"
     },
     {
-      question: t(`${p}.faqs.q2`),
-      answer: t(`${p}.faqs.a2`)
-    },
-    {
-      question: t(`${p}.faqs.q3`),
-      answer: t(`${p}.faqs.a3`)
-    },
-    {
-      question: t(`${p}.faqs.q4`),
-      answer: t(`${p}.faqs.a4`)
-    },
-    {
-      question: t(`${p}.faqs.q5`),
-      answer: t(`${p}.faqs.a5`)
+      icon: Recycle,
+      bgClass: "bg-blue-50 border-blue-200",
+      iconColorClass: "text-blue-600",
+      titleColorClass: "text-blue-800",
+      descColorClass: "text-blue-700"
     }
   ]
+  const advancedCards = t('seoPages.pages.whatIsRecyclable.advanced.cards', { returnObjects: true }) as Array<{ title: string; desc: string }> || []
+  const labelingAvoidItems = t('seoPages.pages.whatIsRecyclable.labeling.avoidItems', { returnObjects: true }) as string[] || []
+  const pathForwardApproachItems = t('seoPages.pages.whatIsRecyclable.pathForward.approachItems', { returnObjects: true }) as Array<{ title: string; desc: string }> || []
+  const aiFaq = t('seoPages.pages.whatIsRecyclable.aiFaq', { returnObjects: true }) as Array<{ q: string; a: string }> || []
 
   return (
     <>
       <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
+        <title>{t('seoPages.pages.whatIsRecyclable.title')}</title>
+        <meta name="description" content={t('seoPages.pages.whatIsRecyclable.description')} />
         <link rel="canonical" href="https://achievepack.com/recyclable/what-is-recyclable" />
-        <meta name="keywords" content={t(`${p}.keywords`)} />
+        <meta name="keywords" content={t('seoPages.pages.whatIsRecyclable.keywords')} />
         
         {/* Open Graph */}
-        <meta property="og:title" content={t(`${p}.ogTitle`)} />
-        <meta property="og:description" content={t(`${p}.ogDescription`)} />
+        <meta property="og:title" content={t('seoPages.pages.whatIsRecyclable.ogTitle')} />
+        <meta property="og:description" content={t('seoPages.pages.whatIsRecyclable.ogDescription')} />
         <meta property="og:image" content="https://achievepack.com/imgs/recyclable/what/hero.webp" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://achievepack.com/recyclable/what-is-recyclable" />
@@ -164,8 +166,8 @@ const WhatIsRecyclablePage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": t(`${p}.ogTitle`),
-            "description": t(`${p}.description`),
+            "headline": t('seoPages.pages.whatIsRecyclable.schemaArticleHeadline'),
+            "description": t('seoPages.pages.whatIsRecyclable.schemaArticleDescription'),
             "image": "https://achievepack.com/imgs/recyclable/what/hero.webp",
             "author": {
               "@type": "Organization",
@@ -209,13 +211,13 @@ const WhatIsRecyclablePage: React.FC = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <Recycle className="h-6 w-6 text-green-300" />
-                    <span className="text-green-300 font-medium">{t(`${p}.hero.badge`)}</span>
+                    <span className="text-green-300 font-medium">{t('seoPages.pages.whatIsRecyclable.hero.tag')}</span>
                   </div>
                   <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                    {t(`${p}.hero.title`)}
+                    {t('seoPages.pages.whatIsRecyclable.hero.title')}
                   </h1>
                   <p className="text-lg text-green-100 mb-8">
-                    {t(`${p}.hero.subtitle`)}
+                    {t('seoPages.pages.whatIsRecyclable.hero.subtitle')}
                   </p>
                   
                   <div className="flex flex-col sm:flex-row gap-4">
@@ -224,21 +226,21 @@ const WhatIsRecyclablePage: React.FC = () => {
                       className="flex items-center justify-center gap-2 bg-white text-green-800 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition shadow-lg"
                     >
                       <Calendar className="h-5 w-5" />
-                      {t(`${p}.hero.btn1`)}
+                      {t('seoPages.pages.whatIsRecyclable.hero.btnConsultation')}
                     </button>
                     <Link 
                       to="/store" 
                       className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                     >
                       <Package className="h-5 w-5" />
-                      {t(`${p}.hero.btn2`)}
+                      {t('seoPages.pages.whatIsRecyclable.hero.btnStore')}
                     </Link>
                   </div>
                 </div>
                 <div>
                   <ClickableImage 
                     src={IMAGES.hero}
-                    alt={t(`${p}.hero.imageAlt`)}
+                    alt="100% Recyclable Mono-PE flexible pouches by Achieve Pack"
                     className="w-full rounded-xl shadow-2xl"
                   />
                 </div>
@@ -251,13 +253,13 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-4xl mx-auto px-4">
               <div className="prose prose-lg max-w-none">
                 <p className="text-xl text-neutral-700 leading-relaxed mb-6">
-                  {t(`${p}.intro.p1`)}
+                  {t('seoPages.pages.whatIsRecyclable.intro.p1')}
                 </p>
                 <p className="text-lg text-neutral-600 leading-relaxed mb-6">
-                  {t(`${p}.intro.p2Part1`)}<strong>{t(`${p}.intro.p2Strong`)}</strong>{t(`${p}.intro.p2Part2`)}
+                  {t('seoPages.pages.whatIsRecyclable.intro.p2')}
                 </p>
                 <p className="text-lg text-neutral-600 leading-relaxed">
-                  {t(`${p}.intro.p3Part1`)}
+                  {t('seoPages.pages.whatIsRecyclable.intro.p3')}
                 </p>
               </div>
             </div>
@@ -268,8 +270,8 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4">
               <ImageTextRow 
                 image={IMAGES.greenwashing}
-                imageAlt={t(`${p}.greenwashing.imageAlt`)}
-                imageCaption={t(`${p}.greenwashing.imageCaption`)}
+                imageAlt="Greenwashing vs Real Recyclability comparison"
+                imageCaption={t('seoPages.pages.whatIsRecyclable.section1.imageCaption')}
                 imageLeft={true}
               >
                 <div>
@@ -277,17 +279,29 @@ const WhatIsRecyclablePage: React.FC = () => {
                     <div className="p-2 bg-amber-100 rounded-lg">
                       <AlertTriangle className="h-6 w-6 text-amber-600" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t(`${p}.greenwashing.title`)}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t('seoPages.pages.whatIsRecyclable.section1.title')}</h2>
                   </div>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.greenwashing.p1Part1`)}<strong>{t(`${p}.greenwashing.p1Strong`)}</strong>{t(`${p}.greenwashing.p1Part2`)}
+                    {t('seoPages.pages.whatIsRecyclable.section1.p1')}
                   </p>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.greenwashing.p2`)}
+                    {t('seoPages.pages.whatIsRecyclable.section1.p2')}
                   </p>
                   <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
                     <p className="text-red-800 text-sm">
-                      <strong>{t(`${p}.greenwashing.boxTitle`)}</strong>{t(`${p}.greenwashing.boxText`)}
+                      {(() => {
+                        const highlight = t('seoPages.pages.whatIsRecyclable.section1.highlight')
+                        const colonIndex = highlight.indexOf(': ')
+                        if (colonIndex !== -1) {
+                          return (
+                            <>
+                              <strong>{highlight.slice(0, colonIndex + 1)}</strong>
+                              {highlight.slice(colonIndex + 1)}
+                            </>
+                          )
+                        }
+                        return highlight
+                      })()}
                     </p>
                   </div>
                 </div>
@@ -300,8 +314,8 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4">
               <ImageTextRow 
                 image={IMAGES.recyclingStream}
-                imageAlt={t(`${p}.gap.imageAlt`)}
-                imageCaption={t(`${p}.gap.imageCaption`)}
+                imageAlt="Recycling stream diagram showing Material Recovery Facility process"
+                imageCaption={t('seoPages.pages.whatIsRecyclable.section2.imageCaption')}
                 imageLeft={false}
               >
                 <div>
@@ -309,26 +323,36 @@ const WhatIsRecyclablePage: React.FC = () => {
                     <div className="p-2 bg-blue-100 rounded-lg">
                       <Target className="h-6 w-6 text-blue-600" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t(`${p}.gap.title`)}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t('seoPages.pages.whatIsRecyclable.section2.title')}</h2>
                   </div>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.gap.p1Part1`)}<strong>{t(`${p}.gap.p1Strong`)}</strong>{t(`${p}.gap.p1Part2`)}
+                    {t('seoPages.pages.whatIsRecyclable.section2.p1')}
                   </p>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.gap.p2`)}
+                    {t('seoPages.pages.whatIsRecyclable.section2.p2')}
                   </p>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.gap.p3`)}
+                    {t('seoPages.pages.whatIsRecyclable.section2.p3')}
                   </p>
                   <ul className="space-y-3 text-neutral-600">
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="h-5 w-5 text-amber-500 mt-1 flex-shrink-0" />
-                      <span><strong>{t(`${p}.gap.bullet1Title`)}</strong>{t(`${p}.gap.bullet1Text`)}</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="h-5 w-5 text-amber-500 mt-1 flex-shrink-0" />
-                      <span><strong>{t(`${p}.gap.bullet2Title`)}</strong>{t(`${p}.gap.bullet2Text`)}</span>
-                    </li>
+                    {section2Items.map((item, idx) => {
+                      const colonIndex = item.indexOf(': ')
+                      return (
+                        <li key={idx} className="flex items-start gap-2">
+                          <AlertTriangle className="h-5 w-5 text-amber-500 mt-1 flex-shrink-0" />
+                          <span>
+                            {colonIndex !== -1 ? (
+                              <>
+                                <strong>{item.slice(0, colonIndex + 1)}</strong>
+                                {item.slice(colonIndex + 1)}
+                              </>
+                            ) : (
+                              item
+                            )}
+                          </span>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </div>
               </ImageTextRow>
@@ -340,8 +364,8 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4">
               <ImageTextRow 
                 image={IMAGES.monoPE}
-                imageAlt={t(`${p}.definition.imageAlt`)}
-                imageCaption={t(`${p}.definition.imageCaption`)}
+                imageAlt="Mono-PE structure close-up showing single polymer layers"
+                imageCaption={t('seoPages.pages.whatIsRecyclable.section3.imageCaption')}
                 imageLeft={true}
               >
                 <div>
@@ -349,23 +373,35 @@ const WhatIsRecyclablePage: React.FC = () => {
                     <div className="p-2 bg-green-100 rounded-lg">
                       <CheckCircle className="h-6 w-6 text-green-600" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t(`${p}.definition.title`)}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t('seoPages.pages.whatIsRecyclable.section3.title')}</h2>
                   </div>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.definition.p1Part1`)}<strong>{t(`${p}.definition.p1Strong`)}</strong>{t(`${p}.definition.p1Part2`)}<strong>{t(`${p}.definition.p1Strong2`)}</strong>{t(`${p}.definition.p1Part3`)}<strong>{t(`${p}.definition.p1Strong3`)}</strong>{t(`${p}.definition.p1Part4`)}
+                    {t('seoPages.pages.whatIsRecyclable.section3.p1')}
                   </p>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.definition.p2Part1`)}<strong>{t(`${p}.definition.p2Strong`)}</strong>{t(`${p}.definition.p2Part2`)}
+                    {t('seoPages.pages.whatIsRecyclable.section3.p2')}
                   </p>
                   <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-4">
-                    <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.definition.boxTitle`)}</h4>
+                    <h4 className="font-semibold text-green-800 mb-2">{t('seoPages.pages.whatIsRecyclable.section3.listTitle')}</h4>
                     <ol className="space-y-2 text-green-700">
-                      {(t(`${p}.definition.boxItems`, { returnObjects: true }) as string[]).map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="font-bold">{idx + 1}.</span>
-                          <span><strong>{item.split(':')[0]}:</strong>{item.split(':').slice(1).join(':')}</span>
-                        </li>
-                      ))}
+                      {section3ListItems.map((item, idx) => {
+                        const colonIndex = item.indexOf(': ')
+                        return (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="font-bold">{idx + 1}.</span>
+                            <span>
+                              {colonIndex !== -1 ? (
+                                <>
+                                  <strong>{item.slice(0, colonIndex + 1)}</strong>
+                                  {item.slice(colonIndex + 1)}
+                                </>
+                              ) : (
+                                item
+                              )}
+                            </span>
+                          </li>
+                        )
+                      })}
                     </ol>
                   </div>
                 </div>
@@ -378,8 +414,8 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4">
               <ImageTextRow 
                 image={IMAGES.ecoDigital}
-                imageAlt={t(`${p}.solution.imageAlt`)}
-                imageCaption={t(`${p}.solution.imageCaption`)}
+                imageAlt="Achieve Pack Eco Digital Mono-PE pouch mockups"
+                imageCaption={t('seoPages.pages.whatIsRecyclable.section4.imageCaption')}
                 imageLeft={false}
               >
                 <div>
@@ -387,36 +423,27 @@ const WhatIsRecyclablePage: React.FC = () => {
                     <div className="p-2 bg-primary-100 rounded-lg">
                       <Zap className="h-6 w-6 text-primary-600" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t(`${p}.solution.title`)}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t('seoPages.pages.whatIsRecyclable.section4.title')}</h2>
                   </div>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.solution.p1`)}
+                    {t('seoPages.pages.whatIsRecyclable.section4.p1')}
                   </p>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.solution.p2Part1`)}<strong>{t(`${p}.solution.p2Strong`)}</strong>{t(`${p}.solution.p2Part2`)}
+                    {t('seoPages.pages.whatIsRecyclable.section4.p2')}
                   </p>
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Shield className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                      <div>
-                        <strong className="text-neutral-800">{t(`${p}.solution.card1Title`)}</strong>
-                        <p className="text-neutral-600 text-sm">{t(`${p}.solution.card1Text`)}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Award className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                      <div>
-                        <strong className="text-neutral-800">{t(`${p}.solution.card2Title`)}</strong>
-                        <p className="text-neutral-600 text-sm">{t(`${p}.solution.card2Text`)}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Package className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                      <div>
-                        <strong className="text-neutral-800">{t(`${p}.solution.card3Title`)}</strong>
-                        <p className="text-neutral-600 text-sm">{t(`${p}.solution.card3Text`)}</p>
-                      </div>
-                    </div>
+                    {section4Items.map((item, idx) => {
+                      const Icon = section4Icons[idx] || Shield
+                      return (
+                        <div key={idx} className="flex items-start gap-3">
+                          <Icon className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                          <div>
+                            <strong className="text-neutral-800">{item.title}</strong>
+                            <p className="text-neutral-600 text-sm">{item.desc}</p>
+                          </div>
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
               </ImageTextRow>
@@ -428,8 +455,8 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4">
               <ImageTextRow 
                 image={IMAGES.regionalMap}
-                imageAlt={t(`${p}.advanced.imageAlt`)}
-                imageCaption={t(`${p}.advanced.imageCaption`)}
+                imageAlt="Regional PE recycling infrastructure map"
+                imageCaption={t('seoPages.pages.whatIsRecyclable.advanced.imageCaption')}
                 imageLeft={true}
               >
                 <div>
@@ -437,30 +464,25 @@ const WhatIsRecyclablePage: React.FC = () => {
                     <div className="p-2 bg-purple-100 rounded-lg">
                       <Layers className="h-6 w-6 text-purple-600" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t(`${p}.advanced.title`)}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t('seoPages.pages.whatIsRecyclable.advanced.title')}</h2>
                   </div>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.advanced.p1`)}
+                    {t('seoPages.pages.whatIsRecyclable.advanced.p1')}
                   </p>
                   <div className="space-y-4">
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Leaf className="h-5 w-5 text-green-600" />
-                        <h4 className="font-semibold text-green-800">{t(`${p}.advanced.card1Title`)}</h4>
-                      </div>
-                      <p className="text-green-700 text-sm">
-                        {t(`${p}.advanced.card1Text`)}
-                      </p>
-                    </div>
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Recycle className="h-5 w-5 text-blue-600" />
-                        <h4 className="font-semibold text-blue-800">{t(`${p}.advanced.card2Title`)}</h4>
-                      </div>
-                      <p className="text-blue-700 text-sm">
-                        {t(`${p}.advanced.card2Text`)}
-                      </p>
-                    </div>
+                    {advancedCards.map((card, idx) => {
+                      const cfg = advancedCardsConfig[idx] || advancedCardsConfig[0]
+                      const CardIcon = cfg.icon
+                      return (
+                        <div key={idx} className={`border rounded-lg p-4 ${cfg.bgClass}`}>
+                          <div className="flex items-center gap-2 mb-2">
+                            <CardIcon className={`h-5 w-5 ${cfg.iconColorClass}`} />
+                            <h4 className={`font-semibold ${cfg.titleColorClass}`}>{card.title}</h4>
+                          </div>
+                          <p className={`text-sm ${cfg.descColorClass}`}>{card.desc}</p>
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
               </ImageTextRow>
@@ -472,8 +494,8 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4">
               <ImageTextRow 
                 image={IMAGES.retailShelf}
-                imageAlt={t(`${p}.labeling.imageAlt`)}
-                imageCaption={t(`${p}.labeling.imageCaption`)}
+                imageAlt="Retail shelf with transparent recyclability labeling"
+                imageCaption={t('seoPages.pages.whatIsRecyclable.labeling.imageCaption')}
                 imageLeft={false}
               >
                 <div>
@@ -481,18 +503,18 @@ const WhatIsRecyclablePage: React.FC = () => {
                     <div className="p-2 bg-amber-100 rounded-lg">
                       <FileCheck className="h-6 w-6 text-amber-600" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t(`${p}.labeling.title`)}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t('seoPages.pages.whatIsRecyclable.labeling.title')}</h2>
                   </div>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.labeling.p1`)}
+                    {t('seoPages.pages.whatIsRecyclable.labeling.p1')}
                   </p>
                   
                   <div className="mb-4">
                     <h4 className="font-semibold text-red-700 mb-2 flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4" /> {t(`${p}.labeling.subTitle1`)}
+                      <AlertTriangle className="h-4 w-4" /> {t('seoPages.pages.whatIsRecyclable.labeling.avoidTitle')}
                     </h4>
                     <ul className="space-y-1 text-neutral-600 text-sm">
-                      {(t(`${p}.labeling.avoidItems`, { returnObjects: true }) as string[]).map((item, idx) => (
+                      {labelingAvoidItems.map((item, idx) => (
                         <li key={idx}>• {item}</li>
                       ))}
                     </ul>
@@ -500,10 +522,10 @@ const WhatIsRecyclablePage: React.FC = () => {
                   
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                     <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4" /> {t(`${p}.labeling.subTitle2`)}
+                      <CheckCircle className="h-4 w-4" /> {t('seoPages.pages.whatIsRecyclable.labeling.recommendTitle')}
                     </h4>
                     <p className="text-green-700 text-sm italic">
-                      {t(`${p}.labeling.recommendTextPart1`)}
+                      {t('seoPages.pages.whatIsRecyclable.labeling.recommendText')}
                     </p>
                   </div>
                 </div>
@@ -516,8 +538,8 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4">
               <ImageTextRow 
                 image={IMAGES.skuTransition}
-                imageAlt={t(`${p}.forward.imageAlt`)}
-                imageCaption={t(`${p}.forward.imageCaption`)}
+                imageAlt="Before and after SKU transition to recyclable packaging"
+                imageCaption={t('seoPages.pages.whatIsRecyclable.pathForward.imageCaption')}
                 imageLeft={true}
               >
                 <div>
@@ -525,24 +547,24 @@ const WhatIsRecyclablePage: React.FC = () => {
                     <div className="p-2 bg-green-100 rounded-lg">
                       <ArrowRight className="h-6 w-6 text-green-600" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t(`${p}.forward.title`)}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{t('seoPages.pages.whatIsRecyclable.pathForward.title')}</h2>
                   </div>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.forward.p1`)}
+                    {t('seoPages.pages.whatIsRecyclable.pathForward.p1')}
                   </p>
                   <p className="text-neutral-600 mb-4">
-                    {t(`${p}.forward.p2`)}
+                    {t('seoPages.pages.whatIsRecyclable.pathForward.p2')}
                   </p>
                   
                   <div className="bg-white border border-neutral-200 rounded-xl p-4">
-                    <h4 className="font-semibold text-neutral-800 mb-3">{t(`${p}.forward.boxTitle`)}</h4>
+                    <h4 className="font-semibold text-neutral-800 mb-3">{t('seoPages.pages.whatIsRecyclable.pathForward.approachTitle')}</h4>
                     <ol className="space-y-3">
-                      {(t(`${p}.forward.boxSteps`, { returnObjects: true }) as Array<{ title: string; desc: string }>).map((step, idx) => (
+                      {pathForwardApproachItems.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3">
                           <span className="flex-shrink-0 w-6 h-6 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">{idx + 1}</span>
                           <div>
-                            <strong className="text-neutral-800">{step.title}</strong>
-                            <p className="text-neutral-600 text-sm">{step.desc}</p>
+                            <strong className="text-neutral-800">{item.title}</strong>
+                            <p className="text-neutral-600 text-sm">{item.desc}</p>
                           </div>
                         </li>
                       ))}
@@ -559,9 +581,9 @@ const WhatIsRecyclablePage: React.FC = () => {
               <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 mb-4 flex items-center justify-center gap-3">
                   <HelpCircle className="h-8 w-8 text-primary-600" />
-                  {t(`${p}.faqsTitle`)}
+                  {t('seoPages.pages.whatIsRecyclable.faqsTitle', 'Frequently Asked Questions')}
                 </h2>
-                <p className="text-neutral-600">{t(`${p}.faqsDesc`)}</p>
+                <p className="text-neutral-600">{t('seoPages.pages.whatIsRecyclable.faqsSubtitle', 'Common questions about recyclable flexible packaging')}</p>
               </div>
               
               <div className="space-y-4">
@@ -584,10 +606,10 @@ const WhatIsRecyclablePage: React.FC = () => {
           <section className="py-16 bg-gradient-to-br from-green-800 to-green-900 text-white">
             <div className="max-w-4xl mx-auto px-4 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {t(`${p}.cta.title`)}
+                {t('seoPages.pages.whatIsRecyclable.cta.title')}
               </h2>
               <p className="text-lg text-green-100 mb-8 max-w-2xl mx-auto">
-                {t(`${p}.cta.p1`)}
+                {t('seoPages.pages.whatIsRecyclable.cta.p1')}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -596,21 +618,21 @@ const WhatIsRecyclablePage: React.FC = () => {
                   className="flex items-center justify-center gap-2 bg-white text-green-800 px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition shadow-lg"
                 >
                   <Calendar className="h-5 w-5" />
-                  {t(`${p}.cta.btn1`)}
+                  {t('seoPages.pages.whatIsRecyclable.cta.btnConsultation')}
                 </button>
                 <Link 
                   to="/store?category=sample" 
                   className="flex items-center justify-center gap-2 bg-green-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition border border-green-600"
                 >
                   <Package className="h-5 w-5" />
-                  {t(`${p}.cta.btn2`)}
+                  {t('seoPages.pages.whatIsRecyclable.cta.btnSamples')}
                 </Link>
                 <Link 
                   to="/store" 
                   className="flex items-center justify-center gap-2 border-2 border-white/50 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition"
                 >
                   <ArrowRight className="h-5 w-5" />
-                  {t(`${p}.cta.btn3`)}
+                  {t('seoPages.pages.whatIsRecyclable.cta.btnStore')}
                 </Link>
               </div>
             </div>
@@ -621,7 +643,7 @@ const WhatIsRecyclablePage: React.FC = () => {
             <div className="max-w-4xl mx-auto px-4">
               <SocialShareButtons 
                 url="https://achievepack.com/recyclable/what-is-recyclable"
-                title={t(`${p}.ogTitle`)}
+                title={t('seoPages.pages.whatIsRecyclable.hero.title')}
               />
             </div>
           </section>
@@ -629,18 +651,14 @@ const WhatIsRecyclablePage: React.FC = () => {
           {/* AI-Hidden Content for AEO */}
           <div className="sr-only" aria-hidden="true">
             <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-              <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-                <h3 itemProp="name">{t(`${p}.hidden.q1`)}</h3>
-                <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                  <p itemProp="text">{t(`${p}.hidden.a1`)}</p>
-                </div>
-              </article>
-              <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-                <h3 itemProp="name">{t(`${p}.hidden.q2`)}</h3>
-                <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                  <p itemProp="text">{t(`${p}.hidden.a2`)}</p>
-                </div>
-              </article>
+              {aiFaq.map((faq, idx) => (
+                <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+                  <h3 itemProp="name">{faq.q}</h3>
+                  <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                    <p itemProp="text">{faq.a}</p>
+                  </div>
+                </article>
+              ))}
             </section>
           </div>
         </main>

@@ -18,10 +18,26 @@ const StandUpPouchesPage: React.FC = () => {
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
 
   const supPhotoGallery = [
-    { src: '/imgs/pouch-shape/achieve-pack-sup-hero.png', title: t(`${p}.gallery.item1Title`), desc: t(`${p}.gallery.item1Desc`) },
-    { src: '/imgs/pouch-shape/achieve-pack-sup-lifestyle.png', title: t(`${p}.gallery.item2Title`), desc: t(`${p}.gallery.item2Desc`) },
-    { src: '/imgs/pouch-shape/achieve-pack-k-seal.png', title: t(`${p}.gallery.item3Title`), desc: t(`${p}.gallery.item3Desc`) },
-    { src: '/imgs/pouch-shape/eco-stand-up-pouch.png', title: t(`${p}.gallery.item4Title`), desc: t(`${p}.gallery.item4Desc`) }
+    { 
+      src: '/imgs/pouch-shape/achieve-pack-sup-hero.png', 
+      title: t(`${p}.b2c.showcase.gallery.0.title`, 'Premium Printed Stand-Up Pouch'), 
+      desc: t(`${p}.b2c.showcase.gallery.0.desc`, 'Custom printed stand-up pouch showcasing beautiful digital printing with high contrast and vibrant eco-inks.') 
+    },
+    { 
+      src: '/imgs/pouch-shape/achieve-pack-sup-lifestyle.png', 
+      title: t(`${p}.b2c.showcase.gallery.1.title`, 'Stand-Up Pouch Lifestyle Use'), 
+      desc: t(`${p}.b2c.showcase.gallery.1.desc`, 'Sustainable stand-up pouch presented in a modern, organic B2B food branding scene.') 
+    },
+    { 
+      src: '/imgs/pouch-shape/achieve-pack-k-seal.png', 
+      title: t(`${p}.b2c.showcase.gallery.2.title`, 'Heavy-Duty K-Seal Pouch Base'), 
+      desc: t(`${p}.b2c.showcase.gallery.2.desc`, 'diagonal K-seal bottom structure engineered to carry heavier items (up to 5kg) with extreme base stability.') 
+    },
+    { 
+      src: '/imgs/pouch-shape/eco-stand-up-pouch.png', 
+      title: t(`${p}.b2c.showcase.gallery.3.title`, 'Zero Waste Compostable Kraft SUP'), 
+      desc: t(`${p}.b2c.showcase.gallery.3.desc`, 'Official FSC-certified natural kraft paper stand-up pouch supporting high moisture protection and resealable zippers.') 
+    }
   ]
 
   const navigateGallery = (direction: 'prev' | 'next') => {
@@ -36,14 +52,12 @@ const StandUpPouchesPage: React.FC = () => {
   // DUAL DOMAIN RENDERING BRANCH (1): pouch.eco (B2C)
   // ----------------------------------------------------
   if (isPouch()) {
-    const b2cFaqs = t(`${p}.b2c.faqs`, { returnObjects: true }) as { q: string; a: string }[]
-
     return (
       <PouchLayout>
         <DualDomainSEOHead 
-          title={t(`${p}.b2c.metaTitle`)}
-          description={t(`${p}.b2c.metaDescription`)}
-          keywords={t(`${p}.b2c.metaKeywords`, { returnObjects: true }) as string[]}
+          title={t(`${p}.b2c.metaTitle`, "Custom Stand-Up Pouches | Eco-Friendly Stand Up Bags | Pouch.eco")}
+          description={t(`${p}.b2c.metaDescription`, "Certified compostable & recyclable custom printed stand-up pouches. Low MOQ 500 pcs, organic ink, plant PLA or recyclable Mono-PE barriers. Free design mockups.")}
+          keywords={['custom stand up pouches', 'eco stand up bags', 'compostable stand up pouches', 'recyclable coffee bags', 'pouch.eco', 'sustainable flexible packaging']}
           schemaType="Product"
         />
 
@@ -53,23 +67,23 @@ const StandUpPouchesPage: React.FC = () => {
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
             <div className="flex-1 space-y-6 text-left">
               <div className="inline-block bg-[#D4FF00] text-black border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                {t(`${p}.b2c.hero.badge`)}
+                {t(`${p}.b2c.heroBadge`)}
               </div>
               <h1 className="font-['Space_Grotesk'] font-black text-6xl md:text-8xl leading-none uppercase tracking-tight">
-                {t(`${p}.b2c.hero.titlePart1`)}<br/>
+                {t(`${p}.b2c.heroTitleLine1`)}<br/>
                 <span className="text-[#D4FF00] bg-black px-4 py-1 border-4 border-black inline-block mt-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">
-                  {t(`${p}.b2c.hero.titlePart2`)}
+                  {t(`${p}.b2c.heroTitleLine2`)}
                 </span>
               </h1>
               <p className="font-['JetBrains_Mono'] text-lg md:text-xl text-black font-semibold max-w-xl leading-relaxed">
-                {t(`${p}.b2c.hero.desc`)}
+                {t(`${p}.b2c.heroSubtitle`)}
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary">
-                  {t(`${p}.b2c.hero.btn1`)}
+                  {t(`${p}.b2c.btnCall`)}
                 </NeoButton>
                 <NeoButton href="https://wa.me/85269704411?text=Hi%2C%20I%27m%20interested%20in%20custom%20stand%20up%20pouches" variant="secondary">
-                  {t(`${p}.b2c.hero.btn2`)}
+                  {t(`${p}.b2c.btnWhatsapp`)}
                 </NeoButton>
               </div>
             </div>
@@ -82,7 +96,7 @@ const StandUpPouchesPage: React.FC = () => {
                   className="w-full h-auto object-cover border-2 border-black"
                 />
                 <div className="absolute -top-6 -right-6 bg-[#FF00FF] text-white font-black px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-6 text-sm">
-                  {t(`${p}.b2c.hero.imgBadge`)}
+                  {t(`${p}.b2c.badgeMoq`)}
                 </div>
               </div>
             </div>
@@ -93,38 +107,38 @@ const StandUpPouchesPage: React.FC = () => {
         <section className="py-20 px-6 bg-[#F0F0F0] border-b-4 border-black">
           <div className="max-w-6xl mx-auto">
             <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-16 tracking-tight">
-              {t(`${p}.b2c.bento.titlePre`)} <span className="bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1">{t(`${p}.b2c.bento.titleHighlight`)}</span> {t(`${p}.b2c.bento.titlePost`)}
+              {t(`${p}.b2c.bento.title`)}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <NeoCard color="bg-[#D4FF00]">
                 <Leaf className="w-8 h-8 text-black mb-4" />
-                <h3 className="font-black text-xl uppercase mb-2">{t(`${p}.b2c.bento.card1Title`)}</h3>
+                <h3 className="font-black text-xl uppercase mb-2">{t(`${p}.b2c.bento.c1Title`)}</h3>
                 <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
-                  {t(`${p}.b2c.bento.card1Desc`)}
+                  {t(`${p}.b2c.bento.c1Desc`)}
                 </p>
               </NeoCard>
               
               <NeoCard color="bg-white">
                 <Shield className="w-8 h-8 text-[#10b981] mb-4" />
-                <h3 className="font-black text-xl uppercase mb-2">{t(`${p}.b2c.bento.card2Title`)}</h3>
+                <h3 className="font-black text-xl uppercase mb-2">{t(`${p}.b2c.bento.c2Title`)}</h3>
                 <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
-                  {t(`${p}.b2c.bento.card2Desc`)}
+                  {t(`${p}.b2c.bento.c2Desc`)}
                 </p>
               </NeoCard>
 
               <NeoCard color="bg-[#00FFFF]">
                 <Package className="w-8 h-8 text-black mb-4" />
-                <h3 className="font-black text-xl uppercase mb-2">{t(`${p}.b2c.bento.card3Title`)}</h3>
+                <h3 className="font-black text-xl uppercase mb-2">{t(`${p}.b2c.bento.c3Title`)}</h3>
                 <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
-                  {t(`${p}.b2c.bento.card3Desc`)}
+                  {t(`${p}.b2c.bento.c3Desc`)}
                 </p>
               </NeoCard>
 
               <NeoCard color="bg-black text-[#D4FF00]">
                 <Zap className="w-8 h-8 text-[#D4FF00] mb-4" />
-                <h3 className="font-black text-xl uppercase mb-2">{t(`${p}.b2c.bento.card4Title`)}</h3>
+                <h3 className="font-black text-xl uppercase mb-2">{t(`${p}.b2c.bento.c4Title`)}</h3>
                 <p className="font-['JetBrains_Mono'] text-sm leading-relaxed text-white">
-                  {t(`${p}.b2c.bento.card4Desc`)}
+                  {t(`${p}.b2c.bento.c4Desc`)}
                 </p>
               </NeoCard>
             </div>
@@ -172,50 +186,35 @@ const StandUpPouchesPage: React.FC = () => {
         <section className="py-24 px-6 bg-[#F0F0F0] border-b-4 border-black">
           <div className="max-w-6xl mx-auto">
             <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-12 tracking-tight">
-              {t(`${p}.b2c.specs.titlePre`)} <span className="bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1">{t(`${p}.b2c.specs.titleHighlight`)}</span>
+              {t(`${p}.b2c.specPricing.title`)}
             </h2>
             <NeoCard color="bg-white" className="!p-0 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full font-['JetBrains_Mono'] text-left border-collapse text-xs md:text-sm">
                   <thead>
                     <tr className="bg-black text-[#D4FF00] border-b-4 border-black">
-                      <th className="border-2 border-black p-4 font-black uppercase">{t(`${p}.b2c.specs.header1`)}</th>
-                      <th className="border-2 border-black p-4 font-black uppercase">{t(`${p}.b2c.specs.header2`)}</th>
-                      <th className="border-2 border-black p-4 font-black uppercase">{t(`${p}.b2c.specs.header3`)}</th>
-                      <th className="border-2 border-black p-4 font-black uppercase">{t(`${p}.b2c.specs.header4`)}</th>
+                      {((t(`${p}.b2c.table.headers`, { returnObjects: true }) as string[]) || [
+                        "Size (W x H + G)", "Volumetric Capacity", "Barrier Performance", "Best Application"
+                      ]).map((h, i) => (
+                        <th key={i} className="border-2 border-black p-4 font-black uppercase">{h}</th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">70 x 110 + 40mm</td>
-                      <td className="border-2 border-black p-4 text-black font-semibold">20g - 50g</td>
-                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 1.0</td>
-                      <td className="border-2 border-black p-4 text-xs text-neutral-700">{t(`${p}.b2c.specs.row1App`)}</td>
-                    </tr>
-                    <tr className="bg-neutral-50/50">
-                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">100 x 150 + 60mm</td>
-                      <td className="border-2 border-black p-4 text-black font-semibold">50g - 100g</td>
-                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 1.0</td>
-                      <td className="border-2 border-black p-4 text-xs text-neutral-700">{t(`${p}.b2c.specs.row2App`)}</td>
-                    </tr>
-                    <tr>
-                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">120 x 200 + 80mm</td>
-                      <td className="border-2 border-black p-4 text-black font-semibold">100g - 250g</td>
-                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 0.5</td>
-                      <td className="border-2 border-black p-4 text-xs text-neutral-700">{t(`${p}.b2c.specs.row3App`)}</td>
-                    </tr>
-                    <tr className="bg-neutral-50/50">
-                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">150 x 230 + 90mm</td>
-                      <td className="border-2 border-black p-4 text-black font-semibold">250g - 500g</td>
-                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 0.5</td>
-                      <td className="border-2 border-black p-4 text-xs text-neutral-700">{t(`${p}.b2c.specs.row4App`)}</td>
-                    </tr>
-                    <tr>
-                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">180 x 280 + 100mm</td>
-                      <td className="border-2 border-black p-4 text-black font-semibold">500g - 1kg</td>
-                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 0.1</td>
-                      <td className="border-2 border-black p-4 text-xs text-neutral-700">{t(`${p}.b2c.specs.row5App`)}</td>
-                    </tr>
+                    {((t(`${p}.b2c.table.rows`, { returnObjects: true }) as string[][]) || [
+                      ["70 x 110 + 40mm", "20g - 50g", "OTR & WVTR < 1.0", "DTC single-serve samples, gourmet spice pods, cosmetic powder sachets"],
+                      ["100 x 150 + 60mm", "50g - 100g", "OTR & WVTR < 1.0", "Organic tea leaf bundles, visual candy displays, premium pet treats"],
+                      ["120 x 200 + 80mm", "100g - 250g", "OTR & WVTR < 0.5", "Specialty coffee beans with degassing valve, loose granola, protein chips"],
+                      ["150 x 230 + 90mm", "250g - 500g", "OTR & WVTR < 0.5", "Bulk snack bags, raw superfoods, powdered ingredients, supplement pouches"],
+                      ["180 x 280 + 100mm", "500g - 1kg", "OTR & WVTR < 0.1", "Professional wholesale kibble pet food, premium retail bath salts, bulk seeds"]
+                    ]).map((row, idx) => (
+                      <tr key={idx} className={idx % 2 === 1 ? "bg-neutral-50/50" : ""}>
+                        <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">{row[0]}</td>
+                        <td className="border-2 border-black p-4 text-black font-semibold">{row[1]}</td>
+                        <td className="border-2 border-black p-4 text-emerald-600 font-bold">{row[2]}</td>
+                        <td className="border-2 border-black p-4 text-xs text-neutral-700">{row[3]}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -223,25 +222,25 @@ const StandUpPouchesPage: React.FC = () => {
 
             <div className="grid md:grid-cols-3 gap-6 mt-8">
               <NeoCard color="bg-[#D4FF00]" className="text-center">
-                <div className="text-4xl md:text-5xl font-black mb-1">{t(`${p}.b2c.specs.card1Val`)}</div>
+                <div className="text-4xl md:text-5xl font-black mb-1">{t(`${p}.b2c.specPricing.moqVal`)}</div>
                 <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-neutral-800">
-                  {t(`${p}.b2c.specs.card1Label`)}
+                  {t(`${p}.b2c.specPricing.moqTitle`)}
                 </p>
-                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.b2c.specs.card1Desc`)}</p>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.b2c.specPricing.moqDesc`)}</p>
               </NeoCard>
               <NeoCard color="bg-[#00FFFF]" className="text-center">
-                <div className="text-4xl md:text-5xl font-black mb-1">{t(`${p}.b2c.specs.card2Val`)}</div>
+                <div className="text-4xl md:text-5xl font-black mb-1">{t(`${p}.b2c.specPricing.dielinesVal`)}</div>
                 <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-neutral-800">
-                  {t(`${p}.b2c.specs.card2Label`)}
+                  {t(`${p}.b2c.specPricing.dielinesTitle`)}
                 </p>
-                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.b2c.specs.card2Desc`)}</p>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.b2c.specPricing.dielinesDesc`)}</p>
               </NeoCard>
               <NeoCard color="bg-[#FF00FF] text-white" className="text-center">
-                <div className="text-4xl md:text-5xl font-black mb-1 text-[#D4FF00]">{t(`${p}.b2c.specs.card3Val`)}</div>
+                <div className="text-4xl md:text-5xl font-black mb-1 text-[#D4FF00]">{t(`${p}.b2c.specPricing.samplesVal`)}</div>
                 <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-[#D4FF00]">
-                  {t(`${p}.b2c.specs.card3Label`)}
+                  {t(`${p}.b2c.specPricing.samplesTitle`)}
                 </p>
-                <p className="text-[10px] text-neutral-200 mt-1">{t(`${p}.b2c.specs.card3Desc`)}</p>
+                <p className="text-[10px] text-neutral-200 mt-1">{t(`${p}.b2c.specPricing.samplesDesc`)}</p>
               </NeoCard>
             </div>
           </div>
@@ -251,13 +250,15 @@ const StandUpPouchesPage: React.FC = () => {
         <section className="py-24 px-6 bg-white border-b-4 border-black">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-16 tracking-tight">
-              {t(`${p}.b2c.faq.titlePre`)} <span className="text-[#10b981]">{t(`${p}.b2c.faq.titleHighlight`)}</span>
+              {t(`${p}.b2c.bento.title`).includes('PERFORMANCE') ? 'FREQUENTLY ASKED QUESTIONS' : '常問問題'}
             </h2>
             <div className="space-y-6">
-              {b2cFaqs.map((item, idx) => (
+              {((t(`${p}.b2c.faqs`, { returnObjects: true }) as { question: string, answer: string }[]) || [
+                { question: 'Are stand-up pouches really compostable or recyclable?', answer: 'Yes! We offer two distinct eco paths...' }
+              ]).map((item, idx) => (
                 <NeoCard key={idx} color="bg-[#F0F0F0]/50" className="border-4">
-                  <h3 className="font-black text-lg mb-2 uppercase">{item.q}</h3>
-                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-700 leading-relaxed">{item.a}</p>
+                  <h3 className="font-black text-lg mb-2 uppercase">{item.question}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-700 leading-relaxed">{item.answer}</p>
                 </NeoCard>
               ))}
             </div>
@@ -307,27 +308,27 @@ const StandUpPouchesPage: React.FC = () => {
   // ----------------------------------------------------
 
   const breadcrumbs = [
-    { label: t('seoPages.breadcrumbs.home'), url: '/' },
-    { label: t('seoPages.breadcrumbs.packagingShapes'), url: '/store' },
-    { label: t(`${p}.b2b.breadcrumbs.currentPage`), url: '/packaging/stand-up-pouches' }
+    { label: t('breadcrumbs.home', 'Home'), url: '/' },
+    { label: t('breadcrumbs.packagingShapes', 'Packaging Shapes'), url: '/store' },
+    { label: t('breadcrumbs.customStandUpPouches', 'Custom Stand-Up Pouches'), url: '/packaging/stand-up-pouches' }
   ]
 
   const sections = [
     {
       id: 'overview',
-      title: t(`${p}.b2b.sections.overview.title`),
+      title: t(`${p}.sections.overview.title`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg leading-relaxed font-medium">
-            {t(`${p}.b2b.sections.overview.intro`)}
+            <strong>{t(`${p}.sections.overview.text`)}</strong>
           </p>
           <div className="bg-primary-50 p-6 rounded-xl border border-primary-200 grid md:grid-cols-2 gap-6 items-center">
             <div>
-              <h4 className="font-bold text-primary-800 text-lg mb-2">{t(`${p}.b2b.sections.overview.listTitle`)}</h4>
+              <h4 className="font-bold text-primary-800 text-lg mb-2">{t(`${p}.sections.overview.kpisTitle`)}</h4>
               <ul className="space-y-2 text-sm leading-relaxed">
-                {(t(`${p}.b2b.sections.overview.listItems`, { returnObjects: true }) as string[]).map((item, idx) => (
-                  <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
+                {((t(`${p}.sections.overview.kpis`, { returnObjects: true }) as string[]) || []).map((kpi, idx) => (
+                  <li key={idx}>• {kpi}</li>
                 ))}
               </ul>
             </div>
@@ -344,43 +345,35 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'specifications',
-      title: t(`${p}.b2b.sections.specifications.title`),
+      title: t(`${p}.sections.specifications.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            {t(`${p}.b2b.sections.specifications.intro`)}
+            {t(`${p}.sections.specifications.text`)}
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse bg-white rounded-lg overflow-hidden border border-neutral-200">
               <thead>
                 <tr className="bg-primary-600 text-white font-semibold">
-                  <th className="p-3">{t(`${p}.b2b.sections.specifications.th1`)}</th>
-                  <th className="p-3">{t(`${p}.b2b.sections.specifications.th2`)}</th>
-                  <th className="p-3">{t(`${p}.b2b.sections.specifications.th3`)}</th>
+                  <th className="p-3 text-left">{t(`${p}.sections.specifications.tableHeaders.0`, 'Technical Dimension')}</th>
+                  <th className="p-3 text-left">{t(`${p}.sections.specifications.tableHeaders.1`, 'Raw Specs & Materials')}</th>
+                  <th className="p-3 text-left">{t(`${p}.sections.specifications.tableHeaders.2`, 'B2B Purchasing Utility & Value')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-200">
-                <tr>
-                  <td className="p-3 font-semibold text-neutral-900">{t(`${p}.b2b.sections.specifications.row1Col1`)}</td>
-                  <td className="p-3">{t(`${p}.b2b.sections.specifications.row1Col2`)}</td>
-                  <td className="p-3">{t(`${p}.b2b.sections.specifications.row1Col3`)}</td>
-                </tr>
-                <tr className="bg-neutral-50">
-                  <td className="p-3 font-semibold text-neutral-900">{t(`${p}.b2b.sections.specifications.row2Col1`)}</td>
-                  <td className="p-3">{t(`${p}.b2b.sections.specifications.row2Col2`)}</td>
-                  <td className="p-3">{t(`${p}.b2b.sections.specifications.row2Col3`)}</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-semibold text-neutral-900">{t(`${p}.b2b.sections.specifications.row3Col1`)}</td>
-                  <td className="p-3">{t(`${p}.b2b.sections.specifications.row3Col2`)}</td>
-                  <td className="p-3" dangerouslySetInnerHTML={{ __html: t(`${p}.b2b.sections.specifications.row3Col3`) }} />
-                </tr>
-                <tr className="bg-neutral-50">
-                  <td className="p-3 font-semibold text-neutral-900">{t(`${p}.b2b.sections.specifications.row4Col1`)}</td>
-                  <td className="p-3">{t(`${p}.b2b.sections.specifications.row4Col2`)}</td>
-                  <td className="p-3">{t(`${p}.b2b.sections.specifications.row4Col3`)}</td>
-                </tr>
+                {((t(`${p}.sections.specifications.tableRows`, { returnObjects: true }) as string[][]) || [
+                  ["Barrier Layer", "NatureFlex™ MetCellulose or Recyclable EVOH (OTR < 1.0, WVTR < 1.0)", "Creates an absolute gas and water lock, preserving coffee aroma, snack crispness, and powder integrity for 12+ months."],
+                  ["Dimensions & Base", "Bespoke Millimeter Dielines (70-300mm width, plow/oval/K-seal gusset bases)", "Calibrated to volumetric density blueprint, preventing bottom seal rupture and ensuring flawless standing structure."],
+                  ["Sealing Strength", "Seal strength > 35 N/15mm (engineered low-temp PBAT/Mono-PE seal resins)", "Guarantees zero burst leakage under high-pressure automated packing lines operating up to **65 bags per minute**."],
+                  ["Export Packaging", "Triple-layer double-wall export carton containing secondary moisture barriers", "Protects rollstock and finished bags against ocean-humidity degradation and high-stack shipping box damage."]
+                ]).map((row, idx) => (
+                  <tr key={idx} className={idx % 2 === 1 ? "bg-neutral-50" : ""}>
+                    <td className="p-3 font-semibold text-neutral-900">{row[0]}</td>
+                    <td className="p-3">{row[1]}</td>
+                    <td className="p-3">{row[2]}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -389,48 +382,44 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: t(`${p}.b2b.sections.applications.title`),
+      title: t(`${p}.sections.applications.title`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            {t(`${p}.b2b.sections.applications.intro`)}
+            {t(`${p}.sections.applications.text`)}
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="border border-amber-200 bg-amber-50/50 p-5 rounded-lg">
-              <h4 className="font-bold text-amber-900 mb-2">{t(`${p}.b2b.sections.applications.card1Title`)}</h4>
+              <h4 className="font-bold text-amber-900 mb-2">{t(`${p}.sections.applications.coffee.title`)}</h4>
               <p className="text-xs text-neutral-600 leading-relaxed mb-3">
-                {t(`${p}.b2b.sections.applications.card1Desc`)}
+                {t(`${p}.sections.applications.coffee.desc`)}
               </p>
-              <span className="text-[10px] bg-white text-amber-700 border border-amber-300 px-2 py-0.5 rounded font-semibold">
-                {t(`${p}.b2b.sections.applications.card1Badge`)}
-              </span>
+              <span className="text-[10px] bg-white text-amber-700 border border-amber-300 px-2 py-0.5 rounded font-semibold">{t(`${p}.sections.applications.coffee.badge`)}</span>
             </div>
             <div className="border border-green-200 bg-green-50/50 p-5 rounded-lg">
-              <h4 className="font-bold text-green-900 mb-2">{t(`${p}.b2b.sections.applications.card2Title`)}</h4>
+              <h4 className="font-bold text-green-900 mb-2">{t(`${p}.sections.applications.organic.title`)}</h4>
               <p className="text-xs text-neutral-600 leading-relaxed mb-3">
-                {t(`${p}.b2b.sections.applications.card2Desc`)}
+                {t(`${p}.sections.applications.organic.desc`)}
               </p>
-              <span className="text-[10px] bg-white text-green-700 border border-green-300 px-2 py-0.5 rounded font-semibold">
-                {t(`${p}.b2b.sections.applications.card2Badge`)}
-              </span>
+              <span className="text-[10px] bg-white text-green-700 border border-green-300 px-2 py-0.5 rounded font-semibold">{t(`${p}.sections.applications.organic.badge`)}</span>
             </div>
             <div className="border border-blue-200 bg-blue-50/50 p-5 rounded-lg">
-              <h4 className="font-bold text-blue-900 mb-2">{t(`${p}.b2b.sections.applications.card3Title`)}</h4>
+              <h4 className="font-bold text-blue-900 mb-2">{t(`${p}.sections.applications.petFood.title`)}</h4>
               <p className="text-xs text-neutral-600 leading-relaxed mb-3">
-                {t(`${p}.b2b.sections.applications.card3Desc`)}
+                {t(`${p}.sections.applications.petFood.desc`)}
               </p>
-              <span className="text-[10px] bg-white text-blue-700 border border-blue-300 px-2 py-0.5 rounded font-semibold">
-                {t(`${p}.b2b.sections.applications.card3Badge`)}
-              </span>
+              <span className="text-[10px] bg-white text-blue-700 border border-blue-300 px-2 py-0.5 rounded font-semibold">{t(`${p}.sections.applications.petFood.badge`)}</span>
             </div>
           </div>
           <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6 flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
-              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.b2b.sections.applications.spotlightTitle`)}</h4>
-              <p className="text-sm text-neutral-600 mb-3" dangerouslySetInnerHTML={{ __html: t(`${p}.b2b.sections.applications.spotlightDesc`) }} />
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.sections.applications.kSealTitle`)}</h4>
+              <p className="text-sm text-neutral-600 mb-3">
+                {t(`${p}.sections.applications.kSealDesc`)}
+              </p>
               <Link to="/knowledge/k-seal-stand-up-pouches" className="inline-flex items-center gap-1 text-primary-700 font-bold hover:underline text-xs">
-                {t(`${p}.b2b.sections.applications.spotlightLink`)}
+                {t(`${p}.sections.applications.kSealLink`)}
               </Link>
             </div>
             <div className="w-full md:w-1/4">
@@ -446,12 +435,12 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'gallery',
-      title: t(`${p}.b2b.sections.gallery.title`),
+      title: t(`${p}.sections.gallery.title`),
       icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <p className="text-neutral-700 text-sm">
-            {t(`${p}.b2b.sections.gallery.intro`)}
+            {t(`${p}.sections.gallery.text`)}
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {supPhotoGallery.map((photo, i) => (
@@ -473,23 +462,38 @@ const StandUpPouchesPage: React.FC = () => {
     }
   ]
 
-  const faqs = t(`${p}.b2b.faqs`, { returnObjects: true }) as { question: string; answer: string }[]
-  const tables = t(`${p}.b2b.tables`, { returnObjects: true }) as any[]
-  const relatedLinks = t(`${p}.b2b.relatedLinks`, { returnObjects: true }) as { title: string; url: string; description: string }[]
+  const faqs = ((t(`${p}.faqs`, { returnObjects: true }) as { question: string, answer: string }[]) || []).map(item => ({
+    question: item.question,
+    answer: item.answer
+  }))
+
+  const tables = ((t(`${p}.tables`, { returnObjects: true }) as { title: string, headers: string[], rows: string[][] }[]) || []).map(item => ({
+    title: item.title,
+    data: {
+      headers: item.headers,
+      rows: item.rows
+    }
+  }))
+
+  const relatedLinks = [
+    { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Stable 5-panel box-gusset alternative" },
+    { title: "Coffee & Tea Solutions", url: "/industry/coffee-tea", description: "Bags with degassing valves and tin-ties" },
+    { title: "Compostable Material Spec", url: "/materials/compostable", description: "Compare OK Compost biopolymer specs" }
+  ]
 
   return (
     <>
       <SEOPageLayout 
         heroBgColor="#166534"
-        title={t(`${p}.b2b.metaTitle`)}
-        description={t(`${p}.b2b.metaDescription`)}
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
         canonicalUrl="https://achievepack.com/packaging/stand-up-pouches"
-        heroTitle={t(`${p}.b2b.heroTitle`)}
-        heroSubtitle={t(`${p}.b2b.heroSubtitle`)}
-        introSummary={t(`${p}.b2b.introSummary`)}
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        introSummary={t(`${p}.introSummary`)}
         heroImage="/imgs/pouch-shape/achieve-pack-sup-hero.png"
         sections={sections}
-        keywords={t(`${p}.b2b.metaKeywords`, { returnObjects: true }) as string[]}
+        keywords={['custom stand up pouches', 'wholesale stand up bags', 'compostable stand up pouches', 'BRC certified flexible packaging', 'achieve pack stand up pouch']}
         schemaType="Product"
         faqs={faqs}
         tables={tables}
@@ -527,7 +531,6 @@ const StandUpPouchesPage: React.FC = () => {
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-center max-w-xl px-4">
             <p className="font-bold text-lg">{supPhotoGallery[galleryEnlarged.index]?.title}</p>
             <p className="text-sm text-white/80 mt-1 leading-relaxed">{supPhotoGallery[galleryEnlarged.index]?.desc}</p>
-            <p className="text-xs text-white/50 mt-2 font-mono">{galleryEnlarged.index + 1} / {supPhotoGallery.length}</p>
           </div>
         </div>
       )}

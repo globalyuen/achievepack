@@ -14,16 +14,14 @@ const VacuumPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            <strong>{t(`${p}.sections.overview.descStrong`)}</strong> {t(`${p}.sections.overview.descText`)}
+            {t(`${p}.sections.overview.text`)}
           </p>
           <div className="bg-primary-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.overview.benefitsTitle`)}</h4>
             <ul className="space-y-1 text-sm">
-              <li>✓ {t(`${p}.sections.overview.benefit1`)}</li>
-              <li>✓ {t(`${p}.sections.overview.benefit2`)}</li>
-              <li>✓ {t(`${p}.sections.overview.benefit3`)}</li>
-              <li>✓ {t(`${p}.sections.overview.benefit4`)}</li>
-              <li>✓ {t(`${p}.sections.overview.benefit5`)}</li>
+              {(t(`${p}.sections.overview.benefits`, { returnObjects: true }) as string[]).map((benefit, idx) => (
+                <li key={idx}>✓ {benefit}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -37,57 +35,51 @@ const VacuumPouchesPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             <div className="bg-red-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-red-800 mb-2">{t(`${p}.sections.applications.card1Title`)}</h4>
+              <h4 className="font-semibold text-red-800 mb-2">{t(`${p}.sections.applications.meat.title`)}</h4>
               <ul className="text-sm space-y-1 text-red-700">
-                <li>• {t(`${p}.sections.applications.card1Item1`)}</li>
-                <li>• {t(`${p}.sections.applications.card1Item2`)}</li>
-                <li>• {t(`${p}.sections.applications.card1Item3`)}</li>
-                <li>• {t(`${p}.sections.applications.card1Item4`)}</li>
+                {(t(`${p}.sections.applications.meat.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.applications.card2Title`)}</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.applications.seafood.title`)}</h4>
               <ul className="text-sm space-y-1 text-blue-700">
-                <li>• {t(`${p}.sections.applications.card2Item1`)}</li>
-                <li>• {t(`${p}.sections.applications.card2Item2`)}</li>
-                <li>• {t(`${p}.sections.applications.card2Item3`)}</li>
-                <li>• {t(`${p}.sections.applications.card2Item4`)}</li>
+                {(t(`${p}.sections.applications.seafood.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-yellow-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-yellow-800 mb-2">{t(`${p}.sections.applications.card3Title`)}</h4>
+              <h4 className="font-semibold text-yellow-800 mb-2">{t(`${p}.sections.applications.cheese.title`)}</h4>
               <ul className="text-sm space-y-1 text-yellow-700">
-                <li>• {t(`${p}.sections.applications.card3Item1`)}</li>
-                <li>• {t(`${p}.sections.applications.card3Item2`)}</li>
-                <li>• {t(`${p}.sections.applications.card3Item3`)}</li>
-                <li>• {t(`${p}.sections.applications.card3Item4`)}</li>
+                {(t(`${p}.sections.applications.cheese.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.applications.card4Title`)}</h4>
+              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.applications.meals.title`)}</h4>
               <ul className="text-sm space-y-1 text-green-700">
-                <li>• {t(`${p}.sections.applications.card4Item1`)}</li>
-                <li>• {t(`${p}.sections.applications.card4Item2`)}</li>
-                <li>• {t(`${p}.sections.applications.card4Item3`)}</li>
-                <li>• {t(`${p}.sections.applications.card4Item4`)}</li>
+                {(t(`${p}.sections.applications.meals.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.applications.card5Title`)}</h4>
+              <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.applications.coffee.title`)}</h4>
               <ul className="text-sm space-y-1 text-purple-700">
-                <li>• {t(`${p}.sections.applications.card5Item1`)}</li>
-                <li>• {t(`${p}.sections.applications.card5Item2`)}</li>
-                <li>• {t(`${p}.sections.applications.card5Item3`)}</li>
-                <li>• {t(`${p}.sections.applications.card5Item4`)}</li>
+                {(t(`${p}.sections.applications.coffee.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.applications.card6Title`)}</h4>
+              <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.applications.nonfood.title`)}</h4>
               <ul className="text-sm space-y-1 text-amber-700">
-                <li>• {t(`${p}.sections.applications.card6Item1`)}</li>
-                <li>• {t(`${p}.sections.applications.card6Item2`)}</li>
-                <li>• {t(`${p}.sections.applications.card6Item3`)}</li>
-                <li>• {t(`${p}.sections.applications.card6Item4`)}</li>
+                {(t(`${p}.sections.applications.nonfood.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -102,20 +94,20 @@ const VacuumPouchesPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-2 gap-4">
             <div className="border border-blue-200 rounded-lg p-4">
-              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.types.card1Title`)}</h4>
-              <p className="text-sm">{t(`${p}.sections.types.card1Desc`)}</p>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.types.chamber.title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.types.chamber.desc`)}</p>
             </div>
             <div className="border border-purple-200 rounded-lg p-4">
-              <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.types.card2Title`)}</h4>
-              <p className="text-sm">{t(`${p}.sections.types.card2Desc`)}</p>
+              <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.types.external.title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.types.external.desc`)}</p>
             </div>
             <div className="border border-green-200 rounded-lg p-4">
-              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.types.card3Title`)}</h4>
-              <p className="text-sm">{t(`${p}.sections.types.card3Desc`)}</p>
+              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.types.retort.title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.types.retort.desc`)}</p>
             </div>
             <div className="border border-red-200 rounded-lg p-4">
-              <h4 className="font-semibold text-red-800 mb-2">{t(`${p}.sections.types.card4Title`)}</h4>
-              <p className="text-sm">{t(`${p}.sections.types.card4Desc`)}</p>
+              <h4 className="font-semibold text-red-800 mb-2">{t(`${p}.sections.types.sousvide.title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.types.sousvide.desc`)}</p>
             </div>
           </div>
         </div>
@@ -129,12 +121,9 @@ const VacuumPouchesPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-neutral-50 p-4 rounded-lg">
             <ul className="space-y-2 text-sm">
-              <li>✓ <strong>{t(`${p}.sections.specifications.item1Title`)}</strong> {t(`${p}.sections.specifications.item1Desc`)}</li>
-              <li>✓ <strong>{t(`${p}.sections.specifications.item2Title`)}</strong> {t(`${p}.sections.specifications.item2Desc`)}</li>
-              <li>✓ <strong>{t(`${p}.sections.specifications.item3Title`)}</strong> {t(`${p}.sections.specifications.item3Desc`)}</li>
-              <li>✓ <strong>{t(`${p}.sections.specifications.item4Title`)}</strong> {t(`${p}.sections.specifications.item4Desc`)}</li>
-              <li>✓ <strong>{t(`${p}.sections.specifications.item5Title`)}</strong> {t(`${p}.sections.specifications.item5Desc`)}</li>
-              <li>✓ <strong>{t(`${p}.sections.specifications.item6Title`)}</strong> {t(`${p}.sections.specifications.item6Desc`)}</li>
+              {(t(`${p}.sections.specifications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                <li key={idx}>✓ {item}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -142,7 +131,7 @@ const VacuumPouchesPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: t(`${p}.sections.industryScenarios.title`),
+      title: t('seoPages.common.industryApplicationsTitle', { defaultValue: 'Industry Applications' }),
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -150,31 +139,31 @@ const VacuumPouchesPage: React.FC = () => {
             <div className="bg-gradient-to-br from-red-50 to-rose-50 p-5 rounded-xl border border-red-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-red-600" />
-                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.card1Title`)}</h4>
+                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.meat.title`)}</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.card1Desc`)}</p>
-              <div className="text-xs text-red-700 bg-red-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.card1Share`)}</div>
+              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.meat.desc`)}</p>
+              <div className="text-xs text-red-700 bg-red-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.meat.badge`)}</div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.card2Title`)}</h4>
+                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.seafood.title`)}</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.card2Desc`)}</p>
-              <div className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.card2Share`)}</div>
+              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.seafood.desc`)}</p>
+              <div className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.seafood.badge`)}</div>
             </div>
             <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.card3Title`)}</h4>
+                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.dairy.title`)}</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.card3Desc`)}</p>
-              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.card3Share`)}</div>
+              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.dairy.desc`)}</p>
+              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.dairy.badge`)}</div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg border border-neutral-200">
             <h4 className="font-semibold text-neutral-900 mb-3">{t(`${p}.sections.industryScenarios.storyTitle`)}</h4>
-            <p className="text-sm text-neutral-600">{t(`${p}.sections.industryScenarios.storyQuote`)}</p>
+            <p className="text-sm text-neutral-600">{t(`${p}.sections.industryScenarios.storyText`)}</p>
             <p className="text-xs text-neutral-500 mt-2">{t(`${p}.sections.industryScenarios.storyAuthor`)}</p>
           </div>
         </div>
@@ -187,39 +176,13 @@ const VacuumPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">{t(`${p}.sections.marketData.card1Value`)}</div>
-              <div className="text-sm opacity-90">{t(`${p}.sections.marketData.card1Desc`)}</div>
-              <div className="text-xs opacity-75 mt-1">{t(`${p}.sections.marketData.card1Sub`)}</div>
-            </div>
-            <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">{t(`${p}.sections.marketData.card2Value`)}</div>
-              <div className="text-sm opacity-90">{t(`${p}.sections.marketData.card2Desc`)}</div>
-              <div className="text-xs opacity-75 mt-1">{t(`${p}.sections.marketData.card2Sub`)}</div>
-            </div>
-            <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">{t(`${p}.sections.marketData.card3Value`)}</div>
-              <div className="text-sm opacity-90">{t(`${p}.sections.marketData.card3Desc`)}</div>
-              <div className="text-xs opacity-75 mt-1">{t(`${p}.sections.marketData.card3Sub`)}</div>
-            </div>
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">{t(`${p}.sections.marketData.card4Value`)}</div>
-              <div className="text-sm opacity-90">{t(`${p}.sections.marketData.card4Desc`)}</div>
-              <div className="text-xs opacity-75 mt-1">{t(`${p}.sections.marketData.card4Sub`)}</div>
-            </div>
-          </div>
-          <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-3">{t(`${p}.sections.marketData.trendTitle`)}</h4>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div className="flex items-start gap-2">
-                <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span dangerouslySetInnerHTML={{ __html: t(`${p}.sections.marketData.trend1`) }} />
+            {(t(`${p}.sections.marketData.metrics`, { returnObjects: true }) as any[]).map((metric, idx) => (
+              <div key={idx} className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+                <div className="text-3xl font-bold">{metric.val}</div>
+                <div className="text-sm opacity-90">{metric.label}</div>
+                <div className="text-xs opacity-75 mt-1">{metric.desc}</div>
               </div>
-              <div className="flex items-start gap-2">
-                <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span dangerouslySetInnerHTML={{ __html: t(`${p}.sections.marketData.trend2`) }} />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       )
@@ -234,75 +197,88 @@ const VacuumPouchesPage: React.FC = () => {
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="border border-neutral-200 px-4 py-2 text-left">{t(`${p}.sections.materialComparison.th1`)}</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.th2`)}</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.th3`)}</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.th4`)}</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-left">{t(`${p}.sections.materialComparison.th5`)}</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">Material Type</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Barrier</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Heat Resistant</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Eco-Friendly</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">Recommended Use</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">{t(`${p}.sections.materialComparison.row1Col1`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">PA/PE Nylon</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.row1Col4`)}</td>
-                  <td className="border border-neutral-200 px-4 py-2">{t(`${p}.sections.materialComparison.row1Col5`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">Hard to recycle</td>
+                  <td className="border border-neutral-200 px-4 py-2">Fresh meat, Seafood</td>
                 </tr>
                 <tr className="bg-neutral-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">{t(`${p}.sections.materialComparison.row2Col1`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">PA/PE Cookable</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.row2Col4`)}</td>
-                  <td className="border border-neutral-200 px-4 py-2">{t(`${p}.sections.materialComparison.row2Col5`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">Hard to recycle</td>
+                  <td className="border border-neutral-200 px-4 py-2">Sous Vide Cooking</td>
                 </tr>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">{t(`${p}.sections.materialComparison.row3Col1`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">Sterilization Retort Bags</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.row3Col4`)}</td>
-                  <td className="border border-neutral-200 px-4 py-2">{t(`${p}.sections.materialComparison.row3Col5`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">Hard to recycle</td>
+                  <td className="border border-neutral-200 px-4 py-2">Ready-to-Eat Food</td>
                 </tr>
                 <tr className="bg-green-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">{t(`${p}.sections.materialComparison.row4Col1`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">Mono PE Recyclable</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.row4Col4`)}</td>
-                  <td className="border border-neutral-200 px-4 py-2">{t(`${p}.sections.materialComparison.row4Col5`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">♥️ Recyclable</td>
+                  <td className="border border-neutral-200 px-4 py-2">Eco-friendly product</td>
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div className="bg-primary-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.materialComparison.guideTitle`)}</h4>
-            <p className="text-sm text-primary-700">{t(`${p}.sections.materialComparison.guideDesc`)}</p>
           </div>
         </div>
       )
     }
   ]
 
-  const faqs = t(`${p}.faqs`, { returnObjects: true }) as { question: string; answer: string }[]
+  const faqs = (t(`${p}.faqs`, { returnObjects: true }) as any[]) || []
+  const tables = ((t(`${p}.tables`, { returnObjects: true }) as any[]) || []).map((t) => ({
+    title: t.title,
+    data: {
+      headers: t.headers,
+      rows: t.rows
+    }
+  }))
 
   const relatedLinks = [
-    { title: t(`${p}.relatedLinks.0.title`), url: "/industry/frozen-food", description: t(`${p}.relatedLinks.0.description`) },
-    { title: t(`${p}.relatedLinks.1.title`), url: "/industry/pet-food", description: t(`${p}.relatedLinks.1.description`) },
-    { title: t(`${p}.relatedLinks.2.title`), url: "/materials/recyclable-mono-pe", description: t(`${p}.relatedLinks.2.description`) }
+    { title: "Frozen Food Packaging", url: "/industry/frozen-food", description: "Solutions for frozen products" },
+    { title: "Pet Food Packaging", url: "/industry/pet-food", description: "Fresh pet food solutions" },
+    { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Sustainable vacuum options" }
   ]
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title={t(`${p}.seo.title`)}
-      description={t(`${p}.seo.description`)}
-      keywords={t(`${p}.seo.keywords`, { returnObjects: true }) as string[]}
+      title="Vacuum Pouches | Vacuum Seal Bags | Sous Vide Bags"
+      description="High-barrier vacuum pouches for meat, seafood, cheese, and coffee. Chamber and external types. Sous vide compatible, retort available. MOQ 500 units."
+      keywords={[
+        'vacuum pouch',
+        'vacuum seal bag',
+        'sous vide bag',
+        'vacuum packaging',
+        'food saver bags',
+        'chamber vacuum pouch',
+        'meat vacuum bag',
+        'coffee vacuum pack'
+      ]}
       canonicalUrl="https://achievepack.com/packaging/vacuum-pouches"
-      heroTitle={t(`${p}.seo.heroTitle`)}
-      heroSubtitle={t(`${p}.seo.heroSubtitle`)}
+      heroTitle={t('seoPages.pages.vacuumPouches.heroTitle')}
+      heroSubtitle={t('seoPages.pages.vacuumPouches.heroSubtitle')}
       heroImage="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp"
-      heroImageAlt={t(`${p}.seo.heroImageAlt`)}
-      introSummary={t(`${p}.seo.introSummary`)}
+      heroImageAlt="Vacuum seal packaging pouches"
+      introSummary={t('seoPages.pages.vacuumPouches.introSummary')}
       sections={sections}
       faqs={faqs}
+      tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
       ctaTitle={t(`${p}.cta.title`)}

@@ -1,8 +1,7 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Recycle, Zap, CheckCircle, ArrowRight, Shield, Award, Droplets } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 
@@ -32,22 +31,24 @@ export default function PouchRecyclablePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="inline-block bg-[#00FFFF] text-black border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t(`${p}.heroBadge`)}</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t(`${p}.heroClass`)}</span>
               </div>
               
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                {t(`${p}.heroTitle1`)}<br/>
-                {t(`${p}.heroTitle2`)}<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFFF] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t(`${p}.heroTitleHighlight`)}</span>
+                {t(`${p}.heroTitleClose`)}<br/>
+                {t(`${p}.heroTitleThe`)}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFFF] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t(`${p}.heroTitleLoop`)}</span>
               </h1>
 
-              <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black whitespace-pre-line">
-                {t(`${p}.heroDescription`)}
+              <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
+                &gt; {t(`${p}.heroBullet1`)}<br/>
+                &gt; {t(`${p}.heroBullet2`)}<br/>
+                &gt; {t(`${p}.heroBullet3`)}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t(`${p}.heroCta1`)}</NeoButton>
-                <NeoButton variant="secondary">{t(`${p}.heroCta2`)}</NeoButton>
+                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t(`${p}.heroBtnExplore`)}</NeoButton>
+                <NeoButton variant="secondary">{t(`${p}.heroBtnDownload`)}</NeoButton>
               </div>
             </div>
 
@@ -56,11 +57,11 @@ export default function PouchRecyclablePage() {
                 <div className="aspect-square relative overflow-hidden">
                   <img 
                     src="/imgs/pouch/materials/pouch_recycle_hero.png" 
-                    alt={t(`${p}.heroImageAlt`)} 
+                    alt={t(`${p}.heroImgAlt`)} 
                     className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
                   />
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                    {t(`${p}.burnVerifiedBadge`)}
+                    {t(`${p}.heroBadge`)}
                   </motion.div>
                 </div>
               </NeoCard>
@@ -104,11 +105,11 @@ export default function PouchRecyclablePage() {
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
           <h2 className="font-black text-5xl md:text-7xl uppercase">{t(`${p}.ctaTitle`)}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl">
-            {t(`${p}.ctaSubtitle`)}
+            {t(`${p}.ctaDesc`)}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t(`${p}.ctaBtn1`)}</NeoButton>
-            <NeoButton variant="dark">{t(`${p}.ctaBtn2`)}</NeoButton>
+            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t(`${p}.ctaBtnConsult`)}</NeoButton>
+            <NeoButton variant="dark">{t(`${p}.ctaBtnPrice`)}</NeoButton>
           </div>
         </div>
       </section>

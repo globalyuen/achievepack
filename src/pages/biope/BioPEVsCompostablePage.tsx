@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import { Leaf, CheckCircle, Award, Calendar, Shield, Recycle, Factory, Package, X, ChevronRight, ChevronDown, Sprout, Globe, Target, HelpCircle, ArrowRight, TrendingDown, BarChart3, FileCheck, Zap, ClipboardCheck, Layers, Scale, Lightbulb, Building2, TreePine, Users } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
 import SocialShareButtons from '../../components/SocialShareButtons'
+import { useTranslation } from 'react-i18next'
 
 // Image paths - using imgs/biope/vs folder
 const IMAGES = {
@@ -118,18 +118,30 @@ const ImageTextRow: React.FC<{
 }
 
 const BioPEVsCompostablePage: React.FC = () => {
-  const { openCalendly } = useCalendly()
   const { t } = useTranslation()
-  const p = 'seoPages.pages.biopeVsCompostable'
+  const { openCalendly } = useCalendly()
+  const p = 'seoPages.pages.bioPEVsCompostable'
 
-  const takeaways = (t(`${p}.takeaways`, { returnObjects: true }) || []) as string[]
-  const sec3WhyItems = (t(`${p}.sec3WhyItems`, { returnObjects: true }) || []) as string[]
-  const sec4WhyItems = (t(`${p}.sec4WhyItems`, { returnObjects: true }) || []) as string[]
-  const sec7WhyItems = (t(`${p}.sec7WhyItems`, { returnObjects: true }) || []) as string[]
-  const sec8WhyItems = (t(`${p}.sec8WhyItems`, { returnObjects: true }) || []) as string[]
-  
-  const rawFaqs = t(`${p}.faqs`, { returnObjects: true })
-  const faqs = (Array.isArray(rawFaqs) ? rawFaqs : []) as { question: string; answer: string }[]
+  // Helper to render bold prefixes (split by colon or Chinese full-width colon)
+  const renderBullet = (text: string) => {
+    const match = text.match(/^([^:：]+)[:：](.*)$/)
+    if (match) {
+      return (
+        <span>
+          <strong>{match[1]}:</strong>{match[2]}
+        </span>
+      )
+    }
+    return <span>{text}</span>
+  }
+
+  const faqs = [
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) },
+    { question: t(`${p}.faq.q5`), answer: t(`${p}.faq.a5`) }
+  ]
 
   return (
     <>
@@ -137,11 +149,11 @@ const BioPEVsCompostablePage: React.FC = () => {
         <title>{t(`${p}.title`)}</title>
         <meta name="description" content={t(`${p}.description`)} />
         <link rel="canonical" href="https://achievepack.com/biope/bio-pe-vs-compostable" />
-        <meta name="keywords" content={t(`${p}.keywords`)} />
+        <meta name="keywords" content="bio-PE vs compostable, compostable packaging, bio-based polyethylene, recyclable packaging, composting infrastructure, sustainable packaging comparison, EPR regulations, carbon footprint" />
         
         {/* Open Graph */}
-        <meta property="og:title" content={t(`${p}.ogTitle`)} />
-        <meta property="og:description" content={t(`${p}.ogDescription`)} />
+        <meta property="og:title" content={t(`${p}.title`)} />
+        <meta property="og:description" content={t(`${p}.description`)} />
         <meta property="og:image" content="https://achievepack.com/imgs/biope/vs/a_biope_epr_hero_image_8632332.webp" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://achievepack.com/biope/bio-pe-vs-compostable" />
@@ -151,8 +163,8 @@ const BioPEVsCompostablePage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": t(`${p}.ogTitle`),
-            "description": t(`${p}.ogDescription`),
+            "headline": t(`${p}.title`),
+            "description": t(`${p}.description`),
             "image": "https://achievepack.com/imgs/biope/vs/a_biope_epr_hero_image_8632332.webp",
             "author": {
               "@type": "Organization",
@@ -194,9 +206,9 @@ const BioPEVsCompostablePage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {t(`${p}.badge`)}
+                    B2B Sustainability Guide
                   </span>
-                  <span className="text-emerald-300 text-sm">{t(`${p}.readTime`)}</span>
+                  <span className="text-emerald-300 text-sm">12 min read</span>
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                   {t(`${p}.heroTitle`)}
@@ -205,28 +217,28 @@ const BioPEVsCompostablePage: React.FC = () => {
                   {t(`${p}.heroSubtitle`)}
                 </p>
                 <p className="text-emerald-200 mb-8">
-                  {t(`${p}.heroDescription`)}
+                  {t(`${p}.heroIntro`)}
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button onClick={openCalendly} className="flex items-center gap-2 bg-white text-emerald-800 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-lg">
+                  <button onClick={openCalendly} className="flex items-center gap-2 bg-white text-emerald-800 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-lg cursor-pointer">
                     <Calendar className="h-5 w-5" />
-                    {t(`${p}.btnConsultation`)}
+                    Book Free Consultation
                   </button>
                   <Link to="/store?category=sample" className="flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-500 transition">
                     <Package className="h-5 w-5" />
-                    {t(`${p}.btnOrderSamples`)}
+                    Order Sample Pack
                   </Link>
                   <Link to="/store" className="flex items-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
-                    {t(`${p}.btnBrowseStore`)}
+                    Browse Store
                   </Link>
                 </div>
               </div>
               <div className="hidden md:block">
                 <ClickableImage
                   src={IMAGES.hero}
-                  alt={t(`${p}.heroTitle`)}
+                  alt="Bio-PE vs Compostable Films comparison guide"
                   className="rounded-2xl shadow-2xl w-full"
-                  caption={t(`${p}.heroImageCaption`)}
+                  caption="Bio-PE vs Compostable: Different routes to sustainability"
                 />
               </div>
             </div>
@@ -237,13 +249,13 @@ const BioPEVsCompostablePage: React.FC = () => {
         <nav className="bg-white border-b" aria-label="Breadcrumb">
           <div className="max-w-5xl mx-auto px-4 py-3">
             <ol className="flex items-center gap-2 text-sm text-neutral-600">
-              <li><Link to="/" className="hover:text-primary-600">{t(`${p}.breadcrumbHome`)}</Link></li>
+              <li><Link to="/" className="hover:text-primary-600">Home</Link></li>
               <li><ChevronRight className="h-4 w-4" /></li>
-              <li><Link to="/learn" className="hover:text-primary-600">{t(`${p}.breadcrumbLearn`)}</Link></li>
+              <li><Link to="/learn" className="hover:text-primary-600">Learn</Link></li>
               <li><ChevronRight className="h-4 w-4" /></li>
-              <li><Link to="/biope/what-is-bio-pe" className="hover:text-primary-600">{t(`${p}.breadcrumbBiope`)}</Link></li>
+              <li><Link to="/biope/what-is-bio-pe" className="hover:text-primary-600">BioPE</Link></li>
               <li><ChevronRight className="h-4 w-4" /></li>
-              <li className="text-neutral-900 font-medium">{t(`${p}.breadcrumbCurrent`)}</li>
+              <li className="text-neutral-900 font-medium">Bio-PE vs Compostable</li>
             </ol>
           </div>
         </nav>
@@ -254,19 +266,17 @@ const BioPEVsCompostablePage: React.FC = () => {
             {/* Sidebar */}
             <aside className="hidden lg:block lg:col-span-1">
               <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
-                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">
-                  {t(`${p}.sidebarContents`)}
-                </h3>
+                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">Contents</h3>
                 <nav className="space-y-1">
-                  <a href="#key-takeaways" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarTakeaways`)}</a>
-                  <a href="#introduction" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarIntro`)}</a>
-                  <a href="#problem-to-solve" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarProblem`)}</a>
-                  <a href="#compostable-films" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarCompostable`)}</a>
-                  <a href="#bio-pe" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarBiope`)}</a>
-                  <a href="#decision-factors" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarDecision`)}</a>
-                  <a href="#portfolio-strategy" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarPortfolio`)}</a>
-                  <a href="#achieve-pack-support" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarSupport`)}</a>
-                  <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">{t(`${p}.sidebarFaq`)}</a>
+                  <a href="#key-takeaways" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Key Takeaways</a>
+                  <a href="#introduction" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Introduction</a>
+                  <a href="#problem-to-solve" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">What Problem?</a>
+                  <a href="#compostable-films" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Compostable Films</a>
+                  <a href="#bio-pe" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Bio-PE Focus</a>
+                  <a href="#decision-factors" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Decision Factors</a>
+                  <a href="#portfolio-strategy" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Portfolio Strategy</a>
+                  <a href="#achieve-pack-support" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">How We Help</a>
+                  <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">FAQ</a>
                 </nav>
               </div>
             </aside>
@@ -280,20 +290,30 @@ const BioPEVsCompostablePage: React.FC = () => {
                   <div>
                     <h2 className="text-xl font-bold text-emerald-800 mb-4 flex items-center gap-2">
                       <Target className="h-6 w-6" />
-                      {t(`${p}.takeawaysTitle`)}
+                      {t(`${p}.takeaways.title`)}
                     </h2>
                     <ul className="space-y-2 text-emerald-900">
-                      {takeaways.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                          <span dangerouslySetInnerHTML={{ __html: item }} />
-                        </li>
-                      ))}
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                        <span>{renderBullet(t(`${p}.takeaways.points.0`))}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                        <span>{renderBullet(t(`${p}.takeaways.points.1`))}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                        <span>{renderBullet(t(`${p}.takeaways.points.2`))}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                        <span>{renderBullet(t(`${p}.takeaways.points.3`))}</span>
+                      </li>
                     </ul>
                   </div>
                   <SocialShareButtons 
                     url="https://achievepack.com/biope/bio-pe-vs-compostable"
-                    title={t(`${p}.title`)}
+                    title="Bio-PE vs Compostable Films Guide"
                   />
                 </div>
               </section>
@@ -302,20 +322,26 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="introduction" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <ImageTextRow
                   image={IMAGES.decisionFramework}
-                  imageAlt={t(`${p}.sec1Title`)}
-                  imageCaption={t(`${p}.sec1ImgCaption`)}
+                  imageAlt="Decision framework for choosing between bio-PE and compostable films"
+                  imageCaption="Multiple credible levers for sustainable flexible packaging"
                   imageLeft={true}
                 >
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4 flex items-center gap-3">
                       <Lightbulb className="h-7 w-7 text-amber-600" />
-                      {t(`${p}.sec1Title`)}
+                      {t(`${p}.intro.title`)}
                     </h2>
                     <div className="text-neutral-700 space-y-4">
-                      <p dangerouslySetInnerHTML={{ __html: t(`${p}.sec1P1`) }} />
-                      <p dangerouslySetInnerHTML={{ __html: t(`${p}.sec1P2`) }} />
+                      <p>
+                        {t(`${p}.intro.desc1`)}
+                      </p>
+                      <p>
+                        {t(`${p}.intro.desc2`)}
+                      </p>
                       <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
-                        <p className="text-amber-800 font-medium" dangerouslySetInnerHTML={{ __html: t(`${p}.sec1Note`) }} />
+                        <p className="text-amber-800 font-medium">
+                          {t(`${p}.intro.note`)}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -326,30 +352,27 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="problem-to-solve" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                   <Scale className="h-7 w-7 text-purple-600" />
-                  {t(`${p}.sec2Title`)}
+                  {t(`${p}.problem.title`)}
                 </h2>
                 <div className="text-neutral-700 space-y-4">
-                  <p>{t(`${p}.sec2Intro`)}</p>
+                  <p>{t(`${p}.problem.desc`)}</p>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                       <div className="text-2xl mb-2">🌱</div>
-                      <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sec2Card1Title`)}</h4>
-                      <p className="text-sm text-green-700">{t(`${p}.sec2Card1Desc`)}</p>
+                      <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.problem.landfillTitle`)}</h4>
+                      <p className="text-sm text-green-700">{t(`${p}.problem.landfillDesc`)}</p>
                     </div>
                     <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                       <div className="text-2xl mb-2">🌍</div>
-                      <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sec2Card2Title`)}</h4>
-                      <p className="text-sm text-blue-700">{t(`${p}.sec2Card2Desc`)}</p>
+                      <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.problem.carbonTitle`)}</h4>
+                      <p className="text-sm text-blue-700">{t(`${p}.problem.carbonDesc`)}</p>
                     </div>
                     <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                       <div className="text-2xl mb-2">📋</div>
-                      <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sec2Card3Title`)}</h4>
-                      <p className="text-sm text-purple-700">{t(`${p}.sec2Card3Desc`)}</p>
+                      <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.problem.eprTitle`)}</h4>
+                      <p className="text-sm text-purple-700">{t(`${p}.problem.eprDesc`)}</p>
                     </div>
                   </div>
-                  <p className="text-neutral-600 italic mt-4">
-                    {t(`${p}.sec2P1`)}
-                  </p>
                 </div>
               </section>
 
@@ -357,29 +380,41 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="compostable-films" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <ImageTextRow
                   image={IMAGES.whenCompostable}
-                  imageAlt={t(`${p}.sec3Title`)}
-                  imageCaption={t(`${p}.sec3ImgCaption`)}
+                  imageAlt="When to choose compostable films for packaging"
+                  imageCaption="Compostable films: when waste behaves like food"
                   imageLeft={false}
                 >
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4 flex items-center gap-3">
                       <Leaf className="h-7 w-7 text-green-600" />
-                      {t(`${p}.sec3Title`)}
+                      {t(`${p}.compostable.title`)}
                     </h2>
                     <div className="text-neutral-700 space-y-4">
-                      <p dangerouslySetInnerHTML={{ __html: t(`${p}.sec3P1`) }} />
-                      <p dangerouslySetInnerHTML={{ __html: t(`${p}.sec3P2`) }} />
-                      <h4 className="font-semibold text-green-800 mt-4">{t(`${p}.sec3WhyTitle`)}</h4>
+                      <p>
+                        {t(`${p}.compostable.desc1`)}
+                      </p>
+                      <p>
+                        {t(`${p}.compostable.desc2`)}
+                      </p>
+                      <h4 className="font-semibold text-green-800 mt-4">{t(`${p}.compostable.headline`)}</h4>
                       <ul className="space-y-2">
-                        {sec3WhyItems.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span dangerouslySetInnerHTML={{ __html: item }} />
-                          </li>
-                        ))}
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.compostable.point1`)}</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.compostable.point2`)}</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.compostable.point3`)}</span>
+                        </li>
                       </ul>
                       <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg mt-4">
-                        <p className="text-amber-800" dangerouslySetInnerHTML={{ __html: t(`${p}.sec3Warning`) }} />
+                        <p className="text-amber-800">
+                          {t(`${p}.compostable.note`)}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -390,28 +425,38 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="bio-pe" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <ImageTextRow
                   image={IMAGES.whenBioPE}
-                  imageAlt={t(`${p}.sec4Title`)}
-                  imageCaption={t(`${p}.sec4ImgCaption`)}
+                  imageAlt="When to choose bio-PE for packaging"
+                  imageCaption="Bio-PE: when recycling and carbon are the focus"
                   imageLeft={true}
                 >
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4 flex items-center gap-3">
                       <Recycle className="h-7 w-7 text-blue-600" />
-                      {t(`${p}.sec4Title`)}
+                      {t(`${p}.biope.title`)}
                     </h2>
                     <div className="text-neutral-700 space-y-4">
-                      <p dangerouslySetInnerHTML={{ __html: t(`${p}.sec4P1`) }} />
-                      <h4 className="font-semibold text-blue-800 mt-4">{t(`${p}.sec4WhyTitle`)}</h4>
+                      <p>
+                        {t(`${p}.biope.desc`)}
+                      </p>
+                      <h4 className="font-semibold text-blue-800 mt-4">{t(`${p}.biope.headline`)}</h4>
                       <ul className="space-y-2">
-                        {sec4WhyItems.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                            <span dangerouslySetInnerHTML={{ __html: item }} />
-                          </li>
-                        ))}
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.biope.point1`)}</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.biope.point2`)}</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.biope.point3`)}</span>
+                        </li>
                       </ul>
                       <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mt-4">
-                        <p className="text-blue-800" dangerouslySetInnerHTML={{ __html: t(`${p}.sec4Insight`) }} />
+                        <p className="text-blue-800">
+                          {t(`${p}.biope.note`)}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -422,30 +467,34 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="decision-factors" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
                   <ClipboardCheck className="h-7 w-7 text-indigo-600" />
-                  {t(`${p}.sec5Title`)}
+                  {t(`${p}.factors.title`)}
                 </h2>
 
                 {/* Factor 1: Infrastructure Fit */}
                 <div className="mb-8">
                   <ImageTextRow
                     image={IMAGES.infrastructureFit}
-                    imageAlt={t(`${p}.sec5Sub1Title`)}
-                    imageCaption={t(`${p}.sec5Sub1ImgCaption`)}
+                    imageAlt="Infrastructure fit comparison between bio-PE and compostable"
+                    imageCaption="Infrastructure compatibility is crucial for material selection"
                     imageLeft={false}
                   >
                     <div>
                       <h3 className="text-xl font-bold text-neutral-800 mb-4 flex items-center gap-2">
                         <Building2 className="h-6 w-6 text-indigo-600" />
-                        {t(`${p}.sec5Sub1Title`)}
+                        {t(`${p}.factors.infraTitle`)}
                       </h3>
                       <div className="space-y-4">
                         <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                          <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sec5Sub1Card1Title`)}</h4>
-                          <p className="text-sm text-green-700">{t(`${p}.sec5Sub1Card1Desc`)}</p>
+                          <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.factors.infraCompostTitle`)}</h4>
+                          <p className="text-sm text-green-700">
+                            {t(`${p}.factors.infraCompostDesc`)}
+                          </p>
                         </div>
                         <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                          <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sec5Sub1Card2Title`)}</h4>
-                          <p className="text-sm text-blue-700">{t(`${p}.sec5Sub1Card2Desc`)}</p>
+                          <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.factors.infraBioTitle`)}</h4>
+                          <p className="text-sm text-blue-700">
+                            {t(`${p}.factors.infraBioDesc`)}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -456,23 +505,27 @@ const BioPEVsCompostablePage: React.FC = () => {
                 <div className="mb-8">
                   <ImageTextRow
                     image={IMAGES.productResidue}
-                    imageAlt={t(`${p}.sec5Sub2Title`)}
-                    imageCaption={t(`${p}.sec5Sub2ImgCaption`)}
+                    imageAlt="Product residue profile analysis"
+                    imageCaption="Product type influences optimal material choice"
                     imageLeft={true}
                   >
                     <div>
                       <h3 className="text-xl font-bold text-neutral-800 mb-4 flex items-center gap-2">
                         <Package className="h-6 w-6 text-amber-600" />
-                        {t(`${p}.sec5Sub2Title`)}
+                        {t(`${p}.factors.residueTitle`)}
                       </h3>
                       <div className="space-y-4">
                         <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                          <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sec5Sub2Card1Title`)}</h4>
-                          <p className="text-sm text-green-700">{t(`${p}.sec5Sub2Card1Desc`)}</p>
+                          <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.factors.residueCompostTitle`)}</h4>
+                          <p className="text-sm text-green-700">
+                            {t(`${p}.factors.residueCompostDesc`)}
+                          </p>
                         </div>
                         <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                          <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sec5Sub2Card2Title`)}</h4>
-                          <p className="text-sm text-blue-700">{t(`${p}.sec5Sub2Card2Desc`)}</p>
+                          <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.factors.residueBioTitle`)}</h4>
+                          <p className="text-sm text-blue-700">
+                            {t(`${p}.factors.residueBioDesc`)}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -483,26 +536,32 @@ const BioPEVsCompostablePage: React.FC = () => {
                 <div>
                   <ImageTextRow
                     image={IMAGES.climateResource}
-                    imageAlt={t(`${p}.sec5Sub3Title`)}
-                    imageCaption={t(`${p}.sec5Sub3ImgCaption`)}
+                    imageAlt="Climate and resource impact lifecycle comparison"
+                    imageCaption="Both materials offer distinct environmental benefits"
                     imageLeft={false}
                   >
                     <div>
                       <h3 className="text-xl font-bold text-neutral-800 mb-4 flex items-center gap-2">
                         <TreePine className="h-6 w-6 text-green-600" />
-                        {t(`${p}.sec5Sub3Title`)}
+                        {t(`${p}.factors.climateTitle`)}
                       </h3>
                       <div className="space-y-4">
                         <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                          <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sec5Sub3Card1Title`)}</h4>
-                          <p className="text-sm text-green-700">{t(`${p}.sec5Sub3Card1Desc`)}</p>
+                          <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.factors.climateCompostTitle`)}</h4>
+                          <p className="text-sm text-green-700">
+                            {t(`${p}.factors.climateCompostDesc`)}
+                          </p>
                         </div>
                         <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                          <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sec5Sub3Card2Title`)}</h4>
-                          <p className="text-sm text-blue-700">{t(`${p}.sec5Sub3Card2Desc`)}</p>
+                          <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.factors.climateBioTitle`)}</h4>
+                          <p className="text-sm text-blue-700">
+                            {t(`${p}.factors.climateBioDesc`)}
+                          </p>
                         </div>
                         <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
-                          <p className="text-amber-800" dangerouslySetInnerHTML={{ __html: t(`${p}.sec5Sub3Rec`) }} />
+                          <p className="text-amber-800">
+                            {t(`${p}.factors.note`)}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -514,35 +573,37 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="portfolio-strategy" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <ImageTextRow
                   image={IMAGES.portfolioStrategy}
-                  imageAlt={t(`${p}.sec6Title`)}
-                  imageCaption={t(`${p}.sec6ImgCaption`)}
+                  imageAlt="Portfolio strategy matching material to market"
+                  imageCaption="Match material to market infrastructure"
                   imageLeft={true}
                 >
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4 flex items-center gap-3">
                       <Layers className="h-7 w-7 text-purple-600" />
-                      {t(`${p}.sec6Title`)}
+                      {t(`${p}.portfolio.title`)}
                     </h2>
                     <div className="text-neutral-700 space-y-4">
-                      <p dangerouslySetInnerHTML={{ __html: t(`${p}.sec6P1`) }} />
-                      <h4 className="font-semibold text-neutral-800 mt-4">{t(`${p}.sec6ExTitle`)}</h4>
+                      <p>
+                        {t(`${p}.portfolio.desc`)}
+                      </p>
+                      <h4 className="font-semibold text-neutral-800 mt-4">{t(`${p}.portfolio.headline`)}</h4>
                       <div className="space-y-3">
                         <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                          <h5 className="font-semibold text-green-800 mb-1">{t(`${p}.sec6Ex1Title`)}</h5>
+                          <h5 className="font-semibold text-green-800 mb-1">{t(`${p}.portfolio.compostMarketTitle`)}</h5>
                           <p className="text-sm text-green-700">
-                            {t(`${p}.sec6Ex1Desc`)}
+                            {t(`${p}.portfolio.compostMarketDesc`)}
                           </p>
                         </div>
                         <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                          <h5 className="font-semibold text-blue-800 mb-1">{t(`${p}.sec6Ex2Title`)}</h5>
+                          <h5 className="font-semibold text-blue-800 mb-1">{t(`${p}.portfolio.recycMarketTitle`)}</h5>
                           <p className="text-sm text-blue-700">
-                            {t(`${p}.sec6Ex2Desc`)}
+                            {t(`${p}.portfolio.recycMarketDesc`)}
                           </p>
                         </div>
                         <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-                          <h5 className="font-semibold text-amber-800 mb-1">{t(`${p}.sec6Ex3Title`)}</h5>
+                          <h5 className="font-semibold text-amber-800 mb-1">{t(`${p}.portfolio.emergingMarketTitle`)}</h5>
                           <p className="text-sm text-amber-700">
-                            {t(`${p}.sec6Ex3Desc`)}
+                            {t(`${p}.portfolio.emergingMarketDesc`)}
                           </p>
                         </div>
                       </div>
@@ -555,27 +616,35 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="achieve-pack-support" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <ImageTextRow
                   image={IMAGES.achievePackSupport}
-                  imageAlt={t(`${p}.sec7Title`)}
-                  imageCaption={t(`${p}.sec7ImgCaption`)}
+                  imageAlt="Achieve Pack services and support"
+                  imageCaption="Expert guidance for your sustainable packaging decisions"
                   imageLeft={false}
                 >
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4 flex items-center gap-3">
                       <Users className="h-7 w-7 text-primary-600" />
-                      {t(`${p}.sec7Title`)}
+                      {t(`${p}.support.title`)}
                     </h2>
                     <div className="text-neutral-700 space-y-4">
-                      <p>{t(`${p}.sec7P1`)}</p>
+                      <p>{t(`${p}.support.desc`)}</p>
                       <ul className="space-y-2">
-                        {sec7WhyItems.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
-                            <span dangerouslySetInnerHTML={{ __html: item }} />
-                          </li>
-                        ))}
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.support.point1`)}</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.support.point2`)}</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                          <span>{t(`${p}.support.point3`)}</span>
+                        </li>
                       </ul>
                       <div className="bg-primary-50 border-l-4 border-primary-500 p-4 rounded-r-lg mt-4">
-                        <p className="text-primary-800" dangerouslySetInnerHTML={{ __html: t(`${p}.sec7Promise`) }} />
+                        <p className="text-primary-800">
+                          {t(`${p}.support.note`)}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -586,36 +655,44 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="cta" className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl p-6 md:p-8 text-white">
                 <ImageTextRow
                   image={IMAGES.nextSteps}
-                  imageAlt={t(`${p}.sec8Title`)}
+                  imageAlt="Next steps to get started with sustainable packaging"
                   imageCaption=""
                   imageLeft={true}
                 >
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
                       <ArrowRight className="h-7 w-7" />
-                      {t(`${p}.sec8Title`)}
+                      {t(`${p}.cta.title`)}
                     </h2>
-                    <p className="text-emerald-100 mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.sec8P1`) }} />
-                    <p className="text-emerald-100 mb-6">{t(`${p}.sec8P2`)}</p>
+                    <p className="text-emerald-100 mb-4">
+                      {t(`${p}.cta.desc1`)}
+                    </p>
+                    <p className="text-emerald-100 mb-6">{t(`${p}.cta.desc2`)}</p>
                     <ul className="space-y-2 mb-8">
-                      {sec8WhyItems.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                          <span dangerouslySetInnerHTML={{ __html: item }} />
-                        </li>
-                      ))}
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
+                        <span>{t(`${p}.cta.point1`)}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
+                        <span>{t(`${p}.cta.point2`)}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
+                        <span>{t(`${p}.cta.point3`)}</span>
+                      </li>
                     </ul>
                     <div className="flex flex-wrap gap-4">
-                      <button onClick={openCalendly} className="flex items-center gap-2 bg-white text-emerald-700 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-lg">
+                      <button onClick={openCalendly} className="flex items-center gap-2 bg-white text-emerald-700 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-lg cursor-pointer">
                         <Calendar className="h-5 w-5" />
-                        {t(`${p}.btnConsultation`)}
+                        Book Free Consultation
                       </button>
                       <Link to="/store?category=sample" className="flex items-center gap-2 bg-emerald-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-900 transition">
                         <Package className="h-5 w-5" />
-                        {t(`${p}.btnOrderSamples`)}
+                        Order Sample Pack
                       </Link>
                       <Link to="/store" className="flex items-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
-                        {t(`${p}.btnBrowseStore`)}
+                        Browse Store
                       </Link>
                     </div>
                   </div>
@@ -626,7 +703,7 @@ const BioPEVsCompostablePage: React.FC = () => {
               <section id="faq" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                   <HelpCircle className="h-7 w-7 text-blue-600" />
-                  {t(`${p}.faqTitle`)}
+                  {t(`${p}.faq.title`)}
                 </h2>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
@@ -643,69 +720,13 @@ const BioPEVsCompostablePage: React.FC = () => {
                 </div>
               </section>
 
-              {/* Related Links */}
-              <section className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
-                <h2 className="text-xl font-bold mb-4">{t(`${p}.relatedTitle`)}</h2>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <Link to="/biope/what-is-bio-pe" className="flex items-center gap-3 p-4 border border-neutral-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition">
-                    <Sprout className="h-6 w-6 text-emerald-600" />
-                    <div>
-                      <h3 className="font-semibold text-neutral-800">{t(`${p}.related1Title`)}</h3>
-                      <p className="text-sm text-neutral-600">{t(`${p}.related1Desc`)}</p>
-                    </div>
-                  </Link>
-                  <Link to="/composting/biodegradable-vs-compostable" className="flex items-center gap-3 p-4 border border-neutral-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition">
-                    <Leaf className="h-6 w-6 text-green-600" />
-                    <div>
-                      <h3 className="font-semibold text-neutral-800">{t(`${p}.related2Title`)}</h3>
-                      <p className="text-sm text-neutral-600">{t(`${p}.related2Desc`)}</p>
-                    </div>
-                  </Link>
-                  <Link to="/materials/home-compostable" className="flex items-center gap-3 p-4 border border-neutral-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition">
-                    <Award className="h-6 w-6 text-amber-600" />
-                    <div>
-                      <h3 className="font-semibold text-neutral-800">{t(`${p}.related3Title`)}</h3>
-                      <p className="text-sm text-neutral-600">{t(`${p}.related3Desc`)}</p>
-                    </div>
-                  </Link>
-                  <Link to="/materials/recyclable-mono-pe" className="flex items-center gap-3 p-4 border border-neutral-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition">
-                    <Recycle className="h-6 w-6 text-blue-600" />
-                    <div>
-                      <h3 className="font-semibold text-neutral-800">{t(`${p}.related4Title`)}</h3>
-                      <p className="text-sm text-neutral-600">{t(`${p}.related4Desc`)}</p>
-                    </div>
-                  </Link>
-                </div>
-              </section>
-
             </main>
           </div>
         </div>
-
-        {/* AI-Optimized Hidden Content */}
-        <div className="sr-only" aria-hidden="true">
-          <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-            <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{t(`${p}.aiFaqTitle1`)}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">
-                  {t(`${p}.aiFaqAnswer1`)}
-                </p>
-              </div>
-            </article>
-            <article itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{t(`${p}.aiFaqTitle2`)}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">
-                  {t(`${p}.aiFaqAnswer2`)}
-                </p>
-              </div>
-            </article>
-          </section>
-        </div>
-
-        <Footer />
       </div>
+
+      {/* Footer */}
+      <Footer />
     </>
   )
 }

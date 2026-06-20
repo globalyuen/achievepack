@@ -71,6 +71,7 @@ export default function StoreFooter() {
               <li><Link to="/topics/eu-ppwr-compliance" className="hover:text-primary-400 font-medium text-primary-400">EU PPWR Compliance <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/knowledge/eco-packaging-reality" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco-Packaging Reality <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/knowledge/writable-stampable-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Writable & Stampable Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/digital-printing-pantone-color-matching" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Color Matching Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
