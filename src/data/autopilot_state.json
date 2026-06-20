@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T07:00:58.926Z",
+  "lastUnifiedRun": "2026-06-20T07:16:04.460Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3682,17 +3682,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "recyclable-flat-bottom-pouch-for-powders",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "recyclable flat bottom pouch for powders",
-      "difficulty": "Low",
-      "slug": "recyclable-flat-bottom-pouch-for-powders"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 700,
       "keyword": "custom shaped stand up pouches low minimum",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-shaped-stand-up-pouches-low-minimum"
     },
     {
       "status": "Pending",
@@ -3775,9 +3776,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T07:00:31.125Z",
+      "timestamp": "2026-06-20T07:15:26.511Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable flat bottom pouch for powders\" to /blog/recyclable-flat-bottom-pouch-for-powders (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped stand up pouches low minimum\" to /blog/custom-shaped-stand-up-pouches-low-minimum (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable flat bottom pouch for powders\" to /blog/recyclable-flat-bottom-pouch-for-powders (Pending Approval)",
+      "timestamp": "2026-06-20T07:00:31.125Z"
     },
     {
       "action": "Autopilot Generation Draft",
