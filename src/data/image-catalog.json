@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-20",
-  "total_images": 3280,
+  "total_images": 3283,
   "total_categories": 172,
   "extensions": {
     ".webp": 1303,
-    ".png": 1742,
+    ".png": 1745,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,26 @@
       ]
     },
     "blog/heros": {
-      "count": 568,
+      "count": 571,
       "images": [
+        {
+          "filename": "eco-friendly-barrier-film-for-sachets-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-barrier-film-for-sachets-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-20T11:00:31.125Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-dimensions-for-snacks-hero.png",
+          "path": "/imgs/blog/heros/recyclable-stand-up-pouch-dimensions-for-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-20T10:45:24.376Z"
+        },
+        {
+          "filename": "compostable-pouch-suppliers-for-dry-goods-hero.png",
+          "path": "/imgs/blog/heros/compostable-pouch-suppliers-for-dry-goods-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-20T10:30:25.600Z"
+        },
         {
           "filename": "small-batch-digital-printing-on-flexible-packaging-hero.png",
           "path": "/imgs/blog/heros/small-batch-digital-printing-on-flexible-packaging-hero.png",

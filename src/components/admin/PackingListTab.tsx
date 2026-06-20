@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Download, FileSpreadsheet, Plus, Trash2, Loader2, FileIcon, Link2, RefreshCw, Copy, CheckCircle, Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Download, FileSpreadsheet, Plus, Trash2, Loader2, FileIcon, Link2, RefreshCw, Copy, CheckCircle, Send, Edit } from 'lucide-react';
 import * as XLSX from 'xlsx';
 import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
@@ -20,6 +20,68 @@ export default function PackingListTab() {
   const [invoiceDate, setInvoiceDate] = useState(new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }));
   const [incoterm, setIncoterm] = useState('FOB China');
   const [isAiLoading, setIsAiLoading] = useState(false);
+
+  // History state
+  const [supplierName, setSupplierName] = useState('');
+  const [savedLinks, setSavedLinks] = useState<any[]>([]);
+  const [loadingHistory, setLoadingHistory] = useState(true);
+
+  const fetchHistory = async () => {
+    try {
+      setLoadingHistory(true);
+      const resp = await fetch('/api/list-packing-links');
+      const data = await resp.json();
+      if (data.success) {
+        setSavedLinks(data.links || []);
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoadingHistory(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchHistory();
+  }, []);
+
+  const handleDeleteLink = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this packing list link?')) return;
+    try {
+      const resp = await fetch(`/api/list-packing-links?id=${id}`, { method: 'DELETE' });
+      const data = await resp.json();
+      if (data.success) {
+        fetchHistory();
+        if (linkId === id) setLinkId(null);
+      } else {
+        alert('Failed to delete: ' + data.error);
+      }
+    } catch (e: any) {
+      alert('Error: ' + e.message);
+    }
+  };
+
+  const handleLoadLink = async (id: string) => {
+    try {
+      const resp = await fetch(`/api/get-packing-link?id=${id}`);
+      const data = await resp.json();
+      if (data.success) {
+        setInvoiceNo(data.invoiceNo || '');
+        setBillTo(data.billTo || '');
+        setShipTo(data.shipTo || '');
+        setIncoterm(data.incoterm || '');
+        setInvoiceDate(data.invoiceDate || '');
+        setItems(data.items && data.items.length ? data.items : []);
+        setLinkId(id);
+        setSupplierSubmitted(data.supplierSubmitted || false);
+      } else {
+        alert('Error loading: ' + data.error);
+      }
+    } catch (e: any) {
+      alert('Error: ' + e.message);
+    }
+  };
+
 
   // Supplier link state
   const [linkId, setLinkId] = useState<string | null>(null);
@@ -58,12 +120,13 @@ export default function PackingListTab() {
       const resp = await fetch('/api/save-packing-link', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ invoiceNo, billTo, shipTo, incoterm, invoiceDate, items }),
+        body: JSON.stringify({ invoiceNo, supplierName, billTo, shipTo, incoterm, invoiceDate, items }),
       });
       const data = await resp.json();
       if (!data.success) throw new Error(data.error || 'Failed to generate link');
       setLinkId(data.id);
       setSupplierSubmitted(false);
+      fetchHistory();
     } catch (err: any) {
       alert('Error generating link: ' + err.message);
     } finally {
@@ -301,7 +364,13 @@ export default function PackingListTab() {
             <h2 className="text-2xl font-bold text-neutral-800">Packing List Generator</h2>
             <p className="text-sm text-neutral-500">Upload vendor files to Auto-Extract, edit freely, send link to supplier, then Export as Branded Excel.</p>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <input
+              placeholder="Supplier Name..."
+              value={supplierName}
+              onChange={e => setSupplierName(e.target.value)}
+              className="border border-neutral-300 rounded-lg px-3 py-2 text-sm w-36"
+            />
             <button
               onClick={handleSendLink}
               disabled={linkLoading}
@@ -431,6 +500,59 @@ export default function PackingListTab() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Historical Links Table */}
+        <div className="mt-8 border border-neutral-200 rounded-lg overflow-hidden bg-white">
+          <div className="px-4 py-3 border-b flex justify-between items-center bg-neutral-50">
+            <h3 className="font-bold text-neutral-800 text-sm">Sent Packing Links History</h3>
+            <button onClick={fetchHistory} className="text-neutral-500 hover:text-neutral-700">
+              <RefreshCw className={`w-4 h-4 ${loadingHistory ? 'animate-spin' : ''}`} />
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm whitespace-nowrap min-w-[800px]">
+              <thead className="bg-neutral-100/50 text-neutral-500">
+                <tr>
+                  <th className="px-4 py-3 font-semibold border-b">Invoice#</th>
+                  <th className="px-4 py-3 font-semibold border-b">Supplier</th>
+                  <th className="px-4 py-3 font-semibold border-b">Date Sent</th>
+                  <th className="px-4 py-3 font-semibold border-b">Status</th>
+                  <th className="px-4 py-3 font-semibold border-b text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {savedLinks.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="px-4 py-8 text-center text-neutral-400">No sent links found</td>
+                  </tr>
+                ) : (
+                  savedLinks.map(link => (
+                    <tr key={link.id} className="hover:bg-neutral-50">
+                      <td className="px-4 py-3 font-medium text-neutral-800">{link.invoiceNo || '---'}</td>
+                      <td className="px-4 py-3 text-neutral-600">{link.supplierName || '---'}</td>
+                      <td className="px-4 py-3 text-neutral-500">{new Date(link.createdAt).toLocaleDateString()}</td>
+                      <td className="px-4 py-3">
+                        {link.supplierSubmitted ? (
+                          <span className="inline-flex items-center gap-1 text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md text-xs font-semibold"><CheckCircle className="w-3.5 h-3.5" /> Submitted</span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-amber-600 bg-amber-50 px-2 py-1 rounded-md text-xs font-semibold">Pending</span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex items-center justify-end gap-2">
+                          <button title="Copy Supplier Link" onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/fill-packing/${link.id}`); alert('Supplier Link Copied!'); }} className="text-blue-500 hover:text-blue-700 bg-blue-50 px-2 py-1 rounded flex items-center gap-1"><Copy className="w-3.5 h-3.5" /> Supplier</button>
+                          <button title="Copy Customer Link" onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/packing-report/${link.id}`); alert('Customer Link Copied!'); }} className="text-emerald-500 hover:text-emerald-700 bg-emerald-50 px-2 py-1 rounded flex items-center gap-1"><Link2 className="w-3.5 h-3.5" /> Customer</button>
+                          <button title="Load into Editor" onClick={() => handleLoadLink(link.id)} className="text-purple-500 hover:text-purple-700 bg-purple-50 px-2 py-1 rounded"><Edit className="w-4 h-4" /></button>
+                          <button title="Delete" onClick={() => handleDeleteLink(link.id)} className="text-red-400 hover:text-red-600 bg-red-50 px-2 py-1 rounded"><Trash2 className="w-4 h-4" /></button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
