@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T03:46:10.317Z",
+  "lastUnifiedRun": "2026-06-20T04:01:10.461Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3612,17 +3612,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "mono-pe-recyclable-pouches-for-condiments",
       "status": "Pending Approval",
       "volume": 510,
       "keyword": "mono pe recyclable pouches for condiments",
-      "difficulty": "Low",
-      "slug": "mono-pe-recyclable-pouches-for-condiments"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 880,
       "keyword": "kraft paper stand up pouches for granola",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "kraft-paper-stand-up-pouches-for-granola"
     },
     {
       "status": "Pending",
@@ -3765,9 +3766,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T03:45:41.907Z",
+      "timestamp": "2026-06-20T04:00:58.102Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono pe recyclable pouches for condiments\" to /blog/mono-pe-recyclable-pouches-for-condiments (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper stand up pouches for granola\" to /blog/kraft-paper-stand-up-pouches-for-granola (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe recyclable pouches for condiments\" to /blog/mono-pe-recyclable-pouches-for-condiments (Pending Approval)",
+      "timestamp": "2026-06-20T03:45:41.907Z"
     },
     {
       "action": "Autopilot Error",
