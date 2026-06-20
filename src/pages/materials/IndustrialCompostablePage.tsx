@@ -14,6 +14,7 @@ const IndustrialCompostablePage: React.FC = () => {
     const val = t(key, { returnObjects: true });
     return Array.isArray(val) ? (val as T[]) : [];
   };
+  const renderBullet = (text: string) => <span dangerouslySetInnerHTML={{ __html: text }} />;
   const sections = [
     {
       id: 'scenario-trigger',

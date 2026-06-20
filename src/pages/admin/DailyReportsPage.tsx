@@ -1319,8 +1319,7 @@ export default function DailyReportsPage() {
           </button>
           <button onClick={() => setActiveTab('packing')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'packing' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <Package className="w-4 h-4"/>
-            <span className="hidden xs:inline">Packing List</span>
-            <span className="xs:hidden">Packing</span>
+            Packing List
           </button>
           <button onClick={() => setActiveTab('spec')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'spec' ? 'bg-sky-600 text-white shadow-md shadow-sky-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <FileCheck className="w-4 h-4"/>
