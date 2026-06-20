@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-20T11:00:43.398Z",
+  "lastUnifiedRun": "2026-06-20T11:15:33.823Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3745,17 +3745,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "eco-friendly-barrier-film-for-sachets",
       "status": "Pending Approval",
       "volume": 1050,
       "keyword": "eco friendly barrier film for sachets",
-      "difficulty": "Low",
-      "slug": "eco-friendly-barrier-film-for-sachets"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1350,
       "keyword": "mono pe film for stand up pouches",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "mono-pe-film-for-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -3892,9 +3893,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-20T11:00:32.513Z",
+      "timestamp": "2026-06-20T11:15:25.539Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier film for sachets\" to /blog/eco-friendly-barrier-film-for-sachets (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe film for stand up pouches\" to /blog/mono-pe-film-for-stand-up-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier film for sachets\" to /blog/eco-friendly-barrier-film-for-sachets (Pending Approval)",
+      "timestamp": "2026-06-20T11:00:32.513Z"
     },
     {
       "action": "Autopilot Generation Draft",
