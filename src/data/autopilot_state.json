@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T22:46:12.975Z",
+  "lastUnifiedRun": "2026-06-21T23:01:39.172Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4032,11 +4032,11 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-flat-bottom-bag-dimensions",
       "status": "Pending Approval",
       "volume": 600,
       "keyword": "compostable flat bottom bag dimensions",
-      "difficulty": "Low",
-      "slug": "compostable-flat-bottom-bag-dimensions"
+      "difficulty": "Low"
     },
     {
       "status": "Pending",
@@ -4143,9 +4143,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T22:46:04.802Z",
+      "timestamp": "2026-06-21T23:01:32.218Z",
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"recyclable sachet filling equipment\": TypeError: fetch failed"
+    },
+    {
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable flat bottom bag dimensions\" to /blog/compostable-flat-bottom-bag-dimensions (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable flat bottom bag dimensions\" to /blog/compostable-flat-bottom-bag-dimensions (Pending Approval)",
+      "timestamp": "2026-06-21T22:46:04.802Z"
     },
     {
       "action": "Autopilot Generation Draft",
