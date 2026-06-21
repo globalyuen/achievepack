@@ -1,7 +1,7 @@
 # Google Search Console Unified Coverage Report
 
 **Last Audited:** 2026-06-21 07:00 HKT
-**Total Monitored Sitemapped URLs:** 2492
+**Total Monitored Sitemapped URLs:** 2500
 
 ## Indexing Strategy Checklist
 - [x] Sitemap mapped routes parsed completely
@@ -24,4 +24,4 @@
 - https://pouch.eco/auth/callback
 - https://pouch.eco/fr/auth/callback
 - https://pouch.eco/es/auth/callback
-- ... and 2477 additional URLs.
+- ... and 2485 additional URLs.
