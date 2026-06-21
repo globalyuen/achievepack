@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T01:45:33.334Z",
+  "lastUnifiedRun": "2026-06-21T02:00:35.519Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3773,17 +3773,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-retort-packaging-for-food",
       "status": "Pending Approval",
       "volume": 1250,
       "keyword": "compostable retort packaging for food",
-      "difficulty": "Medium",
-      "slug": "compostable-retort-packaging-for-food"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "digital print low moq pouches for beverages",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-print-low-moq-pouches-for-beverages"
     },
     {
       "status": "Pending",
@@ -3896,9 +3897,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T01:45:25.073Z",
+      "timestamp": "2026-06-21T02:00:26.952Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort packaging for food\" to /blog/compostable-retort-packaging-for-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital print low moq pouches for beverages\" to /blog/digital-print-low-moq-pouches-for-beverages (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort packaging for food\" to /blog/compostable-retort-packaging-for-food (Pending Approval)",
+      "timestamp": "2026-06-21T01:45:25.073Z"
     },
     {
       "action": "Autopilot Generation Draft",

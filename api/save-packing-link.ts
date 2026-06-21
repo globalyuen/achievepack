@@ -17,7 +17,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (!SUPABASE_URL || !SUPABASE_KEY) return res.status(500).json({ error: 'Server configuration error' });
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-    const { id, invoiceNo, billTo, shipTo, incoterm, invoiceDate, items } = req.body || {};
+    const { id, invoiceNo, supplierName, billTo, shipTo, incoterm, invoiceDate, items } = req.body || {};
 
     // --- UPDATE existing record (supplier submission or admin refresh) ---
     if (id) {
@@ -53,6 +53,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const rawData = {
       type: 'packing_link',
       invoiceNo: invoiceNo || 'PL-NEW',
+      supplierName: supplierName || '',
       billTo: billTo || '',
       shipTo: shipTo || '',
       incoterm: incoterm || 'FOB China',
