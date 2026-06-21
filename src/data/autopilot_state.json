@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T18:33:40.808Z",
+  "lastUnifiedRun": "2026-06-21T18:52:42.664Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 2,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3927,17 +3927,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "eco-friendly-retort-pouches-for-sauces",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "eco friendly retort pouches for sauces",
-      "difficulty": "Low",
-      "slug": "eco-friendly-retort-pouches-for-sauces"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 700,
       "keyword": "digital print low moq flat bottom pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-print-low-moq-flat-bottom-pouches"
     },
     {
       "status": "Pending",
@@ -4014,9 +4015,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T18:33:29.506Z",
+      "timestamp": "2026-06-21T18:49:26.610Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly retort pouches for sauces\" to /blog/eco-friendly-retort-pouches-for-sauces (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital print low moq flat bottom pouches\" to /blog/digital-print-low-moq-flat-bottom-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly retort pouches for sauces\" to /blog/eco-friendly-retort-pouches-for-sauces (Pending Approval)",
+      "timestamp": "2026-06-21T18:33:29.506Z"
     },
     {
       "action": "Autopilot Generation Draft",
