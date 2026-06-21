@@ -550,7 +550,7 @@ export default function PackingListTab() {
                         <div className="flex items-center justify-end gap-2">
                           <button title="Copy Link with Supplier Password" onClick={() => { navigator.clipboard.writeText(`Link: ${window.location.origin}/packing-list/${link.id}\nPassword: ${link.supplierPassword}`); alert('Supplier Link & Password Copied!'); }} className="text-blue-500 hover:text-blue-700 bg-blue-50 px-2 py-1 rounded flex items-center gap-1"><Copy className="w-3.5 h-3.5" /> Supplier</button>
                           <button title="Copy Link with Customer Password" onClick={() => { navigator.clipboard.writeText(`Link: ${window.location.origin}/packing-list/${link.id}\nPassword: ${link.customerPassword}`); alert('Customer Link & Password Copied!'); }} className="text-emerald-500 hover:text-emerald-700 bg-emerald-50 px-2 py-1 rounded flex items-center gap-1"><Link2 className="w-3.5 h-3.5" /> Customer</button>
-                          <button title="Load into Editor" onClick={() => handleLoadLink(link.id)} className="text-purple-500 hover:text-purple-700 bg-purple-50 px-2 py-1 rounded"><Edit className="w-4 h-4" /></button>
+                          <button title="Load into Editor" onClick={() => handleLoadLink(link.id)} className="text-purple-600 hover:text-purple-800 bg-purple-50 px-2 py-1 rounded flex items-center gap-1 font-medium"><Edit className="w-3.5 h-3.5" /> Load</button>
                           <button title="Delete" onClick={() => handleDeleteLink(link.id)} className="text-red-400 hover:text-red-600 bg-red-50 px-2 py-1 rounded"><Trash2 className="w-4 h-4" /></button>
                         </div>
                       </td>
