@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T02:45:46.526Z",
+  "lastUnifiedRun": "2026-06-21T03:01:01.144Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3794,17 +3794,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printed-mono-material-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "digital printed mono material stand up pouches",
-      "difficulty": "Low",
-      "slug": "digital-printed-mono-material-stand-up-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 950,
       "keyword": "eco friendly sachet packaging for supplements",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-sachet-packaging-for-supplements"
     },
     {
       "status": "Pending",
@@ -3899,9 +3900,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T02:45:38.429Z",
+      "timestamp": "2026-06-21T03:00:53.341Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printed mono material stand up pouches\" to /blog/digital-printed-mono-material-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly sachet packaging for supplements\" to /blog/eco-friendly-sachet-packaging-for-supplements (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed mono material stand up pouches\" to /blog/digital-printed-mono-material-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-21T02:45:38.429Z"
     },
     {
       "action": "Autopilot Generation Draft",
