@@ -1,0 +1,162 @@
+{
+  "achievePackHome": {
+    "nav": {
+      "shopAll": "🛒 購買所有產品",
+      "pouchShapes": "包裝袋形狀",
+      "standUpPouch": "自立袋",
+      "boxBottomPouch": "平底袋",
+      "sideGussetPouch": "側邊風琴袋",
+      "threeSideSeal": "三邊封袋",
+      "learnCenter": "📚 學習中心",
+      "materials": "包裝材料",
+      "compostable": "可堆肥",
+      "homeCompostable": "家庭可堆肥",
+      "recyclableMonoPE": "可回收單一PE",
+      "bioPE": "生物基PE",
+      "packagingShapes": "包裝形狀",
+      "standUpPouches": "自立袋",
+      "flatBottomBags": "平底袋",
+      "sideGussetBags": "側邊風琴袋",
+      "spoutPouches": "吸嘴袋",
+      "industries": "產業應用",
+      "coffeeTea": "咖啡與茶葉",
+      "snacksFood": "零食與食品",
+      "petFood": "寵物食品",
+      "supplements": "營養補充品",
+      "babyFood": "嬰兒食品",
+      "frozenFood": "冷凍食品",
+      "citrusOil": "柑橘精油包裝",
+      "viewAllLearn": "查看所有學習頁面 →",
+      "blog": "📝 部落格",
+      "allArticles": "所有文章",
+      "packagingTips": "包裝技巧",
+      "sustainability": "永續發展",
+      "industryNews": "業界新聞",
+      "unprintedSamples": "📦 空白樣品",
+      "customPrintedSample": "✨ 客製化印刷樣品",
+      "customerCenter": "客戶中心",
+      "language": "語言"
+    },
+    "hero": {
+      "transformText": "用經過認證的包裝解決方案",
+      "solutionsFrom": "推動您的業務發展。從",
+      "coffeeBags": "帶排氣閥的咖啡袋",
+      "to": "到",
+      "customPouches": "客製化印刷的食品包裝袋",
+      "reduceImpact": "，在減少環境影響的同時，提供卓越的商業價值。",
+      "shopNow": "立即購買"
+    },
+    "shop": {
+      "title": "購買可堆肥與可回收包裝",
+      "compostable": "可堆肥",
+      "recyclable": "可回收",
+      "en13432": "EN13432認證的可堆肥袋",
+      "comma": "、",
+      "coffeeBags": "咖啡袋",
+      "and": "以及",
+      "customBoxes": "客製化紙盒",
+      "with": "，",
+      "lowMoq": "最低起訂量僅 100 個",
+      "browseAll": "瀏覽所有環保包裝選項"
+    },
+    "apps": {
+      "tag": "互動式工程套件",
+      "title": "專業包裝應用程式",
+      "desc": "告別猜測。使用我們的客製化互動式網路應用程式，在幾秒鐘內設計和測量您品牌的永續包裝。",
+      "sizingTool": "尺寸工具",
+      "sizingTitle": "包裝袋尺寸查詢工具",
+      "sizingDesc": "根據目標重量、產品類型和密度計算準確的自立袋尺寸和風琴體積。即時比對 100 多種標準尺寸。",
+      "sizingL1": "特定產品密度預設值（咖啡、茶葉、粉末、零食）",
+      "sizingL2": "準確的體積計算（液體盎司、公克、毫升）",
+      "sizingL3": "互動式尺寸表與標準最低起訂量要求",
+      "launchSizing": "啟動尺寸查詢工具",
+      "materialTool": "材料工具",
+      "materialTitle": "材料規格查詢工具",
+      "materialDesc": "搜尋、篩選和比較我們完整環保目錄中精確的物理與防潮性能（氧氣穿透率 OTR 與水氣穿透率 WVTR）。",
+      "materialL1": "超過 15 種永續的雙層與三層複合材料選項",
+      "materialL2": "即時防潮等級篩選（高、中、輕度防潮）",
+      "materialL3": "完整的規格表，包含厚度與最低起訂量",
+      "launchMaterial": "啟動規格查詢工具"
+    },
+    "clients": {
+      "tag": "深受業界領導者信賴",
+      "title": "為何超過 500 個全球品牌選擇 Achieve Pack"
+    },
+    "seoBlock": {
+      "title": "什麼是可堆肥包裝？",
+      "desc1": "可堆肥包裝是經過認證的材料，在工業堆肥條件下，180 天內能完全生物降解為自然元素。與一般塑膠不同，可堆肥袋會分解為水、二氧化碳和生物質，不留任何",
+      "microplastics": "微塑膠",
+      "desc2": "。Achieve Pack 的可堆肥袋經過",
+      "desc3": "和",
+      "desc4": "標準認證，確保真正的環保認證。",
+      "plasticFreeTitle": "無傳統塑膠成分",
+      "plasticFreeDesc": "我們的可堆肥袋不含任何石油基塑膠。由植物性 PLA 和 PBAT 生物聚合物製成，能回歸自然，不會作為微塑膠殘留在海洋和土壤中。",
+      "plasticFreeLink": "了解無塑膠與可堆肥的差異"
+    },
+    "table": {
+      "feature": "特性",
+      "compostable": "可堆肥",
+      "recyclable": "可回收單一PE",
+      "traditional": "傳統塑膠",
+      "decomposition": "分解時間",
+      "180days": "堆肥環境中 180 天",
+      "reqRecycling": "需要回收設施",
+      "hundredsYears": "數百年",
+      "materialSource": "材料來源",
+      "plantBased": "植物基 (玉米等)",
+      "singlePolymer": "單一聚合物 (PE/PP)",
+      "petroleum": "石油基",
+      "certs": "認證",
+      "enastm": "EN13432, ASTM D6400",
+      "iso15270": "ISO 15270",
+      "none": "無",
+      "bestFor": "最適合",
+      "coffeeSnacks": "咖啡、零食",
+      "dryProducts": "所有乾貨",
+      "generalUse": "一般用途",
+      "moq": "Achieve Pack 起訂量",
+      "100pcs": "100 個",
+      "5000pcs": "通常 5,000 個以上",
+      "learnBiodegradable": "了解更多可堆肥與生物降解包裝的差異"
+    },
+    "products": {
+      "shopAll": "購買全部",
+      "exploreFullShop": "探索完整商店"
+    },
+    "learnMore": "了解更多",
+    "team": {
+      "trustSignal": "自 2011 年以來，我們的團隊已在美國、歐盟、紐西蘭和亞洲支援超過 500 個品牌，涵蓋咖啡、零食、寵物食品和營養補充品。"
+    },
+    "freeServices": {
+      "badge": "100% 免費 • 無任何承諾",
+      "title": "為您的品牌提供免費服務",
+      "desc": "完全免費的專家協助：設計諮詢、3D 建模、網站設計和客戶入口網站。",
+      "designTitle": "設計諮詢",
+      "designDesc": "提供客製化刀模的專家包裝設計建議",
+      "mockupTitle": "3D 建模",
+      "mockupDesc": "包裝設計的逼真 3D 渲染圖",
+      "webTitle": "網站設計",
+      "webDesc": "為您的品牌打造現代化登陸頁面",
+      "portalTitle": "客戶中心",
+      "portalDesc": "追蹤訂單和管理報價的儀表板",
+      "exploreAll": "探索所有免費服務"
+    },
+    "faq": {
+      "scrollMore": "往下捲動查看更多常見問題"
+    },
+    "contact": {
+      "successTitle": "訊息發送成功！",
+      "successDesc": "感謝您與我們聯繫。我們將在 24 小時內回覆您。",
+      "sendAnother": "發送另一則訊息",
+      "sending": "發送中..."
+    },
+    "footer": {
+      "customBoxes": "客製化紙盒",
+      "labelsStickers": "標籤與貼紙",
+      "labBags": "實驗室袋",
+      "lowBarrier": "輕度防潮",
+      "mediumBarrier": "中度防潮",
+      "highBarrier": "高度防潮"
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "pouchHomePage": {
+    "products": {
+      "standUp": {
+        "name": "Stand Up Pouch",
+        "description": "The industry standard. Perfect for snacks & supplements."
+      },
+      "flatBottom": {
+        "name": "Flat Bottom",
+        "description": "Premium box-like stability. Best for coffee & tea."
+      },
+      "spouted": {
+        "name": "Spouted Pouch",
+        "description": "Flexible alternative to bottles. Lighter & cheaper."
+      }
+    },
+    "meta": {
+      "title": "POUCH.ECO - Sustainable Eco Packaging for Startups",
+      "description": "Sustainable packaging made simple. Low MOQ compostable pouches for startups. Get started with 500 units."
+    },
+    "hero": {
+      "badge": "500!",
+      "h1Line1": "Start.",
+      "h1Line2": "Scale.",
+      "terminalLine1": "> Eco packaging from 500 units.",
+      "terminalLine2": "> Compostable // Recyclable // Bio-based.",
+      "terminalLine3": "> Fast turnaround. No BS.",
+      "alts": {
+        "compostable": "Compostable",
+        "recyclable": "Recyclable",
+        "biobased": "Bio-based",
+        "pcr": "PCR"
+      },
+      "ctaBook": "Book Consultation",
+      "ctaMaterials": "View Materials",
+      "buttons": {
+        "prev": "Previous video",
+        "next": "Next video"
+      },
+      "tags": {
+        "compostable": "COMPOSTABLE_OK",
+        "recyclable": "RECYCLABLE_OK",
+        "industrial": "INDUSTRIAL_OK",
+        "pcr": "PCR_BARRIER_OK",
+        "biobased": "BIO_BASED_OK"
+      }
+    },
+    "trustedBy": {
+      "badge": "TRUSTED_BY",
+      "titlePrefix": "Join ",
+      "titleHighlight": "500+",
+      "titleSuffix": " Brands",
+      "subtitle": "From startups to established names - they all started with 500 units"
+    },
+    "showcase": {
+      "badge": "✨ Interactive 3D Showcase",
+      "title": "Eco Bags in 3D Space",
+      "subtitle": "Rotate, tilt, and inspect the certified organic structural barriers of our green pouches. Move your mouse to tilt, scroll to spin, or toggle models below.",
+      "spouted": {
+        "tag": "💧 Liquids & Purees",
+        "title": "Industrial Compostable Spouted Pouch",
+        "desc": "Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.",
+        "moqLabel": "MOQ:",
+        "moqVal": "2,000 units",
+        "certLabel": "Certifications:",
+        "certVal": "EN 13432, ASTM D6400"
+      },
+      "flatBottom": {
+        "tag": "🌱 Dry Goods & Coffee",
+        "title": "Home Compostable Flat Bottom Pouch",
+        "desc": "Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.",
+        "moqLabel": "MOQ:",
+        "moqVal": "1,000 units",
+        "certLabel": "Certifications:",
+        "certVal": "OK Compost HOME"
+      }
+    },
+    "social": {
+      "badge": "REAL PRODUCTS • REAL BRANDS",
+      "title": "As Seen In Social",
+      "desc": "Watch how our pouches help brands go viral. Unboxing experiences that customers love to share."
+    },
+    "features": {
+      "title": "Core Features",
+      "selectMaterial": "SELECT_MATERIAL_BELOW",
+      "moq": {
+        "title": "Low MOQ Protocol",
+        "desc": "Start with just 500 units. Test your market without massive inventory commitment. Perfect for startups and new product launches.",
+        "badge1": "500_MIN",
+        "badge2": "Fast_Launch"
+      },
+      "compostable": {
+        "title": "Bio_Matrix",
+        "desc": "Certified compostable materials. Industrial + home compost ready.",
+        "statusLabel": "STATUS:",
+        "statusVal": "BPI_CERTIFIED"
+      },
+      "fast": {
+        "title": "Fast_Ship",
+        "desc": "Samples in 2-3 weeks. Production in 6-8 weeks. No delays.",
+        "speedLabel": "SPEED:",
+        "speedVal": "OPTIMIZED"
+      },
+      "barrier": {
+        "title": "High-Barrier Tech",
+        "desc": "Multi-layer barrier structures. O2 + moisture blocking. Keeps product fresh for 6-18 months shelf life.",
+        "btn": "View Tech Specs"
+      }
+    },
+    "appSuite": {
+      "badge": "⚡ INTERACTIVE_UTILITIES",
+      "title": "PACKAGING APP SUITE",
+      "subtitle": "Engineer your pouch sizing and material specifications instantly. No guessing, no errors. Pure technical precision.",
+      "sizing": {
+        "badge": "SIZING APP",
+        "title": "[SIZING FINDER APP]",
+        "desc": "Calculate exact dimensions and capacity based on product weight & density presets. Match dimensions instantly with standard manufacturing templates.",
+        "bullets": {
+          "0": "Density presets (Coffee, Powders, Snacks)",
+          "1": "Volume calculations (Ounces, Grams, ML)",
+          "2": "Standard MoQ and size reference matching"
+        },
+        "btn": "LAUNCH SIZING APP →"
+      },
+      "spec": {
+        "badge": "MATERIAL SPEC",
+        "title": "[SPEC FINDER APP]",
+        "desc": "Search, filter, and compare water vapor & oxygen transmission rates (OTR/WVTR) across 15+ certified compostable, recyclable, PCR, and plant-based biopolymer structures.",
+        "bullets": {
+          "0": "15+ eco duplex & triplex structures",
+          "1": "OTR & WVTR performance level filtering",
+          "2": "Full thickness & weight sheets download"
+        },
+        "btn": "LAUNCH SPEC FINDER →"
+      }
+    },
+    "choosePlan": {
+      "title": "Choose Plan",
+      "bookCall": "BOOK CALL"
+    },
+    "knowledge": {
+      "badge": "📚 KNOWLEDGE_PORTAL",
+      "title": "ECO RESOURCE & LIBRARY",
+      "subtitle": "Deep-dive technical reports, global compliance playbooks, and circular economy research drafted by certified experts to keep your brand aligned.",
+      "guides": {
+        "compliance": {
+          "tag": "COMPLIANCE_2026",
+          "title": "EU PPWR Compliance Guide",
+          "desc": "Detailed analysis of void space ratios, harmonized recycling sorting labels, and eco-modulated modulation fees relief for EU-bound brand owners.",
+          "btn": "Read Playbook →"
+        },
+        "foil": {
+          "tag": "RECYCLING_SPECS",
+          "title": "Stamp Foil Recyclability",
+          "desc": "How hot stamp foils and metallic decorative embellishments affect sorting telemetry in municipal mono-material recycling streams.",
+          "btn": "Read Research →"
+        },
+        "zipper": {
+          "tag": "MATERIAL_SCIENCE",
+          "title": "Compostable Zipper Durability",
+          "desc": "Analyzing oxygen transmission rates and tensile grip durability of 100% plant-based reclosure zippers without removal requirements.",
+          "btn": "Read Technical Study →"
+        },
+        "roi": {
+          "tag": "PROCUREMENT_ROI",
+          "title": "Standard Runs vs. Custom Specs",
+          "desc": "Decision matrix comparing pre-made online packaging stock models with custom-engineered bulk B2B production specs to optimize unit pricing.",
+          "btn": "Compare Spec Sheets →"
+        }
+      },
+      "links": {
+        "sustainability": "🌱 Real-World Circular Sustainability",
+        "spoutedComposting": "💧 Spouted Biopolymer Composting",
+        "citrus": "🍊 Citrus Oil Protective Barriers"
+      }
+    },
+    "testimonial": {
+      "quote": "\"Started with 500 pouches from POUCH.ECO. Best decision ever. Now ordering 10K+ monthly.\"",
+      "author": "- Sarah M., Brand Founder"
+    }
+  }
+}
+import fs from 'fs';
+
+function extractTranslations(filePath, prefix) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  // Match t('key', 'default string') or t("key", "default string")
+  const regex = /t\(\s*['"]([^'"]+)['"]\s*,\s*(['"])(.*?)(?<!\\)\2\s*\)/g;
+  let match;
+  const translations = {};
+
+  while ((match = regex.exec(content)) !== null) {
+    const keyPath = match[1];
+    const defaultText = match[3].replace(/\\'/g, "'").replace(/\\"/g, '"');
+    
+    if (keyPath.startsWith(prefix)) {
+      const parts = keyPath.split('.');
+      let current = translations;
+      for (let i = 0; i < parts.length - 1; i++) {
+        if (!current[parts[i]]) current[parts[i]] = {};
+        current = current[parts[i]];
+      }
+      current[parts[parts.length - 1]] = defaultText;
+    }
+  }
+  return translations;
+}
+
+const appData = extractTranslations('src/App.tsx', 'achievePackHome');
+console.log(JSON.stringify(appData, null, 2));
