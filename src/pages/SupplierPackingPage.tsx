@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, AlertCircle, CheckCircle, Package, Send, ChevronRight } from 'lucide-react';
+import { Loader2, AlertCircle, CheckCircle, Package, Send, Plus, Trash2 } from 'lucide-react';
 
 interface PackingItem {
   id: number | string;
@@ -46,8 +46,21 @@ export default function SupplierPackingPage() {
       .finally(() => setLoading(false));
   }, [id]);
 
-  const updateItem = (idx: number, field: keyof PackingItem, value: number) => {
+  const updateItem = (idx: number, field: keyof PackingItem, value: any) => {
     setItems(prev => prev.map((it, i) => i === idx ? { ...it, [field]: value } : it));
+  };
+
+  const addItem = () => {
+    setItems(prev => [
+      ...prev,
+      { id: Date.now().toString(), name: '', details: '', ctn: 0, kgCtn: 0, cbm: 0 }
+    ]);
+  };
+
+  const removeItem = (idx: number) => {
+    if (confirm('确定要删除这项货物吗？ (Are you sure you want to delete this item?)')) {
+      setItems(prev => prev.filter((_, i) => i !== idx));
+    }
   };
 
   const handleSubmit = async () => {
@@ -169,17 +182,40 @@ export default function SupplierPackingPage() {
           <div className="divide-y divide-gray-50">
             {items.map((item, idx) => (
               <div key={item.id ?? idx} className="p-5 sm:p-6">
-                {/* Item header */}
-                <div className="flex items-start gap-2 mb-4">
-                  <span className="bg-emerald-100 text-emerald-700 font-bold text-sm rounded-full w-7 h-7 flex items-center justify-center flex-shrink-0">
+                {/* Item header (Editable Name & Details) */}
+                <div className="flex items-start gap-3 mb-4 relative">
+                  <span className="bg-emerald-100 text-emerald-700 font-bold text-sm rounded-full w-7 h-7 flex items-center justify-center flex-shrink-0 mt-1">
                     {idx + 1}
                   </span>
-                  <div>
-                    <p className="font-bold text-gray-800 leading-tight">{item.name}</p>
-                    {item.details && (
-                      <p className="text-xs text-gray-400 mt-1 whitespace-pre-wrap leading-relaxed">{item.details}</p>
-                    )}
+                  <div className="flex-1 space-y-2 pr-10">
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-500 mb-1">货物名称 (Item Name)</label>
+                      <input
+                        type="text"
+                        value={item.name}
+                        onChange={e => updateItem(idx, 'name', e.target.value)}
+                        placeholder="输入货物名称"
+                        className="w-full font-bold text-gray-800 border-b border-gray-200 px-0 py-1 focus:border-emerald-500 focus:ring-0 outline-none transition bg-transparent"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-500 mb-1">详细描述 (Details / SKU)</label>
+                      <textarea
+                        value={item.details}
+                        onChange={e => updateItem(idx, 'details', e.target.value)}
+                        placeholder="输入货物详细描述 (选填)"
+                        rows={2}
+                        className="w-full text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition bg-gray-50 resize-none"
+                      />
+                    </div>
                   </div>
+                  <button 
+                    onClick={() => removeItem(idx)}
+                    className="absolute right-0 top-1 text-red-400 hover:text-red-600 p-2 hover:bg-red-50 rounded-lg transition"
+                    title="删除此项 (Delete)"
+                  >
+                    <Trash2 className="w-5 h-5" />
+                  </button>
                 </div>
 
                 {/* Input grid */}
@@ -231,6 +267,15 @@ export default function SupplierPackingPage() {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="px-6 py-4 border-t border-gray-50">
+            <button
+              onClick={addItem}
+              className="flex items-center justify-center gap-2 w-full py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50 transition font-medium"
+            >
+              <Plus className="w-5 h-5" /> 新增货物 (Add New Item)
+            </button>
           </div>
 
           {/* Grand Totals */}
