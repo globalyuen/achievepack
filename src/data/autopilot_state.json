@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T17:02:37.815Z",
+  "lastUnifiedRun": "2026-06-21T17:18:38.157Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3885,17 +3885,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "eco-friendly-barrier-pouches-for-jerky-snacks",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "eco friendly barrier pouches for jerky snacks",
-      "difficulty": "Low",
-      "slug": "eco-friendly-barrier-pouches-for-jerky-snacks"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "compostable pouch with spout for sauces",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "compostable-pouch-with-spout-for-sauces"
     },
     {
       "status": "Pending",
@@ -4008,9 +4009,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T17:02:23.490Z",
+      "timestamp": "2026-06-21T17:15:31.144Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier pouches for jerky snacks\" to /blog/eco-friendly-barrier-pouches-for-jerky-snacks (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch with spout for sauces\" to /blog/compostable-pouch-with-spout-for-sauces (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier pouches for jerky snacks\" to /blog/eco-friendly-barrier-pouches-for-jerky-snacks (Pending Approval)",
+      "timestamp": "2026-06-21T17:02:23.490Z"
     },
     {
       "action": "Autopilot Generation Draft",
