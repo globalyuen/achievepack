@@ -145,7 +145,8 @@ export interface EcoStockProduct extends BaseStoreProduct {
   shape: string
   material: string
   basePrice: number
-  pricePerPiece: number
+  pricePerPiece?: number
+  priceRemark?: string
   minQuantity: number
   quantityStep: number
   sizeInfo: string
