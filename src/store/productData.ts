@@ -8216,8 +8216,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     minOrder: 10,
     shape: 'Rollstock',
     material: 'CitrusCycle™ Orange Peel Waste PHA',
-    basePrice: 667.8,
-    pricePerPiece: 66.78,
+    basePrice: 44.5, // USD flat rate for 2 kg (≈ 318 RMB)
+    priceRemark: 'USD flat rate (2 kg) – shipping not included',
     minQuantity: 10,
     quantityStep: 10,
     sizeInfo: '1 kg Spool (1.75 mm / 2.85 mm)',
