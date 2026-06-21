@@ -8814,5 +8814,185 @@
         }
       }
     }
+  },
+  "pouchHomePage": {
+    "products": {
+      "standUp": {
+        "name": "Sachet Tient Debout",
+        "description": "Le standard de l'industrie. Parfait pour les snacks et les compléments."
+      },
+      "flatBottom": {
+        "name": "Fond Plat",
+        "description": "Stabilité premium en forme de boîte. Idéal pour le café et le thé."
+      },
+      "spouted": {
+        "name": "Sachet à Bec",
+        "description": "Alternative flexible aux bouteilles. Plus léger et moins cher."
+      }
+    },
+    "meta": {
+      "title": "POUCH.ECO - Emballages Éco-Responsables pour Startups",
+      "description": "Emballage durable simplifié. Sachets compostables à faible MOQ pour les startups. Commencez avec 500 unités."
+    },
+    "hero": {
+      "badge": "500!",
+      "h1Line1": "Commencez.",
+      "h1Line2": "Développez.",
+      "terminalLine1": "> Emballage écologique dès 500 unités.",
+      "terminalLine2": "> Compostable // Recyclable // Biosourcé.",
+      "terminalLine3": "> Délai rapide. Sans bla-bla.",
+      "alts": {
+        "compostable": "Compostable",
+        "recyclable": "Recyclable",
+        "biobased": "Biosourcé",
+        "pcr": "PCR"
+      },
+      "ctaBook": "Réserver une Consultation",
+      "ctaMaterials": "Voir les Matériaux",
+      "buttons": {
+        "prev": "Vidéo précédente",
+        "next": "Vidéo suivante"
+      },
+      "tags": {
+        "compostable": "COMPOSTABLE_OK",
+        "recyclable": "RECYCLABLE_OK",
+        "industrial": "INDUSTRIEL_OK",
+        "pcr": "BARRIÈRE_PCR_OK",
+        "biobased": "BIOSOURCÉ_OK"
+      }
+    },
+    "trustedBy": {
+      "badge": "APPROUVÉ_PAR",
+      "titlePrefix": "Rejoignez ",
+      "titleHighlight": "500+",
+      "titleSuffix": " Marques",
+      "subtitle": "Des startups aux grands noms - tous ont commencé avec 500 unités"
+    },
+    "showcase": {
+      "badge": "✨ Présentation 3D Interactive",
+      "title": "Sachets Écologiques en 3D",
+      "subtitle": "Tournez, inclinez et inspectez les barrières structurelles organiques certifiées de nos sachets verts. Déplacez votre souris pour incliner, faites défiler pour tourner ou changez de modèle ci-dessous.",
+      "spouted": {
+        "tag": "💧 Liquides et Purées",
+        "title": "Sachet à Bec Compostable Industriel",
+        "desc": "Sachet flexible certifié compostable industriellement doté d'un bec rigide entièrement végétal. Remplace les barrières classiques de bec en plastique avec une empreinte plastique nulle.",
+        "moqLabel": "MOQ:",
+        "moqVal": "2,000 unités",
+        "certLabel": "Certifications:",
+        "certVal": "EN 13432, ASTM D6400"
+      },
+      "flatBottom": {
+        "tag": "🌱 Produits Secs et Café",
+        "title": "Sachet à Fond Plat Compostable Domestique",
+        "desc": "Structure premium de fond de boîte 100% compostable domestiquement qui offre une excellente présence en rayon. Se décompose en toute sécurité dans les composteurs domestiques.",
+        "moqLabel": "MOQ:",
+        "moqVal": "1,000 unités",
+        "certLabel": "Certifications:",
+        "certVal": "OK Compost HOME"
+      }
+    },
+    "social": {
+      "badge": "VRAIS PRODUITS • VRAIES MARQUES",
+      "title": "Vu sur les Réseaux Sociaux",
+      "desc": "Regardez comment nos sachets aident les marques à devenir virales. Des expériences de déballage que les clients adorent partager."
+    },
+    "features": {
+      "title": "Caractéristiques Principales",
+      "selectMaterial": "SÉLECTIONNER_MATÉRIAU_CI_DESSOUS",
+      "moq": {
+        "title": "Protocole à Faible MOQ",
+        "desc": "Commencez avec seulement 500 unités. Testez votre marché sans engagement massif de stocks. Parfait pour les startups et les nouveaux lancements.",
+        "badge1": "500_MIN",
+        "badge2": "Lancement_Rapide"
+      },
+      "compostable": {
+        "title": "Bio_Matrix",
+        "desc": "Matériaux compostables certifiés. Prêts pour le compostage industriel et domestique.",
+        "statusLabel": "STATUT:",
+        "statusVal": "CERTIFIÉ_BPI"
+      },
+      "fast": {
+        "title": "Expédition_Rapide",
+        "desc": "Échantillons en 2-3 semaines. Production en 6-8 semaines. Sans retards.",
+        "speedLabel": "VITESSE:",
+        "speedVal": "OPTIMISÉE"
+      },
+      "barrier": {
+        "title": "Technologie Haute Barrière",
+        "desc": "Structures barrières multicouches. Blocage d'O2 et d'humidité. Garde le produit frais pour une durée de conservation de 6 à 18 mois.",
+        "btn": "Voir Spécifications Techniques"
+      }
+    },
+    "appSuite": {
+      "badge": "⚡ UTILITAIRES_INTERACTIFS",
+      "title": "SUITE D'APPLICATIONS D'EMBALLAGE",
+      "subtitle": "Concevez instantanément la taille de votre sachet et les spécifications des matériaux. Sans deviner, sans erreurs. Pure précision technique.",
+      "sizing": {
+        "badge": "APPLI DE TAILLE",
+        "title": "[CHERCHEUR DE TAILLES]",
+        "desc": "Calculez les dimensions et la capacité exactes en fonction du poids et de la densité du produit. Associez instantanément les dimensions aux modèles de fabrication standards.",
+        "bullets": {
+          "0": "Préréglages de densité (Café, Poudres, Snacks)",
+          "1": "Calculs de volume (Onces, Grammes, ML)",
+          "2": "Adaptation de MOQ standard et de taille de référence"
+        },
+        "btn": "LANCER L'APPLI DE TAILLE →"
+      },
+      "spec": {
+        "badge": "SPÉCIFICATIONS MATÉRIAU",
+        "title": "[CHERCHEUR DE SPÉCIFICATIONS]",
+        "desc": "Recherchez, filtrez et comparez les taux de transmission de vapeur d'eau et d'oxygène (OTR/WVTR) sur plus de 15 structures compostables, recyclables et PCR.",
+        "bullets": {
+          "0": "Plus de 15 structures écologiques duplex et triplex",
+          "1": "Filtrage des niveaux de performance OTR et WVTR",
+          "2": "Téléchargement des fiches complètes d'épaisseur et de poids"
+        },
+        "btn": "LANCER LE CHERCHEUR DE SPÉCIFICATIONS →"
+      }
+    },
+    "choosePlan": {
+      "title": "Choisir un Plan",
+      "bookCall": "RÉSERVER UN APPEL"
+    },
+    "knowledge": {
+      "badge": "📚 PORTAIL_DE_CONNAISSANCES",
+      "title": "RESSOURCES & BIBLIOTHÈQUE ÉCO",
+      "subtitle": "Rapports techniques approfondis, guides de conformité mondiale et recherches sur l'économie circulaire par des experts pour maintenir votre marque alignée.",
+      "guides": {
+        "compliance": {
+          "tag": "CONFORMITÉ_2026",
+          "title": "Guide de Conformité EU PPWR",
+          "desc": "Analyse détaillée des ratios d'espace vide, étiquettes de tri harmonisées et allègement des frais de modulation écologique pour les marques destinées à l'UE.",
+          "btn": "Lire le Guide →"
+        },
+        "foil": {
+          "tag": "SPÉCIFICATIONS_DE_RECYCLAGE",
+          "title": "Recyclabilité de l'Estampage à Chaud",
+          "desc": "Comment les dorures à chaud et embellissements métalliques affectent la télémétrie de tri dans les flux de recyclage mono-matériaux.",
+          "btn": "Lire la Recherche →"
+        },
+        "zipper": {
+          "tag": "SCIENCE_DES_MATÉRIAUX",
+          "title": "Durabilité du Zip Compostable",
+          "desc": "Analyse des taux de transmission d'oxygène et de la durabilité de traction des fermetures 100% végétales sans retrait requis.",
+          "btn": "Lire l'Étude Technique →"
+        },
+        "roi": {
+          "tag": "ROI_D_ACHAT",
+          "title": "Séries Standards vs. Spécifications Sur Mesure",
+          "desc": "Matrice de décision comparant les modèles de stocks d'emballages préfabriqués avec les spécifications de production B2B en gros sur mesure.",
+          "btn": "Comparer les Spécifications →"
+        }
+      },
+      "links": {
+        "sustainability": "🌱 Durabilité Circulaire Réelle",
+        "spoutedComposting": "💧 Compostage de Biopolymères à Bec",
+        "citrus": "🍊 Barrières Protectrices à l'Huile d'Agrumes"
+      }
+    },
+    "testimonial": {
+      "quote": "\"Nous avons commencé avec 500 sachets POUCH.ECO. La meilleure décision. Maintenant, nous commandons plus de 10K par mois.\"",
+      "author": "- Sarah M., Fondatrice de Marque"
+    }
   }
 }
