@@ -51,6 +51,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
       { id: 'conventional-digital', label: 'Conventional Digital', count: 8 },
       { id: 'eco-stock-plain', label: 'Eco Stock (Plain)', count: 5 },
       { id: 'conventional-stock-plain', label: 'Conventional Stock', count: 1 },
+      { id: '3d-print', label: '3D Printing', count: 1 },
     ]
   },
   {
@@ -83,6 +84,7 @@ const CATEGORIES = [
   { id: 'boxes', label: 'Boxes' },
   { id: 'mailer', label: 'Mailer Bags' },
   { id: 'custom-pouches', label: 'Custom Pouches' },
+  { id: '3d-print', label: '3D Printing' },
 ]
 
 const SHAPES = [
@@ -710,8 +712,10 @@ const StorePage: React.FC = () => {
       if (
         productSubCategory === 'eco-stock-plain' || 
         productSubCategory === 'conventional-stock-plain' || 
+        productSubCategory === '3d-print' ||
         product.category === 'conventional-stock' || 
         product.category === 'eco-stock' ||
+        product.category === '3d-print' ||
         product.id.includes('stock') ||
         product.id.includes('plain')
       ) {
@@ -1254,6 +1258,7 @@ const StorePage: React.FC = () => {
                 { id: 'eco-digital', label: 'Custom Print', icon: '🎨' },
                 { id: 'eco-stock-plain', label: 'Eco Stock', icon: '🌱' },
                 { id: 'conventional-stock-plain', label: 'Conventional Stock', icon: '⚙️' },
+                { id: '3d-print', label: '3D Printing', icon: '🧵' },
                 { id: 'boxes', label: 'Boxes', icon: '📦' }
               ].map(cat => {
                 const isCatActive = selectedCategory === cat.id;

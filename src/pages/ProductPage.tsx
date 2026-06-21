@@ -505,7 +505,7 @@ const ProductPage: React.FC = () => {
   const product = FEATURED_PRODUCTS.find(p => p.id === productId)
   const isEcoDigital = product?.category === 'eco-digital'
   const isConventionalDigital = product?.category === 'conventional-digital'
-  const isEcoStock = product?.category === 'eco-stock' || product?.category === 'conventional-stock'
+  const isEcoStock = product?.category === 'eco-stock' || product?.category === 'conventional-stock' || product?.category === '3d-print'
   const isBoxes = product?.category === 'boxes'
   const ecoProduct = isEcoDigital ? (product as EcoDigitalProduct) : null
   const conventionalProduct = isConventionalDigital ? (product as ConventionalProduct) : null

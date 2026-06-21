@@ -1,5 +1,5 @@
 // Store category types
-export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock' | 'boxes' | 'conventional-stock' | 'custom-pouches'
+export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock' | 'boxes' | 'conventional-stock' | 'custom-pouches' | '3d-print'
 
 // NEW: Product type for Stock vs Custom distinction
 export type ProductType = 'sample' | 'stock' | 'custom'
@@ -14,6 +14,7 @@ export type ProductSubCategory =
   | 'eco-stock-custom-print'    // Custom: Eco Stock Custom Print
   | 'boxes'                     // Custom: Boxes
   | 'custom-pouches'            // Custom: Custom Pouches with Live Quote
+  | '3d-print'                  // 3D Printing Filament / Rollstock
 
 // Legacy product interface (keeping for backward compatibility)
 export interface PouchProduct {
@@ -140,7 +141,7 @@ export interface EcoStockSizeWithQuantities {
 
 // Eco Stock product (ready-made compostable)
 export interface EcoStockProduct extends BaseStoreProduct {
-  category: 'eco-stock' | 'conventional-stock'
+  category: 'eco-stock' | 'conventional-stock' | '3d-print'
   shape: string
   material: string
   basePrice: number
@@ -8188,6 +8189,95 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       }
     ],
     customPrintNote: 'Custom full-color print versions available from 200+ pieces. Please consult our team.'
+  },
+  {
+    id: 'compostable-citrus-orange-filament-rollstock',
+    name: 'Home Compostable CitrusCycle™ Orange Peel Waste PHA 3D Printing Filament',
+    category: '3d-print',
+    description: 'High-performance 3D printing filament engineered from post-industrial orange peel waste and natural PHA (Polyhydroxyalkanoate). Fully home-compostable and marine-degradable, it offers a sustainable alternative to fossil-based polymers like ABS and PETG. Designed for rollstock extrusion and standard FDM printers, CitrusCycle™ delivers a matte orange finish with excellent interlayer adhesion, minimal warping, and a subtle natural citrus aroma during printing. Perfect for eco-friendly prototyping, bio-plastics research, and packaging dieline test fits.',
+    shortDesc: 'Home-compostable 3D printing filament made from orange peel waste and marine-degradable PHA',
+    features: [
+      'CitrusCycle™ Biomass: Formulated using natural orange peel residues and backyard compostable PHA.',
+      'Zero Microplastics: 100% bio-based, leaves no toxic residues or persistent plastics.',
+      'Matte Natural Finish: Warm orange color with a textured matte surface, perfect for organic designs.',
+      'Industrial & FDM Grade: Designed for standard 1.75mm and 2.85mm setups with low warping.',
+      'B2B Wholesale Tiers: Spooled in 1 kg rollstock format, optimized for eco-packaging prototyping.'
+    ],
+    images: [
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-1.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-2.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-3.png'
+    ],
+    badge: '🌱 100% Home Compostable',
+    rating: 4.9,
+    reviews: 18,
+    inStock: true,
+    turnaround: '7-10 Days',
+    minOrder: 10,
+    shape: 'Rollstock',
+    material: 'CitrusCycle™ Orange Peel Waste PHA',
+    basePrice: 350,
+    pricePerPiece: 35,
+    minQuantity: 10,
+    quantityStep: 10,
+    sizeInfo: '1 kg Spool (1.75 mm / 2.85 mm)',
+    sizeVariants: [
+      {
+        id: 'citrus-orange-filament-1.75mm-10kg',
+        label: '1.75 mm Spool - 10 kg (10 x 1kg)',
+        dimensions: '1.75 mm • 10 kg (10 rolls) • Citrus Orange',
+        hasHole: true,
+        quantity: 10,
+        totalPrice: 350.00,
+        unitPrice: 35.00
+      },
+      {
+        id: 'citrus-orange-filament-1.75mm-50kg',
+        label: '1.75 mm Spool - 50 kg (50 x 1kg)',
+        dimensions: '1.75 mm • 50 kg (50 rolls) • Citrus Orange',
+        hasHole: true,
+        quantity: 50,
+        totalPrice: 1400.00,
+        unitPrice: 28.00
+      },
+      {
+        id: 'citrus-orange-filament-1.75mm-100kg',
+        label: '1.75 mm Spool - 100 kg (100 x 1kg)',
+        dimensions: '1.75 mm • 100 kg (100 rolls) • Citrus Orange',
+        hasHole: true,
+        quantity: 100,
+        totalPrice: 2200.00,
+        unitPrice: 22.00
+      },
+      {
+        id: 'citrus-orange-filament-2.85mm-10kg',
+        label: '2.85 mm Spool - 10 kg (10 x 1kg)',
+        dimensions: '2.85 mm • 10 kg (10 rolls) • Citrus Orange',
+        hasHole: true,
+        quantity: 10,
+        totalPrice: 350.00,
+        unitPrice: 35.00
+      },
+      {
+        id: 'citrus-orange-filament-2.85mm-50kg',
+        label: '2.85 mm Spool - 50 kg (50 x 1kg)',
+        dimensions: '2.85 mm • 50 kg (50 rolls) • Citrus Orange',
+        hasHole: true,
+        quantity: 50,
+        totalPrice: 1400.00,
+        unitPrice: 28.00
+      },
+      {
+        id: 'citrus-orange-filament-2.85mm-100kg',
+        label: '2.85 mm Spool - 100 kg (100 x 1kg)',
+        dimensions: '2.85 mm • 100 kg (100 rolls) • Citrus Orange',
+        hasHole: true,
+        quantity: 100,
+        totalPrice: 2200.00,
+        unitPrice: 22.00
+      }
+    ],
+    customPrintNote: 'Custom spool sizes, filament diameters, and colorways are available for bulk orders of 100+ spools. Please consult our engineering team.'
   }
 ]
 
@@ -8243,6 +8333,7 @@ export const getProductType = (product: StoreProduct): ProductType => {
     return 'stock'
   }
   if (product.category === 'conventional-stock') return 'stock'
+  if (product.category === '3d-print') return 'stock'
   if (product.category === 'eco-digital') return 'custom'
   if (product.category === 'boxes') return 'custom'
   
@@ -8271,6 +8362,7 @@ export const getProductSubCategory = (product: StoreProduct): ProductSubCategory
     return 'eco-stock-plain'
   }
   if (product.category === 'conventional-stock') return 'conventional-stock-plain'
+  if (product.category === '3d-print') return '3d-print'
   if (product.category === 'eco-digital') return 'eco-digital'
   if (product.category === 'boxes') return 'boxes'
   
