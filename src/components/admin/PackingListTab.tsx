@@ -30,6 +30,11 @@ export default function PackingListTab() {
     try {
       setLoadingHistory(true);
       const resp = await fetch('/api/list-packing-links');
+      const contentType = resp.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error('API returned non-JSON. Are you running with "vercel dev"?');
+        return;
+      }
       const data = await resp.json();
       if (data.success) {
         setSavedLinks(data.links || []);
@@ -49,6 +54,10 @@ export default function PackingListTab() {
     if (!confirm('Are you sure you want to delete this packing list link?')) return;
     try {
       const resp = await fetch(`/api/list-packing-links?id=${id}`, { method: 'DELETE' });
+      const contentType = resp.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server returned HTML instead of JSON. Please use "vercel dev".');
+      }
       const data = await resp.json();
       if (data.success) {
         fetchHistory();
@@ -64,6 +73,10 @@ export default function PackingListTab() {
   const handleLoadLink = async (id: string) => {
     try {
       const resp = await fetch(`/api/get-packing-link?id=${id}`);
+      const contentType = resp.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server returned HTML instead of JSON. Please use "vercel dev" to run the local API backend.');
+      }
       const data = await resp.json();
       if (data.success) {
         setInvoiceNo(data.invoiceNo || '');
@@ -122,6 +135,10 @@ export default function PackingListTab() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ invoiceNo, supplierName, billTo, shipTo, incoterm, invoiceDate, items }),
       });
+      const contentType = resp.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server returned HTML. If running locally, you must use "vercel dev" so that /api routes work correctly. If in production, the server may have timed out (504).');
+      }
       const data = await resp.json();
       if (!data.success) throw new Error(data.error || 'Failed to generate link');
       setLinkId(data.id);
@@ -149,6 +166,10 @@ export default function PackingListTab() {
     setRefreshLoading(true);
     try {
       const resp = await fetch(`/api/get-packing-link?id=${linkId}`);
+      const contentType = resp.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server returned HTML instead of JSON. Please use "vercel dev".');
+      }
       const data = await resp.json();
       if (!data.success) throw new Error(data.error || 'Failed to fetch');
       if (data.supplierSubmitted && data.items?.length) {

@@ -20,12 +20,7 @@ export default defineConfig({
     },
   },
   server: {
-    proxy: {
-      '/api': {
-        target: 'https://achievepack.com',
-        changeOrigin: true,
-      }
-    }
+    // Proxy removed: to use /api locally, use `vercel dev` instead of `npm run dev`
   },
   // Optimize lucide-react tree-shaking
   optimizeDeps: {
