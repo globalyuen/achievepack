@@ -8994,5 +8994,165 @@
       "quote": "\"Nous avons commencé avec 500 sachets POUCH.ECO. La meilleure décision. Maintenant, nous commandons plus de 10K par mois.\"",
       "author": "- Sarah M., Fondatrice de Marque"
     }
+  },
+  "achievePackHome": {
+    "nav": {
+      "shopAll": "🛒 Voir Tous Les Produits",
+      "pouchShapes": "Formes de Sachets",
+      "standUpPouch": "Sachet Tient Debout",
+      "boxBottomPouch": "Sachet Fond Plat",
+      "sideGussetPouch": "Sachet à Soufflets Latéraux",
+      "threeSideSeal": "Sachet 3 Soudures",
+      "learnCenter": "📚 Centre d'Apprentissage",
+      "materials": "Matériaux",
+      "compostable": "Compostable",
+      "homeCompostable": "Compostable Domestique",
+      "recyclableMonoPE": "Recyclable Mono PE",
+      "bioPE": "Bio-PE",
+      "packagingShapes": "Formes d'Emballage",
+      "standUpPouches": "Sachets Tiennent Debout",
+      "flatBottomBags": "Sachets Fond Plat",
+      "sideGussetBags": "Sachets à Soufflets Latéraux",
+      "spoutPouches": "Sachets à Bec",
+      "industries": "Industries",
+      "coffeeTea": "Café & Thé",
+      "snacksFood": "Snacks & Alimentation",
+      "petFood": "Alimentation pour Animaux",
+      "supplements": "Compléments",
+      "babyFood": "Aliments pour Bébés",
+      "frozenFood": "Produits Surgelés",
+      "citrusOil": "Emballage pour Huile d'Agrumes",
+      "viewAllLearn": "Voir Toutes les Pages d'Apprentissage →",
+      "blog": "📝 Blog",
+      "allArticles": "Tous les Articles",
+      "packagingTips": "Conseils d'Emballage",
+      "sustainability": "Développement Durable",
+      "industryNews": "Actualités de l'Industrie",
+      "unprintedSamples": "📦 Échantillons Non Imprimés",
+      "customPrintedSample": "✨ Échantillon Imprimé Personnalisé",
+      "customerCenter": "Espace Client",
+      "language": "Langue"
+    },
+    "hero": {
+      "transformText": "Transformez votre entreprise avec des solutions d'emballage",
+      "solutionsFrom": " certifiées. Des ",
+      "coffeeBags": "sachets de café avec valves de dégazage",
+      "to": " aux ",
+      "customPouches": "sachets alimentaires imprimés personnalisés",
+      "reduceImpact": ", réduisez votre impact environnemental tout en offrant une valeur commerciale exceptionnelle.",
+      "shopNow": "Acheter Maintenant"
+    },
+    "shop": {
+      "title": "Acheter des Emballages Compostables et Recyclables",
+      "compostable": "Compostable",
+      "recyclable": "Recyclable",
+      "en13432": "sachets compostables certifiés EN13432",
+      "comma": ", ",
+      "coffeeBags": "sachets de café",
+      "and": " et ",
+      "customBoxes": "boîtes personnalisées",
+      "with": " avec ",
+      "lowMoq": "un faible MOQ à partir de 100 pcs",
+      "browseAll": "Parcourir toutes les options d'emballage écologique"
+    },
+    "apps": {
+      "tag": "Suite d'Ingénierie Interactive",
+      "title": "Applications d'Emballage Professionnelles",
+      "desc": "Concevez et dimensionnez l'emballage durable de votre marque en quelques secondes grâce à nos applications web interactives.",
+      "sizingTool": "Outil de Dimensionnement",
+      "sizingTitle": "Chercheur de Tailles de Sachets",
+      "sizingDesc": "Calculez les dimensions exactes et le volume du soufflet en fonction du poids ciblé, du type de produit et de la densité de la substance.",
+      "sizingL1": "Préréglages de densité spécifiques aux produits (Café, Thé, Poudres, Snacks)",
+      "sizingL2": "Calculs de volume précis (Onces fluides, Grammes, Millilitres)",
+      "sizingL3": "Tableaux de tailles interactifs et exigences MOQ standard",
+      "launchSizing": "Lancer le Chercheur de Tailles",
+      "materialTool": "Outil de Matériaux",
+      "materialTitle": "Chercheur de Spécifications de Matériaux",
+      "materialDesc": "Recherchez, filtrez et comparez les propriétés mécaniques et barrières (Transmission d'Oxygène OTR et de Vapeur d'Eau WVTR).",
+      "materialL1": "Plus de 15 options de stratification duplex et triplex durables",
+      "materialL2": "Filtrage en direct du niveau de barrière (Élevée, Moyenne, Légère)",
+      "materialL3": "Fiches techniques complètes avec épaisseur et MOQ",
+      "launchMaterial": "Lancer le Chercheur de Spécifications"
+    },
+    "clients": {
+      "tag": "Approuvé par les Leaders de l'Industrie",
+      "title": "Pourquoi plus de 500 Marques Mondiales Choisissent Achieve Pack"
+    },
+    "seoBlock": {
+      "title": "Qu'est-ce que l'Emballage Compostable ?",
+      "desc1": "L'emballage compostable est un matériau certifié qui se biodégrade entièrement en éléments naturels en 180 jours dans des conditions de compostage industriel. Contrairement aux plastiques ordinaires, les sachets compostables se décomposent en eau, CO₂ et biomasse, ne laissant aucun ",
+      "microplastics": "microplastique",
+      "desc2": ". Les sacs compostables d'Achieve Pack sont certifiés selon les normes ",
+      "desc3": " et ",
+      "desc4": ", garantissant de véritables références environnementales.",
+      "plasticFreeTitle": "Sans Plastique Conventionnel",
+      "plasticFreeDesc": "Nos sachets compostables ne contiennent aucun plastique dérivé du pétrole. Fabriqués à partir de biopolymères végétaux PLA et PBAT, ils retournent à la nature.",
+      "plasticFreeLink": "En savoir plus sur le sans plastique vs compostable"
+    },
+    "table": {
+      "feature": "Caractéristique",
+      "compostable": "Compostable",
+      "recyclable": "Recyclable Mono-PE",
+      "traditional": "Plastique Traditionnel",
+      "decomposition": "Décomposition",
+      "180days": "180 jours en compostage",
+      "reqRecycling": "Nécessite un centre de recyclage",
+      "hundredsYears": "Des centaines d'années",
+      "materialSource": "Source du Matériau",
+      "plantBased": "À base de plantes (maïs)",
+      "singlePolymer": "Polymère unique (PE/PP)",
+      "petroleum": "À base de pétrole",
+      "certs": "Certifications",
+      "enastm": "EN13432, ASTM D6400",
+      "iso15270": "ISO 15270",
+      "none": "Aucune",
+      "bestFor": "Idéal Pour",
+      "coffeeSnacks": "Café, snacks",
+      "dryProducts": "Tous les produits secs",
+      "generalUse": "Usage général",
+      "moq": "MOQ chez Achieve Pack",
+      "100pcs": "100 pièces",
+      "5000pcs": "5 000+ typique",
+      "learnBiodegradable": "En savoir plus sur les emballages compostables vs biodégradables"
+    },
+    "products": {
+      "shopAll": "Tout Acheter",
+      "exploreFullShop": "Explorer Toute la Boutique"
+    },
+    "learnMore": "En savoir plus",
+    "team": {
+      "trustSignal": "Notre équipe a accompagné plus de 500 marques aux États-Unis, dans l'UE, en Nouvelle-Zélande et en Asie depuis 2011, dans les catégories du café, des snacks, des friandises pour animaux et des compléments."
+    },
+    "freeServices": {
+      "badge": "100% Gratuit • Sans Engagement",
+      "title": "Services Gratuits pour Votre Marque",
+      "desc": "Une aide experte totalement gratuite : consultation en conception, maquettes 3D, conception web et portail client.",
+      "designTitle": "Consultation en Conception",
+      "designDesc": "Conseils d'experts en conception d'emballage avec tracés sur mesure",
+      "mockupTitle": "Maquette 3D",
+      "mockupDesc": "Rendus photoréalistes du design de votre emballage",
+      "webTitle": "Conception Web",
+      "webDesc": "Page de destination moderne pour votre marque",
+      "portalTitle": "Espace Client",
+      "portalDesc": "Tableau de bord pour suivre les commandes et gérer les devis",
+      "exploreAll": "Explorer Tous Les Services Gratuits"
+    },
+    "faq": {
+      "scrollMore": "Faites défiler pour plus de FAQ"
+    },
+    "contact": {
+      "successTitle": "Message Envoyé avec Succès !",
+      "successDesc": "Merci de nous avoir contactés. Nous vous répondrons dans les 24 heures.",
+      "sendAnother": "Envoyer un autre message",
+      "sending": "Envoi en cours..."
+    },
+    "footer": {
+      "customBoxes": "Boîtes Personnalisées",
+      "labelsStickers": "Étiquettes & Autocollants",
+      "labBags": "Sacs de Laboratoire",
+      "lowBarrier": "Barrière Faible",
+      "mediumBarrier": "Barrière Moyenne",
+      "highBarrier": "Barrière Haute"
+    }
   }
 }
