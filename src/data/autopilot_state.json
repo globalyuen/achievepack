@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T17:52:51.798Z",
+  "lastUnifiedRun": "2026-06-21T18:03:56.109Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3906,17 +3906,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "mono-material-recyclable-film-suppliers-for-flexible-packaging",
       "status": "Pending Approval",
       "volume": 750,
       "keyword": "mono material recyclable film suppliers for flexible packaging",
-      "difficulty": "Low",
-      "slug": "mono-material-recyclable-film-suppliers-for-flexible-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "compostable gusseted pouch for coffee beans",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-gusseted-pouch-for-coffee-beans"
     },
     {
       "status": "Pending",
@@ -4011,9 +4012,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T17:49:44.838Z",
+      "timestamp": "2026-06-21T18:00:44.392Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono material recyclable film suppliers for flexible packaging\" to /blog/mono-material-recyclable-film-suppliers-for-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable gusseted pouch for coffee beans\" to /blog/compostable-gusseted-pouch-for-coffee-beans (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono material recyclable film suppliers for flexible packaging\" to /blog/mono-material-recyclable-film-suppliers-for-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-21T17:49:44.838Z"
     },
     {
       "action": "Autopilot Generation Draft",
