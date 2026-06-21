@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T18:03:56.109Z",
+  "lastUnifiedRun": "2026-06-21T18:17:39.496Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -3920,10 +3920,11 @@
       "slug": "compostable-gusseted-pouch-for-coffee-beans"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1500,
       "keyword": "custom printed mono material stand up pouches",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "custom-printed-mono-material-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -4011,6 +4012,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-21T18:17:29.503Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed mono material stand up pouches\" to /blog/custom-printed-mono-material-stand-up-pouches (Pending Approval)"
+    },
     {
       "timestamp": "2026-06-21T18:00:44.392Z",
       "action": "Autopilot Generation Draft",
