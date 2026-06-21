@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T23:16:31.756Z",
+  "lastUnifiedRun": "2026-06-21T23:31:41.164Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -4039,17 +4039,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-sachet-filling-equipment",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "recyclable sachet filling equipment",
-      "difficulty": "Medium",
-      "slug": "recyclable-sachet-filling-equipment"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 700,
       "keyword": "eco friendly stand up pouch with degassing valve",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-stand-up-pouch-with-degassing-valve"
     },
     {
       "status": "Pending",
@@ -4144,9 +4145,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T23:15:21.913Z",
+      "timestamp": "2026-06-21T23:31:30.974Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable sachet filling equipment\" to /blog/recyclable-sachet-filling-equipment (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly stand up pouch with degassing valve\" to /blog/eco-friendly-stand-up-pouch-with-degassing-valve (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable sachet filling equipment\" to /blog/recyclable-sachet-filling-equipment (Pending Approval)",
+      "timestamp": "2026-06-21T23:15:21.913Z"
     },
     {
       "action": "Autopilot Error",
