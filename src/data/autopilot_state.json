@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T19:45:39.000Z",
+  "lastUnifiedRun": "2026-06-21T20:00:41.416Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3962,17 +3962,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "mono-pe-recyclable-film-for-flexible-packaging",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "mono pe recyclable film for flexible packaging",
-      "difficulty": "Low",
-      "slug": "mono-pe-recyclable-film-for-flexible-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "small batch custom shaped barrier pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-custom-shaped-barrier-pouches"
     },
     {
       "status": "Pending",
@@ -4017,125 +4018,130 @@
       "difficulty": "Low"
     },
     {
-      "keyword": "sustainable packaging for protein powder pouches",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 800,
-      "status": "Pending"
+      "keyword": "sustainable packaging for protein powder pouches",
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 600,
       "keyword": "compostable flat bottom bag dimensions",
-      "difficulty": "Low",
-      "volume": 600,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 900,
       "keyword": "recyclable sachet filling equipment",
-      "difficulty": "Medium",
-      "volume": 900,
-      "status": "Pending"
+      "difficulty": "Medium"
     },
     {
+      "status": "Pending",
+      "volume": 700,
       "keyword": "eco friendly stand up pouch with degassing valve",
-      "difficulty": "Low",
-      "volume": 700,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono material film for custom shaped pouches",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 500,
-      "status": "Pending"
+      "keyword": "mono material film for custom shaped pouches",
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 650,
       "keyword": "small run compostable barrier film printing",
-      "difficulty": "Low",
-      "volume": 650,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1100,
       "keyword": "kraft paper pouch sizes for tea",
-      "difficulty": "Low",
-      "volume": 1100,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier recyclable film for snacks",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "high barrier recyclable film for snacks",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "digital printed custom sachet dimensions",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 750,
-      "status": "Pending"
+      "keyword": "digital printed custom sachet dimensions",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable retort pouch for ready meals",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "compostable retort pouch for ready meals",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sustainable flexible packaging for supplements",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1200,
-      "status": "Pending"
+      "keyword": "sustainable flexible packaging for supplements",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "stand up pouch size guide for 16 oz",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 600,
-      "status": "Pending"
+      "keyword": "stand up pouch size guide for 16 oz",
+      "difficulty": "Low"
     },
     {
-      "keyword": "biodegradable barrier film for dry goods",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 700,
-      "status": "Pending"
+      "keyword": "biodegradable barrier film for dry goods",
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom printed recyclable pouches low moq",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1000,
-      "status": "Pending"
+      "keyword": "custom printed recyclable pouches low moq",
+      "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly sachet packaging for coffee",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1400,
-      "status": "Pending"
+      "keyword": "eco friendly sachet packaging for coffee",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "mono pe film roll stock suppliers",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 550,
-      "status": "Pending"
+      "keyword": "mono pe film roll stock suppliers",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable pouch with zipper for pet food",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 900,
-      "status": "Pending"
+      "keyword": "compostable pouch with zipper for pet food",
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital print bags for custom flexible packaging",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "digital print bags for custom flexible packaging",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "sachet sourcing for compostable barrier films",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 650,
-      "status": "Pending"
+      "keyword": "sachet sourcing for compostable barrier films",
+      "difficulty": "Low"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T19:45:29.098Z",
+      "timestamp": "2026-06-21T20:00:34.852Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono pe recyclable film for flexible packaging\" to /blog/mono-pe-recyclable-film-for-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch custom shaped barrier pouches\" to /blog/small-batch-custom-shaped-barrier-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe recyclable film for flexible packaging\" to /blog/mono-pe-recyclable-film-for-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-21T19:45:29.098Z"
     },
     {
       "action": "Autopilot Generation Draft",
