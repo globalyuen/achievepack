@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T20:31:33.971Z",
+  "lastUnifiedRun": "2026-06-21T20:47:35.118Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3983,10 +3983,11 @@
       "slug": "biodegradable-pouch-with-zipper-for-snacks"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 750,
       "keyword": "recyclable flat bottom pouches for baby food",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-flat-bottom-pouches-for-baby-food"
     },
     {
       "status": "Pending",
@@ -4134,6 +4135,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-21T20:47:28.209Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable flat bottom pouches for baby food\" to /blog/recyclable-flat-bottom-pouches-for-baby-food (Pending Approval)"
+    },
     {
       "timestamp": "2026-06-21T20:31:25.167Z",
       "action": "Autopilot Generation Draft",
