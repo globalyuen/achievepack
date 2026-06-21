@@ -51,6 +51,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         id: row.id,
         invoiceNo: rd?.invoiceNo || '',
         supplierName: rd?.supplierName || '',
+        supplierPassword: rd?.supplierPassword || '1234',
+        customerPassword: rd?.customerPassword || '4321',
         supplierSubmitted: rd?.supplierSubmitted || false,
         supplierSubmittedAt: rd?.supplierSubmittedAt || null,
         createdAt: row.created_at,

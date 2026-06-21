@@ -1,10 +1,10 @@
 {
-  "generated": "2026-06-20",
-  "total_images": 3283,
+  "generated": "2026-06-21",
+  "total_images": 3288,
   "total_categories": 172,
   "extensions": {
     ".webp": 1303,
-    ".png": 1745,
+    ".png": 1750,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,38 @@
       ]
     },
     "blog/heros": {
-      "count": 571,
+      "count": 576,
       "images": [
+        {
+          "filename": "compostable-flat-bottom-pouches-for-protein-powder-hero.png",
+          "path": "/imgs/blog/heros/compostable-flat-bottom-pouches-for-protein-powder-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-21T02:30:37.631Z"
+        },
+        {
+          "filename": "digital-print-low-moq-pouches-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/digital-print-low-moq-pouches-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-21T02:00:25.039Z"
+        },
+        {
+          "filename": "compostable-retort-packaging-for-food-hero.png",
+          "path": "/imgs/blog/heros/compostable-retort-packaging-for-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-21T01:45:23.385Z"
+        },
+        {
+          "filename": "sustainable-flat-bottom-pouch-for-coffee-hero.png",
+          "path": "/imgs/blog/heros/sustainable-flat-bottom-pouch-for-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-21T01:30:24.451Z"
+        },
+        {
+          "filename": "mono-pe-film-for-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/mono-pe-film-for-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-20T11:15:24.004Z"
+        },
         {
           "filename": "eco-friendly-barrier-film-for-sachets-hero.png",
           "path": "/imgs/blog/heros/eco-friendly-barrier-film-for-sachets-hero.png",

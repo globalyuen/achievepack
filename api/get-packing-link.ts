@@ -44,6 +44,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       incoterm: rawData.incoterm,
       invoiceDate: rawData.invoiceDate,
       items: rawData.items || [],
+      supplierPassword: rawData.supplierPassword || '1234',
+      customerPassword: rawData.customerPassword || '4321',
       supplierSubmitted: rawData.supplierSubmitted || false,
       supplierSubmittedAt: rawData.supplierSubmittedAt || null,
     });

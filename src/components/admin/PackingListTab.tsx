@@ -134,7 +134,7 @@ export default function PackingListTab() {
     }
   };
 
-  const supplierUrl = linkId ? `${window.location.origin}/fill-packing/${linkId}` : '';
+  const supplierUrl = linkId ? `${window.location.origin}/packing-list/${linkId}` : '';
 
   const handleCopyLink = () => {
     if (!supplierUrl) return;
@@ -419,7 +419,7 @@ export default function PackingListTab() {
                 Refresh from Supplier
               </button>
             </div>
-            <p className="text-xs text-gray-500">Share this link with your supplier via WhatsApp or Email. They can fill in the carton count, weight and CBM without logging in.</p>
+            <p className="text-xs text-gray-500">Share this link with your supplier or customer. Use the table below to copy their specific passwords.</p>
           </div>
         )}
 
@@ -518,6 +518,7 @@ export default function PackingListTab() {
                   <th className="px-4 py-3 font-semibold border-b">Supplier</th>
                   <th className="px-4 py-3 font-semibold border-b">Date Sent</th>
                   <th className="px-4 py-3 font-semibold border-b">Status</th>
+                  <th className="px-4 py-3 font-semibold border-b">Passwords</th>
                   <th className="px-4 py-3 font-semibold border-b text-right">Actions</th>
                 </tr>
               </thead>
@@ -540,9 +541,15 @@ export default function PackingListTab() {
                         )}
                       </td>
                       <td className="px-4 py-3">
+                        <div className="text-xs">
+                          <div><span className="font-semibold text-blue-600">Supplier:</span> {link.supplierPassword || '---'}</div>
+                          <div><span className="font-semibold text-emerald-600">Customer:</span> {link.customerPassword || '---'}</div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3">
                         <div className="flex items-center justify-end gap-2">
-                          <button title="Copy Supplier Link" onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/fill-packing/${link.id}`); alert('Supplier Link Copied!'); }} className="text-blue-500 hover:text-blue-700 bg-blue-50 px-2 py-1 rounded flex items-center gap-1"><Copy className="w-3.5 h-3.5" /> Supplier</button>
-                          <button title="Copy Customer Link" onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/packing-report/${link.id}`); alert('Customer Link Copied!'); }} className="text-emerald-500 hover:text-emerald-700 bg-emerald-50 px-2 py-1 rounded flex items-center gap-1"><Link2 className="w-3.5 h-3.5" /> Customer</button>
+                          <button title="Copy Link with Supplier Password" onClick={() => { navigator.clipboard.writeText(`Link: ${window.location.origin}/packing-list/${link.id}\nPassword: ${link.supplierPassword}`); alert('Supplier Link & Password Copied!'); }} className="text-blue-500 hover:text-blue-700 bg-blue-50 px-2 py-1 rounded flex items-center gap-1"><Copy className="w-3.5 h-3.5" /> Supplier</button>
+                          <button title="Copy Link with Customer Password" onClick={() => { navigator.clipboard.writeText(`Link: ${window.location.origin}/packing-list/${link.id}\nPassword: ${link.customerPassword}`); alert('Customer Link & Password Copied!'); }} className="text-emerald-500 hover:text-emerald-700 bg-emerald-50 px-2 py-1 rounded flex items-center gap-1"><Link2 className="w-3.5 h-3.5" /> Customer</button>
                           <button title="Load into Editor" onClick={() => handleLoadLink(link.id)} className="text-purple-500 hover:text-purple-700 bg-purple-50 px-2 py-1 rounded"><Edit className="w-4 h-4" /></button>
                           <button title="Delete" onClick={() => handleDeleteLink(link.id)} className="text-red-400 hover:text-red-600 bg-red-50 px-2 py-1 rounded"><Trash2 className="w-4 h-4" /></button>
                         </div>

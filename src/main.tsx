@@ -681,8 +681,7 @@ const ShipmentHubPage = lazyWithRetry(() => import('./pages/admin/ShipmentHubPag
 const ShipmentDetailPage = lazyWithRetry(() => import('./pages/admin/ShipmentDetailPage'))
 const ShipmentTrackingPage = lazyWithRetry(() => import('./pages/ShipmentTrackingPage'))
 const SharedQuotePage = lazyWithRetry(() => import('./pages/SharedQuotePage'))
-const SupplierPackingPage = lazyWithRetry(() => import('./pages/SupplierPackingPage'))
-const PackingReportPage = lazyWithRetry(() => import('./pages/PackingReportPage'))
+const SharedPackingPage = lazyWithRetry(() => import('./pages/SharedPackingPage'))
 const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/DocumentTemplatesPage'))
 
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute'
@@ -1162,8 +1161,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
                         <Route path="/view-quote/:id" element={<SharedQuotePage />} />
-                        <Route path="/fill-packing/:id" element={<SupplierPackingPage />} />
-                        <Route path="/packing-report/:id" element={<PackingReportPage />} />
+                        <Route path="/packing-list/:id" element={<SharedPackingPage />} />
                         <Route path="/unsubscribe" element={<UnsubscribePage />} />
 
                         {/* Industry Pages */}
