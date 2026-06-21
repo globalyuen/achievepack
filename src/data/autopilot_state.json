@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T15:00:57.808Z",
+  "lastUnifiedRun": "2026-06-21T15:19:40.139Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -3836,17 +3836,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "mono-pe-high-barrier-film-for-sachets",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "mono pe high barrier film for sachets",
-      "difficulty": "Medium",
-      "slug": "mono-pe-high-barrier-film-for-sachets"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 750,
       "keyword": "sustainable pouch printing for small businesses",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-pouch-printing-for-small-businesses"
     },
     {
       "status": "Pending",
@@ -3905,9 +3906,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-21T15:00:33.105Z",
+      "timestamp": "2026-06-21T15:16:27.331Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono pe high barrier film for sachets\" to /blog/mono-pe-high-barrier-film-for-sachets (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable pouch printing for small businesses\" to /blog/sustainable-pouch-printing-for-small-businesses (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe high barrier film for sachets\" to /blog/mono-pe-high-barrier-film-for-sachets (Pending Approval)",
+      "timestamp": "2026-06-21T15:00:33.105Z"
     },
     {
       "action": "Autopilot Generation Draft",
