@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, AlertCircle, CheckCircle, Package, Send, Plus, Trash2 } from 'lucide-react';
+import { Loader2, AlertCircle, CheckCircle, Package, Send, Plus, Trash2, Lock, X, Pencil } from 'lucide-react';
+
+const ADMIN_PWD = '8888****';
 
 interface PackingItem {
   id: number | string;
@@ -45,7 +47,38 @@ export default function SupplierPackingPage() {
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
   }, [id]);
+  const [editMode, setEditMode] = useState(false);
+  const [showPwdModal, setShowPwdModal] = useState(false);
+  const [pwdInput, setPwdInput] = useState('');
+  const [pwdError, setPwdError] = useState('');
 
+  useEffect(() => {
+    if (sessionStorage.getItem('admin_local_pwd') === ADMIN_PWD) {
+      setEditMode(true);
+    }
+  }, []);
+
+  const handleEditClick = () => {
+    if (sessionStorage.getItem('admin_local_pwd') === ADMIN_PWD) {
+      setEditMode(true);
+    } else {
+      setShowPwdModal(true);
+      setPwdInput('');
+      setPwdError('');
+    }
+  };
+
+  const handlePwdSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (pwdInput === ADMIN_PWD) {
+      sessionStorage.setItem('admin_local_pwd', ADMIN_PWD);
+      setShowPwdModal(false);
+      setEditMode(true);
+    } else {
+      setPwdError('密码错误 (Incorrect password)');
+      setPwdInput('');
+    }
+  };
   const updateItem = (idx: number, field: keyof PackingItem, value: any) => {
     setItems(prev => prev.map((it, i) => i === idx ? { ...it, [field]: value } : it));
   };
@@ -107,13 +140,48 @@ export default function SupplierPackingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-emerald-50 font-sans">
+      {showPwdModal && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 w-full max-w-sm p-6">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                <Lock className="w-5 h-5 text-emerald-600" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-base font-black text-gray-900">Admin Access</h2>
+              </div>
+              <button onClick={() => setShowPwdModal(false)} className="text-gray-400 hover:text-gray-600">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <form onSubmit={handlePwdSubmit} className="flex flex-col gap-3">
+              <input
+                type="password"
+                value={pwdInput}
+                onChange={e => { setPwdInput(e.target.value); setPwdError(''); }}
+                placeholder="Password"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              {pwdError && <p className="text-xs text-red-500 font-bold">{pwdError}</p>}
+              <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition">
+                Unlock
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
           <img src="/logo.png" alt="Achieve Pack" className="h-8 w-auto object-contain" />
           <div className="h-6 w-px bg-gray-200" />
           <span className="text-sm font-semibold text-gray-600">供应商装箱信息填写</span>
-          <span className="ml-auto text-xs text-gray-400 font-mono">#{data?.invoiceNo}</span>
+          <span className="ml-auto text-xs text-gray-400 font-mono hidden sm:inline-block">#{data?.invoiceNo}</span>
+          <button onClick={editMode ? () => setEditMode(false) : handleEditClick} className="flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg font-bold text-xs transition ml-2">
+            {editMode ? <X className="w-3.5 h-3.5" /> : <Pencil className="w-3.5 h-3.5" />}
+            {editMode ? 'Close' : 'Admin'}
+          </button>
         </div>
       </div>
 
@@ -136,15 +204,22 @@ export default function SupplierPackingPage() {
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">日期</p>
               <p className="text-gray-700">{data?.invoiceDate}</p>
             </div>
-            <div>
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">收货方 / 贸易条款</p>
-              <p className="text-gray-700 whitespace-pre-wrap">{data?.shipTo}</p>
-              <p className="text-gray-500 text-xs mt-0.5">{data?.incoterm}</p>
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">账单地址</p>
-              <p className="text-gray-700 whitespace-pre-wrap text-xs leading-relaxed">{data?.billTo}</p>
-            </div>
+            
+            {editMode ? (
+              <>
+                <div className="mt-2 pt-4 border-t border-gray-100 sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">收货方 / 贸易条款 <span className="text-red-400 text-[10px] ml-1">(Hidden from Supplier)</span></p>
+                    <p className="text-gray-700 whitespace-pre-wrap">{data?.shipTo}</p>
+                    <p className="text-gray-500 text-xs mt-0.5">{data?.incoterm}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">账单地址 <span className="text-red-400 text-[10px] ml-1">(Hidden from Supplier)</span></p>
+                    <p className="text-gray-700 whitespace-pre-wrap text-xs leading-relaxed">{data?.billTo}</p>
+                  </div>
+                </div>
+              </>
+            ) : null}
           </div>
         </div>
 

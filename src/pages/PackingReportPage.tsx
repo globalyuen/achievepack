@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, AlertCircle, Download, FileSpreadsheet, Package } from 'lucide-react';
+import { Loader2, AlertCircle, Download, FileSpreadsheet, Package, Lock, X, Pencil } from 'lucide-react';
+
+const ADMIN_PWD = '8888****';
 import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 
@@ -29,6 +31,39 @@ export default function PackingReportPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<PackingData | null>(null);
+
+  const [editMode, setEditMode] = useState(false);
+  const [showPwdModal, setShowPwdModal] = useState(false);
+  const [pwdInput, setPwdInput] = useState('');
+  const [pwdError, setPwdError] = useState('');
+
+  useEffect(() => {
+    if (sessionStorage.getItem('admin_local_pwd') === ADMIN_PWD) {
+      setEditMode(true);
+    }
+  }, []);
+
+  const handleEditClick = () => {
+    if (sessionStorage.getItem('admin_local_pwd') === ADMIN_PWD) {
+      setEditMode(true);
+    } else {
+      setShowPwdModal(true);
+      setPwdInput('');
+      setPwdError('');
+    }
+  };
+
+  const handlePwdSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (pwdInput === ADMIN_PWD) {
+      sessionStorage.setItem('admin_local_pwd', ADMIN_PWD);
+      setShowPwdModal(false);
+      setEditMode(true);
+    } else {
+      setPwdError('Incorrect password');
+      setPwdInput('');
+    }
+  };
 
   useEffect(() => {
     if (!id) { setError('Invalid link.'); setLoading(false); return; }
@@ -172,14 +207,49 @@ export default function PackingReportPage() {
         }
       `}</style>
 
+      {showPwdModal && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 w-full max-w-sm p-6">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                <Lock className="w-5 h-5 text-blue-600" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-base font-black text-gray-900">Admin Access</h2>
+              </div>
+              <button onClick={() => setShowPwdModal(false)} className="text-gray-400 hover:text-gray-600">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <form onSubmit={handlePwdSubmit} className="flex flex-col gap-3">
+              <input
+                type="password"
+                value={pwdInput}
+                onChange={e => { setPwdInput(e.target.value); setPwdError(''); }}
+                placeholder="Password"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {pwdError && <p className="text-xs text-red-500 font-bold">{pwdError}</p>}
+              <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition">
+                Unlock
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-10 no-print">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
           <img src="/logo.png" alt="Achieve Pack" className="h-8 w-auto object-contain" />
           <div className="h-6 w-px bg-gray-200" />
           <span className="text-sm font-semibold text-gray-600">Packing List Report</span>
-          <span className="ml-auto text-xs text-gray-400 font-mono">#{data.invoiceNo}</span>
-          <div className="flex gap-2 ml-4">
+          <span className="ml-auto text-xs text-gray-400 font-mono hidden sm:inline-block">#{data.invoiceNo}</span>
+          <div className="flex gap-2 ml-2 sm:ml-4">
+            <button onClick={editMode ? () => setEditMode(false) : handleEditClick} className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg flex items-center gap-1.5 text-xs font-bold transition shadow-sm">
+              {editMode ? <X className="w-3.5 h-3.5" /> : <Pencil className="w-3.5 h-3.5" />}
+              <span className="hidden sm:inline">{editMode ? 'Close' : 'Admin'}</span>
+            </button>
             <button
               onClick={handlePrint}
               className="bg-neutral-700 hover:bg-neutral-800 text-white px-3 py-2 rounded-lg flex items-center gap-1.5 text-xs font-medium transition shadow-sm"
