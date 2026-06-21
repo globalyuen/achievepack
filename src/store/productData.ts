@@ -8216,8 +8216,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     minOrder: 10,
     shape: 'Rollstock',
     material: 'CitrusCycle™ Orange Peel Waste PHA',
-    basePrice: 350,
-    pricePerPiece: 35,
+    basePrice: 667.8,
+    pricePerPiece: 66.78,
     minQuantity: 10,
     quantityStep: 10,
     sizeInfo: '1 kg Spool (1.75 mm / 2.85 mm)',
@@ -8228,8 +8228,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1.75 mm • 10 kg (10 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 10,
-        totalPrice: 350.00,
-        unitPrice: 35.00
+        totalPrice: 667.80,
+        unitPrice: 66.78
       },
       {
         id: 'citrus-orange-filament-1.75mm-50kg',
@@ -8237,8 +8237,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1.75 mm • 50 kg (50 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 50,
-        totalPrice: 1400.00,
-        unitPrice: 28.00
+        totalPrice: 2838.00,
+        unitPrice: 56.76
       },
       {
         id: 'citrus-orange-filament-1.75mm-100kg',
@@ -8246,8 +8246,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1.75 mm • 100 kg (100 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 100,
-        totalPrice: 2200.00,
-        unitPrice: 22.00
+        totalPrice: 5008.00,
+        unitPrice: 50.08
       },
       {
         id: 'citrus-orange-filament-2.85mm-10kg',
@@ -8255,8 +8255,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '2.85 mm • 10 kg (10 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 10,
-        totalPrice: 350.00,
-        unitPrice: 35.00
+        totalPrice: 667.80,
+        unitPrice: 66.78
       },
       {
         id: 'citrus-orange-filament-2.85mm-50kg',
@@ -8264,8 +8264,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '2.85 mm • 50 kg (50 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 50,
-        totalPrice: 1400.00,
-        unitPrice: 28.00
+        totalPrice: 2838.00,
+        unitPrice: 56.76
       },
       {
         id: 'citrus-orange-filament-2.85mm-100kg',
@@ -8273,8 +8273,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '2.85 mm • 100 kg (100 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 100,
-        totalPrice: 2200.00,
-        unitPrice: 22.00
+        totalPrice: 5008.00,
+        unitPrice: 50.08
       }
     ],
     customPrintNote: 'Custom spool sizes, filament diameters, and colorways are available for bulk orders of 100+ spools. Please consult our engineering team.'
