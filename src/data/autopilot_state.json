@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T01:16:22.286Z",
+  "lastUnifiedRun": "2026-06-22T01:35:58.407Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4149,9 +4149,9 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T01:16:21.612Z",
+      "timestamp": "2026-06-22T01:32:24.859Z",
       "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"digital printed custom sachet dimensions\": TypeError: fetch failed"
+      "message": "Pipeline generation failed for keyword \"digital printed custom sachet dimensions\": X.AI API error: Failed after 3 attempts."
     },
     {
       "action": "Autopilot Generation Draft",
