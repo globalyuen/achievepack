@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T11:15:34.281Z",
+  "lastUnifiedRun": "2026-06-22T11:30:48.427Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4277,17 +4277,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "barrier-film-for-digital-printed-pouches",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "barrier film for digital printed pouches",
-      "difficulty": "Low",
-      "slug": "barrier-film-for-digital-printed-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "sustainable pouch sizes for coffee beans",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-pouch-sizes-for-coffee-beans"
     },
     {
       "status": "Pending",
@@ -4376,9 +4377,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T11:15:25.498Z",
+      "timestamp": "2026-06-22T11:30:26.279Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"barrier film for digital printed pouches\" to /blog/barrier-film-for-digital-printed-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable pouch sizes for coffee beans\" to /blog/sustainable-pouch-sizes-for-coffee-beans (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"barrier film for digital printed pouches\" to /blog/barrier-film-for-digital-printed-pouches (Pending Approval)",
+      "timestamp": "2026-06-22T11:15:25.498Z"
     },
     {
       "action": "Autopilot Generation Draft",
