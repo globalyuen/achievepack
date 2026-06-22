@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T06:06:54.476Z",
+  "lastUnifiedRun": "2026-06-22T06:19:37.870Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4158,17 +4158,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-barrier-films-for-flexible-packaging",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "sustainable barrier films for flexible packaging",
-      "difficulty": "Low",
-      "slug": "sustainable-barrier-films-for-flexible-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "custom printed standup pouches for dry goods",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-printed-standup-pouches-for-dry-goods"
     },
     {
       "status": "Pending",
@@ -4257,9 +4258,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T06:03:40.012Z",
+      "timestamp": "2026-06-22T06:16:26.674Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable barrier films for flexible packaging\" to /blog/sustainable-barrier-films-for-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed standup pouches for dry goods\" to /blog/custom-printed-standup-pouches-for-dry-goods (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable barrier films for flexible packaging\" to /blog/sustainable-barrier-films-for-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-22T06:03:40.012Z"
     },
     {
       "action": "Autopilot Generation Draft",
