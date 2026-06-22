@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T19:45:46.174Z",
+  "lastUnifiedRun": "2026-06-22T20:05:03.788Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4494,17 +4494,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printed-recyclable-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "digital printed recyclable stand up pouches",
-      "difficulty": "Medium",
-      "slug": "digital-printed-recyclable-stand-up-pouches"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 500,
       "keyword": "kraft paper custom pouches for herbs",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "kraft-paper-custom-pouches-for-herbs"
     },
     {
       "status": "Pending",
@@ -4617,9 +4618,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T19:45:31.506Z",
+      "timestamp": "2026-06-22T20:03:46.967Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printed recyclable stand up pouches\" to /blog/digital-printed-recyclable-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper custom pouches for herbs\" to /blog/kraft-paper-custom-pouches-for-herbs (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed recyclable stand up pouches\" to /blog/digital-printed-recyclable-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-22T19:45:31.506Z"
     },
     {
       "action": "Autopilot Generation Draft",
