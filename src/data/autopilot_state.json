@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T23:18:32.935Z",
+  "lastUnifiedRun": "2026-06-22T23:32:46.935Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4718,9 +4718,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T23:18:20.482Z",
+      "timestamp": "2026-06-22T23:32:35.456Z",
       "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"biodegradable barrier film for pet food\": terminated"
+      "message": "Pipeline generation failed for keyword \"biodegradable barrier film for pet food\": TypeError: fetch failed"
+    },
+    {
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"biodegradable barrier film for pet food\": terminated",
+      "timestamp": "2026-06-22T23:18:20.482Z"
     },
     {
       "action": "Autopilot Generation Draft",
