@@ -8229,8 +8229,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1.75 mm • 10 kg (10 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 10,
-        totalPrice: 667.80,
-        unitPrice: 66.78
+        totalPrice: 44.50,
+        unitPrice: 22.25
       },
       {
         id: 'citrus-orange-filament-1.75mm-50kg',
@@ -8238,8 +8238,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1.75 mm • 50 kg (50 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 50,
-        totalPrice: 2838.00,
-        unitPrice: 56.76
+        totalPrice: 199.00,
+        unitPrice: 19.90
       },
       {
         id: 'citrus-orange-filament-1.75mm-100kg',
@@ -8247,8 +8247,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1.75 mm • 100 kg (100 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 100,
-        totalPrice: 5008.00,
-        unitPrice: 50.08
+        totalPrice: 378.00,
+        unitPrice: 18.90
       },
       {
         id: 'citrus-orange-filament-2.85mm-10kg',
@@ -8256,8 +8256,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '2.85 mm • 10 kg (10 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 10,
-        totalPrice: 667.80,
-        unitPrice: 66.78
+        totalPrice: 44.50,
+        unitPrice: 22.25
       },
       {
         id: 'citrus-orange-filament-2.85mm-50kg',
@@ -8265,8 +8265,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '2.85 mm • 50 kg (50 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 50,
-        totalPrice: 2838.00,
-        unitPrice: 56.76
+        totalPrice: 199.00,
+        unitPrice: 19.90
       },
       {
         id: 'citrus-orange-filament-2.85mm-100kg',
@@ -8274,8 +8274,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '2.85 mm • 100 kg (100 rolls) • Citrus Orange',
         hasHole: true,
         quantity: 100,
-        totalPrice: 5008.00,
-        unitPrice: 50.08
+        totalPrice: 378.00,
+        unitPrice: 18.90
       }
     ],
     customPrintNote: 'Custom spool sizes, filament diameters, and colorways are available for bulk orders of 100+ spools. Please consult our engineering team.'

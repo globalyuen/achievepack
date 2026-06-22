@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T12:47:36.253Z",
+  "lastUnifiedRun": "2026-06-22T13:03:13.733Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4319,17 +4319,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-flat-bottom-pouch-with-spout",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "kraft paper flat bottom pouch with spout",
-      "difficulty": "Low",
-      "slug": "kraft-paper-flat-bottom-pouch-with-spout"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "recyclable pouch size chart for snacks",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "recyclable-pouch-size-chart-for-snacks"
     },
     {
       "status": "Pending",
@@ -4382,9 +4383,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T12:45:58.535Z",
+      "timestamp": "2026-06-22T13:00:48.598Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper flat bottom pouch with spout\" to /blog/kraft-paper-flat-bottom-pouch-with-spout (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable pouch size chart for snacks\" to /blog/recyclable-pouch-size-chart-for-snacks (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper flat bottom pouch with spout\" to /blog/kraft-paper-flat-bottom-pouch-with-spout (Pending Approval)",
+      "timestamp": "2026-06-22T12:45:58.535Z"
     },
     {
       "action": "Autopilot Generation Draft",

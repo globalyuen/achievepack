@@ -2287,7 +2287,7 @@ const ProductPage: React.FC = () => {
                       <dd className="text-neutral-900 col-span-2">
                         {product?.category === 'conventional-stock' || product?.category === 'conventional-digital'
                           ? 'Recycle Number 7'
-                          : (ecoStockProduct as any).certification || (isBoxes ? 'FSC Certified' : 'Recycle Number 7')
+                          : (ecoStockProduct as any).certification || (isBoxes ? 'FSC Certified' : 'Home Compostable')
                         }
                       </dd>
                     </div>
@@ -3240,7 +3240,9 @@ const ProductPage: React.FC = () => {
                       <div className="text-sm text-red-500 font-medium mt-1">Volume Discount: {discountText}</div>
                     )}
                     <div className="text-xs text-green-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
-                      ✓ {ecoStockProduct.customPrintQuantities ? '15-20 Days Production' : 'Air Shipping Included'}
+                      {(ecoStockProduct as any).priceRemark
+                        ? `* ${(ecoStockProduct as any).priceRemark}`
+                        : `✓ ${ecoStockProduct.customPrintQuantities ? '15-20 Days Production' : 'Air Shipping Included'}`}
                     </div>
                   </div>
                 )
