@@ -95,7 +95,7 @@ import KnowHowCarousel from './components/KnowHowCarousel'
 
 
 function App() {
-  const showLanguageSelector = true;
+
   const { t, i18n } = useTranslation();
   const { cartCount, addToCart, setIsCartOpen } = useStore();
   const navigate = useNavigate();
@@ -103,7 +103,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
+
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalImage, setModalImage] = useState('')
   const [modalAlt, setModalAlt] = useState('')
@@ -858,9 +858,7 @@ function App() {
               >
                 <User className="h-4 w-4 text-white" />
               </Link>
-                              <LanguageSelector />
-
-              )}
+              <LanguageSelector />
             </div>
           </div>
           
@@ -1010,7 +1008,6 @@ function App() {
             </div>
             
             {/* Mobile Language Options */}
-            {showLanguageSelector && (
               <div className="py-2 border-t border-neutral-100">
                 <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-2">{t('achievePackHome.nav.language', 'Language')}</div>
                 <div className="grid grid-cols-4 gap-2 px-2">
@@ -1020,7 +1017,6 @@ function App() {
                   <button onClick={() => changeLanguage('zh-TW')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'zh-TW' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>中文</button>
                 </div>
               </div>
-            )}
           </div>
 
           {/* Fixed Bottom CTA */}
