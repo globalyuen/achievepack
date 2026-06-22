@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T12:32:23.785Z",
+  "lastUnifiedRun": "2026-06-22T12:47:36.253Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4312,17 +4312,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-print-on-compostable-barrier-film",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "digital print on compostable barrier film",
-      "difficulty": "Low",
-      "slug": "digital-print-on-compostable-barrier-film"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "kraft paper flat bottom pouch with spout",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "kraft-paper-flat-bottom-pouch-with-spout"
     },
     {
       "status": "Pending",
@@ -4381,9 +4382,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T12:30:32.672Z",
+      "timestamp": "2026-06-22T12:45:58.535Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital print on compostable barrier film\" to /blog/digital-print-on-compostable-barrier-film (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper flat bottom pouch with spout\" to /blog/kraft-paper-flat-bottom-pouch-with-spout (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital print on compostable barrier film\" to /blog/digital-print-on-compostable-barrier-film (Pending Approval)",
+      "timestamp": "2026-06-22T12:30:32.672Z"
     },
     {
       "action": "Autopilot Generation Draft",
