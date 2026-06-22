@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T02:21:28.440Z",
+  "lastUnifiedRun": "2026-06-22T02:37:09.910Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4095,10 +4095,11 @@
       "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "sustainable flexible packaging for supplements",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "sustainable-flexible-packaging-for-supplements"
     },
     {
       "status": "Pending",
@@ -4149,107 +4150,112 @@
       "difficulty": "Low"
     },
     {
-      "keyword": "sustainable barrier films for flexible packaging",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "sustainable barrier films for flexible packaging",
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 900,
       "keyword": "custom printed standup pouches for dry goods",
-      "difficulty": "Low",
-      "volume": 900,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono material recyclable sachets for spices",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 700,
-      "status": "Pending"
+      "keyword": "mono material recyclable sachets for spices",
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital printed flat bottom bags low moq",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1300,
-      "status": "Pending"
+      "keyword": "digital printed flat bottom bags low moq",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "compostable pouch with degassing valve",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 600,
-      "status": "Pending"
+      "keyword": "compostable pouch with degassing valve",
+      "difficulty": "Low"
     },
     {
-      "keyword": "kraft paper stand up pouch dimensions chart",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1500,
-      "status": "Pending"
+      "keyword": "kraft paper stand up pouch dimensions chart",
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier mono pe films for food",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 800,
-      "status": "Pending"
+      "keyword": "high barrier mono pe films for food",
+      "difficulty": "Medium"
     },
     {
+      "status": "Pending",
+      "volume": 1000,
       "keyword": "small batch sustainable pouch printing services",
-      "difficulty": "Low",
-      "volume": 1000,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1200,
       "keyword": "recyclable barrier film roll stock for pouches",
-      "difficulty": "Low",
-      "volume": 1200,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly custom shaped stand up pouches",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "eco friendly custom shaped stand up pouches",
+      "difficulty": "Low"
     },
     {
-      "keyword": "biodegradable sachet dimensions for powders",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 750,
-      "status": "Pending"
+      "keyword": "biodegradable sachet dimensions for powders",
+      "difficulty": "Low"
     },
     {
-      "keyword": "stand up pouch size guide for liquids",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1400,
-      "status": "Pending"
+      "keyword": "stand up pouch size guide for liquids",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "custom digital print on barrier film",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "custom digital print on barrier film",
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono pe film suppliers for sustainable packaging",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 900,
-      "status": "Pending"
+      "keyword": "mono pe film suppliers for sustainable packaging",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "digital printed kraft paper stand up pouches",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1200,
-      "status": "Pending"
+      "keyword": "digital printed kraft paper stand up pouches",
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier compostable film for pet food",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1000,
-      "status": "Pending"
+      "keyword": "high barrier compostable film for pet food",
+      "difficulty": "Medium"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T02:17:50.628Z",
+      "timestamp": "2026-06-22T02:33:48.289Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable flexible packaging for supplements\" to /blog/sustainable-flexible-packaging-for-supplements (Pending Approval)"
+    },
+    {
       "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"sustainable flexible packaging for supplements\": TypeError: fetch failed"
+      "message": "Pipeline generation failed for keyword \"sustainable flexible packaging for supplements\": TypeError: fetch failed",
+      "timestamp": "2026-06-22T02:17:50.628Z"
     },
     {
       "action": "Autopilot Generation Draft",
