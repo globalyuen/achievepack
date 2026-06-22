@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T17:07:51.109Z",
+  "lastUnifiedRun": "2026-06-22T17:34:42.197Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4431,17 +4431,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-retort-pouches-for-sauces",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "compostable retort pouches for sauces",
-      "difficulty": "Medium",
-      "slug": "compostable-retort-pouches-for-sauces"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1000,
       "keyword": "sustainable packaging for protein powder",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-packaging-for-protein-powder"
     },
     {
       "status": "Pending",
@@ -4500,9 +4501,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T17:04:36.864Z",
+      "timestamp": "2026-06-22T17:31:38.711Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouches for sauces\" to /blog/compostable-retort-pouches-for-sauces (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging for protein powder\" to /blog/sustainable-packaging-for-protein-powder (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouches for sauces\" to /blog/compostable-retort-pouches-for-sauces (Pending Approval)",
+      "timestamp": "2026-06-22T17:04:36.864Z"
     },
     {
       "action": "Autopilot Generation Draft",
