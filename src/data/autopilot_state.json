@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T20:37:42.456Z",
+  "lastUnifiedRun": "2026-06-22T20:50:01.339Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -4515,17 +4515,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-printed-barrier-pouches-for-liquids-low-moq",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "custom printed barrier pouches for liquids low moq",
-      "difficulty": "Low",
-      "slug": "custom-printed-barrier-pouches-for-liquids-low-moq"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "mono material film suppliers for retort",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "mono-material-film-suppliers-for-retort"
     },
     {
       "status": "Pending",
@@ -4620,9 +4621,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T20:34:36.335Z",
+      "timestamp": "2026-06-22T20:48:49.028Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom printed barrier pouches for liquids low moq\" to /blog/custom-printed-barrier-pouches-for-liquids-low-moq (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono material film suppliers for retort\" to /blog/mono-material-film-suppliers-for-retort (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed barrier pouches for liquids low moq\" to /blog/custom-printed-barrier-pouches-for-liquids-low-moq (Pending Approval)",
+      "timestamp": "2026-06-22T20:34:36.335Z"
     },
     {
       "action": "Autopilot Generation Draft",
