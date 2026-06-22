@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T18:06:48.896Z",
+  "lastUnifiedRun": "2026-06-22T18:18:08.638Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4445,17 +4445,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-shape-eco-friendly-pouches-for-beverages",
       "status": "Pending Approval",
       "volume": 550,
       "keyword": "custom shape eco friendly pouches for beverages",
-      "difficulty": "Low",
-      "slug": "custom-shape-eco-friendly-pouches-for-beverages"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 400,
       "keyword": "small batch digital print on kraft paper",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-digital-print-on-kraft-paper"
     },
     {
       "status": "Pending",
@@ -4498,13 +4499,126 @@
       "volume": 500,
       "keyword": "kraft paper custom pouches for herbs",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "eco friendly sachet sizes for supplements",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed barrier pouches for liquids low moq",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material film suppliers for retort",
+      "difficulty": "Medium",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging for coffee beans pouches",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print on kraft paper stand up pouches",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable gusseted pouches for snacks",
+      "difficulty": "Low",
+      "volume": 720,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable flat bottom pouch dimensions for coffee",
+      "difficulty": "Medium",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier film for mono pe pouches",
+      "difficulty": "Low",
+      "volume": 580,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch printed compostable sachets for spices",
+      "difficulty": "Low",
+      "volume": 890,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper pouch with spout for powders",
+      "difficulty": "Medium",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable barrier film for pet food",
+      "difficulty": "Low",
+      "volume": 1150,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch size guide for 12 oz coffee",
+      "difficulty": "Low",
+      "volume": 760,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped pouches for sauces eco friendly",
+      "difficulty": "Low",
+      "volume": 670,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable sachet packaging for vitamins",
+      "difficulty": "Medium",
+      "volume": 920,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort pouch suppliers for ready meals",
+      "difficulty": "Low",
+      "volume": 810,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed flat bottom bags for herbs",
+      "difficulty": "Low",
+      "volume": 540,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe recyclable barrier film for flexible packaging",
+      "difficulty": "Medium",
+      "volume": 1250,
+      "status": "Pending"
+    },
+    {
+      "keyword": "low moq custom shaped stand up pouches",
+      "difficulty": "Low",
+      "volume": 980,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T18:04:38.829Z",
+      "timestamp": "2026-06-22T18:17:36.937Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shape eco friendly pouches for beverages\" to /blog/custom-shape-eco-friendly-pouches-for-beverages (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital print on kraft paper\" to /blog/small-batch-digital-print-on-kraft-paper (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape eco friendly pouches for beverages\" to /blog/custom-shape-eco-friendly-pouches-for-beverages (Pending Approval)",
+      "timestamp": "2026-06-22T18:04:38.829Z"
     },
     {
       "action": "Autopilot Generation Draft",
