@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T17:48:43.848Z",
+  "lastUnifiedRun": "2026-06-22T18:06:48.896Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4445,10 +4445,11 @@
       "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 550,
       "keyword": "custom shape eco friendly pouches for beverages",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-shape-eco-friendly-pouches-for-beverages"
     },
     {
       "status": "Pending",
@@ -4497,121 +4498,13 @@
       "volume": 500,
       "keyword": "kraft paper custom pouches for herbs",
       "difficulty": "Low"
-    },
-    {
-      "keyword": "compostable gusseted pouches for coffee",
-      "difficulty": "Low",
-      "volume": 1100,
-      "status": "Pending"
-    },
-    {
-      "keyword": "digital printed recyclable sachets for powders",
-      "difficulty": "Low",
-      "volume": 900,
-      "status": "Pending"
-    },
-    {
-      "keyword": "mono material barrier film for stand up pouches",
-      "difficulty": "Low",
-      "volume": 1300,
-      "status": "Pending"
-    },
-    {
-      "keyword": "eco friendly pouch dimensions for snacks",
-      "difficulty": "Low",
-      "volume": 800,
-      "status": "Pending"
-    },
-    {
-      "keyword": "recyclable sachet sizes for liquids",
-      "difficulty": "Low",
-      "volume": 1000,
-      "status": "Pending"
-    },
-    {
-      "keyword": "high barrier compostable film roll for pouches",
-      "difficulty": "Low",
-      "volume": 1200,
-      "status": "Pending"
-    },
-    {
-      "keyword": "small batch digital print on sustainable film",
-      "difficulty": "Low",
-      "volume": 700,
-      "status": "Pending"
-    },
-    {
-      "keyword": "kraft paper stand up pouch with spout for beverages",
-      "difficulty": "Low",
-      "volume": 950,
-      "status": "Pending"
-    },
-    {
-      "keyword": "custom shaped mono material pouches",
-      "difficulty": "Low",
-      "volume": 850,
-      "status": "Pending"
-    },
-    {
-      "keyword": "sustainable packaging sizes for coffee pouches",
-      "difficulty": "Low",
-      "volume": 1100,
-      "status": "Pending"
-    },
-    {
-      "keyword": "compostable retort pouch size for sauces",
-      "difficulty": "Low",
-      "volume": 750,
-      "status": "Pending"
-    },
-    {
-      "keyword": "biodegradable barrier film suppliers for small runs",
-      "difficulty": "Low",
-      "volume": 900,
-      "status": "Pending"
-    },
-    {
-      "keyword": "recyclable flat bottom pouch dimensions for powders",
-      "difficulty": "Low",
-      "volume": 1050,
-      "status": "Pending"
-    },
-    {
-      "keyword": "digital print low moq on kraft paper pouches",
-      "difficulty": "Low",
-      "volume": 800,
-      "status": "Pending"
-    },
-    {
-      "keyword": "mono pe high barrier film for custom pouches",
-      "difficulty": "Low",
-      "volume": 950,
-      "status": "Pending"
-    },
-    {
-      "keyword": "eco friendly sachet packaging for dry goods",
-      "difficulty": "Low",
-      "volume": 1100,
-      "status": "Pending"
-    },
-    {
-      "keyword": "stand up pouch filling equipment for compostable packaging",
-      "difficulty": "Medium",
-      "volume": 1300,
-      "status": "Pending"
-    },
-    {
-      "keyword": "custom digital printed barrier film pouches",
-      "difficulty": "Low",
-      "volume": 1000,
-      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T17:48:43.278Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"custom shape eco friendly pouches for beverages\": TypeError: fetch failed"
+      "timestamp": "2026-06-22T18:04:38.829Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape eco friendly pouches for beverages\" to /blog/custom-shape-eco-friendly-pouches-for-beverages (Pending Approval)"
     },
     {
       "action": "Autopilot Generation Draft",
