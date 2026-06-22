@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-21T23:31:41.164Z",
+  "lastUnifiedRun": "2026-06-21T23:47:32.969Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 1,
@@ -4053,10 +4053,11 @@
       "slug": "eco-friendly-stand-up-pouch-with-degassing-valve"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 500,
       "keyword": "mono material film for custom shaped pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-material-film-for-custom-shaped-pouches"
     },
     {
       "status": "Pending",
@@ -4144,6 +4145,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-21T23:47:24.659Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono material film for custom shaped pouches\" to /blog/mono-material-film-for-custom-shaped-pouches (Pending Approval)"
+    },
     {
       "timestamp": "2026-06-21T23:31:30.974Z",
       "action": "Autopilot Generation Draft",
