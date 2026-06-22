@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T15:15:44.890Z",
+  "lastUnifiedRun": "2026-06-22T15:30:50.474Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4389,17 +4389,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "eco-friendly-flat-bottom-pouches-for-coffee",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "eco friendly flat bottom pouches for coffee",
-      "difficulty": "Low",
-      "slug": "eco-friendly-flat-bottom-pouches-for-coffee"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1500,
       "keyword": "recyclable stand up pouches for pet food",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "recyclable-stand-up-pouches-for-pet-food"
     },
     {
       "status": "Pending",
@@ -4494,9 +4495,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T15:15:27.507Z",
+      "timestamp": "2026-06-22T15:30:33.950Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly flat bottom pouches for coffee\" to /blog/eco-friendly-flat-bottom-pouches-for-coffee (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouches for pet food\" to /blog/recyclable-stand-up-pouches-for-pet-food (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly flat bottom pouches for coffee\" to /blog/eco-friendly-flat-bottom-pouches-for-coffee (Pending Approval)",
+      "timestamp": "2026-06-22T15:15:27.507Z"
     },
     {
       "action": "Autopilot Generation Draft",
