@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T03:03:07.320Z",
+  "lastUnifiedRun": "2026-06-22T03:21:20.563Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4102,24 +4102,25 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "stand-up-pouch-size-guide-for-16-oz",
       "status": "Pending Approval",
       "volume": 600,
       "keyword": "stand up pouch size guide for 16 oz",
-      "difficulty": "Low",
-      "slug": "stand-up-pouch-size-guide-for-16-oz"
+      "difficulty": "Low"
     },
     {
+      "slug": "biodegradable-barrier-film-for-dry-goods",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "biodegradable barrier film for dry goods",
-      "difficulty": "Low",
-      "slug": "biodegradable-barrier-film-for-dry-goods"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1000,
       "keyword": "custom printed recyclable pouches low moq",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-printed-recyclable-pouches-low-moq"
     },
     {
       "status": "Pending",
@@ -4250,14 +4251,19 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T03:02:51.221Z",
+      "timestamp": "2026-06-22T03:18:52.139Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier film for dry goods\" to /blog/biodegradable-barrier-film-for-dry-goods (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed recyclable pouches low moq\" to /blog/custom-printed-recyclable-pouches-low-moq (Pending Approval)"
     },
     {
-      "timestamp": "2026-06-22T02:45:34.268Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size guide for 16 oz\" to /blog/stand-up-pouch-size-guide-for-16-oz (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier film for dry goods\" to /blog/biodegradable-barrier-film-for-dry-goods (Pending Approval)",
+      "timestamp": "2026-06-22T03:02:51.221Z"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size guide for 16 oz\" to /blog/stand-up-pouch-size-guide-for-16-oz (Pending Approval)",
+      "timestamp": "2026-06-22T02:45:34.268Z"
     },
     {
       "action": "Autopilot Generation Draft",
