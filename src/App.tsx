@@ -858,23 +858,8 @@ function App() {
               >
                 <User className="h-4 w-4 text-white" />
               </Link>
-              {showLanguageSelector && (
-                <div className="relative">
-                  <button
-                    onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                    className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
-                  >
-                    <Globe className="h-4 w-4 text-white" />
-                  </button>
-                  {isLangMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
-                      <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">{t('appHome.string_1')}</button>
-                      <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">{t('appHome.string_2')}</button>
-                      <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">{t('appHome.string_3')}</button>
-                      <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
-                    </div>
-                  )}
-                </div>
+                              <LanguageSelector />
+
               )}
             </div>
           </div>
