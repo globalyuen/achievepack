@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T01:35:58.407Z",
+  "lastUnifiedRun": "2026-06-22T01:48:45.047Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4081,10 +4081,11 @@
       "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 750,
       "keyword": "digital printed custom sachet dimensions",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-printed-custom-sachet-dimensions"
     },
     {
       "status": "Pending",
@@ -4149,9 +4150,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T01:32:24.859Z",
+      "timestamp": "2026-06-22T01:45:27.700Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed custom sachet dimensions\" to /blog/digital-printed-custom-sachet-dimensions (Pending Approval)"
+    },
+    {
       "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"digital printed custom sachet dimensions\": X.AI API error: Failed after 3 attempts."
+      "message": "Pipeline generation failed for keyword \"digital printed custom sachet dimensions\": X.AI API error: Failed after 3 attempts.",
+      "timestamp": "2026-06-22T01:32:24.859Z"
     },
     {
       "action": "Autopilot Generation Draft",
