@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift, Palette, Sparkles } from 'lucide-react'
+import LanguageSelector from './components/LanguageSelector';
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
 import Newsletter from './components/Newsletter'
@@ -1393,7 +1394,7 @@ function App() {
             {/* Eco Material Badges */}
             <div className="flex flex-wrap items-center justify-center gap-6 mt-6 mb-4">
               <Link to="/materials/compostable" className="group flex flex-col items-center transition-transform hover:scale-105">
-                <img src="/eco-logo/transparent-bkg/compost.png" alt={t('appHome.string_14')} className="h-16 w-auto mb-2" />
+                <img src="/eco-logo/transparent-bkg/compost.png" alt={t('appHome.string_14')} className="h-16 w-auto mb-2" width="80" height="80" loading="lazy" decoding="async" />
                 <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('achievePackHome.shop.compostable', 'Compostable')}</span>
               </Link>
               <Link to="/materials/recyclable-mono-pe" className="group flex flex-col items-center transition-transform hover:scale-105">

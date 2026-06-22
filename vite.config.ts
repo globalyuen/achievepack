@@ -2,17 +2,20 @@ import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import sourceIdentifierPlugin from 'vite-plugin-source-identifier'
-
+import { imagetools } from 'vite-imagetools'
+import compress from 'vite-plugin-compress'
 const isProd = process.env.BUILD_MODE === 'prod'
 
 export default defineConfig({
   plugins: [
-    react(), 
+    react(),
     sourceIdentifierPlugin({
       enabled: !isProd,
       attributePrefix: 'data-matrix',
       includeProps: true,
     }),
+    imagetools(),
+    compress(),
   ],
   resolve: {
     alias: {
@@ -20,6 +23,10 @@ export default defineConfig({
     },
   },
   server: {
+    // Enable long‑term caching for static assets in preview/dev
+    headers: {
+      'Cache-Control': 'public, max-age=31536000, immutable',
+    },
     // Proxy removed: to use /api locally, use `vercel dev` instead of `npm run dev`
   },
   // Optimize lucide-react tree-shaking
