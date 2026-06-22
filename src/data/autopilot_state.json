@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T03:50:34.677Z",
+  "lastUnifiedRun": "2026-06-22T04:06:39.277Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 1,
@@ -4252,9 +4252,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T03:50:02.934Z",
+      "timestamp": "2026-06-22T04:06:06.573Z",
       "action": "Autopilot Error",
       "message": "Pipeline generation failed for keyword \"mono pe film roll stock suppliers\": TypeError: fetch failed"
+    },
+    {
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"mono pe film roll stock suppliers\": TypeError: fetch failed",
+      "timestamp": "2026-06-22T03:50:02.934Z"
     },
     {
       "action": "Autopilot Generation Draft",
