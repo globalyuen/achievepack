@@ -29,7 +29,7 @@ export const DEFAULT_FAQS: ProductFAQ[] = [
   },
   {
     question: "Is shipping included in the price?",
-    answer: "Yes, all prices include free air freight shipping worldwide. No hidden costs or surprise fees at checkout."
+    answer: "For most products, yes — all standard pouch and packaging prices include free air freight shipping worldwide. However, some specialty items (such as 3D printing filament) are priced ex-works and do not include shipping. This will be clearly stated on the product page."
   },
   {
     question: "What file formats do you accept for artwork?",

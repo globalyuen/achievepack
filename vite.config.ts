@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import sourceIdentifierPlugin from 'vite-plugin-source-identifier'
 import { imagetools } from 'vite-imagetools'
-import compress from 'vite-plugin-compress'
 const isProd = process.env.BUILD_MODE === 'prod'
 
 export default defineConfig({
@@ -15,7 +14,6 @@ export default defineConfig({
       includeProps: true,
     }),
     imagetools(),
-    compress(),
   ],
   resolve: {
     alias: {
@@ -58,4 +56,3 @@ export default defineConfig({
     }
   },
 })
-

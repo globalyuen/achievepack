@@ -561,7 +561,6 @@ function App() {
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-    setIsLangMenuOpen(false);
   };
 
   // Helper function to get language-specific images
