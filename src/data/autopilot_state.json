@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T14:01:45.488Z",
+  "lastUnifiedRun": "2026-06-22T14:16:13.579Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4354,17 +4354,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "custom-digital-printed-flat-bottom-bags",
       "status": "Pending Approval",
       "volume": 1300,
       "keyword": "custom digital printed flat bottom bags",
-      "difficulty": "Low",
-      "slug": "custom-digital-printed-flat-bottom-bags"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "stand up pouch filling equipment for powders",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "stand-up-pouch-filling-equipment-for-powders"
     },
     {
       "status": "Pending",
@@ -4489,9 +4490,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T14:00:40.758Z",
+      "timestamp": "2026-06-22T14:15:45.607Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom digital printed flat bottom bags\" to /blog/custom-digital-printed-flat-bottom-bags (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch filling equipment for powders\" to /blog/stand-up-pouch-filling-equipment-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom digital printed flat bottom bags\" to /blog/custom-digital-printed-flat-bottom-bags (Pending Approval)",
+      "timestamp": "2026-06-22T14:00:40.758Z"
     },
     {
       "action": "Autopilot Generation Draft",
