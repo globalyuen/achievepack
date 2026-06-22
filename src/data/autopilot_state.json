@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T05:31:13.362Z",
+  "lastUnifiedRun": "2026-06-22T05:50:44.968Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4144,17 +4144,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-print-bags-for-custom-flexible-packaging",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "digital print bags for custom flexible packaging",
-      "difficulty": "Medium",
-      "slug": "digital-print-bags-for-custom-flexible-packaging"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "sachet sourcing for compostable barrier films",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sachet-sourcing-for-compostable-barrier-films"
     },
     {
       "status": "Pending",
@@ -4255,9 +4256,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-22T05:30:38.153Z",
+      "timestamp": "2026-06-22T05:47:24.938Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital print bags for custom flexible packaging\" to /blog/digital-print-bags-for-custom-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sachet sourcing for compostable barrier films\" to /blog/sachet-sourcing-for-compostable-barrier-films (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital print bags for custom flexible packaging\" to /blog/digital-print-bags-for-custom-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-22T05:30:38.153Z"
     },
     {
       "action": "Autopilot Generation Draft",
