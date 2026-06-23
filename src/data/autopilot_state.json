@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T04:19:30.230Z",
+  "lastUnifiedRun": "2026-06-23T04:37:19.835Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -4690,11 +4690,11 @@
       "difficulty": "Low"
     },
     {
+      "slug": "barrier-film-roll-stock-for-sustainable-packaging",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "barrier film roll stock for sustainable packaging",
-      "difficulty": "Medium",
-      "slug": "barrier-film-roll-stock-for-sustainable-packaging"
+      "difficulty": "Medium"
     },
     {
       "status": "Pending",
@@ -4843,9 +4843,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T04:18:58.864Z",
+      "timestamp": "2026-06-23T04:33:45.055Z",
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"stand up pouch size chart for 16 oz liquids\": TypeError: fetch failed"
+    },
+    {
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"barrier film roll stock for sustainable packaging\" to /blog/barrier-film-roll-stock-for-sustainable-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"barrier film roll stock for sustainable packaging\" to /blog/barrier-film-roll-stock-for-sustainable-packaging (Pending Approval)",
+      "timestamp": "2026-06-23T04:18:58.864Z"
     },
     {
       "action": "Autopilot Generation Draft",
