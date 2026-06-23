@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T03:31:25.217Z",
+  "lastUnifiedRun": "2026-06-23T03:47:12.412Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4669,17 +4669,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "recyclable-stand-up-pouches-for-baby-food",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "recyclable stand up pouches for baby food",
-      "difficulty": "Low",
-      "slug": "recyclable-stand-up-pouches-for-baby-food"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "compostable gusseted bags for coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-gusseted-bags-for-coffee"
     },
     {
       "status": "Pending",
@@ -4728,13 +4729,126 @@
       "volume": 800,
       "keyword": "digital printed eco friendly sachets for spices",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "flexible packaging suppliers for organic snacks",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed compostable sachets for supplements",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch size for 500ml liquids",
+      "difficulty": "Medium",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "low moq digital printing on barrier pouches",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material films for high barrier applications",
+      "difficulty": "Medium",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly sachet packaging for coffee beans",
+      "difficulty": "Low",
+      "volume": 1600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable flat bottom pouches with degassing valve",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable stand up pouches for freeze dried foods",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print on kraft paper flexible packaging small batch",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable pouch sizes for matcha powder",
+      "difficulty": "Medium",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "barrier film roll stock for mono pe pouches",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped sachets for baby food purees",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable film for chocolate packaging",
+      "difficulty": "Medium",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch printing on recyclable stand up pouches",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper pouches with spout for beverages",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort pouches dimensions for sauces",
+      "difficulty": "Medium",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly flexible packaging for pet treats",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable sachet sourcing for dry goods",
+      "difficulty": "Low",
+      "volume": 1050,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T03:30:47.021Z",
+      "timestamp": "2026-06-23T03:46:09.130Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouches for baby food\" to /blog/recyclable-stand-up-pouches-for-baby-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable gusseted bags for coffee\" to /blog/compostable-gusseted-bags-for-coffee (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouches for baby food\" to /blog/recyclable-stand-up-pouches-for-baby-food (Pending Approval)",
+      "timestamp": "2026-06-23T03:30:47.021Z"
     },
     {
       "action": "Autopilot Generation Draft",
