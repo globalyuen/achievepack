@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T00:51:46.746Z",
+  "lastUnifiedRun": "2026-06-23T01:06:24.875Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4599,17 +4599,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-sachet-packaging-for-vitamins",
       "status": "Pending Approval",
       "volume": 920,
       "keyword": "sustainable sachet packaging for vitamins",
-      "difficulty": "Medium",
-      "slug": "sustainable-sachet-packaging-for-vitamins"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 810,
       "keyword": "compostable retort pouch suppliers for ready meals",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-retort-pouch-suppliers-for-ready-meals"
     },
     {
       "status": "Pending",
@@ -4722,9 +4723,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T00:48:39.637Z",
+      "timestamp": "2026-06-23T01:04:16.585Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet packaging for vitamins\" to /blog/sustainable-sachet-packaging-for-vitamins (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch suppliers for ready meals\" to /blog/compostable-retort-pouch-suppliers-for-ready-meals (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet packaging for vitamins\" to /blog/sustainable-sachet-packaging-for-vitamins (Pending Approval)",
+      "timestamp": "2026-06-23T00:48:39.637Z"
     },
     {
       "action": "Autopilot Generation Draft",
