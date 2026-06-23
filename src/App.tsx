@@ -903,7 +903,7 @@ function App() {
               <button
                 onClick={() => startTransition(() => setIsMenuOpen(!isMenuOpen))}
                 className="w-11 h-11 flex items-center justify-center rounded-lg hover:bg-neutral-100 active:bg-neutral-200 transition-colors"
-                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-label={isMenuOpen ? t('appHome.string_207', 'Close menu') : t('appHome.string_208', 'Open menu')}
               >
                 {isMenuOpen ? <X className="h-6 w-6 text-neutral-700" /> : <Menu className="h-6 w-6 text-neutral-700" />}
               </button>
@@ -1080,7 +1080,7 @@ function App() {
                   setActiveHeroIndex((prev) => (prev === 0 ? 4 : prev - 1));
                 }}
                 className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm border border-neutral-200 rounded-full flex items-center justify-center shadow-lg z-[60] hover:bg-white active:scale-95 transition-all cursor-pointer"
-                aria-label="Previous video"
+                aria-label={t('appHome.string_205', 'Previous video')}
               >
                 <ChevronLeft className="w-6 h-6 text-neutral-700" />
               </button>
@@ -1090,7 +1090,7 @@ function App() {
                   setActiveHeroIndex((prev) => (prev === 4 ? 0 : prev + 1));
                 }}
                 className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm border border-neutral-200 rounded-full flex items-center justify-center shadow-lg z-[60] hover:bg-white active:scale-95 transition-all cursor-pointer"
-                aria-label="Next video"
+                aria-label={t('appHome.string_206', 'Next video')}
               >
                 <ChevronRight className="w-6 h-6 text-neutral-700" />
               </button>
@@ -1404,19 +1404,19 @@ function App() {
           
           <CoverflowCarousel
             items={[
-              { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital', label: 'Eco Digital' },
-              { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital', label: 'Compostable' },
-              { image: '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp', link: '/packaging/flat-pouches', label: '3 Side Seal' },
-              { image: '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp', link: '/packaging/flat-bottom-bags', label: 'Flat Bottom' },
-              { image: '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp', link: '/packaging/side-gusset-bags', label: 'Side Gusset' },
-              { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: 'Custom Boxes' },
-              { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: 'Tuck Boxes' },
-              { image: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', link: '/features/surface-finish', label: 'Surface Finish' },
-              { image: '/imgs/surface/ads/a_embossed_navy_9933981.webp', link: '/features/surface-finish', label: 'Embossed' },
-              { image: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', link: '/features/barrier-options', label: 'Barrier Options' },
-              { image: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp', link: '/features/reclosure-options', label: 'Reclosure' },
-              { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital', label: 'Recyclable' },
-              { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: 'Mailer Bags' },
+              { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital', label: t('appHome.string_179', 'Eco Digital') },
+              { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital', label: t('appHome.string_180', 'Compostable') },
+              { image: '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp', link: '/packaging/flat-pouches', label: t('appHome.string_181', '3 Side Seal') },
+              { image: '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp', link: '/packaging/flat-bottom-bags', label: t('appHome.string_182', 'Flat Bottom') },
+              { image: '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp', link: '/packaging/side-gusset-bags', label: t('appHome.string_183', 'Side Gusset') },
+              { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: t('appHome.string_184', 'Custom Boxes') },
+              { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: t('appHome.string_185', 'Tuck Boxes') },
+              { image: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', link: '/features/surface-finish', label: t('appHome.string_186', 'Surface Finish') },
+              { image: '/imgs/surface/ads/a_embossed_navy_9933981.webp', link: '/features/surface-finish', label: t('appHome.string_187', 'Embossed') },
+              { image: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', link: '/features/barrier-options', label: t('appHome.string_188', 'Barrier Options') },
+              { image: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp', link: '/features/reclosure-options', label: t('appHome.string_189', 'Reclosure') },
+              { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital', label: t('appHome.string_190', 'Recyclable') },
+              { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: t('appHome.string_191', 'Mailer Bags') },
             ]}
           />
           
@@ -1871,19 +1871,19 @@ function App() {
                   {
                     quote: t('benefits.env.compostable.desc'),
                     name: t('benefits.env.compostable.title'),
-                    designation: "EN13432 & ASTM D6400 Certified",
+                    designation: t('appHome.string_215', 'EN13432 & ASTM D6400 Certified'),
                     src: img("infographic-compostable"),
                   },
                   {
                     quote: t('benefits.env.plantBased.desc'),
                     name: t('benefits.env.plantBased.title'),
-                    designation: "Renewable Resources",
+                    designation: t('appHome.string_216', 'Renewable Resources'),
                     src: img("infographic-plant-based"),
                   },
                   {
                     quote: t('benefits.env.recyclable.desc'),
                     name: t('benefits.env.recyclable.title'),
-                    designation: "GRS Certified Materials",
+                    designation: t('appHome.string_217', 'GRS Certified Materials'),
                     src: img("infographic-grs-recyclable"),
                   },
                 ]}
@@ -2410,7 +2410,7 @@ function App() {
                         onClick={openRyanProfile}
                         className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors"
                         title={t('appHome.string_26')}
-                        aria-label="View Ryan Wong's Profile"
+                        aria-label={t('appHome.string_218', "View Ryan Wong's Profile")}
                       >
                         <User className="h-5 w-5 text-primary-600" />
                       </button>
@@ -3537,12 +3537,12 @@ Please contact me to discuss custom solutions.`;
                 <h3 className="text-xl font-bold text-neutral-900 mb-3">{t('appHome.string_170')}</h3>
                 <div className="grid sm:grid-cols-2 gap-2">
                   {[
-                    'Compostable coffee pouches for DTC brands',
-                    'Chocolate & confectionery packaging',
-                    'Tea packaging (loose leaf & sachets)',
-                    'EN 13432 & ASTM D6400 compliance',
-                    'Low MOQ sustainable solutions',
-                    'Barrier technology for food products'
+                    t('appHome.string_199', 'Compostable coffee pouches for DTC brands'),
+                    t('appHome.string_200', 'Chocolate & confectionery packaging'),
+                    t('appHome.string_201', 'Tea packaging (loose leaf & sachets)'),
+                    t('appHome.string_202', 'EN 13432 & ASTM D6400 compliance'),
+                    t('appHome.string_203', 'Low MOQ sustainable solutions'),
+                    t('appHome.string_204', 'Barrier technology for food products')
                   ].map((skill, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-sm">
                       <span className="text-primary-600 mt-0.5">✓</span>

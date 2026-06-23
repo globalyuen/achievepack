@@ -12,7 +12,7 @@ interface PouchLayoutProps {
 
 export default function PouchLayout({ children }: PouchLayoutProps) {
   const showLanguageSelector = true;
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAppsDropdownOpen, setIsAppsDropdownOpen] = useState(false)
@@ -61,12 +61,12 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6 font-['JetBrains_Mono'] font-bold text-sm">
             {[
-              { label: 'PRODUCTS', path: '/products' },
-              { label: 'MATERIALS', path: '/materials' },
-              { label: 'OPTIONS', path: '/options/surface-and-reclosure' },
-              { label: 'CERT', path: '/certifications' },
-              { label: 'TESTIMONIALS', path: '/testimonials' },
-              { label: 'BLOG', path: '/blog' }
+              { label: t('pouchLayout.products', 'PRODUCTS'), path: '/products' },
+              { label: t('pouchLayout.materials', 'MATERIALS'), path: '/materials' },
+              { label: t('pouchLayout.options', 'OPTIONS'), path: '/options/surface-and-reclosure' },
+              { label: t('pouchLayout.cert', 'CERT'), path: '/certifications' },
+              { label: t('pouchLayout.testimonials', 'TESTIMONIALS'), path: '/testimonials' },
+              { label: t('pouchLayout.blog', 'BLOG'), path: '/blog' }
             ].map((item) => (
               <Link
                 key={item.path}
@@ -94,7 +94,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   isActive('/size-guide') || isActive('/tech-specs') || isActive('/pricing') || isActive('/dieline-finder') || isActive('/dieline-creator') || isActive('/3d-showcase') || isActive('/free-service/packaging-mockup') ? 'bg-black text-[#D4FF00]' : ''
                 }`}
               >
-                [APPS ▾]
+                [{t('pouchLayout.apps', 'APPS')} ▾]
               </button>
               
               <AnimatePresence>
@@ -108,7 +108,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     {/* Left Column: Sizing & Specs Apps */}
                     <div className="space-y-2">
                       <div className="bg-[#D4FF00] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mb-1">
-                        ⚡ Sizing & Specs Apps
+                        ⚡ {t('pouchLayout.sizingAndSpecs', 'Sizing & Specs Apps')}
                       </div>
                       
                       {/* Sizing Finder */}
@@ -121,8 +121,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                           <SizingFinderIcon className="w-6 h-6 text-black" strokeWidth={2.5} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[SIZING FINDER]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Find exact size & capacity</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.sizingFinder', 'SIZING FINDER')}]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.sizingFinderDesc', 'Find exact size & capacity')}</div>
                         </div>
                       </Link>
 
@@ -136,8 +136,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                           <MaterialSpecFinderIcon className="w-6 h-6 text-black" strokeWidth={2.5} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[SPEC FINDER]</div>
-                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Compare barrier OTR/WVTR</div>
+                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[{t('pouchLayout.specFinder', 'SPEC FINDER')}]</div>
+                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.specFinderDesc', 'Compare barrier OTR/WVTR')}</div>
                         </div>
                       </Link>
 
@@ -151,8 +151,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                           <Coffee className="w-6 h-6 text-black" strokeWidth={2.5} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[PRICING]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Packaging budget calculator</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.pricingCalculator', 'PRICING')}]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.pricingCalculatorDesc', 'Packaging budget calculator')}</div>
                         </div>
                       </Link>
                     </div>
@@ -160,7 +160,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     {/* Right Column: 3D & Dieline Creator Apps */}
                     <div className="space-y-2">
                       <div className="bg-[#00FFFF] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mb-1">
-                        🎨 3D & Dieline Creator Apps
+                        🎨 {t('pouchLayout.threeDApps', '3D & Dieline Creator Apps')}
                       </div>
 
                       {/* 3D WebGL Pouch Showcase */}
@@ -173,8 +173,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                           <Box className="w-6 h-6 text-black" strokeWidth={2.5} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[3D WEBGL SHOWCASE]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Rotate & inspect eco pouch textures</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.threeDShowcase', '3D WEBGL SHOWCASE')}]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.threeDShowcaseDesc', 'Rotate & inspect eco pouch textures')}</div>
                         </div>
                       </Link>
 
@@ -188,8 +188,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                           <Sparkles className="w-6 h-6 text-black" strokeWidth={2.5} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[DIELINE CREATOR]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Generate custom PDF/DXF vectors</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.dielineCreator', 'DIELINE CREATOR')}]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.dielineCreatorDesc', 'Generate custom PDF/DXF vectors')}</div>
                         </div>
                       </Link>
 
@@ -203,8 +203,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                           <Layout className="w-6 h-6 text-black animate-pulse" strokeWidth={2.5} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[DIELINE FINDER]</div>
-                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Directory of 160+ standard templates</div>
+                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[{t('pouchLayout.dielineFinder', 'DIELINE FINDER')}]</div>
+                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.dielineFinderDesc', 'Directory of 160+ standard templates')}</div>
                         </div>
                       </Link>
 
@@ -218,8 +218,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                           <Zap className="w-6 h-6 text-black" strokeWidth={2.5} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[3D MOCKUP GENERATOR]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Upload artwork to visualize in 3D</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.mockupGenerator', '3D MOCKUP GENERATOR')}]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.mockupGeneratorDesc', 'Upload artwork to visualize in 3D')}</div>
                         </div>
                       </Link>
                     </div>
@@ -235,11 +235,11 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             <button
               onClick={() => setIsSearchOpen(true)}
               className="border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors relative group text-black bg-white"
-              title="Search eco packaging"
+              title={t('pouchLayout.searchTitle', 'Search eco packaging')}
             >
               <Search className="w-6 h-6" />
               <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 text-[10px] font-['JetBrains_Mono'] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50">
-                Search
+                {t('pouchLayout.search', 'Search')}
               </span>
             </button>
 
@@ -249,11 +249,11 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <button
                   onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
                   className="border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors relative group text-black bg-white flex items-center justify-center"
-                  title="Change Language"
+                  title={t('pouchLayout.changeLang', 'Change Language')}
                 >
                   <Globe className="w-6 h-6" />
                   <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 text-[10px] font-['JetBrains_Mono'] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50">
-                    Language
+                    {t('pouchLayout.language', 'Language')}
                   </span>
                 </button>
                 {isLangMenuOpen && (
@@ -297,7 +297,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             >
               <Building2 className="w-6 h-6" />
               <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 text-xs font-['JetBrains_Mono'] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                Enterprise
+                {t('pouchLayout.enterprise', 'Enterprise')}
               </span>
             </a>
 
@@ -305,7 +305,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               variant="secondary"
               className="!p-2 !px-2 !py-2 border-2" 
               href="https://calendly.com/30-min-free-packaging-consultancy"
-              title="Book Free Consultation"
+              title={t('pouchLayout.bookConsultation', 'Book Free Consultation')}
             >
               <Calendar className="w-6 h-6" />
             </NeoButton>
@@ -314,7 +314,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             <button
               className="md:hidden border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={isMenuOpen ? t('appHome.string_207', 'Close menu') : t('appHome.string_208', 'Open menu')}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -569,38 +569,40 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
         {children}
         
         {/* E-E-A-T Trust & Expertise Section for Topic Pages */}
+        {/* E-E-A-T Trust & Expertise Section for Topic Pages */}
         {location.pathname.includes('/topics/') && (
           <div className="max-w-7xl mx-auto px-4 md:px-6 pb-16 font-['Space_Grotesk']">
             <div className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-8 items-center">
               <div className="flex-shrink-0 text-center">
                 <img 
                   src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
-                  alt="Ryan Wong" 
+                  alt={t('appHome.string_152', 'Ryan Wong')} 
                   className="w-24 h-24 rounded-full object-cover border-4 border-black mx-auto mb-3" 
                 />
-                <h4 className="font-black text-lg uppercase">Ryan Wong</h4>
-                <p className="font-['JetBrains_Mono'] text-xs font-bold text-neutral-600 mb-2">SUPPLY CHAIN DIRECTOR</p>
+                <h4 className="font-black text-lg uppercase">{t('appHome.string_152', 'Ryan Wong')}</h4>
+                <p className="font-['JetBrains_Mono'] text-xs font-bold text-neutral-600 mb-2">{t('pouchLayout.director', 'SUPPLY CHAIN DIRECTOR')}</p>
                 <a 
                   href="https://achievepack.com/team/ryan-wong" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="font-['JetBrains_Mono'] font-bold text-xs uppercase underline hover:text-[#10b981]"
                 >
-                  [VIEW PROFILE]
+                  {t('pouchLayout.viewProfile', '[VIEW PROFILE]')}
                 </a>
               </div>
               <div className="flex-1 space-y-4">
                 <div className="inline-block bg-[#D4FF00] text-black border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider">
-                  Verified Eco Packaging Protocol // E-E-A-T
+                  {t('pouchLayout.verifiedEEAT', 'Verified Eco Packaging Protocol // E-E-A-T')}
                 </div>
                 <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight">
-                  LAB-TESTED MATERIAL COMPLIANCE & EXPERTISE
+                  {t('pouchLayout.labTestedTitle', 'LAB-TESTED MATERIAL COMPLIANCE & EXPERTISE')}
                 </h3>
+                <p 
+                  className="font-['Space_Grotesk'] text-sm text-neutral-700 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: t('pouchLayout.bioRyan', 'This topic guide is compiled by <strong>Ryan Wong</strong>, founder of Pouch.eco and Achieve Pack. Ryan is a Global Supply Chain Honors graduate from the Hong Kong Polytechnic University with 14+ years of hands-on expertise engineering biopolymer pouch films for brands in 8 countries.') }}
+                />
                 <p className="font-['Space_Grotesk'] text-sm text-neutral-700 leading-relaxed">
-                  This topic guide is compiled by <strong>Ryan Wong</strong>, founder of Pouch.eco and Achieve Pack. Ryan is a Global Supply Chain Honors graduate from the Hong Kong Polytechnic University with 14+ years of hands-on expertise engineering biopolymer pouch films for brands in 8 countries.
-                </p>
-                <p className="font-['Space_Grotesk'] text-sm text-neutral-700 leading-relaxed">
-                  All barrier performance specs, thickness tolerances, compostability timelines (EN 13432 / ASTM D6400), and digital printing guidelines (HP Indigo 20000) are verified in collaboration with our material suppliers and double-checked in our materials testing facility. We strictly publish verified facts to prevent greenwashing.
+                  {t('pouchLayout.bioSpecs', 'All barrier performance specs, thickness tolerances, compostability timelines (EN 13432 / ASTM D6400), and digital printing guidelines (HP Indigo 20000) are verified in collaboration with our material suppliers and double-checked in our materials testing facility. We strictly publish verified facts to prevent greenwashing.')}
                 </p>
                 <div className="flex flex-wrap gap-2 font-['JetBrains_Mono'] font-bold text-xs">
                   <span className="border-2 border-black px-2 py-0.5 bg-neutral-100">[ASTM_D6400_COMPLIANT]</span>
@@ -623,7 +625,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           className="bg-black text-[#D4FF00] px-4 py-3 rounded-full shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] border-4 border-[#D4FF00] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(212,255,0,1)] transition-all flex items-center gap-2 font-black uppercase text-sm"
         >
           <Calendar className="w-5 h-5" />
-          <span className="hidden sm:inline">Book Meeting</span>
+          <span className="hidden sm:inline">{t('pouchLayout.bookMeeting', 'Book Meeting')}</span>
         </a>
         <a 
           href="https://api.whatsapp.com/send/?phone=85269704411" 
@@ -634,7 +636,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-          <span className="hidden sm:inline">WhatsApp Us</span>
+          <span className="hidden sm:inline">{t('pouchLayout.whatsapp', 'WhatsApp Us')}</span>
         </a>
       </div>
 
@@ -819,8 +821,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           {/* Topic Directory Grid - The "Topic Footer" */}
           <div className="mb-16 border-t-4 border-black pt-12">
             <div className="flex items-center gap-3 mb-8">
-              <NeoBadge color="magenta">TOPIC_DIRECTORY</NeoBadge>
-              <h3 className="font-black text-2xl uppercase italic">Explore All Sustainable Packaging Topics</h3>
+              <NeoBadge color="magenta">{t('pouchLayout.topicDirectory', 'TOPIC_DIRECTORY')}</NeoBadge>
+              <h3 className="font-black text-2xl uppercase italic">{t('pouchLayout.exploreTopics', 'Explore All Sustainable Packaging Topics')}</h3>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {[
@@ -859,8 +861,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
 
           <div className="border-t-4 border-black pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center font-['JetBrains_Mono'] text-xs font-bold gap-4">
             <div className="text-center md:text-left">
-              © 2026 POUCH.ECO // ECO PACKAGING PROTOCOL<br/>
-              ALL MATERIALS CERTIFIED
+              {t('pouchLayout.copyright', '© 2026 POUCH.ECO // ECO PACKAGING PROTOCOL')}<br/>
+              {t('pouchLayout.allMaterialsCertified', 'ALL MATERIALS CERTIFIED')}
             </div>
             
             {/* Social Media Icons - Neo-Brutalist Style */}
@@ -870,7 +872,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 border-4 border-black bg-white hover:bg-[#E1306C] hover:text-white transition-colors flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                title="Follow us on Instagram"
+                title={t('pouchLayout.instagram', 'Follow us on Instagram')}
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -880,7 +882,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 border-4 border-black bg-white hover:bg-[#0A66C2] hover:text-white transition-colors flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                title="Connect on LinkedIn"
+                title={t('pouchLayout.linkedin', 'Connect on LinkedIn')}
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -890,7 +892,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 border-4 border-black bg-white hover:bg-[#25D366] hover:text-white transition-colors flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                title="Chat on WhatsApp"
+                title={t('pouchLayout.whatsapp', 'Chat on WhatsApp')}
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -898,17 +900,17 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               </a>
             </div>
             <div className="flex gap-4 flex-wrap">
-              <Link to="/quotes/three-side-seal?p=pouch2026" className="hover:underline">3 SIDE</Link>
-              <Link to="/quotes/flat-bottom?p=pouch2026" className="hover:underline">FLAT BOTTOM</Link>
-              <Link to="/quotes/stand-up-pouch?p=pouch2026" className="hover:underline">STAND UP</Link>
-              <Link to="/quotes/spouted-pouch?p=pouch2026" className="hover:underline">SPOUTED</Link>
-              <Link to="/quotes/rollstock?p=pouch2026" className="hover:underline">ROLL</Link>
-              <Link to="/sample?p=pouch2026" className="hover:underline font-black text-black bg-[#D4FF00] px-1">CUSTOM PRINTED SAMPLE</Link>
-              <Link to="/cert?p=pouch2026" className="hover:underline">CERT</Link>
+              <Link to="/quotes/three-side-seal?p=pouch2026" className="hover:underline">{t('pouchLayout.threeSide', '3 SIDE')}</Link>
+              <Link to="/quotes/flat-bottom?p=pouch2026" className="hover:underline">{t('pouchLayout.flatBottom', 'FLAT BOTTOM')}</Link>
+              <Link to="/quotes/stand-up-pouch?p=pouch2026" className="hover:underline">{t('pouchLayout.standUp', 'STAND UP')}</Link>
+              <Link to="/quotes/spouted-pouch?p=pouch2026" className="hover:underline">{t('pouchLayout.spouted', 'SPOUTED')}</Link>
+              <Link to="/quotes/rollstock?p=pouch2026" className="hover:underline">{t('pouchLayout.roll', 'ROLL')}</Link>
+              <Link to="/sample?p=pouch2026" className="hover:underline font-black text-black bg-[#D4FF00] px-1">{t('pouchLayout.customPrintedSample', 'CUSTOM PRINTED SAMPLE')}</Link>
+              <Link to="/cert?p=pouch2026" className="hover:underline">{t('pouchLayout.cert', 'CERT')}</Link>
               <a href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" target="_blank" rel="noopener noreferrer" className="hover:underline text-[#10b981]">BPI CERT</a>
 
-              <Link to="/privacy" className="hover:underline">PRIVACY</Link>
-              <Link to="/terms" className="hover:underline">TERMS</Link>
+              <Link to="/privacy" className="hover:underline">{t('pouchLayout.privacy', 'PRIVACY')}</Link>
+              <Link to="/terms" className="hover:underline">{t('pouchLayout.terms', 'TERMS')}</Link>
             </div>
           </div>
         </div>

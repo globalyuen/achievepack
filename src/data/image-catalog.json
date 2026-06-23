@@ -1,10 +1,10 @@
 {
-  "generated": "2026-06-22",
-  "total_images": 3359,
+  "generated": "2026-06-23",
+  "total_images": 3457,
   "total_categories": 172,
   "extensions": {
     ".webp": 1303,
-    ".png": 1821,
+    ".png": 1919,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,518 @@
       ]
     },
     "blog/heros": {
-      "count": 644,
+      "count": 729,
       "images": [
+        {
+          "filename": "custom-recyclable-barrier-bags-for-snacks-hero.png",
+          "path": "/imgs/blog/heros/custom-recyclable-barrier-bags-for-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T12:00:38.633Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-for-supplements-hero.png",
+          "path": "/imgs/blog/heros/compostable-stand-up-pouches-for-supplements-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T11:45:27.972Z"
+        },
+        {
+          "filename": "sustainable-sachet-sourcing-for-dry-goods-hero.png",
+          "path": "/imgs/blog/heros/sustainable-sachet-sourcing-for-dry-goods-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T11:30:29.505Z"
+        },
+        {
+          "filename": "eco-friendly-flexible-packaging-for-pet-treats-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-flexible-packaging-for-pet-treats-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T11:15:32.316Z"
+        },
+        {
+          "filename": "compostable-retort-pouches-dimensions-for-sauces-hero.png",
+          "path": "/imgs/blog/heros/compostable-retort-pouches-dimensions-for-sauces-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T11:00:34.469Z"
+        },
+        {
+          "filename": "kraft-paper-pouches-with-spout-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-pouches-with-spout-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T10:45:30.470Z"
+        },
+        {
+          "filename": "small-batch-printing-on-recyclable-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/small-batch-printing-on-recyclable-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T10:30:37.050Z"
+        },
+        {
+          "filename": "high-barrier-compostable-film-for-chocolate-packaging-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-compostable-film-for-chocolate-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T10:00:33.604Z"
+        },
+        {
+          "filename": "custom-shaped-sachets-for-baby-food-purees-hero.png",
+          "path": "/imgs/blog/heros/custom-shaped-sachets-for-baby-food-purees-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T09:49:36.868Z"
+        },
+        {
+          "filename": "barrier-film-roll-stock-for-mono-pe-pouches-hero.png",
+          "path": "/imgs/blog/heros/barrier-film-roll-stock-for-mono-pe-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T09:30:31.417Z"
+        },
+        {
+          "filename": "sustainable-pouch-sizes-for-matcha-powder-hero.png",
+          "path": "/imgs/blog/heros/sustainable-pouch-sizes-for-matcha-powder-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T09:15:32.388Z"
+        },
+        {
+          "filename": "digital-print-on-kraft-paper-flexible-packaging-small-batch-hero.png",
+          "path": "/imgs/blog/heros/digital-print-on-kraft-paper-flexible-packaging-small-batch-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T09:00:29.911Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouches-for-freeze-dried-foods-hero.png",
+          "path": "/imgs/blog/heros/recyclable-stand-up-pouches-for-freeze-dried-foods-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T08:45:30.332Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-pouches-with-degassing-valve-hero.png",
+          "path": "/imgs/blog/heros/compostable-flat-bottom-pouches-with-degassing-valve-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T08:30:27.282Z"
+        },
+        {
+          "filename": "eco-friendly-sachet-packaging-for-coffee-beans-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-sachet-packaging-for-coffee-beans-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T08:15:26.911Z"
+        },
+        {
+          "filename": "mono-material-films-for-high-barrier-applications-hero.png",
+          "path": "/imgs/blog/heros/mono-material-films-for-high-barrier-applications-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T08:00:32.148Z"
+        },
+        {
+          "filename": "low-moq-digital-printing-on-barrier-pouches-hero.png",
+          "path": "/imgs/blog/heros/low-moq-digital-printing-on-barrier-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T07:45:26.304Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-for-500ml-liquids-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-size-for-500ml-liquids-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T07:30:31.438Z"
+        },
+        {
+          "filename": "custom-printed-compostable-sachets-for-supplements-hero.png",
+          "path": "/imgs/blog/heros/custom-printed-compostable-sachets-for-supplements-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T07:19:44.781Z"
+        },
+        {
+          "filename": "flexible-packaging-suppliers-for-organic-snacks-hero.png",
+          "path": "/imgs/blog/heros/flexible-packaging-suppliers-for-organic-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T06:19:42.192Z"
+        },
+        {
+          "filename": "digital-printed-eco-friendly-sachets-for-spices-hero.png",
+          "path": "/imgs/blog/heros/digital-printed-eco-friendly-sachets-for-spices-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T06:03:40.401Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-bags-for-protein-powder-hero.png",
+          "path": "/imgs/blog/heros/compostable-flat-bottom-bags-for-protein-powder-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T05:45:29.051Z"
+        },
+        {
+          "filename": "sustainable-packaging-solutions-for-retort-pouches-hero.png",
+          "path": "/imgs/blog/heros/sustainable-packaging-solutions-for-retort-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T05:30:27.810Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-film-suppliers-hero.png",
+          "path": "/imgs/blog/heros/mono-pe-recyclable-film-suppliers-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T05:15:27.401Z"
+        },
+        {
+          "filename": "custom-printed-kraft-paper-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/custom-printed-kraft-paper-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T05:00:34.037Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-chart-for-16-oz-liquids-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-size-chart-for-16-oz-liquids-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T04:45:41.233Z"
+        },
+        {
+          "filename": "barrier-film-roll-stock-for-sustainable-packaging-hero.png",
+          "path": "/imgs/blog/heros/barrier-film-roll-stock-for-sustainable-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T04:18:57.509Z"
+        },
+        {
+          "filename": "small-batch-digital-printing-on-mono-material-hero.png",
+          "path": "/imgs/blog/heros/small-batch-digital-printing-on-mono-material-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T04:00:40.631Z"
+        },
+        {
+          "filename": "compostable-gusseted-bags-for-coffee-hero.png",
+          "path": "/imgs/blog/heros/compostable-gusseted-bags-for-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T03:45:59.525Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouches-for-baby-food-hero.png",
+          "path": "/imgs/blog/heros/recyclable-stand-up-pouches-for-baby-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T03:30:45.994Z"
+        },
+        {
+          "filename": "high-barrier-mono-pe-film-for-retort-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-mono-pe-film-for-retort-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T03:15:48.365Z"
+        },
+        {
+          "filename": "custom-shaped-sachets-for-dry-goods-hero.png",
+          "path": "/imgs/blog/heros/custom-shaped-sachets-for-dry-goods-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T03:00:46.653Z"
+        },
+        {
+          "filename": "digital-print-barrier-film-for-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/digital-print-barrier-film-for-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T02:45:36.911Z"
+        },
+        {
+          "filename": "sustainable-flexible-packaging-for-powders-low-moq-hero.png",
+          "path": "/imgs/blog/heros/sustainable-flexible-packaging-for-powders-low-moq-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T02:30:32.466Z"
+        },
+        {
+          "filename": "compostable-pouch-dimensions-for-8-oz-snacks-hero.png",
+          "path": "/imgs/blog/heros/compostable-pouch-dimensions-for-8-oz-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T02:15:23.130Z"
+        },
+        {
+          "filename": "low-moq-custom-shaped-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/low-moq-custom-shaped-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T02:00:33.735Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-barrier-film-for-flexible-packaging-hero.png",
+          "path": "/imgs/blog/heros/mono-pe-recyclable-barrier-film-for-flexible-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T01:49:07.410Z"
+        },
+        {
+          "filename": "digital-printed-flat-bottom-bags-for-herbs-hero.png",
+          "path": "/imgs/blog/heros/digital-printed-flat-bottom-bags-for-herbs-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T01:32:35.315Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-suppliers-for-ready-meals-hero.png",
+          "path": "/imgs/blog/heros/compostable-retort-pouch-suppliers-for-ready-meals-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T01:04:14.305Z"
+        },
+        {
+          "filename": "sustainable-sachet-packaging-for-vitamins-hero.png",
+          "path": "/imgs/blog/heros/sustainable-sachet-packaging-for-vitamins-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T00:48:38.194Z"
+        },
+        {
+          "filename": "custom-shaped-pouches-for-sauces-eco-friendly-hero.png",
+          "path": "/imgs/blog/heros/custom-shaped-pouches-for-sauces-eco-friendly-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T00:33:29.322Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-guide-for-12-oz-coffee-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-size-guide-for-12-oz-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-23T00:00:29.816Z"
+        },
+        {
+          "filename": "biodegradable-barrier-film-for-pet-food-hero.png",
+          "path": "/imgs/blog/heros/biodegradable-barrier-film-for-pet-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T23:45:25.011Z"
+        },
+        {
+          "filename": "kraft-paper-pouch-with-spout-for-powders-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-pouch-with-spout-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T23:04:03.287Z"
+        },
+        {
+          "filename": "small-batch-printed-compostable-sachets-for-spices-hero.png",
+          "path": "/imgs/blog/heros/small-batch-printed-compostable-sachets-for-spices-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T22:48:41.476Z"
+        },
+        {
+          "filename": "high-barrier-film-for-mono-pe-pouches-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-film-for-mono-pe-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T22:04:41.418Z"
+        },
+        {
+          "filename": "recyclable-flat-bottom-pouch-dimensions-for-coffee-hero.png",
+          "path": "/imgs/blog/heros/recyclable-flat-bottom-pouch-dimensions-for-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T21:48:33.107Z"
+        },
+        {
+          "filename": "compostable-gusseted-pouches-for-snacks-hero.png",
+          "path": "/imgs/blog/heros/compostable-gusseted-pouches-for-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T21:30:27.127Z"
+        },
+        {
+          "filename": "digital-print-on-kraft-paper-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/digital-print-on-kraft-paper-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T21:15:33.726Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-coffee-beans-pouches-hero.png",
+          "path": "/imgs/blog/heros/sustainable-packaging-for-coffee-beans-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T21:01:36.621Z"
+        },
+        {
+          "filename": "mono-material-film-suppliers-for-retort-hero.png",
+          "path": "/imgs/blog/heros/mono-material-film-suppliers-for-retort-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T20:48:47.785Z"
+        },
+        {
+          "filename": "custom-printed-barrier-pouches-for-liquids-low-moq-hero.png",
+          "path": "/imgs/blog/heros/custom-printed-barrier-pouches-for-liquids-low-moq-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T20:34:34.838Z"
+        },
+        {
+          "filename": "eco-friendly-sachet-sizes-for-supplements-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-sachet-sizes-for-supplements-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T20:18:35.257Z"
+        },
+        {
+          "filename": "kraft-paper-custom-pouches-for-herbs-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-custom-pouches-for-herbs-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T20:03:45.236Z"
+        },
+        {
+          "filename": "digital-printed-recyclable-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/digital-printed-recyclable-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T19:45:29.919Z"
+        },
+        {
+          "filename": "sustainable-high-barrier-pouches-for-nuts-hero.png",
+          "path": "/imgs/blog/heros/sustainable-high-barrier-pouches-for-nuts-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T19:30:25.602Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-with-spout-for-drinks-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-pouch-with-spout-for-drinks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T19:15:34.755Z"
+        },
+        {
+          "filename": "mono-pe-film-for-flexible-packaging-solutions-hero.png",
+          "path": "/imgs/blog/heros/mono-pe-film-for-flexible-packaging-solutions-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T19:04:25.771Z"
+        },
+        {
+          "filename": "compostable-sachet-packaging-for-supplements-hero.png",
+          "path": "/imgs/blog/heros/compostable-sachet-packaging-for-supplements-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T18:46:26.714Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-chart-for-8-oz-coffee-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-size-chart-for-8-oz-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T18:30:38.195Z"
+        },
+        {
+          "filename": "custom-shape-eco-friendly-pouches-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/custom-shape-eco-friendly-pouches-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T18:04:37.461Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-protein-powder-hero.png",
+          "path": "/imgs/blog/heros/sustainable-packaging-for-protein-powder-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T17:31:37.722Z"
+        },
+        {
+          "filename": "compostable-retort-pouches-for-sauces-hero.png",
+          "path": "/imgs/blog/heros/compostable-retort-pouches-for-sauces-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T17:04:34.957Z"
+        },
+        {
+          "filename": "high-barrier-film-for-custom-sachets-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-film-for-custom-sachets-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T16:48:31.820Z"
+        },
+        {
+          "filename": "kraft-paper-stand-up-pouches-for-tea-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-stand-up-pouches-for-tea-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T16:32:29.826Z"
+        },
+        {
+          "filename": "digital-printed-sustainable-pouches-for-snacks-hero.png",
+          "path": "/imgs/blog/heros/digital-printed-sustainable-pouches-for-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T16:00:37.524Z"
+        },
+        {
+          "filename": "mono-material-sachets-for-powders-hero.png",
+          "path": "/imgs/blog/heros/mono-material-sachets-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T15:45:31.658Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouches-for-pet-food-hero.png",
+          "path": "/imgs/blog/heros/recyclable-stand-up-pouches-for-pet-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T15:30:33.036Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouches-for-coffee-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-flat-bottom-pouches-for-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T15:15:26.209Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-custom-shaped-pouches-hero.png",
+          "path": "/imgs/blog/heros/sustainable-packaging-for-custom-shaped-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T15:00:35.375Z"
+        },
+        {
+          "filename": "mono-material-recyclable-sachet-dimensions-hero.png",
+          "path": "/imgs/blog/heros/mono-material-recyclable-sachet-dimensions-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T14:45:26.423Z"
+        },
+        {
+          "filename": "eco-friendly-barrier-film-roll-stock-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-barrier-film-roll-stock-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T14:30:34.801Z"
+        },
+        {
+          "filename": "stand-up-pouch-filling-equipment-for-powders-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-filling-equipment-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T14:15:41.577Z"
+        },
+        {
+          "filename": "custom-digital-printed-flat-bottom-bags-hero.png",
+          "path": "/imgs/blog/heros/custom-digital-printed-flat-bottom-bags-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T14:00:36.624Z"
+        },
+        {
+          "filename": "high-barrier-sustainable-film-for-sachets-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-sustainable-film-for-sachets-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T13:45:29.943Z"
+        },
+        {
+          "filename": "small-batch-mono-pe-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/small-batch-mono-pe-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T13:30:25.270Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-for-baby-food-hero.png",
+          "path": "/imgs/blog/heros/compostable-retort-pouch-for-baby-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T13:15:38.158Z"
+        },
+        {
+          "filename": "recyclable-pouch-size-chart-for-snacks-hero.png",
+          "path": "/imgs/blog/heros/recyclable-pouch-size-chart-for-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T13:00:45.456Z"
+        },
+        {
+          "filename": "kraft-paper-flat-bottom-pouch-with-spout-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-flat-bottom-pouch-with-spout-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T12:45:52.312Z"
+        },
+        {
+          "filename": "digital-print-on-compostable-barrier-film-hero.png",
+          "path": "/imgs/blog/heros/digital-print-on-compostable-barrier-film-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T12:30:30.545Z"
+        },
+        {
+          "filename": "eco-friendly-sachet-dimensions-for-powders-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-sachet-dimensions-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T12:15:29.414Z"
+        },
+        {
+          "filename": "custom-shaped-recyclable-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/custom-shaped-recyclable-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T12:00:33.450Z"
+        },
+        {
+          "filename": "mono-material-high-barrier-film-suppliers-hero.png",
+          "path": "/imgs/blog/heros/mono-material-high-barrier-film-suppliers-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T11:45:26.227Z"
+        },
+        {
+          "filename": "sustainable-pouch-sizes-for-coffee-beans-hero.png",
+          "path": "/imgs/blog/heros/sustainable-pouch-sizes-for-coffee-beans-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T11:30:25.013Z"
+        },
+        {
+          "filename": "barrier-film-for-digital-printed-pouches-hero.png",
+          "path": "/imgs/blog/heros/barrier-film-for-digital-printed-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-22T11:15:24.304Z"
+        },
         {
           "filename": "low-moq-compostable-stand-up-pouches-hero.png",
           "path": "/imgs/blog/heros/low-moq-compostable-stand-up-pouches-hero.png",
@@ -17017,25 +17527,103 @@
       ]
     },
     "store/products": {
-      "count": 309,
+      "count": 322,
       "images": [
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-seaweed.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-seaweed.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:53:48.784Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-rice.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-rice.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:52:00.384Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-charcoal.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-charcoal.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:50:24.996Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-oyster.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-oyster.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:49:07.595Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-bamboo.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-bamboo.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:47:34.849Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-peach.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-peach.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:45:56.170Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-grape.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-grape.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:44:48.290Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-orange-new.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-orange-new.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:44:05.063Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-tea.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-tea.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:43:23.176Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-coffee.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-coffee.png",
+          "extension": ".png",
+          "modified": "2026-06-23T14:42:04.394Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-thumbnail-3-old.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-3-old.png",
+          "extension": ".png",
+          "modified": "2026-06-23T12:15:32.418Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-thumbnail-2-old.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-2-old.png",
+          "extension": ".png",
+          "modified": "2026-06-23T12:15:32.405Z"
+        },
+        {
+          "filename": "compostable-citrus-orange-filament-rollstock-thumbnail-1-old.png",
+          "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-1-old.png",
+          "extension": ".png",
+          "modified": "2026-06-23T12:15:31.129Z"
+        },
         {
           "filename": "compostable-citrus-orange-filament-rollstock-thumbnail-3.png",
           "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-3.png",
           "extension": ".png",
-          "modified": "2026-06-21T03:32:33.435Z"
+          "modified": "2026-06-23T09:27:34.057Z"
         },
         {
           "filename": "compostable-citrus-orange-filament-rollstock-thumbnail-2.png",
           "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-2.png",
           "extension": ".png",
-          "modified": "2026-06-21T03:32:33.433Z"
+          "modified": "2026-06-23T09:27:34.055Z"
         },
         {
           "filename": "compostable-citrus-orange-filament-rollstock-thumbnail-1.png",
           "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-1.png",
           "extension": ".png",
-          "modified": "2026-06-21T03:32:33.430Z"
+          "modified": "2026-06-23T09:27:34.053Z"
         },
         {
           "filename": "semi-transparent-cotton-rice-paper-tea-bag-side-gusset-pouch-thumbnail-3.png",

@@ -8,7 +8,7 @@ interface LanguageSelectorProps {
 
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const changeLanguage = useCallback((targetLang: string) => {
     i18n.changeLanguage(targetLang);
@@ -21,7 +21,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
-        aria-label="Select language"
+        aria-label={t('appHome.string_214', 'Select language')}
       >
         <Globe className="h-4 w-4 text-white" />
       </button>

@@ -8205,9 +8205,22 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       'B2B Wholesale Tiers: Spooled in 1 kg rollstock format, optimized for eco-packaging prototyping.'
     ],
     images: [
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-orange-new.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-coffee.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-tea.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-grape.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-peach.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-bamboo.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-oyster.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-charcoal.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-rice.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-seaweed.png',
       '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-1.png',
       '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-2.png',
-      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-3.png'
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-3.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-1-old.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-2-old.png',
+      '/imgs/store/products/compostable-citrus-orange-filament-rollstock-thumbnail-3-old.png'
     ],
     badge: '🌱 100% Home Compostable',
     rating: 4.9,
