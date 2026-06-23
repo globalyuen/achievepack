@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T10:48:05.310Z",
+  "lastUnifiedRun": "2026-06-23T11:01:33.805Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4837,17 +4837,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-pouches-with-spout-for-beverages",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "kraft paper pouches with spout for beverages",
-      "difficulty": "Low",
-      "slug": "kraft-paper-pouches-with-spout-for-beverages"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 700,
       "keyword": "compostable retort pouches dimensions for sauces",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "compostable-retort-pouches-dimensions-for-sauces"
     },
     {
       "status": "Pending",
@@ -4954,9 +4955,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T10:45:31.773Z",
+      "timestamp": "2026-06-23T11:00:37.210Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouches with spout for beverages\" to /blog/kraft-paper-pouches-with-spout-for-beverages (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouches dimensions for sauces\" to /blog/compostable-retort-pouches-dimensions-for-sauces (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouches with spout for beverages\" to /blog/kraft-paper-pouches-with-spout-for-beverages (Pending Approval)",
+      "timestamp": "2026-06-23T10:45:31.773Z"
     },
     {
       "action": "Autopilot Generation Draft",
