@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T07:45:38.926Z",
+  "lastUnifiedRun": "2026-06-23T08:00:43.372Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -4760,17 +4760,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "low-moq-digital-printing-on-barrier-pouches",
       "status": "Pending Approval",
       "volume": 800,
       "keyword": "low moq digital printing on barrier pouches",
-      "difficulty": "Low",
-      "slug": "low-moq-digital-printing-on-barrier-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "mono material films for high barrier applications",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "mono-material-films-for-high-barrier-applications"
     },
     {
       "status": "Pending",
@@ -4853,9 +4854,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T07:45:27.728Z",
+      "timestamp": "2026-06-23T08:00:34.146Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"low moq digital printing on barrier pouches\" to /blog/low-moq-digital-printing-on-barrier-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono material films for high barrier applications\" to /blog/mono-material-films-for-high-barrier-applications (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"low moq digital printing on barrier pouches\" to /blog/low-moq-digital-printing-on-barrier-pouches (Pending Approval)",
+      "timestamp": "2026-06-23T07:45:27.728Z"
     },
     {
       "action": "Autopilot Generation Draft",
