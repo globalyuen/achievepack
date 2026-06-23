@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-22T23:45:33.724Z",
+  "lastUnifiedRun": "2026-06-23T00:00:39.310Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4585,10 +4585,11 @@
       "slug": "biodegradable-barrier-film-for-pet-food"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 760,
       "keyword": "stand up pouch size guide for 12 oz coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "stand-up-pouch-size-guide-for-12-oz-coffee"
     },
     {
       "status": "Pending",
@@ -4718,6 +4719,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-23T00:00:31.451Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size guide for 12 oz coffee\" to /blog/stand-up-pouch-size-guide-for-12-oz-coffee (Pending Approval)"
+    },
     {
       "timestamp": "2026-06-22T23:45:26.118Z",
       "action": "Autopilot Generation Draft",
