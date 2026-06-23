@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T05:30:38.943Z",
+  "lastUnifiedRun": "2026-06-23T05:45:40.372Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4718,17 +4718,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-packaging-solutions-for-retort-pouches",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "sustainable packaging solutions for retort pouches",
-      "difficulty": "Medium",
-      "slug": "sustainable-packaging-solutions-for-retort-pouches"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "compostable flat bottom bags for protein powder",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-flat-bottom-bags-for-protein-powder"
     },
     {
       "status": "Pending",
@@ -4847,9 +4848,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T05:30:29.711Z",
+      "timestamp": "2026-06-23T05:45:31.141Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for retort pouches\" to /blog/sustainable-packaging-solutions-for-retort-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable flat bottom bags for protein powder\" to /blog/compostable-flat-bottom-bags-for-protein-powder (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging solutions for retort pouches\" to /blog/sustainable-packaging-solutions-for-retort-pouches (Pending Approval)",
+      "timestamp": "2026-06-23T05:30:29.711Z"
     },
     {
       "action": "Autopilot Generation Draft",
