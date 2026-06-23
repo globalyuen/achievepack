@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T10:17:51.745Z",
+  "lastUnifiedRun": "2026-06-23T10:31:19.223Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4823,17 +4823,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-compostable-film-for-chocolate-packaging",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "high barrier compostable film for chocolate packaging",
-      "difficulty": "Medium",
-      "slug": "high-barrier-compostable-film-for-chocolate-packaging"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "small batch printing on recyclable stand up pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-printing-on-recyclable-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -4952,14 +4953,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T10:16:25.624Z",
-      "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"small batch printing on recyclable stand up pouches\": TypeError: fetch failed"
+      "timestamp": "2026-06-23T10:30:38.368Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"small batch printing on recyclable stand up pouches\" to /blog/small-batch-printing-on-recyclable-stand-up-pouches (Pending Approval)"
     },
     {
-      "timestamp": "2026-06-23T10:00:35.975Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film for chocolate packaging\" to /blog/high-barrier-compostable-film-for-chocolate-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film for chocolate packaging\" to /blog/high-barrier-compostable-film-for-chocolate-packaging (Pending Approval)",
+      "timestamp": "2026-06-23T10:00:35.975Z"
     },
     {
       "action": "Autopilot Generation Draft",
