@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T11:30:48.945Z",
+  "lastUnifiedRun": "2026-06-23T11:46:03.024Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4858,17 +4858,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-sachet-sourcing-for-dry-goods",
       "status": "Pending Approval",
       "volume": 1050,
       "keyword": "sustainable sachet sourcing for dry goods",
-      "difficulty": "Low",
-      "slug": "sustainable-sachet-sourcing-for-dry-goods"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "compostable stand-up pouches for supplements",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-stand-up-pouches-for-supplements"
     },
     {
       "status": "Pending",
@@ -4957,9 +4958,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T11:30:33.156Z",
+      "timestamp": "2026-06-23T11:45:29.232Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet sourcing for dry goods\" to /blog/sustainable-sachet-sourcing-for-dry-goods (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable stand-up pouches for supplements\" to /blog/compostable-stand-up-pouches-for-supplements (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet sourcing for dry goods\" to /blog/sustainable-sachet-sourcing-for-dry-goods (Pending Approval)",
+      "timestamp": "2026-06-23T11:30:33.156Z"
     },
     {
       "action": "Autopilot Generation Draft",
