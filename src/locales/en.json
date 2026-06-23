@@ -10760,5 +10760,126 @@
     "spouted": "SPOUTED",
     "roll": "ROLL",
     "terms": "TERMS"
+  },
+  "slogans": {
+    "default": {
+      "prefix": "Your Customers Care What Their Products Are Made Of & Where They End Up.",
+      "suffix": "Your Packaging Should Too.",
+      "full": "Your Customers Care What Their Products Are Made Of & Where They End Up. Your Packaging Should Too."
+    },
+    "b2b": [
+      {
+        "prefix": "You poured your heart into what's inside.",
+        "suffix": "Let's make sure the outside honors that promise."
+      },
+      {
+        "prefix": "Your product tells a story of care.",
+        "suffix": "Your packaging should be its perfect ending."
+      },
+      {
+        "prefix": "Packaging as thoughtful and purposeful",
+        "suffix": "as the product inside."
+      },
+      {
+        "prefix": "Earn their trust before they even open the bag.",
+        "suffix": "Packaging that shares your customers' deepest values."
+      },
+      {
+        "prefix": "They love what you make.",
+        "suffix": "Show them you care about the world they live in."
+      },
+      {
+        "prefix": "Speak to your customers' hearts",
+        "suffix": "with packaging that leaves no trace."
+      },
+      {
+        "prefix": "Beautiful on the shelf. Harmless in the soil.",
+        "suffix": "Packaging your brand can be proud of."
+      },
+      {
+        "prefix": "Leave a legacy of quality,",
+        "suffix": "not a footprint of waste."
+      },
+      {
+        "prefix": "Made with purpose.",
+        "suffix": "Returned to the earth."
+      }
+    ],
+    "b2c": [
+      "You poured your heart into what's inside. Let's make sure the outside honors that promise.",
+      "Your product tells a story of care. Your packaging should be its perfect ending.",
+      "Packaging as thoughtful and purposeful as the product inside.",
+      "Earn their trust before they even open the bag. Packaging that shares your customers' deepest values.",
+      "They love what you make. Show them you care about the world they live in.",
+      "Speak to your customers' hearts with packaging that leaves no trace.",
+      "Beautiful on the shelf. Harmless in the soil. Packaging your brand can be proud of.",
+      "Leave a legacy of quality, not a footprint of waste.",
+      "Made with purpose. Returned to the earth."
+    ]
+  },
+  "workCarousel": {
+    "eyebrow": "// Our Portfolio",
+    "title": "See Our",
+    "titleHighlight": "Work",
+    "desc": "Browse real product photos from brands we've helped launch. Your custom packaging could be next.",
+    "pouchDesc": "Browse real product packaging photos from brands we've helped launch.",
+    "readGuide": "Read Guide"
+  },
+  "knowHowCarousel": {
+    "eyebrow": "// Our Expertise",
+    "title": "See Our",
+    "titleHighlight": "Know How",
+    "desc": "Explore our comprehensive knowledge base on sustainable materials, packaging specifications, cost structures, and D2C strategies.",
+    "pouchDesc": "Explore our comprehensive knowledge base on sustainable materials, packaging specifications, and D2C strategies.",
+    "readGuide": "Read Guide"
+  },
+  "videoShowcase": {
+    "badge": "VIDEO_SHOWCASE",
+    "title": "See Our",
+    "titleHighlight": "Story",
+    "desc": "From problem to solution - watch how our compostable pouches are changing packaging for the better",
+    "cta": "[START_YOUR_PROJECT]",
+    "videos": {
+      "certification": {
+        "title": "Certified Materials",
+        "description": "TUV OK Home and ASTM D6400 certified - breaks down in 180 days.",
+        "segment": "Segment 1 (0-6s)"
+      },
+      "performance": {
+        "title": "Performance & Design",
+        "description": "High barrier protection with premium stand-up design.",
+        "segment": "Segment 2 (6-12s)"
+      },
+      "environmental": {
+        "title": "Environmental Impact",
+        "description": "Returns to nature as water, CO₂, and nutrient-rich biomass.",
+        "segment": "Segment 3 (12-18s)"
+      },
+      "brand-benefits": {
+        "title": "Build Your Brand",
+        "description": "Build trust with eco-conscious consumers. Regulatory compliant.",
+        "segment": "Segment 4 (18-24s)"
+      },
+      "customization": {
+        "title": "Low MOQ & Custom",
+        "description": "From 500 pieces with fast digital printing.",
+        "segment": "Segment 5 (24-30s)"
+      },
+      "cta-build": {
+        "title": "Compostable Future",
+        "description": "Choose packaging that aligns with your values.",
+        "segment": "Segment 6 (30-36s)"
+      },
+      "close": {
+        "title": "Start Your Journey",
+        "description": "Certified | Plant-Based | Fully Compostable",
+        "segment": "Segment 7 (36-42s)"
+      }
+    }
+  },
+  "instagramFeed": {
+    "handle": "@pouch_eco",
+    "title": "Follow Our Journey",
+    "desc": "See our latest sustainable packaging creations, behind-the-scenes moments, and happy customers on Instagram."
   }
 }

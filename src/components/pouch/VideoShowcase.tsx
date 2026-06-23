@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 interface Video {
   id: string
@@ -75,6 +76,7 @@ interface VideoShowcaseProps {
 }
 
 export default function VideoShowcase({ className = '' }: VideoShowcaseProps) {
+  const { t } = useTranslation()
   const [activeVideo, setActiveVideo] = useState<Video | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -102,13 +104,13 @@ export default function VideoShowcase({ className = '' }: VideoShowcaseProps) {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-block bg-black text-[#D4FF00] px-4 py-2 mb-6 font-['JetBrains_Mono'] font-bold transform rotate-1 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            VIDEO_SHOWCASE
+            {t('videoShowcase.badge', 'VIDEO_SHOWCASE')}
           </div>
           <h2 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase mb-6 leading-none">
-            See Our <span className="text-[#10b981]">Story</span>
+            {t('videoShowcase.title', 'See Our')} <span className="text-[#10b981]">{t('videoShowcase.titleHighlight', 'Story')}</span>
           </h2>
           <p className="font-['JetBrains_Mono'] text-lg md:text-xl max-w-3xl mx-auto text-gray-700 leading-relaxed">
-            From problem to solution - watch how our compostable pouches are changing packaging for the better
+            {t('videoShowcase.desc', 'From problem to solution - watch how our compostable pouches are changing packaging for the better')}
           </p>
         </div>
 
@@ -154,10 +156,10 @@ export default function VideoShowcase({ className = '' }: VideoShowcaseProps) {
                 {/* Content */}
                 <div className="p-4 border-t-4 border-black">
                   <h3 className="font-black text-sm md:text-base uppercase mb-2 leading-tight">
-                    {video.title}
+                    {t(`videoShowcase.videos.${video.id}.title`, video.title)}
                   </h3>
                   <p className="font-['JetBrains_Mono'] text-xs text-gray-600 line-clamp-2">
-                    {video.description}
+                    {t(`videoShowcase.videos.${video.id}.description`, video.description)}
                   </p>
                 </div>
               </motion.div>
@@ -175,7 +177,7 @@ export default function VideoShowcase({ className = '' }: VideoShowcaseProps) {
             onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}
             className="inline-block bg-[#D4FF00] text-black px-8 py-4 font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
           >
-            [START_YOUR_PROJECT]
+            {t('videoShowcase.cta', '[START_YOUR_PROJECT]')}
           </button>
         </div>
       </section>
@@ -242,10 +244,10 @@ export default function VideoShowcase({ className = '' }: VideoShowcaseProps) {
                         </span>
                       </div>
                       <h3 className="font-black text-2xl md:text-3xl uppercase mb-3 leading-tight">
-                        {activeVideo.title}
+                        {t(`videoShowcase.videos.${activeVideo.id}.title`, activeVideo.title)}
                       </h3>
                       <p className="font-['Space_Grotesk'] text-gray-700 text-base md:text-lg">
-                        {activeVideo.description}
+                        {t(`videoShowcase.videos.${activeVideo.id}.description`, activeVideo.description)}
                       </p>
                     </div>
                     <div className="text-right">

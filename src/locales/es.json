@@ -9797,5 +9797,126 @@
     "spouted": "CON BOQUILLA",
     "roll": "BOBINA",
     "terms": "TÉRMINOS"
+  },
+  "slogans": {
+    "default": {
+      "prefix": "A tus clientes les importa de qué están hechos sus productos y dónde terminan.",
+      "suffix": "Tu embalaje también debería importarles.",
+      "full": "A tus clientes les importa de qué están hechos sus productos y dónde terminan. Tu embalaje también debería importarles."
+    },
+    "b2b": [
+      {
+        "prefix": "Pusiste tu corazón en lo que hay dentro.",
+        "suffix": "Asegurémonos de que el exterior honre esa promesa."
+      },
+      {
+        "prefix": "Tu producto cuenta una historia de cuidado.",
+        "suffix": "Tu embalaje debería ser su final perfecto."
+      },
+      {
+        "prefix": "Un embalaje tan reflexivo y con propósito",
+        "suffix": "como el producto que contiene."
+      },
+      {
+        "prefix": "Gana su confianza antes de que abran la bolsa.",
+        "suffix": "Un embalaje que comparte los valores más profundos de tus clientes."
+      },
+      {
+        "prefix": "Les encanta lo que haces.",
+        "suffix": "Demuéstrales que te importa el mundo en el que viven."
+      },
+      {
+        "prefix": "Habla al corazón de tus clientes",
+        "suffix": "con un embalaje que no deja huella."
+      },
+      {
+        "prefix": "Hermoso en el estante. Inofensivo en la tierra.",
+        "suffix": "Un embalaje del que tu marca puede estar orgullosa."
+      },
+      {
+        "prefix": "Deja un legado de calidad,",
+        "suffix": "no una huella de residuos."
+      },
+      {
+        "prefix": "Hecho con propósito.",
+        "suffix": "Devuelto a la tierra."
+      }
+    ],
+    "b2c": [
+      "Pusiste tu corazón en lo que hay dentro. Asegurémonos de que el exterior honre esa promesa.",
+      "Tu producto cuenta una historia de cuidado. Tu embalaje debería ser su final perfecto.",
+      "Un embalaje tan reflexivo y con propósito como el producto que contiene.",
+      "Gana su confianza antes de que abran la bolsa. Un embalaje que comparte los valores más profundos de tus clientes.",
+      "Les encanta lo que haces. Demuéstrales que te importa el mundo en el que viven.",
+      "Habla al corazón de tus clientes con un embalaje que no deja huella.",
+      "Hermoso en el estante. Inofensivo en la tierra. Un embalaje del que tu marca puede estar orgullosa.",
+      "Deja un legado de calidad, no una huella de residuos.",
+      "Hecho con propósito. Devuelto a la tierra."
+    ]
+  },
+  "workCarousel": {
+    "eyebrow": "// Nuestro Portafolio",
+    "title": "Vea Nuestro",
+    "titleHighlight": "Trabajo",
+    "desc": "Explore fotos reales de productos de marcas a las que hemos ayudado a lanzar. Su embalaje personalizado podría ser el próximo.",
+    "pouchDesc": "Explore fotos reales de embalajes de productos de marcas a las que hemos ayudado a lanzar.",
+    "readGuide": "Leer Guía"
+  },
+  "knowHowCarousel": {
+    "eyebrow": "// Nuestra Experiencia",
+    "title": "Vea Nuestro",
+    "titleHighlight": "Conocimiento",
+    "desc": "Explore nuestra base de conocimientos completa sobre materiales sostenibles, especificaciones de embalaje, estructuras de costos y estrategias D2C.",
+    "pouchDesc": "Explore nuestra base de conocimientos completa sobre materiales sostenibles, especificaciones de embalaje y estrategias D2C.",
+    "readGuide": "Leer Guía"
+  },
+  "videoShowcase": {
+    "badge": "VIDEO_SHOWCASE",
+    "title": "Vea Nuestra",
+    "titleHighlight": "Historia",
+    "desc": "Del problema a la solución: vea cómo nuestras bolsas compostables están cambiando el embalaje para mejor",
+    "cta": "[INICIA_TU_PROYECTO]",
+    "videos": {
+      "certification": {
+        "title": "Materiales Certificados",
+        "description": "Certificado TUV OK Home y ASTM D6400 - se descompone en 180 días.",
+        "segment": "Segmento 1 (0-6s)"
+      },
+      "performance": {
+        "title": "Rendimiento y Diseño",
+        "description": "Protección de alta barrera con diseño premium de pie.",
+        "segment": "Segmento 2 (6-12s)"
+      },
+      "environmental": {
+        "title": "Impacto Ambiental",
+        "description": "Vuelve a la naturaleza como agua, CO₂ y biomasa rica en nutrientes.",
+        "segment": "Segmento 3 (12-18s)"
+      },
+      "brand-benefits": {
+        "title": "Construye Tu Marca",
+        "description": "Genera confianza con consumidores ecoconscientes. Cumple con regulaciones.",
+        "segment": "Segmento 4 (18-24s)"
+      },
+      "customization": {
+        "title": "Bajo MOQ y Personalizado",
+        "description": "Desde 500 piezas con impresión digital rápida.",
+        "segment": "Segmento 5 (24-30s)"
+      },
+      "cta-build": {
+        "title": "Futuro Compostable",
+        "description": "Elige embalaje que se alinee con tus valores.",
+        "segment": "Segmento 6 (30-36s)"
+      },
+      "close": {
+        "title": "Inicia Tu Camino",
+        "description": "Certificado | Base Vegetal | Completamente Compostable",
+        "segment": "Segmento 7 (36-42s)"
+      }
+    }
+  },
+  "instagramFeed": {
+    "handle": "@pouch_eco",
+    "title": "Siga Nuestro Camino",
+    "desc": "Vea nuestras últimas creaciones de embalaje sostenible, momentos entre bastidores y clientes felices en Instagram."
   }
 }

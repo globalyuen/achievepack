@@ -110,20 +110,20 @@ export default function KnowHowCarousel({ theme = 'achieve' }: KnowHowCarouselPr
           {isPouch ? (
             <>
               <h2 className="font-black text-5xl md:text-7xl uppercase mb-6">
-                See Our <span className="text-[#10b981]">Know How</span>
+                {t('knowHowCarousel.title', 'See Our')} <span className="text-[#10b981]">{t('knowHowCarousel.titleHighlight', 'Know How')}</span>
               </h2>
               <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto text-gray-700">
-                Explore our comprehensive knowledge base on sustainable materials, packaging specifications, and D2C strategies.
+                {t('knowHowCarousel.pouchDesc', 'Explore our comprehensive knowledge base on sustainable materials, packaging specifications, and D2C strategies.')}
               </p>
             </>
           ) : (
             <>
-              <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm font-sans">// Our Expertise</span>
+              <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm font-sans">{t('knowHowCarousel.eyebrow', '// Our Expertise')}</span>
               <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight mt-2 mb-4 font-sans text-neutral-900">
-                See Our <span className="text-primary-500">Know How</span>
+                {t('knowHowCarousel.title', 'See Our')} <span className="text-primary-500">{t('knowHowCarousel.titleHighlight', 'Know How')}</span>
               </h2>
               <p className="text-lg text-neutral-600 max-w-2xl mx-auto font-sans">
-                Explore our comprehensive knowledge base on sustainable materials, packaging specifications, cost structures, and D2C strategies.
+                {t('knowHowCarousel.desc', 'Explore our comprehensive knowledge base on sustainable materials, packaging specifications, cost structures, and D2C strategies.')}
               </p>
             </>
           )}
@@ -193,7 +193,7 @@ export default function KnowHowCarousel({ theme = 'achieve' }: KnowHowCarouselPr
                         isPouch ? "font-['JetBrains_Mono']" : "font-sans"
                       }`}
                     >
-                      Read Guide <ArrowRight className="h-3 w-3" />
+                      {t('knowHowCarousel.readGuide', 'Read Guide')} <ArrowRight className="h-3 w-3" />
                     </div>
                   ) : (
                     <Link 
@@ -202,7 +202,7 @@ export default function KnowHowCarousel({ theme = 'achieve' }: KnowHowCarouselPr
                         isPouch ? "font-['JetBrains_Mono']" : "font-sans"
                       }`}
                     >
-                      Read Guide <ArrowRight className="h-3 w-3" />
+                      {t('knowHowCarousel.readGuide', 'Read Guide')} <ArrowRight className="h-3 w-3" />
                     </Link>
                   )}
                 </div>

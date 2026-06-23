@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { ExternalLink, X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 // Real Instagram post URLs from @pouch_eco
 const INSTAGRAM_POSTS = [
@@ -12,6 +13,7 @@ const INSTAGRAM_POSTS = [
 ]
 
 export default function InstagramFeed() {
+  const { t } = useTranslation()
   const [selectedPost, setSelectedPost] = useState<string | null>(null)
   const [isFollowModalOpen, setIsFollowModalOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
@@ -121,10 +123,10 @@ export default function InstagramFeed() {
             @pouch_eco
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">
-            Follow Our Journey
+            {t('instagramFeed.title', 'Follow Our Journey')}
           </h2>
           <p className="text-lg text-green-700 max-w-2xl mx-auto">
-            See our latest sustainable packaging creations, behind-the-scenes moments, and happy customers on Instagram.
+            {t('instagramFeed.desc', "See our latest sustainable packaging creations, behind-the-scenes moments, and happy customers on Instagram.")}
           </p>
         </div>
 

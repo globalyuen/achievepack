@@ -119,20 +119,20 @@ export default function WorkCarousel({ theme = 'achieve' }: WorkCarouselProps) {
           {isPouch ? (
             <>
               <h2 className="font-black text-5xl md:text-7xl uppercase mb-6">
-                See Our <span className="text-[#10b981]">Work</span>
+                {t('workCarousel.title', 'See Our')} <span className="text-[#10b981]">{t('workCarousel.titleHighlight', 'Work')}</span>
               </h2>
               <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto text-gray-700">
-                Browse real product packaging photos from brands we've helped launch.
+                {t('workCarousel.pouchDesc', "Browse real product packaging photos from brands we've helped launch.")}
               </p>
             </>
           ) : (
             <>
-              <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm font-sans">// Our Portfolio</span>
+              <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm font-sans">{t('workCarousel.eyebrow', '// Our Portfolio')}</span>
               <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight mt-2 mb-4 font-sans text-neutral-900">
-                See Our <span className="text-primary-500">Work</span>
+                {t('workCarousel.title', 'See Our')} <span className="text-primary-500">{t('workCarousel.titleHighlight', 'Work')}</span>
               </h2>
               <p className="text-lg text-neutral-600 max-w-2xl mx-auto font-sans">
-                Browse real product photos from brands we've helped launch. Your custom packaging could be next.
+                {t('workCarousel.desc', "Browse real product photos from brands we've helped launch. Your custom packaging could be next.")}
               </p>
             </>
           )}
@@ -202,7 +202,7 @@ export default function WorkCarousel({ theme = 'achieve' }: WorkCarouselProps) {
                         isPouch ? "font-['JetBrains_Mono']" : "font-sans"
                       }`}
                     >
-                      Read Guide <ArrowRight className="h-3 w-3" />
+                      {t('workCarousel.readGuide', 'Read Guide')} <ArrowRight className="h-3 w-3" />
                     </div>
                   ) : (
                     <Link 
@@ -211,7 +211,7 @@ export default function WorkCarousel({ theme = 'achieve' }: WorkCarouselProps) {
                         isPouch ? "font-['JetBrains_Mono']" : "font-sans"
                       }`}
                     >
-                      Read Guide <ArrowRight className="h-3 w-3" />
+                      {t('workCarousel.readGuide', 'Read Guide')} <ArrowRight className="h-3 w-3" />
                     </Link>
                   )}
                 </div>
