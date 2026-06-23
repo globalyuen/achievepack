@@ -44,6 +44,18 @@
       "memory": 1024,
       "maxDuration": 60
     },
+    "api/get-shared-quote.ts": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
+    "api/save-shared-quote.ts": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
+    "api/track-quote-view.ts": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
     "api/**/*.ts": {
       "memory": 1024,
       "maxDuration": 10,

@@ -31,11 +31,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
     
     if (!SUPABASE_URL || !SUPABASE_KEY) {
+      console.error(
+        'Missing Supabase env vars.',
+        'VITE_SUPABASE_URL:', !!process.env.VITE_SUPABASE_URL,
+        'SUPABASE_URL:', !!process.env.SUPABASE_URL,
+        'SUPABASE_SERVICE_KEY:', !!process.env.SUPABASE_SERVICE_KEY,
+        'VITE_SUPABASE_ANON_KEY:', !!process.env.VITE_SUPABASE_ANON_KEY
+      );
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    // Use service key to bypass RLS since this is a public link
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+    // Use service key to bypass RLS since this is a public link.
+    // Wrap fetch with a 20s AbortController timeout so we never silently hang
+    // past Vercel's function window (causing 504).
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
+      global: {
+        fetch: (url, options) => {
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 20000);
+          return fetch(url, { ...options, signal: controller.signal }).finally(() =>
+            clearTimeout(timeout)
+          );
+        },
+      },
+    });
     
     // Fetch only the needed fields from webhook_logs
     const { data: logRow, error: logError } = await supabase
@@ -45,6 +64,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .single();
 
     if (logError || !logRow) {
+      console.error('Supabase error:', logError?.message, '| row found:', !!logRow);
       return res.status(404).json({ error: 'Quote not found or link has expired.' });
     }
 
@@ -73,10 +93,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
   } catch (err: any) {
-    console.error("Get Shared Quote API Error:", err.message);
-    return res.status(500).json({ 
+    const isTimeout = err.name === 'AbortError' || err.message?.includes('abort');
+    console.error("Get Shared Quote API Error:", err.name, err.message);
+    return res.status(isTimeout ? 504 : 500).json({ 
       success: false,
-      error: 'Failed to access quote', 
+      error: isTimeout
+        ? 'Database connection timed out — please try again in a moment.'
+        : 'Failed to access quote', 
       details: err.message 
     });
   }
