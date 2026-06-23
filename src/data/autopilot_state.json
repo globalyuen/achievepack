@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T00:36:45.319Z",
+  "lastUnifiedRun": "2026-06-23T00:51:46.746Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4592,17 +4592,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-shaped-pouches-for-sauces-eco-friendly",
       "status": "Pending Approval",
       "volume": 670,
       "keyword": "custom shaped pouches for sauces eco friendly",
-      "difficulty": "Low",
-      "slug": "custom-shaped-pouches-for-sauces-eco-friendly"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 920,
       "keyword": "sustainable sachet packaging for vitamins",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "sustainable-sachet-packaging-for-vitamins"
     },
     {
       "status": "Pending",
@@ -4721,9 +4722,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T00:33:31.001Z",
+      "timestamp": "2026-06-23T00:48:39.637Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shaped pouches for sauces eco friendly\" to /blog/custom-shaped-pouches-for-sauces-eco-friendly (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet packaging for vitamins\" to /blog/sustainable-sachet-packaging-for-vitamins (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped pouches for sauces eco friendly\" to /blog/custom-shaped-pouches-for-sauces-eco-friendly (Pending Approval)",
+      "timestamp": "2026-06-23T00:33:31.001Z"
     },
     {
       "action": "Autopilot Error",
