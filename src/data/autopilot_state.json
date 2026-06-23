@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T10:01:34.887Z",
+  "lastUnifiedRun": "2026-06-23T10:17:51.745Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4951,6 +4951,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-23T10:16:25.624Z",
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"small batch printing on recyclable stand up pouches\": TypeError: fetch failed"
+    },
     {
       "timestamp": "2026-06-23T10:00:35.975Z",
       "action": "Autopilot Generation Draft",
