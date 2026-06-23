@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-23T07:22:58.795Z",
+  "lastUnifiedRun": "2026-06-23T07:30:55.339Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -4746,17 +4746,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-printed-compostable-sachets-for-supplements",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "custom printed compostable sachets for supplements",
-      "difficulty": "Low",
-      "slug": "custom-printed-compostable-sachets-for-supplements"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "stand up pouch size for 500ml liquids",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "stand-up-pouch-size-for-500ml-liquids"
     },
     {
       "status": "Pending",
@@ -4851,9 +4852,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-23T07:19:46.267Z",
+      "timestamp": "2026-06-23T07:30:33.548Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom printed compostable sachets for supplements\" to /blog/custom-printed-compostable-sachets-for-supplements (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size for 500ml liquids\" to /blog/stand-up-pouch-size-for-500ml-liquids (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed compostable sachets for supplements\" to /blog/custom-printed-compostable-sachets-for-supplements (Pending Approval)",
+      "timestamp": "2026-06-23T07:19:46.267Z"
     },
     {
       "action": "Autopilot Error",
