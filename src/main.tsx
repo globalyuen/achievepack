@@ -347,6 +347,7 @@ const FlatBottomVsGussetPage = lazyWithRetry(() => import('./pages/knowledge/Fla
 const EcoPackagingRealityPage = lazyWithRetry(() => import('./pages/knowledge/EcoPackagingRealityPage'))
 const WritableStampablePouchesPage = lazyWithRetry(() => import('./pages/knowledge/WritableStampablePouchesPage'))
 const ColorMatchingPage = lazyWithRetry(() => import('./pages/knowledge/ColorMatchingPage'))
+const PhaVsPla = lazyWithRetry(() => import('./pages/knowledge/PhaVsPla'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -745,6 +746,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
                   <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
                   <Route path="/knowledge/digital-printing-pantone-color-matching" element={<PouchColorMatchingPage />} />
+                  <Route path="/knowledge/pha-vs-pla" element={<PhaVsPla />} />
                   {/* <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} /> */}
                   {/* <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} /> */}
                   {/* <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} /> */}
@@ -1261,6 +1263,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
                         <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
                         <Route path="/knowledge/digital-printing-pantone-color-matching" element={<ColorMatchingPage />} />
+                        <Route path="/knowledge/pha-vs-pla" element={<PhaVsPla />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />

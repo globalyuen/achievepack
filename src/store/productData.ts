@@ -8195,14 +8195,17 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     id: 'compostable-citrus-orange-filament-rollstock',
     name: 'Home Compostable CitrusCycle™ Orange Peel Waste PHA 3D Printing Filament',
     category: '3d-print',
-    description: 'High-performance 3D printing filament engineered from post-industrial orange peel waste and natural PHA (Polyhydroxyalkanoate). Fully home-compostable and marine-degradable, it offers a sustainable alternative to fossil-based polymers like ABS and PETG. Designed for rollstock extrusion and standard FDM printers, CitrusCycle™ delivers a matte orange finish with excellent interlayer adhesion, minimal warping, and a subtle natural citrus aroma during printing. Perfect for eco-friendly prototyping, bio-plastics research, and packaging dieline test fits.',
-    shortDesc: 'Home-compostable 3D printing filament made from orange peel waste and marine-degradable PHA',
+    description: 'Transform your rapid prototyping with CitrusCycle™ Orange Peel PHA Filament. Engineered from post-industrial citrus waste and natural Polyhydroxyalkanoate (PHA), this material represents the next generation of sustainable 3D printing and packaging extrusion. Unlike standard PLA, which requires strict industrial composting and mandatory 4-hour pre-drying, our PHA filament is 100% home-compostable, marine-degradable, and ready to print out of the box. It delivers a premium matte orange finish, excellent interlayer adhesion, and a subtle natural citrus aroma, all while eliminating persistent microplastics. Ideal for BRC/GFSI certified packaging environments and DTC eco-brands looking for zero-waste alternatives to PETG.',
+    shortDesc: 'Premium home-compostable 3D printing filament made from orange peel waste. No pre-drying needed.',
     features: [
-      'CitrusCycle™ Biomass: Formulated using natural orange peel residues and backyard compostable PHA.',
-      'Zero Microplastics: 100% bio-based, leaves no toxic residues or persistent plastics.',
-      'Matte Natural Finish: Warm orange color with a textured matte surface, perfect for organic designs.',
-      'Industrial & FDM Grade: Designed for standard 1.75mm and 2.85mm setups with low warping.',
-      'B2B Wholesale Tiers: Spooled in 1 kg rollstock format, optimized for eco-packaging prototyping.'
+      'CitrusCycle™ Technology: Upcycles natural orange peel residues with native PHA for a unique aromatic profile.',
+      'Marine & Home Compostable: True zero-waste lifecycle. Degrades completely in backyard compost or ocean water.',
+      'Zero Pre-Drying Required: Highly stable polymer structure saves operational time compared to hygroscopic PLA and PETG.',
+      'No Microplastic Shedding: 100% bio-based formulation leaves zero toxic residue upon degradation.',
+      'Premium Aesthetic: Achieves a warm, textured matte orange finish that elevates eco-friendly prototypes.',
+      'FAQ: How does PHA compare to PLA? - PLA needs high-heat industrial facilities to break down and must be dried before printing. Our PHA is natively compostable anywhere and prints perfectly without drying.',
+      'FAQ: Is this safe for food contact prototyping? - Absolutely. It is 100% bio-based, non-toxic, and friendly to the human body, leaving zero chemical footprint.',
+      'FAQ: What are the print settings? - Prints seamlessly on standard FDM setups. It offers excellent layer adhesion and heat resistance up to 60°C.'
     ],
     images: [
       '/imgs/store/products/compostable-citrus-orange-filament-rollstock-orange-new.png',

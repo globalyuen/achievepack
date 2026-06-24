@@ -93,6 +93,7 @@ const LEARN_PAGES = {
       { name: 'Eco-Packaging Reality', link: '/knowledge/eco-packaging-reality', image: '/imgs/knowledge/eco-packaging-reality.png' },
       { name: 'Writable & Stampable Pouches', link: '/knowledge/writable-stampable-pouches', image: '/imgs/knowledge/writable-stampable-pouches.jpg' },
       { name: 'Color Matching Guide', link: '/knowledge/digital-printing-pantone-color-matching', image: '/imgs/knowledge/color-matching/pms-cmyk-deviation.png' },
+      { name: 'PHA vs PLA', link: '/knowledge/pha-vs-pla', image: '/imgs/materials/citrus_clear_spout_pouch.png' },
     ]
   },
   support: {
