@@ -8,10 +8,13 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase, WebhookLog } from '../../lib/supabase';
+import { useTranslation, Trans } from "react-i18next";
 
 const ADMIN_PIN = "8888****"; // Matching existing admin PIN pattern
 
 const QuoteAnalyticsPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.quoteAnalytics';
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return sessionStorage.getItem('admin_quote_analytics_auth') === 'true';
   });
@@ -257,7 +260,7 @@ const QuoteAnalyticsPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6 font-sans">
         <Helmet>
-          <title>Admin Auth | Quote Analytics</title>
+          <title>{t(`${p}.adminAuthQuoteAnalytics`)}</title>
         </Helmet>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -268,8 +271,8 @@ const QuoteAnalyticsPage: React.FC = () => {
             <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-4 border border-blue-500/30">
               <TrendingUp className="w-8 h-8 text-blue-500" />
             </div>
-            <h1 className="text-2xl font-black text-white tracking-tight">Quote Analytics</h1>
-            <p className="text-gray-500 text-sm mt-1">Authorized Personnel Only</p>
+            <h1 className="text-2xl font-black text-white tracking-tight">{t(`${p}.quoteAnalytics`)}</h1>
+            <p className="text-gray-500 text-sm mt-1">{t(`${p}.authorizedPersonnelOnly`)}</p>
           </div>
 
           <form onSubmit={handleVerifyPin} className="space-y-4">
@@ -295,8 +298,7 @@ const QuoteAnalyticsPage: React.FC = () => {
             >
               {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : (
                 <>
-                  Unlock Dashboard
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  {t(`${p}.unlockDashboard`)}<ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </>
               )}
             </button>
@@ -309,7 +311,7 @@ const QuoteAnalyticsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-blue-500/30">
       <Helmet>
-        <title>Quote Analytics Dashboard | Achieve Pack Admin</title>
+        <title>{t(`${p}.quoteAnalyticsDashboardAchieve`)}</title>
       </Helmet>
 
       {/* Header */}
@@ -320,11 +322,10 @@ const QuoteAnalyticsPage: React.FC = () => {
               <Activity className="w-5 h-5 text-blue-500" />
             </div>
             <div>
-              <h1 className="text-lg font-black tracking-tight">ENGAGEMENT INTEL</h1>
+              <h1 className="text-lg font-black tracking-tight">{t(`${p}.engagementIntel`)}</h1>
               <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Real-time Quote Tracking
-              </div>
+                {t(`${p}.realTimeQuoteTracking`)}</div>
             </div>
           </div>
 
@@ -371,8 +372,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                   <stat.icon className={`w-6 h-6 ${stat.color}`} />
                 </div>
                 <div className="text-[10px] font-black text-gray-500 bg-white/5 px-2 py-1 rounded-md uppercase tracking-widest">
-                  Live
-                </div>
+                  {t(`${p}.live`)}</div>
               </div>
               <div className="text-3xl font-black mb-1 group-hover:scale-105 transition-transform origin-left">
                 {typeof stat.value === 'number' ? stat.value.toLocaleString() : stat.value}
@@ -394,15 +394,15 @@ const QuoteAnalyticsPage: React.FC = () => {
                 <div className="flex items-center gap-4">
                   {viewMode === 'summary' && (
                     <div className="flex items-center gap-2 text-xs">
-                      <span className="text-gray-500 font-bold uppercase tracking-widest">Sort:</span>
+                      <span className="text-gray-500 font-bold uppercase tracking-widest">{t(`${p}.sort`)}</span>
                       <select 
                         value={sortMode}
                         onChange={(e) => setSortMode(e.target.value as any)}
                         className="bg-black border border-white/10 rounded-lg px-3 py-1.5 text-white font-bold focus:outline-none focus:ring-2 focus:ring-blue-500"
                       >
-                        <option value="recent">Most Recent</option>
-                        <option value="views">Most Views</option>
-                        <option value="name">Customer Name</option>
+                        <option value="recent">{t(`${p}.mostRecent`)}</option>
+                        <option value="views">{t(`${p}.mostViews`)}</option>
+                        <option value="name">{t(`${p}.customerName`)}</option>
                       </select>
                     </div>
                   )}
@@ -411,18 +411,15 @@ const QuoteAnalyticsPage: React.FC = () => {
                       onClick={() => setViewMode('timeline')}
                       className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded-lg transition-colors flex items-center gap-2 ${viewMode === 'timeline' ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-white'}`}
                     >
-                      <List className="w-3.5 h-3.5" /> Timeline
-                    </button>
+                      <List className="w-3.5 h-3.5" /> {t(`${p}.timeline`)}</button>
                     <button 
                       onClick={() => setViewMode('summary')}
                       className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded-lg transition-colors flex items-center gap-2 ${viewMode === 'summary' ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-white'}`}
                     >
-                      <Grid className="w-3.5 h-3.5" /> Summary
-                    </button>
+                      <Grid className="w-3.5 h-3.5" /> {t(`${p}.summary`)}</button>
                   </div>
                   <span className="text-xs font-bold text-gray-500 px-3 py-1.5 bg-white/5 rounded-xl border border-white/5">
-                    {viewMode === 'timeline' ? filteredLogs.length : sortedSummary.length} Records
-                  </span>
+                    {viewMode === 'timeline' ? filteredLogs.length : sortedSummary.length} {t(`${p}.records`)}</span>
                 </div>
               </div>
 
@@ -431,11 +428,11 @@ const QuoteAnalyticsPage: React.FC = () => {
                 <table className="w-full text-left">
                   <thead>
                     <tr className="text-[10px] font-black text-gray-500 uppercase tracking-[0.1em] border-b border-white/5">
-                      <th className="px-8 py-5">Timestamp</th>
-                      <th className="px-6 py-5">Customer / Quote</th>
-                      <th className="px-6 py-5">Location</th>
-                      <th className="px-6 py-5">Details</th>
-                      <th className="px-8 py-5 text-right">Action</th>
+                      <th className="px-8 py-5">{t(`${p}.timestamp`)}</th>
+                      <th className="px-6 py-5">{t(`${p}.customerQuote`)}</th>
+                      <th className="px-6 py-5">{t(`${p}.location`)}</th>
+                      <th className="px-6 py-5">{t(`${p}.details`)}</th>
+                      <th className="px-8 py-5 text-right">{t(`${p}.action`)}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
@@ -443,14 +440,13 @@ const QuoteAnalyticsPage: React.FC = () => {
                       <tr>
                         <td colSpan={5} className="px-8 py-20 text-center">
                           <Loader2 className="w-8 h-8 animate-spin text-blue-500 mx-auto mb-4" />
-                          <p className="text-gray-500 font-bold">Synchronizing Global Data...</p>
+                          <p className="text-gray-500 font-bold">{t(`${p}.synchronizingGlobalData`)}</p>
                         </td>
                       </tr>
                     ) : filteredLogs.length === 0 ? (
                       <tr>
                         <td colSpan={5} className="px-8 py-20 text-center text-gray-500 font-bold italic">
-                          No engagement data matching your search.
-                        </td>
+                          {t(`${p}.noEngagementDataMatchingYourSe`)}</td>
                       </tr>
                     ) : (
                       filteredLogs.map((log, i) => (
@@ -474,7 +470,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                               {log.raw_data?.customerName || 'Prospect'}
                             </div>
                             <div className="text-[10px] font-bold text-gray-600 mt-0.5 font-mono">
-                              ID: {log.raw_data?.quoteId?.substring(0, 8)}...
+                              {t(`${p}.id`)}{log.raw_data?.quoteId?.substring(0, 8)}...
                             </div>
                           </td>
                           <td className="px-6 py-5">
@@ -492,7 +488,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                           <td className="px-6 py-5">
                             <div className="flex flex-col gap-1">
                               <span className="text-[10px] font-black px-2 py-0.5 bg-blue-500/10 text-blue-500 rounded border border-blue-500/20 w-fit uppercase">
-                                IP: {log.raw_data?.ip?.replace('::ffff:', '') || 'N/A'}
+                                {t(`${p}.ip`)}{log.raw_data?.ip?.replace('::ffff:', '') || 'N/A'}
                               </span>
                               <span className="text-[9px] font-bold text-gray-600 truncate max-w-[150px]" title={log.raw_data?.userAgent}>
                                 {log.raw_data?.userAgent || 'Browser Unknown'}
@@ -506,8 +502,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-tighter bg-white/5 hover:bg-blue-600 text-gray-400 hover:text-white px-3 py-1.5 rounded-lg border border-white/10 transition-all"
                             >
-                              Quote
-                              <ExternalLink className="w-3 h-3" />
+                              {t(`${p}.quote`)}<ExternalLink className="w-3 h-3" />
                             </a>
                           </td>
                         </motion.tr>
@@ -519,19 +514,18 @@ const QuoteAnalyticsPage: React.FC = () => {
                   <table className="w-full text-left">
                     <thead>
                       <tr className="text-[10px] font-black text-gray-500 uppercase tracking-[0.1em] border-b border-white/5">
-                        <th className="px-8 py-5">Customer / Quote</th>
-                        <th className="px-6 py-5 text-center">Total Views</th>
-                        <th className="px-6 py-5 text-center">Unique IPs</th>
-                        <th className="px-6 py-5">Last Active</th>
-                        <th className="px-8 py-5 text-right">Action</th>
+                        <th className="px-8 py-5">{t(`${p}.customerQuote`)}</th>
+                        <th className="px-6 py-5 text-center">{t(`${p}.totalViews`)}</th>
+                        <th className="px-6 py-5 text-center">{t(`${p}.uniqueIps`)}</th>
+                        <th className="px-6 py-5">{t(`${p}.lastActive`)}</th>
+                        <th className="px-8 py-5 text-right">{t(`${p}.action`)}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5">
                       {sortedSummary.length === 0 ? (
                         <tr>
                           <td colSpan={5} className="px-8 py-20 text-center text-gray-500 font-bold italic">
-                            No quote summaries matching your search.
-                          </td>
+                            {t(`${p}.noQuoteSummariesMatchingYourSe`)}</td>
                         </tr>
                       ) : (
                         sortedSummary.map((q, i) => (
@@ -547,7 +541,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                                 {q.name}
                               </div>
                               <div className="text-[10px] font-bold text-gray-600 mt-0.5 font-mono">
-                                ID: {q.id.substring(0, 8)}...
+                                {t(`${p}.id`)}{q.id.substring(0, 8)}...
                               </div>
                             </td>
                             <td className="px-6 py-5 text-center">
@@ -572,8 +566,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                                 </>
                               ) : (
                                 <div className="text-xs font-bold text-gray-600 italic">
-                                  Not Viewed Yet
-                                </div>
+                                  {t(`${p}.notViewedYet`)}</div>
                               )}
                             </td>
                             <td className="px-8 py-5 text-right">
@@ -583,8 +576,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-tighter bg-white/5 hover:bg-blue-600 text-gray-400 hover:text-white px-3 py-1.5 rounded-lg border border-white/10 transition-all"
                               >
-                                View
-                                <ExternalLink className="w-3 h-3" />
+                                {t(`${p}.view`)}<ExternalLink className="w-3 h-3" />
                               </a>
                             </td>
                           </motion.tr>
@@ -603,8 +595,7 @@ const QuoteAnalyticsPage: React.FC = () => {
             <div className="bg-[#111] border border-white/5 rounded-3xl p-8">
               <h3 className="font-black text-sm uppercase tracking-widest text-gray-500 mb-6 flex items-center gap-2">
                 <Globe2 className="w-4 h-4 text-emerald-500" />
-                Global Breakdown
-              </h3>
+                {t(`${p}.globalBreakdown`)}</h3>
               <div className="space-y-6">
                 {countryStats.map(([country, count]: any, i) => (
                   <div key={country} className="group">
@@ -614,8 +605,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                         <span className="text-sm font-black text-gray-300 group-hover:text-white transition-colors">{country}</span>
                       </div>
                       <span className="text-xs font-black text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        {count} Views
-                      </span>
+                        {count} {t(`${p}.views`)}</span>
                     </div>
                     <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
                       <motion.div 
@@ -637,25 +627,20 @@ const QuoteAnalyticsPage: React.FC = () => {
               </div>
               <h3 className="font-black text-lg text-white mb-4 flex items-center gap-2 relative z-10">
                 <TrendingUp className="w-6 h-6" />
-                Follow-up Tips
-              </h3>
+                {t(`${p}.followUpTips`)}</h3>
               <ul className="space-y-4 relative z-10">
                 <li className="flex gap-3 text-sm text-blue-100/80 leading-relaxed font-bold">
                   <div className="w-5 h-5 rounded-full bg-white/20 flex-shrink-0 flex items-center justify-center text-[10px] text-white">1</div>
-                  Quotes opened multiple times from the same IP are "Hot Leads".
-                </li>
+                  {t(`${p}.quotesOpenedMultipleTimesFromT`)}</li>
                 <li className="flex gap-3 text-sm text-blue-100/80 leading-relaxed font-bold">
                   <div className="w-5 h-5 rounded-full bg-white/20 flex-shrink-0 flex items-center justify-center text-[10px] text-white">2</div>
-                  Follow up within 15 minutes of an open for 3x higher conversion.
-                </li>
+                  {t(`${p}.followUpWithin15MinutesOfAnOpe`)}</li>
                 <li className="flex gap-3 text-sm text-blue-100/80 leading-relaxed font-bold">
                   <div className="w-5 h-5 rounded-full bg-white/20 flex-shrink-0 flex items-center justify-center text-[10px] text-white">3</div>
-                  Check the location data to tailor your greeting (e.g., "Good morning UK").
-                </li>
+                  {t(`${p}.checkTheLocationDataToTailorYo`)}</li>
               </ul>
               <button className="w-full mt-8 bg-white text-blue-700 font-black py-4 rounded-2xl hover:bg-blue-50 transition-colors shadow-lg flex items-center justify-center gap-2">
-                Generate Hot Leads Report
-                <ArrowUpRight className="w-4 h-4" />
+                {t(`${p}.generateHotLeadsReport`)}<ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
 
@@ -663,8 +648,7 @@ const QuoteAnalyticsPage: React.FC = () => {
             <div className="bg-[#111] border border-white/5 rounded-3xl p-8">
               <h3 className="font-black text-sm uppercase tracking-widest text-gray-500 mb-6 flex items-center gap-2">
                 <BarChart3 className="w-4 h-4 text-blue-500" />
-                Quote Popularity
-              </h3>
+                {t(`${p}.quotePopularity`)}</h3>
               <div className="space-y-4">
                 {Array.from(new Set(logs.map(l => l.raw_data?.quoteId))).slice(0, 5).map((qid: string) => {
                   const count = logs.filter(l => l.raw_data?.quoteId === qid).length;
@@ -676,7 +660,7 @@ const QuoteAnalyticsPage: React.FC = () => {
                         <span className="text-[10px] font-bold text-gray-600 font-mono mt-0.5">{qid.substring(0, 8)}...</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <span className="text-xs font-black text-gray-400">{count} views</span>
+                        <span className="text-xs font-black text-gray-400">{count} {t(`${p}.views1`)}</span>
                         <ChevronRight className="w-4 h-4 text-gray-700" />
                       </div>
                     </div>

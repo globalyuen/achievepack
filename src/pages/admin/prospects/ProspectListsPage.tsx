@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Trash2, Plus, ArrowLeft, Loader2, Ban, Globe } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { toast } from 'sonner'
+import { useTranslation, Trans } from "react-i18next";
 
 interface UnsubscribedEmail {
   id: number
@@ -83,25 +84,23 @@ export default function ProspectListsPage() {
     <div className="min-h-screen bg-neutral-50 p-8 pt-24">
       <div className="max-w-4xl mx-auto">
         <Link to="/ctrl-x9k7m/prospects" className="inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700 mb-6">
-            <ArrowLeft className="w-4 h-4 mr-1" /> Back to Prospect Finder
-        </Link>
+            <ArrowLeft className="w-4 h-4 mr-1" /> {t(`${p}.backToProspectFinder`)}</Link>
         
         <div className="flex justify-between items-center mb-8">
             <div>
-                <h1 className="text-3xl font-bold text-neutral-900">List Management</h1>
-                <p className="text-neutral-500">Manage Unsubscribes and Blocked Domains</p>
+                <h1 className="text-3xl font-bold text-neutral-900">{t(`${p}.listManagement`)}</h1>
+                <p className="text-neutral-500">{t(`${p}.manageUnsubscribesAndBlockedDo`)}</p>
             </div>
         </div>
 
         {/* Unsubscribed Emails Section */}
         <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6 mb-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Ban className="w-5 h-5 text-red-500" /> Unsubscribed Emails
-            </h2>
+                <Ban className="w-5 h-5 text-red-500" /> {t(`${p}.unsubscribedEmails`)}</h2>
 
             <div className="flex gap-2 mb-6 max-w-md">
                 <Input 
-                    placeholder="Enter email to block..." 
+                    placeholder={t(`${p}.enterEmailToBlock`)} 
                     value={newUnsubEmail}
                     onChange={(e) => setNewUnsubEmail(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
@@ -118,18 +117,17 @@ export default function ProspectListsPage() {
                     <table className="w-full text-sm text-left">
                         <thead className="bg-neutral-50 text-neutral-500 font-medium">
                             <tr>
-                                <th className="px-4 py-3 rounded-tl-lg">Email</th>
-                                <th className="px-4 py-3">Reason</th>
-                                <th className="px-4 py-3">Date</th>
-                                <th className="px-4 py-3 rounded-tr-lg text-right">Actions</th>
+                                <th className="px-4 py-3 rounded-tl-lg">{t(`${p}.email`)}</th>
+                                <th className="px-4 py-3">{t(`${p}.reason`)}</th>
+                                <th className="px-4 py-3">{t(`${p}.date`)}</th>
+                                <th className="px-4 py-3 rounded-tr-lg text-right">{t(`${p}.actions`)}</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-neutral-100">
                             {unsubs.length === 0 ? (
                                 <tr>
                                     <td colSpan={4} className="px-4 py-8 text-center text-neutral-400">
-                                        No unsubscribed emails found.
-                                    </td>
+                                        {t(`${p}.noUnsubscribedEmailsFound`)}</td>
                                 </tr>
                             ) : (
                                 unsubs.map((u) => (
@@ -159,11 +157,9 @@ export default function ProspectListsPage() {
         {/* Blocked Domains Section */}
         <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Globe className="w-5 h-5 text-orange-500" /> Blocked Domains
-            </h2>
+                <Globe className="w-5 h-5 text-orange-500" /> {t(`${p}.blockedDomains`)}</h2>
             <p className="text-sm text-neutral-500 mb-4">
-                Emails from these domains are automatically blocked and will not receive outreach.
-            </p>
+                {t(`${p}.emailsFromTheseDomainsAreAutom`)}</p>
             
             <div className="flex flex-wrap gap-2">
                 {blockedDomains.map((domain) => (

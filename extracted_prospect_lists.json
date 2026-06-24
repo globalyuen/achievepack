@@ -1,0 +1,13 @@
+{
+  "backToProspectFinder": "Back to Prospect Finder",
+  "listManagement": "List Management",
+  "manageUnsubscribesAndBlockedDo": "Manage Unsubscribes and Blocked Domains",
+  "unsubscribedEmails": "Unsubscribed Emails",
+  "email": "Email",
+  "reason": "Reason",
+  "date": "Date",
+  "actions": "Actions",
+  "noUnsubscribedEmailsFound": "No unsubscribed emails found.",
+  "blockedDomains": "Blocked Domains",
+  "emailsFromTheseDomainsAreAutom": "Emails from these domains are automatically blocked and will not receive outreach."
+}

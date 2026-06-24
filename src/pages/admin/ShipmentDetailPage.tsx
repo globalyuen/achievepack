@@ -9,6 +9,7 @@ import {
 import { useAuth } from '../../hooks/useAuth'
 import { supabase } from '../../lib/supabase'
 import { toast } from 'sonner'
+import { useTranslation, Trans } from "react-i18next";
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -380,7 +381,7 @@ export default function ShipmentDetailPage() {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <Lock className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-600">Access denied</p>
+          <p className="text-gray-600">{t(`${p}.accessDenied`)}</p>
         </div>
       </div>
     )
@@ -391,7 +392,7 @@ export default function ShipmentDetailPage() {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <Package className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-600">Shipment not found</p>
+          <p className="text-gray-600">{t(`${p}.shipmentNotFound`)}</p>
         </div>
       </div>
     )
@@ -408,7 +409,7 @@ export default function ShipmentDetailPage() {
             <div className="flex items-center gap-4">
               <Link to="/ctrl-x9k7m/shipments" className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
                 <ArrowLeft className="h-5 w-5" />
-                <span className="hidden sm:inline">Back</span>
+                <span className="hidden sm:inline">{t(`${p}.back`)}</span>
               </Link>
               <div className="h-6 w-px bg-gray-200" />
               <h1 className="text-lg font-semibold text-gray-900">{batch.batch_number}</h1>
@@ -422,7 +423,7 @@ export default function ShipmentDetailPage() {
                 className="flex items-center gap-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition"
               >
                 {copiedLink ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-                <span className="hidden sm:inline">Copy Link</span>
+                <span className="hidden sm:inline">{t(`${p}.copyLink`)}</span>
               </button>
               <Link
                 to={`/shipment/${batch.id}`}
@@ -430,7 +431,7 @@ export default function ShipmentDetailPage() {
                 className="flex items-center gap-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition"
               >
                 <ExternalLink className="h-4 w-4" />
-                <span className="hidden sm:inline">Preview</span>
+                <span className="hidden sm:inline">{t(`${p}.preview`)}</span>
               </Link>
             </div>
           </div>
@@ -444,23 +445,21 @@ export default function ShipmentDetailPage() {
             {/* Batch Info Card */}
             <div className="bg-white rounded-xl shadow-sm border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold">Shipment Details</h2>
+                <h2 className="text-lg font-semibold">{t(`${p}.shipmentDetails`)}</h2>
                 {isEditing ? (
                   <div className="flex gap-2">
                     <button
                       onClick={() => { setIsEditing(false); setEditData(batch) }}
                       className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800"
                     >
-                      Cancel
-                    </button>
+                      {t(`${p}.cancel`)}</button>
                     <button
                       onClick={handleSave}
                       disabled={saving}
                       className="flex items-center gap-1 px-3 py-1.5 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
                     >
                       {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
-                      Save
-                    </button>
+                      {t(`${p}.save`)}</button>
                   </div>
                 ) : (
                   <button
@@ -468,14 +467,13 @@ export default function ShipmentDetailPage() {
                     className="flex items-center gap-1 px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800"
                   >
                     <Edit className="h-4 w-4" />
-                    Edit
-                  </button>
+                    {t(`${p}.edit`)}</button>
                 )}
               </div>
               
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <label className="text-gray-500">Customer</label>
+                  <label className="text-gray-500">{t(`${p}.customer`)}</label>
                   {isEditing ? (
                     <input
                       type="text"
@@ -488,7 +486,7 @@ export default function ShipmentDetailPage() {
                   )}
                 </div>
                 <div>
-                  <label className="text-gray-500">Customer PO</label>
+                  <label className="text-gray-500">{t(`${p}.customerPo`)}</label>
                   {isEditing ? (
                     <input
                       type="text"
@@ -501,41 +499,41 @@ export default function ShipmentDetailPage() {
                   )}
                 </div>
                 <div>
-                  <label className="text-gray-500">Shipping Term</label>
+                  <label className="text-gray-500">{t(`${p}.shippingTerm`)}</label>
                   {isEditing ? (
                     <select
                       value={editData.shipping_term || ''}
                       onChange={(e) => setEditData({ ...editData, shipping_term: e.target.value })}
                       className="w-full mt-1 px-2 py-1 border rounded"
                     >
-                      <option value="FOB">FOB</option>
-                      <option value="CIF">CIF</option>
-                      <option value="EXW">EXW</option>
-                      <option value="DDP">DDP</option>
+                      <option value="FOB">{t(`${p}.fob`)}</option>
+                      <option value="CIF">{t(`${p}.cif`)}</option>
+                      <option value="EXW">{t(`${p}.exw`)}</option>
+                      <option value="DDP">{t(`${p}.ddp`)}</option>
                     </select>
                   ) : (
                     <p className="font-medium">{batch.shipping_term || '-'}</p>
                   )}
                 </div>
                 <div>
-                  <label className="text-gray-500">Shipping Mode</label>
+                  <label className="text-gray-500">{t(`${p}.shippingMode`)}</label>
                   {isEditing ? (
                     <select
                       value={editData.shipping_mode || ''}
                       onChange={(e) => setEditData({ ...editData, shipping_mode: e.target.value })}
                       className="w-full mt-1 px-2 py-1 border rounded"
                     >
-                      <option value="By Sea">By Sea</option>
-                      <option value="By Air">By Air</option>
-                      <option value="By Truck">By Truck</option>
-                      <option value="Express">Express</option>
+                      <option value="By Sea">{t(`${p}.bySea`)}</option>
+                      <option value="By Air">{t(`${p}.byAir`)}</option>
+                      <option value="By Truck">{t(`${p}.byTruck`)}</option>
+                      <option value="Express">{t(`${p}.express`)}</option>
                     </select>
                   ) : (
                     <p className="font-medium">{batch.shipping_mode || '-'}</p>
                   )}
                 </div>
                 <div>
-                  <label className="text-gray-500">Carrier</label>
+                  <label className="text-gray-500">{t(`${p}.carrier`)}</label>
                   {isEditing ? (
                     <input
                       type="text"
@@ -548,7 +546,7 @@ export default function ShipmentDetailPage() {
                   )}
                 </div>
                 <div>
-                  <label className="text-gray-500">Tracking Number</label>
+                  <label className="text-gray-500">{t(`${p}.trackingNumber`)}</label>
                   {isEditing ? (
                     <input
                       type="text"
@@ -561,7 +559,7 @@ export default function ShipmentDetailPage() {
                   )}
                 </div>
                 <div>
-                  <label className="text-gray-500">Delivery To</label>
+                  <label className="text-gray-500">{t(`${p}.deliveryTo`)}</label>
                   {isEditing ? (
                     <input
                       type="text"
@@ -574,7 +572,7 @@ export default function ShipmentDetailPage() {
                   )}
                 </div>
                 <div>
-                  <label className="text-gray-500">Est. Delivery</label>
+                  <label className="text-gray-500">{t(`${p}.estDelivery`)}</label>
                   {isEditing ? (
                     <input
                       type="date"
@@ -593,7 +591,7 @@ export default function ShipmentDetailPage() {
               {/* Password */}
               <div className="mt-4 pt-4 border-t flex items-center gap-2 text-sm text-gray-500">
                 <Lock className="h-4 w-4" />
-                <span>Access Password:</span>
+                <span>{t(`${p}.accessPassword`)}</span>
                 <code className="px-2 py-0.5 bg-gray-100 rounded font-mono">{batch.password}</code>
               </div>
             </div>
@@ -603,21 +601,20 @@ export default function ShipmentDetailPage() {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold flex items-center gap-2">
                   <FileText className="h-5 w-5 text-primary-600" />
-                  Documents ({documents.length})
+                  {t(`${p}.documents`)}{documents.length})
                 </h2>
                 <button
                   onClick={() => { setShowUploadModal('document'); setUploadType('invoice') }}
                   className="flex items-center gap-1 px-3 py-1.5 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700"
                 >
                   <Upload className="h-4 w-4" />
-                  Upload
-                </button>
+                  {t(`${p}.upload`)}</button>
               </div>
               
               {documents.length === 0 ? (
                 <div className="text-center py-8 text-gray-500">
                   <FileText className="h-10 w-10 mx-auto mb-2 text-gray-300" />
-                  <p>No documents yet</p>
+                  <p>{t(`${p}.noDocumentsYet`)}</p>
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -664,21 +661,20 @@ export default function ShipmentDetailPage() {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold flex items-center gap-2">
                   <Image className="h-5 w-5 text-purple-600" />
-                  Delivery Proofs ({proofs.length})
+                  {t(`${p}.deliveryProofs`)}{proofs.length})
                 </h2>
                 <button
                   onClick={() => { setShowUploadModal('proof'); setUploadType('cargo_photo') }}
                   className="flex items-center gap-1 px-3 py-1.5 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700"
                 >
                   <Upload className="h-4 w-4" />
-                  Upload
-                </button>
+                  {t(`${p}.upload`)}</button>
               </div>
               
               {proofs.length === 0 ? (
                 <div className="text-center py-8 text-gray-500">
                   <Image className="h-10 w-10 mx-auto mb-2 text-gray-300" />
-                  <p>No proofs uploaded</p>
+                  <p>{t(`${p}.noProofsUploaded`)}</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -720,13 +716,12 @@ export default function ShipmentDetailPage() {
             {/* Update Status Card */}
             <div className="bg-white rounded-xl shadow-sm border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold">Shipping Status</h2>
+                <h2 className="text-lg font-semibold">{t(`${p}.shippingStatus`)}</h2>
                 <button
                   onClick={() => { setShowStatusModal(true); setNewStatus(batch.shipping_status) }}
                   className="text-sm text-primary-600 hover:text-primary-700"
                 >
-                  Update
-                </button>
+                  {t(`${p}.update`)}</button>
               </div>
               
               <div className="flex items-center gap-3">
@@ -745,21 +740,19 @@ export default function ShipmentDetailPage() {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold flex items-center gap-2">
                   <Clock className="h-5 w-5 text-orange-600" />
-                  Tracking History
-                </h2>
+                  {t(`${p}.trackingHistory`)}</h2>
                 <button
                   onClick={() => setShowStatusModal(true)}
                   className="flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700"
                 >
                   <Plus className="h-4 w-4" />
-                  Add
-                </button>
+                  {t(`${p}.add`)}</button>
               </div>
               
               {trackingHistory.length === 0 ? (
                 <div className="text-center py-6 text-gray-500">
                   <Clock className="h-8 w-8 mx-auto mb-2 text-gray-300" />
-                  <p className="text-sm">No tracking updates</p>
+                  <p className="text-sm">{t(`${p}.noTrackingUpdates`)}</p>
                 </div>
               ) : (
                 <div className="relative">
@@ -796,14 +789,14 @@ export default function ShipmentDetailPage() {
 
             {/* Send to Customer */}
             <div className="bg-white rounded-xl shadow-sm border p-6">
-              <h2 className="text-lg font-semibold mb-4">Share with Customer</h2>
+              <h2 className="text-lg font-semibold mb-4">{t(`${p}.shareWithCustomer`)}</h2>
               <div className="space-y-3">
                 <div className="p-3 bg-gray-50 rounded-lg">
-                  <p className="text-xs text-gray-500 mb-1">Customer Link</p>
-                  <code className="text-xs break-all">{window.location.origin}/shipment/{batch.id}</code>
+                  <p className="text-xs text-gray-500 mb-1">{t(`${p}.customerLink`)}</p>
+                  <code className="text-xs break-all">{window.location.origin}{t(`${p}.shipment`)}{batch.id}</code>
                 </div>
                 <div className="p-3 bg-gray-50 rounded-lg">
-                  <p className="text-xs text-gray-500 mb-1">Access Password</p>
+                  <p className="text-xs text-gray-500 mb-1">{t(`${p}.accessPassword1`)}</p>
                   <code className="font-mono">{batch.password}</code>
                 </div>
                 {batch.customer_email && (
@@ -811,8 +804,7 @@ export default function ShipmentDetailPage() {
                     className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
                   >
                     <Send className="h-4 w-4" />
-                    Send Email to Customer
-                  </button>
+                    {t(`${p}.sendEmailToCustomer`)}</button>
                 )}
               </div>
             </div>
@@ -826,7 +818,7 @@ export default function ShipmentDetailPage() {
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md">
             <div className="flex items-center justify-between p-4 border-b">
               <h2 className="text-lg font-semibold">
-                Upload {showUploadModal === 'document' ? 'Document' : 'Proof'}
+                {t(`${p}.upload`)}{showUploadModal === 'document' ? 'Document' : 'Proof'}
               </h2>
               <button onClick={() => setShowUploadModal(null)} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
@@ -834,7 +826,7 @@ export default function ShipmentDetailPage() {
             </div>
             <div className="p-4 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.type`)}</label>
                 <select
                   value={uploadType}
                   onChange={(e) => setUploadType(e.target.value)}
@@ -847,18 +839,18 @@ export default function ShipmentDetailPage() {
               </div>
               {showUploadModal === 'proof' && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.notes`)}</label>
                   <input
                     type="text"
                     value={uploadNotes}
                     onChange={(e) => setUploadNotes(e.target.value)}
-                    placeholder="Optional notes..."
+                    placeholder={t(`${p}.placeholderNotes`)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                   />
                 </div>
               )}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">File</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.file`)}</label>
                 <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 hover:bg-gray-50 transition">
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
                     <Upload className="h-8 w-8 text-gray-400 mb-2" />
@@ -887,14 +879,14 @@ export default function ShipmentDetailPage() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md">
             <div className="flex items-center justify-between p-4 border-b">
-              <h2 className="text-lg font-semibold">Update Status</h2>
+              <h2 className="text-lg font-semibold">{t(`${p}.updateStatus`)}</h2>
               <button onClick={() => setShowStatusModal(false)} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
               </button>
             </div>
             <div className="p-4 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.status`)}</label>
                 <select
                   value={newStatus}
                   onChange={(e) => setNewStatus(e.target.value)}
@@ -906,21 +898,21 @@ export default function ShipmentDetailPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.location`)}</label>
                 <input
                   type="text"
                   value={statusLocation}
                   onChange={(e) => setStatusLocation(e.target.value)}
-                  placeholder="e.g. Hong Kong Port"
+                  placeholder={t(`${p}.placeholderLocation`)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.description`)}</label>
                 <textarea
                   value={statusDescription}
                   onChange={(e) => setStatusDescription(e.target.value)}
-                  placeholder="e.g. Departed from port, expected arrival in 5 days"
+                  placeholder={t(`${p}.placeholderDetails`)}
                   rows={3}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                 />
@@ -931,14 +923,12 @@ export default function ShipmentDetailPage() {
                 onClick={() => setShowStatusModal(false)}
                 className="px-4 py-2 text-gray-600 hover:text-gray-800"
               >
-                Cancel
-              </button>
+                {t(`${p}.cancel`)}</button>
               <button
                 onClick={handleAddTracking}
                 className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
               >
-                Update Status
-              </button>
+                {t(`${p}.updateStatus`)}</button>
             </div>
           </div>
         </div>

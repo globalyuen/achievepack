@@ -27,6 +27,7 @@ import {
 } from 'lucide-react'
 import { toast } from 'sonner'
 import { supabase } from '../../lib/supabase'
+import { useTranslation } from 'react-i18next'
 
 // ==========================================
 // 類型與資料結構 (適合10歲老闆的簡易版)
@@ -225,6 +226,9 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
 ]
 
 const BookkeepingPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.bookkeeping'
+
   // 分頁切換：overview (存錢罐), ledger (流水帳本), calendar (收支日曆), report (生意分析)
   const [activeTab, setActiveTab] = useState<'overview' | 'ledger' | 'calendar' | 'report'>('overview')
 
@@ -1021,13 +1025,13 @@ const BookkeepingPage: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-xl sm:text-2xl font-black text-[#2E2520] tracking-wide flex items-center gap-2">
-                    小老闆理財記賬本
+                    {t(`${p}.header.title`, "小老闆理財記賬本")}
                     <span className="text-xs bg-[#FAF1DF] text-[#8C6D3B] font-black px-2.5 py-1 rounded-full border-2 border-[#EADFCD]">
-                      超簡單版
+                      {t(`${p}.header.badge`, "超簡單版")}
                     </span>
                   </h1>
                   <p className="text-xs text-[#8E7E73] font-bold">
-                    管錢超容易！學習記賬第一步 📦 包裝買賣 • 🚗 汽車 • 🅿️ 車位 • 🏠 房屋
+                    {t(`${p}.header.subtitle`, "管錢超容易！學習記賬第一步 📦 包裝買賣 • 🚗 汽車 • 🅿️ 車位 • 🏠 房屋")}
                   </p>
                 </div>
               </div>
@@ -1040,14 +1044,14 @@ const BookkeepingPage: React.FC = () => {
                 className="bg-[#FCFAF5] hover:bg-[#F5EFE0] text-[#8C6D3B] text-xs font-black px-4 py-3 rounded-2xl border-2 border-[#EADFCD] transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
               >
                 <Settings className="w-3.5 h-3.5 stroke-[2.5]" />
-                管理小生意
+                {t(`${p}.header.manageBusiness`, "管理小生意")}
               </button>
               <button
                 onClick={() => setShowRateSettings(true)}
                 className="bg-[#FCFAF5] hover:bg-[#F5EFE0] text-[#8C6D3B] text-xs font-black px-4 py-3 rounded-2xl border-2 border-[#EADFCD] transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
               >
                 <RefreshCw className="w-3.5 h-3.5 stroke-[2.5]" />
-                調整匯率
+                {t(`${p}.header.adjustRate`, "調整匯率")}
               </button>
               <button
                 onClick={() => {
@@ -1057,7 +1061,7 @@ const BookkeepingPage: React.FC = () => {
                 className="bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] text-sm font-black px-6 py-3 rounded-2xl transition-all shadow-md hover:scale-[1.03] active:scale-95 flex items-center gap-1.5 border-2 border-[#DE9B3E]"
               >
                 <Plus className="w-4 h-4 stroke-[3]" />
-                記一筆收支 💰
+                {t(`${p}.header.addRecord`, "記一筆收支 💰")}
               </button>
             </div>
 
@@ -1073,41 +1077,41 @@ const BookkeepingPage: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between mb-6">
             {/* 匯率小工具 */}
             <div className="flex flex-wrap gap-3 text-xs bg-[#FCFAF5] px-4 py-3.5 rounded-2xl border-2 border-[#EFE9DB] text-[#8E7E73] font-bold shadow-inner flex-1">
-              <span className="text-[#8C6D3B] font-black">📈 自動換算器匯率基底：</span>
-              <span>1 美金 (USD) = <strong>1.0 美金</strong></span>
+              <span className="text-[#8C6D3B] font-black">{t(`${p}.rateSettings.baseInfo`, "📈 自動換算器匯率基底：")}</span>
+              <span>1 {t(`${p}.rateSettings.usd`, "美金 (USD)")} = <strong>1.0 {t(`${p}.rateSettings.usd`, "美金 (USD)")}</strong></span>
               <span>•</span>
-              <span>1 美金 (USD) = <strong>{customRates.HKD} 港幣 (HKD)</strong></span>
+              <span>1 {t(`${p}.rateSettings.usd`, "美金 (USD)")} = <strong>{customRates.HKD} {t(`${p}.rateSettings.hkd`, "港幣 (HKD)")}</strong></span>
               <span>•</span>
-              <span>1 美金 (USD) = <strong>{customRates.RMB} 人民幣 (RMB)</strong></span>
+              <span>1 {t(`${p}.rateSettings.usd`, "美金 (USD)")} = <strong>{customRates.RMB} {t(`${p}.rateSettings.rmb`, "人民幣 (RMB)")}</strong></span>
             </div>
 
             {/* 10歲小老闆時光範圍選擇器 & 幣別切換器 */}
             <div className="flex flex-wrap items-center gap-3">
               <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl border-2 border-[#EFE9DB] shadow-sm select-none">
                 <span className="text-base">🕒</span>
-                <span className="text-xs font-black text-[#4A3B32] whitespace-nowrap">選擇時光：</span>
+                <span className="text-xs font-black text-[#4A3B32] whitespace-nowrap">{t(`${p}.rateSettings.selectTime`, "選擇時光：")}</span>
                 <select
                   value={overviewTimeframe}
                   onChange={(e) => setOverviewTimeframe(e.target.value as TimeframeType)}
                   className="bg-transparent text-xs text-[#8C6D3B] font-black focus:outline-none cursor-pointer border-b-2 border-dashed border-[#F5B859] hover:text-[#2E2520] transition-colors"
                 >
-                  <option value="all">📜 歷史總計 (所有記賬紀錄)</option>
-                  <option value="1d">📅 最近一日 (今天/昨日)</option>
-                  <option value="1w">📅 最近一個星期 (過去7天)</option>
-                  <option value="1m">📅 最近一個月 (過去30天)</option>
-                  <option value="3m">📅 最近三個月</option>
-                  <option value="6m">📅 最近半年</option>
-                  <option value="1y">📅 最近一年 (過去365天)</option>
-                  <option value="2y">📅 最近兩年</option>
-                  <option value="3y">📅 最近三年</option>
-                  <option value="5y">📅 最近五年</option>
-                  <option value="10y">📅 最近十年</option>
+                  <option value="all">{t(`${p}.timeframes.all`, "📜 歷史總計 (所有記賬紀錄)")}</option>
+                  <option value="1d">{t(`${p}.timeframes.1d`, "📅 最近一日 (今天/昨日)")}</option>
+                  <option value="1w">{t(`${p}.timeframes.1w`, "📅 最近一個星期 (過去7天)")}</option>
+                  <option value="1m">{t(`${p}.timeframes.1m`, "📅 最近一個月 (過去30天)")}</option>
+                  <option value="3m">{t(`${p}.timeframes.3m`, "📅 最近三個月")}</option>
+                  <option value="6m">{t(`${p}.timeframes.6m`, "📅 最近半年")}</option>
+                  <option value="1y">{t(`${p}.timeframes.1y`, "📅 最近一年 (過去365天)")}</option>
+                  <option value="2y">{t(`${p}.timeframes.2y`, "📅 最近兩年")}</option>
+                  <option value="3y">{t(`${p}.timeframes.3y`, "📅 最近三年")}</option>
+                  <option value="5y">{t(`${p}.timeframes.5y`, "📅 最近五年")}</option>
+                  <option value="10y">{t(`${p}.timeframes.10y`, "📅 最近十年")}</option>
                 </select>
               </div>
 
               <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-2xl border-2 border-[#EFE9DB] shadow-sm select-none">
                 <span className="text-base">🪙</span>
-                <span className="text-xs font-black text-[#4A3B32] whitespace-nowrap">顯示幣別：</span>
+                <span className="text-xs font-black text-[#4A3B32] whitespace-nowrap">{t(`${p}.rateSettings.displayCurrency`, "顯示幣別：")}</span>
                 <div className="flex bg-[#FCFAF5] p-1 rounded-xl border border-[#EFE9DB]">
                   {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => (
                     <button
@@ -1194,10 +1198,10 @@ const BookkeepingPage: React.FC = () => {
         {/* 奶油風標籤卡片列 */}
         <div className="flex border-b-2 border-[#EFE9DB] mb-6 overflow-x-auto gap-2 scrollbar-none">
           {[
-            { id: 'overview', label: '🐷 生意小撲滿', icon: Sparkles },
-            { id: 'ledger', label: '📝 流水賬日記', icon: Coins },
-            { id: 'calendar', label: '📅 記賬小日曆', icon: Calendar },
-            { id: 'report', label: '📊 生意分折表', icon: FileSpreadsheet }
+            { id: 'overview', label: t(`${p}.tabs.overview`, '🐷 生意小撲滿'), icon: Sparkles },
+            { id: 'ledger', label: t(`${p}.tabs.ledger`, '📝 流水賬日記'), icon: Coins },
+            { id: 'calendar', label: t(`${p}.tabs.calendar`, '📅 記賬小日曆'), icon: Calendar },
+            { id: 'report', label: t(`${p}.tabs.report`, '📊 生意分折表'), icon: FileSpreadsheet }
           ].map(tab => (
             <button
               key={tab.id}
@@ -1223,35 +1227,35 @@ const BookkeepingPage: React.FC = () => {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">📊</span>
-                    <h3 className="text-base font-black text-[#2E2520] tracking-wide">四大生意小賬戶表現</h3>
+                    <h3 className="text-base font-black text-[#2E2520] tracking-wide">{t(`${p}.overview.title`, "四大生意小賬戶表現")}</h3>
                   </div>
                   <p className="text-xs text-[#8E7E73] font-bold">
-                    點擊時間膠囊，所有生意小撲滿的收支會神奇地自動切換唷！🧒
+                    {t(`${p}.overview.subtitle`, "點擊時間膠囊，所有生意小撲滿的收支會神奇地自動切換唷！🧒")}
                   </p>
                 </div>
                 
                 {/* 此時光下的總盈虧 */}
                 <div className="bg-[#FCFAF5] border-2 border-[#EADFCD] rounded-2xl px-4 py-3 flex items-center justify-between gap-4 shadow-inner">
                   <div className="text-left">
-                    <p className="text-[10px] text-[#8E7E73] font-bold">此時光總盈虧 (利潤)</p>
+                    <p className="text-[10px] text-[#8E7E73] font-bold">{t(`${p}.overview.profitLabel`, "此時光總盈虧 (利潤)")}</p>
                     <p className={`text-base font-black font-mono ${stats.pocketMoney >= 0 ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
                       {stats.pocketMoney >= 0 ? '+' : '-'}${Math.abs(stats.pocketMoney).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </p>
                   </div>
                   <div className="text-right border-l border-[#EADFCD] pl-4">
-                    <p className="text-[10px] text-[#8E7E73] font-bold">選定範圍</p>
+                    <p className="text-[10px] text-[#8E7E73] font-bold">{t(`${p}.overview.rangeLabel`, "選定範圍")}</p>
                     <span className="text-xs bg-[#F5C77E] text-[#2E2520] font-black px-2 py-0.5 rounded-lg border border-[#DE9B3E]">
-                      {overviewTimeframe === 'all' && '📜 歷史總計'}
-                      {overviewTimeframe === '1d' && '⚡ 最近一日'}
-                      {overviewTimeframe === '1w' && '📅 最近一週'}
-                      {overviewTimeframe === '1m' && '📅 最近一月'}
-                      {overviewTimeframe === '3m' && '📅 最近三月'}
-                      {overviewTimeframe === '6m' && '📅 最近半年'}
-                      {overviewTimeframe === '1y' && '📅 最近一年'}
-                      {overviewTimeframe === '2y' && '📅 最近兩年'}
-                      {overviewTimeframe === '3y' && '📅 最近三年'}
-                      {overviewTimeframe === '5y' && '📅 最近五年'}
-                      {overviewTimeframe === '10y' && '📅 最近十年'}
+                      {overviewTimeframe === 'all' && t(`${p}.timeframes.allShort`, '📜 歷史總計')}
+                      {overviewTimeframe === '1d' && t(`${p}.timeframes.1dShort`, '⚡ 最近一日')}
+                      {overviewTimeframe === '1w' && t(`${p}.timeframes.1wShort`, '📅 最近一週')}
+                      {overviewTimeframe === '1m' && t(`${p}.timeframes.1mShort`, '📅 最近一月')}
+                      {overviewTimeframe === '3m' && t(`${p}.timeframes.3mShort`, '📅 最近三月')}
+                      {overviewTimeframe === '6m' && t(`${p}.timeframes.6mShort`, '📅 最近半年')}
+                      {overviewTimeframe === '1y' && t(`${p}.timeframes.1yShort`, '📅 最近一年')}
+                      {overviewTimeframe === '2y' && t(`${p}.timeframes.2yShort`, '📅 最近兩年')}
+                      {overviewTimeframe === '3y' && t(`${p}.timeframes.3yShort`, '📅 最近三年')}
+                      {overviewTimeframe === '5y' && t(`${p}.timeframes.5yShort`, '📅 最近五年')}
+                      {overviewTimeframe === '10y' && t(`${p}.timeframes.10yShort`, '📅 最近十年')}
                     </span>
                   </div>
                 </div>
@@ -1260,17 +1264,17 @@ const BookkeepingPage: React.FC = () => {
               {/* 橫向滑動時間膠囊按鈕 (溫馨奶油色) */}
               <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none -mx-2 px-2 sm:mx-0 sm:px-0">
                 {[
-                  { value: 'all', label: '歷史總計', icon: '📜' },
-                  { value: '1d', label: '最近一日', icon: '⚡' },
-                  { value: '1w', label: '最近一個星期', icon: '📅' },
-                  { value: '1m', label: '最近一個月', icon: '📅' },
-                  { value: '3m', label: '最近三個月', icon: '📅' },
-                  { value: '6m', label: '最近半年', icon: '📅' },
-                  { value: '1y', label: '最近一年', icon: '📅' },
-                  { value: '2y', label: '最近兩年', icon: '📅' },
-                  { value: '3y', label: '最近三年', icon: '📅' },
-                  { value: '5y', label: '最近五年', icon: '📅' },
-                  { value: '10y', label: '最近十年', icon: '📅' }
+                  { value: 'all', label: t(`${p}.timeframes.allShort`, '歷史總計'), icon: '📜' },
+                  { value: '1d', label: t(`${p}.timeframes.1dShort`, '最近一日'), icon: '⚡' },
+                  { value: '1w', label: t(`${p}.timeframes.1wShort`, '最近一個星期'), icon: '📅' },
+                  { value: '1m', label: t(`${p}.timeframes.1mShort`, '最近一個月'), icon: '📅' },
+                  { value: '3m', label: t(`${p}.timeframes.3mShort`, '最近三個月'), icon: '📅' },
+                  { value: '6m', label: t(`${p}.timeframes.6mShort`, '最近半年'), icon: '📅' },
+                  { value: '1y', label: t(`${p}.timeframes.1yShort`, '最近一年'), icon: '📅' },
+                  { value: '2y', label: t(`${p}.timeframes.2yShort`, '最近兩年'), icon: '📅' },
+                  { value: '3y', label: t(`${p}.timeframes.3yShort`, '最近三年'), icon: '📅' },
+                  { value: '5y', label: t(`${p}.timeframes.5yShort`, '最近五年'), icon: '📅' },
+                  { value: '10y', label: t(`${p}.timeframes.10yShort`, '最近十年'), icon: '📅' }
                 ].map((opt) => {
                   const isActive = overviewTimeframe === opt.value
                   return (
@@ -1311,7 +1315,7 @@ const BookkeepingPage: React.FC = () => {
                     <div>
                       <div className="flex items-center justify-between mb-4">
                         <span className={`text-xs font-black px-3 py-1 rounded-xl border ${colors.bg} ${colors.text} ${colors.border}`}>
-                          小生意項目 {b.emoji}
+                          {t(`${p}.overview.businessItemBadge`, "小生意項目")} {b.emoji}
                         </span>
                         <span className="text-xl">💰</span>
                       </div>
@@ -1320,15 +1324,15 @@ const BookkeepingPage: React.FC = () => {
 
                     <div className="mt-6 space-y-2.5 font-mono text-xs border-t border-[#FAF6EE] pt-4">
                       <div className="flex justify-between text-[#8E7E73] font-bold">
-                        <span>賺到收支：</span>
+                        <span>{t(`${p}.overview.earned`, "賺到收支：")}</span>
                         <span className="text-[#388E3C] font-black">+{sym}{(bStat.earned * rate).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between text-[#8E7E73] font-bold">
-                        <span>花掉成本：</span>
+                        <span>{t(`${p}.overview.spent`, "花掉成本：")}</span>
                         <span className="text-[#CE8078] font-black">-{sym}{(bStat.spent * rate).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between pt-2.5 border-t-2 border-[#EFE9DB] text-sm">
-                        <span className="font-bold text-[#4A3B32] font-sans">我的利潤：</span>
+                        <span className="font-bold text-[#4A3B32] font-sans">{t(`${p}.overview.profit`, "我的利潤：")}</span>
                         <span className={`font-black ${isProfit ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
                           {isProfit ? '+' : '-'}{sym}{Math.abs(bStat.profit * rate).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </span>
@@ -1344,9 +1348,9 @@ const BookkeepingPage: React.FC = () => {
             <div className="bg-[#FAF6EE] border-2 border-[#EFE9DB] rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-4">
               <div className="text-4xl animate-bounce-slow">💡</div>
               <div className="space-y-1 text-center sm:text-left">
-                <h5 className="font-black text-[#2E2520]">給小老闆的理財悄悄話</h5>
+                <h5 className="font-black text-[#2E2520]">{t(`${p}.overview.adviceTitle`, "給小老闆的理財悄悄話")}</h5>
                 <p className="text-xs text-[#8E7E73] font-bold leading-relaxed">
-                  記賬不僅僅是記錄數字，更是建立良好的理財觀念！持之以恆，你就能看出哪一個生意（比如「房屋出租 🏠」或是「包裝買賣 📦」）是你的印鈔機喔！
+                  {t(`${p}.overview.adviceDesc`, "記賬不僅僅是記錄數字，更是建立良好的理財觀念！持之以恆，你就能看出哪一個生意（比如「房屋出租 🏠」或是「包裝買賣 📦」）是你的印鈔機喔！")}
                 </p>
               </div>
             </div>
@@ -1369,7 +1373,7 @@ const BookkeepingPage: React.FC = () => {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="搜尋備註日記或科目..."
+                    placeholder={t(`${p}.filters.searchPlaceholder`, "搜尋備註日記或科目...")}
                     className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl pl-10 pr-4 py-2.5 text-sm text-[#4A3B32] placeholder-[#A8988D] focus:outline-none transition-all font-bold shadow-inner"
                   />
                 </div>
@@ -1381,9 +1385,9 @@ const BookkeepingPage: React.FC = () => {
                     onChange={(e) => setFilterType(e.target.value as any)}
                     className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl px-4 py-2.5 text-sm text-[#4A3B32] focus:outline-none transition-all font-bold shadow-sm"
                   >
-                    <option value="all">所有的錢方向</option>
-                    <option value="incoming">只看賺到的錢 💰</option>
-                    <option value="outgoing">只看花出去的錢 💸</option>
+                    <option value="all">{t(`${p}.filters.typeAll`, "所有的錢方向")}</option>
+                    <option value="incoming">{t(`${p}.filters.typeIncoming`, "只看賺到的錢 💰")}</option>
+                    <option value="outgoing">{t(`${p}.filters.typeOutgoing`, "只看花出去的錢 💸")}</option>
                   </select>
                 </div>
 
@@ -1394,7 +1398,7 @@ const BookkeepingPage: React.FC = () => {
                     onChange={(e) => setFilterBusiness(e.target.value)}
                     className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl px-4 py-2.5 text-sm text-[#8C6D3B] focus:outline-none transition-all font-black shadow-sm"
                   >
-                    <option value="all">所有生意項目</option>
+                    <option value="all">{t(`${p}.filters.businessAll`, "所有生意項目")}</option>
                     {businesses.map(b => (
                       <option key={b.id} value={b.name}>{b.name}</option>
                     ))}
@@ -1408,10 +1412,10 @@ const BookkeepingPage: React.FC = () => {
                     onChange={(e) => setFilterCurrency(e.target.value)}
                     className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl px-4 py-2.5 text-sm text-[#4A3B32] focus:outline-none transition-all font-bold shadow-sm"
                   >
-                    <option value="all">所有交易幣別</option>
-                    <option value="USD">美金 (USD)</option>
-                    <option value="HKD">港幣 (HKD)</option>
-                    <option value="RMB">人民幣 (RMB)</option>
+                    <option value="all">{t(`${p}.filters.currencyAll`, "所有交易幣別")}</option>
+                    <option value="USD">USD</option>
+                    <option value="HKD">HKD</option>
+                    <option value="RMB">RMB</option>
                   </select>
                 </div>
 
@@ -1433,7 +1437,7 @@ const BookkeepingPage: React.FC = () => {
                       }}
                       className="text-xs text-[#CE8078] hover:text-[#B75850] font-black px-3 py-2 active:scale-95"
                     >
-                      重置所有條件
+                      {t(`${p}.filters.reset`, "重置所有條件")}
                     </button>
                   )}
                   <button
@@ -1441,7 +1445,7 @@ const BookkeepingPage: React.FC = () => {
                     className="bg-[#A3B899] hover:bg-[#8EAC90] text-[#2E2520] text-xs font-black px-4 py-2.5 rounded-xl border-2 border-[#819976] flex items-center gap-1.5 transition-all shadow-sm active:scale-95"
                   >
                     <Download className="w-3.5 h-3.5 stroke-[2.5]" />
-                    下載 CSV 報表 📊
+                    {t(`${p}.filters.downloadCSV`, "下載 CSV 報表 📊")}
                   </button>
                 </div>
               </div>
@@ -1454,8 +1458,8 @@ const BookkeepingPage: React.FC = () => {
                 {filteredTransactions.length === 0 ? (
                   <div className="py-20 text-center text-[#8E7E73] space-y-3">
                     <p className="text-4xl animate-pulse">📝</p>
-                    <p className="text-base font-black text-[#4A3B32]">小本子裡沒有紀錄唷</p>
-                    <p className="text-xs font-bold">點選上面「記一筆」或是「清除過濾條件」來看看吧！</p>
+                    <p className="text-base font-black text-[#4A3B32]">{t(`${p}.filters.emptyTitle`, "小本子裡沒有紀錄唷")}</p>
+                    <p className="text-xs font-bold">{t(`${p}.filters.emptyDesc`, "點選上面「記一筆」或是「清除過濾條件」來看看吧！")}</p>
                   </div>
                 ) : (
                   filteredTransactions.map(t => {
@@ -1538,10 +1542,10 @@ const BookkeepingPage: React.FC = () => {
             <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shadow-sm">
               <div>
                 <h4 className="text-md sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
-                  📅 收支大表格日曆 (統一 USD 計價)
+                  {t(`${p}.calendar.title`, "📅 收支大表格日曆 (統一 USD 計價)")}
                 </h4>
                 <p className="text-xs text-[#8E7E73] font-bold mt-1">
-                  點擊格網中任何一天，就能看到那天賺了多少或花了多少，也可以直接對那天快捷記賬唷！
+                  {t(`${p}.calendar.subtitle`, "點擊格網中任何一天，就能看到那天賺了多少或花了多少，也可以直接對那天快捷記賬唷！")}
                 </p>
               </div>
 
@@ -1568,13 +1572,9 @@ const BookkeepingPage: React.FC = () => {
             {/* 日曆表格 */}
             <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl overflow-hidden shadow-sm">
               <div className="grid grid-cols-7 bg-[#FCFAF5] border-b-2 border-[#EFE9DB] text-center py-3 text-xs font-black text-[#8E7E73]">
-                <div>日</div>
-                <div>一</div>
-                <div>二</div>
-                <div>三</div>
-                <div>四</div>
-                <div>五</div>
-                <div>六</div>
+                {t(`${p}.calendar.days`, { returnObjects: true })?.map?.((dayStr: string, i: number) => (
+                  <div key={i}>{dayStr}</div>
+                ))}
               </div>
 
               <div className="grid grid-cols-7 bg-[#FAF6EE]/20 divide-x-2 divide-y-2 divide-[#FAF6EE]">
@@ -1602,7 +1602,7 @@ const BookkeepingPage: React.FC = () => {
                         </span>
                         {items.length > 0 && (
                           <span className="text-[10px] bg-[#FAF6EE] text-[#8C6D3B] border border-[#EADFCD] font-bold px-1.5 py-0.2 rounded-md">
-                            {items.length}筆
+                            {t(`${p}.calendar.transactionsCount`, { count: items.length, defaultValue: '{{count}}筆' })}
                           </span>
                         )}
                       </div>
@@ -1610,13 +1610,13 @@ const BookkeepingPage: React.FC = () => {
                       <div className="space-y-1 mt-3">
                         {dayEarned > 0 && (
                           <div className="text-[9px] font-black text-[#388E3C] bg-[#E8F5E9] px-1.5 py-0.5 rounded-lg border border-[#C8E6C9] flex justify-between">
-                            <span>賺:</span>
+                            <span>{t(`${p}.calendar.earned`, "賺:")}</span>
                             <span>+${Math.round(dayEarned)}</span>
                           </div>
                         )}
                         {daySpent > 0 && (
                           <div className="text-[9px] font-black text-[#CE8078] bg-[#FFF0F0] px-1.5 py-0.5 rounded-lg border border-[#FFE0E0] flex justify-between">
-                            <span>花:</span>
+                            <span>{t(`${p}.calendar.spent`, "花:")}</span>
                             <span>-${Math.round(daySpent)}</span>
                           </div>
                         )}
@@ -1634,7 +1634,7 @@ const BookkeepingPage: React.FC = () => {
                   <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD] shrink-0">
                     <div>
                       <h3 className="text-md sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
-                        <span>📅</span> {selectedDayDetail.dayString} 記賬大詳情
+                        <span>📅</span> {selectedDayDetail.dayString} {t(`${p}.dayDetail.title`, "記賬大詳情")}
                       </h3>
                     </div>
                     <button
@@ -1648,7 +1648,7 @@ const BookkeepingPage: React.FC = () => {
                   <div className="p-5 overflow-y-auto space-y-3 bg-white flex-1">
                     {selectedDayDetail.items.length === 0 ? (
                       <div className="py-12 text-center text-[#8E7E73] font-bold">
-                        <p className="text-sm">這一天還空蕩蕩的喔，沒有任何小筆記。</p>
+                        <p className="text-sm">{t(`${p}.dayDetail.empty`, "這一天還空蕩蕩的喔，沒有任何小筆記。")}</p>
                       </div>
                     ) : (
                       selectedDayDetail.items.map(t => {
@@ -1693,13 +1693,13 @@ const BookkeepingPage: React.FC = () => {
                       className="bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] text-xs font-black px-4.5 py-2.5 rounded-xl flex items-center gap-1 border border-[#DE9B3E] active:scale-95 transition-all shadow-sm"
                     >
                       <Plus className="w-3.5 h-3.5 stroke-[3]" />
-                      就在今天記一筆 💰
+                      {t(`${p}.dayDetail.addBtn`, "就在今天記一筆 💰")}
                     </button>
                     <button
                       onClick={() => setSelectedDayDetail(null)}
                       className="text-xs text-[#8E7E73] hover:text-[#4A3B32] font-bold"
                     >
-                      關閉視窗
+                      {t(`${p}.dayDetail.close`, "關閉視窗")}
                     </button>
                   </div>
                 </div>
@@ -1716,10 +1716,10 @@ const BookkeepingPage: React.FC = () => {
             <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl p-6 space-y-6 max-w-3xl mx-auto shadow-sm">
               <div className="text-center space-y-2 border-b-2 border-[#FAF6EE] pb-5">
                 <h3 className="text-lg sm:text-xl font-black text-[#2E2520] flex items-center justify-center gap-1.5">
-                  <span>📊</span> 簡明生意損益小報表 (美金基準)
+                  <span>📊</span> {t(`${p}.report.title`, "簡明生意損益小報表 (美金基準)")}
                 </h3>
                 <p className="text-xs text-[#8E7E73] font-bold">
-                  各個小生意的賺錢和花錢情況匯總表，全部自動折算成美金統計！
+                  {t(`${p}.report.subtitle`, "各個小生意的賺錢和花錢情況匯總表，全部自動折算成美金統計！")}
                 </p>
               </div>
 
@@ -1733,21 +1733,21 @@ const BookkeepingPage: React.FC = () => {
                       <div>
                         <h4 className="text-base sm:text-lg font-black text-[#2E2520]">{b.name}</h4>
                         <p className="text-xs text-[#8E7E73] font-bold mt-1">
-                          本項生意的全部收支紀錄加總。
+                          {t(`${p}.report.desc`, "本項生意的全部收支紀錄加總。")}
                         </p>
                       </div>
 
                       <div className="flex gap-4 font-mono text-xs text-right self-end sm:self-center">
                         <div>
-                          <p className="text-[#8E7E73] font-bold">總收入</p>
+                          <p className="text-[#8E7E73] font-bold">{t(`${p}.report.earned`, "總收入")}</p>
                           <p className="text-[#388E3C] font-black text-sm">+${bStat.earned.toFixed(2)}</p>
                         </div>
                         <div>
-                          <p className="text-[#8E7E73] font-bold">總支出</p>
+                          <p className="text-[#8E7E73] font-bold">{t(`${p}.report.spent`, "總支出")}</p>
                           <p className="text-[#CE8078] font-black text-sm">-${bStat.spent.toFixed(2)}</p>
                         </div>
                         <div className="border-l-2 border-[#EFE9DB] pl-4">
-                          <p className="text-[#4A3B32] font-sans font-black">小利潤</p>
+                          <p className="text-[#4A3B32] font-sans font-black">{t(`${p}.report.profit`, "小利潤")}</p>
                           <p className={`font-black text-base ${isProfit ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
                             {isProfit ? '+' : '-'}${Math.abs(bStat.profit).toFixed(2)}
                           </p>
@@ -1765,7 +1765,7 @@ const BookkeepingPage: React.FC = () => {
                   className="bg-[#A3B899] hover:bg-[#8EAC90] text-[#2E2520] font-black text-sm px-6 py-3.5 rounded-2xl border-2 border-[#819976] transition-all hover:scale-[1.02] flex items-center justify-center gap-1.5 mx-auto shadow-md active:scale-95"
                 >
                   <FileSpreadsheet className="w-4 h-4 stroke-[2.5]" />
-                  下載生意小報表 CSV 📊
+                  {t(`${p}.report.download`, "下載生意小報表 CSV 📊")}
                 </button>
               </div>
 
@@ -1784,7 +1784,7 @@ const BookkeepingPage: React.FC = () => {
             <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD] shrink-0">
               <h3 className="text-sm sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
                 <RefreshCw className="w-4.5 h-4.5 text-[#8C6D3B] stroke-[2.5]" />
-                調整小老闆匯率計算機
+                {t(`${p}.rateSettings.title`, "調整小老闆匯率計算機")}
               </h3>
               <button
                 onClick={() => setShowRateSettings(false)}
@@ -1796,14 +1796,14 @@ const BookkeepingPage: React.FC = () => {
 
             <div className="p-5 space-y-4 text-xs bg-white overflow-y-auto flex-1">
               <p className="text-[#8E7E73] font-bold leading-relaxed">
-                在記賬時，如果小老闆輸入了港幣 (HKD) 或人民幣 (RMB)，系統會自動以這個匯率基準，幫你變魔法換算成美金 (USD) 存進你的大撲滿喔！
+                {t(`${p}.rateSettings.description`, "在記賬時，如果小老闆輸入了港幣 (HKD) 或人民幣 (RMB)，系統會自動以這個匯率基準，幫你變魔法換算成美金 (USD) 存進你的大撲滿喔！")}
               </p>
 
               <div className="space-y-3.5 bg-[#FCFAF5] p-4 rounded-2xl border-2 border-[#EFE9DB] font-mono font-bold text-[#4A3B32]">
                 
                 {/* USD */}
                 <div className="flex justify-between items-center">
-                  <span className="text-[#8E7E73] font-sans">1 美金 (USD) =</span>
+                  <span className="text-[#8E7E73] font-sans">1 {t(`${p}.rateSettings.usd`, "美金 (USD)")} =</span>
                   <div className="flex items-center gap-1 text-slate-800 font-bold">
                     <input
                       type="text"
@@ -1816,7 +1816,7 @@ const BookkeepingPage: React.FC = () => {
 
                 {/* HKD */}
                 <div className="flex justify-between items-center">
-                  <span className="text-[#8E7E73] font-sans">1 美金 (USD) =</span>
+                  <span className="text-[#8E7E73] font-sans">1 {t(`${p}.rateSettings.usd`, "美金 (USD)")} =</span>
                   <div className="flex items-center gap-1.5 font-bold">
                     <input
                       type="number"
@@ -1825,13 +1825,13 @@ const BookkeepingPage: React.FC = () => {
                       onChange={(e) => setCustomRates(prev => ({ ...prev, HKD: Number(e.target.value) || EXCHANGE_RATES.HKD }))}
                       className="w-24 bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-xl px-2.5 py-1.5 text-center text-[#8C6D3B] focus:outline-none"
                     />
-                    <span>港幣 (HKD)</span>
+                    <span>{t(`${p}.rateSettings.hkd`, "港幣 (HKD)")}</span>
                   </div>
                 </div>
 
                 {/* RMB */}
                 <div className="flex justify-between items-center">
-                  <span className="text-[#8E7E73] font-sans">1 美金 (USD) =</span>
+                  <span className="text-[#8E7E73] font-sans">1 {t(`${p}.rateSettings.usd`, "美金 (USD)")} =</span>
                   <div className="flex items-center gap-1.5 font-bold">
                     <input
                       type="number"
@@ -1840,7 +1840,7 @@ const BookkeepingPage: React.FC = () => {
                       onChange={(e) => setCustomRates(prev => ({ ...prev, RMB: Number(e.target.value) || EXCHANGE_RATES.RMB }))}
                       className="w-24 bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-xl px-2.5 py-1.5 text-center text-[#8C6D3B] focus:outline-none"
                     />
-                    <span>人民幣 (RMB)</span>
+                    <span>{t(`${p}.rateSettings.rmb`, "人民幣 (RMB)")}</span>
                   </div>
                 </div>
 
@@ -1854,7 +1854,7 @@ const BookkeepingPage: React.FC = () => {
                   }}
                   className="text-xs text-[#8E7E73] hover:text-[#4A3B32] font-bold"
                 >
-                  復原標準值
+                  {t(`${p}.rateSettings.restore`, "復原標準值")}
                 </button>
                 <button
                   onClick={() => {
@@ -1863,7 +1863,7 @@ const BookkeepingPage: React.FC = () => {
                   }}
                   className="bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] font-black px-4.5 py-2.5 rounded-xl text-xs active:scale-95 transition-all border border-[#DE9B3E]"
                 >
-                  確認保存設定
+                  {t(`${p}.rateSettings.save`, "確認保存設定")}
                 </button>
               </div>
 
@@ -1880,7 +1880,7 @@ const BookkeepingPage: React.FC = () => {
             
             <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD] shrink-0">
               <h3 className="text-md sm:text-base font-black text-[#2E2520]">
-                {editingTransactionId ? '✏️ 修改這筆小日記' : '💰 記一筆收支日記'}
+                {editingTransactionId ? t(`${p}.addForm.titleEdit`, '✏️ 修改這筆小日記') : t(`${p}.addForm.titleAdd`, '💰 記一筆收支日記')}
               </h3>
               <button
                 onClick={() => {
@@ -1898,7 +1898,7 @@ const BookkeepingPage: React.FC = () => {
               
               {/* 日期 */}
               <div>
-                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">交易日期</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">{t(`${p}.addForm.date`, "交易日期")}</label>
                 <input
                   type="date"
                   required
@@ -1910,7 +1910,7 @@ const BookkeepingPage: React.FC = () => {
 
               {/* 賺錢/花錢切換 */}
               <div>
-                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">這是賺到錢還是花出錢呢？</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">{t(`${p}.addForm.typeLabel`, "這是賺到錢還是花出錢呢？")}</label>
                 <div className="grid grid-cols-2 gap-2 bg-[#FCFAF5] p-1.5 rounded-2xl border-2 border-[#EFE9DB]">
                   <button
                     type="button"
@@ -1919,7 +1919,7 @@ const BookkeepingPage: React.FC = () => {
                       formType === 'incoming' ? 'bg-[#A3B899] border border-[#819976] text-[#2E2520] shadow-sm' : 'text-[#8E7E73] hover:text-[#4A3B32]'
                     }`}
                   >
-                    💰 存錢進來 (賺錢啦)
+                    {t(`${p}.addForm.incoming`, "💰 存錢進來 (賺錢啦)")}
                   </button>
                   <button
                     type="button"
@@ -1928,14 +1928,14 @@ const BookkeepingPage: React.FC = () => {
                       formType === 'outgoing' ? 'bg-[#DE9B93] border border-[#CE8078] text-[#2E2520] shadow-sm' : 'text-[#8E7E73] hover:text-[#4A3B32]'
                     }`}
                   >
-                    💸 付錢出去 (花錢囉)
+                    {t(`${p}.addForm.outgoing`, "💸 付錢出去 (花錢囉)")}
                   </button>
                 </div>
               </div>
 
               {/* 屬於哪項生意 */}
               <div>
-                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">是屬於哪一個小生意的？</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">{t(`${p}.addForm.businessLabel`, "是屬於哪一個小生意的？")}</label>
                 <div className="grid grid-cols-2 gap-2">
                   {businesses.map(b => {
                     const isSelected = formBusiness === b.name
@@ -1960,9 +1960,9 @@ const BookkeepingPage: React.FC = () => {
               {/* 幣別與金額 */}
               <div>
                 <label className="block text-xs font-black text-[#4A3B32] mb-1.5 flex items-center justify-between">
-                  <span>填入金額與使用的幣別</span>
+                  <span>{t(`${p}.addForm.amountLabel`, "填入金額與使用的幣別")}</span>
                   <span className="text-[10px] text-[#8C6D3B] font-mono font-bold bg-[#FAF1DF] border border-[#EADFCD] px-2 py-0.5 rounded-lg">
-                    大撲滿基底: USD
+                    {t(`${p}.addForm.baseUsd`, "大撲滿基底: USD")}
                   </span>
                 </label>
 
@@ -2010,7 +2010,7 @@ const BookkeepingPage: React.FC = () => {
                 {/* 金額魔法換算卡片 */}
                 {liveConversions && (
                   <div className="mt-3.5 space-y-1">
-                    <p className="text-[10px] text-[#8C6D3B] font-bold">🪄 點點下方卡片，金額會神奇自動換算唷：</p>
+                    <p className="text-[10px] text-[#8C6D3B] font-bold">{t(`${p}.addForm.conversionTip`, "🪄 點點下方卡片，金額會神奇自動換算唷：")}</p>
                     <div className="grid grid-cols-3 gap-2">
                       {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => {
                         const val = liveConversions[curr]
@@ -2032,7 +2032,7 @@ const BookkeepingPage: React.FC = () => {
                             }`}
                           >
                             <div className={`text-[9px] font-sans ${isCurrent ? 'text-[#8C6D3B] font-black' : 'text-[#8E7E73] group-hover:text-[#8C6D3B]'}`}>
-                              {isCurrent ? '目前' : '折合'} {curr}
+                              {isCurrent ? t(`${p}.rateSettings.current`, '目前') : t(`${p}.rateSettings.equivalent`, '折合')} {curr}
                             </div>
                             <div className={`text-xs font-black truncate ${isCurrent ? 'text-[#2E2520]' : 'text-[#4A3B32]'}`}>
                               {CURRENCY_SYMBOLS[curr]}
@@ -2050,13 +2050,13 @@ const BookkeepingPage: React.FC = () => {
               {/* 收支類別 */}
               <div>
                 <div className="flex justify-between items-center mb-1.5">
-                  <label className="text-xs font-black text-[#4A3B32]">這是屬於哪一項收支呢？</label>
+                  <label className="text-xs font-black text-[#4A3B32]">{t(`${p}.addForm.categoryLabel`, "這是屬於哪一項收支呢？")}</label>
                   <button
                     type="button"
                     onClick={() => setShowAddCategoryInline(!showAddCategoryInline)}
                     className="text-[10px] text-[#8C6D3B] font-black hover:text-[#2E2520] underline transition-colors"
                   >
-                    {showAddCategoryInline ? '📖 選擇現有項目' : '➕ 新增收支項目'}
+                    {showAddCategoryInline ? t(`${p}.addForm.chooseExisting`, '📖 選擇現有項目') : t(`${p}.addForm.addNewCategory`, '➕ 新增收支項目')}
                   </button>
                 </div>
 
@@ -2064,7 +2064,7 @@ const BookkeepingPage: React.FC = () => {
                   <div className="flex gap-2 bg-[#FCFAF5] p-2.5 rounded-2xl border-2 border-[#EADFCD] animate-in fade-in slide-in-from-top-1 duration-150">
                     <input
                       type="text"
-                      placeholder="例如: 買包裝紙 📄"
+                      placeholder={t(`${p}.addForm.newCategoryPlaceholder`, "例如: 買包裝紙 📄")}
                       value={newCategoryName}
                       onChange={(e) => setNewCategoryName(e.target.value)}
                       className="flex-1 bg-white border border-[#EFE9DB] rounded-xl px-2.5 py-1 text-xs text-[#4A3B32] focus:outline-none"
@@ -2074,7 +2074,7 @@ const BookkeepingPage: React.FC = () => {
                       onClick={handleAddCustomCategory}
                       className="bg-[#A3B899] hover:bg-[#8EAC90] text-[#2E2520] font-black px-3 py-1 rounded-xl text-[10px]"
                     >
-                      新增項目
+                      {t(`${p}.addForm.addBtn`, "新增項目")}
                     </button>
                   </div>
                 ) : (
@@ -2092,11 +2092,11 @@ const BookkeepingPage: React.FC = () => {
 
               {/* 描述/備註 */}
               <div>
-                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">寫下一點好記的小筆記 (例: 特斯拉載客一星期的租費)</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">{t(`${p}.addForm.descLabel`, "寫下一點好記的小筆記 (例: 特斯拉載客一星期的租費)")}</label>
                 <input
                   type="text"
                   required
-                  placeholder="寫下一點簡單的小日記吧..."
+                  placeholder={t(`${p}.addForm.descPlaceholder`, "寫下一點簡單的小日記吧...")}
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
                   className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold placeholder-[#A8988D]"
@@ -2105,16 +2105,16 @@ const BookkeepingPage: React.FC = () => {
 
               {/* 支付方式 */}
               <div>
-                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">這筆錢是怎麼交易的？</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">{t(`${p}.addForm.paymentMethodLabel`, "這筆錢是怎麼交易的？")}</label>
                 <select
                   value={formPaymentMethod}
                   onChange={(e) => setFormPaymentMethod(e.target.value as any)}
                   className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold"
                 >
-                  <option value="銀行轉帳">銀行轉帳</option>
-                  <option value="現金">現金</option>
-                  <option value="信用卡">信用卡</option>
-                  <option value="微信/支付寶">微信/支付寶</option>
+                  <option value="銀行轉帳">{t(`${p}.addForm.paymentMethods.銀行轉帳`, '銀行轉帳')}</option>
+                  <option value="現金">{t(`${p}.addForm.paymentMethods.現金`, '現金')}</option>
+                  <option value="信用卡">{t(`${p}.addForm.paymentMethods.信用卡`, '信用卡')}</option>
+                  <option value="微信/支付寶">{t(`${p}.addForm.paymentMethods.微信/支付寶`, '微信/支付寶')}</option>
                 </select>
               </div>
 
@@ -2128,13 +2128,13 @@ const BookkeepingPage: React.FC = () => {
                   }}
                   className="bg-[#FCFAF5] hover:bg-[#F3ECE0] border border-[#EFE9DB] rounded-2xl text-[#8E7E73] font-bold text-xs px-5 py-2.5 active:scale-95 transition-all"
                 >
-                  取消
+                  {t(`${p}.addForm.cancel`, "取消")}
                 </button>
                 <button
                   type="submit"
                   className="bg-[#F5B859] hover:bg-[#E5A749] border border-[#DE9B3E] text-[#2E2520] px-6 py-2.5 rounded-2xl text-xs font-black active:scale-95 transition-all shadow-sm"
                 >
-                  確認保存這筆紀錄 ✨
+                  {t(`${p}.addForm.save`, "確認保存這筆紀錄 ✨")}
                 </button>
               </div>
 
@@ -2151,7 +2151,7 @@ const BookkeepingPage: React.FC = () => {
             <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD] shrink-0">
               <h3 className="text-sm sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
                 <Settings className="w-4.5 h-4.5 text-[#8C6D3B] stroke-[2.5]" />
-                管理我的小生意項目
+                {t(`${p}.businessManager.title`, "管理我的小生意項目")}
               </h3>
               <button
                 onClick={() => {
@@ -2168,20 +2168,20 @@ const BookkeepingPage: React.FC = () => {
               
               {/* 新增小生意表單 */}
               <form onSubmit={handleSaveBusiness} className="bg-[#FCFAF5] p-4 rounded-2xl border-2 border-[#EFE9DB] space-y-3 shrink-0">
-                <p className="font-black text-[#8C6D3B]">➕ 開啟一個全新小生意</p>
+                <p className="font-black text-[#8C6D3B]">{t(`${p}.businessManager.addNew`, "➕ 開啟一個全新小生意")}</p>
                 <div className="grid grid-cols-3 gap-2">
                   <div className="col-span-2">
-                    <label className="block text-[10px] text-[#8E7E73] font-bold mb-1">生意名稱 (例如: 烘焙點心)</label>
+                    <label className="block text-[10px] text-[#8E7E73] font-bold mb-1">{t(`${p}.businessManager.nameLabel`, "生意名稱 (例如: 烘焙點心)")}</label>
                     <input
                       type="text"
-                      placeholder="烘焙點心"
+                      placeholder={t(`${p}.businessManager.namePlaceholder`, "烘焙點心")}
                       value={newBizName}
                       onChange={(e) => setNewBizName(e.target.value)}
                       className="w-full bg-white border border-[#EFE9DB] rounded-xl px-2.5 py-1.5 text-xs text-[#4A3B32] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] text-[#8E7E73] font-bold mb-1">圖圖標 Emoji</label>
+                    <label className="block text-[10px] text-[#8E7E73] font-bold mb-1">{t(`${p}.businessManager.emojiLabel`, "圖圖標 Emoji")}</label>
                     <select
                       value={newBizEmoji}
                       onChange={(e) => setNewBizEmoji(e.target.value)}
@@ -2204,13 +2204,13 @@ const BookkeepingPage: React.FC = () => {
                   type="submit"
                   className="w-full bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] font-black py-2 rounded-xl text-xs active:scale-95 transition-all shadow-sm border border-[#DE9B3E]"
                 >
-                  確認打造小生意 🚀
+                  {t(`${p}.businessManager.submit`, "確認打造小生意 🚀")}
                 </button>
               </form>
 
               {/* 現有小生意列表 */}
               <div className="space-y-2.5">
-                <p className="font-black text-[#4A3B32]">💼 正在經營中的小生意：</p>
+                <p className="font-black text-[#4A3B32]">{t(`${p}.businessManager.currentBusinesses`, "💼 正在經營中的小生意：")}</p>
                 <div className="space-y-2">
                   {businesses.map((b) => {
                     const isEditing = editingBizId === b.id
@@ -2303,7 +2303,7 @@ const BookkeepingPage: React.FC = () => {
                 }}
                 className="text-xs text-[#8E7E73] hover:text-[#4A3B32] font-black py-1"
               >
-                關閉視窗
+                {t(`${p}.businessManager.close`, "關閉視窗")}
               </button>
             </div>
 

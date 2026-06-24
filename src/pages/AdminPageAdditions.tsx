@@ -1,4 +1,8 @@
 // This file contains the new sections to add to AdminPage.tsx
+import { useTranslation } from 'react-i18next'
+
+// const { t } = useTranslation();
+// const p = 'seoPages.pages.adminPageAdditions';
 
 // Add this section after the Newsletter Tab (around line 686)
 
@@ -7,13 +11,13 @@
   {activeTab === 'documents' && (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Documents Management</h1>
+        <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.docsTab.title`)}</h1>
         <button
           onClick={() => setShowUploadModal(true)}
           className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
         >
           <Upload className="h-5 w-5" />
-          Upload Document
+          {t(`${p}.docsTab.btnUpload`)}
         </button>
       </div>
 
@@ -22,12 +26,12 @@
           <table className="w-full">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Description</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.docsTab.colName`)}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.docsTab.colUser`)}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.docsTab.colType`)}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.docsTab.colDesc`)}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.docsTab.colCreated`)}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.docsTab.colActions`)}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -44,7 +48,7 @@
                       </div>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">
-                      {user?.full_name || user?.email || 'Unknown'}
+                      {user?.full_name || user?.email || t(`${p}.docsTab.unknown`)}
                     </td>
                     <td className="px-6 py-4">
                       <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
@@ -82,7 +86,7 @@
           </table>
           {documents.length === 0 && (
             <div className="text-center py-12 text-gray-500">
-              No documents uploaded yet
+              {t(`${p}.docsTab.noDocs`)}
             </div>
           )}
         </div>
@@ -97,15 +101,15 @@
   {/* Tracking Information *\/}
   {selectedOrder.tracking_number && (
     <div>
-      <p className="text-sm text-gray-500 mb-2">Tracking Information</p>
+      <p className="text-sm text-gray-500 mb-2">{t(`${p}.trackingInfo.title`)}</p>
       <div className="bg-blue-50 rounded-lg p-4 space-y-2">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-600">Carrier</p>
-            <p className="font-medium">{selectedOrder.carrier || 'N/A'}</p>
+            <p className="text-sm text-gray-600">{t(`${p}.trackingInfo.carrier`)}</p>
+            <p className="font-medium">{selectedOrder.carrier || t(`${p}.trackingInfo.na`)}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600">Tracking Number</p>
+            <p className="text-sm text-gray-600">{t(`${p}.trackingInfo.trackingNum`)}</p>
             <p className="font-mono font-medium">{selectedOrder.tracking_number}</p>
           </div>
         </div>
@@ -117,7 +121,7 @@
             className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm"
           >
             <Truck className="h-4 w-4" />
-            Track Package
+            {t(`${p}.trackingInfo.trackPkg`)}
             <ExternalLink className="h-4 w-4" />
           </a>
         )}
@@ -138,14 +142,14 @@
       className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
     >
       <Truck className="h-4 w-4" />
-      {selectedOrder.tracking_number ? 'Update Tracking' : 'Add Tracking'}
+      {selectedOrder.tracking_number ? t(`${p}.trackingInfo.btnUpdateTracking`) : t(`${p}.trackingInfo.btnAddTracking`)}
     </button>
     <button
       onClick={() => deleteOrder(selectedOrder.id)}
       className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
     >
       <Trash2 className="h-4 w-4" />
-      Delete Order
+      {t(`${p}.trackingInfo.btnDeleteOrder`)}
     </button>
   </div>
 */
@@ -158,20 +162,20 @@
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
       <div className="bg-white rounded-xl max-w-lg w-full">
         <div className="p-6 border-b flex items-center justify-between">
-          <h2 className="text-xl font-bold">Upload Document</h2>
+          <h2 className="text-xl font-bold">{t(`${p}.uploadModal.title`)}</h2>
           <button onClick={() => setShowUploadModal(false)} className="text-gray-500 hover:text-gray-700">
             <X className="h-5 w-5" />
           </button>
         </div>
         <div className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Customer</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.uploadModal.customer`)}</label>
             <select
               value={uploadForm.userId}
               onChange={(e) => setUploadForm({ ...uploadForm, userId: e.target.value })}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"
             >
-              <option value="">Select customer</option>
+              <option value="">{t(`${p}.uploadModal.selectCustomer`)}</option>
               {customers.map(customer => (
                 <option key={customer.id} value={customer.id}>
                   {customer.full_name} ({customer.email})
@@ -181,7 +185,7 @@
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Document Name *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.uploadModal.docName`)}</label>
             <input
               type="text"
               value={uploadForm.name}
@@ -192,7 +196,7 @@
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Document Type</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.uploadModal.docType`)}</label>
             <select
               value={uploadForm.type}
               onChange={(e) => setUploadForm({ ...uploadForm, type: e.target.value })}
@@ -206,7 +210,7 @@
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.uploadModal.desc`)}</label>
             <textarea
               value={uploadForm.description}
               onChange={(e) => setUploadForm({ ...uploadForm, description: e.target.value })}
@@ -217,7 +221,7 @@
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">File URL *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.uploadModal.fileUrl`)}</label>
             <input
               type="text"
               value={uploadForm.fileUrl}
@@ -226,7 +230,7 @@
               placeholder="/docs/certifications/EN13432.pdf"
             />
             <p className="text-xs text-gray-500 mt-1">
-              Upload file to /public/docs/ folder and enter the path here
+              {t(`${p}.uploadModal.uploadHint`)}
             </p>
           </div>
 
@@ -235,13 +239,13 @@
               onClick={uploadDocument}
               className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
             >
-              Upload Document
+              {t(`${p}.uploadModal.btnUpload`)}
             </button>
             <button
               onClick={() => setShowUploadModal(false)}
               className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
             >
-              Cancel
+              {t(`${p}.uploadModal.btnCancel`)}
             </button>
           </div>
         </div>
@@ -254,37 +258,37 @@
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
       <div className="bg-white rounded-xl max-w-lg w-full">
         <div className="p-6 border-b flex items-center justify-between">
-          <h2 className="text-xl font-bold">Add Tracking Information</h2>
+          <h2 className="text-xl font-bold">{t(`${p}.addTrackingModal.title`)}</h2>
           <button onClick={() => setShowTrackingModal(false)} className="text-gray-500 hover:text-gray-700">
             <X className="h-5 w-5" />
           </button>
         </div>
         <div className="p-6 space-y-4">
           <div className="bg-gray-50 rounded-lg p-4 mb-4">
-            <p className="text-sm text-gray-600">Order Number</p>
+            <p className="text-sm text-gray-600">{t(`${p}.addTrackingModal.orderNum`)}</p>
             <p className="font-semibold text-lg">{selectedOrder.order_number}</p>
-            <p className="text-sm text-gray-600 mt-2">Customer: {selectedOrder.customer_name}</p>
+            <p className="text-sm text-gray-600 mt-2">{t(`${p}.addTrackingModal.customer`, { name: selectedOrder.customer_name })}</p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Carrier</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.addTrackingModal.carrier`)}</label>
             <select
               value={trackingForm.carrier}
               onChange={(e) => setTrackingForm({ ...trackingForm, carrier: e.target.value })}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"
             >
-              <option value="">Select carrier</option>
-              <option value="DHL">DHL</option>
-              <option value="FedEx">FedEx</option>
-              <option value="UPS">UPS</option>
-              <option value="SF Express">SF Express</option>
-              <option value="China Post">China Post</option>
-              <option value="Other">Other</option>
+              <option value="">{t(`${p}.addTrackingModal.selectCarrier`)}</option>
+              <option value="DHL">{t(`${p}.addTrackingModal.carriers.dhl`)}</option>
+              <option value="FedEx">{t(`${p}.addTrackingModal.carriers.fedex`)}</option>
+              <option value="UPS">{t(`${p}.addTrackingModal.carriers.ups`)}</option>
+              <option value="SF Express">{t(`${p}.addTrackingModal.carriers.sfExpress`)}</option>
+              <option value="China Post">{t(`${p}.addTrackingModal.carriers.chinaPost`)}</option>
+              <option value="Other">{t(`${p}.addTrackingModal.carriers.other`)}</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Tracking Number *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.addTrackingModal.trackingNum`)}</label>
             <input
               type="text"
               value={trackingForm.trackingNumber}
@@ -295,7 +299,7 @@
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Tracking URL (Optional)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.addTrackingModal.trackingUrl`)}</label>
             <input
               type="text"
               value={trackingForm.trackingUrl}
@@ -306,8 +310,8 @@
           </div>
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-800">
-            <p className="font-medium">⚠️ Note:</p>
-            <p>Adding tracking will automatically update order status to "Shipped"</p>
+            <p className="font-medium">{t(`${p}.addTrackingModal.note`)}</p>
+            <p>{t(`${p}.addTrackingModal.noteDesc`)}</p>
           </div>
 
           <div className="flex gap-3 pt-4">
@@ -315,13 +319,13 @@
               onClick={updateTracking}
               className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
             >
-              Save Tracking Info
+              {t(`${p}.addTrackingModal.btnSave`)}
             </button>
             <button
               onClick={() => setShowTrackingModal(false)}
               className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
             >
-              Cancel
+              {t(`${p}.addTrackingModal.btnCancel`)}
             </button>
           </div>
         </div>
@@ -329,3 +333,4 @@
     </div>
   )}
 */
+

@@ -8,6 +8,7 @@ import {
 import { useAuth } from '../../hooks/useAuth'
 import { supabase } from '../../lib/supabase'
 import { toast } from 'sonner'
+import { useTranslation, Trans } from "react-i18next";
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 const XAI_API_KEY = import.meta.env.VITE_XAI_API_KEY
@@ -300,7 +301,7 @@ export default function DocumentTemplatesPage() {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
-          <p className="text-gray-600">Access denied</p>
+          <p className="text-gray-600">{t(`${p}.accessDenied`)}</p>
         </div>
       </div>
     )
@@ -318,17 +319,17 @@ export default function DocumentTemplatesPage() {
             <div className="flex items-center gap-4">
               <Link to="/ctrl-x9k7m/shipments" className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
                 <ArrowLeft className="h-5 w-5" />
-                <span className="hidden sm:inline">Back</span>
+                <span className="hidden sm:inline">{t(`${p}.back`)}</span>
               </Link>
               <div className="h-6 w-px bg-gray-200" />
-              <h1 className="text-lg font-semibold text-gray-900">Document Templates</h1>
+              <h1 className="text-lg font-semibold text-gray-900">{t(`${p}.documentTemplates`)}</h1>
             </div>
             <button
               onClick={() => setShowUploadModal(true)}
               className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
             >
               <Plus className="h-4 w-4" />
-              <span className="hidden sm:inline">Upload Template</span>
+              <span className="hidden sm:inline">{t(`${p}.uploadTemplate`)}</span>
             </button>
           </div>
         </div>
@@ -364,18 +365,17 @@ export default function DocumentTemplatesPage() {
             <section>
               <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <FileText className="h-5 w-5 text-blue-500" />
-                Invoice Templates ({invoiceTemplates.length})
+                {t(`${p}.invoiceTemplates`)}{invoiceTemplates.length})
               </h2>
               {invoiceTemplates.length === 0 ? (
                 <div className="bg-white rounded-xl border-2 border-dashed border-gray-200 p-8 text-center">
                   <FileImage className="h-12 w-12 text-gray-300 mx-auto mb-3" />
-                  <p className="text-gray-500">No invoice templates yet</p>
+                  <p className="text-gray-500">{t(`${p}.noInvoiceTemplatesYet`)}</p>
                   <button
                     onClick={() => { setUploadType('invoice'); setShowUploadModal(true) }}
                     className="mt-4 text-primary-600 hover:text-primary-700 font-medium"
                   >
-                    Upload your first invoice template
-                  </button>
+                    {t(`${p}.uploadYourFirstInvoiceTemplate`)}</button>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -398,18 +398,17 @@ export default function DocumentTemplatesPage() {
             <section>
               <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <File className="h-5 w-5 text-green-500" />
-                Packing List Templates ({packingListTemplates.length})
+                {t(`${p}.packingListTemplates`)}{packingListTemplates.length})
               </h2>
               {packingListTemplates.length === 0 ? (
                 <div className="bg-white rounded-xl border-2 border-dashed border-gray-200 p-8 text-center">
                   <FileImage className="h-12 w-12 text-gray-300 mx-auto mb-3" />
-                  <p className="text-gray-500">No packing list templates yet</p>
+                  <p className="text-gray-500">{t(`${p}.noPackingListTemplatesYet`)}</p>
                   <button
                     onClick={() => { setUploadType('packing_list'); setShowUploadModal(true) }}
                     className="mt-4 text-primary-600 hover:text-primary-700 font-medium"
                   >
-                    Upload your first packing list template
-                  </button>
+                    {t(`${p}.uploadYourFirstPackingListTemp`)}</button>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -436,7 +435,7 @@ export default function DocumentTemplatesPage() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl max-w-lg w-full p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-bold">Upload Template</h3>
+              <h3 className="text-lg font-bold">{t(`${p}.uploadTemplate`)}</h3>
               <button onClick={() => setShowUploadModal(false)} className="text-gray-400 hover:text-gray-600">
                 <X className="h-5 w-5" />
               </button>
@@ -445,7 +444,7 @@ export default function DocumentTemplatesPage() {
             <div className="space-y-4">
               {/* Type Selection */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Template Type</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.templateType`)}</label>
                 <div className="flex gap-3">
                   <button
                     onClick={() => setUploadType('invoice')}
@@ -456,7 +455,7 @@ export default function DocumentTemplatesPage() {
                     }`}
                   >
                     <FileText className="h-5 w-5 mx-auto mb-1" />
-                    <span className="text-sm font-medium">Invoice</span>
+                    <span className="text-sm font-medium">{t(`${p}.invoice`)}</span>
                   </button>
                   <button
                     onClick={() => setUploadType('packing_list')}
@@ -467,14 +466,14 @@ export default function DocumentTemplatesPage() {
                     }`}
                   >
                     <File className="h-5 w-5 mx-auto mb-1" />
-                    <span className="text-sm font-medium">Packing List</span>
+                    <span className="text-sm font-medium">{t(`${p}.packingList`)}</span>
                   </button>
                 </div>
               </div>
 
               {/* Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Template Name</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.templateName`)}</label>
                 <input
                   type="text"
                   value={uploadName}
@@ -486,7 +485,7 @@ export default function DocumentTemplatesPage() {
 
               {/* File Upload */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">File (Image/PDF)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.fileImagePdf`)}</label>
                 <div className="border-2 border-dashed border-gray-200 rounded-lg p-6 text-center hover:border-gray-300 transition cursor-pointer"
                      onClick={() => document.getElementById('file-input')?.click()}>
                   <input
@@ -506,8 +505,8 @@ export default function DocumentTemplatesPage() {
                   ) : (
                     <>
                       <Upload className="h-10 w-10 text-gray-300 mx-auto mb-2" />
-                      <p className="text-gray-500">Click to upload or drag & drop</p>
-                      <p className="text-xs text-gray-400 mt-1">PNG, JPG, PDF up to 10MB</p>
+                      <p className="text-gray-500">{t(`${p}.clickToUploadOrDragDrop`)}</p>
+                      <p className="text-xs text-gray-400 mt-1">{t(`${p}.pngJpgPdfUpTo10mb`)}</p>
                     </>
                   )}
                 </div>
@@ -517,8 +516,7 @@ export default function DocumentTemplatesPage() {
               <div className="bg-purple-50 rounded-lg p-3 flex items-start gap-2">
                 <Sparkles className="h-5 w-5 text-purple-500 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-purple-700">
-                  After upload, XAI will automatically extract data from image templates to help generate new documents.
-                </p>
+                  {t(`${p}.afterUploadXaiWillAutomaticall`)}</p>
               </div>
             </div>
 
@@ -527,8 +525,7 @@ export default function DocumentTemplatesPage() {
                 onClick={() => setShowUploadModal(false)}
                 className="flex-1 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50"
               >
-                Cancel
-              </button>
+                {t(`${p}.cancel`)}</button>
               <button
                 onClick={handleUpload}
                 disabled={uploading || !uploadFile || !uploadName}
@@ -537,13 +534,11 @@ export default function DocumentTemplatesPage() {
                 {uploading ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    Uploading...
-                  </>
+                    {t(`${p}.uploading`)}</>
                 ) : (
                   <>
                     <Upload className="h-4 w-4" />
-                    Upload
-                  </>
+                    {t(`${p}.upload`)}</>
                 )}
               </button>
             </div>
@@ -564,7 +559,7 @@ export default function DocumentTemplatesPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
               {/* Preview */}
               <div>
-                <h4 className="font-medium text-gray-700 mb-2">Preview</h4>
+                <h4 className="font-medium text-gray-700 mb-2">{t(`${p}.preview`)}</h4>
                 {selectedTemplate.file_url.endsWith('.pdf') ? (
                   <iframe src={selectedTemplate.file_url} className="w-full h-96 rounded-lg border" />
                 ) : (
@@ -575,8 +570,7 @@ export default function DocumentTemplatesPage() {
               <div>
                 <h4 className="font-medium text-gray-700 mb-2 flex items-center gap-2">
                   <Sparkles className="h-4 w-4 text-purple-500" />
-                  Extracted Data
-                </h4>
+                  {t(`${p}.extractedData`)}</h4>
                 {selectedTemplate.extracted_data ? (
                   <pre className="bg-gray-50 rounded-lg p-4 text-xs overflow-auto max-h-96 border">
                     {JSON.stringify(selectedTemplate.extracted_data, null, 2)}
@@ -584,13 +578,12 @@ export default function DocumentTemplatesPage() {
                 ) : (
                   <div className="bg-gray-50 rounded-lg p-8 text-center border">
                     <Sparkles className="h-8 w-8 text-gray-300 mx-auto mb-2" />
-                    <p className="text-gray-500">No extracted data yet</p>
+                    <p className="text-gray-500">{t(`${p}.noExtractedDataYet`)}</p>
                     <button
                       onClick={() => { setSelectedTemplate(null); extractWithXAI(selectedTemplate) }}
                       className="mt-3 text-primary-600 hover:text-primary-700 font-medium text-sm"
                     >
-                      Extract with XAI
-                    </button>
+                      {t(`${p}.extractWithXai`)}</button>
                   </div>
                 )}
               </div>
@@ -635,14 +628,12 @@ function TemplateCard({
         )}
         {template.is_default && (
           <span className="absolute top-2 left-2 px-2 py-1 bg-primary-500 text-white text-xs font-medium rounded-full">
-            Default
-          </span>
+            {t(`${p}.default`)}</span>
         )}
         {template.extracted_data && (
           <span className="absolute top-2 right-2 px-2 py-1 bg-purple-500 text-white text-xs font-medium rounded-full flex items-center gap-1">
             <Sparkles className="h-3 w-3" />
-            Extracted
-          </span>
+            {t(`${p}.extracted`)}</span>
         )}
         {/* Hover Actions */}
         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2">
@@ -687,15 +678,13 @@ function TemplateCard({
               onClick={onSetDefault}
               className="text-xs text-primary-600 hover:text-primary-700"
             >
-              Set as default
-            </button>
+              {t(`${p}.setAsDefault`)}</button>
           )}
           <button
             onClick={onDelete}
             className="text-xs text-red-500 hover:text-red-600 ml-auto"
           >
-            Delete
-          </button>
+            {t(`${p}.delete`)}</button>
         </div>
       </div>
     </div>

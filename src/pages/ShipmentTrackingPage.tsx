@@ -6,6 +6,7 @@ import {
   RefreshCw, AlertCircle, ChevronRight, Ship, Plane, Box
 } from 'lucide-react'
 import { supabase } from '../lib/supabase'
+import { useTranslation } from 'react-i18next'
 
 interface ShipmentBatch {
   id: string
@@ -66,6 +67,8 @@ const STATUS_INDEX: Record<string, number> = {
 }
 
 export default function ShipmentTrackingPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.shipmentTracking'
   const { id } = useParams<{ id: string }>()
   const [password, setPassword] = useState('')
   const [verified, setVerified] = useState(false)
@@ -83,7 +86,7 @@ export default function ShipmentTrackingPage() {
   // Verify password
   const handleVerify = async () => {
     if (!password.trim()) {
-      setError('Please enter password')
+      setError(t(`${p}.passwordScreen.errors.pleaseEnter`, 'Please enter password'))
       return
     }
     
@@ -98,19 +101,19 @@ export default function ShipmentTrackingPage() {
         .single()
       
       if (fetchError || !data) {
-        setError('Shipment not found')
+        setError(t(`${p}.passwordScreen.errors.notFound`, 'Shipment not found'))
         return
       }
       
       if (data.password !== password) {
-        setError('Incorrect password')
+        setError(t(`${p}.passwordScreen.errors.incorrect`, 'Incorrect password'))
         return
       }
       
       setVerified(true)
       fetchData()
     } catch (err) {
-      setError('Verification failed')
+      setError(t(`${p}.passwordScreen.errors.failed`, 'Verification failed'))
     } finally {
       setVerifying(false)
     }
@@ -202,19 +205,19 @@ export default function ShipmentTrackingPage() {
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Lock className="h-8 w-8 text-primary-600" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Shipment Tracking</h1>
-            <p className="text-gray-500">Enter your access password to view shipment details</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">{t(`${p}.passwordScreen.title`, "Shipment Tracking")}</h1>
+            <p className="text-gray-500">{t(`${p}.passwordScreen.description`, "Enter your access password to view shipment details")}</p>
           </div>
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.passwordScreen.passwordLabel`, "Password")}</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); setError('') }}
                 onKeyDown={(e) => e.key === 'Enter' && handleVerify()}
-                placeholder="Enter access password"
+                placeholder={t(`${p}.passwordScreen.passwordPlaceholder`, "Enter access password")}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                 autoFocus
               />
@@ -231,13 +234,13 @@ export default function ShipmentTrackingPage() {
               disabled={verifying}
               className="w-full py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 transition font-medium"
             >
-              {verifying ? 'Verifying...' : 'View Shipment'}
+              {verifying ? t(`${p}.passwordScreen.verifying`, "Verifying...") : t(`${p}.passwordScreen.viewShipment`, "View Shipment")}
             </button>
           </div>
           
           <div className="mt-6 pt-6 border-t text-center">
             <Link to="/" className="text-sm text-primary-600 hover:text-primary-700">
-              Back to Achieve Pack
+              {t(`${p}.passwordScreen.backToHome`, "Back to Achieve Pack")}
             </Link>
           </div>
         </div>
@@ -266,7 +269,7 @@ export default function ShipmentTrackingPage() {
               <img src="/logo.svg" alt="Achieve Pack" className="h-8" />
               <span className="font-semibold text-gray-900">Achieve Pack</span>
             </Link>
-            <span className="text-sm text-gray-500">Shipment Tracking</span>
+            <span className="text-sm text-gray-500">{t(`${p}.header.title`, "Shipment Tracking")}</span>
           </div>
         </div>
       </header>
@@ -277,10 +280,10 @@ export default function ShipmentTrackingPage() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h1 className="text-2xl font-bold text-gray-900 mb-1">
-                Shipment {batch.batch_number}
+                {t(`${p}.titleCard.shipment`, "Shipment")} {batch.batch_number}
               </h1>
               <p className="text-gray-500">
-                {batch.customer_name} • PO: {batch.customer_po}
+                {batch.customer_name} • {t(`${p}.titleCard.po`, "PO:")} {batch.customer_po}
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -297,7 +300,7 @@ export default function ShipmentTrackingPage() {
 
         {/* Status Progress */}
         <div className="bg-white rounded-2xl shadow-sm border p-6 mb-6">
-          <h2 className="text-lg font-semibold mb-6">Shipping Status</h2>
+          <h2 className="text-lg font-semibold mb-6">{t(`${p}.statusProgress.title`, "Shipping Status")}</h2>
           
           {/* Progress Bar */}
           <div className="relative mb-8">
@@ -332,7 +335,7 @@ export default function ShipmentTrackingPage() {
                       mt-2 text-xs font-medium text-center
                       ${isComplete ? 'text-primary-600' : 'text-gray-400'}
                     `}>
-                      {step.label}
+                      {t(`${p}.statusSteps.${step.key}`, step.label)}
                     </span>
                   </div>
                 )
@@ -345,7 +348,7 @@ export default function ShipmentTrackingPage() {
             <div className="flex items-center gap-3 p-4 bg-primary-50 rounded-xl">
               <Calendar className="h-5 w-5 text-primary-600" />
               <div>
-                <p className="text-sm text-primary-600">Estimated Delivery</p>
+                <p className="text-sm text-primary-600">{t(`${p}.statusProgress.estimatedDelivery`, "Estimated Delivery")}</p>
                 <p className="font-semibold text-primary-900">
                   {new Date(batch.estimated_delivery).toLocaleDateString('en-US', {
                     weekday: 'long',
@@ -363,7 +366,7 @@ export default function ShipmentTrackingPage() {
             <div className="mt-4 flex items-center gap-3 p-4 bg-gray-50 rounded-xl">
               <Package className="h-5 w-5 text-gray-500" />
               <div>
-                <p className="text-sm text-gray-500">Tracking Number</p>
+                <p className="text-sm text-gray-500">{t(`${p}.statusProgress.trackingNumber`, "Tracking Number")}</p>
                 <p className="font-mono font-medium">{batch.tracking_number}</p>
               </div>
             </div>
@@ -375,7 +378,7 @@ export default function ShipmentTrackingPage() {
           <div className="bg-white rounded-2xl shadow-sm border p-6 mb-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <Clock className="h-5 w-5 text-orange-500" />
-              Tracking Updates
+              {t(`${p}.trackingUpdates.title`, "Tracking Updates")}
             </h2>
             
             <div className="relative">
@@ -413,7 +416,7 @@ export default function ShipmentTrackingPage() {
           <div className="bg-white rounded-2xl shadow-sm border p-6 mb-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <FileText className="h-5 w-5 text-blue-500" />
-              Documents
+              {t(`${p}.documents.title`, "Documents")}
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -434,7 +437,7 @@ export default function ShipmentTrackingPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 text-gray-500 hover:text-primary-600 transition"
-                      title="View"
+                      title={t(`${p}.documents.view`, "View")}
                     >
                       <Eye className="h-5 w-5" />
                     </a>
@@ -442,7 +445,7 @@ export default function ShipmentTrackingPage() {
                       href={doc.file_url}
                       download
                       className="p-2 text-gray-500 hover:text-primary-600 transition"
-                      title="Download"
+                      title={t(`${p}.documents.download`, "Download")}
                     >
                       <Download className="h-5 w-5" />
                     </a>
@@ -458,7 +461,7 @@ export default function ShipmentTrackingPage() {
           <div className="bg-white rounded-2xl shadow-sm border p-6 mb-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <Image className="h-5 w-5 text-purple-500" />
-              Delivery Proofs
+              {t(`${p}.deliveryProofs.title`, "Delivery Proofs")}
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -487,33 +490,33 @@ export default function ShipmentTrackingPage() {
 
         {/* Shipment Details */}
         <div className="bg-white rounded-2xl shadow-sm border p-6 mb-6">
-          <h2 className="text-lg font-semibold mb-4">Shipment Details</h2>
+          <h2 className="text-lg font-semibold mb-4">{t(`${p}.shipmentDetails.title`, "Shipment Details")}</h2>
           
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <p className="text-gray-500">Shipping Term</p>
+              <p className="text-gray-500">{t(`${p}.shipmentDetails.shippingTerm`, "Shipping Term")}</p>
               <p className="font-medium">{batch.shipping_term || '-'}</p>
             </div>
             <div>
-              <p className="text-gray-500">Delivery To</p>
+              <p className="text-gray-500">{t(`${p}.shipmentDetails.deliveryTo`, "Delivery To")}</p>
               <p className="font-medium">{batch.delivery_to || '-'}</p>
             </div>
             {batch.total_boxes && (
               <div>
-                <p className="text-gray-500">Total Boxes</p>
-                <p className="font-medium">{batch.total_boxes} CTNS</p>
+                <p className="text-gray-500">{t(`${p}.shipmentDetails.totalBoxes`, "Total Boxes")}</p>
+                <p className="font-medium">{batch.total_boxes} {t(`${p}.shipmentDetails.ctns`, "CTNS")}</p>
               </div>
             )}
             {batch.total_weight_kg && (
               <div>
-                <p className="text-gray-500">Total Weight</p>
-                <p className="font-medium">{batch.total_weight_kg} KG</p>
+                <p className="text-gray-500">{t(`${p}.shipmentDetails.totalWeight`, "Total Weight")}</p>
+                <p className="font-medium">{batch.total_weight_kg} {t(`${p}.shipmentDetails.kg`, "KG")}</p>
               </div>
             )}
             {batch.total_volume_cbm && (
               <div>
-                <p className="text-gray-500">Total Volume</p>
-                <p className="font-medium">{batch.total_volume_cbm} CBM</p>
+                <p className="text-gray-500">{t(`${p}.shipmentDetails.totalVolume`, "Total Volume")}</p>
+                <p className="font-medium">{batch.total_volume_cbm} {t(`${p}.shipmentDetails.cbm`, "CBM")}</p>
               </div>
             )}
           </div>
@@ -521,12 +524,12 @@ export default function ShipmentTrackingPage() {
 
         {/* Contact */}
         <div className="bg-primary-50 rounded-2xl p-6 text-center">
-          <p className="text-primary-800 mb-2">Questions about your shipment?</p>
+          <p className="text-primary-800 mb-2">{t(`${p}.contact.questions`, "Questions about your shipment?")}</p>
           <a 
             href="mailto:info@achievepack.com" 
             className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium"
           >
-            Contact us
+            {t(`${p}.contact.contactUs`, "Contact us")}
             <ChevronRight className="h-4 w-4" />
           </a>
         </div>
@@ -557,7 +560,7 @@ export default function ShipmentTrackingPage() {
               className="absolute bottom-4 right-4 flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-lg text-gray-700 hover:text-primary-600"
             >
               <Download className="h-4 w-4" />
-              Download
+              {t(`${p}.imageModal.download`, "Download")}
             </a>
           </div>
         </div>
@@ -566,7 +569,7 @@ export default function ShipmentTrackingPage() {
       {/* Footer */}
       <footer className="bg-white border-t py-6">
         <div className="max-w-4xl mx-auto px-4 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Achieve Pack. All rights reserved.</p>
+          <p>{t(`${p}.footer.copyright`, { year: new Date().getFullYear(), defaultValue: "© {{year}} Achieve Pack. All rights reserved." })}</p>
         </div>
       </footer>
     </div>

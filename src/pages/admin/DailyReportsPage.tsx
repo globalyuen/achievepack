@@ -17,7 +17,7 @@ import SeoMigrationDashboard from '../../components/admin/SeoMigrationDashboard'
 import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
 import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
 import * as XLSX from 'xlsx';
-
+import { useTranslation, Trans } from "react-i18next";
 
 const STATUS_COLORS: Record<string, string> = {
   'Urgent': 'bg-red-100 text-red-800 border-red-200',
@@ -1038,12 +1038,12 @@ export default function DailyReportsPage() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 px-6">
-        <Helmet><title>Secure Login</title></Helmet>
+        <Helmet><title>{t(`${p}.secureLogin`)}</title></Helmet>
         <div className="mx-auto w-full max-w-md bg-white py-12 px-10 shadow-2xl rounded-3xl border border-gray-100 text-center">
           <div className="mx-auto h-20 w-20 rounded-full bg-blue-100 flex items-center justify-center border-[6px] border-white shadow-lg mb-6">
             <LockKeyhole className="h-8 w-8 text-blue-600" />
           </div>
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-8">SECURE DATALINK</h2>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-8">{t(`${p}.secureDatalink`)}</h2>
           <form className="space-y-6" onSubmit={handleVerifyPin}>
             <input type="password" autoFocus required value={pin} onChange={(e) => setPin(e.target.value)} className="block w-full rounded-xl border-gray-300 py-4 text-center text-4xl tracking-widest font-mono shadow-sm bg-gray-50 focus:bg-white focus:ring-4 focus:ring-blue-500" placeholder="****" />
             <button type="submit" disabled={loading || !pin} className="w-full flex justify-center py-4 rounded-xl bg-gray-900 text-white font-bold hover:bg-black shadow-lg">
@@ -1058,7 +1058,7 @@ export default function DailyReportsPage() {
 
   return (
     <div className="min-h-screen print:min-h-0 bg-gray-50 pt-24 pb-12 font-sans print:pt-0 print:pb-0 print:bg-white">
-      <Helmet><title>Control Center | Achieve Pack</title></Helmet>
+      <Helmet><title>{t(`${p}.controlCenterAchievePack`)}</title></Helmet>
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
           /* Hide all screen dashboard elements completely */
@@ -1093,11 +1093,10 @@ export default function DailyReportsPage() {
         <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl mb-8 relative overflow-hidden flex flex-col justify-between items-stretch print:hidden">
           <div className="flex flex-col gap-4 sm:flex-row justify-between items-start sm:items-center relative z-10 w-full">
             <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 flex items-center gap-3"><Activity className="h-7 w-7 sm:h-8 sm:w-8 text-blue-400" /> Control Center</h1>
+              <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 flex items-center gap-3"><Activity className="h-7 w-7 sm:h-8 sm:w-8 text-blue-400" /> {t(`${p}.controlCenter`)}</h1>
               <div className="flex flex-wrap gap-2 items-center">
                 <button onClick={fetchData} className="flex items-center gap-1.5 bg-emerald-500/20 text-emerald-200 px-3 py-1.5 rounded-full text-sm font-semibold border border-emerald-500/30 hover:bg-emerald-500/40 transition active:scale-95 shadow-sm">
-                  <RotateCcw className="h-3.5 w-3.5" /> Sync Data
-                </button>
+                  <RotateCcw className="h-3.5 w-3.5" /> {t(`${p}.syncData`)}</button>
                 
                 {/* PaddleOCR Quick Access */}
                 <a 
@@ -1108,8 +1107,8 @@ export default function DailyReportsPage() {
                   title="Open PaddleOCR for document extraction"
                 >
                   <FileText className="h-3.5 w-3.5" />
-                  <span className="hidden xs:inline">PaddleOCR</span>
-                  <span className="xs:hidden">OCR</span>
+                  <span className="hidden xs:inline">{t(`${p}.paddleocr`)}</span>
+                  <span className="xs:hidden">{t(`${p}.ocr`)}</span>
                 </a>
 
                 {/* Heat Sealer Reference Video */}
@@ -1121,8 +1120,8 @@ export default function DailyReportsPage() {
                   title="Watch Heat Sealer reference video for production setup"
                 >
                   <LinkIcon className="h-3.5 w-3.5" />
-                  <span className="hidden xs:inline">Sealer Video</span>
-                  <span className="xs:hidden">Video</span>
+                  <span className="hidden xs:inline">{t(`${p}.sealerVideo`)}</span>
+                  <span className="xs:hidden">{t(`${p}.video`)}</span>
                 </a>
 
                 {/* Search Index Directory Button */}
@@ -1132,7 +1131,7 @@ export default function DailyReportsPage() {
                   title="Open Search Index Directory for ap and ep pages"
                 >
                   <Search className="h-3.5 w-3.5 text-blue-300" />
-                  <span>Search Directory</span>
+                  <span>{t(`${p}.searchDirectory`)}</span>
                 </button>
 
                 {/* B2B SEO/GEO Rewrite Command */}
@@ -1146,7 +1145,7 @@ export default function DailyReportsPage() {
                   title="View pouch.eco B2B SEO/GEO rewriter command prompt"
                 >
                   <Sparkles className="h-3.5 w-3.5 animate-pulse text-indigo-300" />
-                  <span>SEO Command</span>
+                  <span>{t(`${p}.seoCommand`)}</span>
                 </button>
 
                 {/* Sachet Cost Chinese Reference Image */}
@@ -1156,12 +1155,12 @@ export default function DailyReportsPage() {
                   title="Open Convent Sachet Cost Reference"
                 >
                   <ImageIcon className="h-3.5 w-3.5 text-amber-300" />
-                  <span>Convent Sachet Cost</span>
+                  <span>{t(`${p}.conventSachetCost`)}</span>
                 </button>
               </div>
             </div>
             <button onClick={handleLogout} className="mt-2 sm:mt-0 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg font-semibold relative z-10 transition active:scale-95 whitespace-nowrap">
-              <LogOut className="h-4 w-4" /> <span className="hidden sm:inline">Exit</span>
+              <LogOut className="h-4 w-4" /> <span className="hidden sm:inline">{t(`${p}.exit`)}</span>
             </button>
           </div>
 
@@ -1169,8 +1168,7 @@ export default function DailyReportsPage() {
             <div className="w-full mt-6 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 text-white relative z-20 animate-in fade-in slide-in-from-top-2 duration-300">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-blue-300 flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" /> Antigravity Subagent SEO/GEO Command
-                </span>
+                  <Sparkles className="w-3.5 h-3.5" /> {t(`${p}.antigravitySubagentSeoGeoComma`)}</span>
                 <div className="flex items-center gap-2">
                   <button 
                     onClick={async () => {
@@ -1187,12 +1185,10 @@ export default function DailyReportsPage() {
                   >
                     {copiedSeoCommand ? (
                       <>
-                        <Check className="w-3 h-3 text-emerald-400" /> Copied!
-                      </>
+                        <Check className="w-3 h-3 text-emerald-400" /> {t(`${p}.copied`)}</>
                     ) : (
                       <>
-                        <ClipboardList className="w-3 h-3" /> Copy Command
-                      </>
+                        <ClipboardList className="w-3 h-3" /> {t(`${p}.copyCommand`)}</>
                     )}
                   </button>
                   <button 
@@ -1204,11 +1200,9 @@ export default function DailyReportsPage() {
                 </div>
               </div>
               <p className="font-mono text-xs bg-black/40 p-3 rounded-lg border border-black/20 leading-relaxed text-blue-100 select-all cursor-pointer" title="Click to select all">
-                Load skill seo-geo-diagnostic and invoke the pouch_eco_seo_rewriter subagent to audit and rewrite the remaining files inside src/pages/pouch/blog/.
-              </p>
+                {t(`${p}.loadSkillSeoGeoDiagnosticAndIn`)}</p>
               <div className="mt-2 text-[10px] text-white/60">
-                💡 Paste this exact instruction into Antigravity to trigger or resume B2B SEO audits and rewrites.
-              </div>
+                {t(`${p}.pasteThisExactInstructionIntoA`)}</div>
             </div>
           )}
         </div>
@@ -1219,7 +1213,7 @@ export default function DailyReportsPage() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <ClipboardList className="w-5 h-5 text-indigo-600 flex-shrink-0" />
-              <label className="font-bold text-indigo-900 whitespace-nowrap text-sm sm:text-base">Project / Customer:</label>
+              <label className="font-bold text-indigo-900 whitespace-nowrap text-sm sm:text-base">{t(`${p}.projectCustomer`)}</label>
             </div>
             
             {showNewCustomerInput ? (
@@ -1262,7 +1256,7 @@ export default function DailyReportsPage() {
                   onChange={(e) => setSelectedCustomer(e.target.value)}
                   className="flex-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-indigo-500 font-semibold text-sm py-2.5 cursor-pointer"
                 >
-                  <option value="">— All Projects —</option>
+                  <option value="">{t(`${p}.allProjects`)}</option>
                   {customers.map(customer => (
                     <option key={customer} value={customer}>{customer}</option>
                   ))}
@@ -1272,15 +1266,13 @@ export default function DailyReportsPage() {
                     onClick={() => setShowNewCustomerInput(true)}
                     className="flex items-center justify-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-bold text-sm transition whitespace-nowrap flex-shrink-0"
                   >
-                    <Plus className="w-4 h-4"/> New
-                  </button>
+                    <Plus className="w-4 h-4"/> {t(`${p}.new`)}</button>
                   {selectedCustomer && (
                     <button
                       onClick={() => setSelectedCustomer('')}
                       className="text-xs text-gray-600 hover:text-gray-900 underline px-2 py-2 transition flex-shrink-0"
                     >
-                      Clear
-                    </button>
+                      {t(`${p}.clear`)}</button>
                   )}
                 </div>
               </div>
@@ -1290,7 +1282,7 @@ export default function DailyReportsPage() {
           {selectedCustomer && (
             <div className="mt-3 flex items-center gap-2 text-xs text-indigo-700 bg-indigo-100/50 rounded-lg px-3 py-2">
               <Activity className="w-3 h-3 flex-shrink-0" />
-              <span>Filtering by: <strong>{selectedCustomer}</strong> — <span className="font-mono bg-indigo-200/50 px-2 py-0.5 rounded">{reports.filter(r => r.customer === selectedCustomer).length}</span> records found</span>
+              <span>{t(`${p}.filteringBy`)}<strong>{selectedCustomer}</strong> — <span className="font-mono bg-indigo-200/50 px-2 py-0.5 rounded">{reports.filter(r => r.customer === selectedCustomer).length}</span> {t(`${p}.recordsFound`)}</span>
             </div>
           )}
         </div>
@@ -1299,47 +1291,46 @@ export default function DailyReportsPage() {
         <div className="flex flex-wrap gap-2 mb-6 p-1.5 bg-gray-100/80 rounded-2xl print:hidden">
           <button onClick={() => setActiveTab('reports')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'reports' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <ClipboardList className="w-4 h-4"/>
-            <span className="hidden xs:inline">Daily Reports</span>
-            <span className="xs:hidden">Reports</span>
+            <span className="hidden xs:inline">{t(`${p}.dailyReports`)}</span>
+            <span className="xs:hidden">{t(`${p}.reports`)}</span>
           </button>
           <button onClick={() => setActiveTab('logs')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'logs' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <History className="w-4 h-4"/>
-            <span className="hidden xs:inline">Audit Logs</span>
-            <span className="xs:hidden">Logs</span>
+            <span className="hidden xs:inline">{t(`${p}.auditLogs`)}</span>
+            <span className="xs:hidden">{t(`${p}.logs`)}</span>
           </button>
           <button onClick={() => setActiveTab('rfq')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'rfq' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <FileText className="w-4 h-4"/>
-            <span className="hidden xs:inline">RFQ Maker</span>
-            <span className="xs:hidden">RFQ</span>
+            <span className="hidden xs:inline">{t(`${p}.rfqMaker`)}</span>
+            <span className="xs:hidden">{t(`${p}.rfq`)}</span>
           </button>
           <button onClick={() => setActiveTab('quote')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'quote' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <FileText className="w-4 h-4"/>
-            <span className="hidden xs:inline">Quote Gen</span>
-            <span className="xs:hidden">Quote</span>
+            <span className="hidden xs:inline">{t(`${p}.quoteGen`)}</span>
+            <span className="xs:hidden">{t(`${p}.quote`)}</span>
           </button>
           <button onClick={() => setActiveTab('packing')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'packing' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <Package className="w-4 h-4"/>
-            Packing List
-          </button>
+            {t(`${p}.packingList`)}</button>
           <button onClick={() => setActiveTab('spec')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'spec' ? 'bg-sky-600 text-white shadow-md shadow-sky-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <FileCheck className="w-4 h-4"/>
-            <span className="hidden xs:inline">Spec Maker</span>
-            <span className="xs:hidden">Spec</span>
+            <span className="hidden xs:inline">{t(`${p}.specMaker`)}</span>
+            <span className="xs:hidden">{t(`${p}.spec`)}</span>
           </button>
           <button onClick={() => setActiveTab('compliance')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'compliance' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <ShieldCheck className="w-4 h-4"/>
-            <span className="hidden xs:inline">Compliance Doc</span>
-            <span className="xs:hidden">Compliance</span>
+            <span className="hidden xs:inline">{t(`${p}.complianceDoc`)}</span>
+            <span className="xs:hidden">{t(`${p}.compliance`)}</span>
           </button>
           <button onClick={() => setActiveTab('coa')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'coa' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <ScrollText className="w-4 h-4"/>
-            <span className="hidden xs:inline">COA Gen</span>
-            <span className="xs:hidden">COA</span>
+            <span className="hidden xs:inline">{t(`${p}.coaGen`)}</span>
+            <span className="xs:hidden">{t(`${p}.coa`)}</span>
           </button>
           <button onClick={() => setActiveTab('seo')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'seo' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <Activity className="w-4 h-4"/>
-            <span className="hidden xs:inline">SEO/GEO Monitor</span>
-            <span className="xs:hidden">SEO</span>
+            <span className="hidden xs:inline">{t(`${p}.seoGeoMonitor`)}</span>
+            <span className="xs:hidden">{t(`${p}.seo`)}</span>
           </button>
         </div>
 
@@ -1376,8 +1367,7 @@ export default function DailyReportsPage() {
                     : 'bg-white hover:bg-gray-50 text-black'
                 }`}
               >
-                🗂️ 轉移與優化監控 (Migration & Audit)
-              </button>
+                {t(`${p}.migrationAudit`)}</button>
               <button
                 onClick={() => setSeoSubTab('ranking')}
                 className={`px-6 py-3 border-4 border-black font-black text-sm uppercase transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
@@ -1386,8 +1376,7 @@ export default function DailyReportsPage() {
                     : 'bg-white hover:bg-gray-50 text-black'
                 }`}
               >
-                📈 關鍵字與流量排名 (Search & Traffic Rankings)
-              </button>
+                {t(`${p}.searchTrafficRankings`)}</button>
             </div>
 
             {seoSubTab === 'migration' ? (
@@ -1408,8 +1397,8 @@ export default function DailyReportsPage() {
               </div>
               <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 sm:pb-0 items-center">
                 <select className="border-2 border-gray-200 text-sm font-bold bg-white text-gray-700 py-2 px-3 rounded-lg cursor-pointer hover:bg-gray-50 focus:ring-2 focus:ring-blue-500" value={sortBy} onChange={(e) => setSortBy(e.target.value as 'Newest'|'Oldest')}>
-                  <option value="Newest">Sorting: Newest</option>
-                  <option value="Oldest">Follow-Up (Oldest)</option>
+                  <option value="Newest">{t(`${p}.sortingNewest`)}</option>
+                  <option value="Oldest">{t(`${p}.followUpOldest`)}</option>
                 </select>
                 {Object.keys(CATEGORY_MAP).map(cat => (
                   <button key={cat} onClick={() => setFilterCategory(cat)} className={`px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap border-2 transition ${filterCategory === cat ? 'bg-gray-900 text-white border-gray-900 shadow-md' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'}`}>
@@ -1418,8 +1407,7 @@ export default function DailyReportsPage() {
                 ))}
 
                 <button onClick={openNewModal} className="ml-2 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg font-bold text-white shadow-md transition">
-                  <Plus className="h-5 w-5" /> Add Project
-                </button>
+                  <Plus className="h-5 w-5" /> {t(`${p}.addProject`)}</button>
               </div>
             </div>
 
@@ -1428,7 +1416,7 @@ export default function DailyReportsPage() {
               <div className="hidden md:block overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50/80">
-                    <tr><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">Customer / Project</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">Date</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">Tags</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">Details & Attached Docs</th><th className="px-6 py-4 text-right text-xs font-extrabold text-gray-500 uppercase tracking-wider">Action</th></tr>
+                    <tr><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">{t(`${p}.customerProject`)}</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">{t(`${p}.date`)}</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">{t(`${p}.tags`)}</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">{t(`${p}.detailsAttachedDocs`)}</th><th className="px-6 py-4 text-right text-xs font-extrabold text-gray-500 uppercase tracking-wider">{t(`${p}.action`)}</th></tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-100">
                     {filteredReports.map((report) => (
@@ -1541,17 +1529,17 @@ export default function DailyReportsPage() {
                       <span className="font-bold text-gray-900 text-sm tracking-wide">{log.source}</span>
                       <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">{new Date(log.created_at).toLocaleString()}</span>
                     </div>
-                    <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">ID: {log.id.split('-')[0]}</span>
+                    <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">{t(`${p}.id`)}{log.id.split('-')[0]}</span>
                   </div>
                   <div className="ml-5 pl-4 border-l-2 border-gray-200">
                     <p className="text-sm font-semibold text-blue-700 mb-1">{log.message}</p>
-                    {log.raw_data?.subject && <p className="text-sm text-gray-800 font-medium">Topic: "{log.raw_data.subject}"</p>}
-                    {log.raw_data?.customer_matched && <p className="text-xs text-gray-500 mt-1 mb-2">Matched to: <span className="font-mono bg-amber-100 text-amber-800 px-1 py-0.5 rounded">[{log.raw_data.customer_matched}]</span></p>}
+                    {log.raw_data?.subject && <p className="text-sm text-gray-800 font-medium">{t(`${p}.topic`)}{log.raw_data.subject}"</p>}
+                    {log.raw_data?.customer_matched && <p className="text-xs text-gray-500 mt-1 mb-2">{t(`${p}.matchedTo`)}<span className="font-mono bg-amber-100 text-amber-800 px-1 py-0.5 rounded">[{log.raw_data.customer_matched}]</span></p>}
                     
                     {log.raw_data?.files_attached?.length > 0 && (
                       <div className="mt-3 flex gap-2">
                         {log.raw_data.files_attached.map((f: any, idx: number) => (
-                          <span key={idx} className="inline-flex items-center gap-1 px-2 py-1 bg-gray-800 text-white rounded text-[10px] uppercase font-bold"><UploadCloud className="w-3 h-3"/> Attached: {f.name} {renderDocBadge(f.category)}</span>
+                          <span key={idx} className="inline-flex items-center gap-1 px-2 py-1 bg-gray-800 text-white rounded text-[10px] uppercase font-bold"><UploadCloud className="w-3 h-3"/> {t(`${p}.attached`)}{f.name} {renderDocBadge(f.category)}</span>
                         ))}
                       </div>
                     )}
@@ -1571,15 +1559,15 @@ export default function DailyReportsPage() {
                 <div className="flex items-center gap-3 mb-1">
                   <div className="p-2.5 bg-indigo-100 rounded-xl flex-shrink-0"><FileText className="w-6 h-6 text-indigo-600"/></div>
                   <div className="min-w-0">
-                    <h2 className="text-lg sm:text-xl font-extrabold text-gray-900">🇨🇳 RFQ Maker for Chinese Vendors</h2>
-                    <p className="text-xs sm:text-sm text-gray-500 truncate sm:truncate">Paste customer inquiry → AI converts to professional Chinese RFQ</p>
+                    <h2 className="text-lg sm:text-xl font-extrabold text-gray-900">{t(`${p}.rfqMakerForChineseVendors`)}</h2>
+                    <p className="text-xs sm:text-sm text-gray-500 truncate sm:truncate">{t(`${p}.pasteCustomerInquiryAiConverts`)}</p>
                   </div>
                 </div>
 
                 {/* ── Quick-Pick Terms Panel ── */}
                 <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-3 flex flex-col gap-2">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-extrabold text-indigo-700 uppercase tracking-widest">⚡ Quick-Pick Terms — click + to insert</span>
+                    <span className="text-[10px] font-extrabold text-indigo-700 uppercase tracking-widest">{t(`${p}.quickPickTermsClickToInsert`)}</span>
                     <button
                       onClick={() => setEditingTermCategory(editingTermCategory ? null : rfqQuickFilter)}
                       className="text-[10px] font-bold text-indigo-600 hover:text-indigo-800 underline flex items-center gap-1"
@@ -1655,14 +1643,12 @@ export default function DailyReportsPage() {
                         />
                         <button onClick={() => saveCustomTerm(rfqQuickFilter, newTermInput)}
                           className="px-3 py-1 bg-indigo-600 text-white rounded-lg text-xs font-bold hover:bg-indigo-700 flex items-center gap-1">
-                          {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}Save
-                        </button>
+                          {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}{t(`${p}.save`)}</button>
                       </div>
                       {(hiddenTerms[rfqQuickFilter] || []).length > 0 && (
                         <button onClick={() => restoreDefaults(rfqQuickFilter)}
                           className="text-[10px] text-indigo-500 hover:text-indigo-700 underline self-start">
-                          ↺ Restore {(hiddenTerms[rfqQuickFilter] || []).length} deleted default(s)
-                        </button>
+                          {t(`${p}.restore`)}{(hiddenTerms[rfqQuickFilter] || []).length} {t(`${p}.deletedDefaultS`)}</button>
                       )}
                     </div>
                   )}
@@ -1670,14 +1656,14 @@ export default function DailyReportsPage() {
 
                 <div>
                   <div className="flex justify-between items-center mb-1.5">
-                    <label className="block text-xs uppercase font-extrabold text-gray-500">Customer RFQ (English)</label>
+                    <label className="block text-xs uppercase font-extrabold text-gray-500">{t(`${p}.customerRfqEnglish`)}</label>
                     <button
                       onClick={() => {
                         const t = `Product: Stand-up pouch (doypack)\nMaterial: PET12/VMPET/PE\nThickness: 130 µm\nDimensions: 130 × 200mm + 35mm gusset\nFinishing: Matte lamination\nZipper: Reclosable zipper\nTear notch: Yes\nPrinting: Cylinder printing, 6 colors, 1 design\nCertification:\nQuantity: 1,000 / 3,000 / 5,000 pcs\nWeight per pcs (g):`;
                         setRfqCustomerText(t);
                       }}
                       className="text-[10px] font-bold text-indigo-600 hover:text-indigo-700 underline"
-                    >+ Insert Manual Template</button>
+                    >{t(`${p}.insertManualTemplate`)}</button>
                   </div>
                   <textarea rows={10} value={rfqCustomerText} onChange={e => setRfqCustomerText(e.target.value)}
                     className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 text-sm font-mono leading-relaxed"
@@ -1694,7 +1680,7 @@ export default function DailyReportsPage() {
                 <div className="mt-4 pt-6 border-t border-gray-100">
                   <div className="flex items-center gap-2 mb-3 text-indigo-800">
                     <History className="w-4 h-4" />
-                    <h3 className="text-sm font-extrabold uppercase tracking-wider">Past RFQ History</h3>
+                    <h3 className="text-sm font-extrabold uppercase tracking-wider">{t(`${p}.pastRfqHistory`)}</h3>
                   </div>
                   <div className="space-y-2 max-h-[300px] overflow-y-auto pr-1">
                     {logs
@@ -1713,7 +1699,7 @@ export default function DailyReportsPage() {
                             <span className="text-[10px] text-gray-400">{new Date(log.created_at).toLocaleDateString()}</span>
                           </div>
                           <div className="flex justify-end opacity-0 group-hover:opacity-100 transition">
-                            <span className="text-[10px] font-bold text-indigo-600 flex items-center gap-1"><ArrowRight className="w-3 h-3"/> Restore</span>
+                            <span className="text-[10px] font-bold text-indigo-600 flex items-center gap-1"><ArrowRight className="w-3 h-3"/> {t(`${p}.restore1`)}</span>
                           </div>
                         </button>
                       ))}
@@ -1724,7 +1710,7 @@ export default function DailyReportsPage() {
               {/* Right: Output Panel */}
               <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col min-h-[500px] sm:min-h-[600px]">
                 <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 bg-gray-50">
-                  <span className="font-extrabold text-gray-800 text-sm sm:text-base truncate">📄 Chinese RFQ Preview</span>
+                  <span className="font-extrabold text-gray-800 text-sm sm:text-base truncate">{t(`${p}.chineseRfqPreview`)}</span>
                   <button onClick={() => {
                     if (rfqChineseOutput) {
                       navigator.clipboard.writeText(rfqChineseOutput);
@@ -1732,21 +1718,21 @@ export default function DailyReportsPage() {
                     }
                   }} disabled={rfqLoading || !rfqChineseOutput}
                     className="bg-gray-900 hover:bg-black text-white px-3 sm:px-5 py-2 rounded-lg font-bold text-xs sm:text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 flex-shrink-0">
-                    <FileText className="w-3 h-3 sm:w-4 sm:h-4"/> <span className="hidden xs:inline">Copy Text</span>
+                    <FileText className="w-3 h-3 sm:w-4 sm:h-4"/> <span className="hidden xs:inline">{t(`${p}.copyText`)}</span>
                   </button>
                 </div>
                 <div className="relative flex-1 bg-gray-100 flex items-center justify-center p-6">
                   {rfqLoading && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10">
                       <Loader2 className="w-12 h-12 text-indigo-600 animate-spin mb-4"/>
-                      <p className="font-bold text-gray-600 text-sm">AI is converting your RFQ to professional Chinese format...</p>
+                      <p className="font-bold text-gray-600 text-sm">{t(`${p}.aiIsConvertingYourRfqToProfess`)}</p>
                     </div>
                   )}
                   {!rfqChineseOutput && !rfqLoading && (
                     <div className="text-center text-gray-400 p-10">
                       <FileText className="w-16 h-16 mx-auto mb-4 opacity-20"/>
-                      <p className="font-bold text-lg">No RFQ generated yet</p>
-                      <p className="text-sm mt-1">Paste customer inquiry on the left and click Generate</p>
+                      <p className="font-bold text-lg">{t(`${p}.noRfqGeneratedYet`)}</p>
+                      <p className="text-sm mt-1">{t(`${p}.pasteCustomerInquiryOnTheLeftA`)}</p>
                     </div>
                   )}
                   {rfqChineseOutput && (
@@ -1772,21 +1758,21 @@ export default function DailyReportsPage() {
                 <div className="flex items-center gap-3 mb-1">
                   <div className="p-2.5 bg-emerald-100 rounded-xl flex-shrink-0"><FileText className="w-6 h-6 text-emerald-600"/></div>
                   <div className="min-w-0">
-                    <h2 className="text-lg sm:text-xl font-extrabold text-gray-900">AI Quote Generator</h2>
-                    <p className="text-xs sm:text-sm text-gray-500 truncate sm:truncate">Paste factory specs → get a professional English client PDF</p>
+                    <h2 className="text-lg sm:text-xl font-extrabold text-gray-900">{t(`${p}.aiQuoteGenerator`)}</h2>
+                    <p className="text-xs sm:text-sm text-gray-500 truncate sm:truncate">{t(`${p}.pasteFactorySpecsGetAProfessio`)}</p>
                   </div>
                 </div>
 
                 <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-3 sm:p-4 flex items-center justify-between">
                   <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="p-2 bg-white rounded-lg shadow-sm font-bold text-emerald-700 text-[10px] sm:text-xs whitespace-nowrap">1 USD = 6.9 RMB</div>
-                    <div className="text-[10px] sm:text-[11px] font-bold text-emerald-800 uppercase tracking-tight">Active: Per-Item Pricing + Rounding</div>
+                    <div className="p-2 bg-white rounded-lg shadow-sm font-bold text-emerald-700 text-[10px] sm:text-xs whitespace-nowrap">{t(`${p}.1Usd69Rmb`)}</div>
+                    <div className="text-[10px] sm:text-[11px] font-bold text-emerald-800 uppercase tracking-tight">{t(`${p}.activePerItemPricingRounding`)}</div>
                   </div>
                   <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-500 flex-shrink-0" />
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Client / Customer Name</label>
+                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">{t(`${p}.clientCustomerName`)}</label>
                   <input type="text" value={currentRecord.customer || ''} onChange={e => setCurrentRecord({...currentRecord, customer: e.target.value})}
                     className="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 bg-gray-50 focus:bg-white transition"
                     placeholder="e.g. Justine Heaphy / ABC Foods Ltd" />
@@ -1795,7 +1781,7 @@ export default function DailyReportsPage() {
                 {/* ── Quote Quick-Pick Terms Panel ── */}
                 <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-3 flex flex-col gap-2">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-extrabold text-emerald-700 uppercase tracking-widest">⚡ Quick-Pick Terms — click + to insert</span>
+                    <span className="text-[10px] font-extrabold text-emerald-700 uppercase tracking-widest">{t(`${p}.quickPickTermsClickToInsert`)}</span>
                     <button
                       onClick={() => setEditingTermCategory(editingTermCategory ? null : quoteQuickFilter)}
                       className="text-[10px] font-bold text-emerald-600 hover:text-emerald-800 underline flex items-center gap-1"
@@ -1853,14 +1839,12 @@ export default function DailyReportsPage() {
                         />
                         <button onClick={() => saveCustomTerm(quoteQuickFilter, newTermInput)}
                           className="px-3 py-1 bg-emerald-600 text-white rounded-lg text-xs font-bold hover:bg-emerald-700 flex items-center gap-1">
-                          {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}Save
-                        </button>
+                          {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}{t(`${p}.save`)}</button>
                       </div>
                       {(hiddenTerms[quoteQuickFilter] || []).length > 0 && (
                         <button onClick={() => restoreDefaults(quoteQuickFilter)}
                           className="text-[10px] text-emerald-600 hover:text-emerald-800 underline self-start">
-                          ↺ Restore {(hiddenTerms[quoteQuickFilter] || []).length} deleted default(s)
-                        </button>
+                          {t(`${p}.restore`)}{(hiddenTerms[quoteQuickFilter] || []).length} {t(`${p}.deletedDefaultS`)}</button>
                       )}
                     </div>
                   )}
@@ -1868,7 +1852,7 @@ export default function DailyReportsPage() {
 
                 <div>
                   <div className="flex justify-between items-center mb-1.5">
-                    <label className="block text-xs uppercase font-extrabold text-gray-500">Factory Raw Quote (Chinese RMB specs)</label>
+                    <label className="block text-xs uppercase font-extrabold text-gray-500">{t(`${p}.factoryRawQuoteChineseRmbSpecs`)}</label>
                     <button 
                       onClick={() => {
                         const template = `袋型：\n材质结构：\n尺寸规格：  mm*  mm+  mm\n厚度：\nadditional：\n款数：     数量：     单价：￥     金额：￥     预估重量：kg     类型：\n\n---\n\n袋型：自立袋\n材质结构：黄牛皮纸-50g////PLA+PBAT可降解\n尺寸规格：235 mm*345 mm+60 mm\n厚度：130\nadditional：拉链, stamp foil\n款数：     数量：5000     单价：￥1.163     金额：￥5815     预估重量：134.05kg     类型：透明袋`;
@@ -1876,8 +1860,7 @@ export default function DailyReportsPage() {
                       }}
                       className="text-[10px] font-bold text-emerald-600 hover:text-emerald-700 underline"
                     >
-                      + Insert Manual Template
-                    </button>
+                      {t(`${p}.insertManualTemplate`)}</button>
                   </div>
                   <textarea rows={10} value={currentRecord.detail || ''} onChange={e => setCurrentRecord({...currentRecord, detail: e.target.value})}
                     className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm font-mono leading-relaxed"
@@ -1885,19 +1868,19 @@ export default function DailyReportsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Auto-Extract AI (Upload Vendor Quote)</label>
+                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">{t(`${p}.autoExtractAiUploadVendorQuote`)}</label>
                   <div className="border-2 border-dashed border-emerald-300 bg-emerald-50 rounded-2xl p-6 flex items-center justify-center text-emerald-600 hover:bg-emerald-100 transition cursor-pointer relative overflow-hidden">
                     <input type="file" onChange={handleQuoteFileUpload} accept=".xlsx,.xls,.csv,.pdf,.png,.jpg,.jpeg" className="absolute inset-0 opacity-0 cursor-pointer" />
                     {quoteLoading ? (
                       <div className="flex flex-col items-center">
                         <Loader2 className="w-6 h-6 sm:w-8 sm:h-8 mb-2 animate-spin" />
-                        <span className="text-xs sm:text-sm font-bold text-center">AI is analyzing vendor quote...</span>
+                        <span className="text-xs sm:text-sm font-bold text-center">{t(`${p}.aiIsAnalyzingVendorQuote`)}</span>
                       </div>
                     ) : (
                       <div className="flex flex-col items-center text-center">
                         <FileIcon className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-emerald-500" />
-                        <span className="text-xs sm:text-sm font-bold">Drop Vendor Quote File Here to Auto-Extract</span>
-                        <span className="text-[10px] sm:text-xs text-emerald-500 mt-1">.xls, .csv, .pdf, .png, .jpg supported</span>
+                        <span className="text-xs sm:text-sm font-bold">{t(`${p}.dropVendorQuoteFileHereToAutoE`)}</span>
+                        <span className="text-[10px] sm:text-xs text-emerald-500 mt-1">{t(`${p}.xlsCsvPdfPngJpgSupported`)}</span>
                       </div>
                     )}
                   </div>
@@ -1905,13 +1888,13 @@ export default function DailyReportsPage() {
 
                 <div className="flex flex-col gap-3 items-stretch sm:items-center p-3 sm:p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
                   <div className="flex-1 w-full">
-                    <label className="block text-xs font-extrabold text-emerald-800 mb-1">Shipping Discount (Closer Location)</label>
+                    <label className="block text-xs font-extrabold text-emerald-800 mb-1">{t(`${p}.shippingDiscountCloserLocation`)}</label>
                     <select className="w-full border border-emerald-200 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-emerald-400"
                       value={shippingDiscount} onChange={e => setShippingDiscount(e.target.value)}>
-                      <option value="1.0">1.0x — Standard (USA/EU)</option>
-                      <option value="0.7">0.7x — HK / TW / SEA</option>
-                      <option value="0.5">0.5x — China Mainland</option>
-                      <option value="0.3">0.3x — Factory Pickup</option>
+                      <option value="1.0">{t(`${p}.10xStandardUsaEu`)}</option>
+                      <option value="0.7">{t(`${p}.07xHkTwSea`)}</option>
+                      <option value="0.5">{t(`${p}.05xChinaMainland`)}</option>
+                      <option value="0.3">{t(`${p}.03xFactoryPickup`)}</option>
                     </select>
                   </div>
                   <button onClick={handleGenerateQuote} disabled={quoteLoading || !currentRecord.detail?.trim()}
@@ -1926,7 +1909,7 @@ export default function DailyReportsPage() {
                   <div className="flex items-center justify-between mb-3 border-b border-gray-50 pb-2">
                     <div className="flex items-center gap-2 text-emerald-800">
                       <History className="w-4 h-4" />
-                      <h3 className="text-sm font-extrabold uppercase tracking-wider">Past Quotes History</h3>
+                      <h3 className="text-sm font-extrabold uppercase tracking-wider">{t(`${p}.pastQuotesHistory`)}</h3>
                     </div>
                     <div className="relative">
                       <Search className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-400" />
@@ -1979,15 +1962,15 @@ export default function DailyReportsPage() {
                           </div>
                           <p className="text-[10px] text-gray-500 line-clamp-2 leading-relaxed">{log.raw_data?.text?.substring(0, 150)}</p>
                           <div className="flex justify-end pt-2">
-                             <span className="text-[9px] font-extrabold text-emerald-600 uppercase flex items-center gap-1 opacity-40 group-hover:opacity-100 transition"><RotateCcw className="w-2.5 h-2.5"/> Restore Quote</span>
+                             <span className="text-[9px] font-extrabold text-emerald-600 uppercase flex items-center gap-1 opacity-40 group-hover:opacity-100 transition"><RotateCcw className="w-2.5 h-2.5"/> {t(`${p}.restoreQuote`)}</span>
                           </div>
                         </button>
                       ))}
                     {logs.filter(l => l.source === 'Quote Generator' && l.status === 'Success').length === 0 && (
                       <div className="text-center py-10 text-gray-400 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
                         <History className="w-8 h-8 mx-auto mb-2 opacity-20" />
-                        <p className="text-[11px] font-bold uppercase tracking-tight">No past quotes saved yet</p>
-                        <p className="text-[9px] mt-1 opacity-60 px-4">Generate a quote and click "SAVE TO QUOTE HISTORY" to track them here.</p>
+                        <p className="text-[11px] font-bold uppercase tracking-tight">{t(`${p}.noPastQuotesSavedYet`)}</p>
+                        <p className="text-[9px] mt-1 opacity-60 px-4">{t(`${p}.generateAQuoteAndClickSaveToQu`)}</p>
                       </div>
                     )}
                     {logs.filter(l => l.source === 'Quote Generator' && l.status === 'Success').length > 0 && 
@@ -1996,7 +1979,7 @@ export default function DailyReportsPage() {
                         return (l.raw_data?.customer?.toLowerCase().includes(q)) || (l.raw_data?.text?.toLowerCase().includes(q));
                       }).length === 0 && (
                       <div className="text-center py-10 text-gray-400">
-                        <p className="text-[10px] font-bold">No history found for "{quoteSearchTerm}"</p>
+                        <p className="text-[10px] font-bold">{t(`${p}.noHistoryFoundFor`)}{quoteSearchTerm}"</p>
                       </div>
                     )}
                   </div>
@@ -2006,15 +1989,14 @@ export default function DailyReportsPage() {
               {/* Right: Preview Panel */}
               <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col min-h-[600px]">
                 <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50">
-                  <span className="font-extrabold text-gray-800">📄 Quote Preview</span>
+                  <span className="font-extrabold text-gray-800">{t(`${p}.quotePreview`)}</span>
                   <div className="flex gap-2">
                     <button onClick={() => {
                       const iframe = document.getElementById('quote-pdf-frame') as HTMLIFrameElement;
                       if (iframe?.contentWindow) { iframe.contentWindow.focus(); iframe.contentWindow.print(); }
                     }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('⚠️ Error')}
                       className="bg-gray-900 hover:bg-black text-white px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
-                      <FileText className="w-4 h-4"/> Export & Save as PDF
-                    </button>
+                      <FileText className="w-4 h-4"/> {t(`${p}.exportSaveAsPdf`)}</button>
                     <button 
                       onClick={handleShareQuoteLink}
                       disabled={quoteLoading || !quoteHtml || quoteHtml.includes('⚠️ Error')}
@@ -2029,14 +2011,14 @@ export default function DailyReportsPage() {
                   {quoteLoading && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10">
                       <Loader2 className="w-12 h-12 text-emerald-600 animate-spin mb-4"/>
-                      <p className="font-bold text-gray-600 text-sm">AI is translating specs & building PDF...</p>
+                      <p className="font-bold text-gray-600 text-sm">{t(`${p}.aiIsTranslatingSpecsBuildingPd`)}</p>
                     </div>
                   )}
                   {!quoteHtml && !quoteLoading && (
                     <div className="text-center text-gray-400 p-10">
                       <FileText className="w-16 h-16 mx-auto mb-4 opacity-20"/>
-                      <p className="font-bold text-lg">No preview yet</p>
-                      <p className="text-sm mt-1">Paste a factory quote on the left and click Generate</p>
+                      <p className="font-bold text-lg">{t(`${p}.noPreviewYet`)}</p>
+                      <p className="text-sm mt-1">{t(`${p}.pasteAFactoryQuoteOnTheLeftAnd`)}</p>
                     </div>
                   )}
                   {quoteHtml && <iframe id="quote-pdf-frame" srcDoc={quoteHtml} className="w-full h-full border-none min-h-[550px]" />}
@@ -2061,7 +2043,7 @@ export default function DailyReportsPage() {
             
             <div className="overflow-y-auto px-8 py-6 space-y-5">
                 <div className="p-5 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-100 mb-2">
-                  <label className="flex text-sm font-extrabold text-purple-900 mb-2 items-center gap-1.5"><Sparkles className="w-4 h-4"/> Paste Chat/Email (AI will auto-fill)</label>
+                  <label className="flex text-sm font-extrabold text-purple-900 mb-2 items-center gap-1.5"><Sparkles className="w-4 h-4"/> {t(`${p}.pasteChatEmailAiWillAutoFill`)}</label>
                   <textarea rows={2} className="w-full text-sm rounded-xl border-purple-200 p-3 bg-white focus:ring-2 focus:ring-purple-400" value={rawText} onChange={e=>setRawText(e.target.value)} placeholder="E.g. Customer approved the quote, please shift status to In Progress..."/>
                   <button type="button" onClick={handleAiParse} disabled={aiLoading || !rawText.trim()} className="mt-3 w-full bg-purple-600 hover:bg-purple-700 text-white rounded-xl py-2.5 font-bold flex justify-center gap-2 items-center text-sm shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed">
                     {aiLoading ? <Loader2 className="w-4 h-4 animate-spin"/> : <Sparkles className="w-4 h-4"/>}
@@ -2070,7 +2052,7 @@ export default function DailyReportsPage() {
                 </div>
 
               <div>
-                <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Project / Client Name</label>
+                <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">{t(`${p}.projectClientName`)}</label>
                 <div className="relative customer-dropdown-container">
                   <input 
                     type="text" 
@@ -2099,8 +2081,7 @@ export default function DailyReportsPage() {
                         c.toLowerCase().includes(customerSearchTerm.toLowerCase())
                       ).length === 0 ? (
                         <div className="p-3 text-sm text-gray-500 text-center">
-                          No matching customers found
-                        </div>
+                          {t(`${p}.noMatchingCustomersFound`)}</div>
                       ) : (
                         customers.filter(c => 
                           c.toLowerCase().includes(customerSearchTerm.toLowerCase())
@@ -2137,7 +2118,7 @@ export default function DailyReportsPage() {
                           className="w-full text-left px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-sm font-medium text-emerald-700 transition border-t border-gray-100 flex items-center gap-2"
                         >
                           <Plus className="w-4 h-4"/>
-                          Create new customer: "{customerSearchTerm}"
+                          {t(`${p}.createNewCustomer`)}{customerSearchTerm}"
                         </button>
                       )}
                     </div>
@@ -2146,12 +2127,12 @@ export default function DailyReportsPage() {
               </div>
               
               <div className="grid grid-cols-2 gap-5">
-                <div><label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Active Status</label>
+                <div><label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">{t(`${p}.activeStatus`)}</label>
                   <select className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white cursor-pointer font-semibold" value={currentRecord.status || 'New'} onChange={e=>setCurrentRecord({...currentRecord, status: e.target.value})}>
                     {Object.keys(STATUS_COLORS).map(s=><option key={s} value={s}>{s}</option>)}
                   </select>
                 </div>
-                <div><label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Category</label>
+                <div><label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">{t(`${p}.category`)}</label>
                   <select className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white cursor-pointer font-semibold" value={currentRecord.category || 'Enquiries'} onChange={e=>setCurrentRecord({...currentRecord, category: e.target.value})}>
                     {Object.keys(CATEGORY_MAP).filter(k=>k!=='All').map(c=><option key={c} value={c}>{c}</option>)}
                   </select>
@@ -2159,22 +2140,21 @@ export default function DailyReportsPage() {
               </div>
               
               <div>
-                <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Project Details & Notes</label>
+                <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">{t(`${p}.projectDetailsNotes`)}</label>
                 <textarea rows={4} className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500" value={currentRecord.detail || ''} onChange={e=>setCurrentRecord({...currentRecord, detail: e.target.value})} />
               </div>
               
               {/* Attachments UI */}
               <div className="mt-2 pt-5 border-t border-gray-100">
                 <div className="flex items-center justify-between mb-4">
-                  <label className="text-xs uppercase font-extrabold text-gray-500">Master Documents</label>
+                  <label className="text-xs uppercase font-extrabold text-gray-500">{t(`${p}.masterDocuments`)}</label>
                   <div className="flex gap-2 items-center">
                     <select className="text-xs border-gray-300 rounded-lg p-1.5 bg-gray-50 font-bold" value={selectedDocCategory} onChange={(e) => setSelectedDocCategory(e.target.value)}>
                       {DOC_TYPES.map(d=><option key={d} value={d}>{d}</option>)}
                     </select>
                     <label className="cursor-pointer bg-gray-900 text-white px-4 py-2 rounded-lg font-bold hover:bg-black flex items-center gap-2 shadow-md transition text-xs">
                       {uploadingFile ? <Loader2 className="w-4 h-4 animate-spin"/> : <UploadCloud className="w-4 h-4"/>}
-                      Upload Document
-                      <input type="file" className="hidden" onChange={handleFileUpload} disabled={uploadingFile} />
+                      {t(`${p}.uploadDocument`)}<input type="file" className="hidden" onChange={handleFileUpload} disabled={uploadingFile} />
                     </label>
                   </div>
                 </div>
@@ -2193,17 +2173,16 @@ export default function DailyReportsPage() {
                 ) : (
                   <div className="text-center py-8 border-2 border-dashed border-gray-200 rounded-xl bg-gray-50/50 flex flex-col items-center">
                     <ScrollText className="w-8 h-8 text-gray-300 mb-2"/>
-                    <p className="text-sm text-gray-500 font-bold">No master documents uploaded yet</p>
+                    <p className="text-sm text-gray-500 font-bold">{t(`${p}.noMasterDocumentsUploadedYet`)}</p>
                   </div>
                 )}
               </div>
             </div>
 
             <div className="px-8 py-5 bg-gray-50 flex justify-end gap-3 rounded-b-3xl border-t border-gray-100">
-              <button onClick={() => setIsModalOpen(false)} className="px-6 py-2.5 text-sm font-bold text-gray-500 hover:text-gray-900 transition">Cancel</button>
+              <button onClick={() => setIsModalOpen(false)} className="px-6 py-2.5 text-sm font-bold text-gray-500 hover:text-gray-900 transition">{t(`${p}.cancel`)}</button>
               <button disabled={loading} onClick={handleSave} className="flex gap-2 items-center px-8 py-2.5 text-sm font-extrabold text-white bg-blue-600 rounded-xl shadow-lg hover:bg-blue-700 disabled:opacity-50 transition hover:shadow-blue-500/20 active:scale-95">
-                {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5"/>} COMPILE RECORD
-              </button>
+                {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5"/>} {t(`${p}.compileRecord`)}</button>
             </div>
           </div>
         </div>
@@ -2215,8 +2194,7 @@ export default function DailyReportsPage() {
           <div className="bg-white rounded-3xl w-full max-w-4xl h-[90vh] flex flex-col shadow-2xl overflow-hidden relative">
             <div className="flex items-center justify-between px-8 py-5 bg-gray-50 border-b border-gray-200">
               <h3 className="text-xl font-extrabold text-gray-900 flex items-center gap-3">
-                <FileText className="w-5 h-5 text-blue-600"/> English Quote Preview
-              </h3>
+                <FileText className="w-5 h-5 text-blue-600"/> {t(`${p}.englishQuotePreview`)}</h3>
               <div className="flex gap-4 items-center">
                 <button onClick={() => {
                   const iframe = document.getElementById('quote-pdf-frame') as HTMLIFrameElement;
@@ -2225,8 +2203,7 @@ export default function DailyReportsPage() {
                     iframe.contentWindow.print();
                   }
                 }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('⚠️ Error')} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-bold shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
-                  <Download className="w-4 h-4"/> Export PDF
-                </button>
+                  <Download className="w-4 h-4"/> {t(`${p}.exportPdf`)}</button>
                 <button 
                   onClick={handleShareQuoteLink}
                   disabled={quoteLoading || !quoteHtml || quoteHtml.includes('⚠️ Error')}
@@ -2244,12 +2221,11 @@ export default function DailyReportsPage() {
                 <div className="w-full md:w-1/3 max-w-sm bg-gray-50 border-r border-gray-200 p-6 overflow-y-auto flex flex-col gap-6">
                   <div>
                     <h4 className="text-sm font-extrabold text-gray-900 mb-4 uppercase tracking-wider flex items-center gap-2">
-                       Edit Info
-                    </h4>
+                       {t(`${p}.editInfo`)}</h4>
                     
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Customer Name</label>
+                        <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">{t(`${p}.customerName`)}</label>
                         <input 
                           type="text" 
                           value={quoteData.customerName} 
@@ -2259,24 +2235,24 @@ export default function DailyReportsPage() {
                       </div>
 
                       <div>
-                          <label className="block text-xs font-bold text-gray-400 mb-1 uppercase">Global Shipping Disc.</label>
+                          <label className="block text-xs font-bold text-gray-400 mb-1 uppercase">{t(`${p}.globalShippingDisc`)}</label>
                           <select className="w-full border border-gray-300 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-blue-400"
                             value={shippingDiscount} onChange={e => setShippingDiscount(e.target.value)}>
-                            <option value="1.0">1.0x</option>
-                            <option value="0.7">0.7x</option>
-                            <option value="0.5">0.5x</option>
-                            <option value="0.3">0.3x</option>
+                            <option value="1.0">{t(`${p}.10x`)}</option>
+                            <option value="0.7">{t(`${p}.07x`)}</option>
+                            <option value="0.5">{t(`${p}.05x`)}</option>
+                            <option value="0.3">{t(`${p}.03x`)}</option>
                           </select>
                         </div>
                       
                       <div className="space-y-3">
-                        <label className="block text-xs font-bold text-gray-500 mb-1 uppercase border-b border-gray-200 pb-2">Item Names</label>
+                        <label className="block text-xs font-bold text-gray-500 mb-1 uppercase border-b border-gray-200 pb-2">{t(`${p}.itemNames`)}</label>
                         {quoteData.extracted.map((item: any, idx: number) => (
                           <div key={idx} className="bg-white p-3 rounded-xl border border-gray-200 shadow-sm mb-4">
                             <div className="flex justify-between items-center mb-2 border-b border-gray-50 pb-1">
-                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-tighter">Product {idx+1}</label>
+                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-tighter">{t(`${p}.product`)}{idx+1}</label>
                               <div className="flex items-center gap-1">
-                                <span className="text-[10px] font-black text-blue-500 uppercase">EXW Adj %</span>
+                                <span className="text-[10px] font-black text-blue-500 uppercase">{t(`${p}.exwAdj`)}</span>
                                 <input 
                                   type="number" 
                                   value={item.adjustment || 160}
@@ -2345,7 +2321,7 @@ export default function DailyReportsPage() {
                               className="w-full border-gray-200 rounded p-1.5 text-[10px] font-medium text-amber-700 bg-amber-50 focus:bg-white focus:ring-amber-500 shadow-sm mt-2 resize-none"
                             />
                             <div className="flex items-center gap-2 mt-2">
-                              <label className="text-[10px] font-bold text-amber-600 uppercase whitespace-nowrap">Est. Plate Fee (RMB):</label>
+                              <label className="text-[10px] font-bold text-amber-600 uppercase whitespace-nowrap">{t(`${p}.estPlateFeeRmb`)}</label>
                               <input 
                                 type="number" 
                                 value={item.plate_fee_rmb || 0} 
@@ -2359,7 +2335,7 @@ export default function DailyReportsPage() {
                             </div>
                             <div className="grid grid-cols-2 gap-2 mt-2">
                               <div>
-                                <label className="text-[10px] font-bold text-gray-400 uppercase">Designs Count:</label>
+                                <label className="text-[10px] font-bold text-gray-400 uppercase">{t(`${p}.designsCount`)}</label>
                                 <input 
                                   type="number" 
                                   value={item.designs_count || 1} 
@@ -2372,10 +2348,9 @@ export default function DailyReportsPage() {
                                 />
                               </div>
                               <div>
-                                <label className="text-[10px] font-bold text-gray-400 uppercase">Quantity (pcs):</label>
+                                <label className="text-[10px] font-bold text-gray-400 uppercase">{t(`${p}.quantityPcs`)}</label>
                                 <div className="text-[10px] font-bold text-gray-500 pt-1.5">
-                                  {item.pricing?.[0]?.qty?.toLocaleString() || '0'} Total
-                                </div>
+                                  {item.pricing?.[0]?.qty?.toLocaleString() || '0'} {t(`${p}.total`)}</div>
                               </div>
                             </div>
                           </div>
@@ -2390,9 +2365,8 @@ export default function DailyReportsPage() {
                       className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-extrabold text-sm shadow-lg transition active:scale-95"
                     >
                       <Save className="w-5 h-5"/>
-                      SAVE TO QUOTE HISTORY
-                    </button>
-                    <p className="mt-3 text-xs text-center text-gray-500 font-medium">Click this to save the finalised quote HTML into the database history tracking.</p>
+                      {t(`${p}.saveToQuoteHistory`)}</button>
+                    <p className="mt-3 text-xs text-center text-gray-500 font-medium">{t(`${p}.clickThisToSaveTheFinalisedQuo`)}</p>
                   </div>
                 </div>
               )}
@@ -2401,7 +2375,7 @@ export default function DailyReportsPage() {
                 {quoteLoading ? (
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10 backdrop-blur-sm">
                     <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
-                    <p className="font-bold text-gray-600">Translating factory specs & compiling PDF layout...</p>
+                    <p className="font-bold text-gray-600">{t(`${p}.translatingFactorySpecsCompili`)}</p>
                   </div>
                 ) : null}
                 {quoteHtml && (
@@ -2419,12 +2393,10 @@ export default function DailyReportsPage() {
           <div className="bg-gray-900 border border-gray-700 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center justify-between gap-5 min-w-[320px]">
             <span className="text-sm font-medium flex gap-2 items-center text-gray-200">
               <Trash2 className="w-4 h-4 text-red-400"/>
-              Deleted Record
-            </span>
+              {t(`${p}.deletedRecord`)}</span>
             <div className="flex items-center gap-3">
               <button onClick={handleUndo} className="bg-white text-gray-900 hover:bg-gray-100 px-4 py-1.5 rounded-lg text-sm font-extrabold transition flex items-center gap-1.5">
-                <RotateCcw className="w-3.5 h-3.5"/> UNDO
-              </button>
+                <RotateCcw className="w-3.5 h-3.5"/> {t(`${p}.undo`)}</button>
               <button type="button" onClick={() => setLastDeleted(null)} className="text-gray-400 hover:text-white p-1 rounded-full"><X className="w-4 h-4" /></button>
             </div>
           </div>
@@ -2442,7 +2414,7 @@ export default function DailyReportsPage() {
         <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 print:hidden">
           <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-black max-w-2xl w-full relative animate-in zoom-in-95 duration-200">
             <div className="bg-gradient-to-r from-amber-600 to-amber-700 p-5 text-white flex justify-between items-center border-b-4 border-black">
-              <h3 className="text-lg font-black uppercase tracking-wider">Conventional Sachet Cost</h3>
+              <h3 className="text-lg font-black uppercase tracking-wider">{t(`${p}.conventionalSachetCost`)}</h3>
               <button onClick={() => setShowSachetCostModal(false)} className="text-white hover:text-gray-200">
                 <X className="w-5 h-5" />
               </button>

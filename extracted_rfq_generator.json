@@ -1,0 +1,21 @@
+{
+  "batchCreated": "Batch Created!",
+  "yourMultiSupplierRfqHubIsLiveS": "Your multi-supplier RFQ hub is live. Share this link with suppliers:",
+  "createAnother": "Create Another",
+  "aiRfqGenerator": "AI RFQ Generator",
+  "pasteRawTextToGenerateASupplie": "Paste raw text to generate a supplier hub in seconds.",
+  "rawRfqText": "Raw RFQ Text",
+  "suppliersPasswords": "Suppliers & Passwords",
+  "addSupplier": "+ Add Supplier",
+  "batchName": "Batch Name",
+  "productName": "Product Name",
+  "dimensionsUnfoldedSize": "Dimensions (Unfolded Size)",
+  "materialStructure": "Material Structure",
+  "bagStyleFeatures": "Bag Style & Features",
+  "quantitiesCommaSeparated": "Quantities (Comma separated)",
+  "addManualItem": "Add Manual Item",
+  "pastRfqHistory": "Past RFQ History",
+  "comparison": "Comparison",
+  "hubLink": "Hub Link",
+  "noRecentHistoryFoundCreateYour": "No recent history found. Create your first RFQ above."
+}
