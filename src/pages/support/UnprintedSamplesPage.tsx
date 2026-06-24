@@ -1,8 +1,11 @@
 import React from 'react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Package, CheckCircle, ArrowRight, Truck, Info, Layers, Eye } from 'lucide-react'
+import { useTranslation, Trans } from "react-i18next";
 
 const UnprintedSamplesPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.unprintedSamples';
   return (
     <SEOPageLayout 
       heroBgColor="#0f172a"
@@ -22,10 +25,9 @@ const UnprintedSamplesPage: React.FC = () => {
           content: (
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-neutral-900 mb-4">Raw Material Verification</h3>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.rawMaterialVerification`)}</h3>
                 <p className="text-neutral-600 mb-6 leading-relaxed">
-                  Focus purely on the material. These samples are unprinted, allowing you to see the true texture, transparency, and structure of our eco-friendly films.
-                </p>
+                  {t(`${p}.focusPurelyOnTheMaterialTheseS`)}</p>
                 <div className="space-y-4">
                   {[
                     'Verify material thickness (Microns)',
@@ -64,10 +66,9 @@ const UnprintedSamplesPage: React.FC = () => {
                 />
               </div>
               <div className="md:order-2">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-4">Production Quality Proof</h3>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.productionQualityProof`)}</h3>
                 <p className="text-neutral-600 mb-6 leading-relaxed">
-                  See what we've done for other leading brands. These are real samples from previous production runs, demonstrating our printing precision and finishing quality.
-                </p>
+                  {t(`${p}.seeWhatWeVeDoneForOtherLeading`)}</p>
                 <div className="space-y-4">
                   {[
                     'Evaluate Matte vs Gloss finishes',
@@ -91,19 +92,18 @@ const UnprintedSamplesPage: React.FC = () => {
           icon: <Layers className="h-6 w-6 text-primary-600" />,
           content: (
             <div className="bg-primary-50 border border-primary-200 rounded-3xl p-8 md:p-12 text-center">
-              <h3 className="text-3xl font-black text-primary-900 mb-4">The Material Excellence Kit</h3>
+              <h3 className="text-3xl font-black text-primary-900 mb-4">{t(`${p}.theMaterialExcellenceKit`)}</h3>
               <p className="text-lg text-primary-800 mb-8 max-w-2xl mx-auto">
-                Includes 10+ assorted unprinted and generic samples across Home Compostable, Recyclable, and Bio-PE categories.
-              </p>
+                {t(`${p}.includes10AssortedUnprintedAnd`)}</p>
               <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
                 <div className="text-center">
-                  <div className="text-4xl font-black text-neutral-900">USD $50</div>
-                  <div className="text-xs font-bold uppercase text-neutral-500">Flat Fee</div>
+                  <div className="text-4xl font-black text-neutral-900">{t(`${p}.usd50`)}</div>
+                  <div className="text-xs font-bold uppercase text-neutral-500">{t(`${p}.flatFee`)}</div>
                 </div>
                 <div className="hidden md:block w-px h-12 bg-primary-200"></div>
                 <div className="flex items-center gap-2 text-neutral-600 font-semibold">
                   <Truck className="h-5 w-5" />
-                  <span>FedEx/DHL Air Shipping Included</span>
+                  <span>{t(`${p}.fedexDhlAirShippingIncluded`)}</span>
                 </div>
               </div>
               <a 
@@ -112,7 +112,7 @@ const UnprintedSamplesPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-lg hover:bg-primary-700 transition shadow-lg"
               >
-                Request Your Kit <ArrowRight className="h-5 w-5" />
+                {t(`${p}.requestYourKit`)}<ArrowRight className="h-5 w-5" />
               </a>
             </div>
           )

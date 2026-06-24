@@ -9,12 +9,15 @@ import { createClient } from '@supabase/supabase-js';
 import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide';
 import DynamicBlogArticleRender from '../../components/pouch/DynamicBlogArticleRender';
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate';
+import { useTranslation, Trans } from "react-i18next";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function BlogPostPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.blogPost';
   const { slug } = useParams<{ slug: string }>();
   const [override, setOverride] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -434,7 +437,7 @@ export default function BlogPostPage() {
   return (
     <>
       <Helmet>
-        <title>{post.title} | Achieve Pack Blog</title>
+        <title>{post.title} {t(`${p}.achievePackBlog`)}</title>
         <meta name="description" content={post.metaDescription} />
         <link rel="canonical" href={`https://achievepack.com/blog/${post.slug}`} />
         
@@ -472,8 +475,7 @@ export default function BlogPostPage() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 py-3">
             <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-primary-600 transition">
               <ArrowLeft className="h-4 w-4" />
-              Back to All Articles
-            </Link>
+              {t(`${p}.backToAllArticles`)}</Link>
           </div>
         </div>
 
@@ -507,15 +509,13 @@ export default function BlogPostPage() {
               </span>
               <span className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
-                {post.readTime} min read
-              </span>
+                {post.readTime} {t(`${p}.minRead`)}</span>
               <button
                 onClick={handleShare}
                 className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
               >
                 <Share2 className="w-4 h-4" />
-                Share
-              </button>
+                {t(`${p}.share`)}</button>
             </div>
           </div>
         </header>
@@ -532,8 +532,7 @@ export default function BlogPostPage() {
                   <div className="p-4 bg-neutral-50 rounded-lg border border-neutral-200">
                     <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700 mb-4">
                       <List className="w-4 h-4" />
-                      Contents
-                    </div>
+                      {t(`${p}.contents`)}</div>
                     <nav className="space-y-1">
                       {tableOfContents.map((item, index) => (
                         <button
@@ -564,8 +563,7 @@ export default function BlogPostPage() {
                   <div className="absolute bottom-14 left-0 w-72 bg-white rounded-lg shadow-xl border border-neutral-200 p-4 max-h-[60vh] overflow-y-auto">
                     <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700 mb-3">
                       <List className="w-4 h-4" />
-                      Contents
-                    </div>
+                      {t(`${p}.contents`)}</div>
                     <nav className="space-y-1">
                       {tableOfContents.map((item, index) => (
                         <button
@@ -621,7 +619,7 @@ export default function BlogPostPage() {
 
             {/* Tags */}
             <div className="mt-12 pt-8 border-t border-neutral-200">
-              <p className="text-sm text-neutral-500 mb-3">Topics covered in this report:</p>
+              <p className="text-sm text-neutral-500 mb-3">{t(`${p}.topicsCoveredInThisReport`)}</p>
               <div className="flex flex-wrap gap-2">
                 {post.tags.map(tag => (
                   <span
@@ -637,25 +635,22 @@ export default function BlogPostPage() {
 
               {/* CTA Box */}
             <div className="mt-12 p-8 bg-gradient-to-br from-green-600 to-green-700 rounded-2xl text-white">
-              <h3 className="text-2xl font-bold mb-3">Ready to Get Started?</h3>
+              <h3 className="text-2xl font-bold mb-3">{t(`${p}.readyToGetStarted`)}</h3>
               <p className="text-green-100 mb-6">
-                Explore our eco-friendly packaging options with low minimum orders starting from just 100 pieces.
-              </p>
+                {t(`${p}.exploreOurEcoFriendlyPackaging`)}</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/store"
                   className="inline-flex items-center justify-center px-6 py-3 bg-white text-green-600 font-semibold rounded-lg hover:bg-green-50 transition-colors"
                 >
-                  Shop Now at Achieve Pack
-                </Link>
+                  {t(`${p}.shopNowAtAchievePack`)}</Link>
                 <a
                   href="https://achievepack.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
                 >
-                  Get Custom Quote
-                </a>
+                  {t(`${p}.getCustomQuote`)}</a>
               </div>
             </div>
 
@@ -668,8 +663,7 @@ export default function BlogPostPage() {
                 <div>
                   <p className="font-bold text-neutral-900">{post.author}</p>
                   <p className="text-neutral-600 text-sm">
-                    Experts in sustainable packaging solutions since 2011. Helping brands make the switch to eco-friendly packaging.
-                  </p>
+                    {t(`${p}.expertsInSustainablePackagingS`)}</p>
                 </div>
               </div>
             </div>
@@ -682,7 +676,7 @@ export default function BlogPostPage() {
         {relatedPosts.length > 0 && (
           <section className="bg-white py-12 md:py-16 border-t">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-bold text-neutral-900 mb-8">Related Articles</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-8">{t(`${p}.relatedArticles`)}</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {relatedPosts.map(relatedPost => (
                   <Link

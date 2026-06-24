@@ -9,6 +9,7 @@ import DualDomainSEOHead from '../components/DualDomainSEOHead'
 import { getBrandConfig } from '../utils/domain'
 import { getImage } from '../utils/imageMapper'
 import Newsletter from '../components/Newsletter'
+import { useTranslation, Trans } from "react-i18next";
 
 /**
  * Pouch.eco PTN Material Page - B2C Version
@@ -46,6 +47,8 @@ const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
 )
 
 export default function PouchEcoPTNPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.pouchEcoPTN';
   const brand = getBrandConfig()
 
   const features = [
@@ -141,22 +144,18 @@ export default function PouchEcoPTNPage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="font-black text-6xl md:text-8xl uppercase leading-[0.9] mb-6">
-                Kraft Duplex<br/>
-                <span className="text-[#D4FF00]">Pouches</span>
+                {t(`${p}.kraftDuplex`)}<br/>
+                <span className="text-[#D4FF00]">{t(`${p}.pouches`)}</span>
               </h1>
               
               <p className="font-['JetBrains_Mono'] text-lg md:text-xl mb-8">
-                Natural brown kraft duplex structure. Budget-friendly eco packaging. 
-                Perfect for startups and market testing. 3-6 month shelf life.
-              </p>
+                {t(`${p}.naturalBrownKraftDuplexStructu`)}</p>
 
               <div className="flex flex-wrap gap-4">
                 <NeoButton to="/store?material=kraft-duplex" variant="yellow">
-                  Shop Starter Kits
-                </NeoButton>
+                  {t(`${p}.shopStarterKits`)}</NeoButton>
                 <NeoButton to="/sample-kit" variant="secondary">
-                  Order Samples
-                </NeoButton>
+                  {t(`${p}.orderSamples`)}</NeoButton>
               </div>
             </motion.div>
 
@@ -168,19 +167,19 @@ export default function PouchEcoPTNPage() {
             >
               <NeoCard color="bg-white" className="text-center">
                 <div className="text-4xl font-black mb-2">500</div>
-                <div className="font-bold uppercase text-sm">Unit MOQ</div>
+                <div className="font-bold uppercase text-sm">{t(`${p}.unitMoq`)}</div>
               </NeoCard>
               <NeoCard color="bg-[#D4FF00]" className="text-center">
                 <div className="text-4xl font-black mb-2">3-6</div>
-                <div className="font-bold uppercase text-sm">Month Shelf</div>
+                <div className="font-bold uppercase text-sm">{t(`${p}.monthShelf`)}</div>
               </NeoCard>
               <NeoCard color="bg-[#00FFFF]" className="text-center">
                 <div className="text-4xl font-black mb-2">2-3</div>
-                <div className="font-bold uppercase text-sm">Week Lead</div>
+                <div className="font-bold uppercase text-sm">{t(`${p}.weekLead`)}</div>
               </NeoCard>
               <NeoCard color="bg-white" className="text-center">
                 <div className="text-4xl font-black mb-2">$$$</div>
-                <div className="font-bold uppercase text-sm">Budget Price</div>
+                <div className="font-bold uppercase text-sm">{t(`${p}.budgetPrice`)}</div>
               </NeoCard>
             </motion.div>
           </div>
@@ -196,8 +195,8 @@ export default function PouchEcoPTNPage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-6xl uppercase mb-12 text-center"
           >
-            Why Choose<br/>
-            <span className="text-[#10b981]">Kraft Duplex?</span>
+            {t(`${p}.whyChoose`)}<br/>
+            <span className="text-[#10b981]">{t(`${p}.kraftDuplex1`)}</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -229,8 +228,8 @@ export default function PouchEcoPTNPage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-6xl uppercase mb-12 text-center"
           >
-            Technical<br/>
-            <span className="text-[#10b981]">Specifications</span>
+            {t(`${p}.technical`)}<br/>
+            <span className="text-[#10b981]">{t(`${p}.specifications`)}</span>
           </motion.h2>
 
           <NeoCard color="bg-white">
@@ -262,8 +261,8 @@ export default function PouchEcoPTNPage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-6xl uppercase mb-12 text-center"
           >
-            Perfect For<br/>
-            <span className="text-[#10b981]">These Products</span>
+            {t(`${p}.perfectFor`)}<br/>
+            <span className="text-[#10b981]">{t(`${p}.theseProducts`)}</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -296,8 +295,8 @@ export default function PouchEcoPTNPage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-6xl uppercase mb-12 text-center"
           >
-            Benefits &<br/>
-            <span className="text-[#10b981]">Considerations</span>
+            {t(`${p}.benefits`)}<br/>
+            <span className="text-[#10b981]">{t(`${p}.considerations`)}</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -310,8 +309,7 @@ export default function PouchEcoPTNPage() {
               <NeoCard color="bg-[#10b981] text-white">
                 <h3 className="font-black text-3xl uppercase mb-6 flex items-center gap-3">
                   <Star className="w-8 h-8" />
-                  Benefits
-                </h3>
+                  {t(`${p}.benefits2`)}</h3>
                 <ul className="space-y-3 font-['JetBrains_Mono']">
                   {benefits.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2">
@@ -332,8 +330,7 @@ export default function PouchEcoPTNPage() {
               <NeoCard color="bg-white">
                 <h3 className="font-black text-3xl uppercase mb-6 flex items-center gap-3">
                   <Droplet className="w-8 h-8" />
-                  Considerations
-                </h3>
+                  {t(`${p}.considerations`)}</h3>
                 <ul className="space-y-3 font-['JetBrains_Mono']">
                   {considerations.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2">
@@ -363,36 +360,32 @@ export default function PouchEcoPTNPage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-7xl uppercase mb-6"
           >
-            Ready to Launch<br/>
-            <span className="text-[#D4FF00]">Your Brand?</span>
+            {t(`${p}.readyToLaunch`)}<br/>
+            <span className="text-[#D4FF00]">{t(`${p}.yourBrand`)}</span>
           </motion.h2>
 
           <p className="font-['JetBrains_Mono'] text-xl mb-8 max-w-2xl mx-auto">
-            Start with just 500 units. No huge investment. Test your market with affordable kraft duplex pouches.
-          </p>
+            {t(`${p}.startWithJust500UnitsNoHugeInv`)}</p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <NeoButton to="/store?material=kraft-duplex" variant="yellow">
-              Shop Now
-            </NeoButton>
+              {t(`${p}.shopNow`)}</NeoButton>
             <NeoButton to="/sample-kit" variant="secondary">
-              Order Samples
-            </NeoButton>
+              {t(`${p}.orderSamples`)}</NeoButton>
             <NeoButton to="/solutions" variant="secondary">
-              View Solutions
-            </NeoButton>
+              {t(`${p}.viewSolutions`)}</NeoButton>
           </div>
 
           {/* Trust Badges */}
           <div className="flex flex-wrap justify-center gap-6">
             <NeoCard color="bg-white text-black" className="px-6 py-3">
-              <div className="font-black uppercase text-sm">500 Unit MOQ</div>
+              <div className="font-black uppercase text-sm">{t(`${p}.500UnitMoq`)}</div>
             </NeoCard>
             <NeoCard color="bg-white text-black" className="px-6 py-3">
-              <div className="font-black uppercase text-sm">2-3 Week Lead</div>
+              <div className="font-black uppercase text-sm">{t(`${p}.23WeekLead`)}</div>
             </NeoCard>
             <NeoCard color="bg-white text-black" className="px-6 py-3">
-              <div className="font-black uppercase text-sm">Free Design Help</div>
+              <div className="font-black uppercase text-sm">{t(`${p}.freeDesignHelp`)}</div>
             </NeoCard>
           </div>
         </div>
@@ -406,43 +399,42 @@ export default function PouchEcoPTNPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="font-black text-2xl uppercase mb-4">Shop</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.shop`)}</h3>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                <li><Link to="/store" className="hover:text-[#10b981]">All Products</Link></li>
-                <li><Link to="/store?category=starter" className="hover:text-[#10b981]">Starter Kits</Link></li>
-                <li><Link to="/sample-kit" className="hover:text-[#10b981]">Sample Kit</Link></li>
+                <li><Link to="/store" className="hover:text-[#10b981]">{t(`${p}.allProducts`)}</Link></li>
+                <li><Link to="/store?category=starter" className="hover:text-[#10b981]">{t(`${p}.starterKits`)}</Link></li>
+                <li><Link to="/sample-kit" className="hover:text-[#10b981]">{t(`${p}.sampleKit`)}</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-black text-2xl uppercase mb-4">Materials</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.materials`)}</h3>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                <li><Link to="/materials/cello-kraft-triplex" className="hover:text-[#10b981]">GPTK (Kraft)</Link></li>
-                <li><Link to="/materials/kraft-duplex" className="hover:text-[#10b981]">PTN (Duplex)</Link></li>
-                <li><Link to="/materials" className="hover:text-[#10b981]">All Materials</Link></li>
+                <li><Link to="/materials/cello-kraft-triplex" className="hover:text-[#10b981]">{t(`${p}.gptkKraft`)}</Link></li>
+                <li><Link to="/materials/kraft-duplex" className="hover:text-[#10b981]">{t(`${p}.ptnDuplex`)}</Link></li>
+                <li><Link to="/materials" className="hover:text-[#10b981]">{t(`${p}.allMaterials`)}</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-black text-2xl uppercase mb-4">Resources</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.resources`)}</h3>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                <li><Link to="/solutions" className="hover:text-[#10b981]">Solutions</Link></li>
-                <li><Link to="/size-guide" className="hover:text-[#10b981]">Size Guide</Link></li>
-                <li><Link to="/contact" className="hover:text-[#10b981]">Contact</Link></li>
+                <li><Link to="/solutions" className="hover:text-[#10b981]">{t(`${p}.solutions`)}</Link></li>
+                <li><Link to="/size-guide" className="hover:text-[#10b981]">{t(`${p}.sizeGuide`)}</Link></li>
+                <li><Link to="/contact" className="hover:text-[#10b981]">{t(`${p}.contact`)}</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-black text-2xl uppercase mb-4">Company</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.company`)}</h3>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                <li><Link to="/about" className="hover:text-[#10b981]">About Us</Link></li>
-                <li><Link to="/sustainability" className="hover:text-[#10b981]">Sustainability</Link></li>
-                <li><Link to="/blog" className="hover:text-[#10b981]">Blog</Link></li>
+                <li><Link to="/about" className="hover:text-[#10b981]">{t(`${p}.aboutUs`)}</Link></li>
+                <li><Link to="/sustainability" className="hover:text-[#10b981]">{t(`${p}.sustainability`)}</Link></li>
+                <li><Link to="/blog" className="hover:text-[#10b981]">{t(`${p}.blog`)}</Link></li>
               </ul>
             </div>
           </div>
           
           <div className="border-t-4 border-white pt-8 text-center">
             <p className="font-['JetBrains_Mono'] text-sm">
-              © 2026 Pouch.eco • Eco-Friendly Packaging for Everyone
-            </p>
+              {t(`${p}.2026PouchEcoEcoFriendlyPackagi`)}</p>
           </div>
         </div>
       </footer>

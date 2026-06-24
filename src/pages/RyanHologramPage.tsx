@@ -7,6 +7,7 @@ import {
   Send, Compass, Database, User, Activity, MapPin, ChevronRight
 } from 'lucide-react'
 import { ThreePouchViewer } from '../components/ThreePouchViewer'
+import { useTranslation, Trans } from "react-i18next";
 
 // Custom Audio Synth Generator using browser AudioContext
 class SciFiSoundEngine {
@@ -47,6 +48,8 @@ const soundEngine = new SciFiSoundEngine();
 
 
 const RyanHologramPage = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.ryanHologram';
   const [booting, setBooting] = useState(true);
   const [bootProgress, setBootProgress] = useState(0);
   const [soundEnabled, setSoundEnabled] = useState(false);
@@ -210,17 +213,15 @@ const RyanHologramPage = () => {
               </div>
               <div className="space-y-1">
                 <h1 className="text-xl font-black tracking-widest text-[#2d2a24] font-['Space_Grotesk'] uppercase">
-                  INITIALIZING PORTFOLIO
-                </h1>
+                  {t(`${p}.initializingPortfolio`)}</h1>
                 <p className="text-[10px] text-[#5f5646] font-['Space_Mono'] tracking-wider">
-                  RYAN WONG // SYSTEM CORE v2.0.26
-                </p>
+                  {t(`${p}.ryanWongSystemCoreV2026`)}</p>
               </div>
 
               {/* Progress counter */}
               <div className="relative pt-1 max-w-xs mx-auto">
                 <div className="flex mb-2 items-center justify-between text-xs font-['Space_Mono'] text-[#5f5646]">
-                  <span>LOADING SHADERS...</span>
+                  <span>{t(`${p}.loadingShaders`)}</span>
                   <span className="font-bold">{bootProgress}%</span>
                 </div>
                 <div className="overflow-hidden h-1.5 text-xs flex rounded bg-[#dfd2bf]">
@@ -257,8 +258,8 @@ const RyanHologramPage = () => {
               R
             </div>
             <div>
-              <h2 className="text-xs font-black tracking-widest text-[#2d2a24] uppercase">RYAN WONG</h2>
-              <p className="text-[8px] text-[#5f5646] font-['Space_Mono'] tracking-wider">ECO_ARCHITECT</p>
+              <h2 className="text-xs font-black tracking-widest text-[#2d2a24] uppercase">{t(`${p}.ryanWong`)}</h2>
+              <p className="text-[8px] text-[#5f5646] font-['Space_Mono'] tracking-wider">{t(`${p}.ecoArchitect`)}</p>
             </div>
           </div>
 
@@ -274,12 +275,12 @@ const RyanHologramPage = () => {
               {soundEnabled ? (
                 <>
                   <Volume2 className="h-3.5 w-3.5 text-[#ff8400] animate-bounce" />
-                  <span>SOUND ON</span>
+                  <span>{t(`${p}.soundOn`)}</span>
                 </>
               ) : (
                 <>
                   <VolumeX className="h-3.5 w-3.5 text-[#5f5646]" />
-                  <span className="text-[#5f5646]">MUTED</span>
+                  <span className="text-[#5f5646]">{t(`${p}.muted`)}</span>
                 </>
               )}
             </button>
@@ -291,8 +292,7 @@ const RyanHologramPage = () => {
               onClick={playClick}
               className="text-[9px] font-black uppercase text-[#2d2a24] hover:text-[#ff8400]"
             >
-              [ EXIT ]
-            </Link>
+              {t(`${p}.exit`)}</Link>
           </div>
         </header>
 
@@ -312,25 +312,22 @@ const RyanHologramPage = () => {
               {/* Big Bold Headline */}
               <div className="relative inline-block">
                 <h1 className="text-6xl md:text-8xl font-black tracking-tight text-[#2d2a24] leading-[0.9] font-['Outfit']">
-                  Ryan<br />Wong
-                </h1>
+                  {t(`${p}.ryan`)}<br />{t(`${p}.wong`)}</h1>
 
                 {/* Iconic -5deg Tilted Orange Sticker Banner */}
                 <div className="absolute -bottom-4 right-[-40px] md:right-[-60px] transform rotate-[-5deg] bg-[#ff8400] text-white px-4 py-1.5 text-xs font-black uppercase tracking-widest shadow-md rounded border border-white">
-                  🏆 Eco Packaging Pioneer
-                </div>
+                  {t(`${p}.ecoPackagingPioneer`)}</div>
               </div>
             </div>
 
             <p className="text-base md:text-lg text-[#5f5646] max-w-lg leading-relaxed font-bold">
-              Founder of Achieve Pack & Pouch.eco. Decomposing packaging barriers and digitalizing 100% compostable structures to help startups scale.
-            </p>
+              {t(`${p}.founderOfAchievePackPouchEcoDe`)}</p>
 
             {/* Quick dashboard badges */}
             <div className="flex flex-wrap gap-2 pt-2">
-              <span className="px-3 py-1.5 rounded-lg border border-[#dfd2bf] bg-[#2d2a24]/5 text-xs font-bold text-[#2d2a24]">🎓 PolyU Honor Degree</span>
-              <span className="px-3 py-1.5 rounded-lg border border-[#dfd2bf] bg-[#2d2a24]/5 text-xs font-bold text-[#2d2a24]">🌱 100% Compostable</span>
-              <span className="px-3 py-1.5 rounded-lg border border-[#dfd2bf] bg-[#2d2a24]/5 text-xs font-bold text-[#2d2a24]">⚡ HP Indigo Digital</span>
+              <span className="px-3 py-1.5 rounded-lg border border-[#dfd2bf] bg-[#2d2a24]/5 text-xs font-bold text-[#2d2a24]">{t(`${p}.polyuHonorDegree`)}</span>
+              <span className="px-3 py-1.5 rounded-lg border border-[#dfd2bf] bg-[#2d2a24]/5 text-xs font-bold text-[#2d2a24]">{t(`${p}.100Compostable`)}</span>
+              <span className="px-3 py-1.5 rounded-lg border border-[#dfd2bf] bg-[#2d2a24]/5 text-xs font-bold text-[#2d2a24]">{t(`${p}.hpIndigoDigital`)}</span>
             </div>
 
             {/* Mobile-only inline 3D viewport (Locks to center so it frames beautifully on phones) */}
@@ -347,7 +344,7 @@ const RyanHologramPage = () => {
                 onClick={playClick}
                 className="inline-flex items-center gap-2 bg-[#2d2a24] hover:bg-[#ff8400] text-[#f5efe6] hover:text-white px-8 py-3.5 rounded-full font-black text-sm transition-all duration-300 shadow-md transform hover:-translate-y-0.5 group"
               >
-                <span>BOOK SECURE CONSULTATION</span>
+                <span>{t(`${p}.bookSecureConsultation`)}</span>
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
 
@@ -358,7 +355,7 @@ const RyanHologramPage = () => {
                 onClick={playClick}
                 className="inline-flex items-center gap-2 border-2 border-[#2d2a24] hover:bg-[#2d2a24] hover:text-white px-6 py-3.5 rounded-full font-black text-sm transition-all duration-300"
               >
-                <span>LINKEDIN</span>
+                <span>{t(`${p}.linkedin`)}</span>
               </a>
             </div>
           </section>
@@ -367,11 +364,9 @@ const RyanHologramPage = () => {
           <section className="py-16 border-t border-[#dfd2bf]/60 mt-24 w-full lg:w-7/12">
             <div className="mb-8">
               <h2 className="text-2xl md:text-3xl font-extrabold text-[#2d2a24] tracking-tight">
-                🔬 Interactive 3D Packaging Design Lab
-              </h2>
+                {t(`${p}.interactive3dPackagingDesignLa`)}</h2>
               <p className="mt-2 text-xs md:text-sm text-[#ff8400] font-['Space_Mono'] font-bold">
-                [ REAL-TIME RENDERED 3D FLEXIBLE PACKAGING MOCKUPS ]
-              </p>
+                {t(`${p}.realTimeRendered3dFlexiblePack`)}</p>
             </div>
 
             {/* Model Selector Buttons */}
@@ -402,9 +397,9 @@ const RyanHologramPage = () => {
                 </span>
               </div>
               
-              <h3 className="font-extrabold text-[#2d2a24] text-base">{pouchModels[selectedModel].name} Mockup</h3>
+              <h3 className="font-extrabold text-[#2d2a24] text-base">{pouchModels[selectedModel].name} {t(`${p}.mockup`)}</h3>
               <div className="text-[10px] text-[#5f5646] font-['Space_Mono'] leading-tight">
-                <div className="text-[#ff8400] font-bold">MOQ: {pouchModels[selectedModel].moq}</div>
+                <div className="text-[#ff8400] font-bold">{t(`${p}.moq`)}{pouchModels[selectedModel].moq}</div>
                 <div className="text-[#8c826e]">{pouchModels[selectedModel].materials}</div>
               </div>
               
@@ -454,29 +449,27 @@ const RyanHologramPage = () => {
                         <div className="flex items-center gap-2.5 border-b border-[#dfd2bf] pb-3">
                           <User className="h-5 w-5 text-[#ff8400]" />
                           <h3 className="text-sm font-black text-[#2d2a24] uppercase tracking-wider font-['Space_Mono']">
-                            CREDENTIALS_SYS_LOG
-                          </h3>
+                            {t(`${p}.credentialsSysLog`)}</h3>
                         </div>
                         
                         <div className="space-y-4 text-sm text-[#5f5646]">
                           <div className="space-y-1">
-                            <span className="text-[10px] text-[#ff8400] font-['Space_Mono'] font-bold block uppercase">[ CAREER SUMMARY ]</span>
+                            <span className="text-[10px] text-[#ff8400] font-['Space_Mono'] font-bold block uppercase">{t(`${p}.careerSummary`)}</span>
                             <p className="text-xs text-[#2d2a24] leading-relaxed">
-                              With over <strong>14 years of professional experience</strong> in the packaging industry, Ryan has scaled logistics and custom bag projects across multinational and Fortune 500 corporations.
-                            </p>
+                              {t(`${p}.withOver`)}<strong>{t(`${p}.14YearsOfProfessionalExperienc`)}</strong> {t(`${p}.inThePackagingIndustryRyanHasS`)}</p>
                           </div>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                             <div className="space-y-1">
-                              <span className="text-[10px] text-[#ff8400] font-['Space_Mono'] font-bold block uppercase">[ EDUCATION ]</span>
-                              <span className="text-xs text-[#2d2a24] font-bold block">Hong Kong Polytechnic University</span>
-                              <span className="text-xs text-[#5f5646]">Global Supply Chain Management (Honours Degree)</span>
+                              <span className="text-[10px] text-[#ff8400] font-['Space_Mono'] font-bold block uppercase">{t(`${p}.education`)}</span>
+                              <span className="text-xs text-[#2d2a24] font-bold block">{t(`${p}.hongKongPolytechnicUniversity`)}</span>
+                              <span className="text-xs text-[#5f5646]">{t(`${p}.globalSupplyChainManagementHon`)}</span>
                             </div>
                             
                             <div className="space-y-1">
-                              <span className="text-[10px] text-[#ff8400] font-['Space_Mono'] font-bold block uppercase">[ RECOGNITION ]</span>
-                              <span className="text-xs text-[#2d2a24] font-bold block">PolyU Featured Alumni</span>
-                              <span className="text-xs text-[#5f5646]">Young Achievers Program Recognition</span>
+                              <span className="text-[10px] text-[#ff8400] font-['Space_Mono'] font-bold block uppercase">{t(`${p}.recognition`)}</span>
+                              <span className="text-xs text-[#2d2a24] font-bold block">{t(`${p}.polyuFeaturedAlumni`)}</span>
+                              <span className="text-xs text-[#5f5646]">{t(`${p}.youngAchieversProgramRecogniti`)}</span>
                             </div>
                           </div>
                         </div>
@@ -489,8 +482,7 @@ const RyanHologramPage = () => {
                         <div className="flex items-center gap-2.5 border-b border-[#dfd2bf] pb-3">
                           <Target className="h-5 w-5 text-[#ff8400]" />
                           <h3 className="text-sm font-black text-[#2d2a24] uppercase tracking-wider font-['Space_Mono']">
-                            ABILITIES_MATRIX_COMPILER
-                          </h3>
+                            {t(`${p}.abilitiesMatrixCompiler`)}</h3>
                         </div>
 
                         <div className="space-y-3.5">
@@ -524,13 +516,11 @@ const RyanHologramPage = () => {
                         <div className="flex items-center gap-2.5 border-b border-[#dfd2bf] pb-3">
                           <Globe className="h-5 w-5 text-[#ff8400]" />
                           <h3 className="text-sm font-black text-[#2d2a24] uppercase tracking-wider font-['Space_Mono']">
-                            GLOBAL_PIPELINE_ROUTING
-                          </h3>
+                            {t(`${p}.globalPipelineRouting`)}</h3>
                         </div>
 
                         <p className="text-xs text-[#5f5646]">
-                          Ryan Wong serves packaging pipelines across 8 key countries. Select any country node below:
-                        </p>
+                          {t(`${p}.ryanWongServesPackagingPipelin`)}</p>
 
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                           {countries.map((c, idx) => (
@@ -553,15 +543,14 @@ const RyanHologramPage = () => {
 
                         {activeNode ? (
                           <div className="bg-[#2d2a24]/5 border border-[#dfd2bf] p-3 rounded-2xl text-xs text-[#2d2a24] animate-fadeIn leading-relaxed">
-                            <strong className="text-[#ff8400] block uppercase font-['Space_Mono']">[ ACTIVE NODE: {activeNode} ]</strong>
+                            <strong className="text-[#ff8400] block uppercase font-['Space_Mono']">{t(`${p}.activeNode`)}{activeNode} ]</strong>
                             <p className="mt-1 text-[#5f5646]">
                               {countries.find(c => c.name === activeNode)?.desc}
                             </p>
                           </div>
                         ) : (
                           <div className="text-[10px] text-[#5f5646]/70 italic text-center pt-2 font-['Space_Mono']">
-                            *Select a country node from the grid above to load telemetry details.*
-                          </div>
+                            {t(`${p}.selectACountryNodeFromTheGridA`)}</div>
                         )}
                       </div>
                     )}
@@ -572,8 +561,7 @@ const RyanHologramPage = () => {
                         <div className="flex items-center gap-2.5 border-b border-[#dfd2bf] pb-3">
                           <Database className="h-5 w-5 text-[#ff8400]" />
                           <h3 className="text-sm font-black text-[#2d2a24] uppercase tracking-wider font-['Space_Mono']">
-                            SYS_SUCCESS_REPORTS
-                          </h3>
+                            {t(`${p}.sysSuccessReports`)}</h3>
                         </div>
 
                         <div className="space-y-3.5 max-h-60 overflow-y-auto pr-1 scrollbar-thin">
@@ -609,8 +597,8 @@ const RyanHologramPage = () => {
                   </div>
 
                   <div className="mt-4 pt-4 border-t border-[#dfd2bf] flex justify-between items-center text-[10px] text-[#5f5646] font-['Space_Mono']">
-                    <span>SYS_UTC: {currentTime || 'SYNCING...'}</span>
-                    <span>RYAN_PORTFOLIO_DOCK // v2026</span>
+                    <span>{t(`${p}.sysUtc`)}{currentTime || 'SYNCING...'}</span>
+                    <span>{t(`${p}.ryanPortfolioDockV2026`)}</span>
                   </div>
 
                 </div>
@@ -625,14 +613,14 @@ const RyanHologramPage = () => {
         <footer className="max-w-7xl mx-auto px-4 py-8 border-t border-[#dfd2bf] flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#5f5646]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#ff8400] animate-ping"></span>
-            <span>SECURE ACCESS CONTEXT: SYNCHRONIZED</span>
+            <span>{t(`${p}.secureAccessContextSynchronize`)}</span>
           </div>
 
-          <span>© 2026 ACHIEVE PACK CO-FOUNDER PORTAL // ALL RIGHTS RESERVED</span>
+          <span>{t(`${p}.2026AchievePackCoFounderPortal`)}</span>
 
           <div className="flex gap-4">
-            <a href="mailto:ryan@achievepack.com" onClick={playClick} className="hover:text-[#ff8400] transition font-bold">[ EMAIL ]</a>
-            <a href="https://www.linkedin.com/in/ryanwwc/" target="_blank" rel="noopener noreferrer" onClick={playClick} className="hover:text-[#ff8400] transition font-bold">[ LINKEDIN ]</a>
+            <a href="mailto:ryan@achievepack.com" onClick={playClick} className="hover:text-[#ff8400] transition font-bold">{t(`${p}.email`)}</a>
+            <a href="https://www.linkedin.com/in/ryanwwc/" target="_blank" rel="noopener noreferrer" onClick={playClick} className="hover:text-[#ff8400] transition font-bold">{t(`${p}.linkedin1`)}</a>
           </div>
         </footer>
 

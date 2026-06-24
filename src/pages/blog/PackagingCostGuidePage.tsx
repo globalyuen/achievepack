@@ -3,8 +3,11 @@ import { DollarSign, Package, Calculator, TrendingDown, BarChart3, CheckCircle, 
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide'
+import { useTranslation, Trans } from "react-i18next";
 
 const PackagingCostGuidePage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.packagingCostGuide';
   const heroImage = '/imgs/seo-photos/a_packaging_cost_comparison_8724501.jpg'
 
   const sections = [
@@ -15,51 +18,50 @@ const PackagingCostGuidePage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            <strong>Custom packaging costs depend on 4 key factors:</strong> material, size, print type, and quantity. Here's what real brands pay in 2025.
-          </p>
+            <strong>{t(`${p}.customPackagingCostsDependOn4K`)}</strong> {t(`${p}.materialSizePrintTypeAndQuanti`)}</p>
           
           <div className="overflow-x-auto mt-4">
             <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
               <thead className="bg-primary-50">
                 <tr>
-                  <th className="px-4 py-3 text-left font-semibold text-primary-800">Package Type</th>
-                  <th className="px-4 py-3 text-left font-semibold text-primary-800">100 pcs</th>
-                  <th className="px-4 py-3 text-left font-semibold text-primary-800">1,000 pcs</th>
-                  <th className="px-4 py-3 text-left font-semibold text-primary-800">5,000 pcs</th>
-                  <th className="px-4 py-3 text-left font-semibold text-primary-800">10,000+ pcs</th>
+                  <th className="px-4 py-3 text-left font-semibold text-primary-800">{t(`${p}.packageType`)}</th>
+                  <th className="px-4 py-3 text-left font-semibold text-primary-800">{t(`${p}.100Pcs`)}</th>
+                  <th className="px-4 py-3 text-left font-semibold text-primary-800">{t(`${p}.1000Pcs`)}</th>
+                  <th className="px-4 py-3 text-left font-semibold text-primary-800">{t(`${p}.5000Pcs`)}</th>
+                  <th className="px-4 py-3 text-left font-semibold text-primary-800">{t(`${p}.10000Pcs`)}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">Stand Up Pouch (Compostable)</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.standUpPouchCompostable`)}</td>
                   <td className="px-4 py-3">$0.80–1.20</td>
                   <td className="px-4 py-3">$0.35–0.55</td>
                   <td className="px-4 py-3">$0.20–0.35</td>
                   <td className="px-4 py-3 text-primary-700 font-medium">$0.12–0.22</td>
                 </tr>
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">Flat Bottom Bag (Recyclable)</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.flatBottomBagRecyclable`)}</td>
                   <td className="px-4 py-3">$1.00–1.50</td>
                   <td className="px-4 py-3">$0.45–0.70</td>
                   <td className="px-4 py-3">$0.25–0.40</td>
                   <td className="px-4 py-3 text-primary-700 font-medium">$0.15–0.28</td>
                 </tr>
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">3-Side Seal Sachet</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.3SideSealSachet`)}</td>
                   <td className="px-4 py-3">$0.50–0.80</td>
                   <td className="px-4 py-3">$0.20–0.35</td>
                   <td className="px-4 py-3">$0.12–0.20</td>
                   <td className="px-4 py-3 text-primary-700 font-medium">$0.08–0.15</td>
                 </tr>
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">Side Gusset Bag</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.sideGussetBag`)}</td>
                   <td className="px-4 py-3">$0.90–1.30</td>
                   <td className="px-4 py-3">$0.40–0.60</td>
                   <td className="px-4 py-3">$0.22–0.35</td>
                   <td className="px-4 py-3 text-primary-700 font-medium">$0.14–0.25</td>
                 </tr>
                 <tr className="hover:bg-neutral-50 bg-amber-50">
-                  <td className="px-4 py-3 font-medium">Custom Corrugated Box</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.customCorrugatedBox`)}</td>
                   <td className="px-4 py-3">$2.00–4.00</td>
                   <td className="px-4 py-3">$1.00–2.00</td>
                   <td className="px-4 py-3">$0.60–1.20</td>
@@ -70,8 +72,7 @@ const PackagingCostGuidePage: React.FC = () => {
           </div>
           
           <p className="text-xs text-neutral-500 mt-2">
-            *Prices are approximate and vary by material, size, and printing complexity. Contact us for an exact quote.
-          </p>
+            {t(`${p}.pricesAreApproximateAndVaryByM`)}</p>
         </div>
       )
     },
@@ -83,36 +84,36 @@ const PackagingCostGuidePage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <figure className="my-6">
             <img src="/imgs/seo-photos/a_packaging_cost_digital_factory_8412414.jpg" alt="Modern digital printing press producing high-quality flexible packaging pouches" className="w-full rounded-xl shadow-sm border border-neutral-100" />
-            <figcaption className="text-center text-sm text-neutral-500 mt-2">Digital printing allows for lower MOQs without plate fees, significantly impacting cost.</figcaption>
+            <figcaption className="text-center text-sm text-neutral-500 mt-2">{t(`${p}.digitalPrintingAllowsForLowerM`)}</figcaption>
           </figure>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-blue-50 p-5 rounded-xl border border-blue-100">
               <div className="flex items-center gap-2 mb-2">
                 <Package className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">1. Material</h4>
+                <h4 className="font-semibold text-blue-800">{t(`${p}.1Material`)}</h4>
               </div>
-              <p className="text-sm">Compostable materials cost 15-30% more than conventional plastic. Recyclable mono-PE is comparable to traditional options. Bio-PE sits in between.</p>
+              <p className="text-sm">{t(`${p}.compostableMaterialsCost1530Mo`)}</p>
             </div>
             <div className="bg-emerald-50 p-5 rounded-xl border border-emerald-100">
               <div className="flex items-center gap-2 mb-2">
                 <Calculator className="h-5 w-5 text-emerald-600" />
-                <h4 className="font-semibold text-emerald-800">2. Quantity (MOQ)</h4>
+                <h4 className="font-semibold text-emerald-800">{t(`${p}.2QuantityMoq`)}</h4>
               </div>
-              <p className="text-sm">The biggest cost driver. 100pcs costs 5-8x more per unit than 10,000pcs. We offer MOQ as low as 100 pieces for digital printing.</p>
+              <p className="text-sm">{t(`${p}.theBiggestCostDriver100pcsCost`)}</p>
             </div>
             <div className="bg-amber-50 p-5 rounded-xl border border-amber-100">
               <div className="flex items-center gap-2 mb-2">
                 <Palette className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-amber-800">3. Printing Method</h4>
+                <h4 className="font-semibold text-amber-800">{t(`${p}.3PrintingMethod`)}</h4>
               </div>
-              <p className="text-sm">Digital printing has no plate costs ($0 setup) but higher per-unit price. Plate printing (rotogravure) is cheaper per unit at 5,000+ but has $200-600 plate fees.</p>
+              <p className="text-sm">{t(`${p}.digitalPrintingHasNoPlateCosts`)}</p>
             </div>
             <div className="bg-purple-50 p-5 rounded-xl border border-purple-100">
               <div className="flex items-center gap-2 mb-2">
                 <Truck className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">4. Size & Features</h4>
+                <h4 className="font-semibold text-purple-800">{t(`${p}.4SizeFeatures`)}</h4>
               </div>
-              <p className="text-sm">Larger pouches cost more. Add-ons like zippers ($0.01-0.03/pc), valves ($0.02-0.05/pc), tear notches, and hang holes add small increments.</p>
+              <p className="text-sm">{t(`${p}.largerPouchesCostMoreAddOnsLik`)}</p>
             </div>
           </div>
         </div>
@@ -126,7 +127,7 @@ const PackagingCostGuidePage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <figure className="my-6">
             <img src="/imgs/seo-photos/a_packaging_cost_quality_compare_8712411.jpg" alt="Comparison between cheap poorly printed pouch and high-quality premium custom printed pouch" className="w-full rounded-xl shadow-sm border border-neutral-100" />
-            <figcaption className="text-center text-sm text-neutral-500 mt-2">Investing slightly more in quality packaging elevates your brand's perceived value.</figcaption>
+            <figcaption className="text-center text-sm text-neutral-500 mt-2">{t(`${p}.investingSlightlyMoreInQuality`)}</figcaption>
           </figure>
           <div className="space-y-3">
             {[
@@ -160,42 +161,42 @@ const PackagingCostGuidePage: React.FC = () => {
             <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
               <thead className="bg-primary-50">
                 <tr>
-                  <th className="px-4 py-3 text-left font-semibold text-primary-800">Feature</th>
-                  <th className="px-4 py-3 text-left font-semibold text-primary-800">Achieve Pack</th>
-                  <th className="px-4 py-3 text-left font-semibold text-neutral-600">Generic Supplier</th>
-                  <th className="px-4 py-3 text-left font-semibold text-neutral-600">Alibaba</th>
+                  <th className="px-4 py-3 text-left font-semibold text-primary-800">{t(`${p}.feature`)}</th>
+                  <th className="px-4 py-3 text-left font-semibold text-primary-800">{t(`${p}.achievePack`)}</th>
+                  <th className="px-4 py-3 text-left font-semibold text-neutral-600">{t(`${p}.genericSupplier`)}</th>
+                  <th className="px-4 py-3 text-left font-semibold text-neutral-600">{t(`${p}.alibaba`)}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">Minimum Order</td>
-                  <td className="px-4 py-3 text-primary-700 font-medium">100 pcs ✅</td>
-                  <td className="px-4 py-3">5,000 pcs</td>
-                  <td className="px-4 py-3">10,000 pcs</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.minimumOrder`)}</td>
+                  <td className="px-4 py-3 text-primary-700 font-medium">{t(`${p}.100Pcs1`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.5000Pcs`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.10000Pcs2`)}</td>
                 </tr>
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">Eco Materials</td>
-                  <td className="px-4 py-3 text-primary-700 font-medium">Compostable, Recyclable, Bio-PE ✅</td>
-                  <td className="px-4 py-3">Limited options</td>
-                  <td className="px-4 py-3">Conventional only</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.ecoMaterials`)}</td>
+                  <td className="px-4 py-3 text-primary-700 font-medium">{t(`${p}.compostableRecyclableBioPe`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.limitedOptions`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.conventionalOnly`)}</td>
                 </tr>
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">Free Design Help</td>
-                  <td className="px-4 py-3 text-primary-700 font-medium">Yes ✅</td>
-                  <td className="px-4 py-3">Extra fee</td>
-                  <td className="px-4 py-3">No</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.freeDesignHelp`)}</td>
+                  <td className="px-4 py-3 text-primary-700 font-medium">{t(`${p}.yes`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.extraFee`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.no`)}</td>
                 </tr>
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">Lead Time</td>
-                  <td className="px-4 py-3 text-primary-700 font-medium">2-5 weeks ✅</td>
-                  <td className="px-4 py-3">4-6 weeks</td>
-                  <td className="px-4 py-3">6-10 weeks</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.leadTime`)}</td>
+                  <td className="px-4 py-3 text-primary-700 font-medium">{t(`${p}.25Weeks`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.46Weeks`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.610Weeks`)}</td>
                 </tr>
                 <tr className="hover:bg-neutral-50">
-                  <td className="px-4 py-3 font-medium">Certifications</td>
-                  <td className="px-4 py-3 text-primary-700 font-medium">EN13432, ASTM D6400, BPI ✅</td>
-                  <td className="px-4 py-3">Varies</td>
-                  <td className="px-4 py-3">None verified</td>
+                  <td className="px-4 py-3 font-medium">{t(`${p}.certifications`)}</td>
+                  <td className="px-4 py-3 text-primary-700 font-medium">{t(`${p}.en13432AstmD6400Bpi`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.varies`)}</td>
+                  <td className="px-4 py-3">{t(`${p}.noneVerified`)}</td>
                 </tr>
               </tbody>
             </table>
