@@ -10,7 +10,65 @@ const CustomBoxesPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.customBoxes'
-  
+  // Safe array fallbacks to prevent runtime crashes
+  const mailerSizesVal = t(`${p}.sections.overview.mailer.sizes`, { returnObjects: true });
+  const mailerSizes = Array.isArray(mailerSizesVal) ? mailerSizesVal : [
+    "✓ 500g size: 130 × 85 × 35mm",
+    "✓ 1kg size: 270 × 85 × 35mm",
+    "✓ CMYK custom printing",
+    "✓ Matte finish standard",
+    "✓ Gold foil available",
+    "✓ FSC certified paper"
+  ];
+
+  const tuckSizesVal = t(`${p}.sections.overview.tuck.sizes`, { returnObjects: true });
+  const tuckSizes = Array.isArray(tuckSizesVal) ? tuckSizesVal : [
+    "✓ 100g size: 81 × 162 × 15mm",
+    "✓ 250g white card",
+    "✓ Gold foil stamping",
+    "✓ Embossed details",
+    "✓ Matte finish",
+    "✓ FSC certified"
+  ];
+
+  const featuresGalleryVal = t(`${p}.sections.features.gallery`, { returnObjects: true });
+  const featuresGallery = Array.isArray(featuresGalleryVal) ? featuresGalleryVal : [
+    "Corrugated Mailer", "Tuck Box Carton", "Gold Foil Finish", "Embossed Texture"
+  ];
+
+  const specItemsVal = t(`${p}.sections.specifications.items`, { returnObjects: true });
+  const specItems = Array.isArray(specItemsVal) ? specItemsVal : [
+    "Materials: 2.0mm Grayboard, White Cardboard, Corrugated E-flute",
+    "Printing: CMYK offset, Pantone matching",
+    "Finishing: Matte/gloss lamination, UV coating",
+    "FSC Certified: Certified sustainable papers",
+    "MOQ: 200 pieces",
+    "Production: 30 days + 40-60 days shipping (sea freight included)"
+  ];
+
+  const marketMetricsVal = t(`${p}.sections.marketData.metrics`, { returnObjects: true });
+  const marketMetrics = Array.isArray(marketMetricsVal) ? marketMetricsVal : [
+    { val: "$15.6B", label: "global rigid box market", desc: "2024 value" },
+    { val: "4.8%", label: "CAGR", desc: "2024-2030" },
+    { val: "Artisan food", label: "fastest growing", desc: "premium gift packaging sector" },
+    { val: "75%", label: "consumers prefer FSC", desc: "shows demand for certified paper" }
+  ];
+
+  const faqsVal = t(`${p}.faqs`, { returnObjects: true });
+  const faqs = Array.isArray(faqsVal) ? faqsVal.map((item: any) => ({
+    question: item.question,
+    answer: item.answer
+  })) : [];
+
+  const tablesVal = t(`${p}.tables`, { returnObjects: true });
+  const tables = Array.isArray(tablesVal) ? tablesVal.map((item: any) => ({
+    title: item.title,
+    data: {
+      headers: item.headers,
+      rows: item.rows
+    }
+  })) : [];
+
   const sections = [
     {
       id: 'scenario-trigger',
@@ -62,7 +120,7 @@ const CustomBoxesPage: React.FC = () => {
                 <h4 className="text-xl font-bold text-neutral-900 mb-2">{t(`${p}.sections.overview.mailer.title`)}</h4>
                 <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.overview.mailer.desc`)}</p>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  {(t(`${p}.sections.overview.mailer.sizes`, { returnObjects: true }) as string[]).map((size, idx) => (
+                  {mailerSizes.map((size, idx) => (
                     <div key={idx}>{size}</div>
                   ))}
                 </div>
@@ -89,7 +147,7 @@ const CustomBoxesPage: React.FC = () => {
                 <h4 className="text-xl font-bold text-neutral-900 mb-2">{t(`${p}.sections.overview.tuck.title`)}</h4>
                 <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.overview.tuck.desc`)}</p>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  {(t(`${p}.sections.overview.tuck.sizes`, { returnObjects: true }) as string[]).map((size, idx) => (
+                  {tuckSizes.map((size, idx) => (
                     <div key={idx}>{size}</div>
                   ))}
                 </div>
@@ -145,25 +203,25 @@ const CustomBoxesPage: React.FC = () => {
                 src="/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp" 
                 alt="Corrugated mailer box for shipping and e-commerce" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.features.gallery`, { returnObjects: true }) as string[])[0]}
+                caption={featuresGallery[0] || ""}
               />
               <ClickableImage 
                 src="/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp" 
                 alt="Tuck box carton for chocolate and confectionery" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.features.gallery`, { returnObjects: true }) as string[])[1]}
+                caption={featuresGallery[1] || ""}
               />
               <ClickableImage 
                 src="/imgs/store/surface/stamp-foil.webp" 
                 alt="Gold foil stamping for luxury box packaging" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.features.gallery`, { returnObjects: true }) as string[])[2]}
+                caption={featuresGallery[2] || ""}
               />
               <ClickableImage 
                 src="/imgs/store/surface/emboss.webp" 
                 alt="Embossed texture for premium box packaging" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.features.gallery`, { returnObjects: true }) as string[])[3]}
+                caption={featuresGallery[3] || ""}
               />
             </div>
           </div>
@@ -203,7 +261,7 @@ const CustomBoxesPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-neutral-50 p-4 rounded-lg">
             <ul className="space-y-2 text-sm">
-              {(t(`${p}.sections.specifications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+              {specItems.map((item, idx) => (
                 <li key={idx}>✓ {item}</li>
               ))}
             </ul>
@@ -218,7 +276,7 @@ const CustomBoxesPage: React.FC = () => {
       content: (
         <div className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {(t(`${p}.sections.marketData.metrics`, { returnObjects: true }) as any[]).map((metric, idx) => (
+            {marketMetrics.map((metric, idx) => (
               <div key={idx} className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
                 <div className="text-3xl font-bold">{metric.val}</div>
                 <div className="text-sm opacity-90">{metric.label}</div>
@@ -288,14 +346,7 @@ const CustomBoxesPage: React.FC = () => {
     }
   ]
 
-  const faqs = (t(`${p}.faqs`, { returnObjects: true }) as any[]) || []
-  const tables = ((t(`${p}.tables`, { returnObjects: true }) as any[]) || []).map((t) => ({
-    title: t.title,
-    data: {
-      headers: t.headers,
-      rows: t.rows
-    }
-  }))
+  // variables faqs and tables are declared at the top now!
 
   const relatedLinks = [
     {

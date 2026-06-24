@@ -9,7 +9,79 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 const FlatBottomBagsPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
+  const [galleryEnlarged, setGalleryEnlarged] = React.useState<{ src: string; index: number } | null>(null)
   const p = 'seoPages.pages.flatBottomBags'
+
+  // Safe array fallbacks to prevent runtime crashes
+  const overviewBenefitsVal = t(`${p}.sections.overview.benefits`, { returnObjects: true });
+  const overviewBenefits = Array.isArray(overviewBenefitsVal) ? overviewBenefitsVal : [
+    "5-panel construction for maximum branding surface",
+    "Stable, box-like shelf presence",
+    "Higher capacity than standard pouches",
+    "Premium appearance for specialty products",
+    "Available in compostable and recyclable materials"
+  ];
+
+  const designItemsVal = t(`${p}.sections.construction.design.items`, { returnObjects: true });
+  const designItems = Array.isArray(designItemsVal) ? designItemsVal : [
+    "Front panel – Main branding area",
+    "Back panel – Ingredients, instructions",
+    "2 Side gussets – Additional branding space",
+    "Bottom panel – Stable base, can include print"
+  ];
+
+  const closuresItemsVal = t(`${p}.sections.construction.closures.items`, { returnObjects: true });
+  const closuresItems = Array.isArray(closuresItemsVal) ? closuresItemsVal : [
+    "Resealable zipper (press-to-close or slider)",
+    "Tin tie closure",
+    "Degassing valve (for coffee)",
+    "Tear notch for easy opening"
+  ];
+
+  const applicationsItemsVal = t(`${p}.sections.applications.items`, { returnObjects: true });
+  const applicationsItems = Array.isArray(applicationsItemsVal) ? applicationsItemsVal : [
+    "Specialty coffee",
+    "Premium tea",
+    "Pet food & treats",
+    "Protein powder",
+    "Granola & muesli",
+    "Dried fruits",
+    "Premium nuts",
+    "Rice & grains",
+    "Organic snacks",
+    "Artisan products",
+    "Superfoods",
+    "Gift packaging"
+  ];
+
+  const materialsGalleryVal = t(`${p}.sections.materials.gallery`, { returnObjects: true });
+  const materialsGallery = Array.isArray(materialsGalleryVal) ? materialsGalleryVal : [
+    "Flat Bottom Gusset", "Aluminum Barrier", "Kraft Paper Finish", "Tin-Tie Closure"
+  ];
+
+  const marketMetricsVal = t(`${p}.sections.marketData.metrics`, { returnObjects: true });
+  const marketMetrics = Array.isArray(marketMetricsVal) ? marketMetricsVal : [
+    { val: "$12.4B", label: "global flat bottom bag market", desc: "2024 value estimation" },
+    { val: "5.2%", label: "CAGR growth rate", desc: "expected from 2024 to 2030" },
+    { val: "Coffee", label: "largest segment", desc: "represents 40% of wholesale volume" },
+    { val: "82%", label: "FSC certified", desc: "shows demand for eco paper" }
+  ];
+
+  const faqsVal = t(`${p}.faqs`, { returnObjects: true });
+  const faqs = Array.isArray(faqsVal) ? faqsVal.map((item: any) => ({
+    question: item.question,
+    answer: item.answer
+  })) : [];
+
+  const tablesVal = t(`${p}.tables`, { returnObjects: true });
+  const tables = Array.isArray(tablesVal) ? tablesVal.map((item: any) => ({
+    title: item.title,
+    data: {
+      headers: item.headers,
+      rows: item.rows
+    }
+  })) : [];
+
   const sections = [
     {
       id: 'scenario-trigger',
@@ -51,7 +123,7 @@ const FlatBottomBagsPage: React.FC = () => {
           <div className="bg-primary-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.overview.benefitsTitle`)}</h4>
             <ul className="space-y-1 text-sm">
-              {(t(`${p}.sections.overview.benefits`, { returnObjects: true }) as string[]).map((benefit: string, idx: number) => (
+              {overviewBenefits.map((benefit: string, idx: number) => (
                 <li key={idx}>✓ {benefit}</li>
               ))}
             </ul>
@@ -71,7 +143,7 @@ const FlatBottomBagsPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg">
               <h4 className="font-semibold mb-2">{t(`${p}.sections.construction.design.title`)}</h4>
               <ul className="text-sm space-y-1">
-                {(t(`${p}.sections.construction.design.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+                {designItems.map((item: string, idx: number) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -79,7 +151,7 @@ const FlatBottomBagsPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg">
               <h4 className="font-semibold mb-2">{t(`${p}.sections.construction.closures.title`)}</h4>
               <ul className="text-sm space-y-1">
-                {(t(`${p}.sections.construction.closures.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+                {closuresItems.map((item: string, idx: number) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -97,7 +169,7 @@ const FlatBottomBagsPage: React.FC = () => {
           <p>{t(`${p}.sections.applications.text`)}</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+            {applicationsItems.map((item: string, idx: number) => (
               <div key={idx} className="bg-primary-50 text-primary-800 px-3 py-2 rounded-lg text-sm text-center font-medium">
                 {item}
               </div>
@@ -135,25 +207,25 @@ const FlatBottomBagsPage: React.FC = () => {
                 src="/imgs/store/pouch shape/flat-bottom.webp" 
                 alt="Flat bottom bag structure showing box-like base" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.materials.gallery`, { returnObjects: true }) as string[])[0]}
+                caption={materialsGallery[0] || ""}
               />
               <ClickableImage 
                 src="/imgs/store/barrier/4-alu.webp" 
                 alt="High barrier aluminum flat bottom bag" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.materials.gallery`, { returnObjects: true }) as string[])[1]}
+                caption={materialsGallery[1] || ""}
               />
               <ClickableImage 
                 src="/imgs/store/eco-material/compostable.webp"
                 alt="Kraft paper flat bottom bag eco-friendly" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.materials.gallery`, { returnObjects: true }) as string[])[2]}
+                caption={materialsGallery[2] || ""}
               />
               <ClickableImage 
                 src="/imgs/store/closure/tin-tie.webp" 
                 alt="Tin tie closure for coffee flat bottom bags" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.materials.gallery`, { returnObjects: true }) as string[])[3]}
+                caption={materialsGallery[3] || ""}
               />
             </div>
           </div>
@@ -298,7 +370,7 @@ const FlatBottomBagsPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <div className="grid md:grid-cols-4 gap-4">
-            {(t(`${p}.sections.marketData.metrics`, { returnObjects: true }) as any[]).map((metric: any, idx: number) => (
+            {marketMetrics.map((metric: any, idx: number) => (
               <div key={idx} className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
                 <div className="text-3xl font-bold">{metric.val}</div>
                 <div className="text-sm opacity-90">{metric.label}</div>
@@ -370,14 +442,7 @@ const FlatBottomBagsPage: React.FC = () => {
     }
   ]
 
-  const faqs = (t(`${p}.faqs`, { returnObjects: true }) as any[]) || []
-  const tables = ((t(`${p}.tables`, { returnObjects: true }) as any[]) || []).map((t) => ({
-    title: t.title,
-    data: {
-      headers: t.headers,
-      rows: t.rows
-    }
-  }))
+  // variables faqs and tables are declared at the top now!
 
   const relatedLinks = [
     { title: "Stand-Up Pouches", url: "/packaging/stand-up-pouches", description: "More economical alternative" },

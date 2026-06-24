@@ -948,15 +948,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   }
 
   // Generate FAQ Schema
-  const faqSchema = faqs && faqs.length > 0 ? {
+  const faqSchema = Array.isArray(faqs) && faqs.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": faqs.map(faq => ({
       "@type": "Question",
-      "name": faq.question,
+      "name": faq?.question || '',
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer
+        "text": faq?.answer || ''
       }
     }))
   } : null
@@ -1120,7 +1120,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           keywords={keywords}
           image={ogImage.startsWith('http') ? ogImage : `https://pouch.eco${ogImage}`}
           schema={enhancedSchema}
-          faq={faqs || undefined}
+          faq={Array.isArray(faqs) ? faqs : undefined}
         />
         <PouchLayout>
           <div className="min-h-screen bg-[#F0F0F0] text-black font-['Space_Grotesk'] pb-16">
@@ -1285,7 +1285,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                           [{section.title.toUpperCase()}]
                         </a>
                       ))}
-                      {faqs && faqs.length > 0 && (
+                      {Array.isArray(faqs) && faqs.length > 0 && (
                         <a 
                           href="#faq" 
                           className="block p-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all"
@@ -1337,14 +1337,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   })}
 
                   {/* Data Tables (Neobrutalist) */}
-                  {tables && tables.map((table, idx) => (
+                  {Array.isArray(tables) && tables.map((table, idx) => (
                     <section key={idx} className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                       <h2 className="font-black text-2xl md:text-3xl uppercase mb-6">{table.title}</h2>
                       <div className="overflow-x-auto border-4 border-black">
                         <table className="w-full text-sm font-['Space_Grotesk']">
                           <thead>
                             <tr className="border-b-4 border-black">
-                              {table.data.headers.map((header, i) => (
+                              {Array.isArray(table?.data?.headers) && table.data.headers.map((header, i) => (
                                 <th key={i} className="text-left py-4 px-4 font-black uppercase text-black bg-[#D4FF00] border-r-4 border-black last:border-r-0">
                                   {header}
                                 </th>
@@ -1352,9 +1352,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                             </tr>
                           </thead>
                           <tbody>
-                            {table.data.rows.map((row, i) => (
+                            {Array.isArray(table?.data?.rows) && table.data.rows.map((row, i) => (
                               <tr key={i} className="border-b-4 border-black last:border-b-0 hover:bg-[#F9F9F9] font-semibold">
-                                {row.map((cell, j) => (
+                                {Array.isArray(row) && row.map((cell, j) => (
                                   <td key={j} className="py-4 px-4 text-black border-r-4 border-black last:border-r-0">
                                     {cell}
                                   </td>
@@ -1368,7 +1368,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   ))}
 
                   {/* FAQ Accordion (Neobrutalist) */}
-                  {faqs && faqs.length > 0 && (
+                  {Array.isArray(faqs) && faqs.length > 0 && (
                     <section id="faq" className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                       <h2 className="font-black text-2xl md:text-3xl uppercase mb-6 flex items-center gap-2">
                         <HelpCircle className="w-7 h-7 text-black stroke-[3px]" />
@@ -1378,11 +1378,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                         {faqs.map((faq, idx) => (
                           <details key={idx} className="group border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                             <summary className="flex items-center justify-between p-5 cursor-pointer font-black uppercase text-lg hover:bg-[#F0F0F0] select-none">
-                              {faq.question}
+                              {faq?.question}
                               <span className="ml-2 text-black transition-transform group-open:rotate-180 font-mono text-xl">▼</span>
                             </summary>
                             <div className="px-5 pb-5 border-t-4 border-black pt-4 bg-[#F9F9F9] font-['Space_Grotesk'] text-neutral-800 text-base leading-relaxed">
-                              {faq.answer}
+                              {faq?.answer}
                             </div>
                           </details>
                         ))}
@@ -1482,7 +1482,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         keywords={keywords}
         image={ogImage.startsWith('http') ? ogImage : `https://achievepack.com${ogImage}`}
         schema={enhancedSchema}
-        faq={faqs || undefined}
+        faq={Array.isArray(faqs) ? faqs : undefined}
       />
 
       <div className="min-h-screen bg-neutral-50 overflow-x-hidden">
@@ -1742,14 +1742,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               ))}
 
               {/* Data Tables */}
-              {tables && tables.map((table, idx) => (
+              {Array.isArray(tables) && tables.map((table, idx) => (
                 <section key={idx} className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                   <h2 className="text-2xl font-bold text-neutral-900 mb-6">{table.title}</h2>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
                         <tr className="border-b-2 border-neutral-200">
-                          {table.data.headers.map((header, i) => (
+                          {Array.isArray(table?.data?.headers) && table.data.headers.map((header, i) => (
                             <th key={i} className="text-left py-3 px-4 font-semibold text-neutral-900 bg-neutral-50">
                               {header}
                             </th>
@@ -1757,9 +1757,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                         </tr>
                       </thead>
                       <tbody>
-                        {table.data.rows.map((row, i) => (
+                        {Array.isArray(table?.data?.rows) && table.data.rows.map((row, i) => (
                           <tr key={i} className="border-b border-neutral-100 hover:bg-neutral-50">
-                            {row.map((cell, j) => (
+                            {Array.isArray(row) && row.map((cell, j) => (
                               <td key={j} className="py-3 px-4 text-neutral-700">
                                 {cell}
                               </td>
@@ -1773,18 +1773,18 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               ))}
 
               {/* FAQ Section */}
-              {faqs && faqs.length > 0 && (
+              {Array.isArray(faqs) && faqs.length > 0 && (
                 <section id="faq" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                   <h2 className="text-2xl font-bold text-neutral-900 mb-6">{t('seoPages.faq')}</h2>
                   <div className="space-y-4">
                     {faqs.map((faq, idx) => (
                       <details key={idx} className="group border border-neutral-200 rounded-lg">
                         <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-neutral-900 hover:bg-neutral-50">
-                          {faq.question}
+                          {faq?.question}
                           <span className="ml-2 text-primary-600 group-open:rotate-180 transition-transform">▼</span>
                         </summary>
                         <div className="px-4 pb-4 text-neutral-700">
-                          {faq.answer}
+                          {faq?.answer}
                         </div>
                       </details>
                     ))}

@@ -10,6 +10,98 @@ const SpoutPouchesPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.spoutPouches'
+  // Safe array fallbacks to prevent runtime crashes
+  const overviewAdvantagesVal = t(`${p}.sections.overview.advantages`, { returnObjects: true });
+  const overviewAdvantages = Array.isArray(overviewAdvantagesVal) ? overviewAdvantagesVal : [
+    "Perfect for liquids, gels, and purées",
+    "85% reduction in packaging weight vs rigid bottles",
+    "Lower shipping costs and storage footprint",
+    "Spill-proof, resealable cap convenience",
+    "Custom shaped designs and ergonomic handles"
+  ];
+
+  const getAppItems = (key: string): string[] => {
+    const val = t(`${p}.sections.applications.${key}.items`, { returnObjects: true });
+    if (Array.isArray(val)) return val as string[];
+    const fallbacks: Record<string, string[]> = {
+      baby: ["Fruit purées", "Vegetable blends", "Yogurt pouches", "Organic baby food"],
+      sauce: ["Ketchup & mustard", "Salad dressings", "Soy sauce & oils", "Hot sauce"],
+      beverage: ["Fruit juices", "Energy drinks", "Smoothies & shakes", "Cocktails"],
+      oil: ["Cooking oils", "Lubricants", "Industrial oils", "Motor oil"],
+      pet: ["Wet dog food", "Liquid pet treats", "Pet shampoos", "Supplements"],
+      nonfood: ["Liquid soap & refills", "Laundry detergent", "Screen wash", "Cosmetics"]
+    };
+    return fallbacks[key] || [];
+  };
+
+  const spoutSizesVal = t(`${p}.sections.spoutOptions.sizes.items`, { returnObjects: true });
+  const spoutSizes = Array.isArray(spoutSizesVal) ? spoutSizesVal : [
+    "8.6mm spout – Ideal for water, juices, and thin liquids",
+    "10mm spout – Standard choice for baby food and purées",
+    "13mm spout – Perfect for viscous sauces, honey, and gels",
+    "15mm to 22mm spout – Designed for bulk refills and detergents"
+  ];
+
+  const spoutCapsVal = t(`${p}.sections.spoutOptions.caps.items`, { returnObjects: true });
+  const spoutCaps = Array.isArray(spoutCapsVal) ? spoutCapsVal : [
+    "Tamper-evident screw caps – Secure seal, breaks on first open",
+    "Anti-choke caps – Large butterfly-shaped caps for baby safety",
+    "Flip-top caps – One-handed opening convenience for sports drinks",
+    "Push-pull caps – Easy sports-style dispensing"
+  ];
+
+  const spoutGalleryVal = t(`${p}.sections.spoutOptions.gallery`, { returnObjects: true });
+  const spoutGallery = Array.isArray(spoutGalleryVal) ? spoutGalleryVal : [
+    "Plastic Spout Cap", "Ergonomic Fluid Shape", "Foil Moisture Barrier", "Vibrant Surface Finish"
+  ];
+
+  const bioItemsVal = t(`${p}.sections.ecoMaterials.eco.bio.items`, { returnObjects: true });
+  const bioItems = Array.isArray(bioItemsVal) ? bioItemsVal : [
+    "Sugarcane-based PE materials",
+    "Reduces carbon emissions by up to 80% vs petroleum PE",
+    "Identical barrier and tensile strength to standard plastic"
+  ];
+
+  const pcrItemsVal = t(`${p}.sections.ecoMaterials.eco.pcr.items`, { returnObjects: true });
+  const pcrItems = Array.isArray(pcrItemsVal) ? pcrItemsVal : [
+    "Contains 30% to 50% post-consumer recycled resin",
+    "Fewer raw petroleum resources used during fabrication",
+    "Supports circular packaging economies"
+  ];
+
+  const specItemsVal = t(`${p}.sections.specifications.items`, { returnObjects: true });
+  const specItems = Array.isArray(specItemsVal) ? specItemsVal : [
+    "Spout Diameter: 8.6mm, 10mm, 13mm, 15mm, 22mm",
+    "Materials: PET/AL/PE, PET/NY/PE, Kraft/PE, Sugarcane Bio-PE, PCR content PE",
+    "Features: Round cornering, hanger holes, custom shapes, transparent windowing",
+    "Hot-Fill Capacity: Supports pasteurization temperatures up to 85°C",
+    "Retort Processing: Special high-pressure retort film options up to 121°C",
+    "MOQ: 500 units digitally printed, 10,000 units plate printed"
+  ];
+
+  const marketMetricsVal = t(`${p}.sections.marketData.metrics`, { returnObjects: true });
+  const marketMetrics = Array.isArray(marketMetricsVal) ? marketMetricsVal : [
+    { val: "$24.2B", label: "global spout pouch market", desc: "2024 value estimate" },
+    { val: "6.8%", label: "CAGR growth rate", desc: "expected from 2024 to 2030" },
+    { val: "Baby Food", label: "highest share", desc: "represents 35% of retail pouches" },
+    { val: "Bio-PE", label: "fastest growing", desc: "sugarcane polymer adoption" }
+  ];
+
+  const faqsVal = t(`${p}.faqs`, { returnObjects: true });
+  const faqs = Array.isArray(faqsVal) ? faqsVal.map((item: any) => ({
+    question: item.question,
+    answer: item.answer
+  })) : [];
+
+  const tablesVal = t(`${p}.tables`, { returnObjects: true });
+  const tables = Array.isArray(tablesVal) ? tablesVal.map((item: any) => ({
+    title: item.title,
+    data: {
+      headers: item.headers,
+      rows: item.rows
+    }
+  })) : [];
+
   const sections = [
     {
       id: 'scenario-trigger',
@@ -51,7 +143,7 @@ const SpoutPouchesPage: React.FC = () => {
           <div className="bg-blue-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.overview.advantagesTitle`)}</h4>
             <ul className="space-y-1 text-sm">
-              {(t(`${p}.sections.overview.advantages`, { returnObjects: true }) as string[]).map((adv: string, idx: number) => (
+              {overviewAdvantages.map((adv: string, idx: number) => (
                 <li key={idx}>✓ {adv}</li>
               ))}
             </ul>
@@ -85,7 +177,7 @@ const SpoutPouchesPage: React.FC = () => {
                 pet: 'text-purple-800',
                 nonfood: 'text-blue-800'
               };
-              const items = t(`${p}.sections.applications.${key}.items`, { returnObjects: true }) as string[];
+              const items = getAppItems(key);
               return (
                 <div key={key} className={`${bgColors[key]} p-4 rounded-lg`}>
                   <h4 className={`font-semibold ${titleColors[key]} mb-2`}>
@@ -113,7 +205,7 @@ const SpoutPouchesPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg">
               <h4 className="font-semibold mb-2">{t(`${p}.sections.spoutOptions.sizes.title`)}</h4>
               <ul className="text-sm space-y-1">
-                {(t(`${p}.sections.spoutOptions.sizes.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+                {spoutSizes.map((item: string, idx: number) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -121,7 +213,7 @@ const SpoutPouchesPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg">
               <h4 className="font-semibold mb-2">{t(`${p}.sections.spoutOptions.caps.title`)}</h4>
               <ul className="text-sm space-y-1">
-                {(t(`${p}.sections.spoutOptions.caps.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+                {spoutCaps.map((item: string, idx: number) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -136,25 +228,25 @@ const SpoutPouchesPage: React.FC = () => {
                 src="/imgs/store/closure/spout.webp" 
                 alt="Spout cap for liquid and beverage packaging" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.spoutOptions.gallery`, { returnObjects: true }) as string[])[0]}
+                caption={spoutGallery[0] || ""}
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" 
                 alt="Spout pouch for baby food and beverages" 
                 className="w-full h-28 object-contain rounded-lg bg-neutral-50"
-                caption={(t(`${p}.sections.spoutOptions.gallery`, { returnObjects: true }) as string[])[1]}
+                caption={spoutGallery[1] || ""}
               />
               <ClickableImage 
                 src="/imgs/store/barrier/3-foil.webp" 
                 alt="High barrier aluminum spout pouch" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.spoutOptions.gallery`, { returnObjects: true }) as string[])[2]}
+                caption={spoutGallery[2] || ""}
               />
               <ClickableImage 
                 src="/imgs/store/surface/glossy.webp" 
                 alt="Glossy finish for premium spout pouches" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={(t(`${p}.sections.spoutOptions.gallery`, { returnObjects: true }) as string[])[3]}
+                caption={spoutGallery[3] || ""}
               />
             </div>
           </div>
@@ -193,7 +285,7 @@ const SpoutPouchesPage: React.FC = () => {
               <div className="bg-green-100 p-4 rounded-lg">
                 <h5 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.ecoMaterials.eco.bio.title`)}</h5>
                 <ul className="text-sm text-green-700 space-y-1">
-                  {(t(`${p}.sections.ecoMaterials.eco.bio.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+                  {bioItems.map((item: string, idx: number) => (
                     <li key={idx}>• {item}</li>
                   ))}
                 </ul>
@@ -202,7 +294,7 @@ const SpoutPouchesPage: React.FC = () => {
               <div className="bg-purple-100 p-4 rounded-lg">
                 <h5 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.ecoMaterials.eco.pcr.title`)}</h5>
                 <ul className="text-sm text-purple-700 space-y-1">
-                  {(t(`${p}.sections.ecoMaterials.eco.pcr.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+                  {pcrItems.map((item: string, idx: number) => (
                     <li key={idx}>• {item}</li>
                   ))}
                 </ul>
@@ -225,7 +317,7 @@ const SpoutPouchesPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-neutral-50 p-4 rounded-lg">
             <ul className="space-y-2 text-sm">
-              {(t(`${p}.sections.specifications.items`, { returnObjects: true }) as string[]).map((spec: string, idx: number) => (
+              {specItems.map((spec: string, idx: number) => (
                 <li key={idx}>✓ {spec}</li>
               ))}
             </ul>
@@ -344,7 +436,7 @@ const SpoutPouchesPage: React.FC = () => {
               </div>
               <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.scenarioTrigger.baby.desc`)}</p>
               <ul className="text-xs text-neutral-500 space-y-1">
-                {(t(`${p}.sections.applications.baby.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {getAppItems('baby').map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -356,7 +448,7 @@ const SpoutPouchesPage: React.FC = () => {
               </div>
               <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.scenarioTrigger.sauce.desc`)}</p>
               <ul className="text-xs text-neutral-500 space-y-1">
-                {(t(`${p}.sections.applications.sauce.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {getAppItems('sauce').map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -368,7 +460,7 @@ const SpoutPouchesPage: React.FC = () => {
               </div>
               <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.scenarioTrigger.beverage.desc`)}</p>
               <ul className="text-xs text-neutral-500 space-y-1">
-                {(t(`${p}.sections.applications.beverage.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {getAppItems('beverage').map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -391,7 +483,7 @@ const SpoutPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <div className="grid md:grid-cols-4 gap-4">
-            {(t(`${p}.sections.marketData.metrics`, { returnObjects: true }) as any[]).map((metric, idx) => (
+            {marketMetrics.map((metric, idx) => (
               <div key={idx} className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
                 <div className="text-3xl font-bold">{metric.val}</div>
                 <div className="text-sm opacity-90">{metric.label}</div>
@@ -463,8 +555,7 @@ const SpoutPouchesPage: React.FC = () => {
     }
   ]
 
-  const faqs = (t(`${p}.faqs`, { returnObjects: true }) as any[]) || []
-  const tables = (t(`${p}.tables`, { returnObjects: true }) as any[]) || []
+  // variables faqs and tables are declared at the top now!
 
   const relatedLinks = [
     { title: "Shop Spout Pouches", url: "/store", description: "Browse liquid packaging - MOQ from 500 pieces" },

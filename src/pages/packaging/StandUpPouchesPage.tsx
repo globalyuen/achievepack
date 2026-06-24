@@ -17,6 +17,61 @@ const StandUpPouchesPage: React.FC = () => {
 
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
 
+  // Safe array fallbacks to prevent runtime crashes
+  const b2cHeadersVal = t(`${p}.b2c.table.headers`, { returnObjects: true });
+  const b2cHeaders = Array.isArray(b2cHeadersVal) ? b2cHeadersVal : [
+    "Size (W x H + G)", "Volumetric Capacity", "Barrier Performance", "Best Application"
+  ];
+
+  const b2cRowsVal = t(`${p}.b2c.table.rows`, { returnObjects: true });
+  const b2cRows = Array.isArray(b2cRowsVal) ? b2cRowsVal : [
+    ["70 x 110 + 40mm", "20g - 50g", "OTR & WVTR < 1.0", "DTC single-serve samples, gourmet spice pods, cosmetic powder sachets"],
+    ["100 x 150 + 60mm", "50g - 100g", "OTR & WVTR < 1.0", "Organic tea leaf bundles, visual candy displays, premium pet treats"],
+    ["120 x 200 + 80mm", "100g - 250g", "OTR & WVTR < 0.5", "Specialty coffee beans with degassing valve, loose granola, protein chips"],
+    ["150 x 230 + 90mm", "250g - 500g", "OTR & WVTR < 0.5", "Bulk snack bags, raw superfoods, powdered ingredients, supplement pouches"],
+    ["180 x 280 + 100mm", "500g - 1kg", "OTR & WVTR < 0.1", "Professional wholesale kibble pet food, premium retail bath salts, bulk seeds"]
+  ];
+
+  const b2cFaqsVal = t(`${p}.b2c.faqs`, { returnObjects: true });
+  const b2cFaqs = Array.isArray(b2cFaqsVal) ? b2cFaqsVal : [
+    { question: 'Are stand-up pouches really compostable or recyclable?', answer: 'Yes! We offer two distinct eco paths. Our compostable pouches feature BPI and TÜV certified bio-films (like plant-starch PLA and NatureFlex wood pulp) that safely decompose in 90-180 days under organic conditions. Our recyclable pouches use mono-material PE or PP structures that are fully compatible with store drop-off and standard circular recycling lines.' },
+    { question: 'Will these pouches keep our dry food or coffee fresh?', answer: 'Absolutely. We apply high-barrier barrier films providing OTR & WVTR under 1.0 (some metallized cellulose stacks drop below 0.1). Combined with our certified one-way degassing valves, your product is protected from oxidation and moisture ingress for up to 12 months.' },
+    { question: 'What bottom gusset formats do you support?', answer: 'We support standard round bottom gussets for light products, K-seal diagonal bases that push heavy loads outwards for maximum standing structure, and plow bottom gussets for single-source continuous rolls.' },
+    { question: 'Do you offer custom sizes and shape tooling?', answer: 'Yes. Beyond standard sizes (from 20g to 5kg), we build custom dielines down to the millimeter scale. We also manufacture custom shapes (like round flasks or bottle shapes) with custom die-cut tooling to give your DTC brand unique shelf presence.' }
+  ];
+
+  const overviewKpisVal = t(`${p}.sections.overview.kpis`, { returnObjects: true });
+  const overviewKpis = Array.isArray(overviewKpisVal) ? overviewKpisVal : [
+    "75% Lighter Footprint – Drastically reduces warehousing storage space and long-haul shipping emissions vs glass jars or metal tins.",
+    "360° Branding Real Estate – Full-width digital layout coverage printed with certified soy-based plant inks.",
+    "Resealable Integration – Durable zip locks and sliders that prevent product shelf degradation.",
+    "Automatic Line Compatibility – Engineered roll width tolerance allowing seamless integration on auto VFFS/HFFS lines."
+  ];
+
+  const specTableRowsVal = t(`${p}.sections.specifications.tableRows`, { returnObjects: true });
+  const specTableRows = Array.isArray(specTableRowsVal) ? specTableRowsVal : [
+    ["Barrier Layer", "NatureFlex™ MetCellulose or Recyclable EVOH (OTR < 1.0, WVTR < 1.0)", "Creates an absolute gas and water lock, preserving coffee aroma, snack crispness, and powder integrity for 12+ months."],
+    ["Dimensions & Base", "Bespoke Millimeter Dielines (70-300mm width, plow/oval/K-seal gusset bases)", "Calibrated to volumetric density blueprint, preventing bottom seal rupture and ensuring flawless standing structure."],
+    ["Sealing Strength", "Seal strength > 35 N/15mm (engineered low-temp PBAT/Mono-PE seal resins)", "Guarantees zero burst leakage under high-pressure automated packing lines operating up to **65 bags per minute**."],
+    ["Export Packaging", "Triple-layer double-wall export carton containing secondary moisture barriers", "Protects rollstock and finished bags against ocean-humidity degradation and high-stack shipping box damage."]
+  ];
+
+  const faqsVal = t(`${p}.faqs`, { returnObjects: true });
+  const faqs = Array.isArray(faqsVal) ? faqsVal.map((item: any) => ({
+    question: item.question,
+    answer: item.answer
+  })) : [];
+
+  const tablesVal = t(`${p}.tables`, { returnObjects: true });
+  const tables = Array.isArray(tablesVal) ? tablesVal.map((item: any) => ({
+    title: item.title,
+    data: {
+      headers: item.headers,
+      rows: item.rows
+    }
+  })) : [];
+
+
   const supPhotoGallery = [
     { 
       src: '/imgs/pouch-shape/achieve-pack-sup-hero.png', 
@@ -193,21 +248,13 @@ const StandUpPouchesPage: React.FC = () => {
                 <table className="w-full font-['JetBrains_Mono'] text-left border-collapse text-xs md:text-sm">
                   <thead>
                     <tr className="bg-black text-[#D4FF00] border-b-4 border-black">
-                      {((t(`${p}.b2c.table.headers`, { returnObjects: true }) as string[]) || [
-                        "Size (W x H + G)", "Volumetric Capacity", "Barrier Performance", "Best Application"
-                      ]).map((h, i) => (
+                      {b2cHeaders.map((h, i) => (
                         <th key={i} className="border-2 border-black p-4 font-black uppercase">{h}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
-                    {((t(`${p}.b2c.table.rows`, { returnObjects: true }) as string[][]) || [
-                      ["70 x 110 + 40mm", "20g - 50g", "OTR & WVTR < 1.0", "DTC single-serve samples, gourmet spice pods, cosmetic powder sachets"],
-                      ["100 x 150 + 60mm", "50g - 100g", "OTR & WVTR < 1.0", "Organic tea leaf bundles, visual candy displays, premium pet treats"],
-                      ["120 x 200 + 80mm", "100g - 250g", "OTR & WVTR < 0.5", "Specialty coffee beans with degassing valve, loose granola, protein chips"],
-                      ["150 x 230 + 90mm", "250g - 500g", "OTR & WVTR < 0.5", "Bulk snack bags, raw superfoods, powdered ingredients, supplement pouches"],
-                      ["180 x 280 + 100mm", "500g - 1kg", "OTR & WVTR < 0.1", "Professional wholesale kibble pet food, premium retail bath salts, bulk seeds"]
-                    ]).map((row, idx) => (
+                    {b2cRows.map((row, idx) => (
                       <tr key={idx} className={idx % 2 === 1 ? "bg-neutral-50/50" : ""}>
                         <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">{row[0]}</td>
                         <td className="border-2 border-black p-4 text-black font-semibold">{row[1]}</td>
@@ -253,9 +300,7 @@ const StandUpPouchesPage: React.FC = () => {
               {t(`${p}.b2c.bento.title`).includes('PERFORMANCE') ? 'FREQUENTLY ASKED QUESTIONS' : '常問問題'}
             </h2>
             <div className="space-y-6">
-              {((t(`${p}.b2c.faqs`, { returnObjects: true }) as { question: string, answer: string }[]) || [
-                { question: 'Are stand-up pouches really compostable or recyclable?', answer: 'Yes! We offer two distinct eco paths...' }
-              ]).map((item, idx) => (
+              {b2cFaqs.map((item, idx) => (
                 <NeoCard key={idx} color="bg-[#F0F0F0]/50" className="border-4">
                   <h3 className="font-black text-lg mb-2 uppercase">{item.question}</h3>
                   <p className="font-['JetBrains_Mono'] text-sm text-neutral-700 leading-relaxed">{item.answer}</p>
@@ -327,7 +372,7 @@ const StandUpPouchesPage: React.FC = () => {
             <div>
               <h4 className="font-bold text-primary-800 text-lg mb-2">{t(`${p}.sections.overview.kpisTitle`)}</h4>
               <ul className="space-y-2 text-sm leading-relaxed">
-                {((t(`${p}.sections.overview.kpis`, { returnObjects: true }) as string[]) || []).map((kpi, idx) => (
+                {overviewKpis.map((kpi, idx) => (
                   <li key={idx}>• {kpi}</li>
                 ))}
               </ul>
@@ -362,12 +407,7 @@ const StandUpPouchesPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-200">
-                {((t(`${p}.sections.specifications.tableRows`, { returnObjects: true }) as string[][]) || [
-                  ["Barrier Layer", "NatureFlex™ MetCellulose or Recyclable EVOH (OTR < 1.0, WVTR < 1.0)", "Creates an absolute gas and water lock, preserving coffee aroma, snack crispness, and powder integrity for 12+ months."],
-                  ["Dimensions & Base", "Bespoke Millimeter Dielines (70-300mm width, plow/oval/K-seal gusset bases)", "Calibrated to volumetric density blueprint, preventing bottom seal rupture and ensuring flawless standing structure."],
-                  ["Sealing Strength", "Seal strength > 35 N/15mm (engineered low-temp PBAT/Mono-PE seal resins)", "Guarantees zero burst leakage under high-pressure automated packing lines operating up to **65 bags per minute**."],
-                  ["Export Packaging", "Triple-layer double-wall export carton containing secondary moisture barriers", "Protects rollstock and finished bags against ocean-humidity degradation and high-stack shipping box damage."]
-                ]).map((row, idx) => (
+                {specTableRows.map((row, idx) => (
                   <tr key={idx} className={idx % 2 === 1 ? "bg-neutral-50" : ""}>
                     <td className="p-3 font-semibold text-neutral-900">{row[0]}</td>
                     <td className="p-3">{row[1]}</td>
@@ -462,18 +502,7 @@ const StandUpPouchesPage: React.FC = () => {
     }
   ]
 
-  const faqs = ((t(`${p}.faqs`, { returnObjects: true }) as { question: string, answer: string }[]) || []).map(item => ({
-    question: item.question,
-    answer: item.answer
-  }))
-
-  const tables = ((t(`${p}.tables`, { returnObjects: true }) as { title: string, headers: string[], rows: string[][] }[]) || []).map(item => ({
-    title: item.title,
-    data: {
-      headers: item.headers,
-      rows: item.rows
-    }
-  }))
+  // variables faqs and tables are declared at the top now!
 
   const relatedLinks = [
     { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Stable 5-panel box-gusset alternative" },

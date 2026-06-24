@@ -1254,13 +1254,13 @@ function App() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 text-xs font-semibold uppercase tracking-wider mb-4 border border-emerald-500/20">
               <Sparkles className="h-3.5 w-3.5" />
-              <span>{t("seoPages.pages.achievePackHome.interactive3d.badge", "Interactive 3D Experience")}</span>
+              <span>{t("achievePackHome.interactive3d.badge", "Interactive 3D Experience")}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tight leading-tight">
-              {t("seoPages.pages.achievePackHome.interactive3d.title", "Eco Packaging Reimagined in 3D")}
+              {t("achievePackHome.interactive3d.title", "Eco Packaging Reimagined in 3D")}
             </h2>
             <p className="text-lg text-neutral-600 mt-4 leading-relaxed">
-              {t("seoPages.pages.achievePackHome.interactive3d.desc", "Explore the tactile geometry and sustainable structure of our premium certified pouches. Move your mouse to tilt, scroll to rotate, or toggle the models below to inspect detailed laminations.")}
+              {t("achievePackHome.interactive3d.desc", "Explore the tactile geometry and sustainable structure of our premium certified pouches. Move your mouse to tilt, scroll to rotate, or toggle the models below to inspect detailed laminations.")}
             </p>
           </div>
 

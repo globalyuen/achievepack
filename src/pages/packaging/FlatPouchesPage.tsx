@@ -10,6 +10,93 @@ const FlatPouchesPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.flatPouches'
+  // Safe array fallbacks to prevent runtime crashes
+  const overviewAdvantagesVal = t(`${p}.sections.overview.advantages`, { returnObjects: true });
+  const overviewAdvantages = Array.isArray(overviewAdvantagesVal) ? overviewAdvantagesVal : [
+    "Perfect for single-serve samples and hotel amenities",
+    "Extremely cost-effective packaging with minimum material waste",
+    "Excellent barrier properties for powder and liquid sifting",
+    "High-speed packing line compatibility"
+  ];
+
+  const seal3ItemsVal = t(`${p}.sections.types.seal3.items`, { returnObjects: true });
+  const seal3Items = Array.isArray(seal3ItemsVal) ? seal3ItemsVal : [
+    "Classic sachet format sealed on three sides",
+    "Allows top or bottom filling depending on machinery",
+    "Standard choice for coffee stirrers, yeast, spices",
+    "Higher volume capacity than 4-side seal of same width"
+  ];
+
+  const seal4ItemsVal = t(`${p}.sections.types.seal4.items`, { returnObjects: true });
+  const seal4Items = Array.isArray(seal4ItemsVal) ? seal4ItemsVal : [
+    "Sealed on all four edges for flat look",
+    "Extremely uniform shape, perfect for display cartons",
+    "High structural integrity for liquid gels and creams",
+    "Provides airtight perimeter security"
+  ];
+
+  const applicationsItemsVal = t(`${p}.sections.applications.items`, { returnObjects: true });
+  const applicationsItems = Array.isArray(applicationsItemsVal) ? applicationsItemsVal : [
+    "Spices & seasoning packets",
+    "Instant coffee & tea sachets",
+    "Pharmaceutical powders",
+    "Cosmetic cream & gel samples",
+    "Hotel soap & shampoo amenities",
+    "Nutritional supplement powders"
+  ];
+
+  const openingItemsVal = t(`${p}.sections.features.opening.items`, { returnObjects: true });
+  const openingItems = Array.isArray(openingItemsVal) ? openingItemsVal : [
+    "Laser scoring for straight tear lines",
+    "V-shaped or round tear notches for easy access",
+    "Reclosable zipper options for larger flat bags"
+  ];
+
+  const additionalItemsVal = t(`${p}.sections.features.additional.items`, { returnObjects: true });
+  const additionalItems = Array.isArray(additionalItemsVal) ? additionalItemsVal : [
+    "Round or Euro hang holes for retail rack display",
+    "Rounded corners to prevent finger scrapes",
+    "Clear front window to showcase dry ingredients"
+  ];
+
+  const marketMetricsVal = t(`${p}.sections.marketData.metrics`, { returnObjects: true });
+  const marketMetrics = Array.isArray(marketMetricsVal) ? marketMetricsVal : [
+    { val: "$8.2B", label: "global sachet packaging market", desc: "2024 value" },
+    { val: "5.5%", label: "CAGR", desc: "2024-2030" },
+    { val: "Single-serve", label: "highest demand", desc: "driven by portion control trends" },
+    { val: "Paper", label: "fastest growing material", desc: "as plastic alternatives emerge" }
+  ];
+
+  const marketTrendsVal = t(`${p}.sections.marketData.trends`, { returnObjects: true });
+  const marketTrends = Array.isArray(marketTrendsVal) ? marketTrendsVal : [
+    "Portion control: Consumers seeking pre-measured single servings for active lifestyles",
+    "Hotel eco-amenities: Global transition to paper-based plastic-free sachets",
+    "E-commerce sampling: Direct mail cosmetic sachet samples increasing brand trial",
+    "Recyclability: Rise of mono-material PE sachets that enter soft-plastic streams"
+  ];
+
+  const materialComparisonTableRowsVal = t(`${p}.sections.materialComparison.tableRows`, { returnObjects: true });
+  const materialComparisonTableRows = Array.isArray(materialComparisonTableRowsVal) ? materialComparisonTableRowsVal : [
+    ["PET/PE Clear", "⭐⭐模", "💰", "Recyclable", "Sugar packets, dry foods"],
+    ["Aluminum Foil Laminate", "⭐⭐⭐⭐⭐", "💰💰", "Hard to recycle", "Sauces, pharmaceuticals"],
+    ["Kraft Paper Laminate", "⭐⭐⭐", "💰💰", "Natural look", "Tea bags, spices"],
+    ["PLA Compostable", "⭐⭐", "💰💰💰", "🌱 Compostable", "Organic foods, samples"]
+  ];
+
+  const faqsVal = t(`${p}.faqs`, { returnObjects: true });
+  const faqs = Array.isArray(faqsVal) ? faqsVal.map((item: any) => ({
+    question: item.question,
+    answer: item.answer
+  })) : [];
+
+  const tablesVal = t(`${p}.tables`, { returnObjects: true });
+  const tables = Array.isArray(tablesVal) ? tablesVal.map((item: any) => ({
+    title: item.title,
+    data: {
+      headers: item.headers,
+      rows: item.rows
+    }
+  })) : [];
 
   const sections = [
     {
@@ -50,7 +137,7 @@ const FlatPouchesPage: React.FC = () => {
           <div className="bg-primary-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.overview.advantagesTitle`)}</h4>
             <ul className="space-y-1 text-sm">
-              {((t(`${p}.sections.overview.advantages`, { returnObjects: true }) as string[]) || []).map((adv, idx) => (
+              {overviewAdvantages.map((adv, idx) => (
                 <li key={idx}>✓ {adv}</li>
               ))}
             </ul>
@@ -69,7 +156,7 @@ const FlatPouchesPage: React.FC = () => {
               <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.types.seal3.title`)}</h4>
               <p className="text-sm mb-2">{t(`${p}.sections.types.seal3.desc`)}</p>
               <ul className="text-sm space-y-1">
-                {((t(`${p}.sections.types.seal3.items`, { returnObjects: true }) as string[]) || []).map((item, idx) => (
+                {seal3Items.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -78,7 +165,7 @@ const FlatPouchesPage: React.FC = () => {
               <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.types.seal4.title`)}</h4>
               <p className="text-sm mb-2">{t(`${p}.sections.types.seal4.desc`)}</p>
               <ul className="text-sm space-y-1">
-                {((t(`${p}.sections.types.seal4.items`, { returnObjects: true }) as string[]) || []).map((item, idx) => (
+                {seal4Items.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -94,7 +181,7 @@ const FlatPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {((t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]) || []).map((item, idx) => (
+            {applicationsItems.map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-neutral-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-primary-500 flex-shrink-0" />
                 <span className="text-sm">{item}</span>
@@ -114,7 +201,7 @@ const FlatPouchesPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg">
               <h4 className="font-semibold mb-2">{t(`${p}.sections.features.opening.title`)}</h4>
               <ul className="text-sm space-y-1">
-                {((t(`${p}.sections.features.opening.items`, { returnObjects: true }) as string[]) || []).map((item, idx) => (
+                {openingItems.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -122,7 +209,7 @@ const FlatPouchesPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg">
               <h4 className="font-semibold mb-2">{t(`${p}.sections.features.additional.title`)}</h4>
               <ul className="text-sm space-y-1">
-                {((t(`${p}.sections.features.additional.items`, { returnObjects: true }) as string[]) || []).map((item, idx) => (
+                {additionalItems.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -137,25 +224,25 @@ const FlatPouchesPage: React.FC = () => {
                 src="/imgs/store/pouch shape/3-side.webp" 
                 alt="Three side seal flat pouch sachet" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={t(`${p}.sections.features.gallery.0`)}
+                caption={t(`${p}.sections.features.gallery.0`) || ""}
               />
               <ClickableImage 
                 src="/imgs/store/barrier/2-clear.webp" 
                 alt="Clear flat pouch for product visibility" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={t(`${p}.sections.features.gallery.1`)}
+                caption={t(`${p}.sections.features.gallery.1`) || ""}
               />
               <ClickableImage 
                 src="/imgs/store/barrier/2-paper.webp" 
                 alt="Kraft paper flat sachet eco-friendly" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={t(`${p}.sections.features.gallery.2`)}
+                caption={t(`${p}.sections.features.gallery.2`) || ""}
               />
               <ClickableImage 
                 src="/imgs/store/eco-material/compostable.webp" 
                 alt="Compostable flat pouch sachet" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption={t(`${p}.sections.features.gallery.3`)}
+                caption={t(`${p}.sections.features.gallery.3`) || ""}
               />
             </div>
           </div>
@@ -288,7 +375,7 @@ const FlatPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {((t(`${p}.sections.marketData.metrics`, { returnObjects: true }) as { val: string, label: string, desc: string }[]) || []).map((m, idx) => {
+            {marketMetrics.map((m, idx) => {
               const colors = [
                 'from-primary-500 to-primary-600',
                 'from-green-500 to-green-600',
@@ -307,7 +394,7 @@ const FlatPouchesPage: React.FC = () => {
           <div className="bg-neutral-50 p-4 rounded-lg">
             <h4 className="font-semibold text-neutral-900 mb-3">{t(`${p}.sections.marketData.trendTitle`)}</h4>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
-              {((t(`${p}.sections.marketData.trends`, { returnObjects: true }) as string[]) || []).map((trend, idx) => {
+              {marketTrends.map((trend, idx) => {
                 const delimiter = trend.includes('：') ? '：' : ':';
                 const parts = trend.split(delimiter);
                 const title = parts[0];
@@ -342,12 +429,7 @@ const FlatPouchesPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {((t(`${p}.sections.materialComparison.tableRows`, { returnObjects: true }) as string[][]) || [
-                  ["PET/PE Clear", "⭐⭐模", "💰", "Recyclable", "Sugar packets, dry foods"],
-                  ["Aluminum Foil Laminate", "⭐⭐⭐⭐⭐", "💰💰", "Hard to recycle", "Sauces, pharmaceuticals"],
-                  ["Kraft Paper Laminate", "⭐⭐⭐", "💰💰", "Natural look", "Tea bags, spices"],
-                  ["PLA Compostable", "⭐⭐", "💰💰💰", "🌱 Compostable", "Organic foods, samples"]
-                ]).map((row, rIdx) => {
+                {materialComparisonTableRows.map((row, rIdx) => {
                   const bgClass = rIdx % 2 === 1 ? 'bg-neutral-50' : '';
                   const isGreen = row[3]?.includes('Compostable') || row[3]?.includes('可降解') || row[3]?.includes('biodégradable') || row[3]?.includes('Biodegradable');
                   return (
@@ -372,18 +454,7 @@ const FlatPouchesPage: React.FC = () => {
     }
   ]
 
-  const faqs = ((t(`${p}.faqs`, { returnObjects: true }) as { question: string, answer: string }[]) || []).map(item => ({
-    question: item.question,
-    answer: item.answer
-  }))
-
-  const tables = ((t(`${p}.tables`, { returnObjects: true }) as { title: string, headers: string[], rows: string[][] }[]) || []).map(item => ({
-    title: item.title,
-    data: {
-      headers: item.headers,
-      rows: item.rows
-    }
-  }))
+  // variables faqs and tables are declared at the top now!
 
   const relatedLinks = [
     { title: "Stand-Up Pouches", url: "/packaging/stand-up-pouches", description: "Self-standing alternative" },

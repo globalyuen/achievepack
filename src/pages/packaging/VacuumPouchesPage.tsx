@@ -6,6 +6,123 @@ import { useTranslation } from 'react-i18next'
 const VacuumPouchesPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.vacuumPouches'
+
+  const rawBenefits = t(`${p}.sections.overview.benefits`, { returnObjects: true })
+  const benefits = Array.isArray(rawBenefits) ? rawBenefits : [
+    "Extended shelf life (3-5x longer than standard)",
+    "Prevents oxidation and freezer burn",
+    "Maintains product freshness and quality",
+    "Reduces food waste",
+    "Sous vide cooking compatible"
+  ]
+
+  const rawMeatItems = t(`${p}.sections.applications.meat.items`, { returnObjects: true })
+  const meatItems = Array.isArray(rawMeatItems) ? rawMeatItems : [
+    "Fresh cuts",
+    "Cured meats",
+    "Processed meats",
+    "Deli products"
+  ]
+
+  const rawSeafoodItems = t(`${p}.sections.applications.seafood.items`, { returnObjects: true })
+  const seafoodItems = Array.isArray(rawSeafoodItems) ? rawSeafoodItems : [
+    "Fresh fish",
+    "Smoked salmon",
+    "Shellfish",
+    "Frozen seafood"
+  ]
+
+  const rawCheeseItems = t(`${p}.sections.applications.cheese.items`, { returnObjects: true })
+  const cheeseItems = Array.isArray(rawCheeseItems) ? rawCheeseItems : [
+    "Block cheese",
+    "Sliced cheese",
+    "Specialty cheese",
+    "Butter"
+  ]
+
+  const rawMealsItems = t(`${p}.sections.applications.meals.items`, { returnObjects: true })
+  const mealsItems = Array.isArray(rawMealsItems) ? rawMealsItems : [
+    "Sous vide meals",
+    "Meal kits",
+    "Pre-cooked proteins",
+    "Marinated items"
+  ]
+
+  const rawCoffeeItems = t(`${p}.sections.applications.coffee.items`, { returnObjects: true })
+  const coffeeItems = Array.isArray(rawCoffeeItems) ? rawCoffeeItems : [
+    "Roasted beans",
+    "Ground coffee",
+    "Single origins",
+    "Specialty blends"
+  ]
+
+  const rawNonfoodItems = t(`${p}.sections.applications.nonfood.items`, { returnObjects: true })
+  const nonfoodItems = Array.isArray(rawNonfoodItems) ? rawNonfoodItems : [
+    "Electronics",
+    "Medical devices",
+    "Pharmaceuticals",
+    "Archival storage"
+  ]
+
+  const rawSpecItems = t(`${p}.sections.specifications.items`, { returnObjects: true })
+  const specItems = Array.isArray(rawSpecItems) ? rawSpecItems : [
+    "Material: PA/PE (Nylon/Polyethylene) multi-layer",
+    "Thickness: 70-150 microns",
+    "OTR: <1.0 cc/m²/24hr (oxygen transmission)",
+    "MVTR: <2.0 g/m²/24hr (moisture transmission)",
+    "Seal strength: >25 N/15mm",
+    "Puncture resistance: High (for bone-in products)"
+  ]
+
+  const rawMetrics = t(`${p}.sections.marketData.metrics`, { returnObjects: true })
+  const metrics: any[] = Array.isArray(rawMetrics) ? rawMetrics : [
+    { val: "$5.8B", label: "global vacuum packaging", desc: "2024 value" },
+    { val: "5.2%", label: "CAGR", desc: "2024-2030" },
+    { val: "Meat & seafood", label: "largest sector", desc: "over 50% market share" },
+    { val: "70%", label: "PA/PE co-extruded share", desc: "industry standard material" }
+  ]
+
+  const rawFaqs = t(`${p}.faqs`, { returnObjects: true })
+  const faqs = Array.isArray(rawFaqs) ? rawFaqs : [
+    {
+      question: "What is the difference between smooth and embossed vacuum pouches?",
+      answer: "Smooth vacuum pouches are used in chamber vacuum machines, where air pressure is equalized inside the chamber. Embossed/textured pouches have tiny channels that allow external suction sealers (like FoodSaver) to draw air out of the bag."
+    },
+    {
+      question: "Can vacuum pouches be boiled or heated?",
+      answer: "Yes, we manufacture food-grade PA/PE sous vide vacuum pouches designed to withstand boiling and immersion cooking up to 100°C. For autoclave sterilization (retort), we use special PA/PP structures rated up to 121°C."
+    },
+    {
+      question: "What thickness vacuum pouches do I need?",
+      answer: "70 to 90 microns is standard for soft foods, cheeses, and boneless meats. For bone-in meats, jerky, or hard items, we recommend 120 to 150 microns to prevent punctures."
+    },
+    {
+      question: "What is your minimum order for custom printed vacuum bags?",
+      answer: "Our MOQ for custom printed vacuum bags is 1,000 units. Plain, unprinted vacuum pouches are kept in stock and can be ordered from 500 units."
+    }
+  ]
+
+  const rawTables = t(`${p}.tables`, { returnObjects: true })
+  const tables = (Array.isArray(rawTables) ? rawTables : [
+    {
+      title: "Vacuum Pouch Size Matrix",
+      headers: ["Size", "Dimensions (W x H)", "Thickness", "Common Use"],
+      rows: [
+        ["Small Pouch", "150 × 200mm", "80 microns", "Single-portion cheese, deli meats"],
+        ["Medium Pouch", "200 × 300mm", "80/90 microns", "Steaks, fish fillets, pre-cut cheese"],
+        ["Large Pouch", "250 × 350mm", "100 microns", "Whole chicken, large fish portions"],
+        ["Bone-in Pouch", "200 × 300mm", "120/150 microns", "Ribs, bone-in pork chops, hard foods"],
+        ["Bulk Pouch", "300 × 450mm", "120 microns", "Wholesale food service portions"]
+      ]
+    }
+  ]).map((tb: any) => ({
+    title: tb?.title || '',
+    data: {
+      headers: Array.isArray(tb?.headers) ? tb.headers : [],
+      rows: Array.isArray(tb?.rows) ? tb.rows : []
+    }
+  }))
+
   const sections = [
     {
       id: 'overview',
@@ -19,7 +136,7 @@ const VacuumPouchesPage: React.FC = () => {
           <div className="bg-primary-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.overview.benefitsTitle`)}</h4>
             <ul className="space-y-1 text-sm">
-              {(t(`${p}.sections.overview.benefits`, { returnObjects: true }) as string[]).map((benefit, idx) => (
+              {benefits.map((benefit, idx) => (
                 <li key={idx}>✓ {benefit}</li>
               ))}
             </ul>
@@ -37,7 +154,7 @@ const VacuumPouchesPage: React.FC = () => {
             <div className="bg-red-50 p-4 rounded-lg">
               <h4 className="font-semibold text-red-800 mb-2">{t(`${p}.sections.applications.meat.title`)}</h4>
               <ul className="text-sm space-y-1 text-red-700">
-                {(t(`${p}.sections.applications.meat.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {meatItems.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -45,7 +162,7 @@ const VacuumPouchesPage: React.FC = () => {
             <div className="bg-blue-50 p-4 rounded-lg">
               <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.applications.seafood.title`)}</h4>
               <ul className="text-sm space-y-1 text-blue-700">
-                {(t(`${p}.sections.applications.seafood.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {seafoodItems.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -53,7 +170,7 @@ const VacuumPouchesPage: React.FC = () => {
             <div className="bg-yellow-50 p-4 rounded-lg">
               <h4 className="font-semibold text-yellow-800 mb-2">{t(`${p}.sections.applications.cheese.title`)}</h4>
               <ul className="text-sm space-y-1 text-yellow-700">
-                {(t(`${p}.sections.applications.cheese.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {cheeseItems.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -61,7 +178,7 @@ const VacuumPouchesPage: React.FC = () => {
             <div className="bg-green-50 p-4 rounded-lg">
               <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.applications.meals.title`)}</h4>
               <ul className="text-sm space-y-1 text-green-700">
-                {(t(`${p}.sections.applications.meals.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {mealsItems.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -69,7 +186,7 @@ const VacuumPouchesPage: React.FC = () => {
             <div className="bg-purple-50 p-4 rounded-lg">
               <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.applications.coffee.title`)}</h4>
               <ul className="text-sm space-y-1 text-purple-700">
-                {(t(`${p}.sections.applications.coffee.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {coffeeItems.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -77,7 +194,7 @@ const VacuumPouchesPage: React.FC = () => {
             <div className="bg-amber-50 p-4 rounded-lg">
               <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.applications.nonfood.title`)}</h4>
               <ul className="text-sm space-y-1 text-amber-700">
-                {(t(`${p}.sections.applications.nonfood.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                {nonfoodItems.map((item, idx) => (
                   <li key={idx}>• {item}</li>
                 ))}
               </ul>
@@ -121,7 +238,7 @@ const VacuumPouchesPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-neutral-50 p-4 rounded-lg">
             <ul className="space-y-2 text-sm">
-              {(t(`${p}.sections.specifications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+              {specItems.map((item, idx) => (
                 <li key={idx}>✓ {item}</li>
               ))}
             </ul>
@@ -176,11 +293,11 @@ const VacuumPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {(t(`${p}.sections.marketData.metrics`, { returnObjects: true }) as any[]).map((metric, idx) => (
+            {metrics.map((metric, idx) => (
               <div key={idx} className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
-                <div className="text-3xl font-bold">{metric.val}</div>
-                <div className="text-sm opacity-90">{metric.label}</div>
-                <div className="text-xs opacity-75 mt-1">{metric.desc}</div>
+                <div className="text-3xl font-bold">{metric?.val || ''}</div>
+                <div className="text-sm opacity-90">{metric?.label || ''}</div>
+                <div className="text-xs opacity-75 mt-1">{metric?.desc || ''}</div>
               </div>
             ))}
           </div>
@@ -240,15 +357,6 @@ const VacuumPouchesPage: React.FC = () => {
       )
     }
   ]
-
-  const faqs = (t(`${p}.faqs`, { returnObjects: true }) as any[]) || []
-  const tables = ((t(`${p}.tables`, { returnObjects: true }) as any[]) || []).map((t) => ({
-    title: t.title,
-    data: {
-      headers: t.headers,
-      rows: t.rows
-    }
-  }))
 
   const relatedLinks = [
     { title: "Frozen Food Packaging", url: "/industry/frozen-food", description: "Solutions for frozen products" },

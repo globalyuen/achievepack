@@ -6,6 +6,43 @@ import { useTranslation } from 'react-i18next'
 const SideGussetBagsPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.sideGussetBags'
+  // Safe array fallbacks to prevent runtime crashes
+  const applicationsItemsVal = t(`${p}.sections.applications.items`, { returnObjects: true });
+  const applicationsItems = Array.isArray(applicationsItemsVal) ? applicationsItemsVal : [
+    "Specialty Coffee Beans",
+    "Loose Leaf Tea",
+    "Organic Pet Food & Treats",
+    "Artisan Protein Powders & Nutrition",
+    "Gourmet Cookies & Bakery Items",
+    "Bulk Ingredients & Powders"
+  ];
+
+  const faqsVal = t(`${p}.faqs`, { returnObjects: true });
+  const faqs = Array.isArray(faqsVal) ? faqsVal.map((item: any) => ({
+    question: item.question,
+    answer: item.answer
+  })) : [];
+
+  const tablesVal = t(`${p}.tables`, { returnObjects: true });
+  const tables = Array.isArray(tablesVal) ? tablesVal.map((item: any) => ({
+    title: item.title,
+    data: {
+      headers: item.headers,
+      rows: item.rows
+    }
+  })) : [];
+
+  const relatedLinksVal = t(`${p}.relatedLinks`, { returnObjects: true });
+  const relatedLinks = Array.isArray(relatedLinksVal) ? relatedLinksVal : [
+    { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box pouch alternative" },
+    { title: "Stand-Up Pouches", url: "/packaging/stand-up-pouches", description: "Classic shelf-standing pouches" },
+    { title: "Coffee & Tea Solutions", url: "/industry/coffee-tea", description: "Packaging with degassing valves" }
+  ];
+
+  const metaKeywordsVal = t(`${p}.metaKeywords`, { returnObjects: true });
+  const metaKeywords = Array.isArray(metaKeywordsVal) ? metaKeywordsVal : [
+    "side gusset bags", "quad seal bags", "coffee packaging", "expandable side gusset", "achieve pack side gusset"
+  ];
 
   const sections = [
     {
@@ -66,7 +103,7 @@ const SideGussetBagsPage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+            {applicationsItems.map((item, idx) => (
               <div key={idx} className="bg-primary-50 text-primary-800 px-3 py-2 rounded-lg text-sm text-center font-medium">
                 {item}
               </div>
@@ -240,15 +277,11 @@ const SideGussetBagsPage: React.FC = () => {
     }
   ]
 
-  const faqs = t(`${p}.faqs`, { returnObjects: true }) as any
-  const tables = t(`${p}.tables`, { returnObjects: true }) as any
-  const relatedLinks = t(`${p}.relatedLinks`, { returnObjects: true }) as any
-
   return (
     <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.metaTitle`)}
       description={t(`${p}.metaDescription`)}
-      keywords={t(`${p}.metaKeywords`, { returnObjects: true }) as string[]}
+      keywords={metaKeywords}
       canonicalUrl="https://achievepack.com/packaging/side-gusset-bags"
       heroTitle={t(`${p}.heroTitle`)}
       heroSubtitle={t(`${p}.heroSubtitle`)}

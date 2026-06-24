@@ -25272,6 +25272,11 @@
     }
   },
   "achievePackHome": {
+    "interactive3d": {
+      "badge": "Experiencia 3D Interactiva",
+      "title": "Empaque Ecológico Reimaginado en 3D",
+      "desc": "Explore la geometría táctil y la estructura sostenible de nuestras bolsas certificadas de primera calidad. Mueva el mouse para inclinar, desplácese para rotar o alterne entre los modelos a continuación para inspeccionar las laminaciones detalladas."
+    },
     "nav": {
       "shopAll": "🛒 Ver Todos los Productos",
       "pouchShapes": "Formas de Bolsa",

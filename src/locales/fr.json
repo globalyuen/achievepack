@@ -24930,6 +24930,11 @@
     }
   },
   "achievePackHome": {
+    "interactive3d": {
+      "badge": "Expérience 3D Interactive",
+      "title": "L'Emballage Éco Réimaginé en 3D",
+      "desc": "Explorez la géométrie tactile et la structure durable de nos sachets certifiés haut de gamme. Déplacez votre souris pour incliner, faites défiler pour faire pivoter ou basculez entre les modèles ci-dessous pour inspecter les laminations détaillées."
+    },
     "nav": {
       "shopAll": "🛒 Voir Tous Les Produits",
       "pouchShapes": "Formes de Sachets",

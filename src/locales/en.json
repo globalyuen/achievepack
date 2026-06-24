@@ -26133,6 +26133,11 @@
     }
   },
   "achievePackHome": {
+    "interactive3d": {
+      "badge": "Interactive 3D Experience",
+      "title": "Eco Packaging Reimagined in 3D",
+      "desc": "Explore the tactile geometry and sustainable structure of our premium certified pouches. Move your mouse to tilt, scroll to rotate, or toggle the models below to inspect detailed laminations."
+    },
     "nav": {
       "shopAll": "🛒 Shop All Products",
       "pouchShapes": "Pouch Shapes",
