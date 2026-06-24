@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useState, useMemo, useEffect } from 'react'
+import { useTranslation, Trans } from 'react-i18next'
 import { 
   Coffee, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, Ruler, 
   Sparkles, DollarSign, Clock, HelpCircle, Mail, Download, Compass, 
@@ -145,6 +146,9 @@ const SACHET_MOCKUPS = [
 ];
 
 export default function PouchEcoGPTKPage() {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.pouchEcoGPTK';
+
   const rotatingCategories = [
     'Specialty Coffee Roasters',
     'Organic Tea Brands',
@@ -663,19 +667,19 @@ Real-time Options Quotation:
       <div className="bg-[#ffffff] text-neutral-800 font-sans selection:bg-emerald-500 selection:text-white pb-24">
         {/* Helmet Header Elements */}
         <Helmet>
-          <title>Custom Coffee Bags with Low MOQ & High-Barrier Sustainable Options for Roasters | Achieve Pack Direct Supplier</title>
-          <meta name="description" content="Calculate custom coffee bags and flexible packaging costs instantly. Compare low MOQ digital short runs, high-barrier recyclable Mono-PE EVOH, and certified industrial compostable flat bottom pouches." />
+          <title>{t(`${p}.title`)}</title>
+          <meta name="description" content={t(`${p}.description`)} />
           <link rel="canonical" href="https://achievepack.com/pricing" />
         </Helmet>
 
         {/* B2B Clickable Breadcrumbs (Slide 06) */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-2">
           <nav className="flex text-xs font-semibold text-neutral-400 gap-1.5 items-center">
-            <Link to="/" className="hover:text-emerald-600 transition">Home</Link>
+            <Link to="/" className="hover:text-emerald-600 transition">{t(`${p}.nav.home`)}</Link>
             <span>/</span>
-            <Link to="/materials/recyclable-mono-pe" className="hover:text-emerald-600 transition">Custom Packaging</Link>
+            <Link to="/materials/recyclable-mono-pe" className="hover:text-emerald-600 transition">{t(`${p}.nav.customPackaging`)}</Link>
             <span>/</span>
-            <span className="text-neutral-800 font-black">Pricing Calculator</span>
+            <span className="text-neutral-800 font-black">{t(`${p}.nav.pricingCalculator`)}</span>
           </nav>
         </div>
 
@@ -685,10 +689,10 @@ Real-time Options Quotation:
           
           <div className="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase bg-emerald-50 border border-emerald-100 text-emerald-800 tracking-wider">
-              B2B Packaging Pricing Plans
+              {t(`${p}.hero.badge`)}
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900 font-['Outfit'] leading-tight">
-              Flexible Packaging Pricing for{' '}
+              {t(`${p}.hero.titlePrefix`)}{' '}
               <span className="block mt-2">
                 <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-indigo-600 py-1">
                   <AnimatePresence mode="wait">
@@ -707,7 +711,7 @@ Real-time Options Quotation:
               </span>
             </h1>
             <p className="text-base text-neutral-500 max-w-2xl mx-auto leading-relaxed">
-              Select your quantity, dimension size, and design counts using the segmented selectors below. Unit prices update instantly below to give you complete transparency.
+              {t(`${p}.hero.desc`)}
             </p>
           </div>
         </section>

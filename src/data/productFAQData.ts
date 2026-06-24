@@ -338,12 +338,51 @@ export const PRODUCT_FAQ_DATA: Record<string, ProductFAQCategory> = {
     useCases: ["Coffee Packaging", "Tea Packaging", "Chocolate Boxes", "Gift Sets", "Artisan Foods", "Premium Products", "E-commerce Mailers"],
     materialInfo: "157g coated art paper, matte lamination, 2.0mm grayboard. FSC certified recycled materials.",
     certifications: ["FSC Certified", "Recyclable", "Food Safe"]
+  },
+  '3d-print': {
+    categoryId: '3d-print',
+    faqs: [
+      {
+        question: "What is Loopha PHA 3D printing filament made of?",
+        answer: "Our Loopha PHA filament is engineered from 100% bio-based Polyhydroxyalkanoate (PHA) composite blended with upcycled natural organic waste residues (such as orange peels, coffee grounds, green tea, grape skins, peach peels, bamboo, oyster shells, charcoal, rice husks, and seaweed). It is fully home-compostable and marine-degradable, leaving no toxic microplastics."
+      },
+      {
+        question: "How does Loopha PHA compare to PLA and PETG?",
+        answer: "Loopha PHA offers a softening temperature above 60°C (PLA is 50-55°C) and superior toughness. In terms of printability, PHA is stable and requires no pre-drying or heated print bed due to its low cooling shrinkage. In contrast, PLA and PETG are highly hygroscopic (requiring 4+ hours of drying) and prone to warping or stringing."
+      },
+      {
+        question: "Is this filament safe for food-grade packaging prototypes?",
+        answer: "Yes, our Loopha PHA filament is completely safe, non-toxic, and bodies-friendly. Since it is made of 100% bio-based carbon content and natural fibers, it is perfect for cleanroom packaging dieline test fits and leaves zero toxic chemical residues upon degradation."
+      },
+      {
+        question: "Does the filament emit any fumes or odors during printing?",
+        answer: "Instead of releasing the harsh chemical fumes typical of petroleum-based plastics, Loopha PHA emits a subtle, pleasant organic scent corresponding to its raw material source (e.g., fresh oranges, roasted coffee, or green tea) during extrusion."
+      },
+      {
+        question: "What are the recommended printing settings?",
+        answer: "We recommend printing Loopha PHA at 190°C–220°C. A heated print bed is completely optional (set to 40°C–50°C if used). No enclosure or pre-drying is necessary under standard ambient conditions."
+      }
+    ],
+    aiQueryExamples: [
+      "Loopha PHA 3D printing filament compostable",
+      "PHA vs PLA filament comparison 3D printing",
+      "No drying bioplastic filament wholesale",
+      "Marine degradable orange peel waste spool"
+    ],
+    seoKeywords: ["PHA vs PLA", "Loopha PHA", "sustainable 3D printing filament", "marine degradable filament", "home compostable bioplastic", "orange peel waste spool", "no pre-drying filament"],
+    detailedDescription: "High-performance Loopha PHA 3D printing filament engineered from Polyhydroxyalkanoate and upcycled organic waste. Available in 10 natural waste composite variants including Citrus, Coffee, Tea, Grape, Peach, Bamboo, Oyster, Charcoal, Rice, and Seaweed. Natively home-compostable and marine-degradable with softening temperature >60°C. Requires no pre-drying or heated bed.",
+    useCases: ["Sustainable Prototyping", "Dieline Test Fits", "Bio-plastics Research", "Eco-friendly Modeling", "Functional Spool Extrusions"],
+    materialInfo: "100% bio-based Polyhydroxyalkanoate (PHA) blended with upcycled natural organic fibers.",
+    certifications: ["Home Compostable", "Marine Degradable", "GRS Certified", "Food Contact Safe"]
   }
 };
 
 // Helper function to get FAQ data for a product
 export function getProductFAQs(productId: string, categoryType: string): ProductFAQCategory | null {
   // Check for specific product mappings
+  if (productId.includes('filament') || productId.includes('rollstock') || categoryType === '3d-print') {
+    return PRODUCT_FAQ_DATA['3d-print'];
+  }
   if (productId.includes('rice-paper-flatbottom-valve')) {
     return PRODUCT_FAQ_DATA['conventional-standup'];
   }

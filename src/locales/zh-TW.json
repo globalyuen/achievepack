@@ -29395,6 +29395,7 @@
     "ecoPackagingReality": "環保包裝的真實面貌",
     "writableStampable": "可書寫與蓋印包裝袋",
     "colorMatchingGuide": "數位印刷潘通色彩對照指南",
+    "phaVsPla": "PHA 對比 PLA 比較分析",
     "customPrintedSample": "客製化印刷打樣",
     "support": "客戶支援",
     "faqs": "常見問題 FAQs",
@@ -29602,7 +29603,8 @@
       "digitalPrint": "[100件起訂數位印刷]",
       "bioBasedSpout": "[生物基吸嘴袋]",
       "prepress": "[印前出血與套印指南]",
-      "refillPouch": "[補充包裝系統]"
+      "refillPouch": "[補充包裝系統]",
+      "phaVsPla": "[PHA 對比 PLA]"
     },
     "legal": {
       "copyright": "© 2026 Achieve Pack. 保留所有權利。",

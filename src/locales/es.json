@@ -28625,6 +28625,7 @@
     "ecoPackagingReality": "Realidad del Embalaje Ecológico",
     "writableStampable": "Bolsas Escribibles y Sellables",
     "colorMatchingGuide": "Guía de Coincidencia de Color",
+    "phaVsPla": "Comparación PHA vs PLA",
     "customPrintedSample": "Muestra Impresa Personalizada",
     "support": "Soporte",
     "faqs": "Preguntas Frecuentes",
@@ -28832,7 +28833,8 @@
       "digitalPrint": "[IMPRESIÓN DIGITAL MOQ 100 UDS]",
       "bioBasedSpout": "[BOLSAS CON BOQUILLA BIOLÓGICA]",
       "prepress": "[PREIMPRESIÓN: ATRAPAMIENTO Y LÍNEAS]",
-      "refillPouch": "[SISTEMAS DE BOLSAS DE RECARGA]"
+      "refillPouch": "[SISTEMAS DE BOLSAS DE RECARGA]",
+      "phaVsPla": "[PHA VS PLA]"
     },
     "legal": {
       "copyright": "© 2026 Achieve Pack. Todos los derechos reservados.",

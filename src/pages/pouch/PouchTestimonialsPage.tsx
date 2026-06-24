@@ -5,8 +5,12 @@ import { useEffect } from 'react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { getImagesForPage } from '../../data/imageHub'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
+import { useTranslation } from 'react-i18next'
 
 export default function PouchTestimonialsPage() {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.pouchTestimonials';
+
   // 从 imageHub 获取相关图片
   const pageImages = getImagesForPage('/testimonials')
 
@@ -33,144 +37,144 @@ export default function PouchTestimonialsPage() {
 
   const testimonials = [
     {
-      company: 'Bean & Bole Coffee',
-      industry: 'Coffee Roastery',
-      location: 'Portland, OR',
-      quote: 'Switching to compostable bags was a no-brainer for our eco-conscious customers. The 500 MOQ meant we could test without huge risk. Sales increased 23% after the launch!',
-      person: 'Sarah Chen',
-      role: 'Founder',
+      company: t(`${p}.testimonials.0.company`, 'Bean & Bole Coffee'),
+      industry: t(`${p}.testimonials.0.industry`, 'Coffee Roastery'),
+      location: t(`${p}.testimonials.0.location`, 'Portland, OR'),
+      quote: t(`${p}.testimonials.0.quote`, 'Switching to compostable bags was a no-brainer for our eco-conscious customers. The 500 MOQ meant we could test without huge risk. Sales increased 23% after the launch!'),
+      person: t(`${p}.testimonials.0.person`, 'Sarah Chen'),
+      role: t(`${p}.testimonials.0.role`, 'Founder'),
       rating: 5,
       image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp',
-      highlights: ['23% Sales Increase', 'Zero Waste', 'Customer Love']
+      highlights: [t(`${p}.testimonials.0.highlights.0`, '23% Sales Increase'), t(`${p}.testimonials.0.highlights.1`, 'Zero Waste'), t(`${p}.testimonials.0.highlights.2`, 'Customer Love')]
     },
     {
-      company: 'NourishNow',
-      industry: 'Wellness Brand',
-      location: 'Seattle, WA',
-      quote: 'The soft-touch matte finish made our superfood pouches feel luxury. Customers keep telling us they love the tactile experience. Worth every penny!',
-      person: 'Marcus Johnson',
-      role: 'Product Manager',
+      company: t(`${p}.testimonials.1.company`, 'NourishNow'),
+      industry: t(`${p}.testimonials.1.industry`, 'Wellness Brand'),
+      location: t(`${p}.testimonials.1.location`, 'Seattle, WA'),
+      quote: t(`${p}.testimonials.1.quote`, 'The soft-touch matte finish made our superfood pouches feel luxury. Customers keep telling us they love the tactile experience. Worth every penny!'),
+      person: t(`${p}.testimonials.1.person`, 'Marcus Johnson'),
+      role: t(`${p}.testimonials.1.role`, 'Product Manager'),
       rating: 5,
       image: '/imgs/seo-photos/a_nourishnow_seattle_morning_wellness_pouch_1061333.webp',
-      highlights: ['Premium Feel', 'Customer Feedback', 'Brand Uplift']
+      highlights: [t(`${p}.testimonials.1.highlights.0`, 'Premium Feel'), t(`${p}.testimonials.1.highlights.1`, 'Customer Feedback'), t(`${p}.testimonials.1.highlights.2`, 'Brand Uplift')]
     },
     {
-      company: 'VitalGreen',
-      industry: 'Superfood Brand',
-      location: 'Chicago, IL',
-      quote: 'From inquiry to delivery in 3 weeks! Ryan walked us through every step. The digital printing quality is stunning, and the price was better than local suppliers.',
-      person: 'Jessica Lee',
-      role: 'Co-Founder',
+      company: t(`${p}.testimonials.2.company`, 'VitalGreen'),
+      industry: t(`${p}.testimonials.2.industry`, 'Superfood Brand'),
+      location: t(`${p}.testimonials.2.location`, 'Chicago, IL'),
+      quote: t(`${p}.testimonials.2.quote`, 'From inquiry to delivery in 3 weeks! Ryan walked us through every step. The digital printing quality is stunning, and the price was better than local suppliers.'),
+      person: t(`${p}.testimonials.2.person`, 'Jessica Lee'),
+      role: t(`${p}.testimonials.2.role`, 'Co-Founder'),
       rating: 5,
       image: '/imgs/seo-photos/a_vitalgreen_superfood_chicago_wellness_pouch_1211501.webp?v=2',
-      highlights: ['3-Week Turnaround', 'Great Support', 'Amazing Quality']
+      highlights: [t(`${p}.testimonials.2.highlights.0`, '3-Week Turnaround'), t(`${p}.testimonials.2.highlights.1`, 'Great Support'), t(`${p}.testimonials.2.highlights.2`, 'Amazing Quality')]
     },
     {
-      company: 'Wholesome Bakery',
-      industry: 'Artisan Bakery',
-      location: 'Austin, TX',
-      quote: 'We needed packaging that matched our artisan brand values. The kraft pouches with clear windows let our products shine while staying eco-friendly!',
-      person: 'David Miller',
-      role: 'Owner',
+      company: t(`${p}.testimonials.3.company`, 'Wholesome Bakery'),
+      industry: t(`${p}.testimonials.3.industry`, 'Artisan Bakery'),
+      location: t(`${p}.testimonials.3.location`, 'Austin, TX'),
+      quote: t(`${p}.testimonials.3.quote`, 'We needed packaging that matched our artisan brand values. The kraft pouches with clear windows let our products shine while staying eco-friendly!'),
+      person: t(`${p}.testimonials.3.person`, 'David Miller'),
+      role: t(`${p}.testimonials.3.role`, 'Owner'),
       rating: 5,
       image: '/imgs/seo-photos/a_wholesome_bakery_pouch_kitchen_9227377.webp?v=2',
-      highlights: ['Artisan Look', 'Perfect Fit', 'Eco Values']
+      highlights: [t(`${p}.testimonials.3.highlights.0`, 'Artisan Look'), t(`${p}.testimonials.3.highlights.1`, 'Perfect Fit'), t(`${p}.testimonials.3.highlights.2`, 'Eco Values')]
     },
     {
-      company: 'Nutrivie',
-      industry: 'Organic Snacks',
-      location: 'San Francisco, CA',
-      quote: 'The barrier options were confusing at first, but the team helped us choose the perfect medium barrier for our nuts. 8-month shelf life - exactly what we needed!',
-      person: 'Emma Rodriguez',
-      role: 'Operations Lead',
+      company: t(`${p}.testimonials.4.company`, 'Nutrivie'),
+      industry: t(`${p}.testimonials.4.industry`, 'Organic Snacks'),
+      location: t(`${p}.testimonials.4.location`, 'San Francisco, CA'),
+      quote: t(`${p}.testimonials.4.quote`, 'The barrier options were confusing at first, but the team helped us choose the perfect medium barrier for our nuts. 8-month shelf life - exactly what we needed!'),
+      person: t(`${p}.testimonials.4.person`, 'Emma Rodriguez'),
+      role: t(`${p}.testimonials.4.role`, 'Operations Lead'),
       rating: 5,
       image: '/imgs/seo-photos/a_nutrivie_nuts_sustainable_pouch_lifestyle_0132786.webp?v=2',
-      highlights: ['Perfect Barrier', 'Great Guidance', '8-Month Shelf Life']
+      highlights: [t(`${p}.testimonials.4.highlights.0`, 'Perfect Barrier'), t(`${p}.testimonials.4.highlights.1`, 'Great Guidance'), t(`${p}.testimonials.4.highlights.2`, '8-Month Shelf Life')]
     },
     {
-      company: 'Roast Ritual NYC',
-      industry: 'Urban Coffee',
-      location: 'New York, NY',
-      quote: 'As a NYC startup, low MOQ was critical. Started with 500 bags, now ordering 5,000 per month. The degassing valve keeps our beans fresh for weeks!',
-      person: 'Alex Park',
-      role: 'Head Roaster',
+      company: t(`${p}.testimonials.5.company`, 'Roast Ritual NYC'),
+      industry: t(`${p}.testimonials.5.industry`, 'Urban Coffee'),
+      location: t(`${p}.testimonials.5.location`, 'New York, NY'),
+      quote: t(`${p}.testimonials.5.quote`, 'As a NYC startup, low MOQ was critical. Started with 500 bags, now ordering 5,000 per month. The degassing valve keeps our beans fresh for weeks!'),
+      person: t(`${p}.testimonials.5.person`, 'Alex Park'),
+      role: t(`${p}.testimonials.5.role`, 'Head Roaster'),
       rating: 5,
       image: '/imgs/seo-photos/a_roast_ritual_nyc_coffee_urban_2153150.webp?v=2',
-      highlights: ['Started Small', 'Scaled Fast', 'Fresh Coffee']
+      highlights: [t(`${p}.testimonials.5.highlights.0`, 'Started Small'), t(`${p}.testimonials.5.highlights.1`, 'Scaled Fast'), t(`${p}.testimonials.5.highlights.2`, 'Fresh Coffee')]
     },
     {
-      company: 'PureLeaf Organics',
-      industry: 'Tea Brand',
-      location: 'Boulder, CO',
-      quote: 'We loved the kraft-look material with bio-based barrier. Our customers appreciate the natural aesthetic and the fact it\'s 100% compostable. Game changer for our brand!',
-      person: 'Maya Patel',
-      role: 'Brand Director',
+      company: t(`${p}.testimonials.6.company`, 'PureLeaf Organics'),
+      industry: t(`${p}.testimonials.6.industry`, 'Tea Brand'),
+      location: t(`${p}.testimonials.6.location`, 'Boulder, CO'),
+      quote: t(`${p}.testimonials.6.quote`, 'We loved the kraft-look material with bio-based barrier. Our customers appreciate the natural aesthetic and the fact it\'s 100% compostable. Game changer for our brand!'),
+      person: t(`${p}.testimonials.6.person`, 'Maya Patel'),
+      role: t(`${p}.testimonials.6.role`, 'Brand Director'),
       rating: 5,
       image: '/imgs/seo-photos/pureleaf_tea_pouch.png?v=2',
-      highlights: ['Natural Look', 'Compostable', 'Brand Win']
+      highlights: [t(`${p}.testimonials.6.highlights.0`, 'Natural Look'), t(`${p}.testimonials.6.highlights.1`, 'Compostable'), t(`${p}.testimonials.6.highlights.2`, 'Brand Win')]
     },
     {
-      company: 'SnackSmart',
-      industry: 'Healthy Snacks',
-      location: 'Los Angeles, CA',
-      quote: 'The clear window on our pouches was a must-have. Customers love seeing the product before buying. The response has been incredible - our retail partners love it too!',
-      person: 'Tom Chen',
-      role: 'Founder & CEO',
+      company: t(`${p}.testimonials.7.company`, 'SnackSmart'),
+      industry: t(`${p}.testimonials.7.industry`, 'Healthy Snacks'),
+      location: t(`${p}.testimonials.7.location`, 'Los Angeles, CA'),
+      quote: t(`${p}.testimonials.7.quote`, 'The clear window on our pouches was a must-have. Customers love seeing the product before buying. The response has been incredible - our retail partners love it too!'),
+      person: t(`${p}.testimonials.7.person`, 'Tom Chen'),
+      role: t(`${p}.testimonials.7.role`, 'Founder & CEO'),
       rating: 5,
       image: '/imgs/seo-photos/snacksmart_pouch.png?v=2',
-      highlights: ['Clear Window', 'Retail Success', 'Customer Trust']
+      highlights: [t(`${p}.testimonials.7.highlights.0`, 'Clear Window'), t(`${p}.testimonials.7.highlights.1`, 'Retail Success'), t(`${p}.testimonials.7.highlights.2`, 'Customer Trust')]
     },
     {
-      company: 'Meadow & Moon',
-      industry: 'Herbal Wellness',
-      location: 'Portland, ME',
-      quote: 'As a small batch producer, finding 500 unit minimums was impossible until we found pouch.eco. The quality rivals brands 10x our size. Our customers think we\'re much bigger!',
-      person: 'Rachel Green',
-      role: 'Owner',
+      company: t(`${p}.testimonials.8.company`, 'Meadow & Moon'),
+      industry: t(`${p}.testimonials.8.industry`, 'Herbal Wellness'),
+      location: t(`${p}.testimonials.8.location`, 'Portland, ME'),
+      quote: t(`${p}.testimonials.8.quote`, 'As a small batch producer, finding 500 unit minimums was impossible until we found pouch.eco. The quality rivals brands 10x our size. Our customers think we\'re much bigger!'),
+      person: t(`${p}.testimonials.8.person`, 'Rachel Green'),
+      role: t(`${p}.testimonials.8.role`, 'Owner'),
       rating: 5,
       image: '/imgs/seo-photos/meadow_moon_pouch.png?v=2',
-      highlights: ['Small Batch', 'Premium Quality', 'Brand Perception']
+      highlights: [t(`${p}.testimonials.8.highlights.0`, 'Small Batch'), t(`${p}.testimonials.8.highlights.1`, 'Premium Quality'), t(`${p}.testimonials.8.highlights.2`, 'Brand Perception')]
     },
     {
-      company: 'Peak Performance',
-      industry: 'Sports Nutrition',
-      location: 'Denver, CO',
-      quote: 'The matte black finish with spot UV logo - absolute fire! Our pre-workout pouches look like they cost $50 when they\'re only $25. Instagram engagement went through the roof!',
-      person: 'Jordan Smith',
-      role: 'Co-Founder',
+      company: t(`${p}.testimonials.9.company`, 'Peak Performance'),
+      industry: t(`${p}.testimonials.9.industry`, 'Sports Nutrition'),
+      location: t(`${p}.testimonials.9.location`, 'Denver, CO'),
+      quote: t(`${p}.testimonials.9.quote`, 'The matte black finish with spot UV logo - absolute fire! Our pre-workout pouches look like they cost $50 when they\'re only $25. Instagram engagement went through the roof!'),
+      person: t(`${p}.testimonials.9.person`, 'Jordan Smith'),
+      role: t(`${p}.testimonials.9.role`, 'Co-Founder'),
       rating: 5,
       image: '/imgs/seo-photos/peak_performance_pouch.png?v=2',
-      highlights: ['Matte Black', 'Premium Look', 'Social Media Win']
+      highlights: [t(`${p}.testimonials.9.highlights.0`, 'Matte Black'), t(`${p}.testimonials.9.highlights.1`, 'Premium Look'), t(`${p}.testimonials.9.highlights.2`, 'Social Media Win')]
     },
     {
-      company: 'Little Sprouts',
-      industry: 'Baby Food',
-      location: 'San Diego, CA',
-      quote: 'Parents love that our pouches are BPI certified compostable. The resealable zipper keeps snacks fresh all day. We\'ve had zero complaints about leaking or quality issues!',
-      person: 'Amanda Foster',
-      role: 'Founder',
+      company: t(`${p}.testimonials.10.company`, 'Little Sprouts'),
+      industry: t(`${p}.testimonials.10.industry`, 'Baby Food'),
+      location: t(`${p}.testimonials.10.location`, 'San Diego, CA'),
+      quote: t(`${p}.testimonials.10.quote`, 'Parents love that our pouches are BPI certified compostable. The resealable zipper keeps snacks fresh all day. We\'ve had zero complaints about leaking or quality issues!'),
+      person: t(`${p}.testimonials.10.person`, 'Amanda Foster'),
+      role: t(`${p}.testimonials.10.role`, 'Founder'),
       rating: 5,
       image: '/imgs/seo-photos/little_sprouts_pouch.png?v=2',
-      highlights: ['BPI Certified', 'Parent Approved', 'Zero Issues']
+      highlights: [t(`${p}.testimonials.10.highlights.0`, 'BPI Certified'), t(`${p}.testimonials.10.highlights.1`, 'Parent Approved'), t(`${p}.testimonials.10.highlights.2`, 'Zero Issues')]
     },
     {
-      company: 'Grind Culture',
-      industry: 'Specialty Coffee',
-      location: 'Brooklyn, NY',
-      quote: 'The one-way degassing valve was essential for our micro-roastery. Keeps beans fresh for 6+ weeks. Our subscription customers notice the difference immediately!',
-      person: 'Chris Martinez',
-      role: 'Head Roaster',
+      company: t(`${p}.testimonials.11.company`, 'Grind Culture'),
+      industry: t(`${p}.testimonials.11.industry`, 'Specialty Coffee'),
+      location: t(`${p}.testimonials.11.location`, 'Brooklyn, NY'),
+      quote: t(`${p}.testimonials.11.quote`, 'The one-way degassing valve was essential for our micro-roastery. Keeps beans fresh for 6+ weeks. Our subscription customers notice the difference immediately!'),
+      person: t(`${p}.testimonials.11.person`, 'Chris Martinez'),
+      role: t(`${p}.testimonials.11.role`, 'Head Roaster'),
       rating: 5,
       image: '/imgs/seo-photos/grind_culture_pouch.png?v=2',
-      highlights: ['Degassing Valve', '6-Week Freshness', 'Subscription Hit']
+      highlights: [t(`${p}.testimonials.11.highlights.0`, 'Degassing Valve'), t(`${p}.testimonials.11.highlights.1`, '6-Week Freshness'), t(`${p}.testimonials.11.highlights.2`, 'Subscription Hit')]
     }
   ]
 
   const stats = [
-    { icon: Heart, value: '2,000+', label: 'Happy Brands' },
-    { icon: TrendingUp, value: '98%', label: 'Repeat Customers' },
-    { icon: Award, value: '4.9/5', label: 'Average Rating' },
-    { icon: Sparkles, value: '500', label: 'Minimum Order' }
+    { icon: Heart, value: t(`${p}.hero.stats.0.value`, '2,000+'), label: t(`${p}.hero.stats.0.label`, 'Happy Brands') },
+    { icon: TrendingUp, value: t(`${p}.hero.stats.1.value`, '98%'), label: t(`${p}.hero.stats.1.label`, 'Repeat Customers') },
+    { icon: Award, value: t(`${p}.hero.stats.2.value`, '4.9/5'), label: t(`${p}.hero.stats.2.label`, 'Average Rating') },
+    { icon: Sparkles, value: t(`${p}.hero.stats.3.value`, '500'), label: t(`${p}.hero.stats.3.label`, 'Minimum Order') }
   ]
 
   // 客户 Logo 数据
@@ -195,14 +199,14 @@ export default function PouchTestimonialsPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>Customer Stories | Real Results from Real Brands | POUCH.ECO</title>
+        <title>{t(`${p}.seo.title`, "Customer Stories | Real Results from Real Brands | POUCH.ECO")}</title>
         <meta 
           name="description" 
-          content="See how 2,000+ sustainable brands launched with our eco pouches. From 500 unit startups to 50,000 unit brands - real stories, real results." 
+          content={t(`${p}.seo.description`, "See how 2,000+ sustainable brands launched with our eco pouches. From 500 unit startups to 50,000 unit brands - real stories, real results.")}
         />
         <link rel="canonical" href="https://pouch.eco/testimonials" />
-        <meta property="og:title" content="Customer Success Stories | POUCH.ECO" />
-        <meta property="og:description" content="Real brands, real results. See how sustainable packaging transformed these businesses." />
+        <meta property="og:title" content={t(`${p}.seo.ogTitle`, "Customer Success Stories | POUCH.ECO")} />
+        <meta property="og:description" content={t(`${p}.seo.ogDescription`, "Real brands, real results. See how sustainable packaging transformed these businesses.")} />
         <meta property="og:url" content="https://pouch.eco/testimonials" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -231,18 +235,18 @@ export default function PouchTestimonialsPage() {
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
-            <span className="font-['JetBrains_Mono'] font-bold">REAL_STORIES</span>
+            <span className="font-['JetBrains_Mono'] font-bold">{t(`${p}.hero.label`, "REAL_STORIES")}</span>
           </div>
 
           <h1 className="font-black text-5xl md:text-7xl leading-none mb-6">
-            2,000+ Brands<br/>
+            {t(`${p}.hero.titleLine1`, "2,000+ Brands")}<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-              Started Here
+              {t(`${p}.hero.titleLine2`, "Started Here")}
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
-            From 500-unit startups to established brands ordering 50,000+ units monthly. <strong>See how sustainable packaging transformed these businesses.</strong>
+            {t(`${p}.hero.desc1`, "From 500-unit startups to established brands ordering 50,000+ units monthly. ")}<strong>{t(`${p}.hero.desc2`, "See how sustainable packaging transformed these businesses.")}</strong>
           </p>
 
           {/* Stats */}
@@ -329,13 +333,13 @@ export default function PouchTestimonialsPage() {
       <section className="py-16 px-4 bg-white border-y-4 border-black overflow-hidden">
         <div className="max-w-6xl mx-auto mb-12 text-center">
           <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
-            <span className="font-['JetBrains_Mono'] font-bold uppercase">TRUSTED_BY</span>
+            <span className="font-['JetBrains_Mono'] font-bold uppercase">{t(`${p}.trustedBy.label`, "TRUSTED_BY")}</span>
           </div>
           <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
-            Join <span className="text-[#10b981]">500+</span> Brands
+            {t(`${p}.trustedBy.titleLine1`, "Join ")}<span className="text-[#10b981]">{t(`${p}.trustedBy.titleLine2`, "500+")}</span>{t(`${p}.trustedBy.titleLine3`, " Brands")}
           </h2>
           <p className="text-lg text-gray-700 font-['Space_Grotesk']">
-            From startups to established names - they all started with 500 units
+            {t(`${p}.trustedBy.desc`, "From startups to established names - they all started with 500 units")}
           </p>
         </div>
 
@@ -477,11 +481,11 @@ export default function PouchTestimonialsPage() {
       <section className="py-16 px-4 bg-[#D4FF00] border-t-4 border-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-black text-4xl md:text-6xl mb-6 uppercase">
-            Your Story<br/>Next?
+            {t(`${p}.cta.titleLine1`, "Your Story")}<br/>{t(`${p}.cta.titleLine2`, "Next?")}
           </h2>
           
           <p className="text-xl mb-8 max-w-2xl mx-auto font-['Space_Grotesk']">
-            Join 2,000+ brands who launched with confidence. <strong>From 500 units. Zero compromise on quality or planet.</strong>
+            {t(`${p}.cta.desc1`, "Join 2,000+ brands who launched with confidence. ")}<strong>{t(`${p}.cta.desc2`, "From 500 units. Zero compromise on quality or planet.")}</strong>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -489,19 +493,19 @@ export default function PouchTestimonialsPage() {
               href="https://calendly.com/30-min-free-packaging-consultancy"
               className="text-lg"
             >
-              Book Free Call
+              {t(`${p}.cta.button1`, "Book Free Call")}
             </NeoButton>
             <NeoButton
               href="mailto:ryan@achievepack.com"
               variant="secondary"
               className="text-lg"
             >
-              Request Samples
+              {t(`${p}.cta.button2`, "Request Samples")}
             </NeoButton>
           </div>
 
           <div className="mt-8 font-['JetBrains_Mono'] text-sm font-bold">
-            📧 ryan@achievepack.com • ⏱️ Response in 24 hours
+            {t(`${p}.cta.footer`, "📧 ryan@achievepack.com • ⏱️ Response in 24 hours")}
           </div>
         </div>
       </section>

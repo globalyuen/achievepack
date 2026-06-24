@@ -53,7 +53,19 @@ const translations = {
     upgradeDesc: "Discover our new CitrusCycle™ Orange Peel PHA filament for sustainable prototyping.",
     shopTitle: "Shop CitrusCycle™ Orange Peel PHA Filament",
     shopDesc: "Experience the future of sustainable 3D printing. No pre-drying needed, 100% marine degradable, and smells like fresh oranges during extrusion.",
-    shopBtn: "View Product Specs"
+    shopBtn: "View Product Specs",
+    sourceMat: "Source Raw Materials",
+    phaSource: "100% Organic Waste (Orange, coffee, tea, grape, peach, bamboo, oyster shell, charcoal, rice, seaweed)",
+    plaSource: "Starch-based (Corn, sugarcane)",
+    petgSource: "Fossil oil / Petroleum",
+    softTemp: "Softening Temperature",
+    phaSoft: "Above 60°C (High toughness)",
+    plaSoft: "50°C - 55°C (Low toughness/brittle)",
+    petgSoft: "Around 70°C (Stringing-prone)",
+    printBed: "Printability & Heated Bed",
+    phaPrint: "No heated bed / Low shrinkage / No pre-drying",
+    plaPrint: "Heated bed required / Prone to warping / 4h drying",
+    petgPrint: "Heated bed required / High stringing / 4h drying"
   },
   'zh-TW': {
     title: "PHA 對比 PLA：永續 3D 列印與包裝材料的終極指南",
@@ -100,7 +112,19 @@ const translations = {
     upgradeDesc: "探索我們全新的 CitrusCycle™ 橘皮 PHA 線材，實現永續的快速成型。",
     shopTitle: "購買 CitrusCycle™ 橘皮 PHA 線材",
     shopDesc: "體驗永續 3D 列印的未來。無需預先乾燥，100% 海洋降解，擠出時散發新鮮橘子香味。",
-    shopBtn: "查看產品規格"
+    shopBtn: "查看產品規格",
+    sourceMat: "原料來源",
+    phaSource: "100% 有機廢棄物（橘子、咖啡、茶、葡萄、桃子、竹子、牡蠣殼、木炭、大米、海藻）",
+    plaSource: "澱粉基（玉米、甘蔗）",
+    petgSource: "化石油 / 石油",
+    softTemp: "軟化溫度",
+    phaSoft: "60°C 以上（高韌性）",
+    plaSoft: "50°C - 55°C（低韌性/易碎）",
+    petgSoft: "約 70°C（易拉絲）",
+    printBed: "列印性與熱床",
+    phaPrint: "無需熱床 / 低收縮率 / 無需預先乾燥",
+    plaPrint: "需要熱床 / 易翹曲 / 4小時乾燥",
+    petgPrint: "需要熱床 / 高拉絲 / 4小時乾燥"
   },
   es: {
     title: "PHA vs PLA: La Guía Definitiva de Materiales Sostenibles para Impresión 3D y Empaques",
@@ -147,7 +171,19 @@ const translations = {
     upgradeDesc: "Descubra nuestro nuevo filamento CitrusCycle™ Orange Peel PHA para la creación rápida y sostenible de prototipos.",
     shopTitle: "Comprar Filamento PHA CitrusCycle™",
     shopDesc: "Experimente el futuro de la impresión 3D sostenible. No necesita secado previo, es 100% degradable en el mar y huele a naranjas frescas.",
-    shopBtn: "Ver Especificaciones"
+    shopBtn: "Ver Especificaciones",
+    sourceMat: "Materias Primas de Origen",
+    phaSource: "100% Residuos Orgánicos (Naranja, café, té, uva, durazno, bambú, concha de ostra, carbón, arroz, algas)",
+    plaSource: "A base de almidón (Maíz, caña de azúcar)",
+    petgSource: "Aceite fósil / Petróleo",
+    softTemp: "Temperatura de Ablandamiento",
+    phaSoft: "Por encima de 60°C (Alta tenacidad)",
+    plaSoft: "50°C - 55°C (Baja tenacidad / quebradizo)",
+    petgSoft: "Alrededor de 70°C (Propenso a hilos)",
+    printBed: "Imprimibilidad y Cama Caliente",
+    phaPrint: "Sin cama caliente / Baja contracción / Sin secado previo",
+    plaPrint: "Requiere cama caliente / Propenso a deformarse / 4h secado",
+    petgPrint: "Requiere cama caliente / Alto encordado / 4h secado"
   },
   fr: {
     title: "PHA vs PLA : Le Guide Ultime des Matériaux Durables d'Impression 3D et d'Emballage",
@@ -194,7 +230,19 @@ const translations = {
     upgradeDesc: "Découvrez notre nouveau filament CitrusCycle™ Orange Peel PHA pour un prototypage durable.",
     shopTitle: "Acheter le Filament PHA CitrusCycle™",
     shopDesc: "Découvrez l'avenir de l'impression 3D durable. Pas besoin de pré-séchage, 100% dégradable en mer et sent l'orange fraîche.",
-    shopBtn: "Voir les Spécifications"
+    shopBtn: "Voir les Spécifications",
+    sourceMat: "Matières Premières Sources",
+    phaSource: "100 % Déchets Organiques (Orange, café, thé, raisin, pêche, bambou, coquille d'huître, charbon de bois, riz, algues)",
+    plaSource: "À base d'amidon (Maïs, canne à sucre)",
+    petgSource: "Huile fossile / Pétrole",
+    softTemp: "Température de Ramollissement",
+    phaSoft: "Au-dessus de 60°C (Haute ténacité)",
+    plaSoft: "50°C - 55°C (Faible ténacité / cassant)",
+    petgSoft: "Environ 70°C (Sujet aux cheveux d'ange)",
+    printBed: "Imprimabilité et Plateau Chauffant",
+    phaPrint: "Pas de plateau chauffant / Faible retrait / Sans pré-séchage",
+    plaPrint: "Plateau chauffant requis / Sujet au gauchissement / Séchage 4h",
+    petgPrint: "Plateau chauffant requis / Fort cordage / Séchage 4h"
   }
 }
 
@@ -330,6 +378,15 @@ export default function PhaVsPla() {
         { specification: t.opHand, parameter: "PHA (Looptie)", value: t.phaOp },
         { specification: t.opHand, parameter: "PLA", value: t.plaOp },
         { specification: t.opHand, parameter: "PETG", value: t.petgOp },
+        { specification: t.sourceMat, parameter: "PHA (Looptie)", value: t.phaSource },
+        { specification: t.sourceMat, parameter: "PLA", value: t.plaSource },
+        { specification: t.sourceMat, parameter: "PETG", value: t.petgSource },
+        { specification: t.softTemp, parameter: "PHA (Looptie)", value: t.phaSoft },
+        { specification: t.softTemp, parameter: "PLA", value: t.plaSoft },
+        { specification: t.softTemp, parameter: "PETG", value: t.petgSoft },
+        { specification: t.printBed, parameter: "PHA (Looptie)", value: t.phaPrint },
+        { specification: t.printBed, parameter: "PLA", value: t.plaPrint },
+        { specification: t.printBed, parameter: "PETG", value: t.petgPrint },
       ]
     }
   ]
@@ -423,11 +480,23 @@ export default function PhaVsPla() {
                   <td className="p-5 text-neutral-600">{t.plaOp}</td>
                   <td className="p-5 text-red-600 border-l border-neutral-200">{t.petgOp}</td>
                 </tr>
+                <tr className="bg-neutral-50/50 hover:bg-neutral-50 border-b border-neutral-200">
+                  <td className="p-5 font-medium text-neutral-900">{t.sourceMat}</td>
+                  <td className="p-5 bg-primary-50/50 text-neutral-800 font-medium border-x border-primary-100">{t.phaSource}</td>
+                  <td className="p-5 text-neutral-600">{t.plaSource}</td>
+                  <td className="p-5 text-neutral-600 border-l border-neutral-200">{t.petgSource}</td>
+                </tr>
+                <tr className="hover:bg-neutral-50 border-b border-neutral-200">
+                  <td className="p-5 font-medium text-neutral-900">{t.softTemp}</td>
+                  <td className="p-5 bg-primary-50/50 text-neutral-800 font-medium border-x border-primary-100">{t.phaSoft}</td>
+                  <td className="p-5 text-neutral-600">{t.plaSoft}</td>
+                  <td className="p-5 text-neutral-600 border-l border-neutral-200">{t.petgSoft}</td>
+                </tr>
                 <tr className="bg-neutral-50/50 hover:bg-neutral-50">
-                  <td className="p-5 font-medium text-neutral-900">{t.therm}</td>
-                  <td className="p-5 bg-primary-50/50 text-neutral-800 font-medium border-x border-primary-100">Resists up to ~60°C</td>
-                  <td className="p-5 text-neutral-600">Resists up to ~60°C</td>
-                  <td className="p-5 text-neutral-600 border-l border-neutral-200">Resists up to ~70°C</td>
+                  <td className="p-5 font-medium text-neutral-900">{t.printBed}</td>
+                  <td className="p-5 bg-primary-50/50 text-neutral-800 font-medium border-x border-primary-100">{t.phaPrint}</td>
+                  <td className="p-5 text-neutral-600">{t.plaPrint}</td>
+                  <td className="p-5 text-neutral-600 border-l border-neutral-200">{t.petgPrint}</td>
                 </tr>
               </tbody>
             </table>

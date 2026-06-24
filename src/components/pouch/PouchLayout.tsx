@@ -684,6 +684,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/materials/recyclable" className="hover:underline">{t('pouchLayoutFooter.links.recyclable')}</Link></li>
                 <li><Link to="/materials/plastic-free-kraft" className="hover:underline text-[#10b981]">{t('pouchLayoutFooter.links.plasticFreeKraft')}</Link></li>
                 <li><Link to="/category/packaging-technical-data-sheet" className="hover:underline text-[#10B981] font-black">{t('pouchLayoutFooter.links.tds')}</Link></li>
+                <li><Link to="/knowledge/pha-vs-pla" className="hover:underline text-[#10b981]">{t('pouchLayoutFooter.links.phaVsPla', '[PHA VS PLA]')}</Link></li>
                 <li><Link to="/materials" className="hover:underline">{t('pouchLayoutFooter.links.materialHub')}</Link></li>
               </ul>
             </div>
@@ -793,6 +794,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     <li><Link to="/topics/pcr-packaging" className="hover:underline">[PCR CONTENT]</Link></li>
                     <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:underline text-cyan-600">[OCEAN PLASTIC]</Link></li>
                     <li><Link to="/topics/compostable-zipper-durability" className="hover:underline text-emerald-600">[ZIPPER DURABILITY]</Link></li>
+                    <li><Link to="/knowledge/pha-vs-pla" className="hover:underline text-[#D4FF00] bg-black px-1">[PHA VS PLA]</Link></li>
                   </ul>
                 </div>
                 <div>
@@ -842,6 +844,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 { name: 'SPOUTED_POUCHES', path: '/topics/compostable-spouted-pouches', color: 'bg-[#D4FF00]' },
                 { name: 'CITRUS_OIL', path: '/solutions/citrus-oil-packaging', color: 'bg-[#D4FF00]' },
                 { name: 'STAMP_FOIL', path: '/blog/stamp-foil-recyclability', color: 'bg-[#D4FF00]' },
+                { name: 'PHA_VS_PLA', path: '/knowledge/pha-vs-pla', color: 'bg-[#D4FF00]' },
 
               ].map((topic, i) => (
                 <Link 

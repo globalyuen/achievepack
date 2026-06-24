@@ -4,15 +4,19 @@ import { motion } from 'framer-motion'
 import { Recycle, CheckCircle, AlertTriangle, ArrowRight, Shield, Zap, Leaf, Thermometer, Sparkles } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { useTranslation, Trans } from 'react-i18next'
 
 export default function PouchCompostableZipperDurabilityPage() {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.pouchCompostableZipperDurability';
+
   const floatAnim = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
-  const title = "Why Compostable Zippers Break & How We Solved It | POUCH.ECO"
-  const description = "Sick of flimsy eco-friendly closures? Discover the material science behind compostable zipper failures and how co-extruded bio-resins and ultrasonic welding prevent breakage."
+  const title = t(`${p}.title`)
+  const description = t(`${p}.description`)
 
   return (
     <PouchLayout>
@@ -28,19 +32,15 @@ export default function PouchCompostableZipperDurabilityPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="inline-block bg-[#059669] text-white border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">TECH_SPECS: HIGH_STRENGTH_BIO_ZIP</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t(`${p}.hero.badge`)}</span>
               </div>
               
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                Zero Breaks.<br/>
-                Zero <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#D4FF00] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Microplastics.</span>
+                {t(`${p}.hero.headlinePrefix`)}<br/>
+                {t(`${p}.hero.headlineSuffix`)} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#D4FF00] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t(`${p}.hero.headlineHighlight`)}</span>
               </h1>
 
-              <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; Broken zippers = Stale coffee.<br/>
-                &gt; Cheap glue = Delamination.<br/>
-                &gt; Co-extruded ultrasonic welding is here.
-              </p>
+              <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" dangerouslySetInnerHTML={{ __html: t(`${p}.hero.subheading`) }} />
             </div>
 
             <div className="relative">
@@ -48,11 +48,11 @@ export default function PouchCompostableZipperDurabilityPage() {
                 <div className="aspect-square relative overflow-hidden">
                     <img 
                       src="/imgs/illustrated/compostable-zipper-detail-v2.png" 
-                      alt="Kraft compostable pouch with double lock zipper" 
+                      alt={t(`${p}.hero.imgAlt`)} 
                       className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
                     />
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                    15N_TENSILE_WELD
+                    {t(`${p}.hero.animBadge`)}
                   </motion.div>
                 </div>
               </NeoCard>
@@ -66,39 +66,39 @@ export default function PouchCompostableZipperDurabilityPage() {
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
-            The Physics of <span className="text-[#059669]">True Zipper Durability</span>
+            {t(`${p}.physics.titlePrefix`)} <span className="text-[#059669]">{t(`${p}.physics.titleHighlight`)}</span>
           </h2>
           
           <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
             <p>
-              One of the most persistent complaints from consumers switching to green packaging is that **compostable zippers break**. They delaminate, peel away from the paper, or tear completely when opened for the first time. Why does this happen? The answer lies in thermodynamics.
+              <Trans i18nKey={`${p}.physics.intro`} components={[<strong key="0" />]} />
             </p>
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">The Danger of Narrow Heat Windows</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t(`${p}.physics.sections.0.title`)}</h3>
             <p>
-              Traditional plastic zippers are extremely forgiving. You can heat seal them at a wide range of temperatures. However, compostable bio-polymers like PLA and PBS have an incredibly narrow thermal sealing window (115°C - 130°C). 
+              {t(`${p}.physics.sections.0.paragraphs.0`)}
             </p>
             <p>
-              If a packaging line runs even slightly too hot, the bio-polymer structures weaken, making the zipper brittle and prone to failure. If it is too cool, the adhesive bond fails, leading to delamination under tension.
+              {t(`${p}.physics.sections.0.paragraphs.1`)}
             </p>
 
             <img 
               src="/imgs/illustrated/zipper-seal-durability.png" 
-              alt="Tensile strength and weld verification testing in packaging lab" 
+              alt={t(`${p}.physics.imgAlt`)} 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Co-Extrusion and Ultrasonic Welding</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t(`${p}.physics.sections.1.title`)}</h3>
             <p>
-              At POUCH.ECO, we refuse to accept flimsy compromises. We co-extrude our zippers using multiple distinct bio-resin layers. The outer layer is formulated to fuse permanently to the bag lining at low temperatures, while the inner double-lock core retains maximum molecular elasticity.
+              {t(`${p}.physics.sections.1.paragraphs.0`)}
             </p>
             <p>
-              We then utilize **Ultrasonic Welding** instead of conduction heat. High-frequency acoustic vibrations generate friction heat only at the contact interface, fusing the parts together in milliseconds. This creates a secure, molecular bond that easily handles over 15N/cm of tensile force without micro-fracturing.
+              <Trans i18nKey={`${p}.physics.sections.1.paragraphs.1`} components={[<strong key="0" />]} />
             </p>
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">No Greenwashing, Full Certification</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t(`${p}.physics.sections.2.title`)}</h3>
             <p>
-              Because our zippers, coffee degassing valves, and lamination resins share the exact same biodegradable polymer formulation, they break down together naturally in industrial and home composting conditions. Our bags are certified **TUV Austria OK Compost Home** and comply fully with EN 13432 and ASTM D6400 standards.
+              <Trans i18nKey={`${p}.physics.sections.2.paragraphs.0`} components={[<strong key="0" />]} />
             </p>
           </div>
         </div>
@@ -108,24 +108,11 @@ export default function PouchCompostableZipperDurabilityPage() {
       <section className="py-24 bg-gray-50 border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            TECHNICAL <span className="text-[#059669]">Q&A</span>
+            {t(`${p}.faq.titlePrefix`)} <span className="text-[#059669]">{t(`${p}.faq.titleHighlight`)}</span>
           </h2>
 
           <div className="space-y-6">
-            {[
-              {
-                q: 'Why do compostable zippers feel more brittle than plastic ones?',
-                a: 'Traditional packaging conduction heaters overheat the delicate molecular chain of biodegradable polymers. POUCH.ECO solves this using co-extrusion and ultrasonic welding, which creates a flexible double-lock snap profile.'
-              },
-              {
-                q: 'What is the pull-strength rating of your resealable closures?',
-                a: 'Our closures undergo rigorous scientific testing and hold a pull-strength rating exceeding 15N/cm, matching oil-based plastic performance and preventing accidental delamination.'
-              },
-              {
-                q: 'Do I have to worry about zipper microplastics in compost?',
-                a: 'No. Our entire pouch is 100% compostable. The zipper, the degassing valve, and the adhesives decompose entirely into organic matter within 180 days, leaving zero toxins behind.'
-              }
-            ].map((faq, idx) => (
+            {[0, 1, 2].map((idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
@@ -135,11 +122,11 @@ export default function PouchCompostableZipperDurabilityPage() {
                 className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               >
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase mb-3 flex items-start gap-3">
-                  <span className="text-[#059669] flex-shrink-0">Q:</span>
-                  {faq.q}
+                  <span className="text-[#059669] flex-shrink-0">{t(`${p}.faq.qPrefix`)}</span>
+                  {t(`${p}.faq.questions.${idx}.q`)}
                 </h3>
                 <p className="font-['JetBrains_Mono'] text-sm text-gray-700 pl-8">
-                  <span className="font-bold text-[#059669]">A:</span> {faq.a}
+                  <span className="font-bold text-[#059669]">{t(`${p}.faq.aPrefix`)}</span> {t(`${p}.faq.questions.${idx}.a`)}
                 </p>
               </motion.div>
             ))}
@@ -150,13 +137,13 @@ export default function PouchCompostableZipperDurabilityPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#059669] text-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-10">
-          <h2 className="font-black text-5xl md:text-7xl uppercase text-white">Get High-Strength Closures</h2>
+          <h2 className="font-black text-5xl md:text-7xl uppercase text-white">{t(`${p}.cta.title`)}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-white/95">
-            Durable, co-extruded zippers that satisfy customers and save the planet.
+            {t(`${p}.cta.description`)}
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary" className="!bg-[#D4FF00] !text-black w-full sm:w-auto text-xl py-4">
-              Order Custom Samples <ArrowRight className="inline-block ml-2 w-6 h-6" />
+              {t(`${p}.cta.button`)} <ArrowRight className="inline-block ml-2 w-6 h-6" />
             </NeoButton>
           </div>
         </div>

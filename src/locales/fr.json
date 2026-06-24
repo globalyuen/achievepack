@@ -28218,6 +28218,7 @@
     "ecoPackagingReality": "Réalité de l'Emballage Éco",
     "writableStampable": "Pochettes Inscriptibles & Estampables",
     "colorMatchingGuide": "Guide de Correspondance des Couleurs",
+    "phaVsPla": "Comparatif PHA vs PLA",
     "customPrintedSample": "Échantillon Imprimé Personnalisé",
     "support": "Support",
     "faqs": "FAQ",
@@ -28425,7 +28426,8 @@
       "digitalPrint": "[IMPRESSION NUMÉRIQUE 100 PIÈCES MOQ]",
       "bioBasedSpout": "[SACHETS À BEC BIO-SOURCÉS]",
       "prepress": "[PRÉPRESSE: GROSSISSEMENT ET CONTOURS]",
-      "refillPouch": "[SYSTÈMES DE SACHETS RECHARGE]"
+      "refillPouch": "[SYSTÈMES DE SACHETS RECHARGE]",
+      "phaVsPla": "[PHA VS PLA]"
     },
     "legal": {
       "copyright": "© 2026 Achieve Pack. Tous droits réservés.",
