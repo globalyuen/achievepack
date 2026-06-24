@@ -367,22 +367,23 @@ const ArtworkBatchesPage: React.FC = () => {
       const q = batchSearchQuery.toLowerCase()
       result = result.filter(batch => {
         // Search batch name and customer
-        if (batch.batch_name.toLowerCase().includes(q)) return true
-        if (batch.customer_name?.toLowerCase().includes(q)) return true
-        if (batch.customer_email?.toLowerCase().includes(q)) return true
+        const safeLower = (v: any) => String(v || '').toLowerCase()
+        if (safeLower(batch.batch_name).includes(q)) return true
+        if (safeLower(batch.customer_name).includes(q)) return true
+        if (safeLower(batch.customer_email).includes(q)) return true
         
         // Search artwork JSON content in this batch
         const items = batchItemsCache[batch.id] || []
         return items.some(item => {
           const ai = item.ai_analysis
           return (
-            item.name.toLowerCase().includes(q) ||
-            ai?.title?.toLowerCase().includes(q) ||
-            ai?.description?.toLowerCase().includes(q) ||
-            ai?.keywords?.some(k => k.toLowerCase().includes(q)) ||
-            ai?.category?.toLowerCase().includes(q) ||
-            ai?.colors?.some(c => c.toLowerCase().includes(q)) ||
-            ai?.content_detected?.some(c => c.toLowerCase().includes(q)) ||
+            safeLower(item.name).includes(q) ||
+            safeLower(ai?.title).includes(q) ||
+            safeLower(ai?.description).includes(q) ||
+            (Array.isArray(ai?.keywords) && ai.keywords.some((k: any) => safeLower(k).includes(q))) ||
+            safeLower(ai?.category).includes(q) ||
+            (Array.isArray(ai?.colors) && ai.colors.some((c: any) => safeLower(c).includes(q))) ||
+            (Array.isArray(ai?.content_detected) && ai.content_detected.some((c: any) => safeLower(c).includes(q))) ||
             (ai && JSON.stringify(ai).toLowerCase().includes(q))
           )
         })
@@ -1225,17 +1226,18 @@ const ArtworkBatchesPage: React.FC = () => {
       const q = searchQuery.toLowerCase().trim()
       const ai = item.ai_analysis
       
+      const safeLower = (v: any) => String(v || '').toLowerCase()
       // Search filter
       const matchesSearch = !q || (
-        item.name.toLowerCase().includes(q) ||
-        item.customer_comment?.toLowerCase().includes(q) ||
-        ai?.title?.toLowerCase().includes(q) ||
-        ai?.description?.toLowerCase().includes(q) ||
-        ai?.keywords?.some(k => k.toLowerCase().includes(q)) ||
-        ai?.category?.toLowerCase().includes(q) ||
-        ai?.colors?.some(c => c.toLowerCase().includes(q)) ||
-        ai?.content_detected?.some(c => c.toLowerCase().includes(q)) ||
-        ai?.quality_score?.toLowerCase().includes(q) ||
+        safeLower(item.name).includes(q) ||
+        safeLower(item.customer_comment).includes(q) ||
+        safeLower(ai?.title).includes(q) ||
+        safeLower(ai?.description).includes(q) ||
+        (Array.isArray(ai?.keywords) && ai.keywords.some((k: any) => safeLower(k).includes(q))) ||
+        safeLower(ai?.category).includes(q) ||
+        (Array.isArray(ai?.colors) && ai.colors.some((c: any) => safeLower(c).includes(q))) ||
+        (Array.isArray(ai?.content_detected) && ai.content_detected.some((c: any) => safeLower(c).includes(q))) ||
+        safeLower(ai?.quality_score).includes(q) ||
         (ai && JSON.stringify(ai).toLowerCase().includes(q))
       )
 
@@ -1797,9 +1799,9 @@ const ArtworkBatchesPage: React.FC = () => {
           {item.ai_analysis?.title && cardSize === 'large' && (
             <p className="text-sm text-gray-500 truncate mt-1">{item.ai_analysis.title}</p>
           )}
-          {item.ai_analysis?.keywords && cardSize === 'large' && (
+          {Array.isArray(item.ai_analysis?.keywords) && item.ai_analysis.keywords.length > 0 && cardSize === 'large' && (
             <div className="flex flex-wrap gap-1 mt-2">
-              {item.ai_analysis.keywords.slice(0, 3).map((kw, i) => (
+              {item.ai_analysis.keywords.slice(0, 3).map((kw: string, i: number) => (
                 <span key={i} className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded">
                   {kw}
                 </span>
@@ -1886,7 +1888,7 @@ const ArtworkBatchesPage: React.FC = () => {
                 </div>
               )}
               {/* Admin replies */}
-              {(item.ai_analysis?.replies ?? []).map((reply: any, idx: number) => (
+              {(Array.isArray(item.ai_analysis?.replies) ? item.ai_analysis.replies : []).map((reply: any, idx: number) => (
                 <div key={idx} className="p-2.5 bg-blue-50 border-t border-blue-100 flex items-start justify-between gap-2 group/reply">
                   <div className="flex-1">
                     <div className="flex items-center gap-1.5 mb-1">
@@ -1896,7 +1898,7 @@ const ArtworkBatchesPage: React.FC = () => {
                     {reply.text && <p className="text-xs text-blue-900">{reply.text}</p>}
                     
                     {/* Reply Assets */}
-                    {reply.assets && reply.assets.length > 0 && (
+                    {Array.isArray(reply.assets) && reply.assets.length > 0 && (
                       <div className="mt-2 space-y-1 pt-1 border-t border-blue-100/50">
                         {reply.assets.map((asset: any, aidx: number) => (
                           <div key={aidx}>
@@ -3391,12 +3393,12 @@ const ArtworkBatchesPage: React.FC = () => {
             </div>
 
             <div className="space-y-2 max-h-60 overflow-y-auto border border-gray-200 rounded-lg p-2 mb-6">
-              {batches.filter(b => b.id !== copyTargetItem.batch_id && b.batch_name.toLowerCase().includes(copyBatchSearch.toLowerCase())).length === 0 ? (
+              {batches.filter(b => b.id !== copyTargetItem.batch_id && String(b.batch_name || '').toLowerCase().includes(copyBatchSearch.toLowerCase())).length === 0 ? (
                 <div className="p-4 text-center text-gray-500 text-sm">
                   No systems found.
                 </div>
               ) : (
-                batches.filter(b => b.id !== copyTargetItem.batch_id && b.batch_name.toLowerCase().includes(copyBatchSearch.toLowerCase())).map(b => (
+                batches.filter(b => b.id !== copyTargetItem.batch_id && String(b.batch_name || '').toLowerCase().includes(copyBatchSearch.toLowerCase())).map(b => (
                   <button
                     key={b.id}
                     onClick={() => handleCopyToBatch(b.id)}
