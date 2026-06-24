@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Leaf, Award, CheckCircle, Package, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown, Compass, Cpu, Layers } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -371,56 +371,43 @@ const CompostableSideGussetPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('seoPages.pages.compostableSideGusset.achievePack.seo.title')}</title>
-        <meta name="description" content={t('seoPages.pages.compostableSideGusset.achievePack.seo.metaDescription')} />
-        <link rel="canonical" href="https://achievepack.com/products/compostable-side-gusset-bags" />
-        <meta property="og:title" content={t('seoPages.pages.compostableSideGusset.achievePack.seo.ogTitle')} />
-        <meta property="og:description" content={t('seoPages.pages.compostableSideGusset.achievePack.seo.ogDescription')} />
-        <meta property="og:url" content="https://achievepack.com/products/compostable-side-gusset-bags" />
-        <meta property="og:image" content="https://achievepack.com/imgs/store/products/compostable-side-gusset-collection.png" />
-        <meta property="og:type" content="product" />
-        <meta name="keywords" content={apKeywords.join(', ')} />
-        
-        {/* Product Graph Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Product",
-                "@id": "https://achievepack.com/products/compostable-side-gusset-bags#product",
-                "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.name'),
-                "description": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.description'),
-                "brand": {
-                  "@type": "Brand",
-                  "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.brandName')
-                },
-                "offers": {
-                  "@type": "AggregateOffer",
-                  "lowPrice": "0.50",
-                  "highPrice": "2.90",
-                  "priceCurrency": "USD",
-                  "availability": "https://schema.org/InStock",
-                  "offerCount": "4"
-                },
-                "additionalProperty": [
-                  {
-                    "@type": "PropertyValue",
-                    "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.certName'),
-                    "value": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.certValue')
-                  },
-                  {
-                    "@type": "PropertyValue",
-                    "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.moqName'),
-                    "value": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.moqValue')
-                  }
-                ]
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('seoPages.pages.compostableSideGusset.achievePack.seo.title')}
+        description={t('seoPages.pages.compostableSideGusset.achievePack.seo.metaDescription')}
+        keywords={apKeywordsLayout}
+        ogImage="/imgs/store/products/compostable-side-gusset-collection.png"
+        schemaType="Product"
+        additionalSchema={{
+          "@type": "Product",
+          "@id": "https://achievepack.com/products/compostable-side-gusset-bags#product",
+          "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.name'),
+          "description": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.description'),
+          "brand": {
+            "@type": "Brand",
+            "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.brandName')
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "0.50",
+            "highPrice": "2.90",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "offerCount": "4"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.certName'),
+              "value": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.certValue')
+            },
+            {
+              "@type": "PropertyValue",
+              "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.moqName'),
+              "value": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.moqValue')
+            }
+          ]
+        }}
+      />
 
       <SEOPageLayout 
         heroBgColor="#1c1917"

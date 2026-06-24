@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Package, Leaf, Award, CheckCircle, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
@@ -416,33 +416,24 @@ const CompostableStandUpPouchesPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.seo.title`)}</title>
-        <meta name="description" content={t(`${p}.seo.description`)} />
-        <link rel="canonical" href="https://achievepack.com/products/compostable-stand-up-pouches" />
-        <meta property="og:title" content={t(`${p}.seo.title`)} />
-        <meta property="og:description" content={t(`${p}.seo.description`)} />
-        <meta property="og:url" content="https://achievepack.com/products/compostable-stand-up-pouches" />
-        <meta name="keywords" content={t(`${p}.seo.keywords`, { joinArrays: ', ' })} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": t(`${p}.seo.heroTitle`),
-            "description": t(`${p}.seo.description`),
-            "brand": { "@type": "Brand", "name": "Achieve Pack" },
-            "category": "Compostable Packaging",
-            "offers": {
-              "@type": "AggregateOffer",
-              "lowPrice": "0.45",
-              "highPrice": "1.20",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            }
-          })}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.seo.title`)}
+        description={t(`${p}.seo.description`)}
+        keywords={t(`${p}.seo.keywords`, { returnObjects: true }) as string[]}
+        schemaType="Product"
+        additionalSchema={{
+          "name": t(`${p}.seo.heroTitle`),
+          "brand": { "@type": "Brand", "name": "Achieve Pack" },
+          "category": "Compostable Packaging",
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "0.45",
+            "highPrice": "1.20",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        }}
+      />
 
       <SEOPageLayout heroBgColor="#14532d"
         title={t(`${p}.seo.title`)}

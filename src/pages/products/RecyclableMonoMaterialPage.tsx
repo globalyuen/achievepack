@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Recycle, Package, Award, CheckCircle, Shield, Clock, Leaf, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -375,33 +375,25 @@ const RecyclableMonoMaterialPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.seo.title`, "Recyclable Mono-Material Pouches | Mono-PE & Mono-PP | Store Drop-Off | Achieve Pack")}</title>
-        <meta name="description" content={t(`${p}.seo.description`, "Recyclable mono-material pouches made from 100% PE or PP. Curbside and store drop-off recyclable. High barrier options available. Low MOQ from 100 pieces.")} />
-        <link rel="canonical" href="https://achievepack.com/products/recyclable-mono-material-pouches" />
-        <meta property="og:title" content={t(`${p}.seo.ogTitle`, "Recyclable Mono-Material Pouches | Achieve Pack")} />
-        <meta property="og:description" content={t(`${p}.seo.ogDescription`, "100% recyclable mono-PE and mono-PP pouches. Store drop-off compatible. Low MOQ from 100 pieces.")} />
-        <meta property="og:url" content="https://achievepack.com/products/recyclable-mono-material-pouches" />
-        <meta name="keywords" content={t(`${p}.seo.keywordsString`, "recyclable pouches, mono-material packaging, mono-PE pouches, mono-PP pouches, store drop-off recyclable, How2Recycle, sustainable packaging, recyclable coffee bags, recyclable snack bags")} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": t(`${p}.seo.jsonLd.name`, "Recyclable Mono-Material Pouches"),
-            "description": t(`${p}.seo.jsonLd.description`, "100% recyclable mono-PE and mono-PP pouches for food packaging. Store drop-off compatible with How2Recycle labeling."),
-            "brand": { "@type": "Brand", "name": "Achieve Pack" },
-            "category": t(`${p}.seo.jsonLd.category`, "Recyclable Packaging"),
-            "offers": {
-              "@type": "AggregateOffer",
-              "lowPrice": "0.40",
-              "highPrice": "1.10",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            }
-          })}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.seo.title`, "Recyclable Mono-Material Pouches | Mono-PE & Mono-PP | Store Drop-Off | Achieve Pack")}
+        description={t(`${p}.seo.description`, "Recyclable mono-material pouches made from 100% PE or PP. Curbside and store drop-off recyclable. High barrier options available. Low MOQ from 100 pieces.")}
+        keywords={(t(`${p}.seo.keywordsString`, "recyclable pouches, mono-material packaging, mono-PE pouches, mono-PP pouches, store drop-off recyclable, How2Recycle, sustainable packaging, recyclable coffee bags, recyclable snack bags")).split(", ")}
+        schemaType="Product"
+        additionalSchema={{
+          "name": t(`${p}.seo.jsonLd.name`, "Recyclable Mono-Material Pouches"),
+          "description": t(`${p}.seo.jsonLd.description`, "100% recyclable mono-PE and mono-PP pouches for food packaging. Store drop-off compatible with How2Recycle labeling."),
+          "brand": { "@type": "Brand", "name": "Achieve Pack" },
+          "category": t(`${p}.seo.jsonLd.category`, "Recyclable Packaging"),
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "0.40",
+            "highPrice": "1.10",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        }}
+      />
 
       <SEOPageLayout heroBgColor="#1e3a8a"
         title={t(`${p}.hero.title`, "Recyclable Mono-Material Pouches | Store Drop-Off Recyclable | Achieve Pack")}

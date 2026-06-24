@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Coffee, Leaf, Award, CheckCircle, Package, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -461,60 +461,50 @@ const CompostableCoffeeBagsPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('seoPages.pages.compostableCoffeeBags.seo.title')}</title>
-        <meta name="description" content={t('seoPages.pages.compostableCoffeeBags.seo.description')} />
-        <link rel="canonical" href="https://achievepack.com/products/compostable-coffee-bags" />
-        <meta property="og:title" content={t('seoPages.pages.compostableCoffeeBags.seo.title')} />
-        <meta property="og:description" content={t('seoPages.pages.compostableCoffeeBags.seo.description')} />
-        <meta property="og:url" content="https://achievepack.com/products/compostable-coffee-bags" />
-        <meta property="og:type" content="product" />
-        
-        {/* Product Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": t('seoPages.pages.compostableCoffeeBags.sections.overview.title'),
-            "description": t('seoPages.pages.compostableCoffeeBags.seo.description'),
-            "brand": {
-              "@type": "Brand",
-              "name": "Achieve Pack"
+      <DualDomainSEOHead
+        title={t('seoPages.pages.compostableCoffeeBags.seo.title')}
+        description={t('seoPages.pages.compostableCoffeeBags.seo.description')}
+        keywords={t('seoPages.pages.compostableCoffeeBags.seo.keywords', { returnObjects: true }) as string[]}
+        schemaType="Product"
+        additionalSchema={{
+          "name": t('seoPages.pages.compostableCoffeeBags.sections.overview.title'),
+          "brand": {
+            "@type": "Brand",
+            "name": "Achieve Pack"
+          },
+          "manufacturer": {
+            "@type": "Organization",
+            "name": "Achieve Pack Company Limited"
+          },
+          "category": "Compostable Packaging",
+          "material": ["PLA", "PBAT", "Kraft Paper", "NatureFlex"],
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "0.55",
+            "highPrice": "1.50",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "offerCount": "5"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "Certification",
+              "value": "ASTM D6400, EN 13432, BPI"
             },
-            "manufacturer": {
-              "@type": "Organization",
-              "name": "Achieve Pack Company Limited"
+            {
+              "@type": "PropertyValue",
+              "name": "Minimum Order",
+              "value": "100 pieces"
             },
-            "category": "Compostable Packaging",
-            "material": ["PLA", "PBAT", "Kraft Paper", "NatureFlex"],
-            "offers": {
-              "@type": "AggregateOffer",
-              "lowPrice": "0.55",
-              "highPrice": "1.50",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock",
-              "offerCount": "5"
-            },
-            "additionalProperty": [
-              {
-                "@type": "PropertyValue",
-                "name": "Certification",
-                "value": "ASTM D6400, EN 13432, BPI"
-              },
-              {
-                "@type": "PropertyValue",
-                "name": "Minimum Order",
-                "value": "100 pieces"
-              },
-              {
-                "@type": "PropertyValue",
-                "name": "Lead Time",
-                "value": "7-10 days production"
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
+            {
+              "@type": "PropertyValue",
+              "name": "Lead Time",
+              "value": "7-10 days production"
+            }
+          ]
+        }}
+      />
 
       <SEOPageLayout heroBgColor="#14532d"
         title={t('seoPages.pages.compostableCoffeeBags.seo.title')}

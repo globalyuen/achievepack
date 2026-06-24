@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Coffee, Package, Award, CheckCircle, Shield, Clock, Leaf, MessageCircle, Target, Calendar, ShoppingCart, ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -391,33 +391,24 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('seoPages.pages.coffeeBagsDegassingValve.seo.title')}</title>
-        <meta name="description" content={t('seoPages.pages.coffeeBagsDegassingValve.seo.description')} />
-        <link rel="canonical" href="https://achievepack.com/products/coffee-bags-degassing-valve" />
-        <meta property="og:title" content={t('seoPages.pages.coffeeBagsDegassingValve.seo.title')} />
-        <meta property="og:description" content={t('seoPages.pages.coffeeBagsDegassingValve.seo.description')} />
-        <meta property="og:url" content="https://achievepack.com/products/coffee-bags-degassing-valve" />
-        <meta name="keywords" content={(t('seoPages.pages.coffeeBagsDegassingValve.seo.keywords', { returnObjects: true }) as string[]).join(', ')} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Coffee Bags with Degassing Valves",
-            "description": "Premium coffee bags with one-way degassing valves for freshly roasted coffee. Available in compostable, recyclable, and conventional materials.",
-            "brand": { "@type": "Brand", "name": "Achieve Pack" },
-            "category": "Coffee Packaging",
-            "offers": {
-              "@type": "AggregateOffer",
-              "lowPrice": "0.65",
-              "highPrice": "1.50",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            }
-          })}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('seoPages.pages.coffeeBagsDegassingValve.seo.title')}
+        description={t('seoPages.pages.coffeeBagsDegassingValve.seo.description')}
+        keywords={t('seoPages.pages.coffeeBagsDegassingValve.seo.keywords', { returnObjects: true }) as string[]}
+        schemaType="Product"
+        additionalSchema={{
+          "name": "Coffee Bags with Degassing Valves",
+          "brand": { "@type": "Brand", "name": "Achieve Pack" },
+          "category": "Coffee Packaging",
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "0.65",
+            "highPrice": "1.50",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        }}
+      />
 
       <SEOPageLayout heroBgColor="#451a03"
         title={t('seoPages.pages.coffeeBagsDegassingValve.seo.title')}
