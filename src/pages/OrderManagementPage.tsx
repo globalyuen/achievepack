@@ -20,6 +20,7 @@ import { NotificationList, type Notification } from '../components/animate-ui/co
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
 import { ArtworkStatusAvatar, AdminWorkQueue, type StatusItem, type WorkItem, type ArtworkStatus } from '../components/animate-ui/components/community/user-presence-avatar'
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
+import { useTranslation, Trans } from "react-i18next";
 
 type TabType = 'quotes' | 'artwork' | 'projects' | 'customers' | 'production' | 'shipping' | 'bin'
 type QuoteSubTab = 'rfq' | 'orders'
@@ -30,6 +31,8 @@ type ProjectModalTab = 'overview' | 'customer' | 'rfq' | 'artwork' | 'orders' | 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
 const OrderManagementPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.orderManagement';
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { user, signOut, loading: authLoading } = useAuth()
@@ -1203,7 +1206,7 @@ const OrderManagementPage: React.FC = () => {
     return <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="text-center">
         <RefreshCw className="h-8 w-8 animate-spin text-primary-500 mx-auto mb-4" />
-        <p className="text-gray-600">Loading...</p>
+        <p className="text-gray-600">{t(`${p}.loading`)}</p>
       </div>
     </div>
   }
@@ -1221,15 +1224,14 @@ const OrderManagementPage: React.FC = () => {
           <div className="flex items-center flex-shrink-0 px-4">
             <Link to="/ctrl-x9k7m" className="flex items-center gap-2">
               <img src="/ap-logo.svg" alt="Logo" className="h-8 w-auto" />
-              <span className="font-bold text-gray-900">Admin</span>
+              <span className="font-bold text-gray-900">{t(`${p}.admin`)}</span>
             </Link>
           </div>
 
           <div className="px-4 mt-8">
             <Link to="/ctrl-x9k7m" className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-2">
               <ArrowLeft className="h-4 w-4" />
-              Back to Main Admin
-            </Link>
+              {t(`${p}.backToMainAdmin`)}</Link>
           </div>
 
           <div className="px-4 mt-6">
@@ -1247,8 +1249,7 @@ const OrderManagementPage: React.FC = () => {
                 }`}
               >
                 <FileCheck className="flex-shrink-0 w-5 h-5 mr-4" />
-                RFQ & Order
-                {pendingQuotes > 0 && (
+                {t(`${p}.rfqOrder`)}{pendingQuotes > 0 && (
                   <span className="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {pendingQuotes}
                   </span>
@@ -1264,8 +1265,7 @@ const OrderManagementPage: React.FC = () => {
                 }`}
               >
                 <ImageIcon className="flex-shrink-0 w-5 h-5 mr-4" />
-                Artwork Files
-                {pendingArtworks > 0 && (
+                {t(`${p}.artworkFiles`)}{pendingArtworks > 0 && (
                   <span className="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {pendingArtworks}
                   </span>
@@ -1281,8 +1281,7 @@ const OrderManagementPage: React.FC = () => {
                 }`}
               >
                 <User className="flex-shrink-0 w-5 h-5 mr-4" />
-                Customers
-                {customers.length > 0 && (
+                {t(`${p}.customers`)}{customers.length > 0 && (
                   <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {customers.length}
                   </span>
@@ -1298,8 +1297,7 @@ const OrderManagementPage: React.FC = () => {
                 }`}
               >
                 <FileText className="flex-shrink-0 w-5 h-5 mr-4" />
-                Projects
-                {projects.length > 0 && (
+                {t(`${p}.projects`)}{projects.length > 0 && (
                   <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {projects.length}
                   </span>
@@ -1315,8 +1313,7 @@ const OrderManagementPage: React.FC = () => {
                 }`}
               >
                 <CheckCircle className="flex-shrink-0 w-5 h-5 mr-4" />
-                Production
-                {productionJobs.length > 0 && (
+                {t(`${p}.production`)}{productionJobs.length > 0 && (
                   <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {productionJobs.length}
                   </span>
@@ -1332,8 +1329,7 @@ const OrderManagementPage: React.FC = () => {
                 }`}
               >
                 <Truck className="flex-shrink-0 w-5 h-5 mr-4" />
-                Shipping
-                {shippingRecords.length > 0 && (
+                {t(`${p}.shipping`)}{shippingRecords.length > 0 && (
                   <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {shippingRecords.length}
                   </span>
@@ -1349,8 +1345,7 @@ const OrderManagementPage: React.FC = () => {
                 }`}
               >
                 <Archive className="flex-shrink-0 w-5 h-5 mr-4" />
-                Bin
-                {(deletedArtworks.length + deletedQuotes.length) > 0 && (
+                {t(`${p}.bin`)}{(deletedArtworks.length + deletedQuotes.length) > 0 && (
                   <span className="ml-auto bg-gray-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {deletedArtworks.length + deletedQuotes.length}
                   </span>
@@ -1358,14 +1353,13 @@ const OrderManagementPage: React.FC = () => {
               </button>
 
               <div className="pt-4 mt-4 border-t border-gray-200">
-                <p className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Tools</p>
+                <p className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">{t(`${p}.tools`)}</p>
                 <Link
                   to="/ctrl-x9k7m/artwork-hub"
                   className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-primary-50 hover:text-primary-600"
                 >
                   <Palette className="flex-shrink-0 w-5 h-5 mr-4" />
-                  Artwork Hub
-                </Link>
+                  {t(`${p}.artworkHub`)}</Link>
               </div>
             </nav>
 
@@ -1377,7 +1371,7 @@ const OrderManagementPage: React.FC = () => {
                   className="relative w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <Bell className="h-5 w-5 text-gray-500" />
-                  <span>Notifications</span>
+                  <span>{t(`${p}.notifications`)}</span>
                   {notifications.length > 0 && (
                     <span className="absolute top-1 left-6 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
                       {notifications.length}
@@ -1404,8 +1398,7 @@ const OrderManagementPage: React.FC = () => {
                 className="flex items-center w-full px-4 py-3 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
               >
                 <LogOut className="flex-shrink-0 w-5 h-5 mr-3 text-gray-500" />
-                Sign Out
-              </button>
+                {t(`${p}.signOut`)}</button>
               <div className="flex items-center px-4 py-2 mt-2">
                 <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
                   <span className="text-primary-600 font-semibold text-sm">
@@ -1413,7 +1406,7 @@ const OrderManagementPage: React.FC = () => {
                   </span>
                 </div>
                 <div className="ml-3">
-                  <p className="text-sm font-medium text-gray-900">Admin</p>
+                  <p className="text-sm font-medium text-gray-900">{t(`${p}.admin`)}</p>
                   <p className="text-xs text-gray-500">{user.email}</p>
                 </div>
               </div>
@@ -1428,7 +1421,7 @@ const OrderManagementPage: React.FC = () => {
         <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white border-b shadow-sm">
           <Link to="/ctrl-x9k7m" className="flex items-center gap-2">
             <img src="/ap-logo.svg" alt="Logo" className="h-7 w-auto" />
-            <span className="font-bold text-gray-900">Admin</span>
+            <span className="font-bold text-gray-900">{t(`${p}.admin`)}</span>
           </Link>
           <div className="flex items-center gap-3">
             {/* Quick Access Sheet - Right Side */}
@@ -1492,7 +1485,7 @@ const OrderManagementPage: React.FC = () => {
               <FileCheck className="h-5 w-5 text-white" />
             </div>
             <div>
-              <h1 className="text-lg font-semibold text-gray-900">Website Orders</h1>
+              <h1 className="text-lg font-semibold text-gray-900">{t(`${p}.websiteOrders`)}</h1>
               <p className="text-sm text-gray-500">
                 {pendingQuotes + pendingArtworks > 0 
                   ? `${pendingQuotes + pendingArtworks} items need attention`
@@ -1561,7 +1554,7 @@ const OrderManagementPage: React.FC = () => {
             <TabsList className="inline-flex gap-1 p-1 bg-gray-100 rounded-lg w-full">
               <TabsTrigger value="quotes" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <FileCheck className="h-4 w-4" />
-                <span>Quotes</span>
+                <span>{t(`${p}.quotes`)}</span>
                 {pendingQuotes > 0 && (
                   <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold bg-red-100 text-red-700 rounded-full">
                     {pendingQuotes}
@@ -1570,7 +1563,7 @@ const OrderManagementPage: React.FC = () => {
               </TabsTrigger>
               <TabsTrigger value="artwork" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <ImageIcon className="h-4 w-4" />
-                <span>Artwork</span>
+                <span>{t(`${p}.artwork`)}</span>
                 {pendingArtworks > 0 && (
                   <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold bg-red-100 text-red-700 rounded-full">
                     {pendingArtworks}
@@ -1579,23 +1572,23 @@ const OrderManagementPage: React.FC = () => {
               </TabsTrigger>
               <TabsTrigger value="customers" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <User className="h-4 w-4" />
-                <span>Customers</span>
+                <span>{t(`${p}.customers`)}</span>
               </TabsTrigger>
               <TabsTrigger value="projects" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <FileText className="h-4 w-4" />
-                <span>Projects</span>
+                <span>{t(`${p}.projects`)}</span>
               </TabsTrigger>
               <TabsTrigger value="production" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <CheckCircle className="h-4 w-4" />
-                <span>Production</span>
+                <span>{t(`${p}.production`)}</span>
               </TabsTrigger>
               <TabsTrigger value="shipping" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <Truck className="h-4 w-4" />
-                <span>Shipping</span>
+                <span>{t(`${p}.shipping`)}</span>
               </TabsTrigger>
               <TabsTrigger value="bin" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <Archive className="h-4 w-4" />
-                <span>Bin</span>
+                <span>{t(`${p}.bin`)}</span>
                 {(deletedArtworks.length + deletedQuotes.length) > 0 && (
                   <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold bg-gray-200 text-gray-700 rounded-full">
                     {deletedArtworks.length + deletedQuotes.length}
@@ -1611,8 +1604,8 @@ const OrderManagementPage: React.FC = () => {
           {workQueueItems.length > 0 && (
             <div className="mb-6 bg-white rounded-xl p-4 shadow-sm border">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-sm font-semibold text-gray-700">Needs Attention</h3>
-                <span className="text-xs text-gray-500">{workQueueItems.filter(i => i.urgent).length} urgent</span>
+                <h3 className="text-sm font-semibold text-gray-700">{t(`${p}.needsAttention`)}</h3>
+                <span className="text-xs text-gray-500">{workQueueItems.filter(i => i.urgent).length} {t(`${p}.urgent`)}</span>
               </div>
               <AdminWorkQueue items={workQueueItems} maxVisible={12} />
             </div>
@@ -1625,16 +1618,15 @@ const OrderManagementPage: React.FC = () => {
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h1 className="text-2xl font-bold text-gray-900">Website Orders</h1>
-                    <p className="text-sm text-gray-500 mt-1">Manage RFQ & store orders from website</p>
+                    <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.websiteOrders`)}</h1>
+                    <p className="text-sm text-gray-500 mt-1">{t(`${p}.manageRfqStoreOrdersFromWebsit`)}</p>
                   </div>
                   <button
                     onClick={fetchData}
                     className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
                   >
                     <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                    Refresh
-                  </button>
+                    {t(`${p}.refresh`)}</button>
                 </div>
 
                 {/* Sub-tab Navigation */}
@@ -1647,8 +1639,7 @@ const OrderManagementPage: React.FC = () => {
                         : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200'
                     }`}
                   >
-                    RFQ & Order
-                  </button>
+                    {t(`${p}.rfqOrder`)}</button>
                   <button
                     onClick={() => setQuoteSubTab('orders')}
                     className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
@@ -1657,8 +1648,7 @@ const OrderManagementPage: React.FC = () => {
                         : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200'
                     }`}
                   >
-                    Store Orders
-                  </button>
+                    {t(`${p}.storeOrders`)}</button>
                 </div>
               </div>
 
@@ -1668,15 +1658,15 @@ const OrderManagementPage: React.FC = () => {
                   {/* Stats */}
                   <div className="flex flex-wrap gap-3">
                     <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                      <p className="text-sm text-gray-500">Total RFQ/Quotes</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.totalRfqQuotes`)}</p>
                       <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={quotes.length} /></p>
                     </div>
                     <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                      <p className="text-sm text-gray-500">Pending</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.pending`)}</p>
                       <p className="text-2xl font-bold text-yellow-600 mt-1"><SlidingNumber number={pendingQuotes} /></p>
                     </div>
                     <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                      <p className="text-sm text-gray-500">RFQ Submissions</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.rfqSubmissions`)}</p>
                       <p className="text-2xl font-bold text-blue-600 mt-1">
                         <SlidingNumber number={quotes.filter(q => q.is_rfq).length} />
                       </p>
@@ -1689,14 +1679,14 @@ const OrderManagementPage: React.FC = () => {
                       <table className="w-full">
                         <thead className="bg-gray-50">
                           <tr>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quote #</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Project</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.quote`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.customer`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.type`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.amount`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.status`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.project`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.created`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.actions`)}</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200">
@@ -1714,12 +1704,10 @@ const OrderManagementPage: React.FC = () => {
                                 <td className="px-6 py-4">
                                   {quote.is_rfq ? (
                                     <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded">
-                                      RFQ
-                                    </span>
+                                      {t(`${p}.rfq`)}</span>
                                   ) : (
                                     <span className="px-2 py-1 text-xs font-medium bg-green-100 text-green-700 rounded">
-                                      Quote
-                                    </span>
+                                      {t(`${p}.quote1`)}</span>
                                   )}
                                 </td>
                                 <td className="px-6 py-4 text-sm font-medium text-gray-900">
@@ -1753,8 +1741,7 @@ const OrderManagementPage: React.FC = () => {
                                       }}
                                       className="text-xs text-gray-400 hover:text-primary-600"
                                     >
-                                      + Link
-                                    </button>
+                                      {t(`${p}.link`)}</button>
                                   )}
                                 </td>
                                 <td className="px-6 py-4 text-sm text-gray-500">
@@ -1770,16 +1757,14 @@ const OrderManagementPage: React.FC = () => {
                                         <Eye className="h-5 w-5" />
                                       </button>
                                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                        ViewDetailsAndReturnCompoundQuote
-                                      </div>
+                                        {t(`${p}.viewdetailsandreturncompoundqu`)}</div>
                                     </div>
                                     <div className="group relative">
                                       <button onClick={() => deleteQuote(quote.id)} className="text-red-600 hover:text-red-700">
                                         <Trash2 className="h-5 w-5" />
                                       </button>
                                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                        MoveToReturnCollectStand
-                                      </div>
+                                        {t(`${p}.movetoreturncollectstand`)}</div>
                                     </div>
                                   </div>
                                 </td>
@@ -1789,7 +1774,7 @@ const OrderManagementPage: React.FC = () => {
                         </tbody>
                       </table>
                       {quotes.length === 0 && (
-                        <div className="text-center py-12 text-gray-500">No RFQ or quotes found</div>
+                        <div className="text-center py-12 text-gray-500">{t(`${p}.noRfqOrQuotesFound`)}</div>
                       )}
                     </div>
                   </div>
@@ -1802,23 +1787,23 @@ const OrderManagementPage: React.FC = () => {
                   {/* Stats */}
                   <div className="flex flex-wrap gap-3">
                     <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                      <p className="text-sm text-gray-500">Total Orders</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.totalOrders`)}</p>
                       <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={orders.length} /></p>
                     </div>
                     <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                      <p className="text-sm text-gray-500">Pending</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.pending`)}</p>
                       <p className="text-2xl font-bold text-yellow-600 mt-1">
                         <SlidingNumber number={orders.filter(o => o.status === 'pending').length} />
                       </p>
                     </div>
                     <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                      <p className="text-sm text-gray-500">In Production</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.inProduction`)}</p>
                       <p className="text-2xl font-bold text-blue-600 mt-1">
                         <SlidingNumber number={orders.filter(o => o.status === 'production' || o.status === 'confirmed').length} />
                       </p>
                     </div>
                     <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                      <p className="text-sm text-gray-500">Shipped</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.shipped`)}</p>
                       <p className="text-2xl font-bold text-green-600 mt-1">
                         <SlidingNumber number={orders.filter(o => o.status === 'shipped' || o.status === 'delivered').length} />
                       </p>
@@ -1831,14 +1816,14 @@ const OrderManagementPage: React.FC = () => {
                       <table className="w-full">
                         <thead className="bg-gray-50">
                           <tr>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Order #</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Payment</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Project</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.order`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.customer`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.total`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.status`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.payment`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.project`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.created`)}</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.actions`)}</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200">
@@ -1847,7 +1832,7 @@ const OrderManagementPage: React.FC = () => {
                             return (
                               <tr key={order.id} className="hover:bg-gray-50">
                                 <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                                  Order #{order.order_number || order.id.slice(0, 8)}
+                                  {t(`${p}.order`)}{order.order_number || order.id.slice(0, 8)}
                                 </td>
                                 <td className="px-6 py-4">
                                   <div>
@@ -1904,8 +1889,7 @@ const OrderManagementPage: React.FC = () => {
                                       }}
                                       className="text-xs text-gray-400 hover:text-primary-600"
                                     >
-                                      + Link
-                                    </button>
+                                      {t(`${p}.link`)}</button>
                                   )}
                                 </td>
                                 <td className="px-6 py-4 text-sm text-gray-500">
@@ -1921,8 +1905,7 @@ const OrderManagementPage: React.FC = () => {
                                         <Eye className="h-5 w-5" />
                                       </button>
                                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                        ViewOrderDetailsAndTrack
-                                      </div>
+                                        {t(`${p}.vieworderdetailsandtrack`)}</div>
                                     </div>
                                   </div>
                                 </td>
@@ -1932,7 +1915,7 @@ const OrderManagementPage: React.FC = () => {
                         </tbody>
                       </table>
                       {orders.length === 0 && (
-                        <div className="text-center py-12 text-gray-500">No store orders found</div>
+                        <div className="text-center py-12 text-gray-500">{t(`${p}.noStoreOrdersFound`)}</div>
                       )}
                     </div>
                   </div>
@@ -1948,8 +1931,8 @@ const OrderManagementPage: React.FC = () => {
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Artwork Files</h1>
-                    <p className="text-sm text-gray-500 mt-1">Review and manage customer artwork</p>
+                    <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{t(`${p}.artworkFiles`)}</h1>
+                    <p className="text-sm text-gray-500 mt-1">{t(`${p}.reviewAndManageCustomerArtwork`)}</p>
                   </div>
                   <div className="flex items-center gap-2">
                     {/* Upload Button */}
@@ -1958,7 +1941,7 @@ const OrderManagementPage: React.FC = () => {
                       className="flex items-center gap-2 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-sm"
                     >
                       <Plus className="h-4 w-4" />
-                      <span className="hidden sm:inline">Upload</span>
+                      <span className="hidden sm:inline">{t(`${p}.upload`)}</span>
                     </button>
                     {/* View Toggle */}
                     <div className="flex bg-gray-100 rounded-lg p-1">
@@ -2008,23 +1991,23 @@ const OrderManagementPage: React.FC = () => {
               {/* Stats */}
               <div className="flex flex-wrap gap-3">
                 <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
-                  <p className="text-xs md:text-sm text-gray-500">Total</p>
+                  <p className="text-xs md:text-sm text-gray-500">{t(`${p}.total`)}</p>
                   <p className="text-xl md:text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={artworks.length} /></p>
                 </div>
                 <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
-                  <p className="text-xs md:text-sm text-gray-500">Pending</p>
+                  <p className="text-xs md:text-sm text-gray-500">{t(`${p}.pending`)}</p>
                   <p className="text-xl md:text-2xl font-bold text-blue-600 mt-1">
                     <SlidingNumber number={artworks.filter(a => a.status === 'pending_review').length} />
                   </p>
                 </div>
                 <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
-                  <p className="text-xs md:text-sm text-gray-500">Proof Ready</p>
+                  <p className="text-xs md:text-sm text-gray-500">{t(`${p}.proofReady`)}</p>
                   <p className="text-xl md:text-2xl font-bold text-indigo-600 mt-1">
                     <SlidingNumber number={artworks.filter(a => a.status === 'proof_ready').length} />
                   </p>
                 </div>
                 <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
-                  <p className="text-xs md:text-sm text-gray-500">Revision</p>
+                  <p className="text-xs md:text-sm text-gray-500">{t(`${p}.revision`)}</p>
                   <p className="text-xl md:text-2xl font-bold text-orange-600 mt-1">
                     <SlidingNumber number={artworks.filter(a => a.status === 'revision_needed').length} />
                   </p>
@@ -2034,7 +2017,7 @@ const OrderManagementPage: React.FC = () => {
               {/* Artwork Status Overview */}
               {artworkStatusItems.length > 0 && (
                 <div className="bg-white rounded-xl p-4 shadow-sm border">
-                  <h3 className="text-sm font-semibold text-gray-700 mb-3">Artwork Status Overview</h3>
+                  <h3 className="text-sm font-semibold text-gray-700 mb-3">{t(`${p}.artworkStatusOverview`)}</h3>
                   <ArtworkStatusAvatar items={artworkStatusItems} maxVisible={12} size="sm" />
                 </div>
               )}
@@ -2070,7 +2053,7 @@ const OrderManagementPage: React.FC = () => {
                           ) : null}
                           <div className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-purple-50 to-indigo-100 ${isImage ? 'hidden' : ''}`}>
                             <ImageIcon className="h-8 w-8 text-purple-400 mb-1" />
-                            <p className="text-[10px] text-purple-500 text-center px-2">Click to preview file</p>
+                            <p className="text-[10px] text-purple-500 text-center px-2">{t(`${p}.clickToPreviewFile`)}</p>
                           </div>
                           <span className={`absolute top-2 right-2 px-2 py-0.5 text-[10px] font-medium rounded-full ${getStatusColor(artwork.status)}`}>
                             {artwork.status.replace(/_/g, ' ')}
@@ -2094,15 +2077,15 @@ const OrderManagementPage: React.FC = () => {
 
                           <div className="space-y-2 mb-3 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-gray-500">Customer</span>
+                              <span className="text-gray-500">{t(`${p}.customer`)}</span>
                               <span className="text-gray-900 font-medium truncate ml-2">{customer?.full_name || 'Unknown'}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-500">Date</span>
+                              <span className="text-gray-500">{t(`${p}.date`)}</span>
                               <span className="text-gray-900">{new Date(artwork.created_at).toLocaleDateString()}</span>
                             </div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-500">Project</span>
+                              <span className="text-gray-500">{t(`${p}.project`)}</span>
                               {artwork.project_id ? (
                                 <button
                                   onClick={() => {
@@ -2123,8 +2106,7 @@ const OrderManagementPage: React.FC = () => {
                                   }}
                                   className="text-xs text-gray-400 hover:text-primary-600"
                                 >
-                                  + Link
-                                </button>
+                                  {t(`${p}.link`)}</button>
                               )}
                             </div>
                           </div>
@@ -2144,8 +2126,7 @@ const OrderManagementPage: React.FC = () => {
                               }}
                               className="flex-1 px-3 py-2 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition"
                             >
-                              Review
-                            </button>
+                              {t(`${p}.review`)}</button>
                             <a
                               href={artwork.file_url}
                               target="_blank"
@@ -2167,11 +2148,11 @@ const OrderManagementPage: React.FC = () => {
                 <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
                   {/* Table Header - Desktop */}
                   <div className="hidden md:grid md:grid-cols-[60px_1fr_120px_200px_140px] gap-3 px-4 py-3 bg-gray-50 border-b text-xs font-medium text-gray-500">
-                    <div>Preview</div>
-                    <div>File Info</div>
-                    <div>Status</div>
-                    <div>Quick Actions</div>
-                    <div className="text-right">Actions</div>
+                    <div>{t(`${p}.preview`)}</div>
+                    <div>{t(`${p}.fileInfo`)}</div>
+                    <div>{t(`${p}.status`)}</div>
+                    <div>{t(`${p}.quickActions`)}</div>
+                    <div className="text-right">{t(`${p}.actions`)}</div>
                   </div>
                   <div className="divide-y divide-gray-100">
                     {paginatedArtworks.map(artwork => {
@@ -2241,29 +2222,25 @@ const OrderManagementPage: React.FC = () => {
                                 className={`px-2 py-1 text-[10px] rounded-md transition ${artwork.status === 'proof_ready' ? 'bg-indigo-600 text-white' : 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100'}`}
                                 title="Set Proof Ready"
                               >
-                                Proof
-                              </button>
+                                {t(`${p}.proof`)}</button>
                               <button
                                 onClick={() => updateArtworkStatus(artwork.id, 'revision_needed')}
                                 className={`px-2 py-1 text-[10px] rounded-md transition ${artwork.status === 'revision_needed' ? 'bg-orange-600 text-white' : 'bg-orange-50 text-orange-700 hover:bg-orange-100'}`}
                                 title="Needs Revision"
                               >
-                                Revision
-                              </button>
+                                {t(`${p}.revision`)}</button>
                               <button
                                 onClick={() => updateArtworkStatus(artwork.id, 'in_production')}
                                 className={`px-2 py-1 text-[10px] rounded-md transition ${artwork.status === 'in_production' ? 'bg-green-600 text-white' : 'bg-green-50 text-green-700 hover:bg-green-100'}`}
                                 title="In Production"
                               >
-                                Prod
-                              </button>
+                                {t(`${p}.prod`)}</button>
                               <button
                                 onClick={() => updateArtworkStatus(artwork.id, 'prepress')}
                                 className={`px-2 py-1 text-[10px] rounded-md transition ${artwork.status === 'prepress' ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-700 hover:bg-blue-100'}`}
                                 title="Prepress"
                               >
-                                Pre
-                              </button>
+                                {t(`${p}.pre`)}</button>
                             </div>
                             
                             {/* Action Buttons */}
@@ -2339,14 +2316,12 @@ const OrderManagementPage: React.FC = () => {
                                     onClick={() => updateArtworkStatus(artwork.id, 'proof_ready')}
                                     className="px-2 py-1 text-[10px] bg-indigo-50 text-indigo-700 rounded-md"
                                   >
-                                    Proof
-                                  </button>
+                                    {t(`${p}.proof`)}</button>
                                   <button
                                     onClick={() => updateArtworkStatus(artwork.id, 'revision_needed')}
                                     className="px-2 py-1 text-[10px] bg-orange-50 text-orange-700 rounded-md"
                                   >
-                                    Revision
-                                  </button>
+                                    {t(`${p}.revision`)}</button>
                                   <button
                                     onClick={() => {
                                       setSelectedArtwork(artwork)
@@ -2354,8 +2329,7 @@ const OrderManagementPage: React.FC = () => {
                                     }}
                                     className="px-2 py-1 text-[10px] bg-primary-50 text-primary-700 rounded-md"
                                   >
-                                    Review
-                                  </button>
+                                    {t(`${p}.review`)}</button>
                                   <a
                                     href={artwork.file_url}
                                     target="_blank"
@@ -2399,8 +2373,8 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Projects</h1>
-                  <p className="text-sm text-gray-500 mt-1">Unified order tracking across all customers</p>
+                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.projects`)}</h1>
+                  <p className="text-sm text-gray-500 mt-1">{t(`${p}.unifiedOrderTrackingAcrossAllC`)}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -2425,38 +2399,36 @@ const OrderManagementPage: React.FC = () => {
                     className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm"
                   >
                     <Plus className="h-4 w-4" />
-                    Create Project
-                  </button>
+                    {t(`${p}.createProject`)}</button>
                   <button
                     onClick={fetchData}
                     className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
                   >
                     <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                    Refresh
-                  </button>
+                    {t(`${p}.refresh`)}</button>
                 </div>
               </div>
 
               {/* Stats */}
               <div className="flex flex-wrap gap-3">
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Total Projects</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.totalProjects`)}</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={projects.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">RFQ Stage</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.rfqStage`)}</p>
                   <p className="text-2xl font-bold text-yellow-600 mt-1">
                     <SlidingNumber number={projects.filter(p => p.status === 'rfq').length} />
                   </p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Production</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.production`)}</p>
                   <p className="text-2xl font-bold text-purple-600 mt-1">
                     <SlidingNumber number={projects.filter(p => p.status === 'production').length} />
                   </p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Shipping</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.shipping`)}</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1">
                     <SlidingNumber number={projects.filter(p => p.status === 'shipping').length} />
                   </p>
@@ -2469,13 +2441,13 @@ const OrderManagementPage: React.FC = () => {
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Project Code</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Stage</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Progress</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Updated</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.projectCode`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.customer`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.type`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.stage`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.progress`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.updated`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.actions`)}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -2549,19 +2521,18 @@ const OrderManagementPage: React.FC = () => {
                                   }}
                                   className="text-sm border border-gray-300 rounded-lg px-2 py-1 focus:ring-2 focus:ring-primary-500"
                                 >
-                                  <option value="rfq">RFQ</option>
-                                  <option value="artwork">Artwork</option>
-                                  <option value="order">Order</option>
-                                  <option value="production">Production</option>
-                                  <option value="shipping">Shipping</option>
-                                  <option value="complete">Complete</option>
+                                  <option value="rfq">{t(`${p}.rfq`)}</option>
+                                  <option value="artwork">{t(`${p}.artwork`)}</option>
+                                  <option value="order">{t(`${p}.order2`)}</option>
+                                  <option value="production">{t(`${p}.production`)}</option>
+                                  <option value="shipping">{t(`${p}.shipping`)}</option>
+                                  <option value="complete">{t(`${p}.complete`)}</option>
                                 </select>
                                 <button
                                   onClick={() => openProjectModal(project)}
                                   className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
                                 >
-                                  Manage
-                                </button>
+                                  {t(`${p}.manage`)}</button>
                               </div>
                             </td>
                           </tr>
@@ -2572,8 +2543,8 @@ const OrderManagementPage: React.FC = () => {
                   {projects.length === 0 && (
                     <div className="text-center py-12 text-gray-500">
                       <FileText className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                      <p>No projects found</p>
-                      <p className="text-xs mt-1">Projects will appear here when created</p>
+                      <p>{t(`${p}.noProjectsFound`)}</p>
+                      <p className="text-xs mt-1">{t(`${p}.projectsWillAppearHereWhenCrea`)}</p>
                     </div>
                   )}
                 </div>
@@ -2585,26 +2556,25 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Customers</h1>
-                  <p className="text-sm text-gray-500 mt-1">Manage all registered customer accounts</p>
+                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.customers`)}</h1>
+                  <p className="text-sm text-gray-500 mt-1">{t(`${p}.manageAllRegisteredCustomerAcc`)}</p>
                 </div>
                 <button
                   onClick={fetchData}
                   className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
                 >
                   <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                  Refresh
-                </button>
+                  {t(`${p}.refresh`)}</button>
               </div>
 
               {/* Stats */}
               <div className="flex flex-wrap gap-3">
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Total Customers</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.totalCustomers`)}</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={customers.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Recent Signups</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.recentSignups`)}</p>
                   <p className="text-2xl font-bold text-green-600 mt-1">
                     <SlidingNumber number={customers.filter(c => new Date(c.created_at) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)).length} />
                   </p>
@@ -2617,11 +2587,11 @@ const OrderManagementPage: React.FC = () => {
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Company</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Joined</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.customer`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.email`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.company`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.joined`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.actions`)}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -2636,7 +2606,7 @@ const OrderManagementPage: React.FC = () => {
                               </div>
                               <div className="ml-4">
                                 <p className="text-sm font-medium text-gray-900">{customer.full_name || 'N/A'}</p>
-                                <p className="text-xs text-gray-500">ID: {customer.id.substring(0, 8)}...</p>
+                                <p className="text-xs text-gray-500">{t(`${p}.id`)}{customer.id.substring(0, 8)}...</p>
                               </div>
                             </div>
                           </td>
@@ -2657,8 +2627,7 @@ const OrderManagementPage: React.FC = () => {
                               }}
                               className="text-primary-600 hover:text-primary-900 font-medium"
                             >
-                              View
-                            </button>
+                              {t(`${p}.view`)}</button>
                           </td>
                         </tr>
                       ))}
@@ -2667,8 +2636,8 @@ const OrderManagementPage: React.FC = () => {
                   {customers.length === 0 && (
                     <div className="text-center py-12 text-gray-500">
                       <User className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                      <p>No customers found</p>
-                      <p className="text-xs mt-1">Customer accounts will appear here when created</p>
+                      <p>{t(`${p}.noCustomersFound`)}</p>
+                      <p className="text-xs mt-1">{t(`${p}.customerAccountsWillAppearHere`)}</p>
                     </div>
                   )}
                 </div>
@@ -2681,8 +2650,8 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Production Jobs</h1>
-                  <p className="text-sm text-gray-500 mt-1">Track manufacturing progress and manage production tasks</p>
+                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.productionJobs`)}</h1>
+                  <p className="text-sm text-gray-500 mt-1">{t(`${p}.trackManufacturingProgressAndM`)}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -2706,32 +2675,30 @@ const OrderManagementPage: React.FC = () => {
                     className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm"
                   >
                     <Plus className="h-4 w-4" />
-                    Create Job
-                  </button>
+                    {t(`${p}.createJob`)}</button>
                   <button
                     onClick={fetchData}
                     className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
                   >
                     <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                    Refresh
-                  </button>
+                    {t(`${p}.refresh`)}</button>
                 </div>
               </div>
 
               {/* Stats */}
               <div className="flex flex-wrap gap-3">
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Total Jobs</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.totalJobs`)}</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={productionJobs.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">In Progress</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.inProgress`)}</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1">
                     <SlidingNumber number={productionJobs.filter(j => j.status === 'in_progress').length} />
                   </p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Completed</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.completed`)}</p>
                   <p className="text-2xl font-bold text-green-600 mt-1">
                     <SlidingNumber number={productionJobs.filter(j => j.status === 'completed').length} />
                   </p>
@@ -2744,12 +2711,12 @@ const OrderManagementPage: React.FC = () => {
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Job Number</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Product</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quantity</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.jobNumber`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.product`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.quantity`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.status`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.created`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.actions`)}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -2779,11 +2746,11 @@ const OrderManagementPage: React.FC = () => {
                                 'bg-gray-50 border-gray-200 text-gray-700'
                               }`}
                             >
-                              <option value="pending">Pending</option>
-                              <option value="in_progress">In Progress</option>
-                              <option value="quality_check">Quality Check</option>
-                              <option value="completed">Completed</option>
-                              <option value="on_hold">On Hold</option>
+                              <option value="pending">{t(`${p}.pending`)}</option>
+                              <option value="in_progress">{t(`${p}.inProgress`)}</option>
+                              <option value="quality_check">{t(`${p}.qualityCheck`)}</option>
+                              <option value="completed">{t(`${p}.completed`)}</option>
+                              <option value="on_hold">{t(`${p}.onHold`)}</option>
                             </select>
                           </td>
                           <td className="px-6 py-4">
@@ -2797,8 +2764,7 @@ const OrderManagementPage: React.FC = () => {
                               }}
                               className="text-primary-600 hover:text-primary-900 font-medium"
                             >
-                              View Project
-                            </button>
+                              {t(`${p}.viewProject`)}</button>
                           </td>
                         </tr>
                       ))}
@@ -2807,8 +2773,8 @@ const OrderManagementPage: React.FC = () => {
                   {productionJobs.length === 0 && (
                     <div className="text-center py-12 text-gray-500">
                       <CheckCircle className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                      <p>No production jobs found</p>
-                      <p className="text-xs mt-1">Create a new production job to get started</p>
+                      <p>{t(`${p}.noProductionJobsFound`)}</p>
+                      <p className="text-xs mt-1">{t(`${p}.createANewProductionJobToGetSt`)}</p>
                     </div>
                   )}
                 </div>
@@ -2821,8 +2787,8 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Shipping Records</h1>
-                  <p className="text-sm text-gray-500 mt-1">Track shipments and manage delivery status</p>
+                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.shippingRecords`)}</h1>
+                  <p className="text-sm text-gray-500 mt-1">{t(`${p}.trackShipmentsAndManageDeliver`)}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -2846,32 +2812,30 @@ const OrderManagementPage: React.FC = () => {
                     className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm"
                   >
                     <Plus className="h-4 w-4" />
-                    Create Shipment
-                  </button>
+                    {t(`${p}.createShipment`)}</button>
                   <button
                     onClick={fetchData}
                     className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
                   >
                     <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                    Refresh
-                  </button>
+                    {t(`${p}.refresh`)}</button>
                 </div>
               </div>
 
               {/* Stats */}
               <div className="flex flex-wrap gap-3">
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Total Shipments</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.totalShipments`)}</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={shippingRecords.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">In Transit</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.inTransit`)}</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1">
                     <SlidingNumber number={shippingRecords.filter(s => s.status === 'in_transit' || s.status === 'shipped').length} />
                   </p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Delivered</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.delivered`)}</p>
                   <p className="text-2xl font-bold text-green-600 mt-1">
                     <SlidingNumber number={shippingRecords.filter(s => s.status === 'delivered').length} />
                   </p>
@@ -2884,11 +2848,11 @@ const OrderManagementPage: React.FC = () => {
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tracking Number</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Carrier</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Shipped</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.trackingNumber`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.carrier`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.status`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.shipped`)}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t(`${p}.actions`)}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -2914,12 +2878,12 @@ const OrderManagementPage: React.FC = () => {
                                 'bg-red-50 border-red-200 text-red-700'
                               }`}
                             >
-                              <option value="preparing">Preparing</option>
-                              <option value="shipped">Shipped</option>
-                              <option value="in_transit">In Transit</option>
-                              <option value="delivered">Delivered</option>
-                              <option value="returned">Returned</option>
-                              <option value="cancelled">Cancelled</option>
+                              <option value="preparing">{t(`${p}.preparing`)}</option>
+                              <option value="shipped">{t(`${p}.shipped`)}</option>
+                              <option value="in_transit">{t(`${p}.inTransit`)}</option>
+                              <option value="delivered">{t(`${p}.delivered`)}</option>
+                              <option value="returned">{t(`${p}.returned`)}</option>
+                              <option value="cancelled">{t(`${p}.cancelled`)}</option>
                             </select>
                           </td>
                           <td className="px-6 py-4">
@@ -2935,8 +2899,7 @@ const OrderManagementPage: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className="text-primary-600 hover:text-primary-900 font-medium"
                               >
-                                Track
-                              </a>
+                                {t(`${p}.track`)}</a>
                             ) : (
                               <button 
                                 onClick={() => {
@@ -2945,8 +2908,7 @@ const OrderManagementPage: React.FC = () => {
                                 }}
                                 className="text-primary-600 hover:text-primary-900 font-medium"
                               >
-                                View Project
-                              </button>
+                                {t(`${p}.viewProject`)}</button>
                             )}
                           </td>
                         </tr>
@@ -2956,8 +2918,8 @@ const OrderManagementPage: React.FC = () => {
                   {shippingRecords.length === 0 && (
                     <div className="text-center py-12 text-gray-500">
                       <Truck className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                      <p>No shipping records found</p>
-                      <p className="text-xs mt-1">Create a new shipment to get started</p>
+                      <p>{t(`${p}.noShippingRecordsFound`)}</p>
+                      <p className="text-xs mt-1">{t(`${p}.createANewShipmentToGetStarted`)}</p>
                     </div>
                   )}
                 </div>
@@ -2970,30 +2932,29 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Bin</h1>
-                  <p className="text-sm text-gray-500 mt-1">Recover accidentally deleted items or permanently delete them</p>
+                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.bin`)}</h1>
+                  <p className="text-sm text-gray-500 mt-1">{t(`${p}.recoverAccidentallyDeletedItem`)}</p>
                 </div>
                 <button
                   onClick={fetchData}
                   className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
                 >
                   <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                  Refresh
-                </button>
+                  {t(`${p}.refresh`)}</button>
               </div>
 
               {/* Stats */}
               <div className="flex flex-wrap gap-3">
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Total in Bin</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.totalInBin`)}</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={deletedArtworks.length + deletedQuotes.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Deleted Artworks</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.deletedArtworks`)}</p>
                   <p className="text-2xl font-bold text-purple-600 mt-1"><SlidingNumber number={deletedArtworks.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Deleted Quotes</p>
+                  <p className="text-sm text-gray-500">{t(`${p}.deletedQuotes`)}</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1"><SlidingNumber number={deletedQuotes.length} /></p>
                 </div>
               </div>
@@ -3004,7 +2965,7 @@ const OrderManagementPage: React.FC = () => {
                   <div className="px-6 py-4 border-b bg-gray-50">
                     <h3 className="font-semibold text-gray-900 flex items-center gap-2">
                       <ImageIcon className="h-5 w-5 text-purple-600" />
-                      Deleted Artworks ({deletedArtworks.length})
+                      {t(`${p}.deletedArtworks3`)}{deletedArtworks.length})
                     </h3>
                   </div>
                   <div className="divide-y divide-gray-200">
@@ -3018,7 +2979,7 @@ const OrderManagementPage: React.FC = () => {
                             </div>
                             <div className="min-w-0">
                               <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
-                              <p className="text-xs text-gray-500">{customer?.full_name || 'Unknown'} • Deleted {new Date(artwork.deleted_at || '').toLocaleDateString()}</p>
+                              <p className="text-xs text-gray-500">{customer?.full_name || 'Unknown'} {t(`${p}.deleted`)}{new Date(artwork.deleted_at || '').toLocaleDateString()}</p>
                             </div>
                           </div>
                           <div className="flex items-center gap-2">
@@ -3027,15 +2988,13 @@ const OrderManagementPage: React.FC = () => {
                               className="flex items-center gap-1 px-3 py-1.5 text-sm text-green-700 bg-green-50 rounded-lg hover:bg-green-100 transition"
                             >
                               <RotateCcw className="h-4 w-4" />
-                              Restore
-                            </button>
+                              {t(`${p}.restore`)}</button>
                             <button
                               onClick={() => permanentlyDeleteArtwork(artwork.id)}
                               className="flex items-center gap-1 px-3 py-1.5 text-sm text-red-700 bg-red-50 rounded-lg hover:bg-red-100 transition"
                             >
                               <Trash2 className="h-4 w-4" />
-                              Delete
-                            </button>
+                              {t(`${p}.delete`)}</button>
                           </div>
                         </div>
                       )
@@ -3050,7 +3009,7 @@ const OrderManagementPage: React.FC = () => {
                   <div className="px-6 py-4 border-b bg-gray-50">
                     <h3 className="font-semibold text-gray-900 flex items-center gap-2">
                       <FileCheck className="h-5 w-5 text-blue-600" />
-                      Deleted Quotes & RFQ ({deletedQuotes.length})
+                      {t(`${p}.deletedQuotesRfq`)}{deletedQuotes.length})
                     </h3>
                   </div>
                   <div className="divide-y divide-gray-200">
@@ -3065,9 +3024,9 @@ const OrderManagementPage: React.FC = () => {
                             <div className="min-w-0">
                               <p className="text-sm font-medium text-gray-900 truncate">
                                 {quote.quote_number}
-                                {quote.is_rfq && <span className="ml-2 px-1.5 py-0.5 text-[10px] font-medium bg-blue-100 text-blue-700 rounded">RFQ</span>}
+                                {quote.is_rfq && <span className="ml-2 px-1.5 py-0.5 text-[10px] font-medium bg-blue-100 text-blue-700 rounded">{t(`${p}.rfq`)}</span>}
                               </p>
-                              <p className="text-xs text-gray-500">{customer?.full_name || 'Unknown'} • Deleted {new Date(quote.deleted_at || '').toLocaleDateString()}</p>
+                              <p className="text-xs text-gray-500">{customer?.full_name || 'Unknown'} {t(`${p}.deleted`)}{new Date(quote.deleted_at || '').toLocaleDateString()}</p>
                             </div>
                           </div>
                           <div className="flex items-center gap-2">
@@ -3076,15 +3035,13 @@ const OrderManagementPage: React.FC = () => {
                               className="flex items-center gap-1 px-3 py-1.5 text-sm text-green-700 bg-green-50 rounded-lg hover:bg-green-100 transition"
                             >
                               <RotateCcw className="h-4 w-4" />
-                              Restore
-                            </button>
+                              {t(`${p}.restore`)}</button>
                             <button
                               onClick={() => permanentlyDeleteQuote(quote.id, !!quote.is_rfq)}
                               className="flex items-center gap-1 px-3 py-1.5 text-sm text-red-700 bg-red-50 rounded-lg hover:bg-red-100 transition"
                             >
                               <Trash2 className="h-4 w-4" />
-                              Delete
-                            </button>
+                              {t(`${p}.delete`)}</button>
                           </div>
                         </div>
                       )
@@ -3097,8 +3054,8 @@ const OrderManagementPage: React.FC = () => {
               {deletedArtworks.length === 0 && deletedQuotes.length === 0 && (
                 <div className="text-center py-12 text-gray-500 bg-white rounded-xl border">
                   <Archive className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                  <p>Bin is empty</p>
-                  <p className="text-sm mt-1">Deleted items will appear here</p>
+                  <p>{t(`${p}.binIsEmpty`)}</p>
+                  <p className="text-sm mt-1">{t(`${p}.deletedItemsWillAppearHere`)}</p>
                 </div>
               )}
             </div>
@@ -3116,8 +3073,7 @@ const OrderManagementPage: React.FC = () => {
                 <h2 className="text-xl font-bold">{selectedQuote.quote_number}</h2>
                 {selectedQuote.is_rfq && (
                   <span className="inline-block mt-1 px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded">
-                    Customer Request (RFQ)
-                  </span>
+                    {t(`${p}.customerRequestRfq`)}</span>
                 )}
               </div>
               <button onClick={() => setSelectedQuote(null)} className="text-gray-500 hover:text-gray-700">
@@ -3137,8 +3093,7 @@ const OrderManagementPage: React.FC = () => {
                   }`}
                 >
                   <FileCheck className="inline h-4 w-4 mr-2" />
-                  RFQ Details
-                </button>
+                  {t(`${p}.rfqDetails`)}</button>
                 <button
                   onClick={() => setQuoteDetailTab('orders')}
                   className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
@@ -3148,7 +3103,7 @@ const OrderManagementPage: React.FC = () => {
                   }`}
                 >
                   <Package className="inline h-4 w-4 mr-2" />
-                  Orders ({getQuoteOrders(selectedQuote).length})
+                  {t(`${p}.orders`)}{getQuoteOrders(selectedQuote).length})
                 </button>
                 <button
                   onClick={() => setQuoteDetailTab('artwork')}
@@ -3159,7 +3114,7 @@ const OrderManagementPage: React.FC = () => {
                   }`}
                 >
                   <ImageIcon className="inline h-4 w-4 mr-2" />
-                  Artwork ({getQuoteArtworks(selectedQuote).length})
+                  {t(`${p}.artwork4`)}{getQuoteArtworks(selectedQuote).length})
                 </button>
                 <button
                   onClick={() => setQuoteDetailTab('shipping')}
@@ -3170,8 +3125,7 @@ const OrderManagementPage: React.FC = () => {
                   }`}
                 >
                   <Truck className="inline h-4 w-4 mr-2" />
-                  Shipping
-                </button>
+                  {t(`${p}.shipping`)}</button>
               </div>
             </div>
 
@@ -3182,21 +3136,21 @@ const OrderManagementPage: React.FC = () => {
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm text-gray-500">Customer</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.customer`)}</p>
                       <p className="font-medium">{getCustomer(selectedQuote.user_id)?.full_name || 'Unknown'}</p>
                       <p className="text-sm text-gray-600">{getCustomer(selectedQuote.user_id)?.email}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Status</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.status`)}</p>
                       <select
                         value={selectedQuote.status}
                         onChange={(e) => updateQuoteStatus(selectedQuote.id, e.target.value)}
                         className={`mt-1 px-3 py-1 rounded-lg border ${getStatusColor(selectedQuote.status)}`}
                       >
-                        <option value="pending">Pending</option>
-                        <option value="accepted">Accepted</option>
-                        <option value="rejected">Rejected</option>
-                        <option value="expired">Expired</option>
+                        <option value="pending">{t(`${p}.pending`)}</option>
+                        <option value="accepted">{t(`${p}.accepted`)}</option>
+                        <option value="rejected">{t(`${p}.rejected`)}</option>
+                        <option value="expired">{t(`${p}.expired`)}</option>
                       </select>
                     </div>
                   </div>
@@ -3205,7 +3159,7 @@ const OrderManagementPage: React.FC = () => {
                     <>
                       {selectedQuote.message && (
                         <div>
-                          <p className="text-sm font-medium text-gray-700 mb-2">Customer Message</p>
+                          <p className="text-sm font-medium text-gray-700 mb-2">{t(`${p}.customerMessage`)}</p>
                           <div className="bg-gray-50 rounded-lg p-4">
                             <p className="text-sm text-gray-700 whitespace-pre-wrap">{selectedQuote.message}</p>
                           </div>
@@ -3214,7 +3168,7 @@ const OrderManagementPage: React.FC = () => {
 
                       {selectedQuote.website_link && (
                         <div>
-                          <p className="text-sm font-medium text-gray-700 mb-2">Product Website</p>
+                          <p className="text-sm font-medium text-gray-700 mb-2">{t(`${p}.productWebsite`)}</p>
                           <a 
                             href={selectedQuote.website_link} 
                             target="_blank" 
@@ -3229,7 +3183,7 @@ const OrderManagementPage: React.FC = () => {
 
                       {selectedQuote.photo_urls && selectedQuote.photo_urls.length > 0 && (
                         <div>
-                          <p className="text-sm font-medium text-gray-700 mb-2">Reference Images ({selectedQuote.photo_urls.length})</p>
+                          <p className="text-sm font-medium text-gray-700 mb-2">{t(`${p}.referenceImages`)}{selectedQuote.photo_urls.length})</p>
                           <div className="grid grid-cols-3 gap-3">
                             {selectedQuote.photo_urls.map((url, idx) => (
                               <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="block">
@@ -3248,7 +3202,7 @@ const OrderManagementPage: React.FC = () => {
 
                   {!selectedQuote.is_rfq && selectedQuote.total_amount !== undefined && (
                     <div className="bg-green-50 rounded-lg p-4">
-                      <p className="text-sm text-gray-600">Total Amount</p>
+                      <p className="text-sm text-gray-600">{t(`${p}.totalAmount`)}</p>
                       <p className="text-2xl font-bold text-green-600">${selectedQuote.total_amount.toLocaleString()}</p>
                     </div>
                   )}
@@ -3256,18 +3210,18 @@ const OrderManagementPage: React.FC = () => {
                   {/* Show existing admin reply if present */}
                   {(selectedQuote.admin_reply || (selectedQuote as any).quoted_amount) && (
                     <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                      <p className="text-sm font-semibold text-blue-800 mb-2">Previous Admin Reply</p>
+                      <p className="text-sm font-semibold text-blue-800 mb-2">{t(`${p}.previousAdminReply`)}</p>
                       {selectedQuote.admin_reply && (
                         <p className="text-sm text-blue-900 whitespace-pre-wrap mb-2">{selectedQuote.admin_reply}</p>
                       )}
                       {(selectedQuote as any).quoted_amount && (
                         <div className="flex items-center gap-2 mt-2">
-                          <span className="text-sm text-blue-700">Quoted Amount:</span>
+                          <span className="text-sm text-blue-700">{t(`${p}.quotedAmount`)}</span>
                           <span className="text-lg font-bold text-blue-900">${(selectedQuote as any).quoted_amount.toLocaleString()}</span>
                         </div>
                       )}
                       {(selectedQuote as any).replied_at && (
-                        <p className="text-xs text-blue-600 mt-2">Replied: {new Date((selectedQuote as any).replied_at).toLocaleString()}</p>
+                        <p className="text-xs text-blue-600 mt-2">{t(`${p}.replied`)}{new Date((selectedQuote as any).replied_at).toLocaleString()}</p>
                       )}
                     </div>
                   )}
@@ -3276,8 +3230,7 @@ const OrderManagementPage: React.FC = () => {
                   <div className="border-t pt-4">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       <Mail className="inline h-4 w-4 mr-1" />
-                      Admin Reply to Customer
-                    </label>
+                      {t(`${p}.adminReplyToCustomer`)}</label>
                     <textarea
                       value={adminReply}
                       onChange={(e) => setAdminReply(e.target.value)}
@@ -3289,8 +3242,7 @@ const OrderManagementPage: React.FC = () => {
                     {/* Quoted Amount (optional) */}
                     <div className="mt-3">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Quoted Amount (Optional)
-                      </label>
+                        {t(`${p}.quotedAmountOptional`)}</label>
                       <div className="flex items-center gap-2">
                         <span className="text-gray-500">$</span>
                         <input
@@ -3312,19 +3264,18 @@ const OrderManagementPage: React.FC = () => {
                       className="w-full mt-3 px-4 py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium rounded-lg transition flex items-center justify-center gap-2"
                     >
                       <Mail className="h-5 w-5" />
-                      Send Reply to Customer
-                    </button>
+                      {t(`${p}.sendReplyToCustomer`)}</button>
                   </div>
 
                   <div className="text-sm text-gray-500">
-                    Created: {new Date(selectedQuote.created_at).toLocaleString()}
+                    {t(`${p}.created5`)}{new Date(selectedQuote.created_at).toLocaleString()}
                   </div>
 
                   <button
                     onClick={() => deleteQuote(selectedQuote.id)}
                     className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
                   >
-                    Delete {selectedQuote.is_rfq ? 'Request' : 'Quote'}
+                    {t(`${p}.delete`)}{selectedQuote.is_rfq ? 'Request' : 'Quote'}
                   </button>
                 </div>
               )}
@@ -3333,8 +3284,8 @@ const OrderManagementPage: React.FC = () => {
               {quoteDetailTab === 'orders' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-gray-900">Related Orders</h3>
-                    <span className="text-sm text-gray-500">{getQuoteOrders(selectedQuote).length} orders</span>
+                    <h3 className="font-semibold text-gray-900">{t(`${p}.relatedOrders`)}</h3>
+                    <span className="text-sm text-gray-500">{getQuoteOrders(selectedQuote).length} {t(`${p}.orders6`)}</span>
                   </div>
                   {getQuoteOrders(selectedQuote).length > 0 ? (
                     <div className="space-y-3">
@@ -3342,8 +3293,8 @@ const OrderManagementPage: React.FC = () => {
                         <div key={order.id} className="border rounded-lg p-4 hover:bg-gray-50 transition">
                           <div className="flex items-start justify-between">
                             <div>
-                              <p className="font-medium text-gray-900">Order #{order.order_number || order.id.slice(0, 8)}</p>
-                              <p className="text-sm text-gray-600 mt-1">Total: ${order.total_amount?.toLocaleString() || '0'}</p>
+                              <p className="font-medium text-gray-900">{t(`${p}.order`)}{order.order_number || order.id.slice(0, 8)}</p>
+                              <p className="text-sm text-gray-600 mt-1">{t(`${p}.total7`)}{order.total_amount?.toLocaleString() || '0'}</p>
                               <div className="flex gap-2 mt-2">
                                 <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${
                                   order.status === 'delivered' ? 'bg-green-100 text-green-700' :
@@ -3367,8 +3318,7 @@ const OrderManagementPage: React.FC = () => {
                               }}
                               className="px-3 py-1.5 text-sm text-primary-600 hover:bg-primary-50 rounded-lg transition"
                             >
-                              View
-                            </button>
+                              {t(`${p}.view`)}</button>
                           </div>
                         </div>
                       ))}
@@ -3376,7 +3326,7 @@ const OrderManagementPage: React.FC = () => {
                   ) : (
                     <div className="text-center py-12 text-gray-500">
                       <Package className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                      <p>No orders linked to this RFQ yet</p>
+                      <p>{t(`${p}.noOrdersLinkedToThisRfqYet`)}</p>
                     </div>
                   )}
                 </div>
@@ -3386,8 +3336,8 @@ const OrderManagementPage: React.FC = () => {
               {quoteDetailTab === 'artwork' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-gray-900">Related Artwork</h3>
-                    <span className="text-sm text-gray-500">{getQuoteArtworks(selectedQuote).length} files</span>
+                    <h3 className="font-semibold text-gray-900">{t(`${p}.relatedArtwork`)}</h3>
+                    <span className="text-sm text-gray-500">{getQuoteArtworks(selectedQuote).length} {t(`${p}.files`)}</span>
                   </div>
                   {getQuoteArtworks(selectedQuote).length > 0 ? (
                     <div className="grid grid-cols-2 gap-3">
@@ -3408,15 +3358,14 @@ const OrderManagementPage: React.FC = () => {
                             onClick={() => setSelectedArtwork(artwork)}
                             className="w-full mt-2 px-3 py-1.5 text-sm text-primary-600 hover:bg-primary-50 rounded-lg transition"
                           >
-                            Review
-                          </button>
+                            {t(`${p}.review`)}</button>
                         </div>
                       ))}
                     </div>
                   ) : (
                     <div className="text-center py-12 text-gray-500">
                       <ImageIcon className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                      <p>No artwork files linked to this RFQ</p>
+                      <p>{t(`${p}.noArtworkFilesLinkedToThisRfq`)}</p>
                     </div>
                   )}
                 </div>
@@ -3426,12 +3375,12 @@ const OrderManagementPage: React.FC = () => {
               {quoteDetailTab === 'shipping' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-gray-900">Shipping Status</h3>
+                    <h3 className="font-semibold text-gray-900">{t(`${p}.shippingStatus`)}</h3>
                   </div>
                   <div className="text-center py-12 text-gray-500">
                     <Truck className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                    <p>Shipping information will appear here once orders are created</p>
-                    <p className="text-sm mt-2">Check the Orders tab to see order details</p>
+                    <p>{t(`${p}.shippingInformationWillAppearH`)}</p>
+                    <p className="text-sm mt-2">{t(`${p}.checkTheOrdersTabToSeeOrderDet`)}</p>
                   </div>
                 </div>
               )}
@@ -3447,8 +3396,8 @@ const OrderManagementPage: React.FC = () => {
             {/* Header */}
             <div className="p-6 border-b flex items-center justify-between sticky top-0 bg-white z-10">
               <div>
-                <h2 className="text-xl font-bold">Order #{selectedOrder.order_number || selectedOrder.id.slice(0, 8)}</h2>
-                <p className="text-sm text-gray-500 mt-1">Total: ${selectedOrder.total_amount?.toLocaleString() || '0'}</p>
+                <h2 className="text-xl font-bold">{t(`${p}.order`)}{selectedOrder.order_number || selectedOrder.id.slice(0, 8)}</h2>
+                <p className="text-sm text-gray-500 mt-1">{t(`${p}.total8`)}{selectedOrder.total_amount?.toLocaleString() || '0'}</p>
               </div>
               <button onClick={() => setSelectedOrder(null)} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
@@ -3467,8 +3416,7 @@ const OrderManagementPage: React.FC = () => {
                   }`}
                 >
                   <Package className="inline h-4 w-4 mr-2" />
-                  Order
-                </button>
+                  {t(`${p}.order9`)}</button>
                 <button
                   onClick={() => setOrderDetailTab('artwork')}
                   className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
@@ -3478,7 +3426,7 @@ const OrderManagementPage: React.FC = () => {
                   }`}
                 >
                   <ImageIcon className="inline h-4 w-4 mr-2" />
-                  Artwork ({getOrderArtworks(selectedOrder).length})
+                  {t(`${p}.artwork10`)}{getOrderArtworks(selectedOrder).length})
                 </button>
                 <button
                   onClick={() => setOrderDetailTab('production')}
@@ -3489,8 +3437,7 @@ const OrderManagementPage: React.FC = () => {
                   }`}
                 >
                   <CheckCircle className="inline h-4 w-4 mr-2" />
-                  Production
-                </button>
+                  {t(`${p}.production`)}</button>
                 <button
                   onClick={() => setOrderDetailTab('shipping')}
                   className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
@@ -3500,8 +3447,7 @@ const OrderManagementPage: React.FC = () => {
                   }`}
                 >
                   <Truck className="inline h-4 w-4 mr-2" />
-                  Shipping
-                </button>
+                  {t(`${p}.shipping`)}</button>
               </div>
             </div>
 
@@ -3512,56 +3458,56 @@ const OrderManagementPage: React.FC = () => {
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm text-gray-500">Customer</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.customer`)}</p>
                       <p className="font-medium">{getCustomer(selectedOrder.user_id)?.full_name || 'Unknown'}</p>
                       <p className="text-sm text-gray-600">{getCustomer(selectedOrder.user_id)?.email}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Order Status</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.orderStatus`)}</p>
                       <select
                         value={selectedOrder.status || 'pending'}
                         onChange={(e) => updateOrderStatus(selectedOrder.id, e.target.value)}
                         className="mt-1 px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
                       >
-                        <option value="pending">Pending</option>
-                        <option value="confirmed">Confirmed</option>
-                        <option value="production">Production</option>
-                        <option value="shipped">Shipped</option>
-                        <option value="delivered">Delivered</option>
-                        <option value="cancelled">Cancelled</option>
+                        <option value="pending">{t(`${p}.pending`)}</option>
+                        <option value="confirmed">{t(`${p}.confirmed`)}</option>
+                        <option value="production">{t(`${p}.production`)}</option>
+                        <option value="shipped">{t(`${p}.shipped`)}</option>
+                        <option value="delivered">{t(`${p}.delivered`)}</option>
+                        <option value="cancelled">{t(`${p}.cancelled`)}</option>
                       </select>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm text-gray-500">Payment Status</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.paymentStatus`)}</p>
                       <select
                         value={selectedOrder.payment_status || 'unpaid'}
                         onChange={(e) => updateOrderPaymentStatus(selectedOrder.id, e.target.value)}
                         className="mt-1 px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
                       >
-                        <option value="unpaid">Unpaid</option>
-                        <option value="deposit_paid">Deposit Paid</option>
-                        <option value="paid">Fully Paid</option>
+                        <option value="unpaid">{t(`${p}.unpaid`)}</option>
+                        <option value="deposit_paid">{t(`${p}.depositPaid`)}</option>
+                        <option value="paid">{t(`${p}.fullyPaid`)}</option>
                       </select>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Created</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.created`)}</p>
                       <p className="font-medium mt-1">{new Date(selectedOrder.created_at).toLocaleString()}</p>
                     </div>
                   </div>
 
                   {selectedOrder.items && selectedOrder.items.length > 0 && (
                     <div>
-                      <p className="text-sm font-medium text-gray-700 mb-3">Order Items</p>
+                      <p className="text-sm font-medium text-gray-700 mb-3">{t(`${p}.orderItems`)}</p>
                       <div className="space-y-2">
                         {selectedOrder.items.map((item: any, idx: number) => (
                           <div key={idx} className="border rounded-lg p-3 bg-gray-50">
                             <div className="flex justify-between items-start">
                               <div>
                                 <p className="font-medium text-sm">{item.name || 'Product'}</p>
-                                <p className="text-xs text-gray-600 mt-1">Qty: {item.quantity || 1}</p>
+                                <p className="text-xs text-gray-600 mt-1">{t(`${p}.qty`)}{item.quantity || 1}</p>
                               </div>
                               <p className="font-medium text-sm">${item.price?.toLocaleString() || '0'}</p>
                             </div>
@@ -3570,7 +3516,7 @@ const OrderManagementPage: React.FC = () => {
                       </div>
                       <div className="mt-4 pt-4 border-t">
                         <div className="flex justify-between text-lg font-bold">
-                          <span>Total</span>
+                          <span>{t(`${p}.total`)}</span>
                           <span className="text-green-600">${selectedOrder.total_amount?.toLocaleString() || '0'}</span>
                         </div>
                       </div>
@@ -3580,11 +3526,11 @@ const OrderManagementPage: React.FC = () => {
                   {/* Sibling Orders */}
                   {getSiblingOrders(selectedOrder).length > 0 && (
                     <div className="border-t pt-4">
-                      <p className="text-sm font-medium text-gray-700 mb-2">Related Orders in Project</p>
+                      <p className="text-sm font-medium text-gray-700 mb-2">{t(`${p}.relatedOrdersInProject`)}</p>
                       <div className="space-y-2">
                         {getSiblingOrders(selectedOrder).map(siblingOrder => (
                           <div key={siblingOrder.id} className="text-sm flex items-center justify-between p-2 bg-gray-50 rounded">
-                            <span className="text-gray-700">Order #{siblingOrder.order_number || siblingOrder.id.slice(0, 8)}</span>
+                            <span className="text-gray-700">{t(`${p}.order`)}{siblingOrder.order_number || siblingOrder.id.slice(0, 8)}</span>
                             <span className={`px-2 py-0.5 text-xs rounded-full ${
                               siblingOrder.status === 'delivered' ? 'bg-green-100 text-green-700' :
                               siblingOrder.status === 'shipped' ? 'bg-blue-100 text-blue-700' :
@@ -3604,8 +3550,8 @@ const OrderManagementPage: React.FC = () => {
               {orderDetailTab === 'artwork' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-gray-900">Linked Artwork Files</h3>
-                    <span className="text-sm text-gray-500">{getOrderArtworks(selectedOrder).length} files</span>
+                    <h3 className="font-semibold text-gray-900">{t(`${p}.linkedArtworkFiles`)}</h3>
+                    <span className="text-sm text-gray-500">{getOrderArtworks(selectedOrder).length} {t(`${p}.files`)}</span>
                   </div>
                   {getOrderArtworks(selectedOrder).length > 0 ? (
                     <div className="grid grid-cols-2 gap-3">
@@ -3626,16 +3572,15 @@ const OrderManagementPage: React.FC = () => {
                             onClick={() => setSelectedArtwork(artwork)}
                             className="w-full mt-2 px-3 py-1.5 text-sm text-primary-600 hover:bg-primary-50 rounded-lg transition"
                           >
-                            Review
-                          </button>
+                            {t(`${p}.review`)}</button>
                         </div>
                       ))}
                     </div>
                   ) : (
                     <div className="text-center py-12 text-gray-500">
                       <ImageIcon className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                      <p>No artwork files linked to this order</p>
-                      <p className="text-sm mt-1">Artwork will appear here when uploaded</p>
+                      <p>{t(`${p}.noArtworkFilesLinkedToThisOrde`)}</p>
+                      <p className="text-sm mt-1">{t(`${p}.artworkWillAppearHereWhenUploa`)}</p>
                     </div>
                   )}
                 </div>
@@ -3645,7 +3590,7 @@ const OrderManagementPage: React.FC = () => {
               {orderDetailTab === 'production' && (
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-4">Production Status</h3>
+                    <h3 className="font-semibold text-gray-900 mb-4">{t(`${p}.productionStatus`)}</h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
@@ -3658,8 +3603,8 @@ const OrderManagementPage: React.FC = () => {
                           )}
                         </div>
                         <div className="flex-1">
-                          <p className="font-medium">Order Confirmed</p>
-                          <p className="text-sm text-gray-500">Order approved and ready for production</p>
+                          <p className="font-medium">{t(`${p}.orderConfirmed`)}</p>
+                          <p className="text-sm text-gray-500">{t(`${p}.orderApprovedAndReadyForProduc`)}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
@@ -3673,8 +3618,8 @@ const OrderManagementPage: React.FC = () => {
                           )}
                         </div>
                         <div className="flex-1">
-                          <p className="font-medium">In Production</p>
-                          <p className="text-sm text-gray-500">Product is being manufactured</p>
+                          <p className="font-medium">{t(`${p}.inProduction`)}</p>
+                          <p className="text-sm text-gray-500">{t(`${p}.productIsBeingManufactured`)}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
@@ -3688,23 +3633,22 @@ const OrderManagementPage: React.FC = () => {
                           )}
                         </div>
                         <div className="flex-1">
-                          <p className="font-medium">Ready to Ship</p>
-                          <p className="text-sm text-gray-500">Production complete, preparing shipment</p>
+                          <p className="font-medium">{t(`${p}.readyToShip`)}</p>
+                          <p className="text-sm text-gray-500">{t(`${p}.productionCompletePreparingShi`)}</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="border-t pt-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Production Notes</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.productionNotes`)}</label>
                     <textarea
                       placeholder="Add internal production notes..."
                       rows={4}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
                     />
                     <button className="mt-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-sm">
-                      Save Notes
-                    </button>
+                      {t(`${p}.saveNotes`)}</button>
                   </div>
                 </div>
               )}
@@ -3713,10 +3657,10 @@ const OrderManagementPage: React.FC = () => {
               {orderDetailTab === 'shipping' && (
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-4">Shipping Information</h3>
+                    <h3 className="font-semibold text-gray-900 mb-4">{t(`${p}.shippingInformation`)}</h3>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Tracking Number</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.trackingNumber`)}</label>
                         <input
                           type="text"
                           defaultValue={selectedOrder.tracking_number || ''}
@@ -3731,24 +3675,24 @@ const OrderManagementPage: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Carrier</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.carrier`)}</label>
                         <select
                           defaultValue={selectedOrder.carrier || ''}
                           onChange={(e) => updateOrderShippingInfo(selectedOrder.id, { carrier: e.target.value })}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
                         >
-                          <option value="">Select Carrier</option>
-                          <option value="UPS">UPS</option>
-                          <option value="FedEx">FedEx</option>
-                          <option value="DHL">DHL</option>
-                          <option value="USPS">USPS</option>
-                          <option value="Other">Other</option>
+                          <option value="">{t(`${p}.selectCarrier`)}</option>
+                          <option value="UPS">{t(`${p}.ups`)}</option>
+                          <option value="FedEx">{t(`${p}.fedex`)}</option>
+                          <option value="DHL">{t(`${p}.dhl`)}</option>
+                          <option value="USPS">{t(`${p}.usps`)}</option>
+                          <option value="Other">{t(`${p}.other`)}</option>
                         </select>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 mt-4">Tracking URL</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2 mt-4">{t(`${p}.trackingUrl`)}</label>
                       <input
                         type="url"
                         defaultValue={selectedOrder.tracking_url || ''}
@@ -3772,14 +3716,13 @@ const OrderManagementPage: React.FC = () => {
                           className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm"
                         >
                           <Truck className="h-4 w-4" />
-                          Track Shipment
-                        </a>
+                          {t(`${p}.trackShipment`)}</a>
                       </div>
                     )}
                   </div>
 
                   <div className="border-t pt-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Shipping Notes</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">{t(`${p}.shippingNotes`)}</label>
                     <textarea
                       defaultValue={selectedOrder.shipping_notes || ''}
                       onChange={(e) => {
@@ -3796,7 +3739,7 @@ const OrderManagementPage: React.FC = () => {
 
                   {selectedOrder.shipping_images && selectedOrder.shipping_images.length > 0 && (
                     <div className="border-t pt-4">
-                      <p className="text-sm font-medium text-gray-700 mb-2">Shipping Photos</p>
+                      <p className="text-sm font-medium text-gray-700 mb-2">{t(`${p}.shippingPhotos`)}</p>
                       <div className="grid grid-cols-3 gap-3">
                         {selectedOrder.shipping_images.map((url: string, idx: number) => (
                           <a key={idx} href={url} target="_blank" rel="noopener noreferrer">
@@ -3819,7 +3762,7 @@ const OrderManagementPage: React.FC = () => {
           <div className="bg-white rounded-t-2xl md:rounded-xl w-full md:max-w-2xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto">
             <div className="p-4 md:p-6 border-b flex items-center justify-between sticky top-0 bg-white z-10">
               <div>
-                <h2 className="text-lg md:text-xl font-bold">Review Artwork</h2>
+                <h2 className="text-lg md:text-xl font-bold">{t(`${p}.reviewArtwork`)}</h2>
                 {selectedArtwork.artwork_code && (
                   <span className="inline-block mt-1 font-mono text-xs md:text-sm font-bold text-primary-600 bg-primary-50 px-2 py-0.5 rounded">
                     {selectedArtwork.artwork_code}
@@ -3847,8 +3790,7 @@ const OrderManagementPage: React.FC = () => {
               <div className="bg-amber-50 rounded-lg p-3 md:p-4 border border-amber-200">
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
                   <User className="h-4 w-4 md:h-5 md:w-5 text-amber-600" />
-                  Assign Customer
-                </h3>
+                  {t(`${p}.assignCustomer`)}</h3>
                 {/* Search Input */}
                 <div className="relative mb-2">
                   <input
@@ -3873,7 +3815,7 @@ const OrderManagementPage: React.FC = () => {
                   onChange={(e) => setArtworkAssignedUserId(e.target.value)}
                   className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
                 >
-                  <option value="">-- Select Customer --</option>
+                  <option value="">{t(`${p}.selectCustomer`)}</option>
                   {(() => {
                     const search = assignCustomerSearch.toLowerCase().trim()
                     const filteredC = search ? customers.filter(c => 
@@ -3907,7 +3849,7 @@ const OrderManagementPage: React.FC = () => {
                           </optgroup>
                         )}
                         {filteredC.length === 0 && filteredI.length === 0 && search && (
-                          <option disabled>No results for "{assignCustomerSearch}"</option>
+                          <option disabled>{t(`${p}.noResultsFor`)}{assignCustomerSearch}"</option>
                         )}
                       </>
                     )
@@ -3915,7 +3857,7 @@ const OrderManagementPage: React.FC = () => {
                 </select>
                 {(artworkAssignedUserId || selectedArtwork.user_id) && (
                   <p className="text-xs text-gray-600 mt-2">
-                    Current: <span className="font-medium text-amber-700">{getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.email || 'Unknown Email'}</span>
+                    {t(`${p}.current`)}<span className="font-medium text-amber-700">{getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.email || 'Unknown Email'}</span>
                     {getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.full_name && (
                       <span className="text-gray-500"> ({getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.full_name})</span>
                     )}
@@ -3925,7 +3867,7 @@ const OrderManagementPage: React.FC = () => {
 
               {/* File Info */}
               <div className="bg-gray-50 rounded-lg p-3">
-                <p className="text-xs text-gray-500">File</p>
+                <p className="text-xs text-gray-500">{t(`${p}.file`)}</p>
                 <p className="font-medium text-sm truncate">{selectedArtwork.name}</p>
                 <p className="text-xs text-gray-600">{formatFileSize(selectedArtwork.file_size)}</p>
               </div>
@@ -3935,38 +3877,37 @@ const OrderManagementPage: React.FC = () => {
                 <div className="bg-purple-50 rounded-lg p-3 md:p-4 border border-purple-200">
                   <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
                     <Zap className="h-4 w-4 md:h-5 md:w-5 text-purple-600" />
-                    AI Analysis
-                    <span className="text-[10px] font-normal text-purple-500">(Admin Only)</span>
+                    {t(`${p}.aiAnalysis`)}<span className="text-[10px] font-normal text-purple-500">{t(`${p}.adminOnly`)}</span>
                   </h3>
                   <div className="space-y-3">
                     {selectedArtwork.ai_analysis.title && (
                       <div>
-                        <p className="text-[10px] text-purple-600 font-medium uppercase">Title</p>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">{t(`${p}.title`)}</p>
                         <p className="text-sm text-gray-800">{selectedArtwork.ai_analysis.title}</p>
                       </div>
                     )}
                     {selectedArtwork.ai_analysis.description && (
                       <div>
-                        <p className="text-[10px] text-purple-600 font-medium uppercase">Description</p>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">{t(`${p}.description`)}</p>
                         <p className="text-xs text-gray-700 leading-relaxed">{selectedArtwork.ai_analysis.description}</p>
                       </div>
                     )}
                     <div className="grid grid-cols-2 gap-3">
                       {selectedArtwork.ai_analysis.category && (
                         <div>
-                          <p className="text-[10px] text-purple-600 font-medium uppercase">Category</p>
+                          <p className="text-[10px] text-purple-600 font-medium uppercase">{t(`${p}.category`)}</p>
                           <p className="text-xs text-gray-800 capitalize">{selectedArtwork.ai_analysis.category}</p>
                         </div>
                       )}
                       {selectedArtwork.ai_analysis.type && (
                         <div>
-                          <p className="text-[10px] text-purple-600 font-medium uppercase">Type</p>
+                          <p className="text-[10px] text-purple-600 font-medium uppercase">{t(`${p}.type`)}</p>
                           <p className="text-xs text-gray-800 capitalize">{selectedArtwork.ai_analysis.type}</p>
                         </div>
                       )}
                       {selectedArtwork.ai_analysis.quality_score && (
                         <div>
-                          <p className="text-[10px] text-purple-600 font-medium uppercase">Quality</p>
+                          <p className="text-[10px] text-purple-600 font-medium uppercase">{t(`${p}.quality`)}</p>
                           <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-medium capitalize ${
                             selectedArtwork.ai_analysis.quality_score === 'high' ? 'bg-green-100 text-green-700' :
                             selectedArtwork.ai_analysis.quality_score === 'medium' ? 'bg-yellow-100 text-yellow-700' :
@@ -3979,7 +3920,7 @@ const OrderManagementPage: React.FC = () => {
                     </div>
                     {selectedArtwork.ai_analysis.colors && selectedArtwork.ai_analysis.colors.length > 0 && (
                       <div>
-                        <p className="text-[10px] text-purple-600 font-medium uppercase">Colors Detected</p>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">{t(`${p}.colorsDetected`)}</p>
                         <div className="flex flex-wrap gap-1 mt-1">
                           {selectedArtwork.ai_analysis.colors.map((color, idx) => (
                             <span key={idx} className="px-2 py-0.5 bg-white border border-purple-200 rounded text-[10px] text-gray-700">
@@ -3991,7 +3932,7 @@ const OrderManagementPage: React.FC = () => {
                     )}
                     {selectedArtwork.ai_analysis.content_detected && selectedArtwork.ai_analysis.content_detected.length > 0 && (
                       <div>
-                        <p className="text-[10px] text-purple-600 font-medium uppercase">Content Detected</p>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">{t(`${p}.contentDetected`)}</p>
                         <div className="flex flex-wrap gap-1 mt-1">
                           {selectedArtwork.ai_analysis.content_detected.map((item, idx) => (
                             <span key={idx} className="px-2 py-0.5 bg-purple-100 text-purple-700 rounded text-[10px]">
@@ -4003,7 +3944,7 @@ const OrderManagementPage: React.FC = () => {
                     )}
                     {selectedArtwork.ai_analysis.keywords && selectedArtwork.ai_analysis.keywords.length > 0 && (
                       <div>
-                        <p className="text-[10px] text-purple-600 font-medium uppercase">Keywords</p>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">{t(`${p}.keywords`)}</p>
                         <div className="flex flex-wrap gap-1 mt-1">
                           {selectedArtwork.ai_analysis.keywords.map((kw, idx) => (
                             <span key={idx} className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-[10px]">
@@ -4015,7 +3956,7 @@ const OrderManagementPage: React.FC = () => {
                     )}
                     {selectedArtwork.ai_analysis.recommendations && selectedArtwork.ai_analysis.recommendations.length > 0 && (
                       <div className="bg-white rounded p-2 border border-purple-200">
-                        <p className="text-[10px] text-purple-600 font-medium uppercase mb-1">Recommendations</p>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase mb-1">{t(`${p}.recommendations`)}</p>
                         <ul className="text-xs text-gray-700 space-y-1">
                           {selectedArtwork.ai_analysis.recommendations.map((rec, idx) => (
                             <li key={idx} className="flex gap-1">• {rec}</li>
@@ -4025,7 +3966,7 @@ const OrderManagementPage: React.FC = () => {
                     )}
                     {selectedArtwork.ai_analysis.analyzed_at && (
                       <p className="text-[10px] text-purple-400 text-right">
-                        Analyzed: {new Date(selectedArtwork.ai_analysis.analyzed_at).toLocaleString()}
+                        {t(`${p}.analyzed`)}{new Date(selectedArtwork.ai_analysis.analyzed_at).toLocaleString()}
                       </p>
                     )}
                   </div>
@@ -4033,7 +3974,7 @@ const OrderManagementPage: React.FC = () => {
               )}
 
               <div>
-                <p className="text-xs md:text-sm text-gray-500 mb-2">Current Status</p>
+                <p className="text-xs md:text-sm text-gray-500 mb-2">{t(`${p}.currentStatus`)}</p>
                 <span className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full ${getStatusColor(selectedArtwork.status)}`}>
                   {selectedArtwork.status.replace('_', ' ')}
                 </span>
@@ -4043,11 +3984,10 @@ const OrderManagementPage: React.FC = () => {
               <div className="bg-gray-50 rounded-lg p-3 md:p-4 border border-gray-200">
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
                   <Tag className="h-4 w-4 md:h-5 md:w-5 text-primary-600" />
-                  Artwork Coding
-                </h3>
+                  {t(`${p}.artworkCoding`)}</h3>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Customer Code</label>
+                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">{t(`${p}.customerCode`)}</label>
                     <input
                       type="text"
                       value={artworkCustomerCode || selectedArtwork.customer_code || ''}
@@ -4058,7 +3998,7 @@ const OrderManagementPage: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Product Code</label>
+                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">{t(`${p}.productCode`)}</label>
                     <input
                       type="text"
                       value={artworkProductCode || selectedArtwork.product_code || ''}
@@ -4070,7 +4010,7 @@ const OrderManagementPage: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-[10px] md:text-xs text-gray-500 mt-2">
-                  Version: V{String(selectedArtwork.version_number || 1).padStart(3, '0')}
+                  {t(`${p}.versionV`)}{String(selectedArtwork.version_number || 1).padStart(3, '0')}
                 </p>
               </div>
 
@@ -4078,8 +4018,7 @@ const OrderManagementPage: React.FC = () => {
               <div className="bg-blue-50 rounded-lg p-3 md:p-4 border border-blue-200">
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
                   <Link2 className="h-4 w-4 md:h-5 md:w-5 text-blue-600" />
-                  Link to Order/Quote
-                </h3>
+                  {t(`${p}.linkToOrderQuote`)}</h3>
                 <div className="space-y-3">
                   <select
                     value={artworkLinkType}
@@ -4089,9 +4028,9 @@ const OrderManagementPage: React.FC = () => {
                     }}
                     className="w-full px-2 md:px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="none">No Link</option>
-                    <option value="order">Link to Order</option>
-                    <option value="quote">Link to Quote</option>
+                    <option value="none">{t(`${p}.noLink`)}</option>
+                    <option value="order">{t(`${p}.linkToOrder`)}</option>
+                    <option value="quote">{t(`${p}.linkToQuote`)}</option>
                   </select>
                   
                   {artworkLinkType !== 'none' && (
@@ -4100,7 +4039,7 @@ const OrderManagementPage: React.FC = () => {
                       onChange={(e) => setArtworkLinkedId(e.target.value)}
                       className="w-full px-2 md:px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     >
-                      <option value="">Select {artworkLinkType === 'order' ? 'Order' : 'Quote'}...</option>
+                      <option value="">{t(`${p}.select`)}{artworkLinkType === 'order' ? 'Order' : 'Quote'}...</option>
                       {artworkLinkType === 'order' 
                         ? orders.map(order => (
                             <option key={order.id} value={order.id}>
@@ -4120,7 +4059,7 @@ const OrderManagementPage: React.FC = () => {
 
               {selectedArtwork.customer_comment && (
                 <div>
-                  <p className="text-xs md:text-sm font-medium text-gray-700 mb-2">Customer Comment</p>
+                  <p className="text-xs md:text-sm font-medium text-gray-700 mb-2">{t(`${p}.customerComment`)}</p>
                   <div className="bg-blue-50 rounded-lg p-3">
                     <p className="text-xs md:text-sm text-blue-800">{selectedArtwork.customer_comment}</p>
                   </div>
@@ -4131,8 +4070,7 @@ const OrderManagementPage: React.FC = () => {
               <div className="bg-gray-50 rounded-lg p-3 md:p-4 border border-gray-200">
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
                   <MessageSquare className="h-4 w-4 md:h-5 md:w-5 text-primary-600" />
-                  Conversation Thread
-                  <span className="text-xs font-normal text-gray-500">({artworkComments.length} messages)</span>
+                  {t(`${p}.conversationThread`)}<span className="text-xs font-normal text-gray-500">({artworkComments.length} {t(`${p}.messages`)}</span>
                 </h3>
                 
                 {/* Thread Timeline */}
@@ -4140,12 +4078,11 @@ const OrderManagementPage: React.FC = () => {
                   {loadingComments ? (
                     <div className="text-center py-4 text-gray-500 text-sm">
                       <RefreshCw className="h-4 w-4 animate-spin mx-auto mb-1" />
-                      Loading thread...
-                    </div>
+                      {t(`${p}.loadingThread`)}</div>
                   ) : artworkComments.length === 0 ? (
                     <div className="text-center py-6 text-gray-400">
                       <MessageSquare className="h-8 w-8 mx-auto mb-2 opacity-50" />
-                      <p className="text-xs md:text-sm">No messages yet. Start the conversation!</p>
+                      <p className="text-xs md:text-sm">{t(`${p}.noMessagesYetStartTheConversat`)}</p>
                     </div>
                   ) : (
                     artworkComments.map(comment => (
@@ -4166,8 +4103,7 @@ const OrderManagementPage: React.FC = () => {
                             </span>
                             {comment.message_type === 'file' && (
                               <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-100 text-blue-700">
-                                📎 File
-                              </span>
+                                {t(`${p}.file11`)}</span>
                             )}
                           </div>
                           <span className="text-[10px] text-gray-400">
@@ -4190,7 +4126,7 @@ const OrderManagementPage: React.FC = () => {
                                 <p className="text-[10px] text-gray-500">{formatFileSize(comment.file_size)}</p>
                               )}
                             </div>
-                            <span className="text-[10px] text-blue-500">Download ↓</span>
+                            <span className="text-[10px] text-blue-500">{t(`${p}.download`)}</span>
                           </a>
                         )}
                         
@@ -4248,7 +4184,7 @@ const OrderManagementPage: React.FC = () => {
                       )}
                     </button>
                   </div>
-                  <p className="text-[10px] text-gray-400">Supports: AI, EPS, PDF, PNG, JPG, TIFF, ZIP, PSD</p>
+                  <p className="text-[10px] text-gray-400">{t(`${p}.supportsAiEpsPdfPngJpgTiffZipP`)}</p>
                 </div>
               </div>
 
@@ -4259,16 +4195,16 @@ const OrderManagementPage: React.FC = () => {
                     {selectedArtwork.approval_type === 'approve_as_is' ? '✅ Customer Approved' : '❌ Customer Requested Changes'}
                   </h4>
                   {selectedArtwork.approver_signature && (
-                    <p className="text-xs md:text-sm">Signed by: {selectedArtwork.approver_signature}</p>
+                    <p className="text-xs md:text-sm">{t(`${p}.signedBy`)}{selectedArtwork.approver_signature}</p>
                   )}
                   {selectedArtwork.approved_date && (
-                    <p className="text-xs md:text-sm">Date: {selectedArtwork.approved_date}</p>
+                    <p className="text-xs md:text-sm">{t(`${p}.date12`)}{selectedArtwork.approved_date}</p>
                   )}
                 </div>
               )}
 
               <div>
-                <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">Internal Remark (Not visible to customer)</label>
+                <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">{t(`${p}.internalRemarkNotVisibleToCust`)}</label>
                 <textarea
                   value={artworkFeedback}
                   onChange={(e) => setArtworkFeedback(e.target.value)}
@@ -4293,14 +4229,13 @@ const OrderManagementPage: React.FC = () => {
                       onClick={() => setInternalFile(null)}
                       className="text-xs text-red-600 hover:text-red-700"
                     >
-                      Remove
-                    </button>
+                      {t(`${p}.remove`)}</button>
                   )}
                 </div>
                 {/* Show existing internal file if any */}
                 {selectedArtwork.admin_feedback?.includes('[Internal File:') && (
                   <div className="mt-2 p-2 bg-amber-50 rounded-lg">
-                    <p className="text-xs text-amber-700 font-medium">📎 Attached Internal File:</p>
+                    <p className="text-xs text-amber-700 font-medium">{t(`${p}.attachedInternalFile`)}</p>
                     {(() => {
                       const match = selectedArtwork.admin_feedback.match(/\[Internal File: (.+?)\]\((.+?)\)/)
                       if (match) {
@@ -4420,8 +4355,7 @@ const OrderManagementPage: React.FC = () => {
                 className="w-full px-4 py-2.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2"
               >
                 <Tag className="h-4 w-4" />
-                Save Coding
-              </button>
+                {t(`${p}.saveCoding`)}</button>
 
               {/* Action Buttons - 2x2 grid */}
               <div className="grid grid-cols-2 gap-2">
@@ -4443,29 +4377,25 @@ const OrderManagementPage: React.FC = () => {
                   className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-indigo-600 text-white text-xs md:text-sm rounded-lg hover:bg-indigo-700 transition"
                 >
                   <FileCheck className="h-4 w-4" />
-                  <span className="hidden sm:inline">Set </span>Proof Ready
-                </button>
+                  <span className="hidden sm:inline">{t(`${p}.set`)}</span>{t(`${p}.proofReady`)}</button>
                 <button
                   onClick={() => updateArtworkStatus(selectedArtwork.id, 'revision_needed', artworkFeedback)}
                   className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-orange-600 text-white text-xs md:text-sm rounded-lg hover:bg-orange-700 transition"
                 >
                   <AlertCircle className="h-4 w-4" />
-                  Revision
-                </button>
+                  {t(`${p}.revision`)}</button>
                 <button
                   onClick={() => updateArtworkStatus(selectedArtwork.id, 'in_production', artworkFeedback)}
                   className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-green-600 text-white text-xs md:text-sm rounded-lg hover:bg-green-700 transition"
                 >
                   <CheckCircle className="h-4 w-4" />
-                  Production
-                </button>
+                  {t(`${p}.production`)}</button>
                 <button
                   onClick={() => updateArtworkStatus(selectedArtwork.id, 'prepress', artworkFeedback)}
                   className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-purple-600 text-white text-xs md:text-sm rounded-lg hover:bg-purple-700 transition"
                 >
                   <ImageIcon className="h-4 w-4" />
-                  Prepress
-                </button>
+                  {t(`${p}.prepress`)}</button>
               </div>
 
               {/* Bottom actions */}
@@ -4476,14 +4406,12 @@ const OrderManagementPage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex-1 text-center px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg hover:bg-gray-50"
                 >
-                  Download
-                </a>
+                  {t(`${p}.download13`)}</a>
                 <button
                   onClick={() => deleteArtwork(selectedArtwork.id)}
                   className="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700"
                 >
-                  Delete
-                </button>
+                  {t(`${p}.delete`)}</button>
               </div>
             </div>
           </div>
@@ -4495,7 +4423,7 @@ const OrderManagementPage: React.FC = () => {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-4 border-b">
-              <h2 className="text-lg font-semibold text-gray-900">Upload Artwork for Contact</h2>
+              <h2 className="text-lg font-semibold text-gray-900">{t(`${p}.uploadArtworkForContact`)}</h2>
               <button onClick={() => { setShowUploadModal(false); setUploadError(''); setUploadCustomerId(''); setContactSearch(''); setUploadContactType('customer'); }} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
               </button>
@@ -4503,7 +4431,7 @@ const OrderManagementPage: React.FC = () => {
             <div className="p-4 space-y-4">
               {/* Search Box */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Search Contacts</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.searchContacts`)}</label>
                 <div className="relative">
                   <input
                     type="text"
@@ -4518,7 +4446,7 @@ const OrderManagementPage: React.FC = () => {
 
               {/* Contact Selection */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Select Contact</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.selectContact`)}</label>
                 <select
                   value={`${uploadContactType}:${uploadCustomerId}`}
                   onChange={(e) => {
@@ -4528,7 +4456,7 @@ const OrderManagementPage: React.FC = () => {
                   }}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                 >
-                  <option value="customer:">-- Select a contact --</option>
+                  <option value="customer:">{t(`${p}.selectAContact`)}</option>
                   
                   {/* Website Customers */}
                   {filteredCustomers.length > 0 && (
@@ -4553,8 +4481,7 @@ const OrderManagementPage: React.FC = () => {
                   )}
                 </select>
                 <p className="text-xs text-gray-500 mt-1">
-                  {customers.length} website customers + {inquiries.length} imported contacts
-                </p>
+                  {customers.length} {t(`${p}.websiteCustomers`)}{inquiries.length} {t(`${p}.importedContacts`)}</p>
               </div>
 
               {/* Selected Contact Info */}
@@ -4571,7 +4498,7 @@ const OrderManagementPage: React.FC = () => {
                           <p className="text-xs text-gray-500">
                             {customers.find(c => c.id === uploadCustomerId)?.email}
                           </p>
-                          <span className="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">Website Customer</span>
+                          <span className="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">{t(`${p}.websiteCustomer`)}</span>
                         </>
                       ) : (
                         <>
@@ -4581,7 +4508,7 @@ const OrderManagementPage: React.FC = () => {
                           <p className="text-xs text-gray-500">
                             {inquiries.find(i => i.id === uploadCustomerId)?.email}
                           </p>
-                          <span className="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">Imported Contact</span>
+                          <span className="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">{t(`${p}.importedContact`)}</span>
                         </>
                       )}
                     </div>
@@ -4591,7 +4518,7 @@ const OrderManagementPage: React.FC = () => {
 
               {/* File Upload */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Artwork File</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.artworkFile`)}</label>
                 <label className={`flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer transition ${
                   uploadCustomerId ? 'border-gray-300 hover:border-primary-500 hover:bg-gray-50' : 'border-gray-200 bg-gray-50 cursor-not-allowed'
                 }`}>
@@ -4600,7 +4527,7 @@ const OrderManagementPage: React.FC = () => {
                     <p className={`text-sm ${uploadCustomerId ? 'text-gray-500' : 'text-gray-400'}`}>
                       {uploading ? 'Uploading...' : 'Click to upload'}
                     </p>
-                    <p className="text-xs text-gray-400 mt-1">AI, EPS, PDF, PNG, JPG, PSD, ZIP (Max 10MB)</p>
+                    <p className="text-xs text-gray-400 mt-1">{t(`${p}.aiEpsPdfPngJpgPsdZipMax10mb`)}</p>
                   </div>
                   <input
                     type="file"
@@ -4643,8 +4570,7 @@ const OrderManagementPage: React.FC = () => {
           </div>
           {/* Tooltip */}
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            Order Workflow Instructions
-            <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-gray-900"></div>
+            {t(`${p}.orderWorkflowInstructions`)}<div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-gray-900"></div>
           </div>
         </div>
       </button>
@@ -4654,7 +4580,7 @@ const OrderManagementPage: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b flex items-center justify-between sticky top-0 bg-white z-10">
-              <h2 className="text-xl font-bold">Order Workflow Instructions</h2>
+              <h2 className="text-xl font-bold">{t(`${p}.orderWorkflowInstructions`)}</h2>
               <button onClick={() => setShowHelpModal(false)} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
               </button>
@@ -4662,70 +4588,70 @@ const OrderManagementPage: React.FC = () => {
             <div className="p-6 space-y-6">
               {/* RFQ Stage */}
               <div className="border-l-4 border-yellow-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">1. RFQ / QuotePleaseDemand</h3>
-                <p className="text-gray-700 mb-3">CustomerRaiseInquiryPrice，ManagementStaffReturnCompoundQuote</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t(`${p}.1RfqQuotepleasedemand`)}</h3>
+                <p className="text-gray-700 mb-3">{t(`${p}.customerraiseinquirypriceManag`)}</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• ViewAllPendingOf RFQ</li>
-                  <li>• ReturnCompoundQuoteAndSendMailPiece</li>
-                  <li>• Status: pending → accepted/rejected</li>
-                  <li>• CanWithViewCustomerUploadOfReferenceImagePieceAndWebsiteLink</li>
+                  <li>{t(`${p}.viewallpendingofRfq`)}</li>
+                  <li>{t(`${p}.returncompoundquoteandsendmail`)}</li>
+                  <li>{t(`${p}.statusPendingAcceptedRejected`)}</li>
+                  <li>{t(`${p}.canwithviewcustomeruploadofref`)}</li>
                 </ul>
               </div>
 
               {/* Artwork Stage */}
               <div className="border-l-4 border-purple-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">2. Artwork / Design Draft</h3>
-                <p className="text-gray-700 mb-3">CustomerUploadDesign Draft，ManagementStaffReviewAndProvideFeedback</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t(`${p}.2ArtworkDesignDraft`)}</h3>
+                <p className="text-gray-700 mb-3">{t(`${p}.customeruploaddesignDraftManag`)}</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• ReviewCustomerUploadOfDesignTextPiece</li>
-                  <li>• SetSetStatus: pending_review → proof_ready → in_production</li>
-                  <li>• AndCustomerThrough Thread System GrooveConnectRepairChange</li>
-                  <li>• ForDesign DraftDivideWithCode (Customer Code + Product Code)</li>
+                  <li>{t(`${p}.reviewcustomeruploadofdesignte`)}</li>
+                  <li>{t(`${p}.setsetstatusPendingReviewProof`)}</li>
+                  <li>{t(`${p}.andcustomerthroughThreadSystem`)}</li>
+                  <li>{t(`${p}.fordesignDraftdividewithcodeCu`)}</li>
                 </ul>
               </div>
 
               {/* Order Stage */}
               <div className="border-l-4 border-blue-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">3. Order / Order</h3>
-                <p className="text-gray-700 mb-3">CustomerUnderSingle，ManagementStaffProcessingOrderAndPayment</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t(`${p}.3OrderOrder`)}</h3>
+                <p className="text-gray-700 mb-3">{t(`${p}.customerundersingleManagements`)}</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• ViewOrderDetailsAndBusinessProductList</li>
-                  <li>• MoreNewOrderStatus: pending → confirmed → production</li>
-                  <li>• ManagementPaymentStatus: unpaid → deposit_paid → paid</li>
-                  <li>• ViewAssociateOf Artwork AndSameProjectOtherOrder</li>
+                  <li>{t(`${p}.vieworderdetailsandbusinesspro`)}</li>
+                  <li>{t(`${p}.moreneworderstatusPendingConfi`)}</li>
+                  <li>{t(`${p}.managementpaymentstatusUnpaidD`)}</li>
+                  <li>{t(`${p}.viewassociateofArtworkAndsamep`)}</li>
                 </ul>
               </div>
 
               {/* Production Stage */}
               <div className="border-l-4 border-indigo-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">4. Production / Production</h3>
-                <p className="text-gray-700 mb-3">OrderEnterProductionStage</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t(`${p}.4ProductionProduction`)}</h3>
+                <p className="text-gray-700 mb-3">{t(`${p}.orderenterproductionstage`)}</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• TrackProductionIntoDegree</li>
-                  <li>• AddInsidePartProductionNotes</li>
-                  <li>• Status: production → ready to ship</li>
+                  <li>{t(`${p}.trackproductionintodegree`)}</li>
+                  <li>{t(`${p}.addinsidepartproductionnotes`)}</li>
+                  <li>{t(`${p}.statusProductionReadyToShip`)}</li>
                 </ul>
               </div>
 
               {/* Shipping Stage */}
               <div className="border-l-4 border-green-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">5. Shipping / MaterialFlow</h3>
-                <p className="text-gray-700 mb-3">AddMaterialFlowLetterInfo，CustomerCanWithTrackPackWrap</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t(`${p}.5ShippingMaterialflow`)}</h3>
+                <p className="text-gray-700 mb-3">{t(`${p}.addmaterialflowletterinfoCusto`)}</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• TransportEnter Tracking Number And Carrier</li>
-                  <li>• Provide Tracking URL Link</li>
-                  <li>• AddMaterialFlowNotes (ForCustomerCanSee)</li>
-                  <li>• Status: shipped → delivered</li>
+                  <li>{t(`${p}.transportenterTrackingNumberAn`)}</li>
+                  <li>{t(`${p}.provideTrackingUrlLink`)}</li>
+                  <li>{t(`${p}.addmaterialflownotesForcustome`)}</li>
+                  <li>{t(`${p}.statusShippedDelivered`)}</li>
                 </ul>
               </div>
 
               <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 mt-6">
-                <h4 className="font-semibold text-blue-900 mb-2">💡 RaiseShow</h4>
+                <h4 className="font-semibold text-blue-900 mb-2">{t(`${p}.raiseshow`)}</h4>
                 <ul className="space-y-1 text-sm text-blue-800">
-                  <li>• <strong>Quick Access</strong>: RightUpAngleFlashElectricIconFastVisitPendingProject</li>
-                  <li>• <strong>Work Queue</strong>: PageFaceTopPartDisplayRequireNeedNoteIntentOfTask</li>
-                  <li>• <strong>Project Associate</strong>: Use project_id StringConnectWholeUnitProcess</li>
-                  <li>• <strong>StatusMoreNew</strong>: In Quick Access InRightKeyPointHitCanFastMoreNewStatus</li>
+                  <li>• <strong>{t(`${p}.quickAccess`)}</strong>{t(`${p}.rightupangleflashelectriciconf`)}</li>
+                  <li>• <strong>{t(`${p}.workQueue`)}</strong>{t(`${p}.pagefacetoppartdisplayrequiren`)}</li>
+                  <li>• <strong>{t(`${p}.projectAssociate`)}</strong>{t(`${p}.useProjectIdStringconnectwhole`)}</li>
+                  <li>• <strong>{t(`${p}.statusmorenew`)}</strong>{t(`${p}.inQuickAccessInrightkeypointhi`)}</li>
                 </ul>
               </div>
             </div>
@@ -4740,7 +4666,7 @@ const OrderManagementPage: React.FC = () => {
             {/* Modal Header */}
             <div className="p-6 border-b flex items-center justify-between bg-white">
               <div>
-                <h2 className="text-xl font-bold">Project Management</h2>
+                <h2 className="text-xl font-bold">{t(`${p}.projectManagement`)}</h2>
                 <p className="text-sm text-gray-500 mt-1">{selectedProject.project_code}</p>
               </div>
               <button onClick={() => setShowProjectModal(false)} className="text-gray-500 hover:text-gray-700">
@@ -4786,40 +4712,40 @@ const OrderManagementPage: React.FC = () => {
                 <div className="space-y-6">
                   <div className="grid grid-cols-3 gap-4">
                     <div className="bg-gray-50 rounded-lg p-4">
-                      <p className="text-sm text-gray-500">Project Type</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.projectType`)}</p>
                       <p className="text-lg font-semibold mt-1">{selectedProject.project_type?.toUpperCase()}</p>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-4">
-                      <p className="text-sm text-gray-500">Current Stage</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.currentStage`)}</p>
                       <p className="text-lg font-semibold mt-1">{selectedProject.status?.charAt(0).toUpperCase() + selectedProject.status?.slice(1)}</p>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-4">
-                      <p className="text-sm text-gray-500">Created</p>
+                      <p className="text-sm text-gray-500">{t(`${p}.created`)}</p>
                       <p className="text-lg font-semibold mt-1">{new Date(selectedProject.created_at).toLocaleDateString()}</p>
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-semibold mb-3">Project Summary</h3>
+                    <h3 className="text-lg font-semibold mb-3">{t(`${p}.projectSummary`)}</h3>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="border rounded-lg p-4">
-                        <p className="text-sm text-gray-500">RFQs</p>
+                        <p className="text-sm text-gray-500">{t(`${p}.rfqs`)}</p>
                         <p className="text-2xl font-bold text-yellow-600">{getProjectRFQs(selectedProject.id).length}</p>
                       </div>
                       <div className="border rounded-lg p-4">
-                        <p className="text-sm text-gray-500">Artworks</p>
+                        <p className="text-sm text-gray-500">{t(`${p}.artworks`)}</p>
                         <p className="text-2xl font-bold text-purple-600">{getProjectArtworks(selectedProject.id).length}</p>
                       </div>
                       <div className="border rounded-lg p-4">
-                        <p className="text-sm text-gray-500">Orders</p>
+                        <p className="text-sm text-gray-500">{t(`${p}.orders14`)}</p>
                         <p className="text-2xl font-bold text-blue-600">{getProjectOrders(selectedProject.id).length}</p>
                       </div>
                       <div className="border rounded-lg p-4">
-                        <p className="text-sm text-gray-500">Production Jobs</p>
+                        <p className="text-sm text-gray-500">{t(`${p}.productionJobs`)}</p>
                         <p className="text-2xl font-bold text-indigo-600">{getProjectProduction(selectedProject.id).length}</p>
                       </div>
                       <div className="border rounded-lg p-4">
-                        <p className="text-sm text-gray-500">Shipping Records</p>
+                        <p className="text-sm text-gray-500">{t(`${p}.shippingRecords`)}</p>
                         <p className="text-2xl font-bold text-cyan-600">{getProjectShipping(selectedProject.id).length}</p>
                       </div>
                     </div>
@@ -4837,7 +4763,7 @@ const OrderManagementPage: React.FC = () => {
                     return (
                       <div>
                         <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-lg font-semibold">Customer Information</h3>
+                          <h3 className="text-lg font-semibold">{t(`${p}.customerInformation`)}</h3>
                           <button
                             onClick={() => {
                               const newEmail = prompt('Enter new customer email:', selectedProject.customer_email || '')
@@ -4850,33 +4776,32 @@ const OrderManagementPage: React.FC = () => {
                             }}
                             className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
                           >
-                            Amend Customer
-                          </button>
+                            {t(`${p}.amendCustomer`)}</button>
                         </div>
                         
                         {customer ? (
                           <div className="border rounded-lg p-6 space-y-4">
                             <div>
-                              <p className="text-sm text-gray-500">Name</p>
+                              <p className="text-sm text-gray-500">{t(`${p}.name`)}</p>
                               <p className="text-lg font-medium">{customer.full_name || 'N/A'}</p>
                             </div>
                             <div>
-                              <p className="text-sm text-gray-500">Email</p>
+                              <p className="text-sm text-gray-500">{t(`${p}.email`)}</p>
                               <p className="text-lg font-medium">{customer.email}</p>
                             </div>
                             <div>
-                              <p className="text-sm text-gray-500">Company</p>
+                              <p className="text-sm text-gray-500">{t(`${p}.company`)}</p>
                               <p className="text-lg font-medium">{customer.company || 'N/A'}</p>
                             </div>
                             <div>
-                              <p className="text-sm text-gray-500">Phone</p>
+                              <p className="text-sm text-gray-500">{t(`${p}.phone`)}</p>
                               <p className="text-lg font-medium">{customer.phone || 'N/A'}</p>
                             </div>
                           </div>
                         ) : (
                           <div className="border rounded-lg p-6 bg-yellow-50 border-yellow-200">
-                            <p className="text-sm text-yellow-800">Customer not found in system</p>
-                            <p className="text-xs text-yellow-600 mt-1">Email: {selectedProject.customer_email}</p>
+                            <p className="text-sm text-yellow-800">{t(`${p}.customerNotFoundInSystem`)}</p>
+                            <p className="text-xs text-yellow-600 mt-1">{t(`${p}.email15`)}{selectedProject.customer_email}</p>
                           </div>
                         )}
                       </div>
@@ -4889,7 +4814,7 @@ const OrderManagementPage: React.FC = () => {
               {projectModalTab === 'rfq' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">Related RFQs</h3>
+                    <h3 className="text-lg font-semibold">{t(`${p}.relatedRfqs`)}</h3>
                     <button
                       onClick={async () => {
                         const rfqId = prompt('Enter RFQ ID to link:')
@@ -4899,8 +4824,7 @@ const OrderManagementPage: React.FC = () => {
                       }}
                       className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
                     >
-                      + Add RFQ
-                    </button>
+                      {t(`${p}.addRfq`)}</button>
                   </div>
                   
                   <div className="space-y-2">
@@ -4925,7 +4849,7 @@ const OrderManagementPage: React.FC = () => {
                     {getProjectRFQs(selectedProject.id).length === 0 && (
                       <div className="text-center py-8 text-gray-500">
                         <FileText className="h-12 w-12 mx-auto mb-2 text-gray-300" />
-                        <p>No RFQs linked to this project</p>
+                        <p>{t(`${p}.noRfqsLinkedToThisProject`)}</p>
                       </div>
                     )}
                   </div>
@@ -4936,7 +4860,7 @@ const OrderManagementPage: React.FC = () => {
               {projectModalTab === 'artwork' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">Related Artworks</h3>
+                    <h3 className="text-lg font-semibold">{t(`${p}.relatedArtworks`)}</h3>
                     <button
                       onClick={async () => {
                         const artworkId = prompt('Enter Artwork ID to link:')
@@ -4946,8 +4870,7 @@ const OrderManagementPage: React.FC = () => {
                       }}
                       className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
                     >
-                      + Add Artwork
-                    </button>
+                      {t(`${p}.addArtwork`)}</button>
                   </div>
                   
                   <div className="grid grid-cols-2 gap-4">
@@ -4975,7 +4898,7 @@ const OrderManagementPage: React.FC = () => {
                     {getProjectArtworks(selectedProject.id).length === 0 && (
                       <div className="col-span-2 text-center py-8 text-gray-500">
                         <ImageIcon className="h-12 w-12 mx-auto mb-2 text-gray-300" />
-                        <p>No artworks linked to this project</p>
+                        <p>{t(`${p}.noArtworksLinkedToThisProject`)}</p>
                       </div>
                     )}
                   </div>
@@ -4986,7 +4909,7 @@ const OrderManagementPage: React.FC = () => {
               {projectModalTab === 'orders' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">Related Orders</h3>
+                    <h3 className="text-lg font-semibold">{t(`${p}.relatedOrders`)}</h3>
                     <button
                       onClick={async () => {
                         const orderId = prompt('Enter Order ID to link:')
@@ -4996,8 +4919,7 @@ const OrderManagementPage: React.FC = () => {
                       }}
                       className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
                     >
-                      + Add Order
-                    </button>
+                      {t(`${p}.addOrder`)}</button>
                   </div>
                   
                   <div className="space-y-2">
@@ -5005,8 +4927,8 @@ const OrderManagementPage: React.FC = () => {
                       <div key={order.id} className="border rounded-lg p-4 hover:bg-gray-50">
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
-                            <p className="font-medium">Order #{order.order_number || order.id.slice(0, 8)}</p>
-                            <p className="text-sm text-gray-500 mt-1">Total: ${order.total_amount || '0'}</p>
+                            <p className="font-medium">{t(`${p}.order`)}{order.order_number || order.id.slice(0, 8)}</p>
+                            <p className="text-sm text-gray-500 mt-1">{t(`${p}.total16`)}{order.total_amount || '0'}</p>
                             <p className="text-xs text-gray-400 mt-1">{new Date(order.created_at).toLocaleDateString()}</p>
                           </div>
                           <div className="text-right">
@@ -5019,7 +4941,7 @@ const OrderManagementPage: React.FC = () => {
                             }`}>
                               {order.status}
                             </span>
-                            <p className="text-xs text-gray-500 mt-2">Payment: {order.payment_status || 'unpaid'}</p>
+                            <p className="text-xs text-gray-500 mt-2">{t(`${p}.payment17`)}{order.payment_status || 'unpaid'}</p>
                           </div>
                         </div>
                       </div>
@@ -5027,7 +4949,7 @@ const OrderManagementPage: React.FC = () => {
                     {getProjectOrders(selectedProject.id).length === 0 && (
                       <div className="text-center py-8 text-gray-500">
                         <Package className="h-12 w-12 mx-auto mb-2 text-gray-300" />
-                        <p>No orders linked to this project</p>
+                        <p>{t(`${p}.noOrdersLinkedToThisProject`)}</p>
                       </div>
                     )}
                   </div>
@@ -5038,7 +4960,7 @@ const OrderManagementPage: React.FC = () => {
               {projectModalTab === 'production' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">Production Jobs</h3>
+                    <h3 className="text-lg font-semibold">{t(`${p}.productionJobs`)}</h3>
                     <button
                       onClick={async () => {
                         const productionNumber = `PROD-${Date.now().toString().slice(-8)}`
@@ -5055,8 +4977,7 @@ const OrderManagementPage: React.FC = () => {
                       }}
                       className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
                     >
-                      + Create Production Job
-                    </button>
+                      {t(`${p}.createProductionJob`)}</button>
                   </div>
                   
                   <div className="space-y-2">
@@ -5066,7 +4987,7 @@ const OrderManagementPage: React.FC = () => {
                           <div className="flex-1">
                             <p className="font-medium">{job.production_number}</p>
                             <p className="text-sm text-gray-500 mt-1">{job.product_name || 'Unnamed Product'}</p>
-                            {job.quantity && <p className="text-xs text-gray-400 mt-1">Qty: {job.quantity} {job.unit}</p>}
+                            {job.quantity && <p className="text-xs text-gray-400 mt-1">{t(`${p}.qty`)}{job.quantity} {job.unit}</p>}
                             <p className="text-xs text-gray-400 mt-1">{new Date(job.created_at).toLocaleDateString()}</p>
                           </div>
                           <span className={`px-2 py-1 text-xs font-medium rounded ${
@@ -5084,7 +5005,7 @@ const OrderManagementPage: React.FC = () => {
                     {getProjectProduction(selectedProject.id).length === 0 && (
                       <div className="text-center py-8 text-gray-500">
                         <Palette className="h-12 w-12 mx-auto mb-2 text-gray-300" />
-                        <p>No production jobs for this project</p>
+                        <p>{t(`${p}.noProductionJobsForThisProject`)}</p>
                       </div>
                     )}
                   </div>
@@ -5095,7 +5016,7 @@ const OrderManagementPage: React.FC = () => {
               {projectModalTab === 'shipping' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">Shipping Records</h3>
+                    <h3 className="text-lg font-semibold">{t(`${p}.shippingRecords`)}</h3>
                     <button
                       onClick={async () => {
                         const shippingNumber = `SHIP-${Date.now().toString().slice(-8)}`
@@ -5112,8 +5033,7 @@ const OrderManagementPage: React.FC = () => {
                       }}
                       className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
                     >
-                      + Create Shipping Record
-                    </button>
+                      {t(`${p}.createShippingRecord`)}</button>
                   </div>
                   
                   <div className="space-y-2">
@@ -5122,9 +5042,9 @@ const OrderManagementPage: React.FC = () => {
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
                             <p className="font-medium">{record.shipping_number}</p>
-                            <p className="text-sm text-gray-500 mt-1">Carrier: {record.carrier || 'N/A'}</p>
+                            <p className="text-sm text-gray-500 mt-1">{t(`${p}.carrier18`)}{record.carrier || 'N/A'}</p>
                             {record.tracking_number && (
-                              <p className="text-xs text-gray-400 mt-1">Tracking: {record.tracking_number}</p>
+                              <p className="text-xs text-gray-400 mt-1">{t(`${p}.tracking`)}{record.tracking_number}</p>
                             )}
                             <p className="text-xs text-gray-400 mt-1">{new Date(record.created_at).toLocaleDateString()}</p>
                           </div>
@@ -5143,7 +5063,7 @@ const OrderManagementPage: React.FC = () => {
                     {getProjectShipping(selectedProject.id).length === 0 && (
                       <div className="text-center py-8 text-gray-500">
                         <Truck className="h-12 w-12 mx-auto mb-2 text-gray-300" />
-                        <p>No shipping records for this project</p>
+                        <p>{t(`${p}.noShippingRecordsForThisProjec`)}</p>
                       </div>
                     )}
                   </div>

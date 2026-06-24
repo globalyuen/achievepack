@@ -33,8 +33,11 @@ import PouchLayout from '../components/pouch/PouchLayout'
 // B2B Layout imports
 import SiteHeader from '../components/SiteHeader'
 import Footer from '../components/Footer'
+import { useTranslation, Trans } from "react-i18next";
 
 export default function PouchDielineFinderPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.pouchDielineFinder';
   const isPouchDomain = getDomain() === 'pouch'
 
   // State Management
@@ -351,26 +354,20 @@ export default function PouchDielineFinderPage() {
                 {isPouch ? (
                   <>
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-[#D4FF00] border-2 border-black text-xs font-bold font-['JetBrains_Mono'] uppercase tracking-wider rounded-sm">
-                      <Sparkles className="w-3.5 h-3.5" /> 166 Vector Blueprints Available
-                    </div>
+                      <Sparkles className="w-3.5 h-3.5" /> {t(`${p}.166VectorBlueprintsAvailable`)}</div>
                     <h1 className="text-4xl md:text-6xl font-black uppercase italic leading-none">
-                      Certified Dieline Finder
-                    </h1>
+                      {t(`${p}.certifiedDielineFinder`)}</h1>
                     <p className="text-sm md:text-base font-semibold leading-relaxed font-['JetBrains_Mono'] text-black/80 bg-white border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                      Search, inspect dimensions in real-time, toggle blueprint prepress layers, and download verified high-fidelity vector templates (.PDF / .AI). Instant and 100% free.
-                    </p>
+                      {t(`${p}.searchInspectDimensionsInRealT`)}</p>
                   </>
                 ) : (
                   <>
                     <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 text-xs font-bold uppercase tracking-wider rounded-full">
-                      <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Premium Design Resource Library
-                    </div>
+                      <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> {t(`${p}.premiumDesignResourceLibrary`)}</div>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-100 to-indigo-200">
-                      Prepress Dieline Catalog & Directory
-                    </h1>
+                      {t(`${p}.prepressDielineCatalogDirector`)}</h1>
                     <p className="text-base md:text-lg font-normal text-neutral-300 leading-relaxed bg-neutral-950/40 backdrop-blur-md border border-neutral-800 p-5 rounded-2xl">
-                      Equip your creative and prepress engineering teams with certified vector layout blueprints. Select from our catalog of 160+ industrial templates to ensure print-ready alignment.
-                    </p>
+                      {t(`${p}.equipYourCreativeAndPrepressEn`)}</p>
                   </>
                 )}
               </div>
@@ -419,25 +416,21 @@ export default function PouchDielineFinderPage() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-1.5">
                     <span className="text-[10px] font-bold font-mono px-2 py-0.5 bg-green-500 text-black rounded">
-                      NEW APP
-                    </span>
+                      {t(`${p}.newApp`)}</span>
                     <span className="text-xs font-black tracking-wider text-green-400 font-mono uppercase">
-                      Custom Size Builder
-                    </span>
+                      {t(`${p}.customSizeBuilder`)}</span>
                   </div>
                   <div className="space-y-1">
                     <h4 className="font-bold text-sm uppercase tracking-tight text-white flex items-center gap-1">
-                      Stand-Up Pouch Dieline Creator
-                    </h4>
+                      {t(`${p}.standUpPouchDielineCreator`)}</h4>
                     <p className="text-[11px] text-neutral-400 leading-normal">
-                      Can't find your exact dimensions in our free catalog? Try our interactive builder to generate custom sizes, preview layouts, and download vector templates instantly!
-                    </p>
+                      {t(`${p}.canTFindYourExactDimensionsInO`)}</p>
                   </div>
                   <a
                     href="/dieline-creator"
                     className="w-full text-center py-2.5 px-4 bg-green-500 hover:bg-green-600 text-black text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-sm"
                   >
-                    <span>Launch Dieline Creator</span>
+                    <span>{t(`${p}.launchDielineCreator`)}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -452,8 +445,7 @@ export default function PouchDielineFinderPage() {
                 <div className="flex flex-col gap-4">
                   <div>
                     <label className={`block text-xs font-bold uppercase mb-1.5 ${isPouch ? "font-['JetBrains_Mono']" : 'text-neutral-500'}`}>
-                      Search Sizing / Capacity
-                    </label>
+                      {t(`${p}.searchSizingCapacity`)}</label>
                     <div className="relative">
                       <Search className="absolute left-3 top-3 h-4.5 w-4.5 text-neutral-400" />
                       <input
@@ -471,8 +463,7 @@ export default function PouchDielineFinderPage() {
                   <div className="flex items-center justify-between gap-4">
                     <div className="w-1/2">
                       <label className={`block text-xs font-bold uppercase mb-1.5 ${isPouch ? "font-['JetBrains_Mono']" : 'text-neutral-500'}`}>
-                        Unit standard
-                      </label>
+                        {t(`${p}.unitStandard`)}</label>
                       <select
                         value={selectedUnit}
                         onChange={(e) => setSelectedUnit(e.target.value)}
@@ -480,16 +471,15 @@ export default function PouchDielineFinderPage() {
                           isPouch ? 'focus:bg-[#D4FF00]' : 'rounded-lg border-neutral-300'
                         }`}
                       >
-                        <option value="ALL">ALL UNITS</option>
-                        <option value="mm">Metric (mm)</option>
-                        <option value="in">Imperial (inch)</option>
+                        <option value="ALL">{t(`${p}.allUnits`)}</option>
+                        <option value="mm">{t(`${p}.metricMm`)}</option>
+                        <option value="in">{t(`${p}.imperialInch`)}</option>
                       </select>
                     </div>
                     
                     <div className="w-1/2">
                       <div className={`text-right text-[10px] font-bold uppercase ${isPouch ? "font-['JetBrains_Mono'] text-neutral-600" : 'text-neutral-400'}`}>
-                        Matches found
-                      </div>
+                        {t(`${p}.matchesFound`)}</div>
                       <div className={`text-right text-2xl font-black ${isPouch ? '' : 'text-indigo-600'}`}>
                         {filteredDielines.length} / 166
                       </div>
@@ -501,8 +491,7 @@ export default function PouchDielineFinderPage() {
               {/* Shape Category Tabs (Horizontal Scrollable) */}
               <div className="flex flex-col gap-1">
                 <span className={`text-xs font-bold uppercase px-1 ${isPouch ? "font-['JetBrains_Mono']" : 'text-neutral-500'}`}>
-                  Filter Shape Category
-                </span>
+                  {t(`${p}.filterShapeCategory`)}</span>
                 <div className="flex flex-wrap gap-1.5">
                   {shapes.map((shape) => {
                     const isActive = selectedShape === shape
@@ -538,8 +527,8 @@ export default function PouchDielineFinderPage() {
                 {filteredDielines.length === 0 ? (
                   <div className="h-full flex flex-col items-center justify-center p-8 text-center text-neutral-500">
                     <Info className="w-8 h-8 mb-2 stroke-[1.5]" />
-                    <div className="font-bold text-sm uppercase">No Templates Match Filters</div>
-                    <p className="text-xs mt-1">Try relaxing your search terms or shape selection.</p>
+                    <div className="font-bold text-sm uppercase">{t(`${p}.noTemplatesMatchFilters`)}</div>
+                    <p className="text-xs mt-1">{t(`${p}.tryRelaxingYourSearchTermsOrSh`)}</p>
                   </div>
                 ) : (
                   <div className="flex flex-col gap-1">
@@ -600,16 +589,13 @@ export default function PouchDielineFinderPage() {
                 }`}>
                   <div>
                     <h3 className="font-black text-lg md:text-xl uppercase italic leading-none flex items-center gap-2">
-                      <Layout className="w-5 h-5 text-[#D4FF00]" /> Visual Prepress Blueprint
-                    </h3>
+                      <Layout className="w-5 h-5 text-[#D4FF00]" /> {t(`${p}.visualPrepressBlueprint`)}</h3>
                     <p className={`text-[10px] mt-1 uppercase ${isPouch ? "font-['JetBrains_Mono'] text-white/90" : 'text-neutral-400'}`}>
-                      Interactive proportional dimensions preview
-                    </p>
+                      {t(`${p}.interactiveProportionalDimensi`)}</p>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="text-[10px] font-bold font-['JetBrains_Mono'] px-2 py-1 bg-black text-[#D4FF00] border-2 border-black rounded-sm">
-                      {selectedDieline.ext} TEMPLATE
-                    </span>
+                      {selectedDieline.ext} {t(`${p}.template`)}</span>
                   </div>
                 </div>
 
@@ -712,7 +698,7 @@ export default function PouchDielineFinderPage() {
                           <line x1="0" y1="30" x2={blueprintProportions.w} y2="30" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="3,3" />
                           <line x1="0" y1="34" x2={blueprintProportions.w} y2="34" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="3,3" />
                           {/* Zipper label */}
-                          <text x="15" y="25" fill="#a855f7" fontSize="8" fontWeight="bold" fontFamily="monospace">ZIPPER ZONE</text>
+                          <text x="15" y="25" fill="#a855f7" fontSize="8" fontWeight="bold" fontFamily="monospace">{t(`${p}.zipperZone`)}</text>
                         </g>
                       )}
 
@@ -730,7 +716,7 @@ export default function PouchDielineFinderPage() {
                       <g transform={`translate(${blueprintProportions.w / 2}, ${blueprintProportions.h + 25})`}>
                         <rect x="-45" y="-12" width="90" height="20" fill="#000000" rx="3" stroke="#3b82f6" strokeWidth="1" />
                         <text x="0" y="2" fill="#3b82f6" fontSize="10" fontWeight="black" textAnchor="middle" fontFamily="monospace">
-                          W: {blueprintProportions.actualW}{blueprintProportions.unit}
+                          {t(`${p}.w`)}{blueprintProportions.actualW}{blueprintProportions.unit}
                         </text>
                       </g>
 
@@ -738,7 +724,7 @@ export default function PouchDielineFinderPage() {
                       <g transform={`translate(-25, ${blueprintProportions.h / 2})`}>
                         <rect x="-45" y="-12" width="90" height="20" fill="#000000" rx="3" stroke="#3b82f6" strokeWidth="1" transform="rotate(-90)" />
                         <text x="0" y="2" fill="#3b82f6" fontSize="10" fontWeight="black" textAnchor="middle" fontFamily="monospace" transform="rotate(-90)">
-                          H: {blueprintProportions.actualH}{blueprintProportions.unit}
+                          {t(`${p}.h`)}{blueprintProportions.actualH}{blueprintProportions.unit}
                         </text>
                       </g>
 
@@ -747,25 +733,24 @@ export default function PouchDielineFinderPage() {
                         <g transform={`translate(${blueprintProportions.w / 2}, -25)`}>
                           <rect x="-45" y="-12" width="90" height="20" fill="#000000" rx="3" stroke="#a855f7" strokeWidth="1" />
                           <text x="0" y="2" fill="#a855f7" fontSize="10" fontWeight="black" textAnchor="middle" fontFamily="monospace">
-                            BG: +{blueprintProportions.actualG}{blueprintProportions.unit}
+                            {t(`${p}.bg`)}{blueprintProportions.actualG}{blueprintProportions.unit}
                           </text>
                         </g>
                       )}
                     </g>
 
                     {/* Prepress technical annotations */}
-                    <text x="15" y="30" fill="#ef4444" fontSize="9" fontWeight="bold" fontFamily="monospace">RED = CUT LINE</text>
-                    <text x="15" y="45" fill="#3b82f6" fontSize="9" fontWeight="bold" fontFamily="monospace">BLUE = FOLD CREASE</text>
-                    <text x="15" y="60" fill="#10b981" fontSize="9" fontWeight="bold" fontFamily="monospace">GREEN = BLEED MARGIN (3mm)</text>
-                    <text x="15" y="75" fill="#f59e0b" fontSize="9" fontWeight="bold" fontFamily="monospace">AMBER = SAFE DESIGN ZONE</text>
+                    <text x="15" y="30" fill="#ef4444" fontSize="9" fontWeight="bold" fontFamily="monospace">{t(`${p}.redCutLine`)}</text>
+                    <text x="15" y="45" fill="#3b82f6" fontSize="9" fontWeight="bold" fontFamily="monospace">{t(`${p}.blueFoldCrease`)}</text>
+                    <text x="15" y="60" fill="#10b981" fontSize="9" fontWeight="bold" fontFamily="monospace">{t(`${p}.greenBleedMargin3mm`)}</text>
+                    <text x="15" y="75" fill="#f59e0b" fontSize="9" fontWeight="bold" fontFamily="monospace">{t(`${p}.amberSafeDesignZone`)}</text>
                   </svg>
                 </div>
 
                 {/* Layer Control Panel */}
                 <div className="p-4 bg-neutral-50 border-b-4 border-black grid grid-cols-2 md:grid-cols-3 gap-3">
                   <div className="col-span-2 md:col-span-3 text-[10px] font-bold text-neutral-400 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-                    <Sliders className="w-3.5 h-3.5" /> Toggle Prepress Blueprint Layers
-                  </div>
+                    <Sliders className="w-3.5 h-3.5" /> {t(`${p}.togglePrepressBlueprintLayers`)}</div>
                   
                   <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none">
                     <input 
@@ -774,7 +759,7 @@ export default function PouchDielineFinderPage() {
                       onChange={() => setShowGrid(!showGrid)}
                       className="rounded border-2 border-black focus:ring-0 text-black w-4 h-4 accent-black"
                     />
-                    <span>Grid Blueprint</span>
+                    <span>{t(`${p}.gridBlueprint`)}</span>
                   </label>
                   
                   <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none">
@@ -784,7 +769,7 @@ export default function PouchDielineFinderPage() {
                       onChange={() => setShowCutLines(!showCutLines)}
                       className="rounded border-2 border-black focus:ring-0 text-black w-4 h-4 accent-red-500"
                     />
-                    <span className="text-red-600">Cut Marks (Red)</span>
+                    <span className="text-red-600">{t(`${p}.cutMarksRed`)}</span>
                   </label>
 
                   <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none">
@@ -794,7 +779,7 @@ export default function PouchDielineFinderPage() {
                       onChange={() => setShowFoldLines(!showFoldLines)}
                       className="rounded border-2 border-black focus:ring-0 text-black w-4 h-4 accent-blue-500"
                     />
-                    <span className="text-blue-600">Folds Creases</span>
+                    <span className="text-blue-600">{t(`${p}.foldsCreases`)}</span>
                   </label>
 
                   <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none">
@@ -804,7 +789,7 @@ export default function PouchDielineFinderPage() {
                       onChange={() => setShowBleedLines(!showBleedLines)}
                       className="rounded border-2 border-black focus:ring-0 text-black w-4 h-4 accent-green-500"
                     />
-                    <span className="text-green-600">Bleeds (3mm)</span>
+                    <span className="text-green-600">{t(`${p}.bleeds3mm`)}</span>
                   </label>
 
                   <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none">
@@ -814,7 +799,7 @@ export default function PouchDielineFinderPage() {
                       onChange={() => setShowSafeZone(!showSafeZone)}
                       className="rounded border-2 border-black focus:ring-0 text-black w-4 h-4 accent-amber-500"
                     />
-                    <span className="text-amber-600">Safe Art Area</span>
+                    <span className="text-amber-600">{t(`${p}.safeArtArea`)}</span>
                   </label>
 
                   <label className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none">
@@ -824,7 +809,7 @@ export default function PouchDielineFinderPage() {
                       onChange={() => setShowZipper(!showZipper)}
                       className="rounded border-2 border-black focus:ring-0 text-black w-4 h-4 accent-purple-500"
                     />
-                    <span className="text-purple-600">Zipper Line</span>
+                    <span className="text-purple-600">{t(`${p}.zipperLine`)}</span>
                   </label>
                 </div>
 
@@ -832,23 +817,22 @@ export default function PouchDielineFinderPage() {
                 <div className="p-6 bg-white flex flex-col gap-6">
                   <div>
                     <h4 className="font-bold text-xs uppercase tracking-wider text-neutral-450 mb-3">
-                      Technical Layout Specifications
-                    </h4>
+                      {t(`${p}.technicalLayoutSpecifications`)}</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-100">
-                        <div className="text-[10px] text-neutral-500 font-semibold uppercase">Pouch Shape</div>
+                        <div className="text-[10px] text-neutral-500 font-semibold uppercase">{t(`${p}.pouchShape`)}</div>
                         <div className="text-sm font-black uppercase mt-0.5 truncate">{selectedDieline.shape}</div>
                       </div>
                       <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-100">
-                        <div className="text-[10px] text-neutral-500 font-semibold uppercase">Dimensions</div>
+                        <div className="text-[10px] text-neutral-500 font-semibold uppercase">{t(`${p}.dimensions`)}</div>
                         <div className="text-sm font-black uppercase mt-0.5">{selectedDieline.width} × {selectedDieline.height} {selectedDieline.unit}</div>
                       </div>
                       <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-100">
-                        <div className="text-[10px] text-neutral-500 font-semibold uppercase">Bottom Gusset</div>
+                        <div className="text-[10px] text-neutral-500 font-semibold uppercase">{t(`${p}.bottomGusset`)}</div>
                         <div className="text-sm font-black uppercase mt-0.5">{selectedDieline.gusset ? `+ ${selectedDieline.gusset} ${selectedDieline.unit}` : 'None'}</div>
                       </div>
                       <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-100">
-                        <div className="text-[10px] text-neutral-500 font-semibold uppercase">Est. Capacity</div>
+                        <div className="text-[10px] text-neutral-500 font-semibold uppercase">{t(`${p}.estCapacity`)}</div>
                         <div className="text-sm font-black uppercase mt-0.5 truncate">{selectedDieline.capacity}</div>
                       </div>
                     </div>
@@ -864,11 +848,9 @@ export default function PouchDielineFinderPage() {
                       <form onSubmit={handleEmailSubmit} className="flex flex-col gap-4">
                         <div>
                           <h4 className="font-black text-base uppercase leading-none mb-1 flex items-center gap-1.5">
-                            <Mail className="w-4 h-4 text-purple-600" /> Unlock & Email Vector Dielines
-                          </h4>
+                            <Mail className="w-4 h-4 text-purple-600" /> {t(`${p}.unlockEmailVectorDielines`)}</h4>
                           <p className="text-xs text-neutral-600 leading-normal">
-                            Enter your email address to automatically receive a download link for this print-ready template and unlock our entire 166 vector blueprint library.
-                          </p>
+                            {t(`${p}.enterYourEmailAddressToAutomat`)}</p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-2">
@@ -884,7 +866,7 @@ export default function PouchDielineFinderPage() {
                               }`}
                             />
                             {showEmailError && (
-                              <p className="text-xs text-red-650 font-semibold mt-1">Please enter a valid email address.</p>
+                              <p className="text-xs text-red-650 font-semibold mt-1">{t(`${p}.pleaseEnterAValidEmailAddress`)}</p>
                             )}
                           </div>
                           
@@ -899,11 +881,10 @@ export default function PouchDielineFinderPage() {
                           >
                             {sendingEmail ? (
                               <>
-                                <Loader2 className="w-4 h-4 animate-spin" /> Emailing...
-                              </>
+                                <Loader2 className="w-4 h-4 animate-spin" /> {t(`${p}.emailing`)}</>
                             ) : (
                               <>
-                                Unlock & Email <ArrowRight className="w-4 h-4" />
+                                {t(`${p}.unlockEmail`)}<ArrowRight className="w-4 h-4" />
                               </>
                             )}
                           </button>
@@ -913,19 +894,16 @@ export default function PouchDielineFinderPage() {
                         <div ref={turnstileRef} className="cf-turnstile w-full flex justify-center scale-90 -my-1" />
 
                         <p className="text-[10px] text-neutral-500 font-medium text-center">
-                          🔒 We value privacy. Your email is strictly used to deliver custom dielines. We do not spam.
-                        </p>
+                          {t(`${p}.weValuePrivacyYourEmailIsStric`)}</p>
                       </form>
                     ) : (
                       <div className="flex flex-col gap-4">
                         <div className="flex items-start justify-between gap-4">
                           <div>
                             <div className="flex items-center gap-1.5 text-green-700 font-bold text-sm">
-                              <CheckCircle className="w-4.5 h-4.5" /> Downloads Unlocked
-                            </div>
+                              <CheckCircle className="w-4.5 h-4.5" /> {t(`${p}.downloadsUnlocked`)}</div>
                             <p className="text-xs text-neutral-600 leading-normal mt-1">
-                              You have unlocked complete vector dieline library permissions. Download as many structures as your prepress team requires!
-                            </p>
+                              {t(`${p}.youHaveUnlockedCompleteVectorD`)}</p>
                           </div>
                           <button
                             onClick={() => {
@@ -934,8 +912,7 @@ export default function PouchDielineFinderPage() {
                             }}
                             className="text-[10px] font-bold uppercase text-neutral-500 hover:text-red-600 underline"
                           >
-                            Change Email
-                          </button>
+                            {t(`${p}.changeEmail`)}</button>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-3">
@@ -947,7 +924,7 @@ export default function PouchDielineFinderPage() {
                                 : 'bg-indigo-600 text-white border-indigo-600 rounded-xl hover:bg-indigo-700'
                             }`}
                           >
-                            <Download className="w-4 h-4" /> Download Vector Dieline ({selectedDieline.ext})
+                            <Download className="w-4 h-4" /> {t(`${p}.downloadVectorDieline`)}{selectedDieline.ext})
                           </button>
                           
                           <a
@@ -960,15 +937,13 @@ export default function PouchDielineFinderPage() {
                                 : 'bg-white text-neutral-700 border-neutral-300 rounded-xl hover:bg-neutral-50'
                             }`}
                           >
-                            Request Custom Size Support
-                          </a>
+                            {t(`${p}.requestCustomSizeSupport`)}</a>
                         </div>
                         
                         {downloadSuccess && (
                           <div className="p-3 bg-green-50 text-green-800 rounded-xl border border-green-200 text-xs font-semibold flex items-center gap-2 animate-fade-in">
                             <Check className="w-4 h-4 text-green-600 stroke-[3]" />
-                            Download triggered successfully! Please check your browser downloads directory.
-                          </div>
+                            {t(`${p}.downloadTriggeredSuccessfullyP`)}</div>
                         )}
                       </div>
                     )}
@@ -986,10 +961,9 @@ export default function PouchDielineFinderPage() {
                     : 'bg-white rounded-2xl border border-neutral-200 shadow-xl shadow-neutral-100/50'
                 }`}>
                   <h4 className="font-bold text-xs uppercase tracking-wider text-neutral-450 mb-3 flex items-center gap-1.5">
-                    <Bookmark className="w-3.5 h-3.5" /> Recent Unlocked Downloads
-                  </h4>
+                    <Bookmark className="w-3.5 h-3.5" /> {t(`${p}.recentUnlockedDownloads`)}</h4>
                   {recentDownloads.length === 0 ? (
-                    <p className="text-xs text-neutral-500 italic">No files downloaded in this session yet.</p>
+                    <p className="text-xs text-neutral-500 italic">{t(`${p}.noFilesDownloadedInThisSession`)}</p>
                   ) : (
                     <div className="flex flex-col gap-2">
                       {recentDownloads.map((item) => (
@@ -1016,15 +990,13 @@ export default function PouchDielineFinderPage() {
                   }`}
                 >
                   <h4 className="font-black text-sm uppercase leading-none mb-1.5 flex items-center gap-1.5">
-                    <Info className="w-4 h-4 text-cyan-300 animate-pulse" /> Free 24-Hr Artwork Audit
-                  </h4>
+                    <Info className="w-4 h-4 text-cyan-300 animate-pulse" /> {t(`${p}.free24HrArtworkAudit`)}</h4>
                   <p className={`text-xs leading-relaxed mb-3 ${isPouch ? 'text-white/80' : 'text-indigo-200'}`}>
-                    Already finished placing your graphics? Submit your design file (.AI/.PDF) to our engineering department for a complimentary 24-hour prepress review.
-                  </p>
+                    {t(`${p}.alreadyFinishedPlacingYourGrap`)}</p>
                   <div
                     className={`inline-flex items-center gap-1 text-xs font-bold uppercase underline ${isPouch ? 'text-[#D4FF00]' : 'text-cyan-300 hover:text-cyan-200'}`}
                   >
-                    Submit Artwork File <ChevronRight className="w-3 h-3" />
+                    {t(`${p}.submitArtworkFile`)}<ChevronRight className="w-3 h-3" />
                   </div>
                 </button>
 
@@ -1063,11 +1035,9 @@ export default function PouchDielineFinderPage() {
               {/* Modal Header */}
               <div className={`border-b-4 border-black px-6 py-4 ${isPouch ? 'bg-[#00FFFF] text-black' : 'bg-neutral-900 text-white border-b-0'}`}>
                 <h3 className="font-black text-xl uppercase italic leading-none flex items-center gap-2">
-                  <Upload className="w-5 h-5 text-purple-600" /> Prepress Artwork Submission
-                </h3>
+                  <Upload className="w-5 h-5 text-purple-600" /> {t(`${p}.prepressArtworkSubmission`)}</h3>
                 <p className={`text-xs mt-1 uppercase ${isPouch ? 'font-mono text-black/80' : 'text-neutral-400 font-normal'}`}>
-                  Free engineering compliance & layout check
-                </p>
+                  {t(`${p}.freeEngineeringComplianceLayou`)}</p>
               </div>
 
               {/* Modal Core Content */}
@@ -1078,7 +1048,7 @@ export default function PouchDielineFinderPage() {
                     {/* User Details */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold uppercase mb-1">Full Name *</label>
+                        <label className="block text-xs font-bold uppercase mb-1">{t(`${p}.fullName`)}</label>
                         <input
                           type="text"
                           required
@@ -1091,7 +1061,7 @@ export default function PouchDielineFinderPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold uppercase mb-1">Email Address *</label>
+                        <label className="block text-xs font-bold uppercase mb-1">{t(`${p}.emailAddress`)}</label>
                         <input
                           type="email"
                           required
@@ -1107,7 +1077,7 @@ export default function PouchDielineFinderPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold uppercase mb-1">Company Name</label>
+                        <label className="block text-xs font-bold uppercase mb-1">{t(`${p}.companyName`)}</label>
                         <input
                           type="text"
                           value={submitCompany}
@@ -1119,7 +1089,7 @@ export default function PouchDielineFinderPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold uppercase mb-1">Target Material Structure</label>
+                        <label className="block text-xs font-bold uppercase mb-1">{t(`${p}.targetMaterialStructure`)}</label>
                         <select
                           value={submitMaterial}
                           onChange={(e) => setSubmitMaterial(e.target.value)}
@@ -1127,11 +1097,11 @@ export default function PouchDielineFinderPage() {
                             isPouch ? 'focus:bg-[#D4FF00]' : 'rounded-lg border-neutral-300'
                           }`}
                         >
-                          <option value="Kraft High-Barrier">Kraft High-Barrier (Compostable)</option>
-                          <option value="Mono-PE Recycle">Mono-PE Recyclable</option>
-                          <option value="PCR High-Barrier">PCR Recycled Plastic</option>
-                          <option value="Stock Unprinted">Stock Unprinted with Label</option>
-                          <option value="Digital Gloss/Matte">Sleek Digital Print</option>
+                          <option value="Kraft High-Barrier">{t(`${p}.kraftHighBarrierCompostable`)}</option>
+                          <option value="Mono-PE Recycle">{t(`${p}.monoPeRecyclable`)}</option>
+                          <option value="PCR High-Barrier">{t(`${p}.pcrRecycledPlastic`)}</option>
+                          <option value="Stock Unprinted">{t(`${p}.stockUnprintedWithLabel`)}</option>
+                          <option value="Digital Gloss/Matte">{t(`${p}.sleekDigitalPrint`)}</option>
                         </select>
                       </div>
                     </div>
@@ -1141,7 +1111,7 @@ export default function PouchDielineFinderPage() {
                       <div className="flex items-center gap-2">
                         <FileCode className="w-5 h-5 text-indigo-600" />
                         <div>
-                          <div className="text-[10px] text-neutral-500 font-bold uppercase">Pre-selected Template</div>
+                          <div className="text-[10px] text-neutral-500 font-bold uppercase">{t(`${p}.preSelectedTemplate`)}</div>
                           <div className="text-xs font-black uppercase">{selectedDieline.displayName}</div>
                         </div>
                       </div>
@@ -1152,7 +1122,7 @@ export default function PouchDielineFinderPage() {
 
                     {/* DRAG & DROP UPLOAD ZONE */}
                     <div>
-                      <label className="block text-xs font-bold uppercase mb-1">Upload Graphics Design File (.AI / .PDF / .ZIP) *</label>
+                      <label className="block text-xs font-bold uppercase mb-1">{t(`${p}.uploadGraphicsDesignFileAiPdfZ`)}</label>
                       <div
                         onDragEnter={handleDrag}
                         onDragOver={handleDrag}
@@ -1178,24 +1148,19 @@ export default function PouchDielineFinderPage() {
                           {selectedFile ? (
                             <div>
                               <div className="text-sm font-black text-green-700 uppercase flex items-center gap-1.5 justify-center">
-                                <CheckCircle className="w-4 h-4" /> File Selected Successfully
-                              </div>
+                                <CheckCircle className="w-4 h-4" /> {t(`${p}.fileSelectedSuccessfully`)}</div>
                               <div className="text-xs font-bold text-neutral-800 mt-1">
-                                {selectedFile.name} ({(selectedFile.size / (1024 * 1024)).toFixed(2)} MB)
-                              </div>
-                              <div className="text-[10px] text-neutral-500 mt-0.5">Click to replace file</div>
+                                {selectedFile.name} ({(selectedFile.size / (1024 * 1024)).toFixed(2)} {t(`${p}.mb`)}</div>
+                              <div className="text-[10px] text-neutral-500 mt-0.5">{t(`${p}.clickToReplaceFile`)}</div>
                             </div>
                           ) : (
                             <>
                               <div className="text-xs font-bold uppercase">
-                                Drag and drop your artwork file here
-                              </div>
+                                {t(`${p}.dragAndDropYourArtworkFileHere`)}</div>
                               <div className="text-[10px] text-neutral-500 font-semibold font-['JetBrains_Mono']">
-                                Supports .AI, .PDF or .ZIP files (Max 50MB)
-                              </div>
+                                {t(`${p}.supportsAiPdfOrZipFilesMax50mb`)}</div>
                               <div className="mt-2 text-xs font-black text-indigo-600 underline">
-                                Browse Local Files
-                              </div>
+                                {t(`${p}.browseLocalFiles`)}</div>
                             </>
                           )}
                         </label>
@@ -1220,8 +1185,7 @@ export default function PouchDielineFinderPage() {
                         </>
                       ) : (
                         <>
-                          <Send className="w-4 h-4" /> Submit Prepress Review Request
-                        </>
+                          <Send className="w-4 h-4" /> {t(`${p}.submitPrepressReviewRequest`)}</>
                       )}
                     </button>
 
@@ -1237,10 +1201,9 @@ export default function PouchDielineFinderPage() {
                     <div className="p-4 bg-green-50 border-2 border-green-600 rounded-xl text-green-900 flex items-start gap-3">
                       <CheckCircle className="w-6 h-6 text-green-700 shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="font-black text-sm uppercase leading-none mb-1">Submission Successful!</h4>
+                        <h4 className="font-black text-sm uppercase leading-none mb-1">{t(`${p}.submissionSuccessful`)}</h4>
                         <p className="text-xs font-semibold leading-relaxed">
-                          Your artwork graphics file `{selectedFile?.name}` has been uploaded and routed successfully. We've compiled the automated layout audits and dispatched notification alerts to both parties.
-                        </p>
+                          {t(`${p}.yourArtworkGraphicsFile`)}{selectedFile?.name}{t(`${p}.hasBeenUploadedAndRoutedSucces`)}</p>
                       </div>
                     </div>
 
@@ -1248,11 +1211,9 @@ export default function PouchDielineFinderPage() {
                     <div>
                       <div className="flex items-center justify-between border-b-2 border-black pb-2 mb-3">
                         <h4 className="font-black text-xs uppercase tracking-wider text-neutral-600 flex items-center gap-1.5">
-                          <Eye className="w-4 h-4 text-purple-600 animate-pulse" /> 📬 Simulated Email Notifications Logs
-                        </h4>
+                          <Eye className="w-4 h-4 text-purple-600 animate-pulse" /> {t(`${p}.simulatedEmailNotificationsLog`)}</h4>
                         <span className="text-[9px] font-mono bg-green-100 text-green-800 px-2 py-0.5 rounded font-black uppercase">
-                          Delivered
-                        </span>
+                          {t(`${p}.delivered`)}</span>
                       </div>
 
                       {/* Email Tabs Selector */}
@@ -1265,8 +1226,7 @@ export default function PouchDielineFinderPage() {
                               : 'bg-white text-neutral-600 hover:bg-neutral-50'
                           } ${isPouch ? '' : 'rounded-lg'}`}
                         >
-                          ✉️ Notification to ryan@achievepack.com
-                        </button>
+                          {t(`${p}.notificationToRyanAchievepackC`)}</button>
                         <button
                           onClick={() => setActiveEmailTab('customer')}
                           className={`px-3 py-1.5 text-xs font-bold border-2 border-black transition-all ${
@@ -1275,7 +1235,7 @@ export default function PouchDielineFinderPage() {
                               : 'bg-white text-neutral-600 hover:bg-neutral-50'
                           } ${isPouch ? '' : 'rounded-lg'}`}
                         >
-                          📩 Confirmation to Customer ({submitEmail})
+                          {t(`${p}.confirmationToCustomer`)}{submitEmail})
                         </button>
                       </div>
 
@@ -1283,36 +1243,33 @@ export default function PouchDielineFinderPage() {
                       {activeEmailTab === 'ryan' && (
                         <div className="border-2 border-neutral-300 rounded-xl overflow-hidden bg-neutral-50 p-4 font-mono text-xs text-neutral-800 flex flex-col gap-2">
                           <div className="border-b border-neutral-200 pb-2 flex flex-col gap-1">
-                            <div><strong className="text-neutral-500">To:</strong> ryan@achievepack.com</div>
-                            <div><strong className="text-neutral-500">From:</strong> prepress-alerts@achievepack.com</div>
-                            <div><strong className="text-neutral-500">Subject:</strong> [Prepress Review Required] New artwork upload for {selectedDieline.displayName}</div>
+                            <div><strong className="text-neutral-500">{t(`${p}.to`)}</strong> {t(`${p}.ryanAchievepackCom`)}</div>
+                            <div><strong className="text-neutral-500">{t(`${p}.from`)}</strong> {t(`${p}.prepressAlertsAchievepackCom`)}</div>
+                            <div><strong className="text-neutral-500">{t(`${p}.subject`)}</strong> {t(`${p}.prepressReviewRequiredNewArtwo`)}{selectedDieline.displayName}</div>
                           </div>
                           
                           <div className="py-2 flex flex-col gap-3 font-sans">
-                            <p>Hi Ryan,</p>
+                            <p>{t(`${p}.hiRyan`)}</p>
                             <p>
-                              A new prepress artwork submission has been generated through the Dieline Finder tool:
-                            </p>
+                              {t(`${p}.aNewPrepressArtworkSubmissionH`)}</p>
                             <div className="bg-neutral-100 border border-neutral-200 p-3 rounded-lg flex flex-col gap-1.5">
-                              <div><strong>Client Name:</strong> {submitName}</div>
-                              <div><strong>Client Email:</strong> {submitEmail}</div>
-                              <div><strong>Company Name:</strong> {submitCompany || 'Not Provided'}</div>
-                              <div><strong>Pre-Selected Dieline:</strong> {selectedDieline.displayName}</div>
-                              <div><strong>Target Material Structure:</strong> {submitMaterial}</div>
+                              <div><strong>{t(`${p}.clientName`)}</strong> {submitName}</div>
+                              <div><strong>{t(`${p}.clientEmail`)}</strong> {submitEmail}</div>
+                              <div><strong>{t(`${p}.companyName1`)}</strong> {submitCompany || 'Not Provided'}</div>
+                              <div><strong>{t(`${p}.preSelectedDieline`)}</strong> {selectedDieline.displayName}</div>
+                              <div><strong>{t(`${p}.targetMaterialStructure2`)}</strong> {submitMaterial}</div>
                             </div>
                             
                             <div className="flex flex-col gap-2 bg-purple-50 border border-purple-200 p-3 rounded-lg">
-                              <div className="font-bold text-xs uppercase text-purple-800">Submitted Files:</div>
+                              <div className="font-bold text-xs uppercase text-purple-800">{t(`${p}.submittedFiles`)}</div>
                               <div className="flex items-center gap-1.5 text-xs font-mono">
-                                <CornerDownRight className="w-3.5 h-3.5" /> 📄 Artwork: <span className="underline font-bold text-purple-700 cursor-pointer">{selectedFile?.name}</span> ({(selectedFile?.size ? selectedFile.size / (1024 * 1024) : 0).toFixed(2)} MB)
-                              </div>
+                                <CornerDownRight className="w-3.5 h-3.5" /> {t(`${p}.artwork`)}<span className="underline font-bold text-purple-700 cursor-pointer">{selectedFile?.name}</span> ({(selectedFile?.size ? selectedFile.size / (1024 * 1024) : 0).toFixed(2)} {t(`${p}.mb`)}</div>
                               <div className="flex items-center gap-1.5 text-xs font-mono">
-                                <CornerDownRight className="w-3.5 h-3.5" /> 📐 Layout: <a href={selectedDieline.url} download className="underline font-bold text-indigo-700">{selectedDieline.filename}</a>
+                                <CornerDownRight className="w-3.5 h-3.5" /> {t(`${p}.layout`)}<a href={selectedDieline.url} download className="underline font-bold text-indigo-700">{selectedDieline.filename}</a>
                               </div>
                             </div>
                             <p className="text-[10px] text-neutral-500 italic mt-2">
-                              Please review the vector limits in Adobe Illustrator and dispatch the visual proofing drafts within 24 hours.
-                            </p>
+                              {t(`${p}.pleaseReviewTheVectorLimitsInA`)}</p>
                           </div>
                         </div>
                       )}
@@ -1321,36 +1278,33 @@ export default function PouchDielineFinderPage() {
                       {activeEmailTab === 'customer' && (
                         <div className="border-2 border-neutral-300 rounded-xl overflow-hidden bg-neutral-50 p-4 font-mono text-xs text-neutral-800 flex flex-col gap-2">
                           <div className="border-b border-neutral-200 pb-2 flex flex-col gap-1">
-                            <div><strong className="text-neutral-500">To:</strong> {submitEmail}</div>
-                            <div><strong className="text-neutral-500">From:</strong> prepress@achievepack.com</div>
-                            <div><strong className="text-neutral-500">Subject:</strong> Prepress Artwork Review Confirmed - {selectedDieline.displayName}</div>
+                            <div><strong className="text-neutral-500">{t(`${p}.to`)}</strong> {submitEmail}</div>
+                            <div><strong className="text-neutral-500">{t(`${p}.from`)}</strong> {t(`${p}.prepressAchievepackCom`)}</div>
+                            <div><strong className="text-neutral-500">{t(`${p}.subject`)}</strong> {t(`${p}.prepressArtworkReviewConfirmed`)}{selectedDieline.displayName}</div>
                           </div>
                           
                           <div className="py-2 flex flex-col gap-3 font-sans">
-                            <p>Hello {submitName},</p>
+                            <p>{t(`${p}.hello`)}{submitName},</p>
                             <p>
-                              We have received your packaging graphics design file `{selectedFile?.name}` for the <strong>{selectedDieline.displayName}</strong> dieline template.
-                            </p>
+                              {t(`${p}.weHaveReceivedYourPackagingGra`)}{selectedFile?.name}{t(`${p}.forThe`)}<strong>{selectedDieline.displayName}</strong> {t(`${p}.dielineTemplate`)}</p>
                             <p>
-                              Our packaging engineering specialists are running an active prepress audit (checking vector scales, CMYK color profiles, safe margin gaps, and bleed boundaries) to guarantee pixel-perfect printing.
-                            </p>
+                              {t(`${p}.ourPackagingEngineeringSpecial`)}</p>
                             
                             <div className="p-3 bg-indigo-50 border border-indigo-200 rounded-lg flex flex-col gap-2">
-                              <div className="font-bold text-xs uppercase text-indigo-800">Your Downloads:</div>
+                              <div className="font-bold text-xs uppercase text-indigo-800">{t(`${p}.yourDownloads`)}</div>
                               <div className="flex items-center gap-1.5 text-xs font-mono">
-                                <Check className="w-3.5 h-3.5 text-green-700" /> Vector Dieline: <a href={selectedDieline.url} download className="underline font-bold text-indigo-700">{selectedDieline.filename}</a>
+                                <Check className="w-3.5 h-3.5 text-green-700" /> {t(`${p}.vectorDieline`)}<a href={selectedDieline.url} download className="underline font-bold text-indigo-700">{selectedDieline.filename}</a>
                               </div>
                             </div>
 
                             <p>
-                              We will respond with custom **3D visual mockups** and press-ready blueprint validation proofs within <strong>24 business hours</strong>.
+                              {t(`${p}.weWillRespondWithCustom3dVisua`)}<strong>{t(`${p}.24BusinessHours`)}</strong>.
                             </p>
                             
                             <p className="mt-2">
-                              Best regards,<br />
-                              <strong>Prepress Engineering Department</strong><br />
-                              AchievePack / Pouch.eco
-                            </p>
+                              {t(`${p}.bestRegards`)}<br />
+                              <strong>{t(`${p}.prepressEngineeringDepartment`)}</strong><br />
+                              {t(`${p}.achievepackPouchEco`)}</p>
                           </div>
                         </div>
                       )}
@@ -1368,8 +1322,7 @@ export default function PouchDielineFinderPage() {
                           : 'bg-neutral-900 text-white hover:bg-neutral-800 rounded-xl'
                       }`}
                     >
-                      Close Confirmation Hub
-                    </button>
+                      {t(`${p}.closeConfirmationHub`)}</button>
                   </div>
                 )}
               </div>
@@ -1386,7 +1339,7 @@ export default function PouchDielineFinderPage() {
     return (
       <PouchLayout>
         <Helmet>
-          <title>Interactive Pouch Dieline Finder | POUCH.ECO</title>
+          <title>{t(`${p}.interactivePouchDielineFinderP`)}</title>
           <meta name="description" content="Instant access to 160+ certified flexible packaging dielines. Select stand-up pouches, flat bottom, and 3SS vector blueprints (.PDF/.AI) to build print-ready art." />
         </Helmet>
         {renderMainContent()}
@@ -1396,7 +1349,7 @@ export default function PouchDielineFinderPage() {
     return (
       <>
         <Helmet>
-          <title>Vector Packaging Dieline Directory | AchievePack</title>
+          <title>{t(`${p}.vectorPackagingDielineDirector`)}</title>
           <meta name="description" content="Search and catalog standard packaging dielines. Download Illustrator and PDF templates for coffee bags, spout pouches, flat bottom bags, and three-side seal structures." />
         </Helmet>
         <SiteHeader />

@@ -24,6 +24,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '../components/animate-ui/components/radix/dropdown-menu'
+import { useTranslation, Trans } from "react-i18next";
 
 // SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
 // Organized by material type: pcr (PCR/Bio), mono (Mono Recyclable), compost (Biodegradable)
@@ -455,6 +456,8 @@ const SACHET_UNPRINTED_OPTIONS = [
 ];
 
 const ProductPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.product';
   const { productId } = useParams<{ productId: string }>()
   const { addToCart, addToRfq, cartCount, setIsCartOpen, setActiveCartMode } = useStore()
   const { openQuoteLightbox } = useCustomQuote()
@@ -1229,40 +1232,34 @@ const ProductPage: React.FC = () => {
               <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Package className="h-10 w-10 text-amber-600" />
               </div>
-              <h1 className="text-3xl font-bold text-neutral-900 mb-4">Product Not Found</h1>
+              <h1 className="text-3xl font-bold text-neutral-900 mb-4">{t(`${p}.productNotFound`)}</h1>
               <p className="text-lg text-neutral-600 mb-8">
-                Sorry, this product doesn't exist or may have been moved.
-              </p>
+                {t(`${p}.sorryThisProductDoesnTExistOrM`)}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Link 
                   to="/store" 
                   className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition"
                 >
-                  <ShoppingCart className="h-5 w-5" /> Browse Products
-                </Link>
+                  <ShoppingCart className="h-5 w-5" /> {t(`${p}.browseProducts`)}</Link>
                 <Link 
                   to="/" 
                   className="inline-flex items-center justify-center gap-2 bg-neutral-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-neutral-700 transition"
                 >
-                  <Home className="h-5 w-5" /> Back Home
-                </Link>
+                  <Home className="h-5 w-5" /> {t(`${p}.backHome`)}</Link>
               </div>
               
               {/* Popular Links */}
               <div className="border-t border-neutral-200 pt-6">
-                <p className="text-sm text-neutral-500 mb-4">Popular Categories:</p>
+                <p className="text-sm text-neutral-500 mb-4">{t(`${p}.popularCategories`)}</p>
                 <div className="flex flex-wrap gap-3 justify-center">
                   <Link to="/materials/compostable" className="text-sm text-primary-600 hover:underline">
-                    Compostable Bags
-                  </Link>
+                    {t(`${p}.compostableBags`)}</Link>
                   <span className="text-neutral-300">•</span>
                   <Link to="/industry/coffee-tea" className="text-sm text-primary-600 hover:underline">
-                    Coffee Packaging
-                  </Link>
+                    {t(`${p}.coffeePackaging`)}</Link>
                   <span className="text-neutral-300">•</span>
                   <Link to="/packaging/stand-up-pouches" className="text-sm text-primary-600 hover:underline">
-                    Stand-Up Pouches
-                  </Link>
+                    {t(`${p}.standUpPouches`)}</Link>
                 </div>
               </div>
             </div>
@@ -1542,8 +1539,7 @@ const ProductPage: React.FC = () => {
               onClick={handleNavigation('/store')}
               className="flex items-center gap-1 text-sm text-neutral-500 hover:text-primary-600 transition"
             >
-              <ArrowLeft className="h-4 w-4" /> Back to Store
-            </a>
+              <ArrowLeft className="h-4 w-4" /> {t(`${p}.backToStore`)}</a>
           </div>
           <button onClick={() => {
             if (cartCount === 0) {
@@ -1620,7 +1616,7 @@ const ProductPage: React.FC = () => {
                         </div>
                       </div>
                       <div className="absolute bottom-1 left-0 right-0 text-center">
-                        <span className="text-[10px] text-white font-medium uppercase tracking-wider">Video {vIdx + 1}</span>
+                        <span className="text-[10px] text-white font-medium uppercase tracking-wider">{t(`${p}.video`)}{vIdx + 1}</span>
                       </div>
                     </button>
                   )) || ((product as any).videoUrl && (
@@ -1639,7 +1635,7 @@ const ProductPage: React.FC = () => {
                         </div>
                       </div>
                       <div className="absolute bottom-1 left-0 right-0 text-center">
-                        <span className="text-[10px] text-white font-medium uppercase tracking-wider">Video</span>
+                        <span className="text-[10px] text-white font-medium uppercase tracking-wider">{t(`${p}.video`)}</span>
                       </div>
                     </button>
                   ))}
@@ -1657,8 +1653,7 @@ const ProductPage: React.FC = () => {
                         : 'text-neutral-600 hover:bg-neutral-50'
                     }`}
                   >
-                    📦 Details
-                  </button>
+                    {t(`${p}.details`)}</button>
                   <button
                     onClick={() => { setActiveTab('specifications'); setSpecTab('specs'); }}
                     className={`flex-1 px-3 py-3 text-sm font-medium transition ${
@@ -1667,8 +1662,7 @@ const ProductPage: React.FC = () => {
                         : 'text-neutral-600 hover:bg-neutral-50'
                     }`}
                   >
-                    📋 Specs
-                  </button>
+                    {t(`${p}.specs`)}</button>
                 </div>
                 <div className="p-4">
                   {activeTab === 'visualization' ? (
@@ -1676,36 +1670,36 @@ const ProductPage: React.FC = () => {
                       <div className="flex items-start gap-3">
                         <span className="text-primary-500">✓</span>
                         <div>
-                          <div className="font-medium text-neutral-800">Digital Print Quality</div>
-                          <div className="text-sm text-neutral-500">High-resolution printing with vibrant colors</div>
+                          <div className="font-medium text-neutral-800">{t(`${p}.digitalPrintQuality`)}</div>
+                          <div className="text-sm text-neutral-500">{t(`${p}.highResolutionPrintingWithVibr`)}</div>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <span className="text-primary-500">✓</span>
                         <div>
-                          <div className="font-medium text-neutral-800">Fast Turnaround</div>
-                          <div className="text-sm text-neutral-500">15-20 business days production time</div>
+                          <div className="font-medium text-neutral-800">{t(`${p}.fastTurnaround`)}</div>
+                          <div className="text-sm text-neutral-500">{t(`${p}.1520BusinessDaysProductionTime`)}</div>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <span className="text-primary-500">✓</span>
                         <div>
-                          <div className="font-medium text-neutral-800">Free Shipping</div>
-                          <div className="text-sm text-neutral-500">Air freight shipping included in price</div>
+                          <div className="font-medium text-neutral-800">{t(`${p}.freeShipping`)}</div>
+                          <div className="text-sm text-neutral-500">{t(`${p}.airFreightShippingIncludedInPr`)}</div>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <span className="text-primary-500">✓</span>
                         <div>
-                          <div className="font-medium text-neutral-800">Low MOQ</div>
-                          <div className="text-sm text-neutral-500">Starting from just 100 pieces</div>
+                          <div className="font-medium text-neutral-800">{t(`${p}.lowMoq`)}</div>
+                          <div className="text-sm text-neutral-500">{t(`${p}.startingFromJust100Pieces`)}</div>
                         </div>
                       </div>
                     </div>
                   ) : (
                     <dl className="grid grid-cols-1 gap-y-3 text-sm">
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Shape</dt>
+                        <dt className="text-neutral-500">{t(`${p}.shape`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {conventionalProduct.shape === 'small-sachet-conventional' 
                             ? '3 Side Seal Pouch (Sachet)' 
@@ -1713,7 +1707,7 @@ const ProductPage: React.FC = () => {
                         </dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Size</dt>
+                        <dt className="text-neutral-500">{t(`${p}.size`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {(() => {
                             const sizeInfo = POUCH_SIZES.find(s => s.id === selectedConvSize);
@@ -1724,35 +1718,33 @@ const ProductPage: React.FC = () => {
                         </dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Quantity</dt>
-                        <dd className="text-neutral-900 col-span-2">{selectedConvQuantity.toLocaleString()} pieces</dd>
+                        <dt className="text-neutral-500">{t(`${p}.quantity`)}</dt>
+                        <dd className="text-neutral-900 col-span-2">{selectedConvQuantity.toLocaleString()} {t(`${p}.pieces`)}</dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Material</dt>
+                        <dt className="text-neutral-500">{t(`${p}.material`)}</dt>
                         <dd className="text-neutral-900 col-span-2">{product.name.includes('Metalised') ? 'Mattopp/VMPET/LLDPE' : 'Glossy PET/LLDPE'}</dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Thickness</dt>
-                        <dd className="text-neutral-900 col-span-2">100 micron / 4 mil</dd>
+                        <dt className="text-neutral-500">{t(`${p}.thickness`)}</dt>
+                        <dd className="text-neutral-900 col-span-2">{t(`${p}.100Micron4Mil`)}</dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Printing</dt>
+                        <dt className="text-neutral-500">{t(`${p}.printing`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
-                          Digital Print (Unlimited Colors)
-                          <div className="mt-1">
+                          {t(`${p}.digitalPrintUnlimitedColors`)}<div className="mt-1">
                             <Link to="/support/color-accuracy-digital-printing" className="text-xs text-primary-600 hover:text-primary-700 flex items-center gap-1">
-                              <Info className="w-3 h-3" /> Color Accuracy Guide
-                            </Link>
+                              <Info className="w-3 h-3" /> {t(`${p}.colorAccuracyGuide`)}</Link>
                           </div>
                         </dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Lead Time</dt>
-                        <dd className="text-neutral-900 col-span-2">15-20 business days</dd>
+                        <dt className="text-neutral-500">{t(`${p}.leadTime`)}</dt>
+                        <dd className="text-neutral-900 col-span-2">{t(`${p}.1520BusinessDays`)}</dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Shipping</dt>
-                        <dd className="text-neutral-900 col-span-2">Air Freight (Included)</dd>
+                        <dt className="text-neutral-500">{t(`${p}.shipping`)}</dt>
+                        <dd className="text-neutral-900 col-span-2">{t(`${p}.airFreightIncluded`)}</dd>
                       </div>
                     </dl>
                   )}
@@ -1767,8 +1759,7 @@ const ProductPage: React.FC = () => {
                     className="w-full px-4 py-3 flex items-center justify-between hover:bg-amber-100/50 transition"
                   >
                     <span className="text-sm font-semibold text-amber-800 flex items-center gap-2">
-                      ✨ Product Insights
-                    </span>
+                      {t(`${p}.productInsights`)}</span>
                     {isInsightsExpanded ? (
                       <ChevronUp className="w-5 h-5 text-amber-600" />
                     ) : (
@@ -1797,13 +1788,13 @@ const ProductPage: React.FC = () => {
                       
                       {/* Comparison Advantage */}
                       <div className="bg-white/60 border border-amber-200 rounded-lg p-3">
-                        <div className="text-xs font-medium text-amber-800 mb-1">💡 Why Choose This?</div>
+                        <div className="text-xs font-medium text-amber-800 mb-1">{t(`${p}.whyChooseThis`)}</div>
                         <div className="text-xs text-amber-700">{aiSellingPoints.comparisonAdvantage}</div>
                       </div>
                       
                       {/* Use Cases */}
                       <div>
-                        <div className="text-xs font-medium text-neutral-700 mb-1">Perfect For:</div>
+                        <div className="text-xs font-medium text-neutral-700 mb-1">{t(`${p}.perfectFor`)}</div>
                         <div className="flex flex-wrap gap-1">
                           {aiSellingPoints.useCases.map((useCase, i) => (
                             <span key={i} className="text-xs bg-white/60 text-neutral-600 px-2 py-0.5 rounded-full">
@@ -1834,7 +1825,7 @@ const ProductPage: React.FC = () => {
                     <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
                   ))}
                 </div>
-                <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} reviews)</Link>
+                <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} {t(`${p}.reviews`)}</Link>
               </div>
               
               <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
@@ -1850,10 +1841,9 @@ const ProductPage: React.FC = () => {
                       <span className="text-amber-600 text-sm">❓</span>
                     </div>
                     <div>
-                      <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                      <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.productChallenge`)}</p>
                       <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
-                        Custom packaging often means high MOQs and long lead times, making it hard for new brands and trial products to get to market quickly.
-                      </p>
+                        {t(`${p}.customPackagingOftenMeansHighM`)}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 text-xs text-blue-600 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
@@ -1870,10 +1860,9 @@ const ProductPage: React.FC = () => {
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
                         <div>
-                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.theProblem`)}</p>
                           <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
-                            Custom packaging often means high MOQs and long lead times, making it hard for new brands and trial products to get to market quickly.
-                          </p>
+                            {t(`${p}.customPackagingOftenMeansHighM`)}</p>
                         </div>
                       </div>
                     </div>
@@ -1884,7 +1873,7 @@ const ProductPage: React.FC = () => {
                           <span className="text-blue-600 text-sm">✓</span>
                         </div>
                         <div className="flex-1">
-                          <p className="text-xs text-blue-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                          <p className="text-xs text-blue-500 font-semibold uppercase tracking-wider">{t(`${p}.sustainableSolution`)}</p>
                           <p className="text-sm text-blue-800 leading-relaxed font-medium mt-0.5">
                             {conventionalProduct?.shape.includes('stand-up') 
                               ? 'This stand-up pouch uses digital printing—MOQ from 100pcs, 15-20 day delivery, get your product on shelf fast.'
@@ -1896,14 +1885,14 @@ const ProductPage: React.FC = () => {
                     
                     <div className="px-5 py-4 space-y-2">
                       <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                        <span className="font-semibold text-blue-700">Structure:</span> 
+                        <span className="font-semibold text-blue-700">{t(`${p}.structure`)}</span> 
                         {product.name.includes('Metalised') 
                           ? ' Mattopp/VMPET/LLDPE — Metalised high-barrier, extended shelf life, blocks light & oxygen'
                           : ' Glossy PET/LLDPE — Clear glossy finish, perfect product visibility'}
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                          <span className="font-medium">📐 Size: {(() => {
+                          <span className="font-medium">{t(`${p}.size1`)}{(() => {
                             const sizeInfo = POUCH_SIZES.find(s => s.id === selectedConvSize);
                             return sizeInfo && conventionalProduct 
                               ? formatPouchSizeLabel(sizeInfo, conventionalProduct.shape) 
@@ -1911,22 +1900,22 @@ const ProductPage: React.FC = () => {
                           })()}</span>
                         </div>
                         <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                          <span className="font-medium">📦 Qty: {selectedConvQuantity} pcs</span>
+                          <span className="font-medium">{t(`${p}.qty`)}{selectedConvQuantity} {t(`${p}.pcs`)}</span>
                         </div>
                       </div>
                     </div>
                     
                     <div className="px-5 py-4">
                       <div className="grid grid-cols-2 gap-2">
-                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>Food-grade certified</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>Full-color digital print</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>MOQ from 100pcs, no plate fees</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>15-20 days incl. shipping</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>{t(`${p}.foodGradeCertified`)}</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>{t(`${p}.fullColorDigitalPrint`)}</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>{t(`${p}.moqFrom100pcsNoPlateFees`)}</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>{t(`${p}.1520DaysInclShipping`)}</span></div>
                       </div>
                     </div>
                     
                     <div className="bg-blue-100/50 px-5 py-3.5 border-t border-blue-200">
-                      <p className="text-xs text-blue-700"><span className="font-medium">Ideal for:</span> New brand trials, limited editions, seasonal packaging, small-batch ecommerce sellers</p>
+                      <p className="text-xs text-blue-700"><span className="font-medium">{t(`${p}.idealFor`)}</span> {t(`${p}.newBrandTrialsLimitedEditionsS`)}</p>
                     </div>
                   </div>
                 )}
@@ -1934,14 +1923,13 @@ const ProductPage: React.FC = () => {
               
               {/* Price Display */}
               <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 p-4 sm:p-6">
-                <div className="text-2xl sm:text-3xl font-bold text-primary-700">US${conventionalPrice.total.toLocaleString()}</div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary-700">{t(`${p}.us`)}{conventionalPrice.total.toLocaleString()}</div>
                 <div className="text-sm text-primary-600 mt-1">
-                  ${conventionalPrice.unit < 0.1 ? conventionalPrice.unit.toFixed(4) : conventionalPrice.unit.toFixed(2)}/piece • {
+                  ${conventionalPrice.unit < 0.1 ? conventionalPrice.unit.toFixed(4) : conventionalPrice.unit.toFixed(2)}{t(`${p}.piece`)}{
                     product.id === 'small-sachet-conventional' && sachetPrintMethod === 'unprinted'
                       ? ((SACHET_UNPRINTED_OPTIONS.find(o => o.id === sachetUnprintedColor)?.pcs || 100) * sachetUnprintedPacks).toLocaleString()
                       : selectedConvQuantity.toLocaleString()
-                  } pieces
-                </div>
+                  } {t(`${p}.pieces`)}</div>
                 <div className="text-xs text-primary-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
                   {product.id === 'small-sachet-conventional' ? '✓ Free Express Air Shipping & Delivery Included' : '✓ $40 Air Shipping Included'}
                 </div>
@@ -1951,18 +1939,15 @@ const ProductPage: React.FC = () => {
               <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 space-y-2">
                 <div className="flex gap-2">
                   <span className="text-base">🎨</span>
-                  <div className="text-xs font-semibold text-amber-800 uppercase tracking-wider">Color Matching & Custom Options</div>
+                  <div className="text-xs font-semibold text-amber-800 uppercase tracking-wider">{t(`${p}.colorMatchingCustomOptions`)}</div>
                 </div>
                 <p className="text-xs text-amber-700 leading-relaxed">
-                  These standard items are produced as cost-optimized "group runs" using standard digital CMYK. For <span className="font-semibold text-amber-900">exact Pantone® spot color matching</span>, custom dimensions, unprinted gussets, or premium closures, please get a custom B2B run.
-                </p>
+                  {t(`${p}.theseStandardItemsAreProducedA`)}<span className="font-semibold text-amber-900">{t(`${p}.exactPantoneSpotColorMatching`)}</span>{t(`${p}.customDimensionsUnprintedGusse`)}</p>
                 <div className="pt-1 flex flex-wrap gap-x-3 gap-y-1">
                   <Link to="/topics/custom-vs-standard-packaging" className="text-xs font-bold text-primary-700 hover:text-primary-800 underline flex items-center gap-1">
-                    📖 Custom vs. Standard Guide
-                  </Link>
+                    {t(`${p}.customVsStandardGuide`)}</Link>
                   <button onClick={openQuoteLightbox} className="text-xs font-bold text-amber-800 hover:text-amber-900 underline flex items-center gap-1">
-                    ✨ Get a Custom B2B Quote
-                  </button>
+                    {t(`${p}.getACustomB2bQuote`)}</button>
                 </div>
               </div>
               
@@ -1972,15 +1957,14 @@ const ProductPage: React.FC = () => {
                   <>
                     {/* Size display */}
                     <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-1">Size (Locked)</label>
+                      <label className="block text-sm font-medium text-neutral-700 mb-1">{t(`${p}.sizeLocked`)}</label>
                       <div className="w-full p-3.5 border-2 border-neutral-100 bg-neutral-50 rounded-xl text-neutral-800 font-medium">
-                        80 × 80mm (3.1" × 3.1")
-                      </div>
+                        {t(`${p}.8080mm3131`)}</div>
                     </div>
 
                     {/* Print Method Selector */}
                     <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Printing Method</label>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.printingMethod`)}</label>
                       <select 
                         value={sachetPrintMethod} 
                         onChange={e => {
@@ -1994,10 +1978,10 @@ const ProductPage: React.FC = () => {
                         }} 
                         className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                       >
-                        <option value="unprinted">Plain / Unprinted (无印刷) - Ready Stock</option>
-                        <option value="hot-stamping">Hot Stamping (烫金) - Low MOQ</option>
-                        <option value="digital">Digital Color Printing (数码彩印) - Low MOQ</option>
-                        <option value="traditional">Traditional Gravure Printing (传统彩印) - High Vol</option>
+                        <option value="unprinted">{t(`${p}.plainUnprintedReadyStock`)}</option>
+                        <option value="hot-stamping">{t(`${p}.hotStampingLowMoq`)}</option>
+                        <option value="digital">{t(`${p}.digitalColorPrintingLowMoq`)}</option>
+                        <option value="traditional">{t(`${p}.traditionalGravurePrintingHigh`)}</option>
                       </select>
                     </div>
 
@@ -2005,19 +1989,19 @@ const ProductPage: React.FC = () => {
                     {sachetPrintMethod === 'unprinted' && (
                       <div className="space-y-4">
                         <div>
-                          <label className="block text-sm font-medium text-neutral-700 mb-2">Select Color & Material Option</label>
+                          <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.selectColorMaterialOption`)}</label>
                           <select 
                             value={sachetUnprintedColor} 
                             onChange={e => setSachetUnprintedColor(e.target.value)} 
                             className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                           >
                             {SACHET_UNPRINTED_OPTIONS.map(opt => (
-                              <option key={opt.id} value={opt.id}>{opt.label} (${opt.price.toFixed(2)} USD)</option>
+                              <option key={opt.id} value={opt.id}>{opt.label} (${opt.price.toFixed(2)} {t(`${p}.usd`)}</option>
                             ))}
                           </select>
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-neutral-700 mb-2">Packs Count</label>
+                          <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.packsCount`)}</label>
                           <select
                             value={sachetUnprintedPacks}
                             onChange={e => setSachetUnprintedPacks(Number(e.target.value))}
@@ -2026,7 +2010,7 @@ const ProductPage: React.FC = () => {
                             {[1, 2, 3, 4, 5, 10, 20, 50, 100].map(packs => {
                               const pcs = packs * (SACHET_UNPRINTED_OPTIONS.find(o => o.id === sachetUnprintedColor)?.pcs || 100);
                               return (
-                                <option key={packs} value={packs}>{packs} Pack{packs > 1 ? 's' : ''} ({pcs.toLocaleString()} pcs)</option>
+                                <option key={packs} value={packs}>{packs} {t(`${p}.pack`)}{packs > 1 ? 's' : ''} ({pcs.toLocaleString()} {t(`${p}.pcs2`)}</option>
                               );
                             })}
                           </select>
@@ -2037,14 +2021,14 @@ const ProductPage: React.FC = () => {
                     {/* Options specific to Hot Stamping */}
                     {sachetPrintMethod === 'hot-stamping' && (
                       <div>
-                        <label className="block text-sm font-medium text-neutral-700 mb-2">Stamping Coverage</label>
+                        <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.stampingCoverage`)}</label>
                         <select 
                           value={sachetStampingCoverage} 
                           onChange={e => setSachetStampingCoverage(e.target.value as any)} 
                           className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                         >
-                          <option value="double-sided">Double-Sided Stamping (含双面烫金/版费)</option>
-                          <option value="single-sided">Single-Sided Stamping</option>
+                          <option value="double-sided">{t(`${p}.doubleSidedStamping`)}</option>
+                          <option value="single-sided">{t(`${p}.singleSidedStamping`)}</option>
                         </select>
                       </div>
                     )}
@@ -2052,14 +2036,14 @@ const ProductPage: React.FC = () => {
                     {/* Options specific to Traditional Plate printing */}
                     {sachetPrintMethod === 'traditional' && (
                       <div>
-                        <label className="block text-sm font-medium text-neutral-700 mb-2">Number of Printed Colors (Plate Fees)</label>
+                        <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.numberOfPrintedColorsPlateFees`)}</label>
                         <select 
                           value={sachetColorsCount} 
                           onChange={e => setSachetColorsCount(Number(e.target.value))} 
                           className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                         >
                           {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
-                            <option key={num} value={num}>{num} Color{num > 1 ? 's' : ''} Setup (+${(num * 126.00).toFixed(2)} USD)</option>
+                            <option key={num} value={num}>{num} {t(`${p}.color`)}{num > 1 ? 's' : ''} {t(`${p}.setup`)}{(num * 126.00).toFixed(2)} {t(`${p}.usd`)}</option>
                           ))}
                         </select>
                       </div>
@@ -2077,20 +2061,19 @@ const ProductPage: React.FC = () => {
                             className="w-4.5 h-4.5 text-primary-600 border-neutral-300 rounded focus:ring-primary-500"
                           />
                           <label htmlFor="sachet-round-corners" className="text-sm font-semibold text-neutral-700 cursor-pointer select-none">
-                            Add Round Corners (圆角) (+${(0.0336).toFixed(4)} USD / unit)
-                          </label>
+                            {t(`${p}.addRoundCorners`)}{(0.0336).toFixed(4)} {t(`${p}.usdUnit`)}</label>
                         </div>
 
                         {/* Quantity Selector */}
                         <div>
-                          <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
+                          <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.quantity`)}</label>
                           <select 
                             value={selectedConvQuantity} 
                             onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
                             className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                           >
                             {conventionalQuantities.map(qty => (
-                              <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                              <option key={qty} value={qty}>{qty.toLocaleString()} {t(`${p}.pieces`)}</option>
                             ))}
                           </select>
                         </div>
@@ -2101,7 +2084,7 @@ const ProductPage: React.FC = () => {
                   <>
                     {/* Size Selector */}
                     <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Size (W × H + Gusset)</label>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.sizeWHGusset`)}</label>
                       <select 
                         value={selectedConvSize} 
                         onChange={e => setSelectedConvSize(e.target.value)} 
@@ -2115,14 +2098,14 @@ const ProductPage: React.FC = () => {
                     
                     {/* Quantity Selector */}
                     <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.quantity`)}</label>
                       <select 
                         value={selectedConvQuantity} 
                         onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
                         className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                       >
                         {conventionalQuantities.map(qty => (
-                          <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                          <option key={qty} value={qty}>{qty.toLocaleString()} {t(`${p}.pieces`)}</option>
                         ))}
                       </select>
                     </div>
@@ -2167,8 +2150,7 @@ const ProductPage: React.FC = () => {
                   }} 
                   className="flex-1 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
                 >
-                  <ShoppingCart className="h-5 w-5" /> Add {product.name} to Cart
-                </button>
+                  <ShoppingCart className="h-5 w-5" /> {t(`${p}.add`)}{product.name} {t(`${p}.toCart`)}</button>
                 <button 
                   onClick={handleShareClick}
                   className="px-4 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
@@ -2251,7 +2233,7 @@ const ProductPage: React.FC = () => {
                         </div>
                       </div>
                       <div className="absolute bottom-1 left-0 right-0 text-center">
-                        <span className="text-xs text-white font-medium">Video</span>
+                        <span className="text-xs text-white font-medium">{t(`${p}.video`)}</span>
                       </div>
                     </button>
                   )}
@@ -2265,25 +2247,24 @@ const ProductPage: React.FC = () => {
                     onClick={() => setSpecTab('specs')}
                     className="flex-1 px-4 py-3 text-sm font-medium transition bg-green-50 text-green-700 border-b-2 border-green-600"
                   >
-                    🌱 Specifications
-                  </button>
+                    {t(`${p}.specifications`)}</button>
                 </div>
                 <div className="p-4">
                   <dl className="grid grid-cols-1 gap-y-3 text-sm">
                     <div className="grid grid-cols-3 gap-2">
-                      <dt className="text-neutral-500">Material</dt>
+                      <dt className="text-neutral-500">{t(`${p}.material`)}</dt>
                       <dd className="text-neutral-900 col-span-2">{ecoStockProduct.material}</dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
-                      <dt className="text-neutral-500">Size</dt>
+                      <dt className="text-neutral-500">{t(`${p}.size`)}</dt>
                       <dd className="text-neutral-900 col-span-2">{ecoStockProduct.sizeInfo}</dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
-                      <dt className="text-neutral-500">Shape</dt>
+                      <dt className="text-neutral-500">{t(`${p}.shape`)}</dt>
                       <dd className="text-neutral-900 col-span-2">{ecoStockProduct.shape}</dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
-                      <dt className="text-neutral-500">Sustainability</dt>
+                      <dt className="text-neutral-500">{t(`${p}.sustainability`)}</dt>
                       <dd className="text-neutral-900 col-span-2">
                         {product?.category === 'conventional-stock' || product?.category === 'conventional-digital'
                           ? 'Recycle Number 7'
@@ -2292,7 +2273,7 @@ const ProductPage: React.FC = () => {
                       </dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
-                      <dt className="text-neutral-500">Shelf Life</dt>
+                      <dt className="text-neutral-500">{t(`${p}.shelfLife`)}</dt>
                       <dd className="text-neutral-900 col-span-2">
                         {(ecoStockProduct as any).shelfLife ? (
                           (ecoStockProduct as any).shelfLife.includes('freshness') ? (ecoStockProduct as any).shelfLife : `${(ecoStockProduct as any).shelfLife} freshness`
@@ -2300,18 +2281,18 @@ const ProductPage: React.FC = () => {
                       </dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
-                      <dt className="text-neutral-500">Lead Time</dt>
+                      <dt className="text-neutral-500">{t(`${p}.leadTime`)}</dt>
                       <dd className="text-neutral-900 col-span-2">{ecoStockProduct.turnaround}</dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
-                      <dt className="text-neutral-500">Shipping</dt>
+                      <dt className="text-neutral-500">{t(`${p}.shipping`)}</dt>
                       <dd className="text-neutral-900 col-span-2">
                         {(ecoStockProduct as any).priceRemark ? 'Not Included' : 'Air Freight (Included)'}
                       </dd>
                     </div>
                     {(ecoStockProduct as any).taobaoLinks && (
                       <div className="grid grid-cols-3 gap-2 pt-2 border-t border-neutral-100">
-                        <dt className="text-neutral-500">Taobao Sources</dt>
+                        <dt className="text-neutral-500">{t(`${p}.taobaoSources`)}</dt>
                         <dd className="text-neutral-900 col-span-2 flex flex-wrap gap-1.5">
                           {(ecoStockProduct as any).taobaoLinks.map((link: string, idx: number) => {
                             const matchId = link.match(/id=(\d+)/);
@@ -2324,7 +2305,7 @@ const ProductPage: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1 text-green-700 hover:text-green-800 font-medium hover:underline text-xs bg-green-50 hover:bg-green-100 px-2 py-0.5 border border-green-200 rounded transition-all"
                               >
-                                📦 Item ID: {itemId}
+                                {t(`${p}.itemId`)}{itemId}
                               </a>
                             );
                           })}
@@ -2343,8 +2324,7 @@ const ProductPage: React.FC = () => {
                     className="w-full px-4 py-3 flex items-center justify-between hover:bg-amber-100/50 transition"
                   >
                     <span className="text-sm font-semibold text-amber-800 flex items-center gap-2">
-                      ✨ Product Insights
-                    </span>
+                      {t(`${p}.productInsights`)}</span>
                     {isInsightsExpanded ? (
                       <ChevronUp className="w-5 h-5 text-amber-600" />
                     ) : (
@@ -2373,13 +2353,13 @@ const ProductPage: React.FC = () => {
                       
                       {/* Comparison Advantage */}
                       <div className="bg-white/60 border border-amber-200 rounded-lg p-3">
-                        <div className="text-xs font-medium text-amber-800 mb-1">💡 Why Choose This?</div>
+                        <div className="text-xs font-medium text-amber-800 mb-1">{t(`${p}.whyChooseThis`)}</div>
                         <div className="text-xs text-amber-700">{aiSellingPoints.comparisonAdvantage}</div>
                       </div>
                       
                       {/* Use Cases */}
                       <div>
-                        <div className="text-xs font-medium text-neutral-700 mb-1">Perfect For:</div>
+                        <div className="text-xs font-medium text-neutral-700 mb-1">{t(`${p}.perfectFor`)}</div>
                         <div className="flex flex-wrap gap-1">
                           {aiSellingPoints.useCases.map((useCase, i) => (
                             <span key={i} className="text-xs bg-white/60 text-neutral-600 px-2 py-0.5 rounded-full">
@@ -2421,7 +2401,7 @@ const ProductPage: React.FC = () => {
                     <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
                   ))}
                 </div>
-                <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} reviews)</Link>
+                <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} {t(`${p}.reviews`)}</Link>
               </div>
               
               <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
@@ -2433,8 +2413,8 @@ const ProductPage: React.FC = () => {
                       📋
                     </div>
                     <div className="text-left">
-                      <p className="text-xs text-emerald-800 font-bold uppercase tracking-wider">Official Custom Quote Reference</p>
-                      <p className="text-[10px] text-neutral-500 leading-normal mt-0.5">This product is direct-converted from a verified client factory quote.</p>
+                      <p className="text-xs text-emerald-800 font-bold uppercase tracking-wider">{t(`${p}.officialCustomQuoteReference`)}</p>
+                      <p className="text-[10px] text-neutral-500 leading-normal mt-0.5">{t(`${p}.thisProductIsDirectConvertedFr`)}</p>
                     </div>
                   </div>
                   <a
@@ -2443,8 +2423,7 @@ const ProductPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-white border border-emerald-200 shadow-sm hover:shadow px-4 py-2 rounded-lg transition-all"
                   >
-                    View Live Quote
-                  </a>
+                    {t(`${p}.viewLiveQuote`)}</a>
                 </div>
               )}
               
@@ -2461,10 +2440,9 @@ const ProductPage: React.FC = () => {
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
                         <div>
-                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.productChallenge`)}</p>
                           <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
-                            Traditional labels rely on non-biodegradable plastics (PP/PET) and synthetic adhesives that break down into persistent microplastics, remaining in our ecosystem for centuries.
-                          </p>
+                            {t(`${p}.traditionalLabelsRelyOnNonBiod`)}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5 text-xs text-green-700 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
@@ -2481,10 +2459,9 @@ const ProductPage: React.FC = () => {
                               <span className="text-amber-600 text-sm">❓</span>
                             </div>
                             <div>
-                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.theProblem`)}</p>
                               <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
-                                Traditional labels rely on non-biodegradable plastics (PP/PET) and synthetic adhesives that break down into persistent microplastics, remaining in our ecosystem for centuries.
-                              </p>
+                                {t(`${p}.traditionalLabelsRelyOnNonBiod`)}</p>
                             </div>
                           </div>
                         </div>
@@ -2495,17 +2472,15 @@ const ProductPage: React.FC = () => {
                               <span className="text-green-600 text-sm">✓</span>
                             </div>
                             <div className="flex-1">
-                              <p className="text-xs text-green-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                              <p className="text-xs text-green-500 font-semibold uppercase tracking-wider">{t(`${p}.sustainableSolution`)}</p>
                               <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-1.5">
                                 <div className="md:col-span-7">
-                                  <h4 className="text-sm font-bold text-green-800 mb-1">Zero Microplastics. Complete Biodegradability.</h4>
+                                  <h4 className="text-sm font-bold text-green-800 mb-1">{t(`${p}.zeroMicroplasticsCompleteBiode`)}</h4>
                                   <p className="text-xs font-semibold text-green-700 mb-2">180天完全生物降解 • 零微塑料殘留</p>
                                   <p className="text-xs text-green-800 leading-relaxed mb-2">
-                                    Unlike traditional plastic (PP/PET) labels that break down into persistent microplastics, our PLA compostable labels completely degrade under standard composting conditions. Over 180 days, microorganisms break down the face stock, bio-adhesive, and plant-based printing ink into clean biomass, water, and CO2, fully blending back into the natural eco-system.
-                                  </p>
+                                    {t(`${p}.unlikeTraditionalPlasticPpPetL`)}</p>
                                   <p className="text-[11px] text-green-700 leading-relaxed italic">
-                                    與傳統塑料標籤（PP/PET）破碎成微塑料長期污染環境不同，我們的可堆肥標籤在標準堆肥環境下會迅速被微生物分解。在180天的黃金降解周期內，面材、生物黏合劑及植物油墨將徹底轉化為有機養分、水及二氧化碳，無重金屬或化學毒素殘留。
-                                  </p>
+                                    {t(`${p}.ppPet180`)}</p>
                                 </div>
                                 <div className="md:col-span-5">
                                   <div className="relative group overflow-hidden rounded-xl border border-green-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
@@ -2524,31 +2499,30 @@ const ProductPage: React.FC = () => {
 
                         <div className="px-5 py-4 space-y-2">
                           <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                            <span className="font-semibold text-green-700">Material:</span> Certified Compostable Clear PLA Film & Bio-Adhesive, breaks down within 180 days, zero microplastics.
-                          </div>
+                            <span className="font-semibold text-green-700">{t(`${p}.material3`)}</span> {t(`${p}.certifiedCompostableClearPlaFi`)}</div>
                           <div className="grid grid-cols-2 gap-2">
                             <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                              <span className="font-medium">📐 Size: {selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : '110 × 50 mm (1,000 Pcs / Pack)'}</span>
+                              <span className="font-medium">{t(`${p}.size4`)}{selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : '110 × 50 mm (1,000 Pcs / Pack)'}</span>
                             </div>
                             <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                              <span className="font-medium">🔒 Bio-Adhesive Backing</span>
+                              <span className="font-medium">{t(`${p}.bioAdhesiveBacking`)}</span>
                             </div>
                           </div>
                         </div>
 
                         <div className="px-5 py-4">
                           <div className="grid grid-cols-2 gap-2">
-                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>High-Clarity Clear PLA Film</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>Certified EN 13432 / ASTM D6400</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>Zero Microplastics Residue</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>100% Biodegradable Adhesive</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>{t(`${p}.highClarityClearPlaFilm`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>{t(`${p}.certifiedEn13432AstmD6400`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>{t(`${p}.zeroMicroplasticsResidue`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>{t(`${p}.100BiodegradableAdhesive`)}</span></div>
                           </div>
                         </div>
 
                         <div className="bg-green-100/50 px-5 py-3.5 border-t border-green-200">
                           <div className="flex flex-wrap items-center gap-2 text-xs">
-                            <span className="bg-green-600 text-white px-2 py-0.5 rounded-full font-medium">EN 13432 / ASTM D6400 / FSC Certified</span>
-                            <span className="text-green-700"><span className="font-medium">Ideal for:</span> Premium cosmetics, glass bottle packaging, food-grade labeling</span>
+                            <span className="bg-green-600 text-white px-2 py-0.5 rounded-full font-medium">{t(`${p}.en13432AstmD6400FscCertified`)}</span>
+                            <span className="text-green-700"><span className="font-medium">{t(`${p}.idealFor`)}</span> {t(`${p}.premiumCosmeticsGlassBottlePac`)}</span>
                           </div>
                         </div>
                       </div>
@@ -2565,10 +2539,9 @@ const ProductPage: React.FC = () => {
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
                         <div>
-                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.productChallenge`)}</p>
                           <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
-                            Traditional adhesive sealing tapes and stickers use persistent plastic backing (PET/PVC/BOPP) and toxic solvent adhesives that leave non-biodegradable waste on packages.
-                          </p>
+                            {t(`${p}.traditionalAdhesiveSealingTape`)}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
@@ -2585,10 +2558,9 @@ const ProductPage: React.FC = () => {
                               <span className="text-amber-600 text-sm">❓</span>
                             </div>
                             <div>
-                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.theProblem`)}</p>
                               <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
-                                Traditional adhesive sealing tapes and stickers use persistent plastic backing (PET/PVC/BOPP) and toxic solvent adhesives that leave non-biodegradable waste on packages, polluting recycling streams.
-                              </p>
+                                {t(`${p}.traditionalAdhesiveSealingTape5`)}</p>
                             </div>
                           </div>
                         </div>
@@ -2599,17 +2571,15 @@ const ProductPage: React.FC = () => {
                               <span className="text-emerald-600 text-sm">✓</span>
                             </div>
                             <div className="flex-1">
-                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">{t(`${p}.sustainableSolution`)}</p>
                               <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-1.5">
                                 <div className="md:col-span-7">
-                                  <h4 className="text-sm font-bold text-emerald-800 mb-1">≤14-Week Rapid Composting. 100% Non-Toxic.</h4>
+                                  <h4 className="text-sm font-bold text-emerald-800 mb-1">{t(`${p}.14WeekRapidComposting100NonTox`)}</h4>
                                   <p className="text-xs font-semibold text-emerald-700 mb-2">≤14周完全生物降解 • 燃燒無刺鼻毒氣</p>
                                   <p className="text-xs text-neutral-700 leading-relaxed mb-2">
-                                    Made from 100% plant-based compostable PLA film and high-performance bio-adhesive. Under industrial composting conditions, these stickers completely break down in less than 14 weeks (98 days) into organic biomass, water, and CO2 with absolutely zero microplastics.
-                                  </p>
+                                    {t(`${p}.madeFrom100PlantBasedCompostab`)}</p>
                                   <p className="text-[11px] text-emerald-650 leading-relaxed italic">
-                                    採用100%天然植物源PLA膜材與環保生物粘合劑。在工業堆肥環境下可在14周（98天）內完全分解為有機物質、水和二氧化碳，不殘留任何微塑料，安全環保。
-                                  </p>
+                                    {t(`${p}.100Pla1498`)}</p>
                                 </div>
                                 <div className="md:col-span-5">
                                   <div className="relative group overflow-hidden rounded-xl border border-emerald-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
@@ -2631,18 +2601,16 @@ const ProductPage: React.FC = () => {
                               <span className="text-amber-600 text-sm">🔥</span>
                             </div>
                             <div className="flex-1">
-                              <p className="text-xs text-amber-600 font-semibold uppercase tracking-wider">Combustion Test</p>
+                              <p className="text-xs text-amber-600 font-semibold uppercase tracking-wider">{t(`${p}.combustionTest`)}</p>
                               <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-1.5">
                                 <div className="md:col-span-7">
-                                  <h4 className="text-sm font-bold text-neutral-800 mb-1">Combustion Safety Test: PLA vs. PET</h4>
-                                  <p className="text-xs font-semibold text-neutral-700 mb-2">燃燒對比測試：草木灰味 vs. 刺鼻塑料</p>
+                                  <h4 className="text-sm font-bold text-neutral-800 mb-1">{t(`${p}.combustionSafetyTestPlaVsPet`)}</h4>
+                                  <p className="text-xs font-semibold text-neutral-700 mb-2">{t(`${p}.vs`)}</p>
                                   <ul className="text-xs text-neutral-600 list-disc pl-4 space-y-1">
                                     <li>
-                                      <strong className="text-emerald-700">Compostable PLA:</strong> Burns cleanly with a mild scent of grass/wood ash. The sticker body remains structurally solid and intact as ash until extinguished.
-                                    </li>
+                                      <strong className="text-emerald-700">{t(`${p}.compostablePla`)}</strong> {t(`${p}.burnsCleanlyWithAMildScentOfGr`)}</li>
                                     <li>
-                                      <strong className="text-amber-700">Regular PET Plastic:</strong> Melts rapidly with severe toxic dripping, producing a highly pungent and hazardous chemical plastic smell.
-                                    </li>
+                                      <strong className="text-amber-700">{t(`${p}.regularPetPlastic`)}</strong> {t(`${p}.meltsRapidlyWithSevereToxicDri`)}</li>
                                   </ul>
                                 </div>
                                 <div className="md:col-span-5">
@@ -2661,31 +2629,30 @@ const ProductPage: React.FC = () => {
 
                         <div className="px-5 py-4 space-y-2">
                           <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                            <span className="font-semibold text-emerald-700">Material:</span> Certified Compostable Clear PLA Film & Bio-Adhesive, breaks down in ≤14 weeks, zero microplastics.
-                          </div>
+                            <span className="font-semibold text-emerald-700">{t(`${p}.material6`)}</span> {t(`${p}.certifiedCompostableClearPlaFi7`)}</div>
                           <div className="grid grid-cols-2 gap-2">
                             <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                              <span className="font-medium">📐 Size: {selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : 'Diameter 20 mm (1,000 Pcs / Pack)'}</span>
+                              <span className="font-medium">{t(`${p}.size8`)}{selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : 'Diameter 20 mm (1,000 Pcs / Pack)'}</span>
                             </div>
                             <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                              <span className="font-medium">🔒 Bio-Adhesive Backing</span>
+                              <span className="font-medium">{t(`${p}.bioAdhesiveBacking`)}</span>
                             </div>
                           </div>
                         </div>
 
                         <div className="px-5 py-4">
                           <div className="grid grid-cols-2 gap-2">
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>100% Plant-based PLA Film</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Compostable Bio-Adhesive</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>≤14-Week Composting Timeline</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Zero Microplastics Residue</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.100PlantBasedPlaFilm`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.compostableBioAdhesive`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.14WeekCompostingTimeline`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.zeroMicroplasticsResidue`)}</span></div>
                           </div>
                         </div>
 
                         <div className="bg-emerald-100/50 px-5 py-3.5 border-t border-emerald-200">
                           <div className="flex flex-wrap items-center gap-2 text-xs">
-                            <span className="bg-emerald-600 text-white px-2 py-0.5 rounded-full font-medium">DIN CERTCO / TUV OK Compost</span>
-                            <span className="text-emerald-700"><span className="font-medium">Ideal for:</span> Premium cosmetics, gift wrapping, glass jar packaging, carton box seals</span>
+                            <span className="bg-emerald-600 text-white px-2 py-0.5 rounded-full font-medium">{t(`${p}.dinCertcoTuvOkCompost`)}</span>
+                            <span className="text-emerald-700"><span className="font-medium">{t(`${p}.idealFor`)}</span> {t(`${p}.premiumCosmeticsGiftWrappingGl`)}</span>
                           </div>
                         </div>
                       </div>
@@ -2702,10 +2669,9 @@ const ProductPage: React.FC = () => {
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
                         <div>
-                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.productChallenge`)}</p>
                           <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
-                            Need premium custom branded labels but worried about high minimum orders or expensive printing plate setup fees?
-                          </p>
+                            {t(`${p}.needPremiumCustomBrandedLabels`)}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
@@ -2722,10 +2688,9 @@ const ProductPage: React.FC = () => {
                               <span className="text-amber-600 text-sm">❓</span>
                             </div>
                             <div>
-                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.theProblem`)}</p>
                               <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
-                                Need premium custom branded labels but worried about high minimum orders or expensive printing plate setup fees?
-                              </p>
+                                {t(`${p}.needPremiumCustomBrandedLabels`)}</p>
                             </div>
                           </div>
                         </div>
@@ -2736,36 +2701,34 @@ const ProductPage: React.FC = () => {
                               <span className="text-emerald-600 text-sm">✓</span>
                             </div>
                             <div className="flex-1">
-                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">{t(`${p}.sustainableSolution`)}</p>
                               <p className="text-sm text-emerald-800 leading-relaxed font-medium mt-0.5">
-                                Our sustainable adhesive stickers ship with low MOQ and fast turnaround—zero plate fees and high-resolution double-sided color printing.
-                              </p>
+                                {t(`${p}.ourSustainableAdhesiveStickers`)}</p>
                             </div>
                           </div>
                         </div>
 
                         <div className="px-5 py-4 space-y-2">
                           <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                            <span className="font-semibold text-emerald-700">Material:</span> Eco-responsible face stock and water-based bio-adhesives that decompose cleanly without microplastics.
-                          </div>
+                            <span className="font-semibold text-emerald-700">{t(`${p}.material9`)}</span> {t(`${p}.ecoResponsibleFaceStockAndWate`)}</div>
                           {selectedSizeVariant && (
                             <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                              <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
+                              <span className="font-medium">{t(`${p}.size10`)}{ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
                             </div>
                           )}
                         </div>
 
                         <div className="px-5 py-4">
                           <div className="grid grid-cols-2 gap-2">
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Zero Microplastics</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Low MOQ</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-responsible bio-adhesives</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print & pages</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.zeroMicroplastics`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.lowMoq`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.ecoResponsibleBioAdhesives`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.customPrintPages`)}</span></div>
                           </div>
                         </div>
 
                         <div className="bg-emerald-100/50 px-5 py-3.5 border-t border-emerald-200">
-                          <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Cosmetics jars, pharmaceutical bottles, premium coffee bags, glass container sealing, gourmet foods, luxury gift boxes</p>
+                          <p className="text-xs text-emerald-700"><span className="font-medium">{t(`${p}.idealFor`)}</span> {t(`${p}.cosmeticsJarsPharmaceuticalBot`)}</p>
                           {ecoStockProduct.customPrintNote && (
                             <p className="text-xs text-emerald-600 mt-1">
                               <span className="font-medium">💡</span>{' '}
@@ -2793,7 +2756,7 @@ const ProductPage: React.FC = () => {
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
                         <div>
-                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.productChallenge`)}</p>
                           <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
                             {ecoStockProduct.name.includes('Compostable') || ecoStockProduct.name.includes('compostable')
                               ? 'Want compostable packaging but worried about long lead times and high MOQs to test market response?'
@@ -2815,7 +2778,7 @@ const ProductPage: React.FC = () => {
                               <span className="text-amber-600 text-sm">❓</span>
                             </div>
                             <div>
-                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.theProblem`)}</p>
                               <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
                                 {ecoStockProduct.name.includes('Compostable') || ecoStockProduct.name.includes('compostable')
                                   ? 'Want compostable packaging but worried about long lead times and high MOQs to test market response?'
@@ -2831,7 +2794,7 @@ const ProductPage: React.FC = () => {
                               <span className="text-emerald-600 text-sm">✓</span>
                             </div>
                             <div className="flex-1">
-                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">{t(`${p}.sustainableSolution`)}</p>
                               <p className="text-sm text-emerald-800 leading-relaxed font-medium mt-0.5">
                                 {ecoStockProduct.name.includes('Compostable')
                                   ? 'This stock compostable pouch ships in 3-5 days—no custom wait, give your product truly sustainable packaging immediately.'
@@ -2843,7 +2806,7 @@ const ProductPage: React.FC = () => {
 
                         <div className="px-5 py-4 space-y-2">
                           <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                            <span className="font-semibold text-emerald-700">Material:</span> 
+                            <span className="font-semibold text-emerald-700">{t(`${p}.material11`)}</span> 
                             {ecoStockProduct.name.includes('Compostable')
                               ? ' Certified compostable, breaks down within 180 days in industrial composting, zero microplastics'
                               : ecoStockProduct.name.includes('Kraft')
@@ -2852,29 +2815,28 @@ const ProductPage: React.FC = () => {
                           </div>
                           {selectedSizeVariant && (
                             <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                              <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
+                              <span className="font-medium">{t(`${p}.size12`)}{ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
                             </div>
                           )}
                         </div>
 
                         <div className="px-5 py-4">
                           <div className="grid grid-cols-2 gap-2">
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Ships in 3-5 days</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>No minimum order</span></div>
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-certified materials</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.shipsIn35Days`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.noMinimumOrder`)}</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.ecoCertifiedMaterials`)}</span></div>
                             <div className="flex flex-col gap-1">
-                              <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print available</span></div>
+                              <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>{t(`${p}.customPrintAvailable`)}</span></div>
                               {ecoStockProduct.customPrintQuantities && (
                                 <Link to="/support/color-accuracy-digital-printing" className="text-[10px] text-emerald-600 hover:text-emerald-800 flex items-center gap-1 ml-5">
-                                  <Info className="w-3.5 h-3.5" /> Color Accuracy Guide
-                                </Link>
+                                  <Info className="w-3.5 h-3.5" /> {t(`${p}.colorAccuracyGuide`)}</Link>
                               )}
                             </div>
                           </div>
                         </div>
 
                         <div className="bg-emerald-100/50 px-5 py-3.5 border-t border-emerald-200">
-                          <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Farmers markets, artisan foods, organic brands, small bakeries, ecommerce startups</p>
+                          <p className="text-xs text-emerald-700"><span className="font-medium">{t(`${p}.idealFor`)}</span> {t(`${p}.farmersMarketsArtisanFoodsOrga`)}</p>
                           {ecoStockProduct.customPrintNote && (
                             <p className="text-xs text-emerald-600 mt-1">
                               <span className="font-medium">💡</span>{' '}
@@ -2902,8 +2864,7 @@ const ProductPage: React.FC = () => {
                       {/* Size Selection */}
                       <div className="space-y-2.5">
                         <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500">
-                          📐 Select Size & Capacity
-                        </label>
+                          {t(`${p}.selectSizeCapacity`)}</label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                           {uniqueSizes.map((sizeCode) => {
                             const details = getSizeDetails(sizeCode, product.id);
@@ -2930,8 +2891,7 @@ const ProductPage: React.FC = () => {
                       {/* Style/Pattern Selection */}
                       <div className="space-y-2.5 pt-1">
                         <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500">
-                          🎨 Select Pattern & Style
-                        </label>
+                          {t(`${p}.selectPatternStyle`)}</label>
                         <div className={product.id === 'textured-burlap-cork-pattern-coffee-pouch-with-valve' ? "grid grid-cols-2 sm:grid-cols-4 gap-2.5" : "flex flex-wrap gap-4"}>
                           {uniqueColors.map((colorCode) => {
                             const colorInfo = colorInfoMap[colorCode] || { name: colorCode, swatchClass: 'bg-neutral-200' };
@@ -2984,8 +2944,7 @@ const ProductPage: React.FC = () => {
                       {/* Quantity Selection */}
                       <div className="space-y-2.5 pt-1">
                         <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500">
-                          📦 Select Quantity
-                        </label>
+                          {t(`${p}.selectQuantity`)}</label>
                         <div className="grid grid-cols-3 gap-2.5">
                           {uniqueQuantities.map((qty) => {
                             const isSelected = selectedQtyVal === qty;
@@ -3016,9 +2975,9 @@ const ProductPage: React.FC = () => {
                                     {savingsBadge}
                                   </span>
                                 )}
-                                <span className="text-xs font-semibold">{qty} Pcs</span>
+                                <span className="text-xs font-semibold">{qty} {t(`${p}.pcs13`)}</span>
                                 <span className="text-[10px] text-emerald-700 font-bold mt-1">${matchingVariant.totalPrice.toFixed(2)}</span>
-                                <span className="text-[8px] text-neutral-400 mt-0.5 font-normal">${matchingVariant.unitPrice.toFixed(3)}/Pc</span>
+                                <span className="text-[8px] text-neutral-400 mt-0.5 font-normal">${matchingVariant.unitPrice.toFixed(3)}{t(`${p}.pc`)}</span>
                               </button>
                             );
                           })}
@@ -3027,7 +2986,7 @@ const ProductPage: React.FC = () => {
                     </div>
                   ) : (
                     <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Select Size</label>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.selectSize`)}</label>
                       <div className="space-y-2">
                         {ecoStockProduct.sizeVariants.map((variant) => (
                           <button
@@ -3061,7 +3020,7 @@ const ProductPage: React.FC = () => {
                   {/* Surface Finish Option - For unprinted clear zipper pouch */}
                   {selectedSizeVariant && product.id === 'clear-matte-zipper-stand-up-pouch' && (
                     <div className="space-y-2 pt-2">
-                      <label className="block text-sm font-medium text-neutral-700">Select Surface Finish</label>
+                      <label className="block text-sm font-medium text-neutral-700">{t(`${p}.selectSurfaceFinish`)}</label>
                       <div className="grid grid-cols-2 gap-3">
                         <button
                           type="button"
@@ -3072,8 +3031,8 @@ const ProductPage: React.FC = () => {
                               : 'border-neutral-200 text-neutral-600 hover:border-neutral-350 hover:bg-neutral-50'
                           }`}
                         >
-                          <span className="text-sm flex items-center gap-1">✨ Matte Finish</span>
-                          <span className="text-[10px] text-neutral-400 mt-0.5 font-normal">Frosted / Translucent</span>
+                          <span className="text-sm flex items-center gap-1">{t(`${p}.matteFinish`)}</span>
+                          <span className="text-[10px] text-neutral-400 mt-0.5 font-normal">{t(`${p}.frostedTranslucent`)}</span>
                         </button>
                         <button
                           type="button"
@@ -3084,8 +3043,8 @@ const ProductPage: React.FC = () => {
                               : 'border-neutral-200 text-neutral-600 hover:border-neutral-350 hover:bg-neutral-50'
                           }`}
                         >
-                          <span className="text-sm flex items-center gap-1">💎 Glossy Finish</span>
-                          <span className="text-[10px] text-neutral-400 mt-0.5 font-normal">Ultra Clear / Shiny</span>
+                          <span className="text-sm flex items-center gap-1">{t(`${p}.glossyFinish`)}</span>
+                          <span className="text-[10px] text-neutral-400 mt-0.5 font-normal">{t(`${p}.ultraClearShiny`)}</span>
                         </button>
                       </div>
                     </div>
@@ -3099,7 +3058,7 @@ const ProductPage: React.FC = () => {
                         const batchSize = selVariant?.quantity || 100;
                         return (
                           <>
-                            <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (batches of {batchSize} {pluralUnit})</label>
+                            <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.quantityBatchesOf`)}{batchSize} {pluralUnit})</label>
                             <div className="flex items-center gap-3">
                               <button 
                                 onClick={() => setSizeVariantBatchCount(Math.max(1, sizeVariantBatchCount - 1))}
@@ -3107,7 +3066,7 @@ const ProductPage: React.FC = () => {
                               >−</button>
                               <div className="flex-1 text-center">
                                 <div className="text-2xl font-bold text-green-700">{sizeVariantBatchCount}</div>
-                                <div className="text-xs text-neutral-500">{(sizeVariantBatchCount * batchSize).toLocaleString()} {pluralUnit} total</div>
+                                <div className="text-xs text-neutral-500">{(sizeVariantBatchCount * batchSize).toLocaleString()} {pluralUnit} {t(`${p}.total`)}</div>
                               </div>
                               <button 
                                 onClick={() => setSizeVariantBatchCount(sizeVariantBatchCount + 1)}
@@ -3127,7 +3086,7 @@ const ProductPage: React.FC = () => {
                 <div className="space-y-4 pt-4 border-t">
                   {/* Step 1: Select Size */}
                   <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2">1. Select Size</label>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.1SelectSize`)}</label>
                     <div className="grid grid-cols-2 gap-2">
                       {ecoStockProduct.sizeWithQuantities.map((size) => (
                         <button
@@ -3149,7 +3108,7 @@ const ProductPage: React.FC = () => {
                   {/* Step 2: Select Quantity - only show when size is selected */}
                   {selectedSizeWithQty && (
                     <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">2. Select Quantity</label>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.2SelectQuantity`)}</label>
                       <div className="space-y-2">
                         {ecoStockProduct.sizeWithQuantities
                           .find(s => s.id === selectedSizeWithQty)
@@ -3164,8 +3123,8 @@ const ProductPage: React.FC = () => {
                               }`}
                             >
                               <div>
-                                <div className="font-medium text-neutral-900">{option.quantity.toLocaleString()} pcs</div>
-                                <div className="text-xs text-neutral-500">${option.unitPrice.toFixed(4)}/pc</div>
+                                <div className="font-medium text-neutral-900">{option.quantity.toLocaleString()} {t(`${p}.pcs`)}</div>
+                                <div className="text-xs text-neutral-500">${option.unitPrice.toFixed(4)}{t(`${p}.pc14`)}</div>
                               </div>
                               <div className="text-right">
                                 <div className="font-bold text-green-700">${option.totalPrice.toFixed(2)}</div>
@@ -3186,7 +3145,7 @@ const ProductPage: React.FC = () => {
                     : 'This is a highly customized eco-friendly rollstock film. Pricing depends entirely on material structure, dimensions, print colors, and order quantity. Contact our packaging engineers to get an instant customized quote.';
                   return (
                     <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-2 border-green-200 p-6 shadow-sm">
-                      <div className="text-lg font-bold text-green-800 mb-2">Bespoke Custom Production</div>
+                      <div className="text-lg font-bold text-green-800 mb-2">{t(`${p}.bespokeCustomProduction`)}</div>
                       <p className="text-xs text-green-700 leading-relaxed">
                         {inquiryText}
                       </p>
@@ -3234,12 +3193,12 @@ const ProductPage: React.FC = () => {
                 
                 return (
                   <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl border-2 border-green-200 p-6">
-                    <div className="text-3xl font-bold text-green-700">US${displayPrice.toLocaleString()}</div>
+                    <div className="text-3xl font-bold text-green-700">{t(`${p}.us`)}{displayPrice.toLocaleString()}</div>
                     <div className="text-sm text-green-600 mt-1">
                       ${displayUnitPrice.toFixed(4)}/{singleLabel} • {displayQuantity.toLocaleString()} {pluralLabel}
                     </div>
                     {discountText && discountText !== '0%' && (
-                      <div className="text-sm text-red-500 font-medium mt-1">Volume Discount: {discountText}</div>
+                      <div className="text-sm text-red-500 font-medium mt-1">{t(`${p}.volumeDiscount`)}{discountText}</div>
                     )}
                     <div className="text-xs text-green-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
                       {(ecoStockProduct as any).priceRemark
@@ -3255,14 +3214,14 @@ const ProductPage: React.FC = () => {
                (!ecoStockProduct.sizeWithQuantities || ecoStockProduct.sizeWithQuantities.length === 0) && (
                 <div className="space-y-4 pt-4 border-t">
                   <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (multiples of {ecoStockProduct.quantityStep})</label>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.quantityMultiplesOf`)}{ecoStockProduct.quantityStep})</label>
                     <select 
                       value={selectedEcoStockQuantity} 
                       onChange={e => setSelectedEcoStockQuantity(Number(e.target.value))} 
                       className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-green-200 focus:border-green-500 bg-white text-neutral-900 font-medium transition-all hover:border-green-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                     >
                       {Array.from({ length: 10 }, (_, i) => (ecoStockProduct.minQuantity || 500) + (i * ecoStockProduct.quantityStep)).map(qty => (
-                        <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                        <option key={qty} value={qty}>{qty.toLocaleString()} {t(`${p}.pieces`)}</option>
                       ))}
                     </select>
                   </div>
@@ -3277,7 +3236,7 @@ const ProductPage: React.FC = () => {
                     <div className="flex-1">
                       <h4 className="font-semibold text-amber-800 text-sm">
                         <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline flex items-center gap-1">
-                          Custom Printing Available <span className="text-xs font-normal">→</span>
+                          {t(`${p}.customPrintingAvailable`)}<span className="text-xs font-normal">→</span>
                         </Link>
                       </h4>
                       <p className="text-sm text-amber-700 mt-1">
@@ -3289,8 +3248,7 @@ const ProductPage: React.FC = () => {
                         to={`/store/product/${ecoStockProduct.customPrintProductId}`}
                         className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg text-sm transition"
                       >
-                        <span>🎨</span> View Custom Print Options
-                      </Link>
+                        <span>🎨</span> {t(`${p}.viewCustomPrintOptions`)}</Link>
                     </div>
                   </div>
                 </div>
@@ -3302,7 +3260,7 @@ const ProductPage: React.FC = () => {
                   <div className="flex items-start gap-2">
                     <span className="text-amber-600 text-lg">🎨</span>
                     <div>
-                      <h4 className="font-semibold text-amber-800 text-sm">Custom Printing Available</h4>
+                      <h4 className="font-semibold text-amber-800 text-sm">{t(`${p}.customPrintingAvailable`)}</h4>
                       <p className="text-sm text-amber-700 mt-1">{ecoStockProduct.customPrintNote}</p>
                     </div>
                   </div>
@@ -3315,14 +3273,13 @@ const ProductPage: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <span className="text-blue-600">📦</span>
                     <div className="flex-1">
-                      <p className="text-sm text-blue-700">Looking for smaller quantities without custom print?</p>
+                      <p className="text-sm text-blue-700">{t(`${p}.lookingForSmallerQuantitiesWit`)}</p>
                     </div>
                     <Link
                       to={`/store/product/${ecoStockProduct.stockProductId}`}
                       className="text-sm text-blue-600 hover:text-blue-800 font-medium underline"
                     >
-                      View Stock Version →
-                    </Link>
+                      {t(`${p}.viewStockVersion`)}</Link>
                   </div>
                 </div>
               )}
@@ -3331,7 +3288,7 @@ const ProductPage: React.FC = () => {
               {ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && (
                 <div className="space-y-4 pt-4 border-t">
                   <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2">Select Quantity (Volume Discounts)</label>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.selectQuantityVolumeDiscounts`)}</label>
                     <div className="space-y-2 max-h-64 overflow-y-auto">
                       {ecoStockProduct.customPrintQuantities.map((option) => (
                         <button
@@ -3344,13 +3301,13 @@ const ProductPage: React.FC = () => {
                           }`}
                         >
                           <div>
-                            <div className="font-medium text-neutral-900">{option.quantity.toLocaleString()} pcs</div>
-                            <div className="text-xs text-neutral-500">${option.unitPrice.toFixed(3)}/pc</div>
+                            <div className="font-medium text-neutral-900">{option.quantity.toLocaleString()} {t(`${p}.pcs`)}</div>
+                            <div className="text-xs text-neutral-500">${option.unitPrice.toFixed(3)}{t(`${p}.pc15`)}</div>
                           </div>
                           <div className="text-right">
                             <div className="font-bold text-green-700">${option.totalPrice.toLocaleString()}</div>
                             {option.discount !== '0%' && (
-                              <div className="text-xs text-red-500 font-medium">Save {option.discount}</div>
+                              <div className="text-xs text-red-500 font-medium">{t(`${p}.save`)}{option.discount}</div>
                             )}
                           </div>
                         </button>
@@ -3370,8 +3327,7 @@ const ProductPage: React.FC = () => {
                     className="flex-1 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/10 cursor-pointer text-center"
                   >
                     <Calendar className="h-5 w-5" />
-                    Book 1:1 Inquiry Meeting
-                  </a>
+                    {t(`${p}.book11InquiryMeeting`)}</a>
                   <a 
                     href={getWhatsAppLink()} 
                     target="_blank" 
@@ -3379,8 +3335,7 @@ const ProductPage: React.FC = () => {
                     className="flex-1 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/10 cursor-pointer text-center"
                   >
                     <MessageSquare className="h-5 w-5" />
-                    Chat on WhatsApp
-                  </a>
+                    {t(`${p}.chatOnWhatsapp`)}</a>
                 </div>
               ) : (
                 <div className="flex gap-2">
@@ -3460,8 +3415,7 @@ const ProductPage: React.FC = () => {
                     ) : (
                       <>
                         <ShoppingCart className="h-5 w-5" />{' '}
-                        {product.category === 'eco-stock' ? '🌱 ' : ''}Add {product.name} to Cart
-                      </>
+                        {product.category === 'eco-stock' ? '🌱 ' : ''}{t(`${p}.add`)}{product.name} {t(`${p}.toCart`)}</>
                     )}
                   </button>
                   {isBoxes && (
@@ -3497,18 +3451,15 @@ const ProductPage: React.FC = () => {
                 <div className="bg-green-50 border border-green-200 rounded-xl p-4">
                   {isLabelProduct ? (
                     <>
-                      <h4 className="font-semibold text-green-800 mb-2">♻️ Zero Microplastics & Eco-Responsible Bio-Adhesives</h4>
+                      <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.zeroMicroplasticsEcoResponsibl`)}</h4>
                       <p className="text-sm text-green-700">
-                        Our eco-friendly labels and stickers are engineered with FSC-certified face stock and water-based bio-adhesives that decompose cleanly without leaving harmful plastic microplastics. Designed to meet strict B2B sustainability standards while offering excellent, permanent adhesion on glass jars, pouches, and luxury carton boxes.
-                      </p>
+                        {t(`${p}.ourEcoFriendlyLabelsAndSticker`)}</p>
                     </>
                   ) : (
                     <>
-                      <h4 className="font-semibold text-green-800 mb-2">♻️ About Compostable Packaging</h4>
+                      <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.aboutCompostablePackaging`)}</h4>
                       <p className="text-sm text-green-700">
-                        Our compostable pouches are made from plant-based materials that break down in industrial composting facilities. 
-                        Certified for industrial composting, these pouches provide a sustainable alternative without compromising on product protection.
-                      </p>
+                        {t(`${p}.ourCompostablePouchesAreMadeFr`)}</p>
                     </>
                   )}
                 </div>
@@ -3614,8 +3565,7 @@ const ProductPage: React.FC = () => {
                         : 'text-neutral-600 hover:bg-neutral-50'
                     }`}
                   >
-                    📦 Package Visualization
-                  </button>
+                    {t(`${p}.packageVisualization`)}</button>
                   <button
                     onClick={() => setActiveTab('specifications')}
                     className={`flex-1 px-4 py-3 text-sm font-medium transition ${
@@ -3624,8 +3574,7 @@ const ProductPage: React.FC = () => {
                         : 'text-neutral-600 hover:bg-neutral-50'
                     }`}
                   >
-                    📋 Package Specifications
-                  </button>
+                    {t(`${p}.packageSpecifications`)}</button>
                 </div>
                 
                 {/* Tab Content - Always visible */}
@@ -3648,7 +3597,7 @@ const ProductPage: React.FC = () => {
                             className="w-full h-48 object-contain"
                           />
                         </button>
-                        <p className="text-sm font-semibold text-neutral-800">Main Package</p>
+                        <p className="text-sm font-semibold text-neutral-800">{t(`${p}.mainPackage`)}</p>
                         <p className="text-xs text-neutral-500">{product.name}</p>
                       </div>
                       
@@ -3679,7 +3628,7 @@ const ProductPage: React.FC = () => {
                               className="w-full h-16 object-cover"
                             />
                           </button>
-                          <p className="text-xs font-medium text-neutral-700">Material</p>
+                          <p className="text-xs font-medium text-neutral-700">{t(`${p}.material`)}</p>
                           <p className="text-xs text-neutral-500 truncate">{selectedMaterial}</p>
                         </div>
                         
@@ -3698,7 +3647,7 @@ const ProductPage: React.FC = () => {
                               className="w-full h-16 object-cover"
                             />
                           </button>
-                          <p className="text-xs font-medium text-neutral-700">Size</p>
+                          <p className="text-xs font-medium text-neutral-700">{t(`${p}.size`)}</p>
                           <p className="text-xs text-neutral-500">{selectedSize}</p>
                         </div>
                         
@@ -3733,7 +3682,7 @@ const ProductPage: React.FC = () => {
                               className="w-full h-16 object-cover"
                             />
                           </button>
-                          <p className="text-xs font-medium text-neutral-700">Closure</p>
+                          <p className="text-xs font-medium text-neutral-700">{t(`${p}.closure`)}</p>
                           <p className="text-xs text-neutral-500 truncate">{selectedClosure === 'No' ? 'None' : selectedClosure}</p>
                         </div>
                         
@@ -3752,7 +3701,7 @@ const ProductPage: React.FC = () => {
                               className="w-full h-16 object-cover"
                             />
                           </button>
-                          <p className="text-xs font-medium text-neutral-700">Surface</p>
+                          <p className="text-xs font-medium text-neutral-700">{t(`${p}.surface`)}</p>
                           <p className="text-xs text-neutral-500 truncate">{selectedSurface}</p>
                         </div>
                         
@@ -3761,7 +3710,7 @@ const ProductPage: React.FC = () => {
                           <div className="bg-neutral-50 rounded-lg p-3 mb-2 w-full h-[88px] flex items-center justify-center">
                             <div className="text-neutral-400 text-2xl">🛡️</div>
                           </div>
-                          <p className="text-xs font-medium text-neutral-700">Barrier</p>
+                          <p className="text-xs font-medium text-neutral-700">{t(`${p}.barrier`)}</p>
                           <p className="text-xs text-neutral-500 truncate">
                             {selectedBarrier === 'mid clear mid barrier (Optional Window)' ? 'Mid' :
                              selectedBarrier === 'metalised high barrier (No Window)' ? 'High' : 'Highest'}
@@ -3773,7 +3722,7 @@ const ProductPage: React.FC = () => {
                           <div className="bg-neutral-50 rounded-lg p-3 mb-2 w-full h-[88px] flex items-center justify-center">
                             <div className="text-neutral-400 text-2xl">💪</div>
                           </div>
-                          <p className="text-xs font-medium text-neutral-700">Stiffness</p>
+                          <p className="text-xs font-medium text-neutral-700">{t(`${p}.stiffness`)}</p>
                           <p className="text-xs text-neutral-500 truncate">
                             {selectedStiffness === 'Without Paper Lining (Softer)' ? 'Softer' : 'Stiffer'}
                           </p>
@@ -3785,8 +3734,8 @@ const ProductPage: React.FC = () => {
                             <div className="bg-neutral-50 rounded-lg p-3 mb-2 w-full h-[88px] flex items-center justify-center">
                               <div className="text-neutral-400 text-2xl">💨</div>
                             </div>
-                            <p className="text-xs font-medium text-neutral-700">Valve</p>
-                            <p className="text-xs text-neutral-500">Degassing</p>
+                            <p className="text-xs font-medium text-neutral-700">{t(`${p}.valve`)}</p>
+                            <p className="text-xs text-neutral-500">{t(`${p}.degassing`)}</p>
                           </div>
                         )}
                         
@@ -3806,8 +3755,8 @@ const ProductPage: React.FC = () => {
                                 className="w-full h-16 object-cover"
                               />
                             </button>
-                            <p className="text-xs font-medium text-neutral-700">Laser</p>
-                            <p className="text-xs text-neutral-500">Scoring</p>
+                            <p className="text-xs font-medium text-neutral-700">{t(`${p}.laser`)}</p>
+                            <p className="text-xs text-neutral-500">{t(`${p}.scoring`)}</p>
                           </div>
                         )}
                       </div>
@@ -3816,49 +3765,48 @@ const ProductPage: React.FC = () => {
                     /* Package Specifications Content - Full Details */
                     <dl className="grid grid-cols-1 gap-y-3 text-sm">
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Total Quantity</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.totalQuantity`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
-                          {calculationResult.price.quantityUnits.toLocaleString()} (Digital print) pieces
-                        </dd>
+                          {calculationResult.price.quantityUnits.toLocaleString()} {t(`${p}.digitalPrintPieces`)}</dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Total Designs</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.totalDesigns`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {calculationResult.price.designCount} {calculationResult.price.designCount === 1 ? 'type' : 'types'}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Package Type</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.packageType`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {calculationResult.package.shapeLabel}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Package Size</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.packageSize`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {calculationResult.package.sizeDisplay}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Material</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.material`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {calculationResult.package.materialTypeLabel}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Barrier Type</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.barrierType`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {selectedBarrier}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Structure</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.structure16`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {(() => {
                             const structureInfo = getMaterialStructureInfo(
@@ -3872,7 +3820,7 @@ const ProductPage: React.FC = () => {
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Thickness</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.thickness`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {(() => {
                             const structureInfo = getMaterialStructureInfo(
@@ -3886,7 +3834,7 @@ const ProductPage: React.FC = () => {
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">OTR</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.otr`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {(() => {
                             const structureInfo = getMaterialStructureInfo(
@@ -3900,7 +3848,7 @@ const ProductPage: React.FC = () => {
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">WVTR</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.wvtr`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {(() => {
                             const structureInfo = getMaterialStructureInfo(
@@ -3914,35 +3862,35 @@ const ProductPage: React.FC = () => {
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Stiffness</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.stiffness`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {selectedStiffness}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Reclosable Option</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.reclosableOption`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {selectedClosure === 'No' ? 'None' : selectedClosure}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Surface Treatment</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.surfaceTreatment`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {calculationResult.package.surface}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Additional Features</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.additionalFeatures`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {calculationResult.package.additional}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500 col-span-1">Shipping Method</dt>
+                        <dt className="text-neutral-500 col-span-1">{t(`${p}.shippingMethod`)}</dt>
                         <dd className="text-neutral-900 col-span-2">
                           {calculationResult.price.shippingMethod}
                         </dd>
@@ -3961,9 +3909,8 @@ const ProductPage: React.FC = () => {
                   <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-4 lg:px-5 py-3 lg:py-4">
                     <h3 className="text-base lg:text-lg font-bold text-white flex items-center gap-2 lg:gap-3">
                       <span className="bg-white/20 p-1.5 lg:p-2 rounded-lg text-sm lg:text-base">💬</span>
-                      Customer Testimonials
-                    </h3>
-                    <p className="text-primary-100 text-xs lg:text-sm mt-0.5 lg:mt-1">What our customers say</p>
+                      {t(`${p}.customerTestimonials`)}</h3>
+                    <p className="text-primary-100 text-xs lg:text-sm mt-0.5 lg:mt-1">{t(`${p}.whatOurCustomersSay`)}</p>
                   </div>
                   <div className="p-3 lg:p-5 space-y-3 lg:space-y-4 max-h-[300px] lg:max-h-[420px] overflow-y-auto custom-scrollbar">
                     {TESTIMONIALS.slice(0, 3).map((testimonial, index) => (
@@ -4061,9 +4008,8 @@ const ProductPage: React.FC = () => {
                   <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-4 lg:px-5 py-3 lg:py-4">
                     <h3 className="text-base lg:text-lg font-bold text-white flex items-center gap-2 lg:gap-3">
                       <span className="bg-white/20 p-1.5 lg:p-2 rounded-lg text-sm lg:text-base">📸</span>
-                      Customer Samples
-                    </h3>
-                    <p className="text-amber-100 text-xs lg:text-sm mt-0.5 lg:mt-1">Real products from our customers</p>
+                      {t(`${p}.customerSamples`)}</h3>
+                    <p className="text-amber-100 text-xs lg:text-sm mt-0.5 lg:mt-1">{t(`${p}.realProductsFromOurCustomers`)}</p>
                   </div>
                   <div className="p-3 lg:p-5">
                     {/* Featured Samples - Larger Images */}
@@ -4085,7 +4031,7 @@ const ProductPage: React.FC = () => {
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-2 lg:pb-3">
-                            <span className="text-white text-[10px] lg:text-xs font-medium bg-black/30 px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-full">Click to view</span>
+                            <span className="text-white text-[10px] lg:text-xs font-medium bg-black/30 px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-full">{t(`${p}.clickToView`)}</span>
                           </div>
                         </button>
                       ))}
@@ -4115,8 +4061,7 @@ const ProductPage: React.FC = () => {
                     {isEcoDigital && product.images.filter(img => img.includes('pouch shape')).length > 0 && (
                       <div className="mt-4 lg:mt-5 pt-4 lg:pt-5 border-t border-neutral-200">
                         <h4 className="text-xs lg:text-sm font-semibold text-neutral-700 flex items-center gap-2 mb-2 lg:mb-3">
-                          <span>📐</span> Pouch Shape Reference
-                        </h4>
+                          <span>📐</span> {t(`${p}.pouchShapeReference`)}</h4>
                         <div className="grid grid-cols-2 gap-1.5 lg:gap-2">
                           {product.images.filter(img => img.includes('pouch shape')).map((img, index) => (
                             <button
@@ -4147,9 +4092,9 @@ const ProductPage: React.FC = () => {
                   onClick={() => setIsRightCollapsed(!isRightCollapsed)}
                 >
                   <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <span className="text-sm font-semibold text-primary-800 whitespace-nowrap">💰 Total</span>
+                    <span className="text-sm font-semibold text-primary-800 whitespace-nowrap">{t(`${p}.total17`)}</span>
                     {isRightCollapsed && (
-                      <span className="text-sm font-bold text-primary-700 truncate">${unitPrice.toFixed(2)}/pc</span>
+                      <span className="text-sm font-bold text-primary-700 truncate">${unitPrice.toFixed(2)}{t(`${p}.pc18`)}</span>
                     )}
                   </div>
                   <div className="flex-shrink-0 ml-2">
@@ -4163,30 +4108,29 @@ const ProductPage: React.FC = () => {
                 
                 {/* Collapsible Content */}
                 <div className={`px-6 pb-6 transition-all duration-300 ${isRightCollapsed ? 'hidden' : ''}`}>
-                  <div className="text-3xl sm:text-4xl font-bold text-primary-700 mb-3">US${Math.round(totalPrice).toLocaleString()}</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-primary-700 mb-3">{t(`${p}.us`)}{Math.round(totalPrice).toLocaleString()}</div>
                   {calculationResult && (
                     <div className="grid grid-cols-2 gap-3 text-sm">
                       <div className="bg-white bg-opacity-60 rounded-lg p-3">
-                        <div className="text-neutral-600 text-xs mb-1">Unit Price</div>
+                        <div className="text-neutral-600 text-xs mb-1">{t(`${p}.unitPrice`)}</div>
                         <div className="font-semibold text-neutral-800">${unitPrice.toFixed(4)}{ecoProduct?.shape === 'Wrapping Paper' ? '/sheet' : '/pc'}</div>
                       </div>
                       <div className="bg-white bg-opacity-60 rounded-lg p-3">
-                        <div className="text-neutral-600 text-xs mb-1">Quantity</div>
+                        <div className="text-neutral-600 text-xs mb-1">{t(`${p}.quantity`)}</div>
                         <div className="font-semibold text-neutral-800">{calculationResult.price.quantityUnits.toLocaleString()} {ecoProduct?.shape === 'Wrapping Paper' ? 'sheets' : 'pcs'}</div>
                       </div>
                       <div className="bg-white bg-opacity-60 rounded-lg p-3">
-                        <div className="text-neutral-600 text-xs mb-1">Designs</div>
+                        <div className="text-neutral-600 text-xs mb-1">{t(`${p}.designs`)}</div>
                         <div className="font-semibold text-neutral-800">{calculationResult.price.designCount}</div>
                       </div>
                       <div className="bg-white bg-opacity-60 rounded-lg p-3">
-                        <div className="text-neutral-600 text-xs mb-1">Shipping</div>
+                        <div className="text-neutral-600 text-xs mb-1">{t(`${p}.shipping`)}</div>
                         <div className="font-semibold text-neutral-800 text-xs">{calculationResult.price.shippingMethod}</div>
                       </div>
                     </div>
                   )}
                   <div className="text-xs text-primary-700 mt-3 bg-white bg-opacity-40 rounded-lg p-2 text-center">
-                    ✓ Shipping Included
-                  </div>
+                    {t(`${p}.shippingIncluded`)}</div>
                 </div>
               </div>
             )}
@@ -4200,7 +4144,7 @@ const ProductPage: React.FC = () => {
                   <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
                 ))}
               </div>
-              <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} reviews)</Link>
+              <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} {t(`${p}.reviews`)}</Link>
             </div>
 
             <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
@@ -4225,7 +4169,7 @@ const ProductPage: React.FC = () => {
                             <span className="text-amber-600 text-sm">❓</span>
                           </div>
                           <div>
-                            <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                            <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.productChallenge`)}</p>
                             <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium whitespace-pre-line">
                               {dynamicInfo.problem}
                             </p>
@@ -4245,7 +4189,7 @@ const ProductPage: React.FC = () => {
                                 <span className="text-amber-600 text-sm">❓</span>
                               </div>
                               <div>
-                                <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                                <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">{t(`${p}.theProblem`)}</p>
                                 <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5 whitespace-pre-line">
                                   {dynamicInfo.problem}
                                 </p>
@@ -4259,7 +4203,7 @@ const ProductPage: React.FC = () => {
                                 <span className="text-green-600 text-sm">✓</span>
                               </div>
                               <div className="flex-1">
-                                <p className="text-xs text-green-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                                <p className="text-xs text-green-500 font-semibold uppercase tracking-wider">{t(`${p}.sustainableSolution`)}</p>
                                 <div className="mt-0.5">
                                   {dynamicInfo.skuType === 'label' && dynamicInfo.materialType === 'compost' ? (
                                     <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
@@ -4287,7 +4231,7 @@ const ProductPage: React.FC = () => {
 
                           <div className="px-5 py-4 space-y-2">
                             <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                              <span className="font-semibold text-green-700">Material:</span> {dynamicInfo.materialInfo}
+                              <span className="font-semibold text-green-700">{t(`${p}.material19`)}</span> {dynamicInfo.materialInfo}
                             </div>
                             <div className="grid grid-cols-2 gap-2">
                               <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
@@ -4313,7 +4257,7 @@ const ProductPage: React.FC = () => {
                           <div className="bg-green-100/50 px-5 py-3.5 border-t border-green-200">
                             <div className="flex flex-wrap items-center gap-2 text-xs">
                               <span className="bg-green-600 text-white px-2 py-0.5 rounded-full font-medium">{dynamicInfo.certifications}</span>
-                              <span className="text-green-700"><span className="font-medium">Ideal for:</span> {dynamicInfo.idealFor}</span>
+                              <span className="text-green-700"><span className="font-medium">{t(`${p}.idealFor`)}</span> {dynamicInfo.idealFor}</span>
                             </div>
                           </div>
                         </div>
@@ -4329,8 +4273,7 @@ const ProductPage: React.FC = () => {
               <div className="space-y-4 pt-4 border-t">
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Eco Material Type
-                  </label>
+                    {t(`${p}.ecoMaterialType`)}</label>
                   
                   {/* Compare Options Link */}
                   <button
@@ -4338,15 +4281,14 @@ const ProductPage: React.FC = () => {
                     onClick={() => setCompareModal({ type: 'material', isOpen: true })}
                     className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
                   >
-                    Compare All Material Options →
-                  </button>
+                    {t(`${p}.compareAllMaterialOptions`)}</button>
                   
                   {/* Mobile: Native Select */}
                   <div className="md:hidden flex gap-3 items-center">
                     <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
-                      <option value="PCR or Bio Plastic">PCR or Bio Plastic</option>
-                      <option value="Mono Recyclable Plastic">Mono Recyclable Plastic</option>
-                      <option value="Biodegradable and Compostable">Biodegradable and Compostable</option>
+                      <option value="PCR or Bio Plastic">{t(`${p}.pcrOrBioPlastic`)}</option>
+                      <option value="Mono Recyclable Plastic">{t(`${p}.monoRecyclablePlastic`)}</option>
+                      <option value="Biodegradable and Compostable">{t(`${p}.biodegradableAndCompostable`)}</option>
                     </select>
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
                       <img 
@@ -4407,8 +4349,7 @@ const ProductPage: React.FC = () => {
                     onClick={() => setCompareModal({ type: 'size', isOpen: true })}
                     className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
                   >
-                    Compare All Size Options →
-                  </button>
+                    {t(`${p}.compareAllSizeOptions`)}</button>
                   
                   {/* Mobile: Native Select */}
                   <div className="md:hidden flex gap-3 items-center">
@@ -4458,8 +4399,7 @@ const ProductPage: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Closure
-                  </label>
+                    {t(`${p}.closure`)}</label>
                   
                   {/* Compare Options Link */}
                   <button
@@ -4467,8 +4407,7 @@ const ProductPage: React.FC = () => {
                     onClick={() => setCompareModal({ type: 'closure', isOpen: true })}
                     className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
                   >
-                    Compare All Closure Options →
-                  </button>
+                    {t(`${p}.compareAllClosureOptions`)}</button>
                   
                   {/* Mobile: Native Select */}
                   <div className="md:hidden flex gap-3 items-center">
@@ -4506,8 +4445,7 @@ const ProductPage: React.FC = () => {
                           </p>
                           {closure.premium && (
                             <span className="absolute top-1 left-1 text-[8px] bg-amber-100 text-amber-700 px-1 py-0.5 rounded">
-                              Premium
-                            </span>
+                              {t(`${p}.premium`)}</span>
                           )}
                           {selectedClosure === closure.id && (
                             <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
@@ -4522,8 +4460,7 @@ const ProductPage: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Surface
-                  </label>
+                    {t(`${p}.surface`)}</label>
                   
                   {/* Compare Options Link */}
                   <button
@@ -4531,18 +4468,17 @@ const ProductPage: React.FC = () => {
                     onClick={() => setCompareModal({ type: 'surface', isOpen: true })}
                     className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
                   >
-                    Compare All Surface Options →
-                  </button>
+                    {t(`${p}.compareAllSurfaceOptions`)}</button>
                   
                   {/* Mobile: Native Select */}
                   <div className="md:hidden flex gap-3 items-center">
                     <select value={selectedSurface} onChange={e => setSelectedSurface(e.target.value as SurfaceType)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
-                      <option value="Glossy">Glossy</option>
-                      <option value="Matt">Matt</option>
-                      <option value="Metallic">Metallic</option>
-                      <option value="Soft Touch">Soft Touch</option>
-                      <option value="Emboss">Emboss</option>
-                      <option value="Stamp Foil">Stamp Foil</option>
+                      <option value="Glossy">{t(`${p}.glossy`)}</option>
+                      <option value="Matt">{t(`${p}.matt`)}</option>
+                      <option value="Metallic">{t(`${p}.metallic`)}</option>
+                      <option value="Soft Touch">{t(`${p}.softTouch`)}</option>
+                      <option value="Emboss">{t(`${p}.emboss`)}</option>
+                      <option value="Stamp Foil">{t(`${p}.stampFoil`)}</option>
                     </select>
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
                       <img src={getSurfaceImage(selectedSurface)} alt="" className="max-w-full max-h-full object-contain" />
@@ -4591,8 +4527,7 @@ const ProductPage: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Barrier
-                  </label>
+                    {t(`${p}.barrier`)}</label>
                   
                   {/* Compare Options Link */}
                   <button
@@ -4600,8 +4535,7 @@ const ProductPage: React.FC = () => {
                     onClick={() => setCompareModal({ type: 'barrier', isOpen: true })}
                     className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
                   >
-                    Compare All Barrier Options →
-                  </button>
+                    {t(`${p}.compareAllBarrierOptions`)}</button>
                   
                   {/* Dropdown Option */}
                   <DropdownMenu>
@@ -4614,12 +4548,12 @@ const ProductPage: React.FC = () => {
                       <ChevronDown className="h-5 w-5 text-neutral-400" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>Select Barrier Type</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t(`${p}.selectBarrierType`)}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuRadioGroup value={selectedBarrier} onValueChange={setSelectedBarrier}>
-                        <DropdownMenuRadioItem value="mid clear mid barrier (Optional Window)">Mid Barrier (Window)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="metalised high barrier (No Window)">High Barrier (No Window)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="Aluminum highest barrier (No Window)">Highest Barrier (No Window)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="mid clear mid barrier (Optional Window)">{t(`${p}.midBarrierWindow`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="metalised high barrier (No Window)">{t(`${p}.highBarrierNoWindow`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Aluminum highest barrier (No Window)">{t(`${p}.highestBarrierNoWindow`)}</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -4627,8 +4561,7 @@ const ProductPage: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Stiffness and Thickness
-                  </label>
+                    {t(`${p}.stiffnessAndThickness`)}</label>
                   
                   {/* Compare Options Link */}
                   <button
@@ -4636,8 +4569,7 @@ const ProductPage: React.FC = () => {
                     onClick={() => setCompareModal({ type: 'stiffness', isOpen: true })}
                     className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
                   >
-                    Compare All Stiffness Options →
-                  </button>
+                    {t(`${p}.compareAllStiffnessOptions`)}</button>
                   
                   {/* Dropdown Option */}
                   <DropdownMenu>
@@ -4648,11 +4580,11 @@ const ProductPage: React.FC = () => {
                       <ChevronDown className="h-5 w-5 text-neutral-400" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>Select Stiffness</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t(`${p}.selectStiffness`)}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuRadioGroup value={selectedStiffness} onValueChange={setSelectedStiffness}>
-                        <DropdownMenuRadioItem value="Without Paper Lining (Softer)">Softer (No Paper)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="With Paper Lining (stiffer)">Stiffer (With Paper)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Without Paper Lining (Softer)">{t(`${p}.softerNoPaper`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="With Paper Lining (stiffer)">{t(`${p}.stifferWithPaper`)}</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -4660,8 +4592,7 @@ const ProductPage: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Additional Features
-                  </label>
+                    {t(`${p}.additionalFeatures`)}</label>
                   
                   {/* Compare Options Link */}
                   <button
@@ -4669,8 +4600,7 @@ const ProductPage: React.FC = () => {
                     onClick={() => setCompareModal({ type: 'additional', isOpen: true })}
                     className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
                   >
-                    Compare All Additional Options →
-                  </button>
+                    {t(`${p}.compareAllAdditionalOptions`)}</button>
                   
                   {/* Checkbox Options */}
                   <div className="grid grid-cols-2 gap-3 text-sm">
@@ -4680,7 +4610,7 @@ const ProductPage: React.FC = () => {
                         onCheckedChange={(checked) => setSelectedValve(checked ? 'Yes' : 'No')}
                         className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
                       />
-                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">Valve</span>
+                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.valve`)}</span>
                     </label>
                     <label className="flex items-center gap-3 cursor-pointer group">
                       <Checkbox
@@ -4688,7 +4618,7 @@ const ProductPage: React.FC = () => {
                         onCheckedChange={(checked) => setSelectedLaserScoring(checked ? 'Yes' : 'No')}
                         className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
                       />
-                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">Laser Tear</span>
+                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.laserTear`)}</span>
                     </label>
                     <label className="flex items-center gap-3 cursor-pointer group">
                       <Checkbox
@@ -4696,57 +4626,57 @@ const ProductPage: React.FC = () => {
                         onCheckedChange={(checked) => setSelectedHangHole(checked ? 'Yes' : 'No')}
                         className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
                       />
-                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">Hang Hole</span>
+                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.hangHole`)}</span>
                     </label>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.quantity`)}</label>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
                       <span className="font-medium text-neutral-900">{selectedQuantity}</span>
                       <ChevronDown className="h-5 w-5 text-neutral-400" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>Select Quantity</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t(`${p}.selectQuantity20`)}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuRadioGroup value={selectedQuantity} onValueChange={setSelectedQuantity}>
-                        <DropdownMenuRadioItem value="1,000 (Digital print)">1,000 (Digital print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="2,000 (Digital print)">2,000 (Digital print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="3,000 (Digital print)">3,000 (Digital print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="5,000 (Flexo print)">5,000 (Flexo print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="10,000 (Flexo print)">10,000 (Flexo print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="20,000 (Flexo print)">20,000 (Flexo print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="30,000 (Flexo print)">30,000 (Flexo print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="50,000 (Flexo print)">50,000 (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="1,000 (Digital print)">{t(`${p}.1000DigitalPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="2,000 (Digital print)">{t(`${p}.2000DigitalPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="3,000 (Digital print)">{t(`${p}.3000DigitalPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="5,000 (Flexo print)">{t(`${p}.5000FlexoPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="10,000 (Flexo print)">{t(`${p}.10000FlexoPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="20,000 (Flexo print)">{t(`${p}.20000FlexoPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="30,000 (Flexo print)">{t(`${p}.30000FlexoPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="50,000 (Flexo print)">{t(`${p}.50000FlexoPrint`)}</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Design Count</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.designCount`)}</label>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
-                      <span className="font-medium text-neutral-900">{selectedDesignCount} Design{selectedDesignCount > 1 ? 's' : ''}</span>
+                      <span className="font-medium text-neutral-900">{selectedDesignCount} {t(`${p}.design`)}{selectedDesignCount > 1 ? 's' : ''}</span>
                       <ChevronDown className="h-5 w-5 text-neutral-400" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>Select Design Count</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t(`${p}.selectDesignCount`)}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuRadioGroup value={String(selectedDesignCount)} onValueChange={(v) => setSelectedDesignCount(Number(v))}>
-                        <DropdownMenuRadioItem value="1">1 Design</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="2">2 Designs</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="3">3 Designs</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="4">4 Designs</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="1">{t(`${p}.1Design`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="2">{t(`${p}.2Designs`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="3">{t(`${p}.3Designs`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="4">{t(`${p}.4Designs`)}</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Shipping Method</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.shippingMethod`)}</label>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
                       <span className="font-medium text-neutral-900">
@@ -4757,12 +4687,12 @@ const ProductPage: React.FC = () => {
                       <ChevronDown className="h-5 w-5 text-neutral-400" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>Select Shipping Method</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t(`${p}.selectShippingMethod`)}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuRadioGroup value={selectedShipping} onValueChange={setSelectedShipping}>
-                        <DropdownMenuRadioItem value="Air Freight">Air Freight (Faster)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="Sea Freight">Sea Freight (Cheaper)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="Dual Shipping">Dual Shipping (Balanced)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Air Freight">{t(`${p}.airFreightFaster`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Sea Freight">{t(`${p}.seaFreightCheaper`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Dual Shipping">{t(`${p}.dualShippingBalanced`)}</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -4775,31 +4705,30 @@ const ProductPage: React.FC = () => {
                 {/* B2B Specs Card */}
                 <div className="bg-neutral-50 rounded-xl p-4 border border-neutral-200">
                   <h4 className="text-sm font-semibold text-neutral-800 mb-3 flex items-center gap-1.5">
-                    <span>📋</span> B2B Cushioning Pad Specifications
-                  </h4>
+                    <span>📋</span> {t(`${p}.b2bCushioningPadSpecifications`)}</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                     <div className="bg-white p-2.5 rounded-lg border border-neutral-200 shadow-sm">
-                      <div className="text-neutral-500 mb-0.5 font-medium">Material Structure</div>
-                      <div className="font-semibold text-neutral-800">100% Compostable Honeycomb Waffle Paper</div>
+                      <div className="text-neutral-500 mb-0.5 font-medium">{t(`${p}.materialStructure`)}</div>
+                      <div className="font-semibold text-neutral-800">{t(`${p}.100CompostableHoneycombWaffleP`)}</div>
                     </div>
                     <div className="bg-white p-2.5 rounded-lg border border-neutral-200 shadow-sm">
-                      <div className="text-neutral-500 mb-0.5 font-medium">Thickness & Design</div>
-                      <div className="font-semibold text-neutral-800">3-Layer Shock-Absorbing Cushion Pad</div>
+                      <div className="text-neutral-500 mb-0.5 font-medium">{t(`${p}.thicknessDesign`)}</div>
+                      <div className="font-semibold text-neutral-800">{t(`${p}.3LayerShockAbsorbingCushionPad`)}</div>
                     </div>
                     <div className="bg-white p-2.5 rounded-lg border border-neutral-200 shadow-sm">
-                      <div className="text-neutral-500 mb-0.5 font-medium">Eco Ink Printing</div>
-                      <div className="font-semibold text-neutral-800">Food-Safe Water-Based Ink (B&W printed / Custom logo)</div>
+                      <div className="text-neutral-500 mb-0.5 font-medium">{t(`${p}.ecoInkPrinting`)}</div>
+                      <div className="font-semibold text-neutral-800">{t(`${p}.foodSafeWaterBasedInkBWPrinted`)}</div>
                     </div>
                     <div className="bg-white p-2.5 rounded-lg border border-neutral-200 shadow-sm">
-                      <div className="text-neutral-500 mb-0.5 font-medium">Sizing Dimensions</div>
-                      <div className="font-semibold text-neutral-800">Custom Cut-to-Size Box Cavity Liner</div>
+                      <div className="text-neutral-500 mb-0.5 font-medium">{t(`${p}.sizingDimensions`)}</div>
+                      <div className="font-semibold text-neutral-800">{t(`${p}.customCutToSizeBoxCavityLiner`)}</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Quantity selector */}
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (Sheets)</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.quantitySheets`)}</label>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
                       <span className="font-medium text-neutral-900">
@@ -4808,17 +4737,17 @@ const ProductPage: React.FC = () => {
                       <ChevronDown className="h-5 w-5 text-neutral-400" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>Select Sheet Quantity</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t(`${p}.selectSheetQuantity`)}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuRadioGroup value={selectedQuantity} onValueChange={setSelectedQuantity}>
-                        <DropdownMenuRadioItem value="1,000 (Digital print)">1,000 sheets (Digital print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="2,000 (Digital print)">2,000 sheets (Digital print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="3,000 (Digital print)">3,000 sheets (Digital print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="5,000 (Flexo print)">5,000 sheets (Flexo print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="10,000 (Flexo print)">10,000 sheets (Flexo print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="20,000 (Flexo print)">20,000 sheets (Flexo print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="30,000 (Flexo print)">30,000 sheets (Flexo print)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="50,000 (Flexo print)">50,000 sheets (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="1,000 (Digital print)">{t(`${p}.1000SheetsDigitalPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="2,000 (Digital print)">{t(`${p}.2000SheetsDigitalPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="3,000 (Digital print)">{t(`${p}.3000SheetsDigitalPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="5,000 (Flexo print)">{t(`${p}.5000SheetsFlexoPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="10,000 (Flexo print)">{t(`${p}.10000SheetsFlexoPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="20,000 (Flexo print)">{t(`${p}.20000SheetsFlexoPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="30,000 (Flexo print)">{t(`${p}.30000SheetsFlexoPrint`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="50,000 (Flexo print)">{t(`${p}.50000SheetsFlexoPrint`)}</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -4826,20 +4755,20 @@ const ProductPage: React.FC = () => {
 
                 {/* Design Count */}
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Design Count</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.designCount`)}</label>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
-                      <span className="font-medium text-neutral-900">{selectedDesignCount} Design{selectedDesignCount > 1 ? 's' : ''}</span>
+                      <span className="font-medium text-neutral-900">{selectedDesignCount} {t(`${p}.design`)}{selectedDesignCount > 1 ? 's' : ''}</span>
                       <ChevronDown className="h-5 w-5 text-neutral-400" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>Select Design Count</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t(`${p}.selectDesignCount`)}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuRadioGroup value={String(selectedDesignCount)} onValueChange={(v) => setSelectedDesignCount(Number(v))}>
-                        <DropdownMenuRadioItem value="1">1 Design</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="2">2 Designs</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="3">3 Designs</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="4">4 Designs</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="1">{t(`${p}.1Design`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="2">{t(`${p}.2Designs`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="3">{t(`${p}.3Designs`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="4">{t(`${p}.4Designs`)}</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -4847,7 +4776,7 @@ const ProductPage: React.FC = () => {
 
                 {/* Shipping Method */}
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Shipping Method</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.shippingMethod`)}</label>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
                       <span className="font-medium text-neutral-900">
@@ -4858,12 +4787,12 @@ const ProductPage: React.FC = () => {
                       <ChevronDown className="h-5 w-5 text-neutral-400" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>Select Shipping Method</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t(`${p}.selectShippingMethod`)}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuRadioGroup value={selectedShipping} onValueChange={setSelectedShipping}>
-                        <DropdownMenuRadioItem value="Air Freight">Air Freight (Faster)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="Sea Freight">Sea Freight (Cheaper)</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="Dual Shipping">Dual Shipping (Balanced)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Air Freight">{t(`${p}.airFreightFaster`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Sea Freight">{t(`${p}.seaFreightCheaper`)}</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Dual Shipping">{t(`${p}.dualShippingBalanced`)}</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -4879,8 +4808,7 @@ const ProductPage: React.FC = () => {
                   className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/10 cursor-pointer text-center border-none"
                 >
                   <Sparkles className="h-5 w-5" />
-                  Inquire for Cost & Sample
-                </button>
+                  {t(`${p}.inquireForCostSample`)}</button>
                 <div className="flex gap-2">
                   <a 
                     href="https://calendly.com/30-min-free-packaging-consultancy" 
@@ -4889,8 +4817,7 @@ const ProductPage: React.FC = () => {
                     className="flex-1 py-3 bg-neutral-800 hover:bg-neutral-900 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 cursor-pointer text-center text-sm"
                   >
                     <Calendar className="h-4 w-4" />
-                    Book Meeting
-                  </a>
+                    {t(`${p}.bookMeeting`)}</a>
                   <a 
                     href={getWhatsAppLink()} 
                     target="_blank" 
@@ -4898,8 +4825,7 @@ const ProductPage: React.FC = () => {
                     className="flex-1 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/10 cursor-pointer text-center text-sm"
                   >
                     <MessageSquare className="h-4 w-4" />
-                    WhatsApp Chat
-                  </a>
+                    {t(`${p}.whatsappChat`)}</a>
                   <button 
                     onClick={handleShareClick}
                     className="px-4 py-3 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
@@ -4921,9 +4847,9 @@ const ProductPage: React.FC = () => {
                   }`}
                 >
                   {isCustomProduct ? (
-                    <><span className="text-lg">📋</span> Add to Quote Request</>
+                    <><span className="text-lg">📋</span> {t(`${p}.addToQuoteRequest`)}</>
                   ) : (
-                    <><ShoppingCart className="h-5 w-5" /> Add {product.name} to Cart</>
+                    <><ShoppingCart className="h-5 w-5" /> {t(`${p}.add`)}{product.name} {t(`${p}.toCart`)}</>
                   )}
                 </button>
                 <button 
@@ -4969,7 +4895,7 @@ const ProductPage: React.FC = () => {
                   className={`flex items-center gap-2 px-3 py-2 rounded-lg transition ${mobileActivePanel === 'preview' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'}`}
                 >
                   <span className="text-lg">📦</span>
-                  <span className="text-sm font-medium">Preview</span>
+                  <span className="text-sm font-medium">{t(`${p}.preview`)}</span>
                   <div className="flex items-center gap-1 ml-2">
                     <img src={productImage} alt="" className="w-6 h-6 object-contain rounded border border-neutral-200" />
                     <img src={selectedMaterial === 'PCR or Bio Plastic' ? '/imgs/store/eco-material/pcr-or-biope.webp' : selectedMaterial === 'Mono Recyclable Plastic' ? '/imgs/store/eco-material/recycle.webp' : '/imgs/store/eco-material/compostable.webp'} alt="" className="w-6 h-6 object-contain rounded border border-neutral-200" />
@@ -4988,8 +4914,7 @@ const ProductPage: React.FC = () => {
                       className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer shadow-sm text-center border-none"
                     >
                       <Sparkles className="h-4 w-4" />
-                      Inquire Cost & Sample
-                    </button>
+                      {t(`${p}.inquireCostSample`)}</button>
                     <a 
                       href="https://calendly.com/30-min-free-packaging-consultancy" 
                       target="_blank" 
@@ -4997,8 +4922,7 @@ const ProductPage: React.FC = () => {
                       className="px-4 py-1.5 bg-neutral-800 hover:bg-neutral-900 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer shadow-sm text-center"
                     >
                       <Calendar className="h-4 w-4" />
-                      Inquiry Meeting
-                    </a>
+                      {t(`${p}.inquiryMeeting`)}</a>
                     <a 
                       href={getWhatsAppLink()} 
                       target="_blank" 
@@ -5006,8 +4930,7 @@ const ProductPage: React.FC = () => {
                       className="px-4 py-1.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer shadow-sm text-center"
                     >
                       <MessageSquare className="h-4 w-4" />
-                      WhatsApp Chat
-                    </a>
+                      {t(`${p}.whatsappChat`)}</a>
                   </div>
                 ) : (
                   <button 
@@ -5015,9 +4938,9 @@ const ProductPage: React.FC = () => {
                     className={`flex items-center gap-2 px-3 py-2 rounded-lg transition ${mobileActivePanel === 'price' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'}`}
                   >
                     <span className="text-lg">💰</span>
-                    <span className="text-sm font-bold text-primary-700">${unitPrice.toFixed(2)}/pc</span>
+                    <span className="text-sm font-bold text-primary-700">${unitPrice.toFixed(2)}{t(`${p}.pc21`)}</span>
                     <span className="text-xs text-neutral-500">|</span>
-                    <span className="text-sm font-semibold text-primary-600">US${Math.round(totalPrice).toLocaleString()}</span>
+                    <span className="text-sm font-semibold text-primary-600">{t(`${p}.us`)}{Math.round(totalPrice).toLocaleString()}</span>
                     {mobileActivePanel === 'price' ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </button>
                 )}
@@ -5047,48 +4970,48 @@ const ProductPage: React.FC = () => {
                             <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <span className="text-lg">🌿</span>
                             </div>
-                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Honeycomb</p>
-                            <p className="text-[8px] text-neutral-500">Material</p>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">{t(`${p}.honeycomb`)}</p>
+                            <p className="text-[8px] text-neutral-500">{t(`${p}.material`)}</p>
                           </div>
                           {/* Sizing */}
                           <div className="text-center">
                             <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <span className="text-lg">📐</span>
                             </div>
-                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Custom Size</p>
-                            <p className="text-[8px] text-neutral-500">Sizing</p>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">{t(`${p}.customSize`)}</p>
+                            <p className="text-[8px] text-neutral-500">{t(`${p}.sizing`)}</p>
                           </div>
                           {/* Structure */}
                           <div className="text-center">
                             <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <span className="text-lg">🧇</span>
                             </div>
-                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">3-Layer Pad</p>
-                            <p className="text-[8px] text-neutral-500">Structure</p>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">{t(`${p}.3LayerPad`)}</p>
+                            <p className="text-[8px] text-neutral-500">{t(`${p}.structure22`)}</p>
                           </div>
                           {/* Print */}
                           <div className="text-center">
                             <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <span className="text-lg">🎨</span>
                             </div>
-                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Eco Ink</p>
-                            <p className="text-[8px] text-neutral-500">Printing</p>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">{t(`${p}.ecoInk`)}</p>
+                            <p className="text-[8px] text-neutral-500">{t(`${p}.printing`)}</p>
                           </div>
                           {/* Quantity */}
                           <div className="text-center">
                             <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <span className="text-xs font-bold text-primary-700">{selectedQuantity.split(' ')[0]}</span>
                             </div>
-                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Sheets</p>
-                            <p className="text-[8px] text-neutral-500">Qty</p>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">{t(`${p}.sheets`)}</p>
+                            <p className="text-[8px] text-neutral-500">{t(`${p}.qty23`)}</p>
                           </div>
                           {/* Designs */}
                           <div className="text-center">
                             <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <span className="text-xs font-bold text-primary-700">{selectedDesignCount}</span>
                             </div>
-                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Design{selectedDesignCount > 1 ? 's' : ''}</p>
-                            <p className="text-[8px] text-neutral-500">Count</p>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">{t(`${p}.design`)}{selectedDesignCount > 1 ? 's' : ''}</p>
+                            <p className="text-[8px] text-neutral-500">{t(`${p}.count`)}</p>
                           </div>
                           {/* Shipping */}
                           <div className="text-center">
@@ -5096,7 +5019,7 @@ const ProductPage: React.FC = () => {
                               <span className="text-lg">{selectedShipping === 'Air Freight' ? '✈️' : selectedShipping === 'Sea Freight' ? '🚢' : '📦'}</span>
                             </div>
                             <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">{selectedShipping.split(' ')[0]}</p>
-                            <p className="text-[8px] text-neutral-500">Shipping</p>
+                            <p className="text-[8px] text-neutral-500">{t(`${p}.shipping`)}</p>
                           </div>
                         </div>
                       ) : (
@@ -5106,7 +5029,7 @@ const ProductPage: React.FC = () => {
                             <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <img src={selectedMaterial === 'PCR or Bio Plastic' ? '/imgs/store/eco-material/pcr-or-biope.webp' : selectedMaterial === 'Mono Recyclable Plastic' ? '/imgs/store/eco-material/recycle.webp' : '/imgs/store/eco-material/compostable.webp'} alt="" className="max-h-full object-contain" />
                             </div>
-                            <p className="text-[10px] font-medium mt-0.5 truncate">Material</p>
+                            <p className="text-[10px] font-medium mt-0.5 truncate">{t(`${p}.material`)}</p>
                           </div>
                           {/* Size */}
                           <div className="text-center">
@@ -5148,35 +5071,35 @@ const ProductPage: React.FC = () => {
                             <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <span className="text-xs font-bold text-primary-700">{selectedQuantity.split(' ')[0]}</span>
                             </div>
-                            <p className="text-[10px] font-medium mt-0.5">Qty</p>
+                            <p className="text-[10px] font-medium mt-0.5">{t(`${p}.qty24`)}</p>
                           </div>
                           {/* Designs */}
                           <div className="text-center">
                             <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                               <span className="text-xs font-bold text-primary-700">{selectedDesignCount}</span>
                             </div>
-                            <p className="text-[10px] font-medium mt-0.5">Designs</p>
+                            <p className="text-[10px] font-medium mt-0.5">{t(`${p}.designs`)}</p>
                           </div>
                           {/* Valve */}
                           <div className="text-center">
                             <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedValve === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
                               <span className="text-lg">{selectedValve === 'Yes' ? '💨' : '➖'}</span>
                             </div>
-                            <p className="text-[10px] font-medium mt-0.5">Valve</p>
+                            <p className="text-[10px] font-medium mt-0.5">{t(`${p}.valve`)}</p>
                           </div>
                           {/* Laser */}
                           <div className="text-center">
                             <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedLaserScoring === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
                               {selectedLaserScoring === 'Yes' ? <img src="/imgs/store/additional/laser-tear.webp" alt="" className="max-h-full object-contain" /> : <span className="text-lg">➖</span>}
                             </div>
-                            <p className="text-[10px] font-medium mt-0.5">Laser</p>
+                            <p className="text-[10px] font-medium mt-0.5">{t(`${p}.laser`)}</p>
                           </div>
                           {/* Hang Hole */}
                           <div className="text-center">
                             <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedHangHole === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
                               <span className="text-lg">{selectedHangHole === 'Yes' ? '🕳️' : '➖'}</span>
                             </div>
-                            <p className="text-[10px] font-medium mt-0.5">Hole</p>
+                            <p className="text-[10px] font-medium mt-0.5">{t(`${p}.hole`)}</p>
                           </div>
                           {/* Shipping */}
                           <div className="text-center">
@@ -5194,20 +5117,20 @@ const ProductPage: React.FC = () => {
                   <div className="py-4">
                     <div className="grid grid-cols-4 gap-4">
                       <div className="bg-primary-50 rounded-lg p-3 text-center">
-                        <div className="text-xs text-neutral-600 mb-1">Total</div>
-                        <div className="text-xl font-bold text-primary-700">US${Math.round(totalPrice).toLocaleString()}</div>
+                        <div className="text-xs text-neutral-600 mb-1">{t(`${p}.total25`)}</div>
+                        <div className="text-xl font-bold text-primary-700">{t(`${p}.us`)}{Math.round(totalPrice).toLocaleString()}</div>
                       </div>
                       <div className="bg-primary-50 rounded-lg p-3 text-center">
-                        <div className="text-xs text-neutral-600 mb-1">Unit Price</div>
-                        <div className="text-lg font-semibold">${unitPrice.toFixed(4)}/pc</div>
+                        <div className="text-xs text-neutral-600 mb-1">{t(`${p}.unitPrice`)}</div>
+                        <div className="text-lg font-semibold">${unitPrice.toFixed(4)}{t(`${p}.pc26`)}</div>
                       </div>
                       <div className="bg-primary-50 rounded-lg p-3 text-center">
-                        <div className="text-xs text-neutral-600 mb-1">Quantity</div>
+                        <div className="text-xs text-neutral-600 mb-1">{t(`${p}.quantity`)}</div>
                         <div className="text-lg font-semibold">{calculationResult.price.quantityUnits.toLocaleString()}</div>
                       </div>
                       <div className="bg-primary-50 rounded-lg p-3 text-center">
-                        <div className="text-xs text-neutral-600 mb-1">Shipping</div>
-                        <div className="text-sm font-medium">✓ Included</div>
+                        <div className="text-xs text-neutral-600 mb-1">{t(`${p}.shipping`)}</div>
+                        <div className="text-sm font-medium">{t(`${p}.included`)}</div>
                       </div>
                     </div>
                   </div>
@@ -5227,7 +5150,7 @@ const ProductPage: React.FC = () => {
               {mobileActivePanel === 'preview' && calculationResult && (
                 <div className="p-4">
                   <div className="flex justify-between items-center mb-3">
-                    <h3 className="font-semibold text-neutral-900">📦 Package Preview</h3>
+                    <h3 className="font-semibold text-neutral-900">{t(`${p}.packagePreview`)}</h3>
                     <button onClick={() => setMobileActivePanel('none')} className="p-1">
                       <ChevronDown className="w-5 h-5 text-neutral-500" />
                     </button>
@@ -5237,15 +5160,15 @@ const ProductPage: React.FC = () => {
                   </div>
                   <div className="grid grid-cols-3 gap-2 text-center text-xs">
                     <div className="bg-neutral-50 rounded p-2">
-                      <div className="text-neutral-500">Size</div>
+                      <div className="text-neutral-500">{t(`${p}.size`)}</div>
                       <div className="font-medium">{selectedSize}</div>
                     </div>
                     <div className="bg-neutral-50 rounded p-2">
-                      <div className="text-neutral-500">Closure</div>
+                      <div className="text-neutral-500">{t(`${p}.closure`)}</div>
                       <div className="font-medium truncate">{selectedClosure === 'No' ? 'None' : selectedClosure}</div>
                     </div>
                     <div className="bg-neutral-50 rounded p-2">
-                      <div className="text-neutral-500">Surface</div>
+                      <div className="text-neutral-500">{t(`${p}.surface`)}</div>
                       <div className="font-medium">{selectedSurface}</div>
                     </div>
                   </div>
@@ -5254,7 +5177,7 @@ const ProductPage: React.FC = () => {
               {mobileActivePanel === 'testimonials' && (
                 <div className="p-4">
                   <div className="flex justify-between items-center mb-3">
-                    <h3 className="font-semibold text-neutral-900">💬 Testimonials</h3>
+                    <h3 className="font-semibold text-neutral-900">{t(`${p}.testimonials`)}</h3>
                     <button onClick={() => setMobileActivePanel('none')} className="p-1">
                       <ChevronDown className="w-5 h-5 text-neutral-500" />
                     </button>
@@ -5286,23 +5209,23 @@ const ProductPage: React.FC = () => {
               {mobileActivePanel === 'price' && calculationResult && (
                 <div className="p-4">
                   <div className="flex justify-between items-center mb-3">
-                    <h3 className="font-semibold text-neutral-900">💰 Price Details</h3>
+                    <h3 className="font-semibold text-neutral-900">{t(`${p}.priceDetails`)}</h3>
                     <button onClick={() => setMobileActivePanel('none')} className="p-1">
                       <ChevronDown className="w-5 h-5 text-neutral-500" />
                     </button>
                   </div>
-                  <div className="text-3xl font-bold text-primary-700 mb-3">US${Math.round(totalPrice).toLocaleString()}</div>
+                  <div className="text-3xl font-bold text-primary-700 mb-3">{t(`${p}.us`)}{Math.round(totalPrice).toLocaleString()}</div>
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div className="bg-primary-50 rounded-lg p-2">
-                      <div className="text-neutral-600 text-xs">Unit Price</div>
-                      <div className="font-semibold">${unitPrice.toFixed(4)}/pc</div>
+                      <div className="text-neutral-600 text-xs">{t(`${p}.unitPrice`)}</div>
+                      <div className="font-semibold">${unitPrice.toFixed(4)}{t(`${p}.pc27`)}</div>
                     </div>
                     <div className="bg-primary-50 rounded-lg p-2">
-                      <div className="text-neutral-600 text-xs">Quantity</div>
+                      <div className="text-neutral-600 text-xs">{t(`${p}.quantity`)}</div>
                       <div className="font-semibold">{calculationResult.price.quantityUnits.toLocaleString()}</div>
                     </div>
                   </div>
-                  <div className="text-xs text-primary-700 mt-2 text-center">✓ Shipping Included</div>
+                  <div className="text-xs text-primary-700 mt-2 text-center">{t(`${p}.shippingIncluded`)}</div>
                 </div>
               )}
             </div>
@@ -5317,8 +5240,7 @@ const ProductPage: React.FC = () => {
                   className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-600/10 cursor-pointer text-center border-none"
                 >
                   <Sparkles className="h-4 w-4" />
-                  Inquire Cost & Sample
-                </button>
+                  {t(`${p}.inquireCostSample`)}</button>
                 <div className="flex gap-2">
                   <a 
                     href="https://calendly.com/30-min-free-packaging-consultancy" 
@@ -5327,8 +5249,7 @@ const ProductPage: React.FC = () => {
                     className="flex-1 py-2.5 bg-neutral-800 hover:bg-neutral-900 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer text-center"
                   >
                     <Calendar className="h-4 w-4" />
-                    Inquiry Meeting
-                  </a>
+                    {t(`${p}.inquiryMeeting`)}</a>
                   <a 
                     href={getWhatsAppLink()} 
                     target="_blank" 
@@ -5336,8 +5257,7 @@ const ProductPage: React.FC = () => {
                     className="flex-1 py-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow-lg shadow-[#25D366]/10 cursor-pointer text-center"
                   >
                     <MessageSquare className="h-4 w-4" />
-                    WhatsApp Chat
-                  </a>
+                    {t(`${p}.whatsappChat`)}</a>
                 </div>
               </div>
             ) : (
@@ -5347,21 +5267,21 @@ const ProductPage: React.FC = () => {
                   className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'preview' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
                 >
                   <span className="text-lg">📦</span>
-                  <span className="truncate">Preview</span>
+                  <span className="truncate">{t(`${p}.preview`)}</span>
                 </button>
                 <button 
                   onClick={() => setMobileActivePanel(mobileActivePanel === 'testimonials' ? 'none' : 'testimonials')}
                   className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'testimonials' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
                 >
                   <span className="text-lg">💬</span>
-                  <span className="truncate">Reviews</span>
+                  <span className="truncate">{t(`${p}.reviews28`)}</span>
                 </button>
                 <button 
                   onClick={() => setMobileActivePanel(mobileActivePanel === 'price' ? 'none' : 'price')}
                   className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'price' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
                 >
                   <span className="text-lg">💰</span>
-                  <span className="font-semibold text-primary-700">${unitPrice.toFixed(2)}/pc</span>
+                  <span className="font-semibold text-primary-700">${unitPrice.toFixed(2)}{t(`${p}.pc29`)}</span>
                 </button>
               </div>
             )}
@@ -5379,7 +5299,7 @@ const ProductPage: React.FC = () => {
       {product && combinedFAQs.length > 0 && (
         <section ref={faqSectionRef} className="bg-white border-t border-neutral-200 py-12">
           <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-neutral-900 mb-8 text-center">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-neutral-900 mb-8 text-center">{t(`${p}.frequentlyAskedQuestions`)}</h2>
             
             <div className="space-y-4">
               {combinedFAQs.slice(0, 8).map((faq, index) => (
@@ -5401,8 +5321,8 @@ const ProductPage: React.FC = () => {
             {/* AI Query Examples Section - Hidden visually but accessible for AI/SEO */}
             {productFAQData?.aiQueryExamples && productFAQData.aiQueryExamples.length > 0 && (
               <div className="sr-only">
-                <h3>Looking for this product? Try asking AI:</h3>
-                <p>If you're using Gemini, ChatGPT, or Perplexity, try these queries:</p>
+                <h3>{t(`${p}.lookingForThisProductTryAsking`)}</h3>
+                <p>{t(`${p}.ifYouReUsingGeminiChatgptOrPer`)}</p>
                 <ul>
                   {productFAQData.aiQueryExamples.map((query, index) => (
                     <li key={index}>"{query}"</li>
@@ -5414,7 +5334,7 @@ const ProductPage: React.FC = () => {
             {/* Product Use Cases */}
             {productFAQData?.useCases && productFAQData.useCases.length > 0 && (
               <div className="mt-8">
-                <h3 className="font-semibold text-neutral-900 mb-4">Best For:</h3>
+                <h3 className="font-semibold text-neutral-900 mb-4">{t(`${p}.bestFor`)}</h3>
                 <div className="flex flex-wrap gap-2">
                   {productFAQData.useCases.map((useCase, index) => (
                     <span
@@ -5430,21 +5350,17 @@ const ProductPage: React.FC = () => {
 
             {/* Related Links */}
             <div className="mt-10 pt-8 border-t border-neutral-200">
-              <h3 className="font-semibold text-neutral-900 mb-4">Explore More:</h3>
+              <h3 className="font-semibold text-neutral-900 mb-4">{t(`${p}.exploreMore`)}</h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 <Link to="/store" className="flex items-center gap-2 text-primary-600 hover:underline">
                   <ShoppingCart className="h-4 w-4" />
-                  Browse All Products
-                </Link>
+                  {t(`${p}.browseAllProducts`)}</Link>
                 <Link to="/materials/compostable" className="flex items-center gap-2 text-primary-600 hover:underline">
-                  🌱 Compostable Materials Guide
-                </Link>
+                  {t(`${p}.compostableMaterialsGuide`)}</Link>
                 <Link to="/materials/recyclable-mono-pe" className="flex items-center gap-2 text-primary-600 hover:underline">
-                  ♻️ Recyclable Packaging Options
-                </Link>
+                  {t(`${p}.recyclablePackagingOptions`)}</Link>
                 <Link to="/blog" className="flex items-center gap-2 text-primary-600 hover:underline">
-                  📚 Packaging Insights Blog
-                </Link>
+                  {t(`${p}.packagingInsightsBlog`)}</Link>
               </div>
             </div>
           </div>
@@ -5459,8 +5375,7 @@ const ProductPage: React.FC = () => {
             <div className="p-4">
               <h3 className="text-lg font-semibold text-neutral-900 flex items-center gap-2">
                 <span className="text-2xl">💬</span>
-                Customer Testimonials
-              </h3>
+                {t(`${p}.customerTestimonials`)}</h3>
             </div>
             <div className="px-6 pb-6 space-y-4 max-h-[500px] overflow-y-auto">
               {/* Real Testimonials */}
@@ -5505,8 +5420,7 @@ const ProductPage: React.FC = () => {
                 <div className="p-4">
                   <h3 className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
                     <span className="text-lg">📐</span>
-                    Pouch Shape Reference
-                  </h3>
+                    {t(`${p}.pouchShapeReference`)}</h3>
                 </div>
                 <div className="px-4 pb-4">
                   <div className="grid grid-cols-1 gap-2">
@@ -5529,8 +5443,7 @@ const ProductPage: React.FC = () => {
               <div className="p-4">
                 <h3 className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
                   <span className="text-lg">📸</span>
-                  Customer Samples
-                </h3>
+                  {t(`${p}.customerSamples`)}</h3>
               </div>
               <div className="px-4 pb-4">
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1.5">
@@ -5631,8 +5544,7 @@ const ProductPage: React.FC = () => {
           
           {/* Tap/click hint - mobile only */}
           <p className="absolute bottom-4 left-0 right-0 text-center text-white/50 text-xs sm:hidden">
-            Tap outside image to close • Swipe arrows to navigate
-          </p>
+            {t(`${p}.tapOutsideImageToCloseSwipeArr`)}</p>
         </div>
       )}
 
@@ -5678,7 +5590,7 @@ const ProductPage: React.FC = () => {
       {/* Related Products Section */}
       <section className="bg-neutral-50 py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-neutral-900 mb-8">Related Products</h2>
+          <h2 className="text-2xl font-bold text-neutral-900 mb-8">{t(`${p}.relatedProducts`)}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {FEATURED_PRODUCTS
               .filter(p => p.id !== product?.id && p.category === product?.category)
@@ -5725,7 +5637,7 @@ const ProductPage: React.FC = () => {
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
         <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-6">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-xl font-bold text-neutral-900">Share Product Configuration</h3>
+            <h3 className="text-xl font-bold text-neutral-900">{t(`${p}.shareProductConfiguration`)}</h3>
             <button 
               onClick={() => setIsShareModalOpen(false)} 
               className="text-neutral-400 hover:text-neutral-600 transition"
@@ -5734,8 +5646,7 @@ const ProductPage: React.FC = () => {
             </button>
           </div>
           <p className="text-sm text-neutral-600 mb-4">
-            Sharing below link with a person will let them view the same configuration you have on the screen. However, they will not be able to access your shopping cart or account information.
-          </p>
+            {t(`${p}.sharingBelowLinkWithAPersonWil`)}</p>
           <input 
             type="text" 
             value={shareUrl} 
@@ -5753,8 +5664,7 @@ const ProductPage: React.FC = () => {
             onClick={() => setIsShareModalOpen(false)}
             className="w-full py-2 text-neutral-600 hover:text-neutral-800 text-sm mt-2 transition"
           >
-            Cancel
-          </button>
+            {t(`${p}.cancel`)}</button>
         </div>
       </div>
     )}
@@ -5905,8 +5815,7 @@ const ProductPage: React.FC = () => {
                         ))}
                         {option.premium && (
                           <span className="text-[10px] sm:text-xs bg-amber-50 text-amber-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
-                            Premium
-                          </span>
+                            {t(`${p}.premium`)}</span>
                         )}
                       </div>
                       
@@ -5928,8 +5837,7 @@ const ProductPage: React.FC = () => {
                   onClick={() => setCompareModal({ type: null, isOpen: false })}
                   className="w-full py-2.5 sm:py-3 text-neutral-600 hover:text-neutral-800 text-sm font-medium transition"
                 >
-                  Close
-                </button>
+                  {t(`${p}.close`)}</button>
               </div>
             </div>
           </div>

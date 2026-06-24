@@ -2,12 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Leaf, Truck, Globe, Clock, Package, Mail, Phone } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
+import { useTranslation, Trans } from "react-i18next";
 
 const ShippingPolicyPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.shippingPolicy';
   return (
     <>
       <Helmet>
-        <title>Shipping Policy | Achieve Pack - Global Packaging Delivery</title>
+        <title>{t(`${p}.shippingPolicyAchievePackGloba`)}</title>
         <meta name="description" content="Achieve Pack shipping information: worldwide delivery, shipping times, costs, and tracking. We ship to USA, UK, EU, Australia, and 100+ countries." />
         <link rel="canonical" href="https://achievepack.com/shipping" />
       </Helmet>
@@ -17,11 +20,10 @@ const ShippingPolicyPage: React.FC = () => {
         <header className="bg-white border-b sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition">
-              <ArrowLeft className="h-5 w-5" /> Back to Home
-            </Link>
+              <ArrowLeft className="h-5 w-5" /> {t(`${p}.backToHome`)}</Link>
             <Link to="/" className="flex items-center gap-2">
               <Leaf className="h-6 w-6 text-primary-600" />
-              <span className="text-xl font-bold text-primary-600">AchievePack</span>
+              <span className="text-xl font-bold text-primary-600">{t(`${p}.achievepack`)}</span>
             </Link>
           </div>
         </header>
@@ -30,8 +32,8 @@ const ShippingPolicyPage: React.FC = () => {
         <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <Truck className="h-12 w-12 text-blue-200 mx-auto mb-4" />
-            <h1 className="text-4xl font-bold mb-4">Shipping Policy</h1>
-            <p className="text-blue-100">Worldwide delivery to 100+ countries</p>
+            <h1 className="text-4xl font-bold mb-4">{t(`${p}.shippingPolicy`)}</h1>
+            <p className="text-blue-100">{t(`${p}.worldwideDeliveryTo100Countrie`)}</p>
           </div>
         </section>
 
@@ -41,23 +43,21 @@ const ShippingPolicyPage: React.FC = () => {
             
             {/* Quick Summary */}
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-              <h2 className="font-semibold text-blue-800 mb-2">Quick Summary</h2>
+              <h2 className="font-semibold text-blue-800 mb-2">{t(`${p}.quickSummary`)}</h2>
               <ul className="text-sm text-blue-700 space-y-1">
-                <li>• <strong>Production time:</strong> 2-3 weeks after artwork approval</li>
-                <li>• <strong>Shipping time:</strong> 3-7 business days (express) or 2-4 weeks (sea)</li>
-                <li>• <strong>Free shipping:</strong> Orders over $2,000 USD (select regions)</li>
-                <li>• <strong>Tracking:</strong> Provided for all shipments</li>
+                <li>• <strong>{t(`${p}.productionTime`)}</strong> {t(`${p}.23WeeksAfterArtworkApproval`)}</li>
+                <li>• <strong>{t(`${p}.shippingTime`)}</strong> {t(`${p}.37BusinessDaysExpressOr24Weeks`)}</li>
+                <li>• <strong>{t(`${p}.freeShipping`)}</strong> {t(`${p}.ordersOver2000UsdSelectRegions`)}</li>
+                <li>• <strong>{t(`${p}.tracking`)}</strong> {t(`${p}.providedForAllShipments`)}</li>
               </ul>
             </div>
 
             <section>
               <h2 className="text-2xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
                 <Globe className="h-6 w-6 text-blue-600" />
-                Shipping Destinations
-              </h2>
+                {t(`${p}.shippingDestinations`)}</h2>
               <p className="text-neutral-700 mb-4">
-                Achieve Pack ships to over 100 countries worldwide. Our main markets include:
-              </p>
+                {t(`${p}.achievePackShipsToOver100Count`)}</p>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
                 {[
                   'United States', 'United Kingdom', 'Canada', 'Australia',
@@ -70,83 +70,76 @@ const ShippingPolicyPage: React.FC = () => {
                 ))}
               </div>
               <p className="text-sm text-neutral-600 mt-4">
-                Don't see your country? Contact us for a shipping quote.
-              </p>
+                {t(`${p}.donTSeeYourCountryContactUsFor`)}</p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
                 <Clock className="h-6 w-6 text-blue-600" />
-                Shipping Times
-              </h2>
+                {t(`${p}.shippingTimes`)}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b-2 border-neutral-200">
-                      <th className="text-left py-3 px-4 font-semibold bg-neutral-50">Region</th>
-                      <th className="text-left py-3 px-4 font-semibold bg-neutral-50">Express Air</th>
-                      <th className="text-left py-3 px-4 font-semibold bg-neutral-50">Standard Air</th>
-                      <th className="text-left py-3 px-4 font-semibold bg-neutral-50">Sea Freight</th>
+                      <th className="text-left py-3 px-4 font-semibold bg-neutral-50">{t(`${p}.region`)}</th>
+                      <th className="text-left py-3 px-4 font-semibold bg-neutral-50">{t(`${p}.expressAir`)}</th>
+                      <th className="text-left py-3 px-4 font-semibold bg-neutral-50">{t(`${p}.standardAir`)}</th>
+                      <th className="text-left py-3 px-4 font-semibold bg-neutral-50">{t(`${p}.seaFreight`)}</th>
                     </tr>
                   </thead>
                   <tbody className="text-neutral-700">
                     <tr className="border-b border-neutral-100">
-                      <td className="py-3 px-4">USA / Canada</td>
-                      <td className="py-3 px-4">3-5 days</td>
-                      <td className="py-3 px-4">7-10 days</td>
-                      <td className="py-3 px-4">3-4 weeks</td>
+                      <td className="py-3 px-4">{t(`${p}.usaCanada`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.35Days`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.710Days`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.34Weeks`)}</td>
                     </tr>
                     <tr className="border-b border-neutral-100">
-                      <td className="py-3 px-4">UK / Europe</td>
-                      <td className="py-3 px-4">3-5 days</td>
-                      <td className="py-3 px-4">7-12 days</td>
-                      <td className="py-3 px-4">4-5 weeks</td>
+                      <td className="py-3 px-4">{t(`${p}.ukEurope`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.35Days`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.712Days`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.45Weeks`)}</td>
                     </tr>
                     <tr className="border-b border-neutral-100">
-                      <td className="py-3 px-4">Australia / NZ</td>
-                      <td className="py-3 px-4">3-5 days</td>
-                      <td className="py-3 px-4">5-8 days</td>
-                      <td className="py-3 px-4">2-3 weeks</td>
+                      <td className="py-3 px-4">{t(`${p}.australiaNz`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.35Days`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.58Days`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.23Weeks`)}</td>
                     </tr>
                     <tr className="border-b border-neutral-100">
-                      <td className="py-3 px-4">Asia Pacific</td>
-                      <td className="py-3 px-4">2-4 days</td>
-                      <td className="py-3 px-4">5-7 days</td>
-                      <td className="py-3 px-4">1-2 weeks</td>
+                      <td className="py-3 px-4">{t(`${p}.asiaPacific`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.24Days`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.57Days`)}</td>
+                      <td className="py-3 px-4">{t(`${p}.12Weeks`)}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <p className="text-sm text-neutral-600 mt-4">
-                * Times shown are from shipment date, after production is complete. Production typically takes 2-3 weeks.
-              </p>
+                {t(`${p}.timesShownAreFromShipmentDateA`)}</p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
                 <Package className="h-6 w-6 text-blue-600" />
-                Shipping Costs
-              </h2>
+                {t(`${p}.shippingCosts`)}</h2>
               <div className="space-y-4 text-neutral-700">
                 <p>
-                  Shipping costs are calculated based on order weight, volume, destination, and shipping method. We provide shipping quotes with your order quotation.
-                </p>
+                  {t(`${p}.shippingCostsAreCalculatedBase`)}</p>
                 
 
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
-                  <h3 className="font-semibold text-amber-800 mb-2">Import Duties & Taxes</h3>
+                  <h3 className="font-semibold text-amber-800 mb-2">{t(`${p}.importDutiesTaxes`)}</h3>
                   <p className="text-sm text-amber-700">
-                    All shipments are sent DDP (Delivered Duty Paid) where possible, meaning we cover import duties and taxes. For some destinations, you may be responsible for local import charges. We'll inform you before shipment.
-                  </p>
+                    {t(`${p}.allShipmentsAreSentDdpDelivere`)}</p>
                 </div>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">Shipping Carriers</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.shippingCarriers`)}</h2>
               <p className="text-neutral-700 mb-4">
-                We partner with reliable international carriers to ensure safe and timely delivery:
-              </p>
+                {t(`${p}.wePartnerWithReliableInternati`)}</p>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
                 {['DHL Express', 'FedEx', 'UPS', 'SF Express', 'Maersk (Sea)', 'COSCO (Sea)'].map((carrier, idx) => (
                   <div key={idx} className="bg-neutral-100 px-3 py-2 rounded-lg text-sm text-center font-medium">
@@ -157,56 +150,50 @@ const ShippingPolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">Tracking Your Order</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.trackingYourOrder`)}</h2>
               <div className="text-neutral-700 space-y-4">
                 <p>
-                  All shipments include tracking. You will receive:
-                </p>
+                  {t(`${p}.allShipmentsIncludeTrackingYou`)}</p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Shipment confirmation email with tracking number</li>
-                  <li>Link to carrier's tracking page</li>
-                  <li>Estimated delivery date</li>
-                  <li>Delivery confirmation notification</li>
+                  <li>{t(`${p}.shipmentConfirmationEmailWithT`)}</li>
+                  <li>{t(`${p}.linkToCarrierSTrackingPage`)}</li>
+                  <li>{t(`${p}.estimatedDeliveryDate`)}</li>
+                  <li>{t(`${p}.deliveryConfirmationNotificati`)}</li>
                 </ul>
                 <p>
-                  If you haven't received tracking information within 24 hours of shipment notification, please contact us.
-                </p>
+                  {t(`${p}.ifYouHavenTReceivedTrackingInf`)}</p>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">Delivery Issues</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.deliveryIssues`)}</h2>
               <div className="text-neutral-700 space-y-4">
                 <div>
-                  <h3 className="font-semibold mb-2">Delayed Shipments</h3>
+                  <h3 className="font-semibold mb-2">{t(`${p}.delayedShipments`)}</h3>
                   <p className="text-sm">
-                    While we strive for on-time delivery, delays may occur due to customs clearance, weather, or carrier issues. We monitor shipments and will proactively notify you of any significant delays.
-                  </p>
+                    {t(`${p}.whileWeStriveForOnTimeDelivery`)}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Damaged or Lost Packages</h3>
+                  <h3 className="font-semibold mb-2">{t(`${p}.damagedOrLostPackages`)}</h3>
                   <p className="text-sm">
-                    All shipments are fully insured. If your package arrives damaged or is lost in transit, contact us within 7 days of expected delivery. We will file a claim and arrange replacement or refund.
-                  </p>
+                    {t(`${p}.allShipmentsAreFullyInsuredIfY`)}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Incorrect Address</h3>
+                  <h3 className="font-semibold mb-2">{t(`${p}.incorrectAddress`)}</h3>
                   <p className="text-sm">
-                    Please ensure your shipping address is correct when ordering. Re-delivery fees or return shipping costs for incorrect addresses are the customer's responsibility.
-                  </p>
+                    {t(`${p}.pleaseEnsureYourShippingAddres`)}</p>
                 </div>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">Contact Us</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.contactUs`)}</h2>
               <p className="text-neutral-700 mb-4">
-                Questions about shipping? We're here to help:
-              </p>
+                {t(`${p}.questionsAboutShippingWeReHere`)}</p>
               <div className="bg-neutral-50 p-4 rounded-lg">
                 <div className="flex items-center gap-2 text-neutral-700">
                   <Mail className="h-4 w-4 text-primary-600" />
-                  <a href="mailto:ryan@achievepack.com" className="hover:text-primary-600">ryan@achievepack.com</a>
+                  <a href="mailto:ryan@achievepack.com" className="hover:text-primary-600">{t(`${p}.ryanAchievepackCom`)}</a>
                 </div>
                 <div className="flex items-center gap-2 mt-2 text-neutral-700">
                   <Phone className="h-4 w-4 text-primary-600" />
@@ -220,8 +207,7 @@ const ShippingPolicyPage: React.FC = () => {
           {/* Back to Home */}
           <div className="text-center mt-8">
             <Link to="/" className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition">
-              <ArrowLeft className="h-5 w-5" /> Back to Home
-            </Link>
+              <ArrowLeft className="h-5 w-5" /> {t(`${p}.backToHome`)}</Link>
           </div>
         </div>
 
@@ -236,14 +222,14 @@ const ShippingPolicyPage: React.FC = () => {
                 <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
-                <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
+                <span className="text-xs text-neutral-300 font-medium">{t(`${p}.ssl100SecureTransactions`)}</span>
               </div>
             </div>
-            <p className="text-neutral-400 text-sm">© {new Date().getFullYear()} Achieve Pack. All rights reserved.</p>
+            <p className="text-neutral-400 text-sm">© {new Date().getFullYear()} {t(`${p}.achievePackAllRightsReserved`)}</p>
             <div className="flex justify-center gap-6 mt-4 text-sm text-neutral-500">
-              <Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link>
-              <Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link>
-              <Link to="/shipping" className="hover:text-primary-400">Shipping Policy</Link>
+              <Link to="/terms" className="hover:text-primary-400">{t(`${p}.termsConditions`)}</Link>
+              <Link to="/privacy" className="hover:text-primary-400">{t(`${p}.privacyPolicy`)}</Link>
+              <Link to="/shipping" className="hover:text-primary-400">{t(`${p}.shippingPolicy`)}</Link>
             </div>
           </div>
         </footer>

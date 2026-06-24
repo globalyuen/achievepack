@@ -2,8 +2,11 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { CheckCircle, FileText, Mail, ArrowRight, User, Clock } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
+import { useTranslation, Trans } from "react-i18next";
 
 const RfqConfirmation: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.rfqConfirmation';
   const location = useLocation()
   const { user } = useAuth()
   const rfqNumber = location.state?.rfqNumber || `RFQ-${Date.now().toString(36).toUpperCase()}`
@@ -15,52 +18,49 @@ const RfqConfirmation: React.FC = () => {
           <CheckCircle className="h-10 w-10 text-amber-600" />
         </div>
         
-        <h1 className="text-3xl font-bold text-neutral-900 mb-2">Quote Request Submitted!</h1>
+        <h1 className="text-3xl font-bold text-neutral-900 mb-2">{t(`${p}.quoteRequestSubmitted`)}</h1>
         <p className="text-neutral-600 mb-6">
-          Thank you for your inquiry. Our team will review your request and prepare a personalized quote.
-        </p>
+          {t(`${p}.thankYouForYourInquiryOurTeamW`)}</p>
         
         <div className="bg-amber-50 rounded-xl p-4 mb-6 border border-amber-200">
-          <div className="text-sm text-amber-700">Reference Number</div>
+          <div className="text-sm text-amber-700">{t(`${p}.referenceNumber`)}</div>
           <div className="text-xl font-bold text-amber-800">{rfqNumber}</div>
         </div>
 
         <div className="space-y-3 text-left mb-8">
           <div className="flex items-center gap-3 text-neutral-600">
             <Mail className="h-5 w-5 text-amber-500" />
-            <span>Confirmation email sent to your inbox</span>
+            <span>{t(`${p}.confirmationEmailSentToYourInb`)}</span>
           </div>
           <div className="flex items-center gap-3 text-neutral-600">
             <Clock className="h-5 w-5 text-amber-500" />
-            <span>Quote will be ready within 24 hours</span>
+            <span>{t(`${p}.quoteWillBeReadyWithin24Hours`)}</span>
           </div>
           <div className="flex items-center gap-3 text-neutral-600">
             <FileText className="h-5 w-5 text-amber-500" />
-            <span>Our team will contact you with pricing details</span>
+            <span>{t(`${p}.ourTeamWillContactYouWithPrici`)}</span>
           </div>
         </div>
 
         <div className="bg-neutral-50 rounded-xl p-4 mb-6 text-left">
-          <h3 className="font-semibold text-neutral-800 mb-2">What happens next?</h3>
+          <h3 className="font-semibold text-neutral-800 mb-2">{t(`${p}.whatHappensNext`)}</h3>
           <ol className="text-sm text-neutral-600 space-y-2">
-            <li>1. Our packaging specialists will review your requirements</li>
-            <li>2. We'll prepare a detailed quote with pricing and lead times</li>
-            <li>3. You'll receive the quote via email within 24 hours</li>
-            <li>4. Once approved, we'll begin production</li>
+            <li>{t(`${p}.1OurPackagingSpecialistsWillRe`)}</li>
+            <li>{t(`${p}.2WeLlPrepareADetailedQuoteWith`)}</li>
+            <li>{t(`${p}.3YouLlReceiveTheQuoteViaEmailW`)}</li>
+            <li>{t(`${p}.4OnceApprovedWeLlBeginProducti`)}</li>
           </ol>
         </div>
 
         <div className="space-y-3">
           {user && (
             <Link to="/dashboard" className="block w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2">
-              <User className="h-5 w-5" /> Go to My Dashboard
-            </Link>
+              <User className="h-5 w-5" /> {t(`${p}.goToMyDashboard`)}</Link>
           )}
           <Link to="/store" className={`block w-full py-3 ${user ? 'border border-neutral-300 hover:bg-neutral-50 text-neutral-700' : 'bg-amber-500 hover:bg-amber-600 text-white'} font-semibold rounded-xl transition`}>
-            Continue Shopping
-          </Link>
+            {t(`${p}.continueShopping`)}</Link>
           <Link to="/" className="block w-full py-3 border border-neutral-300 hover:bg-neutral-50 text-neutral-700 font-medium rounded-xl transition flex items-center justify-center gap-2">
-            Back to Home <ArrowRight className="h-4 w-4" />
+            {t(`${p}.backToHome`)}<ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

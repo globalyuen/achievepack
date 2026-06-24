@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Home, Search, ArrowLeft, Package } from 'lucide-react'
 import SEO from '../components/SEO'
+import { useTranslation, Trans } from "react-i18next";
 
 // Random banner images - WebP format for smaller file size
 const BANNER_IMAGES = [
@@ -14,6 +15,8 @@ const BANNER_IMAGES = [
 ]
 
 const NotFoundPage = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.notFound';
   // Select random full-page hero on mount
   const randomHero = useMemo(() => 
     BANNER_IMAGES[Math.floor(Math.random() * BANNER_IMAGES.length)], 
@@ -54,11 +57,9 @@ const NotFoundPage = () => {
               </div>
               
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
-                Page Not Found
-              </h2>
+                {t(`${p}.pageNotFound`)}</h2>
               <p className="text-neutral-600 mb-8">
-                The page you're looking for doesn't exist or has been moved.
-              </p>
+                {t(`${p}.thePageYouReLookingForDoesnTEx`)}</p>
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
@@ -67,32 +68,27 @@ const NotFoundPage = () => {
                   className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition"
                 >
                   <Home className="h-5 w-5" />
-                  Back to Home
-                </Link>
+                  {t(`${p}.backToHome`)}</Link>
                 <Link
                   to="/store"
                   className="inline-flex items-center justify-center gap-2 bg-neutral-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-neutral-700 transition"
                 >
                   <Package className="h-5 w-5" />
-                  Browse Products
-                </Link>
+                  {t(`${p}.browseProducts`)}</Link>
               </div>
 
               {/* Popular Links */}
               <div className="border-t border-neutral-200 pt-5">
-                <p className="text-xs text-neutral-500 mb-3">Popular Pages:</p>
+                <p className="text-xs text-neutral-500 mb-3">{t(`${p}.popularPages`)}</p>
                 <div className="flex flex-wrap gap-2 justify-center text-sm">
                   <Link to="/materials/compostable" className="text-primary-600 hover:underline">
-                    Compostable
-                  </Link>
+                    {t(`${p}.compostable`)}</Link>
                   <span className="text-neutral-300">•</span>
                   <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">
-                    Coffee & Tea
-                  </Link>
+                    {t(`${p}.coffeeTea`)}</Link>
                   <span className="text-neutral-300">•</span>
                   <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">
-                    Stand-Up Pouches
-                  </Link>
+                    {t(`${p}.standUpPouches`)}</Link>
                 </div>
               </div>
             </div>
@@ -103,8 +99,7 @@ const NotFoundPage = () => {
                 href="mailto:sales@achievepack.com"
                 className="text-white/90 hover:text-white text-sm"
               >
-                Need help? Contact sales@achievepack.com
-              </a>
+                {t(`${p}.needHelpContactSalesAchievepac`)}</a>
             </div>
           </div>
         </div>

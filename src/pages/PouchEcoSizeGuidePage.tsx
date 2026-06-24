@@ -8,6 +8,7 @@ import {
 import DualDomainSEOHead from '../components/DualDomainSEOHead'
 import { getBrandConfig } from '../utils/domain'
 import Newsletter from '../components/Newsletter'
+import { useTranslation, Trans } from "react-i18next";
 
 /**
  * Pouch.eco Size Guide Page - B2C Version
@@ -44,6 +45,8 @@ const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
 )
 
 export default function PouchEcoSizeGuidePage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.pouchEcoSizeGuide';
   const brand = getBrandConfig()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
@@ -160,22 +163,18 @@ export default function PouchEcoSizeGuidePage() {
             className="text-center"
           >
             <h1 className="font-black text-6xl md:text-8xl uppercase leading-[0.9] mb-6">
-              Size<br/>
-              <span className="text-[#D4FF00]">Guide</span>
+              {t(`${p}.size`)}<br/>
+              <span className="text-[#D4FF00]">{t(`${p}.guide`)}</span>
             </h1>
             
             <p className="font-['JetBrains_Mono'] text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-              Find your perfect pouch size. Visual comparisons with cola cans. 
-              From 10g samples to 2kg bulk packs. No guesswork needed!
-            </p>
+              {t(`${p}.findYourPerfectPouchSizeVisual`)}</p>
 
             <div className="flex flex-wrap justify-center gap-4">
               <NeoButton to="/store" variant="yellow">
-                Shop Now
-              </NeoButton>
+                {t(`${p}.shopNow`)}</NeoButton>
               <NeoButton to="/sample-kit" variant="secondary">
-                Order Samples
-              </NeoButton>
+                {t(`${p}.orderSamples`)}</NeoButton>
             </div>
           </motion.div>
         </div>
@@ -190,8 +189,8 @@ export default function PouchEcoSizeGuidePage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-6xl uppercase mb-12 text-center"
           >
-            How We<br/>
-            <span className="text-[#10b981]">Measure</span>
+            {t(`${p}.howWe`)}<br/>
+            <span className="text-[#10b981]">{t(`${p}.measure`)}</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -203,10 +202,9 @@ export default function PouchEcoSizeGuidePage() {
             >
               <NeoCard color="bg-[#D4FF00]" className="h-full">
                 <Ruler className="w-12 h-12 mb-4" />
-                <h3 className="font-black text-2xl uppercase mb-3">Width</h3>
+                <h3 className="font-black text-2xl uppercase mb-3">{t(`${p}.width`)}</h3>
                 <p className="font-['JetBrains_Mono'] text-sm">
-                  Measured flat, from left to right edge. This is how wide your pouch will be when laying flat.
-                </p>
+                  {t(`${p}.measuredFlatFromLeftToRightEdg`)}</p>
               </NeoCard>
             </motion.div>
 
@@ -218,10 +216,9 @@ export default function PouchEcoSizeGuidePage() {
             >
               <NeoCard color="bg-[#00FFFF]" className="h-full">
                 <Maximize2 className="w-12 h-12 mb-4" />
-                <h3 className="font-black text-2xl uppercase mb-3">Height</h3>
+                <h3 className="font-black text-2xl uppercase mb-3">{t(`${p}.height`)}</h3>
                 <p className="font-['JetBrains_Mono'] text-sm">
-                  From bottom seal to top seal (or zipper). Remember to add 10-15mm extra for sealing.
-                </p>
+                  {t(`${p}.fromBottomSealToTopSealOrZippe`)}</p>
               </NeoCard>
             </motion.div>
 
@@ -233,16 +230,15 @@ export default function PouchEcoSizeGuidePage() {
             >
               <NeoCard color="bg-[#FF00FF] text-white" className="h-full">
                 <Box className="w-12 h-12 mb-4" />
-                <h3 className="font-black text-2xl uppercase mb-3">Gusset</h3>
+                <h3 className="font-black text-2xl uppercase mb-3">{t(`${p}.gusset`)}</h3>
                 <p className="font-['JetBrains_Mono'] text-sm">
-                  The fold depth on each side that creates volume. Makes pouches stand up nicely.
-                </p>
+                  {t(`${p}.theFoldDepthOnEachSideThatCrea`)}</p>
               </NeoCard>
             </motion.div>
           </div>
 
           <NeoCard color="bg-gray-100" className="mt-8">
-            <h3 className="font-black text-xl uppercase mb-4">Measurement Tips</h3>
+            <h3 className="font-black text-xl uppercase mb-4">{t(`${p}.measurementTips`)}</h3>
             <div className="grid md:grid-cols-2 gap-3">
               {measurementTips.map((tip, idx) => (
                 <div key={idx} className="flex items-start gap-2">
@@ -264,13 +260,12 @@ export default function PouchEcoSizeGuidePage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-6xl uppercase mb-6 text-center"
           >
-            Stand-Up<br/>
-            <span className="text-[#10b981]">Pouches</span>
+            {t(`${p}.standUp`)}<br/>
+            <span className="text-[#10b981]">{t(`${p}.pouches`)}</span>
           </motion.h2>
 
           <p className="font-['JetBrains_Mono'] text-center text-lg mb-12 max-w-3xl mx-auto">
-            Compare with a 330ml cola can (12.2cm tall). Click any image to view full size.
-          </p>
+            {t(`${p}.compareWithA330mlColaCan122cmT`)}</p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {standUpSizes.map((item, idx) => (
@@ -317,13 +312,12 @@ export default function PouchEcoSizeGuidePage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-6xl uppercase mb-6 text-center"
           >
-            Flat Bottom<br/>
-            <span className="text-[#10b981]">Bags</span>
+            {t(`${p}.flatBottom`)}<br/>
+            <span className="text-[#10b981]">{t(`${p}.bags`)}</span>
           </motion.h2>
 
           <p className="font-['JetBrains_Mono'] text-center text-lg mb-12 max-w-3xl mx-auto">
-            Premium flat bottom design. More shelf presence. Same cola can reference.
-          </p>
+            {t(`${p}.premiumFlatBottomDesignMoreShe`)}</p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {flatBottomSizes.map((item, idx) => (
@@ -370,8 +364,8 @@ export default function PouchEcoSizeGuidePage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-6xl uppercase mb-12 text-center"
           >
-            Size By<br/>
-            <span className="text-[#10b981]">Product</span>
+            {t(`${p}.sizeBy`)}<br/>
+            <span className="text-[#10b981]">{t(`${p}.product`)}</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -387,7 +381,7 @@ export default function PouchEcoSizeGuidePage() {
                   <div className="mb-4">{item.icon}</div>
                   <h3 className="font-black text-2xl uppercase mb-2">{item.product}</h3>
                   <div className="font-['JetBrains_Mono'] text-sm mb-2">
-                    <strong>Recommended:</strong> {item.recommended}
+                    <strong>{t(`${p}.recommended`)}</strong> {item.recommended}
                   </div>
                   <p className="font-['JetBrains_Mono'] text-sm opacity-75">
                     {item.reason}
@@ -414,21 +408,18 @@ export default function PouchEcoSizeGuidePage() {
             viewport={{ once: true }}
             className="font-black text-5xl md:text-7xl uppercase mb-6"
           >
-            Still Not Sure?<br/>
-            <span className="text-[#D4FF00]">Order Samples!</span>
+            {t(`${p}.stillNotSure`)}<br/>
+            <span className="text-[#D4FF00]">{t(`${p}.orderSamples1`)}</span>
           </motion.h2>
 
           <p className="font-['JetBrains_Mono'] text-xl mb-8 max-w-2xl mx-auto">
-            Get physical samples in multiple sizes. See and feel the quality. Only $15 with free shipping!
-          </p>
+            {t(`${p}.getPhysicalSamplesInMultipleSi`)}</p>
 
           <div className="flex flex-wrap justify-center gap-4">
             <NeoButton to="/sample-kit" variant="yellow">
-              Order Sample Kit
-            </NeoButton>
+              {t(`${p}.orderSampleKit`)}</NeoButton>
             <NeoButton to="/store" variant="secondary">
-              Shop All Sizes
-            </NeoButton>
+              {t(`${p}.shopAllSizes`)}</NeoButton>
           </div>
         </div>
       </section>
@@ -441,43 +432,42 @@ export default function PouchEcoSizeGuidePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="font-black text-2xl uppercase mb-4">Shop</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.shop`)}</h3>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                <li><Link to="/store" className="hover:text-[#10b981]">All Products</Link></li>
-                <li><Link to="/store?category=starter" className="hover:text-[#10b981]">Starter Kits</Link></li>
-                <li><Link to="/sample-kit" className="hover:text-[#10b981]">Sample Kit</Link></li>
+                <li><Link to="/store" className="hover:text-[#10b981]">{t(`${p}.allProducts`)}</Link></li>
+                <li><Link to="/store?category=starter" className="hover:text-[#10b981]">{t(`${p}.starterKits`)}</Link></li>
+                <li><Link to="/sample-kit" className="hover:text-[#10b981]">{t(`${p}.sampleKit`)}</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-black text-2xl uppercase mb-4">Materials</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.materials`)}</h3>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                <li><Link to="/materials/cello-kraft-triplex" className="hover:text-[#10b981]">GPTK (Kraft)</Link></li>
-                <li><Link to="/materials/kraft-duplex" className="hover:text-[#10b981]">PTN (Duplex)</Link></li>
-                <li><Link to="/materials" className="hover:text-[#10b981]">All Materials</Link></li>
+                <li><Link to="/materials/cello-kraft-triplex" className="hover:text-[#10b981]">{t(`${p}.gptkKraft`)}</Link></li>
+                <li><Link to="/materials/kraft-duplex" className="hover:text-[#10b981]">{t(`${p}.ptnDuplex`)}</Link></li>
+                <li><Link to="/materials" className="hover:text-[#10b981]">{t(`${p}.allMaterials`)}</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-black text-2xl uppercase mb-4">Resources</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.resources`)}</h3>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                <li><Link to="/solutions" className="hover:text-[#10b981]">Solutions</Link></li>
-                <li><Link to="/size-guide" className="hover:text-[#10b981]">Size Guide</Link></li>
-                <li><Link to="/contact" className="hover:text-[#10b981]">Contact</Link></li>
+                <li><Link to="/solutions" className="hover:text-[#10b981]">{t(`${p}.solutions`)}</Link></li>
+                <li><Link to="/size-guide" className="hover:text-[#10b981]">{t(`${p}.sizeGuide`)}</Link></li>
+                <li><Link to="/contact" className="hover:text-[#10b981]">{t(`${p}.contact`)}</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-black text-2xl uppercase mb-4">Company</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.company`)}</h3>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
-                <li><Link to="/about" className="hover:text-[#10b981]">About Us</Link></li>
-                <li><Link to="/sustainability" className="hover:text-[#10b981]">Sustainability</Link></li>
-                <li><Link to="/blog" className="hover:text-[#10b981]">Blog</Link></li>
+                <li><Link to="/about" className="hover:text-[#10b981]">{t(`${p}.aboutUs`)}</Link></li>
+                <li><Link to="/sustainability" className="hover:text-[#10b981]">{t(`${p}.sustainability`)}</Link></li>
+                <li><Link to="/blog" className="hover:text-[#10b981]">{t(`${p}.blog`)}</Link></li>
               </ul>
             </div>
           </div>
           
           <div className="border-t-4 border-white pt-8 text-center">
             <p className="font-['JetBrains_Mono'] text-sm">
-              © 2026 Pouch.eco • Eco-Friendly Packaging for Everyone
-            </p>
+              {t(`${p}.2026PouchEcoEcoFriendlyPackagi`)}</p>
           </div>
         </div>
       </footer>

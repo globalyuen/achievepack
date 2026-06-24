@@ -9,6 +9,7 @@ import DualDomainSEOHead from '../components/DualDomainSEOHead'
 import { getBrandConfig } from '../utils/domain'
 import { getImage } from '../utils/imageMapper'
 import Newsletter from '../components/Newsletter'
+import { useTranslation } from 'react-i18next'
 
 /**
  * Pouch.eco GPTK Material Page - B2C Version
@@ -47,44 +48,46 @@ const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
 
 export default function PouchEcoGPTKPage() {
   const brand = getBrandConfig()
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchEcoGPTK2'
 
   const features = [
     {
       icon: <Leaf className="w-8 h-8" />,
-      title: 'Compostable Kraft',
-      description: 'Natural brown kraft paper exterior that breaks down in industrial composting facilities.',
+      title: t(`${p}.features.0.title`, 'Compostable Kraft'),
+      description: t(`${p}.features.0.desc`, 'Natural brown kraft paper exterior that breaks down in industrial composting facilities.'),
       color: 'bg-[#10b981] text-white'
     },
     {
       icon: <Package className="w-8 h-8" />,
-      title: 'Clear Window',
-      description: 'Optional cellulose window lets customers see your product while staying eco-friendly.',
+      title: t(`${p}.features.1.title`, 'Clear Window'),
+      description: t(`${p}.features.1.desc`, 'Optional cellulose window lets customers see your product while staying eco-friendly.'),
       color: 'bg-[#00FFFF]'
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: 'Medium Barrier',
-      description: '6-12 month shelf life. Perfect for most dry goods, coffee, tea, and snacks.',
+      title: t(`${p}.features.2.title`, 'Medium Barrier'),
+      description: t(`${p}.features.2.desc`, '6-12 month shelf life. Perfect for most dry goods, coffee, tea, and snacks.'),
       color: 'bg-[#D4FF00]'
     },
     {
       icon: <Heart className="w-8 h-8" />,
-      title: 'Low MOQ',
-      description: 'Start with just 500 units. Test your market without huge commitments.',
+      title: t(`${p}.features.3.title`, 'Low MOQ'),
+      description: t(`${p}.features.3.desc`, 'Start with just 500 units. Test your market without huge commitments.'),
       color: 'bg-[#FF00FF]'
     }
   ]
 
   const specs = [
-    { label: 'Structure', value: 'Kraft / Cello / PE (Triplex)' },
-    { label: 'Shelf Life', value: '6-12 months' },
-    { label: 'MOQ', value: '500 units' },
-    { label: 'Certifications', value: 'EN13432, BPI, ASTM D6400' },
-    { label: 'Barrier Type', value: 'Medium (moisture + oxygen)' },
-    { label: 'Composting', value: 'Industrial only (90-180 days)' }
+    { label: t(`${p}.specs.label1`, 'Structure'), value: t(`${p}.specs.val1`, 'Kraft / Cello / PE (Triplex)') },
+    { label: t(`${p}.specs.label2`, 'Shelf Life'), value: t(`${p}.specs.val2`, '6-12 months') },
+    { label: t(`${p}.specs.label3`, 'MOQ'), value: t(`${p}.specs.val3`, '500 units') },
+    { label: t(`${p}.specs.label4`, 'Certifications'), value: t(`${p}.specs.val4`, 'EN13432, BPI, ASTM D6400') },
+    { label: t(`${p}.specs.label5`, 'Barrier Type'), value: t(`${p}.specs.val5`, 'Medium (moisture + oxygen)') },
+    { label: t(`${p}.specs.label6`, 'Composting'), value: t(`${p}.specs.val6`, 'Industrial only (90-180 days)') }
   ]
 
-  const idealFor = [
+  const idealFor = (t(`${p}.idealFor.items`, { returnObjects: true }) as string[]) || [
     'Coffee beans & ground coffee',
     'Tea leaves & herbal blends',
     'Granola & trail mix',
@@ -97,14 +100,14 @@ export default function PouchEcoGPTKPage() {
     'Organic snacks'
   ]
 
-  const benefits = [
+  const benefits = (t(`${p}.prosCons.benefits`, { returnObjects: true }) as string[]) || [
     '✅ Eco-friendly kraft paper look',
     '✅ Stand out on shelves naturally',
     '✅ Degassing valve compatible',
     '✅ Resealable zipper available'
   ]
 
-  const considerations = [
+  const considerations = (t(`${p}.prosCons.considerations`, { returnObjects: true }) as string[]) || [
     '⚠️ Not home compostable',
     '⚠️ Clear window reduces barrier',
     '⚠️ Not suitable for high-fat products',
@@ -114,9 +117,9 @@ export default function PouchEcoGPTKPage() {
   return (
     <div className="min-h-screen bg-neutral-50 text-black font-['Space_Grotesk'] selection:bg-[#10b981] selection:text-white">
       <DualDomainSEOHead
-        title="Kraft Paper Pouches with Clear Window - GPTK Material"
-        description="Compostable kraft paper pouches with optional cellulose window. 6-12 month shelf life. Perfect for coffee, tea, snacks, and pet treats. Industrial compostable. From 500 units."
-        keywords={['kraft pouches', 'compostable packaging', 'kraft paper bags', 'clear window pouches', 'coffee bags kraft', 'eco kraft packaging']}
+        title={t(`${p}.seo.title`, "Kraft Paper Pouches with Clear Window - GPTK Material")}
+        description={t(`${p}.seo.description`, "Compostable kraft paper pouches with optional cellulose window. 6-12 month shelf life. Perfect for coffee, tea, snacks, and pet treats. Industrial compostable. From 500 units.")}
+        keywords={((t(`${p}.seo.keywords`) as string) || "kraft pouches, compostable packaging, kraft paper bags, clear window pouches, coffee bags kraft, eco kraft packaging").split(', ')}
         ogImage={getImage('kraft/kraft800')}
       />
 
@@ -134,24 +137,21 @@ export default function PouchEcoGPTKPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">🌱 COMPOSTABLE MATERIAL</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t(`${p}.hero.badge`, '🌱 COMPOSTABLE MATERIAL')}</span>
               </div>
               
-              <h1 className="font-black text-6xl md:text-8xl uppercase leading-[0.9] mb-6">
-                Kraft Paper<br/>
-                <span className="text-[#10b981]">Pouches</span>
-              </h1>
+              <h1 className="font-black text-6xl md:text-8xl uppercase leading-[0.9] mb-6" dangerouslySetInnerHTML={{ __html: t(`${p}.hero.titleHtml`, 'Kraft Paper<br/><span className="text-[#10b981]">Pouches</span>') }} />
               
               <p className="font-['JetBrains_Mono'] text-lg md:text-xl mb-8">
-                Natural brown kraft exterior with optional clear window. Industrial compostable. Perfect for coffee, tea, and organic snacks. 6-12 month shelf life.
+                {t(`${p}.hero.desc`, 'Natural brown kraft exterior with optional clear window. Industrial compostable. Perfect for coffee, tea, and organic snacks. 6-12 month shelf life.')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <NeoButton to="/store?material=kraft" variant="primary">
-                  Shop Kraft Pouches
+                  {t(`${p}.hero.buttonShop`, 'Shop Kraft Pouches')}
                 </NeoButton>
                 <NeoButton to="/contact" variant="secondary">
-                  Get Free Sample
+                  {t(`${p}.hero.buttonSample`, 'Get Free Sample')}
                 </NeoButton>
               </div>
 
@@ -189,11 +189,9 @@ export default function PouchEcoGPTKPage() {
       {/* Features Grid */}
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-black text-5xl md:text-7xl uppercase mb-4">
-            Why Choose <span className="text-[#10b981]">Kraft?</span>
-          </h2>
+          <h2 className="font-black text-5xl md:text-7xl uppercase mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.whyChoose.titleHtml`, 'Why Choose <span className="text-[#10b981]">Kraft?</span>') }} />
           <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto">
-            Natural, sustainable, and perfect for brands who want an organic aesthetic
+            {t(`${p}.whyChoose.desc`, 'Natural, sustainable, and perfect for brands who want an organic aesthetic')}
           </p>
         </div>
 
@@ -222,9 +220,7 @@ export default function PouchEcoGPTKPage() {
       <section className="py-16 px-4 md:px-6 border-t-4 border-black bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-black text-5xl uppercase mb-4">
-              Tech <span className="text-[#10b981]">Specs</span>
-            </h2>
+            <h2 className="font-black text-5xl uppercase mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.techSpecs.titleHtml`, 'Tech <span className="text-[#10b981]">Specs</span>') }} />
           </div>
 
           <NeoCard className="bg-neutral-50">
@@ -244,9 +240,7 @@ export default function PouchEcoGPTKPage() {
       <section className="py-24 px-4 md:px-6 border-t-4 border-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-black text-5xl md:text-7xl uppercase mb-4">
-              Perfect <span className="text-[#10b981]">For</span>
-            </h2>
+            <h2 className="font-black text-5xl md:text-7xl uppercase mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.perfectFor.titleHtml`, 'Perfect <span className="text-[#10b981]">For</span>') }} />
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -271,11 +265,9 @@ export default function PouchEcoGPTKPage() {
       <section className="py-24 px-4 md:px-6 border-t-4 border-black bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-black text-5xl md:text-7xl uppercase mb-4">
-              Conventional <span className="text-[#10b981]">Sachets</span>
-            </h2>
+            <h2 className="font-black text-5xl md:text-7xl uppercase mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.sachet.titleHtml`, 'Conventional <span className="text-[#10b981]">Sachets</span>') }} />
             <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto">
-              Looking for low MOQ conventional printed sachets instead of compostable kraft pouches?
+              {t(`${p}.sachet.intro`, 'Looking for low MOQ conventional printed sachets instead of compostable kraft pouches?')}
             </p>
           </div>
 
@@ -283,45 +275,45 @@ export default function PouchEcoGPTKPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="space-y-4">
                 <div className="inline-block bg-black text-white font-['JetBrains_Mono'] px-3 py-1 text-xs uppercase font-bold tracking-wider">
-                  Silk Pure Aluminum (12丝)
+                  {t(`${p}.sachet.badge`, 'Silk Pure Aluminum (12丝)')}
                 </div>
                 <h3 className="font-black text-3xl uppercase leading-tight">
-                  Small Sachet – Conventional Material
+                  {t(`${p}.sachet.title`, 'Small Sachet – Conventional Material')}
                 </h3>
                 <p className="font-['JetBrains_Mono'] text-sm leading-relaxed text-neutral-800">
-                  Ideal for sample packs, single-serve coffee/tea, cosmetic samples, and powder sachets. Made with high-strength pure aluminum laminate providing absolute moisture and light protection.
+                  {t(`${p}.sachet.desc`, 'Ideal for sample packs, single-serve coffee/tea, cosmetic samples, and powder sachets. Made with high-strength pure aluminum laminate providing absolute moisture and light protection.')}
                 </p>
                 <div className="pt-2">
                   <NeoButton to="/store/product/small-sachet-conventional" variant="secondary" className="!px-6 !py-3">
-                    View Sachet Options
+                    {t(`${p}.sachet.button`, 'View Sachet Options')}
                   </NeoButton>
                 </div>
               </div>
 
               <div className="bg-white border-4 border-black p-4 space-y-3 font-['JetBrains_Mono'] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <div className="font-black text-sm uppercase border-b-2 border-black pb-1.5 mb-2">
-                  ⚡ Pricing Matrix (80x80mm)
+                  {t(`${p}.sachet.matrixTitle`, '⚡ Pricing Matrix (80x80mm)')}
                 </div>
                 <div className="space-y-1.5 text-xs">
                   <div className="flex justify-between">
-                    <span className="font-bold">Hot Stamping (500 pcs):</span>
-                    <span>$159.60 USD</span>
+                    <span className="font-bold">{t(`${p}.sachet.matrix1Label`, 'Hot Stamping (500 pcs):')}</span>
+                    <span>{t(`${p}.sachet.matrix1Val`, '$159.60 USD')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-bold">Hot Stamping (1,000 pcs):</span>
-                    <span>$210.00 USD</span>
+                    <span className="font-bold">{t(`${p}.sachet.matrix2Label`, 'Hot Stamping (1,000 pcs):')}</span>
+                    <span>{t(`${p}.sachet.matrix2Val`, '$210.00 USD')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-bold">Digital Print (1,000 pcs):</span>
-                    <span>$231.00 USD</span>
+                    <span className="font-bold">{t(`${p}.sachet.matrix3Label`, 'Digital Print (1,000 pcs):')}</span>
+                    <span>{t(`${p}.sachet.matrix3Val`, '$231.00 USD')}</span>
                   </div>
                   <div className="flex justify-between text-emerald-800">
-                    <span className="font-bold">Traditional Gravure (50k+):</span>
-                    <span>$0.0378 / pc</span>
+                    <span className="font-bold">{t(`${p}.sachet.matrix4Label`, 'Traditional Gravure (50k+):')}</span>
+                    <span>{t(`${p}.sachet.matrix4Val`, '$0.0378 / pc')}</span>
                   </div>
                 </div>
                 <div className="text-[10px] text-neutral-600 border-t-2 border-black pt-2 mt-2 leading-relaxed">
-                  * Optional round corners (圆角) at +$0.0336 USD / sachet. Air shipping & delivery included in standard markup formulas.
+                  {t(`${p}.sachet.note`, '* Optional round corners (圆角) at +$0.0336 USD / sachet. Air shipping & delivery included in standard markup formulas.')}
                 </div>
               </div>
             </div>
@@ -335,7 +327,7 @@ export default function PouchEcoGPTKPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <NeoCard className="bg-[#10b981] text-white">
               <h3 className="font-black text-3xl uppercase mb-6 flex items-center gap-2">
-                <Star className="w-8 h-8" /> Benefits
+                <Star className="w-8 h-8" /> {t(`${p}.prosCons.benefitsTitle`, 'Benefits')}
               </h3>
               <ul className="space-y-3">
                 {benefits.map((benefit, idx) => (
@@ -348,7 +340,7 @@ export default function PouchEcoGPTKPage() {
 
             <NeoCard className="bg-[#D4FF00]">
               <h3 className="font-black text-3xl uppercase mb-6 flex items-center gap-2">
-                <Shield className="w-8 h-8" /> Considerations
+                <Shield className="w-8 h-8" /> {t(`${p}.prosCons.considerationsTitle`, 'Considerations')}
               </h3>
               <ul className="space-y-3">
                 {considerations.map((con, idx) => (
@@ -365,32 +357,29 @@ export default function PouchEcoGPTKPage() {
       {/* CTA Section */}
       <section className="py-24 px-4 md:px-6 border-t-4 border-black bg-[#10b981] text-white">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="font-black text-5xl md:text-7xl uppercase">
-            Ready to Go<br/>
-            Natural?
-          </h2>
+          <h2 className="font-black text-5xl md:text-7xl uppercase" dangerouslySetInnerHTML={{ __html: t(`${p}.cta.titleHtml`, 'Ready to Go<br/>Natural?') }} />
           <p className="font-['JetBrains_Mono'] text-xl">
-            Order kraft pouches from 500 units. Free design consultation and sample kit included.
+            {t(`${p}.cta.desc`, 'Order kraft pouches from 500 units. Free design consultation and sample kit included.')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <NeoButton to="/store?material=kraft" variant="yellow">
-              Browse Kraft Options
+              {t(`${p}.cta.btnBrowse`, 'Browse Kraft Options')}
             </NeoButton>
             <NeoButton to="/contact" variant="secondary">
-              Talk to Expert
+              {t(`${p}.cta.btnTalk`, 'Talk to Expert')}
             </NeoButton>
           </div>
 
           {/* Trust Signals */}
           <div className="flex flex-wrap justify-center gap-4 pt-8">
             <div className="bg-white text-black border-4 border-black px-4 py-2 font-black text-sm">
-              ✓ EN13432 CERTIFIED
+              {t(`${p}.cta.trust1`, '✓ EN13432 CERTIFIED')}
             </div>
             <div className="bg-white text-black border-4 border-black px-4 py-2 font-black text-sm">
-              ✓ BPI APPROVED
+              {t(`${p}.cta.trust2`, '✓ BPI APPROVED')}
             </div>
             <div className="bg-white text-black border-4 border-black px-4 py-2 font-black text-sm">
-              ✓ FOOD SAFE
+              {t(`${p}.cta.trust3`, '✓ FOOD SAFE')}
             </div>
           </div>
         </div>
@@ -415,40 +404,40 @@ export default function PouchEcoGPTKPage() {
                 <span className="font-black text-xl">POUCH.ECO</span>
               </div>
               <p className="text-sm text-gray-600 font-['JetBrains_Mono']">
-                Eco packaging for the next generation of sustainable brands.
+                {t(`${p}.footer.desc`, 'Eco packaging for the next generation of sustainable brands.')}
               </p>
             </div>
 
             <div>
-              <h4 className="font-black mb-4 uppercase">Materials</h4>
+              <h4 className="font-black mb-4 uppercase">{t(`${p}.footer.materials`, 'Materials')}</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/materials/cello-kraft-triplex" className="hover:text-[#10b981]">Kraft Pouches</Link></li>
-                <li><Link to="/materials/compostable" className="hover:text-[#10b981]">Compostable</Link></li>
-                <li><Link to="/materials/recyclable" className="hover:text-[#10b981]">Recyclable</Link></li>
+                <li><Link to="/materials/cello-kraft-triplex" className="hover:text-[#10b981]">{t(`${p}.footer.m1`, 'Kraft Pouches')}</Link></li>
+                <li><Link to="/materials/compostable" className="hover:text-[#10b981]">{t(`${p}.footer.m2`, 'Compostable')}</Link></li>
+                <li><Link to="/materials/recyclable" className="hover:text-[#10b981]">{t(`${p}.footer.m3`, 'Recyclable')}</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-black mb-4 uppercase">Learn</h4>
+              <h4 className="font-black mb-4 uppercase">{t(`${p}.footer.learn`, 'Learn')}</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/solutions" className="hover:text-[#10b981]">Solutions</Link></li>
-                <li><Link to="/size-guide" className="hover:text-[#10b981]">Size Guide</Link></li>
-                <li><Link to="/testimonials" className="hover:text-[#10b981]">Testimonials</Link></li>
+                <li><Link to="/solutions" className="hover:text-[#10b981]">{t(`${p}.footer.l1`, 'Solutions')}</Link></li>
+                <li><Link to="/size-guide" className="hover:text-[#10b981]">{t(`${p}.footer.l2`, 'Size Guide')}</Link></li>
+                <li><Link to="/testimonials" className="hover:text-[#10b981]">{t(`${p}.footer.l3`, 'Testimonials')}</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-black mb-4 uppercase">Contact</h4>
+              <h4 className="font-black mb-4 uppercase">{t(`${p}.footer.contact`, 'Contact')}</h4>
               <ul className="space-y-2 text-sm text-gray-600 font-['JetBrains_Mono']">
                 <li>{brand.email}</li>
                 <li>{brand.phone}</li>
-                <li>Mon-Fri 9am-6pm PST</li>
+                <li>{t(`${p}.footer.c1`, 'Mon-Fri 9am-6pm PST')}</li>
               </ul>
             </div>
           </div>
 
           <div className="border-t-2 border-black pt-8 text-center text-sm text-gray-600 font-['JetBrains_Mono']">
-            © 2026 {brand.name}. All rights reserved. Made with 💚 for the planet.
+            {t(`${p}.footer.copyright`, '© 2026 {{brand}}. All rights reserved. Made with 💚 for the planet.', { brand: brand.name })}
           </div>
         </div>
       </footer>
