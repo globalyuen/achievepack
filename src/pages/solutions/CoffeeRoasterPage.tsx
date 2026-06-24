@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Coffee, Wind, Shield, Clock, CheckCircle, Calendar, MessageCircle, Award, Target, Package, Sparkles, Store, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -400,12 +400,13 @@ const CoffeeRoasterPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
-        <link rel="canonical" href="https://achievepack.com/solutions/coffee-roaster" />
-        <meta name="keywords" content="coffee roaster packaging, degassing valve bags, sustainable coffee bags, compostable coffee packaging, specialty coffee packaging, coffee bag supplier" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['coffee roaster packaging', 'degassing valve bags', 'sustainable coffee bags', 'compostable coffee packaging', 'specialty coffee packaging', 'coffee bag supplier']}
+        schemaType="Product"
+        ogImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
+      />
 
       <SEOPageLayout heroBgColor="#451a03"
         title={t(`${p}.title`)}

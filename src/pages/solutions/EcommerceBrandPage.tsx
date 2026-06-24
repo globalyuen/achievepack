@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { ShoppingCart, Package, Truck, Camera, CheckCircle, Shield, Target, Calendar, MessageCircle, Zap, Box, Scale, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -426,14 +426,13 @@ const EcommerceBrandPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
-        <link rel="canonical" href="https://achievepack.com/solutions/ecommerce-brand" />
-        <meta property="og:title" content={t(`${p}.title`)} />
-        <meta property="og:description" content={t(`${p}.description`)} />
-        <meta name="keywords" content="ecommerce packaging, DTC brand pouches, shipping cost reduction, unboxing experience, lightweight packaging, online brand packaging" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['ecommerce packaging', 'DTC brand pouches', 'shipping cost reduction', 'unboxing experience', 'lightweight packaging', 'online brand packaging']}
+        schemaType="Product"
+        ogImage="/imgs/seo-photos/a_ecommerce_lightweight_pouch_achieve_pack_8535238.webp"
+      />
 
       <SEOPageLayout heroBgColor="#14532d"
         title={t(`${p}.title`)}

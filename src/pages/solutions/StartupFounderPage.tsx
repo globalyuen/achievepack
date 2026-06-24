@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Rocket, Leaf, Award, CheckCircle, Clock, Shield, Target, Calendar, MessageCircle, Package, Zap, Users, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -524,34 +524,25 @@ const StartupFounderPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
-        <link rel="canonical" href="https://achievepack.com/solutions/startup-founder" />
-        <meta property="og:title" content={t(`${p}.title`)} />
-        <meta property="og:description" content={t(`${p}.description`)} />
-        <meta property="og:url" content="https://achievepack.com/solutions/startup-founder" />
-        <meta name="keywords" content="startup packaging, low MOQ pouches, DTC brand packaging, sustainable packaging startup, compostable pouches low minimum, wellness brand packaging, protein powder packaging" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Startup Founder Packaging Solutions",
-            "description": "Custom sustainable packaging for startup founders with low minimum order quantities, certified materials, and design support.",
-            "provider": { "@type": "Organization", "name": "Achieve Pack" },
-            "areaServed": ["United States", "United Kingdom", "European Union", "Australia"],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Startup Packaging Options",
-              "itemListElement": [
-                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Compostable Stand-Up Pouch", "description": "ASTM D6400 certified" }},
-                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Recyclable Mono-PE Pouch", "description": "Store drop-off recyclable" }}
-              ]
-            }
-          })}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['startup packaging', 'low MOQ pouches', 'DTC brand packaging', 'sustainable packaging startup', 'compostable pouches low minimum', 'wellness brand packaging', 'protein powder packaging']}
+        schemaType="Service"
+        ogImage="/imgs/seo-photos/usa/startup/a_startup_sustainable_packaging_hero.webp"
+        additionalSchema={{
+          provider: { '@type': 'Organization', name: 'Achieve Pack' },
+          areaServed: ['United States', 'United Kingdom', 'European Union', 'Australia'],
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Startup Packaging Options',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Compostable Stand-Up Pouch', description: 'ASTM D6400 certified' }},
+              { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Recyclable Mono-PE Pouch', description: 'Store drop-off recyclable' }}
+            ]
+          }
+        }}
+      />
 
       <SEOPageLayout heroBgColor="#1f2937"
         title={t(`${p}.title`)}
