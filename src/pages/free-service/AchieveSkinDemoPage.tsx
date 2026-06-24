@@ -7,6 +7,7 @@ import {
   Play, Pause, ChevronDown
 } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { useTranslation, Trans } from "react-i18next";
 
 // ============================================
 // HOLOGRAPHIC / ETHEREAL ASSETS
@@ -72,6 +73,8 @@ const FluidBlob = ({ color, className }: any) => (
 )
 
 export default function AchieveSkinDemoPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.achieveSkinDemo';
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeProduct, setActiveProduct] = useState(PRODUCTS[0])
   const [cartCount, setCartCount] = useState(0)
@@ -82,7 +85,7 @@ export default function AchieveSkinDemoPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans selection:bg-pink-200 selection:text-slate-900 overflow-hidden relative">
       <Helmet>
-        <title>Achieve Skin | Ethereal Skincare | Demo Site</title>
+        <title>{t(`${p}.achieveSkinEtherealSkincareDem`)}</title>
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
           .font-serif { font-family: 'Cormorant Garmond', serif; }
@@ -122,12 +125,11 @@ export default function AchieveSkinDemoPage() {
         <GlassCard className="max-w-7xl mx-auto rounded-full px-8 py-4 flex justify-between items-center">
           <Link to="/free-service/website-upgrade" className="flex items-center gap-2 hover:opacity-70 transition">
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-xs tracking-widest uppercase">Back to Achieve</span>
+            <span className="text-xs tracking-widest uppercase">{t(`${p}.backToAchieve`)}</span>
           </Link>
 
           <div className="font-serif text-2xl italic tracking-wide relative">
-             Achieve Skin
-             <span className="absolute -top-1 -right-3 text-[10px] font-sans not-italic text-pink-500">Refill</span>
+             {t(`${p}.achieveSkin`)}<span className="absolute -top-1 -right-3 text-[10px] font-sans not-italic text-pink-500">{t(`${p}.refill`)}</span>
           </div>
 
           <div className="flex items-center gap-6">
@@ -146,20 +148,16 @@ export default function AchieveSkinDemoPage() {
          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <motion.div style={{ y: y1 }} className="space-y-8 text-center md:text-left">
                <span className="inline-block px-4 py-1 rounded-full border border-slate-300 text-xs tracking-[0.2em] uppercase text-slate-500">
-                  The Future is Fluid
-               </span>
+                  {t(`${p}.theFutureIsFluid`)}</span>
                <h1 className="font-serif text-7xl md:text-9xl text-slate-800 leading-[0.85] tracking-tight">
-                  Ethereal <br/>
-                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-indigo-400">Beauty.</span>
+                  {t(`${p}.ethereal`)}<br/>
+                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-indigo-400">{t(`${p}.beauty`)}</span>
                </h1>
                <p className="font-sans text-slate-600 text-lg max-w-md leading-relaxed">
-                  Premium skincare refills in holographic, high-barrier spouted pouches. 
-                  Minimalist luxury that reflects the purity of what's inside.
-               </p>
+                  {t(`${p}.premiumSkincareRefillsInHologr`)}</p>
                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                   <button className="px-8 py-4 bg-slate-900 text-white rounded-full font-serif text-lg italic hover:bg-slate-800 transition shadow-xl shadow-slate-200">
-                     Discover the Collection
-                  </button>
+                     {t(`${p}.discoverTheCollection`)}</button>
                </div>
             </motion.div>
 
@@ -178,8 +176,7 @@ export default function AchieveSkinDemoPage() {
                   className="absolute top-20 right-0 p-4 rounded-2xl backdrop-blur-md bg-white/30 border border-white/40 shadow-lg text-xs font-medium"
                >
                   <Sparkles className="w-4 h-4 mb-1 text-pink-400" />
-                  Holographic Barrier
-               </motion.div>
+                  {t(`${p}.holographicBarrier`)}</motion.div>
 
                <motion.div 
                   animate={{ y: [0, 20, 0] }}
@@ -187,8 +184,7 @@ export default function AchieveSkinDemoPage() {
                   className="absolute bottom-40 left-10 p-4 rounded-2xl backdrop-blur-md bg-white/30 border border-white/40 shadow-lg text-xs font-medium"
                >
                   <Droplet className="w-4 h-4 mb-1 text-blue-400" />
-                  Liquid Metal Finish
-               </motion.div>
+                  {t(`${p}.liquidMetalFinish`)}</motion.div>
             </motion.div>
          </div>
       </section>
@@ -197,8 +193,8 @@ export default function AchieveSkinDemoPage() {
       <section className="relative z-10 py-24 px-6 mb-24">
          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-               <h2 className="font-serif text-5xl md:text-6xl mb-4">Essence of Light</h2>
-               <p className="text-slate-500 font-sans tracking-widest uppercase text-sm">Select your ritual</p>
+               <h2 className="font-serif text-5xl md:text-6xl mb-4">{t(`${p}.essenceOfLight`)}</h2>
+               <p className="text-slate-500 font-sans tracking-widest uppercase text-sm">{t(`${p}.selectYourRitual`)}</p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-8 md:gap-12">
@@ -250,8 +246,7 @@ export default function AchieveSkinDemoPage() {
             
             <div className="space-y-8">
                <h2 className="font-serif text-5xl md:text-6xl text-slate-800">
-                  Refracting <br/> Norms.
-               </h2>
+                  {t(`${p}.refracting`)}<br/> {t(`${p}.norms`)}</h2>
                <div className="space-y-6">
                   {[
                      { 
@@ -289,11 +284,10 @@ export default function AchieveSkinDemoPage() {
       <footer className="relative z-10 pt-24 pb-12 px-6">
          <div className="max-w-7xl mx-auto border-t border-slate-200 pt-16 grid md:grid-cols-4 gap-12">
             <div className="col-span-2 space-y-6">
-               <div className="font-serif text-3xl italic">Achieve Skin.</div>
+               <div className="font-serif text-3xl italic">{t(`${p}.achieveSkin1`)}</div>
                <p className="text-slate-500 max-w-sm font-sans font-light">
-                  Transcending traditional packaging. <br/>
-                  Refill. Reuse. Radiate.
-               </p>
+                  {t(`${p}.transcendingTraditionalPackagi`)}<br/>
+                  {t(`${p}.refillReuseRadiate`)}</p>
                <div className="flex gap-4">
                   {[1, 2, 3].map(i => (
                      <div key={i} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-100 transition cursor-pointer">
@@ -304,32 +298,30 @@ export default function AchieveSkinDemoPage() {
             </div>
             
             <div>
-               <h4 className="font-sans text-xs font-bold uppercase tracking-widest mb-6 text-slate-400">Shop</h4>
+               <h4 className="font-sans text-xs font-bold uppercase tracking-widest mb-6 text-slate-400">{t(`${p}.shop`)}</h4>
                <ul className="space-y-3 font-serif italic text-lg text-slate-600">
-                  <li className="hover:text-pink-400 cursor-pointer transition">Serums</li>
-                  <li className="hover:text-pink-400 cursor-pointer transition">Essences</li>
-                  <li className="hover:text-pink-400 cursor-pointer transition">Cleansers</li>
-                  <li className="hover:text-pink-400 cursor-pointer transition">Bundles</li>
+                  <li className="hover:text-pink-400 cursor-pointer transition">{t(`${p}.serums`)}</li>
+                  <li className="hover:text-pink-400 cursor-pointer transition">{t(`${p}.essences`)}</li>
+                  <li className="hover:text-pink-400 cursor-pointer transition">{t(`${p}.cleansers`)}</li>
+                  <li className="hover:text-pink-400 cursor-pointer transition">{t(`${p}.bundles`)}</li>
                </ul>
             </div>
 
             <div>
-               <h4 className="font-sans text-xs font-bold uppercase tracking-widest mb-6 text-slate-400">Connect</h4>
+               <h4 className="font-sans text-xs font-bold uppercase tracking-widest mb-6 text-slate-400">{t(`${p}.connect`)}</h4>
                <div className="space-y-4">
                   <p className="font-sans text-sm text-slate-500">
-                     Join our newsletter for early access to new drops.
-                  </p>
+                     {t(`${p}.joinOurNewsletterForEarlyAcces`)}</p>
                   <div className="flex border-b border-slate-300 pb-2">
                      <input type="email" placeholder="Email address" className="bg-transparent w-full focus:outline-none font-serif italic" />
-                     <button className="text-xs uppercase tracking-widest hover:text-pink-400 transition">Join</button>
+                     <button className="text-xs uppercase tracking-widest hover:text-pink-400 transition">{t(`${p}.join`)}</button>
                   </div>
                </div>
             </div>
          </div>
          
          <div className="text-center mt-24 text-slate-400 text-xs font-sans tracking-widest uppercase">
-            © 2026 Achieve Skin // Powered by Achieve Pack
-         </div>
+            {t(`${p}.2026AchieveSkinPoweredByAchiev`)}</div>
       </footer>
     </div>
   )

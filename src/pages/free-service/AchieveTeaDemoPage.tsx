@@ -5,6 +5,7 @@ import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, Shi
 import { motion, useInView, useScroll, useTransform, AnimatePresence, Variants } from 'motion/react'
 import { ParallaxText } from '../../components/ParallaxText'
 import { ScrollTriggeredCards, type CardData } from '../../components/ScrollTriggeredCards'
+import { useTranslation, Trans } from "react-i18next";
 
 // Reuse motion variants
 const fadeInUp: Variants = {
@@ -200,6 +201,8 @@ const TEA_SCROLL_CARDS: CardData[] = [
 ]
 
 export default function AchieveTeaDemoPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.achieveTeaDemo';
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [cartCount, setCartCount] = useState(0)
@@ -214,7 +217,7 @@ export default function AchieveTeaDemoPage() {
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#2C3E50] font-sans selection:bg-[#8FBC8F] selection:text-white">
       <Helmet>
-        <title>Achieve Tea | Organic Wellness Blends | Sustainable Packaging</title>
+        <title>{t(`${p}.achieveTeaOrganicWellnessBlend`)}</title>
         <meta name="description" content="Achieve Tea - Experience the purity of nature with our organic, sustainably packaged teas. Matcha, Earl Grey, and Herbal infusions." />
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
@@ -228,12 +231,10 @@ export default function AchieveTeaDemoPage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/free-service/website-upgrade" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-white/80 transition">
             <ArrowLeft className="w-3 h-3" />
-            Back to Achieve Pack
-          </Link>
-          <span className="text-[10px] uppercase tracking-widest text-white/80 hidden sm:block">Demo Concept by Achieve Pack</span>
+            {t(`${p}.backToAchievePack`)}</Link>
+          <span className="text-[10px] uppercase tracking-widest text-white/80 hidden sm:block">{t(`${p}.demoConceptByAchievePack`)}</span>
           <Link to="/store" className="text-xs uppercase tracking-widest font-medium hover:text-white/80 transition">
-            Get This Packaging
-          </Link>
+            {t(`${p}.getThisPackaging`)}</Link>
         </div>
       </div>
 
@@ -243,8 +244,7 @@ export default function AchieveTeaDemoPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 font-display text-2xl font-semibold tracking-wide text-[#2C3E50]">
               <Leaf className="h-5 w-5 text-[#4A7C59]" />
-              ACHIEVE TEA
-            </div>
+              {t(`${p}.achieveTea`)}</div>
 
             <div className="hidden md:flex items-center space-x-10">
               {['Shop', 'Our Ritual', 'Sustainability'].map((item) => (
@@ -294,26 +294,21 @@ export default function AchieveTeaDemoPage() {
           >
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full text-xs font-semibold tracking-widest uppercase mb-8 text-[#4A7C59] shadow-sm">
               <Star className="w-3 h-3 fill-current" />
-              Award Winning Organic Blends
-            </motion.div>
+              {t(`${p}.awardWinningOrganicBlends`)}</motion.div>
             
             <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-display font-light leading-[0.9] mb-8">
-              Nurture <br/>
-              <span className="italic text-[#4A7C59]">Nature</span> in<br/>
-              Every Cup.
-            </motion.h1>
+              {t(`${p}.nurture`)}<br/>
+              <span className="italic text-[#4A7C59]">{t(`${p}.nature`)}</span> {t(`${p}.in`)}<br/>
+              {t(`${p}.everyCup`)}</motion.h1>
 
             <motion.p variants={fadeInUp} className="text-lg text-gray-700 mb-10 max-w-md font-light leading-relaxed">
-              Ethically sourced, organic loose leaf tea packaged in 100% compostable materials. Good for you, good for the earth.
-            </motion.p>
+              {t(`${p}.ethicallySourcedOrganicLooseLe`)}</motion.p>
 
             <motion.div variants={fadeInUp} className="flex gap-4">
               <button className="px-10 py-4 bg-[#2C3E50] text-white rounded-none font-medium hover:bg-[#4A7C59] transition shadow-xl text-xs tracking-widest uppercase">
-                Explore Blends
-              </button>
+                {t(`${p}.exploreBlends`)}</button>
               <button className="px-10 py-4 border border-[#2C3E50] text-[#2C3E50] rounded-none font-medium hover:bg-white/50 transition backdrop-blur-sm text-xs tracking-widest uppercase flex items-center gap-2">
-                <Play className="w-3 h-3 fill-current" /> Our Story
-              </button>
+                <Play className="w-3 h-3 fill-current" /> {t(`${p}.ourStory`)}</button>
             </motion.div>
           </motion.div>
         </div>
@@ -322,8 +317,7 @@ export default function AchieveTeaDemoPage() {
       {/* Marquee */}
       <section className="py-12 bg-[#4A7C59] text-[#FDFBF7]">
         <ParallaxText baseVelocity={-2} textClassName="text-4xl md:text-6xl font-display font-light italic px-8">
-          Organic • Sustainable • Compostable Packaging • Single Origin • Fair Trade • 
-        </ParallaxText>
+          {t(`${p}.organicSustainableCompostableP`)}</ParallaxText>
       </section>
 
       {/* Product Grid */}
@@ -336,8 +330,8 @@ export default function AchieveTeaDemoPage() {
             variants={fadeInUp}
             className="text-center mb-20"
           >
-            <span className="text-[#C26DBC] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">The Collection</span>
-            <h2 className="text-5xl font-display font-medium text-[#2C3E50]">Curated for Wellness</h2>
+            <span className="text-[#C26DBC] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">{t(`${p}.theCollection`)}</span>
+            <h2 className="text-5xl font-display font-medium text-[#2C3E50]">{t(`${p}.curatedForWellness`)}</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-12">
@@ -365,8 +359,7 @@ export default function AchieveTeaDemoPage() {
                 <p className="text-gray-500 text-sm mb-4 line-clamp-2 leading-relaxed">{product.description}</p>
                 
                 <button className="w-full py-3 border border-gray-200 text-xs font-bold uppercase tracking-widest hover:bg-[#2C3E50] hover:text-white transition-colors duration-300">
-                  Add to Cart
-                </button>
+                  {t(`${p}.addToCart`)}</button>
               </motion.div>
             ))}
           </div>
@@ -391,15 +384,11 @@ export default function AchieveTeaDemoPage() {
                 variants={staggerContainer}
                 className="relative z-10"
               >
-                <motion.span variants={fadeInUp} className="text-[#8FBC8F] text-xs font-bold tracking-[0.2em] uppercase mb-6 block">The Ritual</motion.span>
+                <motion.span variants={fadeInUp} className="text-[#8FBC8F] text-xs font-bold tracking-[0.2em] uppercase mb-6 block">{t(`${p}.theRitual`)}</motion.span>
                 <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-display font-medium text-[#2C3E50] mb-8 leading-tight">
-                  Slow Down.<br/>Sip Intentionally.
-                </motion.h2>
+                  {t(`${p}.slowDown`)}<br/>{t(`${p}.sipIntentionally`)}</motion.h2>
                 <motion.p variants={fadeInUp} className="text-gray-600 text-lg mb-10 leading-relaxed font-light">
-                  Tea is more than a beverage; it's a moment of connection with yourself. 
-                  Our blends are crafted to transform your daily routine into a grounding ritual. 
-                  From the energizing whisk of Matcha to the calming steep of Chamomile.
-                </motion.p>
+                  {t(`${p}.teaIsMoreThanABeverageItSAMome`)}</motion.p>
                 <motion.ul variants={staggerContainer} className="space-y-4 mb-10">
                   {['Sourced from small family farms', 'Blended by master herbalists', 'Tested for purity and potency'].map((item, i) => (
                     <motion.li key={i} variants={slideInRight} className="flex items-center gap-3 text-sm font-medium text-gray-700">
@@ -409,8 +398,7 @@ export default function AchieveTeaDemoPage() {
                   ))}
                 </motion.ul>
                 <motion.button variants={fadeInUp} className="text-[#2C3E50] font-bold text-xs uppercase tracking-widest border-b border-[#2C3E50] pb-1 hover:text-[#4A7C59] hover:border-[#4A7C59] transition w-max">
-                  Read Our Brewing Guide
-                </motion.button>
+                  {t(`${p}.readOurBrewingGuide`)}</motion.button>
               </motion.div>
            </div>
         </div>
@@ -419,8 +407,8 @@ export default function AchieveTeaDemoPage() {
       {/* Features Scroll */}
       <section className="py-32 bg-[#fff]">
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
-           <span className="text-[#C26DBC] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Why Choose Achieve Tea</span>
-           <h2 className="text-4xl font-display font-medium text-[#2C3E50]">Purity in Every Leaf</h2>
+           <span className="text-[#C26DBC] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">{t(`${p}.whyChooseAchieveTea`)}</span>
+           <h2 className="text-4xl font-display font-medium text-[#2C3E50]">{t(`${p}.purityInEveryLeaf`)}</h2>
         </div>
         <ScrollTriggeredCards cards={TEA_SCROLL_CARDS} className="bg-white" />
       </section>
@@ -442,44 +430,41 @@ export default function AchieveTeaDemoPage() {
               />
               <div className="absolute -bottom-10 -right-10 bg-[#4A7C59] p-8 text-center rounded-full w-40 h-40 flex flex-col items-center justify-center animate-pulse-slow">
                  <span className="text-3xl font-display font-bold block mb-1">180</span>
-                 <span className="text-[10px] uppercase tracking-widest">Days to Compost</span>
+                 <span className="text-[10px] uppercase tracking-widest">{t(`${p}.daysToCompost`)}</span>
               </div>
             </div>
 
             <div>
-              <span className="text-[#8FBC8F] text-xs font-bold tracking-[0.2em] uppercase mb-6 block">Our Commitment</span>
+              <span className="text-[#8FBC8F] text-xs font-bold tracking-[0.2em] uppercase mb-6 block">{t(`${p}.ourCommitment`)}</span>
               <h2 className="text-4xl md:text-6xl font-display font-light mb-8">
-                Packed with <br/> <span className="italic">Purpose</span>
+                {t(`${p}.packedWith`)}<br/> <span className="italic">{t(`${p}.purpose`)}</span>
               </h2>
               <p className="text-[#FDFBF7]/80 text-lg mb-8 leading-relaxed font-light">
-                The tea industry generates tons of plastic waste annually. We refused to be part of the problem.
-                Partnering with **Achieve Pack**, we developed a fully compostable barrier pouch that protects 
-                flavor without harming the planet.
-              </p>
+                {t(`${p}.theTeaIndustryGeneratesTonsOfP`)}</p>
               
               <div className="grid grid-cols-3 gap-8 mb-10">
                 <div className="text-center">
                   <div className="bg-[#4A7C59]/20 w-12 h-12 flex items-center justify-center rounded-full mx-auto mb-3">
                     <Recycle className="w-5 h-5 text-[#8FBC8F]" />
                   </div>
-                  <span className="text-xs uppercase tracking-wide font-bold">Plastic Free</span>
+                  <span className="text-xs uppercase tracking-wide font-bold">{t(`${p}.plasticFree`)}</span>
                 </div>
                 <div className="text-center">
                   <div className="bg-[#4A7C59]/20 w-12 h-12 flex items-center justify-center rounded-full mx-auto mb-3">
                     <Leaf className="w-5 h-5 text-[#8FBC8F]" />
                   </div>
-                  <span className="text-xs uppercase tracking-wide font-bold">Bio-Based</span>
+                  <span className="text-xs uppercase tracking-wide font-bold">{t(`${p}.bioBased`)}</span>
                 </div>
                 <div className="text-center">
                   <div className="bg-[#4A7C59]/20 w-12 h-12 flex items-center justify-center rounded-full mx-auto mb-3">
                     <ShieldCheck className="w-5 h-5 text-[#8FBC8F]" />
                   </div>
-                  <span className="text-xs uppercase tracking-wide font-bold">Non-Toxic</span>
+                  <span className="text-xs uppercase tracking-wide font-bold">{t(`${p}.nonToxic`)}</span>
                 </div>
               </div>
 
               <Link to="/store" className="inline-flex items-center gap-2 text-[#8FBC8F] hover:text-white transition text-sm font-bold uppercase tracking-widest">
-                Learn about Custom Packaging <ArrowRight className="w-4 h-4" />
+                {t(`${p}.learnAboutCustomPackaging`)}<ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -493,11 +478,9 @@ export default function AchieveTeaDemoPage() {
             <div className="col-span-2">
               <div className="flex items-center gap-2 font-display text-3xl font-semibold tracking-wide text-[#2C3E50] mb-6">
                 <Leaf className="h-6 w-6 text-[#4A7C59]" />
-                ACHIEVE TEA
-              </div>
+                {t(`${p}.achieveTea`)}</div>
               <p className="text-gray-500 max-w-sm leading-relaxed mb-8">
-                Elevating the tea experience through organic purity and sustainable innovation. Join us in sipping for a better world.
-              </p>
+                {t(`${p}.elevatingTheTeaExperienceThrou`)}</p>
               <div className="flex gap-4">
                  <a href="https://www.facebook.com/achievepack" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-200 rounded-full flex items-center justify-center text-gray-400 hover:border-[#4A7C59] hover:text-[#4A7C59] transition">
                    <Facebook className="w-4 h-4" />
@@ -512,30 +495,30 @@ export default function AchieveTeaDemoPage() {
             </div>
             
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#2C3E50] mb-8">Shop Tea</h4>
+              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#2C3E50] mb-8">{t(`${p}.shopTea`)}</h4>
               <ul className="space-y-4 text-gray-500 text-sm">
-                <li><a href="#" className="hover:text-[#4A7C59] transition">Matcha Green Tea</a></li>
-                <li><a href="#" className="hover:text-[#4A7C59] transition">Black Tea</a></li>
-                <li><a href="#" className="hover:text-[#4A7C59] transition">Herbal Infusions</a></li>
-                <li><a href="#" className="hover:text-[#4A7C59] transition">Gift Sets</a></li>
+                <li><a href="#" className="hover:text-[#4A7C59] transition">{t(`${p}.matchaGreenTea`)}</a></li>
+                <li><a href="#" className="hover:text-[#4A7C59] transition">{t(`${p}.blackTea`)}</a></li>
+                <li><a href="#" className="hover:text-[#4A7C59] transition">{t(`${p}.herbalInfusions`)}</a></li>
+                <li><a href="#" className="hover:text-[#4A7C59] transition">{t(`${p}.giftSets`)}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#2C3E50] mb-8">Company</h4>
+              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#2C3E50] mb-8">{t(`${p}.company`)}</h4>
               <ul className="space-y-4 text-gray-500 text-sm">
-                <li><a href="#" className="hover:text-[#4A7C59] transition">Our Story</a></li>
-                <li><a href="#" className="hover:text-[#4A7C59] transition">Sustainability Report</a></li>
-                <li><a href="#" className="hover:text-[#4A7C59] transition">Contact Us</a></li>
-                <li><a href="#" className="hover:text-[#4A7C59] transition">Wholesale</a></li>
+                <li><a href="#" className="hover:text-[#4A7C59] transition">{t(`${p}.ourStory`)}</a></li>
+                <li><a href="#" className="hover:text-[#4A7C59] transition">{t(`${p}.sustainabilityReport`)}</a></li>
+                <li><a href="#" className="hover:text-[#4A7C59] transition">{t(`${p}.contactUs`)}</a></li>
+                <li><a href="#" className="hover:text-[#4A7C59] transition">{t(`${p}.wholesale`)}</a></li>
               </ul>
             </div>
           </div>
           
           <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#EBE7DF] text-xs text-gray-400 font-medium uppercase tracking-wider">
-            <p>© 2026 Achieve Tea. All rights reserved.</p>
+            <p>{t(`${p}.2026AchieveTeaAllRightsReserve`)}</p>
             <div className="flex items-center gap-1">
-               Powered by <Link to="/" className="text-[#4A7C59] hover:underline">Achieve Pack</Link>
+               {t(`${p}.poweredBy`)}<Link to="/" className="text-[#4A7C59] hover:underline">{t(`${p}.achievePack`)}</Link>
             </div>
           </div>
         </div>

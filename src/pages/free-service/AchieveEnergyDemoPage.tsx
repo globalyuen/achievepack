@@ -5,6 +5,7 @@ import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Zap, Target, Flame, Activ
 import { motion, useScroll, useTransform, AnimatePresence, Variants } from 'motion/react'
 import { ParallaxText } from '../../components/ParallaxText'
 import { ScrollTriggeredCards } from '../../components/ScrollTriggeredCards'
+import { useTranslation } from 'react-i18next'
 
 // ============================================
 // ANIMATION VARIANTS
@@ -155,10 +156,61 @@ const FEATURE_CARDS = [
 ]
 
 export default function AchieveEnergyDemoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.achieveEnergyDemo'
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeProduct, setActiveProduct] = useState(PRODUCTS[0])
   const [cartCount, setCartCount] = useState(0)
+
+  // ... rest of the setup
+  const FEATURE_CARDS_LOC = [
+    {
+      image: ENERGY_IMAGES.flavors.green,
+      title: t(`${p}.features.f1.title`, 'Zero Sugar. Pure Power.'),
+      hueA: 60, hueB: 90,
+      leftInfo: {
+        title: t(`${p}.features.f1.lt`, 'Clean Energy'),
+        description: t(`${p}.features.f1.ld`, 'No crash, no jitters. Just pure, sustainable energy from natural caffeine sources.'),
+        badges: [t(`${p}.features.f1.lb1`, '0g Sugar'), t(`${p}.features.f1.lb2`, 'Natural Caffeine')]
+      },
+      rightInfo: {
+        title: t(`${p}.features.f1.rt`, 'Cognitive Boost'),
+        description: t(`${p}.features.f1.rd`, 'Fortified with Nootropics like Alpha-GPC and Lion\'s Mane for peak mental performance.'),
+        badges: [t(`${p}.features.f1.rb1`, 'Focus'), t(`${p}.features.f1.rb2`, 'Clarity')]
+      }
+    },
+    {
+      image: ENERGY_IMAGES.lifestyle,
+      title: t(`${p}.features.f2.title`, 'Built for Performance'),
+      hueA: 180, hueB: 220,
+      leftInfo: {
+        title: t(`${p}.features.f2.lt`, 'Ergonomic Pouch'),
+        description: t(`${p}.features.f2.ld`, 'Flexible, durable spouted pouch fits in any pocket or gear bag. No bulk, no glass.'),
+        badges: [t(`${p}.features.f2.lb1`, 'Portable'), t(`${p}.features.f2.lb2`, 'Durable')]
+      },
+      rightInfo: {
+        title: t(`${p}.features.f2.rt`, 'Sustainable'),
+        description: t(`${p}.features.f2.rd`, 'Uses 70% less plastic than rigid bottles and is fully recyclable via our take-back program.'),
+        badges: [t(`${p}.features.f2.rb1`, 'Eco-Friendly'), t(`${p}.features.f2.rb2`, 'Low Carbon')]
+      }
+    },
+    {
+      image: ENERGY_IMAGES.flavors.red,
+      title: t(`${p}.features.f3.title`, 'Ignite Your Workout'),
+      hueA: 0, hueB: 30,
+      leftInfo: {
+        title: t(`${p}.features.f3.lt`, 'Pre-Workout'),
+        description: t(`${p}.features.f3.ld`, 'Beta-Alanine and Citrulline Malate for pump and endurance.'),
+        badges: [t(`${p}.features.f3.lb1`, 'Pump'), t(`${p}.features.f3.lb2`, 'Endurance')]
+      },
+      rightInfo: {
+        title: t(`${p}.features.f3.rt`, 'Thermogenic'),
+        description: t(`${p}.features.f3.rd`, 'Active ingredients to boost metabolism and heat up your training.'),
+        badges: [t(`${p}.features.f3.rb1`, 'Burn'), t(`${p}.features.f3.rb2`, 'Sweat')]
+      }
+    }
+  ]
 
   // Scroll effect
   useEffect(() => {
@@ -172,8 +224,8 @@ export default function AchieveEnergyDemoPage() {
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-[#D4FF00] selection:text-black">
       <Helmet>
-        <title>Achieve Energy | Unleash the Future | Demo Site</title>
-        <meta name="description" content="Achieve Energy - High performance energy gel in sustainable spouted pouches. The future of fuel." />
+        <title>{t(`${p}.seo.title`, 'Achieve Energy | Unleash the Future | Demo Site')}</title>
+        <meta name="description" content={t(`${p}.seo.description`, 'Achieve Energy - High performance energy gel in sustainable spouted pouches. The future of fuel.')} />
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
           .font-orbitron { font-family: 'Orbitron', sans-serif; }
@@ -193,7 +245,7 @@ export default function AchieveEnergyDemoPage() {
       <div className="fixed top-0 left-0 right-0 z-[60] bg-[#D4FF00] text-black py-1 px-4 font-bold font-rajdhani tracking-wider text-center uppercase text-sm">
         <Link to="/free-service/website-upgrade" className="hover:underline flex items-center justify-center gap-2">
           <ArrowLeft className="w-4 h-4" />
-          Demo Site by Achieve Pack
+          {t(`${p}.nav.demoText`, 'Demo Site by Achieve Pack')}
         </Link>
       </div>
 
@@ -203,14 +255,14 @@ export default function AchieveEnergyDemoPage() {
           <div className="flex items-center gap-2">
             <Zap className="h-8 w-8 text-[#D4FF00] fill-[#D4FF00]" />
             <span className="font-orbitron font-bold text-2xl tracking-widest text-white">
-              ACHIEVE<span className="text-[#D4FF00]">ENERGY</span>
+              {t(`${p}.nav.brand1`, 'ACHIEVE')}<span className="text-[#D4FF00]">{t(`${p}.nav.brand2`, 'ENERGY')}</span>
             </span>
           </div>
 
           <div className="hidden md:flex items-center gap-8 font-rajdhani font-semibold text-lg tracking-wide">
-            <a href="#products" className="hover:text-[#D4FF00] transition-colors">FLAVORS</a>
-            <a href="#performance" className="hover:text-[#D4FF00] transition-colors">PERFORMANCE</a>
-            <a href="#community" className="hover:text-[#D4FF00] transition-colors">COMMUNITY</a>
+            <a href="#products" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.nav.flavors`, 'FLAVORS')}</a>
+            <a href="#performance" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.nav.performance`, 'PERFORMANCE')}</a>
+            <a href="#community" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.nav.community`, 'COMMUNITY')}</a>
           </div>
 
           <div className="flex items-center gap-6">
@@ -242,9 +294,9 @@ export default function AchieveEnergyDemoPage() {
             <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8">
               <X className="w-8 h-8 text-[#D4FF00]" />
             </button>
-            <a href="#products" onClick={() => setIsMenuOpen(false)} className="text-[#D4FF00]">FLAVORS</a>
-            <a href="#performance" onClick={() => setIsMenuOpen(false)}>PERFORMANCE</a>
-            <a href="#community" onClick={() => setIsMenuOpen(false)}>COMMUNITY</a>
+            <a href="#products" onClick={() => setIsMenuOpen(false)} className="text-[#D4FF00]">{t(`${p}.nav.flavors`, 'FLAVORS')}</a>
+            <a href="#performance" onClick={() => setIsMenuOpen(false)}>{t(`${p}.nav.performance`, 'PERFORMANCE')}</a>
+            <a href="#community" onClick={() => setIsMenuOpen(false)}>{t(`${p}.nav.community`, 'COMMUNITY')}</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -270,17 +322,13 @@ export default function AchieveEnergyDemoPage() {
           >
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 border border-[#D4FF00]/50 rounded-full px-4 py-1 mb-6 bg-black/50 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-[#D4FF00] animate-ping" />
-              <span className="font-rajdhani font-bold text-[#D4FF00] tracking-wider text-sm">SYSTEM ONLINE // V 2.0</span>
+              <span className="font-rajdhani font-bold text-[#D4FF00] tracking-wider text-sm">{t(`${p}.hero.badge`, 'SYSTEM ONLINE // V 2.0')}</span>
             </motion.div>
             
-            <motion.h1 variants={fadeInUp} className="font-orbitron font-black text-6xl md:text-8xl leading-none mb-6">
-              FUEL THE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-white neon-glow">FUTURE.</span>
-            </motion.h1>
+            <motion.h1 variants={fadeInUp} className="font-orbitron font-black text-6xl md:text-8xl leading-none mb-6" dangerouslySetInnerHTML={{ __html: t(`${p}.hero.titleHtml`, 'FUEL THE <br />\n<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-white neon-glow">FUTURE.</span>') }} />
 
             <motion.p variants={fadeInUp} className="font-rajdhani text-xl text-gray-400 mb-8 max-w-lg leading-relaxed">
-              Next-gen hydration and energy in a sustainable, ultra-portable format. 
-              No bottles. No waste. Just raw power.
+              {t(`${p}.hero.desc`, 'Next-gen hydration and energy in a sustainable, ultra-portable format. No bottles. No waste. Just raw power.')}
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
@@ -289,12 +337,12 @@ export default function AchieveEnergyDemoPage() {
                 className="bg-[#D4FF00] text-black font-orbitron font-bold text-lg px-8 py-4 clip-path-polygon hover:bg-white transition-colors duration-300"
                 style={{ clipPath: 'polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)' }}
               >
-                GET CHARGED
+                {t(`${p}.hero.btnCharge`, 'GET CHARGED')}
               </button>
               <button className="border border-white/30 text-white font-orbitron font-bold text-lg px-8 py-4 clip-path-polygon hover:bg-white/10 transition-colors duration-300"
                 style={{ clipPath: 'polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)' }}
               >
-                WATCH INTRO
+                {t(`${p}.hero.btnIntro`, 'WATCH INTRO')}
               </button>
             </motion.div>
           </motion.div>

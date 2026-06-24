@@ -14,6 +14,8 @@ interface UnsubscribedEmail {
 }
 
 export default function ProspectListsPage() {
+  const { t } = useTranslation()
+  const p = 'admin.prospectLists'
   const [unsubs, setUnsubs] = useState<UnsubscribedEmail[]>([])
   const [blockedDomains, setBlockedDomains] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)

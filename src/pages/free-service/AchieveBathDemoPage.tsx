@@ -8,6 +8,7 @@ import {
 import { Link } from 'react-router-dom'
 import GeoBlocker from '../../components/GeoBlocker'
 import CookieConsent from '../../components/CookieConsent'
+import { useTranslation, Trans } from "react-i18next";
 
 // ============================================
 // BRAND ASSETS (Placeholders until generation)
@@ -92,13 +93,12 @@ const Navbar = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-md py-4 border-b border-neutral-100' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
         <div className="hidden md:flex gap-8 text-xs tracking-[0.2em] font-medium text-neutral-500 uppercase">
-          <a href="#" className="hover:text-black transition-colors">Shop</a>
-          <a href="#" className="hover:text-black transition-colors">Rituals</a>
+          <a href="#" className="hover:text-black transition-colors">{t(`${p}.shop`)}</a>
+          <a href="#" className="hover:text-black transition-colors">{t(`${p}.rituals`)}</a>
         </div>
 
         <Link to="/free-service/achieve-bath-demo" className="text-2xl font-serif tracking-tight text-neutral-900">
-          Achieve Bath.
-        </Link>
+          {t(`${p}.achieveBath`)}</Link>
 
         <div className="hidden md:flex gap-8 text-neutral-900">
           <Search className="w-5 h-5 stroke-[1.5]" />
@@ -114,9 +114,9 @@ const Navbar = () => {
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-white border-b border-neutral-100 p-8 md:hidden">
           <div className="flex flex-col gap-6 text-center font-serif text-xl">
-            <a href="#">Shop Collection</a>
-            <a href="#">Our Story</a>
-            <a href="#">Journal</a>
+            <a href="#">{t(`${p}.shopCollection`)}</a>
+            <a href="#">{t(`${p}.ourStory`)}</a>
+            <a href="#">{t(`${p}.journal`)}</a>
           </div>
         </div>
       )}
@@ -136,26 +136,22 @@ const Hero = () => {
         >
           <motion.div variants={fadeUp} className="flex items-center gap-4">
             <div className="h-[1px] w-12 bg-neutral-400"></div>
-            <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 font-medium">The Clarity Collection</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 font-medium">{t(`${p}.theClarityCollection`)}</span>
           </motion.div>
           
           <motion.h1 variants={fadeUp} className="text-6xl md:text-8xl font-serif text-neutral-900 leading-[1.1]">
-            Transparency <br />
-            <span className="italic text-neutral-400">is the new</span> <br />
-            Luxury.
-          </motion.h1>
+            {t(`${p}.transparency`)}<br />
+            <span className="italic text-neutral-400">{t(`${p}.isTheNew`)}</span> <br />
+            {t(`${p}.luxury`)}</motion.h1>
           
           <motion.p variants={fadeUp} className="text-lg text-neutral-600 max-w-md font-light leading-relaxed">
-            Experience the purity of Achieve Bath. Hand-pressed botanicals in our revolutionary clear <span className="font-medium text-neutral-900">Nano Banana Pro™</span> packaging. 
-            Printed directly on the film—no stickers, just clarity.
-          </motion.p>
+            {t(`${p}.experienceThePurityOfAchieveBa`)}<span className="font-medium text-neutral-900">{t(`${p}.nanoBananaPro`)}</span> {t(`${p}.packagingPrintedDirectlyOnTheF`)}</motion.p>
           
           <motion.div variants={fadeUp} className="flex gap-6">
             <button className="px-10 py-4 bg-neutral-900 text-white text-xs tracking-[0.2em] hover:bg-neutral-800 transition-colors">
-              SHOP THE SET
-            </button>
+              {t(`${p}.shopTheSet`)}</button>
             <button className="flex items-center gap-2 px-6 py-4 text-neutral-900 text-xs tracking-[0.2em] border border-neutral-200 hover:border-neutral-900 transition-colors">
-              DISCOVER <ArrowRight className="w-4 h-4" />
+              {t(`${p}.discover`)}<ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
         </motion.div>
@@ -173,14 +169,14 @@ const Hero = () => {
           />
           <div className="absolute bottom-8 right-8 text-right">
              <p className="font-serif text-4xl mb-2">01.</p>
-             <p className="text-xs uppercase tracking-widest text-neutral-500">Sustainably Clear</p>
+             <p className="text-xs uppercase tracking-widest text-neutral-500">{t(`${p}.sustainablyClear`)}</p>
           </div>
         </motion.div>
       </div>
       
       {/* Decorative Text */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden opacity-[0.03] pointer-events-none">
-        <h2 className="text-[20vw] font-serif whitespace-nowrap leading-none text-center">ACHIEVE BATH</h2>
+        <h2 className="text-[20vw] font-serif whitespace-nowrap leading-none text-center">{t(`${p}.achieveBath1`)}</h2>
       </div>
     </section>
   )
@@ -201,8 +197,7 @@ const Product = ({ product, index }: any) => {
         />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
            <button className="bg-white px-8 py-3 text-xs tracking-widest uppercase hover:bg-neutral-900 hover:text-white transition-colors">
-             Quick Add
-           </button>
+             {t(`${p}.quickAdd`)}</button>
         </div>
       </div>
       
@@ -220,8 +215,8 @@ const Shop = () => {
     <section className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 space-y-4">
-          <span className="text-xs font-medium tracking-[0.3em] text-neutral-400 uppercase">The Rituals</span>
-          <h2 className="font-serif text-5xl text-neutral-900">Selected Works</h2>
+          <span className="text-xs font-medium tracking-[0.3em] text-neutral-400 uppercase">{t(`${p}.theRituals`)}</span>
+          <h2 className="font-serif text-5xl text-neutral-900">{t(`${p}.selectedWorks`)}</h2>
         </div>
 
         <motion.div 
@@ -273,12 +268,14 @@ const Pillars = () => {
 }
 
 const Pricing = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
     return (
         <section className="py-32 px-6 bg-[#FAFAFA]">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-24 space-y-4">
-                    <span className="text-xs font-medium tracking-[0.3em] text-neutral-400 uppercase">Membership</span>
-                    <h2 className="font-serif text-5xl text-neutral-900">Choose Your Ritual</h2>
+                    <span className="text-xs font-medium tracking-[0.3em] text-neutral-400 uppercase">{t(`${p}.membership`)}</span>
+                    <h2 className="font-serif text-5xl text-neutral-900">{t(`${p}.chooseYourRitual`)}</h2>
                 </div>
                 
                 <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -288,36 +285,36 @@ const Pricing = () => {
                             <Leaf className="w-6 h-6 text-neutral-400" />
                         </div>
                         <div>
-                            <h3 className="font-serif text-2xl mb-2">Ritual Starter</h3>
-                            <p className="text-sm text-neutral-500">Essential oils & natural fragrances</p>
+                            <h3 className="font-serif text-2xl mb-2">{t(`${p}.ritualStarter`)}</h3>
+                            <p className="text-sm text-neutral-500">{t(`${p}.essentialOilsNaturalFragrances`)}</p>
                         </div>
-                        <div className="text-4xl font-serif">$29<span className="text-sm font-sans text-neutral-400">/mo</span></div>
+                        <div className="text-4xl font-serif">$29<span className="text-sm font-sans text-neutral-400">{t(`${p}.mo`)}</span></div>
                         <ul className="space-y-4 text-sm text-neutral-600">
-                            <li>3 Handcrafted Bath Bombs</li>
-                            <li>Eco-Friendly Packaging</li>
-                            <li>Access to Basic Content</li>
+                            <li>{t(`${p}.3HandcraftedBathBombs`)}</li>
+                            <li>{t(`${p}.ecoFriendlyPackaging`)}</li>
+                            <li>{t(`${p}.accessToBasicContent`)}</li>
                         </ul>
-                        <button className="w-full py-4 border border-neutral-900 text-xs tracking-[0.2em] hover:bg-neutral-900 hover:text-white transition-colors">START MY RITUAL</button>
+                        <button className="w-full py-4 border border-neutral-900 text-xs tracking-[0.2em] hover:bg-neutral-900 hover:text-white transition-colors">{t(`${p}.startMyRitual`)}</button>
                     </div>
 
                     {/* Collector - Highlighted */}
                     <div className="bg-[#1A1A1A] p-12 text-white flex flex-col items-center text-center space-y-8 relative transform lg:-translate-y-8 shadow-2xl">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#D4AF37] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1">Most Popular</div>
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#D4AF37] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1">{t(`${p}.mostPopular`)}</div>
                         <div className="w-16 h-16 rounded-full bg-neutral-800 flex items-center justify-center">
                             <Star className="w-6 h-6 text-[#D4AF37]" />
                         </div>
                         <div>
-                            <h3 className="font-serif text-2xl mb-2">Ritual Collector</h3>
-                            <p className="text-sm text-neutral-400">6 Premium Bath Bombs</p>
+                            <h3 className="font-serif text-2xl mb-2">{t(`${p}.ritualCollector`)}</h3>
+                            <p className="text-sm text-neutral-400">{t(`${p}.6PremiumBathBombs`)}</p>
                         </div>
-                        <div className="text-4xl font-serif">$49<span className="text-sm font-sans text-neutral-500">/mo</span></div>
+                        <div className="text-4xl font-serif">$49<span className="text-sm font-sans text-neutral-500">{t(`${p}.mo`)}</span></div>
                         <ul className="space-y-4 text-sm text-neutral-300">
-                            <li>Inclusive Seasonal Scents</li>
-                            <li>Deluxe Gift Packaging</li>
-                            <li>Full Access to Content Library</li>
-                            <li>Priority Shipping</li>
+                            <li>{t(`${p}.inclusiveSeasonalScents`)}</li>
+                            <li>{t(`${p}.deluxeGiftPackaging`)}</li>
+                            <li>{t(`${p}.fullAccessToContentLibrary`)}</li>
+                            <li>{t(`${p}.priorityShipping`)}</li>
                         </ul>
-                        <button className="w-full py-4 bg-[#D4AF37] text-white text-xs tracking-[0.2em] hover:bg-[#C5A028] transition-colors font-bold">CHOOSE COLLECTOR</button>
+                        <button className="w-full py-4 bg-[#D4AF37] text-white text-xs tracking-[0.2em] hover:bg-[#C5A028] transition-colors font-bold">{t(`${p}.chooseCollector`)}</button>
                     </div>
 
                     {/* Master */}
@@ -326,17 +323,17 @@ const Pricing = () => {
                             <Crown className="w-6 h-6 text-neutral-400" />
                         </div>
                         <div>
-                            <h3 className="font-serif text-2xl mb-2">Ritual Master</h3>
-                            <p className="text-sm text-neutral-500">12 Luxury Bath Bombs</p>
+                            <h3 className="font-serif text-2xl mb-2">{t(`${p}.ritualMaster`)}</h3>
+                            <p className="text-sm text-neutral-500">{t(`${p}.12LuxuryBathBombs`)}</p>
                         </div>
-                        <div className="text-4xl font-serif">$89<span className="text-sm font-sans text-neutral-400">/mo</span></div>
+                        <div className="text-4xl font-serif">$89<span className="text-sm font-sans text-neutral-400">{t(`${p}.mo`)}</span></div>
                         <ul className="space-y-4 text-sm text-neutral-600">
-                            <li>Customizable Scent Selection</li>
-                            <li>Signature Keepsake Box</li>
-                            <li>VIP Membership Perks</li>
-                            <li>Dedicated Concierge Support</li>
+                            <li>{t(`${p}.customizableScentSelection`)}</li>
+                            <li>{t(`${p}.signatureKeepsakeBox`)}</li>
+                            <li>{t(`${p}.vipMembershipPerks`)}</li>
+                            <li>{t(`${p}.dedicatedConciergeSupport`)}</li>
                         </ul>
-                        <button className="w-full py-4 border border-neutral-900 text-xs tracking-[0.2em] hover:bg-neutral-900 hover:text-white transition-colors">BECOME A MASTER</button>
+                        <button className="w-full py-4 border border-neutral-900 text-xs tracking-[0.2em] hover:bg-neutral-900 hover:text-white transition-colors">{t(`${p}.becomeAMaster`)}</button>
                     </div>
                 </div>
             </div>
@@ -344,23 +341,25 @@ const Pricing = () => {
     )
 }
 
-const IngredientSource = () => (
+const IngredientSource = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
+  return (
     <section className="py-24 bg-white border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-                <span className="text-xs font-medium tracking-[0.3em] text-neutral-400 uppercase">Sourcing</span>
-                <h2 className="font-serif text-4xl md:text-5xl text-neutral-900">Where It Comes From</h2>
+                <span className="text-xs font-medium tracking-[0.3em] text-neutral-400 uppercase">{t(`${p}.sourcing`)}</span>
+                <h2 className="font-serif text-4xl md:text-5xl text-neutral-900">{t(`${p}.whereItComesFrom`)}</h2>
                 <p className="text-neutral-600 leading-relaxed font-light">
-                    Our ingredients are sourced with care and respect for nature. From the rolling hills of Provence for our lavender to the mineral-rich waters of the Dead Sea.
-                </p>
+                    {t(`${p}.ourIngredientsAreSourcedWithCa`)}</p>
                 <div className="grid grid-cols-2 gap-8 pt-8">
                     <div>
-                        <h4 className="font-serif text-xl mb-2">Botanical Farms</h4>
-                        <p className="text-sm text-neutral-500">We partner with sustainable farms and local producers to ensure every bath bomb tells a story.</p>
+                        <h4 className="font-serif text-xl mb-2">{t(`${p}.botanicalFarms`)}</h4>
+                        <p className="text-sm text-neutral-500">{t(`${p}.wePartnerWithSustainableFarmsA`)}</p>
                     </div>
                     <div>
-                        <h4 className="font-serif text-xl mb-2">Artisan Workshops</h4>
-                        <p className="text-sm text-neutral-500">Handcrafted in small batches to preserve potency and quality.</p>
+                        <h4 className="font-serif text-xl mb-2">{t(`${p}.artisanWorkshops`)}</h4>
+                        <p className="text-sm text-neutral-500">{t(`${p}.handcraftedInSmallBatchesToPre`)}</p>
                     </div>
                 </div>
             </div>
@@ -370,9 +369,12 @@ const IngredientSource = () => (
             </div>
         </div>
     </section>
-)
+  )
+}
 
 const Lifestyle = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   return (
     <section className="py-0 grid md:grid-cols-2 min-h-screen">
        <div className="relative h-full min-h-[600px]">
@@ -385,54 +387,57 @@ const Lifestyle = () => {
        <div className="bg-neutral-900 text-white p-16 md:p-24 flex flex-col justify-center items-start space-y-12">
           <Star className="w-8 h-8 text-neutral-500 stroke-1" />
           <h2 className="font-serif text-5xl md:text-6xl leading-[1.2]">
-            "The most elegant way to be sustainable. Truly a game changer."
-          </h2>
+            {t(`${p}.theMostElegantWayToBeSustainab`)}</h2>
           <div className="space-y-2">
-            <p className="text-xs tracking-[0.2em] text-neutral-400 uppercase">Vogue Living</p>
-            <p className="text-xs tracking-[0.2em] text-neutral-400 uppercase">September 2025</p>
+            <p className="text-xs tracking-[0.2em] text-neutral-400 uppercase">{t(`${p}.vogueLiving`)}</p>
+            <p className="text-xs tracking-[0.2em] text-neutral-400 uppercase">{t(`${p}.september2025`)}</p>
           </div>
           <button className="text-sm border-b border-white pb-1 hover:text-neutral-300 hover:border-neutral-300 transition-colors">
-            READ THE JOURNAL
-          </button>
+            {t(`${p}.readTheJournal`)}</button>
        </div>
     </section>
   )
 }
 
 const Footer = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   return (
     <footer className="bg-white pt-24 pb-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-12">
         <Link to="/free-service/achieve-bath-demo" className="text-4xl font-serif text-neutral-900">
-          Achieve Bath.
-        </Link>
+          {t(`${p}.achieveBath`)}</Link>
         <div className="flex gap-8 text-xs tracking-widest text-neutral-500 uppercase">
-          <a href="#" className="hover:text-black">Instagram</a>
-          <a href="#" className="hover:text-black">Pinterest</a>
-          <a href="#" className="hover:text-black">Email</a>
+          <a href="#" className="hover:text-black">{t(`${p}.instagram`)}</a>
+          <a href="#" className="hover:text-black">{t(`${p}.pinterest`)}</a>
+          <a href="#" className="hover:text-black">{t(`${p}.email`)}</a>
         </div>
-        <p className="text-xs text-neutral-400">© 2026 Achieve Bath. Powered by AchievePack.</p>
+        <p className="text-xs text-neutral-400">{t(`${p}.2026AchieveBathPoweredByAchiev`)}</p>
       </div>
     </footer>
   )
 }
 
-const DemoBanner = () => (
+const DemoBanner = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
+  return (
    <div className="fixed bottom-8 left-8 z-[60] max-w-xs bg-white/80 backdrop-blur border border-neutral-200 p-6 shadow-2xl animate-in slide-in-from-bottom duration-1000">
-      <h4 className="font-serif text-xl mb-2 text-neutral-900">Demo Concept</h4>
+      <h4 className="font-serif text-xl mb-2 text-neutral-900">{t(`${p}.demoConcept`)}</h4>
       <p className="text-xs text-neutral-500 leading-relaxed mb-4">
-          showcasing "Luxury Minimal" aesthetic with <strong>Nano Banana Pro™ Clear</strong> compostable pouches.
-      </p>
+          {t(`${p}.showcasingLuxuryMinimalAesthet`)}<strong>{t(`${p}.nanoBananaProClear`)}</strong> {t(`${p}.compostablePouches`)}</p>
       <Link 
          to="/free-service/website-upgrade"
          className="text-xs font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
       >
-         Get Your Demo
-      </Link>
+         {t(`${p}.getYourDemo`)}</Link>
    </div>
-)
+  )
+}
 
 export default function AchieveBathDemoPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.achieveBathDemo';
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -440,7 +445,7 @@ export default function AchieveBathDemoPage() {
   return (
     <GeoBlocker>
       <Helmet>
-        <title>Achieve Bath | Luxury Sustainable Bath Rituals</title>
+        <title>{t(`${p}.achieveBathLuxurySustainableBa`)}</title>
         <meta name="description" content="Minimalist luxury bath products in clear compostable Nano Banana Pro packaging." />
       </Helmet>
       
@@ -449,8 +454,7 @@ export default function AchieveBathDemoPage() {
         <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-slate-200 py-1 px-4 font-medium text-center text-xs tracking-wider uppercase">
           <Link to="/free-service/website-upgrade" className="hover:text-white flex items-center justify-center gap-2 transition-colors">
             <ArrowLeft className="w-3 h-3" />
-            Demo Site by Achieve Pack
-          </Link>
+            {t(`${p}.demoSiteByAchievePack`)}</Link>
         </div>
         <Navbar />
         <Hero />

@@ -3,10 +3,13 @@ import SEO from '../components/SEO'
 import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, Send, ArrowLeft, CheckCircle, Building2, Globe, AlertCircle, Upload, X, FileText, Image } from 'lucide-react'
 import { useCalendly } from '../contexts/CalendlyContext'
+import { useTranslation } from 'react-i18next'
 
 const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
 
 const ContactPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.contact'
   const { openCalendly } = useCalendly()
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()

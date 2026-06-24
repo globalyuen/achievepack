@@ -5,64 +5,67 @@ import {
   Clock, AlertCircle, ArrowRight, Search, Filter, MessageSquare,
   Download, Upload, Mail, Bell, BarChart3, Users, ArrowLeft
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const OrderWorkflowPage: React.FC = () => {
   const navigate = useNavigate()
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.orderWorkflow'
 
   const workflowSteps = [
     {
       id: 'rfq',
-      title: 'RFQ / QuotePleaseDemand',
+      title: t(`${p}.workflowSteps.0.title`, 'RFQ / QuotePleaseDemand'),
       icon: FileText,
-      description: 'CustomerRaiseInquiryPrice，ManagementStaffReturnCompoundQuote',
+      description: t(`${p}.workflowSteps.0.desc`, 'CustomerRaiseInquiryPrice，ManagementStaffReturnCompoundQuote'),
       color: 'blue',
       features: [
-        'ViewAllPendingOf RFQ',
-        'ReturnCompoundQuoteAndSendMailPiece',
-        'WithSetMailPieceLeadUseLink',
-        'MarkQuoteStatus（AlreadySend、AlreadyConnectReceive、AlreadyReject）'
+        t(`${p}.workflowSteps.0.f1`, 'ViewAllPendingOf RFQ'),
+        t(`${p}.workflowSteps.0.f2`, 'ReturnCompoundQuoteAndSendMailPiece'),
+        t(`${p}.workflowSteps.0.f3`, 'WithSetMailPieceLeadUseLink'),
+        t(`${p}.workflowSteps.0.f4`, 'MarkQuoteStatus（AlreadySend、AlreadyConnectReceive、AlreadyReject）')
       ],
       link: '/ctrl-x9k7m/management?tab=quotes&subtab=rfq'
     },
     {
       id: 'artwork',
-      title: 'Artwork / Design Draft',
+      title: t(`${p}.workflowSteps.1.title`, 'Artwork / Design Draft'),
       icon: ImageIcon,
-      description: 'ProcessingCustomerUploadOfDesign DraftAndProvideFeedback',
+      description: t(`${p}.workflowSteps.1.desc`, 'ProcessingCustomerUploadOfDesign DraftAndProvideFeedback'),
       color: 'purple',
       features: [
-        'ReviewDesign Draft',
-        'AddReviewTheoryAndFeedback',
-        'BatchStandardOrRejectDesign Draft',
-        'ManagementDesign DraftEditionBook'
+        t(`${p}.workflowSteps.1.f1`, 'ReviewDesign Draft'),
+        t(`${p}.workflowSteps.1.f2`, 'AddReviewTheoryAndFeedback'),
+        t(`${p}.workflowSteps.1.f3`, 'BatchStandardOrRejectDesign Draft'),
+        t(`${p}.workflowSteps.1.f4`, 'ManagementDesign DraftEditionBook')
       ],
       link: '/ctrl-x9k7m/management?tab=artwork'
     },
     {
       id: 'orders',
-      title: 'Store Orders / BusinessStoreOrder',
+      title: t(`${p}.workflowSteps.2.title`, 'Store Orders / BusinessStoreOrder'),
       icon: Package,
-      description: 'ManagementWebsiteBusinessStoreOrderOfProductionAndWithDeliver',
+      description: t(`${p}.workflowSteps.2.desc`, 'ManagementWebsiteBusinessStoreOrderOfProductionAndWithDeliver'),
       color: 'green',
       features: [
-        'ViewAllOrderStatus',
-        'MoreNewOrderStatus（Pending、Confirm、Production、AlreadyShipping）',
-        'ManagementPaymentStatus',
-        'AddOrderNotes'
+        t(`${p}.workflowSteps.2.f1`, 'ViewAllOrderStatus'),
+        t(`${p}.workflowSteps.2.f2`, 'MoreNewOrderStatus（Pending、Confirm、Production、AlreadyShipping）'),
+        t(`${p}.workflowSteps.2.f3`, 'ManagementPaymentStatus'),
+        t(`${p}.workflowSteps.2.f4`, 'AddOrderNotes')
       ],
       link: '/ctrl-x9k7m/management?tab=quotes&subtab=orders'
     },
     {
       id: 'shipping',
-      title: 'Shipping / MaterialFlowTrack',
+      title: t(`${p}.workflowSteps.3.title`, 'Shipping / MaterialFlowTrack'),
       icon: Truck,
-      description: 'AddMaterialFlowLetterInfoAndNotificationCustomer',
+      description: t(`${p}.workflowSteps.3.desc`, 'AddMaterialFlowLetterInfoAndNotificationCustomer'),
       color: 'indigo',
       features: [
-        'AddTrackNumber',
-        'UploadMaterialFlowPhotoPiece',
-        'SendMaterialFlowMoreNewMailPiece',
-        'ViewWithDeliverHistory'
+        t(`${p}.workflowSteps.3.f1`, 'AddTrackNumber'),
+        t(`${p}.workflowSteps.3.f2`, 'UploadMaterialFlowPhotoPiece'),
+        t(`${p}.workflowSteps.3.f3`, 'SendMaterialFlowMoreNewMailPiece'),
+        t(`${p}.workflowSteps.3.f4`, 'ViewWithDeliverHistory')
       ],
       link: '/ctrl-x9k7m/management?tab=quotes&subtab=orders'
     }
@@ -70,21 +73,21 @@ const OrderWorkflowPage: React.FC = () => {
 
   const quickActions = [
     {
-      title: 'FastVisit',
+      title: t(`${p}.fastGuide.quickAccess.title`, 'FastVisit'),
       icon: Bell,
       items: [
-        { label: 'Pending RFQ', count: 'QuickAccess', color: 'blue' },
-        { label: 'WaitReviewDesign Draft', count: 'QuickAccess', color: 'purple' },
-        { label: 'PendingOrder', count: 'QuickAccess', color: 'orange' }
+        { label: t(`${p}.fastGuide.quickAccess.l1`, 'Pending RFQ'), count: 'QuickAccess', color: 'blue' },
+        { label: t(`${p}.fastGuide.quickAccess.l2`, 'WaitReviewDesign Draft'), count: 'QuickAccess', color: 'purple' },
+        { label: t(`${p}.fastGuide.quickAccess.l3`, 'PendingOrder'), count: 'QuickAccess', color: 'orange' }
       ]
     },
     {
-      title: 'WorkQueue',
+      title: t(`${p}.fastGuide.workQueue.title`, 'WorkQueue'),
       icon: BarChart3,
       items: [
-        { label: 'TodayTask', count: 'WorkQueue', color: 'green' },
-        { label: 'UrgentProcessing', count: 'WorkQueue', color: 'red' },
-        { label: 'WaitFollowInto', count: 'WorkQueue', color: 'yellow' }
+        { label: t(`${p}.fastGuide.workQueue.l1`, 'TodayTask'), count: 'WorkQueue', color: 'green' },
+        { label: t(`${p}.fastGuide.workQueue.l2`, 'UrgentProcessing'), count: 'WorkQueue', color: 'red' },
+        { label: t(`${p}.fastGuide.workQueue.l3`, 'WaitFollowInto'), count: 'WorkQueue', color: 'yellow' }
       ]
     }
   ]
@@ -92,33 +95,33 @@ const OrderWorkflowPage: React.FC = () => {
   const adminFeatures = [
     {
       icon: Search,
-      title: 'FullBureauSearch',
-      description: 'SearchOrder、Customer、RFQ EditNumber'
+      title: t(`${p}.management.f1.title`, 'FullBureauSearch'),
+      description: t(`${p}.management.f1.desc`, 'SearchOrder、Customer、RFQ EditNumber')
     },
     {
       icon: Filter,
-      title: 'HighGradeThroughFilter',
-      description: 'PressStatus、DayPeriod、CustomerScreen'
+      title: t(`${p}.management.f2.title`, 'HighGradeThroughFilter'),
+      description: t(`${p}.management.f2.desc`, 'PressStatus、DayPeriod、CustomerScreen')
     },
     {
       icon: MessageSquare,
-      title: 'InsidePartNotes',
-      description: 'ForOrderAddTeamNotes'
+      title: t(`${p}.management.f3.title`, 'InsidePartNotes'),
+      description: t(`${p}.management.f3.desc`, 'ForOrderAddTeamNotes')
     },
     {
       icon: Mail,
-      title: 'MailPieceNotification',
-      description: 'SelfMoveSendStatusMoreNewMailPiece'
+      title: t(`${p}.management.f4.title`, 'MailPieceNotification'),
+      description: t(`${p}.management.f4.desc`, 'SelfMoveSendStatusMoreNewMailPiece')
     },
     {
       icon: Download,
-      title: 'GuideOutData',
-      description: 'GuideOutOrderAndQuoteData'
+      title: t(`${p}.management.f5.title`, 'GuideOutData'),
+      description: t(`${p}.management.f5.desc`, 'GuideOutOrderAndQuoteData')
     },
     {
       icon: Users,
-      title: 'CustomerManagement',
-      description: 'ViewCustomerOrderHistory'
+      title: t(`${p}.management.f6.title`, 'CustomerManagement'),
+      description: t(`${p}.management.f6.desc`, 'ViewCustomerOrderHistory')
     }
   ]
 
@@ -180,17 +183,17 @@ const OrderWorkflowPage: React.FC = () => {
             className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-primary-600 transition mb-4"
           >
             <ArrowLeft className="h-4 w-4" />
-            ReturnReturnManagementPageFace
+            {t(`${p}.backToDashboard`, 'ReturnReturnManagementPageFace')}
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">Order Workflow Instructions</h1>
-          <p className="text-gray-600 mt-2">DoneSolveIfWhatUseOrderManagementSystemProcessing RFQ、Design DraftAndBusinessStoreOrder</p>
+          <h1 className="text-3xl font-bold text-gray-900">{t(`${p}.title`, 'Order Workflow Instructions')}</h1>
+          <p className="text-gray-600 mt-2">{t(`${p}.subtitle`, 'DoneSolveIfWhatUseOrderManagementSystemProcessing RFQ、Design DraftAndBusinessStoreOrder')}</p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Workflow Steps */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">CompleteWorkProcess</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t(`${p}.workflowStepsTitle`, 'CompleteWorkProcess')}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {workflowSteps.map((step, index) => {
               const Icon = step.icon
@@ -208,7 +211,7 @@ const OrderWorkflowPage: React.FC = () => {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <span className={`${colors.text} text-xs font-bold px-2 py-0.5 ${colors.bg} rounded-full`}>
-                          Steps {index + 1}
+                          {t(`${p}.stepIndex`, 'Steps {{index}}', { index: index + 1 })}
                         </span>
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
@@ -222,7 +225,7 @@ const OrderWorkflowPage: React.FC = () => {
                         ))}
                       </ul>
                       <div className="flex items-center gap-2 text-sm font-semibold text-primary-600 group-hover:gap-3 transition-all">
-                        BeforeGoProcessing
+                        {t(`${p}.goProcess`, 'BeforeGoProcessing')}
                         <ArrowRight className="h-4 w-4" />
                       </div>
                     </div>
@@ -235,7 +238,7 @@ const OrderWorkflowPage: React.FC = () => {
 
         {/* Quick Actions */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">FastGuideSail</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t(`${p}.fastGuide.title`, 'FastGuideSail')}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {quickActions.map((section) => {
               const Icon = section.icon
@@ -271,7 +274,7 @@ const OrderWorkflowPage: React.FC = () => {
 
         {/* Admin Features */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">ManagementFunctionCan</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t(`${p}.management.title`, 'ManagementFunctionCan')}</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {adminFeatures.map((feature) => {
               const Icon = feature.icon
@@ -295,92 +298,92 @@ const OrderWorkflowPage: React.FC = () => {
 
         {/* Status Legend */}
         <div className="bg-white rounded-2xl p-6 border border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">OrderStatusInstructions</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-6">{t(`${p}.statusLegend.title`, 'OrderStatusInstructions')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-700">RFQ Status</h4>
+              <h4 className="text-sm font-semibold text-gray-700">{t(`${p}.statusLegend.rfq.title`, 'RFQ Status')}</h4>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <span>Pending - Pending</span>
+                  <span>{t(`${p}.statusLegend.rfq.s1`, 'Pending - Pending')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>Quoted - AlreadyQuote</span>
+                  <span>{t(`${p}.statusLegend.rfq.s2`, 'Quoted - AlreadyQuote')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Accepted - AlreadyConnectReceive</span>
+                  <span>{t(`${p}.statusLegend.rfq.s3`, 'Accepted - AlreadyConnectReceive')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <span>Rejected - AlreadyReject</span>
+                  <span>{t(`${p}.statusLegend.rfq.s4`, 'Rejected - AlreadyReject')}</span>
                 </div>
               </div>
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-700">OrderStatus</h4>
+              <h4 className="text-sm font-semibold text-gray-700">{t(`${p}.statusLegend.order.title`, 'OrderStatus')}</h4>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <span>Pending - Pending</span>
+                  <span>{t(`${p}.statusLegend.order.s1`, 'Pending - Pending')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                  <span>Confirmed - AlreadyConfirm</span>
+                  <span>{t(`${p}.statusLegend.order.s2`, 'Confirmed - AlreadyConfirm')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                  <span>Production - ProductionIn</span>
+                  <span>{t(`${p}.statusLegend.order.s3`, 'Production - ProductionIn')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>Shipped - AlreadyShipping</span>
+                  <span>{t(`${p}.statusLegend.order.s4`, 'Shipped - AlreadyShipping')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Delivered - AlreadyDeliverReach</span>
+                  <span>{t(`${p}.statusLegend.order.s5`, 'Delivered - AlreadyDeliverReach')}</span>
                 </div>
               </div>
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-700">PaymentStatus</h4>
+              <h4 className="text-sm font-semibold text-gray-700">{t(`${p}.statusLegend.payment.title`, 'PaymentStatus')}</h4>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-gray-400"></div>
-                  <span>Unpaid - NotPayment</span>
+                  <span>{t(`${p}.statusLegend.payment.s1`, 'Unpaid - NotPayment')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>Deposit Paid - AlreadyPayFixedGold</span>
+                  <span>{t(`${p}.statusLegend.payment.s2`, 'Deposit Paid - AlreadyPayFixedGold')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Paid - AlreadyFullExtraPayment</span>
+                  <span>{t(`${p}.statusLegend.payment.s3`, 'Paid - AlreadyFullExtraPayment')}</span>
                 </div>
               </div>
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-700">Design DraftStatus</h4>
+              <h4 className="text-sm font-semibold text-gray-700">{t(`${p}.statusLegend.artwork.title`, 'Design DraftStatus')}</h4>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <span>Pending Review - WaitReview</span>
+                  <span>{t(`${p}.statusLegend.artwork.s1`, 'Pending Review - WaitReview')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>In Review - ReviewIn</span>
+                  <span>{t(`${p}.statusLegend.artwork.s2`, 'In Review - ReviewIn')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Approved - AlreadyBatchStandard</span>
+                  <span>{t(`${p}.statusLegend.artwork.s3`, 'Approved - AlreadyBatchStandard')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <span>Needs Changes - RequireRepairChange</span>
+                  <span>{t(`${p}.statusLegend.artwork.s4`, 'Needs Changes - RequireRepairChange')}</span>
                 </div>
               </div>
             </div>
@@ -389,13 +392,13 @@ const OrderWorkflowPage: React.FC = () => {
 
         {/* CTA */}
         <div className="mt-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl p-8 text-center text-white">
-          <h2 className="text-2xl font-bold mb-3">StandardPrepareGoodStartProcessingOrder?？</h2>
-          <p className="text-primary-100 mb-6">PointHitUnderSidePressButtonEnterOrderManagementSystem</p>
+          <h2 className="text-2xl font-bold mb-3">{t(`${p}.cta.title`, 'StandardPrepareGoodStartProcessingOrder?？')}</h2>
+          <p className="text-primary-100 mb-6">{t(`${p}.cta.desc`, 'PointHitUnderSidePressButtonEnterOrderManagementSystem')}</p>
           <button
             onClick={() => navigate('/ctrl-x9k7m/management')}
             className="px-8 py-3 bg-white text-primary-600 rounded-xl font-semibold hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl"
           >
-            EnterOrderManagement
+            {t(`${p}.cta.btn`, 'EnterOrderManagement')}
           </button>
         </div>
       </div>

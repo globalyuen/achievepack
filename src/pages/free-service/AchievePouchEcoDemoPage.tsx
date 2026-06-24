@@ -8,6 +8,7 @@ import {
 import { Link } from 'react-router-dom'
 import GeoBlocker from '../../components/GeoBlocker'
 import CookieConsent from '../../components/CookieConsent'
+import { useTranslation, Trans } from "react-i18next";
 
 // ============================================
 // BRAND ASSETS (Using existing placeholders)
@@ -71,6 +72,8 @@ const stagger = {
 }
 
 const Navbar = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -87,19 +90,17 @@ const Navbar = () => {
           <div className="w-8 h-8 bg-emerald-700 rounded-full flex items-center justify-center text-white">
             <Leaf className="w-4 h-4" />
           </div>
-          pouch.eco
-        </Link>
+          {t(`${p}.pouchEco`)}</Link>
 
         <div className="hidden md:flex gap-8 text-sm font-medium text-emerald-900/60">
-          <a href="#" className="hover:text-emerald-900 transition-colors">Products</a>
-          <a href="#" className="hover:text-emerald-900 transition-colors">Mission</a>
-          <a href="#" className="hover:text-emerald-900 transition-colors">Impact</a>
+          <a href="#" className="hover:text-emerald-900 transition-colors">{t(`${p}.products`)}</a>
+          <a href="#" className="hover:text-emerald-900 transition-colors">{t(`${p}.mission`)}</a>
+          <a href="#" className="hover:text-emerald-900 transition-colors">{t(`${p}.impact`)}</a>
         </div>
 
         <div className="hidden md:flex gap-6 items-center">
              <button className="text-sm font-bold text-emerald-800 border bg-emerald-50 border-emerald-200 px-5 py-2 rounded-full hover:bg-emerald-100 transition-colors">
-                Get Samples
-             </button>
+                {t(`${p}.getSamples`)}</button>
         </div>
 
         <button className="md:hidden text-emerald-900" onClick={() => setIsOpen(!isOpen)}>
@@ -111,9 +112,9 @@ const Navbar = () => {
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-[#FDFCF8] border-b border-emerald-100 p-6 md:hidden shadow-xl">
           <div className="flex flex-col gap-6 text-center font-serif text-xl text-emerald-900">
-            <a href="#">Products</a>
-            <a href="#">Mission</a>
-            <a href="#">Impact</a>
+            <a href="#">{t(`${p}.products`)}</a>
+            <a href="#">{t(`${p}.mission`)}</a>
+            <a href="#">{t(`${p}.impact`)}</a>
           </div>
         </div>
       )}
@@ -122,6 +123,8 @@ const Navbar = () => {
 }
 
 const Hero = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   return (
     <section className="relative min-h-[90vh] pt-32 pb-20 px-6 bg-[#FDFCF8] flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
@@ -133,17 +136,15 @@ const Hero = () => {
         >
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider">
              <Globe className="w-3 h-3" />
-             Global Shipping
-          </motion.div>
+             {t(`${p}.globalShipping`)}</motion.div>
           
           <motion.h1 variants={fadeUp} className="text-6xl md:text-8xl font-serif text-emerald-950 leading-[1.05] tracking-tight">
-            Make pouch <br />
-            packaging <span className="text-emerald-600 italic">eco.</span>
+            {t(`${p}.makePouch`)}<br />
+            {t(`${p}.packaging`)}<span className="text-emerald-600 italic">{t(`${p}.eco`)}</span>
           </motion.h1>
           
           <motion.p variants={fadeUp} className="text-xl text-emerald-900/70 max-w-md font-light leading-relaxed">
-            Switch to certified plant-based materials. Compostable, plastic-free, and designed for circular economy.
-            <span className="block mt-4 font-medium text-emerald-800">Up to 70% carbon footprint reduction.</span>
+            {t(`${p}.switchToCertifiedPlantBasedMat`)}<span className="block mt-4 font-medium text-emerald-800">{t(`${p}.upTo70CarbonFootprintReduction`)}</span>
           </motion.p>
           
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -154,8 +155,7 @@ const Hero = () => {
                   className="bg-white border border-emerald-200 placeholder:text-emerald-300 text-emerald-900 px-6 py-4 rounded-full w-full sm:w-80 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
                 />
                 <button className="absolute right-2 top-2 bottom-2 bg-emerald-800 text-white px-6 rounded-full font-bold text-sm hover:bg-emerald-700 transition-colors">
-                  Join
-                </button>
+                  {t(`${p}.join`)}</button>
              </div>
           </motion.div>
           
@@ -167,7 +167,7 @@ const Hero = () => {
                  </div>
                ))}
              </div>
-             <p className="text-sm text-emerald-800/60 font-medium">Trusted by 500+ eco-brands</p>
+             <p className="text-sm text-emerald-800/60 font-medium">{t(`${p}.trustedBy500EcoBrands`)}</p>
           </motion.div>
         </motion.div>
 
@@ -188,12 +188,12 @@ const Hero = () => {
           <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur rounded-2xl p-6 shadow-lg border border-white/40">
              <div className="flex justify-between items-end">
                 <div>
-                   <p className="text-xs uppercase tracking-widest text-emerald-600 font-bold mb-1">Material Science</p>
-                   <h3 className="text-2xl font-serif text-emerald-950">Bio-Based Polymer</h3>
+                   <p className="text-xs uppercase tracking-widest text-emerald-600 font-bold mb-1">{t(`${p}.materialScience`)}</p>
+                   <h3 className="text-2xl font-serif text-emerald-950">{t(`${p}.bioBasedPolymer`)}</h3>
                 </div>
                 <div className="text-right">
                    <p className="text-3xl font-bold text-emerald-700">100%</p>
-                   <p className="text-xs text-emerald-600">Compostable</p>
+                   <p className="text-xs text-emerald-600">{t(`${p}.compostable`)}</p>
                 </div>
              </div>
           </div>
@@ -204,19 +204,20 @@ const Hero = () => {
 }
 
 const Comparison = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
     return (
         <section className="py-24 px-6 bg-[#E7F0EA]">
             <div className="max-w-7xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <span className="text-emerald-600 font-bold text-sm uppercase tracking-wider">The Problem</span>
+                        <span className="text-emerald-600 font-bold text-sm uppercase tracking-wider">{t(`${p}.theProblem`)}</span>
                         <h2 className="text-4xl md:text-5xl font-serif text-emerald-950 mt-4 mb-6 leading-tigher">
-                            Plastic lasts forever. <br />
-                            <span className="opacity-40">Your packaging shouldn't.</span>
+                            {t(`${p}.plasticLastsForever`)}<br />
+                            <span className="opacity-40">{t(`${p}.yourPackagingShouldnT`)}</span>
                         </h2>
                         <p className="text-emerald-800/70 text-lg leading-relaxed mb-8">
-                            Most flexible packaging is made from multi-layer mixed plastics that are impossible to recycle. They end up in landfills or oceans for centuries.
-                        </p>
+                            {t(`${p}.mostFlexiblePackagingIsMadeFro`)}</p>
                         
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
@@ -224,8 +225,8 @@ const Comparison = () => {
                                     <X className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-serif text-emerald-950">Traditional Plastic</h4>
-                                    <p className="text-emerald-800/60 text-sm mt-1">Takes 400+ years to decompose. High carbon footprint.</p>
+                                    <h4 className="text-xl font-serif text-emerald-950">{t(`${p}.traditionalPlastic`)}</h4>
+                                    <p className="text-emerald-800/60 text-sm mt-1">{t(`${p}.takes400YearsToDecomposeHighCa`)}</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -233,8 +234,8 @@ const Comparison = () => {
                                     <CheckCircle className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-serif text-emerald-950">Pouch.eco Material</h4>
-                                    <p className="text-emerald-800/60 text-sm mt-1">Certified home compostable. Decomposes in 180 days.</p>
+                                    <h4 className="text-xl font-serif text-emerald-950">{t(`${p}.pouchEcoMaterial`)}</h4>
+                                    <p className="text-emerald-800/60 text-sm mt-1">{t(`${p}.certifiedHomeCompostableDecomp`)}</p>
                                 </div>
                             </div>
                         </div>
@@ -244,13 +245,13 @@ const Comparison = () => {
                         <div className="absolute top-0 right-0 p-6 opacity-10">
                             <Recycle className="w-64 h-64 text-emerald-900" />
                         </div>
-                        <h3 className="text-2xl font-serif text-emerald-950 mb-8 relative z-10">Carbon Impact Comparison</h3>
+                        <h3 className="text-2xl font-serif text-emerald-950 mb-8 relative z-10">{t(`${p}.carbonImpactComparison`)}</h3>
                         
                         <div className="space-y-8 relative z-10">
                             <div>
                                 <div className="flex justify-between text-sm font-bold text-gray-500 mb-2">
-                                    <span>Standard PET/ALU/PE Pouch</span>
-                                    <span>High Impact</span>
+                                    <span>{t(`${p}.standardPetAluPePouch`)}</span>
+                                    <span>{t(`${p}.highImpact`)}</span>
                                 </div>
                                 <div className="h-4 bg-gray-100 rounded-full overflow-hidden">
                                     <div className="h-full bg-gray-400 w-[95%]"></div>
@@ -258,8 +259,8 @@ const Comparison = () => {
                             </div>
                             <div>
                                 <div className="flex justify-between text-sm font-bold text-emerald-800 mb-2">
-                                    <span>Pouch.eco Compostable</span>
-                                    <span>-70% CO₂</span>
+                                    <span>{t(`${p}.pouchEcoCompostable`)}</span>
+                                    <span>{t(`${p}.70Co`)}</span>
                                 </div>
                                 <div className="h-4 bg-emerald-50 rounded-full overflow-hidden">
                                     <div className="h-full bg-emerald-500 w-[25%] shadow-[0_0_20px_rgba(16,185,129,0.5)]"></div>
@@ -270,11 +271,11 @@ const Comparison = () => {
                         <div className="mt-10 pt-8 border-t border-emerald-50 grid grid-cols-2 gap-4">
                             <div className="text-center">
                                 <p className="text-3xl font-bold text-emerald-950">180</p>
-                                <p className="text-xs text-emerald-600 uppercase font-bold mt-1">Days to Compost</p>
+                                <p className="text-xs text-emerald-600 uppercase font-bold mt-1">{t(`${p}.daysToCompost`)}</p>
                             </div>
                              <div className="text-center">
                                 <p className="text-3xl font-bold text-emerald-950">0</p>
-                                <p className="text-xs text-emerald-600 uppercase font-bold mt-1">Microplastics</p>
+                                <p className="text-xs text-emerald-600 uppercase font-bold mt-1">{t(`${p}.microplastics`)}</p>
                             </div>
                         </div>
                     </div>
@@ -285,13 +286,15 @@ const Comparison = () => {
 }
 
 const Shop = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
     return (
         <section className="py-32 px-6 bg-[#FDFCF8]">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-24 space-y-4">
-                    <span className="text-xs font-bold tracking-[0.2em] text-emerald-600 uppercase border border-emerald-200 px-4 py-1 rounded-full">Collection</span>
-                    <h2 className="font-serif text-5xl md:text-6xl text-emerald-950">Certified Solutions</h2>
-                    <p className="text-lg text-emerald-900/60 max-w-2xl mx-auto">Available in low MOQ for startups. Digital printing included.</p>
+                    <span className="text-xs font-bold tracking-[0.2em] text-emerald-600 uppercase border border-emerald-200 px-4 py-1 rounded-full">{t(`${p}.collection`)}</span>
+                    <h2 className="font-serif text-5xl md:text-6xl text-emerald-950">{t(`${p}.certifiedSolutions`)}</h2>
+                    <p className="text-lg text-emerald-900/60 max-w-2xl mx-auto">{t(`${p}.availableInLowMoqForStartupsDi`)}</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -304,8 +307,7 @@ const Shop = () => {
                             <div className="aspect-[4/5] rounded-2xl bg-[#F4F8F5] mb-6 overflow-hidden relative">
                                 <img src={product.image} alt={product.name} className="w-full h-full object-contain mix-blend-multiply p-4 transition-transform group-hover:scale-105" />
                                 <div className="absolute top-3 right-3 bg-white px-2 py-1 rounded-md text-[10px] font-bold text-emerald-800 uppercase shadow-sm">
-                                    MOQ 100
-                                </div>
+                                    {t(`${p}.moq100`)}</div>
                             </div>
                             <h3 className="text-xl font-serif text-emerald-950 font-bold">{product.name}</h3>
                             <p className="text-sm text-emerald-600/80 mb-4">{product.desc}</p>
@@ -323,34 +325,40 @@ const Shop = () => {
     )
 }
 
-const Certifications = () => (
+const Certifications = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
+  return (
     <section className="py-16 bg-emerald-950 text-white/80">
         <div className="max-w-7xl mx-auto text-center px-6">
-            <h4 className="text-sm font-bold uppercase tracking-widest mb-10 opacity-50">Internationally Certified</h4>
+            <h4 className="text-sm font-bold uppercase tracking-widest mb-10 opacity-50">{t(`${p}.internationallyCertified`)}</h4>
             <div className="flex flex-wrap justify-center gap-12 md:gap-24 items-center grayscale hover:grayscale-0 transition-all duration-500">
                {/* Reusing existing assets implicitly or just text design for now if assets missing */}
                <div className="flex flex-col items-center gap-2">
                   <ShieldCheck className="w-12 h-12" />
-                  <span className="font-serif">EN 13432</span>
+                  <span className="font-serif">{t(`${p}.en13432`)}</span>
                </div>
                <div className="flex flex-col items-center gap-2">
                   <Leaf className="w-12 h-12" />
-                  <span className="font-serif">BPI Certified</span>
+                  <span className="font-serif">{t(`${p}.bpiCertified`)}</span>
                </div>
                <div className="flex flex-col items-center gap-2">
                    <Recycle className="w-12 h-12" />
-                   <span className="font-serif">GRS Verified</span>
+                   <span className="font-serif">{t(`${p}.grsVerified`)}</span>
                </div>
                <div className="flex flex-col items-center gap-2">
                    <Globe className="w-12 h-12" />
-                   <span className="font-serif">ASTM D6400</span>
+                   <span className="font-serif">{t(`${p}.astmD6400`)}</span>
                </div>
             </div>
         </div>
     </section>
-)
+  )
+}
 
 const Footer = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   return (
     <footer className="bg-[#FDFCF8] pt-24 pb-12 px-6 border-t border-emerald-100">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-12">
@@ -358,35 +366,38 @@ const Footer = () => {
             <div className="w-10 h-10 bg-emerald-800 rounded-full flex items-center justify-center text-white">
                 <Leaf className="w-5 h-5" />
             </div>
-            pouch.eco
-        </Link>
+            {t(`${p}.pouchEco`)}</Link>
         <div className="flex gap-8 text-xs tracking-widest text-emerald-900/40 uppercase">
-          <a href="#" className="hover:text-emerald-900">Instagram</a>
-          <a href="#" className="hover:text-emerald-900">LinkedIn</a>
-          <a href="#" className="hover:text-emerald-900">Email</a>
+          <a href="#" className="hover:text-emerald-900">{t(`${p}.instagram`)}</a>
+          <a href="#" className="hover:text-emerald-900">{t(`${p}.linkedin`)}</a>
+          <a href="#" className="hover:text-emerald-900">{t(`${p}.email`)}</a>
         </div>
-        <p className="text-xs text-emerald-900/20">© 2026 Achieve Pack Demo. All materials plant-based.</p>
+        <p className="text-xs text-emerald-900/20">{t(`${p}.2026AchievePackDemoAllMaterial`)}</p>
       </div>
     </footer>
   )
 }
 
-const DemoBanner = () => (
+const DemoBanner = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
+  return (
    <div className="fixed bottom-8 left-8 z-[60] max-w-xs bg-white/90 backdrop-blur border border-emerald-100 p-6 shadow-2xl animate-in slide-in-from-bottom duration-1000 rounded-2xl">
-      <h4 className="font-serif text-xl mb-2 text-emerald-950">Demo Concept</h4>
+      <h4 className="font-serif text-xl mb-2 text-emerald-950">{t(`${p}.demoConcept`)}</h4>
       <p className="text-xs text-emerald-600 leading-relaxed mb-4">
-          showcasing "Trumprx Style" minimalism with an <strong>Eco-Friendly</strong> twist for pouch.eco content.
-      </p>
+          {t(`${p}.showcasingTrumprxStyleMinimali`)}<strong>{t(`${p}.ecoFriendly`)}</strong> {t(`${p}.twistForPouchEcoContent`)}</p>
       <Link 
          to="/free-service/website-upgrade"
          className="text-xs font-bold uppercase tracking-widest text-emerald-800 border-b border-emerald-800 pb-1 hover:text-emerald-600 hover:border-emerald-600 transition-colors"
       >
-         Get Your Demo
-      </Link>
+         {t(`${p}.getYourDemo`)}</Link>
    </div>
-)
+  )
+}
 
 export default function AchievePouchEcoDemoPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.achievePouchEcoDemo';
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -394,7 +405,7 @@ export default function AchievePouchEcoDemoPage() {
   return (
     <GeoBlocker>
       <Helmet>
-        <title>Pouch.eco Demo | Sustainable Packaging Solutions</title>
+        <title>{t(`${p}.pouchEcoDemoSustainablePackagi`)}</title>
         <meta name="description" content="Make your packaging eco. Certified compostable pouches with low MOQ digital printing." />
       </Helmet>
       
@@ -403,8 +414,7 @@ export default function AchievePouchEcoDemoPage() {
         <div className="fixed top-0 left-0 right-0 z-[60] bg-emerald-950 text-emerald-50 py-1 px-4 font-medium text-center text-xs tracking-wider uppercase">
           <Link to="/free-service/website-upgrade" className="hover:text-white flex items-center justify-center gap-2 transition-colors">
             <ArrowLeft className="w-3 h-3" />
-            Demo Site by Achieve Pack
-          </Link>
+            {t(`${p}.demoSiteByAchievePack`)}</Link>
         </div>
         <Navbar />
         <Hero />

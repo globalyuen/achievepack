@@ -5,6 +5,7 @@ import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, Shi
 import { motion, useInView, useScroll, useTransform, AnimatePresence, Variants } from 'motion/react'
 import { ParallaxText } from '../../components/ParallaxText'
 import { ScrollTriggeredCards, CHIPS_SCROLL_CARDS } from '../../components/ScrollTriggeredCards'
+import { useTranslation, Trans } from "react-i18next";
 
 // ============================================
 // MOTION ANIMATION VARIANTS - Reusable configs
@@ -353,6 +354,8 @@ const PRODUCTS = [
 ]
 
 export default function AchieveChipsDemoPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.achieveChipsDemo';
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [cartCount, setCartCount] = useState(0)
@@ -389,7 +392,7 @@ export default function AchieveChipsDemoPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Helmet>
-        <title>Achieve Chips | Premium Organic Potato Chips | Compostable Packaging</title>
+        <title>{t(`${p}.achieveChipsPremiumOrganicPota`)}</title>
         <meta name="description" content="Discover Achieve Chips - premium organic tortilla chips in Fiery Chili Lime, Herb & Garlic, and Sea Salt & Vinegar. Made with certified organic ingredients and packaged in BPI certified compostable bags. Gluten-free, non-GMO, sustainable snacks." />
         <meta name="keywords" content={SEO_KEYWORDS.join(', ')} />
         <style>{`
@@ -411,12 +414,10 @@ export default function AchieveChipsDemoPage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/free-service/website-upgrade" className="flex items-center gap-2 text-sm hover:text-white/80 transition">
             <ArrowLeft className="w-4 h-4" />
-            Back to Achieve Pack
-          </Link>
-          <span className="text-xs text-white/80 hidden sm:block">This is a demo website created by Achieve Pack</span>
+            {t(`${p}.backToAchievePack`)}</Link>
+          <span className="text-xs text-white/80 hidden sm:block">{t(`${p}.thisIsADemoWebsiteCreatedByAch`)}</span>
           <Link to="/store" className="text-sm font-medium hover:text-white/80 transition">
-            Browse Packaging
-          </Link>
+            {t(`${p}.browsePackaging`)}</Link>
         </div>
       </div>
 
@@ -441,12 +442,10 @@ export default function AchieveChipsDemoPage() {
             {/* Right side buttons - Oscar style */}
             <div className="hidden md:flex items-center gap-3">
               <button className="px-4 py-2 text-sm font-medium text-[#2e7d32] border border-[#2e7d32] rounded-lg hover:bg-[#2e7d32]/5 transition-colors font-display">
-                Login
-              </button>
+                {t(`${p}.login`)}</button>
               <button className="relative px-4 py-2 text-sm font-medium text-white bg-[#2e7d32] rounded-lg hover:bg-[#1b5e20] transition-colors font-display flex items-center gap-2">
                 <ShoppingCart className="w-4 h-4" />
-                Shop Now
-                {cartCount > 0 && (
+                {t(`${p}.shopNow`)}{cartCount > 0 && (
                   <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#C75B39] text-white rounded-full text-[10px] font-bold flex items-center justify-center">
                     {cartCount}
                   </span>
@@ -506,8 +505,7 @@ export default function AchieveChipsDemoPage() {
               variants={fadeInUp}
             >
               <Leaf className="w-4 h-4 mr-2" />
-              Premium Organic Chips by Achieve Eco
-            </motion.div>
+              {t(`${p}.premiumOrganicChipsByAchieveEc`)}</motion.div>
 
             {/* Flavor Selector Pills - centered */}
             <motion.div className="flex flex-wrap justify-center gap-3 mb-8" variants={fadeInUp}>
@@ -538,7 +536,7 @@ export default function AchieveChipsDemoPage() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                Discover the Taste of{' '}
+                {t(`${p}.discoverTheTasteOf`)}{' '}
                 <span 
                   className="relative inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-lg"
                 >
@@ -583,8 +581,7 @@ export default function AchieveChipsDemoPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <ShoppingCart className="w-4 h-4" />
-                Add to Cart
-              </motion.button>
+                {t(`${p}.addToCart`)}</motion.button>
             </motion.div>
 
             {/* Badges */}
@@ -608,10 +605,9 @@ export default function AchieveChipsDemoPage() {
               className="text-sm text-white/70 font-display backdrop-blur-sm"
               variants={fadeInUp}
             >
-              Demo site created by{' '}
+              {t(`${p}.demoSiteCreatedBy`)}{' '}
               <Link to="/free-service/website-upgrade" className="text-white hover:underline font-medium">
-                Achieve Pack
-              </Link>
+                {t(`${p}.achievePack`)}</Link>
             </motion.p>
           </motion.div>
         </div>
@@ -676,8 +672,8 @@ export default function AchieveChipsDemoPage() {
             viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">Our Collection</h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto font-display">Three distinct flavors, one uncompromising standard of quality</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">{t(`${p}.ourCollection`)}</h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto font-display">{t(`${p}.threeDistinctFlavorsOneUncompr`)}</p>
           </motion.div>
 
           {/* Product cards grid with stagger */}
@@ -717,8 +713,7 @@ export default function AchieveChipsDemoPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Add to Cart
-                  </motion.button>
+                    {t(`${p}.addToCart`)}</motion.button>
                 </div>
               </motion.div>
             ))}
@@ -736,22 +731,20 @@ export default function AchieveChipsDemoPage() {
             baseVelocity={-3} 
             textClassName="text-5xl md:text-7xl font-display font-black uppercase tracking-tight text-white/90"
           >
-            ACHIEVE ECO ORGANIC • FIERY CHILI LIME • HERB & GARLIC •
-          </ParallaxText>
+            {t(`${p}.achieveEcoOrganicFieryChiliLim`)}</ParallaxText>
           <ParallaxText 
             baseVelocity={3} 
             textClassName="text-5xl md:text-7xl font-display font-black uppercase tracking-tight text-white/30"
           >
-            SEA SALT VINEGAR • GLUTEN FREE • NON-GMO • COMPOSTABLE •
-          </ParallaxText>
+            {t(`${p}.seaSaltVinegarGlutenFreeNonGmo`)}</ParallaxText>
         </div>
       </section>
 
       {/* Scroll Triggered Flavor Cards - Spring Animation */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-display font-bold">Our Promise</h2>
-          <p className="text-gray-500 mt-2">Scroll to discover what makes us different</p>
+          <h2 className="text-3xl md:text-4xl font-display font-bold">{t(`${p}.ourPromise`)}</h2>
+          <p className="text-gray-500 mt-2">{t(`${p}.scrollToDiscoverWhatMakesUsDif`)}</p>
         </div>
         <ScrollTriggeredCards cards={CHIPS_SCROLL_CARDS} />
       </section>
@@ -797,31 +790,28 @@ export default function AchieveChipsDemoPage() {
                 className="text-4xl md:text-5xl font-display font-bold mb-6"
                 variants={fadeInUp}
               >
-                Perfect Crunch, Every Time
-              </motion.h2>
+                {t(`${p}.perfectCrunchEveryTime`)}</motion.h2>
               <motion.p 
                 className="text-gray-600 text-lg leading-relaxed mb-8 font-display"
                 variants={fadeInUp}
               >
-                Our proprietary cooking process ensures each chip achieves the ideal golden crispness. 
-                We source only the finest organic potatoes, slice them to precision thickness, and cook them in small batches.
-              </motion.p>
+                {t(`${p}.ourProprietaryCookingProcessEn`)}</motion.p>
               {/* Stats row with individual reveal animations */}
               <motion.div 
                 className="flex gap-4"
                 variants={staggerContainer}
               >
                 <motion.div className="text-center" variants={statReveal}>
-                  <div className="text-3xl font-bold font-display" style={{ color: '#C75B39' }}>1.2mm</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Slice Thickness</div>
+                  <div className="text-3xl font-bold font-display" style={{ color: '#C75B39' }}>{t(`${p}.12mm`)}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">{t(`${p}.sliceThickness`)}</div>
                 </motion.div>
                 <motion.div className="text-center" variants={statReveal}>
-                  <div className="text-3xl font-bold font-display" style={{ color: '#5B8C5A' }}>180°C</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Perfect Temp</div>
+                  <div className="text-3xl font-bold font-display" style={{ color: '#5B8C5A' }}>{t(`${p}.180C`)}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">{t(`${p}.perfectTemp`)}</div>
                 </motion.div>
                 <motion.div className="text-center" variants={statReveal}>
-                  <div className="text-3xl font-bold font-display" style={{ color: '#4A7C9B' }}>48hr</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Quality Check</div>
+                  <div className="text-3xl font-bold font-display" style={{ color: '#4A7C9B' }}>{t(`${p}.48hr`)}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">{t(`${p}.qualityCheck`)}</div>
                 </motion.div>
               </motion.div>
             </div>
@@ -845,17 +835,17 @@ export default function AchieveChipsDemoPage() {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <motion.div className="text-center" variants={statReveal}>
               <div className="text-4xl font-serif text-amber-700">100%</div>
-              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Organic Potatoes</div>
+              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">{t(`${p}.organicPotatoes`)}</div>
             </motion.div>
             <div className="hidden md:block w-px h-12 bg-amber-300" />
             <motion.div className="text-center" variants={statReveal}>
-              <div className="text-4xl font-serif text-amber-700">Real</div>
-              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Spices & Herbs</div>
+              <div className="text-4xl font-serif text-amber-700">{t(`${p}.real`)}</div>
+              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">{t(`${p}.spicesHerbs`)}</div>
             </motion.div>
             <div className="hidden md:block w-px h-12 bg-amber-300" />
             <motion.div className="text-center" variants={statReveal}>
-              <div className="text-4xl font-serif text-amber-700">No</div>
-              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Artificial Flavors</div>
+              <div className="text-4xl font-serif text-amber-700">{t(`${p}.no`)}</div>
+              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">{t(`${p}.artificialFlavors`)}</div>
             </motion.div>
           </div>
         </motion.div>
@@ -886,29 +876,24 @@ export default function AchieveChipsDemoPage() {
                 className="text-[#C75B39] text-sm font-bold tracking-[0.3em] uppercase mb-4 block font-display"
                 variants={fadeInUp}
               >
-                Our Story
-              </motion.span>
+                {t(`${p}.ourStory`)}</motion.span>
               <motion.h2 
                 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight"
                 variants={fadeInUp}
               >
-                From Farm to<br />
-                <span className="text-gray-400">Flavor</span>
+                {t(`${p}.fromFarmTo`)}<br />
+                <span className="text-gray-400">{t(`${p}.flavor`)}</span>
               </motion.h2>
               <motion.p 
                 className="text-gray-600 text-lg leading-relaxed mb-6 font-display"
                 variants={fadeInUp}
               >
-                It all starts with the potato. We partner directly with organic farms that share our commitment to sustainable agriculture. 
-                Each potato is hand-selected for size, starch content, and flavor profile.
-              </motion.p>
+                {t(`${p}.itAllStartsWithThePotatoWePart`)}</motion.p>
               <motion.p 
                 className="text-gray-600 text-lg leading-relaxed mb-8 font-display"
                 variants={fadeInUp}
               >
-                Our seasonings are crafted from real ingredients - no artificial flavors, no MSG, no compromise. 
-                Just honest, bold taste that you can feel good about.
-              </motion.p>
+                {t(`${p}.ourSeasoningsAreCraftedFromRea`)}</motion.p>
               {/* Stats grid with stagger */}
               <motion.div 
                 className="grid grid-cols-3 gap-6"
@@ -920,7 +905,7 @@ export default function AchieveChipsDemoPage() {
                   whileHover={{ y: -5, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
                 >
                   <div className="text-2xl font-bold font-display text-gray-900">15+</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Farm Partners</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">{t(`${p}.farmPartners`)}</div>
                 </motion.div>
                 <motion.div 
                   className="text-center p-4 bg-gray-100 rounded-xl"
@@ -928,7 +913,7 @@ export default function AchieveChipsDemoPage() {
                   whileHover={{ y: -5, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
                 >
                   <div className="text-2xl font-bold font-display text-gray-900">100%</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Organic</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">{t(`${p}.organic`)}</div>
                 </motion.div>
                 <motion.div 
                   className="text-center p-4 bg-gray-100 rounded-xl"
@@ -936,7 +921,7 @@ export default function AchieveChipsDemoPage() {
                   whileHover={{ y: -5, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
                 >
                   <div className="text-2xl font-bold font-display text-gray-900">0</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Preservatives</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-display">{t(`${p}.preservatives`)}</div>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -990,22 +975,19 @@ export default function AchieveChipsDemoPage() {
                   className="text-5xl md:text-6xl font-display font-bold mb-6"
                   variants={fadeInUp}
                 >
-                  Elevate Your Snacking
-                </motion.h2>
+                  {t(`${p}.elevateYourSnacking`)}</motion.h2>
                 <motion.p 
                   className="text-xl text-white/70 mb-8 font-display"
                   variants={fadeInUp}
                 >
-                  Premium ingredients. Sustainable packaging. Uncompromising taste. This is snacking, elevated.
-                </motion.p>
+                  {t(`${p}.premiumIngredientsSustainableP`)}</motion.p>
                 <motion.button 
                   className="px-8 py-4 bg-gray-900 text-white rounded-full font-bold text-sm uppercase tracking-wide font-display"
                   variants={fadeInUp}
                   whileHover={{ backgroundColor: '#C75B39', scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Shop All Flavors
-                </motion.button>
+                  {t(`${p}.shopAllFlavors`)}</motion.button>
               </motion.div>
             </div>
           </div>
@@ -1030,21 +1012,19 @@ export default function AchieveChipsDemoPage() {
                 className="text-green-400 text-sm font-bold tracking-[0.3em] uppercase mb-4 block font-display"
                 variants={slideInLeft}
               >
-                Sustainability
-              </motion.span>
+                {t(`${p}.sustainability`)}</motion.span>
               <motion.h2 
                 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight"
                 variants={slideInLeft}
               >
-                100% Compostable<br />
-                <span className="text-green-400">Packaging</span>
+                {t(`${p}.100Compostable`)}<br />
+                <span className="text-green-400">{t(`${p}.packaging`)}</span>
               </motion.h2>
               <motion.p 
                 className="text-gray-600 text-lg leading-relaxed mb-8 font-display"
                 variants={slideInLeft}
               >
-                Every Achieve Chips bag is designed to return to the earth. Our certified compostable packaging breaks down in commercial composting facilities within 180 days, leaving no microplastics behind.
-              </motion.p>
+                {t(`${p}.everyAchieveChipsBagIsDesigned`)}</motion.p>
               
               {/* Feature list with alternating animations */}
               <motion.div 
@@ -1064,8 +1044,8 @@ export default function AchieveChipsDemoPage() {
                     <Check className="w-6 h-6 text-green-400" />
                   </motion.div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-lg font-display">BPI Certified Compostable</h4>
-                    <p className="text-gray-500 font-display">Meets ASTM D6400 standards for industrial composting</p>
+                    <h4 className="font-bold text-gray-900 text-lg font-display">{t(`${p}.bpiCertifiedCompostable`)}</h4>
+                    <p className="text-gray-500 font-display">{t(`${p}.meetsAstmD6400StandardsForIndu`)}</p>
                   </div>
                 </motion.div>
                 {/* Item 2 - slide from right */}
@@ -1081,8 +1061,8 @@ export default function AchieveChipsDemoPage() {
                     <Check className="w-6 h-6 text-green-400" />
                   </motion.div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-lg font-display">Plant-Based Materials</h4>
-                    <p className="text-gray-500 font-display">Made from renewable resources including PLA and cellulose</p>
+                    <h4 className="font-bold text-gray-900 text-lg font-display">{t(`${p}.plantBasedMaterials`)}</h4>
+                    <p className="text-gray-500 font-display">{t(`${p}.madeFromRenewableResourcesIncl`)}</p>
                   </div>
                 </motion.div>
                 {/* Item 3 - slide from left */}
@@ -1098,8 +1078,8 @@ export default function AchieveChipsDemoPage() {
                     <Check className="w-6 h-6 text-green-400" />
                   </motion.div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-lg font-display">Zero Plastic Waste</h4>
-                    <p className="text-gray-500 font-display">Returns to earth as nutrient-rich compost</p>
+                    <h4 className="font-bold text-gray-900 text-lg font-display">{t(`${p}.zeroPlasticWaste`)}</h4>
+                    <p className="text-gray-500 font-display">{t(`${p}.returnsToEarthAsNutrientRichCo`)}</p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -1109,13 +1089,13 @@ export default function AchieveChipsDemoPage() {
                 variants={fadeInUp}
                 whileHover={{ y: -5, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}
               >
-                <p className="text-gray-600 text-sm mb-4 font-display">Our eco-friendly packaging is proudly supplied by Achieve Pack, specialists in sustainable food packaging.</p>
+                <p className="text-gray-600 text-sm mb-4 font-display">{t(`${p}.ourEcoFriendlyPackagingIsProud`)}</p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/materials/compostable" className="inline-flex items-center gap-2 text-sm font-semibold text-green-400 hover:text-green-300 transition font-display">
-                    Learn About Compostable <ExternalLink className="w-4 h-4" />
+                    {t(`${p}.learnAboutCompostable`)}<ExternalLink className="w-4 h-4" />
                   </Link>
                   <Link to="/industry/snacks-food" className="inline-flex items-center gap-2 text-sm font-semibold text-[#C75B39] hover:text-white transition font-display">
-                    Snack Packaging <ExternalLink className="w-4 h-4" />
+                    {t(`${p}.snackPackaging`)}<ExternalLink className="w-4 h-4" />
                   </Link>
                 </div>
               </motion.div>
@@ -1146,7 +1126,7 @@ export default function AchieveChipsDemoPage() {
                 whileHover={{ scale: 1.05, rotate: 3 }}
               >
                 <div className="text-3xl font-bold font-display">180</div>
-                <div className="text-xs font-bold uppercase tracking-wider font-display">Days to Compost</div>
+                <div className="text-xs font-bold uppercase tracking-wider font-display">{t(`${p}.daysToCompost`)}</div>
               </motion.div>
             </motion.div>
           </div>
@@ -1175,8 +1155,8 @@ export default function AchieveChipsDemoPage() {
             viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
           >
-            <h2 className="text-3xl font-display font-bold mb-4">Certified Quality</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto font-display">Our products meet the highest standards for organic certification and sustainable packaging.</p>
+            <h2 className="text-3xl font-display font-bold mb-4">{t(`${p}.certifiedQuality`)}</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto font-display">{t(`${p}.ourProductsMeetTheHighestStand`)}</p>
           </motion.div>
           {/* Certification cards with stagger */}
           <motion.div 
@@ -1230,8 +1210,7 @@ export default function AchieveChipsDemoPage() {
             <div className="lg:col-span-4">
               <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-24 w-auto mb-6" />
               <p className="text-gray-400 max-w-sm leading-relaxed mb-6 font-display">
-                Premium organic potato chips crafted with care, packaged sustainably. Because great taste and environmental responsibility go hand in hand.
-              </p>
+                {t(`${p}.premiumOrganicPotatoChipsCraft`)}</p>
               <div className="flex gap-4">
                 {[Facebook, Instagram, Twitter].map((Icon, i) => (
                   <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C75B39] transition-all border border-white/20">
@@ -1241,25 +1220,25 @@ export default function AchieveChipsDemoPage() {
               </div>
             </div>
             <div className="lg:col-span-2">
-              <h4 className="font-bold tracking-wider uppercase text-xs text-[#C75B39] mb-6 font-display">Shop</h4>
+              <h4 className="font-bold tracking-wider uppercase text-xs text-[#C75B39] mb-6 font-display">{t(`${p}.shop`)}</h4>
               <ul className="space-y-3 text-gray-400 text-sm font-display">
                 {PRODUCTS.map(p => <li key={p.id}><a href="#" className="hover:text-white transition">{p.name}</a></li>)}
-                <li><a href="#" className="hover:text-white transition">Variety Pack</a></li>
+                <li><a href="#" className="hover:text-white transition">{t(`${p}.varietyPack`)}</a></li>
               </ul>
             </div>
             <div className="lg:col-span-2">
-              <h4 className="font-bold tracking-wider uppercase text-xs text-[#C75B39] mb-6 font-display">Company</h4>
+              <h4 className="font-bold tracking-wider uppercase text-xs text-[#C75B39] mb-6 font-display">{t(`${p}.company`)}</h4>
               <ul className="space-y-3 text-gray-400 text-sm font-display">
-                <li><a href="#" className="hover:text-white transition">Our Story</a></li>
-                <li><a href="#" className="hover:text-white transition">Sustainability</a></li>
-                <li><a href="#" className="hover:text-white transition">Careers</a></li>
+                <li><a href="#" className="hover:text-white transition">{t(`${p}.ourStory`)}</a></li>
+                <li><a href="#" className="hover:text-white transition">{t(`${p}.sustainability`)}</a></li>
+                <li><a href="#" className="hover:text-white transition">{t(`${p}.careers`)}</a></li>
               </ul>
             </div>
             <div className="lg:col-span-4">
-              <h4 className="font-bold tracking-wider uppercase text-xs text-[#C75B39] mb-6 font-display">Contact</h4>
+              <h4 className="font-bold tracking-wider uppercase text-xs text-[#C75B39] mb-6 font-display">{t(`${p}.contact`)}</h4>
               <div className="space-y-3 text-gray-400 text-sm font-display">
-                <div className="flex items-center gap-3"><Mail className="w-4 h-4" /><span>hello@achievechips.com</span></div>
-                <div className="flex items-center gap-3"><Phone className="w-4 h-4" /><span>1-800-ACHIEVE</span></div>
+                <div className="flex items-center gap-3"><Mail className="w-4 h-4" /><span>{t(`${p}.helloAchievechipsCom`)}</span></div>
+                <div className="flex items-center gap-3"><Phone className="w-4 h-4" /><span>{t(`${p}.1800Achieve`)}</span></div>
               </div>
             </div>
           </div>
@@ -1268,13 +1247,13 @@ export default function AchieveChipsDemoPage() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-400 text-xs font-display">
               <div className="flex items-center gap-2">
                 <Recycle className="w-4 h-4 text-green-500" />
-                <span>Sustainable packaging by</span>
-                <Link to="/" className="text-[#C75B39] hover:text-white transition font-semibold">Achieve Pack</Link>
+                <span>{t(`${p}.sustainablePackagingBy`)}</span>
+                <Link to="/" className="text-[#C75B39] hover:text-white transition font-semibold">{t(`${p}.achievePack`)}</Link>
               </div>
               <div className="flex items-center gap-4">
-                <Link to="/materials/compostable" className="hover:text-white transition">Compostable Options</Link>
+                <Link to="/materials/compostable" className="hover:text-white transition">{t(`${p}.compostableOptions`)}</Link>
                 <span>|</span>
-                <Link to="/packaging/stand-up-pouches" className="hover:text-white transition">Stand Up Pouches</Link>
+                <Link to="/packaging/stand-up-pouches" className="hover:text-white transition">{t(`${p}.standUpPouches`)}</Link>
               </div>
             </div>
           </div>

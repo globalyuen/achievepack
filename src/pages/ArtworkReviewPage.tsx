@@ -6,7 +6,7 @@ import {
   ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, Trash2, Paperclip
 } from 'lucide-react'
 import { Image as ImageIcon, Link as LinkIcon } from 'lucide-react'
-import { uploadWithTus } from '../lib/supabase'
+import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
 import { convertHeicFile } from '../lib/heicConverter'
 import { useTranslation } from 'react-i18next'
 

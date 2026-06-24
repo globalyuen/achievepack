@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ShoppingBag, Menu, X, ArrowLeft, ArrowRight, Sun, Leaf, Droplets, Heart, Sparkles, Wind } from 'lucide-react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 import { ParallaxText } from '../../components/ParallaxText'
+import { useTranslation, Trans } from "react-i18next";
 
 // ============================================
 // ANIMATION VARIANTS
@@ -70,6 +71,8 @@ const PRODUCTS = [
 ]
 
 export default function AchieveCleaningDemoPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.achieveCleaningDemo';
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeProduct, setActiveProduct] = useState(PRODUCTS[0])
@@ -87,7 +90,7 @@ export default function AchieveCleaningDemoPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-cyan-200 selection:text-cyan-900">
       <Helmet>
-        <title>Achieve Cleaning | Future of Clean | Demo Site</title>
+        <title>{t(`${p}.achieveCleaningFutureOfCleanDe`)}</title>
         <meta name="description" content="Achieve Cleaning - Dissolvable cleaning tablets in revolutionary Nano Banana Pro packaging." />
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap');
@@ -100,8 +103,7 @@ export default function AchieveCleaningDemoPage() {
       <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-slate-200 py-1 px-4 font-medium text-center text-xs tracking-wider uppercase">
         <Link to="/free-service/website-upgrade" className="hover:text-white flex items-center justify-center gap-2 transition-colors">
           <ArrowLeft className="w-3 h-3" />
-          Demo Site by Achieve Pack
-        </Link>
+          {t(`${p}.demoSiteByAchievePack`)}</Link>
       </div>
 
       {/* Navigation */}
@@ -109,14 +111,14 @@ export default function AchieveCleaningDemoPage() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="font-outfit font-bold text-2xl md:text-3xl text-slate-900 tracking-tight">
-              Achieve<span className="text-cyan-600">Cleaning</span>
+              {t(`${p}.achieve`)}<span className="text-cyan-600">{t(`${p}.cleaning`)}</span>
             </span>
           </div>
 
           <div className="hidden md:flex items-center gap-8 font-inter text-sm font-semibold tracking-widest uppercase text-slate-600">
-            <a href="#products" className="hover:text-cyan-600 transition-colors">Products</a>
-            <a href="#innovations" className="hover:text-cyan-600 transition-colors">Innovation</a>
-            <a href="#mission" className="hover:text-cyan-600 transition-colors">Mission</a>
+            <a href="#products" className="hover:text-cyan-600 transition-colors">{t(`${p}.products`)}</a>
+            <a href="#innovations" className="hover:text-cyan-600 transition-colors">{t(`${p}.innovation`)}</a>
+            <a href="#mission" className="hover:text-cyan-600 transition-colors">{t(`${p}.mission`)}</a>
           </div>
 
           <div className="flex items-center gap-6">
@@ -148,9 +150,9 @@ export default function AchieveCleaningDemoPage() {
             <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8">
               <X className="w-8 h-8 text-slate-500" />
             </button>
-            <a href="#products" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-600 hover:font-bold transition-all">Products</a>
-            <a href="#innovations" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-600 hover:font-bold transition-all">Innovation</a>
-            <a href="#mission" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-600 hover:font-bold transition-all">Mission</a>
+            <a href="#products" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-600 hover:font-bold transition-all">{t(`${p}.products`)}</a>
+            <a href="#innovations" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-600 hover:font-bold transition-all">{t(`${p}.innovation`)}</a>
+            <a href="#mission" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-600 hover:font-bold transition-all">{t(`${p}.mission`)}</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -175,28 +177,23 @@ export default function AchieveCleaningDemoPage() {
           >
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 bg-cyan-100 text-cyan-900 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
               <Sparkles className="w-3 h-3" />
-              Nano Banana Pro™ Technology
-            </motion.div>
+              {t(`${p}.nanoBananaProTechnology`)}</motion.div>
             
             <motion.h1 variants={fadeInUp} className="font-outfit font-bold text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-lg">
-              Powerful Clean. <br/><span className="text-cyan-300">Zero Waste.</span>
+              {t(`${p}.powerfulClean`)}<br/><span className="text-cyan-300">{t(`${p}.zeroWaste`)}</span>
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="font-inter text-lg md:text-xl text-slate-100 mb-8 leading-relaxed drop-shadow-md max-w-lg">
-              Dissolvable cleaning tablets in our revolutionary <strong>Nano Banana Pro</strong> sachets. 
-              Organic, durable, and 100% home compostable.
-            </motion.p>
+              {t(`${p}.dissolvableCleaningTabletsInOu`)}<strong>{t(`${p}.nanoBananaPro`)}</strong> {t(`${p}.sachetsOrganicDurableAnd100Hom`)}</motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-cyan-500 text-white font-inter font-bold text-lg px-8 py-4 rounded-full hover:bg-cyan-600 transition-all shadow-lg hover:shadow-cyan-500/30"
               >
-                Shop Tablets
-              </button>
+                {t(`${p}.shopTablets`)}</button>
               <button className="bg-white/90 text-slate-900 font-inter font-bold text-lg px-8 py-4 rounded-full hover:bg-white transition-all shadow-lg">
-                The Technology
-              </button>
+                {t(`${p}.theTechnology`)}</button>
             </motion.div>
           </motion.div>
         </div>
@@ -209,7 +206,7 @@ export default function AchieveCleaningDemoPage() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 animate-bounce"
         >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs uppercase tracking-widest font-inter">Scroll to Clean</span>
+            <span className="text-xs uppercase tracking-widest font-inter">{t(`${p}.scrollToClean`)}</span>
             <ArrowRight className="w-5 h-5 rotate-90" />
           </div>
         </motion.div>
@@ -218,8 +215,7 @@ export default function AchieveCleaningDemoPage() {
       {/* Marquee */}
       <section className="bg-white py-6 border-b border-slate-100 overflow-hidden">
         <ParallaxText baseVelocity={1} textClassName="font-outfit text-3xl md:text-5xl text-slate-200 font-bold uppercase tracking-tighter mx-4">
-           Non-Toxic • Plastic Free • Nano Banana Pro • Just Add Water • Effective • Sustainable •
-        </ParallaxText>
+           {t(`${p}.nonToxicPlasticFreeNanoBananaP`)}</ParallaxText>
       </section>
 
       {/* Product Collection */}
@@ -232,8 +228,8 @@ export default function AchieveCleaningDemoPage() {
             variants={fadeInUp}
             className="text-center mb-20"
           >
-            <span className="text-cyan-600 font-inter text-sm font-bold tracking-widest uppercase block mb-3">The Future of Cleaning</span>
-            <h2 className="font-outfit font-bold text-4xl md:text-6xl text-slate-900 mb-6">Choose Your Scent</h2>
+            <span className="text-cyan-600 font-inter text-sm font-bold tracking-widest uppercase block mb-3">{t(`${p}.theFutureOfCleaning`)}</span>
+            <h2 className="font-outfit font-bold text-4xl md:text-6xl text-slate-900 mb-6">{t(`${p}.chooseYourScent`)}</h2>
             <div className="w-24 h-1 bg-cyan-200 mx-auto rounded-full" />
           </motion.div>
 
@@ -258,7 +254,7 @@ export default function AchieveCleaningDemoPage() {
               {/* Floating Badge */}
                <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-md flex items-center gap-2">
                   {activeProduct.icon}
-                 <span className={`font-bold font-inter text-sm ${activeProduct.accent}`}>Premium Formula</span>
+                 <span className={`font-bold font-inter text-sm ${activeProduct.accent}`}>{t(`${p}.premiumFormula`)}</span>
                </div>
             </motion.div>
 
@@ -302,8 +298,8 @@ export default function AchieveCleaningDemoPage() {
                         <Droplets className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-slate-900 text-sm font-outfit">Solubility</h4>
-                        <p className="text-sm text-slate-500 font-inter">Instant Fizz</p>
+                        <h4 className="font-bold text-slate-900 text-sm font-outfit">{t(`${p}.solubility`)}</h4>
+                        <p className="text-sm text-slate-500 font-inter">{t(`${p}.instantFizz`)}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -311,23 +307,22 @@ export default function AchieveCleaningDemoPage() {
                         <Leaf className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-slate-900 text-sm font-outfit">Material</h4>
-                        <p className="text-sm text-slate-500 font-inter">Nano Banana Pro</p>
+                        <h4 className="font-bold text-slate-900 text-sm font-outfit">{t(`${p}.material`)}</h4>
+                        <p className="text-sm text-slate-500 font-inter">{t(`${p}.nanoBananaPro`)}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between border-t border-slate-100 pt-8">
                     <div>
-                      <span className="block text-sm text-slate-500 font-bold mb-1 font-inter">STARTER PACK</span>
+                      <span className="block text-sm text-slate-500 font-bold mb-1 font-inter">{t(`${p}.starterPack`)}</span>
                       <span className="font-outfit font-bold text-4xl text-slate-900">${activeProduct.price}</span>
                     </div>
                     <button
                       onClick={() => setCartCount(c => c + 1)}
                       className="bg-slate-900 text-white font-inter font-bold text-lg px-10 py-4 rounded-full hover:bg-cyan-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
                     >
-                      Add to Cart
-                    </button>
+                      {t(`${p}.addToCart`)}</button>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -350,10 +345,9 @@ export default function AchieveCleaningDemoPage() {
               <div className="w-16 h-16 bg-cyan-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-cyan-600">
                 <Leaf className="w-8 h-8" />
               </div>
-              <h3 className="font-outfit font-bold text-2xl mb-4">Nano Banana Pro™</h3>
+              <h3 className="font-outfit font-bold text-2xl mb-4">{t(`${p}.nanoBananaPro1`)}</h3>
               <p className="font-inter text-slate-600 leading-relaxed">
-                Our proprietary sachet material derived from banana fibers. Stronger than plastic, 100% compostable.
-              </p>
+                {t(`${p}.ourProprietarySachetMaterialDe`)}</p>
             </motion.div>
 
             <motion.div 
@@ -366,10 +360,9 @@ export default function AchieveCleaningDemoPage() {
               <div className="w-16 h-16 bg-cyan-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-cyan-600">
                 <Droplets className="w-8 h-8" />
               </div>
-              <h3 className="font-outfit font-bold text-2xl mb-4">Just Add Water</h3>
+              <h3 className="font-outfit font-bold text-2xl mb-4">{t(`${p}.justAddWater`)}</h3>
               <p className="font-inter text-slate-600 leading-relaxed">
-                Stop shipping water. Our concentrated tablets turn your tap water into a premium cleaning solution.
-              </p>
+                {t(`${p}.stopShippingWaterOurConcentrat`)}</p>
             </motion.div>
 
             <motion.div 
@@ -382,10 +375,9 @@ export default function AchieveCleaningDemoPage() {
               <div className="w-16 h-16 bg-cyan-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-cyan-600">
                 <Heart className="w-8 h-8" />
               </div>
-              <h3 className="font-outfit font-bold text-2xl mb-4">Cruelty Free</h3>
+              <h3 className="font-outfit font-bold text-2xl mb-4">{t(`${p}.crueltyFree`)}</h3>
               <p className="font-inter text-slate-600 leading-relaxed">
-                Never tested on animals. Safe for your pets, safe for your family, safe for the planet.
-              </p>
+                {t(`${p}.neverTestedOnAnimalsSafeForYou`)}</p>
             </motion.div>
           </div>
         </div>
@@ -405,26 +397,22 @@ export default function AchieveCleaningDemoPage() {
               <div className="text-white">
                 <div className="flex items-center gap-2 mb-2">
                   <Sparkles className="w-5 h-5 text-cyan-400" />
-                  <span className="font-bold text-sm tracking-widest uppercase">The Vision</span>
+                  <span className="font-bold text-sm tracking-widest uppercase">{t(`${p}.theVision`)}</span>
                 </div>
-                <h3 className="font-outfit text-3xl font-bold">"Clean home, clean ocean."</h3>
+                <h3 className="font-outfit text-3xl font-bold">{t(`${p}.cleanHomeCleanOcean`)}</h3>
               </div>
             </div>
           </motion.div>
           
           <div className="bg-slate-900 text-slate-100 p-12 lg:p-24 flex flex-col justify-center">
-            <span className="text-cyan-400 font-bold font-inter tracking-widest uppercase mb-6">Our Mission</span>
+            <span className="text-cyan-400 font-bold font-inter tracking-widest uppercase mb-6">{t(`${p}.ourMission`)}</span>
             <h2 className="font-outfit font-bold text-4xl md:text-5xl mb-8 leading-tight">
-              A Plastic-Free <br/> Evolution.
-            </h2>
+              {t(`${p}.aPlasticFree`)}<br/> {t(`${p}.evolution`)}</h2>
             <p className="font-inter text-lg text-slate-400 leading-relaxed mb-8">
-              Every year, billions of plastic cleaning bottles end up in landfills. We're changing that with 
-              <strong> Achieve Cleaning</strong>. One tablet, one bottle for life, zero waste packaging.
-            </p>
+              {t(`${p}.everyYearBillionsOfPlasticClea`)}<strong> {t(`${p}.achieveCleaning`)}</strong>{t(`${p}.oneTabletOneBottleForLifeZeroW`)}</p>
             <div className="flex gap-4">
               <button className="border border-white/30 text-white px-8 py-3 rounded-full hover:bg-white hover:text-slate-900 transition-all font-inter font-bold">
-                Learn More
-              </button>
+                {t(`${p}.learnMore`)}</button>
             </div>
           </div>
         </div>
@@ -433,21 +421,19 @@ export default function AchieveCleaningDemoPage() {
       {/* Footer */}
       <footer className="bg-white py-20 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="font-outfit font-bold text-4xl text-slate-900 mb-6">Achieve<span className="text-cyan-600">Cleaning</span></h2>
+          <h2 className="font-outfit font-bold text-4xl text-slate-900 mb-6">{t(`${p}.achieve`)}<span className="text-cyan-600">{t(`${p}.cleaning`)}</span></h2>
           <p className="font-inter text-slate-500 max-w-lg mx-auto mb-10">
-            Reinventing the way you clean with nature's technology.
-            <br />Powered by Achieve Pack.
-          </p>
+            {t(`${p}.reinventingTheWayYouCleanWithN`)}<br />{t(`${p}.poweredByAchievePack`)}</p>
           
           <div className="flex justify-center gap-8 mb-12 font-inter font-bold text-slate-700 text-sm tracking-widest uppercase">
-            <a href="#" className="hover:text-cyan-600 transition-colors">Shop</a>
-            <a href="#" className="hover:text-cyan-600 transition-colors">About</a>
-            <a href="#" className="hover:text-cyan-600 transition-colors">Sustainability</a>
-            <a href="#" className="hover:text-cyan-600 transition-colors">Support</a>
+            <a href="#" className="hover:text-cyan-600 transition-colors">{t(`${p}.shop`)}</a>
+            <a href="#" className="hover:text-cyan-600 transition-colors">{t(`${p}.about`)}</a>
+            <a href="#" className="hover:text-cyan-600 transition-colors">{t(`${p}.sustainability`)}</a>
+            <a href="#" className="hover:text-cyan-600 transition-colors">{t(`${p}.support`)}</a>
           </div>
 
           <div className="text-slate-400 text-sm font-inter">
-            © 2026 Achieve Cleaning. Powered by <Link to="/" className="text-slate-600 hover:text-cyan-600 font-bold">Achieve Pack</Link>
+            {t(`${p}.2026AchieveCleaningPoweredBy`)}<Link to="/" className="text-slate-600 hover:text-cyan-600 font-bold">{t(`${p}.achievePack`)}</Link>
           </div>
         </div>
       </footer>

@@ -2,7 +2,7 @@ import React from 'react'
 import { AlertTriangle, XCircle, CheckCircle, Lightbulb, Package, DollarSign, FileText, Truck, Award } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
-import EcoMaterialSourcingGuide from '../../components/blocks/EcoMaterialSourcingGuide'
+import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide'
 import heroImage from '/imgs/seo-photos/a_mistakes_hero_41241.jpg'
 import { useTranslation } from 'react-i18next'
 
