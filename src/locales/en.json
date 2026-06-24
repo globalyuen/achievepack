@@ -25253,6 +25253,184 @@
         "ctaTitle": "Roast. Print. Pack.",
         "ctaDesc": "Ready to upgrade your coffee brand's presentation in the USA? Get free samples or a custom quote today.",
         "ctaButton": "Get Your Custom Quote"
+      },
+      "pouchHomePage": {
+        "showcase": {
+          "spouted": {
+            "tag": "💧 Liquids & Purees",
+            "title": "Industrial Compostable Spouted Pouch",
+            "desc": "Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.",
+            "moqLabel": "MOQ",
+            "moqVal": "2,000 units",
+            "certLabel": "Certifications",
+            "certVal": "EN 13432, ASTM D6400"
+          },
+          "flatBottom": {
+            "tag": "🌱 Dry Goods & Coffee",
+            "title": "Home Compostable Flat Bottom Pouch",
+            "desc": "Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.",
+            "moqLabel": "MOQ",
+            "moqVal": "1,000 units",
+            "certLabel": "Certifications",
+            "certVal": "OK Compost HOME"
+          }
+        }
+      },
+      "ryanWong": {
+        "seoTitle": "Ryan Wong - Packaging Development Specialist | Achieve Pack",
+        "seoDescription": "Ryan Wong, Packaging Development Specialist at Achieve Pack. 14+ years helping DTC coffee, chocolate & tea brands with compostable packaging. Hong Kong Polytechnic University Honor Degree. Expert across 8 countries.",
+        "seoKeywords": "Ryan Wong, packaging development specialist, compostable packaging expert, DTC packaging, coffee packaging, Hong Kong Polytechnic University, supply chain architect",
+        "backToHome": "Back to Home",
+        "hero": {
+          "title": "Ryan Wong",
+          "subtitle": "Packaging Development Specialist",
+          "description": "14+ years experience | 8 countries | Fortune 500 & DTC startups",
+          "badge1": "🎓 PolyU Honor Degree",
+          "badge2": "🏆 PolyU Featured Alumni",
+          "badge3": "🌱 Eco Packaging Pioneer",
+          "linkedin": "LinkedIn Profile",
+          "contact": "Contact"
+        },
+        "about": {
+          "title": "About Ryan",
+          "photoAlt": "Ryan Wong at Packaging Exhibition",
+          "photoCaption": "Ryan at international packaging exhibition",
+          "p1": {
+            "part1": "With ",
+            "part2": "14+ years of dedicated experience",
+            "part3": " in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutually beneficial and long-lasting business relationships."
+          },
+          "p2": {
+            "part1": "Ryan's packaging experience and business relationships span ",
+            "part2": "8 countries",
+            "part3": ": Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. As a ",
+            "part4": "Hong Kong Polytechnic University Honor Degree",
+            "part5": " graduate in Global Supply Chain and Business Administration, he combines academic excellence with practical expertise."
+          },
+          "p3": {
+            "part1": "His objective is to be a ",
+            "part2": "supply chain architect",
+            "part3": " — with packaging knowledge, IT skills and passion to create irreplaceable values and synergy for all parties throughout the whole supply chain from upstream to downstream."
+          },
+          "p4": {
+            "part1": "As the ",
+            "part2": "Founder of Achieve Pack & Pouch.eco",
+            "part3": ", Ryan specializes in ",
+            "part4": "100% compostable digital print solutions",
+            "part5": " with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike. His expertise in ",
+            "part6": "HP Indigo 20000 digital printing",
+            "part7": " enables 4-day turnaround for urgent orders."
+          }
+        },
+        "career": {
+          "title": "Career Journey",
+          "exp1": {
+            "period": "2018 - Present",
+            "title": "Founder & Packaging Development Specialist",
+            "company": "Achieve Pack / Pouch.eco",
+            "desc": "Founded eco-friendly packaging company focused on compostable and sustainable solutions. Pioneer in digital printing with low MOQ for DTC brands."
+          },
+          "exp2": {
+            "period": "2010 - 2018",
+            "title": "Senior Packaging Consultant",
+            "company": "Fortune 500 & Multinational Companies",
+            "desc": "Developed supply chain strategies and packaging solutions for international brands across 8 countries."
+          },
+          "exp3": {
+            "period": "1999 - 2003",
+            "title": "Bachelor's Degree (Honors)",
+            "company": "The Hong Kong Polytechnic University",
+            "desc": "Global Supply Chain Management & Business Administration"
+          }
+        },
+        "expertise": {
+          "title": "Core Expertise",
+          "item1": "Compostable coffee pouches for DTC brands",
+          "item2": "Chocolate & confectionery packaging",
+          "item3": "Tea packaging (loose leaf & sachets)",
+          "item4": "E-commerce & subscription box solutions",
+          "item5": "EN 13432 & ASTM D6400 compliance",
+          "item6": "BPI & TÜV certification guidance",
+          "item7": "Food-contact safe materials",
+          "item8": "Low MOQ sustainable solutions",
+          "item9": "Transition planning from plastic",
+          "item10": "Barrier technology for food products",
+          "item11": "Degassing valves for coffee",
+          "item12": "Stand-up pouch design optimization"
+        },
+        "caseStudies": {
+          "title": "Client Success Stories",
+          "cs1": {
+            "title": "Bean & Bole Coffee Roastery",
+            "desc": "Helped Portland-based specialty roaster switch to EN 13432 certified compostable pouches with degassing valves. Achieved 35% increase in customer satisfaction."
+          },
+          "cs2": {
+            "title": "Milano Botanica Tea",
+            "desc": "Developed compostable window packaging for luxury tea brand. EU PPWR compliant solution increased sales by 28%."
+          },
+          "cs3": {
+            "title": "Artisan Cocoa Emirates",
+            "desc": "Created heat-resistant recyclable mono-PP pouches for UAE chocolate brand. Gift sales up 55%."
+          }
+        },
+        "sidebar": {
+          "recognition": {
+            "title": "Recognition",
+            "item": {
+              "title": "PolyU Featured Alumni",
+              "subtitle": "Young Achievers Program",
+              "desc": "Recognized for contributions to sustainable packaging innovation"
+            }
+          },
+          "quickFacts": {
+            "title": "Quick Facts",
+            "fact1": "Years Experience",
+            "fact2": "Countries Served",
+            "fact3": "Minimum Order Qty",
+            "fact4": "Days Rush Production"
+          },
+          "industryFocus": {
+            "title": "Industry Focus",
+            "item1": "☕ Coffee & Espresso",
+            "item2": "🍫 Chocolate & Confectionery",
+            "item3": "🍵 Tea & Herbal Blends",
+            "item4": "📦 Subscription Boxes",
+            "item5": "🌿 Organic & Natural Products"
+          },
+          "education": {
+            "title": "Education & Skills",
+            "uni": "The Hong Kong Polytechnic University",
+            "degree": "Honor Degree (1999-2003)",
+            "major": "Global Supply Chain, Business Administration",
+            "techSkillsTitle": "Technical Skills:",
+            "techSkill1": "Adobe Photoshop",
+            "techSkill2": "Adobe Illustrator",
+            "techSkill3": "HP Indigo 20000",
+            "techSkill4": "Supply Chain Mgmt",
+            "techSkill5": "Digital Printing",
+            "certTitle": "Certifications Expertise:",
+            "cert1": "EN 13432",
+            "cert2": "ASTM D6400",
+            "cert3": "BPI Certified",
+            "cert4": "TÜV OK Compost"
+          },
+          "globalNetwork": {
+            "title": "Global Network",
+            "country1": "Australia",
+            "country2": "Canada",
+            "country3": "China",
+            "country4": "Germany",
+            "country5": "South Africa",
+            "country6": "Philippines",
+            "country7": "UK",
+            "country8": "USA"
+          },
+          "cta": {
+            "title": "Ready to Go Sustainable?",
+            "desc": "Book a free 30-minute consultation to discuss your packaging needs.",
+            "button": "Schedule Meeting"
+          }
+        }
       }
     },
     "compostableStandUpPouches": {
@@ -27064,6 +27242,34 @@
       ]
     },
     "faqs": {
+      "0": {
+        "question": "What does \"BPI Certified Compostable\" mean?",
+        "answer": "BPI Certified means your packaging has been independently tested and verified to break down in industrial composting facilities. It meets strict ASTM standards for biodegradation, disintegration, and eco-toxicity. No harmful residues left behind."
+      },
+      "1": {
+        "question": "Can I compost certified packaging in my backyard?",
+        "answer": "Most BPI-certified packaging is designed for industrial composting facilities, which reach higher temperatures (140-160°F) than home compost piles. If you want backyard compostability, look for \"Home Compostable\" certification (TÜV Austria OK compost HOME)."
+      },
+      "2": {
+        "question": "How do I verify your certifications?",
+        "answer": "Visit products.bpiworld.org and search for \"Achieve Pack Company\" to see all certified SKUs. We provide certification documents with every order. You can also request lab test reports for full transparency."
+      },
+      "3": {
+        "question": "Why do certifications matter for my brand?",
+        "answer": "Certifications provide third-party proof of your sustainability claims. They protect you from greenwashing accusations, build customer trust, and ensure your packaging is actually accepted by composters."
+      },
+      "4": {
+        "question": "Which certification is best for my market?",
+        "answer": "It depends on your region: BPI for North America, EN 13432 for Europe, AS 4736 for Australia. If selling globally, choose packaging that meets multiple standards."
+      },
+      "5": {
+        "question": "Do you test for PFAS (forever chemicals)?",
+        "answer": "Yes! All our certified compostable materials are tested and verified to be PFAS-free. BPI now requires fluorinated chemical restrictions, and we meet those updated standards."
+      },
+      "6": {
+        "question": "What is BRC Packaging certification?",
+        "answer": "BRC (BRCGS) Packaging Materials is a globally recognized food safety certification standard. It ensures our manufacturing facility meets rigorous requirements for hygiene, quality management, product safety, and process control. This certification is often required by major retailers and food brands to ensure packaging materials are safe for food contact."
+      },
       "heading": "Certifications FAQ",
       "items": [
         {
@@ -27094,35 +27300,7 @@
           "question": "What is BRC Packaging certification?",
           "answer": "BRC (BRCGS) Packaging Materials is a globally recognized food safety certification standard. It ensures our manufacturing facility meets rigorous requirements for hygiene, quality management, product safety, and process control. This certification is often required by major retailers and food brands."
         }
-      ],
-      "0": {
-        "question": "What does \"BPI Certified Compostable\" mean?",
-        "answer": "BPI Certified means your packaging has been independently tested and verified to break down in industrial composting facilities. It meets strict ASTM standards for biodegradation, disintegration, and eco-toxicity. No harmful residues left behind."
-      },
-      "1": {
-        "question": "Can I compost certified packaging in my backyard?",
-        "answer": "Most BPI-certified packaging is designed for industrial composting facilities, which reach higher temperatures (140-160°F) than home compost piles. If you want backyard compostability, look for \"Home Compostable\" certification (TÜV Austria OK compost HOME)."
-      },
-      "2": {
-        "question": "How do I verify your certifications?",
-        "answer": "Visit products.bpiworld.org and search for \"Achieve Pack Company\" to see all certified SKUs. We provide certification documents with every order. You can also request lab test reports for full transparency."
-      },
-      "3": {
-        "question": "Why do certifications matter for my brand?",
-        "answer": "Certifications provide third-party proof of your sustainability claims. They protect you from greenwashing accusations, build customer trust, and ensure your packaging is actually accepted by composters."
-      },
-      "4": {
-        "question": "Which certification is best for my market?",
-        "answer": "It depends on your region: BPI for North America, EN 13432 for Europe, AS 4736 for Australia. If selling globally, choose packaging that meets multiple standards."
-      },
-      "5": {
-        "question": "Do you test for PFAS (forever chemicals)?",
-        "answer": "Yes! All our certified compostable materials are tested and verified to be PFAS-free. BPI now requires fluorinated chemical restrictions, and we meet those updated standards."
-      },
-      "6": {
-        "question": "What is BRC Packaging certification?",
-        "answer": "BRC (BRCGS) Packaging Materials is a globally recognized food safety certification standard. It ensures our manufacturing facility meets rigorous requirements for hygiene, quality management, product safety, and process control. This certification is often required by major retailers and food brands to ensure packaging materials are safe for food contact."
-      }
+      ]
     },
     "viewCertificates": {
       "heading": "Our Active Certificates",

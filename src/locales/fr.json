@@ -11208,22 +11208,6 @@
           ]
         },
         "relatedLinks": {
-          "link1": {
-            "title": "Sachet Stand Up à Bec de Haute Barrière",
-            "description": "Acheter des sachets en aluminium avec bec central pour cosmétiques et liquides."
-          },
-          "link2": {
-            "title": "Catalogue de Sachets Stand Up Écologiques",
-            "description": "Voir les sachets en PE recyclables et matériaux compostables de haute barrière."
-          },
-          "link3": {
-            "title": "Sachet en Aluminium en Forme de Bouteille",
-            "description": "Commander des sachets en forme de bouteille au fini mat pour échantillons."
-          },
-          "link4": {
-            "title": "Autocollants de Scellage PLA Premium",
-            "description": "Étiquettes compostables transparentes et stables à la chaleur pour boîtes."
-          },
           "0": {
             "title": "Pochettes en aluminium à bec verseur",
             "description": "Achetez des sachets en aluminium à haute barrière et à bec central conçus pour les formulations chimiques et liquides."
@@ -11239,6 +11223,22 @@
           "3": {
             "title": "Autocollants d’étanchéité PLA haut de gamme",
             "description": "Étiquettes transparentes biodégradables et thermostables pour sceller des capsules ou des sachets pliables."
+          },
+          "link1": {
+            "title": "Sachet Stand Up à Bec de Haute Barrière",
+            "description": "Acheter des sachets en aluminium avec bec central pour cosmétiques et liquides."
+          },
+          "link2": {
+            "title": "Catalogue de Sachets Stand Up Écologiques",
+            "description": "Voir les sachets en PE recyclables et matériaux compostables de haute barrière."
+          },
+          "link3": {
+            "title": "Sachet en Aluminium en Forme de Bouteille",
+            "description": "Commander des sachets en forme de bouteille au fini mat pour échantillons."
+          },
+          "link4": {
+            "title": "Autocollants de Scellage PLA Premium",
+            "description": "Étiquettes compostables transparentes et stables à la chaleur pour boîtes."
           }
         },
         "ogTitle": "Solutions d'emballage d'huile d'agrumes : sachets, capsules et sachets à bec verseur",
@@ -24054,6 +24054,184 @@
         "ctaTitle": "Torréfiez. Imprimez. Emballez.",
         "ctaDesc": "Prêt à améliorer la présentation de votre marque de café aux États-Unis ? Obtenez des échantillons gratuits ou un devis personnalisé dès aujourd'hui.",
         "ctaButton": "Obtenez Votre Devis Personnalisé"
+      },
+      "pouchHomePage": {
+        "showcase": {
+          "spouted": {
+            "tag": "💧 Liquides et Purées",
+            "title": "Sachet à Bec Compostable Industriel",
+            "desc": "Sachet flexible certifié compostable industriellement avec un bec rigide entièrement à base de plantes. Remplace les options conventionnelles de barrière avec bec en plastique avec une empreinte plastique nulle.",
+            "moqLabel": "MOQ",
+            "moqVal": "2 000 unités",
+            "certLabel": "Certifications",
+            "certVal": "EN 13432, ASTM D6400"
+          },
+          "flatBottom": {
+            "tag": "🌱 Produits Secs et Café",
+            "title": "Sachet à Fond Plat Compostable à Domicile",
+            "desc": "Structure de fond plat 100% compostable à domicile haut de gamme qui offre une présence exceptionnelle en rayon. Se décompose en toute sécurité et naturellement dans les bacs à compost de jardin.",
+            "moqLabel": "MOQ",
+            "moqVal": "1 000 unités",
+            "certLabel": "Certifications",
+            "certVal": "OK Compost HOME"
+          }
+        }
+      },
+      "ryanWong": {
+        "seoTitle": "Ryan Wong - Spécialiste en Développement d'Emballages | Achieve Pack",
+        "seoDescription": "Ryan Wong, Spécialiste en Développement d'Emballages chez Achieve Pack. Plus de 14 ans à aider les marques de café, de chocolat et de thé DTC avec des emballages compostables. Diplôme d'Honneur de l'Université Polytechnique de Hong Kong. Expert dans 8 pays.",
+        "seoKeywords": "Ryan Wong, spécialiste en développement d'emballages, expert en emballage compostable, emballage DTC, emballage de café, Université Polytechnique de Hong Kong, architecte de la chaîne d'approvisionnement",
+        "backToHome": "Retour à l'Accueil",
+        "hero": {
+          "title": "Ryan Wong",
+          "subtitle": "Spécialiste en Développement d'Emballages",
+          "description": "Plus de 14 ans d'expérience | 8 pays | Entreprises Fortune 500 & startups DTC",
+          "badge1": "🎓 Diplôme d'Honneur PolyU",
+          "badge2": "🏆 Ancien Élève Distingué PolyU",
+          "badge3": "🌱 Pionnier de l'Emballage Éco",
+          "linkedin": "Profil LinkedIn",
+          "contact": "Contact"
+        },
+        "about": {
+          "title": "À propos de Ryan",
+          "photoAlt": "Ryan Wong à une exposition d'emballage",
+          "photoCaption": "Ryan à l'exposition internationale de l'emballage",
+          "p1": {
+            "part1": "Avec ",
+            "part2": "plus de 14 ans d'expérience dédiée",
+            "part3": " dans l'industrie de l'emballage, Ryan Wong a développé son expertise en coopérant avec des entreprises multinationales et du classement Fortune 500 pour établir des relations commerciales durables et mutuellement bénéfiques."
+          },
+          "p2": {
+            "part1": "L'expérience en emballage et les relations commerciales de Ryan s'étendent sur ",
+            "part2": "8 pays",
+            "part3": " : l'Australie, le Canada, la Chine, l'Allemagne, l'Afrique du Sud, les Philippines, le Royaume-Uni et les États-Unis. En tant que diplômé avec un ",
+            "part4": "Diplôme d'Honneur de l'Université Polytechnique de Hong Kong",
+            "part5": " en gestion de la chaîne d'approvisionnement mondiale et administration des affaires, il allie l'excellence académique à l'expertise pratique."
+          },
+          "p3": {
+            "part1": "Son objectif est d'être un ",
+            "part2": "architecte de la chaîne d'approvisionnement",
+            "part3": " — avec des connaissances en emballage, des compétences informatiques et la passion de créer des valeurs irremplaçables et une synergie pour toutes les parties tout au long de la chaîne d'approvisionnement, d'amont en aval."
+          },
+          "p4": {
+            "part1": "En tant que ",
+            "part2": "Fondateur de Achieve Pack & Pouch.eco",
+            "part3": ", Ryan se spécialise dans les ",
+            "part4": "solutions d'impression numérique 100 % compostables",
+            "part5": " avec une faible quantité minimale de commande (100-500 pièces) de pointe, rendant les emballages durables accessibles aux startups DTC comme aux marques établies. Son expertise en ",
+            "part6": "impression numérique HP Indigo 20000",
+            "part7": " permet un délai de 4 jours pour les commandes urgentes."
+          }
+        },
+        "career": {
+          "title": "Parcours Professionnel",
+          "exp1": {
+            "period": "2018 - Présent",
+            "title": "Fondateur & Spécialiste en Développement d'Emballages",
+            "company": "Achieve Pack / Pouch.eco",
+            "desc": "Fondateur d'une entreprise d'emballages écologiques axée sur des solutions compostables et durables. Pionnier de l'impression numérique avec de faibles MOQ pour les marques DTC."
+          },
+          "exp2": {
+            "period": "2010 - 2018",
+            "title": "Consultant Principal en Emballage",
+            "company": "Entreprises Fortune 500 & Multinationales",
+            "desc": "A développé des stratégies de chaîne d'approvisionnement et des solutions d'emballage pour des marques internationales dans 8 pays."
+          },
+          "exp3": {
+            "period": "1999 - 2003",
+            "title": "Licence (avec Honneurs)",
+            "company": "Université Polytechnique de Hong Kong",
+            "desc": "Gestion Globale de la Chaîne d'Approvisionnement & Administration des Affaires"
+          }
+        },
+        "expertise": {
+          "title": "Expertise Principale",
+          "item1": "Sachets de café compostables pour marques DTC",
+          "item2": "Emballage pour chocolat et confiserie",
+          "item3": "Emballage pour thé (feuilles en vrac & sachets)",
+          "item4": "Solutions pour e-commerce & boîtes d'abonnement",
+          "item5": "Conformité EN 13432 & ASTM D6400",
+          "item6": "Accompagnement pour certification BPI & TÜV",
+          "item7": "Matériaux sûrs pour le contact alimentaire",
+          "item8": "Solutions durables à faible MOQ",
+          "item9": "Planification de transition depuis le plastique",
+          "item10": "Technologie barrière pour produits alimentaires",
+          "item11": "Valves de dégazage pour le café",
+          "item12": "Optimisation de la conception de sachets stand-up"
+        },
+        "caseStudies": {
+          "title": "Histoires de Réussite de Clients",
+          "cs1": {
+            "title": "Torréfacteur Bean & Bole",
+            "desc": "A aidé un torréfacteur de spécialité basé à Portland à passer à des sachets compostables certifiés EN 13432 avec valves de dégazage. A obtenu une augmentation de 35 % de la satisfaction client."
+          },
+          "cs2": {
+            "title": "Thé Milano Botanica",
+            "desc": "A développé un emballage compostable avec fenêtre pour une marque de thé de luxe. La solution conforme au PPWR de l'UE a augmenté les ventes de 28 %."
+          },
+          "cs3": {
+            "title": "Artisan Cocoa Emirates",
+            "desc": "A créé des sachets en mono-PP recyclables résistant à la chaleur pour une marque de chocolat des Émirats arabes unis. Ventes de cadeaux en hausse de 55 %."
+          }
+        },
+        "sidebar": {
+          "recognition": {
+            "title": "Reconnaissance",
+            "item": {
+              "title": "Ancien Élève Distingué PolyU",
+              "subtitle": "Programme des Jeunes Achievers",
+              "desc": "Reconnu pour ses contributions à l'innovation en matière d'emballages durables"
+            }
+          },
+          "quickFacts": {
+            "title": "Faits en Bref",
+            "fact1": "Années d'Expérience",
+            "fact2": "Pays Desservis",
+            "fact3": "Quantité Minimum de Commande",
+            "fact4": "Jours de Production Rapide"
+          },
+          "industryFocus": {
+            "title": "Secteurs d'Activité",
+            "item1": "☕ Café & Espresso",
+            "item2": "🍫 Chocolat & Confiserie",
+            "item3": "🍵 Thé & Mélanges à base de plantes",
+            "item4": "📦 Boîtes d'Abonnement",
+            "item5": "🌿 Produits Bio & Naturels"
+          },
+          "education": {
+            "title": "Éducation & Compétences",
+            "uni": "Université Polytechnique de Hong Kong",
+            "degree": "Diplôme d'Honneur (1999-2003)",
+            "major": "Chaîne d'Approvisionnement Globale, Administration des Affaires",
+            "techSkillsTitle": "Compétences Techniques :",
+            "techSkill1": "Adobe Photoshop",
+            "techSkill2": "Adobe Illustrator",
+            "techSkill3": "HP Indigo 20000",
+            "techSkill4": "Gestion Chaîne d'Appro",
+            "techSkill5": "Impression Numérique",
+            "certTitle": "Expertise en Certifications :",
+            "cert1": "EN 13432",
+            "cert2": "ASTM D6400",
+            "cert3": "Certifié BPI",
+            "cert4": "TÜV OK Compost"
+          },
+          "globalNetwork": {
+            "title": "Réseau Mondial",
+            "country1": "Australie",
+            "country2": "Canada",
+            "country3": "Chine",
+            "country4": "Allemagne",
+            "country5": "Afrique du Sud",
+            "country6": "Philippines",
+            "country7": "Royaume-Uni",
+            "country8": "États-Unis"
+          },
+          "cta": {
+            "title": "Prêt à passer au durable ?",
+            "desc": "Réservez une consultation gratuite de 30 minutes pour discuter de vos besoins en emballage.",
+            "button": "Planifier une Réunion"
+          }
+        }
       }
     },
     "compostableStandUpPouches": {
@@ -25740,6 +25918,34 @@
       ]
     },
     "faqs": {
+      "0": {
+        "question": "Que signifie « BPI Certified Compostable » ?",
+        "answer": "BPI Certified signifie que votre emballage a été testé et vérifié de manière indépendante pour se décomposer dans les installations de compostage industriel. Il répond aux normes strictes ASTM pour la biodégradation, la désintégration et l'écotoxicité. Aucun résidu nocif laissé."
+      },
+      "1": {
+        "question": "Puis-je composter un emballage certifié dans mon jardin ?",
+        "answer": "La plupart des emballages certifiés BPI sont conçus pour les installations de compostage industriel, qui atteignent des températures plus élevées (60-71°C) que les tas de compost domestiques. Si vous souhaitez un compostage domestique, recherchez la certification « Home Compostable » (TÜV Austria OK compost HOME)."
+      },
+      "2": {
+        "question": "Comment puis-je vérifier vos certifications ?",
+        "answer": "Visitez products.bpiworld.org et recherchez « Achieve Pack Company » pour voir tous les SKU certifiés. Nous fournissons des documents de certification avec chaque commande. Vous pouvez également demander des rapports de tests de laboratoire pour une transparence totale."
+      },
+      "3": {
+        "question": "Pourquoi les certifications sont-elles importantes pour ma marque ?",
+        "answer": "Les certifications fournissent une preuve tierce de vos allégations de durabilité. Elles vous protègent des accusations de greenwashing, renforcent la confiance des clients et garantissent que votre emballage est réellement accepté par les composteurs."
+      },
+      "4": {
+        "question": "Quelle certification est la meilleure pour mon marché ?",
+        "answer": "Cela dépend de votre région : BPI pour l'Amérique du Nord, EN 13432 pour l'Europe, AS 4736 pour l'Australie. Si vous vendez à l'international, choisissez un emballage qui répond à plusieurs normes."
+      },
+      "5": {
+        "question": "Testez-vous les PFAS (produits chimiques éternels) ?",
+        "answer": "Oui ! Tous nos matériaux compostables certifiés sont testés et vérifiés sans PFAS. BPI exige désormais des restrictions sur les produits chimiques fluorés, et nous respectons ces normes mises à jour."
+      },
+      "6": {
+        "question": "Qu'est-ce que la certification BRC Emballage ?",
+        "answer": "BRC (BRCGS) Packaging Materials est une norme de certification de sécurité alimentaire mondialement reconnue. Elle garantit que notre usine de fabrication répond aux exigences rigoureuses en matière d'hygiène, de gestion de la qualité, de sécurité des produits et de contrôle des processus. Cette certification est souvent exigée par les grands détaillants et les marques alimentaires pour garantir que les matériaux d'emballage sont sûrs pour le contact alimentaire."
+      },
       "heading": "FAQ Certifications",
       "items": [
         {
@@ -25770,35 +25976,7 @@
           "question": "Qu'est-ce que la certification BRC Packaging ?",
           "answer": "BRC (BRCGS) Packaging Materials est une norme internationale relative à la sécurité des emballages alimentaires. Elle garantit que notre usine de fabrication respecte des exigences rigoureuses en matière d'hygiène, de gestion de la qualité et de sécurité des produits."
         }
-      ],
-      "0": {
-        "question": "Que signifie « BPI Certified Compostable » ?",
-        "answer": "BPI Certified signifie que votre emballage a été testé et vérifié de manière indépendante pour se décomposer dans les installations de compostage industriel. Il répond aux normes strictes ASTM pour la biodégradation, la désintégration et l'écotoxicité. Aucun résidu nocif laissé."
-      },
-      "1": {
-        "question": "Puis-je composter un emballage certifié dans mon jardin ?",
-        "answer": "La plupart des emballages certifiés BPI sont conçus pour les installations de compostage industriel, qui atteignent des températures plus élevées (60-71°C) que les tas de compost domestiques. Si vous souhaitez un compostage domestique, recherchez la certification « Home Compostable » (TÜV Austria OK compost HOME)."
-      },
-      "2": {
-        "question": "Comment puis-je vérifier vos certifications ?",
-        "answer": "Visitez products.bpiworld.org et recherchez « Achieve Pack Company » pour voir tous les SKU certifiés. Nous fournissons des documents de certification avec chaque commande. Vous pouvez également demander des rapports de tests de laboratoire pour une transparence totale."
-      },
-      "3": {
-        "question": "Pourquoi les certifications sont-elles importantes pour ma marque ?",
-        "answer": "Les certifications fournissent une preuve tierce de vos allégations de durabilité. Elles vous protègent des accusations de greenwashing, renforcent la confiance des clients et garantissent que votre emballage est réellement accepté par les composteurs."
-      },
-      "4": {
-        "question": "Quelle certification est la meilleure pour mon marché ?",
-        "answer": "Cela dépend de votre région : BPI pour l'Amérique du Nord, EN 13432 pour l'Europe, AS 4736 pour l'Australie. Si vous vendez à l'international, choisissez un emballage qui répond à plusieurs normes."
-      },
-      "5": {
-        "question": "Testez-vous les PFAS (produits chimiques éternels) ?",
-        "answer": "Oui ! Tous nos matériaux compostables certifiés sont testés et vérifiés sans PFAS. BPI exige désormais des restrictions sur les produits chimiques fluorés, et nous respectons ces normes mises à jour."
-      },
-      "6": {
-        "question": "Qu'est-ce que la certification BRC Emballage ?",
-        "answer": "BRC (BRCGS) Packaging Materials est une norme de certification de sécurité alimentaire mondialement reconnue. Elle garantit que notre usine de fabrication répond aux exigences rigoureuses en matière d'hygiène, de gestion de la qualité, de sécurité des produits et de contrôle des processus. Cette certification est souvent exigée par les grands détaillants et les marques alimentaires pour garantir que les matériaux d'emballage sont sûrs pour le contact alimentaire."
-      }
+      ]
     },
     "viewCertificates": {
       "heading": "Nos Certificats Actifs",

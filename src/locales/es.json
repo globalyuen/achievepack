@@ -11205,22 +11205,6 @@
           ]
         },
         "relatedLinks": {
-          "link1": {
-            "title": "Bolsa Stand Up con Boquilla de Alta Barrera",
-            "description": "Comprar bolsas de aluminio con boquilla central para cosméticos y líquidos."
-          },
-          "link2": {
-            "title": "Catálogo de Bolsas Stand Up Ecológicas",
-            "description": "Ver bolsas de PE reciclables y materiales compostables de alta barrera."
-          },
-          "link3": {
-            "title": "Bolsa de Aluminio con Forma de Botella",
-            "description": "Pedir sachets con forma de botella de acabado mate para muestras."
-          },
-          "link4": {
-            "title": "Adhesivos de Sellado PLA Premium",
-            "description": "Etiquetas compostables transparentes y estables al calor para cajas."
-          },
           "0": {
             "title": "Bolsas de papel de aluminio con pico",
             "description": "Compre bolsas de aluminio con pico central de alta barrera diseñadas para formulaciones químicas y líquidas."
@@ -11236,6 +11220,22 @@
           "3": {
             "title": "Adhesivos de sellado de PLA premium",
             "description": "Etiquetas transparentes biodegradables termoestables para sellar cápsulas o bolsas plegables."
+          },
+          "link1": {
+            "title": "Bolsa Stand Up con Boquilla de Alta Barrera",
+            "description": "Comprar bolsas de aluminio con boquilla central para cosméticos y líquidos."
+          },
+          "link2": {
+            "title": "Catálogo de Bolsas Stand Up Ecológicas",
+            "description": "Ver bolsas de PE reciclables y materiales compostables de alta barrera."
+          },
+          "link3": {
+            "title": "Bolsa de Aluminio con Forma de Botella",
+            "description": "Pedir sachets con forma de botella de acabado mate para muestras."
+          },
+          "link4": {
+            "title": "Adhesivos de Sellado PLA Premium",
+            "description": "Etiquetas compostables transparentes y estables al calor para cajas."
           }
         },
         "ogTitle": "Soluciones de envasado de aceite de cítricos: bolsitas, cápsulas y bolsas con boquilla",
@@ -24396,6 +24396,184 @@
         "ctaTitle": "Tuesta. Imprime. Empaqueta.",
         "ctaDesc": "¿Listo para mejorar la presentación de su marca de café en EE.UU.? Obtenga muestras gratuitas o una cotización personalizada hoy.",
         "ctaButton": "Obtenga su Cotización Personalizada"
+      },
+      "pouchHomePage": {
+        "showcase": {
+          "spouted": {
+            "tag": "💧 Líquidos y Purés",
+            "title": "Bolsa con Boquilla Compostable Industrial",
+            "desc": "Bolsa flexible certificada como compostable industrial que presenta una boquilla rígida totalmente basada en plantas. Reemplaza las opciones convencionales de boquilla de plástico con cero huella plástica.",
+            "moqLabel": "MOQ",
+            "moqVal": "2,000 unidades",
+            "certLabel": "Certificaciones",
+            "certVal": "EN 13432, ASTM D6400"
+          },
+          "flatBottom": {
+            "tag": "🌱 Productos Secos y Café",
+            "title": "Bolsa de Fondo Plano Compostable Doméstica",
+            "desc": "Estructura de fondo de caja 100% compostable doméstica de primera calidad que ofrece una excelente presencia en los estantes. Se descompone de forma segura y natural en los contenedores de compost del patio trasero.",
+            "moqLabel": "MOQ",
+            "moqVal": "1,000 unidades",
+            "certLabel": "Certificaciones",
+            "certVal": "OK Compost HOME"
+          }
+        }
+      },
+      "ryanWong": {
+        "seoTitle": "Ryan Wong - Especialista en Desarrollo de Empaques | Achieve Pack",
+        "seoDescription": "Ryan Wong, Especialista en Desarrollo de Empaques en Achieve Pack. Más de 14 años ayudando a marcas DTC de café, chocolate y té con empaques compostables. Título de Honor de la Universidad Politécnica de Hong Kong. Experto en 8 países.",
+        "seoKeywords": "Ryan Wong, especialista en desarrollo de empaques, experto en empaques compostables, empaques DTC, empaques de café, Universidad Politécnica de Hong Kong, arquitecto de la cadena de suministro",
+        "backToHome": "Volver al Inicio",
+        "hero": {
+          "title": "Ryan Wong",
+          "subtitle": "Especialista en Desarrollo de Empaques",
+          "description": "Más de 14 años de experiencia | 8 países | Empresas Fortune 500 y startups DTC",
+          "badge1": "🎓 Título de Honor PolyU",
+          "badge2": "🏆 Ex Alumno Destacado de PolyU",
+          "badge3": "🌱 Pionero en Empaques Ecológicos",
+          "linkedin": "Perfil de LinkedIn",
+          "contact": "Contacto"
+        },
+        "about": {
+          "title": "Sobre Ryan",
+          "photoAlt": "Ryan Wong en Exposición de Empaques",
+          "photoCaption": "Ryan en exposición internacional de empaques",
+          "p1": {
+            "part1": "Con ",
+            "part2": "más de 14 años de experiencia dedicada",
+            "part3": " en la industria de empaques, Ryan Wong ha desarrollado experiencia cooperando con empresas multinacionales y de la lista Fortune 500 para lograr relaciones comerciales duraderas y mutuamente beneficiosas."
+          },
+          "p2": {
+            "part1": "La experiencia en empaques y las relaciones comerciales de Ryan abarcan ",
+            "part2": "8 países",
+            "part3": ": Australia, Canadá, China, Alemania, Sudáfrica, Filipinas, Reino Unido y EE. UU. Como graduado con ",
+            "part4": "Título de Honor de la Universidad Politécnica de Hong Kong",
+            "part5": " en Gestión Global de la Cadena de Suministro y Administración de Empresas, combina la excelencia académica con la experiencia práctica."
+          },
+          "p3": {
+            "part1": "Su objetivo es ser un ",
+            "part2": "arquitecto de la cadena de suministro",
+            "part3": " — con conocimientos de empaque, habilidades de TI y pasión para crear valores irreemplazables y sinergia para todas las partes en toda la cadena de suministro desde el inicio hasta el final."
+          },
+          "p4": {
+            "part1": "Como ",
+            "part2": "Fundador de Achieve Pack y Pouch.eco",
+            "part3": ", Ryan se especializa en ",
+            "part4": "soluciones de impresión digital 100% compostables",
+            "part5": " con MOQ bajo líder en la industria (100-500 piezas), haciendo que los empaques sostenibles sean accesibles tanto para startups DTC como para marcas establecidas. Su experiencia en ",
+            "part6": "impresión digital HP Indigo 20000",
+            "part7": " permite un tiempo de entrega de 4 días para pedidos urgentes."
+          }
+        },
+        "career": {
+          "title": "Trayectoria Profesional",
+          "exp1": {
+            "period": "2018 - Presente",
+            "title": "Fundador y Especialista en Desarrollo de Empaques",
+            "company": "Achieve Pack / Pouch.eco",
+            "desc": "Fundó una empresa de empaques ecológicos centrada en soluciones compostables y sostenibles. Pionero en impresión digital con bajo MOQ para marcas DTC."
+          },
+          "exp2": {
+            "period": "2010 - 2018",
+            "title": "Consultor Senior de Empaques",
+            "company": "Empresas Fortune 500 y Multinacionales",
+            "desc": "Desarrolló estrategias de cadena de suministro y soluciones de empaque para marcas internacionales en 8 países."
+          },
+          "exp3": {
+            "period": "1999 - 2003",
+            "title": "Licenciatura (Con Honores)",
+            "company": "Universidad Politécnica de Hong Kong",
+            "desc": "Gestión Global de la Cadena de Suministro y Administración de Empresas"
+          }
+        },
+        "expertise": {
+          "title": "Experiencia Principal",
+          "item1": "Bolsas de café compostables para marcas DTC",
+          "item2": "Empaques para chocolate y confitería",
+          "item3": "Empaques para té (hojas sueltas y bolsitas)",
+          "item4": "Soluciones para comercio electrónico y cajas de suscripción",
+          "item5": "Cumplimiento con EN 13432 y ASTM D6400",
+          "item6": "Orientación para certificación BPI y TÜV",
+          "item7": "Materiales seguros para contacto con alimentos",
+          "item8": "Soluciones sostenibles de bajo MOQ",
+          "item9": "Planificación de transición desde el plástico",
+          "item10": "Tecnología de barrera para productos alimenticios",
+          "item11": "Válvulas desgasificadoras para café",
+          "item12": "Optimización del diseño de bolsas stand-up"
+        },
+        "caseStudies": {
+          "title": "Historias de Éxito de Clientes",
+          "cs1": {
+            "title": "Tostaduría de Café Bean & Bole",
+            "desc": "Ayudó al tostador especializado con sede en Portland a cambiar a bolsas compostables certificadas EN 13432 con válvulas desgasificadoras. Logró un aumento del 35% en la satisfacción del cliente."
+          },
+          "cs2": {
+            "title": "Té Milano Botanica",
+            "desc": "Desarrolló empaques con ventana compostable para marca de té de lujo. Solución compatible con EU PPWR que aumentó las ventas en un 28%."
+          },
+          "cs3": {
+            "title": "Artisan Cocoa Emirates",
+            "desc": "Creó bolsas mono-PP reciclables resistentes al calor para marca de chocolate en los EAU. Ventas de regalos aumentaron en un 55%."
+          }
+        },
+        "sidebar": {
+          "recognition": {
+            "title": "Reconocimiento",
+            "item": {
+              "title": "Ex Alumno Destacado de PolyU",
+              "subtitle": "Programa de Jóvenes Triunfadores",
+              "desc": "Reconocido por contribuciones a la innovación en empaques sostenibles"
+            }
+          },
+          "quickFacts": {
+            "title": "Datos Rápidos",
+            "fact1": "Años de Experiencia",
+            "fact2": "Países Servidos",
+            "fact3": "Cantidad Mínima de Pedido",
+            "fact4": "Días de Producción Urgente"
+          },
+          "industryFocus": {
+            "title": "Enfoque de la Industria",
+            "item1": "☕ Café y Espresso",
+            "item2": "🍫 Chocolate y Confitería",
+            "item3": "🍵 Té y Mezclas de Hierbas",
+            "item4": "📦 Cajas de Suscripción",
+            "item5": "🌿 Productos Orgánicos y Naturales"
+          },
+          "education": {
+            "title": "Educación y Habilidades",
+            "uni": "Universidad Politécnica de Hong Kong",
+            "degree": "Título de Honor (1999-2003)",
+            "major": "Cadena de Suministro Global, Administración de Empresas",
+            "techSkillsTitle": "Habilidades Técnicas:",
+            "techSkill1": "Adobe Photoshop",
+            "techSkill2": "Adobe Illustrator",
+            "techSkill3": "HP Indigo 20000",
+            "techSkill4": "Gestión de Cadena de Suministro",
+            "techSkill5": "Impresión Digital",
+            "certTitle": "Experiencia en Certificaciones:",
+            "cert1": "EN 13432",
+            "cert2": "ASTM D6400",
+            "cert3": "Certificación BPI",
+            "cert4": "TÜV OK Compost"
+          },
+          "globalNetwork": {
+            "title": "Red Global",
+            "country1": "Australia",
+            "country2": "Canadá",
+            "country3": "China",
+            "country4": "Alemania",
+            "country5": "Sudáfrica",
+            "country6": "Filipinas",
+            "country7": "Reino Unido",
+            "country8": "EE. UU."
+          },
+          "cta": {
+            "title": "¿Listo para ser sostenible?",
+            "desc": "Reserve una consulta gratuita de 30 minutos para discutir sus necesidades de empaque.",
+            "button": "Programar Reunión"
+          }
+        }
       }
     },
     "compostableStandUpPouches": {
@@ -26203,6 +26381,34 @@
       ]
     },
     "faqs": {
+      "0": {
+        "question": "¿Qué significa \"BPI Certified Compostable\"?",
+        "answer": "BPI Certified significa que su empaque ha sido probado y verificado de forma independiente para descomponerse en instalaciones de compostaje industrial. Cumple con los estrictos estándares ASTM para biodegradación, desintegración y ecotoxicidad. Sin residuos nocivos."
+      },
+      "1": {
+        "question": "¿Puedo compostar empaques certificados en mi jardín?",
+        "answer": "La mayoría de los empaques certificados BPI están diseñados para instalaciones de compostaje industrial, que alcanzan temperaturas más altas (60-71°C) que las pilas de compost domésticas. Si desea compostabilidad doméstica, busque la certificación \"Home Compostable\" (TÜV Austria OK compost HOME)."
+      },
+      "2": {
+        "question": "¿Cómo puedo verificar sus certificaciones?",
+        "answer": "Visite products.bpiworld.org y busque \"Achieve Pack Company\" para ver todos los SKU certificados. Proporcionamos documentos de certificación con cada pedido. También puede solicitar informes de pruebas de laboratorio para total transparencia."
+      },
+      "3": {
+        "question": "¿Por qué las certificaciones importan para mi marca?",
+        "answer": "Las certificaciones proporcionan pruebas de terceros de sus afirmaciones de sostenibilidad. Lo protegen de acusaciones de greenwashing, generan confianza del cliente y garantizan que su empaque sea realmente aceptado por los compostadores."
+      },
+      "4": {
+        "question": "¿Cuál es la mejor certificación para mi mercado?",
+        "answer": "Depende de su región: BPI para América del Norte, EN 13432 para Europa, AS 4736 para Australia. Si vende a nivel global, elija empaques que cumplan con múltiples estándares."
+      },
+      "5": {
+        "question": "¿Realizan pruebas de PFAS (químicos eternos)?",
+        "answer": "¡Sí! Todos nuestros materiales compostables certificados son probados y verificados como libres de PFAS. BPI ahora requiere restricciones de químicos fluorados, y cumplimos con esos estándares actualizados."
+      },
+      "6": {
+        "question": "¿Qué es la certificación BRC Empaque?",
+        "answer": "BRC (BRCGS) Packaging Materials es un estándar de certificación de seguridad alimentaria reconocido mundialmente. Garantiza que nuestra planta de fabricación cumple con los requisitos rigurosos de higiene, gestión de calidad, seguridad del producto y control de procesos. Esta certificación es frecuentemente requerida por los principales minoristas y marcas alimentarias para garantizar que los materiales de empaque sean seguros para el contacto con alimentos."
+      },
       "heading": "Preguntas Frecuentes sobre Certificaciones",
       "items": [
         {
@@ -26233,35 +26439,7 @@
           "question": "¿Qué es la certificación BRC Packaging?",
           "answer": "BRC (BRCGS) Packaging Materials es una norma de certificación de seguridad alimentaria reconocida a nivel mundial. Garantiza que nuestra planta de fabricación cumple con rigurosos requisitos de higiene, gestión de calidad, seguridad del producto y control de procesos."
         }
-      ],
-      "0": {
-        "question": "¿Qué significa \"BPI Certified Compostable\"?",
-        "answer": "BPI Certified significa que su empaque ha sido probado y verificado de forma independiente para descomponerse en instalaciones de compostaje industrial. Cumple con los estrictos estándares ASTM para biodegradación, desintegración y ecotoxicidad. Sin residuos nocivos."
-      },
-      "1": {
-        "question": "¿Puedo compostar empaques certificados en mi jardín?",
-        "answer": "La mayoría de los empaques certificados BPI están diseñados para instalaciones de compostaje industrial, que alcanzan temperaturas más altas (60-71°C) que las pilas de compost domésticas. Si desea compostabilidad doméstica, busque la certificación \"Home Compostable\" (TÜV Austria OK compost HOME)."
-      },
-      "2": {
-        "question": "¿Cómo puedo verificar sus certificaciones?",
-        "answer": "Visite products.bpiworld.org y busque \"Achieve Pack Company\" para ver todos los SKU certificados. Proporcionamos documentos de certificación con cada pedido. También puede solicitar informes de pruebas de laboratorio para total transparencia."
-      },
-      "3": {
-        "question": "¿Por qué las certificaciones importan para mi marca?",
-        "answer": "Las certificaciones proporcionan pruebas de terceros de sus afirmaciones de sostenibilidad. Lo protegen de acusaciones de greenwashing, generan confianza del cliente y garantizan que su empaque sea realmente aceptado por los compostadores."
-      },
-      "4": {
-        "question": "¿Cuál es la mejor certificación para mi mercado?",
-        "answer": "Depende de su región: BPI para América del Norte, EN 13432 para Europa, AS 4736 para Australia. Si vende a nivel global, elija empaques que cumplan con múltiples estándares."
-      },
-      "5": {
-        "question": "¿Realizan pruebas de PFAS (químicos eternos)?",
-        "answer": "¡Sí! Todos nuestros materiales compostables certificados son probados y verificados como libres de PFAS. BPI ahora requiere restricciones de químicos fluorados, y cumplimos con esos estándares actualizados."
-      },
-      "6": {
-        "question": "¿Qué es la certificación BRC Empaque?",
-        "answer": "BRC (BRCGS) Packaging Materials es un estándar de certificación de seguridad alimentaria reconocido mundialmente. Garantiza que nuestra planta de fabricación cumple con los requisitos rigurosos de higiene, gestión de calidad, seguridad del producto y control de procesos. Esta certificación es frecuentemente requerida por los principales minoristas y marcas alimentarias para garantizar que los materiales de empaque sean seguros para el contacto con alimentos."
-      }
+      ]
     },
     "viewCertificates": {
       "heading": "Nuestros Certificados Activos",
