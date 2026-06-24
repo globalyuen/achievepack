@@ -1221,7 +1221,7 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Filter and sort items
   const filteredItems = useMemo(() => {
-    let filtered = batchItems.filter(item => {
+    const filtered = batchItems.filter(item => {
       const q = searchQuery.toLowerCase().trim()
       const ai = item.ai_analysis
       
@@ -1267,10 +1267,11 @@ const ArtworkBatchesPage: React.FC = () => {
           return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
         case 'oldest':
           return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
-        case 'activity':
+        case 'activity': {
           const dateA = new Date(a.updated_at || a.created_at).getTime()
           const dateB = new Date(b.updated_at || b.created_at).getTime()
           return dateB - dateA
+        }
         case 'name':
         default:
           return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' })
