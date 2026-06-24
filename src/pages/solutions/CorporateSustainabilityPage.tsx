@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Building2, FileCheck, BarChart3, Shield, Globe, CheckCircle, Calendar, MessageCircle, Award, Target, Users, Leaf, Factory, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Package } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -417,12 +417,12 @@ const CorporateSustainabilityPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
-        <link rel="canonical" href="https://achievepack.com/solutions/corporate-sustainability" />
-        <meta name="keywords" content="corporate sustainability packaging, ESG packaging, certified sustainable packaging, environmental reporting, supply chain transparency, corporate packaging solutions" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['corporate sustainability packaging', 'ESG packaging', 'certified sustainable packaging', 'environmental reporting', 'supply chain transparency', 'corporate packaging solutions']}
+        schemaType="Service"
+      />
 
       <SEOPageLayout heroBgColor="#14532d"
         title={t(`${p}.title`)}

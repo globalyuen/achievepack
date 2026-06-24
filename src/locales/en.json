@@ -900,6 +900,24 @@
     "contents": "What's on This Page",
     "faq": "Questions We Get Asked",
     "relatedResources": "Related Stuff",
+    "materialVideoBlock": {
+      "badge": "Materials Technology",
+      "heading": "Explore Our Sustainable Packaging Stacks",
+      "subheading": "We engineer high-performance barrier pouches across four distinct sustainable categories. Play the videos below to witness each material in action.",
+      "subheadingAp": "We design and manufacture high-performance barrier bags in four sustainable categories. View our technology stacks below to find the perfect match for your product and brand.",
+      "demoLabel": "Material Demonstration",
+      "verified": "Verified"
+    },
+    "cta": {
+      "shopStarterKits": "Shop Starter Kits (Low MOQ)",
+      "bookWholesaleCall": "Book Wholesale Call",
+      "shopLowMoq": "Shop Low MOQ (500+)",
+      "enterpriseQuote": "Custom Enterprise Quote",
+      "bookMeeting": "Book Meeting",
+      "bookConsultation": "Book Free Consultation",
+      "orderSamplePack": "Order Sample Pack",
+      "browseStore": "Browse Store"
+    },
     "emailUs": "Email Us",
     "bookMeeting": "Book a Call",
     "getQuote": "Get a Quote (Free)",

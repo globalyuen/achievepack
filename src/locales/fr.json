@@ -779,6 +779,24 @@
     "contents": "Contenu",
     "faq": "Foire aux questions",
     "relatedResources": "Ressources connexes",
+    "materialVideoBlock": {
+      "badge": "Technologie des Matériaux",
+      "heading": "Découvrez Nos Piles d'Emballages Durables",
+      "subheading": "Nous fabriquons des sachets barrière haute performance en quatre catégories durables distinctes. Regardez les vidéos pour voir chaque matériau en action.",
+      "subheadingAp": "Nous concevons et fabriquons des sacs barrière haute performance en quatre catégories durables. Consultez nos piles technologiques pour trouver la correspondance parfaite pour votre produit et votre marque.",
+      "demoLabel": "Démonstration du Matériau",
+      "verified": "Vérifié"
+    },
+    "cta": {
+      "shopStarterKits": "Acheter des Kits de Démarrage (MOQ Bas)",
+      "bookWholesaleCall": "Réserver un Appel Grossiste",
+      "shopLowMoq": "Acheter MOQ Bas (500+)",
+      "enterpriseQuote": "Devis Entreprise Personnalisé",
+      "bookMeeting": "Prendre Rendez-vous",
+      "bookConsultation": "Réserver une Consultation Gratuite",
+      "orderSamplePack": "Commander un Pack d'Échantillons",
+      "browseStore": "Parcourir la Boutique"
+    },
     "emailUs": "Envoyez-nous un courriel",
     "bookMeeting": "Réunion du livre",
     "getQuote": "Obtenez un devis gratuit",

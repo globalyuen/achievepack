@@ -779,6 +779,24 @@
     "contents": "Contents",
     "faq": "Frequently Asked Questions",
     "relatedResources": "Related Resources",
+    "materialVideoBlock": {
+      "badge": "Tecnología de Materiales",
+      "heading": "Explore Nuestras Pilas de Empaques Sostenibles",
+      "subheading": "Fabricamos bolsas de barrera de alto rendimiento en cuatro categorías sostenibles distintas. Reproduzca los videos para ver cada material en acción.",
+      "subheadingAp": "Diseñamos y fabricamos bolsas de barrera de alto rendimiento en cuatro categorías sostenibles. Vea nuestras pilas tecnológicas para encontrar la opción perfecta para su producto y marca.",
+      "demoLabel": "Demostración de Material",
+      "verified": "Verificado"
+    },
+    "cta": {
+      "shopStarterKits": "Comprar Kits de Inicio (MOQ Bajo)",
+      "bookWholesaleCall": "Reservar Llamada Mayorista",
+      "shopLowMoq": "Comprar MOQ Bajo (500+)",
+      "enterpriseQuote": "Cotización Empresarial Personalizada",
+      "bookMeeting": "Reservar Reunión",
+      "bookConsultation": "Reservar Consulta Gratuita",
+      "orderSamplePack": "Pedir Pack de Muestras",
+      "browseStore": "Ver Tienda"
+    },
     "emailUs": "Email Us",
     "bookMeeting": "Book Meeting",
     "getQuote": "Get Free Quote",

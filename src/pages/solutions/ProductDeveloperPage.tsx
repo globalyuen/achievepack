@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Lightbulb, Beaker, Rocket, Zap, Clock, CheckCircle, Calendar, MessageCircle, Package, Target, Sparkles, Repeat, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -443,12 +443,12 @@ const ProductDeveloperPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
-        <link rel="canonical" href="https://achievepack.com/solutions/product-developer" />
-        <meta name="keywords" content="innovation packaging, rapid prototyping, product development packaging, low MOQ testing, flexible packaging design, cutting-edge materials" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['innovation packaging', 'rapid prototyping', 'product development packaging', 'low MOQ testing', 'flexible packaging design', 'cutting-edge materials']}
+        schemaType="Product"
+      />
 
       <SEOPageLayout heroBgColor="#1f2937"
         title={t(`${p}.title`)}

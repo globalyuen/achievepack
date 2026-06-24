@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Coffee, Leaf, CheckCircle, Calendar, ArrowRight, Package, Shield, Clock, Sparkles, TrendingUp, Heart } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -96,31 +96,14 @@ export default function PouchCoffeeTeaPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('seoPages.pages.pouchCoffeeTea.metaTitle')}</title>
-        <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={metaDescription} />
-        
-        {/* Schema.org */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchemaData)}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('seoPages.pages.pouchCoffeeTea.metaTitle')}
+        description={t('seoPages.pages.pouchCoffeeTea.metaDescription')}
+        keywords={['compostable coffee pouch', 'degassing valve coffee bag', 'sustainable tea packaging', 'kraft coffee packaging', 'biodegradable coffee bag']}
+        schemaType="Product"
+        ogImage="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg"
+        additionalSchema={schemaData}
+      />
 
       {/* Hero Section with Video Background */}
       <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">

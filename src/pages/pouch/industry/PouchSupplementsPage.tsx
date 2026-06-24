@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Beaker, Sparkles, Star, Pill } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -95,28 +95,14 @@ export default function PouchSupplementsPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('seoPages.pages.pouchSupplements.metaTitle')}</title>
-        <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/compostable_protein_powder_pouch.jpg" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={metaDescription} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchemaData)}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('seoPages.pages.pouchSupplements.metaTitle')}
+        description={t('seoPages.pages.pouchSupplements.metaDescription')}
+        keywords={['compostable supplement pouch', 'sustainable protein powder bag', 'eco supplement packaging', 'low MOQ supplement bag', 'biodegradable vitamin pouch']}
+        schemaType="Product"
+        ogImage="/imgs/artifacts/compostable_protein_powder_pouch.jpg"
+        additionalSchema={schemaData}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">

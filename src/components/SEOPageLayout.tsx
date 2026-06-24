@@ -566,13 +566,13 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
         {isPouch ? (
           <div className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <div className="inline-block bg-[#00FFFF] border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4 font-mono">
-              ECO_MATERIALS_VERIFICATION
+              {t('seoPageLayout.materialVideoBlock.badge')}
             </div>
             <h2 className="font-black text-2xl md:text-4xl uppercase tracking-tighter leading-none mb-6">
-              EXPLORE OUR SUSTAINABLE PACKAGING STACKS
+              {t('seoPageLayout.materialVideoBlock.heading')}
             </h2>
             <p className="font-['Space_Grotesk'] text-lg font-bold text-neutral-800 mb-8 max-w-2xl leading-snug">
-              We engineer high-performance barrier pouches across four distinct sustainable categories. Play the videos below to witness each material in action.
+              {t('seoPageLayout.materialVideoBlock.subheading')}
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -618,13 +618,13 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
           <div className="bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm">
             <div className="max-w-3xl mb-8">
               <span className="text-xs font-bold text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                Materials Technology
+                {t('seoPageLayout.materialVideoBlock.badge')}
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mt-3 mb-4">
-                Explore Our Sustainable Packaging Stacks
+                {t('seoPageLayout.materialVideoBlock.heading')}
               </h2>
               <p className="text-neutral-600 text-base leading-relaxed">
-                We design and manufacture high-performance barrier bags in four sustainable categories. View our technology stacks below to find the perfect match for your product and brand.
+                {t('seoPageLayout.materialVideoBlock.subheadingAp')}
               </p>
             </div>
             
@@ -733,7 +733,7 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                 className="w-full h-full object-cover"
               />
               <span className="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-sm text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider z-20">
-                Material Demonstration
+                {t('seoPageLayout.materialVideoBlock.demoLabel')}
               </span>
             </div>
             
@@ -743,7 +743,7 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                 {data.badge}
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 leading-snug">
-                Verified: {data.title}
+                {t('seoPageLayout.materialVideoBlock.verified')}: {data.title}
               </h2>
               <p className="text-neutral-600 text-base leading-relaxed">
                 {data.desc}
@@ -1177,14 +1177,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                       href="/store"
                       className="text-xs md:text-sm"
                     >
-                      Shop Starter Kits (Low MOQ)
+                      {t('seoPageLayout.cta.shopStarterKits')}
                     </NeoButton>
                     <NeoButton 
                       variant="dark"
                       href="https://calendly.com/30-min-free-packaging-consultancy"
                       className="text-xs md:text-sm"
                     >
-                      Book Wholesale Call
+                      {t('seoPageLayout.cta.bookWholesaleCall')}
                     </NeoButton>
                   </div>
                 </div>
@@ -1424,7 +1424,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                         href="/store"
                         className="inline-flex items-center justify-center gap-3 bg-[#D4FF00] text-black px-8 py-4 border-4 border-[#D4FF00] font-['JetBrains_Mono'] font-bold uppercase hover:bg-transparent hover:text-[#D4FF00] transition-colors shadow-[8px_8px_0px_0px_rgba(212,255,0,1)]"
                       >
-                        Shop Low MOQ (500+)
+                        {t('seoPageLayout.cta.shopLowMoq')}
                       </a>
                       <a
                         href="https://calendly.com/30-min-free-packaging-consultancy"
@@ -1432,7 +1432,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-3 bg-transparent text-white px-8 py-4 border-4 border-white font-['JetBrains_Mono'] font-bold uppercase hover:bg-white hover:text-black transition-colors"
                       >
-                        Custom Enterprise Quote
+                        {t('seoPageLayout.cta.enterpriseQuote')}
                       </a>
                     </div>
                   </section>
@@ -1556,7 +1556,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3.5 rounded-lg font-bold hover:bg-green-50 transition shadow-lg hover:shadow-xl"
                   >
                     <Calendar className="h-4 w-4" />
-                    Book Meeting
+                    {t('seoPageLayout.cta.bookMeeting')}
                   </a>
                 </div>
               </div>
@@ -1595,7 +1595,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                       className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
                     >
                       <Calendar className="h-4 w-4" />
-                      Book Meeting
+                      {t('seoPageLayout.cta.bookMeeting')}
                     </a>
                   </div>
                 </div>
@@ -1873,7 +1873,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     className="inline-flex items-center justify-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition shadow-lg"
                   >
                     <Calendar className="h-4 w-4" />
-                    Book Free Consultation
+                    {t('seoPageLayout.cta.bookConsultation')}
                   </a>
                   {/* Level 2: Medium - Order Sample Pack */}
                   <Link
@@ -1881,7 +1881,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     className="inline-flex items-center justify-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-400 transition"
                   >
                     <Package className="h-4 w-4" />
-                    Order Sample Pack
+                    {t('seoPageLayout.cta.orderSamplePack')}
                   </Link>
                   {/* Level 1: Low - Browse Store */}
                   <Link
@@ -1889,7 +1889,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                   >
                     <ArrowRight className="h-4 w-4" />
-                    Browse Store
+                    {t('seoPageLayout.cta.browseStore')}
                   </Link>
                 </div>
               </section>

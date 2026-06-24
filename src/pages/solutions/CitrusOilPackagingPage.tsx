@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { 
   Beaker, Leaf, Award, CheckCircle, Clock, Shield, Target, 
@@ -395,50 +395,22 @@ const CitrusOilPackagingPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
-        <link rel="canonical" href="https://achievepack.com/solutions/citrus-oil-packaging" />
-        <meta property="og:title" content={t(`${p}.title`)} />
-        <meta property="og:description" content={t(`${p}.description`)} />
-        <meta property="og:url" content="https://achievepack.com/solutions/citrus-oil-packaging" />
-        <meta name="keywords" content="citrus oil packaging, sachet pouch honey, d-limonene compatibility, terpene barrier pouch, recyclable spout pouch, bio-PE sugarcane pouch, custom cosmetic box, low MOQ packaging, foil capsule packaging" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Citrus Oil Packaging Solutions Ecosystem",
-            "description": "Complete packaging solution range comparing foil capsules, spouted pouches, and specialty bottle sachets for liquid citrus oils and cosmetics.",
-            "brand": {
-              "@type": "Brand",
-              "name": "Achieve Pack"
-            },
-            "offers": {
-              "@type": "AggregateOffer",
-              "priceCurrency": "USD",
-              "lowPrice": "0.06",
-              "highPrice": "2.57",
-              "offerCount": "5"
-            }
-          })}
-        </script>
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
-          })}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['citrus oil packaging', 'limonene barrier', 'recyclable spout pouch', 'sachet pouch sample', 'bio-PE sugarcane pouch', 'custom cosmetic box', 'low MOQ packaging']}
+        schemaType="Product"
+        additionalSchema={{
+          brand: { '@type': 'Brand', name: 'Achieve Pack' },
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'USD',
+            lowPrice: '0.06',
+            highPrice: '2.57',
+            offerCount: '5'
+          }
+        }}
+      />
 
       <SEOPageLayout 
         heroBgColor="#14532d"

@@ -779,6 +779,24 @@
     "contents": "目錄",
     "faq": "常見問題",
     "relatedResources": "相關資源",
+    "materialVideoBlock": {
+      "badge": "材料技術",
+      "heading": "探索我們的永續包裝技術堆疊",
+      "subheading": "我們以四種不同的永續類別製造高性能阻隔袋。播放影片，見證每種材料的實際應用。",
+      "subheadingAp": "我們設計和製造四種永續類別的高性能阻隔袋。請參閱我們的技術堆疊，為您的產品和品牌找到最完美的選擇。",
+      "demoLabel": "材料示範",
+      "verified": "已驗證"
+    },
+    "cta": {
+      "shopStarterKits": "購買入門套件 (低起訂量)",
+      "bookWholesaleCall": "預約批發諮詢",
+      "shopLowMoq": "購買低起訂量 (500+)",
+      "enterpriseQuote": "企業定制報價",
+      "bookMeeting": "預約會議",
+      "bookConsultation": "預約免費諮詢",
+      "orderSamplePack": "訂購樣品包",
+      "browseStore": "瀏覽商店"
+    },
     "emailUs": "發送郵件",
     "bookMeeting": "預約會議",
     "getQuote": "獲取免費報價",

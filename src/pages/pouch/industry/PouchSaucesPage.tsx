@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Droplets, Zap, Sparkles } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -95,28 +95,14 @@ export default function PouchSaucesPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('seoPages.pages.pouchSauces.metaTitle')}</title>
-        <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={metaDescription} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchemaData)}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('seoPages.pages.pouchSauces.metaTitle')}
+        description={t('seoPages.pages.pouchSauces.metaDescription')}
+        keywords={['compostable sauce pouch', 'spout pouch condiments', 'sustainable sauce packaging', 'eco condiment pouch', 'low MOQ sauce bag']}
+        schemaType="Product"
+        ogImage="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp"
+        additionalSchema={schemaData}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] bg-red-50">

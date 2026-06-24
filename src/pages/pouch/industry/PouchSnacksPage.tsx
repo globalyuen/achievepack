@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Zap, Sparkles, Star, Cookie } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -95,28 +95,14 @@ export default function PouchSnacksPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('seoPages.pages.pouchSnacks.metaTitle')}</title>
-        <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/compostable_snack_pouch_window.jpg" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={metaDescription} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchemaData)}
-        </script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('seoPages.pages.pouchSnacks.metaTitle')}
+        description={t('seoPages.pages.pouchSnacks.metaDescription')}
+        keywords={['compostable snack packaging', 'recyclable snack pouch', 'sustainable chip bag', 'eco snack packaging', 'low MOQ snack bag']}
+        schemaType="Product"
+        ogImage="/imgs/artifacts/compostable_snack_pouch_window.jpg"
+        additionalSchema={schemaData}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">

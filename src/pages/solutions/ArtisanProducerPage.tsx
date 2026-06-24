@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Link } from 'react-router-dom'
 import { Heart, Leaf, Package, Sun, CheckCircle, Calendar, MessageCircle, Award, Target, Store, Sparkles, Palette, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -379,12 +379,12 @@ const ArtisanProducerPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t(`${p}.title`)}</title>
-        <meta name="description" content={t(`${p}.description`)} />
-        <link rel="canonical" href="https://achievepack.com/solutions/artisan-producer" />
-        <meta name="keywords" content="artisan packaging, small batch packaging, farmers market packaging, gourmet food packaging, craft food pouches, low MOQ artisan" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['artisan packaging', 'small batch packaging', 'farmers market packaging', 'gourmet food packaging', 'craft food pouches', 'low MOQ artisan']}
+        schemaType="Product"
+      />
 
       <SEOPageLayout heroBgColor="#1f2937"
         title={t(`${p}.heroTitle`)}
