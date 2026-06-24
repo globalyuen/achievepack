@@ -12,6 +12,9 @@ export const useAuth = () => {
       setSession(session)
       setUser(session?.user || null)
       setLoading(false)
+    }).catch(err => {
+      console.error('Error getting session:', err)
+      setLoading(false)
     })
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {

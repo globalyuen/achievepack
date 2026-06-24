@@ -2300,7 +2300,28 @@ const ArtworkBatchesPage: React.FC = () => {
   }
 
   if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
-    return null
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8 text-center bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div>
+            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+              Admin Login Required
+            </h2>
+            <p className="mt-2 text-sm text-gray-600">
+              You've passed the local password check, but you also need to be logged into your Supabase admin account.
+            </p>
+          </div>
+          <div className="mt-8 space-y-6">
+            <a
+              href="/admin-login"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            >
+              Go to Login Page
+            </a>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
