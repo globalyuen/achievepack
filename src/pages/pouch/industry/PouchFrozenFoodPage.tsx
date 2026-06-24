@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Snowflake, Thermometer, Droplets, Target, Sparkles } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -26,11 +26,10 @@ export default function PouchFrozenFoodPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('seoPages.pages.pouchFrozenFood.metaTitle')}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href="https://pouch.eco/industry/frozen-food" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={title}
+        description={description}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#00ffff_1px,transparent_1px)] [background-size:24px_24px] bg-cyan-50">

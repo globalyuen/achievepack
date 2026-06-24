@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Layers, CheckCircle, ArrowRight, Package, Grid, BookOpen } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -11,11 +11,10 @@ export default function PouchAllOptionsPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href="https://pouch.eco/knowledge/all-options" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={title}
+        description={description}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-purple-500">

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Heart, Baby, FileCheck, Thermometer, Droplets } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -26,12 +26,11 @@ export default function PouchBabyFoodPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('seoPages.pages.pouchBabyFood.metaTitle')}</title>
-        <meta name="description" content={description} />
-        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/baby_food_hero.jpg" />
-        <link rel="canonical" href="https://pouch.eco/industry/baby-food" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={title}
+        description={description}
+        ogImage="/imgs/artifacts/baby_food_hero.jpg"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] bg-pink-50">

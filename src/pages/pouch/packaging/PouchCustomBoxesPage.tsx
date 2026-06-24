@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { useState } from 'react'
 import { Package, Award, Sparkles, CheckCircle, HelpCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -121,15 +121,13 @@ export default function PouchCustomBoxesPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content="custom boxes, rigid boxes, mailer boxes, tuck boxes, gift boxes, chocolate packaging, tea box packaging, coffee box packaging, gold foil boxes, FSC certified boxes, embossed packaging" />
-        <link rel="canonical" href="https://pouch.eco/packaging/custom-boxes" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={title}
+        description={description}
+        keywords={["custom boxes", "rigid boxes", "mailer boxes", "tuck boxes", "gift boxes", "chocolate packaging", "tea box packaging", "coffee box packaging", "gold foil boxes", "FSC certified boxes", "embossed packaging"]}
+        schemaType="FAQPage"
+        additionalSchema={faqSchema}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] bg-neutral-50">

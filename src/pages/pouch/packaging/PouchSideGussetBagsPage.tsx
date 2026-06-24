@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import { Layers, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Coffee, HelpCircle, FileText } from 'lucide-react'
@@ -141,16 +141,13 @@ export default function PouchSideGussetBagsPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content="side gusset bag, quad seal bag, coffee bag, side fold bag, gusset pouch, tin tie coffee bag, gusseted packaging, bulk food bag, BRCGS coffee bag" />
-        <link rel="canonical" href="https://pouch.eco/packaging/side-gusset-bags" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content="https://pouch.eco/packaging/side-gusset-bags" />
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <DualDomainSEOHead
+        title={title}
+        description={description}
+        keywords={["side gusset bag", "quad seal bag", "coffee bag", "side fold bag", "gusset pouch", "tin tie coffee bag", "gusseted packaging", "bulk food bag", "BRCGS coffee bag"]}
+        schemaType="FAQPage"
+        additionalSchema={faqSchema}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] bg-neutral-50">

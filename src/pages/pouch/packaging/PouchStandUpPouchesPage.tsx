@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
@@ -89,11 +89,10 @@ export default function PouchStandUpPouchesPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href="https://pouch.eco/packaging/stand-up-pouches" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={title}
+        description={description}
+      />
 
       {/* Clickable Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-8 font-['JetBrains_Mono'] text-xs flex flex-wrap items-center gap-2">

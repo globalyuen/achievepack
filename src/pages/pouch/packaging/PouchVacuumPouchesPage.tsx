@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Wind } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -19,11 +19,10 @@ export default function PouchVacuumPouchesPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href="https://pouch.eco/packaging/vacuum-pouches" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={title}
+        description={description}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]">
