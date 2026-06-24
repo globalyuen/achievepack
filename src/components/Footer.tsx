@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap } from 'lucide-react'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
 
 export default function Footer() {
+  const { t } = useTranslation()
 
   return (
     <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8">
@@ -12,10 +14,10 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-1">
             <div className="flex items-center gap-2 mb-3">
               <Leaf className="h-5 w-5 text-primary-500" />
-              <span className="text-base font-bold">Achieve Pack</span>
+              <span className="text-base font-bold">{t('pouchEcoFooter.brand', 'Achieve Pack')}</span>
             </div>
             <p className="text-neutral-400 text-xs mb-3">
-              Sustainable packaging solutions for forward-thinking brands.
+              {t('pouchEcoFooter.tagline', 'Sustainable packaging solutions for forward-thinking brands.')}
             </p>
 
             {/* Social Media Icons */}
@@ -55,7 +57,7 @@ export default function Footer() {
                 className="bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs font-semibold px-4 rounded hover:bg-neutral-700 hover:text-white hover:border-neutral-500 transition-all flex items-center gap-2 h-12"
               >
                 <FileText className="h-4 w-4 text-primary-400" />
-                <span className="tracking-wide">Data Sheet</span>
+                <span className="tracking-wide">{t('pouchEcoFooter.dataSheet', 'Data Sheet')}</span>
               </Link>
               <a 
                 href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" 
@@ -64,87 +66,87 @@ export default function Footer() {
                 className="bg-green-950/30 border border-green-800 text-green-400 text-xs font-semibold px-4 rounded hover:bg-green-900/40 hover:text-green-300 hover:border-green-600 transition-all flex items-center gap-2 h-12"
               >
                 <ShieldCheck className="h-4 w-4 text-green-400" />
-                <span className="tracking-wide">BPI Cert</span>
+                <span className="tracking-wide">{t('pouchEcoFooter.bpiCert', 'BPI Cert')}</span>
               </a>
             </div>
           </div>
 
           {/* Company - Most Important First */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Company</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.company', 'Company')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/company/about" className="hover:text-primary-400">About Us</Link></li>
-              <li><Link to="/company/b-corp" className="hover:text-primary-400">Our Impact (B Corp)</Link></li>
-              <li><Link to="/company/certificates" className="hover:text-primary-400">Certificates</Link></li>
-              <li><Link to="/company/factory-tour" className="hover:text-primary-400">Factory Tour</Link></li>
-              <li><Link to="/team/ryan-wong" className="hover:text-primary-400">Meet Ryan Wong</Link></li>
+              <li><Link to="/company/about" className="hover:text-primary-400">{t('pouchEcoFooter.aboutUs', 'About Us')}</Link></li>
+              <li><Link to="/company/b-corp" className="hover:text-primary-400">{t('pouchEcoFooter.ourImpact', 'Our Impact (B Corp)')}</Link></li>
+              <li><Link to="/company/certificates" className="hover:text-primary-400">{t('pouchEcoFooter.certificates', 'Certificates')}</Link></li>
+              <li><Link to="/company/factory-tour" className="hover:text-primary-400">{t('pouchEcoFooter.factoryTour', 'Factory Tour')}</Link></li>
+              <li><Link to="/team/ryan-wong" className="hover:text-primary-400">{t('pouchEcoFooter.ryanWong', 'Meet Ryan Wong')}</Link></li>
             </ul>
           </div>
           
           {/* Products */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Products</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.products', 'Products')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/packaging/stand-up-pouches" className="hover:text-primary-400">Stand Up Pouches</Link></li>
-              <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">Flat Bottom Bags</Link></li>
-              <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
-              <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">Flat Pouches</Link></li>
-              <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset Bags</Link></li>
-              <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
-              <li><Link to="/quotes/rollstock" className="hover:text-primary-400">Rollstock</Link></li>
-              <li><Link to="/store/product/eco-stock-tea-bags-pla" className="hover:text-primary-400 font-medium text-primary-400">PLA Tea Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/packaging/stand-up-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.standUpPouches', 'Stand Up Pouches')}</Link></li>
+              <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">{t('pouchEcoFooter.flatBottomBags', 'Flat Bottom Bags')}</Link></li>
+              <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.spoutPouches', 'Spout Pouches')}</Link></li>
+              <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.flatPouches', 'Flat Pouches')}</Link></li>
+              <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">{t('pouchEcoFooter.sideGussetBags', 'Side Gusset Bags')}</Link></li>
+              <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">{t('pouchEcoFooter.customBoxes', 'Custom Boxes')}</Link></li>
+              <li><Link to="/quotes/rollstock" className="hover:text-primary-400">{t('pouchEcoFooter.rollstock', 'Rollstock')}</Link></li>
+              <li><Link to="/store/product/eco-stock-tea-bags-pla" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.plaTeaBags', 'PLA Tea Bags')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
           
-          {/* Materials */}
+          {/* Sustainability */}
           <div>
-            <h4 className="font-semibold text-sm mb-2 text-primary-400">Sustainability</h4>
+            <h4 className="font-semibold text-sm mb-2 text-primary-400">{t('pouchEcoFooter.sustainability', 'Sustainability')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
-              <li><Link to="/materials/industrial-compostable" className="hover:text-primary-400">Industrial Compostable</Link></li>
-              <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono PE</Link></li>
-              <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">Recyclable Mono PP</Link></li>
-              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE (Plant-Based)</Link></li>
-              <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR (Recycled Content)</Link></li>
-              <li><Link to="/materials/kraft-low-barrier" className="hover:text-primary-400">Kraft Low Barrier</Link></li>
-              <li><Link to="/materials/kraft-medium-barrier" className="hover:text-primary-400">Kraft Medium Barrier</Link></li>
-              <li><Link to="/materials/kraft-high-barrier" className="hover:text-primary-400">Kraft High Barrier</Link></li>
-              <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400 font-medium text-primary-400">Plastic-Free Kraft <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400 font-medium text-primary-400">Combustion Safety Test <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/materials/conventional-printed-sachets" className="hover:text-primary-400 font-medium text-primary-400">Conventional Printed Sachets <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/topics/eu-ppwr-compliance" className="hover:text-primary-400 font-medium text-primary-400">EU PPWR Compliance <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/materials/home-compostable" className="hover:text-primary-400">{t('pouchEcoFooter.homeCompostable', 'Home Compostable')}</Link></li>
+              <li><Link to="/materials/industrial-compostable" className="hover:text-primary-400">{t('pouchEcoFooter.industrialCompostable', 'Industrial Compostable')}</Link></li>
+              <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">{t('pouchEcoFooter.recyclableMonoPE', 'Recyclable Mono PE')}</Link></li>
+              <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">{t('pouchEcoFooter.recyclableMonoPP', 'Recyclable Mono PP')}</Link></li>
+              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">{t('pouchEcoFooter.bioPe', 'Bio-PE (Plant-Based)')}</Link></li>
+              <li><Link to="/materials/pcr" className="hover:text-primary-400">{t('pouchEcoFooter.pcr', 'PCR (Recycled Content)')}</Link></li>
+              <li><Link to="/materials/kraft-low-barrier" className="hover:text-primary-400">{t('pouchEcoFooter.kraftLowBarrier', 'Kraft Low Barrier')}</Link></li>
+              <li><Link to="/materials/kraft-medium-barrier" className="hover:text-primary-400">{t('pouchEcoFooter.kraftMediumBarrier', 'Kraft Medium Barrier')}</Link></li>
+              <li><Link to="/materials/kraft-high-barrier" className="hover:text-primary-400">{t('pouchEcoFooter.kraftHighBarrier', 'Kraft High Barrier')}</Link></li>
+              <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.plasticFreeKraft', 'Plastic-Free Kraft')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.combustionSafetyTest', 'Combustion Safety Test')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/materials/conventional-printed-sachets" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.conventionalPrintedSachets', 'Conventional Printed Sachets')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/topics/eu-ppwr-compliance" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.euPpwrCompliance', 'EU PPWR Compliance')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
           
           {/* Structure Spec */}
           <div>
-            <h4 className="font-semibold text-sm mb-2 text-primary-400">Technical Specs</h4>
+            <h4 className="font-semibold text-sm mb-2 text-primary-400">{t('pouchEcoFooter.technicalSpecs', 'Technical Specs')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/tech-specs" className="hover:text-primary-400 font-bold text-white">Technical Spec Hub</Link></li>
-              <li><Link to="/materials/data-sheet" className="hover:text-primary-400">Material Data Sheets</Link></li>
-              <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">PCR Series Specs</Link></li>
-              <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">Bio-PE Series Specs</Link></li>
-              <li><Link to="/spec/mono-pe-duplex-clear" className="hover:text-primary-400">Mono-Material Specs</Link></li>
-              <li><Link to="/spec/bio-cello-duplex-clear" className="hover:text-primary-400">Compostable Specs</Link></li>
+              <li><Link to="/tech-specs" className="hover:text-primary-400 font-bold text-white">{t('pouchEcoFooter.technicalSpecHub', 'Technical Spec Hub')}</Link></li>
+              <li><Link to="/materials/data-sheet" className="hover:text-primary-400">{t('pouchEcoFooter.materialDataSheets', 'Material Data Sheets')}</Link></li>
+              <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">{t('pouchEcoFooter.pcrSeriesSpecs', 'PCR Series Specs')}</Link></li>
+              <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">{t('pouchEcoFooter.biopeSeriesSpecs', 'Bio-PE Series Specs')}</Link></li>
+              <li><Link to="/spec/mono-pe-duplex-clear" className="hover:text-primary-400">{t('pouchEcoFooter.monoMaterialSpecs', 'Mono-Material Specs')}</Link></li>
+              <li><Link to="/spec/bio-cello-duplex-clear" className="hover:text-primary-400">{t('pouchEcoFooter.compostableSpecs', 'Compostable Specs')}</Link></li>
             </ul>
           </div>
 
           {/* Packaging Apps */}
           <div>
             <h4 className="font-semibold text-sm mb-2 text-primary-400 flex items-center gap-1.5">
-              <Zap className="h-4 w-4 text-primary-400 fill-current animate-pulse" /> Packaging Apps
+              <Zap className="h-4 w-4 text-primary-400 fill-current animate-pulse" /> {t('pouchEcoFooter.packagingApps', 'Packaging Apps')}
             </h4>
             <ul className="space-y-2 text-xs text-neutral-400">
               <li>
                 <Link to="/knowledge/pouch-sizing" className="hover:text-primary-400 font-semibold text-white flex items-center gap-2 group">
                   <SizingFinderIcon className="h-4 w-4 text-primary-400 group-hover:scale-110 transition-transform" />
-                  <span>Sizing Finder App</span>
+                  <span>{t('pouchEcoFooter.sizingFinderApp', 'Sizing Finder App')}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/tech-specs" className="hover:text-primary-400 font-semibold text-white flex items-center gap-2 group">
                   <MaterialSpecFinderIcon className="h-4 w-4 text-emerald-400 group-hover:scale-110 transition-transform" />
-                  <span>Material Spec Finder</span>
+                  <span>{t('pouchEcoFooter.materialSpecFinder', 'Material Spec Finder')}</span>
                 </Link>
               </li>
             </ul>
@@ -152,61 +154,61 @@ export default function Footer() {
           
           {/* Industries */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Industries</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.industries', 'Industries')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/industry/coffee-tea" className="hover:text-primary-400">Coffee & Tea</Link></li>
-              <li><Link to="/industry/snacks-food" className="hover:text-primary-400">Snacks & Food</Link></li>
-              <li><Link to="/industry/pet-food" className="hover:text-primary-400">Pet Food</Link></li>
-              <li><Link to="/industry/supplements-powders" className="hover:text-primary-400">Supplements</Link></li>
-              <li><Link to="/industry/baby-food" className="hover:text-primary-400">Baby Food</Link></li>
-              <li><Link to="/industry/frozen-food" className="hover:text-primary-400">Frozen Food</Link></li>
-              <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-400 font-medium text-primary-400">Citrus Oil Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/industry/coffee-tea" className="hover:text-primary-400">{t('pouchEcoFooter.coffeeTea', 'Coffee & Tea')}</Link></li>
+              <li><Link to="/industry/snacks-food" className="hover:text-primary-400">{t('pouchEcoFooter.snacksFood', 'Snacks & Food')}</Link></li>
+              <li><Link to="/industry/pet-food" className="hover:text-primary-400">{t('pouchEcoFooter.petFood', 'Pet Food')}</Link></li>
+              <li><Link to="/industry/supplements-powders" className="hover:text-primary-400">{t('pouchEcoFooter.supplements', 'Supplements')}</Link></li>
+              <li><Link to="/industry/baby-food" className="hover:text-primary-400">{t('pouchEcoFooter.babyFood', 'Baby Food')}</Link></li>
+              <li><Link to="/industry/frozen-food" className="hover:text-primary-400">{t('pouchEcoFooter.frozenFood', 'Frozen Food')}</Link></li>
+              <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.citrusOilPackaging', 'Citrus Oil Packaging')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
           {/* Featured Products */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Featured</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.featured', 'Featured')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-400">Compostable Coffee Bags</Link></li>
-              <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-400">Coffee Bags with Valve</Link></li>
-              <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-400">Compostable Pouches</Link></li>
-              <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-400 font-medium text-primary-400">Compostable Side Gusset <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-400">Recyclable Mono-Material</Link></li>
-              <li><Link to="/products/low-moq-packaging" className="hover:text-primary-400">Low MOQ Packaging</Link></li>
-              <li><Link to="/products/labels-and-stickers" className="hover:text-primary-400">Labels & Stickers</Link></li>
+              <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-400">{t('pouchEcoFooter.compostableCoffeeBags', 'Compostable Coffee Bags')}</Link></li>
+              <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-400">{t('pouchEcoFooter.coffeeBagsValve', 'Coffee Bags with Valve')}</Link></li>
+              <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.compostablePouches', 'Compostable Pouches')}</Link></li>
+              <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.compostableSideGusset', 'Compostable Side Gusset')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.recyclableMonoMaterial', 'Recyclable Mono-Material')}</Link></li>
+              <li><Link to="/products/low-moq-packaging" className="hover:text-primary-400">{t('pouchEcoFooter.lowMoqPackaging', 'Low MOQ Packaging')}</Link></li>
+              <li><Link to="/products/labels-and-stickers" className="hover:text-primary-400">{t('pouchEcoFooter.labelsStickers', 'Labels & Stickers')}</Link></li>
             </ul>
           </div>
 
           {/* Knowledge */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Knowledge</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.knowledge', 'Knowledge')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/knowledge/pouch-sizing" className="hover:text-primary-400">Pouch Sizing Guide</Link></li>
-              <li><Link to="/knowledge/size-guide" className="hover:text-primary-400">Size Reference</Link></li>
-              <li><Link to="/knowledge/all-options" className="hover:text-primary-400">All Options</Link></li>
-              <li><Link to="/features/surface-finish" className="hover:text-primary-400">Surface Option</Link></li>
-              <li><Link to="/features/reclosure-options" className="hover:text-primary-400">Reclosure Option</Link></li>
-              <li><Link to="/knowledge/printing-types" className="hover:text-primary-400">Printing Types</Link></li>
-              <li><Link to="/knowledge/flat-bottom-vs-gusset" className="hover:text-primary-400">Flat Bottom vs. Side Gusset</Link></li>
-              <li><Link to="/knowledge/eco-packaging-reality" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco-Packaging Reality <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/writable-stampable-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Writable & Stampable Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/digital-printing-pantone-color-matching" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Color Matching Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/support/sample-quote" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Custom Printed Sample <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/pouch-sizing" className="hover:text-primary-400">{t('pouchEcoFooter.sizingGuide', 'Pouch Sizing Guide')}</Link></li>
+              <li><Link to="/knowledge/size-guide" className="hover:text-primary-400">{t('pouchEcoFooter.sizeReference', 'Size Reference')}</Link></li>
+              <li><Link to="/knowledge/all-options" className="hover:text-primary-400">{t('pouchEcoFooter.allOptions', 'All Options')}</Link></li>
+              <li><Link to="/features/surface-finish" className="hover:text-primary-400">{t('pouchEcoFooter.surfaceOption', 'Surface Option')}</Link></li>
+              <li><Link to="/features/reclosure-options" className="hover:text-primary-400">{t('pouchEcoFooter.reclosureOption', 'Reclosure Option')}</Link></li>
+              <li><Link to="/knowledge/printing-types" className="hover:text-primary-400">{t('pouchEcoFooter.printingTypes', 'Printing Types')}</Link></li>
+              <li><Link to="/knowledge/flat-bottom-vs-gusset" className="hover:text-primary-400">{t('pouchEcoFooter.flatBottomVsGusset', 'Flat Bottom vs. Side Gusset')}</Link></li>
+              <li><Link to="/knowledge/eco-packaging-reality" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.ecoPackagingReality', 'Eco-Packaging Reality')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/writable-stampable-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.writableStampable', 'Writable & Stampable Pouches')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/digital-printing-pantone-color-matching" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.colorMatchingGuide', 'Color Matching Guide')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/support/sample-quote" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.customPrintedSample', 'Custom Printed Sample')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
           {/* Support */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Support</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.support', 'Support')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
-              <li><Link to="/support/lead-time" className="hover:text-primary-400">Lead Time</Link></li>
-              <li><Link to="/support/color-accuracy-digital-printing" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Color Accuracy Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/support/unprinted-samples" className="hover:text-primary-400">Unprinted Samples</Link></li>
-              <li><Link to="/blog" className="hover:text-primary-400">All Articles</Link></li>
-              <li><Link to="/store" className="hover:text-primary-400">Online Store</Link></li>
-              <li><Link to="/reviews" className="hover:text-primary-400">Customer Reviews</Link></li>
+              <li><Link to="/support/faqs" className="hover:text-primary-400">{t('pouchEcoFooter.faqs', 'FAQs')}</Link></li>
+              <li><Link to="/support/lead-time" className="hover:text-primary-400">{t('pouchEcoFooter.leadTime', 'Lead Time')}</Link></li>
+              <li><Link to="/support/color-accuracy-digital-printing" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.colorAccuracyGuide', 'Color Accuracy Guide')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/support/unprinted-samples" className="hover:text-primary-400">{t('pouchEcoFooter.unprintedSamples', 'Unprinted Samples')}</Link></li>
+              <li><Link to="/blog" className="hover:text-primary-400">{t('pouchEcoFooter.allArticles', 'All Articles')}</Link></li>
+              <li><Link to="/store" className="hover:text-primary-400">{t('pouchEcoFooter.onlineStore', 'Online Store')}</Link></li>
+              <li><Link to="/reviews" className="hover:text-primary-400">{t('pouchEcoFooter.customerReviews', 'Customer Reviews')}</Link></li>
             </ul>
           </div>
         </div>
@@ -215,111 +217,110 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-6">
           {/* Composting */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Composting</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.composting', 'Composting')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/composting/composting-benefits" className="hover:text-primary-400">Composting Benefits</Link></li>
-              <li><Link to="/composting/composting-services" className="hover:text-primary-400">Service Finder</Link></li>
-              <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-400">Biodegradable vs Compostable</Link></li>
-              <li><Link to="/composting/commercial-composting" className="hover:text-primary-400">Commercial Composting</Link></li>
-              <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-400">Home vs Industrial</Link></li>
-              <li><Link to="/composting/natural-cellulose-fiber" className="hover:text-primary-400">Natural Cellulose Fiber</Link></li>
-              <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-400">Compost Bag Humidity Control</Link></li>
-              <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-400">Compostable Zipper Durability</Link></li>
-              <li><Link to="/topics/compostable-spouted-pouches" className="hover:text-primary-400">Compostable Spouted Pouches</Link></li>
+              <li><Link to="/composting/composting-benefits" className="hover:text-primary-400">{t('pouchEcoFooter.compostingBenefits', 'Composting Benefits')}</Link></li>
+              <li><Link to="/composting/composting-services" className="hover:text-primary-400">{t('pouchEcoFooter.serviceFinder', 'Service Finder')}</Link></li>
+              <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-400">{t('pouchEcoFooter.biodegradableVsCompostable', 'Biodegradable vs Compostable')}</Link></li>
+              <li><Link to="/composting/commercial-composting" className="hover:text-primary-400">{t('pouchEcoFooter.commercialComposting', 'Commercial Composting')}</Link></li>
+              <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-400">{t('pouchEcoFooter.homeVsIndustrial', 'Home vs Industrial')}</Link></li>
+              <li><Link to="/composting/natural-cellulose-fiber" className="hover:text-primary-400">{t('pouchEcoFooter.naturalCelluloseFiber', 'Natural Cellulose Fiber')}</Link></li>
+              <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-400">{t('pouchEcoFooter.humidityControl', 'Compost Bag Humidity Control')}</Link></li>
+              <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-400">{t('pouchEcoFooter.zipperDurability', 'Compostable Zipper Durability')}</Link></li>
+              <li><Link to="/topics/compostable-spouted-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.spoutedPouches', 'Compostable Spouted Pouches')}</Link></li>
             </ul>
           </div>
 
           {/* BioPE */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">BioPE</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.biope', 'BioPE')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/biope/what-is-bio-pe" className="hover:text-primary-400">What is Bio-PE?</Link></li>
-              <li><Link to="/biope/bio-pe-vs-compostable" className="hover:text-primary-400">Bio-PE vs Compostable</Link></li>
-              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE Materials</Link></li>
-              <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">Bio-PE Structures</Link></li>
+              <li><Link to="/biope/what-is-bio-pe" className="hover:text-primary-400">{t('pouchEcoFooter.whatIsBioPe', 'What is Bio-PE?')}</Link></li>
+              <li><Link to="/biope/bio-pe-vs-compostable" className="hover:text-primary-400">{t('pouchEcoFooter.bioPeVsCompostable', 'Bio-PE vs Compostable')}</Link></li>
+              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">{t('pouchEcoFooter.bioPeMaterials', 'Bio-PE Materials')}</Link></li>
+              <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">{t('pouchEcoFooter.bioPeStructures', 'Bio-PE Structures')}</Link></li>
             </ul>
           </div>
 
           {/* PCR */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">PCR</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.pcrSection', 'PCR')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-400">What Is PCR Plastic?</Link></li>
-              <li><Link to="/pcr/7-checklist" className="hover:text-primary-400">PCR 7-Point Checklist</Link></li>
-              <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-400">Realistic PCR Content</Link></li>
-              <li><Link to="/pcr/recyclable-vs-pcr-biobased" className="hover:text-primary-400">Recyclable vs PCR vs Bio-Based</Link></li>
-              <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR Materials</Link></li>
+              <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-400">{t('pouchEcoFooter.whatIsPcr', 'What Is PCR Plastic?')}</Link></li>
+              <li><Link to="/pcr/7-checklist" className="hover:text-primary-400">{t('pouchEcoFooter.pcrChecklist', 'PCR 7-Point Checklist')}</Link></li>
+              <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-400">{t('pouchEcoFooter.realisticPcr', 'Realistic PCR Content')}</Link></li>
+              <li><Link to="/pcr/recyclable-vs-pcr-biobased" className="hover:text-primary-400">{t('pouchEcoFooter.recyclableVsPcrBio', 'Recyclable vs PCR vs Bio-Based')}</Link></li>
+              <li><Link to="/materials/pcr" className="hover:text-primary-400">{t('pouchEcoFooter.pcrMaterials', 'PCR Materials')}</Link></li>
             </ul>
           </div>
 
-          {/* Recyclable */}
+          {/* Staging Recyclable */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Recyclable</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.recyclableSection', 'Recyclable')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-400">What Is 100% Recyclable?</Link></li>
-              <li><Link to="/recyclable/roadmap-sme" className="hover:text-primary-400">3-Step Roadmap for SMEs</Link></li>
-              <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-400">Mono-Material Foundation</Link></li>
-              <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
-              <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">Recyclable Mono-PP</Link></li>
-              <li><Link to="/topics/real-world-sustainability" className="text-gray-400 hover:text-white transition-colors">Real-World Sustainability</Link></li>
-              <li><Link to="/topics/sustainable-packaging" className="text-gray-400 hover:text-white transition-colors">Sustainable Pillar</Link></li>
-              <li><Link to="/topics/recyclable-packaging" className="text-gray-400 hover:text-white transition-colors">Recyclable Design</Link></li>
-              <li><Link to="/topics/compostable-packaging" className="text-gray-400 hover:text-white transition-colors">Compostable Facts</Link></li>
-              <li><Link to="/topics/compostable-certification" className="text-gray-400 hover:text-white transition-colors">Certification Guide</Link></li>
-              <li><Link to="/topics/mono-material-packaging" className="text-gray-400 hover:text-white transition-colors">Mono-Material Guide</Link></li>
-              <li><Link to="/topics/pcr-packaging" className="text-gray-400 hover:text-white transition-colors">PCR Guide</Link></li>
-              <li><Link to="/topics/food-packaging-supplier" className="text-gray-400 hover:text-white transition-colors">Supplier Audit</Link></li>
-              <li><Link to="/topics/custom-packaging" className="text-gray-400 hover:text-white transition-colors">Custom Solutions</Link></li>
-              <li><Link to="/topics/reduce-packaging-waste" className="text-gray-400 hover:text-white transition-colors">Reducing Waste</Link></li>
-              <li><Link to="/topics/custom-vs-standard-packaging" className="text-gray-400 hover:text-white transition-colors">Custom vs. Standard</Link></li>
-              <li><Link to="/blog/stamp-foil-recyclability" className="hover:text-primary-400 font-medium text-primary-400">Stamp Foil Recyclability <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-400">{t('pouchEcoFooter.whatIsRecyclable', 'What Is 100% Recyclable?')}</Link></li>
+              <li><Link to="/recyclable/roadmap-sme" className="hover:text-primary-400">{t('pouchEcoFooter.roadmapSme', '3-Step Roadmap for SMEs')}</Link></li>
+              <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-400">{t('pouchEcoFooter.monoMaterialFoundation', 'Mono-Material Foundation')}</Link></li>
+              <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">{t('pouchEcoFooter.recyclableMonoPE', 'Recyclable Mono-PE')}</Link></li>
+              <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">{t('pouchEcoFooter.recyclableMonoPP', 'Recyclable Mono-PP')}</Link></li>
+              <li><Link to="/topics/real-world-sustainability" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.realWorldSustainability', 'Real-World Sustainability')}</Link></li>
+              <li><Link to="/topics/sustainable-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.sustainablePillar', 'Sustainable Pillar')}</Link></li>
+              <li><Link to="/topics/recyclable-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.recyclableDesign', 'Recyclable Design')}</Link></li>
+              <li><Link to="/topics/compostable-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.compostableFacts', 'Compostable Facts')}</Link></li>
+              <li><Link to="/topics/compostable-certification" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.certificationGuide', 'Certification Guide')}</Link></li>
+              <li><Link to="/topics/mono-material-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.monoMaterialGuide', 'Mono-Material Guide')}</Link></li>
+              <li><Link to="/topics/pcr-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.pcrGuide', 'PCR Guide')}</Link></li>
+              <li><Link to="/topics/food-packaging-supplier" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.supplierAudit', 'Supplier Audit')}</Link></li>
+              <li><Link to="/topics/custom-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.customSolutions', 'Custom Solutions')}</Link></li>
+              <li><Link to="/topics/reduce-packaging-waste" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.reducingWaste', 'Reducing Waste')}</Link></li>
+              <li><Link to="/topics/custom-vs-standard-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.customVsStandard', 'Custom vs. Standard')}</Link></li>
+              <li><Link to="/blog/stamp-foil-recyclability" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.stampFoilRecyclability', 'Stamp Foil Recyclability')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
           {/* Function */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Function</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.function', 'Function')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-400">Microwave Steam Bags</Link></li>
-              <li><Link to="/function/smart-degassing-sticker" className="hover:text-primary-400">Smart Degassing Sticker</Link></li>
-              <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">Carbon-Neutral Bags</Link></li>
-              <li><Link to="/function/child-resistant-bags" className="hover:text-primary-400">Child-Resistant Bags</Link></li>
-              <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">Spout Pouches Juice</Link></li>
-              <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-400">Retort Bags</Link></li>
-              <li><Link to="/function/rice-paper-bags" className="hover:text-primary-400">Rice Paper Bags</Link></li>
-              <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-400">Heat-Resistant Pouches</Link></li>
-              <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-400">PVA Water-Soluble Bags</Link></li>
-              <li><Link to="/function/large-format-kraft-heavy-bags" className="hover:text-primary-400 font-medium text-primary-400">Kraft Heavy-Duty Sacks <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-400 font-medium text-primary-400 font-semibold">Pre-Zippered Rollstock <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-400">{t('pouchEcoFooter.microwaveSteamBags', 'Microwave Steam Bags')}</Link></li>
+              <li><Link to="/function/smart-degassing-sticker" className="hover:text-primary-400">{t('pouchEcoFooter.smartDegassingSticker', 'Smart Degassing Sticker')}</Link></li>
+              <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">{t('pouchEcoFooter.carbonNeutralBags', 'Carbon-Neutral Bags')}</Link></li>
+              <li><Link to="/function/child-resistant-bags" className="hover:text-primary-400">{t('pouchEcoFooter.childResistantBags', 'Child-Resistant Bags')}</Link></li>
+              <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">{t('pouchEcoFooter.spoutPouchesJuice', 'Spout Pouches Juice')}</Link></li>
+              <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-400">{t('pouchEcoFooter.retortBags', 'Retort Bags')}</Link></li>
+              <li><Link to="/function/rice-paper-bags" className="hover:text-primary-400">{t('pouchEcoFooter.ricePaperBags', 'Rice Paper Bags')}</Link></li>
+              <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.heatResistantCompostable', 'Heat-Resistant Pouches')}</Link></li>
+              <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-400">{t('pouchEcoFooter.pvaWaterSoluble', 'PVA Water-Soluble Bags')}</Link></li>
+              <li><Link to="/function/large-format-kraft-heavy-bags" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.kraftHeavyDuty', 'Kraft Heavy-Duty Sacks')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-400 font-medium text-primary-400 font-semibold">{t('pouchEcoFooter.preZipperedRollstock', 'Pre-Zippered Rollstock')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
           {/* Lab Bag */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Lab Bag</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.labBag', 'Lab Bag')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/lab/lateral-filter-bags" className="hover:text-primary-400">Lateral Filter Bags</Link></li>
-              <li><Link to="/lab/wire-closure-bags" className="hover:text-primary-400">Wire Closure Bags</Link></li>
-              <li><Link to="/lab/lab-blender-bags" className="hover:text-primary-400">Lab Blender Bags</Link></li>
-              <li><Link to="/products/lab-bags" className="hover:text-primary-400">All Lab Bags</Link></li>
+              <li><Link to="/lab/lateral-filter-bags" className="hover:text-primary-400">{t('pouchEcoFooter.lateralFilterBags', 'Lateral Filter Bags')}</Link></li>
+              <li><Link to="/lab/wire-closure-bags" className="hover:text-primary-400">{t('pouchEcoFooter.wireClosureBags', 'Wire Closure Bags')}</Link></li>
+              <li><Link to="/lab/lab-blender-bags" className="hover:text-primary-400">{t('pouchEcoFooter.labBlenderBags', 'Lab Blender Bags')}</Link></li>
+              <li><Link to="/products/lab-bags" className="hover:text-primary-400">{t('pouchEcoFooter.allLabBags', 'All Lab Bags')}</Link></li>
             </ul>
           </div>
 
           {/* Free Service */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Free Service</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.freeService', 'Free Service')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/free-service/packaging-design-consultation" className="hover:text-primary-400">Design Consultation</Link></li>
-              <li><Link to="/free-service/website-upgrade" className="hover:text-primary-400">Website Upgrade</Link></li>
-              <li><Link to="/free-service/packaging-mockup" className="hover:text-primary-400">Packaging Mockup</Link></li>
-              <li><Link to="/free-service/customer-center" className="hover:text-primary-400">Customer Center</Link></li>
-
+              <li><Link to="/free-service/packaging-design-consultation" className="hover:text-primary-400">{t('pouchEcoFooter.designConsultation', 'Design Consultation')}</Link></li>
+              <li><Link to="/free-service/website-upgrade" className="hover:text-primary-400">{t('pouchEcoFooter.websiteUpgrade', 'Website Upgrade')}</Link></li>
+              <li><Link to="/free-service/packaging-mockup" className="hover:text-primary-400">{t('pouchEcoFooter.mockup', 'Packaging Mockup')}</Link></li>
+              <li><Link to="/free-service/customer-center" className="hover:text-primary-400">{t('pouchEcoFooter.customerCenter', 'Customer Center')}</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Contact Us</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.contactUs', 'Contact Us')}</h4>
             <ul className="space-y-1.5 text-xs text-neutral-400">
               <li className="flex items-center gap-1">
                 <Mail className="h-3 w-3 text-primary-500" />
@@ -331,19 +332,19 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-1 mt-2">
                 <Calendar className="h-3 w-3 text-primary-500" />
-                <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">Book Meeting</a>
+                <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">{t('pouchEcoFooter.bookMeeting', 'Book Meeting')}</a>
               </li>
             </ul>
           </div>
 
           {/* USA Market */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">USA Market</h4>
+            <h4 className="font-semibold text-sm mb-2">{t('pouchEcoFooter.usaMarket', 'USA Market')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/usa/compostable-packaging" className="hover:text-primary-400">Compostable Packaging USA</Link></li>
-              <li><Link to="/usa/coffee-packaging" className="hover:text-primary-400">Coffee Packaging USA</Link></li>
-              <li><Link to="/usa/snacks-packaging" className="hover:text-primary-400">Snacks Packaging USA</Link></li>
-              <li><Link to="/usa/labeling-guide" className="hover:text-primary-400">Labeling Guide USA</Link></li>
+              <li><Link to="/usa/compostable-packaging" className="hover:text-primary-400">{t('pouchEcoFooter.compostablePackagingUsa', 'Compostable Packaging USA')}</Link></li>
+              <li><Link to="/usa/coffee-packaging" className="hover:text-primary-400">{t('pouchEcoFooter.coffeePackagingUsa', 'Coffee Packaging USA')}</Link></li>
+              <li><Link to="/usa/snacks-packaging" className="hover:text-primary-400">{t('pouchEcoFooter.snacksPackagingUsa', 'Snacks Packaging USA')}</Link></li>
+              <li><Link to="/usa/labeling-guide" className="hover:text-primary-400">{t('pouchEcoFooter.labelingGuideUsa', 'Labeling Guide USA')}</Link></li>
             </ul>
           </div>
         </div>
@@ -365,7 +366,7 @@ export default function Footer() {
                 <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"/>
                 <path d="M12 8v8M8 12h8"/>
               </svg>
-              <span>At Achieve Pack pouch.eco, we contribute 1% of our revenue to carbon removal</span>
+              <span>{t('pouchEcoFooter.stripeContribution', 'At Achieve Pack pouch.eco, we contribute 1% of our revenue to carbon removal')}</span>
             </a>
             
             {/* Payment Logos */}
@@ -376,20 +377,20 @@ export default function Footer() {
               <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
-              <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
+              <span className="text-xs text-neutral-300 font-medium">{t('pouchEcoFooter.sslSecure', 'SSL 100% Secure Transactions')}</span>
             </div>
           </div>
         </div>
         
         <div className="border-t border-neutral-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <p className="text-neutral-500 text-xs">
-            © 2010-2026 Achieve Pack. All rights reserved.
+            {t('pouchEcoFooter.copyright', '© 2010-2026 Achieve Pack. All rights reserved.')}
           </p>
           <div className="flex gap-4 text-xs text-neutral-500">
-            <Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link>
-            <Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link>
-            <Link to="/shipping" className="hover:text-primary-400">Shipping Policy</Link>
-            <Link to="/return-policy" className="hover:text-primary-400">Return Policy</Link>
+            <Link to="/terms" className="hover:text-primary-400">{t('pouchEcoFooter.termsConditions', 'Terms & Conditions')}</Link>
+            <Link to="/privacy" className="hover:text-primary-400">{t('pouchEcoFooter.privacyPolicy', 'Privacy Policy')}</Link>
+            <Link to="/shipping" className="hover:text-primary-400">{t('pouchEcoFooter.shippingPolicy', 'Shipping Policy')}</Link>
+            <Link to="/return-policy" className="hover:text-primary-400">{t('pouchEcoFooter.returnPolicy', 'Return Policy')}</Link>
           </div>
         </div>
       </div>
