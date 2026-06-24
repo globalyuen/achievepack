@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
 import { Shield, CheckCircle, Award, Leaf, Globe, Factory, Home, ExternalLink, ChevronDown, Recycle } from 'lucide-react'
 import { useState } from 'react'
@@ -151,19 +151,11 @@ export default function PouchCertificationsPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('pouchCertificationsPage.meta.title')}</title>
-        <meta 
-          name="description" 
-          content={t('pouchCertificationsPage.meta.description')}
-        />
-        <meta name="keywords" content={t('pouchCertificationsPage.meta.keywords')} />
-        <link rel="canonical" href="https://pouch.eco/certifications" />
-        <meta property="og:title" content={t('pouchCertificationsPage.meta.ogTitle')} />
-        <meta property="og:description" content={t('pouchCertificationsPage.meta.ogDescription')} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://pouch.eco/certifications" />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('pouchCertificationsPage.meta.title')}
+        description={t('pouchCertificationsPage.meta.description')}
+        keywords={t('pouchCertificationsPage.meta.keywords', '').split(',').map(k => k.trim()).filter(Boolean)}
+      />
 
       {/* Hero Section with Video Background */}
       <section className="relative pt-12 pb-16 px-4 overflow-hidden">

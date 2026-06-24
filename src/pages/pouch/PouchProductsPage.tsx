@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { ShoppingBag, Package, Zap } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { ThreeFloatingBackground } from '../../components/ThreeFloatingBackground'
@@ -79,10 +79,10 @@ export default function PouchProductsPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('pouchProductsPage.meta.title')}</title>
-        <meta name="description" content={t('pouchProductsPage.meta.description')} />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('pouchProductsPage.meta.title')}
+        description={t('pouchProductsPage.meta.description')}
+      />
 
       {/* Hero Section with Video Background */}
       <section className="relative py-24 border-b-4 border-black overflow-hidden">
@@ -143,7 +143,7 @@ export default function PouchProductsPage() {
 
                 {/* Content Side - Ensure it wraps correctly */}
                 <div className="w-full md:w-1/2 space-y-6">
-                  <h2 className="font-black text-3xl md:text-5xl uppercase break-words">{product.name.replace(/_/g, ' ')}</h2>
+                  <h2 className="font-black text-3xl md:text-5xl uppercase break-words">{t(`pouchProductsPage.products.${index}.name`, product.name.replace(/_/g, ' '))}</h2>
                   <div className="flex flex-wrap gap-2 font-['JetBrains_Mono'] font-bold text-xs md:text-sm">
                     <span className="bg-black text-white px-2 py-1">{t('pouchProductsPage.labels.moq')} {product.stats.moq}</span>
                     <span className="border-2 border-black px-2 py-1">{t('pouchProductsPage.labels.barrier')} {product.stats.barrier}</span>

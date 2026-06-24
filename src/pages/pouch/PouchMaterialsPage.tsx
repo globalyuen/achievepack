@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Leaf, Recycle, Heart, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -65,10 +65,10 @@ export default function PouchMaterialsPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('pouchMaterialsPage.meta.title')}</title>
-        <meta name="description" content={t('pouchMaterialsPage.meta.description')} />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('pouchMaterialsPage.meta.title')}
+        description={t('pouchMaterialsPage.meta.description')}
+      />
 
       {/* Hero Section with Video Background */}
       <section className="relative py-24 border-b-4 border-black overflow-hidden">

@@ -9918,5 +9918,587 @@
     "handle": "@pouch_eco",
     "title": "Siga Nuestro Camino",
     "desc": "Vea nuestras últimas creaciones de embalaje sostenible, momentos entre bastidores y clientes felices en Instagram."
+  },
+  "pouchSolutionsPage": {
+    "meta": {
+      "title": "Soluciones de Embalaje Ecológico | pouch.eco",
+      "description": "Descubra soluciones de embalaje personalizadas y sostenibles, incluyendo bolsas compostables, reciclables y de base biológica adaptadas a su marca.",
+      "ogTitle": "Soluciones de Embalaje Ecológico | pouch.eco",
+      "ogDescription": "Descubra soluciones de embalaje personalizadas y sostenibles, incluyendo bolsas compostables, reciclables y de base biológica adaptadas a su marca.",
+      "twitterTitle": "Soluciones de Embalaje Ecológico | pouch.eco",
+      "twitterDescription": "Descubra soluciones de embalaje personalizadas y sostenibles, incluyendo bolsas compostables, reciclables y de base biológica adaptadas a su marca."
+    },
+    "hero": {
+      "badge": "CENTRO DE SOLUCIONES",
+      "titleLine1": "Embalaje Sostenible",
+      "titleLine2": "Hecho Simple",
+      "terminalLine1": "> Bolsas ecológicas personalizadas desde 500 unidades.",
+      "terminalLine2": "> Diseñadas para café, alimentos y suplementos.",
+      "terminalLine3": "> Lance su marca sin generar residuos.",
+      "ctaConsultation": "Reservar Llamada Gratis",
+      "ctaMaterials": "Comparar Materiales"
+    },
+    "solutions": {
+      "title": "Nuestras",
+      "titleLine2": "Soluciones",
+      "badge": "ELIJA SU CAMINO",
+      "getQuote": "Obtener Presupuesto Gratis",
+      "items": [
+        {
+          "name": "Compostable",
+          "headline": "100% Compostable en Casa",
+          "description": "Nuestro embalaje de barrera de origen vegetal se descompone naturalmente en compostadores domésticos en 180 días, sin dejar residuos tóxicos. Ideal para productos secos, snacks y golosinas para mascotas.",
+          "benefits": [
+            "Certificado TUV OK Compost Home",
+            "Conforme a ASTM D6400 y EN 13432",
+            "Excelentes barreras de oxígeno y humedad",
+            "Capa de sellado vegetal de alta resistencia"
+          ]
+        },
+        {
+          "name": "Reciclable",
+          "headline": "Reciclable de Mono-Material",
+          "description": "Estructura mono-material PE/PE de alto rendimiento diseñada para flujos de reciclaje de polietileno estándar. Ofrece excelente durabilidad y vida útil sin comprometer la reciclabilidad.",
+          "benefits": [
+            "Contenido reciclado certificado GRS disponible",
+            "Compatibilidad con el código de reciclaje estándar 4",
+            "Brillo superior y excelentes propiedades mecánicas",
+            "Perfecto para bolsas stand-up y de fondo plano"
+          ]
+        },
+        {
+          "name": "De Base Biológica",
+          "headline": "PE Biológico de Caña de Azúcar",
+          "description": "Fabricado a partir de etanol derivado de la caña de azúcar, este polietileno de base biológica tiene una huella de carbono negativa de cuna a puerta, ofreciendo la misma alta protección que el plástico fósil.",
+          "benefits": [
+            "Hasta 95% de contenido de carbono biológico",
+            "Reduce las emisiones de CO2 en más del 70%",
+            "Totalmente reciclable con películas de PE estándar",
+            "Materiales aprobados por la FDA para contacto con alimentos"
+          ]
+        }
+      ]
+    },
+    "useCases": {
+      "title": "Adaptado para Cada Industria",
+      "moqLabel": "MOQ desde:",
+      "items": [
+        {
+          "title": "Café y Té",
+          "description": "Mantenga los granos y las hojas frescas con opciones de alta barrera, válvulas desgasificadoras y cremalleras resellables. Elija películas compostables o reciclables.",
+          "moq": "500 unidades"
+        },
+        {
+          "title": "Snacks y Repostería",
+          "description": "Proteja la frescura y el sabor con recubrimientos de barrera resistentes a la grasa y opciones de ventanas personalizadas. Perfecto para galletas, frutos secos y granola.",
+          "moq": "500 unidades"
+        },
+        {
+          "title": "Alimentos y Premios para Mascotas",
+          "description": "Estructuras de alta resistencia y antipinchazos diseñadas para soportar un peso elevado y olores fuertes, manteniendo la comida de las mascotas fresca y segura.",
+          "moq": "500 unidades"
+        },
+        {
+          "title": "Suplementos y Polvos",
+          "description": "Cierres herméticos avanzados con cremallera antiestática y barreras contra la humedad para proteger polvos finos, nutracéuticos y fórmulas de bienestar.",
+          "moq": "500 unidades"
+        }
+      ]
+    },
+    "fastFacts": {
+      "title": "¿Por qué elegir Pouch.eco?",
+      "stat1Value": "500+",
+      "stat1Label": "Inicio con Bajo MOQ",
+      "stat2Value": "100%",
+      "stat2Label": "Materiales Certificados",
+      "stat3Value": "3 Semanas",
+      "stat3Label": "Entrega Rápida"
+    }
+  },
+  "pouchProductsPage": {
+    "meta": {
+      "title": "Bolsas y Embalajes Flexibles Ecológicos | pouch.eco",
+      "description": "Explore nuestra gama de bolsas ecológicas personalizadas. Bolsas stand-up, de fondo plano, con pico, sobres y de fuelle lateral desde 500 unidades."
+    },
+    "hero": {
+      "badge": "CATÁLOGO DE PRODUCTOS",
+      "titleLine1": "Bolsas Ecológicas",
+      "titleLine2": "Impresas a Medida",
+      "subtitle": "Elija entre 5 estilos de bolsas flexibles premium. Lance su marca con embalaje profesional desde solo 500 unidades, sin costos de clichés y con entrega rápida."
+    },
+    "labels": {
+      "moq": "MOQ:",
+      "barrier": "BARRERA:",
+      "theProblem": "EL PROBLEMA",
+      "theSolution": "LA SOLUCIÓN",
+      "from": "Desde",
+      "viewDetails": "Ver Detalles",
+      "bookCall": "Reservar Llamada"
+    },
+    "products": [
+      {
+        "name": "Bolsa Stand Up",
+        "problem": "Su marca necesita destacar, pero la impresión personalizada suele requerir pedir más de 10,000 bolsas y pagar costosos clichés.",
+        "solution": "Nuestras bolsas Stand Up impresas digitalmente le permiten comenzar con embalajes de nivel profesional desde solo 500 unidades, sin clichés y con entrega rápida.",
+        "features": [
+          "Diseño Autoestable",
+          "Cierre Hermético",
+          "Máxima Visibilidad en Estante"
+        ]
+      },
+      {
+        "name": "Bolsa de Fondo Plano",
+        "problem": "El café y té premium necesitan estabilidad en el estante y una marca distintiva, de lo que carecen las bolsas estándar.",
+        "solution": "Nuestra bolsa de fondo plano ofrece 5 caras imprimibles y máxima estabilidad, proporcionando un aspecto de gama alta a su producto.",
+        "features": [
+          "5 Caras Imprimibles",
+          "Estabilidad Tipo Caja",
+          "Aspecto y Sensación Premium"
+        ]
+      },
+      {
+        "name": "Bolsa con Pico",
+        "problem": "Vender líquidos en botellas es pesado, frágil y costoso de enviar, reduciendo sus márgenes de ganancia.",
+        "solution": "Cambie a bolsas con pico flexibles: más ligeras, duraderas y usan un 80% menos de plástico que las botellas rígidas. Perfecto para recargas.",
+        "features": [
+          "Boquilla Antiderrames",
+          "80% Menos de Plástico",
+          "Envío Más Económico"
+        ]
+      },
+      {
+        "name": "Sobre (Sachet)",
+        "problem": "Los clientes quieren probar antes de comprar, pero los sobres genéricos abaratan la imagen de su marca.",
+        "solution": "Nuestros sobres de 3 sellos impresos a medida ofrecen una experiencia premium incluso para tamaños de muestra. Convierta navegantes en compradores.",
+        "features": [
+          "Rentable",
+          "Apto para Envío Postal",
+          "Alta Conversión"
+        ]
+      },
+      {
+        "name": "Bolsa de Fuelle Lateral",
+        "problem": "Los tostadores necesitan una forma clásica de bloque que contenga el máximo volumen sin ocupar demasiado espacio en el estante.",
+        "solution": "Nuestras bolsas de fuelle lateral ofrecen un sellado cuádruple para una estructura rígida y gran capacidad, sin clichés de impresión.",
+        "features": [
+          "Forma Clásica de Café",
+          "Alta Capacidad de Volumen",
+          "Rigidez de Sellado Cuádruple"
+        ]
+      }
+    ]
+  },
+  "pouchMaterialsPage": {
+    "meta": {
+      "title": "Materiales de Embalaje Sostenibles | pouch.eco",
+      "description": "Compare materiales de embalaje ecológicos: compostables (domésticos e industriales), reciclables (mono-PE) y PE biológico de caña de azúcar."
+    },
+    "hero": {
+      "badge": "INTELIGENCIA DE MATERIALES",
+      "titleLine1": "Materiales",
+      "titleLine2": "Ecológicos",
+      "subtitle": "No hacemos concesiones. Solo utilizamos películas compostables, reciclables y de base biológica certificadas por terceros, diseñadas para proteger su producto y el planeta."
+    },
+    "labels": {
+      "pros": "PROS",
+      "cons": "CONTRAS"
+    },
+    "materials": {
+      "compostable": {
+        "name": "Compostable",
+        "description": "Películas de origen vegetal que vuelven a la tierra sin dejar microplásticos. Certificado para compostaje doméstico e industrial.",
+        "pros": [
+          "Se descompone en compostadores domésticos",
+          "Sin residuos químicos sintéticos",
+          "Barreras de oxígeno y humedad de alto nivel",
+          "Materiales certificados por TÜV Austria"
+        ],
+        "cons": [
+          "Mayor costo de material (1.3x)",
+          "Vida útil absoluta más corta (12-18 meses)"
+        ]
+      },
+      "recyclable": {
+        "name": "Reciclable",
+        "description": "Mono-material PE/PE de alto rendimiento diseñado para ser reciclado en sistemas estándar de recolección de plástico.",
+        "pros": [
+          "Totalmente reciclable (Código PE 4)",
+          "La menor huella de carbono de todos los plásticos",
+          "Misma vida útil que el plástico tradicional",
+          "Contenido reciclado certificado GRS disponible"
+        ],
+        "cons": [
+          "Requiere infraestructura de recolección",
+          "No se biodegrada en la naturaleza"
+        ]
+      },
+      "pcr": {
+        "name": "Bio-PE con PCR",
+        "description": "Polietileno de base biológica derivado de la caña de azúcar combinado con plásticos reciclados posconsumo (PCR).",
+        "pros": [
+          "Material base con huella de carbono negativa",
+          "Reduce el consumo de plástico virgen",
+          "Barrera duradera para productos pesados o líquidos",
+          "Reciclable en flujos de PE estándar"
+        ],
+        "cons": [
+          "Más costoso que el PE estándar",
+          "Requiere infraestructura de recolección"
+        ]
+      }
+    },
+    "techSpecs": {
+      "badge": "DATOS TÉCNICOS",
+      "titleLine1": "Especificaciones Profesionales",
+      "titleLine2": "Para Marcas de Alimentos",
+      "description": "Obtenga los datos detallados. Descargue nuestras fichas técnicas de OTR (tasa de transmisión de oxígeno), MVTR (tasa de transmisión de vapor de agua), resistencia a la perforación y fuerza de sellado.",
+      "viewAllSpecs": "Ver Especificaciones",
+      "barrierData": "Datos de Propiedades de Barrera",
+      "downloadBadge": "DESCARGAS",
+      "imgAlt": "Fichas técnicas"
+    },
+    "certifications": {
+      "title": "Certificado y Verificado por Terceros",
+      "dinAlt": "Logo DIN Certco Home Compostable",
+      "bpiAlt": "Logo BPI Compostable",
+      "abaAlt": "Logo ABA Home Compostable",
+      "grsAlt": "Logo GRS Recycled",
+      "biopeAlt": "Logo Bio-PE I'm Green",
+      "fscAlt": "Logo FSC",
+      "iso9001Alt": "Logo ISO 9001",
+      "iso14001Alt": "Logo ISO 14001",
+      "speakToExpert": "Hablar con un Experto en Materiales"
+    }
+  },
+  "pouchCertificationsPage": {
+    "meta": {
+      "title": "Certificaciones y Normas de Embalaje | pouch.eco",
+      "description": "Consulte nuestras certificaciones de embalaje externas: BPI compostable, DIN Certco compostable en casa, GRS reciclado y seguridad alimentaria BRC.",
+      "keywords": "certificaciones de embalaje, BPI compostable, DIN Certco, GRS reciclado, seguridad alimentaria BRC, ASTM D6400",
+      "ogTitle": "Certificaciones y Normas de Embalaje | pouch.eco",
+      "ogDescription": "Consulte nuestras certificaciones de embalaje externas: BPI compostable, DIN Certco compostable en casa, GRS reciclado y seguridad alimentaria BRC."
+    },
+    "hero": {
+      "badge": "CONFIANZA VERIFICADA",
+      "titleLine1": "Normas de",
+      "titleLine2": "Embalaje",
+      "titleLine3": "Certificado",
+      "subtitle": "Respaldamos nuestras afirmaciones de sostenibilidad con pruebas de laboratorio independientes. Vea y descargue nuestros certificados activos de organismos globales.",
+      "viewBpiListing": "Ver Listado BPI",
+      "downloadBpiCert": "Descargar Certificado BPI",
+      "getCertified": "Obtener Embalaje Certificado"
+    },
+    "certifications": {
+      "heading": "Nuestras Normas y Acreditaciones",
+      "listing": "Listado Oficial BPI",
+      "download": "Descargar PDF",
+      "items": [
+        {
+          "name": "DIN HOME COMPOST",
+          "region": "Europa / Global",
+          "description": "Certificación DIN Geprüft Home Compostable. Verificado para compostaje doméstico bajo la norma NF T51-800.",
+          "facility": "Compostaje Doméstico"
+        },
+        {
+          "name": "Certificación BPI",
+          "region": "Norteamérica",
+          "description": "Compostabilidad verificada por terceros por el Instituto de Productos Biodegradables. Cumple con ASTM D6400/D6868.",
+          "facility": "Compostaje Industrial"
+        },
+        {
+          "name": "ABA Home Compost",
+          "region": "Australia",
+          "description": "Verificación de compostabilidad doméstica de la Asociación Australiana de Bioplásticos. La norma de oro en AU.",
+          "facility": "Compostaje Doméstico"
+        },
+        {
+          "name": "Certificación GRS",
+          "region": "Global",
+          "description": "Estándar Global de Reciclado (GRS). Verifica el contenido reciclado (PCR) y prácticas ambientales/sociales responsables.",
+          "facility": "Flujo de Reciclaje"
+        },
+        {
+          "name": "PE de Base Biológica",
+          "region": "Global",
+          "description": "Contenido de carbono biológico verificado a partir de recursos renovables como la caña de azúcar bajo ASTM D6866.",
+          "facility": "Flujo de Reciclaje"
+        },
+        {
+          "name": "Certificación FSC",
+          "region": "Global",
+          "description": "Forest Stewardship Council. Garantiza que el papel proviene de bosques gestionados de forma responsable.",
+          "facility": "Reciclaje de Papel"
+        },
+        {
+          "name": "ISO 9001/14001",
+          "region": "Global",
+          "description": "Normas internacionales de Sistemas de Gestión de Calidad y Sistemas de Gestión Ambiental.",
+          "facility": "Fabricación"
+        },
+        {
+          "name": "Embalaje BRC",
+          "region": "Global",
+          "description": "Estándar BRCGS para Materiales de Embalaje. Norma de certificación de seguridad alimentaria reconocida a nivel mundial.",
+          "facility": "Seguridad Alimentaria"
+        }
+      ]
+    },
+    "benefits": {
+      "heading": "Por qué es Importante el Embalaje Certificado",
+      "items": [
+        {
+          "title": "Verificado por Terceros",
+          "description": "Pruebas de laboratorio independientes demuestran las propiedades de su embalaje."
+        },
+        {
+          "title": "Confianza del Cliente",
+          "description": "Los sellos de certificación en las bolsas generan credibilidad inmediata."
+        },
+        {
+          "title": "Aceptación en Plantas de Compost",
+          "description": "Los embalajes certificados son bienvenidos por los compostadores comerciales."
+        },
+        {
+          "title": "Protección Legal",
+          "description": "Evite demandas por lavado verde (greenwashing) con pruebas documentadas."
+        }
+      ]
+    },
+    "standards": {
+      "heading": "Comparativa de Normas Globales",
+      "thCertification": "Norma de Certificación",
+      "thRegion": "Región Principal",
+      "thFacilityType": "Tipo de Instalación",
+      "thTemperature": "Temperatura de Compost",
+      "rows": [
+        {
+          "region": "Norteamérica",
+          "facility": "Compostaje Industrial"
+        },
+        {
+          "region": "Europa / Global",
+          "facility": "Compostaje Industrial"
+        },
+        {
+          "region": "Australia",
+          "facility": "Compostaje Industrial"
+        },
+        {
+          "region": "Global",
+          "facility": "Compostaje Doméstico"
+        },
+        {
+          "region": "Global",
+          "facility": "Verificación de Seguridad Alimentaria"
+        }
+      ]
+    },
+    "faqs": {
+      "heading": "Preguntas Frecuentes sobre Certificaciones",
+      "items": [
+        {
+          "question": "¿Qué significa 'Certificado Compostable BPI'?",
+          "answer": "La certificación BPI significa que su embalaje ha sido probado y verificado de forma independiente para descomponerse en instalaciones de compostaje industrial. Cumple con las estrictas normas ASTM de biodegradación, desintegración y ecotoxicidad, sin dejar residuos nocivos."
+        },
+        {
+          "question": "¿Puedo compostar embalajes certificados en mi jardín?",
+          "answer": "La mayoría de los embalajes certificados por BPI están diseñados para plantas de compostaje industrial, que alcanzan temperaturas más altas (140-160°F) que las pilas domésticas. Si desea compostabilidad doméstica, busque la certificación 'Home Compostable' (TÜV Austria OK compost HOME)."
+        },
+        {
+          "question": "¿Cómo puedo verificar sus certificaciones?",
+          "answer": "Visite products.bpiworld.org y busque 'Achieve Pack Company' para ver todos los SKU certificados. Proporcionamos documentos de certificación con cada pedido y también puede solicitar informes de pruebas de laboratorio."
+        },
+        {
+          "question": "¿Por qué son importantes las certificaciones para mi marca?",
+          "answer": "Las certificaciones proporcionan pruebas de terceros de sus afirmaciones de sostenibilidad. Le protegen contra acusaciones de lavado verde, aumentan la confianza del cliente y garantizan que los compostadores acepten su embalaje."
+        },
+        {
+          "question": "¿Qué certificación es mejor para mi mercado?",
+          "answer": "Depende de su región: BPI para Norteamérica, EN 13432 para Europa y AS 4736 para Australia. Si vende a nivel mundial, elija embalajes que cumplan con múltiples normas."
+        },
+        {
+          "question": "¿Realizan pruebas de PFAS (químicos eternos)?",
+          "answer": "¡Sí! Todos nuestros materiales compostables certificados son probados y verificados como libres de PFAS. BPI requiere restricciones de químicos fluorados y cumplimos con esas normas actualizadas."
+        },
+        {
+          "question": "¿Qué es la certificación BRC Packaging?",
+          "answer": "BRC (BRCGS) Packaging Materials es una norma de certificación de seguridad alimentaria reconocida a nivel mundial. Garantiza que nuestra planta de fabricación cumple con rigurosos requisitos de higiene, gestión de calidad, seguridad del producto y control de procesos."
+        }
+      ]
+    },
+    "viewCertificates": {
+      "heading": "Nuestros Certificados Activos",
+      "dinHomeCompost": "DIN Compostable Doméstico",
+      "bpiCompostable": "BPI Compostable Industrial",
+      "abaAs5810": "ABA Compostable Doméstico",
+      "grsRecycled": "Contenido Reciclado GRS",
+      "bioBasedPe": "Bio-PE I'm Green Caña de Azúcar",
+      "fscMix": "Papel Mixto Forestal FSC",
+      "iso9001": "Sistema de Calidad ISO 9001",
+      "iso14001": "Sistema de Gestión Eco ISO 14001",
+      "brcPackaging": "Certificado Seguridad Alimentaria BRCGS",
+      "downloadLabel": "Haga clic para descargar PDF"
+    },
+    "cta": {
+      "heading": "Lance su Embalaje Ecológico Certificado",
+      "subtitle": "Obtenga muestras gratuitas y una consulta para verificar los materiales certificados adecuados para su producto.",
+      "bookConsultation": "Reservar Llamada de Embalaje",
+      "browseMaterials": "Ver Materiales"
+    }
+  },
+  "pouchKnowledgeSizeGuidePage": {
+    "meta": {
+      "title": "Guía de Tamaños de Bolsas | Dimensiones y Volumen | POUCH.ECO",
+      "description": "La guía definitiva para dimensionar embalajes flexibles. Aprenda a medir bolsas stand-up, calcular el volumen para diferentes productos y elegir las dimensiones perfectas.",
+      "keywords": "guía de tamaños de bolsas, dimensiones de embalaje, tamaño de bolsa stand up, tamaño de bolsa de café, volumen de bolsa de fondo plano"
+    },
+    "hero": {
+      "badge": "BASE DE CONOCIMIENTO // TAMAÑOS",
+      "heading1": "Mida",
+      "heading2": "Dos veces.",
+      "heading3": "Escale una.",
+      "description": "Deje de adivinar. Aprenda exactamente cómo medir las dimensiones de las bolsas, comprender la profundidad del fuelle y calcular el volumen correcto para la densidad específica de su producto.",
+      "ctaPrimary": "Pedir Kit de Muestras",
+      "ctaSecondary": "Consultoría de Tamaños",
+      "heroAlt": "Referencia de dimensiones y dieline de bolsas flexibles"
+    },
+    "density": {
+      "badge": "INTELIGENCIA DE DENSIDAD",
+      "heading1": "Volumen vs.",
+      "heading2": "Peso del Producto",
+      "description": "Las onzas de volumen NO son iguales a las onzas de peso. 16 oz de café en grano entero requieren el doble de espacio físico que 16 oz de azúcar. Dimensione siempre sus bolsas según el volumen del producto en mililitros (ml), no solo por el peso neto.",
+      "altText": "Diagrama de densidad del producto vs tamaño de bolsa",
+      "tableHeaders": {
+        "product": "Tipo de Producto",
+        "density": "Densidad Aparente Promedio",
+        "volFactor": "Multiplicador de Volumen"
+      }
+    },
+    "productDensity": [
+      {
+        "product": "Café en Grano Entero"
+      },
+      {
+        "product": "Hojas de Té"
+      },
+      {
+        "product": "Proteína en Polvo"
+      },
+      {
+        "product": "Granola"
+      },
+      {
+        "product": "Nueces y Semillas"
+      }
+    ],
+    "scaleCheck": {
+      "badge": "REFERENCIA DE TAMAÑO",
+      "heading": "Planos de Tamaños Estándar",
+      "subtitle": "Haga clic en cualquier tarjeta para ver los tamaños estándar con sus dimensiones y capacidades."
+    },
+    "standUp": {
+      "heading": "Bolsas Stand-Up (Estándar)",
+      "sizes": [
+        {
+          "bestFor": "Muestras, Especias, Polvos de un Solo Uso"
+        },
+        {
+          "bestFor": "Té Suelto, Semillas, Hierbas Especiales"
+        },
+        {
+          "bestFor": "1.7oz / 50g Café Molido, Snacks Pequeños"
+        },
+        {
+          "bestFor": "8.8oz / 250g Café en Grano, Granola"
+        },
+        {
+          "bestFor": "16oz / 500g Café, Proteínas en Polvo, Avena"
+        },
+        {
+          "bestFor": "2.2lb / 1kg Café, Snacks Grandes, Premios Mascotas"
+        },
+        {
+          "bestFor": "Ingredientes a Granel, Alimentos Pesados para Mascotas"
+        }
+      ]
+    },
+    "flatBottom": {
+      "heading": "Bolsas de Fondo Plano (Box Bags)",
+      "sizes": [
+        {
+          "bestFor": "Té de Hojas Sueltas Premium, Matcha"
+        },
+        {
+          "bestFor": "4oz / 100g Café en Grano, Cacao Premium"
+        },
+        {
+          "bestFor": "8oz / 225g Café en Grano, Polvos Finos"
+        },
+        {
+          "bestFor": "Estándar Especializado de Café de 12oz / 340g"
+        },
+        {
+          "bestFor": "16oz / 500g a 1kg Café en Grano"
+        },
+        {
+          "bestFor": "Café a Granel, Alimentos Premium para Mascotas"
+        },
+        {
+          "bestFor": "Granola a Granel, Alimento Mascotas, Granos"
+        }
+      ]
+    },
+    "content": {
+      "heading": "Cómo Dimensionar Bolsas Flexibles",
+      "p1": "Elegir el tamaño adecuado para su bolsa personalizada es uno de los pasos más críticos en el proceso de embalaje. Una bolsa demasiado pequeña parecerá demasiado llena, arriesgará el fallo de la cremallera y será difícil de llenar. Una bolsa demasiado grande desperdicia material, resulta poco atractiva para los consumidores y desperdicia valioso espacio en los estantes minoristas. Debido a que el embalaje flexible se expande dinámicamente al llenarse, medirlo es diferente a medir cajas rígidas.",
+      "formulaHeading": "La Fórmula de Medición Estándar",
+      "formulaP": "En la industria del embalaje flexible, las dimensiones se escriben universalmente como: Ancho (W) x Alto (H) + Fuelle Inferior (G).",
+      "widthDesc": "Ancho: Medido transversalmente en la bolsa desde el borde exterior del sello izquierdo hasta el borde exterior del sello derecho.",
+      "heightDesc": "Alto: Medido verticalmente desde el borde superior de la bolsa hasta el borde inferior.",
+      "gussetDesc": "Fuelle Inferior: Esta es la profundidad de la bolsa. Las bolsas stand-up utilizan un fuelle en forma de 'U' o 'K-seal' que se despliega. La medida proporcionada suele ser la *profundidad total expandida* en la parte inferior.",
+      "exampleHeading": "Ejemplo: 130mm x 200mm + 80mm",
+      "exampleDesc": "Esto describe una bolsa Stand-Up que tiene 130 mm de ancho, 200 mm de alto y un fuelle inferior que se abre hasta los 80 mm de profundidad.",
+      "densityHeading": "El Impacto de la Densidad del Producto",
+      "densityP1": "¿Por qué no puede decir simplemente 'Necesito una bolsa de 1 libra'? Porque 1 libra de proteína de suero en polvo densamente compactada ocupa drásticamente menos espacio que 1 libra de palomitas de maíz ligeras y esponjosas. Al determinar el tamaño de su bolsa, debe considerar la densidad aparente de su producto específico.",
+      "densityP2": "Para determinar el tamaño correcto sin conjeturas, recomendamos encarecidamente utilizar nuestro protocolo de prueba de volumen. El método más fácil es tomar una bolsa existente que se adapte bien a su producto, medirla plana y proporcionar esas dimensiones a nuestros ingenieros. Alternativamente, puede medir el volumen total (en mililitros o pulgadas cúbicas) de su producto y calcularemos las dimensiones correspondientes de la bolsa necesarias para contenerlo cómodamente dejando suficiente espacio de seguridad (headspace) para sellar la parte superior de manera segura.",
+      "dimensionsHeading": "Dimensiones Internas vs. Externas",
+      "dimensionsP": "Recuerde siempre que las dimensiones proporcionadas en los planos técnicos son Dimensiones Externas (OD - Outside Dimensions). Sin embargo, el espacio utilizable dentro de la bolsa (Dimensiones Internas - ID) es menor. Debe restar el ancho de los sellos laterales (normalmente de 5 mm a 10 mm por lado), el sello inferior y el espacio por encima de la cremallera (a menudo de 30 mm a 40 mm) para calcular el volumen real de llenado.",
+      "coffeeHeading": "Tamaños Estándar de Café y Té",
+      "coffeeP": "Para los tostadores de café, la industria ha estandarizado en gran medida los tamaños de las bolsas basándose en el volumen del grano de café tostado entero. Aunque siempre hay tamaños personalizados disponibles, el uso de dimensiones de herramientas estándar puede ahorrar costos de configuración:",
+      "size8oz": "8 oz (250g): Normalmente ~ 130mm (W) x 200mm (H) + 80mm (G)",
+      "size12oz": "12 oz (340g): Normalmente ~ 160mm (W) x 230mm (H) + 90mm (G) - El Estándar de Especialidad en EE. UU.",
+      "size16oz": "16 oz / 1 lb (454g): Normalmente ~ 170mm (W) x 270mm (H) + 90mm (G)",
+      "size2lb": "2.2 lb (1kg): Normalmente ~ 220mm (W) x 330mm (H) + 110mm (G)"
+    },
+    "faq": {
+      "heading": "Preguntas Frecuentes sobre Tamaños",
+      "items": [
+        {
+          "q": "¿Miden en pulgadas o en milímetros?",
+          "a": "Debido a que la fabricación global de embalajes requiere una precisión extrema, utilizamos casi universalmente el sistema métrico (milímetros/mm). Si proporciona las dimensiones en pulgadas, las convertiremos al milímetro más cercano para el plano de ingeniería."
+        },
+        {
+          "q": "¿Qué es el 'headspace' (espacio de cabeza) y por qué lo necesito?",
+          "a": "El espacio de cabeza es el área vacía que queda en la parte superior de la bolsa por encima del producto. Necesita suficiente espacio de cabeza (normalmente de 1 a 2 pulgadas) para permitir que las mordazas de su máquina de sellado sujeten y sellen térmicamente la parte superior de la bolsa sin aplastar ni derretir su producto."
+        },
+        {
+          "q": "¿Cómo sé si mi producto cabrá?",
+          "a": "El método más seguro es solicitar muestras físicas de bolsas sin imprimir en varios tamaños. Puede llenarlas físicamente con su producto para probar el volumen, comprobar el espacio de cabeza y ver exactamente cómo se verá la bolsa llena en un estante."
+        },
+        {
+          "q": "¿Una bolsa de fondo plano contiene más que una bolsa Stand-Up?",
+          "a": "Generalmente, sí. A igualdad de ancho y alto externos, una bolsa de fondo plano contendrá un volumen ligeramente mayor porque sus fuelles laterales permiten que todo el cuerpo de la bolsa se expanda en una forma de caja uniforme, mientras que una bolsa Stand-Up se estrecha hacia la parte superior."
+        },
+        {
+          "q": "¿Puedo pedir un tamaño completamente personalizado?",
+          "a": "Sí. Dado que nuestras bolsas se fabrican bajo pedido, no está restringido a tamaños de 'stock'. Podemos diseñar un tamaño personalizado (por ejemplo, 147 mm x 212 mm) para que se adapte perfectamente a su producto."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Pruebe el Ajuste",
+      "subtitle": "No adivine las dimensiones. Solicite nuestro kit de muestras gratuito para probar con su producto real.",
+      "btn": "Solicitar Muestras Gratuitas"
+    }
   }
 }

@@ -9425,5 +9425,587 @@
     "spouted": "À BECVERSEUR",
     "roll": "BOBINE",
     "terms": "CONDITIONS"
+  },
+  "pouchSolutionsPage": {
+    "meta": {
+      "title": "Solutions d'Emballage Écologiques | pouch.eco",
+      "description": "Découvrez des solutions d'emballage durables et personnalisables, notamment des sachets compostables, recyclables et biosourcés adaptés à votre marque.",
+      "ogTitle": "Solutions d'Emballage Écologiques | pouch.eco",
+      "ogDescription": "Découvrez des solutions d'emballage durables et personnalisables, notamment des sachets compostables, recyclables et biosourcés adaptés à votre marque.",
+      "twitterTitle": "Solutions d'Emballage Écologiques | pouch.eco",
+      "twitterDescription": "Découvrez des solutions d'emballage durables et personnalisables, notamment des sachets compostables, recyclables et biosourcés adaptés à votre marque."
+    },
+    "hero": {
+      "badge": "CENTRE DE SOLUTIONS",
+      "titleLine1": "Emballage Durable",
+      "titleLine2": "Rendu Simple",
+      "terminalLine1": "> Sachets écologiques personnalisés dès 500 pièces.",
+      "terminalLine2": "> Conçus pour le café, l'alimentation et les suppléments.",
+      "terminalLine3": "> Lancez votre marque sans déchets.",
+      "ctaConsultation": "Réserver un Appel Gratuit",
+      "ctaMaterials": "Comparer les Matériaux"
+    },
+    "solutions": {
+      "title": "Nos",
+      "titleLine2": "Solutions",
+      "badge": "CHOISISSEZ VOTRE VOIE",
+      "getQuote": "Obtenir un Devis Gratuit",
+      "items": [
+        {
+          "name": "Compostable",
+          "headline": "100% Compostable à Domicile",
+          "description": "Nos emballages barrières d'origine végétale se dégradent naturellement dans les composteurs domestiques en 180 jours, sans résidus toxiques. Idéal pour les produits secs, les snacks et les friandises pour animaux.",
+          "benefits": [
+            "Certifié TUV OK Compost Home",
+            "Conforme aux normes ASTM D6400 & EN 13432",
+            "Excellentes barrières à l'oxygène et à l'humidité",
+            "Couche de scellage végétale à haute résistance"
+          ]
+        },
+        {
+          "name": "Recyclable",
+          "headline": "Mono-Matériau Recyclable",
+          "description": "Structure mono-matériau PE/PE haute performance conçue pour les filières de recyclage de polyéthylène standard. Offre une excellente durabilité et durée de conservation sans compromettre la recyclabilité.",
+          "benefits": [
+            "Contenu recyclé certifié GRS disponible",
+            "Compatibilité avec le code de recyclage standard 4",
+            "Brillance supérieure et excellentes propriétés mécaniques",
+            "Parfait pour les sachets stand-up et à fond plat"
+          ]
+        },
+        {
+          "name": "Biosourcé",
+          "headline": "Bio-PE Issu de la Canne à Sucre",
+          "description": "Fabriqué à partir d'éthanol issu de la canne à sucre, ce polyéthylène biosourcé présente une empreinte carbone négative de la fabrication au transport, offrant la même protection élevée que le plastique fossile.",
+          "benefits": [
+            "Jusqu'à 95% de carbone biosourcé",
+            "Réduit les émissions de CO2 de plus de 70%",
+            "Entièrement recyclable avec les films PE standards",
+            "Matériaux certifiés FDA pour le contact alimentaire"
+          ]
+        }
+      ]
+    },
+    "useCases": {
+      "title": "Adapté à Chaque Secteur",
+      "moqLabel": "MOQ à partir de :",
+      "items": [
+        {
+          "title": "Café & Thé",
+          "description": "Conservez la fraîcheur des grains et des feuilles grâce à des options barrières élevées, des valves de dégazage et des zips refermables. Choisissez des films compostables ou recyclables.",
+          "moq": "500 pièces"
+        },
+        {
+          "title": "Snacks & Biscuits",
+          "description": "Protégez le croustillant et les saveurs avec des revêtements barrières résistants aux graisses et des fenêtres personnalisées. Parfait pour les biscuits, les fruits secs et le granola.",
+          "moq": "500 pièces"
+        },
+        {
+          "title": "Friandises & Nourriture Animale",
+          "description": "Structures ultra-résistantes et anti-perforation conçues pour supporter des poids lourds et contenir les odeurs fortes pour garder la nourriture fraîche.",
+          "moq": "500 pièces"
+        },
+        {
+          "title": "Suppléments & Poudres",
+          "description": "Fermetures zippées anti-statiques avancées et barrières d'humidité pour protéger les poudres fines, les nutraceutiques et les formules bien-être.",
+          "moq": "500 pièces"
+        }
+      ]
+    },
+    "fastFacts": {
+      "title": "Pourquoi Choisir Pouch.eco ?",
+      "stat1Value": "500+",
+      "stat1Label": "Lancement Bas MOQ",
+      "stat2Value": "100%",
+      "stat2Label": "Matériaux Certifiés",
+      "stat3Value": "3 Semaines",
+      "stat3Label": "Délai Rapide"
+    }
+  },
+  "pouchProductsPage": {
+    "meta": {
+      "title": "Sachets & Emballages Flexibles Écologiques | pouch.eco",
+      "description": "Découvrez notre gamme de sachets écologiques personnalisés. Sachets stand-up, à fond plat, avec bouchon, sachets plats et à soufflets latéraux dès 500 pièces."
+    },
+    "hero": {
+      "badge": "CATALOGUE PRODUITS",
+      "titleLine1": "Sachets Éco",
+      "titleLine2": "Personnalisés",
+      "subtitle": "Faites votre choix parmi 5 styles d'emballages flexibles premium. Lancez votre marque avec un emballage professionnel dès 500 pièces, sans frais de clichés."
+    },
+    "labels": {
+      "moq": "MOQ :",
+      "barrier": "BARRIÈRE :",
+      "theProblem": "LE PROBLÈME",
+      "theSolution": "LA SOLUTION",
+      "from": "À partir de",
+      "viewDetails": "Détails",
+      "bookCall": "Appel"
+    },
+    "products": [
+      {
+        "name": "Sachet Stand Up",
+        "problem": "Votre marque doit se démarquer, mais l'impression personnalisée exige généralement de commander plus de 10 000 sachets avec des frais de cylindres élevés.",
+        "solution": "Nos sachets Stand Up imprimés en numérique vous permettent de vous lancer avec un emballage professionnel dès 500 pièces, sans frais de clichés.",
+        "features": [
+          "Tient debout tout seul",
+          "Zip refermable",
+          "Attractivité maximale en rayon"
+        ]
+      },
+      {
+        "name": "Sachet à Fond Plat",
+        "problem": "Le café et le té haut de gamme ont besoin de stabilité en rayon et d'une image de marque distincte, ce que les sachets standards n'offrent pas.",
+        "solution": "Notre sachet à fond plat (style boîte) propose 5 faces imprimables et une stabilité maximale, offrant un aspect haut de gamme à vos produits.",
+        "features": [
+          "5 faces imprimables",
+          "Stabilité style boîte",
+          "Aspect & toucher premium"
+        ]
+      },
+      {
+        "name": "Sachet avec Bouchon",
+        "problem": "Vendre des liquides en bouteilles est lourd, fragile et coûteux à expédier, réduisant vos marges de profit.",
+        "solution": "Passez aux sachets avec bouchon flexibles : plus légers, résistants et utilisant 80 % de plastique en moins que les bouteilles rigides. Parfait pour les recharges.",
+        "features": [
+          "Bouchon anti-fuite",
+          "80 % de plastique en moins",
+          "Frais de transport réduits"
+        ]
+      },
+      {
+        "name": "Sachet Plat (Sachet)",
+        "problem": "Les clients veulent essayer avant d'acheter, mais un emballage d'échantillon générique dévalorise votre marque.",
+        "solution": "Nos sachets plats scellés sur 3 côtés imprimés sur mesure offrent une expérience de déballage premium pour vos échantillons.",
+        "features": [
+          "Très économique",
+          "Idéal pour l'envoi postal",
+          "Taux de conversion élevé"
+        ]
+      },
+      {
+        "name": "Sachet à Soufflets Latéraux",
+        "problem": "Les torréfacteurs ont besoin d'une forme classique en brique qui maximise le volume sans occuper trop de largeur en rayon.",
+        "solution": "Nos sachets à soufflets latéraux offrent un scellage sur quatre côtés pour une structure rigide et une grande capacité, sans frais de clichés.",
+        "features": [
+          "Forme café classique",
+          "Grande capacité volumétrique",
+          "Rigidité grâce au scellage quadruple"
+        ]
+      }
+    ]
+  },
+  "pouchMaterialsPage": {
+    "meta": {
+      "title": "Matériaux d'Emballage Durables | pouch.eco",
+      "description": "Comparez les matériaux d'emballage écologiques : compostables (domestique & industriel), recyclables (mono-PE) et PE biosourcé issu de la canne à sucre."
+    },
+    "hero": {
+      "badge": "INTELLIGENCE DES MATÉRIAUX",
+      "titleLine1": "Matériaux",
+      "titleLine2": "Éco-Responsables",
+      "subtitle": "Zéro compromis. Nous utilisons uniquement des films compostables, recyclables et biosourcés certifiés par des tiers pour protéger votre produit et la planète."
+    },
+    "labels": {
+      "pros": "AVANTAGES",
+      "cons": "INCONVÉNIENTS"
+    },
+    "materials": {
+      "compostable": {
+        "name": "Compostable",
+        "description": "Films d'origine végétale qui retournent à la terre, sans microplastiques. Certifiés compostables à domicile et industriel.",
+        "pros": [
+          "Se dégrade dans le composteur domestique",
+          "Aucun résidu chimique synthétique",
+          "Options barrières à l'oxygène et à l'humidité",
+          "Matériaux certifiés TÜV Austria"
+        ],
+        "cons": [
+          "Coût matière plus élevé (1.3x)",
+          "Durée de conservation absolue plus courte (12-18 mois)"
+        ]
+      },
+      "recyclable": {
+        "name": "Recyclable",
+        "description": "Mono-matériau PE/PE haute performance conçu pour être recyclé dans les filières classiques de collecte plastique.",
+        "pros": [
+          "Entièrement recyclable (PE Code 4)",
+          "Plus faible empreinte carbone de tous les plastiques",
+          "Même durée de conservation que le plastique classique",
+          "Contenu recyclé certifié GRS disponible"
+        ],
+        "cons": [
+          "Nécessite des infrastructures de collecte",
+          "Ne se biodegrade pas dans la nature"
+        ]
+      },
+      "pcr": {
+        "name": "Bio-PE & PCR",
+        "description": "Polyéthylène biosourcé issu de la canne à sucre combiné avec des plastiques recyclés post-consommation (PCR).",
+        "pros": [
+          "Matériau de base à empreinte carbone négative",
+          "Réduit l'utilisation de plastique vierge",
+          "Barrière résistante pour produits lourds/liquides",
+          "Recyclable dans les flux PE standards"
+        ],
+        "cons": [
+          "Plus cher que le PE standard",
+          "Nécessite des infrastructures de collecte"
+        ]
+      }
+    },
+    "techSpecs": {
+      "badge": "DONNÉES TECHNIQUES",
+      "titleLine1": "Spécifications Pro",
+      "titleLine2": "Pour l'Alimentaire",
+      "description": "Obtenez des données précises. Téléchargez nos fiches techniques sur l'OTR (perméabilité à l'oxygène), MVTR (perméabilité à la vapeur d'eau), résistance à la perforation et résistance du scellage.",
+      "viewAllSpecs": "Voir Toutes les Spécifications",
+      "barrierData": "Propriétés de Barrière",
+      "downloadBadge": "TÉLÉCHARGEMENTS",
+      "imgAlt": "Maquettes de fiches techniques"
+    },
+    "certifications": {
+      "title": "Certifié & Vérifié par des Organismes Tiers",
+      "dinAlt": "Logo DIN Certco Home Compostable",
+      "bpiAlt": "Logo BPI Compostable",
+      "abaAlt": "Logo ABA Home Compostable",
+      "grsAlt": "Logo GRS Recycled",
+      "biopeAlt": "Logo Bio-PE I'm Green",
+      "fscAlt": "Logo FSC",
+      "iso9001Alt": "Logo ISO 9001",
+      "iso14001Alt": "Logo ISO 14001",
+      "speakToExpert": "Contacter un Expert Matériaux"
+    }
+  },
+  "pouchCertificationsPage": {
+    "meta": {
+      "title": "Certifications & Normes d'Emballage | pouch.eco",
+      "description": "Consultez nos certifications d'emballage tierces : compostable BPI, compostable à domicile DIN Certco, recyclé GRS et sécurité alimentaire BRC.",
+      "keywords": "certifications emballage, compostable BPI, DIN Certco, recyclé GRS, sécurité alimentaire BRC, ASTM D6400",
+      "ogTitle": "Certifications & Normes d'Emballage | pouch.eco",
+      "ogDescription": "Consultez nos certifications d'emballage tierces : compostable BPI, compostable à domicile DIN Certco, recyclé GRS et sécurité alimentaire BRC."
+    },
+    "hero": {
+      "badge": "CONFIANCE VÉRIFIÉE",
+      "titleLine1": "Normes",
+      "titleLine2": "d'Emballage",
+      "titleLine3": "Certifiées",
+      "subtitle": "Nous validons nos engagements écologiques par des tests en laboratoire indépendants. Consultez et téléchargez nos certificats en vigueur auprès d'organismes mondiaux.",
+      "viewBpiListing": "Consulter la fiche BPI",
+      "downloadBpiCert": "Télécharger le certificat BPI",
+      "getCertified": "Acheter des Emballages Certifiés"
+    },
+    "certifications": {
+      "heading": "Nos Normes & Accréditations",
+      "listing": "Fiche Officielle BPI",
+      "download": "Télécharger PDF",
+      "items": [
+        {
+          "name": "DIN HOME COMPOST",
+          "region": "Europe / International",
+          "description": "Certification DIN Geprüft Home Compostable. Validée pour le compostage domestique sous la norme NF T51-800.",
+          "facility": "Compostage Domestique"
+        },
+        {
+          "name": "Certifié BPI",
+          "region": "Amérique du Nord",
+          "description": "Compostabilité certifiée par l'organisme indépendant Biodegradable Products Institute. Conforme aux normes ASTM D6400/D6868.",
+          "facility": "Compostage Industriel"
+        },
+        {
+          "name": "ABA Home Compost",
+          "region": "Australie",
+          "description": "Validation compostable à domicile de l'Australasian Bioplastics Association. La référence en AU.",
+          "facility": "Compostage Domestique"
+        },
+        {
+          "name": "Certifié GRS",
+          "region": "International",
+          "description": "Global Recycled Standard. Certifie le contenu recyclé (PCR) et les pratiques sociales/environnementales responsables.",
+          "facility": "Filière Recyclage"
+        },
+        {
+          "name": "PE Biosourcé",
+          "region": "International",
+          "description": "Teneur en carbone biosourcé certifiée issue de ressources renouvelables comme la canne à sucre selon la norme ASTM D6866.",
+          "facility": "Filière Recyclage"
+        },
+        {
+          "name": "Certifié FSC",
+          "region": "International",
+          "description": "Forest Stewardship Council. Garantit que le papier provient de forêts gérées de manière responsable.",
+          "facility": "Recyclage du Papier"
+        },
+        {
+          "name": "ISO 9001/14001",
+          "region": "International",
+          "description": "Normes internationales relatives au Management de la Qualité et au Management Environnemental.",
+          "facility": "Production"
+        },
+        {
+          "name": "Emballage BRC",
+          "region": "International",
+          "description": "Norme BRCGS Packaging Materials. Standard de certification de sécurité alimentaire reconnu mondialement.",
+          "facility": "Sécurité Alimentaire"
+        }
+      ]
+    },
+    "benefits": {
+      "heading": "L'importance d'un Emballage Certifié",
+      "items": [
+        {
+          "title": "Vérification Tierce",
+          "description": "Des tests en laboratoires indépendants valident les propriétés de vos emballages."
+        },
+        {
+          "title": "Confiance Client",
+          "description": "Les labels de certification apposés sur les sachets renforcent immédiatement la crédibilité."
+        },
+        {
+          "title": "Acceptation en Centre de Compost",
+          "description": "Les emballages certifiés sont acceptés par les centres de compostage commerciaux."
+        },
+        {
+          "title": "Protection Légale",
+          "description": "Évitez les plaintes pour blanchiment écologique (greenwashing) grâce aux certifications."
+        }
+      ]
+    },
+    "standards": {
+      "heading": "Comparatif des Normes Internationales",
+      "thCertification": "Norme de Certification",
+      "thRegion": "Région Principale",
+      "thFacilityType": "Type d'Installation Requis",
+      "thTemperature": "Température de Compost",
+      "rows": [
+        {
+          "region": "Amérique du Nord",
+          "facility": "Compostage Industriel"
+        },
+        {
+          "region": "Europe / International",
+          "facility": "Compostage Industriel"
+        },
+        {
+          "region": "Australie",
+          "facility": "Compostage Industriel"
+        },
+        {
+          "region": "International",
+          "facility": "Compostage Domestique"
+        },
+        {
+          "region": "International",
+          "facility": "Validation de Sécurité Alimentaire"
+        }
+      ]
+    },
+    "faqs": {
+      "heading": "FAQ Certifications",
+      "items": [
+        {
+          "question": "Que signifie la mention 'Certifié Compostable BPI' ?",
+          "answer": "La certification BPI signifie que votre emballage a été testé de manière indépendante et certifié pour se dégrader dans les installations de compostage industriel. Il répond aux normes ASTM strictes en matière de biodégradation, de désintégration et d'éco-toxicité, sans résidus toxiques."
+        },
+        {
+          "question": "Puis-je composter des emballages certifiés dans mon jardin ?",
+          "answer": "La plupart des emballages certifiés BPI sont conçus pour les centres de compostage industriels, qui atteignent des températures plus élevées (140-160°F) que le compost domestique. Si vous cherchez un compostage à domicile, optez pour la certification 'Home Compostable' (TÜV Austria OK compost HOME)."
+        },
+        {
+          "question": "Comment puis-je vérifier vos certifications ?",
+          "answer": "Rendez-vous sur products.bpiworld.org et recherchez 'Achieve Pack Company' pour consulter nos références certifiées. Nous fournissons les documents de certification avec chaque commande. Vous pouvez aussi demander les rapports de laboratoire."
+        },
+        {
+          "question": "Pourquoi les certifications sont-elles importantes pour ma marque ?",
+          "answer": "Les certifications apportent une preuve objective de vos allégations écologiques. Elles vous protègent contre les accusations de greenwashing, instaurent la confiance avec vos clients et garantissent l'acceptation par les composteurs."
+        },
+        {
+          "question": "Quelle certification est la plus adaptée à mon marché ?",
+          "answer": "Cela dépend de votre zone géographique : BPI pour l'Amérique du Nord, EN 13432 pour l'Europe, AS 4736 pour l'Australie. Si vous vendez à l'international, choisissez des emballages certifiés selon plusieurs normes."
+        },
+        {
+          "question": "Vos emballages sont-ils testés pour les PFAS (polluants éternels) ?",
+          "answer": "Oui ! Tous nos matériaux compostables certifiés sont testés et garantis sans PFAS. L'organisme BPI impose désormais des limites strictes sur les composés fluorés, et nous respectons ces nouvelles exigences."
+        },
+        {
+          "question": "Qu'est-ce que la certification BRC Packaging ?",
+          "answer": "BRC (BRCGS) Packaging Materials est une norme internationale relative à la sécurité des emballages alimentaires. Elle garantit que notre usine de fabrication respecte des exigences rigoureuses en matière d'hygiène, de gestion de la qualité et de sécurité des produits."
+        }
+      ]
+    },
+    "viewCertificates": {
+      "heading": "Nos Certificats Actifs",
+      "dinHomeCompost": "DIN Compostable à Domicile",
+      "bpiCompostable": "BPI Compostable Industriel",
+      "abaAs5810": "ABA Compostable à Domicile",
+      "grsRecycled": "Contenu Recyclé GRS",
+      "bioBasedPe": "Bio-PE I'm Green Canne à Sucre",
+      "fscMix": "Papel Mixte Forestier FSC",
+      "iso9001": "Système de Qualité ISO 9001",
+      "iso14001": "Management Éco ISO 14001",
+      "brcPackaging": "Certificat Sécurité Alimentaire BRCGS",
+      "downloadLabel": "Cliquez pour télécharger le PDF"
+    },
+    "cta": {
+      "heading": "Lancez votre Emballage Éco Certifié",
+      "subtitle": "Obtenez des échantillons gratuits et un entretien-conseil pour valider les matériaux certifiés adaptés à votre produit.",
+      "bookConsultation": "Réserver un Entretien Conseil",
+      "browseMaterials": "Voir les Matériaux"
+    }
+  },
+  "pouchKnowledgeSizeGuidePage": {
+    "meta": {
+      "title": "Guide des Tailles de Sachets | Dimensions & Volume | POUCH.ECO",
+      "description": "Le guide ultime pour dimensionner les emballages flexibles. Apprenez à mesurer les sachets stand-up, calculer le volume pour différents produits et choisir les dimensions parfaites.",
+      "keywords": "guide tailles sachets, dimensions emballage, taille sachet stand up, taille sachet café, volume sachet fond plat"
+    },
+    "hero": {
+      "badge": "BASE DE CONNAISSANCES // DIMENSIONS",
+      "heading1": "Mesurez",
+      "heading2": "Deux fois.",
+      "heading3": "Adaptez une.",
+      "description": "Fini les approximations. Apprenez exactement comment mesurer les dimensions de vos sachets, comprendre la profondeur du soufflet et calculer le volume idéal en fonction de la densité spécifique de votre produit.",
+      "ctaPrimary": "Demander un Kit de Tailles",
+      "ctaSecondary": "Conseil Dimensionnement",
+      "heroAlt": "Plan technique de dimensions et de gabarit de sachets flexibles"
+    },
+    "density": {
+      "badge": "INTELLIGENCE DE LA DENSITÉ",
+      "heading1": "Volume vs.",
+      "heading2": "Poids du Produit",
+      "description": "L'unité de volume n'est PAS égale à l'unité de poids. 16oz de café en grains nécessite deux fois plus d'espace physique que 16oz de sucre. Calculez toujours la taille de vos sachets en fonction du volume du produit en millilitres (ml), et non du poids net.",
+      "altText": "Schéma de densité du produit vs taille du sachet",
+      "tableHeaders": {
+        "product": "Type de Produit",
+        "density": "Densité Apparente Moyenne",
+        "volFactor": "Multiplicateur de Volume"
+      }
+    },
+    "productDensity": [
+      {
+        "product": "Café en Grains Entiers"
+      },
+      {
+        "product": "Feuilles de Thé"
+      },
+      {
+        "product": "Protéine en Poudre"
+      },
+      {
+        "product": "Granola"
+      },
+      {
+        "product": "Noix & Graines"
+      }
+    ],
+    "scaleCheck": {
+      "badge": "RÉFÉRENCE DE TAILLE",
+      "heading": "Gabarits de Tailles Standards",
+      "subtitle": "Cliquez sur une carte pour prévisualiser les tailles standards avec leurs dimensions et capacités."
+    },
+    "standUp": {
+      "heading": "Sachets Stand-Up (Standards)",
+      "sizes": [
+        {
+          "bestFor": "Échantillons, Épices, Poudres à Usage Unique"
+        },
+        {
+          "bestFor": "Thé en Vrac, Graines, Herbes Spéciales"
+        },
+        {
+          "bestFor": "1.7oz / 50g Café Moulu, Petits Snacks"
+        },
+        {
+          "bestFor": "8.8oz / 250g Café en Grains, Granola"
+        },
+        {
+          "bestFor": "16oz / 500g Café, Protéine en Poudre, Flocons d'Avoine"
+        },
+        {
+          "bestFor": "2.2lb / 1kg Café, Grands Snacks, Friandises Animaux"
+        },
+        {
+          "bestFor": "Ingrédients en Vrac, Nourriture Lourde pour Animaux"
+        }
+      ]
+    },
+    "flatBottom": {
+      "heading": "Sachets à Fond Plat (Sachets Boîte)",
+      "sizes": [
+        {
+          "bestFor": "Thé en Feuilles Premium, Matcha"
+        },
+        {
+          "bestFor": "4oz / 100g Café en Grains, Cacao Premium"
+        },
+        {
+          "bestFor": "8oz / 225g Café en Grains, Poudres Fines"
+        },
+        {
+          "bestFor": "Café de Spécialité Standard 12oz / 340g"
+        },
+        {
+          "bestFor": "16oz / 500g à 1kg Café en Grains"
+        },
+        {
+          "bestFor": "Café en Vrac, Nourriture Premium pour Animaux"
+        },
+        {
+          "bestFor": "Granola en Vrac, Nourriture Animaux, Céréales"
+        }
+      ]
+    },
+    "content": {
+      "heading": "Comment Dimensionner les Sachets Flexibles",
+      "p1": "Choisir la bonne taille pour votre sachet personnalisé est l'une des étapes les plus cruciales du processus d'emballage. Un sachet trop petit aura l'air surchargé, risquera une rupture de la fermeture éclair et sera difficile à remplir. Un sachet trop grand gaspille du matériau, semble peu attrayant pour les consommateurs et gaspille de l'espace précieux en rayon. Étant donné que les emballages flexibles s'étirent de manière dynamique lors du remplissage, leur mesure diffère de celle des boîtes rigides.",
+      "formulaHeading": "La Formule de Mesure Standard",
+      "formulaP": "Dans l'industrie de l'emballage flexible, les dimensions sont universellement écrites ainsi : Largeur (W) x Hauteur (H) + Soufflet de Fond (G).",
+      "widthDesc": "Largeur : Mesurée horizontalement sur le sachet, du bord extérieur du scellage gauche au bord extérieur du scellage droit.",
+      "heightDesc": "Hauteur : Mesurée verticalement, du bord supérieur extrême du sachet au bord inférieur extrême.",
+      "gussetDesc": "Soufflet de Fond : Il s'agit de la profondeur du sachet. Les sachets stand-up utilisent un soufflet en 'U' ou un scellage en 'K' qui se déplie. La mesure fournie correspond généralement à la *profondeur totale déployée* au niveau du fond.",
+      "exampleHeading": "Exemple : 130mm x 200mm + 80mm",
+      "exampleDesc": "Cela décrit un sachet Stand-Up de 130 mm de large, 200 mm de haut et doté d'un soufflet de fond s'ouvrant jusqu'à 80 mm de profondeur.",
+      "densityHeading": "L'Impact de la Densité du Produit",
+      "densityP1": "Pourquoi ne pouvez-vous pas simplement dire 'J'ai besoin d'un sachet de 500g' ? Parce que 500g de protéine de lactosérum densément compactée prennent beaucoup moins de place que 500g de pop-corn léger et aéré. Lors de la détermination de la taille de votre sachet, vous devez prendre en compte la densité apparente de votre produit spécifique.",
+      "densityP2": "Pour déterminer la taille correcte sans approximations, nous vous conseillons d'utiliser notre protocole de test de volume. La méthode la plus simple consiste à prendre un sachet existant qui convient bien à votre produit, à le mesurer à plat et à fournir ces dimensions à nos ingénieurs. Vous pouvez également mesurer le volume total (en millilitres ou en pouces cubes) de votre produit, et nous calculerons les dimensions correspondantes requises pour le contenir confortablement tout en laissant suffisamment d'espace vide (headspace) pour sceller le haut en toute sécurité.",
+      "dimensionsHeading": "Dimensions Internes vs. Externes",
+      "dimensionsP": "N'oubliez jamais que les dimensions fournies sur les plans techniques sont des Dimensions Externes (OD - Outside Dimensions). Cependant, l'espace utilisable à l'intérieur du sachet (Dimensions Internes - ID) est plus petit. Vous devez soustraire la largeur des scellages latéraux (généralement 5 mm à 10 mm de chaque côté), le scellage inférieur et l'espace au-dessus du zip (souvent 30 mm à 40 mm) pour calculer le volume réel de remplissage.",
+      "coffeeHeading": "Tailles Standards de Café et de Thé",
+      "coffeeP": "Pour les torréfacteurs de café, l'industrie a largement standardisé les tailles de sachets en fonction du volume de café en grains entiers torréfié. Bien que des tailles personnalisées soient toujours disponibles, l'utilisation de dimensions d'outillage standards permet de réduire les coûts d'installation :",
+      "size8oz": "8 oz (250g) : Environ ~ 130mm (W) x 200mm (H) + 80mm (G)",
+      "size12oz": "12 oz (340g) : Environ ~ 160mm (W) x 230mm (H) + 90mm (G) - La Norme de Spécialité aux États-Unis",
+      "size16oz": "16 oz / 1 lb (454g) : Environ ~ 170mm (W) x 270mm (H) + 90mm (G)",
+      "size2lb": "2.2 lb (1kg) : Environ ~ 220mm (W) x 330mm (H) + 110mm (G)"
+    },
+    "faq": {
+      "heading": "FAQ sur les Tailles",
+      "items": [
+        {
+          "q": "Mesurez-vous en pouces ou en millimètres ?",
+          "a": "Parce que la fabrication mondiale d'emballages exige une précision extrême, nous utilisons presque universellement le système métrique (millimètres/mm). Si vous fournissez des dimensions en pouces, nous les convertirons au millimètre le plus proche pour le plan technique de fabrication."
+        },
+        {
+          "q": "Qu'est-ce que l'espace vide ('headspace') et pourquoi est-il nécessaire ?",
+          "a": "L'espace vide est la zone libre laissée en haut du sachet au-dessus de votre produit. Vous avez besoin d'un espace vide suffisant (généralement 3 à 5 cm) pour permettre aux mâchoires de votre machine de scellage de pincer et de thermosceller le haut du sachet sans écraser ou faire fondre votre produit."
+        },
+        {
+          "q": "Comment puis-je m'assurer que mon produit va entrer ?",
+          "a": "La méthode la plus sûre consiste à demander des échantillons physiques de sachets non imprimés de différentes tailles. Vous pourrez ainsi les remplir physiquement avec votre produit pour tester le volume, vérifier l'espace vide et visualiser exactement le rendu du sachet rempli sur un rayon."
+        },
+        {
+          "q": "Un sachet à fond plat contient-il plus qu'un sachet Stand-Up ?",
+          "a": "Généralement, oui. À largeur et hauteur externes égales, un sachet à fond plat contiendra un volume légèrement supérieur car ses soufflets latéraux permettent à l'ensemble du corps du sachet de se déployer en une forme de boîte uniforme, tandis qu'un sachet Stand-Up se rétrécit vers le haut."
+        },
+        {
+          "q": "Puis-je commander une taille entièrement sur mesure ?",
+          "a": "Oui. Étant donné que nos sachets sont fabriqués à la commande, vous n'êtes pas limité aux formats standards. Nous pouvons concevoir une taille sur mesure (par exemple, 147 mm x 212 mm) pour s'adapter parfaitement à votre produit."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Vérifiez la Taille",
+      "subtitle": "Ne devinez pas les dimensions. Demandez notre kit d'échantillons de tailles gratuit pour tester avec votre produit réel.",
+      "btn": "Demander des Échantillons Gratuits"
+    }
   }
 }

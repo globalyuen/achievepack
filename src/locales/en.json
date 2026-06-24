@@ -10881,5 +10881,587 @@
     "handle": "@pouch_eco",
     "title": "Follow Our Journey",
     "desc": "See our latest sustainable packaging creations, behind-the-scenes moments, and happy customers on Instagram."
+  },
+  "pouchSolutionsPage": {
+    "meta": {
+      "title": "Eco-Friendly Packaging Solutions | pouch.eco",
+      "description": "Discover customizable, sustainable packaging solutions including compostable, recyclable, and bio-based pouches tailored for your brand.",
+      "ogTitle": "Eco-Friendly Packaging Solutions | pouch.eco",
+      "ogDescription": "Discover customizable, sustainable packaging solutions including compostable, recyclable, and bio-based pouches tailored for your brand.",
+      "twitterTitle": "Eco-Friendly Packaging Solutions | pouch.eco",
+      "twitterDescription": "Discover customizable, sustainable packaging solutions including compostable, recyclable, and bio-based pouches tailored for your brand."
+    },
+    "hero": {
+      "badge": "SOLUTIONS HUB",
+      "titleLine1": "Sustainable Packaging",
+      "titleLine2": "Made Simple",
+      "terminalLine1": "> Custom eco-friendly pouches from 500 units.",
+      "terminalLine2": "> Tailored for coffee, food, and supplements.",
+      "terminalLine3": "> Launch your brand without the waste.",
+      "ctaConsultation": "Book Free Call",
+      "ctaMaterials": "Compare Materials"
+    },
+    "solutions": {
+      "title": "Our Core",
+      "titleLine2": "Solutions",
+      "badge": "CHOOSE YOUR PATH",
+      "getQuote": "Get Free Quote",
+      "items": [
+        {
+          "name": "Compostable",
+          "headline": "100% Home Compostable",
+          "description": "Our plant-based barrier packaging breaks down naturally in home compost piles within 180 days, leaving zero toxic residues behind. Ideal for dry goods, snacks, and pet treats.",
+          "benefits": [
+            "TUV OK Compost Home certified",
+            "ASTM D6400 & EN 13432 compliant",
+            "Excellent oxygen and moisture barriers",
+            "High-strength plant-based seal layer"
+          ]
+        },
+        {
+          "name": "Recyclable",
+          "headline": "Mono-Material Recyclable",
+          "description": "High-performance PE/PE mono-material structure designed for standard polyethylene recycling streams. It offers excellent durability and shelf life without compromising recyclability.",
+          "benefits": [
+            "GRS certified recycled content available",
+            "Standard Recycle Code 4 compatibility",
+            "Superior gloss and mechanical properties",
+            "Perfect for stand-up pouches and box bags"
+          ]
+        },
+        {
+          "name": "Bio-Based",
+          "headline": "Sugar-Cane Bio-PE",
+          "description": "Crafted from sugarcane-derived ethanol, this bio-based polyethylene has a negative carbon footprint from cradle to gate, offering the same high protection as fossil plastic.",
+          "benefits": [
+            "Up to 95% bio-based carbon content",
+            "Reduces CO2 emissions by over 70%",
+            "Fully recyclable with standard PE films",
+            "FDA food contact approved materials"
+          ]
+        }
+      ]
+    },
+    "useCases": {
+      "title": "Tailored for Every Industry",
+      "moqLabel": "MOQ starting from:",
+      "items": [
+        {
+          "title": "Coffee & Tea",
+          "description": "Keep beans and leaves fresh with high-barrier options, degassing valves, and resealable zippers. Choose compostable or recyclable films.",
+          "moq": "500 units"
+        },
+        {
+          "title": "Snacks & Baked Goods",
+          "description": "Protect crispness and flavor with grease-resistant barrier coatings and custom window options. Perfect for cookies, nuts, and granola.",
+          "moq": "500 units"
+        },
+        {
+          "title": "Pet Treats & Food",
+          "description": "High-strength, puncture-resistant structures designed to withstand heavy weight and strong odors, keeping pet foods fresh and safe.",
+          "moq": "500 units"
+        },
+        {
+          "title": "Supplements & Powders",
+          "description": "Advanced static-dissipative zipper seals and moisture barriers to protect fine powders, nutraceuticals, and wellness formulas.",
+          "moq": "500 units"
+        }
+      ]
+    },
+    "fastFacts": {
+      "title": "Why Choose Pouch.eco?",
+      "stat1Value": "500+",
+      "stat1Label": "Low MOQ Start",
+      "stat2Value": "100%",
+      "stat2Label": "Certified Materials",
+      "stat3Value": "3 Weeks",
+      "stat3Label": "Rapid Turnaround"
+    }
+  },
+  "pouchProductsPage": {
+    "meta": {
+      "title": "Eco-Friendly Flexible Pouches & Bags | pouch.eco",
+      "description": "Explore our range of custom-printed eco-friendly pouches. Stand-up, flat bottom, spout pouches, sachets, and side-gusset bags from 500 units."
+    },
+    "hero": {
+      "badge": "PRODUCT CATALOG",
+      "titleLine1": "Custom Printed",
+      "titleLine2": "Eco Pouches",
+      "subtitle": "Choose from 5 premium flexible packaging styles. Launch your brand with professional packaging from just 500 units—no plate fees, fast turnaround."
+    },
+    "labels": {
+      "moq": "MOQ:",
+      "barrier": "BARRIER:",
+      "theProblem": "THE PROBLEM",
+      "theSolution": "THE SOLUTION",
+      "from": "From",
+      "viewDetails": "View Details",
+      "bookCall": "Book Call"
+    },
+    "products": [
+      {
+        "name": "Stand Up Pouch",
+        "problem": "Your brand needs to stand out, but custom printing usually requires ordering 10,000+ bags and paying expensive plate fees.",
+        "solution": "Our digital print Stand Up Pouches let you launch with pro-level packaging from just 500 units—no plate fees, fast turnaround.",
+        "features": [
+          "Self-Standing Design",
+          "Resealable Zipper",
+          "Maximum Shelf Appeal"
+        ]
+      },
+      {
+        "name": "Flat Bottom Pouch",
+        "problem": "Premium coffee and tea need stability on the shelf and distinct branding, which standard pouches often lack.",
+        "solution": "Our Flat Bottom Pouch (Box Bottom) offers 5 printable faces and maximum stability—giving your product a top-tier look.",
+        "features": [
+          "5 Printable Faces",
+          "Box-Like Stability",
+          "Premium Look & Feel"
+        ]
+      },
+      {
+        "name": "Spouted Pouch",
+        "problem": "Selling liquids in bottles is heavy, fragile, and expensive to ship—eating into your margins.",
+        "solution": "Switch to flexible Spouted Pouches—lighter, durable, and uses 80% less plastic than rigid bottles. Perfect for refills.",
+        "features": [
+          "Leak-Proof Spout",
+          "80% Less Plastic",
+          "Cheaper Shipping"
+        ]
+      },
+      {
+        "name": "Sachet",
+        "problem": "Customers want to try before they buy, but generic sample packaging cheapens your brand.",
+        "solution": "Our custom-printed 3-Side Seal Sachets provide a premium unboxing experience even for trial sizes. Convert browsers into buyers.",
+        "features": [
+          "Cost-Effective",
+          "Mail-Friendly",
+          "High Conversion"
+        ]
+      },
+      {
+        "name": "Side Gusset Bag",
+        "problem": "Roasters need a classic blocky shape that holds maximum volume without taking up too much width on the shelf.",
+        "solution": "Our Side Gusset Bags offer a quad seal for rigid structure and large capacity, with no plate fees.",
+        "features": [
+          "Classic Coffee Shape",
+          "High Volume Capacity",
+          "Quad Seal Rigidity"
+        ]
+      }
+    ]
+  },
+  "pouchMaterialsPage": {
+    "meta": {
+      "title": "Sustainable Packaging Materials | pouch.eco",
+      "description": "Compare eco-friendly packaging materials: compostable (home & industrial), recyclable (mono-PE), and bio-based sugarcane PE."
+    },
+    "hero": {
+      "badge": "MATERIAL INTELLIGENCE",
+      "titleLine1": "Eco-Friendly",
+      "titleLine2": "Materials",
+      "subtitle": "We do not compromise. We only use third-party certified compostable, recyclable, and bio-based films designed to protect your product and the planet."
+    },
+    "labels": {
+      "pros": "PROS",
+      "cons": "CONS"
+    },
+    "materials": {
+      "compostable": {
+        "name": "Compostable",
+        "description": "Plant-based films that return to the soil, leaving zero microplastics. Certified home and industrial compostable.",
+        "pros": [
+          "Breaks down in home compost piles",
+          "No synthetic chemical residue",
+          "High oxygen & moisture barrier options",
+          "TUV Austria certified materials"
+        ],
+        "cons": [
+          "Higher material cost (1.3x)",
+          "Shorter absolute shelf life (12-18 months)"
+        ]
+      },
+      "recyclable": {
+        "name": "Recyclable",
+        "description": "High-performance PE/PE mono-material designed to be recycled in standard plastic collection systems.",
+        "pros": [
+          "Fully recyclable (Code 4 PE)",
+          "Lowest carbon footprint of all plastics",
+          "Same shelf life as traditional plastic",
+          "GRS certified recycled content available"
+        ],
+        "cons": [
+          "Requires collection infrastructure",
+          "Does not biodegrade in nature"
+        ]
+      },
+      "pcr": {
+        "name": "PCR Bio-PE",
+        "description": "Sugar-cane derived bio-based polyethylene combined with Post-Consumer Recycled plastics.",
+        "pros": [
+          "Negative carbon footprint base material",
+          "Reduces virgin plastic consumption",
+          "Durable barrier for heavy/liquid products",
+          "Recyclable in standard PE streams"
+        ],
+        "cons": [
+          "More expensive than standard PE",
+          "Requires collection infrastructure"
+        ]
+      }
+    },
+    "techSpecs": {
+      "badge": "TECHNICAL DATA",
+      "titleLine1": "Professional Specs",
+      "titleLine2": "For Food Brands",
+      "description": "Get the granular data. Download our technical data sheets for OTR (Oxygen Transmission Rate), MVTR (Moisture Vapor Transmission Rate), puncture resistance, and seal strength.",
+      "viewAllSpecs": "View All Specs",
+      "barrierData": "Barrier Properties Data",
+      "downloadBadge": "DOWNLOADS",
+      "imgAlt": "Technical data sheet mockups"
+    },
+    "certifications": {
+      "title": "Third-Party Certified & Verified",
+      "dinAlt": "DIN Certco Home Compostable logo",
+      "bpiAlt": "BPI Compostable logo",
+      "abaAlt": "ABA Home Compostable logo",
+      "grsAlt": "Global Recycled Standard logo",
+      "biopeAlt": "I'm Green Bio-based plastic logo",
+      "fscAlt": "FSC certified paper logo",
+      "iso9001Alt": "ISO 9001 Quality Management logo",
+      "iso14001Alt": "ISO 14001 Environmental Management logo",
+      "speakToExpert": "Speak to a Material Expert"
+    }
+  },
+  "pouchCertificationsPage": {
+    "meta": {
+      "title": "Packaging Certifications & Standards | pouch.eco",
+      "description": "View our third-party packaging certifications: BPI compostable, DIN Certco home compostable, GRS recycled, and BRC food safety.",
+      "keywords": "packaging certifications, BPI compostable, DIN Certco, GRS recycled, BRC food safety, ASTM D6400",
+      "ogTitle": "Packaging Certifications & Standards | pouch.eco",
+      "ogDescription": "View our third-party packaging certifications: BPI compostable, DIN Certco home compostable, GRS recycled, and BRC food safety."
+    },
+    "hero": {
+      "badge": "VERIFIED TRUST",
+      "titleLine1": "Certified",
+      "titleLine2": "Eco-Packaging",
+      "titleLine3": "Standards",
+      "subtitle": "We back our sustainability claims with independent laboratory testing. View and download our active certificates from global accreditation bodies.",
+      "viewBpiListing": "View BPI Listing",
+      "downloadBpiCert": "Download BPI Certificate",
+      "getCertified": "Get Certified Packaging"
+    },
+    "certifications": {
+      "heading": "Our Standards & Accreditations",
+      "listing": "BPI Official Listing",
+      "download": "Download PDF",
+      "items": [
+        {
+          "name": "DIN HOME COMPOST",
+          "region": "Europe / Global",
+          "description": "DIN Geprüft Home Compostable certification. Verified for backyard composting under NF T51-800.",
+          "facility": "Home Composting"
+        },
+        {
+          "name": "BPI Certified",
+          "region": "North America",
+          "description": "Third-party verified compostable by the Biodegradable Products Institute. Meets ASTM D6400/D6868.",
+          "facility": "Industrial Composting"
+        },
+        {
+          "name": "ABA Home Compost",
+          "region": "Australia",
+          "description": "Australasian Bioplastics Association Home Compostable Verification. The gold standard in AU.",
+          "facility": "Home Composting"
+        },
+        {
+          "name": "GRS Certified",
+          "region": "Global",
+          "description": "Global Recycled Standard. Verifies recycled content (PCR) and responsible social/environmental practices.",
+          "facility": "Recycling Stream"
+        },
+        {
+          "name": "Bio-based PE",
+          "region": "Global",
+          "description": "Verified bio-based carbon content from renewable resources like sugarcane under ASTM D6866.",
+          "facility": "Recycling Stream"
+        },
+        {
+          "name": "FSC Certified",
+          "region": "Global",
+          "description": "Forest Stewardship Council. Ensures paper comes from responsibly managed forests.",
+          "facility": "Paper Recycling"
+        },
+        {
+          "name": "ISO 9001/14001",
+          "region": "Global",
+          "description": "International standards for Quality Management and Environmental Management Systems.",
+          "facility": "Manufacturing"
+        },
+        {
+          "name": "BRC Packaging",
+          "region": "Global",
+          "description": "BRCGS Packaging Materials Standard. Globally recognized food safety certification standard.",
+          "facility": "Food Safety"
+        }
+      ]
+    },
+    "benefits": {
+      "heading": "Why Certified Packaging Matters",
+      "items": [
+        {
+          "title": "Third-Party Verified",
+          "description": "Independent lab testing proves your packaging claims"
+        },
+        {
+          "title": "Customer Trust",
+          "description": "Certification badges on packaging build immediate credibility"
+        },
+        {
+          "title": "Compost Acceptance",
+          "description": "Certified packaging is welcomed by commercial composters"
+        },
+        {
+          "title": "Legal Protection",
+          "description": "Avoid greenwashing lawsuits with documented proof"
+        }
+      ]
+    },
+    "standards": {
+      "heading": "Global Standards Comparison",
+      "thCertification": "Certification Standard",
+      "thRegion": "Primary Region",
+      "thFacilityType": "Facility Type Required",
+      "thTemperature": "Composting Temp",
+      "rows": [
+        {
+          "region": "North America",
+          "facility": "Industrial Composting"
+        },
+        {
+          "region": "Europe / Global",
+          "facility": "Industrial Composting"
+        },
+        {
+          "region": "Australia",
+          "facility": "Industrial Composting"
+        },
+        {
+          "region": "Global",
+          "facility": "Home Composting"
+        },
+        {
+          "region": "Global",
+          "facility": "Food Safety Verification"
+        }
+      ]
+    },
+    "faqs": {
+      "heading": "Certifications FAQ",
+      "items": [
+        {
+          "question": "What does 'BPI Certified Compostable' mean?",
+          "answer": "BPI Certified means your packaging has been independently tested and verified to break down in industrial composting facilities. It meets strict ASTM standards for biodegradation, disintegration, and eco-toxicity. No harmful residues left behind."
+        },
+        {
+          "question": "Can I compost certified packaging in my backyard?",
+          "answer": "Most BPI-certified packaging is designed for industrial composting facilities, which reach higher temperatures (140-160°F) than home compost piles. If you want backyard compostability, look for 'Home Compostable' certification (TÜV Austria OK compost HOME)."
+        },
+        {
+          "question": "How do I verify your certifications?",
+          "answer": "Visit products.bpiworld.org and search for 'Achieve Pack Company' to see all certified SKUs. We provide certification documents with every order. You can also request lab test reports for full transparency."
+        },
+        {
+          "question": "Why do certifications matter for my brand?",
+          "answer": "Certifications provide third-party proof of your sustainability claims. They protect you from greenwashing accusations, build customer trust, and ensure your packaging is actually accepted by composters."
+        },
+        {
+          "question": "Which certification is best for my market?",
+          "answer": "It depends on your region: BPI for North America, EN 13432 for Europe, AS 4736 for Australia. If selling globally, choose packaging that meets multiple standards."
+        },
+        {
+          "question": "Do you test for PFAS (forever chemicals)?",
+          "answer": "Yes! All our certified compostable materials are tested and verified to be PFAS-free. BPI now requires fluorinated chemical restrictions, and we meet those updated standards."
+        },
+        {
+          "question": "What is BRC Packaging certification?",
+          "answer": "BRC (BRCGS) Packaging Materials is a globally recognized food safety certification standard. It ensures our manufacturing facility meets rigorous requirements for hygiene, quality management, product safety, and process control. This certification is often required by major retailers and food brands."
+        }
+      ]
+    },
+    "viewCertificates": {
+      "heading": "Our Active Certificates",
+      "dinHomeCompost": "DIN Home Compostable",
+      "bpiCompostable": "BPI Industrial Compostable",
+      "abaAs5810": "ABA Home Compostable",
+      "grsRecycled": "GRS Recycled Content",
+      "bioBasedPe": "I'm Green Sugarcane Bio-PE",
+      "fscMix": "FSC Forest Mix Paper",
+      "iso9001": "ISO 9001 Quality System",
+      "iso14001": "ISO 14001 Eco System",
+      "brcPackaging": "BRCGS Food Safety Cert",
+      "downloadLabel": "Click to Download PDF"
+    },
+    "cta": {
+      "heading": "Launch Your Certified Eco-Packaging",
+      "subtitle": "Get free samples and consultation to verify the right certified materials for your product.",
+      "bookConsultation": "Book Packaging Call",
+      "browseMaterials": "Browse Materials"
+    }
+  },
+  "pouchKnowledgeSizeGuidePage": {
+    "meta": {
+      "title": "Pouch Size Guide | Dimensions & Volume | POUCH.ECO",
+      "description": "The ultimate guide to sizing flexible packaging. Learn how to measure stand-up pouches, calculate volume for different products, and choose the perfect dimensions.",
+      "keywords": "pouch size guide, packaging dimensions, stand up pouch sizing, coffee bag size, flat bottom bag volume"
+    },
+    "hero": {
+      "badge": "KNOWLEDGE_BASE // SIZING",
+      "heading1": "Measure",
+      "heading2": "Twice.",
+      "heading3": "Scale Once.",
+      "description": "Stop guessing. Learn exactly how to measure pouch dimensions, understand gusset depth, and calculate the right volume for your specific product density.",
+      "ctaPrimary": "Order Sizing Kit",
+      "ctaSecondary": "Sizing Consultancy",
+      "heroAlt": "Flexible pouch sizing dieline and dimensions layout reference"
+    },
+    "density": {
+      "badge": "DENSITY INTELLIGENCE",
+      "heading1": "Volume vs.",
+      "heading2": "Product Weight",
+      "description": "Ounces of volume are NOT equal to ounces of weight. 16oz of whole bean coffee requires double the physical space of 16oz of sugar. Always size your pouches based on product volume in milliliters (ml), not just net weight.",
+      "altText": "Product density vs pouch sizing diagram",
+      "tableHeaders": {
+        "product": "Product Type",
+        "density": "Avg Bulk Density",
+        "volFactor": "Volume Multiplier"
+      }
+    },
+    "productDensity": [
+      {
+        "product": "Whole Bean Coffee"
+      },
+      {
+        "product": "Tea Leaves"
+      },
+      {
+        "product": "Protein Powder"
+      },
+      {
+        "product": "Granola"
+      },
+      {
+        "product": "Nuts & Seeds"
+      }
+    ],
+    "scaleCheck": {
+      "badge": "SIZE REFERENCE",
+      "heading": "Standard Sizes Flat Dielines",
+      "subtitle": "Click any card to preview standard sizes with dimensions & capacities."
+    },
+    "standUp": {
+      "heading": "Stand-Up Pouches (Standard)",
+      "sizes": [
+        {
+          "bestFor": "Samples, Spices, Single-Use Powders"
+        },
+        {
+          "bestFor": "Loose Tea, Seeds, Specialty Herbs"
+        },
+        {
+          "bestFor": "1.7oz / 50g Ground Coffee, Small Snacks"
+        },
+        {
+          "bestFor": "8.8oz / 250g Roasted Coffee Beans, Granola"
+        },
+        {
+          "bestFor": "16oz / 500g Coffee, Protein Powders, Oats"
+        },
+        {
+          "bestFor": "2.2lb / 1kg Coffee, Large Snacks, Pet Treats"
+        },
+        {
+          "bestFor": "Bulk Ingredients, Heavy Pet Foods"
+        }
+      ]
+    },
+    "flatBottom": {
+      "heading": "Flat Bottom Bags (Box Bags)",
+      "sizes": [
+        {
+          "bestFor": "Luxury Loose Leaf Tea, Matcha"
+        },
+        {
+          "bestFor": "4oz / 100g Coffee Beans, Premium Cocoa"
+        },
+        {
+          "bestFor": "8oz / 225g Coffee Beans, Fine Powders"
+        },
+        {
+          "bestFor": "12oz / 340g Coffee Specialty Standard"
+        },
+        {
+          "bestFor": "16oz / 500g to 1kg Coffee Beans"
+        },
+        {
+          "bestFor": "Bulk Coffee, Premium Pet Foods"
+        },
+        {
+          "bestFor": "Bulk Granola, Pet Food, Grains"
+        }
+      ]
+    },
+    "content": {
+      "heading": "How to Size Flexible Pouches",
+      "p1": "Choosing the right size for your custom pouch is one of the most critical steps in the packaging process. A bag that is too small will look over-stuffed, risk zipper failure, and be difficult to fill. A bag that is too large wastes material, looks unappealing to consumers, and wastes valuable retail shelf space. Because flexible packaging expands dynamically when filled, measuring them is different from measuring rigid boxes.",
+      "formulaHeading": "The Standard Measurement Formula",
+      "formulaP": "In the flexible packaging industry, dimensions are universally written as: Width (W) x Height (H) + Bottom Gusset (G).",
+      "widthDesc": "Width: Measured straight across the pouch from the outside edge of the left seal to the outside edge of the right seal.",
+      "heightDesc": "Height: Measured straight down from the very top edge of the pouch to the very bottom edge.",
+      "gussetDesc": "Bottom Gusset: This is the depth of the pouch. Stand-up pouches utilize a 'U-shape' or 'K-seal' gusset that unfolds. The measurement provided is typically the *total expanded depth* across the bottom. (Sometimes written as BG).",
+      "exampleHeading": "Example: 130mm x 200mm + 80mm",
+      "exampleDesc": "This describes a Stand-Up Pouch that is 130mm wide, 200mm tall, and has a bottom gusset that opens up to 80mm deep.",
+      "densityHeading": "The Impact of Product Density",
+      "densityP1": "Why can't you just say 'I need a 1lb bag'? Because 1lb of densely packed whey protein powder takes up drastically less space than 1lb of light, airy popcorn. When determining your pouch size, you must consider the bulk density of your specific product.",
+      "densityP2": "To determine the correct size without guesswork, we highly recommend utilizing our volume testing protocol. The easiest method is to take an existing bag that fits your product well, measure it flat, and provide those dimensions to our engineers. Alternatively, you can measure the total volume (in milliliters or cubic inches) of your product, and we will calculate the corresponding pouch dimensions required to hold it comfortably while leaving enough 'headspace' to safely seal the top.",
+      "dimensionsHeading": "Internal vs. External Dimensions",
+      "dimensionsP": "Always remember that the dimensions provided on technical dielines are External Dimensions (OD - Outside Dimensions). However, the usable space inside the bag (Internal Dimensions - ID) is smaller. You must subtract the width of the side seals (typically 5mm to 10mm per side), the bottom seal, and the space above the zipper (often 30mm to 40mm) to calculate the actual fillable volume.",
+      "coffeeHeading": "Standard Coffee & Tea Sizes",
+      "coffeeP": "For coffee roasters, the industry has largely standardized pouch sizes based on roasted whole bean volume. While custom sizes are always available, utilizing standard tooling dimensions can save setup costs:",
+      "size8oz": "8 oz (250g): Typically ~ 130mm (W) x 200mm (H) + 80mm (G)",
+      "size12oz": "12 oz (340g): Typically ~ 160mm (W) x 230mm (H) + 90mm (G) - The US Specialty Standard",
+      "size16oz": "16 oz / 1 lb (454g): Typically ~ 170mm (W) x 270mm (H) + 90mm (G)",
+      "size2lb": "2.2 lb (1kg): Typically ~ 220mm (W) x 330mm (H) + 110mm (G)"
+    },
+    "faq": {
+      "heading": "Sizing FAQ",
+      "items": [
+        {
+          "q": "Do you measure in inches or millimeters?",
+          "a": "Because global packaging manufacturing requires extreme precision, we almost universally use the metric system (millimeters/mm). If you provide dimensions in inches, we will convert them to the nearest millimeter for the engineering dieline."
+        },
+        {
+          "q": "What is 'headspace' and why do I need it?",
+          "a": "Headspace is the empty room left at the top of the pouch above your product. You need sufficient headspace (typically 1 to 2 inches) to allow your sealing machine jaws to clamp and heat-seal the top of the bag without crushing or melting your product."
+        },
+        {
+          "q": "How do I know if my product will fit?",
+          "a": "The safest method is to request physical unprinted sample pouches in various sizes. You can physically fill them with your product to test the volume, check the headspace, and see exactly how the filled bag will look on a shelf."
+        },
+        {
+          "q": "Does a Flat Bottom bag hold more than a Stand-Up Pouch?",
+          "a": "Generally, yes. Given the exact same external width and height, a Flat Bottom bag will hold slightly more volume because its side gussets allow the entire body of the bag to expand into a uniform box shape, whereas a Stand-Up pouch tapers toward the top."
+        },
+        {
+          "q": "Can I order a completely custom size?",
+          "a": "Yes. Since our pouches are manufactured to order, you are not restricted to 'stock' sizes. We can engineer a custom size (e.g., 147mm x 212mm) to fit your product perfectly."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Test the Fit",
+      "subtitle": "Don't guess on dimensions. Request our free sizing sample kit to test with your actual product.",
+      "btn": "Request Free Samples"
+    }
   }
 }

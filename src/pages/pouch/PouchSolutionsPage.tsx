@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { Package, Leaf, Truck, Zap, CheckCircle, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
@@ -41,18 +41,10 @@ export default function PouchSolutionsPage() {
 
   return (
     <PouchLayout>
-      <Helmet>
-        <title>{t('pouchSolutionsPage.meta.title')}</title>
-        <meta name="description" content={t('pouchSolutionsPage.meta.description')} />
-        <link rel="canonical" href={`${baseUrl}/solutions`} />
-        <meta property="og:title" content={t('pouchSolutionsPage.meta.ogTitle')} />
-        <meta property="og:description" content={t('pouchSolutionsPage.meta.ogDescription')} />
-        <meta property="og:url" content={`${baseUrl}/solutions`} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t('pouchSolutionsPage.meta.twitterTitle')} />
-        <meta name="twitter:description" content={t('pouchSolutionsPage.meta.twitterDescription')} />
-      </Helmet>
+      <DualDomainSEOHead
+        title={t('pouchSolutionsPage.meta.title')}
+        description={t('pouchSolutionsPage.meta.description')}
+      />
 
       {/* Hero Section with Video Background */}
       <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">
