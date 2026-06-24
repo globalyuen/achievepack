@@ -16,6 +16,7 @@ import SEOPageLayout from '../../components/SEOPageLayout'
 // B2C Brutalist Layout
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
+import { useTranslation, Trans } from "react-i18next";
 
 interface FAQItem {
   q: string
@@ -23,6 +24,8 @@ interface FAQItem {
 }
 
 const EUPPWRCompliancePage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.eUPPWRCompliance';
   const isPouchDomain = getDomain() === 'pouch'
   const { openCalendly } = useCalendly()
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
@@ -104,28 +107,23 @@ const EUPPWRCompliancePage: React.FC = () => {
         content: (
           <div className="space-y-6">
             <div className="bg-[#10b981] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-white">
-              <h3 className="font-black text-2xl uppercase mb-4">Adapt Early or Face Regulatory Penalties</h3>
+              <h3 className="font-black text-2xl uppercase mb-4">{t(`${p}.adaptEarlyOrFaceRegulatoryPena`)}</h3>
               <p className="font-bold text-lg mb-4">
-                The voluntary phase of eco-marketing is officially over. The newly adopted Packaging and Packaging Waste Regulation (PPWR) establishes uniform legally-binding mandates across all EU Member States.
-              </p>
+                {t(`${p}.theVoluntaryPhaseOfEcoMarketin`)}</p>
               <div className="bg-black text-[#D4FF00] p-4 font-mono text-sm border-2 border-black grid md:grid-cols-3 gap-4">
                 <div>
-                  <strong className="block text-white mb-1">⏱️ August 12, 2026:</strong>
-                  General application begins. Stricter compliance audits, mandatory Extended Producer Responsibility (EPR) registration, and bans on toxic PFAS coatings.
-                </div>
+                  <strong className="block text-white mb-1">{t(`${p}.august122026`)}</strong>
+                  {t(`${p}.generalApplicationBeginsStrict`)}</div>
                 <div>
-                  <strong className="block text-white mb-1">🏷️ 2028-2029 Window:</strong>
-                  Harmonized material sorting icons and scannable QR Digital Product Passports become strictly mandatory on all public packaging.
-                </div>
+                  <strong className="block text-white mb-1">{t(`${p}.20282029Window`)}</strong>
+                  {t(`${p}.harmonizedMaterialSortingIcons`)}</div>
                 <div>
-                  <strong className="block text-white mb-1">🌱 January 1, 2030:</strong>
-                  The "Big Bang" deadline. 100% recyclable-by-design structures, strict 50% empty space caps, and minimum post-consumer recycled content targets.
-                </div>
+                  <strong className="block text-white mb-1">{t(`${p}.january12030`)}</strong>
+                  {t(`${p}.theBigBangDeadline100Recyclabl`)}</div>
               </div>
             </div>
             <p className="text-gray-700 leading-relaxed font-medium">
-              At **Pouch.eco**, we help e-commerce, D2C, and fast-growing brand owners audit their packaging portfolios and pivot to compliant materials ahead of schedule. Re-engineering your supply loop from laminated fossil-fuel bags to certified recyclable mono-materials and compostable structures is seamless and painless.
-            </p>
+              {t(`${p}.atPouchEcoWeHelpECommerceD2cAn`)}</p>
           </div>
         )
       },
@@ -136,21 +134,18 @@ const EUPPWRCompliancePage: React.FC = () => {
         content: (
           <div className="space-y-6">
             <p className="text-gray-700 leading-relaxed">
-              Oversized boxes and double-walled containers designed purely to inflate a brand's shelf presence are facing a strict phase-out. Under the PPWR, all packaging volume and weight must be reduced to the absolute technical minimum required for product integrity and transportation.
-            </p>
+              {t(`${p}.oversizedBoxesAndDoubleWalledC`)}</p>
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div className="space-y-4">
                 <div className="bg-white border-4 border-black p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h4 className="font-black text-lg text-emerald-950 uppercase">🚨 The 50% Void Space Limit</h4>
+                  <h4 className="font-black text-lg text-emerald-950 uppercase">{t(`${p}.the50VoidSpaceLimit`)}</h4>
                   <p className="text-xs text-gray-700 leading-relaxed font-mono">
-                    Starting January 1, 2030, grouped, transport, and e-commerce packaging must have an empty space ratio of <strong>50% or less</strong>. Double walls, false bottoms, and empty packaging layers are banned unless protected under registered trademarks.
-                  </p>
+                    {t(`${p}.startingJanuary12030GroupedTra`)}<strong>{t(`${p}.50OrLess`)}</strong>{t(`${p}.doubleWallsFalseBottomsAndEmpt`)}</p>
                 </div>
                 <div className="bg-amber-50 border-4 border-amber-500 p-6 space-y-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h4 className="font-black text-lg text-amber-950 uppercase">⚠️ Warning: The Filler Material Catch</h4>
+                  <h4 className="font-black text-lg text-amber-950 uppercase">{t(`${p}.warningTheFillerMaterialCatch`)}</h4>
                   <p className="text-xs text-gray-700 leading-relaxed font-mono">
-                    Under the EU directive, <strong>filler materials</strong>—including bubble wrap, paper padding, foam peanuts, and air cushions—are explicitly counted as <strong>empty space volume</strong>! You cannot pack a box with foam to meet the 50% limit.
-                  </p>
+                    {t(`${p}.underTheEuDirective`)}<strong>{t(`${p}.fillerMaterials`)}</strong>{t(`${p}.includingBubbleWrapPaperPaddin`)}<strong>{t(`${p}.emptySpaceVolume`)}</strong>{t(`${p}.youCannotPackABoxWithFoamToMee`)}</p>
                 </div>
               </div>
               
@@ -161,13 +156,11 @@ const EUPPWRCompliancePage: React.FC = () => {
                   className="w-full object-cover border-2 border-black"
                 />
                 <div className="p-2 text-center text-[10px] text-emerald-900/80 font-mono">
-                  🔍 Visualizing packaging void space constraints. Style: nano banana pro 2
-                </div>
+                  {t(`${p}.visualizingPackagingVoidSpaceC`)}</div>
               </NeoCard>
             </div>
             <div className="bg-emerald-50 border-2 border-emerald-900 p-5 rounded-lg text-sm text-emerald-950 font-mono">
-              <strong>💡 Brand Solution:</strong> Right-sizing your product packaging using high-barrier stand-up pouches reduces material weight by up to 70% compared to rigid jars and completely eliminates the need for box fillers and outer cartons.
-            </div>
+              <strong>{t(`${p}.brandSolution`)}</strong> {t(`${p}.rightSizingYourProductPackagin`)}</div>
           </div>
         )
       },
@@ -178,8 +171,7 @@ const EUPPWRCompliancePage: React.FC = () => {
         content: (
           <div className="space-y-6">
             <p className="text-gray-700 leading-relaxed">
-              To resolve consumer confusion across the 27 EU member states, the PPWR completely overrides individual national recycling marks (such as the French Triman or German Green Dot) in favor of a single, unified EU-wide labelling framework.
-            </p>
+              {t(`${p}.toResolveConsumerConfusionAcro`)}</p>
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <NeoCard className="p-2 bg-emerald-50 border-4 border-emerald-900 shadow-[6px_6px_0px_0px_#022c22] order-2 md:order-1">
                 <ClickableImage 
@@ -188,22 +180,19 @@ const EUPPWRCompliancePage: React.FC = () => {
                   className="w-full object-cover border-2 border-black"
                 />
                 <div className="p-2 text-center text-[10px] text-emerald-900/80 font-mono">
-                  🔍 EU 2028-2029 Recycling & QR Passport Specifications
-                </div>
+                  {t(`${p}.eu20282029RecyclingQrPassportS`)}</div>
               </NeoCard>
 
               <div className="space-y-4 order-1 md:order-2">
                 <div className="bg-white border-4 border-black p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h4 className="font-black text-lg text-emerald-950 uppercase">🏷️ Unified Material Pictograms</h4>
+                  <h4 className="font-black text-lg text-emerald-950 uppercase">{t(`${p}.unifiedMaterialPictograms`)}</h4>
                   <p className="text-xs text-gray-700 leading-relaxed font-mono">
-                    Starting in 2028, all retail packaging must be pre-printed with standardized EU sorting pictograms mapping the chemical composition and the correct waste stream bin to make sorting foolproof for consumers.
-                  </p>
+                    {t(`${p}.startingIn2028AllRetailPackagi`)}</p>
                 </div>
                 <div className="bg-white border-4 border-black p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h4 className="font-black text-lg text-emerald-950 uppercase">📱 Scannable Digital Packaging Passports</h4>
+                  <h4 className="font-black text-lg text-emerald-950 uppercase">{t(`${p}.scannableDigitalPackagingPassp`)}</h4>
                   <p className="text-xs text-gray-700 leading-relaxed font-mono">
-                    High-durability and recyclable packaging placed on the market will require dynamic QR codes linked directly to Digital Packaging Passports. When scanned, they show full traceability records, precise polymer structures, LCA carbon calculations, and verified local sorting locations.
-                  </p>
+                    {t(`${p}.highDurabilityAndRecyclablePac`)}</p>
                 </div>
               </div>
             </div>
@@ -217,39 +206,37 @@ const EUPPWRCompliancePage: React.FC = () => {
         content: (
           <div className="space-y-6">
             <p className="text-gray-700 leading-relaxed">
-              Vague marketing tags like \"eco-friendly,\" \"biodegradable,\" or \"natural packaging\" are strictly prohibited under the new Green Claims Directive unless supported by certified third-party lab documentation. Furthermore, Extended Producer Responsibility (EPR) fee systems will now be <strong>ecomodulated</strong>—meaning producers using non-recyclable multi-layer plastics will face aggressive, penalizing tax scales.
-            </p>
+              {t(`${p}.vagueMarketingTagsLikeEcoFrien`)}<strong>{t(`${p}.ecomodulated`)}</strong>{t(`${p}.meaningProducersUsingNonRecycl`)}</p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-[#10b981]/5 border-4 border-black p-5">
-                <h4 className="font-bold text-emerald-950 uppercase mb-2">✅ Compliant Claims (backed by docs)</h4>
+                <h4 className="font-bold text-emerald-950 uppercase mb-2">{t(`${p}.compliantClaimsBackedByDocs`)}</h4>
                 <ul className="text-xs space-y-2 font-mono">
-                  <li>• \"Fully Recyclable Mono-PE Pouch\" (backed by RecyClass sorting test certificates)</li>
-                  <li>• \"GRS-Certified 30%+ PCR Polyethylene\" (supported by global recycled standards custody records)</li>
-                  <li>• \"TÜV OK Compost Home certified\" (verifying 100% biodisintegration under EN 13432)</li>
+                  <li>{t(`${p}.fullyRecyclableMonoPePouchBack`)}</li>
+                  <li>{t(`${p}.grsCertified30PcrPolyethyleneS`)}</li>
+                  <li>{t(`${p}.tVOkCompostHomeCertifiedVerify`)}</li>
                 </ul>
               </div>
               <div className="bg-red-50 border-4 border-red-900/20 p-5">
-                <h4 className="font-bold text-red-950 uppercase mb-2">❌ Illegal Greenwashing Claims (Banned)</h4>
+                <h4 className="font-bold text-red-950 uppercase mb-2">{t(`${p}.illegalGreenwashingClaimsBanne`)}</h4>
                 <ul className="text-xs space-y-2 font-mono text-red-900">
-                  <li>• \"Eco-friendly bags\" (lacks specific certification alignment or criteria mapping)</li>
-                  <li>• \"Biodegradable pouch\" (fails to specify composting timeframe or degradation environment)</li>
-                  <li>• \"100% Sustainable\" (broad and misleading when zipper/valves are non-biodegradable)</li>
+                  <li>{t(`${p}.ecoFriendlyBagsLacksSpecificCe`)}</li>
+                  <li>{t(`${p}.biodegradablePouchFailsToSpeci`)}</li>
+                  <li>{t(`${p}.100SustainableBroadAndMisleadi`)}</li>
                 </ul>
               </div>
             </div>
 
             <div className="bg-[#D4FF00]/10 border-4 border-black p-6">
-              <h4 className="font-black text-lg uppercase mb-2 text-emerald-950">Technical Specification & EPR Tax Relief Matrix</h4>
+              <h4 className="font-black text-lg uppercase mb-2 text-emerald-950">{t(`${p}.technicalSpecificationEprTaxRe`)}</h4>
               <p className="text-xs text-gray-600 mb-4 font-mono">
-                Transitioning to certified mono-materials or recycled content exempts your brand from the UK Plastic Packaging Tax (£217/tonne) and the EU Plastic Levy (€0.80/kg) by leveraging eco-modulated tariff schedules.
-              </p>
+                {t(`${p}.transitioningToCertifiedMonoMa`)}</p>
               <div className="overflow-x-auto mt-2">
                 <table className="w-full text-left border-collapse text-xs font-mono">
                   <thead>
                     <tr className="border-b-2 border-black bg-white/50">
-                      <th className="p-3 border-r border-black font-bold">Metric Parameter</th>
-                      <th className="p-3 border-r border-black font-bold">EU PPWR Compliant Value</th>
-                      <th className="p-3 font-bold">EPR Modulated Tax Relief Impact</th>
+                      <th className="p-3 border-r border-black font-bold">{t(`${p}.metricParameter`)}</th>
+                      <th className="p-3 border-r border-black font-bold">{t(`${p}.euPpwrCompliantValue`)}</th>
+                      <th className="p-3 font-bold">{t(`${p}.eprModulatedTaxReliefImpact`)}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -274,24 +261,18 @@ const EUPPWRCompliancePage: React.FC = () => {
         content: (
           <div className="space-y-6 text-gray-700">
             <p className="font-medium text-black">
-              To secure your European retail distribution and prevent shipping hold-ups at borders, implement this 5-step sourcing protocol:
-            </p>
+              {t(`${p}.toSecureYourEuropeanRetailDist`)}</p>
             <ol className="list-decimal list-inside space-y-4 text-sm font-mono bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <li>
-                <strong>SKU Packaging Audit:</strong> Map your entire packaging catalog. Check for volume-to-product ratios, multi-layer laminated films (e.g. PET/ALU/PE), and verify that all structures are 100% PFAS-free.
-              </li>
+                <strong>{t(`${p}.skuPackagingAudit`)}</strong> {t(`${p}.mapYourEntirePackagingCatalogC`)}</li>
               <li>
-                <strong>Material Redesign (Right-Sizing):</strong> Swap thick, heavy plastic rigid containers for thin, lightweight Stand-Up Pouches. Replace hard-to-separate laminates with Recyclable Mono-PE or organic Home Compostables.
-              </li>
+                <strong>{t(`${p}.materialRedesignRightSizing`)}</strong> {t(`${p}.swapThickHeavyPlasticRigidCont`)}</li>
               <li>
-                <strong>Pre-Label for Sorting:</strong> Incorporate the standardized 2028 recycling sorting symbols and preserve print space for the Digital Product Passport QR codes on your back-panel artwork.
-              </li>
+                <strong>{t(`${p}.preLabelForSorting`)}</strong> {t(`${p}.incorporateTheStandardized2028`)}</li>
               <li>
-                <strong>Secure Custody Chains:</strong> Request dynamic lab migration tests, Declaration of Conformity (DoC) certificates, and GRS (Global Recycled Standard) transaction certificates from your current supplier.
-              </li>
+                <strong>{t(`${p}.secureCustodyChains`)}</strong> {t(`${p}.requestDynamicLabMigrationTest`)}</li>
               <li>
-                <strong>Partner with Certified Sourcing:</strong> Secure supply contracts with trusted, audited mills. Pouch.eco provides certified, low-MOQ digital runs for testing, while Achieve Pack ensures high-volume wholesale compliance.
-              </li>
+                <strong>{t(`${p}.partnerWithCertifiedSourcing`)}</strong> {t(`${p}.secureSupplyContractsWithTrust`)}</li>
             </ol>
           </div>
         )
@@ -350,25 +331,24 @@ const EUPPWRCompliancePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700 leading-relaxed">
           <p className="text-lg font-semibold text-neutral-900">
-            For industrial brands, compliance is an engineering specification, not a marketing claim. By <strong>August 12, 2026</strong>, Extended Producer Responsibility (EPR) reporting and strict minimization rules apply, followed by the mandatory <strong>2030</strong> recyclable-by-design requirement.
-          </p>
+            {t(`${p}.forIndustrialBrandsComplianceI`)}<strong>{t(`${p}.august1220261`)}</strong>{t(`${p}.extendedProducerResponsibility`)}<strong>2030</strong> {t(`${p}.recyclableByDesignRequirement`)}</p>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-neutral-50 p-5 rounded-lg border-l-4 border-emerald-800 shadow-sm">
-              <h4 className="font-bold text-emerald-950 font-mono text-sm uppercase">Immediate Regulatory Risk</h4>
+              <h4 className="font-bold text-emerald-950 font-mono text-sm uppercase">{t(`${p}.immediateRegulatoryRisk`)}</h4>
               <ul className="text-xs text-neutral-600 mt-2 space-y-2 font-mono">
-                <li>• Aggressive, ecomodulated EPR tax brackets for complex layers</li>
-                <li>• Stricter waste minimization volumetric inspections at custom borders</li>
-                <li>• Compulsory Declaration of Conformity and PFAS-Free lab verification</li>
-                <li>• Legal representative registration inside EU territory for overseas brands</li>
+                <li>{t(`${p}.aggressiveEcomodulatedEprTaxBr`)}</li>
+                <li>{t(`${p}.stricterWasteMinimizationVolum`)}</li>
+                <li>{t(`${p}.compulsoryDeclarationOfConform`)}</li>
+                <li>{t(`${p}.legalRepresentativeRegistratio`)}</li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-5 rounded-lg border-l-4 border-emerald-600 shadow-sm">
-              <h4 className="font-bold text-emerald-950 font-mono text-sm uppercase">Achieve Pack Sourcing Solutions</h4>
+              <h4 className="font-bold text-emerald-950 font-mono text-sm uppercase">{t(`${p}.achievePackSourcingSolutions`)}</h4>
               <ul className="text-xs text-neutral-600 mt-2 space-y-2 font-mono">
-                <li>• Curbside recyclable Mono-PE structures (Grade A RecyClass Sort)</li>
-                <li>• Certified GRS-Ready PCR (Post-Consumer Recycled) films</li>
-                <li>• EN 13432 backyard and industrial compostable biopolymer barriers</li>
-                <li>• ISO 14040 Life Cycle Assessment carbon calculations</li>
+                <li>{t(`${p}.curbsideRecyclableMonoPeStruct`)}</li>
+                <li>{t(`${p}.certifiedGrsReadyPcrPostConsum`)}</li>
+                <li>{t(`${p}.en13432BackyardAndIndustrialCo`)}</li>
+                <li>{t(`${p}.iso14040LifeCycleAssessmentCar`)}</li>
               </ul>
             </div>
           </div>
@@ -382,14 +362,12 @@ const EUPPWRCompliancePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The PPWR demands that every packaging placed on the European market be designed to use the minimum weight and volume necessary. Over-sized boxes, decorative walls, and hollow spacing are restricted.
-          </p>
+            {t(`${p}.thePpwrDemandsThatEveryPackagi`)}</p>
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div className="bg-neutral-50 border border-neutral-200 p-6 rounded-xl space-y-4">
-              <h4 className="font-bold text-neutral-900 uppercase text-sm font-mono">📦 The 50% E-Commerce and Transport Cap</h4>
+              <h4 className="font-bold text-neutral-900 uppercase text-sm font-mono">{t(`${p}.the50ECommerceAndTransportCap`)}</h4>
               <p className="text-xs text-neutral-600 leading-relaxed font-mono">
-                Starting 2030, void space must be capped at <strong>50% or less</strong>. Crucially, filler materials like bubble wrap, kraft wrap, foam, and air sacks count as <strong>void volume</strong>. Brands must shift toward compact, contour-fitting flexible stand-up pouches to satisfy source reduction targets.
-              </p>
+                {t(`${p}.starting2030VoidSpaceMustBeCap`)}<strong>{t(`${p}.50OrLess`)}</strong>{t(`${p}.cruciallyFillerMaterialsLikeBu`)}<strong>{t(`${p}.voidVolume`)}</strong>{t(`${p}.brandsMustShiftTowardCompactCo`)}</p>
             </div>
             <div className="bg-neutral-50 p-3 rounded-xl border border-neutral-200 shadow-sm">
               <ClickableImage 
@@ -410,8 +388,7 @@ const EUPPWRCompliancePage: React.FC = () => {
       content: (
         <div className="space-y-6">
           <p className="text-neutral-700">
-            National recycling symbols are being phased out in the EU in favor of a single, unified <strong>2028-2029 harmonized material pictogram system</strong>. Furthermore, high-durability and commercial packages will require dynamic QR markers linked to Digital Packaging Passports for easy automated waste sorting.
-          </p>
+            {t(`${p}.nationalRecyclingSymbolsAreBei`)}<strong>{t(`${p}.20282029HarmonizedMaterialPict`)}</strong>{t(`${p}.furthermoreHighDurabilityAndCo`)}</p>
           <div className="bg-neutral-50 p-3 rounded-xl border border-neutral-200 shadow-sm max-w-2xl mx-auto">
             <ClickableImage 
               src="/imgs/topics/eu-ppwr-sorting-labels.png" 
@@ -430,16 +407,15 @@ const EUPPWRCompliancePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            To incentivize sustainability, EPR fees are heavily ecomodulated. Traditional multi-layer plastic laminates containing metallic elements face the highest tax tiers due to sorting difficulties, while mono-materials or recycled plastics qualify for zero or minimal taxes.
-          </p>
+            {t(`${p}.toIncentivizeSustainabilityEpr`)}</p>
           
           <div className="bg-emerald-950/5 border border-emerald-900/20 rounded-xl overflow-hidden mt-6">
             <table className="w-full text-left border-collapse text-xs font-mono">
               <thead>
                 <tr className="bg-emerald-950 text-white font-mono uppercase tracking-wider">
-                  <th className="p-4 border-r border-emerald-900/30">Packaging Parameter</th>
-                  <th className="p-4 border-r border-emerald-900/30">Compliant Value</th>
-                  <th className="p-4">Financial & EPR Modulation Benefit</th>
+                  <th className="p-4 border-r border-emerald-900/30">{t(`${p}.packagingParameter`)}</th>
+                  <th className="p-4 border-r border-emerald-900/30">{t(`${p}.compliantValue`)}</th>
+                  <th className="p-4">{t(`${p}.financialEprModulationBenefit`)}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-emerald-900/10">
@@ -463,28 +439,27 @@ const EUPPWRCompliancePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Supply chain, engineering, and legal teams must coordinate closely to protect European retail channels. Implement this transition roadmap:
-          </p>
+            {t(`${p}.supplyChainEngineeringAndLegal`)}</p>
           <div className="grid md:grid-cols-5 gap-4 font-mono">
             <div className="bg-white border border-neutral-200 p-4 rounded-lg shadow-sm text-center">
-              <span className="font-bold text-emerald-800 block mb-2 text-xs">01. SKU AUDIT</span>
-              <p className="text-[10px] text-neutral-600 leading-normal">Identify double-walls, heavy laminates, volume ratios, and PFAS coatings.</p>
+              <span className="font-bold text-emerald-800 block mb-2 text-xs">{t(`${p}.01SkuAudit`)}</span>
+              <p className="text-[10px] text-neutral-600 leading-normal">{t(`${p}.identifyDoubleWallsHeavyLamina`)}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg shadow-sm text-center">
-              <span className="font-bold text-emerald-800 block mb-2 text-xs">02. REDESIGN</span>
-              <p className="text-[10px] text-neutral-600 leading-normal">Convert complex multi-layered barriers to recyclable Mono-PE or biopolymers.</p>
+              <span className="font-bold text-emerald-800 block mb-2 text-xs">{t(`${p}.02Redesign`)}</span>
+              <p className="text-[10px] text-neutral-600 leading-normal">{t(`${p}.convertComplexMultiLayeredBarr`)}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg shadow-sm text-center">
-              <span className="font-bold text-emerald-800 block mb-2 text-xs">03. PRE-ARTWORK</span>
-              <p className="text-[10px] text-neutral-600 leading-normal">Incorporate 2028-ready unified sorting icons and dynamic QR passport positions.</p>
+              <span className="font-bold text-emerald-800 block mb-2 text-xs">{t(`${p}.03PreArtwork`)}</span>
+              <p className="text-[10px] text-neutral-600 leading-normal">{t(`${p}.incorporate2028ReadyUnifiedSor`)}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg shadow-sm text-center">
-              <span className="font-bold text-emerald-800 block mb-2 text-xs">04. VALIDATE</span>
-              <p className="text-[10px] text-neutral-600 leading-normal">Request GRS certifications, LCA carbon scores, and Declaration of Conformity logs.</p>
+              <span className="font-bold text-emerald-800 block mb-2 text-xs">{t(`${p}.04Validate`)}</span>
+              <p className="text-[10px] text-neutral-600 leading-normal">{t(`${p}.requestGrsCertificationsLcaCar`)}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg shadow-sm text-center">
-              <span className="font-bold text-emerald-800 block mb-2 text-xs">05. DEPLOY</span>
-              <p className="text-[10px] text-neutral-600 leading-normal">Lock in supply volumes with audited partners matching European and UK tax bylaws.</p>
+              <span className="font-bold text-emerald-800 block mb-2 text-xs">{t(`${p}.05Deploy`)}</span>
+              <p className="text-[10px] text-neutral-600 leading-normal">{t(`${p}.lockInSupplyVolumesWithAudited`)}</p>
             </div>
           </div>
         </div>
@@ -496,29 +471,25 @@ const EUPPWRCompliancePage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-emerald-800" />,
       content: (
         <div className="bg-gradient-to-br from-emerald-950 to-emerald-900 p-10 rounded-2xl text-white text-center shadow-xl">
-          <h3 className="text-3xl font-black mb-4">Secure Compliance For Your Large-Scale Runs</h3>
+          <h3 className="text-3xl font-black mb-4">{t(`${p}.secureComplianceForYourLargeSc`)}</h3>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-            Audit your volumetric dimensions and secure certified GRS PCR and Mono-PE supplies. Speak to our packaging engineers today.
-          </p>
+            {t(`${p}.auditYourVolumetricDimensionsA`)}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={openCalendly}
               className="flex items-center justify-center gap-2 bg-white text-emerald-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-md"
             >
               <Calendar className="w-5 h-5" />
-              Book Engineering Consultation
-            </button>
+              {t(`${p}.bookEngineeringConsultation`)}</button>
             <Link
               to="/company/certificates"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-md"
             >
               <Award className="w-5 h-5" />
-              Request Certifications & DoC
-            </Link>
+              {t(`${p}.requestCertificationsDoc`)}</Link>
           </div>
           <p className="mt-8 text-[10px] opacity-60 uppercase tracking-widest font-mono">
-            PPWR RECYCLABLE CERTIFIED • GRS PCR CO-MODULATION READY • PFAS-FREE AQUEOUS BARRIER • ISO 14040 COMPLIANT
-          </p>
+            {t(`${p}.ppwrRecyclableCertifiedGrsPcrC`)}</p>
         </div>
       )
     }
@@ -527,7 +498,7 @@ const EUPPWRCompliancePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>EU PPWR Packaging Compliance Guide: 2026 Brand Roadmap | Achieve Pack</title>
+        <title>{t(`${p}.euPpwrPackagingComplianceGuide`)}</title>
         <meta name="description" content="Master the EU's Packaging and Packaging Waste Regulation (PPWR) before the mid-August 2026 deadline. Actionable brand-owner audits, minimization, and certified mono-PE." />
         <link rel="canonical" href="https://www.achievepack.com/topics/eu-ppwr-compliance" />
         <meta name="keywords" content="EU PPWR compliance guide, EU packaging law 2026, packaging minimization rules, anti-greenwashing packaging claims, certified mono-PE packaging, post-consumer recycled plastic taxes" />

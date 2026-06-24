@@ -3,7 +3,7 @@ import { AlertTriangle, XCircle, CheckCircle, Lightbulb, Package, DollarSign, Fi
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide'
-import heroImage from '/imgs/seo-photos/a_mistakes_hero_41241.jpg'
+import heroImage from '/imgs/seo-photos/a_packaging_mistakes_overview_6183920.jpg'
 import { useTranslation } from 'react-i18next'
 
 const EcoPackagingMistakesPage: React.FC = () => {
@@ -18,7 +18,7 @@ const EcoPackagingMistakesPage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <figure className="my-6">
-            <img src="/imgs/seo-photos/a_mistakes_excess_inventory_52141.jpg" alt={t(`${p}.sections.mistake1.imgAlt`, "Warehouse shelves full of excess custom packaging stock that cannot be used")} className="w-full rounded-xl shadow-sm border border-neutral-100" />
+            <img src="/imgs/seo-photos/a_packaging_cost_comparison_8724501.jpg" alt={t(`${p}.sections.mistake1.imgAlt`, "Warehouse shelves full of excess custom packaging stock that cannot be used")} className="w-full rounded-xl shadow-sm border border-neutral-100" />
             <figcaption className="text-center text-sm text-neutral-500 mt-2">{t(`${p}.sections.mistake1.imgCaption`, "Ordering 10,000 bags to save pennies per unit often leads to thousands of wasted units when a recipe or label change occurs.")}</figcaption>
           </figure>
           <div className="flex gap-4">

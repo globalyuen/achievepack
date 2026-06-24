@@ -80,6 +80,8 @@ const stagger = {
 }
 
 const Navbar = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -125,6 +127,8 @@ const Navbar = () => {
 }
 
 const Hero = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   return (
     <section className="relative min-h-screen pt-32 pb-20 px-6 bg-[#FAFAFA] flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
@@ -183,6 +187,8 @@ const Hero = () => {
 }
 
 const Product = ({ product, index }: any) => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   return (
     <motion.div 
       variants={fadeUp}
@@ -211,6 +217,8 @@ const Product = ({ product, index }: any) => {
 }
 
 const Shop = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoDemo'
   return (
     <section className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">

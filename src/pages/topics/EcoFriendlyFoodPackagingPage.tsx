@@ -5,8 +5,11 @@ import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shi
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const EcoFriendlyFoodPackagingPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.ecoFriendlyFoodPackaging';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,30 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-lg border border-emerald-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Food packaging is the ultimate technical challenge in sustainability. In 2026, a package must be <strong>planet-safe</strong> while ensuring <strong>absolute food safety</strong> and <strong>high-barrier performance</strong> to prevent food waste.
-            </p>
+              {t(`${p}.foodPackagingIsTheUltimateTech`)}<strong>{t(`${p}.planetSafe`)}</strong> {t(`${p}.whileEnsuring`)}<strong>{t(`${p}.absoluteFoodSafety`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.highBarrierPerformance`)}</strong> {t(`${p}.toPreventFoodWaste`)}</p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-600">
-                <h4 className="font-semibold text-emerald-800">The Food-Safety Gap</h4>
+                <h4 className="font-semibold text-emerald-800">{t(`${p}.theFoodSafetyGap`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Risk of migration from recycled resins</li>
-                  <li>• Moisture/Oxygen barrier failures</li>
-                  <li>• Chemical safety (PFAS/BPA)</li>
-                  <li>• Inadequate seal integrity</li>
+                  <li>{t(`${p}.riskOfMigrationFromRecycledRes`)}</li>
+                  <li>{t(`${p}.moistureOxygenBarrierFailures`)}</li>
+                  <li>{t(`${p}.chemicalSafetyPfasBpa`)}</li>
+                  <li>{t(`${p}.inadequateSealIntegrity`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-500">
-                <h4 className="font-semibold text-teal-800">Achieve Pack Solutions</h4>
+                <h4 className="font-semibold text-teal-800">{t(`${p}.achievePackSolutions`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• FDA/EFSA Compliant PCR Resins</li>
-                  <li>• High-Barrier EVOH & AlOx Coatings</li>
-                  <li>• PFAS-Free Aqueous Grease Barriers</li>
-                  <li>• BRCGS Grade A Certified Production</li>
+                  <li>{t(`${p}.fdaEfsaCompliantPcrResins`)}</li>
+                  <li>{t(`${p}.highBarrierEvohAloxCoatings`)}</li>
+                  <li>{t(`${p}.pfasFreeAqueousGreaseBarriers`)}</li>
+                  <li>{t(`${p}.brcgsGradeACertifiedProduction`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we engineer <strong>eco-friendly food packaging</strong> that doesn't compromise on shelf life. Whether you need <strong>Mono-PE</strong> for dry snacks or <strong>Compostable NK/Kraft</strong> for organic produce, our materials are tested for <strong>Migration (OML/SML)</strong> and <strong>Seal Strength</strong>, ensuring your product stays fresh and safe from factory to fork.
-          </p>
+            {t(`${p}.atAchievePackWeEngineer`)}<strong>{t(`${p}.ecoFriendlyFoodPackaging`)}</strong> {t(`${p}.thatDoesnTCompromiseOnShelfLif`)}<strong>{t(`${p}.monoPe`)}</strong> {t(`${p}.forDrySnacksOr`)}<strong>{t(`${p}.compostableNkKraft`)}</strong> {t(`${p}.forOrganicProduceOurMaterialsA`)}<strong>{t(`${p}.migrationOmlSml`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.sealStrength`)}</strong>{t(`${p}.ensuringYourProductStaysFreshA`)}</p>
         </div>
       )
     },
@@ -54,30 +55,29 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The highest environmental impact of food comes from the food itself being wasted. We utilize <strong>High-Barrier engineering</strong> to extend shelf life, which is the most effective way to reduce the total carbon footprint of the food system.
-          </p>
+            {t(`${p}.theHighestEnvironmentalImpactO`)}<strong>{t(`${p}.highBarrierEngineering`)}</strong> {t(`${p}.toExtendShelfLifeWhichIsTheMos`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
                 <Wind className="h-6 w-6 text-blue-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Oxygen Barrier</h4>
-              <p className="text-sm text-neutral-600">Utilizing <strong>EVOH</strong> or <strong>AlOx</strong> to keep OTR (Oxygen Transmission Rate) &lt; 1.0 cc/m²/day.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.oxygenBarrier`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.utilizing`)}<strong>{t(`${p}.evoh`)}</strong> {t(`${p}.or`)}<strong>{t(`${p}.alox`)}</strong> {t(`${p}.toKeepOtrOxygenTransmissionRat`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-cyan-100 rounded-lg w-fit mb-4">
                 <Droplets className="h-6 w-6 text-cyan-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Moisture Barrier</h4>
-              <p className="text-sm text-neutral-600">Precision lamination to ensure WVTR (Water Vapor Transmission Rate) &lt; 1.0 g/m²/day.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.moistureBarrier`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.precisionLaminationToEnsureWvt`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-emerald-100 rounded-lg w-fit mb-4">
                 <Utensils className="h-6 w-6 text-emerald-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Aroma Retention</h4>
-              <p className="text-sm text-neutral-600">Multi-layer structures that lock in essential oils and delicate flavors for coffee and snacks.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.aromaRetention`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.multiLayerStructuresThatLockIn`)}</p>
             </div>
           </div>
 
@@ -99,32 +99,30 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            In 2026, regulators are focused on <strong>Chemical Migration</strong> and <strong>Forever Chemicals (PFAS)</strong>. Achieve Pack leads the industry in non-toxic, food-grade sustainable materials.
-          </p>
+            {t(`${p}.in2026RegulatorsAreFocusedOn`)}<strong>{t(`${p}.chemicalMigration`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.foreverChemicalsPfas`)}</strong>{t(`${p}.achievePackLeadsTheIndustryInN`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Global Safety Standards</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.globalSafetyStandards`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">FDA & EFSA Compliance</h5>
-                  <p className="text-xs text-neutral-600 mt-1">All materials, including PCR and Bio-resins, meet the strictest US and EU food contact requirements.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.fdaEfsaCompliance`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.allMaterialsIncludingPcrAndBio`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">PFAS-Free Guarantee</h5>
-                  <p className="text-xs text-neutral-600 mt-1">We utilize aqueous grease-proof coatings and PFAS-free additives, exceeding California AB 1200 mandates.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.pfasFreeGuarantee`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.weUtilizeAqueousGreaseProofCoa`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Heavy Metal Screening</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Rigorous testing for Lead, Mercury, and Cadmium in accordance with CONEG and REACH standards.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.heavyMetalScreening`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.rigorousTestingForLeadMercuryA`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Technical Laboratory Verification</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.technicalLaboratoryVerificatio`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                We provide <strong>Declaration of Compliance (DoC)</strong> and <strong>Specific Migration Limit (SML)</strong> data for every custom food structure. Our production facilities are <strong>BRCGS Global Standard for Packaging Materials</strong> (Grade A) certified, ensuring the highest level of hygiene and traceability.
-              </p>
+                {t(`${p}.weProvide`)}<strong>{t(`${p}.declarationOfComplianceDoc`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.specificMigrationLimitSml`)}</strong> {t(`${p}.dataForEveryCustomFoodStructur`)}<strong>{t(`${p}.brcgsGlobalStandardForPackagin`)}</strong> {t(`${p}.gradeACertifiedEnsuringTheHigh`)}</p>
             </div>
           </div>
         </div>
@@ -137,8 +135,7 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            We offer three primary technical paths for food-grade sustainability, each optimized for specific product categories.
-          </p>
+            {t(`${p}.weOfferThreePrimaryTechnicalPa`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
@@ -150,19 +147,19 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
               />
             </div>
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">The 2026 Tech Matrix</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.the2026TechMatrix`)}</h4>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-emerald-600" />
-                  <span><strong>Mono-PE Recyclable:</strong> Best for dry snacks, nuts, and frozen foods. High O2/Moisture barrier.</span>
+                  <span><strong>{t(`${p}.monoPeRecyclable`)}</strong> {t(`${p}.bestForDrySnacksNutsAndFrozenF`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-emerald-600" />
-                  <span><strong>Home Compostable NK/PBS:</strong> Best for organic products, produce, and short shelf-life items.</span>
+                  <span><strong>{t(`${p}.homeCompostableNkPbs`)}</strong> {t(`${p}.bestForOrganicProductsProduceA`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-emerald-600" />
-                  <span><strong>30% PCR Duplex:</strong> Best for liquid sauces, pet food, and high-durability requirements.</span>
+                  <span><strong>{t(`${p}.30PcrDuplex`)}</strong> {t(`${p}.bestForLiquidSaucesPetFoodAndH`)}</span>
                 </li>
               </ul>
             </div>
@@ -176,10 +173,9 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-emerald-800 to-teal-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Safe. Sustainable. Superior.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.safeSustainableSuperior`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to upgrade your food packaging to a certified sustainable structure? Our engineering team will match your product with the perfect high-barrier solution.
-          </p>
+            {t(`${p}.readyToUpgradeYourFoodPackagin`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -187,19 +183,16 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-emerald-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Technical Review
-            </button>
+              {t(`${p}.bookTechnicalReview`)}</button>
             <Link
               to="/products"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <Utensils className="h-5 w-5" />
-              View Food Solutions
-            </Link>
+              {t(`${p}.viewFoodSolutions`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            FDA COMPLIANT • BRCGS CERTIFIED • PFAS FREE • ISO 14040 LCA
-          </p>
+            {t(`${p}.fdaCompliantBrcgsCertifiedPfas`)}</p>
         </div>
       )
     }
@@ -227,7 +220,7 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Eco-Friendly Food Packaging | High-Barrier & Food-Safe | Achieve Pack</title>
+        <title>{t(`${p}.ecoFriendlyFoodPackagingHighBa`)}</title>
         <meta name="description" content="The technical guide to eco-friendly food packaging. 800+ words on high-barrier engineering, FDA compliance, PFAS-free materials, and sustainable food safety." />
         <link rel="canonical" href="https://achievepack.com/topics/eco-friendly-food-packaging" />
         <meta name="keywords" content="eco-friendly food packaging, sustainable food pouches, high barrier food packaging, food grade PCR, PFAS free food packaging, BRCGS certified packaging" />

@@ -25,6 +25,8 @@ interface DocumentTemplate {
 }
 
 export default function DocumentTemplatesPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.documentTemplates'
   const { user, loading: authLoading } = useAuth()
   const [templates, setTemplates] = useState<DocumentTemplate[]>([])
   const [loading, setLoading] = useState(true)
@@ -611,6 +613,8 @@ function TemplateCard({
   onSetDefault: () => void
   onView: () => void
 }) {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.documentTemplates'
   return (
     <div className="bg-white rounded-xl border overflow-hidden hover:shadow-lg transition group">
       {/* Preview Image */}

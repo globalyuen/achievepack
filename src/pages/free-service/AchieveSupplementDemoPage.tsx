@@ -5,6 +5,7 @@ import { ShoppingCart, Menu, X, ArrowLeft, Zap, Beaker, Leaf, Check, Package } f
 import { motion, Variants } from 'motion/react'
 import { ParallaxText } from '../../components/ParallaxText'
 import { ScrollTriggeredCards } from '../../components/ScrollTriggeredCards'
+import { useTranslation } from 'react-i18next'
 
 // Reuse motion variants
 const fadeInUp: Variants = {
@@ -137,10 +138,60 @@ const SUPP_SCROLL_CARDS = [
 ]
 
 export default function AchieveSupplementDemoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.achieveSupplementDemo'
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [cartCount, setCartCount] = useState(0)
   const [activeProduct, setActiveProduct] = useState(PRODUCTS[0])
+
+  const SUPP_SCROLL_CARDS_LOC = [
+    {
+      image: SUPP_IMAGES.product,
+      title: t(`${p}.collection.f1.title`, '3-Side Seal Tech'),
+      hueA: 50, hueB: 60,
+      leftInfo: {
+        title: t(`${p}.collection.f1.lt`, 'Precision Dosing'),
+        description: t(`${p}.collection.f1.ld`, 'Single-serve 3-side seal flat pouches ensure exact nutrient delivery every time. No scoops, no mess.'),
+        badges: [t(`${p}.collection.f1.lb1`, 'Flat Pouch'), t(`${p}.collection.f1.lb2`, '3-Side Seal')]
+      },
+      rightInfo: {
+        title: t(`${p}.collection.f1.rt`, 'High Barrier'),
+        description: t(`${p}.collection.f1.rd`, 'Pharmaceutical-grade barrier films protect unstable nano-particles from moisture and oxygen.'),
+        badges: [t(`${p}.collection.f1.rb1`, 'Freshness'), t(`${p}.collection.f1.rb2`, 'Protection')]
+      }
+    },
+    {
+      image: SUPP_IMAGES.lifestyle,
+      title: t(`${p}.collection.f2.title`, 'Lab Verified'),
+      hueA: 190, hueB: 210,
+      leftInfo: {
+        title: t(`${p}.collection.f2.lt`, '3rd Party Tested'),
+        description: t(`${p}.collection.f2.ld`, 'Every batch rigourously tested for purity and potency. QR code on every sachet.'),
+        badges: [t(`${p}.collection.f2.lb1`, 'Certified'), t(`${p}.collection.f2.lb2`, 'Transparent')]
+      },
+      rightInfo: {
+        title: t(`${p}.collection.f2.rt`, 'Nano-Engineered'),
+        description: t(`${p}.collection.f2.rd`, 'Particle sizes reduced to <100nm for bypassing digestion bottlenecks.'),
+        badges: [t(`${p}.collection.f2.rb1`, 'Bioavailable'), t(`${p}.collection.f2.rb2`, 'Fast Acting')]
+      }
+    },
+    {
+      image: SUPP_IMAGES.sustainability,
+      title: t(`${p}.collection.f3.title`, 'Eco-Forward'),
+      hueA: 100, hueB: 120,
+      leftInfo: {
+        title: t(`${p}.collection.f3.lt`, 'Compostable Film'),
+        description: t(`${p}.collection.f3.ld`, 'Our advanced flat pouches are certified home compostable. Dissolves in nature, not in oceans.'),
+        badges: [t(`${p}.collection.f3.lb1`, 'Compostable'), t(`${p}.collection.f3.lb2`, 'Zero Waste')]
+      },
+      rightInfo: {
+        title: t(`${p}.collection.f3.rt`, 'Minimal Footprint'),
+        description: t(`${p}.collection.f3.rd`, 'Compact format reduces shipping volume by 80% compared to rigid tubs.'),
+        badges: [t(`${p}.collection.f3.rb1`, 'Low Carbon'), t(`${p}.collection.f3.rb2`, 'Efficient')]
+      }
+    }
+  ]
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -151,8 +202,8 @@ export default function AchieveSupplementDemoPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-[#FFE135] selection:text-black">
       <Helmet>
-        <title>Achieve Supplements | Nano-Tech Nutrition</title>
-        <meta name="description" content="Achieve Supplements - Nano Banana Pro. Advanced bio-available nutrition in sustainable stick pack packaging. The future of supplements." />
+        <title>{t(`${p}.seo.title`, 'Achieve Supplements | Nano-Tech Nutrition')}</title>
+        <meta name="description" content={t(`${p}.seo.description`, 'Achieve Supplements - Nano Banana Pro. Advanced bio-available nutrition in sustainable stick pack packaging. The future of supplements.')} />
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
           .font-display { font-family: 'Space Grotesk', sans-serif; }
@@ -165,11 +216,11 @@ export default function AchieveSupplementDemoPage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/free-service/website-upgrade" className="flex items-center gap-2 text-sm hover:text-[#FFE135] transition">
             <ArrowLeft className="w-4 h-4" />
-            Back to Achieve Pack
+            {t(`${p}.nav.back`, 'Back to Achieve Pack')}
           </Link>
-          <span className="text-xs text-white/60 hidden sm:block">This is a demo website created by Achieve Pack</span>
+          <span className="text-xs text-white/60 hidden sm:block">{t(`${p}.nav.demoText`, 'This is a demo website created by Achieve Pack')}</span>
           <Link to="/store" className="text-sm font-medium hover:text-[#FFE135] transition">
-            View Stick Pack Specs
+            {t(`${p}.nav.viewSpecs`, 'View Stick Pack Specs')}
           </Link>
         </div>
       </div>
@@ -180,15 +231,13 @@ export default function AchieveSupplementDemoPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight">
               <Zap className="h-6 w-6 text-[#FFE135] fill-current" />
-              ACHIEVE<span className="font-light">SUPPS</span>
+              {t(`${p}.nav.brand1`, 'ACHIEVE')}<span className="font-light">{t(`${p}.nav.brand2`, 'SUPPS')}</span>
             </div>
 
             <div className="hidden md:flex items-center space-x-12">
-              {['Science', 'Nano Series', 'Sustainability'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm font-medium tracking-wide hover:text-[#FFE135] transition-colors uppercase">
-                  {item}
-                </a>
-              ))}
+              <a href="#science" className="text-sm font-medium tracking-wide hover:text-[#FFE135] transition-colors uppercase">{t(`${p}.nav.science`, 'Science')}</a>
+              <a href="#nano-series" className="text-sm font-medium tracking-wide hover:text-[#FFE135] transition-colors uppercase">{t(`${p}.nav.nanoSeries`, 'Nano Series')}</a>
+              <a href="#sustainability" className="text-sm font-medium tracking-wide hover:text-[#FFE135] transition-colors uppercase">{t(`${p}.nav.sustainability`, 'Sustainability')}</a>
             </div>
 
             <div className="flex items-center gap-6">
@@ -226,25 +275,21 @@ export default function AchieveSupplementDemoPage() {
           >
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 border border-black/10 rounded-full text-xs font-bold mb-8 bg-white shadow-sm tracking-wide uppercase">
               <span className="w-2 h-2 rounded-full bg-[#FFE135]" />
-              New Nano Banana Pro
+              {t(`${p}.hero.badge`, 'New Nano Banana Pro')}
             </motion.div>
             
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-display font-bold leading-[0.9] mb-8 tracking-tighter">
-              DOSE <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE135] to-amber-400">PRECISION</span>
-            </motion.h1>
+            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-display font-bold leading-[0.9] mb-8 tracking-tighter" dangerouslySetInnerHTML={{ __html: t(`${p}.hero.titleHtml`, 'DOSE <br/>\n<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE135] to-amber-400">PRECISION</span>') }} />
 
             <motion.p variants={fadeInUp} className="text-xl text-gray-500 mb-10 max-w-lg leading-relaxed">
-              Bio-available nutrition engineered for the modern athlete. 
-              Delivered in sustainable, pocket-sized flat pouches.
+              {t(`${p}.hero.desc`, 'Bio-available nutrition engineered for the modern athlete. Delivered in sustainable, pocket-sized flat pouches.')}
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex gap-6">
               <button className="px-10 py-4 bg-black text-white rounded-full font-bold hover:bg-[#FFE135] hover:text-black transition shadow-xl shadow-black/10">
-                Shop Nano Series
+                {t(`${p}.hero.btnShop`, 'Shop Nano Series')}
               </button>
               <button className="px-10 py-4 border border-black/10 bg-white text-black rounded-full font-bold hover:bg-gray-50 transition">
-                The Science
+                {t(`${p}.hero.btnScience`, 'The Science')}
               </button>
             </motion.div>
           </motion.div>
@@ -263,13 +308,13 @@ export default function AchieveSupplementDemoPage() {
             {/* Floating Product Selector */}
             <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/50 shadow-lg">
                <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-                 {PRODUCTS.map(p => (
+                 {PRODUCTS.map(prod => (
                    <button
-                    key={p.id}
-                    onClick={() => setActiveProduct(p)}
-                    className={`flex-shrink-0 px-4 py-2 rounded-xl transition-all border ${activeProduct.id === p.id ? 'bg-black text-white border-black' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}
+                    key={prod.id}
+                    onClick={() => setActiveProduct(prod)}
+                    className={`flex-shrink-0 px-4 py-2 rounded-xl transition-all border ${activeProduct.id === prod.id ? 'bg-black text-white border-black' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}
                    >
-                     <p className="text-xs font-bold whitespace-nowrap">{p.name}</p>
+                     <p className="text-xs font-bold whitespace-nowrap">{t(`${p}.products.${prod.id}.name`, prod.name)}</p>
                    </button>
                  ))}
                </div>
@@ -290,41 +335,44 @@ export default function AchieveSupplementDemoPage() {
         </ParallaxText>
       </section>
 
-      {/* Science/Features Section */}
-      <section id="science" className="py-32 bg-white">
+      {/* Science Highlights */}
+      <section id="science" className="py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-20">
-             <motion.div
-               initial="hidden"
-               whileInView="visible"
-               viewport={{ once: true }}
-               variants={fadeInUp}
-             >
-               <h2 className="text-5xl font-display font-bold mb-8">The Flat Pouch <br/>Advantage</h2>
-               <div className="space-y-8">
-                 {[
-                   { title: 'Exact Dosage', desc: 'Stop scooping. Start succeeding. Each sachet contains precisely 25g of isolate.' },
-                   { title: 'Zero Oxidation', desc: 'Individually sealed to prevent moisture and air from degrading potency.' },
-                   { title: 'Ultimate Mobility', desc: 'Gym bag, pocket, or desk drawer. High-performance fuel wherever you go.' }
-                 ].map((item, i) => (
-                   <div key={i} className="flex gap-6 border-b border-gray-100 pb-8">
-                     <span className="text-xs font-bold text-gray-400 mt-1">0{i+1}</span>
-                     <div>
-                       <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                       <p className="text-gray-500 leading-relaxed">{item.desc}</p>
-                     </div>
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+             <div>
+                <h2 className="text-5xl font-display font-bold mb-6 leading-tight" dangerouslySetInnerHTML={{ __html: t(`${p}.productFeatures.titleHtml`, 'Precision <br/>Engineered') }} />
+                <p className="text-xl text-gray-500 mb-12">
+                  {t(`${p}.productFeatures.desc`, 'The most advanced delivery system requires the most advanced packaging.')}
+                </p>
+                <div className="space-y-12">
+                   <div className="flex gap-6">
+                      <div className="w-12 h-12 rounded-2xl bg-[#FFE135]/20 flex items-center justify-center flex-shrink-0">
+                         <Package className="w-6 h-6 text-yellow-600" />
+                      </div>
+                      <div>
+                         <h3 className="text-xl font-bold font-display mb-2">{t(`${p}.productFeatures.p1_title`, '3-Side Seal Flat Pouch')}</h3>
+                         <p className="text-gray-500">{t(`${p}.productFeatures.p1_desc`, 'Ultra-low profile. Zero wasted space. Maximum freshness.')}</p>
+                      </div>
                    </div>
-                 ))}
-               </div>
-             </motion.div>
+                   <div className="flex gap-6">
+                      <div className="w-12 h-12 rounded-2xl bg-black/5 flex items-center justify-center flex-shrink-0">
+                         <Beaker className="w-6 h-6 text-black" />
+                      </div>
+                      <div>
+                         <h3 className="text-xl font-bold font-display mb-2">{t(`${p}.productFeatures.p2_title`, 'Nano-Dispersion')}</h3>
+                         <p className="text-gray-500">{t(`${p}.productFeatures.p2_desc`, 'Instantly soluble in any liquid. No shaking required.')}</p>
+                      </div>
+                   </div>
+                </div>
+             </div>
              <div className="relative">
-                <div className="aspect-square bg-gray-100 rounded-full overflow-hidden relative">
+                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
                    <img src={SUPP_IMAGES.hero} alt="Usage detail" className="w-full h-full object-cover" />
                 </div>
                 {/* Floating Badge */}
                 <div className="absolute top-10 -left-10 bg-black text-white p-6 rounded-2xl shadow-xl">
-                  <div className="text-4xl font-display font-bold text-[#FFE135]">5g</div>
-                  <div className="text-xs font-bold uppercase tracking-wider">Nano-BCAA</div>
+                  <div className="text-4xl font-display font-bold text-[#FFE135]">{t(`${p}.productFeatures.p2_stat`, '5g')}</div>
+                  <div className="text-xs font-bold uppercase tracking-wider">{t(`${p}.productFeatures.p2_stat_desc`, 'Nano-BCAA')}</div>
                 </div>
              </div>
           </div>
@@ -334,10 +382,10 @@ export default function AchieveSupplementDemoPage() {
       {/* Product Highlight Scroll */}
       <section id="nano-series" className="py-32 bg-black text-white">
         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-           <span className="text-[#FFE135] text-xs uppercase tracking-widest font-bold mb-4 block">The Collection</span>
-           <h2 className="text-4xl font-display font-bold">Engineered For Performance</h2>
+           <span className="text-[#FFE135] text-xs uppercase tracking-widest font-bold mb-4 block">{t(`${p}.collection.badge`, 'The Collection')}</span>
+           <h2 className="text-4xl font-display font-bold">{t(`${p}.collection.title`, 'Engineered For Performance')}</h2>
         </div>
-        <ScrollTriggeredCards cards={SUPP_SCROLL_CARDS} />
+        <ScrollTriggeredCards cards={SUPP_SCROLL_CARDS_LOC} />
       </section>
 
       {/* Sustainability Section */}
@@ -354,16 +402,15 @@ export default function AchieveSupplementDemoPage() {
             <div className="order-1 md:order-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold mb-6 uppercase tracking-wide">
                 <Leaf className="w-3 h-3" />
-                Achieve Pack Tech
+                {t(`${p}.sustainability.badge`, 'Achieve Pack Tech')}
               </div>
-              <h2 className="text-5xl font-display font-bold mb-8 leading-tight">Clean Fuel. <br/>Clean Planet.</h2>
+              <h2 className="text-5xl font-display font-bold mb-8 leading-tight" dangerouslySetInnerHTML={{ __html: t(`${p}.sustainability.titleHtml`, 'Clean Fuel. <br/>Clean Planet.') }} />
               <p className="text-emerald-800/70 text-lg mb-10 leading-relaxed">
-                Single-serve convenience used to mean single-use waste. Not anymore. 
-                Our Nano Flat Pouches are crafted from certified home-compostable films derived from eucalyptus and corn starch.
+                {t(`${p}.sustainability.desc`, 'Single-serve convenience used to mean single-use waste. Not anymore. Our Nano Flat Pouches are crafted from certified home-compostable films derived from eucalyptus and corn starch.')}
               </p>
               
               <ul className="space-y-4 mb-10">
-                {['Plastic-Free Barrier', 'Non-Toxic Inks', 'Certified Home Compostable'].map(item => (
+                {[t(`${p}.sustainability.l1`, 'Plastic-Free Barrier'), t(`${p}.sustainability.l2`, 'Non-Toxic Inks'), t(`${p}.sustainability.l3`, 'Certified Home Compostable')].map(item => (
                   <li key={item} className="flex items-center gap-3 font-bold">
                     <div className="w-6 h-6 rounded-full bg-emerald-200 flex items-center justify-center">
                       <Check className="w-3 h-3 text-emerald-800" />
@@ -374,7 +421,7 @@ export default function AchieveSupplementDemoPage() {
               </ul>
 
               <button className="px-8 py-4 bg-emerald-900 text-white rounded-xl font-bold hover:bg-emerald-800 transition shadow-lg">
-                View Impact Report
+                {t(`${p}.sustainability.btn`, 'View Impact Report')}
               </button>
             </div>
           </div>
@@ -383,24 +430,18 @@ export default function AchieveSupplementDemoPage() {
             <div className="order-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-900 rounded-full text-xs font-bold mb-6 uppercase tracking-wide">
                 <Package className="w-3 h-3" />
-                Shipping Solved
+                {t(`${p}.sustainability.shippingBadge`, 'Shipping Solved')}
               </div>
-              <h2 className="text-4xl font-display font-bold mb-6 text-emerald-950">
-                Meet the <span className="text-emerald-700">AchievePacker™</span>
-              </h2>
-              <p className="text-emerald-900/70 text-lg mb-8 leading-relaxed">
-                Your commitment to sustainability shouldn't end with the product. 
-                Shipped in our signature <strong>AchievePacker Compostable Mailers</strong>. 
-                Made from 100% recycled kraft paper and corn starch, printed with soy-based inks.
-              </p>
+              <h2 className="text-4xl font-display font-bold mb-6 text-emerald-950" dangerouslySetInnerHTML={{ __html: t(`${p}.sustainability.shippingTitleHtml`, 'Meet the <span className="text-emerald-700">AchievePacker™</span>') }} />
+              <p className="text-emerald-900/70 text-lg mb-8 leading-relaxed" dangerouslySetInnerHTML={{ __html: t(`${p}.sustainability.shippingDescHtml`, 'Your commitment to sustainability shouldn\'t end with the product. Shipped in our signature <strong>AchievePacker Compostable Mailers</strong>. Made from 100% recycled kraft paper and corn starch, printed with soy-based inks.') }} />
               <div className="flex gap-4">
                  <div className="p-4 bg-white rounded-xl shadow-sm border border-emerald-100/50">
                     <div className="text-2xl mb-1">🌱</div>
-                    <div className="font-bold text-sm text-emerald-900">Home Compostable</div>
+                    <div className="font-bold text-sm text-emerald-900">{t(`${p}.sustainability.shippingBox1`, 'Home Compostable')}</div>
                  </div>
                  <div className="p-4 bg-white rounded-xl shadow-sm border border-emerald-100/50">
                     <div className="text-2xl mb-1">💧</div>
-                    <div className="font-bold text-sm text-emerald-900">Water Resistant</div>
+                    <div className="font-bold text-sm text-emerald-900">{t(`${p}.sustainability.shippingBox2`, 'Water Resistant')}</div>
                  </div>
               </div>
             </div>
@@ -412,7 +453,7 @@ export default function AchieveSupplementDemoPage() {
                />
                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 to-transparent" />
                <div className="absolute bottom-6 left-6 text-white font-bold text-xl drop-shadow-md">
-                 Plastic-Free Shipping
+                 {t(`${p}.sustainability.mailerBadge`, 'Plastic-Free Shipping')}
                </div>
             </div>
           </div>
@@ -426,41 +467,40 @@ export default function AchieveSupplementDemoPage() {
             <div className="col-span-2">
               <div className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight mb-8">
                 <Zap className="h-6 w-6 text-black fill-current" />
-                ACHIEVE
+                {t(`${p}.footer.brand`, 'ACHIEVE')}
               </div>
               <p className="text-gray-500 leading-relaxed max-w-sm mb-8">
-                Bridging the gap between clinical science and daily performance. 
-                Nutrition, evolved.
+                {t(`${p}.footer.desc`, 'Bridging the gap between clinical science and daily performance. Nutrition, evolved.')}
               </p>
               <div className="flex gap-4">
-                 <input type="email" placeholder="Enter email for science digest" className="bg-gray-50 border border-gray-200 px-4 py-3 rounded-lg w-full text-sm focus:outline-none focus:border-black" />
+                 <input type="email" placeholder={t(`${p}.footer.inputPlaceholder`, 'Enter email for science digest')} className="bg-gray-50 border border-gray-200 px-4 py-3 rounded-lg w-full text-sm focus:outline-none focus:border-black" />
                  <button className="bg-black text-white px-6 rounded-lg font-bold text-sm hover:bg-[#FFE135] hover:text-black transition">→
                  </button>
               </div>
             </div>
             <div>
-              <h4 className="font-bold uppercase tracking-wider text-xs mb-8">Series</h4>
+              <h4 className="font-bold uppercase tracking-wider text-xs mb-8">{t(`${p}.footer.series`, 'Series')}</h4>
               <ul className="space-y-4 text-sm text-gray-500">
-                <li><a href="#" className="hover:text-black transition">Nano Protein</a></li>
-                <li><a href="#" className="hover:text-black transition">Nootropics</a></li>
-                <li><a href="#" className="hover:text-black transition">Hydration</a></li>
-                <li><a href="#" className="hover:text-black transition">Bundles</a></li>
+                <li><a href="#" className="hover:text-black transition">{t(`${p}.footer.series1`, 'Nano Protein')}</a></li>
+                <li><a href="#" className="hover:text-black transition">{t(`${p}.footer.series2`, 'Nootropics')}</a></li>
+                <li><a href="#" className="hover:text-black transition">{t(`${p}.footer.series3`, 'Hydration')}</a></li>
+                <li><a href="#" className="hover:text-black transition">{t(`${p}.footer.series4`, 'Bundles')}</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold uppercase tracking-wider text-xs mb-8">Connect</h4>
+              <h4 className="font-bold uppercase tracking-wider text-xs mb-8">{t(`${p}.footer.connect`, 'Connect')}</h4>
               <ul className="space-y-4 text-sm text-gray-500">
-                <li><a href="#" className="hover:text-black transition">Lab Reports</a></li>
-                <li><a href="#" className="hover:text-black transition">Sustainability</a></li>
-                <li><a href="#" className="hover:text-black transition">Ambassadors</a></li>
-                <li><a href="#" className="hover:text-black transition">Support</a></li>
+                <li><a href="#" className="hover:text-black transition">{t(`${p}.footer.connect1`, 'Lab Reports')}</a></li>
+                <li><a href="#" className="hover:text-black transition">{t(`${p}.footer.connect2`, 'Sustainability')}</a></li>
+                <li><a href="#" className="hover:text-black transition">{t(`${p}.footer.connect3`, 'Ambassadors')}</a></li>
+                <li><a href="#" className="hover:text-black transition">{t(`${p}.footer.connect4`, 'Support')}</a></li>
               </ul>
             </div>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100 text-xs text-gray-400 font-medium uppercase tracking-wide">
-            <p>© 2026 Achieve Supplements. All rights reserved.</p>
+            <p>{t(`${p}.footer.copyright`, '© 2026 Achieve Supplements. All rights reserved.')}</p>
             <div className="flex items-center gap-2 mt-4 md:mt-0">
-               Packaging by <Link to="/" className="text-black font-bold hover:underline">Achieve Pack</Link>
+               {t(`${p}.footer.powered`, 'Packaging by ')}<Link to="/" className="text-black font-bold hover:underline">Achieve Pack</Link>
             </div>
           </div>
         </div>

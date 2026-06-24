@@ -5,8 +5,11 @@ import { Shield, Lock, CheckCircle, Award, Calendar, MessageCircle, Target, Zap,
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const ChildResistantMylarBagsPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.childResistantMylarBags';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,31 @@ const ChildResistantMylarBagsPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-red-50 to-orange-50 p-6 rounded-lg border border-red-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Child-Resistant (CR) packaging is a <strong>legal mandate</strong> for pharmaceutical, cannabis, and high-potency chemical products. In 2026, CR packaging must also be <strong>Sustainable</strong>.
+              {t(`${p}.childResistantCrPackagingIsA`)}<strong>{t(`${p}.legalMandate`)}</strong> {t(`${p}.forPharmaceuticalCannabisAndHi`)}<strong>{t(`${p}.sustainable`)}</strong>.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-600">
-                <h4 className="font-semibold text-red-800">The Regulatory Burden</h4>
+                <h4 className="font-semibold text-red-800">{t(`${p}.theRegulatoryBurden`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Non-compliance with 16 CFR § 1700.20</li>
-                  <li>• Traditional non-recyclable multi-layers</li>
-                  <li>• Pouch failure (zipper separation)</li>
-                  <li>• High cost of specialized CR closures</li>
+                  <li>{t(`${p}.nonComplianceWith16Cfr170020`)}</li>
+                  <li>{t(`${p}.traditionalNonRecyclableMultiL`)}</li>
+                  <li>{t(`${p}.pouchFailureZipperSeparation`)}</li>
+                  <li>{t(`${p}.highCostOfSpecializedCrClosure`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
-                <h4 className="font-semibold text-orange-800">The Achieve Pack Solution</h4>
+                <h4 className="font-semibold text-orange-800">{t(`${p}.theAchievePackSolution`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Certified ASTM/CPSC CR Closures</li>
-                  <li>• 100% Recyclable Mono-Material structures</li>
-                  <li>• Odor-Proof High-Barrier engineering</li>
-                  <li>• Puncture-Resistant 'Heavy Duty' films</li>
+                  <li>{t(`${p}.certifiedAstmCpscCrClosures`)}</li>
+                  <li>{t(`${p}.100RecyclableMonoMaterialStruc`)}</li>
+                  <li>{t(`${p}.odorProofHighBarrierEngineerin`)}</li>
+                  <li>{t(`${p}.punctureResistantHeavyDutyFilm`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we specialize in <strong>Child-Resistant Mylar Bags</strong> that meet the strictest safety standards (16 CFR § 1700.20) while adhering to 2026 sustainability mandates. Our CR pouches utilize advanced <strong>Push-and-Slide</strong> or <strong>Pinch-and-Pull</strong> zipper technology that is senior-friendly but child-proof, integrated into high-barrier recyclable or compostable structures.
-          </p>
+            {t(`${p}.atAchievePackWeSpecializeIn`)}<strong>{t(`${p}.childResistantMylarBags`)}</strong> {t(`${p}.thatMeetTheStrictestSafetyStan`)}<strong>{t(`${p}.pushAndSlide`)}</strong> {t(`${p}.or`)}<strong>{t(`${p}.pinchAndPull`)}</strong> {t(`${p}.zipperTechnologyThatIsSeniorFr`)}</p>
         </div>
       )
     },
@@ -54,30 +56,29 @@ const ChildResistantMylarBagsPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            CR packaging is defined by <strong>Human Factors Testing</strong>. Our closures are independently tested to ensure they prevent child access while allowing adult accessibility.
-          </p>
+            {t(`${p}.crPackagingIsDefinedBy`)}<strong>{t(`${p}.humanFactorsTesting`)}</strong>{t(`${p}.ourClosuresAreIndependentlyTes`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-red-100 rounded-lg w-fit mb-4">
                 <Shield className="h-6 w-6 text-red-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Certified Child Proof</h4>
-              <p className="text-sm text-neutral-600">Verified by the CPSC to resist access by children under 5 years old for at least 5 minutes.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.certifiedChildProof`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.verifiedByTheCpscToResistAcces`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-orange-100 rounded-lg w-fit mb-4">
                 <CheckCircle className="h-6 w-6 text-orange-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Senior Friendly</h4>
-              <p className="text-sm text-neutral-600">Designed for easy opening by adults with limited dexterity (arthritic friendly).</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.seniorFriendly`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.designedForEasyOpeningByAdults`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-slate-100 rounded-lg w-fit mb-4">
                 <Lock className="h-6 w-6 text-slate-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">ASTM D3475 Standard</h4>
-              <p className="text-sm text-neutral-600">Classified according to the standardized industry benchmark for CR packaging types.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.astmD3475Standard`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.classifiedAccordingToTheStanda`)}</p>
             </div>
           </div>
 
@@ -99,32 +100,30 @@ const ChildResistantMylarBagsPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            For cannabis and pharmaceutical products, <strong>Odor Neutrality</strong> is essential for discretion and shelf presence. We utilize advanced multi-layer high-barrier films.
-          </p>
+            {t(`${p}.forCannabisAndPharmaceuticalPr`)}<strong>{t(`${p}.odorNeutrality`)}</strong> {t(`${p}.isEssentialForDiscretionAndShe`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Barrier Tech Specs</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.barrierTechSpecs`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Zero-Scent EVOH Layer</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Integrated gas barriers that block the transmission of volatile organic compounds (VOCs).</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.zeroScentEvohLayer`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.integratedGasBarriersThatBlock`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Light Shielding</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Opaque materials that prevent UV degradation of sensitive chemical compounds.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.lightShielding`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.opaqueMaterialsThatPreventUvDe`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Puncture Resistance</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Thick-gauge films that prevent accidental piercing during logistics or home storage.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.punctureResistance`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.thickGaugeFilmsThatPreventAcci`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Sustainable CR Innovation</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.sustainableCrInnovation`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                Most CR pouches use non-recyclable multi-layers. Achieve Pack provides <strong>100% Recyclable Mono-PE</strong> and <strong>Home Compostable</strong> CR options, ensuring your high-potency products don't come with a high environmental cost.
-              </p>
+                {t(`${p}.mostCrPouchesUseNonRecyclableM`)}<strong>{t(`${p}.100RecyclableMonoPe`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.homeCompostable`)}</strong> {t(`${p}.crOptionsEnsuringYourHighPoten`)}</p>
             </div>
           </div>
         </div>
@@ -136,10 +135,9 @@ const ChildResistantMylarBagsPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-red-800 to-orange-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Compliant. Certified. Sustainable.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.compliantCertifiedSustainable`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Is your CR packaging ready for the 2026 regulatory audit? Our technical team will help you navigate the 16 CFR requirements today.
-          </p>
+            {t(`${p}.isYourCrPackagingReadyForThe20`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -147,19 +145,16 @@ const ChildResistantMylarBagsPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-red-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book CR Safety Consultation
-            </button>
+              {t(`${p}.bookCrSafetyConsultation`)}</button>
             <Link
               to="/company/certificates"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <Award className="h-5 w-5" />
-              View CR Certifications
-            </Link>
+              {t(`${p}.viewCrCertifications`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            CPSC CERTIFIED • 16 CFR § 1700.20 • ASTM D3475 • ODOR PROOF
-          </p>
+            {t(`${p}.cpscCertified16Cfr170020AstmD3`)}</p>
         </div>
       )
     }
@@ -187,7 +182,7 @@ const ChildResistantMylarBagsPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Child Resistant Mylar Bags | CPSC & ASTM Certified | Achieve Pack</title>
+        <title>{t(`${p}.childResistantMylarBagsCpscAst`)}</title>
         <meta name="description" content="Master the technical landscape of child-resistant packaging. 800+ words on 16 CFR § 1700.20 compliance, ASTM D3475 standards, odor-proof engineering, and sustainable CR pouches." />
         <link rel="canonical" href="https://achievepack.com/topics/child-resistant-mylar-bags" />
         <meta name="keywords" content="child resistant mylar bags, CR packaging compliance, 16 CFR 1700.20, ASTM D3475 packaging, odor proof mylar, sustainable CR pouches" />

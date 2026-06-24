@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Gift, ArrowRight, Calendar, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useTranslation, Trans } from "react-i18next";
 
 const FREE_SERVICES = [
   {
@@ -64,10 +65,12 @@ const itemVariants = {
 }
 
 export default function FreeServicesHubPage() {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.freeServicesHub';
   return (
     <>
       <Helmet>
-        <title>FREE Services for Customers | Achieve Pack</title>
+        <title>{t(`${p}.freeServicesForCustomersAchiev`)}</title>
         <meta name="description" content="Explore exclusive FREE services for Achieve Pack customers: design consultation, website design, management tools, and 3D mockups." />
       </Helmet>
 
@@ -89,11 +92,9 @@ export default function FreeServicesHubPage() {
               <Gift className="h-6 w-6 text-emerald-600" />
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900">
-              Exclusive Free Services
-            </h1>
+              {t(`${p}.exclusiveFreeServices`)}</h1>
             <p className="text-lg text-neutral-500 max-w-md mx-auto leading-relaxed">
-              Unlock premium packaging benefits at no extra cost. Elevate your brand with our complimentary expert tools.
-            </p>
+              {t(`${p}.unlockPremiumPackagingBenefits`)}</p>
           </motion.div>
         </section>
 
@@ -133,8 +134,7 @@ export default function FreeServicesHubPage() {
                     <h2 className="text-xl font-bold text-neutral-900 mb-2 group-hover:text-emerald-600 transition-colors">{service.title}</h2>
                     <p className="text-neutral-500 mb-6 leading-relaxed flex-1">{service.description}</p>
                     <div className="flex items-center text-sm font-bold text-neutral-900 group-hover:text-emerald-600 transition-colors mt-auto">
-                      Explore Service 
-                      <ArrowRight className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                      {t(`${p}.exploreService`)}<ArrowRight className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </Link>
@@ -159,14 +159,13 @@ export default function FreeServicesHubPage() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Calendar className="h-5 w-5 relative z-10" />
-              <span className="relative z-10 flex items-center gap-2">Book Free Consultation <Sparkles className="h-4 w-4 text-emerald-200" /></span>
+              <span className="relative z-10 flex items-center gap-2">{t(`${p}.bookFreeConsultation`)}<Sparkles className="h-4 w-4 text-emerald-200" /></span>
             </a>
             <Link
               to="/"
               className="flex items-center justify-center w-full py-4 bg-white border border-neutral-200 text-neutral-600 font-medium rounded-2xl hover:bg-neutral-50 hover:text-neutral-900 transition-colors"
             >
-              ← Back to Home
-            </Link>
+              {t(`${p}.backToHome`)}</Link>
           </motion.div>
         </section>
       </div>

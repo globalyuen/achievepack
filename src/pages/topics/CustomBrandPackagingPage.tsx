@@ -5,8 +5,11 @@ import { Palette, Box, CheckCircle, Award, Calendar, MessageCircle, Target, Shie
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const CustomBrandPackagingPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.customBrandPackaging';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,30 @@ const CustomBrandPackagingPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Custom packaging is more than just a logo on a bag; it is a complex <strong>engineering deliverable</strong> that must balance structural integrity, logistics efficiency, and visual impact. In an era of D2C dominance, your packaging is the first physical touchpoint with your customer.
-            </p>
+              {t(`${p}.customPackagingIsMoreThanJustA`)}<strong>{t(`${p}.engineeringDeliverable`)}</strong> {t(`${p}.thatMustBalanceStructuralInteg`)}</p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-500">
-                <h4 className="font-semibold text-indigo-800">The Design Dilemma</h4>
+                <h4 className="font-semibold text-indigo-800">{t(`${p}.theDesignDilemma`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Maintaining color accuracy across materials</li>
-                  <li>• Optimizing dimensions for shipping costs</li>
-                  <li>• Ensuring barrier properties match product needs</li>
-                  <li>• Scaling from 500 to 1,000,000 units</li>
+                  <li>{t(`${p}.maintainingColorAccuracyAcross`)}</li>
+                  <li>{t(`${p}.optimizingDimensionsForShippin`)}</li>
+                  <li>{t(`${p}.ensuringBarrierPropertiesMatch`)}</li>
+                  <li>{t(`${p}.scalingFrom500To1000000Units`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                <h4 className="font-semibold text-green-800">The Achieve Pack Process</h4>
+                <h4 className="font-semibold text-green-800">{t(`${p}.theAchievePackProcess`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Full CAD Structural Prototyping</li>
-                  <li>• G7 Master Certified Color Matching</li>
-                  <li>• Low-MOQ Digital & High-Speed Gravure</li>
-                  <li>• Sustainable Material Matrix Selection</li>
+                  <li>{t(`${p}.fullCadStructuralPrototyping`)}</li>
+                  <li>{t(`${p}.g7MasterCertifiedColorMatching`)}</li>
+                  <li>{t(`${p}.lowMoqDigitalHighSpeedGravure`)}</li>
+                  <li>{t(`${p}.sustainableMaterialMatrixSelec`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we treat custom brand packaging as a science. From <strong>Delta-E (ΔE) color deviation control</strong> to <strong>logistics-optimized sizing</strong>, our goal is to ensure your brand stands out on the shelf while maintaining the lowest possible total cost of ownership.
-          </p>
+            {t(`${p}.atAchievePackWeTreatCustomBran`)}<strong>{t(`${p}.deltaEEColorDeviationControl`)}</strong> {t(`${p}.to`)}<strong>{t(`${p}.logisticsOptimizedSizing`)}</strong>{t(`${p}.ourGoalIsToEnsureYourBrandStan`)}</p>
         </div>
       )
     },
@@ -54,30 +55,29 @@ const CustomBrandPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Before a single bag is printed, our structural engineers evaluate the "Fit, Form, and Function" of your packaging. We utilize advanced CAD modeling to simulate how your product interacts with the bag's internal volume.
-          </p>
+            {t(`${p}.beforeASingleBagIsPrintedOurSt`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
                 <Box className="h-6 w-6 text-blue-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Pouch Architecture</h4>
-              <p className="text-sm text-neutral-600">Stand-up, Flat Bottom, Side Gusset, or 3-Side Seal. We select the geometry that maximizes shelf stability.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.pouchArchitecture`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.standUpFlatBottomSideGussetOr3`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-purple-100 rounded-lg w-fit mb-4">
                 <MousePointer2 className="h-6 w-6 text-purple-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">UX Features</h4>
-              <p className="text-sm text-neutral-600">Integrated laser scoring for easy-tear, pocket zippers for resealability, and ergonomic hang holes.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.uxFeatures`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.integratedLaserScoringForEasyT`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-indigo-100 rounded-lg w-fit mb-4">
                 <Shield className="h-6 w-6 text-indigo-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Barrier Matrix</h4>
-              <p className="text-sm text-neutral-600">Customized lamination stacks (O2, Moisture, UV) based on your product's specific degradation profile.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.barrierMatrix`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.customizedLaminationStacksO2Mo`)}</p>
             </div>
           </div>
 
@@ -99,28 +99,26 @@ const CustomBrandPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Consistency across SKUs is the mark of a professional brand. We utilize <strong>spectrophotometry</strong> to maintain a Delta-E (ΔE) deviation of &lt; 2.0, ensuring your "Brand Red" looks identical whether printed on Kraft, Clear PET, or Matte White films.
-          </p>
+            {t(`${p}.consistencyAcrossSkusIsTheMark`)}<strong>{t(`${p}.spectrophotometry`)}</strong> {t(`${p}.toMaintainADeltaEEDeviationOfL`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Printing Technology Comparison</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.printingTechnologyComparison`)}</h4>
               <ul className="space-y-3">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl">
-                  <h5 className="font-bold text-blue-800">Digital Printing (HP Indigo/Screen)</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Zero plate fees, infinite variable data, and 100% color accuracy for MOQs as low as 500 units.</p>
+                  <h5 className="font-bold text-blue-800">{t(`${p}.digitalPrintingHpIndigoScreen`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.zeroPlateFeesInfiniteVariableD`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl">
-                  <h5 className="font-bold text-indigo-800">Rotogravure Printing</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Highest speed and lowest per-unit cost for orders over 20,000 units. Superior ink density and metallic effects.</p>
+                  <h5 className="font-bold text-indigo-800">{t(`${p}.rotogravurePrinting`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.highestSpeedAndLowestPerUnitCo`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Ink Adhesion & Durability</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.inkAdhesionDurability`)}</h4>
               <p className="text-sm text-neutral-600">
-                We perform <strong>ASTM D3359 Tape Tests</strong> and rub resistance testing to ensure your artwork doesn't flake or scratch during the rough handling of the D2C shipping cycle.
-              </p>
+                {t(`${p}.wePerform`)}<strong>{t(`${p}.astmD3359TapeTests`)}</strong> {t(`${p}.andRubResistanceTestingToEnsur`)}</p>
             </div>
           </div>
         </div>
@@ -133,8 +131,7 @@ const CustomBrandPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Packaging design directly impacts your bottom line. We work with brands to <strong>lightweight</strong> their structures and optimize pouch dimensions to fit perfectly into standard shipping mailers, reducing dimensional weight (DIM) charges.
-          </p>
+            {t(`${p}.packagingDesignDirectlyImpacts`)}<strong>{t(`${p}.lightweight`)}</strong> {t(`${p}.theirStructuresAndOptimizePouc`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
@@ -146,19 +143,19 @@ const CustomBrandPackagingPage: React.FC = () => {
               />
             </div>
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">D2C Efficiency Benchmarks</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.d2cEfficiencyBenchmarks`)}</h4>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span><strong>Freight Reduction:</strong> Flexible pouches ship flat, requiring 1/7th the space of rigid containers.</span>
+                  <span><strong>{t(`${p}.freightReduction`)}</strong> {t(`${p}.flexiblePouchesShipFlatRequiri`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span><strong>Warehouse Optimization:</strong> Store 5x more empty inventory in the same square footage.</span>
+                  <span><strong>{t(`${p}.warehouseOptimization`)}</strong> {t(`${p}.store5xMoreEmptyInventoryInThe`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span><strong>Carbon Offset:</strong> Lower shipping volume = lower Scope 3 carbon emissions.</span>
+                  <span><strong>{t(`${p}.carbonOffset`)}</strong> {t(`${p}.lowerShippingVolumeLowerScope3`)}</span>
                 </li>
               </ul>
             </div>
@@ -172,10 +169,9 @@ const CustomBrandPackagingPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-indigo-900 to-blue-900 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Expert Design. Engineered Execution.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.expertDesignEngineeredExecutio`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to stop guessing and start engineering? Our design team will review your artwork and recommend the optimal material and print strategy.
-          </p>
+            {t(`${p}.readyToStopGuessingAndStartEng`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -183,19 +179,16 @@ const CustomBrandPackagingPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-indigo-900 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Design Audit
-            </button>
+              {t(`${p}.bookDesignAudit`)}</button>
             <Link
               to="/store"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <ShoppingBag className="h-5 w-5" />
-              Order Finish Samples
-            </Link>
+              {t(`${p}.orderFinishSamples`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            G7 MASTER CERTIFIED • ISO 9001 • BRCGS GRADE A
-          </p>
+            {t(`${p}.g7MasterCertifiedIso9001BrcgsG`)}</p>
         </div>
       )
     }
@@ -223,7 +216,7 @@ const CustomBrandPackagingPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Custom Brand Packaging | Structural Engineering & Design | Achieve Pack</title>
+        <title>{t(`${p}.customBrandPackagingStructural`)}</title>
         <meta name="description" content="The definitive guide to custom brand packaging. 800+ words on structural engineering, G7 color science, and logistics optimization for D2C brands." />
         <link rel="canonical" href="https://achievepack.com/topics/custom-brand-packaging" />
         <meta name="keywords" content="custom brand packaging, pouch design engineering, G7 color matching, structural packaging design, D2C packaging logistics, Delta-E color" />

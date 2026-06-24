@@ -95,6 +95,8 @@ const DEFAULT_QUICK_TERMS: Record<string, string[]> = {
 const RFQ_QUICK_TERMS = DEFAULT_QUICK_TERMS;
 
 export default function DailyReportsPage() {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.dailyReports';
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return sessionStorage.getItem('admin_daily_reports_auth') === 'true';
   });

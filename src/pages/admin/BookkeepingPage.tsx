@@ -1572,7 +1572,7 @@ const BookkeepingPage: React.FC = () => {
             {/* 日曆表格 */}
             <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl overflow-hidden shadow-sm">
               <div className="grid grid-cols-7 bg-[#FCFAF5] border-b-2 border-[#EFE9DB] text-center py-3 text-xs font-black text-[#8E7E73]">
-                {t(`${p}.calendar.days`, { returnObjects: true })?.map?.((dayStr: string, i: number) => (
+                {((t(`${p}.calendar.days`, { returnObjects: true }) as unknown) as string[])?.map((dayStr: string, i: number) => (
                   <div key={i}>{dayStr}</div>
                 ))}
               </div>

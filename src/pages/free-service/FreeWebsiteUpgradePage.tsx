@@ -122,6 +122,8 @@ const ClickableImage: React.FC<{
   caption?: string
 }> = ({ src, alt, className = '', caption }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.freeWebsiteUpgrade'
 
   return (
     <>

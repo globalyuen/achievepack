@@ -5,8 +5,11 @@ import { Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Z
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const RecyclableSnackPackagingPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.recyclableSnackPackaging';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,30 @@ const RecyclableSnackPackagingPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-lg border border-orange-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Snack packaging is notoriously difficult to recycle due to <strong>multi-material metallized laminates</strong>. In 2026, the snack industry must transition to <strong>mono-material structures</strong> that preserve 'crunch' while being 100% recyclable.
-            </p>
+              {t(`${p}.snackPackagingIsNotoriouslyDif`)}<strong>{t(`${p}.multiMaterialMetallizedLaminat`)}</strong>{t(`${p}.in2026TheSnackIndustryMustTran`)}<strong>{t(`${p}.monoMaterialStructures`)}</strong> {t(`${p}.thatPreserveCrunchWhileBeing10`)}</p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-600">
-                <h4 className="font-semibold text-orange-800">The Snack Waste Problem</h4>
+                <h4 className="font-semibold text-orange-800">{t(`${p}.theSnackWasteProblem`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Non-recyclable metallized BOPP/PET</li>
-                  <li>• High grease and oil content issues</li>
-                  <li>• Fragile oxygen-sensitive products</li>
-                  <li>• Massive volume of small-format waste</li>
+                  <li>{t(`${p}.nonRecyclableMetallizedBoppPet`)}</li>
+                  <li>{t(`${p}.highGreaseAndOilContentIssues`)}</li>
+                  <li>{t(`${p}.fragileOxygenSensitiveProducts`)}</li>
+                  <li>{t(`${p}.massiveVolumeOfSmallFormatWast`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
-                <h4 className="font-semibold text-red-800">The Achieve Pack Solution</h4>
+                <h4 className="font-semibold text-red-800">{t(`${p}.theAchievePackSolution`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Mono-PP & Mono-PE structures</li>
-                  <li>• Advanced Vacuum Metallized Mono-films</li>
-                  <li>• Certified NIR-Sortable ink systems</li>
-                  <li>• Puncture-Resistant 'Crisp' hand-feel</li>
+                  <li>{t(`${p}.monoPpMonoPeStructures`)}</li>
+                  <li>{t(`${p}.advancedVacuumMetallizedMonoFi`)}</li>
+                  <li>{t(`${p}.certifiedNirSortableInkSystems`)}</li>
+                  <li>{t(`${p}.punctureResistantCrispHandFeel`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we have mastered the <strong>Mono-Material snack pouch</strong>. By utilizing <strong>High-Barrier Mono-PP</strong> (BOPP/CPP) or <strong>Mono-PE</strong> (MDO-PE/PE), we provide snack brands with packaging that looks, feels, and performs like traditional multi-layer structures but is fully compatible with global plastic recycling streams.
-          </p>
+            {t(`${p}.atAchievePackWeHaveMasteredThe`)}<strong>{t(`${p}.monoMaterialSnackPouch`)}</strong>{t(`${p}.byUtilizing`)}<strong>{t(`${p}.highBarrierMonoPp`)}</strong> {t(`${p}.boppCppOr`)}<strong>{t(`${p}.monoPe`)}</strong> {t(`${p}.mdoPePeWeProvideSnackBrandsWit`)}</p>
         </div>
       )
     },
@@ -54,7 +55,7 @@ const RecyclableSnackPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Snacks like chips, nuts, and dried fruits are highly sensitive to <strong>moisture-induced softening</strong> and <strong>UV-induced oxidation</strong>.
+            {t(`${p}.snacksLikeChipsNutsAndDriedFru`)}<strong>{t(`${p}.moistureInducedSoftening`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.uvInducedOxidation`)}</strong>.
           </p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
@@ -62,22 +63,22 @@ const RecyclableSnackPackagingPage: React.FC = () => {
               <div className="p-3 bg-orange-100 rounded-lg w-fit mb-4">
                 <Flash className="h-6 w-6 text-orange-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Vacuum Metallization</h4>
-              <p className="text-sm text-neutral-600">We apply ultra-thin aluminum deposits to mono-PP/PE films to achieve extreme light and moisture barriers while remaining recyclable.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.vacuumMetallization`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.weApplyUltraThinAluminumDeposi`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-red-100 rounded-lg w-fit mb-4">
                 <Shield className="h-6 w-6 text-red-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Grease Resistance</h4>
-              <p className="text-sm text-neutral-600">Specialized inner layers prevent oils from migrating through the packaging, maintaining visual appeal and shelf stability.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.greaseResistance`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.specializedInnerLayersPreventO`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-amber-100 rounded-lg w-fit mb-4">
                 <TrendingUp className="h-6 w-6 text-amber-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">WVTR &lt; 0.5</h4>
-              <p className="text-sm text-neutral-600">Verified Water Vapor Transmission Rates that ensure your snacks remain crisp from factory to consumer.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.wvtrLt05`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.verifiedWaterVaporTransmission`)}</p>
             </div>
           </div>
 
@@ -99,32 +100,30 @@ const RecyclableSnackPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Being "technically" recyclable isn't enough. Snack packaging must be <strong>sortable</strong> by the Near-Infrared (NIR) sensors used in modern recycling facilities.
-          </p>
+            {t(`${p}.beingTechnicallyRecyclableIsnT`)}<strong>{t(`${p}.sortable`)}</strong> {t(`${p}.byTheNearInfraredNirSensorsUse`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">The Sortability Protocol</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.theSortabilityProtocol`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Cyclos-HTP Certified</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Independent laboratory proof that our snack structures are correctly sorted into the target recycling stream.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.cyclosHtpCertified`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.independentLaboratoryProofThat`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Non-Carbon Black Inks</h5>
-                  <p className="text-xs text-neutral-600 mt-1">We utilize specialized inks that do not interfere with NIR scanners, ensuring your packaging doesn't end up in residue.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.nonCarbonBlackInks`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.weUtilizeSpecializedInksThatDo`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Adhesive Compatibility</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Solvent-free laminating adhesives designed to break down during the recycling process without contaminating the resin.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.adhesiveCompatibility`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.solventFreeLaminatingAdhesives`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">EPR & Plastic Taxes</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.eprPlasticTaxes`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                Transitioning to <strong>certified recyclable snack packaging</strong> allows brands to access lower Extended Producer Responsibility (EPR) fees and meet the "Design for Recycling" mandates of the EU PPWR. Achieve Pack handles the technical reporting to maximize your brand's financial incentives.
-              </p>
+                {t(`${p}.transitioningTo`)}<strong>{t(`${p}.certifiedRecyclableSnackPackag`)}</strong> {t(`${p}.allowsBrandsToAccessLowerExten`)}</p>
             </div>
           </div>
         </div>
@@ -137,8 +136,7 @@ const RecyclableSnackPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The snack industry moves at massive scale. We operate high-speed <strong>Rotogravure</strong> and <strong>Digital</strong> manufacturing lines designed for the demands of global snack brands.
-          </p>
+            {t(`${p}.theSnackIndustryMovesAtMassive`)}<strong>{t(`${p}.rotogravure`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.digital`)}</strong> {t(`${p}.manufacturingLinesDesignedForT`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
@@ -150,19 +148,19 @@ const RecyclableSnackPackagingPage: React.FC = () => {
               />
             </div>
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Technical Features</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.technicalFeatures`)}</h4>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-orange-600" />
-                  <span><strong>Form-Fill-Seal (FFS) Optimized:</strong> Consistent COF (Coefficient of Friction) for high-speed automated lines.</span>
+                  <span><strong>{t(`${p}.formFillSealFfsOptimized`)}</strong> {t(`${p}.consistentCofCoefficientOfFric`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-orange-600" />
-                  <span><strong>Laser Scoring:</strong> Precision easy-open features for a frustration-free consumer unboxing.</span>
+                  <span><strong>{t(`${p}.laserScoring`)}</strong> {t(`${p}.precisionEasyOpenFeaturesForAF`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-orange-600" />
-                  <span><strong>Resealable Zippers:</strong> Maintaining freshness for multi-serve snack formats.</span>
+                  <span><strong>{t(`${p}.resealableZippers`)}</strong> {t(`${p}.maintainingFreshnessForMultiSe`)}</span>
                 </li>
               </ul>
             </div>
@@ -176,10 +174,9 @@ const RecyclableSnackPackagingPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-orange-800 to-red-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Crisp Performance. Circular Future.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.crispPerformanceCircularFuture`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to transition your snack line to a high-performance recyclable structure? Our engineering team will perform a material audit today.
-          </p>
+            {t(`${p}.readyToTransitionYourSnackLine`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -187,19 +184,16 @@ const RecyclableSnackPackagingPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-orange-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Snack Strategy Session
-            </button>
+              {t(`${p}.bookSnackStrategySession`)}</button>
             <Link
               to="/store"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <ShoppingBag className="h-5 w-5" />
-              Order Snack Samples
-            </Link>
+              {t(`${p}.orderSnackSamples`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            HIGH BARRIER • 100% RECYCLABLE • NIR SORTABLE • GREASE RESISTANT
-          </p>
+            {t(`${p}.highBarrier100RecyclableNirSor`)}</p>
         </div>
       )
     }
@@ -227,7 +221,7 @@ const RecyclableSnackPackagingPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Recyclable Snack Packaging | High Barrier Mono-Material | Achieve Pack</title>
+        <title>{t(`${p}.recyclableSnackPackagingHighBa`)}</title>
         <meta name="description" content="Master the technical engineering of recyclable snack packaging. 800+ words on high-barrier mono-PP/PE, vacuum metallization, NIR sortability, and grease resistance." />
         <link rel="canonical" href="https://achievepack.com/topics/recyclable-snack-packaging" />
         <meta name="keywords" content="recyclable snack packaging, mono-material chip bags, sustainable snack pouches, high barrier snack packaging, NIR sortable packaging, grease resistant pouches" />

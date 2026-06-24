@@ -91,6 +91,8 @@ const PROOF_TYPES = [
 ]
 
 export default function ShipmentDetailPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.shipmentDetail'
   const { id } = useParams<{ id: string }>()
   const { user, loading: authLoading } = useAuth()
   const navigate = useNavigate()

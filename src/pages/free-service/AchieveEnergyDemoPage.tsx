@@ -367,7 +367,7 @@ export default function AchieveEnergyDemoPage() {
       {/* Marquee */}
       <section className="bg-[#D4FF00] text-black py-4 border-y-4 border-white overflow-hidden">
         <ParallaxText baseVelocity={-3} textClassName="font-orbitron font-black text-4xl md:text-6xl italic mx-4 opacity-80">
-          ENERGY • FOCUS • POWER • VELOCITY • SUSTAINABILITY • NO CRASH • 
+          {t(`${p}.marquee`, 'ENERGY • FOCUS • POWER • VELOCITY • SUSTAINABILITY • NO CRASH •')} 
         </ParallaxText>
       </section>
 
@@ -383,7 +383,7 @@ export default function AchieveEnergyDemoPage() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-4">SELECT YOUR <span className="text-[#D4FF00]">SOURCE</span></h2>
+            <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.productsSection.titleHtml`, 'SELECT YOUR <span className="text-[#D4FF00]">SOURCE</span>') }} />
             <div className="w-24 h-1 bg-[#D4FF00] mx-auto rounded-full" />
           </motion.div>
 
@@ -399,9 +399,9 @@ export default function AchieveEnergyDemoPage() {
                 >
                   <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity bg-gradient-to-r ${prod.gradient}`} />
                   <h3 className={`font-orbitron font-bold text-2xl mb-1 ${activeProduct.id === prod.id ? 'text-white' : 'text-gray-400 group-hover:text-white'}`}>
-                    {prod.name}
+                    {t(`${p}.products.${prod.id}.name`, prod.name)}
                   </h3>
-                  <p className="font-rajdhani font-medium text-sm text-gray-500 uppercase tracking-wider">{prod.tagline}</p>
+                  <p className="font-rajdhani font-medium text-sm text-gray-500 uppercase tracking-wider">{t(`${p}.products.${prod.id}.tagline`, prod.tagline)}</p>
                 </button>
               ))}
             </div>
@@ -433,14 +433,14 @@ export default function AchieveEnergyDemoPage() {
                    animate={{ opacity: 1, x: 0 }}
                    transition={{ duration: 0.4 }}
                  >
-                   <h3 className="font-orbitron font-black text-4xl mb-2" style={{ color: activeProduct.color }}>{activeProduct.name.toUpperCase()}</h3>
+                   <h3 className="font-orbitron font-black text-4xl mb-2" style={{ color: activeProduct.color }}>{t(`${p}.products.${activeProduct.id}.name`, activeProduct.name).toUpperCase()}</h3>
                    <div className="flex items-center gap-4 mb-6">
-                     <span className="bg-white/10 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Sugar Free</span>
-                     <span className="bg-white/10 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Vegan</span>
-                     <span className="bg-white/10 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">GF</span>
+                     <span className="bg-white/10 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">{t(`${p}.productsSection.sugarFree`, 'Sugar Free')}</span>
+                     <span className="bg-white/10 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">{t(`${p}.productsSection.vegan`, 'Vegan')}</span>
+                     <span className="bg-white/10 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">{t(`${p}.productsSection.gf`, 'GF')}</span>
                    </div>
                    <p className="font-rajdhani text-lg text-gray-300 mb-8 leading-relaxed">
-                     {activeProduct.description}
+                     {t(`${p}.products.${activeProduct.id}.description`, activeProduct.description)}
                    </p>
                    
                    {/* Stats Grid */}
@@ -460,7 +460,7 @@ export default function AchieveEnergyDemoPage() {
                        className="text-black px-8 py-3 font-bold font-orbitron uppercase tracking-wide hover:scale-105 transition-transform"
                        style={{ backgroundColor: activeProduct.color }}
                      >
-                       Add to Cart
+                       {t(`${p}.productsSection.addBtn`, 'Add to Cart')}
                      </button>
                    </div>
                  </motion.div>
@@ -473,10 +473,10 @@ export default function AchieveEnergyDemoPage() {
       {/* Scroll Triggered Features */}
       <section id="performance" className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-          <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-4">ENGINEERED FOR <span className="text-[#D4FF00]">DOMINANCE</span></h2>
-          <p className="font-rajdhani text-xl text-gray-400">The most advanced energy delivery system on the planet.</p>
+          <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.features.titleHtml`, 'ENGINEERED FOR <span className="text-[#D4FF00]">DOMINANCE</span>') }} />
+          <p className="font-rajdhani text-xl text-gray-400">{t(`${p}.features.desc`, 'The most advanced energy delivery system on the planet.')}</p>
         </div>
-        <ScrollTriggeredCards cards={FEATURE_CARDS} />
+        <ScrollTriggeredCards cards={FEATURE_CARDS_LOC} />
       </section>
 
       {/* Lifestyle / Community */}
@@ -486,8 +486,8 @@ export default function AchieveEnergyDemoPage() {
             <img src={ENERGY_IMAGES.lifestyle} alt="Gym Lifestyle" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                <div className="text-center p-8 bg-black/60 backdrop-blur-md rounded-2xl border border-white/20 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                 <h3 className="font-orbitron font-bold text-3xl mb-2">JOIN THE SQUAD</h3>
-                 <p className="font-rajdhani text-gray-300 mb-4">Share your achievements. Tag #AchieveEnergy</p>
+                 <h3 className="font-orbitron font-bold text-3xl mb-2">{t(`${p}.community.title1`, 'JOIN THE SQUAD')}</h3>
+                 <p className="font-rajdhani text-gray-300 mb-4">{t(`${p}.community.desc1`, 'Share your achievements. Tag #AchieveEnergy')}</p>
                  <div className="flex justify-center gap-4">
                    <Instagram className="w-6 h-6 hover:text-[#D4FF00] cursor-pointer" />
                    <Twitter className="w-6 h-6 hover:text-[#D4FF00] cursor-pointer" />
@@ -500,12 +500,12 @@ export default function AchieveEnergyDemoPage() {
              <div className="absolute top-0 right-0 p-20 bg-[#D4FF00] blur-[150px] opacity-10 pointer-events-none" />
              
              <Activity className="w-16 h-16 text-[#D4FF00] mb-8" />
-             <h2 className="font-orbitron font-bold text-4xl md:text-6xl mb-6">UNSTOPPABLE MOMENTUM</h2>
+             <h2 className="font-orbitron font-bold text-4xl md:text-6xl mb-6">{t(`${p}.community.title2`, 'UNSTOPPABLE MOMENTUM')}</h2>
              <p className="font-rajdhani text-xl text-gray-400 mb-8 leading-relaxed">
-               Whether you're crushing a PR, coding a marathon, or dominating the lobby, Achieve Energy provides the clean, sustained fuel you need to win.
+               {t(`${p}.community.desc2`, 'Whether you\'re crushing a PR, coding a marathon, or dominating the lobby, Achieve Energy provides the clean, sustained fuel you need to win.')}
              </p>
              <button className="self-start border-2 border-[#D4FF00] text-[#D4FF00] px-8 py-3 font-orbitron font-bold text-lg hover:bg-[#D4FF00] hover:text-black transition-all">
-                READ THE SCIENCE
+                {t(`${p}.community.btnRead`, 'READ THE SCIENCE')}
              </button>
           </div>
         </div>
@@ -518,37 +518,35 @@ export default function AchieveEnergyDemoPage() {
             <div className="col-span-2">
               <div className="flex items-center gap-2 mb-6">
                  <Zap className="h-6 w-6 text-[#D4FF00] fill-[#D4FF00]" />
-                 <span className="font-orbitron font-bold text-2xl tracking-widest text-white">ACHIEVE<span className="text-[#D4FF00]">ENERGY</span></span>
+                 <span className="font-orbitron font-bold text-2xl tracking-widest text-white">{t(`${p}.nav.brand1`, 'ACHIEVE')}<span className="text-[#D4FF00]">{t(`${p}.nav.brand2`, 'ENERGY')}</span></span>
               </div>
               <p className="font-rajdhani text-gray-500 max-w-sm">
-                The future of performance nutrition. 
-                Sustainable packaging. 
-                Uncompromising power.
+                {t(`${p}.footer.desc`, 'The future of performance nutrition. Sustainable packaging. Uncompromising power.')}
               </p>
             </div>
             <div>
-              <h4 className="font-orbitron font-bold mb-6 text-white">SHOP</h4>
+              <h4 className="font-orbitron font-bold mb-6 text-white">{t(`${p}.footer.shop`, 'SHOP')}</h4>
               <ul className="space-y-4 font-rajdhani text-gray-400 text-lg">
-                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">All Products</a></li>
-                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">Apparel</a></li>
-                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">Bundles</a></li>
-                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">Subscribe & Save</a></li>
+                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.footer.allProducts`, 'All Products')}</a></li>
+                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.footer.apparel`, 'Apparel')}</a></li>
+                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.footer.bundles`, 'Bundles')}</a></li>
+                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.footer.subscribe`, 'Subscribe & Save')}</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-orbitron font-bold mb-6 text-white">SUPPORT</h4>
+              <h4 className="font-orbitron font-bold mb-6 text-white">{t(`${p}.footer.support`, 'SUPPORT')}</h4>
               <ul className="space-y-4 font-rajdhani text-gray-400 text-lg">
-                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">Shipping</a></li>
-                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">Returns</a></li>
+                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.footer.faq`, 'FAQ')}</a></li>
+                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.footer.contact`, 'Contact Us')}</a></li>
+                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.footer.shipping`, 'Shipping')}</a></li>
+                <li><a href="#" className="hover:text-[#D4FF00] transition-colors">{t(`${p}.footer.returns`, 'Returns')}</a></li>
               </ul>
             </div>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 font-rajdhani text-gray-500 text-sm">
-            <p>© 2026 Achieve Energy. All rights reserved.</p>
+            <p>{t(`${p}.footer.copyright`, '© 2026 Achieve Energy. All rights reserved.')}</p>
             <div className="flex items-center gap-1">
-               Powered by <Link to="/" className="text-white font-bold hover:text-[#D4FF00] transition-colors">Achieve Pack</Link>
+               {t(`${p}.footer.powered`, 'Powered by ')}<Link to="/" className="text-white font-bold hover:text-[#D4FF00] transition-colors">Achieve Pack</Link>
             </div>
           </div>
         </div>
