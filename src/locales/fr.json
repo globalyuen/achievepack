@@ -28124,5 +28124,92 @@
     "privacyPolicy": "Politique de Confidentialité",
     "shippingPolicy": "Politique de Livraison",
     "returnPolicy": "Politique de Retour"
+  },
+  "seoPageLayout": {
+    "materialVideoBlock": {
+      "badge": "Vitrine des Matériaux",
+      "heading": "Voir le Matériau en Action",
+      "subheading": "Regardez des images réelles de nos matériaux durables manipulés, pliés et testés sous contrainte.",
+      "subheadingAp": "Images réelles de nos structures d'emballage écologiques en action.",
+      "demoLabel": "DÉMO EN DIRECT",
+      "verified": "Démo Vérifiée en Laboratoire"
+    },
+    "cta": {
+      "shopStarterKits": "Kits de Démarrage",
+      "bookWholesaleCall": "Appel Vente en Gros",
+      "shopLowMoq": "Boutique Faible Quantité",
+      "enterpriseQuote": "Devis Entreprise",
+      "bookMeeting": "Réserver une Réunion",
+      "bookConsultation": "Consultation Gratuite",
+      "orderSamplePack": "Commander des Échantillons",
+      "browseStore": "Parcourir la Boutique"
+    },
+    "eeat": {
+      "badge": "Recherche E-E-A-T et Vérification des Matériaux",
+      "heading": "Comment Nous Garantissons une Précision et une Fiabilité Absolues",
+      "p1": "Chez Achieve Pack, l'emballage durable n'est pas seulement une question d'impression ; c'est une <1>science des matériaux pratique</1>. Cet article a été rédigé et vérifié par <3>Ryan Wong</3>, spécialiste en emballage avec plus de 14 ans d'expérience dans l'ingénierie des biopolymères pour les startups DTC et les entreprises du Fortune 500.",
+      "p2": "Toutes les recherches, spécifications de barrière des matériaux (OTR, WVTR), valeurs de thermoscellage (N/15mm) et délais de compostabilité cités dans nos guides sont étayés par des tests effectués au <1>Laboratoire d'Essais des Matériaux Achieve Pack</1>. Nous croisons nos données avec les registres de certification officiels du <3>BPI (Biodegradable Products Institute)</3>, du <5>TÜV Austria (OK Compost HOME)</5> et du <7>FSC (Forest Stewardship Council)</7>.",
+      "director": "Directeur de la Chaîne d'Approvisionnement",
+      "degree": "Diplômé avec distinction B.Eng de l'Université Polytechnique de Hong Kong. Au service de marques dans 8 pays.",
+      "viewProfile": "Voir le Profil de l'Expert →"
+    }
+  },
+  "pouchLayoutFooter": {
+    "readyToLaunch": "Prêt à Lancer ?",
+    "joinBrands": "Rejoignez plus de 2000 marques. Devis instantané. À partir de 500 unités.",
+    "enterEmail": "ENTRER_EMAIL",
+    "bookCall": "Réserver un Appel",
+    "categories": {
+      "packaging": "Emballage",
+      "materials": "Matériaux",
+      "industries": "Industries",
+      "usaMarket": "Marché USA",
+      "support": "Support",
+      "certifications": "Certifications"
+    },
+    "links": {
+      "standUpPouches": "[SACHETS TENANT DEBOUT]",
+      "flatBottomBags": "[SACS À FOND PLAT]",
+      "spoutPouches": "[SACHETS À BEC]",
+      "flatPouches": "[SACHETS PLATS]",
+      "vacuumPouches": "[SACHETS SOUS VIDE]",
+      "kSeal": "[SOUDURE K POUR POIDS LOURDS]",
+      "allProducts": "[TOUS LES PRODUITS]",
+      "compostable": "[COMPOSTABLE]",
+      "recyclable": "[RECYCLABLE]",
+      "plasticFreeKraft": "[KRAFT SANS PLASTIQUE]",
+      "tds": "[FICHES TECHNIQUES]",
+      "materialHub": "[CENTRE DES MATÉRIAUX]",
+      "coffeeTea": "[CAFÉ & THÉ]",
+      "babyFood": "[NOURRITURE BÉBÉ]",
+      "frozenFood": "[ALIMENTS SURGELÉS]",
+      "snacks": "[SNACKS]",
+      "petFood": "[NOURRITURE ANIMAUX]",
+      "supplements": "[SUPPLÉMENTS]",
+      "sauces": "[SAUCES & CONDIMENTS]",
+      "citrusOil": "[SOLUTIONS HUILE D'AGRUMES]",
+      "compostableUsa": "[COMPOSTABLE USA]",
+      "coffeeUsa": "[CAFÉ USA]",
+      "snacksUsa": "[SNACKS USA]",
+      "labelingUsa": "[ÉTIQUETAGE USA]",
+      "blog": "[BLOG]",
+      "colorAccuracy": "[PRÉCISION DES COULEURS]",
+      "sizeGuide": "[GUIDE DES TAILLES]",
+      "unprintedSamples": "[ÉCHANTILLONS NON IMPRIMÉS]",
+      "techSpecs": "[SPÉCIFICATIONS TECHNIQUES]",
+      "customSample": "[ÉCHANTILLON IMPRIMÉ PERSONNALISÉ]",
+      "stampFoil": "[RECYCLABILITÉ DU DORAGE]",
+      "drinkPouches": "[SACHETS BOISSONS & LIQUIDES]",
+      "digitalPrint": "[IMPRESSION NUMÉRIQUE 100 PIÈCES MOQ]",
+      "bioBasedSpout": "[SACHETS À BEC BIO-SOURCÉS]",
+      "prepress": "[PRÉPRESSE: GROSSISSEMENT ET CONTOURS]",
+      "refillPouch": "[SYSTÈMES DE SACHETS RECHARGE]"
+    },
+    "legal": {
+      "copyright": "© 2026 Achieve Pack. Tous droits réservés.",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "returns": "Retours"
+    }
   }
 }

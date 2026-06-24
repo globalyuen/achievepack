@@ -2,7 +2,7 @@ import React, { useState, useTransition, useEffect, useRef, useMemo } from 'reac
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu, DollarSign, Play, Check } from 'lucide-react'
 import SEO from './SEO'
-import { useTranslation } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
 import { LEARN_PAGES } from './LearnNavigation'
 import { blogPosts } from '../data/blogData'
@@ -1818,19 +1818,19 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               <section className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
                 <div className="border-b border-neutral-100 pb-4 mb-6">
                   <span className="text-xs font-bold text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                    E-E-A-T Research & Materials Verification
+                    {t('seoPageLayout.eeat.badge')}
                   </span>
                   <h3 className="text-xl font-bold text-neutral-900 mt-2">
-                    How We Ensure Absolute Accuracy and Trustworthiness
+                    {t('seoPageLayout.eeat.heading')}
                   </h3>
                 </div>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="md:col-span-2 space-y-4">
                     <p className="text-sm text-neutral-600 leading-relaxed">
-                      At Achieve Pack, sustainable packaging isn't just about printing; it's about <strong>hands-on material science</strong>. This article has been written and verified by <strong>Ryan Wong</strong>, a packaging specialist with 14+ years of experience engineering biopolymer stacks for DTC startups and Fortune 500 companies. 
+                      <Trans i18nKey="seoPageLayout.eeat.p1" components={[<strong key="1" />]} />
                     </p>
                     <p className="text-sm text-neutral-600 leading-relaxed">
-                      All research, material barrier specifications (OTR, WVTR), heat-seal values (N/15mm), and compostability timelines cited in our guides are backed by testing inside the <strong>Achieve Pack Materials Testing Lab</strong>. We cross-reference our data with official certification registries from <strong>BPI (Biodegradable Products Institute)</strong>, <strong>TÜV Austria (OK Compost HOME)</strong>, and <strong>FSC (Forest Stewardship Council)</strong>.
+                      <Trans i18nKey="seoPageLayout.eeat.p2" components={[<strong key="1" />, <strong key="3" />, <strong key="5" />, <strong key="7" />]} />
                     </p>
                     <div className="flex flex-wrap gap-2 pt-2">
                       <span className="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded text-xs font-medium">TÜV OK Compost HOME</span>
@@ -1846,15 +1846,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                       className="w-16 h-16 rounded-full object-cover border-2 border-primary-500 shadow-md mb-3" 
                     />
                     <h4 className="font-bold text-neutral-900 text-sm">Ryan Wong</h4>
-                    <p className="text-[11px] text-neutral-500 mb-2">Supply Chain Director</p>
+                    <p className="text-[11px] text-neutral-500 mb-2">{t('seoPageLayout.eeat.director')}</p>
                     <p className="text-[10px] text-neutral-600 leading-snug mb-3">
-                      B.Eng honors degree graduate from Hong Kong Polytechnic University. Serving brands in 8 countries.
+                      {t('seoPageLayout.eeat.degree')}
                     </p>
                     <Link 
                       to="/team/ryan-wong" 
                       className="text-xs text-primary-700 font-bold hover:underline"
                     >
-                      View Expert Profile →
+                      {t('seoPageLayout.eeat.viewProfile')}
                     </Link>
                   </div>
                 </div>

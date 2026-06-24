@@ -29301,5 +29301,92 @@
     "privacyPolicy": "隱私權保護政策",
     "shippingPolicy": "物流與運輸政策",
     "returnPolicy": "退換貨政策"
+  },
+  "seoPageLayout": {
+    "materialVideoBlock": {
+      "badge": "材質展示中心",
+      "heading": "實際材質展示影片",
+      "subheading": "觀看我們永續環保材質在實際操作、摺疊與壓力測試中的真實畫面。",
+      "subheadingAp": "環保包裝結構實際應用的真實影片展示。",
+      "demoLabel": "實景測試",
+      "verified": "實驗室認證展示"
+    },
+    "cta": {
+      "shopStarterKits": "購買新創體驗包",
+      "bookWholesaleCall": "預約批發採購會議",
+      "shopLowMoq": "前往小批量現貨商城",
+      "enterpriseQuote": "獲取企業專屬報價",
+      "bookMeeting": "預約線上會議",
+      "bookConsultation": "預約免費包裝諮詢",
+      "orderSamplePack": "索取免費實體樣品",
+      "browseStore": "瀏覽線上商城"
+    },
+    "eeat": {
+      "badge": "E-E-A-T 專業材料驗證與研究",
+      "heading": "我們如何確保內容的絕對準確性與可信度",
+      "p1": "在 Achieve Pack，永續包裝不僅僅是印刷；這是<1>親身實踐的材料科學</1>。本文由擁有超過 14 年 DTC 新創與全球 500 強企業生物聚合物工程經驗的包裝專家 <3>Ryan Wong</3> 撰寫並親自驗證。",
+      "p2": "我們指南中引用的所有研究數據、材料阻隔規格（OTR、WVTR）、熱封強度（N/15mm）以及可堆肥時間表，均來自 <1>Achieve Pack 材料測試實驗室</1> 的真實測試支持。我們亦將數據與 <3>BPI (生物降解產品研究所)</3>、<5>TÜV Austria (OK Compost HOME 家庭堆肥)</5> 及 <7>FSC (森林管理委員會)</7> 等官方認證註冊機構進行交叉比對。",
+      "director": "供應鏈總監",
+      "degree": "香港理工大學工程學士榮譽學位。為全球 8 個國家的品牌提供服務。",
+      "viewProfile": "查看專家簡介 →"
+    }
+  },
+  "pouchLayoutFooter": {
+    "readyToLaunch": "準備好啟動了嗎？",
+    "joinBrands": "加入 2,000+ 品牌的行列。獲取即時報價。500件起訂。",
+    "enterEmail": "輸入電子郵件",
+    "bookCall": "預約諮詢",
+    "categories": {
+      "packaging": "袋型選項",
+      "materials": "材質選項",
+      "industries": "應用產業",
+      "usaMarket": "美國市場",
+      "support": "客戶支援",
+      "certifications": "環保認證"
+    },
+    "links": {
+      "standUpPouches": "[直立袋]",
+      "flatBottomBags": "[平底袋]",
+      "spoutPouches": "[吸嘴袋]",
+      "flatPouches": "[三面封平口袋]",
+      "vacuumPouches": "[真空包裝袋]",
+      "kSeal": "[K型封邊大容量袋]",
+      "allProducts": "[所有產品]",
+      "compostable": "[可堆肥材質]",
+      "recyclable": "[可回收材質]",
+      "plasticFreeKraft": "[無塑料牛皮紙]",
+      "tds": "[技術數據表 TDS]",
+      "materialHub": "[材質資訊中心]",
+      "coffeeTea": "[咖啡與茶葉]",
+      "babyFood": "[嬰幼兒副食品]",
+      "frozenFood": "[冷凍食品]",
+      "snacks": "[休閒零食]",
+      "petFood": "[寵物食品]",
+      "supplements": "[營養補充品]",
+      "sauces": "[醬料與調味品]",
+      "citrusOil": "[柑橘精油包裝方案]",
+      "compostableUsa": "[美國可堆肥政策]",
+      "coffeeUsa": "[美國咖啡包裝]",
+      "snacksUsa": "[美國零食包裝]",
+      "labelingUsa": "[美國環保標示指南]",
+      "blog": "[官方部落格]",
+      "colorAccuracy": "[色彩準確度指南]",
+      "sizeGuide": "[尺寸指南]",
+      "unprintedSamples": "[索取免費無印刷樣品]",
+      "techSpecs": "[技術規格]",
+      "customSample": "[索取客製印刷樣品]",
+      "stampFoil": "[燙金燙銀的可回收性]",
+      "drinkPouches": "[飲料與液體包裝袋]",
+      "digitalPrint": "[100件起訂數位印刷]",
+      "bioBasedSpout": "[生物基吸嘴袋]",
+      "prepress": "[印前出血與套印指南]",
+      "refillPouch": "[補充包裝系統]"
+    },
+    "legal": {
+      "copyright": "© 2026 Achieve Pack. 保留所有權利。",
+      "privacy": "隱私權政策",
+      "terms": "服務條款",
+      "returns": "退換貨政策"
+    }
   }
 }

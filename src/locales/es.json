@@ -28531,5 +28531,92 @@
     "privacyPolicy": "Política de Privacidad",
     "shippingPolicy": "Política de Envío",
     "returnPolicy": "Política de Devolución"
+  },
+  "seoPageLayout": {
+    "materialVideoBlock": {
+      "badge": "Exhibición de Materiales",
+      "heading": "Vea el Material en Acción",
+      "subheading": "Mire imágenes reales de nuestros materiales sostenibles siendo manipulados, doblados y sometidos a pruebas de estrés.",
+      "subheadingAp": "Imágenes reales de nuestras estructuras de embalaje ecológico en acción.",
+      "demoLabel": "DEMO EN VIVO",
+      "verified": "Demostración Verificada en Laboratorio"
+    },
+    "cta": {
+      "shopStarterKits": "Comprar Kits de Inicio",
+      "bookWholesaleCall": "Llamada para Mayoristas",
+      "shopLowMoq": "Tienda Baja Cantidad Mínima",
+      "enterpriseQuote": "Cotización Corporativa",
+      "bookMeeting": "Agendar una Reunión",
+      "bookConsultation": "Consulta Gratuita",
+      "orderSamplePack": "Pedir Muestras",
+      "browseStore": "Explorar Tienda"
+    },
+    "eeat": {
+      "badge": "Verificación de Materiales e Investigación E-E-A-T",
+      "heading": "Cómo Aseguramos Exactitud y Confiabilidad Absoluta",
+      "p1": "En Achieve Pack, el embalaje sostenible no se trata solo de imprimir; se trata de <1>ciencia de materiales práctica</1>. Este artículo ha sido escrito y verificado por <3>Ryan Wong</3>, especialista en embalaje con más de 14 años de experiencia en la ingeniería de biopolímeros para startups DTC y empresas Fortune 500.",
+      "p2": "Toda la investigación, especificaciones de barrera de materiales (OTR, WVTR), valores de termosellado (N/15mm) y cronogramas de compostabilidad citados en nuestras guías están respaldados por pruebas dentro del <1>Laboratorio de Pruebas de Materiales de Achieve Pack</1>. Contrastamos nuestros datos con los registros de certificación oficiales de <3>BPI (Instituto de Productos Biodegradables)</3>, <5>TÜV Austria (OK Compost HOME)</5> y <7>FSC (Consejo de Administración Forestal)</7>.",
+      "director": "Director de Cadena de Suministro",
+      "degree": "Graduado con honores B.Eng de la Universidad Politécnica de Hong Kong. Sirviendo a marcas en 8 países.",
+      "viewProfile": "Ver Perfil del Experto →"
+    }
+  },
+  "pouchLayoutFooter": {
+    "readyToLaunch": "¿Listo para Lanzar?",
+    "joinBrands": "Únase a más de 2000 marcas. Cotización instantánea. Desde 500 uds.",
+    "enterEmail": "INTRODUCIR_CORREO",
+    "bookCall": "Agendar Llamada",
+    "categories": {
+      "packaging": "Embalaje",
+      "materials": "Materiales",
+      "industries": "Industrias",
+      "usaMarket": "Mercado USA",
+      "support": "Soporte",
+      "certifications": "Certificaciones"
+    },
+    "links": {
+      "standUpPouches": "[BOLSAS STAND-UP]",
+      "flatBottomBags": "[BOLSAS DE FONDO PLANO]",
+      "spoutPouches": "[BOLSAS CON BOQUILLA]",
+      "flatPouches": "[BOLSAS PLANAS]",
+      "vacuumPouches": "[BOLSAS AL VACÍO]",
+      "kSeal": "[SELLO K PARA PESO PESADO]",
+      "allProducts": "[TODOS LOS PRODUCTOS]",
+      "compostable": "[COMPOSTABLE]",
+      "recyclable": "[RECICLABLE]",
+      "plasticFreeKraft": "[KRAFT SIN PLÁSTICO]",
+      "tds": "[FICHAS TÉCNICAS]",
+      "materialHub": "[CENTRO DE MATERIALES]",
+      "coffeeTea": "[CAFÉ Y TÉ]",
+      "babyFood": "[COMIDA PARA BEBÉS]",
+      "frozenFood": "[ALIMENTOS CONGELADOS]",
+      "snacks": "[SNACKS]",
+      "petFood": "[COMIDA PARA MASCOTAS]",
+      "supplements": "[SUPLEMENTOS]",
+      "sauces": "[SALSAS Y CONDIMENTOS]",
+      "citrusOil": "[SOLUCIONES DE ACEITE CÍTRICO]",
+      "compostableUsa": "[COMPOSTABLE USA]",
+      "coffeeUsa": "[CAFÉ USA]",
+      "snacksUsa": "[SNACKS USA]",
+      "labelingUsa": "[ETIQUETADO USA]",
+      "blog": "[BLOG]",
+      "colorAccuracy": "[PRECISIÓN DE COLOR]",
+      "sizeGuide": "[GUÍA DE TAMAÑOS]",
+      "unprintedSamples": "[MUESTRAS SIN IMPRIMIR]",
+      "techSpecs": "[ESPECIFICACIONES TÉCNICAS]",
+      "customSample": "[MUESTRA IMPRESA PERSONALIZADA]",
+      "stampFoil": "[RECICLABILIDAD DEL LÁMINA ESTAMPADA]",
+      "drinkPouches": "[BOLSAS PARA BEBIDAS Y LÍQUIDOS]",
+      "digitalPrint": "[IMPRESIÓN DIGITAL MOQ 100 UDS]",
+      "bioBasedSpout": "[BOLSAS CON BOQUILLA BIOLÓGICA]",
+      "prepress": "[PREIMPRESIÓN: ATRAPAMIENTO Y LÍNEAS]",
+      "refillPouch": "[SISTEMAS DE BOLSAS DE RECARGA]"
+    },
+    "legal": {
+      "copyright": "© 2026 Achieve Pack. Todos los derechos reservados.",
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "returns": "Devoluciones"
+    }
   }
 }

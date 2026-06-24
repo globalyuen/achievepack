@@ -645,89 +645,86 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="font-black text-4xl md:text-6xl lg:text-8xl leading-none mb-6 md:mb-8 uppercase">
-              Ready to<br/>
-              Launch?
+              {t('pouchLayoutFooter.readyToLaunch')}<br/>Launch?
             </h2>
             <p className="font-['JetBrains_Mono'] font-bold text-base md:text-xl max-w-md mx-auto mb-6 md:mb-8 px-4">
-              Join 2,000+ brands. Get instant quote. Start with 500 units.
+              {t('pouchLayoutFooter.joinBrands')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto px-4">
               <input 
                 type="email" 
-                placeholder="ENTER_EMAIL" 
+                placeholder={t('pouchLayoutFooter.enterEmail')} 
                 className="bg-white border-4 border-black px-4 md:px-6 py-3 md:py-4 font-['JetBrains_Mono'] font-bold flex-1 focus:outline-none focus:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow text-sm md:text-base"
               />
               <NeoButton 
                 variant="dark"
                 href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="whitespace-nowrap text-sm md:text-base"
-              >
-                Book Call
-              </NeoButton>
+              >{t('pouchLayoutFooter.bookCall')}</NeoButton>
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-7 gap-8 mb-16 border-t-4 border-black pt-12">
             <div>
-              <h4 className="font-black uppercase mb-4 text-xl">Packaging</h4>
+              <h4 className="font-black uppercase mb-4 text-xl">{t('pouchLayoutFooter.categories.packaging')}</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
-                <li><Link to="/packaging/stand-up-pouches" className="hover:underline">[STAND-UP POUCHES]</Link></li>
-                <li><Link to="/packaging/flat-bottom-bags" className="hover:underline">[FLAT BOTTOM BAGS]</Link></li>
-                <li><Link to="/packaging/spout-pouches" className="hover:underline">[SPOUT POUCHES]</Link></li>
-                <li><Link to="/packaging/flat-pouches" className="hover:underline">[FLAT POUCHES]</Link></li>
-                <li><Link to="/packaging/vacuum-pouches" className="hover:underline">[VACUUM POUCHES]</Link></li>
-                <li><Link to="/the-way-to-use-k-seal-bag-packing-heavy-content" className="hover:underline text-[#10B981] font-black">[K-SEAL FOR HEAVY WEIGHTS]</Link></li>
-                <li><Link to="/products" className="hover:underline">[ALL PRODUCTS]</Link></li>
+                <li><Link to="/packaging/stand-up-pouches" className="hover:underline">{t('pouchLayoutFooter.links.standUpPouches')}</Link></li>
+                <li><Link to="/packaging/flat-bottom-bags" className="hover:underline">{t('pouchLayoutFooter.links.flatBottomBags')}</Link></li>
+                <li><Link to="/packaging/spout-pouches" className="hover:underline">{t('pouchLayoutFooter.links.spoutPouches')}</Link></li>
+                <li><Link to="/packaging/flat-pouches" className="hover:underline">{t('pouchLayoutFooter.links.flatPouches')}</Link></li>
+                <li><Link to="/packaging/vacuum-pouches" className="hover:underline">{t('pouchLayoutFooter.links.vacuumPouches')}</Link></li>
+                <li><Link to="/the-way-to-use-k-seal-bag-packing-heavy-content" className="hover:underline text-[#10B981] font-black">{t('pouchLayoutFooter.links.kSeal')}</Link></li>
+                <li><Link to="/products" className="hover:underline">{t('pouchLayoutFooter.links.allProducts')}</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-black uppercase mb-4 text-xl">Materials</h4>
+              <h4 className="font-black uppercase mb-4 text-xl">{t('pouchLayoutFooter.categories.materials')}</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
-                <li><Link to="/materials/compostable" className="hover:underline">[COMPOSTABLE]</Link></li>
-                <li><Link to="/materials/recyclable" className="hover:underline">[RECYCLABLE]</Link></li>
-                <li><Link to="/materials/plastic-free-kraft" className="hover:underline text-[#10b981]">[PLASTIC-FREE KRAFT]</Link></li>
-                <li><Link to="/category/packaging-technical-data-sheet" className="hover:underline text-[#10B981] font-black">[TECHNICAL DATA SHEETS]</Link></li>
-                <li><Link to="/materials" className="hover:underline">[MATERIAL HUB]</Link></li>
+                <li><Link to="/materials/compostable" className="hover:underline">{t('pouchLayoutFooter.links.compostable')}</Link></li>
+                <li><Link to="/materials/recyclable" className="hover:underline">{t('pouchLayoutFooter.links.recyclable')}</Link></li>
+                <li><Link to="/materials/plastic-free-kraft" className="hover:underline text-[#10b981]">{t('pouchLayoutFooter.links.plasticFreeKraft')}</Link></li>
+                <li><Link to="/category/packaging-technical-data-sheet" className="hover:underline text-[#10B981] font-black">{t('pouchLayoutFooter.links.tds')}</Link></li>
+                <li><Link to="/materials" className="hover:underline">{t('pouchLayoutFooter.links.materialHub')}</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-black uppercase mb-4 text-xl">Industries</h4>
+              <h4 className="font-black uppercase mb-4 text-xl">{t('pouchLayoutFooter.categories.industries')}</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
-                <li><Link to="/industry/coffee-tea" className="hover:underline">[COFFEE & TEA]</Link></li>
-                <li><Link to="/industry/baby-food" className="hover:underline">[BABY FOOD]</Link></li>
-                <li><Link to="/industry/frozen-food" className="hover:underline">[FROZEN FOOD]</Link></li>
-                <li><Link to="/industry/snacks" className="hover:underline">[SNACKS]</Link></li>
-                <li><Link to="/industry/pet-food" className="hover:underline">[PET FOOD]</Link></li>
-                <li><Link to="/industry/supplements" className="hover:underline">[SUPPLEMENTS]</Link></li>
-                <li><Link to="/industry/sauces-condiments" className="hover:underline">[SAUCES & CONDIMENTS]</Link></li>
-                <li><Link to="/solutions/citrus-oil-packaging" className="hover:underline text-[#10B981] font-black">[CITRUS OIL SOLUTIONS]</Link></li>
+                <li><Link to="/industry/coffee-tea" className="hover:underline">{t('pouchLayoutFooter.links.coffeeTea')}</Link></li>
+                <li><Link to="/industry/baby-food" className="hover:underline">{t('pouchLayoutFooter.links.babyFood')}</Link></li>
+                <li><Link to="/industry/frozen-food" className="hover:underline">{t('pouchLayoutFooter.links.frozenFood')}</Link></li>
+                <li><Link to="/industry/snacks" className="hover:underline">{t('pouchLayoutFooter.links.snacks')}</Link></li>
+                <li><Link to="/industry/pet-food" className="hover:underline">{t('pouchLayoutFooter.links.petFood')}</Link></li>
+                <li><Link to="/industry/supplements" className="hover:underline">{t('pouchLayoutFooter.links.supplements')}</Link></li>
+                <li><Link to="/industry/sauces-condiments" className="hover:underline">{t('pouchLayoutFooter.links.sauces')}</Link></li>
+                <li><Link to="/solutions/citrus-oil-packaging" className="hover:underline text-[#10B981] font-black">{t('pouchLayoutFooter.links.citrusOil')}</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-black uppercase mb-4 text-xl">USA Market</h4>
+              <h4 className="font-black uppercase mb-4 text-xl">{t('pouchLayoutFooter.categories.usaMarket')}</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
-                <li><Link to="/blog/usa-compostable-guide" className="hover:underline">[COMPOSTABLE USA]</Link></li>
-                <li><Link to="/blog/usa-coffee-packaging" className="hover:underline">[COFFEE USA]</Link></li>
-                <li><Link to="/blog/usa-snacks-packaging-guide" className="hover:underline">[SNACKS USA]</Link></li>
-                <li><Link to="/blog/usa-labeling-guide" className="hover:underline">[LABELING USA]</Link></li>
+                <li><Link to="/blog/usa-compostable-guide" className="hover:underline">{t('pouchLayoutFooter.links.compostableUsa')}</Link></li>
+                <li><Link to="/blog/usa-coffee-packaging" className="hover:underline">{t('pouchLayoutFooter.links.coffeeUsa')}</Link></li>
+                <li><Link to="/blog/usa-snacks-packaging-guide" className="hover:underline">{t('pouchLayoutFooter.links.snacksUsa')}</Link></li>
+                <li><Link to="/blog/usa-labeling-guide" className="hover:underline">{t('pouchLayoutFooter.links.labelingUsa')}</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-black uppercase mb-4 text-xl">Support</h4>
+              <h4 className="font-black uppercase mb-4 text-xl">{t('pouchLayoutFooter.categories.support')}</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
-                <li><Link to="/blog" className="hover:underline">[BLOG]</Link></li>
-                <li><Link to="/certifications" className="hover:underline">[CERTIFICATIONS]</Link></li>
-                <li><Link to="/support/color-accuracy-digital-printing" className="hover:underline text-[#10B981]">[COLOR ACCURACY]</Link></li>
-                <li><Link to="/size-guide" className="hover:underline">[SIZE GUIDE]</Link></li>
-                <li><Link to="/unprinted-samples" className="hover:underline">[UNPRINTED SAMPLES]</Link></li>
-                <li><Link to="/tech-specs" className="hover:underline text-[#10B981]">[TECH SPECS]</Link></li>
-                <li><Link to="/sample" className="hover:underline">[CUSTOM PRINTED SAMPLE]</Link></li>
-                <li><Link to="/blog/stamp-foil-recyclability" className="hover:underline text-[#10B981] font-black">[STAMP FOIL RECYCLABILITY]</Link></li>
-                <li><Link to="/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc" className="hover:underline text-[#10B981]">[DRINK & LIQUID POUCHES]</Link></li>
-                <li><Link to="/digital-print-conventional-zipper-stand-up-pouch-bag-with-moq-start-from-100pcs" className="hover:underline text-[#10B981]">[DIGITAL PRINT 100PCS MOQ]</Link></li>
-                <li><Link to="/eco-friendly-packaging-revolution-introducing-bio-based-spout-pouches-for-liquid" className="hover:underline text-[#10B981]">[BIO-BASED SPOUT POUCHES]</Link></li>
-                <li><Link to="/understand-trapping-why-we-need-to-add-a-keyline" className="hover:underline text-[#10B981]">[PREPRESS TRAPPING & KEYLINES]</Link></li>
-                <li><Link to="/sustainable-packaging-revolution-glass-bottles-paired-with-compostable-refill-pouches-for-an-eco-friendly-lifestyle" className="hover:underline text-[#10B981]">[REFILL POUCH SYSTEMS]</Link></li>
+                <li><Link to="/blog" className="hover:underline">{t('pouchLayoutFooter.links.blog')}</Link></li>
+                <li><Link to="/certifications" className="hover:underline">{t('pouchLayoutFooter.links.certifications')}</Link></li>
+                <li><Link to="/support/color-accuracy-digital-printing" className="hover:underline text-[#10B981]">{t('pouchLayoutFooter.links.colorAccuracy')}</Link></li>
+                <li><Link to="/size-guide" className="hover:underline">{t('pouchLayoutFooter.links.sizeGuide')}</Link></li>
+                <li><Link to="/unprinted-samples" className="hover:underline">{t('pouchLayoutFooter.links.unprintedSamples')}</Link></li>
+                <li><Link to="/tech-specs" className="hover:underline text-[#10B981]">{t('pouchLayoutFooter.links.techSpecs')}</Link></li>
+                <li><Link to="/sample" className="hover:underline">{t('pouchLayoutFooter.links.customSample')}</Link></li>
+                <li><Link to="/blog/stamp-foil-recyclability" className="hover:underline text-[#10B981] font-black">{t('pouchLayoutFooter.links.stampFoil')}</Link></li>
+                <li><Link to="/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc" className="hover:underline text-[#10B981]">{t('pouchLayoutFooter.links.drinkPouches')}</Link></li>
+                <li><Link to="/digital-print-conventional-zipper-stand-up-pouch-bag-with-moq-start-from-100pcs" className="hover:underline text-[#10B981]">{t('pouchLayoutFooter.links.digitalPrint')}</Link></li>
+                <li><Link to="/eco-friendly-packaging-revolution-introducing-bio-based-spout-pouches-for-liquid" className="hover:underline text-[#10B981]">{t('pouchLayoutFooter.links.bioBasedSpout')}</Link></li>
+                <li><Link to="/understand-trapping-why-we-need-to-add-a-keyline" className="hover:underline text-[#10B981]">{t('pouchLayoutFooter.links.prepress')}</Link></li>
+                <li><Link to="/sustainable-packaging-revolution-glass-bottles-paired-with-compostable-refill-pouches-for-an-eco-friendly-lifestyle" className="hover:underline text-[#10B981]">{t('pouchLayoutFooter.links.refillPouch')}</Link></li>
               </ul>
             </div>
             <div>

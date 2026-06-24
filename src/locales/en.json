@@ -29392,5 +29392,92 @@
     "privacyPolicy": "Privacy Policy",
     "shippingPolicy": "Shipping Policy",
     "returnPolicy": "Return Policy"
+  },
+  "seoPageLayout": {
+    "materialVideoBlock": {
+      "badge": "Material Showcase",
+      "heading": "See the Material in Action",
+      "subheading": "Watch real footage of our sustainable materials being handled, folded, and stress-tested.",
+      "subheadingAp": "Real footage of our eco-friendly packaging structures in action.",
+      "demoLabel": "LIVE DEMO",
+      "verified": "Verified Lab Demo"
+    },
+    "cta": {
+      "shopStarterKits": "Shop Starter Kits",
+      "bookWholesaleCall": "Book Wholesale Call",
+      "shopLowMoq": "Shop Low MOQ Store",
+      "enterpriseQuote": "Get Enterprise Quote",
+      "bookMeeting": "Book a Meeting",
+      "bookConsultation": "Book Free Consultation",
+      "orderSamplePack": "Order Sample Pack",
+      "browseStore": "Browse Store"
+    },
+    "eeat": {
+      "badge": "E-E-A-T Research & Materials Verification",
+      "heading": "How We Ensure Absolute Accuracy and Trustworthiness",
+      "p1": "At Achieve Pack, sustainable packaging isn't just about printing; it's about <1>hands-on material science</1>. This article has been written and verified by <3>Ryan Wong</3>, a packaging specialist with 14+ years of experience engineering biopolymer stacks for DTC startups and Fortune 500 companies.",
+      "p2": "All research, material barrier specifications (OTR, WVTR), heat-seal values (N/15mm), and compostability timelines cited in our guides are backed by testing inside the <1>Achieve Pack Materials Testing Lab</1>. We cross-reference our data with official certification registries from <3>BPI (Biodegradable Products Institute)</3>, <5>TÜV Austria (OK Compost HOME)</5>, and <7>FSC (Forest Stewardship Council)</7>.",
+      "director": "Supply Chain Director",
+      "degree": "B.Eng honors degree graduate from Hong Kong Polytechnic University. Serving brands in 8 countries.",
+      "viewProfile": "View Expert Profile →"
+    }
+  },
+  "pouchLayoutFooter": {
+    "readyToLaunch": "Ready to Launch?",
+    "joinBrands": "Join 2,000+ brands. Get instant quote. Start with 500 units.",
+    "enterEmail": "ENTER_EMAIL",
+    "bookCall": "Book Call",
+    "categories": {
+      "packaging": "Packaging",
+      "materials": "Materials",
+      "industries": "Industries",
+      "usaMarket": "USA Market",
+      "support": "Support",
+      "certifications": "Certifications"
+    },
+    "links": {
+      "standUpPouches": "[STAND-UP POUCHES]",
+      "flatBottomBags": "[FLAT BOTTOM BAGS]",
+      "spoutPouches": "[SPOUT POUCHES]",
+      "flatPouches": "[FLAT POUCHES]",
+      "vacuumPouches": "[VACUUM POUCHES]",
+      "kSeal": "[K-SEAL FOR HEAVY WEIGHTS]",
+      "allProducts": "[ALL PRODUCTS]",
+      "compostable": "[COMPOSTABLE]",
+      "recyclable": "[RECYCLABLE]",
+      "plasticFreeKraft": "[PLASTIC-FREE KRAFT]",
+      "tds": "[TECHNICAL DATA SHEETS]",
+      "materialHub": "[MATERIAL HUB]",
+      "coffeeTea": "[COFFEE & TEA]",
+      "babyFood": "[BABY FOOD]",
+      "frozenFood": "[FROZEN FOOD]",
+      "snacks": "[SNACKS]",
+      "petFood": "[PET FOOD]",
+      "supplements": "[SUPPLEMENTS]",
+      "sauces": "[SAUCES & CONDIMENTS]",
+      "citrusOil": "[CITRUS OIL SOLUTIONS]",
+      "compostableUsa": "[COMPOSTABLE USA]",
+      "coffeeUsa": "[COFFEE USA]",
+      "snacksUsa": "[SNACKS USA]",
+      "labelingUsa": "[LABELING USA]",
+      "blog": "[BLOG]",
+      "colorAccuracy": "[COLOR ACCURACY]",
+      "sizeGuide": "[SIZE GUIDE]",
+      "unprintedSamples": "[UNPRINTED SAMPLES]",
+      "techSpecs": "[TECH SPECS]",
+      "customSample": "[CUSTOM PRINTED SAMPLE]",
+      "stampFoil": "[STAMP FOIL RECYCLABILITY]",
+      "drinkPouches": "[DRINK & LIQUID POUCHES]",
+      "digitalPrint": "[DIGITAL PRINT 100PCS MOQ]",
+      "bioBasedSpout": "[BIO-BASED SPOUT POUCHES]",
+      "prepress": "[PREPRESS TRAPPING & KEYLINES]",
+      "refillPouch": "[REFILL POUCH SYSTEMS]"
+    },
+    "legal": {
+      "copyright": "© 2026 Achieve Pack. All rights reserved.",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "returns": "Returns"
+    }
   }
 }
