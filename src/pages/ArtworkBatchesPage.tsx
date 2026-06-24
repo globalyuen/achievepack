@@ -24,7 +24,8 @@ const getRevisionLabel = (count: number): string => {
 
 const ArtworkBatchesPage: React.FC = () => {
   const navigate = useNavigate()
-  const { user, loading: authLoading } = useAuth()
+  // Auth via AdminProtectedRoute (local password only) - no Supabase login required
+  // const { user, loading: authLoading } = useAuth()
   
   // State
   const [batches, setBatches] = useState<ArtworkBatch[]>([])
@@ -323,10 +324,8 @@ const ArtworkBatchesPage: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (user && user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
-      fetchBatches()
-    }
-  }, [user, fetchBatches])
+    fetchBatches()
+  }, [fetchBatches])
 
   // Fetch all batch items for search (lazy load)
   const fetchAllBatchItems = useCallback(async () => {
@@ -420,7 +419,7 @@ const ArtworkBatchesPage: React.FC = () => {
     
     setCreating(true)
     try {
-      console.log('Creating batch...', { name: newBatchName, user: user?.id })
+      console.log('Creating batch...', { name: newBatchName })
       const { data, error } = await supabase
         .from('artwork_batches')
         .insert({
@@ -433,7 +432,7 @@ const ArtworkBatchesPage: React.FC = () => {
           total_items: 0,
           approved_count: 0,
           rejected_count: 0,
-          created_by: user?.id || null
+          created_by: null
         })
         .select()
         .single()
@@ -1002,7 +1001,7 @@ const ArtworkBatchesPage: React.FC = () => {
           total_items: selectedBatch.total_items,
           approved_count: 0,
           rejected_count: 0,
-          created_by: user?.id || null
+          created_by: null
         })
         .select()
         .single()
@@ -2290,39 +2289,7 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
-  // Auth check
-  if (authLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <RefreshCw className="h-8 w-8 animate-spin text-primary-500" />
-      </div>
-    )
-  }
-
-  if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8 text-center bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-          <div>
-            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
-              Admin Login Required
-            </h2>
-            <p className="mt-2 text-sm text-gray-600">
-              You've passed the local password check, but you also need to be logged into your Supabase admin account.
-            </p>
-          </div>
-          <div className="mt-8 space-y-6">
-            <a
-              href="/admin-login"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-            >
-              Go to Login Page
-            </a>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  // No Supabase auth check needed - page is protected by AdminProtectedRoute (local password)
 
   return (
     <div className="min-h-screen lg:h-screen flex flex-col bg-gray-50 lg:overflow-hidden">
