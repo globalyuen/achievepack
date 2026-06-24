@@ -5,6 +5,7 @@ import { Play, X, ChevronLeft, ChevronRight, Factory, Printer, Layers, Scissors,
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 interface Video {
   id: string
@@ -60,6 +61,8 @@ const FACTORY_VIDEOS: Video[] = [
 ]
 
 export default function PouchFactoryTourPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchFactoryTour'
   const [activeVideo, setActiveVideo] = useState<Video | null>(null)
 
   const handleNext = () => {
@@ -79,14 +82,14 @@ export default function PouchFactoryTourPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>Factory Tour | See How We Make Eco Pouches | Pouch.eco</title>
+        <title>{t(`${p}.seo.title`, "Factory Tour | See How We Make Eco Pouches | Pouch.eco")}</title>
         <meta 
           name="description" 
-          content="Virtual factory tour: Watch our sustainable pouch manufacturing process from printing to bag making. Quality certified eco-packaging production." 
+          content={t(`${p}.seo.description`, "Virtual factory tour: Watch our sustainable pouch manufacturing process from printing to bag making. Quality certified eco-packaging production.")} 
         />
         <link rel="canonical" href="https://pouch.eco/company/factory-tour" />
-        <meta property="og:title" content="Factory Tour | Pouch.eco" />
-        <meta property="og:description" content="See inside our eco-friendly packaging factory" />
+        <meta property="og:title" content={t(`${p}.seo.ogTitle`, "Factory Tour | Pouch.eco")} />
+        <meta property="og:description" content={t(`${p}.seo.ogDescription`, "See inside our eco-friendly packaging factory")} />
         <meta property="og:url" content="https://pouch.eco/company/factory-tour" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -116,34 +119,32 @@ export default function PouchFactoryTourPage() {
           
           {/* Breadcrumb Bar */}
           <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-white mb-8">
-            <Link to="/" className="hover:bg-[#D4FF00] hover:text-black px-1 py-0.5 border border-white transition">Home</Link>
+            <Link to="/" className="hover:bg-[#D4FF00] hover:text-black px-1 py-0.5 border border-white transition">{t(`${p}.hero.breadcrumbHome`, "Home")}</Link>
             <span>/</span>
-            <Link to="/company/about" className="hover:bg-[#D4FF00] hover:text-black px-1 py-0.5 border border-white transition">About Us</Link>
+            <Link to="/company/about" className="hover:bg-[#D4FF00] hover:text-black px-1 py-0.5 border border-white transition">{t(`${p}.hero.breadcrumbAbout`, "About Us")}</Link>
             <span>/</span>
-            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-white">Factory Tour</span>
+            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-white">{t(`${p}.hero.breadcrumbTour`, "Factory Tour")}</span>
           </div>
 
           <div className="text-center max-w-4xl mx-auto mt-8">
             <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
-              <span className="font-['JetBrains_Mono'] font-black uppercase text-black">FACTORY_TOUR_V1.0</span>
+              <span className="font-['JetBrains_Mono'] font-black uppercase text-black">{t(`${p}.hero.badge`, "FACTORY_TOUR_V1.0")}</span>
             </div>
 
             <h1 className="font-black text-5xl md:text-7xl leading-none mb-6 uppercase text-white">
-              See How We<br/>
-              <span className="text-[#10b981] drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Make Magic</span>
+              {t(`${p}.hero.titleLine1`, "See How We")}<br/>
+              <span className="text-[#10b981] drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">{t(`${p}.hero.titleLine2`, "Make Magic")}</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto font-['Space_Grotesk'] leading-relaxed">
-              Virtual tour of our <strong>BRCGS certified facility</strong> where certified sustainable pouches are engineered.
-            </p>
+            <p className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto font-['Space_Grotesk'] leading-relaxed" dangerouslySetInnerHTML={{ __html: t(`${p}.hero.desc`, "Virtual tour of our <strong>BRCGS certified facility</strong> where certified sustainable pouches are engineered.") }} />
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {[
-                { label: 'Production Lines', value: '6' },
-                { label: 'Daily Capacity', value: '100K+' },
-                { label: 'Quality Tests', value: '15+' },
-                { label: 'Years Experience', value: '13+' }
+                { label: t(`${p}.hero.stats.0.label`, 'Production Lines'), value: t(`${p}.hero.stats.0.value`, '6') },
+                { label: t(`${p}.hero.stats.1.label`, 'Daily Capacity'), value: t(`${p}.hero.stats.1.value`, '100K+') },
+                { label: t(`${p}.hero.stats.2.label`, 'Quality Tests'), value: t(`${p}.hero.stats.2.value`, '15+') },
+                { label: t(`${p}.hero.stats.3.label`, 'Years Experience'), value: t(`${p}.hero.stats.3.value`, '13+') }
               ].map((stat, idx) => (
                 <NeoCard
                   key={idx}
@@ -162,12 +163,12 @@ export default function PouchFactoryTourPage() {
       <section className="py-16 px-4 bg-white text-left">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <NeoBadge color="magenta">PRODUCTION_WORKFLOW</NeoBadge>
+            <NeoBadge color="magenta">{t(`${p}.grid.badge`, "PRODUCTION_WORKFLOW")}</NeoBadge>
             <h2 className="font-black text-4xl md:text-5xl uppercase mb-4 mt-6">
-              Precision <span className="text-[#10b981]">Manufacturing</span>
+              {t(`${p}.grid.titleLine1`, "Precision")} <span className="text-[#10b981]">{t(`${p}.grid.titleLine2`, "Manufacturing")}</span>
             </h2>
             <p className="text-lg text-gray-700 font-['Space_Grotesk']">
-              Hover over or click any process to watch our production line highlights.
+              {t(`${p}.grid.desc`, "Hover over or click any process to watch our production line highlights.")}
             </p>
           </div>
 
@@ -206,9 +207,9 @@ export default function PouchFactoryTourPage() {
                     <div className="p-6 bg-white border-t-4 border-black text-left">
                       <div className="flex items-center gap-2 mb-2">
                         <Icon className="w-5 h-5 text-[#10b981]" />
-                        <h3 className="font-black uppercase text-sm">{video.title}</h3>
+                        <h3 className="font-black uppercase text-sm">{t(`${p}.videos.${idx}.title`, video.title)}</h3>
                       </div>
-                      <p className="text-xs text-gray-600 font-['Space_Grotesk'] leading-relaxed">{video.description}</p>
+                      <p className="text-xs text-gray-600 font-['Space_Grotesk'] leading-relaxed">{t(`${p}.videos.${idx}.description`, video.description)}</p>
                     </div>
                   </NeoCard>
                 </motion.div>
@@ -223,26 +224,41 @@ export default function PouchFactoryTourPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block bg-[#10b981] text-white border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
-              <span className="font-['JetBrains_Mono'] font-bold uppercase">QUALITY_ASSURANCE</span>
+              <span className="font-['JetBrains_Mono'] font-bold uppercase">{t(`${p}.quality.badge`, "QUALITY_ASSURANCE")}</span>
             </div>
             <h2 className="font-black text-4xl md:text-6xl uppercase mb-4">
-              Certified <span className="text-[#10b981]">Standards</span>
+              {t(`${p}.quality.titleLine1`, "Certified")} <span className="text-[#10b981]">{t(`${p}.quality.titleLine2`, "Standards")}</span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Material Testing',
-                points: ['OTR & WVTR gas barrier permeability testing', 'Hermetic seal strength measurement (ASTM F88)', 'Sub-micron thickness uniformity verification', 'Migration safety analysis for food compatibility']
+                title: t(`${p}.quality.sections.0.title`, 'Material Testing'),
+                points: [
+                  t(`${p}.quality.sections.0.points.0`, 'OTR & WVTR gas barrier permeability testing'),
+                  t(`${p}.quality.sections.0.points.1`, 'Hermetic seal strength measurement (ASTM F88)'),
+                  t(`${p}.quality.sections.0.points.2`, 'Sub-micron thickness uniformity verification'),
+                  t(`${p}.quality.sections.0.points.3`, 'Migration safety analysis for food compatibility')
+                ]
               },
               {
-                title: 'Quality Control',
-                points: ['In-line high-resolution camera print inspections', 'Pantone color consistency digital checkouts', 'Dimensional blueprints accuracy check', 'Heavy-load physical drops and pressure tests']
+                title: t(`${p}.quality.sections.1.title`, 'Quality Control'),
+                points: [
+                  t(`${p}.quality.sections.1.points.0`, 'In-line high-resolution camera print inspections'),
+                  t(`${p}.quality.sections.1.points.1`, 'Pantone color consistency digital checkouts'),
+                  t(`${p}.quality.sections.1.points.2`, 'Dimensional blueprints accuracy check'),
+                  t(`${p}.quality.sections.1.points.3`, 'Heavy-load physical drops and pressure tests')
+                ]
               },
               {
-                title: 'Certifications',
-                points: ['BPI ASTM D6400 Composting Certificate', 'TUV OK Compost HOME Environmental Standards', 'Grade A BRCGS Food-Safety Compliances', 'FSC Responsible Wood Pulp Traceability']
+                title: t(`${p}.quality.sections.2.title`, 'Certifications'),
+                points: [
+                  t(`${p}.quality.sections.2.points.0`, 'BPI ASTM D6400 Composting Certificate'),
+                  t(`${p}.quality.sections.2.points.1`, 'TUV OK Compost HOME Environmental Standards'),
+                  t(`${p}.quality.sections.2.points.2`, 'Grade A BRCGS Food-Safety Compliances'),
+                  t(`${p}.quality.sections.2.points.3`, 'FSC Responsible Wood Pulp Traceability')
+                ]
               }
             ].map((section, idx) => (
               <NeoCard key={idx} className="h-full border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white text-left">
@@ -267,26 +283,26 @@ export default function PouchFactoryTourPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#D4FF00] border-b-4 border-black text-center">
         <div className="max-w-4xl mx-auto space-y-8">
-          <NeoBadge color="bg-black text-white">BIO_TOUR_MANDATE</NeoBadge>
+          <NeoBadge color="bg-black text-white">{t(`${p}.cta.badge`, "BIO_TOUR_MANDATE")}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-            Partner With Us
+            {t(`${p}.cta.title`, "Partner With Us")}
           </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-black">
-            Direct-to-factory communication ensuring complete regulatory transparency.
+            {t(`${p}.cta.desc`, "Direct-to-factory communication ensuring complete regulatory transparency.")}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <NeoButton href="/sample" variant="dark">
-              Request Free Eco Sample Kit
+              {t(`${p}.cta.button1`, "Request Free Eco Sample Kit")}
             </NeoButton>
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="secondary" className="!bg-white !text-black border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Consult Packaging Engineer
+              {t(`${p}.cta.button2`, "Consult Packaging Engineer")}
             </NeoButton>
           </div>
 
           <div className="pt-8 border-t border-black/20 text-xs font-['JetBrains_Mono'] text-black/70 max-w-xl mx-auto leading-relaxed">
-            <strong>Seeking high-volume enterprise contract manufacturing?</strong><br/>
-            For high-volume bulk rotogravure print specifications and private label factory contracts, visit our wholesale portal:{" "}
+            <strong>{t(`${p}.cta.footerTitle`, "Seeking high-volume enterprise contract manufacturing?")}</strong><br/>
+            {t(`${p}.cta.footerDesc`, "For high-volume bulk rotogravure print specifications and private label factory contracts, visit our wholesale portal:")}{" "}
             <a 
               href="https://achievepack.com/company/factory-tour" 
               className="underline font-bold hover:text-black transition"
@@ -339,8 +355,12 @@ export default function PouchFactoryTourPage() {
 
               {/* Video Info */}
               <div className="mt-4 bg-white border-4 border-white p-6 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] text-left">
-                <h3 className="font-black text-xl uppercase mb-2">{activeVideo.title}</h3>
-                <p className="text-gray-700 font-['Space_Grotesk']">{activeVideo.description}</p>
+                <h3 className="font-black text-xl uppercase mb-2">
+                  {t(`${p}.videos.${FACTORY_VIDEOS.findIndex(v => v.id === activeVideo.id)}.title`, activeVideo.title)}
+                </h3>
+                <p className="text-gray-700 font-['Space_Grotesk']">
+                  {t(`${p}.videos.${FACTORY_VIDEOS.findIndex(v => v.id === activeVideo.id)}.description`, activeVideo.description)}
+                </p>
               </div>
 
               {/* Navigation Arrows */}

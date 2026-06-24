@@ -4,6 +4,7 @@ import SEO from '../components/SEO'
 import { Search, ArrowRight, ShoppingCart, Leaf, Package, Factory, FileText, Users, Award, ShoppingBag, Boxes, Beaker, BookOpen } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { LEARN_PAGES } from '../components/LearnNavigation'
+import { useTranslation } from 'react-i18next'
 
 // Categories for filtering - dynamically include all categories from LEARN_PAGES
 const CATEGORY_MAPPING: Record<string, string> = {
@@ -73,6 +74,8 @@ const ALL_PAGES = Object.entries(LEARN_PAGES).flatMap(([key, category]) =>
 )
 
 export default function LearnSearchPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.learnSearch'
   const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
   const { cartCount } = useStore()
@@ -131,8 +134,8 @@ export default function LearnSearchPage() {
   return (
     <>
       <SEO 
-        title={searchQuery ? `Search: ${searchQuery} | Achieve Pack` : 'Learn Center | Achieve Pack'} 
-        description="Explore our comprehensive knowledge base on sustainable packaging materials, shapes, features, and industry solutions." 
+        title={searchQuery ? `${t(`${p}.seo.titlePrefix`, "Search: ")}${searchQuery}${t(`${p}.seo.titleSuffix`, " | Achieve Pack")}` : t(`${p}.seo.titleDefault`, "Learn Center | Achieve Pack")} 
+        description={t(`${p}.seo.description`, "Explore our comprehensive knowledge base on sustainable packaging materials, shapes, features, and industry solutions.")} 
         url="https://achievepack.com/learn" 
       />
 
@@ -143,13 +146,13 @@ export default function LearnSearchPage() {
             <div className="flex items-center gap-4">
               <a href="/" onClick={handleNavigation('/')} className="flex items-center gap-3 hover:opacity-90 transition cursor-pointer">
                 <img src="/ap-logo-white.png" alt="Achieve Pack" className="h-10 w-auto" loading="eager" width="133" height="40" />
-                <span className="text-2xl font-bold hidden sm:inline">Learn Center</span>
+                <span className="text-2xl font-bold hidden sm:inline">{t(`${p}.header.title`, "Learn Center")}</span>
               </a>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition">
                 <ShoppingCart className="h-5 w-5" />
-                <span className="hidden sm:inline">Store</span>
+                <span className="hidden sm:inline">{t(`${p}.header.store`, "Store")}</span>
                 {cartCount > 0 && (
                   <span className="bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
                     {cartCount}
@@ -167,10 +170,10 @@ export default function LearnSearchPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Packaging Knowledge Center
+                {t(`${p}.hero.title`, "Packaging Knowledge Center")}
               </h1>
               <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-                Everything you need to know about sustainable packaging materials, shapes, and solutions
+                {t(`${p}.hero.desc`, "Everything you need to know about sustainable packaging materials, shapes, and solutions")}
               </p>
             </div>
           </div>
@@ -185,7 +188,7 @@ export default function LearnSearchPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
                 <input
                   type="text"
-                  placeholder="Search materials, shapes, features..."
+                  placeholder={t(`${p}.filters.searchPlaceholder`, "Search materials, shapes, features...")}
                   value={searchQuery}
                   onChange={(e) => handleSearch(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
@@ -204,7 +207,7 @@ export default function LearnSearchPage() {
                         : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                     }`}
                   >
-                    {category}
+                    {t(`${p}.categories.${category}`, category)}
                   </button>
                 ))}
               </div>
@@ -218,20 +221,20 @@ export default function LearnSearchPage() {
             {/* Results count */}
             <p className="text-neutral-600 mb-6">
               {searchQuery || selectedCategory !== 'All' ? (
-                <>Found <strong>{filteredPages.length}</strong> results</>
+                <>{t(`${p}.results.found`, "Found ")}<strong>{filteredPages.length}</strong>{t(`${p}.results.results`, " results")}</>
               ) : (
-                <>Browse all <strong>{filteredPages.length}</strong> pages</>
+                <>{t(`${p}.results.browseAll`, "Browse all ")}<strong>{filteredPages.length}</strong>{t(`${p}.results.pages`, " pages")}</>
               )}
             </p>
             
             {filteredPages.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-neutral-500 text-lg">No pages found matching your criteria.</p>
+                <p className="text-neutral-500 text-lg">{t(`${p}.results.noPages`, "No pages found matching your criteria.")}</p>
                 <button
                   onClick={() => { setSearchQuery(''); setSelectedCategory('All'); setSearchParams({}) }}
                   className="mt-4 px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
                 >
-                  Clear Filters
+                  {t(`${p}.results.clearFilters`, "Clear Filters")}
                 </button>
               </div>
             ) : (
@@ -255,7 +258,7 @@ export default function LearnSearchPage() {
                     <div className="p-6">
                       {/* Category */}
                       <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded-full mb-3">
-                        {page.category}
+                        {t(`${p}.categories.${page.category}`, page.category)}
                       </span>
 
                       {/* Title */}
@@ -275,7 +278,7 @@ export default function LearnSearchPage() {
                         to={page.link}
                         className="inline-flex items-center gap-2 text-primary-600 font-medium hover:gap-3 transition-all"
                       >
-                        Learn More
+                        {t(`${p}.results.learnMore`, "Learn More")}
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
@@ -290,23 +293,23 @@ export default function LearnSearchPage() {
         <section className="bg-primary-600 text-white py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Get Started?
+              {t(`${p}.cta.title`, "Ready to Get Started?")}
             </h2>
             <p className="text-primary-100 mb-6">
-              Explore our sustainable packaging options. Low MOQ from 100 pieces.
+              {t(`${p}.cta.desc`, "Explore our sustainable packaging options. Low MOQ from 100 pieces.")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/store"
                 className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
               >
-                Shop Now
+                {t(`${p}.cta.button1`, "Shop Now")}
               </Link>
               <Link
                 to="/"
                 className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
               >
-                Get Custom Quote
+                {t(`${p}.cta.button2`, "Get Custom Quote")}
               </Link>
             </div>
           </div>

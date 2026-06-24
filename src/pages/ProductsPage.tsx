@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, ShoppingCart, Info, Package, Leaf, Zap, Shield, ChevronRight } from 'lucide-react'
 import MegaMenu from '../components/MegaMenu'
 import Footer from '../components/Footer'
+import { useTranslation } from 'react-i18next'
 
 export default function ProductsPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.products'
+
   // Ensure we start at the top of the page
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -14,60 +18,84 @@ export default function ProductsPage() {
   const PRODUCT_LINES = [
     {
       id: 'stand-up-pouches',
-      title: 'Stand Up Pouches',
-      description: 'The industry standard for shelf presence. Perfect for coffee, snacks, granola, and supplements. Available in conventional, recyclable, and compostable materials.',
+      title: t(`${p}.products.standUp.title`),
+      description: t(`${p}.products.standUp.desc`),
       image: '/imgs/store/pouch shape/stand-up.webp',
-      features: ['Bottom Gusset Design', 'Resealable Zippers', 'Tear Notches'],
+      features: [
+        t(`${p}.products.standUp.features.0`), 
+        t(`${p}.products.standUp.features.1`), 
+        t(`${p}.products.standUp.features.2`)
+      ],
       specsLink: '/packaging/stand-up-pouches',
       storeLink: '/store?shape=Stand%20Up%20Pouch%20%2F%20Doypack',
       icon: <Package className="w-6 h-6 text-primary-600" />
     },
     {
       id: 'flat-bottom-bags',
-      title: 'Flat Bottom Bags',
-      description: 'The premium choice for coffee and high-end goods. Box-like stability with 5 printable faces for maximum retail visibility.',
+      title: t(`${p}.products.flatBottom.title`),
+      description: t(`${p}.products.flatBottom.desc`),
       image: '/imgs/pouch-shape/flat-bottom-premium.png',
-      features: ['5-Panel Branding', 'Box-Like Stability', 'Volume Optimized'],
+      features: [
+        t(`${p}.products.flatBottom.features.0`), 
+        t(`${p}.products.flatBottom.features.1`), 
+        t(`${p}.products.flatBottom.features.2`)
+      ],
       specsLink: '/packaging/flat-bottom-bags',
       storeLink: '/store?shape=Flat%20Squared%20Bottom%20Pouch',
       icon: <Shield className="w-6 h-6 text-primary-600" />
     },
     {
       id: 'side-gusset-bags',
-      title: 'Side Gusset Bags',
-      description: 'The classic coffee packaging format. Quad seal structure with expandable side panels to maximize capacity in a compact footprint.',
+      title: t(`${p}.products.sideGusset.title`),
+      description: t(`${p}.products.sideGusset.desc`),
       image: '/imgs/pouch-shape/side-gusset-pouch-eco.png',
-      features: ['Quad Seal Structure', 'High Volume Capacity', 'Tin Tie Compatible'],
+      features: [
+        t(`${p}.products.sideGusset.features.0`), 
+        t(`${p}.products.sideGusset.features.1`), 
+        t(`${p}.products.sideGusset.features.2`)
+      ],
       specsLink: '/packaging/side-gusset-bags',
       storeLink: '/store?shape=Side%20Gusset%20Pouch',
       icon: <Zap className="w-6 h-6 text-primary-600" />
     },
     {
       id: 'eco-stock-plain',
-      title: 'Eco Stock Pouches (Plain)',
-      description: 'Ready-to-ship, sustainable blank pouches. Perfect for startups and small batches wanting to apply their own labels.',
+      title: t(`${p}.products.ecoStock.title`),
+      description: t(`${p}.products.ecoStock.desc`),
       image: '/imgs/pouch-shape/eco-stand-up-pouch.png',
-      features: ['Ready to Ship', 'Apply Custom Labels', 'Recyclable/Compostable'],
+      features: [
+        t(`${p}.products.ecoStock.features.0`), 
+        t(`${p}.products.ecoStock.features.1`), 
+        t(`${p}.products.ecoStock.features.2`)
+      ],
       specsLink: '/materials/recyclable-mono-pe',
       storeLink: '/store?category=eco-stock-plain',
       icon: <Leaf className="w-6 h-6 text-primary-600" />
     },
     {
       id: 'spout-pouches',
-      title: 'Spout Pouches',
-      description: 'The flexible, lightweight alternative to rigid bottles and jars. Ideal for liquids, purees, and refill packaging.',
+      title: t(`${p}.products.spoutPouches.title`),
+      description: t(`${p}.products.spoutPouches.desc`),
       image: '/imgs/store/pouch shape/spout.webp',
-      features: ['Leak-Proof Spout', '80% Less Plastic', 'Cheaper Shipping'],
+      features: [
+        t(`${p}.products.spoutPouches.features.0`), 
+        t(`${p}.products.spoutPouches.features.1`), 
+        t(`${p}.products.spoutPouches.features.2`)
+      ],
       specsLink: '/packaging/spout-pouches',
       storeLink: '/store',
       icon: <Package className="w-6 h-6 text-primary-600" />
     },
     {
       id: 'custom-boxes',
-      title: 'Custom Boxes',
-      description: 'Premium folding cartons and corrugated mailer boxes to complete your product packaging ecosystem.',
+      title: t(`${p}.products.customBoxes.title`),
+      description: t(`${p}.products.customBoxes.desc`),
       image: '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-1.jpg',
-      features: ['Folding Cartons', 'Corrugated Mailers', 'Retail Ready'],
+      features: [
+        t(`${p}.products.customBoxes.features.0`), 
+        t(`${p}.products.customBoxes.features.1`), 
+        t(`${p}.products.customBoxes.features.2`)
+      ],
       specsLink: '/packaging/custom-boxes',
       storeLink: '/store?category=boxes',
       icon: <Package className="w-6 h-6 text-primary-600" />
@@ -76,7 +104,7 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
-      <SEO title="Products & Packaging Solutions | Achieve Pack" description="Explore Achieve Pack's full range of custom flexible packaging products, from Stand Up Pouches to Flat Bottom Bags. Shop our store for low MOQ printing." url="https://achievepack.com/products" />
+      <SEO title={t(`${p}.seoTitle`)} description={t(`${p}.seoDesc`)} url="https://achievepack.com/products" />
 
       <MegaMenu />
 
@@ -86,16 +114,16 @@ export default function ProductsPage() {
           <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
             <div className="max-w-3xl">
               <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm mb-4 block">
-                Our Catalog
+                {t(`${p}.hero.badge`)}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight mb-6">
-                Premium Flexible <br className="hidden md:block" />
+                {t(`${p}.hero.headlineLine1`)} <br className="hidden md:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
-                  Packaging Solutions
+                  {t(`${p}.hero.headlineLine2`)}
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-neutral-600 mb-8 leading-relaxed max-w-2xl">
-                From classic side gusset bags to innovative eco-friendly stand up pouches. Discover the perfect packaging architecture for your product, available for low MOQ custom printing.
+                {t(`${p}.hero.desc`)}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -103,13 +131,13 @@ export default function ProductsPage() {
                   className="inline-flex items-center justify-center bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
                   <ShoppingCart className="w-5 h-5 mr-2" />
-                  Shop All Products
+                  {t(`${p}.hero.btnShop`)}
                 </Link>
                 <Link
                   to="/size-guide"
                   className="inline-flex items-center justify-center bg-white text-neutral-700 border border-neutral-300 px-8 py-4 rounded-xl font-semibold hover:bg-neutral-50 hover:text-neutral-900 transition-colors"
                 >
-                  View Size Guide
+                  {t(`${p}.hero.btnSize`)}
                 </Link>
               </div>
             </div>
@@ -158,7 +186,7 @@ export default function ProductsPage() {
                         className="inline-flex items-center justify-center bg-neutral-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-neutral-800 transition-colors group/btn"
                       >
                         <ShoppingCart className="w-4 h-4 mr-2" />
-                        Shop Now
+                        {t(`${p}.card.btnShop`)}
                         <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all" />
                       </Link>
                       <Link
@@ -166,7 +194,7 @@ export default function ProductsPage() {
                         className="inline-flex items-center justify-center bg-primary-50 text-primary-700 px-6 py-3 rounded-xl font-semibold hover:bg-primary-100 transition-colors"
                       >
                         <Info className="w-4 h-4 mr-2" />
-                        View Specs
+                        {t(`${p}.card.btnSpecs`)}
                       </Link>
                     </div>
                   </div>
@@ -184,15 +212,15 @@ export default function ProductsPage() {
             <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-primary-400 opacity-20 blur-3xl"></div>
             
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to start packaging?</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{t(`${p}.cta.title`)}</h2>
               <p className="text-primary-100 text-lg md:text-xl mb-10 leading-relaxed">
-                Browse our complete store inventory. Access live pricing, 3D previews, and our interactive quotation builder.
+                {t(`${p}.cta.desc`)}
               </p>
               <Link
                 to="/store"
                 className="inline-flex items-center justify-center bg-white text-primary-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-neutral-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                Go to the Store
+                {t(`${p}.cta.btn`)}
                 <ChevronRight className="w-5 h-5 ml-2" />
               </Link>
             </div>

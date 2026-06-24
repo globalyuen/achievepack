@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, ArrowLeft, CheckCircle, Loader2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
+import { useTranslation, Trans } from 'react-i18next'
 
 const ForgotPasswordPage: React.FC = () => {
   const { resetPassword } = useAuth()
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.forgotPassword'
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -34,20 +37,20 @@ const ForgotPasswordPage: React.FC = () => {
             <CheckCircle className="h-10 w-10 text-green-600" />
           </div>
           <h1 className="text-2xl font-bold text-neutral-900 mb-2">
-            Check your email
+            {t(`${p}.successTitle`)}
           </h1>
           <p className="text-neutral-600 mb-6">
-            We've sent a password reset link to <strong>{email}</strong>
+            <Trans i18nKey={`${p}.successDesc`} values={{ email }} components={[<strong key="0" />]} />
           </p>
           <p className="text-sm text-neutral-500 mb-8">
-            Click the link in the email to reset your password. If you don't see it, check your spam folder.
+            {t(`${p}.successNote`)}
           </p>
           <Link
             to="/signin"
             className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to login
+            {t(`${p}.backToLogin`)}
           </Link>
         </div>
       </div>
@@ -62,15 +65,15 @@ const ForgotPasswordPage: React.FC = () => {
           className="inline-flex items-center gap-2 text-neutral-600 hover:text-primary-600 mb-8 transition"
         >
           <ArrowLeft className="h-5 w-5" />
-          Back to login
+          {t(`${p}.backToLogin`)}
         </Link>
 
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-neutral-900 mb-2">
-            Forgot password?
+            {t(`${p}.title`)}
           </h1>
           <p className="text-neutral-600">
-            No worries, we'll send you reset instructions.
+            {t(`${p}.subtitle`)}
           </p>
         </div>
 
@@ -83,14 +86,14 @@ const ForgotPasswordPage: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-2">
-              Email address
+              {t(`${p}.emailLabel`)}
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
-              placeholder="Enter your email"
+              placeholder={t(`${p}.emailPlaceholder`)}
               required
             />
           </div>
@@ -103,19 +106,18 @@ const ForgotPasswordPage: React.FC = () => {
             {loading ? (
               <>
                 <Loader2 className="h-5 w-5 animate-spin" />
-                Sending...
+                {t(`${p}.btnSending`)}
               </>
             ) : (
-              'Reset password'
+              t(`${p}.btnReset`)
             )}
           </button>
         </form>
 
         <p className="text-center mt-6 text-neutral-600 text-sm">
-          Remember your password?{' '}
-          <Link to="/signin" className="text-primary-600 hover:text-primary-700 font-medium">
-            Sign in
-          </Link>
+          <Trans i18nKey={`${p}.rememberText`} components={[
+            <Link to="/signin" className="text-primary-600 hover:text-primary-700 font-medium" key="0" />
+          ]} />
         </p>
       </div>
     </div>

@@ -6,8 +6,9 @@ import {
   ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, Trash2, Paperclip
 } from 'lucide-react'
 import { Image as ImageIcon, Link as LinkIcon } from 'lucide-react'
-import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
+import { uploadWithTus } from '../lib/supabase'
 import { convertHeicFile } from '../lib/heicConverter'
+import { useTranslation } from 'react-i18next'
 
 // Constants
 const IMPORTANT_NOTICE = [
@@ -50,6 +51,8 @@ const formatFileSize = (bytes?: number) => {
 }
 
 const ArtworkReviewPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.artworkReview'
   const { batchId } = useParams<{ batchId: string }>()
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
@@ -616,7 +619,7 @@ const ArtworkReviewPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <RefreshCw className="h-8 w-8 animate-spin text-primary-500 mx-auto mb-4" />
-          <p className="text-gray-600">{isSupplier ? '正在加载图稿与文档系统...' : 'Loading artwork & document system...'}</p>
+          <p className="text-gray-600">{isSupplier ? '正在加载图稿与文档系统...' : t(`${p}.loading.message`, 'Loading artwork & document system...')}</p>
         </div>
       </div>
     )
@@ -628,8 +631,8 @@ const ArtworkReviewPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <AlertCircle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <h1 className="text-xl font-semibold text-gray-900">{isSupplier ? '未找到系统' : 'System Not Found'}</h1>
-          <p className="text-gray-500 mt-2">{isSupplier ? '此系统不存在或已被移除。' : 'This system doesn\'t exist or has been removed.'}</p>
+          <h1 className="text-xl font-semibold text-gray-900">{isSupplier ? '未找到系统' : t(`${p}.notFound.title`, 'System Not Found')}</h1>
+          <p className="text-gray-500 mt-2">{isSupplier ? '此系统不存在或已被移除。' : t(`${p}.notFound.message`, 'This system doesn\'t exist or has been removed.')}</p>
         </div>
       </div>
     )
@@ -642,15 +645,15 @@ const ArtworkReviewPage: React.FC = () => {
         <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-8">
           <div className="text-center mb-8">
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Lock className="h-8 w-8 text-primary-600" />
+               <Lock className="h-8 w-8 text-primary-600" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">{isSupplier ? '图稿与文档系统' : 'Artwork & Document System'}</h1>
-            <p className="text-gray-500 mt-2">{isSupplier ? '系统' : 'System'}: {batch?.batch_name || (isSupplier ? '加载中...' : 'Loading...')}</p>
+            <h1 className="text-2xl font-bold text-gray-900">{isSupplier ? '图稿与文档系统' : t(`${p}.auth.title`, 'Artwork & Document System')}</h1>
+            <p className="text-gray-500 mt-2">{isSupplier ? '系统' : t(`${p}.auth.system`, 'System')}: {batch?.batch_name || (isSupplier ? '加载中...' : t(`${p}.auth.loading`, 'Loading...'))}</p>
           </div>
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">{isSupplier ? '输入密码' : 'Enter Password'}</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">{isSupplier ? '输入密码' : t(`${p}.auth.enterPassword`, 'Enter Password')}</label>
               <input
                 type="password"
                 value={password}
@@ -659,7 +662,7 @@ const ArtworkReviewPage: React.FC = () => {
                   setPasswordError('')
                 }}
                 onKeyDown={(e) => e.key === 'Enter' && handleVerifyPassword()}
-                placeholder={isSupplier ? "访问密码" : "Access password"}
+                placeholder={isSupplier ? "访问密码" : t(`${p}.auth.placeholder`, "Access password")}
                 className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
               {passwordError && (
@@ -672,12 +675,12 @@ const ArtworkReviewPage: React.FC = () => {
               disabled={!password.trim()}
               className="w-full py-3 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition disabled:opacity-50"
             >
-              {isSupplier ? '访问系统' : 'Access System'}
+              {isSupplier ? '访问系统' : t(`${p}.auth.submit`, 'Access System')}
             </button>
           </div>
           
           <p className="text-xs text-gray-400 text-center mt-6">
-            {isSupplier ? '密码由 AchievePack 提供' : 'Password provided by AchievePack'}
+            {isSupplier ? '密码由 AchievePack 提供' : t(`${p}.auth.footer`, 'Password provided by AchievePack')}
           </p>
         </div>
       </div>
@@ -695,8 +698,8 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="flex items-start gap-4 flex-1 min-w-0">
               <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto flex-shrink-0 mt-1" />
               <div className="flex-1 min-w-0">
-                <h1 className="font-semibold text-gray-900 break-words">{isSupplier ? '图稿与文档上传系统' : 'Artwork & Document System'} {batch?.batch_name || '...'}</h1>
-                <p className="text-xs text-gray-500">{isSupplier ? `共 ${items?.length || 0} 个文件 • ${stats.pending}待审核` : `${(items || []).length} items / files • ${stats.pending} pending review`}</p>
+                <h1 className="font-semibold text-gray-900 break-words">{isSupplier ? '图稿与文档上传系统' : t(`${p}.header.title`, 'Artwork & Document System')} {batch?.batch_name || '...'}</h1>
+                <p className="text-xs text-gray-500">{isSupplier ? `共 ${items?.length || 0} 个文件 • ${stats.pending}待审核` : `${items?.length || 0} items / files • ${stats.pending} pending review`}</p>
               </div>
             </div>
             {!isSupplier && stats.allReviewed && (
@@ -705,8 +708,8 @@ const ArtworkReviewPage: React.FC = () => {
                 className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition flex-shrink-0"
               >
                 <Send className="h-4 w-4" />
-                <span className="hidden sm:inline">Submit Review</span>
-                <span className="sm:hidden">Submit</span>
+                <span className="hidden sm:inline">{t(`${p}.header.submitReview`, 'Submit Review')}</span>
+                <span className="sm:hidden">{t(`${p}.header.submit`, 'Submit')}</span>
               </button>
             )}
           </div>
@@ -720,9 +723,9 @@ const ArtworkReviewPage: React.FC = () => {
           <div className="flex items-start gap-3">
             <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0 mt-0.5" />
             <div>
-              <h2 className="font-semibold text-amber-800 mb-3">Important Notice - Please Read Before Approval</h2>
+              <h2 className="font-semibold text-amber-800 mb-3">{t(`${p}.importantNotice.title`, "Important Notice - Please Read Before Approval")}</h2>
               <ul className="space-y-2">
-                {IMPORTANT_NOTICE.map((notice, i) => (
+                {(t(`${p}.importantNotice.notices`, { returnObjects: true }) as string[]).map((notice, i) => (
                   <li key={i} className="text-sm text-amber-700 flex items-start gap-2">
                     <span className="text-amber-400">•</span>
                     {notice}
@@ -730,10 +733,10 @@ const ArtworkReviewPage: React.FC = () => {
                 ))}
               </ul>
               <div className="mt-4 pt-4 border-t border-amber-200">
-                <p className="text-sm font-medium text-amber-800">Tolerances:</p>
+                <p className="text-sm font-medium text-amber-800">{t(`${p}.importantNotice.tolerancesTitle`, "Tolerances:")}</p>
                 <ul className="mt-1 space-y-1">
-                  {TOLERANCES.map((t, i) => (
-                    <li key={i} className="text-sm text-amber-700">{t}</li>
+                  {(t(`${p}.importantNotice.tolerances`, { returnObjects: true }) as string[]).map((tVal, i) => (
+                    <li key={i} className="text-sm text-amber-700">{tVal}</li>
                   ))}
                 </ul>
               </div>
@@ -747,21 +750,21 @@ const ArtworkReviewPage: React.FC = () => {
           <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <Clock className="h-5 w-5 text-gray-400" />
-              <span className="text-sm text-gray-500">{isSupplier ? '待审核' : 'Pending'}</span>
+              <span className="text-sm text-gray-500">{isSupplier ? '待审核' : t(`${p}.stats.pending`, 'Pending')}</span>
             </div>
             <p className="text-2xl font-bold text-gray-900 mt-1">{stats.pending}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-green-500" />
-              <span className="text-sm text-gray-500">{isSupplier ? '已批准' : 'Approved'}</span>
+              <span className="text-sm text-gray-500">{isSupplier ? '已批准' : t(`${p}.stats.approved`, 'Approved')}</span>
             </div>
             <p className="text-2xl font-bold text-green-600 mt-1">{stats.approved}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-red-500" />
-              <span className="text-sm text-gray-500">{isSupplier ? '需要修改' : 'Need Revision'}</span>
+              <span className="text-sm text-gray-500">{isSupplier ? '需要修改' : t(`${p}.stats.rejected`, 'Need Revision')}</span>
             </div>
             <p className="text-2xl font-bold text-red-600 mt-1">{stats.rejected}</p>
           </div>
@@ -795,21 +798,21 @@ const ArtworkReviewPage: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={isSupplier ? "请输入关键词搜索..." : "Search by name, keyword, color..."}
+              placeholder={isSupplier ? "请输入关键词搜索..." : t(`${p}.search.placeholder`, "Search by name, keyword, color...")}
               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
             />
           </div>
           <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1 sm:py-0">
-            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">{isSupplier ? '排序' : 'Sort by'}</span>
+            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">{isSupplier ? '排序' : t(`${p}.sort.by`, 'Sort by')}</span>
             <select 
               value={itemSortOption}
               onChange={(e) => setItemSortOption(e.target.value as any)}
               className="text-xs border-none focus:ring-0 bg-transparent py-2.5 pr-8 font-medium text-gray-700 cursor-pointer"
             >
-              <option value="activity">{isSupplier ? '最新活动' : 'Latest Activity'}</option>
-              <option value="newest">{isSupplier ? '最新加入' : 'Newest First'}</option>
-              <option value="oldest">{isSupplier ? '最早加入' : 'Oldest First'}</option>
-              <option value="name">{isSupplier ? '按名称排序' : 'Name (A-Z)'}</option>
+              <option value="activity">{isSupplier ? '最新活动' : t(`${p}.sort.activity`, 'Latest Activity')}</option>
+              <option value="newest">{isSupplier ? '最新加入' : t(`${p}.sort.newest`, 'Newest First')}</option>
+              <option value="oldest">{isSupplier ? '最早加入' : t(`${p}.sort.oldest`, 'Oldest First')}</option>
+              <option value="name">{isSupplier ? '按名称排序' : t(`${p}.sort.name`, 'Name (A-Z)')}</option>
             </select>
           </div>
           {/* Filter Tabs */}
@@ -1041,10 +1044,10 @@ const ArtworkReviewPage: React.FC = () => {
               className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-xl font-medium hover:bg-green-700 transition"
             >
               <Send className="h-5 w-5" />
-              Submit All Reviews
+              {t(`${p}.overall.submit`, 'Submit All Reviews')}
             </button>
             <p className="text-sm text-gray-500 mt-2">
-              All {stats.total} items / files have been reviewed. Click to finalize your submission.
+              {t(`${p}.overall.desc`, 'All {{count}} items / files have been reviewed. Click to finalize your submission.').replace('{{count}}', String(stats.total))}
             </p>
           </div>
         )}

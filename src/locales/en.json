@@ -26682,6 +26682,1237 @@
                     "primaryBtn": "Order 5-Pillar Samples",
                     "secondaryBtn": "Speak to a Pillar Engineer"
                 }
+            },
+            "pouchFactoryTour": {
+                "videos": [
+                    {
+                        "title": "Welcome to Our Factory",
+                        "description": "Step inside our state-of-the-art sustainable packaging facility"
+                    },
+                    {
+                        "title": "Digital Printing Technology",
+                        "description": "High-quality digital printing for short runs with unlimited colors"
+                    },
+                    {
+                        "title": "Rotogravure Printing",
+                        "description": "Plate printing for large volume production with Pantone matching"
+                    },
+                    {
+                        "title": "Lamination Process",
+                        "description": "Multi-layer bonding for optimal barrier properties"
+                    },
+                    {
+                        "title": "Precision Slitting",
+                        "description": "Accurate material cutting for perfect dimensions"
+                    },
+                    {
+                        "title": "Pouch Manufacturing",
+                        "description": "Converting films into finished pouches with quality seals"
+                    }
+                ],
+                "seo": {
+                    "title": "Factory Tour | See How We Make Eco Pouches | Pouch.eco",
+                    "description": "Virtual factory tour: Watch our sustainable pouch manufacturing process from printing to bag making. Quality certified eco-packaging production.",
+                    "ogTitle": "Factory Tour | Pouch.eco",
+                    "ogDescription": "See inside our eco-friendly packaging factory"
+                },
+                "hero": {
+                    "breadcrumbHome": "Home",
+                    "breadcrumbAbout": "About Us",
+                    "breadcrumbTour": "Factory Tour",
+                    "badge": "FACTORY_TOUR_V1.0",
+                    "titleLine1": "See How We",
+                    "titleLine2": "Make Magic",
+                    "desc": "Virtual tour of our <strong>BRCGS certified facility</strong> where certified sustainable pouches are engineered.",
+                    "stats": [
+                        {
+                            "label": "Production Lines",
+                            "value": "6"
+                        },
+                        {
+                            "label": "Daily Capacity",
+                            "value": "100K+"
+                        },
+                        {
+                            "label": "Quality Tests",
+                            "value": "15+"
+                        },
+                        {
+                            "label": "Years Experience",
+                            "value": "13+"
+                        }
+                    ]
+                },
+                "grid": {
+                    "badge": "PRODUCTION_WORKFLOW",
+                    "titleLine1": "Precision",
+                    "titleLine2": "Manufacturing",
+                    "desc": "Hover over or click any process to watch our production line highlights."
+                },
+                "quality": {
+                    "badge": "QUALITY_ASSURANCE",
+                    "titleLine1": "Certified",
+                    "titleLine2": "Standards",
+                    "sections": [
+                        {
+                            "title": "Material Testing",
+                            "points": [
+                                "OTR & WVTR gas barrier permeability testing",
+                                "Hermetic seal strength measurement (ASTM F88)",
+                                "Sub-micron thickness uniformity verification",
+                                "Migration safety analysis for food compatibility"
+                            ]
+                        },
+                        {
+                            "title": "Quality Control",
+                            "points": [
+                                "In-line high-resolution camera print inspections",
+                                "Pantone color consistency digital checkouts",
+                                "Dimensional blueprints accuracy check",
+                                "Heavy-load physical drops and pressure tests"
+                            ]
+                        },
+                        {
+                            "title": "Certifications",
+                            "points": [
+                                "BPI ASTM D6400 Composting Certificate",
+                                "TUV OK Compost HOME Environmental Standards",
+                                "Grade A BRCGS Food-Safety Compliances",
+                                "FSC Responsible Wood Pulp Traceability"
+                            ]
+                        }
+                    ]
+                },
+                "cta": {
+                    "badge": "BIO_TOUR_MANDATE",
+                    "title": "Partner With Us",
+                    "desc": "Direct-to-factory communication ensuring complete regulatory transparency.",
+                    "button1": "Request Free Eco Sample Kit",
+                    "button2": "Consult Packaging Engineer",
+                    "footerTitle": "Seeking high-volume enterprise contract manufacturing?",
+                    "footerDesc": "For high-volume bulk rotogravure print specifications and private label factory contracts, visit our wholesale portal:"
+                }
+            },
+            "register": {
+                "backHome": "Back to Home",
+                "titleSignIn": "Sign In / Register",
+                "titleVerify": "Enter Verification Code",
+                "descSignIn": "Enter your email to receive a verification code",
+                "descVerify": "We sent an 8-digit code to {{email}}",
+                "errorEmail": "Please enter your email address",
+                "errorCode": "Please enter the 8-digit code",
+                "emailPlaceholder": "Enter your email",
+                "btnSendCode": "Get Verification Code",
+                "btnSending": "Sending...",
+                "dividerOr": "Or continue with",
+                "btnGoogle": "Continue with Google",
+                "resendCodeIn": "Resend code in {{countdown}}s",
+                "btnResend": "Resend Code",
+                "btnVerify": "Continue",
+                "btnVerifying": "Verifying...",
+                "btnBackEmail": "Use a different email",
+                "termsText": "By signing in, you agree to our <0>Terms of Service</0> and <1>Privacy Policy</1>"
+            },
+            "learnSearch": {
+                "seo": {
+                    "titlePrefix": "Search: ",
+                    "titleSuffix": " | Achieve Pack",
+                    "titleDefault": "Learn Center | Achieve Pack",
+                    "description": "Explore our comprehensive knowledge base on sustainable packaging materials, shapes, features, and industry solutions."
+                },
+                "header": {
+                    "title": "Learn Center",
+                    "store": "Store"
+                },
+                "hero": {
+                    "title": "Packaging Knowledge Center",
+                    "desc": "Everything you need to know about sustainable packaging materials, shapes, and solutions"
+                },
+                "filters": {
+                    "searchPlaceholder": "Search materials, shapes, features..."
+                },
+                "categories": {
+                    "All": "All",
+                    "Company": "Company",
+                    "Materials": "Materials",
+                    "Packaging": "Packaging",
+                    "Features": "Features",
+                    "Industries": "Industries",
+                    "Products": "Products",
+                    "Solutions": "Solutions",
+                    "Topics": "Topics",
+                    "Case Studies": "Case Studies",
+                    "Knowledge": "Knowledge",
+                    "Free Service": "Free Service",
+                    "Function": "Function",
+                    "Lab": "Lab",
+                    "USA Market": "USA Market",
+                    "Spec": "Spec",
+                    "Support": "Support"
+                },
+                "results": {
+                    "found": "Found ",
+                    "results": " results",
+                    "browseAll": "Browse all ",
+                    "pages": " pages",
+                    "noPages": "No pages found matching your criteria.",
+                    "clearFilters": "Clear Filters",
+                    "learnMore": "Learn More"
+                },
+                "cta": {
+                    "title": "Ready to Get Started?",
+                    "desc": "Explore our sustainable packaging options. Low MOQ from 100 pieces.",
+                    "button1": "Shop Now",
+                    "button2": "Get Custom Quote"
+                }
+            },
+            "forgotPassword": {
+                "successTitle": "Check your email",
+                "successDesc": "We've sent a password reset link to <0>{{email}}</0>",
+                "successNote": "Click the link in the email to reset your password. If you don't see it, check your spam folder.",
+                "backToLogin": "Back to login",
+                "title": "Forgot password?",
+                "subtitle": "No worries, we'll send you reset instructions.",
+                "emailLabel": "Email address",
+                "emailPlaceholder": "Enter your email",
+                "btnSending": "Sending...",
+                "btnReset": "Reset password",
+                "rememberText": "Remember your password? <0>Sign in</0>"
+            },
+            "products": {
+                "seoTitle": "Products & Packaging Solutions | Achieve Pack",
+                "seoDesc": "Explore Achieve Pack's full range of custom flexible packaging products, from Stand Up Pouches to Flat Bottom Bags. Shop our store for low MOQ printing.",
+                "hero": {
+                    "badge": "Our Catalog",
+                    "headlineLine1": "Premium Flexible",
+                    "headlineLine2": "Packaging Solutions",
+                    "desc": "From classic side gusset bags to innovative eco-friendly stand up pouches. Discover the perfect packaging architecture for your product, available for low MOQ custom printing.",
+                    "btnShop": "Shop All Products",
+                    "btnSize": "View Size Guide"
+                },
+                "products": {
+                    "standUp": {
+                        "title": "Stand Up Pouches",
+                        "desc": "The industry standard for shelf presence. Perfect for coffee, snacks, granola, and supplements. Available in conventional, recyclable, and compostable materials.",
+                        "features": [
+                            "Bottom Gusset Design",
+                            "Resealable Zippers",
+                            "Tear Notches"
+                        ]
+                    },
+                    "flatBottom": {
+                        "title": "Flat Bottom Bags",
+                        "desc": "The premium choice for coffee and high-end goods. Box-like stability with 5 printable faces for maximum retail visibility.",
+                        "features": [
+                            "5-Panel Branding",
+                            "Box-Like Stability",
+                            "Volume Optimized"
+                        ]
+                    },
+                    "sideGusset": {
+                        "title": "Side Gusset Bags",
+                        "desc": "The classic coffee packaging format. Quad seal structure with expandable side panels to maximize capacity in a compact footprint.",
+                        "features": [
+                            "Quad Seal Structure",
+                            "High Volume Capacity",
+                            "Tin Tie Compatible"
+                        ]
+                    },
+                    "ecoStock": {
+                        "title": "Eco Stock Pouches (Plain)",
+                        "desc": "Ready-to-ship, sustainable blank pouches. Perfect for startups and small batches wanting to apply their own labels.",
+                        "features": [
+                            "Ready to Ship",
+                            "Apply Custom Labels",
+                            "Recyclable/Compostable"
+                        ]
+                    },
+                    "spoutPouches": {
+                        "title": "Spout Pouches",
+                        "desc": "The flexible, lightweight alternative to rigid bottles and jars. Ideal for liquids, purees, and refill packaging.",
+                        "features": [
+                            "Leak-Proof Spout",
+                            "80% Less Plastic",
+                            "Cheaper Shipping"
+                        ]
+                    },
+                    "customBoxes": {
+                        "title": "Custom Boxes",
+                        "desc": "Premium folding cartons and corrugated mailer boxes to complete your product packaging ecosystem.",
+                        "features": [
+                            "Folding Cartons",
+                            "Corrugated Mailers",
+                            "Retail Ready"
+                        ]
+                    }
+                },
+                "card": {
+                    "btnShop": "Shop Now",
+                    "btnSpecs": "View Specs"
+                },
+                "cta": {
+                    "title": "Ready to start packaging?",
+                    "desc": "Browse our complete store inventory. Access live pricing, 3D previews, and our interactive quotation builder.",
+                    "btn": "Go to the Store"
+                }
+            },
+            "artworkReview": {
+                "importantNotice": {
+                    "title": "Important Notice - Please Read Before Approval",
+                    "notices": [
+                        "This proof is an exact duplicate of the original production artwork that will be used to print your product.",
+                        "All copy, punctuation and spelling has been proof read by the account executive.",
+                        "We will not be responsible for any discrepancies that are approved by the customer.",
+                        "Color Management will be controlled by other document."
+                    ],
+                    "tolerancesTitle": "Tolerances:",
+                    "tolerances": [
+                        "Bag Making Tolerance +/-2mm",
+                        "Color Tolerance +/-10%"
+                    ]
+                },
+                "checklist": {
+                    "size": "Size",
+                    "correct_colours": "Correct Colours",
+                    "eyespot_size_location": "Eyespot Size and Location",
+                    "weight_description": "Weight Description",
+                    "correct_upc_barcode": "Correct UPC/Bar Code",
+                    "roll_direction": "Roll Direction",
+                    "add_ons": "Add Ons (e.g. zipper, tear notch, etc)",
+                    "fin_lap_seal": "Fin/Lap Seal"
+                },
+                "upload": {
+                    "success": "Artwork overwritten successfully! Status reset to pending.",
+                    "fail": "Upload failed."
+                },
+                "status": {
+                    "approved": "Approved",
+                    "rejected": "Revision Needed",
+                    "pending": "Pending Review",
+                    "rejectedShort": "Need Revision"
+                },
+                "loading": {
+                    "message": "Loading artwork & document system..."
+                },
+                "notFound": {
+                    "title": "System Not Found",
+                    "message": "This system doesn't exist or has been removed."
+                },
+                "auth": {
+                    "title": "Artwork & Document System",
+                    "system": "System",
+                    "loading": "Loading...",
+                    "enterPassword": "Enter Password",
+                    "placeholder": "Access password",
+                    "incorrect": "Incorrect password. Please try again.",
+                    "submit": "Access System",
+                    "footer": "Password provided by AchievePack"
+                },
+                "header": {
+                    "title": "Artwork & Document System",
+                    "items": "{{count}} items / files",
+                    "pending": "{{count}} pending review",
+                    "submitReview": "Submit Review",
+                    "submit": "Submit"
+                },
+                "stats": {
+                    "pending": "Pending",
+                    "approved": "Approved",
+                    "rejected": "Need Revision"
+                },
+                "bulk": {
+                    "title": "Review All Files at Once",
+                    "desc": "Apply the same checklist verification and decision to all {{count}} files",
+                    "button": "Review All ({{count}})"
+                },
+                "search": {
+                    "placeholder": "Search by name, keyword, color..."
+                },
+                "sort": {
+                    "by": "Sort by",
+                    "activity": "Latest Activity",
+                    "newest": "Newest First",
+                    "oldest": "Oldest First",
+                    "name": "Name (A-Z)"
+                },
+                "filters": {
+                    "all": "All",
+                    "comments": "Comments",
+                    "withArtwork": "With Artwork",
+                    "blankCards": "Blank Cards",
+                    "approved": "Approved",
+                    "rejected": "Rejected",
+                    "pending": "Pending"
+                },
+                "item": {
+                    "pending": "Pending",
+                    "updated": "Updated:",
+                    "recently": "Recently",
+                    "size": "Size:",
+                    "reviewNow": "Review Now",
+                    "viewDetails": "View Details"
+                },
+                "overall": {
+                    "submit": "Submit All Reviews",
+                    "desc": "All {{count}} items / files have been reviewed. Click to finalize your submission."
+                },
+                "modal": {
+                    "title": "Review Artwork",
+                    "previewNotAvailable": "Preview not available",
+                    "fileSize": "File Size:",
+                    "pressProof": "Press Proof",
+                    "sourceLinkAvailable": "Source Link Available",
+                    "sourceLinkDesc": "Please use the original high-resolution source file for final color and dimension verification.",
+                    "downloadOriginal": "Download Original File",
+                    "autoDetect": "Auto-Detect",
+                    "checklistTitle": "Verification Checklist",
+                    "decisionTitle": "Your Decision",
+                    "approveAsIs": "Approve as is",
+                    "approveAsIsDesc": "Perfect! Ready for full commercial production.",
+                    "approveWithChanges": "Approve with changes",
+                    "approveWithChangesDesc": "Proceed after minor noted corrections.",
+                    "requiresRevision": "Requires Revision",
+                    "requiresRevisionDesc": "Do NOT print. Request new proof after changes.",
+                    "discussionThread": "Discussion Thread",
+                    "liveUpdates": "Live Updates",
+                    "initialFeedback": "Initial Feedback",
+                    "noDiscussion": "No discussion yet. Send a note to the production team.",
+                    "writeMessage": "Write a message...",
+                    "finalSummary": "Final Summary / Decision Notes",
+                    "cancel": "Cancel",
+                    "requestRevision": "Request Revision",
+                    "confirmApprove": "Confirm & Approve"
+                }
+            },
+            "certificateDownload": {
+                "certificates": [
+                    {
+                        "name": "BPI Certificate",
+                        "description": "BPI Commercial Compostability Certification"
+                    },
+                    {
+                        "name": "BRC Food Safety Audit Report 2024",
+                        "description": "Latest BRC Global Standards audit report for food packaging safety"
+                    },
+                    {
+                        "name": "BRC Certificate (English)",
+                        "description": "BRC Global Standard for Packaging Materials - Certificate"
+                    },
+                    {
+                        "name": "ISO 14001 Environmental Management",
+                        "description": "Environmental management system certification from CWL"
+                    },
+                    {
+                        "name": "FSC Chain of Custody",
+                        "description": "Forest Stewardship Council certification for responsible sourcing"
+                    },
+                    {
+                        "name": "GRS Global Recycled Standard",
+                        "description": "Certification for recycled content verification"
+                    },
+                    {
+                        "name": "ISO 9001 Quality Management",
+                        "description": "Quality management system certification"
+                    },
+                    {
+                        "name": "Home Compostable Certificate",
+                        "description": "DIN CERTCO home compostable certification (OK Compost HOME)"
+                    },
+                    {
+                        "name": "Home Compost Test Report",
+                        "description": "Full laboratory test report for home compostability"
+                    },
+                    {
+                        "name": "Seedling Logo EU Industrial Compostable",
+                        "description": "European Bioplastics certification confirming compliance with EN 13432"
+                    }
+                ],
+                "passwordGate": {
+                    "title": "Secure Certificate Download - Achieve Pack",
+                    "heading": "Password Required",
+                    "description": "Please enter the password to access certificate downloads.",
+                    "placeholder": "Enter password",
+                    "button": "Unlock"
+                },
+                "page": {
+                    "title": "Certificate Downloads - Pouch.eco",
+                    "heading": "Certificate Downloads",
+                    "description": "Access our complete collection of quality, food safety, and environmental certifications. All certificates are available in PDF format for your records."
+                },
+                "sections": {
+                    "foodSafety": "Food Safety Certifications",
+                    "environmental": "Environmental Certifications",
+                    "quality": "Quality Management"
+                },
+                "footer": {
+                    "text": "Need additional documentation or specific certificates? Contact us at "
+                },
+                "card": {
+                    "pdfType": "PDF Document",
+                    "download": "Download"
+                }
+            },
+            "standUpPouchQuote": {
+                "quotationStandUpPouchWithZippe": "Quotation: Stand Up Pouch with Zipper - Pouch.eco",
+                "backToHome": "Back to Home",
+                "kraftCompostable": "Kraft Compostable",
+                "plaCompostable": "PLA Compostable",
+                "metalisedBiope": "Metalised BioPE",
+                "aluminumBiope": "Aluminum BioPE",
+                "recyclablePe": "Recyclable PE",
+                "copied": "Copied!",
+                "share": "Share",
+                "quotation": "Quotation",
+                "date": "Date:",
+                "validity30Days": "Validity: 30 Days",
+                "includedDetails": "Included Details",
+                "surfaceKraftTexture": "Surface Kraft Texture",
+                "naturalKraftTexture": "Natural Kraft Texture",
+                "premiumWhiteKraftPaperWithNatu": "Premium white kraft paper with natural fiber texture. Provides excellent printability and authentic eco-friendly appearance.",
+                "compostableZipper": "Compostable Zipper",
+                "compostableResealableZipper": "Compostable Resealable Zipper",
+                "highQualityPressToCloseZipperF": "High-quality press-to-close zipper for easy resealing. Fully compostable to match the eco-friendly materials, keeping contents fresh sustainably.",
+                "note": "Note:",
+                "thisPouchFeaturesAntiDiscolora": "This pouch features anti-discoloration coating (防变色油) for enhanced color stability and shelf life.",
+                "industrialCompostableKraftMeta": "Industrial Compostable Kraft Metalised Triplex",
+                "premiumEcoFriendlyStandUpPouch": "Premium eco-friendly stand up pouch with resealable zipper, perfect for food products, snacks, and powders. Features a natural kraft paper aesthetic that communicates your commitment to sustainability.",
+                "materialStructure": "Material Structure",
+                "whiteKraftPaper60gPlaMetalised": "White Kraft Paper 60g / PLA Metalised / PLA+PBAT",
+                "industrialCompostable": "Industrial Compostable",
+                "outer": "Outer:",
+                "whiteKraftPaper60gsmPremiumLoo": "White Kraft Paper 60gsm (Premium Look)",
+                "middle": "Middle:",
+                "plaMetalisedLayerHighBarrier": "PLA Metalised Layer (High Barrier)",
+                "inner": "Inner:",
+                "plaPbatBiodegradableSealant": "PLA+PBAT Biodegradable Sealant",
+                "thickness150Micron": "Thickness: 150 micron",
+                "sustainabilityFeatures": "Sustainability Features",
+                "industrialCompostable1": "Industrial Compostable:",
+                "fullBagStructureCertifiedForIn": "Full bag structure certified for industrial composting.",
+                "ecoComponents": "Eco-Components:",
+                "zipperMadeOf": "Zipper made of",
+                "pla": "PLA",
+                "allLayersBiodegradable": "; all layers biodegradable.",
+                "sustainablePrinting": "Sustainable Printing:",
+                "digitalPrintUses": "Digital print uses",
+                "homeCompostableInk": "home compostable ink",
+                "byHpIndigo": "by HP Indigo.",
+                "specialCoating": "Special Coating:",
+                "antiDiscolorationCoatingForEnh": "Anti-discoloration coating for enhanced durability.",
+                "certificationsStandards": "Certifications & Standards",
+                "bpiCertified": "BPI Certified",
+                "fscCertified": "FSC Certified",
+                "brcFoodSafety": "BRC Food Safety",
+                "includedOptions": "Included Options",
+                "standUpStructure": "Stand Up Structure",
+                "whiteKraftPaper": "White Kraft Paper",
+                "standardZipper": "Standard Zipper",
+                "antiDiscoloration": "Anti-Discoloration",
+                "quoteDimensions": "Quote Dimensions",
+                "standUpPouch": "Stand Up Pouch",
+                "mm": "mm",
+                "38mmGusset": "38mm Gusset",
+                "thisQuotationIsForASingleSizeC": "This quotation is for a single size. Contact us for additional sizes or custom dimensions.",
+                "digitalPrintPricingLowMoq": "Digital Print Pricing (Low MOQ)",
+                "noPlateCostsHomeCompostableHpI": "No plate costs. Home compostable HP Indigo ink.",
+                "qtyPcs": "Qty (pcs)",
+                "unitPriceUsd": "Unit Price (USD)",
+                "totalUsd": "Total (USD)",
+                "estWeight": "Est. Weight",
+                "3Kg": "3 kg",
+                "12Kg": "12 kg",
+                "23Kg": "23 kg",
+                "56Kg": "56 kg",
+                "111Kg": "111 kg",
+                "shippingCostsDoorToDoor": "Shipping Costs (Door-to-Door)",
+                "airFreight": "Air Freight",
+                "fastDelivery710Days": "Fast delivery: 7-10 days",
+                "kg": "/kg",
+                "doorToDoorService": "Door-to-door service",
+                "includesTaxCustomsDuty": "Includes tax & customs duty",
+                "seaFreight": "Sea Freight",
+                "economy3045Days": "Economy: 30-45 days",
+                "shippingExample": "Shipping Example:",
+                "for5000PcsOrder56Kg": "For 5,000 pcs order (56 kg):",
+                "airFreight56Kg15": "Air freight: 56 kg × $15 =",
+                "seaFreight56Kg5": "Sea freight: 56 kg × $5 =",
+                "compostableCertificationLogo": "Compostable Certification Logo",
+                "addThisLogoToYourArtwork": "Add This Logo to Your Artwork",
+                "freeOptions": "Free Options:",
+                "seedlingLogoHomeCompostableLog": "Seedling Logo / Home Compostable Logo:",
+                "weWillProvideTheFreeLogoFileFo": "We will provide the free logo file for your designer.",
+                "buildsConsumerTrustInYourSusta": "Builds consumer trust in your sustainability claims and guides proper disposal.",
+                "paidBpiCertifiedLogoOption": "Paid BPI Certified Logo Option:",
+                "achievePackIsABpiCertifiedManu": "Achieve Pack is a BPI Certified manufacturer (",
+                "verifyOurBpiListingHere": "verify our BPI listing here",
+                "youCanAddTheOfficialBpiLogoToY": "). You can add the official BPI logo to your packaging through our sublicense!",
+                "sublicenseRequirement": "Sublicense Requirement:",
+                "requiresASublicenseAgreementBp": "Requires a sublicense agreement. BPI charges USD $1,000 - $2,000 per year.",
+                "providesTheHighestStandardOfVa": "Provides the highest standard of validation for industrial compostability in North America.",
+                "optionalEnhancements": "Optional Enhancements",
+                "stampFoiling": "Stamp Foiling",
+                "upgradeYourPackagingWithAPremi": "Upgrade your packaging with a premium metallic finish. Perfect for making logos and specific design elements stand out on the shelf.",
+                "pricingNote": "Pricing Note:",
+                "additional": "Additional",
+                "usd150PerSizePerFace": "USD 150 per size per face",
+                "pleaseAdviseYourDesignToReceiv": "Please advise your design to receive a final quote if stamp foiling is needed.",
+                "glossySurface": "Glossy Surface",
+                "premiumGlossyFinish": "Premium Glossy Finish",
+                "highGlossSurfaceFinishThatEnha": "High-gloss surface finish that enhances print vibrancy and provides excellent shelf appeal for your product.",
+                "standardResealableZipper": "Standard Resealable Zipper",
+                "highQualityPressToCloseZipperF2": "High-quality press-to-close zipper for easy resealing. Keeps contents fresh and provides excellent consumer convenience.",
+                "industrialCompostablePlaMetali": "Industrial Compostable PLA Metalised Triplex",
+                "premiumClearIndustrialComposta": "Premium clear industrial compostable stand up pouch with resealable zipper. Made from 100% plant-based PLA materials, perfect for showcasing your product while maintaining eco-friendly credentials.",
+                "pla30Mpla15Pbat100": "PLA30 / MPLA15 / PBAT100",
+                "pla30MClearPlantBasedFilm": "PLA 30μm (Clear Plant-Based Film)",
+                "metalisedPla15MBarrierLayer": "Metalised PLA 15μm (Barrier Layer)",
+                "pbat100MBiodegradableSealant": "PBAT 100μm (Biodegradable Sealant)",
+                "totalThickness145Micron": "Total Thickness: 145 micron",
+                "industrialCompostable3": "Industrial Compostable:",
+                "fullBagStructureCertifiedForIn4": "Full bag structure certified for industrial composting facilities.",
+                "plantBased": "Plant-Based:",
+                "madeFromRenewablePlantResource": "Made from renewable plant resources (corn starch derived PLA).",
+                "clearWindow": "Clear Window:",
+                "transparentMaterialShowcasesYo": "Transparent material showcases your product beautifully.",
+                "100PlantBasedPla": "100% Plant-Based PLA",
+                "76mmFullGusset": "76mm Full Gusset",
+                "thickness145Micron": "Thickness: 145 micron",
+                "realProductSampleGlossyStandUp": "Real Product Sample (Glossy Stand Up Pouch)",
+                "actualSamplePhotosDemonstratin": "Actual sample photos demonstrating our glossy stand up pouches. Note the vibrant digital print quality, premium glossy finish, and reliable resealable zipper.",
+                "frontView": "Front View",
+                "backView": "Back View",
+                "thisSampleDemonstrates": "This sample demonstrates:",
+                "glossySurfaceFinishDigitalPrin": "Glossy surface finish, digital printing quality, and stand up pouch structure with zipper.",
+                "16Kg": "1.6 kg",
+                "16Kg5": "16 kg",
+                "80Kg": "80 kg",
+                "160Kg": "160 kg",
+                "for5000PcsOrder80Kg": "For 5,000 pcs order (80 kg):",
+                "airFreight80Kg15": "Air freight: 80 kg × $15 =",
+                "seaFreight80Kg5": "Sea freight: 80 kg × $5 =",
+                "spotMatteVarnish": "Spot Matte Varnish",
+                "spotMatteVarnish6": "Spot Matte Varnish (局部哑油)",
+                "premiumSpotMatteVarnishFinishC": "Premium spot matte varnish finish creates elegant contrast between glossy and matte areas, highlighting key design elements.",
+                "highQualityPressToCloseZipperF7": "High-quality press-to-close zipper for easy resealing. Keeps contents fresh and provides excellent consumer convenience.",
+                "biopePetMetalisedTriplex": "BioPE PET Metalised Triplex",
+                "premiumStandUpPouchWithBioBase": "Premium stand up pouch with bio-based PE sealant and metalised PET barrier. Features spot matte varnish for a sophisticated look that combines sustainability with excellent shelf presence.",
+                "pet12Vmpet12BioBasedPe80": "PET12 / VMPET12 / Bio-based PE80",
+                "plantBasedBioPe": "Plant-Based Bio-PE",
+                "pet12MClearPrintableFilm": "PET 12μm (Clear Printable Film)",
+                "metalisedPet12MHighBarrier": "Metalised PET 12μm (High Barrier)",
+                "bioBasedPe80MPlantBasedSealant": "Bio-based PE 80μm (Plant-Based Sealant)",
+                "totalThickness104Micron": "Total Thickness: 104 micron",
+                "bioBasedPe": "Bio-Based PE:",
+                "innerLayerMadeFromSugarcaneDer": "Inner layer made from sugarcane-derived renewable resources.",
+                "highBarrier": "High Barrier:",
+                "metalisedPetProvidesExcellentO": "Metalised PET provides excellent oxygen and moisture protection.",
+                "premiumFinish": "Premium Finish:",
+                "spotMatteVarnishCreatesElegant": "Spot matte varnish creates elegant visual contrast.",
+                "reducedCarbon": "Reduced Carbon:",
+                "bioPeReducesCarbonFootprintCom": "Bio-PE reduces carbon footprint compared to conventional PE.",
+                "bioPeCertified": "Bio-PE Certified",
+                "bioBasedPe8": "Bio-based PE",
+                "selectSize": "Select Size",
+                "selected": "Selected",
+                "sizeALarge": "Size A - Large",
+                "476mmGusset": "47.6mm Gusset",
+                "28gPcs104Micron": "28g/pcs • 104 micron",
+                "sizeBSmall": "Size B - Small",
+                "60mmGusset": "60mm Gusset",
+                "12gPcsSpotMatteVarnish": "~12g/pcs • Spot Matte Varnish",
+                "digitalPrintPricingLowMoq9": "Digital Print Pricing (Low MOQ) -",
+                "noPlateCostsPremiumSpotMatteVa": "No plate costs. Premium spot matte varnish included.",
+                "28Kg": "2.8 kg",
+                "28Kg10": "28 kg",
+                "140Kg": "140 kg",
+                "280Kg": "280 kg",
+                "moq": "(MOQ)",
+                "total": "(total)",
+                "12Kg11": "1.2 kg",
+                "60Kg": "60 kg",
+                "120Kg": "120 kg",
+                "platePrintPricingHighVolume": "Plate Print Pricing (High Volume) -",
+                "bestValueForLargeQuantitiesPla": "Best value for large quantities. Plate fee:",
+                "1400Kg": "1,400 kg",
+                "600Kg": "600 kg",
+                "plateFee": "Plate Fee:",
+                "thisIsAOneTimeSetupCostPerArtw": ". This is a one-time setup cost per artwork.",
+                "for5000PcsOrder140Kg": "For 5,000 pcs order (140 kg):",
+                "airFreight140Kg15": "Air freight: 140 kg × $15 =",
+                "seaFreight140Kg5": "Sea freight: 140 kg × $5 =",
+                "bioPeCertificationLogo": "Bio-PE Certification Logo",
+                "the": "The",
+                "iMGreen": "\"I'm green™\"",
+                "logoIsTheOfficialCertification": "logo is the official certification mark from Braskem for Bio-based Polyethylene. By using this material, you are entitled to display this logo on your packaging to communicate your commitment to sustainability.",
+                "demonstratesUseOfPlantBasedRen": "Demonstrates use of plant-based, renewable materials",
+                "recognizedGloballyAsASustainab": "Recognized globally as a sustainability credential",
+                "helpsDifferentiateYourBrandOnS": "Helps differentiate your brand on shelf",
+                "weWillProvideTheLogoFileForYou": "We will provide the logo file for your designer",
+                "10mmSpout": "10mm Spout",
+                "spoutedAluminumBiope": "Spouted Aluminum BioPE",
+                "premiumSpoutedStandUpPouchWith": "Premium spouted stand-up pouch with aluminum barrier layer and bio-based PE. Ideal for liquid products, sauces, and beverages with excellent barrier properties.",
+                "15921545mm": "159 × 215 + 45mm",
+                "pet12Alu7Ny15Biope100": "PET12 / ALU7 / NY15 / BioPE100",
+                "digitalPrinting": "Digital Printing",
+                "25gPouch": "25g/pouch",
+                "pet12": "PET12",
+                "alu7": "ALU7",
+                "ny15": "NY15",
+                "biope100": "BioPE100",
+                "4LayerLaminateWithAluminumBarr": "4-layer laminate with aluminum barrier and bio-based PE for sustainability",
+                "realProductSample500mlBiopeSpo": "Real Product Sample (500ml BioPE Spouted Pouch)",
+                "actualSamplePhotosShowingTheEx": "Actual sample photos showing the exact size and material specification. This 500ml spouted stand-up pouch features \"I'm Green™\" bio-based PE certification.",
+                "iMGreenLogoDetail": "I'm Green™ Logo Detail",
+                "500mlCapacityGlossyFinishDigit": "500ml capacity, glossy finish, digital printing, 10mm spout, and \"I'm Green™\" BioPE certification mark visible on packaging.",
+                "digitalPrintingPrice": "Digital Printing Price",
+                "premiumSpoutedPouchesWithAlumi": "Premium spouted pouches with aluminum barrier and bio-based PE. Digital printing offers full-color customization with no plate fees.",
+                "quantityPcs": "Quantity (pcs)",
+                "estGrossWeight": "Est. Gross Weight",
+                "25Kg": "2.5 kg",
+                "25Kg12": "25 kg",
+                "50Kg": "50 kg",
+                "125Kg": "125 kg",
+                "250Kg": "250 kg",
+                "digitalPrintingNoPlateFeesMoq1": "Digital printing: No plate fees. MOQ 100pcs (quoted as total price).",
+                "spoutApplicationTooling": "Spout Application Tooling",
+                "usd150": "USD $150",
+                "perSize": "per size",
+                "oneTimeToolingFeeForSpoutAppli": "One-time tooling fee for spout application. Required for new orders.",
+                "estimatedShippingCost": "Estimated Shipping Cost",
+                "estimatedTotalCostIncludingPro": "Estimated total cost including product and shipping. Actual shipping cost depends on destination.",
+                "quantity": "Quantity",
+                "productCost": "Product Cost",
+                "grossWeight": "Gross Weight",
+                "totalSea": "Total (Sea)",
+                "totalAir": "Total (Air)",
+                "25Kg13": "25 kg",
+                "shippingEstimatesToMajorPortsW": "Shipping estimates to major ports. We will provide exact quotes upon inquiry.",
+                "theIMGreenLogoIsTheOfficialCer": "The \"I'm green™\" logo is the official certification mark for Braskem's bio-based polyethylene. Display this on your packaging to communicate your commitment to sustainability.",
+                "showsYourPackagingUsesPlantBas": "Shows your packaging uses plant-based renewable materials",
+                "matteClearFinish": "Matte Clear Finish",
+                "clearMaterialWithMatteSurface": "Clear Material with Matte Surface",
+                "highTransparencyClearMaterialP": "High transparency clear material paired with a premium matte surface. Fingerprint-resistant and elegantly highlights your internal product.",
+                "lowTempZipper": "Low-Temp Zipper",
+                "ultraLowTempZipper": "Ultra Low-Temp Zipper",
+                "peLaminatedPeUltraLowTemperatu": "PE laminated PE ultra-low temperature zipper. Resealable and 100% compatible with the mono-material recycling stream.",
+                "100RecyclableHighBarrierPe": "100% Recyclable High-Barrier PE",
+                "premiumMonoMaterialStandUpPouc": "Premium mono-material stand up pouch combining excellent recyclability (Code 4 LDPE) with an EVOH high-barrier layer to protect your product's freshness and flavor.",
+                "mattePeEvohUltraLowTempPe": "Matte PE / EVOH / Ultra Low-Temp PE",
+                "100Recyclable": "100% Recyclable",
+                "recyclablePeMatteFilmPrintable": "Recyclable PE Matte Film (Printable Surface)",
+                "evohHighBarrierForOxygenMoistu": "EVOH (High Barrier for Oxygen/Moisture)",
+                "ultraLowTempPeColdResistantSea": "Ultra Low-Temp PE (Cold-Resistant Sealant)",
+                "totalThickness122Micron": "Total Thickness: 122 micron",
+                "monoMaterialDesign": "Mono-Material Design:",
+                "100PolyethyleneStructureMeetsG": "100% Polyethylene structure meets guidelines for store drop-off recycling.",
+                "evohHighBarrier": "EVOH High Barrier:",
+                "providesGasAndMoistureBarrierC": "Provides gas and moisture barrier comparable to multi-material laminates.",
+                "digitalPrinting14": "Digital Printing:",
+                "noPrintingPlatesRequiredReduci": "No printing plates required, reducing waste and setup energy.",
+                "coldResistant": "Cold Resistant:",
+                "ultraLowTemperaturePeEnsuresDu": "Ultra low-temperature PE ensures durability even in freezing conditions.",
+                "recyclableMonoPe": "Recyclable Mono-PE",
+                "recyclablePeZipper": "Recyclable PE Zipper",
+                "evohHighBarrier15": "EVOH High Barrier",
+                "45mmBottomGusset": "45mm Bottom Gusset",
+                "thickness122Micron": "Thickness: 122 micron",
+                "customDimensionsProvidedByClie": "Custom dimensions provided by client. Contact us for modifications.",
+                "productionShrinkageAllowance": "Production Shrinkage Allowance",
+                "pleaseNoteThatAnExtra": "Please note that an extra",
+                "5mm": "5mm",
+                "hasBeenIntentionallyAddedToThe": "has been intentionally added to the requested width, length, and bottom gusset dimensions.",
+                "duringTheThermalCuttingAndHeat": "During the thermal cutting and heat-sealing process of Recyclable PE materials, slight shrinkage naturally occurs. Providing this 5mm production allowance ensures that your final pouch flawlessly matches your target specifications and maintains optimal internal capacity.",
+                "digitalPrintPricing": "Digital Print Pricing",
+                "noPlateCostsBaseCurrencyCalcul": "No plate costs. Base currency calculated at standard exchange rates.",
+                "110Kg": "11.0 kg",
+                "220Kg": "22.0 kg",
+                "digitalPrintingQuotesIncludeOu": "Digital printing: Quotes include our standard margin (1.5x on supplier costs). Base Exchange Rate: ~6.8 RMB/USD.",
+                "estimatedTotalCostIncludingPro16": "Estimated total cost including product and shipping. Standard shipping rates applied: Air ($15/kg) | Sea ($5/kg).",
+                "recyclabilityLogos": "Recyclability Logos",
+                "addRecyclingIcons": "Add Recycling Icons",
+                "thisPackagingIsDesignatedAsA": "This packaging is designated as a",
+                "class4LdpeRecyclablePlastic": "Class 4 LDPE Recyclable Plastic",
+                "structureWeRecommendAddingStor": "structure. We recommend adding Store Drop-Off or general recycling icons to your artwork to inform customers.",
+                "monoPolymerStandardCompliance": "Mono-polymer standard compliance",
+                "canBeRecycledAtSoftPlasticColl": "Can be recycled at soft plastic collection points",
+                "drivesSustainableBrandAwarenes": "Drives sustainable brand awareness",
+                "optionalUpgradeSpotUvFinish": "Optional Upgrade: Spot UV Finish",
+                "premiumAddOn": "Premium Add-On",
+                "30Cost": "+30% Cost",
+                "spotUvWithEmbossingEffect": "Spot UV with Embossing Effect",
+                "elevateYourPackagingBeyondAFla": "Elevate your packaging beyond a flat glossy look. Our Spot UV finish combines",
+                "uvVarnishWithASubtleEmbossingE": "UV varnish with a subtle embossing effect",
+                "creatingARaisedTactileTextureO": ", creating a raised tactile texture over selected design elements — such as logos, patterns, or key artwork areas — on top of a matte base surface.",
+                "unlikeStandardFlatReflectiveSp": "Unlike standard flat reflective spot UV, this treatment adds a",
+                "threeDimensionalTactileQuality": "three-dimensional, tactile quality",
+                "thatMakesYourPackagingFeelPrem": "that makes your packaging feel premium to the touch. The contrast between the soft matte background and the raised glossy UV spots creates a striking shelf presence.",
+                "uvEmbossCombo": "UV + Emboss Combo:",
+                "notJustFlatReflectiveCreatesRa": "Not just flat reflective — creates raised 3D texture",
+                "appliedOverMatteBase": "Applied over matte base:",
+                "maximumVisualContrastBetweenSu": "Maximum visual contrast between surfaces",
+                "selectivePlacement": "Selective placement:",
+                "logosBordersIllustrationsOrSpe": "Logos, borders, illustrations, or specific artwork zones",
+                "compatibleWithPeStructure": "Compatible with PE structure:",
+                "availableOnThisRecyclableMonoP": "Available on this recyclable mono-PE material",
+                "pricingNote17": "Pricing Note",
+                "spotUvWithEmbossingAddsApproxi": "Spot UV with embossing adds approximately",
+                "toTheBasePouchUnitPricePleaseS": "to the base pouch unit price. Please share your artwork or design intent so we can provide a finalised quote for this finish.",
+                "contactInformation": "Contact Information",
+                "ryanWong": "Ryan Wong",
+                "achievePackRegMdashYourPackagi": "Achieve Pack &reg; &mdash; Your Packaging Assistant Anywhere &reg;",
+                "httpsPouchEco": "https://pouch.eco",
+                "httpsAchievepackCom": "https://achievepack.com",
+                "ryanPouchEco": "ryan@pouch.eco",
+                "termsConditions": "Terms & Conditions",
+                "pricesQuotedAreInUsdExw": "Prices quoted are in USD (EXW).",
+                "shippingCostsAreAdditionalSeeS": "Shipping costs are additional (see shipping section above).",
+                "productionToExFactoryLeadTimeI": "Production to ex-factory lead time is 15-25 days from artwork confirm and deposit received.",
+                "paymentTerms50DepositUponOrder": "Payment terms: 50% deposit upon order confirmation, balance before shipment.",
+                "productionToleranceInvoicedOnA": "Production tolerance, invoiced on actual quantity produced:",
+                "quantityUnder100050": "Quantity under 1,000: ± 50%",
+                "quantityUnder1000020": "Quantity under 10,000: ± 20%",
+                "quantity10000AndOver10": "Quantity 10,000 and over: ± 10%",
+                "copy2025PouchEcoByAchievePackA": "&copy; 2025 Pouch.eco by Achieve Pack. All rights reserved."
+            },
+            "spoutedPouchQuote": {
+                "title": "Quotation: Spouted Stand Up Pouch - Pouch.eco",
+                "backToHome": "Back to Home",
+                "header": {
+                    "quotation": "Quotation",
+                    "date": "Date:",
+                    "validity": "Validity: 30 Days"
+                },
+                "productOverview": {
+                    "includedDetails": "Included Details",
+                    "spoutBadge": "Spout 9.6mm",
+                    "spoutTitle": "9.6mm Spout with Cap",
+                    "spoutDesc": "Standard 9.6mm spout with screw cap for easy pouring and resealing. Perfect for liquids, gels, and semi-liquids.",
+                    "surfaceBadge": "Surface Finish",
+                    "surfaceTitle": "Glossy Surface Finish",
+                    "surfaceDesc": "High-shine glossy finish that enhances color vibrancy and provides a premium shelf appeal. Included in this quotation.",
+                    "dieCutNote": "Note:",
+                    "dieCutText": "Spout die cut fee of $300/size applies for new spout position or custom placement."
+                },
+                "productDetails": {
+                    "title": "Spouted Stand Up Pouch",
+                    "description": "Premium spouted stand up pouch ideal for liquid and semi-liquid products. Features a convenient 9.6mm spout for easy dispensing and bio-based materials for sustainability.",
+                    "materialStructure": "Material Structure",
+                    "materialTitle": "MOPP 20 / AL 7 / NY 15 / PE 110 Bio-based",
+                    "bioBadge": "Bio-based Material",
+                    "materials": [
+                        "Outer: MOPP 20μ (Matte Finish, Printable)",
+                        "Middle 1: Aluminum Foil 7μ (High Barrier)",
+                        "Middle 2: Nylon 15μ (Puncture Resistance)",
+                        "Inner: PE 110μ Bio-based (Heat Sealant)"
+                    ],
+                    "totalThickness": "Total Thickness: 152 micron",
+                    "keyFeaturesTitle": "Key Features",
+                    "keyFeatures": [
+                        "Bio-based PE: Inner layer made from renewable bio-based polyethylene.",
+                        "High Barrier: Aluminum foil provides excellent oxygen and moisture barrier.",
+                        "Liquid Safe: Perfect for beverages, sauces, gels, and liquid products.",
+                        "Digital Print: High-quality digital printing with vibrant colors."
+                    ],
+                    "certificationsTitle": "Certifications & Standards",
+                    "certBioPE": "Bio-PE",
+                    "certBRC": "BRC Food Safety",
+                    "bioLogoTitle": "Bio-PE Logo Available for Your Artwork",
+                    "bioLogoDesc": "Communicate your sustainability commitment directly on your packaging. The Bio-PE certification logo can be incorporated into your artwork design, providing instant visual proof to consumers that your pouch uses renewable, bio-based materials.",
+                    "bioLogoBenefits": [
+                        "Demonstrates environmental responsibility",
+                        "Builds consumer trust and brand credibility",
+                        "Differentiates your product on retail shelves"
+                    ],
+                    "includedOptionsTitle": "Included Options",
+                    "options": {
+                        "structure": "Stand Up Structure",
+                        "spout": "9.6mm Spout",
+                        "surface": "Glossy Surface",
+                        "barrier": "Aluminum Barrier",
+                        "material": "Bio-based PE"
+                    }
+                },
+                "dimensions": {
+                    "title": "Quote Dimensions",
+                    "pouchType": "Spouted Stand Up Pouch",
+                    "size": "110 × 160",
+                    "unit": "mm",
+                    "gusset": "60mm Gusset",
+                    "specs": "Spout: 9.6mm | Thickness: 152μ",
+                    "note": "This quotation is for a single size. Contact us for additional sizes or custom dimensions."
+                },
+                "pricing": {
+                    "title": "Digital Print Pricing (Low MOQ)",
+                    "subtitle": "No plate costs. Vibrant digital printing.",
+                    "headers": {
+                        "qty": "Qty (pcs)",
+                        "unitPrice": "Unit Price (USD)",
+                        "total": "Total (USD)",
+                        "weight": "Est. Weight"
+                    },
+                    "rows": [
+                        {
+                            "qty": "1,000",
+                            "unitPrice": "$0.58",
+                            "total": "$580.00",
+                            "weight": "20 kg"
+                        },
+                        {
+                            "qty": "2,000",
+                            "unitPrice": "$0.33",
+                            "total": "$660.00",
+                            "weight": "40 kg"
+                        },
+                        {
+                            "qty": "4,000",
+                            "unitPrice": "$0.29",
+                            "total": "$1,160.00",
+                            "weight": "80 kg"
+                        },
+                        {
+                            "qty": "5,000",
+                            "unitPrice": "$0.27",
+                            "total": "$1,350.00",
+                            "weight": "100 kg"
+                        },
+                        {
+                            "qty": "10,000",
+                            "unitPrice": "$0.23",
+                            "total": "$2,300.00",
+                            "weight": "200 kg"
+                        }
+                    ],
+                    "dieCutFeeTitle": "Spout Die Cut Fee:",
+                    "dieCutFeeText": "$300 per size (one-time fee for new spout position)"
+                },
+                "shipping": {
+                    "title": "Shipping Costs (Door-to-Door)",
+                    "air": {
+                        "title": "Air Freight",
+                        "time": "Fast delivery: 7-10 days",
+                        "price": "$15",
+                        "unit": "/kg",
+                        "service": "Door-to-door service",
+                        "includes": "Includes tax & customs duty"
+                    },
+                    "sea": {
+                        "title": "Sea Freight",
+                        "time": "Economy: 30-45 days",
+                        "price": "$5",
+                        "unit": "/kg",
+                        "service": "Door-to-door service",
+                        "includes": "Includes tax & customs duty"
+                    },
+                    "exampleTitle": "Shipping Example:",
+                    "exampleText": "For 5,000 pcs order (100 kg):",
+                    "exampleAir": "Air freight: 100 kg × $15 = ",
+                    "exampleAirTotal": "$1,500",
+                    "exampleSea": "Sea freight: 100 kg × $5 = ",
+                    "exampleSeaTotal": "$500"
+                },
+                "enhancements": {
+                    "title": "Optional Enhancements",
+                    "foilTitle": "Stamp Foiling",
+                    "foilDesc": "Upgrade your packaging with a premium metallic finish. Perfect for making logos and specific design elements stand out on the shelf.",
+                    "pricingNoteTitle": "Pricing Note:",
+                    "pricingNoteText1": "This feature is",
+                    "pricingNoteText2": "not included",
+                    "pricingNoteText3": "in the pricing tables above.",
+                    "foilCost1": "Stamp foil costs an additional",
+                    "foilCost2": "USD 150 per size per face.",
+                    "adviseNote": "Please advise your design to receive a final quote if stamp foiling is needed."
+                },
+                "contact": {
+                    "title": "Contact Information",
+                    "name": "Ryan Wong",
+                    "slogan": "Achieve Pack ® — Your Packaging Assistant Anywhere ®"
+                },
+                "terms": {
+                    "title": "Terms & Conditions",
+                    "list": [
+                        "Prices quoted are in USD (EXW).",
+                        "Shipping costs are additional (see shipping section above).",
+                        "Spout die cut fee ($167/size) applies for new spout positions.",
+                        "Production to ex-factory lead time is 15-25 days from artwork confirm and deposit received.",
+                        "Payment terms: 50% deposit upon order confirmation, balance before shipment.",
+                        "Production tolerance, invoiced on actual quantity produced:"
+                    ],
+                    "tolerances": [
+                        "Quantity under 1,000: ± 50%",
+                        "Quantity under 10,000: ± 20%",
+                        "Quantity 10,000 and over: ± 10%"
+                    ]
+                },
+                "footer": {
+                    "copyright": "© 2025 Pouch.eco by Achieve Pack. All rights reserved."
+                }
+            },
+            "flatBottomQuote": {
+                "quotationFlatBottomKraftPouchP": "Quotation: Flat Bottom Kraft Pouch - Pouch.eco",
+                "backToHome": "Back to Home",
+                "quotation": "Quotation",
+                "date": "Date:",
+                "validity30Days": "Validity: 30 Days",
+                "includedDetails": "Included Details",
+                "homeCompostableZipper": "Home Compostable Zipper",
+                "frontPocketZipper": "Front Pocket Zipper",
+                "builtForConvenienceWithAnEasyT": "Built for convenience with an easy-tear front access and a reliable resealable track. This zipper is constructed from PBAT, ensuring it remains fully certified for home composting without sacrificing structural integrity.",
+                "industrialCompostableValve": "Industrial Compostable Valve",
+                "plaOneWayDegassingValve": "PLA One-Way Degassing Valve",
+                "releasesBuiltUpCoNbsp8322FromF": "Releases built-up CO&nbsp;&#8322; from fresh roasted coffee beans while preventing outside oxygen from entering and spoiling the coffee. Made from PLA, making it perfectly suitable for industrial composting facilities.",
+                "note": "Note:",
+                "weOfferCompostableValvesMadeWi": "We offer compostable valves made with PLA (Industrial Compostable only). For Home Compostable bags, the valve must be removed before composting at home.",
+                "expertTip": "Expert Tip",
+                "protectCelluloseFromBecomingBr": "Protect Cellulose From Becoming Brittle",
+                "naturalCelluloseCompostBagsCan": "Natural cellulose compost bags can become brittle in dry environments. Learn about our humidity control solutions to reduce transport damage by 70%.",
+                "readMoreRarr": "Read more &rarr;",
+                "flatBottomKraftPouch": "Flat Bottom Kraft Pouch",
+                "premiumEcoFriendlyFlatBottomPo": "Premium eco-friendly flat bottom pouch designed for excellent shelf presence and stability. Features a natural kraft paper aesthetic that communicates your commitment to sustainability.",
+                "materialStructure": "Material Structure",
+                "kraftPaper70gsmMetalisedLayerP": "Kraft Paper 70gsm / Metalised Layer / PBAT60",
+                "homeCompostable": "Home Compostable",
+                "outer": "Outer:",
+                "kraftPaper70gsmNaturalLookFeel": "Kraft Paper 70gsm (Natural Look & Feel)",
+                "middle": "Middle:",
+                "metalisedLayerHighBarrier": "Metalised layer (High Barrier)",
+                "inner": "Inner:",
+                "pbat60BiodegradableSealant": "PBAT60 (Biodegradable Sealant)",
+                "thickness150160MicronNbspNbspO": "Thickness: 150-160 micron &nbsp;|&nbsp; OTR: &lt;2 cc/m&sup2;/day &nbsp;|&nbsp; WVTR: &lt;5 g/m&sup2;/day",
+                "sustainabilityFeatures": "Sustainability Features",
+                "homeCompostable1": "Home Compostable:",
+                "bagMaterialAndZipperAreCertifi": "Bag material and zipper are certified Home Compostable.",
+                "ecoComponents": "Eco-Components:",
+                "zipperIsMadeOf": "Zipper is made of",
+                "pbat": "PBAT",
+                "coffeeValveIsMadeOf": "; coffee valve is made of",
+                "pla": "PLA",
+                "industrialCompostable": "(Industrial Compostable).",
+                "sustainablePrinting": "Sustainable Printing:",
+                "rotoPrintUses": "Roto print uses",
+                "waterBasedInk": "water-based ink",
+                "digitalPrintUses": ". Digital print uses",
+                "homeCompostableInk": "home compostable ink",
+                "byHpIndigo": "by HP Indigo.",
+                "safeBonding": "Safe Bonding:",
+                "allLaminationUses": "All lamination uses",
+                "solventlessAdhesive": "solventless adhesive",
+                "certificationsStandards": "Certifications & Standards",
+                "dinCertco": "DIN Certco",
+                "homeCompost": "Home Compost",
+                "auAs5810": "AU AS5810",
+                "bpiCertified": "BPI Certified",
+                "compostable": "Compostable",
+                "fscCertified": "FSC Certified",
+                "responsibleForestry": "Responsible Forestry",
+                "brcStandard": "BRC Standard",
+                "foodSafety": "Food Safety",
+                "includedOptions": "Included Options",
+                "flatBottomStructure": "Flat Bottom Structure",
+                "kraftPaperSurface": "Kraft Paper Surface",
+                "oneSidedZipper": "One-Sided Zipper",
+                "degassingValve": "Degassing Valve",
+                "quoteDimensions": "Quote Dimensions",
+                "100g": "100g",
+                "105Times190": "105 &times; 190",
+                "mm": "mm",
+                "60mmGusset": "60mm Gusset",
+                "200g": "200g",
+                "110Times205": "110 &times; 205",
+                "65mmGusset": "65mm Gusset",
+                "500g": "500g",
+                "135Times265": "135 &times; 265",
+                "75mmGusset": "75mm Gusset",
+                "1kg": "1kg",
+                "145Times330": "145 &times; 330",
+                "100mmGusset": "100mm Gusset",
+                "rotoPrintPricingOption": "Roto Print Pricing Option",
+                "plateCostIs": "Plate cost is",
+                "usd120ColorSize": "USD 120 / color / size",
+                "printingOnTheFlatBottomSideGus": ". Printing on the flat bottom side gusset requires an extra plate.",
+                "plateCostsAreNotIncludedInTheT": "*Plate costs are not included in the table values below.",
+                "capacity": "Capacity",
+                "sizeWXHXGussetMm": "Size (W x H x Gusset) mm",
+                "home": "Home",
+                "zipper": "Zipper",
+                "industrial": "Industrial",
+                "valve": "Valve",
+                "qtyPcs": "Qty (pcs)",
+                "unitPriceUsdPc": "Unit Price (USD/pc)",
+                "totalUsd": "Total (USD)",
+                "105X190X60": "105 x 190 x 60",
+                "110X205X65": "110 x 205 x 65",
+                "135X265X75": "135 x 265 x 75",
+                "145X330X100": "145 x 330 x 100",
+                "rotoPrintPlateNote": "Roto Print Plate Note:",
+                "pleaseNoteThatPlateCostsAre": "*Please note that plate costs are",
+                "notIncluded": "not included",
+                "inTheTableCostAbove": "in the table cost above.*",
+                "digitalPrintPricingOptionLowMo": "Digital Print Pricing Option (Low MOQ)",
+                "optionalEnhancements": "Optional Enhancements",
+                "stampFoiling": "Stamp Foiling",
+                "upgradeYourPackagingWithAPremi": "Upgrade your packaging with a premium metallic finish. Perfect for making logos and specific design elements stand out on the shelf.",
+                "pricingNote": "Pricing Note:",
+                "thisFeatureIs": "This feature is",
+                "inThePricingTablesAbove": "in the pricing tables above.",
+                "stampFoilCostsAnAdditional": "Stamp foil costs an additional",
+                "usd150PerSizePerFace": "USD 150 per size per face",
+                "pleaseAdviseYourDesignToReceiv": "Please advise your design to receive a final true quote if stamp foiling is needed.",
+                "proTipHumidityControlForCompos": "Pro Tip: Humidity Control for Compostable Bags",
+                "preventYourBagsFromCracking": "Prevent your bags from cracking!",
+                "celluloseCompostableBagsCanBec": "Cellulose compostable bags can become brittle and crack during ocean freight if the humidity drops below 40% RH. We highly recommend adding our economical 2-way moisture control packs to your order.",
+                "learnHowItWorksRarr": "Learn how it works &rarr;",
+                "contactInformation": "Contact Information",
+                "ryanWong": "Ryan Wong",
+                "achievePackRegMdashYourPackagi": "Achieve Pack &reg; &mdash; Your Packaging Assistant Anywhere &reg;",
+                "httpsPouchEco": "https://pouch.eco",
+                "httpsAchievepackCom": "https://achievepack.com",
+                "ryanPouchEco": "ryan@pouch.eco",
+                "ryanAchievepackCom": "ryan@achievepack.com",
+                "termsConditions": "Terms & Conditions",
+                "pricesQuotedAreInUsd": "Prices quoted are in USD.",
+                "shippingTaxesAndDutiesAreNotIn": "Shipping, taxes, and duties are not included.",
+                "productionToExFactoryLeadTimeI": "Production to ex factory lead time is 30-40 days from artwork confirm and deposit received.",
+                "paymentTerms50DepositUponOrder": "Payment terms: 50% deposit upon order confirmation, balance before shipment.",
+                "productionToleranceInvoicedOnA": "Production tolerance, invoiced on actual quantity produced:",
+                "quantityUnder100050": "Quantity under 1,000: ± 50%",
+                "quantityUnder1000020": "Quantity under 10,000: ± 20%",
+                "quantity10000AndOver10": "Quantity 10,000 and over: ± 10%",
+                "copy": "&copy;",
+                "pouchEcoByAchievePackAllRights": "Pouch.eco by Achieve Pack. All rights reserved."
+            },
+            "threeSideSealQuote": {
+                "quotation3SideSealZipperPouchP": "Quotation: 3 Side Seal Zipper Pouch - Pouch.eco",
+                "backToHome": "Back to Home",
+                "copied": "Copied!",
+                "share": "Share",
+                "quotation": "Quotation",
+                "date": "Date:",
+                "validity30Days": "Validity: 30 Days",
+                "includedDetails": "Included Details",
+                "surfaceKraftTexture": "Surface Kraft Texture",
+                "naturalKraftTexture": "Natural Kraft Texture",
+                "premiumWhiteKraftPaperWithNatu": "Premium white kraft paper with natural fiber texture. Provides excellent printability and authentic eco-friendly appearance.",
+                "compostableZipper": "Compostable Zipper",
+                "compostableResealableZipper": "Compostable Resealable Zipper",
+                "highQualityPressToCloseCompost": "High-quality press-to-close compostable tear zipper (22mm) for easy resealing. Fully compostable to match the eco-friendly materials, keeping contents fresh sustainably.",
+                "note": "Note:",
+                "thisPouchFeaturesAntiDiscolora": "This pouch features anti-discoloration coating (防变色油) for enhanced color stability and shelf life, as well as 1-color foil stamping.",
+                "industrialCompostable3SideSeal": "Industrial Compostable 3 Side Seal Pouch",
+                "premiumEcoFriendly3SideSealPou": "Premium eco-friendly 3 side seal pouch with resealable zipper. Features a natural kraft paper aesthetic that communicates your commitment to sustainability.",
+                "materialStructure": "Material Structure",
+                "whiteKraftPaper60gPlaMetalised": "White Kraft Paper 60g / PLA Metalised / PLA+PBAT",
+                "industrialCompostable": "Industrial Compostable",
+                "outer": "Outer:",
+                "whiteKraftPaper60gsmPremiumLoo": "White Kraft Paper 60gsm (Premium Look)",
+                "middle": "Middle:",
+                "plaMetalisedLayerHighBarrier": "PLA Metalised Layer (High Barrier)",
+                "inner": "Inner:",
+                "plaPbatBiodegradableSealant": "PLA+PBAT Biodegradable Sealant",
+                "thickness150Micron": "Thickness: 150 micron",
+                "sustainabilityFeatures": "Sustainability Features",
+                "industrialCompostable1": "Industrial Compostable:",
+                "fullBagStructureCertifiedForIn": "Full bag structure certified for industrial composting.",
+                "ecoComponents": "Eco-Components:",
+                "zipperMadeOf": "Zipper made of",
+                "pla": "PLA",
+                "allLayersBiodegradable": "; all layers biodegradable.",
+                "sustainablePrinting": "Sustainable Printing:",
+                "digitalPrintUses": "Digital print uses",
+                "homeCompostableInk": "home compostable ink",
+                "byHpIndigo": "by HP Indigo.",
+                "specialCoating": "Special Coating:",
+                "antiDiscolorationCoatingForEnh": "Anti-discoloration coating for enhanced durability.",
+                "certificationsStandards": "Certifications & Standards",
+                "bpiCertified": "BPI Certified",
+                "fscCertified": "FSC Certified",
+                "brcFoodSafety": "BRC Food Safety",
+                "includedOptions": "Included Options",
+                "3SideSeal": "3 Side Seal",
+                "whiteKraftPaper": "White Kraft Paper",
+                "compostableTearZipper": "Compostable Tear Zipper",
+                "antiDiscoloration": "Anti-Discoloration",
+                "1ColorFoilStamping": "1 Color Foil Stamping",
+                "quoteDimensions": "Quote Dimensions",
+                "3SideSealPouch": "3 Side Seal Pouch",
+                "mm": "mm",
+                "thisQuotationIsForASingleSizeC": "This quotation is for a single size. Contact us for additional sizes or custom dimensions.",
+                "digitalPrintPricing": "Digital Print Pricing",
+                "noPlateCostsHomeCompostableHpI": "No plate costs. Home compostable HP Indigo ink.",
+                "qtyPcs": "Qty (pcs)",
+                "unitPriceUsd": "Unit Price (USD)",
+                "totalUsd": "Total (USD)",
+                "estWeight": "Est. Weight",
+                "shippingCostsDoorToDoor": "Shipping Costs (Door-to-Door)",
+                "airFreight": "Air Freight",
+                "fastDelivery710Days": "Fast delivery: 7-10 days",
+                "kg": "/kg",
+                "doorToDoorService": "Door-to-door service",
+                "includesTaxCustomsDuty": "Includes tax & customs duty",
+                "seaFreight": "Sea Freight",
+                "economy3045Days": "Economy: 30-45 days",
+                "shippingExample": "Shipping Example:",
+                "for5000PcsOrder40Kg": "For 5,000 pcs order (40 kg):",
+                "airFreight40Kg15": "Air freight: 40 kg × $15 =",
+                "seaFreight40Kg5": "Sea freight: 40 kg × $5 =",
+                "commercialSampling": "Commercial Sampling",
+                "samplingCost": "Sampling Cost",
+                "get3CommercialSamplesOfYourCus": "Get 3 commercial samples of your custom printed pouch to verify quality and fit before full production.",
+                "withFoilStamping": "With foil stamping:",
+                "300Usd": "$300 USD",
+                "withoutFoilStamping": "Without foil stamping:",
+                "100Usd": "$100 USD",
+                "compostableCertificationLogo": "Compostable Certification Logo",
+                "addThisLogoToYourArtwork": "Add This Logo to Your Artwork",
+                "freeOptions": "Free Options:",
+                "seedlingLogoHomeCompostableLog": "Seedling Logo / Home Compostable Logo:",
+                "weWillProvideTheFreeLogoFileFo": "We will provide the free logo file for your designer.",
+                "buildsConsumerTrustInYourSusta": "Builds consumer trust in your sustainability claims and guides proper disposal.",
+                "paidBpiCertifiedLogoOption": "Paid BPI Certified Logo Option:",
+                "achievePackIsABpiCertifiedManu": "Achieve Pack is a BPI Certified manufacturer (",
+                "verifyOurBpiListingHere": "verify our BPI listing here",
+                "youCanAddTheOfficialBpiLogoToY": "). You can add the official BPI logo to your packaging through our sublicense!",
+                "sublicenseRequirement": "Sublicense Requirement:",
+                "requiresASublicenseAgreementBp": "Requires a sublicense agreement. BPI charges USD $1,000 - $2,000 per year.",
+                "providesTheHighestStandardOfVa": "Provides the highest standard of validation for industrial compostability in North America."
+            },
+            "signIn": {
+                "slides": [
+                    {
+                        "title": "Customer Center Dashboard",
+                        "description": "Track all your orders, quotes, and documents in one centralized dashboard."
+                    },
+                    {
+                        "title": "Manage Quotes & Orders",
+                        "description": "Easily view, track, and manage all your quotes and orders with real-time status updates."
+                    },
+                    {
+                        "title": "Access Documents",
+                        "description": "Download certifications, compliance documents, and product catalogs anytime."
+                    },
+                    {
+                        "title": "Manage Artwork Files",
+                        "description": "Upload, review, and approve your packaging designs with our streamlined workflow."
+                    }
+                ],
+                "errorEmail": "Please enter your email address",
+                "errorCode": "Please enter the 8-digit code",
+                "backHome": "Back to Home",
+                "titleSignIn": "Sign In to Achieve Pack",
+                "titleVerify": "Enter Verification Code",
+                "descSignIn": "Enter your email to receive a verification code",
+                "descVerify": "We sent an 8-digit code to {{email}}",
+                "emailLabel": "Email address",
+                "emailPlaceholder": "Enter your email",
+                "btnSending": "Sending...",
+                "btnSendCode": "Get Verification Code",
+                "dividerOr": "Or continue with",
+                "btnGoogle": "Continue with Google",
+                "resendCodeIn": "Resend code in {{countdown}}s",
+                "btnResend": "Resend Code",
+                "btnVerifying": "Verifying...",
+                "btnVerify": "Continue",
+                "btnBackEmail": "Use a different email",
+                "termsText": "By signing in, you agree to our <0>Terms of Service</0> and <1>Privacy Policy</1>"
             }
         },
         "compostableStandUpPouches": {

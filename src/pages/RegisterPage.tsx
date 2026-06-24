@@ -2,12 +2,15 @@ import React, { useState, useRef } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Mail, ArrowLeft, Loader2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
+import { useTranslation, Trans } from 'react-i18next'
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const redirectTo = searchParams.get('redirect') || '/dashboard'
   const { sendOtp, verifyOtp, signInWithGoogle } = useAuth()
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.register'
   
   const [email, setEmail] = useState('')
   const [otpCode, setOtpCode] = useState(['', '', '', '', '', '', '', ''])
@@ -22,7 +25,7 @@ const RegisterPage: React.FC = () => {
   // Handle send OTP
   const handleSendOtp = async () => {
     if (!email) {
-      setError('Please enter your email address')
+      setError(t(`${p}.errorEmail`))
       return
     }
     
@@ -88,7 +91,7 @@ const RegisterPage: React.FC = () => {
   const handleVerifyOtp = async () => {
     const code = otpCode.join('')
     if (code.length !== 8) {
-      setError('Please enter the 8-digit code')
+      setError(t(`${p}.errorCode`))
       return
     }
     
@@ -126,18 +129,18 @@ const RegisterPage: React.FC = () => {
     <div className="min-h-screen bg-neutral-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         <Link to="/" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 mb-8">
-          <ArrowLeft className="h-5 w-5" /> Back to Home
+          <ArrowLeft className="h-5 w-5" /> {t(`${p}.backHome`)}
         </Link>
         
         <div className="bg-white rounded-2xl p-8 shadow-lg">
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-neutral-900">
-              {step === 'email' ? 'Sign In / Register' : 'Enter Verification Code'}
+              {step === 'email' ? t(`${p}.titleSignIn`) : t(`${p}.titleVerify`)}
             </h1>
             <p className="text-neutral-600 mt-2">
               {step === 'email' 
-                ? 'Enter your email to receive a verification code' 
-                : `We sent an 8-digit code to ${email}`
+                ? t(`${p}.descSignIn`)
+                : t(`${p}.descVerify`, { email })
               }
             </p>
           </div>
@@ -160,7 +163,7 @@ const RegisterPage: React.FC = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSendOtp()}
                     className="w-full pl-12 pr-4 py-4 border border-neutral-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" 
-                    placeholder="Enter your email"
+                    placeholder={t(`${p}.emailPlaceholder`)}
                     autoFocus
                   />
                 </div>
@@ -175,10 +178,10 @@ const RegisterPage: React.FC = () => {
                 {sendingOtp ? (
                   <>
                     <Loader2 className="h-5 w-5 animate-spin" />
-                    Sending...
+                    {t(`${p}.btnSending`)}
                   </>
                 ) : (
-                  'Get Verification Code'
+                  t(`${p}.btnSendCode`)
                 )}
               </button>
 
@@ -188,7 +191,7 @@ const RegisterPage: React.FC = () => {
                   <div className="w-full border-t border-neutral-200"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white text-neutral-500">Or continue with</span>
+                  <span className="px-4 bg-white text-neutral-500">{t(`${p}.dividerOr`)}</span>
                 </div>
               </div>
 
@@ -204,7 +207,7 @@ const RegisterPage: React.FC = () => {
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                 </svg>
-                Continue with Google
+                {t(`${p}.btnGoogle`)}
               </button>
             </div>
           ) : (
@@ -230,13 +233,13 @@ const RegisterPage: React.FC = () => {
               {/* Resend */}
               <div className="text-center">
                 {countdown > 0 ? (
-                  <p className="text-neutral-500 text-sm">Resend code in {countdown}s</p>
+                  <p className="text-neutral-500 text-sm">{t(`${p}.resendCodeIn`, { countdown })}</p>
                 ) : (
                   <button
                     onClick={handleResendOtp}
                     className="text-primary-600 hover:underline text-sm font-medium"
                   >
-                    Resend Code
+                    {t(`${p}.btnResend`)}
                   </button>
                 )}
               </div>
@@ -250,10 +253,10 @@ const RegisterPage: React.FC = () => {
                 {loading ? (
                   <>
                     <Loader2 className="h-5 w-5 animate-spin" />
-                    Verifying...
+                    {t(`${p}.btnVerifying`)}
                   </>
                 ) : (
-                  'Continue'
+                  t(`${p}.btnVerify`)
                 )}
               </button>
               
@@ -266,17 +269,17 @@ const RegisterPage: React.FC = () => {
                 }}
                 className="w-full text-center text-neutral-600 hover:text-neutral-900 text-sm"
               >
-                Use a different email
+                {t(`${p}.btnBackEmail`)}
               </button>
             </div>
           )}
           
           {/* Terms and Privacy */}
           <p className="text-center text-xs text-neutral-500 mt-6">
-            By signing in, you agree to our{' '}
-            <Link to="/terms-of-use" className="text-primary-600 hover:underline">Terms of Service</Link>
-            {' '}and{' '}
-            <Link to="/privacy" className="text-primary-600 hover:underline">Privacy Policy</Link>
+            <Trans i18nKey={`${p}.termsText`} components={[
+              <Link to="/terms-of-use" className="text-primary-600 hover:underline" key="0" />,
+              <Link to="/privacy" className="text-primary-600 hover:underline" key="1" />
+            ]} />
           </p>
         </div>
       </div>
