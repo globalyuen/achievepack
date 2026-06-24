@@ -96,10 +96,10 @@ export default function PouchFactoryTourPage() {
       <section className="relative pt-12 pb-16 px-4 overflow-hidden text-left bg-neutral-900 border-b-4 border-black">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
-          <video
+          <video muted={true}
             autoPlay
             loop
-            muted
+            
             playsInline
             className="w-full h-full object-cover opacity-40"
             key="hero-video-factory"
@@ -185,10 +185,10 @@ export default function PouchFactoryTourPage() {
                 >
                   <NeoCard className="!p-0 overflow-hidden group h-full border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all bg-white">
                     <div className="relative aspect-video bg-black">
-                      <video
+                      <video muted={true}
                         src={video.videoSrc}
                         className="w-full h-full object-cover"
-                        muted
+                        
                         loop
                         playsInline
                         onMouseEnter={(e) => e.currentTarget.play()}
@@ -326,7 +326,7 @@ export default function PouchFactoryTourPage() {
 
               {/* Video Container */}
               <div className="border-4 border-white shadow-[12px_12px_0px_0px_rgba(255,255,255,0.3)]">
-                <video
+                <video muted={true}
                   key={activeVideo.videoSrc}
                   controls
                   autoPlay

@@ -598,12 +598,12 @@ export default function BlogPostPage() {
 
                     {activeContent?.video_url && (
                       <div className="rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-black flex items-center justify-center min-h-[300px]">
-                        <video 
+                        <video muted={true} 
                           src={activeContent.video_url} 
                           className="w-full h-full object-cover rounded-xl"
                           autoPlay 
                           loop 
-                          muted 
+                           
                           controls 
                           playsInline
                         />

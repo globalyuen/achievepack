@@ -261,7 +261,7 @@ export default function SubmitReviewModal({ isOpen, onClose }: SubmitReviewModal
                         {f.type === 'image' ? (
                           <img src={f.preview} alt="Preview" className="w-full h-full object-cover" />
                         ) : (
-                          <video src={f.preview} className="w-full h-full object-cover" />
+                          <video muted={true} src={f.preview} className="w-full h-full object-cover" />
                         )}
                         <button
                           type="button"

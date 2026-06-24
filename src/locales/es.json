@@ -28559,6 +28559,52 @@
       "director": "Director de Cadena de Suministro",
       "degree": "Graduado con honores B.Eng de la Universidad Politécnica de Hong Kong. Sirviendo a marcas en 8 países.",
       "viewProfile": "Ver Perfil del Experto →"
+    },
+    "videoData": {
+      "compostable": {
+        "title": "Solución Compostable",
+        "badge": "100% Compostable",
+        "desc": "Embalaje flexible totalmente compostable certificado bajo ASTM D6400 y EN 13432. Diseñado para descomponerse completamente en entornos de compostaje industrial o doméstico en 180 días, volviendo al suelo sin residuos tóxicos.",
+        "bullets": [
+          "Certificado ASTM D6400 y EN 13432",
+          "Se descompone en 180 días en el suelo",
+          "Opciones de alta barrera contra gases y humedad",
+          "Seguro para contacto con alimentos (cumple FDA)"
+        ]
+      },
+      "pcr": {
+        "title": "Reciclado Post-Consumo (PCR)",
+        "badge": "Hasta 100% Contenido Reciclado",
+        "desc": "Hecho de residuos plásticos reciclados post-consumo de alta calidad. Nuestras estructuras PCR reducen la huella de carbono y mantienen el plástico fuera de los vertederos y océanos, manteniendo una excelente fuerza de barrera.",
+        "bullets": [
+          "Salva residuos post-consumo de los vertederos",
+          "Reduce sustancialmente la huella de carbono",
+          "Satisface la demanda de envases reciclados",
+          "Excelente resistencia al desgarro y calidad de impresión"
+        ]
+      },
+      "biope": {
+        "title": "Bio-PE Basado en Plantas",
+        "badge": "100% Etanol de Caña de Azúcar",
+        "desc": "Derivado de caña de azúcar brasileña cultivada de forma sostenible. Captura CO2 atmosférico durante el crecimiento y es un reemplazo directo del PE tradicional, encajando perfectamente en las corrientes de reciclaje actuales.",
+        "bullets": [
+          "Captura CO2 durante el crecimiento de la planta",
+          "100% reciclable en corriente regular de PE (#4)",
+          "Propiedades físicas idénticas al PE fósil",
+          "Reduce la dependencia de recursos fósiles"
+        ]
+      },
+      "recyclable": {
+        "title": "Mono-Material Reciclable",
+        "badge": "100% Mono-Material",
+        "desc": "Diseñado usando estructuras Mono-PE o Mono-PP para permitir una clasificación y reciclaje simple y circular. Combinado con recubrimientos especializados de alta barrera para preservar la frescura sin comprometer la reciclabilidad.",
+        "bullets": [
+          "Estructura mono-polímero 100% reciclable",
+          "Cumple con las directivas de Economía Circular de la UE",
+          "Capa de barrera EVOH para protección contra oxígeno",
+          "Acabados de superficie altamente personalizables"
+        ]
+      }
     }
   },
   "pouchLayoutFooter": {

@@ -161,10 +161,10 @@ export default function PouchCertificationsPage() {
       <section className="relative pt-12 pb-16 px-4 overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
-          <video
+          <video muted={true}
             autoPlay
             loop
-            muted
+            
             playsInline
             className="w-full h-full object-cover opacity-50"
             key="hero-video-certifications"

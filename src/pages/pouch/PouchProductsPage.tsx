@@ -88,10 +88,10 @@ export default function PouchProductsPage() {
       <section className="relative py-24 border-b-4 border-black overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
-          <video
+          <video muted={true}
             autoPlay
             loop
-            muted
+            
             playsInline
             className="w-full h-full object-cover opacity-50"
             key="hero-video-products"

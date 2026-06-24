@@ -86,7 +86,7 @@ const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, cove
               </div>
             </>
           ) : (
-            <video 
+            <video muted={true} 
               ref={videoRef}
               src={videoSrc}
               controls
@@ -449,10 +449,10 @@ export default function PouchHomePage() {
       <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
-          <video
+          <video muted={true}
             autoPlay
             loop
-            muted
+            
             playsInline
             className="w-full h-full object-cover opacity-50"
             key="hero-video"
@@ -542,10 +542,10 @@ export default function PouchHomePage() {
                 className="absolute inset-0 w-full h-full"
               >
                 <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
-                  <video
+                  <video muted={true}
                     ref={videoRef1}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/cover.jpg"
                     onEnded={() => setActiveHeroIndex(1)}
@@ -572,10 +572,10 @@ export default function PouchHomePage() {
                 className="absolute inset-0 w-full h-full"
               >
                 <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
-                  <video
+                  <video muted={true}
                     ref={videoRef2}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/recycle/recyclable cover.png"
                     onEnded={() => setActiveHeroIndex(2)}
@@ -601,10 +601,10 @@ export default function PouchHomePage() {
                 className="absolute inset-0 w-full h-full"
               >
                 <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
-                  <video
+                  <video muted={true}
                     ref={videoRef3}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/industrial/industrial cover.png"
                     onEnded={() => setActiveHeroIndex(3)}
@@ -630,10 +630,10 @@ export default function PouchHomePage() {
                 className="absolute inset-0 w-full h-full"
               >
                 <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
-                  <video
+                  <video muted={true}
                     ref={videoRef4}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/PCR/prc cover.png"
                     onEnded={() => setActiveHeroIndex(4)}
@@ -659,10 +659,10 @@ export default function PouchHomePage() {
                 className="absolute inset-0 w-full h-full"
               >
                 <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
-                  <video
+                  <video muted={true}
                     ref={videoRef5}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/biope/biope cover.png"
                     onEnded={() => setActiveHeroIndex(0)}

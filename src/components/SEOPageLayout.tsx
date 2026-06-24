@@ -496,60 +496,40 @@ function detectMaterialType(title: string, description: string, pathname: string
   return 'unknown';
 }
 
-const VIDEO_DATA = {
+const getVideoData = (t: any) => ({
   compostable: {
     videoSrc: '/video/hero/bag.mp4',
-    title: 'Compostable Solution',
-    badge: '100% Compostable',
-    desc: 'Fully compostable flexible packaging certified under ASTM D6400 and EN 13432. Engineered to break down completely in industrial or home composting environments within 180 days, returning to the soil with zero toxic residues.',
-    bullets: [
-      'ASTM D6400 & EN 13432 Certified',
-      'Breaks down within 180 days in soil',
-      'High gas & moisture barrier options',
-      'Food-contact safe (FDA compliant)'
-    ],
+    title: t('seoPageLayout.videoData.compostable.title'),
+    badge: t('seoPageLayout.videoData.compostable.badge'),
+    desc: t('seoPageLayout.videoData.compostable.desc'),
+    bullets: t('seoPageLayout.videoData.compostable.bullets', { returnObjects: true }) as string[],
     accentColor: '#10b981' // Green
   },
   pcr: {
     videoSrc: '/video/hero/PCR/pcr.mp4',
-    title: 'Post-Consumer Recycled (PCR)',
-    badge: 'Up to 100% Recycled Content',
-    desc: 'Made from high-quality post-consumer recycled plastic waste. Our PCR structures reduce carbon footprint and keep plastic out of landfills and oceans, while maintaining premium barrier strength.',
-    bullets: [
-      'Saves post-consumer waste from landfills',
-      'Lowers carbon footprint substantially',
-      'Meets consumer demand for recycled packaging',
-      'Excellent tear resistance & print quality'
-    ],
+    title: t('seoPageLayout.videoData.pcr.title'),
+    badge: t('seoPageLayout.videoData.pcr.badge'),
+    desc: t('seoPageLayout.videoData.pcr.desc'),
+    bullets: t('seoPageLayout.videoData.pcr.bullets', { returnObjects: true }) as string[],
     accentColor: '#1f2937' // Dark gray/black
   },
   biope: {
     videoSrc: '/video/hero/biope/biope.mp4',
-    title: 'Plant-Based Bio-PE',
-    badge: '100% Sugarcane Ethanol',
-    desc: 'Derived from sustainably-farmed Brazilian sugarcane. It captures atmospheric CO2 during growth and is a direct drop-in replacement for traditional PE, meaning it fits perfectly in current recycling streams.',
-    bullets: [
-      'Captures CO2 during plant growth',
-      '100% recyclable in regular PE stream (#4)',
-      'Identical physical properties to fossil-fuel PE',
-      'Reduces dependence on fossil resources'
-    ],
+    title: t('seoPageLayout.videoData.biope.title'),
+    badge: t('seoPageLayout.videoData.biope.badge'),
+    desc: t('seoPageLayout.videoData.biope.desc'),
+    bullets: t('seoPageLayout.videoData.biope.bullets', { returnObjects: true }) as string[],
     accentColor: '#00FFFF' // Cyan
   },
   recyclable: {
     videoSrc: '/video/hero/recycle/remake_this_image_to_square_.mp4',
-    title: 'Recyclable Mono-Material',
-    badge: '100% Mono-Material',
-    desc: 'Engineered using Mono-PE or Mono-PP structures to enable simple, circular sorting and recycling. Combined with specialized high-barrier coatings to preserve freshness without compromising recyclability.',
-    bullets: [
-      '100% recyclable mono-polymer structure',
-      'Meets EU Circular Economy directives',
-      'EVOH barrier layer for oxygen protection',
-      'Highly customizable surface finishes'
-    ],
+    title: t('seoPageLayout.videoData.recyclable.title'),
+    badge: t('seoPageLayout.videoData.recyclable.badge'),
+    desc: t('seoPageLayout.videoData.recyclable.desc'),
+    bullets: t('seoPageLayout.videoData.recyclable.bullets', { returnObjects: true }) as string[],
     accentColor: '#D4FF00' // Yellow-green
   }
-};
+});
 
 interface MaterialVideoBlockProps {
   material: 'compostable' | 'pcr' | 'biope' | 'recyclable' | 'unknown'
@@ -558,6 +538,7 @@ interface MaterialVideoBlockProps {
 
 const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPouch }) => {
   const { t } = useTranslation()
+  const VIDEO_DATA = getVideoData(t);
 
   if (material === 'unknown') {
     // Render 4-video showcase grid
@@ -583,11 +564,10 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                 >
                   <div>
                     <div className="aspect-video bg-black border-2 border-black overflow-hidden relative mb-4">
-                      <video
+                      <video muted={true}
                         src={data.videoSrc}
                         autoPlay
-                        loop
-                        muted
+                        loop 
                         playsInline
                         className="w-full h-full object-cover"
                       />
@@ -636,11 +616,10 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                 >
                   <div>
                     <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-4 shadow-inner">
-                      <video
+                      <video muted={true}
                         src={data.videoSrc}
                         autoPlay
-                        loop
-                        muted
+                        loop 
                         playsInline
                         className="w-full h-full object-cover"
                       />
@@ -682,11 +661,10 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Video Player Box */}
             <div className="w-full md:w-1/2 aspect-video bg-black border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden group">
-              <video
+              <video muted={true}
                 src={data.videoSrc}
                 autoPlay
-                loop
-                muted
+                loop 
                 playsInline
                 className="w-full h-full object-cover"
               />
@@ -724,11 +702,10 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Video Player Box */}
             <div className="w-full md:w-1/2 aspect-video bg-black rounded-xl overflow-hidden relative shadow-md group">
-              <video
+              <video muted={true}
                 src={data.videoSrc}
                 autoPlay
-                loop
-                muted
+                loop 
                 playsInline
                 className="w-full h-full object-cover"
               />

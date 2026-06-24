@@ -435,13 +435,13 @@ export default function PencilDemoPage() {
 
               {/* Responsive Video Canvas */}
               <div className="relative aspect-video rounded-xl bg-black overflow-hidden border border-white/5">
-                <video 
+                <video muted={true} 
                   ref={videoRef}
                   key={videoSource}
                   className="w-full h-full object-cover" 
                   autoPlay 
                   loop 
-                  muted 
+                   
                   playsInline
                 >
                   <source src={videoSource} type="video/mp4" />

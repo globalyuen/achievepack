@@ -7,7 +7,7 @@ import SEOPageLayout from '../../components/SEOPageLayout';
 const VideoCard = ({ title, description, videoSrc, icon: Icon }: { title: string; description: string; videoSrc: string; icon: React.ElementType }) => (
   <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
     <div className="relative aspect-video bg-neutral-900">
-      <video 
+      <video muted={true} 
         className="w-full h-full object-cover"
         controls
         preload="metadata"

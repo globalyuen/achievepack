@@ -5664,7 +5664,7 @@ const ProductPage: React.FC = () => {
                 allowFullScreen
               ></iframe>
             ) : (
-              <video 
+              <video muted={true} 
                 src={selectedVideoUrl} 
                 className="w-full h-full rounded-xl shadow-2xl" 
                 controls 

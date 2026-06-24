@@ -917,7 +917,7 @@ const ArtworkReviewPage: React.FC = () => {
                               )
                             } else if (isVideo) {
                               return (
-                                <video 
+                                <video muted={true} 
                                   src={item.file_url} 
                                   controls
                                   className="w-full h-full object-contain bg-black pointer-events-none"
@@ -1537,7 +1537,7 @@ const ReviewModal: React.FC<{
                     </div>
                   </>
                 ) : isVideo ? (
-                  <video 
+                  <video muted={true} 
                     src={item.file_url} 
                     controls
                     className="w-full h-full object-contain bg-black"

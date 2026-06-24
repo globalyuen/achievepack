@@ -1693,7 +1693,7 @@ const ArtworkBatchesPage: React.FC = () => {
                 if (isVideo) {
                   return (
                     <div className="w-full h-full flex items-center justify-center bg-gray-900 text-white relative">
-                      <video src={item.file_url} className="w-full h-full object-cover" controls={false} muted />
+                      <video muted={true} src={item.file_url} className="w-full h-full object-cover" controls={false}  />
                       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                         <span className="px-2 py-1 bg-black/60 rounded text-[10px] font-bold tracking-wider uppercase">Video</span>
                       </div>

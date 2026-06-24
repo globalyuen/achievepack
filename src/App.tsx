@@ -1104,10 +1104,10 @@ function App() {
                 className="absolute inset-0 w-full h-full"
               >
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
-                  <video
+                  <video muted={true}
                     ref={videoRef1}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/cover.jpg"
                     onEnded={() => setActiveHeroIndex(1)}
@@ -1131,10 +1131,10 @@ function App() {
                 className="absolute inset-0 w-full h-full"
               >
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
-                  <video
+                  <video muted={true}
                     ref={videoRef2}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/recycle/recyclable cover.png"
                     onEnded={() => setActiveHeroIndex(2)}
@@ -1157,10 +1157,10 @@ function App() {
                 className="absolute inset-0 w-full h-full"
               >
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
-                  <video
+                  <video muted={true}
                     ref={videoRef3}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/industrial/industrial cover.png"
                     onEnded={() => setActiveHeroIndex(3)}
@@ -1183,10 +1183,10 @@ function App() {
                 className="absolute inset-0 w-full h-full"
               >
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
-                  <video
+                  <video muted={true}
                     ref={videoRef4}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/PCR/prc cover.png"
                     onEnded={() => setActiveHeroIndex(4)}
@@ -1209,10 +1209,10 @@ function App() {
                 className="absolute inset-0 w-full h-full"
               >
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
-                  <video
+                  <video muted={true}
                     ref={videoRef5}
                     autoPlay
-                    muted
+                    
                     playsInline
                     poster="/video/hero/biope/biope cover.png"
                     onEnded={() => setActiveHeroIndex(0)}

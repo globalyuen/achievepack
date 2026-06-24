@@ -219,11 +219,11 @@ const SmartDegassingStickerPage: React.FC = () => {
               <div className="bg-neutral-50 rounded-xl p-4 border border-neutral-200 shadow-sm flex flex-col justify-between">
                 <div>
                   <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-3 shadow-inner">
-                    <video
+                    <video muted={true}
                       src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781061880450_mn5s9twgw7.mp4"
                       controls
                       loop
-                      muted
+                      
                       playsInline
                       className="w-full h-full object-cover"
                     />
@@ -250,11 +250,11 @@ const SmartDegassingStickerPage: React.FC = () => {
               <div className="bg-neutral-50 rounded-xl p-4 border border-neutral-200 shadow-sm flex flex-col justify-between">
                 <div>
                   <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-3 shadow-inner">
-                    <video
+                    <video muted={true}
                       src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781062000337_s34sw1mer8a.mp4"
                       controls
                       loop
-                      muted
+                      
                       playsInline
                       className="w-full h-full object-cover"
                     />
@@ -281,11 +281,11 @@ const SmartDegassingStickerPage: React.FC = () => {
               <div className="bg-neutral-50 rounded-xl p-4 border border-neutral-200 shadow-sm flex flex-col justify-between">
                 <div>
                   <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-3 shadow-inner">
-                    <video
+                    <video muted={true}
                       src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781187167584_l98hchl2bfd.mp4"
                       controls
                       loop
-                      muted
+                      
                       playsInline
                       className="w-full h-full object-cover"
                     />

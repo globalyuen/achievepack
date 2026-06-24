@@ -297,11 +297,11 @@ export default function SmartDegassingStickerPage() {
               <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
                 <div>
                   <div className="aspect-video bg-black border-2 border-black overflow-hidden relative mb-4">
-                    <video
+                    <video muted={true}
                       src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781061880450_mn5s9twgw7.mp4"
                       controls
                       loop
-                      muted
+                      
                       playsInline
                       className="w-full h-full object-cover"
                     />
@@ -324,11 +324,11 @@ export default function SmartDegassingStickerPage() {
               <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
                 <div>
                   <div className="aspect-video bg-black border-2 border-black overflow-hidden relative mb-4">
-                    <video
+                    <video muted={true}
                       src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781062000337_s34sw1mer8a.mp4"
                       controls
                       loop
-                      muted
+                      
                       playsInline
                       className="w-full h-full object-cover"
                     />
@@ -351,11 +351,11 @@ export default function SmartDegassingStickerPage() {
               <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
                 <div>
                   <div className="aspect-video bg-black border-2 border-black overflow-hidden relative mb-4">
-                    <video
+                    <video muted={true}
                       src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/66a055fe-0e3f-4e20-b43a-3d57a695af31/1781187167584_l98hchl2bfd.mp4"
                       controls
                       loop
-                      muted
+                      
                       playsInline
                       className="w-full h-full object-cover"
                     />

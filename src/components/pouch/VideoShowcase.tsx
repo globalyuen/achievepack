@@ -222,7 +222,7 @@ export default function VideoShowcase({ className = '' }: VideoShowcaseProps) {
               {/* Video Container */}
               <div className="bg-black border-4 border-black shadow-[16px_16px_0px_0px_rgba(212,255,0,1)]">
                 <div className="relative aspect-video bg-black">
-                  <video
+                  <video muted={true}
                     key={activeVideo.videoSrc}
                     className="w-full h-full object-contain"
                     controls

@@ -153,11 +153,11 @@ const PreZipperedRollstockPage: React.FC = () => {
               {t(`${p}.sections.productionSample.altContent`)}
             </p>
             <div className="grid md:grid-cols-2 gap-6 items-center">
-              <video 
+              <video muted={true} 
                 src="/imgs/function/roll/production-sample.mp4" 
                 controls 
                 autoPlay 
-                muted 
+                 
                 loop 
                 playsInline
                 className="w-full aspect-[4/5] object-cover rounded-lg shadow-md border border-neutral-100 bg-black"

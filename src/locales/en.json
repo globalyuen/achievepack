@@ -29420,6 +29420,52 @@
       "director": "Supply Chain Director",
       "degree": "B.Eng honors degree graduate from Hong Kong Polytechnic University. Serving brands in 8 countries.",
       "viewProfile": "View Expert Profile →"
+    },
+    "videoData": {
+      "compostable": {
+        "title": "Compostable Solution",
+        "badge": "100% Compostable",
+        "desc": "Fully compostable flexible packaging certified under ASTM D6400 and EN 13432. Engineered to break down completely in industrial or home composting environments within 180 days, returning to the soil with zero toxic residues.",
+        "bullets": [
+          "ASTM D6400 & EN 13432 Certified",
+          "Breaks down within 180 days in soil",
+          "High gas & moisture barrier options",
+          "Food-contact safe (FDA compliant)"
+        ]
+      },
+      "pcr": {
+        "title": "Post-Consumer Recycled (PCR)",
+        "badge": "Up to 100% Recycled Content",
+        "desc": "Made from high-quality post-consumer recycled plastic waste. Our PCR structures reduce carbon footprint and keep plastic out of landfills and oceans, while maintaining premium barrier strength.",
+        "bullets": [
+          "Saves post-consumer waste from landfills",
+          "Lowers carbon footprint substantially",
+          "Meets consumer demand for recycled packaging",
+          "Excellent tear resistance & print quality"
+        ]
+      },
+      "biope": {
+        "title": "Plant-Based Bio-PE",
+        "badge": "100% Sugarcane Ethanol",
+        "desc": "Derived from sustainably-farmed Brazilian sugarcane. It captures atmospheric CO2 during growth and is a direct drop-in replacement for traditional PE, meaning it fits perfectly in current recycling streams.",
+        "bullets": [
+          "Captures CO2 during plant growth",
+          "100% recyclable in regular PE stream (#4)",
+          "Identical physical properties to fossil-fuel PE",
+          "Reduces dependence on fossil resources"
+        ]
+      },
+      "recyclable": {
+        "title": "Recyclable Mono-Material",
+        "badge": "100% Mono-Material",
+        "desc": "Engineered using Mono-PE or Mono-PP structures to enable simple, circular sorting and recycling. Combined with specialized high-barrier coatings to preserve freshness without compromising recyclability.",
+        "bullets": [
+          "100% recyclable mono-polymer structure",
+          "Meets EU Circular Economy directives",
+          "EVOH barrier layer for oxygen protection",
+          "Highly customizable surface finishes"
+        ]
+      }
     }
   },
   "pouchLayoutFooter": {

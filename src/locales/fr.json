@@ -28152,6 +28152,52 @@
       "director": "Directeur de la Chaîne d'Approvisionnement",
       "degree": "Diplômé avec distinction B.Eng de l'Université Polytechnique de Hong Kong. Au service de marques dans 8 pays.",
       "viewProfile": "Voir le Profil de l'Expert →"
+    },
+    "videoData": {
+      "compostable": {
+        "title": "Solution Compostable",
+        "badge": "100% Compostable",
+        "desc": "Emballage flexible entièrement compostable certifié selon ASTM D6400 et EN 13432. Conçu pour se décomposer complètement dans des environnements de compostage industriels ou domestiques en 180 jours, retournant au sol sans résidus toxiques.",
+        "bullets": [
+          "Certifié ASTM D6400 & EN 13432",
+          "Se décompose en 180 jours dans le sol",
+          "Options haute barrière gaz & humidité",
+          "Contact alimentaire sûr (conforme FDA)"
+        ]
+      },
+      "pcr": {
+        "title": "Recyclé Post-Consommation (PCR)",
+        "badge": "Jusqu'à 100% de Contenu Recyclé",
+        "desc": "Fabriqué à partir de déchets plastiques recyclés post-consommation de haute qualité. Nos structures PCR réduisent l'empreinte carbone et évitent que le plastique ne finisse dans les décharges et les océans, tout en conservant une force de barrière premium.",
+        "bullets": [
+          "Sauve les déchets post-consommation des décharges",
+          "Réduit considérablement l'empreinte carbone",
+          "Répond à la demande des consommateurs",
+          "Excellente résistance à la déchirure et qualité d'impression"
+        ]
+      },
+      "biope": {
+        "title": "Bio-PE d'Origine Végétale",
+        "badge": "100% Éthanol de Canne à Sucre",
+        "desc": "Dérivé de canne à sucre brésilienne cultivée durablement. Il capture le CO2 atmosphérique pendant sa croissance et remplace directement le PE traditionnel, s'intégrant parfaitement dans les filières de recyclage actuelles.",
+        "bullets": [
+          "Capture le CO2 pendant la croissance",
+          "100% recyclable dans la filière PE classique (#4)",
+          "Propriétés physiques identiques au PE fossile",
+          "Réduit la dépendance aux ressources fossiles"
+        ]
+      },
+      "recyclable": {
+        "title": "Mono-Matériau Recyclable",
+        "badge": "100% Mono-Matériau",
+        "desc": "Conçu avec des structures Mono-PE ou Mono-PP pour permettre un tri et un recyclage simples et circulaires. Combiné avec des revêtements haute barrière spécialisés pour préserver la fraîcheur sans compromettre la recyclabilité.",
+        "bullets": [
+          "Structure mono-polymère 100% recyclable",
+          "Conforme aux directives d'Économie Circulaire de l'UE",
+          "Couche barrière EVOH pour la protection contre l'oxygène",
+          "Finitions de surface hautement personnalisables"
+        ]
+      }
     }
   },
   "pouchLayoutFooter": {

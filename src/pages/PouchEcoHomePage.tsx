@@ -340,11 +340,11 @@ export default function PouchEcoHomePage() {
             >
               <div className="relative z-10 rotate-2 group">
                 <div className="aspect-square flex items-center justify-center relative bg-black border-4 border-black">
-                  <video 
+                  <video muted={true} 
                     src="/video/hero/bag.mov"
                     autoPlay
                     loop
-                    muted
+                    
                     playsInline
                     className="w-full h-full object-cover"
                     poster="/imgs/hero/pouch-eco-cover.jpg"
@@ -531,7 +531,7 @@ export default function PouchEcoHomePage() {
         
         <div className="max-w-4xl mx-auto border-4 border-black p-4 bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
           <div className="aspect-video relative bg-black">
-            <video 
+            <video muted={true} 
               src="/pouch-social.mp4"
               controls
               className="w-full h-full object-cover"

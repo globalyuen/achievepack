@@ -893,7 +893,7 @@ const SharedQuotePage: React.FC = () => {
                           className="w-24 h-24 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer relative bg-black group"
                           onClick={() => setLightbox({ src: item.url, type: 'video' })}
                         >
-                          <video src={item.url} className="w-full h-full object-cover opacity-60" />
+                          <video muted={true} src={item.url} className="w-full h-full object-cover opacity-60" />
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform">
                               <VideoIcon className="w-4 h-4 text-white" />
@@ -942,7 +942,7 @@ const SharedQuotePage: React.FC = () => {
               {lightbox.type === 'image' ? (
                 <img src={lightbox.src} className="max-w-full max-h-[85vh] border-4 border-white shadow-2xl" alt="Enlarged view" />
               ) : (
-                <video src={lightbox.src} controls autoPlay className="max-w-full max-h-[85vh] border-4 border-white shadow-2xl" />
+                <video muted={true} src={lightbox.src} controls autoPlay className="max-w-full max-h-[85vh] border-4 border-white shadow-2xl" />
               )}
             </motion.div>
           </motion.div>
