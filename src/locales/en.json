@@ -3808,26 +3808,24 @@
           },
           "industryScenarios": {
             "title": "Industry Applications",
-            "segment1Title": "Specialty Coffee Roasters",
-            "segment1Desc": "Premium flat bottom bags with 5-panel branding and degassing valves.",
-            "segment1Item1": "Single-origin coffees",
-            "segment1Item2": "Artisan roasters",
-            "segment1Item3": "Gift box packaging",
-            "segment2Title": "Premium Pet Food Brands",
-            "segment2Desc": "Heavy-duty flat bottom bags with stable base for larger kibble bags.",
-            "segment2Item1": "Premium dog food",
-            "segment2Item2": "Natural cat food",
-            "segment2Item3": "Grain-free formulas",
-            "segment3Title": "Superfood & Protein Brands",
-            "segment3Desc": "High-barrier flat bottom bags for powder supplements with maximum shelf presence.",
-            "segment3Item1": "Protein powders",
-            "segment3Item2": "Superfood blends",
-            "segment3Item3": "Collagen peptides",
-            "successTitle": "🏆 Customer Success: Mountain Peak Coffee Co.",
-            "successStory": "Upgraded from stand-up pouches to flat bottom bags, increasing retail sell-through by 40% and premium price positioning with 5-panel branding.",
-            "successMetric1": "40% Sales Increase",
-            "successMetric2": "Premium Positioning",
-            "successMetric3": "5-Panel Branding"
+            "coffee": {
+              "title": "Specialty Coffee",
+              "desc": "5-panel branding with optional degassing valves. Perfect for premium roasted coffee beans.",
+              "badge": "Share: 45%"
+            },
+            "pet": {
+              "title": "Premium Pet Food",
+              "desc": "Flat, stable base prevents tipping for heavy products.",
+              "badge": "Share: 30%"
+            },
+            "superfood": {
+              "title": "Superfoods & Snacks",
+              "desc": "High shelf visibility and premium aesthetic for high-value products.",
+              "badge": "Share: 25%"
+            },
+            "storyTitle": "Customer Success Story",
+            "storyText": "Since switching to flat bottom bags, our premium coffee brand gained 30% more shelf space and increased retail sales by 40%.",
+            "storyAuthor": "Boutique Coffee Roaster"
           }
         },
         "faqs": [

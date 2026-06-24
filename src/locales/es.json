@@ -3686,27 +3686,25 @@
             "col3Btn": "Comparar opciones"
           },
           "industryScenarios": {
-            "title": "Aplicaciones industriales",
-            "segment1Title": "Tostadores de Café Especial",
-            "segment1Desc": "Bolsas premium de fondo plano con marca de 5 paneles y válvulas desgasificadoras.",
-            "segment1Item1": "Cafés de origen único",
-            "segment1Item2": "Tostadores artesanales",
-            "segment1Item3": "Embalaje de caja de regalo",
-            "segment2Title": "Marcas premium de alimentos para mascotas",
-            "segment2Desc": "Bolsas de fondo plano resistentes con base estable para bolsas de croquetas más grandes.",
-            "segment2Item1": "Comida premium para perros",
-            "segment2Item2": "Comida natural para gatos",
-            "segment2Item3": "Fórmulas sin cereales",
-            "segment3Title": "Marcas de superalimentos y proteínas",
-            "segment3Desc": "Bolsas de fondo plano de alta barrera para suplementos en polvo con máxima presencia en los estantes.",
-            "segment3Item1": "Polvos de proteína",
-            "segment3Item2": "Mezclas de superalimentos",
-            "segment3Item3": "Péptidos de colágeno",
-            "successTitle": "🏆 Éxito del cliente: Mountain Peak Coffee Co.",
-            "successStory": "Se actualizó de bolsas de pie a bolsas de fondo plano, lo que aumentó las ventas minoristas en un 40 % y el posicionamiento de precios premium con marca de 5 paneles.",
-            "successMetric1": "40% de aumento de ventas",
-            "successMetric2": "Posicionamiento premium",
-            "successMetric3": "Marca de 5 paneles"
+            "title": "Aplicaciones en la Industria",
+            "coffee": {
+              "title": "Café de Especialidad",
+              "desc": "Marca en 5 paneles con válvulas de desgasificación opcionales. Perfecto para granos de café tostados premium.",
+              "badge": "Participación: 45%"
+            },
+            "pet": {
+              "title": "Alimento Premium para Mascotas",
+              "desc": "La base plana y estable evita vuelcos en productos pesados.",
+              "badge": "Participación: 30%"
+            },
+            "superfood": {
+              "title": "Superalimentos y Snacks",
+              "desc": "Alta visibilidad en estantes y estética premium para productos de alto valor.",
+              "badge": "Participación: 25%"
+            },
+            "storyTitle": "Historia de Éxito del Cliente",
+            "storyText": "Desde que cambiamos a las bolsas de fondo plano, nuestra marca de café premium ganó un 30% más de espacio en los estantes y aumentó las ventas minoristas en un 40%.",
+            "storyAuthor": "Tostador de Café Boutique"
           }
         },
         "faqs": [

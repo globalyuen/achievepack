@@ -3684,27 +3684,25 @@
             "col3Btn": "Comparer les options"
           },
           "industryScenarios": {
-            "title": "Applications industrielles",
-            "segment1Title": "Torréfacteurs de café de spécialité",
-            "segment1Desc": "Sacs à fond plat haut de gamme avec marquage à 5 panneaux et valves de dégazage.",
-            "segment1Item1": "Cafés d'origine unique",
-            "segment1Item2": "Artisans torréfacteurs",
-            "segment1Item3": "Emballage de boîte cadeau",
-            "segment2Title": "Marques d’aliments haut de gamme pour animaux de compagnie",
-            "segment2Desc": "Sacs à fond plat robustes avec base stable pour les sacs à croquettes plus grands.",
-            "segment2Item1": "Nourriture pour chiens de qualité supérieure",
-            "segment2Item2": "Nourriture naturelle pour chat",
-            "segment2Item3": "Formules sans céréales",
-            "segment3Title": "Marques de superaliments et de protéines",
-            "segment3Desc": "Sacs à fond plat à haute barrière pour suppléments en poudre avec une présence maximale en rayon.",
-            "segment3Item1": "Poudres de protéines",
-            "segment3Item2": "Mélanges de superaliments",
-            "segment3Item3": "Peptides de collagène",
-            "successTitle": "🏆 Succès client : Mountain Peak Coffee Co.",
-            "successStory": "Passé des pochettes verticales aux sacs à fond plat, augmentant les ventes au détail de 40 % et un positionnement de prix haut de gamme avec une marque à 5 panneaux.",
-            "successMetric1": "Augmentation des ventes de 40 %",
-            "successMetric2": "Positionnement haut de gamme",
-            "successMetric3": "Image de marque à 5 panneaux"
+            "title": "Applications Industrielles",
+            "coffee": {
+              "title": "Café de Spécialité",
+              "desc": "Marquage sur 5 panneaux avec valves de dégazage en option. Parfait pour les grains de café torréfiés premium.",
+              "badge": "Part: 45%"
+            },
+            "pet": {
+              "title": "Nourriture Premium pour Animaux",
+              "desc": "La base plate et stable empêche le basculement des produits lourds.",
+              "badge": "Part: 30%"
+            },
+            "superfood": {
+              "title": "Superaliments et Snacks",
+              "desc": "Haute visibilité en rayon et esthétique haut de gamme pour les produits de grande valeur.",
+              "badge": "Part: 25%"
+            },
+            "storyTitle": "Histoire de Réussite Client",
+            "storyText": "Depuis que nous sommes passés aux sachets à fond plat, notre marque de café premium a gagné 30 % d'espace supplémentaire en rayon et a augmenté ses ventes au détail de 40 %.",
+            "storyAuthor": "Torréfacteur de Café Boutique"
           }
         },
         "faqs": [

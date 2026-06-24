@@ -3687,26 +3687,24 @@
           },
           "industryScenarios": {
             "title": "產業應用",
-            "segment1Title": "精品咖啡烘焙機",
-            "segment1Desc": "優質平底袋，帶有 5 片品牌標誌和排氣閥。",
-            "segment1Item1": "單一產地咖啡",
-            "segment1Item2": "工匠烘焙機",
-            "segment1Item3": "禮盒包裝",
-            "segment2Title": "優質寵物食品品牌",
-            "segment2Desc": "重型平底袋，帶有穩定的底座，適用於較大的粗磨袋。",
-            "segment2Item1": "優質狗糧",
-            "segment2Item2": "天然貓糧",
-            "segment2Item3": "無穀物配方",
-            "segment3Title": "超級食物和蛋白質品牌",
-            "segment3Desc": "用於粉末補充劑的高阻隔平底袋，具有最大的貨架存在度。",
-            "segment3Item1": "蛋白粉",
-            "segment3Item2": "超級食物混合物",
-            "segment3Item3": "膠原蛋白勝肽",
-            "successTitle": "🏆 客戶成功案例：Mountain Peak Coffee Co.",
-            "successStory": "從自立袋升級為平底袋，零售銷量提高了 40%，並透過 5 片品牌定位實現了溢價定位。",
-            "successMetric1": "銷售額增加 40%",
-            "successMetric2": "高端定位",
-            "successMetric3": "5 面板品牌"
+            "coffee": {
+              "title": "精品咖啡",
+              "desc": "五面印刷設計，可選配單向排氣閥。非常適合優質烘焙咖啡豆。",
+              "badge": "佔比: 45%"
+            },
+            "pet": {
+              "title": "高級寵物食品",
+              "desc": "平穩的底部設計，防止重型產品傾倒。",
+              "badge": "佔比: 30%"
+            },
+            "superfood": {
+              "title": "超級食物與零食",
+              "desc": "高價值的產品在貨架上擁有極高的能見度與優質美感。",
+              "badge": "佔比: 25%"
+            },
+            "storyTitle": "客戶成功案例",
+            "storyText": "自從改用平底袋後，我們的優質咖啡品牌在貨架上的空間增加了 30%，零售額成長了 40%。",
+            "storyAuthor": "精品咖啡烘焙商"
           }
         },
         "faqs": [
