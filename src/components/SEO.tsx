@@ -51,7 +51,8 @@ export const SEO: React.FC<SEOProps> = ({
   const hrZh = `${domain}/zh-TW${cleanPath}`;
 
   return (
-  <Helmet htmlAttributes={{ lang: lang }}>
+  <Helmet>
+    <html lang={lang} />
     <title>{title}</title>
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="description" content={description} />
