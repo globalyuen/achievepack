@@ -38227,6 +38227,46 @@
           "Finitions de surface hautement personnalisables"
         ]
       }
+    },
+    "factoryProof": {
+      "badge": "FACTORY PROOF & LAB VALIDATION",
+      "heading": "Technical Factory Validation & Quality Control",
+      "description": "We don't just supply pouches; we validate every batch. Every raw material and finished pouch runs through our 6-step testing protocol to guarantee automatic packaging line compatibility and food-safe barrier preservation.",
+      "requestMeeting": "Book Packaging Consultation",
+      "requestSample": "Request Free Sample Kit",
+      "downloadCert": "Request Certifications & Docs",
+      "specs": {
+        "otr": {
+          "name": "OTR & WVTR Barrier (MOCON)",
+          "value": "< 0.1 cc / < 0.1 g/m²/24h",
+          "desc": "Tested under ASTM D3985 & ASTM F1249 to ensure fresh shelf life up to 18 months."
+        },
+        "solvent": {
+          "name": "GC-MS Solvent Residue",
+          "value": "< 5 mg/m²",
+          "desc": "Gas Chromatography-Mass Spectrometry ensures zero odor transfer and absolute food safety."
+        },
+        "seal": {
+          "name": "Heat Seal Strength (ASTM F88)",
+          "value": "> 15 N / 15mm Width",
+          "desc": "Guarantees no seam burst under high pressure, perfect for VFFS automatic packing lines."
+        },
+        "cleanroom": {
+          "name": "BRCGS Global Standard",
+          "value": "Grade AA Certified Factory",
+          "desc": "Produced in Class 100,000 dust-free cleanrooms, ensuring zero contamination."
+        },
+        "puncture": {
+          "name": "Puncture Resistance (ASTM F1306)",
+          "value": "> 12 N Peak Force",
+          "desc": "Prevents tear or puncture from sharp, hard items like coffee beans and pet kibble."
+        },
+        "tensile": {
+          "name": "Tensile Strength (ASTM D882)",
+          "value": "MD > 35 MPa / TD > 30 MPa",
+          "desc": "Ensures shape retention and structural integrity when heavy bags are dropped or stacked."
+        }
+      }
     }
   },
   "pouchLayoutFooter": {

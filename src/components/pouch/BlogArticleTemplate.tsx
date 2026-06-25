@@ -7,6 +7,7 @@ import PouchLayout from './PouchLayout'
 import { NeoCard } from './PouchUI'
 import ClickableImage from '../ClickableImage'
 import EcoMaterialSourcingGuide from './EcoMaterialSourcingGuide'
+import FactoryQCValidationBlock from '../FactoryQCValidationBlock'
 
 interface BlogArticleSection {
   id: string
@@ -550,6 +551,11 @@ export default function BlogArticleTemplate({
           {/* Automatically inject AchievePack Eco Material Sourcing Guide */}
           <div className="pt-8 border-t-4 border-black border-dashed">
             <EcoMaterialSourcingGuide />
+          </div>
+
+          {/* Automatically inject Technical Factory Proofs */}
+          <div className="pt-8 border-t-4 border-black border-dashed">
+            <FactoryQCValidationBlock />
           </div>
         </div>
       </article>

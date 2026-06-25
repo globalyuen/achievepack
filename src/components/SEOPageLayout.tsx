@@ -17,6 +17,7 @@ import PouchLayout from './pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from './pouch/PouchUI'
 import WorkCarousel from './WorkCarousel'
 import KnowHowCarousel from './KnowHowCarousel'
+import FactoryQCValidationBlock from './FactoryQCValidationBlock'
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -1313,6 +1314,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     )
                   })}
 
+                  {/* Factory QC Lab Validation Block */}
+                  <FactoryQCValidationBlock />
+
                   {/* Data Tables (Neobrutalist) */}
                   {Array.isArray(tables) && tables.map((table, idx) => (
                     <section key={idx} className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -1396,21 +1400,30 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     <p className="font-semibold text-lg text-neutral-300 max-w-2xl mx-auto">
                       {ctaDescription}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center pt-2">
-                      <a
-                        href="/store"
-                        className="inline-flex items-center justify-center gap-3 bg-[#D4FF00] text-black px-8 py-4 border-4 border-[#D4FF00] font-['JetBrains_Mono'] font-bold uppercase hover:bg-transparent hover:text-[#D4FF00] transition-colors shadow-[8px_8px_0px_0px_rgba(212,255,0,1)]"
-                      >
-                        {t('seoPageLayout.cta.shopLowMoq')}
-                      </a>
+                    <div className="flex flex-col md:flex-row gap-6 justify-center pt-2">
                       <a
                         href="https://calendly.com/30-min-free-packaging-consultancy"
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-3 bg-white text-black px-8 py-4 border-4 border-white font-['JetBrains_Mono'] font-bold uppercase hover:bg-transparent hover:text-white transition-colors"
+                      >
+                        <Calendar className="h-4 w-4" />
+                        {t('seoPageLayout.cta.bookConsultation')}
+                      </a>
+                      <Link
+                        to="/unprinted-samples"
+                        className="inline-flex items-center justify-center gap-3 bg-[#D4FF00] text-black px-8 py-4 border-4 border-[#D4FF00] font-['JetBrains_Mono'] font-bold uppercase hover:bg-transparent hover:text-[#D4FF00] transition-colors shadow-[8px_8px_0px_0px_rgba(212,255,0,1)]"
+                      >
+                        <Package className="h-4 w-4" />
+                        {t('seoPageLayout.cta.orderSamplePack')}
+                      </Link>
+                      <Link
+                        to="/store"
                         className="inline-flex items-center justify-center gap-3 bg-transparent text-white px-8 py-4 border-4 border-white font-['JetBrains_Mono'] font-bold uppercase hover:bg-white hover:text-black transition-colors"
                       >
-                        {t('seoPageLayout.cta.enterpriseQuote')}
-                      </a>
+                        <ArrowRight className="h-4 w-4" />
+                        {t('seoPageLayout.cta.browseStore')}
+                      </Link>
                     </div>
                   </section>
                 </main>
@@ -1526,15 +1539,24 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <p className="text-lg md:text-xl text-primary-50 mb-8 drop-shadow-md">
                     {heroSubtitle}
                   </p>
-                  <a 
-                    href="https://calendly.com/30-min-free-packaging-consultancy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3.5 rounded-lg font-bold hover:bg-green-50 transition shadow-lg hover:shadow-xl"
-                  >
-                    <Calendar className="h-4 w-4" />
-                    {t('seoPageLayout.cta.bookMeeting')}
-                  </a>
+                  <div className="flex flex-wrap gap-4">
+                    <a 
+                      href="https://calendly.com/30-min-free-packaging-consultancy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3.5 rounded-lg font-bold hover:bg-green-50 transition shadow-lg hover:shadow-xl"
+                    >
+                      <Calendar className="h-4 w-4" />
+                      {t('seoPageLayout.cta.bookMeeting')}
+                    </a>
+                    <Link
+                      to="/support/unprinted-samples"
+                      className="inline-flex items-center gap-2 bg-primary-600 border border-white/20 text-white px-6 py-3.5 rounded-lg font-bold hover:bg-primary-500 transition shadow-lg"
+                    >
+                      <Package className="h-4 w-4" />
+                      {t('seoPageLayout.cta.orderSamplePack')}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1565,15 +1587,24 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     <p className="text-lg md:text-xl text-primary-100 mb-8">
                       {heroSubtitle}
                     </p>
-                    <a 
-                      href="https://calendly.com/30-min-free-packaging-consultancy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
-                    >
-                      <Calendar className="h-4 w-4" />
-                      {t('seoPageLayout.cta.bookMeeting')}
-                    </a>
+                    <div className="flex flex-wrap gap-4 mt-6">
+                      <a 
+                        href="https://calendly.com/30-min-free-packaging-consultancy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+                      >
+                        <Calendar className="h-4 w-4" />
+                        {t('seoPageLayout.cta.bookMeeting')}
+                      </a>
+                      <Link
+                        to="/support/unprinted-samples"
+                        className="inline-flex items-center gap-2 border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
+                      >
+                        <Package className="h-4 w-4" />
+                        {t('seoPageLayout.cta.orderSamplePack')}
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 {/* Hero Image / 3D Model - Right, Responsive */}
@@ -1718,6 +1749,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 </section>
               ))}
 
+              {/* Factory QC Lab Validation Block */}
+              <FactoryQCValidationBlock />
+
               {/* Data Tables */}
               {Array.isArray(tables) && tables.map((table, idx) => (
                 <section key={idx} className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
@@ -1854,8 +1888,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   </a>
                   {/* Level 2: Medium - Order Sample Pack */}
                   <Link
-                    to="/store?category=sample"
-                    className="inline-flex items-center justify-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-400 transition"
+                    to="/support/unprinted-samples"
+                    className="inline-flex items-center justify-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-400 transition shadow-lg"
                   >
                     <Package className="h-4 w-4" />
                     {t('seoPageLayout.cta.orderSamplePack')}
