@@ -24,8 +24,8 @@ interface FAQItem {
 }
 
 const EUPPWRCompliancePage: React.FC = () => {
-    const { t } = useTranslation();
-    const p = 'seoPages.pages.eUPPWRCompliance';
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.eUPPWRCompliance';
   const isPouchDomain = getDomain() === 'pouch'
   const { openCalendly } = useCalendly()
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
@@ -34,64 +34,64 @@ const EUPPWRCompliancePage: React.FC = () => {
     setActiveFaq(activeFaq === index ? null : index)
   }
 
-  // Common B2B/B2C FAQ Content
+  // Common B2B/B2C FAQ Content wrapped in t()
   const FAQS: FAQItem[] = [
     {
-      q: "What is the immediate significance of the mid-August 2026 deadline?",
-      a: "By mid-August 2026, packaging placed on the EU market faces much stricter compliance and audit regulations under the newly adopted PPWR. This represents the official start of mandatory reporting, Extended Producer Responsibility (EPR) tiering, and strict bans on non-minimization practices."
+      q: t(`${p}.faqs.q1`, "What is the immediate significance of the mid-August 2026 deadline?"),
+      a: t(`${p}.faqs.a1`, "By mid-August 2026, packaging placed on the EU market faces much stricter compliance and audit regulations under the newly adopted PPWR. This represents the official start of mandatory reporting, Extended Producer Responsibility (EPR) tiering, and strict bans on non-minimization practices.")
     },
     {
-      q: "What does the 2030 mandate mean for flexible packaging formats?",
-      a: "By 2030, all packaging placed on the EU market must be generally recyclable by design. Multi-layer plastics that cannot be cleanly separated will be phased out in favor of mono-materials like Recyclable Mono-PE or certified compostable barriers."
+      q: t(`${p}.faqs.q2`, "What does the 2030 mandate mean for flexible packaging formats?"),
+      a: t(`${p}.faqs.a2`, "By 2030, all packaging placed on the EU market must be generally recyclable by design. Multi-layer plastics that cannot be cleanly separated will be phased out in favor of mono-materials like Recyclable Mono-PE or certified compostable barriers.")
     },
     {
-      q: "How does the 'Packaging Minimization' rule affect premium decorative boxes?",
-      a: "The law limits packaging weight and volume to the absolute minimum required for safety and logistics. Decorative, oversized packaging that exists solely to enhance brand image may be restricted unless protected by specific trademark design-rights."
+      q: t(`${p}.faqs.q3`, "How does the 'Packaging Minimization' rule affect premium decorative boxes?"),
+      a: t(`${p}.faqs.a3`, "The law limits packaging weight and volume to the absolute minimum required for safety and logistics. Decorative, oversized packaging that exists solely to enhance brand image may be restricted unless protected by specific trademark design-rights.")
     },
     {
-      q: "Are compostable surface laminates and zippers allowed under PPWR?",
-      a: "Yes! The EU specifically mandates compostability for tea bags, coffee pods, sticky fruit labels, and very lightweight bags. Pouch.eco's EN 13432 compostable structures and bio-based barriers are fully compliant."
+      q: t(`${p}.faqs.q4`, "Are compostable surface laminates and zippers allowed under PPWR?"),
+      a: t(`${p}.faqs.a4`, "Yes! The EU specifically mandates compostability for tea bags, coffee pods, sticky fruit labels, and very lightweight bags. Pouch.eco's EN 13432 compostable structures and bio-based barriers are fully compliant.")
     },
     {
-      q: "What documentation must brand owners supply before placing packs on the market?",
-      a: "Brand owners must prepare a comprehensive Declaration of Conformity (DoC), technical specification records verifying GRS PCR content, PFAS-free lab test approvals, and dynamic recovery tracking data for each packaging SKU."
+      q: t(`${p}.faqs.q5`, "What documentation must brand owners supply before placing packs on the market?"),
+      a: t(`${p}.faqs.a5`, "Brand owners must prepare a comprehensive Declaration of Conformity (DoC), technical specification records verifying GRS PCR content, PFAS-free lab test approvals, and dynamic recovery tracking data for each packaging SKU.")
     },
     {
-      q: "How can Achieve Pack and Pouch.eco assist my transition roadmap?",
-      a: "Pouch.eco offers low-MOQ digital print runs (starting at 100 bags) for rapid D2C prototype testing. Achieve Pack provides high-volume, cost-optimized commercial wholesale manufacturing (MOQ 5,000+) certified for VFFS automatic packaging lines."
+      q: t(`${p}.faqs.q6`, "How can Achieve Pack and Pouch.eco assist my transition roadmap?"),
+      a: t(`${p}.faqs.a6`, "Pouch.eco offers low-MOQ digital print runs (starting at 100 bags) for rapid D2C prototype testing. Achieve Pack provides high-volume, cost-optimized commercial wholesale manufacturing (MOQ 5,000+) certified for VFFS automatic packaging lines.")
     }
   ]
 
   const TECH_MATRIX = [
     {
-      param: "Recyclability Rating",
-      value: "Grade A Design for Recycling (RecyClass Sort)",
-      benefit: "Curbside recyclable Mono-PE structures qualify for the lowest possible EPR ecomodulated taxes."
+      param: t(`${p}.techMatrix.param1`, "Recyclability Rating"),
+      value: t(`${p}.techMatrix.value1`, "Grade A Design for Recycling (RecyClass Sort)"),
+      benefit: t(`${p}.techMatrix.benefit1`, "Curbside recyclable Mono-PE structures qualify for the lowest possible EPR ecomodulated taxes.")
     },
     {
-      param: "Void Space (Empty Space)",
-      value: "Under 15% Void Ratio (Exceeds 50% Limit)",
-      benefit: "Snug-fit flexible pouches eliminate bulk shipping volume and bypass loose filler materials."
+      param: t(`${p}.techMatrix.param2`, "Void Space (Empty Space)"),
+      value: t(`${p}.techMatrix.value2`, "Under 15% Void Ratio (Exceeds 50% Limit)"),
+      benefit: t(`${p}.techMatrix.benefit2`, "Snug-fit flexible pouches eliminate bulk shipping volume and bypass loose filler materials.")
     },
     {
-      param: "Harmonized Sorting Labels",
-      value: "2028-Ready Material Pictograms",
-      benefit: "Pre-printed standardized circular icons eliminate greenwashing penalties and consumer confusion."
+      param: t(`${p}.techMatrix.param3`, "Harmonized Sorting Labels"),
+      value: t(`${p}.techMatrix.value3`, "2028-Ready Material Pictograms"),
+      benefit: t(`${p}.techMatrix.benefit3`, "Pre-printed standardized circular icons eliminate greenwashing penalties and consumer confusion.")
     },
     {
-      param: "Digital Packaging Passport",
-      value: "Dynamic QR Sourcing & Traceability Markers",
-      benefit: "Instantly display polymer specs, carbon footprint, and circular sorting details to European MRFs."
+      param: t(`${p}.techMatrix.param4`, "Digital Packaging Passport"),
+      value: t(`${p}.techMatrix.value4`, "Dynamic QR Sourcing & Traceability Markers"),
+      benefit: t(`${p}.techMatrix.benefit4`, "Instantly display polymer specs, carbon footprint, and circular sorting details to European MRFs.")
     },
     {
-      param: "Post-Consumer Recycled (PCR)",
-      value: "GRS-Certified 30%+ PCR Content",
-      benefit: "Exempts your brand from the UK Plastic Packaging Tax (£217/tonne) and EU plastic levy (€0.80/kg)."
+      param: t(`${p}.techMatrix.param5`, "Post-Consumer Recycled (PCR)"),
+      value: t(`${p}.techMatrix.value5`, "GRS-Certified 30%+ PCR Content"),
+      benefit: t(`${p}.techMatrix.benefit5`, "Exempts your brand from the UK Plastic Packaging Tax (£217/tonne) and EU plastic levy (€0.80/kg).")
     },
     {
-      param: "Compostability Standards",
-      value: "TÜV OK Compost & BPI (EN 13432)",
-      benefit: "Guarantees plastic-free organic circularity for coffee, tea, and lightweight snack applications."
+      param: t(`${p}.techMatrix.param6`, "Compostability Standards"),
+      value: t(`${p}.techMatrix.value6`, "TÜV OK Compost & BPI (EN 13432)"),
+      benefit: t(`${p}.techMatrix.benefit6`, "Guarantees plastic-free organic circularity for coffee, tea, and lightweight snack applications.")
     }
   ]
 
@@ -102,7 +102,7 @@ const EUPPWRCompliancePage: React.FC = () => {
     const b2cSections = [
       {
         id: 'ppwr-2026',
-        title: 'The EU PPWR Timeline: Essential Deadlines',
+        title: t(`${p}.b2c.sections.timeline.title`, 'The EU PPWR Timeline: Essential Deadlines'),
         icon: <Calendar className="w-6 h-6" />,
         content: (
           <div className="space-y-6">
@@ -129,7 +129,7 @@ const EUPPWRCompliancePage: React.FC = () => {
       },
       {
         id: 'minimization-design',
-        title: 'The 50% Empty Space Cap & Minimization Rules',
+        title: t(`${p}.b2c.sections.minimization.title`, 'The 50% Empty Space Cap & Minimization Rules'),
         icon: <Target className="w-6 h-6" />,
         content: (
           <div className="space-y-6">
@@ -152,7 +152,7 @@ const EUPPWRCompliancePage: React.FC = () => {
               <NeoCard className="p-2 bg-emerald-50 border-4 border-emerald-900 shadow-[6px_6px_0px_0px_#022c22]">
                 <ClickableImage 
                   src="/imgs/topics/eu-ppwr-void-space.png" 
-                  alt="Infographic detailing EU PPWR Packaging Minimization comparing a non-compliant oversized box with bubble wrap and a compliant lightweight flexible pouch." 
+                  alt={t(`${p}.b2c.sections.minimization.imageAlt`, "Infographic detailing EU PPWR Packaging Minimization comparing a non-compliant oversized box with bubble wrap and a compliant lightweight flexible pouch.")} 
                   className="w-full object-cover border-2 border-black"
                 />
                 <div className="p-2 text-center text-[10px] text-emerald-900/80 font-mono">
@@ -166,7 +166,7 @@ const EUPPWRCompliancePage: React.FC = () => {
       },
       {
         id: 'sorting-labels-qr',
-        title: 'Harmonized Sorting Labels & QR Product Passports',
+        title: t(`${p}.b2c.sections.sorting.title`, 'Harmonized Sorting Labels & QR Product Passports'),
         icon: <Layers className="w-6 h-6" />,
         content: (
           <div className="space-y-6">
@@ -176,7 +176,7 @@ const EUPPWRCompliancePage: React.FC = () => {
               <NeoCard className="p-2 bg-emerald-50 border-4 border-emerald-900 shadow-[6px_6px_0px_0px_#022c22] order-2 md:order-1">
                 <ClickableImage 
                   src="/imgs/topics/eu-ppwr-sorting-labels.png" 
-                  alt="Infographic illustrating EU PPWR 2028 Harmonized Recycling Labels and Digital Product Passport QR code scanned on a mobile screen showing recyclability metrics." 
+                  alt={t(`${p}.b2c.sections.sorting.imageAlt`, "Infographic illustrating EU PPWR 2028 Harmonized Recycling Labels and Digital Product Passport QR code scanned on a mobile screen showing recyclability metrics.")} 
                   className="w-full object-cover border-2 border-black"
                 />
                 <div className="p-2 text-center text-[10px] text-emerald-900/80 font-mono">
@@ -201,7 +201,7 @@ const EUPPWRCompliancePage: React.FC = () => {
       },
       {
         id: 'materials-pouch',
-        title: 'EPR Eco-Modulation Taxes & Certified Claims',
+        title: t(`${p}.b2c.sections.epr.title`, 'EPR Eco-Modulation Taxes & Certified Claims'),
         icon: <Shield className="w-6 h-6" />,
         content: (
           <div className="space-y-6">
@@ -256,7 +256,7 @@ const EUPPWRCompliancePage: React.FC = () => {
       },
       {
         id: 'roadmap-action',
-        title: 'Brand Owner Sourcing Checklist: 5 Strategic Actions',
+        title: t(`${p}.b2c.sections.roadmap.title`, 'Brand Owner Sourcing Checklist: 5 Strategic Actions'),
         icon: <FileText className="w-6 h-6" />,
         content: (
           <div className="space-y-6 text-gray-700">
@@ -281,37 +281,43 @@ const EUPPWRCompliancePage: React.FC = () => {
 
     return (
       <BlogArticleTemplate
-        title="EU PPWR Packaging Compliance Guide 2026 | Pouch.eco"
-        metaDescription="Master the EU's new PPWR packaging law before mid-August 2026. Actionable brand-owner checklist, design minimization, mono-materials, and safe claims."
+        title={t(`${p}.b2c.seo.title`, "EU PPWR Packaging Compliance Guide 2026 | Pouch.eco")}
+        metaDescription={t(`${p}.b2c.seo.metaDescription`, "Master the EU's new PPWR packaging law before mid-August 2026. Actionable brand-owner checklist, design minimization, mono-materials, and safe claims.")}
         canonicalUrl="https://www.pouch.eco/blog/eu-ppwr-compliance-guide"
-        keywords={['EU PPWR compliance guide', 'EU packaging law 2026', 'brand owner packaging audit', 'recyclable mono-PE packaging', 'anti-greenwashing packaging claims']}
+        keywords={[
+          t(`${p}.b2c.seo.keywords.item1`, "EU PPWR compliance guide"),
+          t(`${p}.b2c.seo.keywords.item2`, "EU packaging law 2026"),
+          t(`${p}.b2c.seo.keywords.item3`, "brand owner packaging audit"),
+          t(`${p}.b2c.seo.keywords.item4`, "recyclable mono-PE packaging"),
+          t(`${p}.b2c.seo.keywords.item5`, "anti-greenwashing packaging claims")
+        ]}
         publishedDate="2026-05-31T08:00:00Z"
         modifiedDate="2026-05-31T08:00:00Z"
         categoryTag="Regulations"
         categoryColor="#022c22"
         heroTitle={
-          <>
+          <Trans i18nKey={`${p}.b2c.heroTitle`}>
             EU PPWR Packaging Law:<br />
             <span className="text-emerald-800">2026 Brand Owner Guide</span>
-          </>
+          </Trans>
         }
-        heroSubtitle="The countdown to mid-August 2026 has begun. From mandatory recyclability to strict packaging minimization rules, master the technical compliance roadmap."
+        heroSubtitle={t(`${p}.b2c.heroSubtitle`, "The countdown to mid-August 2026 has begun. From mandatory recyclability to strict packaging minimization rules, master the technical compliance roadmap.")}
         heroImage="/imgs/topics/eu-ppwr-compliance.png"
-        heroImageAlt="EU PPWR packaging law compliance infographic showing stand-up pouch specifications"
+        heroImageAlt={t(`${p}.b2c.heroImageAlt`, "EU PPWR packaging law compliance infographic showing stand-up pouch specifications")}
         sections={b2cSections}
         faqSections={FAQS.map(faq => ({ q: faq.q, a: faq.a }))}
         calendlyUrl="https://calendly.com/ryan-achievepack/30min"
         achievePackLink="https://www.achievepack.com/topics/eu-ppwr-compliance"
-        achievePackText="Need High-Volume Automatic VFFS Packing Runs? Visit AchievePack.com for B2B wholesale pricing (5,000+ pcs)"
+        achievePackText={t(`${p}.b2c.achievePackText`, "Need High-Volume Automatic VFFS Packing Runs? Visit AchievePack.com for B2B wholesale pricing (5,000+ pcs)")}
         showTableOfContents={true}
         relatedArticles={[
           {
-            title: 'Eco Packaging Regulations',
+            title: t(`${p}.b2c.related.art1`, 'Eco Packaging Regulations'),
             url: '/blog/eco-packaging-regulations-guide',
             image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
           },
           {
-            title: 'BPI Certified Guide',
+            title: t(`${p}.b2c.related.art2`, 'BPI Certified Guide'),
             url: '/blog/bpi-certified-guide',
             image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp'
           }
@@ -326,7 +332,7 @@ const EUPPWRCompliancePage: React.FC = () => {
   const b2bSections = [
     {
       id: 'ppwr-overview',
-      title: 'EU PPWR Legislative Compliance Targets',
+      title: t(`${p}.b2b.sections.targets.title`, 'EU PPWR Legislative Compliance Targets'),
       icon: <Globe className="h-5 w-5 text-emerald-800" />,
       content: (
         <div className="space-y-6 text-neutral-700 leading-relaxed">
@@ -334,7 +340,7 @@ const EUPPWRCompliancePage: React.FC = () => {
             {t(`${p}.forIndustrialBrandsComplianceI`)}<strong>{t(`${p}.august1220261`)}</strong>{t(`${p}.extendedProducerResponsibility`)}<strong>2030</strong> {t(`${p}.recyclableByDesignRequirement`)}</p>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-neutral-50 p-5 rounded-lg border-l-4 border-emerald-800 shadow-sm">
-              <h4 className="font-bold text-emerald-950 font-mono text-sm uppercase">{t(`${p}.immediateRegulatoryRisk`)}</h4>
+              <h4 className="font-bold text-emerald-800 font-mono text-sm uppercase">{t(`${p}.immediateRegulatoryRisk`)}</h4>
               <ul className="text-xs text-neutral-600 mt-2 space-y-2 font-mono">
                 <li>{t(`${p}.aggressiveEcomodulatedEprTaxBr`)}</li>
                 <li>{t(`${p}.stricterWasteMinimizationVolum`)}</li>
@@ -343,7 +349,7 @@ const EUPPWRCompliancePage: React.FC = () => {
               </ul>
             </div>
             <div className="bg-neutral-50 p-5 rounded-lg border-l-4 border-emerald-600 shadow-sm">
-              <h4 className="font-bold text-emerald-950 font-mono text-sm uppercase">{t(`${p}.achievePackSourcingSolutions`)}</h4>
+              <h4 className="font-bold text-emerald-600 font-mono text-sm uppercase">{t(`${p}.achievePackSourcingSolutions`)}</h4>
               <ul className="text-xs text-neutral-600 mt-2 space-y-2 font-mono">
                 <li>{t(`${p}.curbsideRecyclableMonoPeStruct`)}</li>
                 <li>{t(`${p}.certifiedGrsReadyPcrPostConsum`)}</li>
@@ -357,7 +363,7 @@ const EUPPWRCompliancePage: React.FC = () => {
     },
     {
       id: 'packaging-minimization',
-      title: 'volumetric Minimization & 50% Void Space Caps',
+      title: t(`${p}.b2b.sections.minimization.title`, 'Volumetric Minimization & 50% Void Space Caps'),
       icon: <Target className="h-5 w-5 text-emerald-800" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -372,9 +378,9 @@ const EUPPWRCompliancePage: React.FC = () => {
             <div className="bg-neutral-50 p-3 rounded-xl border border-neutral-200 shadow-sm">
               <ClickableImage 
                 src="/imgs/topics/eu-ppwr-void-space.png" 
-                alt="EU PPWR Void Space Infographic" 
+                alt={t(`${p}.b2b.sections.minimization.imageAlt`, "EU PPWR Void Space Infographic")} 
                 className="w-full h-auto rounded-lg"
-                caption="Volumetric minimization logic: replacing oversized boxes with flexible pouches."
+                caption={t(`${p}.b2b.sections.minimization.imageCaption`, "Volumetric minimization logic: replacing oversized boxes with flexible pouches.")}
               />
             </div>
           </div>
@@ -383,7 +389,7 @@ const EUPPWRCompliancePage: React.FC = () => {
     },
     {
       id: 'compliance-infographic',
-      title: '2028 Recycling Labels & Dynamic QR Product Passports',
+      title: t(`${p}.b2b.sections.infographic.title`, '2028 Recycling Labels & Dynamic QR Product Passports'),
       icon: <Layers className="h-5 w-5 text-emerald-800" />,
       content: (
         <div className="space-y-6">
@@ -392,9 +398,9 @@ const EUPPWRCompliancePage: React.FC = () => {
           <div className="bg-neutral-50 p-3 rounded-xl border border-neutral-200 shadow-sm max-w-2xl mx-auto">
             <ClickableImage 
               src="/imgs/topics/eu-ppwr-sorting-labels.png" 
-              alt="EU PPWR Recycling Labels and QR passports infographic" 
+              alt={t(`${p}.b2b.sections.infographic.imageAlt`, "EU PPWR Recycling Labels and QR passports infographic")} 
               className="w-full h-auto rounded-lg"
-              caption="Pre-integrated 2028 sorting templates and mobile Digital Packaging Passports. Style: nano banana pro 2"
+              caption={t(`${p}.b2b.sections.infographic.imageCaption`, "Pre-integrated 2028 sorting templates and mobile Digital Packaging Passports. Style: nano banana pro 2")}
             />
           </div>
         </div>
@@ -402,7 +408,7 @@ const EUPPWRCompliancePage: React.FC = () => {
     },
     {
       id: 'materials-recyclability',
-      title: 'Certified Sourcing & Eco-Modulated Tax Relief',
+      title: t(`${p}.b2b.sections.recyclability.title`, 'Certified Sourcing & Eco-Modulated Tax Relief'),
       icon: <Award className="h-5 w-5 text-emerald-800" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -434,7 +440,7 @@ const EUPPWRCompliancePage: React.FC = () => {
     },
     {
       id: 'compliance-workstream',
-      title: '5-Step Corporate Sourcing Roadmap',
+      title: t(`${p}.b2b.sections.roadmap.title`, '5-Step Corporate Sourcing Roadmap'),
       icon: <FileText className="h-5 w-5 text-emerald-800" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -467,7 +473,7 @@ const EUPPWRCompliancePage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Secure Your Regulatory Sourcing Strategy',
+      title: t(`${p}.b2b.sections.cta.title`, 'Secure Your Regulatory Sourcing Strategy'),
       icon: <MessageCircle className="h-5 w-5 text-emerald-800" />,
       content: (
         <div className="bg-gradient-to-br from-emerald-950 to-emerald-900 p-10 rounded-2xl text-white text-center shadow-xl">
@@ -498,20 +504,24 @@ const EUPPWRCompliancePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t(`${p}.euPpwrPackagingComplianceGuide`)}</title>
-        <meta name="description" content="Master the EU's Packaging and Packaging Waste Regulation (PPWR) before the mid-August 2026 deadline. Actionable brand-owner audits, minimization, and certified mono-PE." />
+        <title>{t(`${p}.b2b.seo.title`, "EU PPWR Packaging Compliance Guide: 2026 Brand Roadmap | Achieve Pack")}</title>
+        <meta name="description" content={t(`${p}.b2b.seo.description`, "Master the EU's Packaging and Packaging Waste Regulation (PPWR) before the mid-August 2026 deadline. Actionable brand-owner audits, minimization, and certified mono-PE.")} />
         <link rel="canonical" href="https://www.achievepack.com/topics/eu-ppwr-compliance" />
-        <meta name="keywords" content="EU PPWR compliance guide, EU packaging law 2026, packaging minimization rules, anti-greenwashing packaging claims, certified mono-PE packaging, post-consumer recycled plastic taxes" />
+        <meta name="keywords" content={t(`${p}.b2b.seo.keywords`, "EU PPWR compliance guide, EU packaging law 2026, packaging minimization rules, anti-greenwashing packaging claims, certified mono-PE packaging, post-consumer recycled plastic taxes")} />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#022c22"
-        title="EU PPWR Compliance: The 2026 Brand Packaging Roadmap"
-        description="A technical guide for procurement directors auditing materials, labels, and minimization rules before the 2026 enforcement."
-        keywords={['PPWR compliance', 'EU packaging regulations', 'mono-PE transition']}
-        heroTitle="Compliant. Minimized. Certified."
-        heroSubtitle="Master the EU's Ambitions Packaging Regulations (PPWR)"
-        introSummary="The voluntary phase of sustainability is officially over. With strict packaging minimization limits coming into force by mid-August 2026 and mandatory recyclability grades leading into 2030, brand owners exporting to the European Union must transition. This engineering guide details the technical and sourcing criteria required to protect your distribution and margin."
+        title={t(`${p}.b2b.layout.title`, "EU PPWR Compliance: The 2026 Brand Packaging Roadmap")}
+        description={t(`${p}.b2b.layout.description`, "A technical guide for procurement directors auditing materials, labels, and minimization rules before the 2026 enforcement.")}
+        keywords={[
+          t(`${p}.b2b.layout.keywords.item1`, "PPWR compliance"),
+          t(`${p}.b2b.layout.keywords.item2`, "EU packaging regulations"),
+          t(`${p}.b2b.layout.keywords.item3`, "mono-PE transition")
+        ]}
+        heroTitle={t(`${p}.b2b.layout.heroTitle`, "Compliant. Minimized. Certified.")}
+        heroSubtitle={t(`${p}.b2b.layout.heroSubtitle`, "Master the EU's Ambitions Packaging Regulations (PPWR)")}
+        introSummary={t(`${p}.b2b.layout.introSummary`, "The voluntary phase of sustainability is officially over. With strict packaging minimization limits coming into force by mid-August 2026 and mandatory recyclability grades leading into 2030, brand owners exporting to the European Union must transition. This engineering guide details the technical and sourcing criteria required to protect your distribution and margin.")}
         sections={b2bSections}
         faqs={FAQS.map(faq => ({ question: faq.q, answer: faq.a }))}
         schemaType="Article"
