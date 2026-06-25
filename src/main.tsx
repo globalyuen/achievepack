@@ -205,9 +205,40 @@ const PetFoodPage = lazyWithRetry(() => import('./pages/industry/PetFoodPage'))
 const SupplementsPowdersPage = lazyWithRetry(() => import('./pages/industry/SupplementsPowdersPage'))
 const BabyFoodPage = lazyWithRetry(() => import('./pages/industry/BabyFoodPage'))
 const FrozenFoodPage = lazyWithRetry(() => import('./pages/industry/FrozenFoodPage'))
+const FreshProducePage = lazyWithRetry(() => import('./pages/industry/FreshProducePage'))
 const SaucesCondimentsPage = lazyWithRetry(() => import('./pages/industry/SaucesCondimentsPage'))
 
 // Packaging Pages - Lazy loaded
+const PremiummattepouchesPage = lazyWithRetry(() => import('./pages/industry/premiummattepouchesPage'))
+const WholesaleunprintedpouchesPage = lazyWithRetry(() => import('./pages/industry/wholesaleunprintedpouchesPage'))
+const HighbarrierfoodpouchesPage = lazyWithRetry(() => import('./pages/industry/highbarrierfoodpouchesPage'))
+const AustraliashippingcooPage = lazyWithRetry(() => import('./pages/industry/australiashippingcooPage'))
+const PremiumfinishesPage = lazyWithRetry(() => import('./pages/industry/premiumfinishesPage'))
+const HighbarrierretortPage = lazyWithRetry(() => import('./pages/industry/highbarrierretortPage'))
+const CustomspoutpouchesPage = lazyWithRetry(() => import('./pages/industry/customspoutpouchesPage'))
+const PetfoodquadsealPage = lazyWithRetry(() => import('./pages/industry/petfoodquadsealPage'))
+const KraftwindowpouchPage = lazyWithRetry(() => import('./pages/industry/kraftwindowpouchPage'))
+const MatchasupplementsachetsPage = lazyWithRetry(() => import('./pages/industry/matchasupplementsachetsPage'))
+const LowmoqfastturnaroundPage = lazyWithRetry(() => import('./pages/industry/lowmoqfastturnaroundPage'))
+const PremiumsofttouchPage = lazyWithRetry(() => import('./pages/industry/premiumsofttouchPage'))
+const CustomdiecutpouchesPage = lazyWithRetry(() => import('./pages/industry/customdiecutpouchesPage'))
+const ResealabletintiebagsPage = lazyWithRetry(() => import('./pages/industry/resealabletintiebagsPage'))
+const SustainablekraftsolutionsPage = lazyWithRetry(() => import('./pages/industry/sustainablekraftsolutionsPage'))
+const DurablereusablepouchesPage = lazyWithRetry(() => import('./pages/composting/durablereusablepouchesPage'))
+const PlacompostablepackagingPage = lazyWithRetry(() => import('./pages/composting/placompostablepackagingPage'))
+const SustainablehealthcarepackagingPage = lazyWithRetry(() => import('./pages/composting/sustainablehealthcarepackagingPage'))
+const EcofriendlyteacoffeePage = lazyWithRetry(() => import('./pages/composting/ecofriendlyteacoffeePage'))
+const CompostablelaminatedfilmPage = lazyWithRetry(() => import('./pages/composting/compostablelaminatedfilmPage'))
+const ChildresistantcbdPage = lazyWithRetry(() => import('./pages/composting/childresistantcbdPage'))
+const CompostableproteinbagsPage = lazyWithRetry(() => import('./pages/composting/compostableproteinbagsPage'))
+const CleartransparentpouchesPage = lazyWithRetry(() => import('./pages/composting/cleartransparentpouchesPage'))
+const RecyclablevacuumbagsPage = lazyWithRetry(() => import('./pages/composting/recyclablevacuumbagsPage'))
+const EcocoffeebagsvalvePage = lazyWithRetry(() => import('./pages/composting/ecocoffeebagsvalvePage'))
+const PcrpackagingpouchesPage = lazyWithRetry(() => import('./pages/composting/pcrpackagingpouchesPage'))
+const EuroholehangbagsPage = lazyWithRetry(() => import('./pages/composting/euroholehangbagsPage'))
+const SustainableteasachetsPage = lazyWithRetry(() => import('./pages/composting/sustainableteasachetsPage'))
+const MeatjerkypackagingPage = lazyWithRetry(() => import('./pages/composting/meatjerkypackagingPage'))
+const BrownwhitekraftPage = lazyWithRetry(() => import('./pages/composting/brownwhitekraftPage'))
 const StandUpPouchesPage = lazyWithRetry(() => import('./pages/packaging/StandUpPouchesPage'))
 const FlatBottomBagsPage = lazyWithRetry(() => import('./pages/packaging/FlatBottomBagsPage'))
 const SpoutPouchesPage = lazyWithRetry(() => import('./pages/packaging/SpoutPouchesPage'))
@@ -863,6 +894,23 @@ if (getDomain() === 'pouch') {
                   <Route path="/industry/snacks-food" element={<PouchSnacksPage />} />
                   <Route path="/industry/supplements" element={<PouchSupplementsPage />} />
                   <Route path="/industry/supplements-powders" element={<PouchSupplementsPage />} />
+                  <Route path="/industry/fresh-produce" element={<FreshProducePage />} />
+                  <Route path="/industry/durable-reusable-pouches" element={<DurablereusablepouchesPage />} />
+                  <Route path="/industry/pla-compostable-packaging" element={<PlacompostablepackagingPage />} />
+                  <Route path="/industry/sustainable-healthcare-packaging" element={<SustainablehealthcarepackagingPage />} />
+                  <Route path="/industry/eco-friendly-tea-coffee" element={<EcofriendlyteacoffeePage />} />
+                  <Route path="/industry/compostable-laminated-film" element={<CompostablelaminatedfilmPage />} />
+                  <Route path="/industry/child-resistant-cbd" element={<ChildresistantcbdPage />} />
+                  <Route path="/industry/compostable-protein-bags" element={<CompostableproteinbagsPage />} />
+                  <Route path="/industry/clear-transparent-pouches" element={<CleartransparentpouchesPage />} />
+                  <Route path="/industry/recyclable-vacuum-bags" element={<RecyclablevacuumbagsPage />} />
+                  <Route path="/industry/eco-coffee-bags-valve" element={<EcocoffeebagsvalvePage />} />
+                  <Route path="/industry/pcr-packaging-pouches" element={<PcrpackagingpouchesPage />} />
+                  <Route path="/industry/euro-hole-hang-bags" element={<EuroholehangbagsPage />} />
+                  <Route path="/industry/sustainable-tea-sachets" element={<SustainableteasachetsPage />} />
+                  <Route path="/industry/meat-jerky-packaging" element={<MeatjerkypackagingPage />} />
+                  <Route path="/industry/brown-white-kraft" element={<BrownwhitekraftPage />} />
+
                   {/* <Route path="/blog/eco-friendly-food-packaging-guide" element={<EcoFriendlyFoodPackagingGuide />} /> */}
                   {/* <Route path="/blog/dtc-sustainable-packaging-guide" element={<DTCSustainablePackagingGuide />} /> */}
                   {/* <Route path="/blog/recyclable-snack-packaging-guide" element={<RecyclableSnackPackagingGuide />} /> */}
@@ -1176,6 +1224,39 @@ if (getDomain() === 'pouch') {
                         <Route path="/industry/baby-food" element={<BabyFoodPage />} />
                         <Route path="/industry/frozen-food" element={<FrozenFoodPage />} />
                         <Route path="/industry/sauces-condiments" element={<SaucesCondimentsPage />} />
+                        <Route path="/industry/fresh-produce" element={<FreshProducePage />} />
+                  <Route path="/industry/durable-reusable-pouches" element={<DurablereusablepouchesPage />} />
+                  <Route path="/industry/pla-compostable-packaging" element={<PlacompostablepackagingPage />} />
+                  <Route path="/industry/sustainable-healthcare-packaging" element={<SustainablehealthcarepackagingPage />} />
+                  <Route path="/industry/eco-friendly-tea-coffee" element={<EcofriendlyteacoffeePage />} />
+                  <Route path="/industry/compostable-laminated-film" element={<CompostablelaminatedfilmPage />} />
+                  <Route path="/industry/child-resistant-cbd" element={<ChildresistantcbdPage />} />
+                  <Route path="/industry/compostable-protein-bags" element={<CompostableproteinbagsPage />} />
+                  <Route path="/industry/clear-transparent-pouches" element={<CleartransparentpouchesPage />} />
+                  <Route path="/industry/recyclable-vacuum-bags" element={<RecyclablevacuumbagsPage />} />
+                  <Route path="/industry/eco-coffee-bags-valve" element={<EcocoffeebagsvalvePage />} />
+                  <Route path="/industry/pcr-packaging-pouches" element={<PcrpackagingpouchesPage />} />
+                  <Route path="/industry/euro-hole-hang-bags" element={<EuroholehangbagsPage />} />
+                  <Route path="/industry/sustainable-tea-sachets" element={<SustainableteasachetsPage />} />
+                  <Route path="/industry/meat-jerky-packaging" element={<MeatjerkypackagingPage />} />
+                  <Route path="/industry/brown-white-kraft" element={<BrownwhitekraftPage />} />
+
+                        <Route path="/industry/premium-matte-pouches" element={<PremiummattepouchesPage />} />
+                        <Route path="/industry/wholesale-unprinted-pouches" element={<WholesaleunprintedpouchesPage />} />
+                        <Route path="/industry/high-barrier-food-pouches" element={<HighbarrierfoodpouchesPage />} />
+                        <Route path="/industry/australia-shipping-coo" element={<AustraliashippingcooPage />} />
+                        <Route path="/industry/premium-finishes" element={<PremiumfinishesPage />} />
+                        <Route path="/industry/high-barrier-retort" element={<HighbarrierretortPage />} />
+                        <Route path="/industry/custom-spout-pouches" element={<CustomspoutpouchesPage />} />
+                        <Route path="/industry/pet-food-quad-seal" element={<PetfoodquadsealPage />} />
+                        <Route path="/industry/kraft-window-pouch" element={<KraftwindowpouchPage />} />
+                        <Route path="/industry/matcha-supplement-sachets" element={<MatchasupplementsachetsPage />} />
+                        <Route path="/industry/low-moq-fast-turnaround" element={<LowmoqfastturnaroundPage />} />
+                        <Route path="/industry/premium-soft-touch" element={<PremiumsofttouchPage />} />
+                        <Route path="/industry/custom-die-cut-pouches" element={<CustomdiecutpouchesPage />} />
+                        <Route path="/industry/resealable-tin-tie-bags" element={<ResealabletintiebagsPage />} />
+                        <Route path="/industry/sustainable-kraft-solutions" element={<SustainablekraftsolutionsPage />} />
+
 
                         {/* Packaging Pages */}
                         <Route path="/packaging/stand-up-pouches" element={<StandUpPouchesPage />} />
