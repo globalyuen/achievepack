@@ -77,7 +77,7 @@ const FlatPouchesPage: React.FC = () => {
 
   const materialComparisonTableRowsVal = t(`${p}.sections.materialComparison.tableRows`, { returnObjects: true });
   const materialComparisonTableRows = Array.isArray(materialComparisonTableRowsVal) ? materialComparisonTableRowsVal : [
-    ["PET/PE Clear", "⭐⭐模", "💰", "Recyclable", "Sugar packets, dry foods"],
+    ["PET/PE Clear", "⭐⭐", "💰", "Recyclable", "Sugar packets, dry foods"],
     ["Aluminum Foil Laminate", "⭐⭐⭐⭐⭐", "💰💰", "Hard to recycle", "Sauces, pharmaceuticals"],
     ["Kraft Paper Laminate", "⭐⭐⭐", "💰💰", "Natural look", "Tea bags, spices"],
     ["PLA Compostable", "⭐⭐", "💰💰💰", "🌱 Compostable", "Organic foods, samples"]

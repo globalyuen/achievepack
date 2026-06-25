@@ -297,7 +297,7 @@ const StandUpPouchesPage: React.FC = () => {
         <section className="py-24 px-6 bg-white border-b-4 border-black">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-16 tracking-tight">
-              {t(`${p}.b2c.bento.title`).includes('PERFORMANCE') ? 'FREQUENTLY ASKED QUESTIONS' : '常問問題'}
+              {t('standUpPouchesPage.b2c.faqTitle', 'Frequently Asked Questions')}
             </h2>
             <div className="space-y-6">
               {b2cFaqs.map((item, idx) => (

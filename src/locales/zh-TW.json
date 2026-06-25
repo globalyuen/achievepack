@@ -17918,7 +17918,19 @@
         "introSummary": "防止袋子膨脹和包裝破裂。 了解 B2B 品牌所有者如何使用二氧化碳吸收劑包、Jongga 式內部頭袋和扁平單向貼紙閥來安全運輸發酵食品。",
         "ctaTitle": "訂購智慧型脫氣閥或袋",
         "ctaDescription": "為您的液體較多的發酵食品生產線提供安全的防漏氣體控制。 可提供樣品。",
-        "ctaButtonText": "請求 B2B 報價"
+        "ctaButtonText": "請求 B2B 報價",
+        "tests": {
+          "videoSectionSubtitle": "閥門防漏液測試影片",
+          "passed": "測試通過",
+          "failed": "測試失敗 / 無防漏功能",
+          "activeDegassing": "正在排氣",
+          "smartSqueezeTitle": "智能排氣閥擠壓測試",
+          "standardSqueezeTitle": "普通咖啡閥擠壓測試",
+          "ventingDemoTitle": "單向排氣過程演示",
+          "smartSqueezeDesc": "對包裝袋進行大力擠壓時，內部空氣與氣體得以自由排出，而液體被100%封鎖在內，即使在強壓力下也無任何滲漏。",
+          "standardSqueezeDesc": "該閥門僅針對乾燥氣體設計，在醬汁液體擠壓下，其內部橡膠密封圈失效，導致液體立刻滲漏。這說明了普通咖啡閥不適用於富含液體的食品。",
+          "ventingDemoDesc": "近距離觀察二氧化碳氣體在微小氣壓下排出，同時徹底阻斷外部空氣和液體倒流。在整個排氣過程中，閥門始終保持其物理密封。"
+        }
       },
       "spoutPouchesJuice": {
         "30minFreeConsultation": "30分鐘免費諮詢",
@@ -29612,5 +29624,45 @@
       "terms": "服務條款",
       "returns": "退換貨政策"
     }
+  },
+  "locale": {
+    "zh-TW": "繁體中文",
+    "zh-TW-short": "繁中"
+  },
+  "standUpPouchesPage": {
+    "b2c": {
+      "faqTitle": "常問問題"
+    }
+  },
+  "pouchTechSpecsPage": {
+    "specCard": {
+      "layers": {
+        "outer": "外層",
+        "kraftUncoated": "牛牛皮紙 (無塗層)",
+        "inner": "內層",
+        "compostableFilm": "可堆肥薄膜 (50μ)",
+        "total": "合計",
+        "laminatedStructure": "複合結構"
+      }
+    }
+  },
+  "customCompostableLabelsPage": {
+    "viewFullDiagram": "點擊放大查看高清圖表"
+  },
+  "smartDegassingStickerPage": {
+    "clickToEnlarge": "點擊放大"
+  },
+  "geoBlocker": {
+    "title": "需要訪問密碼",
+    "accessRequired": "需要訪問密碼",
+    "enterPasswordInstructionsEn": "請輸入訪問密碼以查看網站。",
+    "enterPasswordInstructionsZh": "請輸入訪問密碼以查看網站。",
+    "passwordPlaceholder": "請輸入密碼",
+    "confirmAccess": "確認訪問",
+    "orContactUs": "或聯繫我們",
+    "passwordError": "密碼錯誤，請重新輸入"
+  },
+  "siteHeader": {
+    "language": "語言"
   }
 }

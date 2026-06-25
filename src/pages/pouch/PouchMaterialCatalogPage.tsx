@@ -30,7 +30,8 @@ export default function PouchMaterialCatalogPage() {
       price: '$$$',
       color: 'bg-amber-100',
       icon: Shield,
-      link: '/materials/cello-kraft-triplex'
+      link: '/materials/cello-kraft-triplex',
+      isHighBarrier: true
     },
     {
       id: 'kraft-duplex',
@@ -38,7 +39,8 @@ export default function PouchMaterialCatalogPage() {
       price: '$$',
       color: 'bg-amber-50',
       icon: Leaf,
-      link: '/materials/kraft-duplex'
+      link: '/materials/kraft-duplex',
+      isHighBarrier: false
     },
     {
       id: 'clear-high',
@@ -46,7 +48,8 @@ export default function PouchMaterialCatalogPage() {
       price: '$$$',
       color: 'bg-blue-100',
       icon: Eye,
-      link: '/materials'
+      link: '/materials',
+      isHighBarrier: true
     },
     {
       id: 'clear-medium',
@@ -54,7 +57,8 @@ export default function PouchMaterialCatalogPage() {
       price: '$$',
       color: 'bg-blue-50',
       icon: Eye,
-      link: '/materials'
+      link: '/materials',
+      isHighBarrier: false
     },
     {
       id: 'matte-white',
@@ -62,7 +66,8 @@ export default function PouchMaterialCatalogPage() {
       price: '$$',
       color: 'bg-gray-100',
       icon: Sparkles,
-      link: '/materials'
+      link: '/materials',
+      isHighBarrier: false
     },
     {
       id: 'black-matte',
@@ -71,7 +76,8 @@ export default function PouchMaterialCatalogPage() {
       color: 'bg-gray-900',
       icon: Sparkles,
       link: '/materials',
-      textColor: 'text-white'
+      textColor: 'text-white',
+      isHighBarrier: false
     }
   ]
 
@@ -145,8 +151,7 @@ export default function PouchMaterialCatalogPage() {
                   <material.icon className={`w-10 h-10 ${material.textColor || 'text-gray-800'}`} />
                   <div className="flex flex-col items-end gap-2">
                     <NeoBadge color={
-                      t(`pouchMaterialCatalogPage.materials.items.${material.key}.barrier`) === 'High' || t(`pouchMaterialCatalogPage.materials.items.${material.key}.barrier`) === 'Haute' || t(`pouchMaterialCatalogPage.materials.items.${material.key}.barrier`) === 'Alta' || t(`pouchMaterialCatalogPage.materials.items.${material.key}.barrier`) === '高' ? 'bg-purple-300' :
-                      'bg-blue-300'
+                      material.isHighBarrier ? 'bg-purple-300' : 'bg-blue-300'
                     }>
                       {t(`pouchMaterialCatalogPage.materials.items.${material.key}.barrier`)} {t('pouchMaterialCatalogPage.materials.barrierLabel')}
                     </NeoBadge>

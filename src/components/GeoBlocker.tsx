@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ReactNode } from 'react'
 import { Mail, Phone, MessageCircle, Lock, Eye, EyeOff } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 interface GeoBlockerProps {
   children: ReactNode
@@ -10,6 +11,7 @@ const ACCESS_PASSWORD = 'jr1357924680'
 const STORAGE_KEY = 'achievepack_access_granted'
 
 const GeoBlocker: React.FC<GeoBlockerProps> = ({ children }) => {
+  const { t } = useTranslation()
   const [isBlocked, setIsBlocked] = useState(false)
   const [isChecking, setIsChecking] = useState(true)
   const [password, setPassword] = useState('')
@@ -58,7 +60,7 @@ const GeoBlocker: React.FC<GeoBlockerProps> = ({ children }) => {
       setAccessGranted(true)
       setPasswordError('')
     } else {
-      setPasswordError('密码错误 / Incorrect password')
+      setPasswordError(t('geoBlocker.passwordError', '密码错误 / Incorrect password'))
     }
   }
 
@@ -95,19 +97,19 @@ const GeoBlocker: React.FC<GeoBlockerProps> = ({ children }) => {
 
           {/* Title */}
           <h1 className="text-2xl font-bold text-neutral-900 mb-3">
-            Access Required
+            {t('geoBlocker.title', 'Access Required')}
           </h1>
           <p className="text-lg text-neutral-500 mb-2">
-            需要访问密码
+            {t('geoBlocker.accessRequired', '需要访问密码')}
           </p>
 
           {/* Password Form */}
           <form onSubmit={handlePasswordSubmit} className="mb-8">
             <p className="text-neutral-600 mb-4 text-sm">
-              Please enter the access password to view the website.
+              {t('geoBlocker.enterPasswordInstructionsEn', 'Please enter the access password to view the website.')}
             </p>
             <p className="text-neutral-500 text-sm mb-4">
-              请输入访问密码以查看网站。
+              {t('geoBlocker.enterPasswordInstructionsZh', '请输入访问密码以查看网站。')}
             </p>
             
             <div className="relative mb-3">
@@ -115,7 +117,7 @@ const GeoBlocker: React.FC<GeoBlockerProps> = ({ children }) => {
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="输入密码 / Enter password"
+                placeholder={t('geoBlocker.passwordPlaceholder', '输入密码 / Enter password')}
                 className="w-full px-4 py-3 pr-12 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
               />
               <button
@@ -135,7 +137,7 @@ const GeoBlocker: React.FC<GeoBlockerProps> = ({ children }) => {
               type="submit"
               className="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 px-6 rounded-lg transition-colors font-medium"
             >
-              确认访问 / Confirm Access
+              {t('geoBlocker.confirmAccess', '确认访问 / Confirm Access')}
             </button>
           </form>
 
@@ -143,7 +145,7 @@ const GeoBlocker: React.FC<GeoBlockerProps> = ({ children }) => {
             {/* Contact Options */}
             <div className="space-y-3">
               <h3 className="text-sm font-semibold text-neutral-700 uppercase tracking-wider mb-4">
-                或联系我们 / Or Contact Us
+                {t('geoBlocker.orContactUs', '或联系我们 / Or Contact Us')}
               </h3>
             
               {/* Email */}

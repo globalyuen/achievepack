@@ -465,7 +465,7 @@ const CustomCompostableLabelsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer group bg-white border border-neutral-100 p-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300 rounded-lg" loading="lazy" />
-            <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center mt-2 rounded-md">Click to view full diagram • 點擊放大查看高清圖表</div>
+            <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center mt-2 rounded-md">{t('customCompostableLabelsPage.viewFullDiagram', 'Click to view full diagram')}</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -487,7 +487,7 @@ const CustomCompostableLabelsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer group md:order-2 bg-white border border-neutral-100 p-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300 rounded-lg" loading="lazy" />
-            <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center mt-2 rounded-md">Click to view full diagram • 點擊放大查看高清圖表</div>
+            <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center mt-2 rounded-md">{t('customCompostableLabelsPage.viewFullDiagram', 'Click to view full diagram')}</div>
           </button>
         </>
       )}
@@ -704,7 +704,7 @@ const CustomCompostableLabelsPage: React.FC = () => {
               className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer group bg-white border border-neutral-100 p-2 w-full text-left"
             >
               <img src="/taobao/compostable-label/compostable-label-process.png" alt={t('seoPages.pages.customCompostableLabels.achievePack.photoGallery.p8.title')} className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300 rounded-lg" loading="lazy" />
-              <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center mt-2 rounded-md">Click to view full diagram • 點擊放大查看高清圖表</div>
+              <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center mt-2 rounded-md">{t('customCompostableLabelsPage.viewFullDiagram', 'Click to view full diagram')}</div>
             </button>
           </div>
         </div>

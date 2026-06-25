@@ -8,6 +8,7 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 
 const SmartDegassingStickerPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.smartDegassingSticker'
 
   const stickerGallery = [
   { src: '/imgs/function/smart_sticker_valve_detail.png', title: t('seoPages.pages.smartDegassingSticker.title_smartDegassingStickerValveDetail'), desc: t('seoPages.pages.smartDegassingSticker.desc_flatSquareOnewayValveSticker') },
@@ -58,7 +59,7 @@ const SmartDegassingStickerPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group border border-neutral-200"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center font-medium">Click to enlarge / 点击放大</div>
+            <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center font-medium">{t('smartDegassingStickerPage.clickToEnlarge', 'Click to enlarge')}</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -80,7 +81,7 @@ const SmartDegassingStickerPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group border border-neutral-200 md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center font-medium">Click to enlarge / 点击放大</div>
+            <div className="bg-neutral-50 px-3 py-2 text-xs text-neutral-500 text-center font-medium">{t('smartDegassingStickerPage.clickToEnlarge', 'Click to enlarge')}</div>
           </button>
         </>
       )}
@@ -209,7 +210,7 @@ const SmartDegassingStickerPage: React.FC = () => {
 
           <div className="mt-8 border-t border-neutral-100 pt-8">
             <h4 className="text-xl font-bold text-neutral-900 mb-2">Functional Performance Testing Videos</h4>
-            <p className="text-sm text-primary-600 font-semibold uppercase tracking-wider mb-4">阀门防漏液测试视频</p>
+            <p className="text-sm text-primary-600 font-semibold uppercase tracking-wider mb-4">{t(`${p}.tests.videoSectionSubtitle`, '阀门防漏液测试视频')}</p>
             <p className="text-neutral-700 text-sm mb-6 leading-relaxed">
               We subject our packaging solutions to extreme pressure and liquid contact scenarios. Watch the comparative testing below to see the physical performance of our smart degassing stickers vs. standard coffee valves under squeeze pressure:
             </p>
@@ -229,20 +230,20 @@ const SmartDegassingStickerPage: React.FC = () => {
                     />
                   </div>
                   <span className="inline-block text-[10px] font-bold text-green-700 bg-green-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
-                    PASSED / 测验合格
+                    {t(`${p}.tests.passed`, 'PASSED / 测验合格')}
                   </span>
                   <h5 className="font-bold text-base text-neutral-950 mb-1">
                     Leak-Proof Valve Test
                   </h5>
                   <p className="text-xs text-neutral-500 font-medium mb-1 uppercase tracking-wider">
-                    智能排气阀挤压测试
+                    {t(`${p}.tests.smartSqueezeTitle`, '智能排气阀挤压测试')}
                   </p>
                   <p className="text-xs text-neutral-600 leading-relaxed mb-3">
                     Watch our specialized flat square valve (AO002) in action under a severe squeeze test. Even when localized pressure is applied to the liquid-rich pouch, the hydrophobic membrane holds firm, preventing a single drop of liquid or sauce from escaping while allowing gas to vent.
                   </p>
                 </div>
                 <div className="border-t border-neutral-200/60 pt-2 text-[11px] text-neutral-500 italic leading-relaxed">
-                  对包装袋进行大力挤压时，内部空气与气体得以自由排出，而液体被100%封锁在内，即使在强压力下也无任何渗漏。
+                  {t(`${p}.tests.smartSqueezeDesc`, '对包装袋进行大力挤压时，内部空气与气体得以自由排出，而液体被100%封锁在内，即使在强压力下也无任何渗漏。')}
                 </div>
               </div>
 
@@ -260,20 +261,20 @@ const SmartDegassingStickerPage: React.FC = () => {
                     />
                   </div>
                   <span className="inline-block text-[10px] font-bold text-red-700 bg-red-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
-                    FAILED / 无法防漏
+                    {t(`${p}.tests.failed`, 'FAILED / 无法防漏')}
                   </span>
                   <h5 className="font-bold text-base text-neutral-950 mb-1">
                     Standard Coffee Valve
                   </h5>
                   <p className="text-xs text-neutral-500 font-medium mb-1 uppercase tracking-wider">
-                    普通咖啡阀挤压测试
+                    {t(`${p}.tests.standardSqueezeTitle`, '普通咖啡阀挤压测试')}
                   </p>
                   <p className="text-xs text-neutral-600 leading-relaxed mb-3">
                     Standard round coffee valves are designed only for dry gases. Under liquid squeeze pressure, the internal seal fails, leading to immediate liquid leak. This highlights why standard coffee valves are not suitable for liquid-rich foods.
                   </p>
                 </div>
                 <div className="border-t border-neutral-200/60 pt-2 text-[11px] text-neutral-500 italic leading-relaxed">
-                  该阀门仅针对干燥气体设计，在酱汁液体挤压下，其内部橡胶密封圈失效，导致液体立刻渗漏。这说明了普通咖啡阀不适用于富含液体的食品。
+                  {t(`${p}.tests.standardSqueezeDesc`, '该阀门仅针对干燥气体设计，在酱汁液体挤压下，其内部橡胶密封圈失效，导致液体立刻渗漏。这说明了普通咖啡阀不适用于富含液体的食品。')}
                 </div>
               </div>
 
@@ -291,20 +292,20 @@ const SmartDegassingStickerPage: React.FC = () => {
                     />
                   </div>
                   <span className="inline-block text-[10px] font-bold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
-                    ACTIVE DE-GASSING / 正在排气
+                    {t(`${p}.tests.activeDegassing`, 'ACTIVE DE-GASSING / 正在排气')}
                   </span>
                   <h5 className="font-bold text-base text-neutral-950 mb-1">
                     Active Venting Demo
                   </h5>
                   <p className="text-xs text-neutral-500 font-medium mb-1 uppercase tracking-wider">
-                    单向排气过程演示
+                    {t(`${p}.tests.ventingDemoTitle`, '单向排气过程演示')}
                   </p>
                   <p className="text-xs text-neutral-600 leading-relaxed mb-3">
                     Close-up showing carbon dioxide gas bubble venting under pressure while completely blocking liquid backflow. The valve maintains physical seal integrity throughout the off-gassing process.
                   </p>
                 </div>
                 <div className="border-t border-neutral-200/60 pt-2 text-[11px] text-neutral-500 italic leading-relaxed">
-                  近距离观察二氧化碳气体在微小气压下排出，同时彻底阻断外部空气和液体倒流。在整个排气过程中，阀门始终保持其物理密封。
+                  {t(`${p}.tests.ventingDemoDesc`, '近距离观察二氧化碳气体在微小气压下排出，同时彻底阻断外部空气和液体倒流。在整个排气过程中，阀门始终保持其物理密封。')}
                 </div>
               </div>
             </div>

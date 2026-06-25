@@ -66,7 +66,7 @@ export default function PouchColorMatchingPage() {
                     className="inline-flex items-center gap-1.5 bg-white border-4 border-black px-4 py-2 font-['JetBrains_Mono'] font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
                   >
                     <Globe className="h-4 w-4" />
-                    <span>{i18n.language === 'zh-TW' ? '繁中' : i18n.language.toUpperCase()}</span>
+                    <span>{i18n.language === 'zh-TW' ? t('locale.zh-TW-short', '繁中') : i18n.language.toUpperCase()}</span>
                     <ChevronDown className="h-4 w-4" />
                   </button>
                   {isLangMenuOpen && (
@@ -74,7 +74,7 @@ export default function PouchColorMatchingPage() {
                       <button onClick={() => { i18n.changeLanguage('en'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">ENGLISH</button>
                       <button onClick={() => { i18n.changeLanguage('fr'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">FRANÇAIS</button>
                       <button onClick={() => { i18n.changeLanguage('es'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">ESPAÑOL</button>
-                      <button onClick={() => { i18n.changeLanguage('zh-TW'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">繁體中文</button>
+                      <button onClick={() => { i18n.changeLanguage('zh-TW'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 hover:bg-neutral-100">{t('locale.zh-TW', '繁體中文')}</button>
                     </div>
                   )}
                 </div>

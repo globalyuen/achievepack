@@ -217,9 +217,9 @@ export default function PouchTechSpecsPage() {
         totalThickness: '0.13mm (130μ)',
         totalWeight: '130 g/m²',
         layers: [
-          { layer: 'Outer / 外层', material: 'Kraft paper 牛皮纸 (uncoated)', gsm: '60', thicknessMm: '0.08', thicknessMu: '80', weightShare: '46.2', thickShare: '61.5' },
-          { layer: 'Inner / 内层', material: 'Compostable film 可堆肥薄膜 (50μ, ρ=1.4)', gsm: '70', thicknessMm: '0.05', thicknessMu: '50', weightShare: '53.8', thickShare: '38.5' },
-          { layer: 'Total / 合计', material: 'Laminated structure 复合结构', gsm: '130', thicknessMm: '0.13', thicknessMu: '130', weightShare: '100', thickShare: '100' }
+          { layer: t('pouchTechSpecsPage.specCard.layers.outer', 'Outer / 外层'), material: t('pouchTechSpecsPage.specCard.layers.kraftUncoated', 'Kraft paper 牛皮纸 (uncoated)'), gsm: '60', thicknessMm: '0.08', thicknessMu: '80', weightShare: '46.2', thickShare: '61.5' },
+          { layer: t('pouchTechSpecsPage.specCard.layers.inner', 'Inner / 内层'), material: t('pouchTechSpecsPage.specCard.layers.compostableFilm', 'Compostable film 可堆肥薄膜 (50μ, ρ=1.4)'), gsm: '70', thicknessMm: '0.05', thicknessMu: '50', weightShare: '53.8', thickShare: '38.5' },
+          { layer: t('pouchTechSpecsPage.specCard.layers.total', 'Total / 合计'), material: t('pouchTechSpecsPage.specCard.layers.laminatedStructure', 'Laminated structure 复合结构'), gsm: '130', thicknessMm: '0.13', thicknessMu: '130', weightShare: '100', thickShare: '100' }
         ]
       }
     },

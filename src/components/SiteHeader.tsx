@@ -259,7 +259,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                       <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
                       <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Français</button>
                       <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Español</button>
-                      <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
+                      <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">{t('locale.zh-TW', '繁體中文')}</button>
                     </div>
                   )}
                 </div>
@@ -422,12 +422,12 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
             {/* Mobile Language Options - Only show if enabled */}
             {displayLanguageSelector && (
               <div className="py-2 border-t border-neutral-100">
-                <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-2">Language</div>
+                <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-2">{t('siteHeader.language', 'Language')}</div>
                 <div className="grid grid-cols-4 gap-2 px-2">
                   <button onClick={() => changeLanguage('en')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'en' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>EN</button>
                   <button onClick={() => changeLanguage('fr')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'fr' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>FR</button>
                   <button onClick={() => changeLanguage('es')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'es' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>ES</button>
-                  <button onClick={() => changeLanguage('zh-TW')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'zh-TW' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>中文</button>
+                  <button onClick={() => changeLanguage('zh-TW')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'zh-TW' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>{t('locale.zh-TW-short', '中文')}</button>
                 </div>
               </div>
             )}

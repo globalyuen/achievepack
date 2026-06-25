@@ -176,7 +176,7 @@ export default function ColorMatchingPage() {
                     >
                       <Globe className="h-4 w-4 text-emerald-400" />
                       <span>
-                        {i18n.language === 'zh-TW' ? '繁體中文' : i18n.language === 'fr' ? 'Français' : i18n.language === 'es' ? 'Español' : 'English'}
+                        {i18n.language === 'zh-TW' ? t('locale.zh-TW', '繁體中文') : i18n.language === 'fr' ? 'Français' : i18n.language === 'es' ? 'Español' : 'English'}
                       </span>
                       <ChevronDown className="h-3.5 w-3.5 opacity-60" />
                     </button>
@@ -185,7 +185,7 @@ export default function ColorMatchingPage() {
                         <button onClick={() => { i18n.changeLanguage('en'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">English</button>
                         <button onClick={() => { i18n.changeLanguage('fr'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">Français</button>
                         <button onClick={() => { i18n.changeLanguage('es'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">Español</button>
-                        <button onClick={() => { i18n.changeLanguage('zh-TW'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">繁體中文</button>
+                        <button onClick={() => { i18n.changeLanguage('zh-TW'); setIsLangMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-xs font-bold hover:bg-neutral-100">{t('locale.zh-TW', '繁體中文')}</button>
                       </div>
                     )}
                   </div>

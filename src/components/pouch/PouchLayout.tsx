@@ -280,7 +280,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                       onClick={() => changeLanguage('zh-TW')}
                       className="block w-full text-left px-3 py-2 font-bold hover:bg-[#D4FF00] transition-colors"
                     >
-                      繁體中文
+                      {t('locale.zh-TW', '繁體中文')}
                     </button>
                   </div>
                 )}
@@ -537,12 +537,12 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   {/* Mobile Language Options */}
                   {showLanguageSelector && (
                     <div className="py-2 border-t-4 border-black mt-4">
-                      <div className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-600 mb-2 uppercase px-2">Language</div>
+                      <div className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-600 mb-2 uppercase px-2">{t('pouchLayout.language', 'Language')}</div>
                       <div className="grid grid-cols-4 gap-2 px-2">
                         <button onClick={() => changeLanguage('en')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'en' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>EN</button>
                         <button onClick={() => changeLanguage('fr')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'fr' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>FR</button>
                         <button onClick={() => changeLanguage('es')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'es' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>ES</button>
-                        <button onClick={() => changeLanguage('zh-TW')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'zh-tw' || i18n.language === 'zh-TW' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>中文</button>
+                        <button onClick={() => changeLanguage('zh-TW')} className={`text-xs font-bold font-['JetBrains_Mono'] py-2 border-2 border-black ${i18n.language === 'zh-tw' || i18n.language === 'zh-TW' ? 'bg-[#D4FF00] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-100'}`}>{t('locale.zh-TW-short', '中文')}</button>
                       </div>
                     </div>
                   )}

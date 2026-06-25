@@ -17404,7 +17404,19 @@
         "introSummary": "Evite bolsas hinchadas y envases que revienten. Descubra cómo los propietarios de marcas B2B utilizan paquetes absorbentes de CO2, bolsillos internos estilo Jongga y válvulas adhesivas unidireccionales planas para enviar alimentos fermentados de forma segura.",
         "ctaTitle": "Solicite válvulas o bolsas de desgasificación inteligentes",
         "ctaDescription": "Control seguro de gas a prueba de fugas para su línea de alimentos fermentados con mucho líquido. Muestras disponibles.",
-        "ctaButtonText": "Solicitar cotización B2B"
+        "ctaButtonText": "Solicitar cotización B2B",
+        "tests": {
+          "videoSectionSubtitle": "Functional Performance Testing Videos",
+          "passed": "PASSED / 测验合格",
+          "failed": "FAILED / 无法防漏",
+          "activeDegassing": "ACTIVE DE-GASSING / 正在排气",
+          "smartSqueezeTitle": "Leak-Proof Valve Test",
+          "standardSqueezeTitle": "Standard Coffee Valve",
+          "ventingDemoTitle": "Active Venting Demo",
+          "smartSqueezeDesc": "Watch our specialized flat square valve (AO002) in action under a severe squeeze test. Even when localized pressure is applied to the liquid-rich pouch, the hydrophobic membrane holds firm, preventing a single drop of liquid or sauce from escaping while allowing gas to vent.",
+          "standardSqueezeDesc": "Standard round coffee valves are designed only for dry gases. Under liquid squeeze pressure, the internal seal fails, leading to immediate liquid leak. This highlights why standard coffee valves are not suitable for liquid-rich foods.",
+          "ventingDemoDesc": "Close-up showing carbon dioxide gas bubble venting under pressure while completely blocking liquid backflow. The valve maintains physical seal integrity throughout the off-gassing process."
+        }
       },
       "spoutPouchesJuice": {
         "atPouchecoWeSpecializeIn": "En Pouch.eco, nos especializamos en ayudar a las marcas emergentes a escalar desde operaciones en garajes hasta el éxito en los supermercados. Los fabricantes de envases de bebidas tradicionales requieren de 5000 a 10 000 bolsas por SKU de sabor. Si desea lanzar con 4 recetas diferentes, necesitará desembolsar miles de dólares en compromisos masivos mayoristas B2B.",
@@ -25858,7 +25870,7 @@
     "mockupGeneratorDesc": "Sube el diseño para visualizarlo en 3D",
     "searchPlaceholder": "Buscar empaque ecológico...",
     "search": "Buscar",
-    "language": "Idioma",
+    "language": "Language",
     "enterprise": "Empresa",
     "bookConsultation": "Reservar Consulta Gratuita",
     "closeMenu": "Cerrar menú",
@@ -28842,5 +28854,45 @@
       "terms": "Términos",
       "returns": "Devoluciones"
     }
+  },
+  "locale": {
+    "zh-TW": "繁體中文",
+    "zh-TW-short": "繁中"
+  },
+  "standUpPouchesPage": {
+    "b2c": {
+      "faqTitle": "Frequently Asked Questions"
+    }
+  },
+  "pouchTechSpecsPage": {
+    "specCard": {
+      "layers": {
+        "outer": "Outer",
+        "kraftUncoated": "Kraft paper (uncoated)",
+        "inner": "Inner",
+        "compostableFilm": "Compostable film (50μ)",
+        "total": "Total",
+        "laminatedStructure": "Laminated structure"
+      }
+    }
+  },
+  "customCompostableLabelsPage": {
+    "viewFullDiagram": "Click to view full diagram"
+  },
+  "smartDegassingStickerPage": {
+    "clickToEnlarge": "Click to enlarge"
+  },
+  "geoBlocker": {
+    "title": "Access Required",
+    "accessRequired": "Access Password Required",
+    "enterPasswordInstructionsEn": "Please enter the access password to view the website.",
+    "enterPasswordInstructionsZh": "Please enter the access password to view the website.",
+    "passwordPlaceholder": "Enter password",
+    "confirmAccess": "Confirm Access",
+    "orContactUs": "Or Contact Us",
+    "passwordError": "Incorrect password"
+  },
+  "siteHeader": {
+    "language": "Language"
   }
 }
