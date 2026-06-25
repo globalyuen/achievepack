@@ -6822,25 +6822,186 @@
         }
       },
       "sizeGuide": {
-        "title": "Pouch Size Guide | Dimensions & Capacity Reference",
-        "description": "Complete pouch size guide with dimensions and capacity for stand-up pouches, flat bottom bags, and more. Find the perfect size for your product.",
-        "heroTitle": "Pouch Size Guide",
-        "heroSubtitle": "Find the perfect pouch size for your product. Complete dimension guide with capacity references and custom size options.",
-        "introSummary": "Selecting the right pouch size ensures optimal product presentation and cost efficiency. Use this comprehensive guide to understand standard sizes and find the perfect fit for your product.",
+        "title": "包裝自立袋尺寸指南 | 規格與容量對照參考",
+        "description": "完整的包裝袋尺寸對照表，包含自立袋、平底袋（五邊封）等袋型的尺寸規格與容量參考。助您為產品挑選最完美的包裝袋尺寸。",
+        "heroTitle": "您需要甚麼尺寸的包裝？",
+        "heroSubtitle": "提供各款包裝袋型的尺寸、容量及專業建議。您亦可將產品寄給我們，由我們為您精確測量合適的包裝袋。",
+        "introSummary": "不確定哪種尺寸最適合？我們提供可快速訂購的標準尺寸，以及滿足特定需求的客製化尺寸。不論哪種，我們都能為您提供最專業的包裝解決方案。",
         "faq": {
-          "q1": "Do you have standard sizes or is everything custom?",
-          "a1": "We have a range of standard sizes that cover most needs with lower MOQs. Custom sizes are available for orders of 500+ pieces (digital) or 5,000+ pieces (plate printing).",
-          "q2": "How do I know what size fits my product?",
-          "a2": "Send us your product details (weight, dimensions, density) or a sample. We'll recommend sizes and can send blank pouches for you to test fill before ordering printed versions.",
-          "q3": "Are dimensions exact or approximate?",
-          "a3": "Dimensions are nominal with standard manufacturing tolerance of ±1-2mm. Critical applications should account for this variance.",
-          "q4": "Can I get the same product in multiple sizes?",
-          "a4": "Absolutely! Many brands offer the same product in different sizes (sample, regular, family size). Each size can share design elements while using size-specific artwork."
+          "q1": "你們有標準尺寸還是全部都需要客製化？",
+          "a1": "我們提供多種現成標準尺寸，起訂量（MOQ）較低，能滿足大部分日常需求。對於特定尺寸，我們支持客製化，數碼印刷起訂量為 500 個起，銅版（凹版）印刷為 5,000 個起。",
+          "q2": "我該如何判斷哪種尺寸適合我的產品？",
+          "a2": "您可以提供產品的重量、尺寸與密度，或者直接將產品樣品寄給我們。我們將為您推薦最合適的尺寸，並可提供無印刷空白樣品袋供您進行填充測試，測試滿意後再安排印刷。",
+          "q3": "包裝袋的尺寸是絕對精確還是大約數值？",
+          "a3": "所有尺寸均為名義尺寸，生產中存在 ±1-2mm 的合理製造公差。如果您的產品對尺寸要求極高，請在設計包裝時將此誤差考慮在內。",
+          "q4": "我的同款產品可以做成多種不同的尺寸嗎？",
+          "a4": "絕對可以！許多品牌都會針對同款產品推出不同規格（如試用裝、標準裝、家庭裝）。不同尺寸的包裝袋可以共享一致的品牌設計元素，並根據各自的尺寸比例進行排版調整。"
         },
         "cta": {
-          "title": "Need Help Choosing?",
-          "description": "Send us your product details and we'll recommend the optimal size.",
-          "button": "Get Size Recommendation"
+          "title": "需要挑選尺寸的專業建議？",
+          "description": "請提供您的產品詳情，我們將為您量身推薦最理想的包裝尺寸。",
+          "button": "獲取尺寸推薦建議"
+        },
+        "capacities": {
+          "xxxs_standup": "10-25克",
+          "xxs_standup": "25-50克",
+          "xs_standup": "50-75克",
+          "s_standup": "75-150克",
+          "l_standup": "250-500克",
+          "xl_standup": "500克-1公斤",
+          "xxl_standup": "1-2公斤",
+          "xxxs_flat": "25-50克",
+          "xxs_flat": "50-100克",
+          "xs_flat": "100-200克",
+          "s_flat": "200-350克",
+          "l_flat": "500克-1公斤",
+          "xl_flat": "1-1.5公斤",
+          "xxl_flat": "1.5-2.5公斤"
+        },
+        "sections": {
+          "overview": {
+            "title": "包裝袋尺寸解析",
+            "p1Bold": "選擇合適的包裝袋尺寸對於產品展示、運輸效率和成本優化至關重要。",
+            "p1Normal": "本指南將為您解析包裝袋尺寸的計算方式，協助您挑選最適合您產品的尺寸。",
+            "measureTitle": "包裝袋尺寸測量方式",
+            "measureExpr": "尺寸標示方式為：寬度 × 高度 + 風琴位（摺邊）",
+            "width": "寬度",
+            "widthDesc": "平放測量，由左至右邊緣",
+            "height": "高度",
+            "heightDesc": "底部封口至頂部封口或拉鍊處",
+            "gusset": "風琴位 (底摺)",
+            "gussetDesc": "展開後的折徑深度，提供容積"
+          },
+          "visualComparison": {
+            "title": "尺寸直觀對比",
+            "p1Bold": "查看我們的包裝袋與標準可樂罐（330毫升）的尺寸對比",
+            "p1Normal": " —— 這是了解實際產品大小的完美參考。",
+            "standUpTitle": "自立袋 vs 可樂罐",
+            "flatBottomTitle": "平底袋 vs 可樂罐",
+            "standUpAlt": "自立袋尺寸 {{size}} 與可樂罐對比",
+            "flatBottomAlt": "平底袋尺寸 {{size}} 與可樂罐對比",
+            "refLabel": "參考標準：",
+            "refDesc": "標準可樂罐高度為 12.2 厘米 (4.8 英寸)。點擊任何圖片可查看大圖。"
+          },
+          "standUp": {
+            "title": "自立袋標準尺寸",
+            "p1": "我們最受歡迎的袋型。這些標準尺寸能滿足大部分零售與電商需求：",
+            "customSizesNote": "可客製化任意尺寸。非標準尺寸的最低起訂量（MOQ）可能有所不同。",
+            "sizes": {
+              "xs": {
+                "name": "XS",
+                "capacity": "25-50克",
+                "dimensions": "80 × 130 + 50毫米",
+                "desc": "樣品袋、單次食用量、旅行裝"
+              },
+              "s": {
+                "name": "S",
+                "capacity": "50-100克",
+                "dimensions": "100 × 150 + 60毫米",
+                "desc": "茶葉、小包零食、調味香料"
+              },
+              "m": {
+                "name": "M",
+                "capacity": "100-250克",
+                "dimensions": "140 × 200 + 80毫米",
+                "desc": "250克咖啡豆、堅果、麥片"
+              },
+              "l": {
+                "name": "L",
+                "capacity": "250-500克",
+                "dimensions": "160 × 240 + 90毫米",
+                "desc": "標準零售裝、寵物零食"
+              },
+              "xl": {
+                "name": "XL",
+                "capacity": "500克-1公斤",
+                "dimensions": "200 × 300 + 100毫米",
+                "desc": "家庭裝、大容量散裝產品"
+              },
+              "xxl": {
+                "name": "XXL",
+                "capacity": "1-2公斤",
+                "dimensions": "250 × 350 + 120毫米",
+                "desc": "超大規格、寵物飼料"
+              }
+            }
+          },
+          "flatBottom": {
+            "title": "平底袋（五邊封）尺寸",
+            "p1": "高階袋型，具備極佳的貨架展示效果，且擁有五個可印刷面：",
+            "sizes": {
+              "small": {
+                "name": "小號",
+                "capacity": "100-200克",
+                "dimensions": "95 × 190 × 55毫米",
+                "desc": "精品咖啡、精品茶包"
+              },
+              "medium": {
+                "name": "中號",
+                "capacity": "250-400克",
+                "dimensions": "120 × 250 × 70毫米",
+                "desc": "12盎司咖啡豆、特色食品"
+              },
+              "large": {
+                "name": "大號",
+                "capacity": "500克-1公斤",
+                "dimensions": "150 × 320 × 90毫米",
+                "desc": "大包裝咖啡豆、寵物飼料袋"
+              }
+            }
+          },
+          "calculate": {
+            "title": "如何計算所需尺寸",
+            "p1": "不確定需要什麼尺寸？請遵循以下簡單兩步法：",
+            "step1": {
+              "title": "1. 測量您的產品",
+              "item1": "確認產品的體積或重量",
+              "item2": "注意產品密度（粉末與塊狀物的體積差異巨大）",
+              "item3": "考慮硬質配件（如單向排氣閥或吸嘴）"
+            },
+            "step2": {
+              "title": "2. 加上頂部封口留白（Headspace）",
+              "item1": "在產品上方預留 20-30% 的額外空間",
+              "item2": "這是安裝拉鍊、熱封以及撕口所需的空間",
+              "item3": "確保包裝袋填充後能平穩站立，不易傾倒"
+            },
+            "proTip": {
+              "title": "工廠專業建議",
+              "desc": "您可以將您的產品寄給我們（或提供詳細的測量數據），我們將為您推薦最佳的包裝袋尺寸。我們亦可寄送不同尺寸的樣品袋供您進行實際填充測試。"
+            }
+          },
+          "custom": {
+            "title": "客製化尺寸",
+            "p1": "找不到最合適的尺寸？我們提供完全量身定制的客製化尺寸：",
+            "limits": {
+              "title": "尺寸限制",
+              "widthRange": "寬度範圍：",
+              "widthRangeVal": "50毫米 - 500毫米",
+              "heightRange": "高度範圍：",
+              "heightRangeVal": "80毫米 - 500毫米",
+              "gusset": "風琴位 (摺邊)：",
+              "gussetVal": "支持客製化折徑深度"
+            },
+            "moq": {
+              "title": "最低起訂量 (MOQ) 要求",
+              "digital": "數碼印刷：",
+              "digitalVal": "500 個起",
+              "plate": "銅版印刷 (凹版印刷)：",
+              "plateVal": "5,000 個起",
+              "leadTime": "生產周期：",
+              "leadTimeVal": "額外增加 1-2 週"
+            }
+          },
+          "conversion": {
+            "title": "單位換算參考",
+            "p1": "提供給您的公制與英制單位快速換算表：",
+            "mmToIn": {
+              "title": "毫米 (mm) → 英寸 (in)"
+            },
+            "gToOz": {
+              "title": "克 (g) → 安士 (oz) / 磅 (lb)"
+            }
+          }
         }
       },
       "printingTypes": {

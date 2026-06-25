@@ -104,7 +104,6 @@ export default function StoreFooter() {
               <li><Link to="/industry/sustainable-tea-sachets" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Sustainable Sachet Packag <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/meat-jerky-packaging" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">How to Select Eco-Friendl <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/brown-white-kraft" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">What is the Difference Be <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-
             </ul>
           </div>
 

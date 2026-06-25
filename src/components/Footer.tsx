@@ -162,6 +162,7 @@ export default function Footer() {
               <li><Link to="/industry/supplements-powders" className="hover:text-primary-400">{t('pouchEcoFooter.supplements', 'Supplements')}</Link></li>
               <li><Link to="/industry/baby-food" className="hover:text-primary-400">{t('pouchEcoFooter.babyFood', 'Baby Food')}</Link></li>
               <li><Link to="/industry/frozen-food" className="hover:text-primary-400">{t('pouchEcoFooter.frozenFood', 'Frozen Food')}</Link></li>
+              <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.citrusOilPackaging', 'Citrus Oil Packaging')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/fresh-produce" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.freshProducePackaging', 'Fresh Produce Packaging')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/premium-matte-pouches" className="hover:text-primary-400 font-medium text-primary-400">Premium Matte Finish Pouc <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/wholesale-unprinted-pouches" className="hover:text-primary-400 font-medium text-primary-400">Wholesale Unprinted & Sto <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
@@ -193,8 +194,6 @@ export default function Footer() {
               <li><Link to="/industry/sustainable-tea-sachets" className="hover:text-primary-400 font-medium text-primary-400">Sustainable Sachet Packag <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/meat-jerky-packaging" className="hover:text-primary-400 font-medium text-primary-400">How to Select Eco-Friendl <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/brown-white-kraft" className="hover:text-primary-400 font-medium text-primary-400">What is the Difference Be <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-
-              <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.citrusOilPackaging', 'Citrus Oil Packaging')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 

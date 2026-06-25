@@ -5,57 +5,58 @@ import { useState } from 'react';
 
 const SizeGuidePage = () => {
   const { t } = useTranslation();
+  const p = 'seoPages.pages.sizeGuide';
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const heroImage = '/imgs/seo-photos/a_size_reference_dimensions_7506199.webp';
 
   // Size comparison images with cola can reference
   const standUpSizes = [
-    { size: 'XXXS', image: '/imgs/store/size/stand-up/xxxs.webp', capacity: '10-25g' },
-    { size: 'XXS', image: '/imgs/store/size/stand-up/xxs.webp', capacity: '25-50g' },
-    { size: 'XS', image: '/imgs/store/size/stand-up/xs.webp', capacity: '50-75g' },
-    { size: 'S', image: '/imgs/store/size/stand-up/s.webp', capacity: '75-150g' },
-    { size: 'L', image: '/imgs/store/size/stand-up/l.webp', capacity: '250-500g' },
-    { size: 'XL', image: '/imgs/store/size/stand-up/xl.webp', capacity: '500g-1kg' },
-    { size: 'XXL', image: '/imgs/store/size/stand-up/xxl.webp', capacity: '1-2kg' },
+    { size: 'XXXS', image: '/imgs/store/size/stand-up/xxxs.webp', capacity: t(`${p}.capacities.xxxs_standup`) },
+    { size: 'XXS', image: '/imgs/store/size/stand-up/xxs.webp', capacity: t(`${p}.capacities.xxs_standup`) },
+    { size: 'XS', image: '/imgs/store/size/stand-up/xs.webp', capacity: t(`${p}.capacities.xs_standup`) },
+    { size: 'S', image: '/imgs/store/size/stand-up/s.webp', capacity: t(`${p}.capacities.s_standup`) },
+    { size: 'L', image: '/imgs/store/size/stand-up/l.webp', capacity: t(`${p}.capacities.l_standup`) },
+    { size: 'XL', image: '/imgs/store/size/stand-up/xl.webp', capacity: t(`${p}.capacities.xl_standup`) },
+    { size: 'XXL', image: '/imgs/store/size/stand-up/xxl.webp', capacity: t(`${p}.capacities.xxl_standup`) },
   ];
 
   const flatBottomSizes = [
-    { size: 'XXXS', image: '/imgs/store/size/flat-bottom/xxxs.webp', capacity: '25-50g' },
-    { size: 'XXS', image: '/imgs/store/size/flat-bottom/xxs.webp', capacity: '50-100g' },
-    { size: 'XS', image: '/imgs/store/size/flat-bottom/xs.webp', capacity: '100-200g' },
-    { size: 'S', image: '/imgs/store/size/flat-bottom/s.webp', capacity: '200-350g' },
-    { size: 'L', image: '/imgs/store/size/flat-bottom/l.webp', capacity: '500g-1kg' },
-    { size: 'XL', image: '/imgs/store/size/flat-bottom/xl.webp', capacity: '1-1.5kg' },
-    { size: 'XXL', image: '/imgs/store/size/flat-bottom/xxl.webp', capacity: '1.5-2.5kg' },
+    { size: 'XXXS', image: '/imgs/store/size/flat-bottom/xxxs.webp', capacity: t(`${p}.capacities.xxxs_flat`) },
+    { size: 'XXS', image: '/imgs/store/size/flat-bottom/xxs.webp', capacity: t(`${p}.capacities.xxs_flat`) },
+    { size: 'XS', image: '/imgs/store/size/flat-bottom/xs.webp', capacity: t(`${p}.capacities.xs_flat`) },
+    { size: 'S', image: '/imgs/store/size/flat-bottom/s.webp', capacity: t(`${p}.capacities.s_flat`) },
+    { size: 'L', image: '/imgs/store/size/flat-bottom/l.webp', capacity: t(`${p}.capacities.l_flat`) },
+    { size: 'XL', image: '/imgs/store/size/flat-bottom/xl.webp', capacity: t(`${p}.capacities.xl_flat`) },
+    { size: 'XXL', image: '/imgs/store/size/flat-bottom/xxl.webp', capacity: t(`${p}.capacities.xxl_flat`) },
   ];
   
   const sections = [
     {
       id: 'overview',
-      title: 'Understanding Pouch Dimensions',
+      title: t(`${p}.sections.overview.title`),
       icon: <Ruler className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            <strong>Choosing the right pouch size is crucial for product presentation, shipping efficiency, and cost optimization.</strong> This guide explains how pouch dimensions work and helps you select the perfect size for your product.
+            <strong>{t(`${p}.sections.overview.p1Bold`)}</strong> {t(`${p}.sections.overview.p1Normal`)}
           </p>
           
           <div className="bg-primary-50 p-5 rounded-xl mt-4">
-            <h4 className="font-semibold text-primary-800 mb-3">How We Measure Pouches</h4>
-            <p className="text-sm mb-3">Dimensions are expressed as <strong>Width × Height + Gusset</strong></p>
+            <h4 className="font-semibold text-primary-800 mb-3">{t(`${p}.sections.overview.measureTitle`)}</h4>
+            <p className="text-sm mb-3">{t(`${p}.sections.overview.measureExpr`)}</p>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-white p-3 rounded-lg border border-primary-100">
-                <span className="font-semibold text-primary-700">Width</span>
-                <p className="text-xs text-neutral-600 mt-1">Measured flat, left to right edge</p>
+                <span className="font-semibold text-primary-700">{t(`${p}.sections.overview.width`)}</span>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.overview.widthDesc`)}</p>
               </div>
               <div className="bg-white p-3 rounded-lg border border-primary-100">
-                <span className="font-semibold text-primary-700">Height</span>
-                <p className="text-xs text-neutral-600 mt-1">Bottom seal to top seal/zipper</p>
+                <span className="font-semibold text-primary-700">{t(`${p}.sections.overview.height`)}</span>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.overview.heightDesc`)}</p>
               </div>
               <div className="bg-white p-3 rounded-lg border border-primary-100">
-                <span className="font-semibold text-primary-700">Gusset</span>
-                <p className="text-xs text-neutral-600 mt-1">Fold depth creating volume</p>
+                <span className="font-semibold text-primary-700">{t(`${p}.sections.overview.gusset`)}</span>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.overview.gussetDesc`)}</p>
               </div>
             </div>
           </div>
@@ -64,19 +65,19 @@ const SizeGuidePage = () => {
     },
     {
       id: 'visual-comparison',
-      title: 'Visual Size Comparison',
+      title: t(`${p}.sections.visualComparison.title`),
       icon: <Eye className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            <strong>See how our pouches compare to a standard cola can (330ml)</strong> - the perfect reference for understanding real-world sizes.
+            <strong>{t(`${p}.sections.visualComparison.p1Bold`)}</strong>{t(`${p}.sections.visualComparison.p1Normal`)}
           </p>
           
           {/* Stand-Up Pouches Photo Grid */}
           <div className="mt-6">
             <h4 className="font-semibold text-neutral-800 mb-4 flex items-center gap-2">
               <Box className="h-5 w-5 text-primary-600" />
-              Stand-Up Pouches vs Cola Can
+              {t(`${p}.sections.visualComparison.standUpTitle`)}
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {standUpSizes.map((item) => (
@@ -88,7 +89,7 @@ const SizeGuidePage = () => {
                   <div className="aspect-[3/4] overflow-hidden bg-neutral-50">
                     <img 
                       src={item.image} 
-                      alt={`Stand-up pouch size ${item.size} compared to cola can`}
+                      alt={t(`${p}.sections.visualComparison.standUpAlt`, { size: item.size })}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -112,7 +113,7 @@ const SizeGuidePage = () => {
           <div className="mt-8">
             <h4 className="font-semibold text-neutral-800 mb-4 flex items-center gap-2">
               <Maximize2 className="h-5 w-5 text-primary-600" />
-              Flat Bottom Bags vs Cola Can
+              {t(`${p}.sections.visualComparison.flatBottomTitle`)}
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {flatBottomSizes.map((item) => (
@@ -124,7 +125,7 @@ const SizeGuidePage = () => {
                   <div className="aspect-[3/4] overflow-hidden bg-neutral-50">
                     <img 
                       src={item.image} 
-                      alt={`Flat bottom bag size ${item.size} compared to cola can`}
+                      alt={t(`${p}.sections.visualComparison.flatBottomAlt`, { size: item.size })}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -146,7 +147,7 @@ const SizeGuidePage = () => {
           
           <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl mt-4">
             <p className="text-sm text-amber-800">
-              <strong>Reference:</strong> Standard cola can height is 12.2cm (4.8"). Click any image to view full size.
+              <strong>{t(`${p}.sections.visualComparison.refLabel`)}</strong> {t(`${p}.sections.visualComparison.refDesc`)}
             </p>
           </div>
         </div>
@@ -154,79 +155,79 @@ const SizeGuidePage = () => {
     },
     {
       id: 'standup',
-      title: 'Stand-Up Pouch Sizes',
+      title: t(`${p}.sections.standUp.title`),
       icon: <Box className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Our most popular format. These sizes cover most retail and e-commerce needs:</p>
+          <p>{t(`${p}.sections.standUp.p1`)}</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-purple-800">XS</span>
-                <span className="text-xs bg-purple-200 text-purple-700 px-2 py-0.5 rounded-full">25-50g</span>
+                <span className="font-bold text-purple-800">{t(`${p}.sections.standUp.sizes.xs.name`)}</span>
+                <span className="text-xs bg-purple-200 text-purple-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.standUp.sizes.xs.capacity`)}</span>
               </div>
-              <p className="text-sm font-medium text-purple-700">80 × 130 + 50mm</p>
-              <p className="text-xs text-neutral-600 mt-1">Samples, single-serve, travel</p>
+              <p className="text-sm font-medium text-purple-700">{t(`${p}.sections.standUp.sizes.xs.dimensions`)}</p>
+              <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.standUp.sizes.xs.desc`)}</p>
             </div>
             
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-blue-800">S</span>
-                <span className="text-xs bg-blue-200 text-blue-700 px-2 py-0.5 rounded-full">50-100g</span>
+                <span className="font-bold text-blue-800">{t(`${p}.sections.standUp.sizes.s.name`)}</span>
+                <span className="text-xs bg-blue-200 text-blue-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.standUp.sizes.s.capacity`)}</span>
               </div>
-              <p className="text-sm font-medium text-blue-700">100 × 150 + 60mm</p>
-              <p className="text-xs text-neutral-600 mt-1">Tea, small snacks, spices</p>
+              <p className="text-sm font-medium text-blue-700">{t(`${p}.sections.standUp.sizes.s.dimensions`)}</p>
+              <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.standUp.sizes.s.desc`)}</p>
             </div>
             
             <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-4 rounded-xl border border-emerald-200">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-emerald-800">M</span>
-                <span className="text-xs bg-emerald-200 text-emerald-700 px-2 py-0.5 rounded-full">100-250g</span>
+                <span className="font-bold text-emerald-800">{t(`${p}.sections.standUp.sizes.m.name`)}</span>
+                <span className="text-xs bg-emerald-200 text-emerald-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.standUp.sizes.m.capacity`)}</span>
               </div>
-              <p className="text-sm font-medium text-emerald-700">140 × 200 + 80mm</p>
-              <p className="text-xs text-neutral-600 mt-1">Coffee 250g, nuts, granola</p>
+              <p className="text-sm font-medium text-emerald-700">{t(`${p}.sections.standUp.sizes.m.dimensions`)}</p>
+              <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.standUp.sizes.m.desc`)}</p>
             </div>
             
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-xl border border-amber-200">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-amber-800">L</span>
-                <span className="text-xs bg-amber-200 text-amber-700 px-2 py-0.5 rounded-full">250-500g</span>
+                <span className="font-bold text-amber-800">{t(`${p}.sections.standUp.sizes.l.name`)}</span>
+                <span className="text-xs bg-amber-200 text-amber-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.standUp.sizes.l.capacity`)}</span>
               </div>
-              <p className="text-sm font-medium text-amber-700">160 × 240 + 90mm</p>
-              <p className="text-xs text-neutral-600 mt-1">Standard retail, pet treats</p>
+              <p className="text-sm font-medium text-amber-700">{t(`${p}.sections.standUp.sizes.l.dimensions`)}</p>
+              <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.standUp.sizes.l.desc`)}</p>
             </div>
             
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl border border-orange-200">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-orange-800">XL</span>
-                <span className="text-xs bg-orange-200 text-orange-700 px-2 py-0.5 rounded-full">500g-1kg</span>
+                <span className="font-bold text-orange-800">{t(`${p}.sections.standUp.sizes.xl.name`)}</span>
+                <span className="text-xs bg-orange-200 text-orange-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.standUp.sizes.xl.capacity`)}</span>
               </div>
-              <p className="text-sm font-medium text-orange-700">200 × 300 + 100mm</p>
-              <p className="text-xs text-neutral-600 mt-1">Family size, bulk products</p>
+              <p className="text-sm font-medium text-orange-700">{t(`${p}.sections.standUp.sizes.xl.dimensions`)}</p>
+              <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.standUp.sizes.xl.desc`)}</p>
             </div>
             
             <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-xl border border-red-200">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-red-800">XXL</span>
-                <span className="text-xs bg-red-200 text-red-700 px-2 py-0.5 rounded-full">1-2kg</span>
+                <span className="font-bold text-red-800">{t(`${p}.sections.standUp.sizes.xxl.name`)}</span>
+                <span className="text-xs bg-red-200 text-red-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.standUp.sizes.xxl.capacity`)}</span>
               </div>
-              <p className="text-sm font-medium text-red-700">250 × 350 + 120mm</p>
-              <p className="text-xs text-neutral-600 mt-1">Large format, pet food</p>
+              <p className="text-sm font-medium text-red-700">{t(`${p}.sections.standUp.sizes.xxl.dimensions`)}</p>
+              <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.standUp.sizes.xxl.desc`)}</p>
             </div>
           </div>
           
-          <p className="text-sm text-neutral-500 italic mt-4">Custom sizes available. MOQ may vary for non-standard dimensions.</p>
+          <p className="text-sm text-neutral-500 italic mt-4">{t(`${p}.sections.standUp.customSizesNote`)}</p>
         </div>
       )
     },
     {
       id: 'flatbottom',
-      title: 'Flat Bottom Bag Sizes',
+      title: t(`${p}.sections.flatBottom.title`),
       icon: <Maximize2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Premium format with excellent shelf presence and <strong>five printable panels</strong>:</p>
+          <p>{t(`${p}.sections.flatBottom.p1`)}</p>
           
           <div className="space-y-3 mt-4">
             <div className="flex items-center gap-4 bg-gradient-to-r from-primary-50 to-white p-4 rounded-xl border border-primary-100">
@@ -235,11 +236,11 @@ const SizeGuidePage = () => {
               </div>
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-semibold text-primary-800">Small</span>
-                  <span className="text-sm text-neutral-600">95 × 190 × 55mm</span>
-                  <span className="text-xs bg-primary-100 text-primary-700 px-2 py-0.5 rounded-full">100-200g</span>
+                  <span className="font-semibold text-primary-800">{t(`${p}.sections.flatBottom.sizes.small.name`)}</span>
+                  <span className="text-sm text-neutral-600">{t(`${p}.sections.flatBottom.sizes.small.dimensions`)}</span>
+                  <span className="text-xs bg-primary-100 text-primary-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.flatBottom.sizes.small.capacity`)}</span>
                 </div>
-                <p className="text-sm text-neutral-500 mt-1">Premium coffee, tea sachets</p>
+                <p className="text-sm text-neutral-500 mt-1">{t(`${p}.sections.flatBottom.sizes.small.desc`)}</p>
               </div>
             </div>
             
@@ -249,11 +250,11 @@ const SizeGuidePage = () => {
               </div>
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-semibold text-emerald-800">Medium</span>
-                  <span className="text-sm text-neutral-600">120 × 250 × 70mm</span>
-                  <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">250-400g</span>
+                  <span className="font-semibold text-emerald-800">{t(`${p}.sections.flatBottom.sizes.medium.name`)}</span>
+                  <span className="text-sm text-neutral-600">{t(`${p}.sections.flatBottom.sizes.medium.dimensions`)}</span>
+                  <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.flatBottom.sizes.medium.capacity`)}</span>
                 </div>
-                <p className="text-sm text-neutral-500 mt-1">Coffee 12oz, specialty foods</p>
+                <p className="text-sm text-neutral-500 mt-1">{t(`${p}.sections.flatBottom.sizes.medium.desc`)}</p>
               </div>
             </div>
             
@@ -263,11 +264,11 @@ const SizeGuidePage = () => {
               </div>
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-semibold text-amber-800">Large</span>
-                  <span className="text-sm text-neutral-600">150 × 320 × 90mm</span>
-                  <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">500g-1kg</span>
+                  <span className="font-semibold text-amber-800">{t(`${p}.sections.flatBottom.sizes.large.name`)}</span>
+                  <span className="text-sm text-neutral-600">{t(`${p}.sections.flatBottom.sizes.large.dimensions`)}</span>
+                  <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">{t(`${p}.sections.flatBottom.sizes.large.capacity`)}</span>
                 </div>
-                <p className="text-sm text-neutral-500 mt-1">Bulk coffee, pet food bags</p>
+                <p className="text-sm text-neutral-500 mt-1">{t(`${p}.sections.flatBottom.sizes.large.desc`)}</p>
               </div>
             </div>
           </div>
@@ -276,30 +277,30 @@ const SizeGuidePage = () => {
     },
     {
       id: 'calculate',
-      title: 'How to Calculate Your Size',
+      title: t(`${p}.sections.calculate.title`),
       icon: <Calculator className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Not sure what size you need? Follow this <strong>simple 2-step method</strong>:</p>
+          <p>{t(`${p}.sections.calculate.p1`)}</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
-                <h4 className="font-semibold text-blue-800">Measure Your Product</h4>
+                <h4 className="font-semibold text-blue-800">{t(`${p}.sections.calculate.step1.title`)}</h4>
               </div>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <span>Determine volume or weight</span>
+                  <span>{t(`${p}.sections.calculate.step1.item1`)}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <span>Note product density (powder vs chunky)</span>
+                  <span>{t(`${p}.sections.calculate.step1.item2`)}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <span>Consider rigid inserts (like valves)</span>
+                  <span>{t(`${p}.sections.calculate.step1.item3`)}</span>
                 </li>
               </ul>
             </div>
@@ -307,73 +308,73 @@ const SizeGuidePage = () => {
             <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-5 rounded-xl border border-emerald-200">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
-                <h4 className="font-semibold text-emerald-800">Add Headspace</h4>
+                <h4 className="font-semibold text-emerald-800">{t(`${p}.sections.calculate.step2.title`)}</h4>
               </div>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Allow 20-30% extra space above product</span>
+                  <span>{t(`${p}.sections.calculate.step2.item1`)}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Needed for zipper closure and sealing</span>
+                  <span>{t(`${p}.sections.calculate.step2.item2`)}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Ensures pouch stands properly when filled</span>
+                  <span>{t(`${p}.sections.calculate.step2.item3`)}</span>
                 </li>
               </ul>
             </div>
           </div>
           
           <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl mt-4">
-            <h4 className="font-semibold text-amber-800 mb-1">Pro Tip</h4>
-            <p className="text-sm text-amber-700">Send us your product (or detailed measurements) and we will recommend the optimal size. We can also send sample sizes for you to test fill.</p>
+            <h4 className="font-semibold text-amber-800 mb-1">{t(`${p}.sections.calculate.proTip.title`)}</h4>
+            <p className="text-sm text-amber-700">{t(`${p}.sections.calculate.proTip.desc`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'custom',
-      title: 'Custom Sizes',
+      title: t(`${p}.sections.custom.title`),
       icon: <Settings className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Cannot find the perfect size? We offer <strong>fully custom dimensions</strong>:</p>
+          <p>{t(`${p}.sections.custom.p1`)}</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
-              <h4 className="font-semibold text-neutral-800 mb-3">Size Limits</h4>
+              <h4 className="font-semibold text-neutral-800 mb-3">{t(`${p}.sections.custom.limits.title`)}</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Width Range:</span>
-                  <span className="font-medium">50mm - 500mm</span>
+                  <span className="text-neutral-600">{t(`${p}.sections.custom.limits.widthRange`)}</span>
+                  <span className="font-medium">{t(`${p}.sections.custom.limits.widthRangeVal`)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Height Range:</span>
-                  <span className="font-medium">80mm - 500mm</span>
+                  <span className="text-neutral-600">{t(`${p}.sections.custom.limits.heightRange`)}</span>
+                  <span className="font-medium">{t(`${p}.sections.custom.limits.heightRangeVal`)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Gusset:</span>
-                  <span className="font-medium">Custom depths OK</span>
+                  <span className="text-neutral-600">{t(`${p}.sections.custom.limits.gusset`)}</span>
+                  <span className="font-medium">{t(`${p}.sections.custom.limits.gussetVal`)}</span>
                 </div>
               </div>
             </div>
             
             <div className="bg-primary-50 p-5 rounded-xl border border-primary-200">
-              <h4 className="font-semibold text-primary-800 mb-3">MOQ Requirements</h4>
+              <h4 className="font-semibold text-primary-800 mb-3">{t(`${p}.sections.custom.moq.title`)}</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Digital Printing:</span>
-                  <span className="font-medium text-primary-700">500 pieces</span>
+                  <span className="text-neutral-600">{t(`${p}.sections.custom.moq.digital`)}</span>
+                  <span className="font-medium text-primary-700">{t(`${p}.sections.custom.moq.digitalVal`)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Plate Printing:</span>
-                  <span className="font-medium text-primary-700">5,000 pieces</span>
+                  <span className="text-neutral-600">{t(`${p}.sections.custom.moq.plate`)}</span>
+                  <span className="font-medium text-primary-700">{t(`${p}.sections.custom.moq.plateVal`)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-600">Lead Time:</span>
-                  <span className="font-medium text-primary-700">+1-2 weeks</span>
+                  <span className="text-neutral-600">{t(`${p}.sections.custom.moq.leadTime`)}</span>
+                  <span className="font-medium text-primary-700">{t(`${p}.sections.custom.moq.leadTimeVal`)}</span>
                 </div>
               </div>
             </div>
@@ -383,15 +384,15 @@ const SizeGuidePage = () => {
     },
     {
       id: 'conversion',
-      title: 'Unit Conversion Reference',
+      title: t(`${p}.sections.conversion.title`),
       icon: <ArrowRightLeft className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Quick reference for <strong>metric to imperial conversions</strong>:</p>
+          <p>{t(`${p}.sections.conversion.p1`)}</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-blue-50 p-5 rounded-xl border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-3">Millimeters → Inches</h4>
+              <h4 className="font-semibold text-blue-800 mb-3">{t(`${p}.sections.conversion.mmToIn.title`)}</h4>
               <div className="space-y-1.5 text-sm">
                 <div className="flex justify-between bg-white px-3 py-1.5 rounded">
                   <span>100mm</span><span className="font-medium text-blue-700">= 3.94 in</span>
@@ -412,7 +413,7 @@ const SizeGuidePage = () => {
             </div>
             
             <div className="bg-emerald-50 p-5 rounded-xl border border-emerald-200">
-              <h4 className="font-semibold text-emerald-800 mb-3">Grams → Ounces/Pounds</h4>
+              <h4 className="font-semibold text-emerald-800 mb-3">{t(`${p}.sections.conversion.gToOz.title`)}</h4>
               <div className="space-y-1.5 text-sm">
                 <div className="flex justify-between bg-white px-3 py-1.5 rounded">
                   <span>100g</span><span className="font-medium text-emerald-700">= 3.5 oz</span>
@@ -433,8 +434,6 @@ const SizeGuidePage = () => {
       )
     }
   ];
-
-  const p = 'seoPages.pages.sizeGuide';
 
   const faqs = [
     { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },

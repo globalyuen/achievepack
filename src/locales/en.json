@@ -7085,6 +7085,167 @@
           "title": "Need Help Choosing?",
           "description": "Send us your product details and we'll recommend the optimal size.",
           "button": "Get Size Recommendation"
+        },
+        "capacities": {
+          "xxxs_standup": "10-25g",
+          "xxs_standup": "25-50g",
+          "xs_standup": "50-75g",
+          "s_standup": "75-150g",
+          "l_standup": "250-500g",
+          "xl_standup": "500g-1kg",
+          "xxl_standup": "1-2kg",
+          "xxxs_flat": "25-50g",
+          "xxs_flat": "50-100g",
+          "xs_flat": "100-200g",
+          "s_flat": "200-350g",
+          "l_flat": "500g-1kg",
+          "xl_flat": "1-1.5kg",
+          "xxl_flat": "1.5-2.5kg"
+        },
+        "sections": {
+          "overview": {
+            "title": "Understanding Pouch Dimensions",
+            "p1Bold": "Choosing the right pouch size is crucial for product presentation, shipping efficiency, and cost optimization.",
+            "p1Normal": "This guide explains how pouch dimensions work and helps you select the perfect size for your product.",
+            "measureTitle": "How We Measure Pouches",
+            "measureExpr": "Dimensions are expressed as Width × Height + Gusset",
+            "width": "Width",
+            "widthDesc": "Measured flat, left to right edge",
+            "height": "Height",
+            "heightDesc": "Bottom seal to top seal/zipper",
+            "gusset": "Gusset",
+            "gussetDesc": "Fold depth creating volume"
+          },
+          "visualComparison": {
+            "title": "Visual Size Comparison",
+            "p1Bold": "See how our pouches compare to a standard cola can (330ml)",
+            "p1Normal": " - the perfect reference for understanding real-world sizes.",
+            "standUpTitle": "Stand-Up Pouches vs Cola Can",
+            "flatBottomTitle": "Flat Bottom Bags vs Cola Can",
+            "standUpAlt": "Stand-up pouch size {{size}} compared to cola can",
+            "flatBottomAlt": "Flat bottom bag size {{size}} compared to cola can",
+            "refLabel": "Reference:",
+            "refDesc": "Standard cola can height is 12.2cm (4.8\"). Click any image to view full size."
+          },
+          "standUp": {
+            "title": "Stand-Up Pouch Sizes",
+            "p1": "Our most popular format. These sizes cover most retail and e-commerce needs:",
+            "customSizesNote": "Custom sizes available. MOQ may vary for non-standard dimensions.",
+            "sizes": {
+              "xs": {
+                "name": "XS",
+                "capacity": "25-50g",
+                "dimensions": "80 × 130 + 50mm",
+                "desc": "Samples, single-serve, travel"
+              },
+              "s": {
+                "name": "S",
+                "capacity": "50-100g",
+                "dimensions": "100 × 150 + 60mm",
+                "desc": "Tea, small snacks, spices"
+              },
+              "m": {
+                "name": "M",
+                "capacity": "100-250g",
+                "dimensions": "140 × 200 + 80mm",
+                "desc": "Coffee 250g, nuts, granola"
+              },
+              "l": {
+                "name": "L",
+                "capacity": "250-500g",
+                "dimensions": "160 × 240 + 90mm",
+                "desc": "Standard retail, pet treats"
+              },
+              "xl": {
+                "name": "XL",
+                "capacity": "500g-1kg",
+                "dimensions": "200 × 300 + 100mm",
+                "desc": "Family size, bulk products"
+              },
+              "xxl": {
+                "name": "XXL",
+                "capacity": "1-2kg",
+                "dimensions": "250 × 350 + 120mm",
+                "desc": "Large format, pet food"
+              }
+            }
+          },
+          "flatBottom": {
+            "title": "Flat Bottom Bag Sizes",
+            "p1": "Premium format with excellent shelf presence and five printable panels:",
+            "sizes": {
+              "small": {
+                "name": "Small",
+                "capacity": "100-200g",
+                "dimensions": "95 × 190 × 55mm",
+                "desc": "Premium coffee, tea sachets"
+              },
+              "medium": {
+                "name": "Medium",
+                "capacity": "250-400g",
+                "dimensions": "120 × 250 × 70mm",
+                "desc": "Coffee 12oz, specialty foods"
+              },
+              "large": {
+                "name": "Large",
+                "capacity": "500g-1kg",
+                "dimensions": "150 × 320 × 90mm",
+                "desc": "Bulk coffee, pet food bags"
+              }
+            }
+          },
+          "calculate": {
+            "title": "How to Calculate Your Size",
+            "p1": "Not sure what size you need? Follow this simple 2-step method:",
+            "step1": {
+              "title": "Measure Your Product",
+              "item1": "Determine volume or weight",
+              "item2": "Note product density (powder vs chunky)",
+              "item3": "Consider rigid inserts (like valves)"
+            },
+            "step2": {
+              "title": "Add Headspace",
+              "item1": "Allow 20-30% extra space above product",
+              "item2": "Needed for zipper closure and sealing",
+              "item3": "Ensures pouch stands properly when filled"
+            },
+            "proTip": {
+              "title": "Pro Tip",
+              "desc": "Send us your product (or detailed measurements) and we will recommend the optimal size. We can also send sample sizes for you to test fill."
+            }
+          },
+          "custom": {
+            "title": "Custom Sizes",
+            "p1": "Cannot find the perfect size? We offer fully custom dimensions:",
+            "limits": {
+              "title": "Size Limits",
+              "widthRange": "Width Range:",
+              "widthRangeVal": "50mm - 500mm",
+              "heightRange": "Height Range:",
+              "heightRangeVal": "80mm - 500mm",
+              "gusset": "Gusset:",
+              "gussetVal": "Custom depths OK"
+            },
+            "moq": {
+              "title": "MOQ Requirements",
+              "digital": "Digital Printing:",
+              "digitalVal": "500 pieces",
+              "plate": "Plate Printing:",
+              "plateVal": "5,000 pieces",
+              "leadTime": "Lead Time:",
+              "leadTimeVal": "+1-2 weeks"
+            }
+          },
+          "conversion": {
+            "title": "Unit Conversion Reference",
+            "p1": "Quick reference for metric to imperial conversions:",
+            "mmToIn": {
+              "title": "Millimeters → Inches"
+            },
+            "gToOz": {
+              "title": "Grams → Ounces/Pounds"
+            }
+          }
         }
       },
       "printingTypes": {
