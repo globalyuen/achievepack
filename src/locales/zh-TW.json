@@ -27989,7 +27989,7 @@
         "lockInSupplyVolumesWithAudited": "與符合歐洲及英國稅務條例的經審核合作夥伴鎖定供應量。",
         "secureComplianceForYourLargeSc": "為大規模生產確保合規",
         "auditYourVolumetricDimensionsA": "審計體積尺寸並確保認證 GRS 消費後再生塑料 (PCR) 及單一材質 PE (Mono-PE) 供應。立即聯絡我們的包裝工程師。",
-        "bookEngineeringConsultation": "預約工程諮詢",
+        "bookEngineeringConsultation": "預約 30 分鐘包裝工程師諮詢",
         "requestCertificationsDoc": "索取證書及 DoC",
         "ppwrRecyclableCertifiedGrsPcrC": "PPWR 可回收認證 • GRS PCR 生態調節就緒 • PFAS-Free 水性阻隔 • ISO 14040 合規",
         "euPpwrPackagingComplianceGuide": "歐盟 PPWR 包裝合規指南：2026 品牌路線圖 | Achieve Pack",
@@ -28045,6 +28045,11 @@
             },
             "roadmap": {
               "title": "品牌擁有者採購清單：5 項策略行動"
+            },
+            "factoryDirect": {
+              "title": "工廠直供與 TÜV OK Compost HOME 認證原材料",
+              "p1": "直接向 Pouch.eco 的認證製造工廠採購，可讓品牌商跳過中間代理商的層層加價。我們全方位的工廠生產控制，能確保從自封拉鏈、排氣閥到生物聚合物阻隔層的每一部分，均符合 TÜV OK Compost HOME (EN 13432) 庭院可堆肥標準。",
+              "p2": "我們的每批產品均在嚴格的 ISO 9001 質量管理體系與 BRCGS 食品安全規範下生產。從最初的原材料樹脂共混到起訂量僅 100 個的高速數碼印刷自立袋，我們均能提供完整的原材料批次溯源證書及歐盟 PPWR 合規證明文件，助您順利過關。"
             }
           },
           "seo": {
@@ -28090,6 +28095,11 @@
             },
             "cta": {
               "title": "確保您的監管採購策略"
+            },
+            "factoryTesting": {
+              "title": "生產線熱封口與透氧率 (OTR) 廠規檢測",
+              "p1": "作為工廠直供製造商，Achieve Pack 針對高速立式與臥式自動包裝機 (VFFS/HFFS) 的機械操作要求，對所有複合包裝卷膜與自立袋進行嚴格的封口適配性驗證。每批次產品均通過標準化熱封口測試，確保在 2.5 至 3.2 bar 的封口刀壓及 130°C 至 165°C 的熱封溫度區間內，熱封強度 (ASTM F88) 達到最優狀態，避免在高速封口時出現分層漏氣。",
+              "p2": "我們在工廠內部的品控實驗室使用先進儀器對包裝進行物理與化學檢測：利用 MOCON 透氧/透濕測試儀驗證高阻隔層的完整性、以 ASTM F2054 氣脹爆破測試儀檢測包裝袋密封邊強度，並通過氣相色譜-質譜聯用儀 (GC-MS) 進行溶劑殘留檢驗，確保殘留量嚴格控制在 10 mg/m² 以下（超越 BRCGS 食品接觸級包裝的衛生標準），確保包裝安全無異味。"
             }
           },
           "seo": {
@@ -28109,7 +28119,9 @@
             "heroSubtitle": "掌握歐盟雄心勃勃的包裝規例 (PPWR)",
             "introSummary": "可持續發展的自願階段已正式結束。隨著 2026 年 8 月中旬起嚴格包裝最小化限制生效，以及 2030 年前強制可回收等級，出口至歐盟的品牌擁有者必須轉型。本工程指南詳述保護分銷及利潤所需的技術及採購準則。"
           }
-        }
+        },
+        "requestFreeSampleKit": "免費申請工廠樣品包",
+        "sampleKitDescription": "免費索取樣品包，內含單一材質 PE (Mono-PE) 及可堆肥自立袋實體樣品，均通過高速自動包裝線測試。"
       },
       "ecoFriendlyFoodPackaging": {
         "foodPackagingIsTheUltimateTech": "食品包裝是可持續發展中最終極的技術挑戰。在2026年，包裝必須",

@@ -27219,7 +27219,7 @@
         "lockInSupplyVolumesWithAudited": "Lock in supply volumes with audited partners matching European and UK tax bylaws.",
         "secureComplianceForYourLargeSc": "Secure Compliance For Your Large-Scale Runs",
         "auditYourVolumetricDimensionsA": "Audit your volumetric dimensions and secure certified GRS PCR and Mono-PE supplies. Speak to our packaging engineers today.",
-        "bookEngineeringConsultation": "Book Engineering Consultation",
+        "bookEngineeringConsultation": "Book 30-Min Engineering Consultation",
         "requestCertificationsDoc": "Request Certifications & DoC",
         "ppwrRecyclableCertifiedGrsPcrC": "PPWR RECYCLABLE CERTIFIED • GRS PCR CO-MODULATION READY • PFAS-FREE AQUEOUS BARRIER • ISO 14040 COMPLIANT",
         "euPpwrPackagingComplianceGuide": "EU PPWR Packaging Compliance Guide: 2026 Brand Roadmap | Achieve Pack",
@@ -27275,6 +27275,11 @@
             },
             "roadmap": {
               "title": "Brand Owner Sourcing Checklist: 5 Strategic Actions"
+            },
+            "factoryDirect": {
+              "title": "Direct Sourcing & TÜV OK Compost HOME Sourcing",
+              "p1": "By sourcing directly from Pouch.eco's certified production facility, brand owners bypass middleman distribution markups. Our direct factory control ensures that every zipper, valve, and biopolymer layer is verified under TÜV OK Compost HOME (EN 13432) standards.",
+              "p2": "Every run is produced under strict ISO 9001 quality management and BRCGS food contact safety protocols. From the initial resin blending to high-speed digital print runs starting at just 100 bags, we provide brand owners with complete traceability certificates and compliance documentation required for the new EU regulations."
             }
           },
           "seo": {
@@ -27320,6 +27325,11 @@
             },
             "cta": {
               "title": "Secure Your Regulatory Sourcing Strategy"
+            },
+            "factoryTesting": {
+              "title": "Factory-Floor Sealing Jaw & OTR Validation",
+              "p1": "As a direct-sourcing manufacturer, Achieve Pack validates all flexible film rolls and stand-up pouches against the mechanical demands of high-speed vertical and horizontal form-fill-seal (VFFS/HFFS) packaging lines. Every batch undergoes a standardized sealing-profile test to verify optimal seal strength (ASTM F88) at jaw pressures of 2.5 to 3.2 bar and temperatures of 130°C to 165°C.",
+              "p2": "We proof our materials using state-of-the-art laboratory machinery on our factory floor: MOCON OTR/WVTR testers to verify barrier integrity, ASTM F2054 burst testers to inspect structural seals, and gas chromatography-mass spectrometry (GC-MS) to guarantee residual solvents remain strictly below 10 mg/m² (surpassing BRCGS food-contact packaging criteria)."
             }
           },
           "seo": {
@@ -27339,7 +27349,9 @@
             "heroSubtitle": "Master the EU's Ambitions Packaging Regulations (PPWR)",
             "introSummary": "The voluntary phase of sustainability is officially over. With strict packaging minimization limits coming into force by mid-August 2026 and mandatory recyclability grades leading into 2030, brand owners exporting to the European Union must transition. This engineering guide details the technical and sourcing criteria required to protect your distribution and margin."
           }
-        }
+        },
+        "requestFreeSampleKit": "Request Factory Sample Kit",
+        "sampleKitDescription": "Get a free sample pack containing our standard mono-PE and compostable pouch samples, verified on high-speed VFFS packaging lines."
       },
       "ecoFriendlyFoodPackaging": {
         "foodPackagingIsTheUltimateTech": "Food packaging is the ultimate technical challenge in sustainability. In 2026, a package must be",

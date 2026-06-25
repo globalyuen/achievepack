@@ -128,6 +128,24 @@ const EUPPWRCompliancePage: React.FC = () => {
         )
       },
       {
+        id: 'factory-direct',
+        title: t(`${p}.b2c.sections.factoryDirect.title`, 'Direct Sourcing & TÜV OK Compost HOME Sourcing'),
+        icon: <Shield className="w-6 h-6" />,
+        content: (
+          <div className="space-y-6">
+            <p className="text-gray-700 leading-relaxed">
+              {t(`${p}.b2c.sections.factoryDirect.p1`)}
+            </p>
+            <div className="bg-emerald-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black text-lg text-emerald-950 uppercase">{t(`${p}.b2c.sections.factoryDirect.title`)}</h4>
+              <p className="text-xs text-gray-700 leading-relaxed font-mono mt-2">
+                {t(`${p}.b2c.sections.factoryDirect.p2`)}
+              </p>
+            </div>
+          </div>
+        )
+      },
+      {
         id: 'minimization-design',
         title: t(`${p}.b2c.sections.minimization.title`, 'The 50% Empty Space Cap & Minimization Rules'),
         icon: <Target className="w-6 h-6" />,
@@ -362,6 +380,24 @@ const EUPPWRCompliancePage: React.FC = () => {
       )
     },
     {
+      id: 'factory-testing',
+      title: t(`${p}.b2b.sections.factoryTesting.title`, 'Factory-Floor Sealing Jaw & OTR Validation'),
+      icon: <Shield className="h-5 w-5 text-emerald-800" />,
+      content: (
+        <div className="space-y-6 text-neutral-700 leading-relaxed">
+          <p className="text-lg font-semibold text-neutral-900">
+            {t(`${p}.b2b.sections.factoryTesting.p1`)}
+          </p>
+          <div className="bg-neutral-50 p-5 rounded-lg border-l-4 border-emerald-800 shadow-sm">
+            <h4 className="font-bold text-emerald-800 font-mono text-sm uppercase">{t(`${p}.b2b.sections.factoryTesting.title`)}</h4>
+            <p className="text-xs text-neutral-600 mt-2 leading-relaxed font-mono">
+              {t(`${p}.b2b.sections.factoryTesting.p2`)}
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'packaging-minimization',
       title: t(`${p}.b2b.sections.minimization.title`, 'Volumetric Minimization & 50% Void Space Caps'),
       icon: <Target className="h-5 w-5 text-emerald-800" />,
@@ -480,16 +516,22 @@ const EUPPWRCompliancePage: React.FC = () => {
           <h3 className="text-3xl font-black mb-4">{t(`${p}.secureComplianceForYourLargeSc`)}</h3>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
             {t(`${p}.auditYourVolumetricDimensionsA`)}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
             <button
               onClick={openCalendly}
-              className="flex items-center justify-center gap-2 bg-white text-emerald-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-md"
+              className="flex items-center justify-center gap-2 bg-white text-emerald-950 px-6 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-md"
             >
               <Calendar className="w-5 h-5" />
               {t(`${p}.bookEngineeringConsultation`)}</button>
             <Link
-              to="/company/certificates"
-              className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-md"
+              to="/support/unprinted-samples"
+              className="flex items-center justify-center gap-2 border-2 border-[#D4FF00] text-[#D4FF00] px-6 py-4 rounded-xl font-bold hover:bg-white/5 transition shadow-md"
+            >
+              <Leaf className="w-5 h-5" />
+              {t(`${p}.requestFreeSampleKit`)}</Link>
+            <Link
+              to="/support/sample-quote"
+              className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-md"
             >
               <Award className="w-5 h-5" />
               {t(`${p}.requestCertificationsDoc`)}</Link>
