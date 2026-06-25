@@ -275,7 +275,7 @@ export default function PouchEcoGPTKPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="space-y-4">
                 <div className="inline-block bg-black text-white font-['JetBrains_Mono'] px-3 py-1 text-xs uppercase font-bold tracking-wider">
-                  {t(`${p}.sachet.badge`, 'Silk Pure Aluminum (12丝)')}
+                  {t(`${p}.sachet.badge`, 'Silk Pure Aluminum (12 threads)')}
                 </div>
                 <h3 className="font-black text-3xl uppercase leading-tight">
                   {t(`${p}.sachet.title`, 'Small Sachet – Conventional Material')}
@@ -313,7 +313,7 @@ export default function PouchEcoGPTKPage() {
                   </div>
                 </div>
                 <div className="text-[10px] text-neutral-600 border-t-2 border-black pt-2 mt-2 leading-relaxed">
-                  {t(`${p}.sachet.note`, '* Optional round corners (圆角) at +$0.0336 USD / sachet. Air shipping & delivery included in standard markup formulas.')}
+                  {t(`${p}.sachet.note`, '* Optional round corners at +$0.0336 USD / sachet. Air shipping & delivery included in standard markup formulas.')}
                 </div>
               </div>
             </div>

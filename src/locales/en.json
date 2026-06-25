@@ -26513,7 +26513,12 @@
                     "home": "Home",
                     "customPackaging": "Custom Packaging",
                     "pricingCalculator": "Pricing Calculator"
-                }
+                },
+                "rfqText": "Achieve Pack Sachet RFQ Summary (Small Sachet RFQ Summary):\n----------------------------------\n📐 Sachet Dimension: 80 × 80 mm\n🎨 Print Method: {{cardName}}\n📦 Quantity per Design: {{qty}} pcs\n🎨 Designs SKUs: {{designs}} Designs\n🎁 Total Sachets: {{total}} pcs\n🔘 Round Corners: {{roundStatus}}\n📝 Details: {{additionalDetails}}\n\nEstimated Cost:\n- Unit Price: ${{unitPrice}} USD / pc\n- Total Investment: ${{totalCost}} USD\n----------------------------------\n💬 I have verified my sachet configuration. Please arrange sample packages and packaging layout assistance.",
+                "roundNeed": "need (Yes, +$0.0336)",
+                "roundNoNeed": "no need (No)",
+                "sachetDesc": "Premium Silk Pure Aluminum (120um / 12 threads) structure offering ultra-high moisture, oxygen, and light barriers. Dimensions: 80 × 80 mm.",
+                "roundCornerProcessing": "Include Round corner processing (Round corner +$0.0336)"
             },
             "pouchRecycledOceanPlasticPackaging": {
                 "title": "Recycled Ocean Plastic | OBP Engineering | Pouch.eco",
@@ -27337,20 +27342,28 @@
                 },
                 "upload": {
                     "success": "Artwork overwritten successfully! Status reset to pending.",
-                    "fail": "Upload failed."
+                    "fail": "Upload failed.",
+                    "successSupplier": "Artwork overwritten successfully! Status reset to pending.",
+                    "failSupplier": "Upload failed."
                 },
                 "status": {
                     "approved": "Approved",
                     "rejected": "Revision Needed",
                     "pending": "Pending Review",
-                    "rejectedShort": "Need Revision"
+                    "rejectedShort": "Need Revision",
+                    "approvedSupplier": "Approved",
+                    "rejectedSupplier": "Revision Needed",
+                    "pendingSupplier": "Pending Review"
                 },
                 "loading": {
-                    "message": "Loading artwork & document system..."
+                    "message": "Loading artwork & document system...",
+                    "messageSupplier": "Loading artwork & document system..."
                 },
                 "notFound": {
                     "title": "System Not Found",
-                    "message": "This system doesn't exist or has been removed."
+                    "message": "This system doesn't exist or has been removed.",
+                    "titleSupplier": "System Not Found",
+                    "messageSupplier": "This system doesn't exist or has been removed."
                 },
                 "auth": {
                     "title": "Artwork & Document System",
@@ -27360,19 +27373,33 @@
                     "placeholder": "Access password",
                     "incorrect": "Incorrect password. Please try again.",
                     "submit": "Access System",
-                    "footer": "Password provided by AchievePack"
+                    "footer": "Password provided by AchievePack",
+                    "incorrectSupplier": "Incorrect password, please try again.",
+                    "titleSupplier": "Artwork & Document System (Supplier)",
+                    "systemSupplier": "System",
+                    "loadingSupplier": "Loading...",
+                    "enterPasswordSupplier": "Enter Password",
+                    "placeholderSupplier": "Access password",
+                    "submitSupplier": "Access System",
+                    "footerSupplier": "Password provided by AchievePack"
                 },
                 "header": {
                     "title": "Artwork & Document System",
                     "items": "{{count}} items / files",
                     "pending": "{{count}} pending review",
                     "submitReview": "Submit Review",
-                    "submit": "Submit"
+                    "submit": "Submit",
+                    "titleSupplier": "Artwork & Document System (Supplier)",
+                    "subtitleSupplier": "Total {{count}} files • {{pending}} pending review",
+                    "subtitleCustomer": "{{count}} items / files • {{pending}} pending review"
                 },
                 "stats": {
                     "pending": "Pending",
                     "approved": "Approved",
-                    "rejected": "Need Revision"
+                    "rejected": "Need Revision",
+                    "pendingSupplier": "Pending",
+                    "approvedSupplier": "Approved",
+                    "rejectedSupplier": "Need Revision"
                 },
                 "bulk": {
                     "title": "Review All Files at Once",
@@ -27380,14 +27407,20 @@
                     "button": "Review All ({{count}})"
                 },
                 "search": {
-                    "placeholder": "Search by name, keyword, color..."
+                    "placeholder": "Search by name, keyword, color...",
+                    "placeholderSupplier": "Search by name, keyword..."
                 },
                 "sort": {
                     "by": "Sort by",
                     "activity": "Latest Activity",
                     "newest": "Newest First",
                     "oldest": "Oldest First",
-                    "name": "Name (A-Z)"
+                    "name": "Name (A-Z)",
+                    "bySupplier": "Sort by",
+                    "activitySupplier": "Latest Activity",
+                    "newestSupplier": "Newest First",
+                    "oldestSupplier": "Oldest First",
+                    "nameSupplier": "Name (A-Z)"
                 },
                 "filters": {
                     "all": "All",
@@ -27396,7 +27429,14 @@
                     "blankCards": "Blank Cards",
                     "approved": "Approved",
                     "rejected": "Rejected",
-                    "pending": "Pending"
+                    "pending": "Pending",
+                    "allSupplier": "All",
+                    "commentsSupplier": "Comments",
+                    "withArtworkSupplier": "With Artwork",
+                    "blankSupplier": "Blank Cards",
+                    "approvedSupplier": "Approved",
+                    "rejectedSupplier": "Rejected",
+                    "pendingSupplier": "Pending"
                 },
                 "item": {
                     "pending": "Pending",
@@ -27404,7 +27444,8 @@
                     "recently": "Recently",
                     "size": "Size:",
                     "reviewNow": "Review Now",
-                    "viewDetails": "View Details"
+                    "viewDetails": "View Details",
+                    "uploadNewVersionSupplier": "Upload New Version"
                 },
                 "overall": {
                     "submit": "Submit All Reviews",
@@ -27436,6 +27477,21 @@
                     "cancel": "Cancel",
                     "requestRevision": "Request Revision",
                     "confirmApprove": "Confirm & Approve"
+                },
+                "comment": {
+                    "saveSuccessSupplier": "Comment saved successfully.",
+                    "saveFailSupplier": "Failed to save comment."
+                },
+                "supplier": {
+                    "uploadTitle": "Supplier Only - Upload New Version",
+                    "uploadDesc": "Please upload the latest design document (image or PDF format), which will overwrite the original file and reset the status to pending review. Customer feedback here will be hidden from you.",
+                    "uploading": "Uploading...",
+                    "selectFile": "Select file and overwrite original file",
+                    "commentTitle": "Supplier Comment",
+                    "commentPlaceholder": "If you have any supplementary instructions for this artwork, please enter them here. Comments will be seen by the management team.",
+                    "savingComment": "Saving...",
+                    "saveComment": "Save Comment",
+                    "close": "Close"
                 }
             },
             "certificateDownload": {
@@ -28437,157 +28493,257 @@
             },
             "bookkeeping": {
                 "header": {
-                    "title": "小老闆理財記賬本",
-                    "badge": "超簡單版",
-                    "subtitle": "管錢超容易！學習記賬第一步 📦 包裝買賣 • 🚗 汽車 • 🅿️ 車位 • 🏠 房屋",
-                    "manageBusiness": "管理小生意",
-                    "adjustRate": "調整匯率",
-                    "addRecord": "記一筆收支 💰"
+                    "title": "Kid Boss Bookkeeping Ledger",
+                    "badge": "Super Simple Version",
+                    "subtitle": "Managing money is so easy! First step to learning bookkeeping 📦 Packaging • 🚗 Car Rental • 🅿️ Parking Spot • 🏠 House Rental",
+                    "manageBusiness": "Manage Small Business",
+                    "adjustRate": "Adjust Exchange Rates",
+                    "addRecord": "Record a Transaction 💰"
                 },
                 "stats": {
-                    "profitTitle": "🐷 我的存錢罐剩下 (利潤)",
-                    "profitDesc": "好棒！這是總共賺到、扣掉花出去後，剩下可以支配的錢！",
-                    "incomeTitle": "🎉 我總共賺進來 (收入)",
-                    "incomeDesc": "各種生意陸陸續續收進來的零用錢都在這裡累積！",
-                    "expenseTitle": "💸 我總共花出去 (支出)",
-                    "expenseDesc": "買東西的進貨成本、修理和水電費的日常花銷。"
+                    "profitTitle": "🐷 Remaining in My Piggy Bank (Profit)",
+                    "profitDesc": "Awesome! This is the money left to spend after earning and subtracting expenses!",
+                    "incomeTitle": "🎉 Total I Earned (Income)",
+                    "incomeDesc": "Pocket money collected from various businesses accumulates here!",
+                    "expenseTitle": "💸 Total I Spent (Expense)",
+                    "expenseDesc": "Purchase costs of goods, repairs, and daily expenses like utilities."
                 },
                 "tabs": {
-                    "overview": "🐷 生意小撲滿",
-                    "ledger": "📝 流水賬日記",
-                    "calendar": "📅 記賬小日曆",
-                    "report": "📊 生意分折表"
+                    "overview": "🐷 Piggy Bank",
+                    "ledger": "📝 Ledger Diary",
+                    "calendar": "📅 Ledger Calendar",
+                    "report": "📊 Business Analysis"
                 },
                 "overview": {
-                    "title": "四大生意小賬戶表現",
-                    "subtitle": "點擊時間膠囊，所有生意小撲滿的收支會神奇地自動切換唷！🧒",
-                    "profitLabel": "此時光總盈虧 (利潤)",
-                    "rangeLabel": "選定範圍",
-                    "earned": "賺到收支：",
-                    "spent": "花掉成本：",
-                    "profit": "我的利潤：",
-                    "adviceTitle": "給小老闆的理財悄悄話",
-                    "adviceDesc": "記賬不僅僅是記錄數字，更是建立良好的理財觀念！持之以恆，你就能看出哪一個生意（比如「房屋出租 🏠」或是「包裝買賣 📦」）是你的印鈔機喔！",
-                    "businessItemBadge": "小生意項目"
+                    "title": "Performance of Four Major Businesses",
+                    "subtitle": "Click on the time capsules, and all the piggy bank balances will magically switch! 🧒",
+                    "profitLabel": "Total Profit/Loss for this Period",
+                    "rangeLabel": "Selected Range",
+                    "earned": "Earned Income:",
+                    "spent": "Spent Cost:",
+                    "profit": "My Profit:",
+                    "adviceTitle": "A Little Money Tip for the Kid Boss",
+                    "adviceDesc": "Bookkeeping is not just about recording numbers, it's about building good money habits! Keep at it, and you'll see which business (like 'House Rental 🏠' or 'Packaging 📦') is your money-maker!",
+                    "businessItemBadge": "Business Item"
                 },
                 "filters": {
-                    "searchPlaceholder": "搜尋備註日記或科目...",
-                    "typeAll": "所有的錢方向",
-                    "typeIncoming": "只看賺到的錢 💰",
-                    "typeOutgoing": "只看花出去的錢 💸",
-                    "businessAll": "所有生意項目",
-                    "currencyAll": "所有交易幣別",
-                    "reset": "重置所有條件",
-                    "downloadCSV": "下載 CSV 報表 📊",
-                    "emptyTitle": "小本子裡沒有紀錄唷",
-                    "emptyDesc": "點選上面「記一筆」或是「清除過濾條件」來看看吧！"
+                    "searchPlaceholder": "Search diary notes or categories...",
+                    "typeAll": "All Money Flows",
+                    "typeIncoming": "Only Earned Money 💰",
+                    "typeOutgoing": "Only Spent Money 💸",
+                    "businessAll": "All Businesses",
+                    "currencyAll": "All Currencies",
+                    "reset": "Reset All Filters",
+                    "downloadCSV": "Download CSV Report 📊",
+                    "emptyTitle": "Nothing in the ledger yet",
+                    "emptyDesc": "Click 'Record a Transaction' above or 'Reset Filters' to take a look!",
+                    "recordsShownPrefix": "Showing a total of ",
+                    "recordsShownSuffix": " transaction records"
                 },
                 "timeframes": {
-                    "all": "📜 歷史總計 (所有記賬紀錄)",
-                    "1d": "📅 最近一日 (今天/昨日)",
-                    "1w": "📅 最近一個星期 (過去7天)",
-                    "1m": "📅 最近一個月 (過去30天)",
-                    "3m": "📅 最近三個月",
-                    "6m": "📅 最近半年",
-                    "1y": "📅 最近一年 (過去365天)",
-                    "2y": "📅 最近兩年",
-                    "3y": "📅 最近三年",
-                    "5y": "📅 最近五年",
-                    "10y": "📅 最近十年",
-                    "allShort": "歷史總計",
-                    "1dShort": "最近一日",
-                    "1wShort": "最近一週",
-                    "1mShort": "最近一月",
-                    "3mShort": "最近三月",
-                    "6mShort": "最近半年",
-                    "1yShort": "最近一年",
-                    "2yShort": "最近兩年",
-                    "3yShort": "最近三年",
-                    "5yShort": "最近五年",
-                    "10yShort": "最近十年"
+                    "all": "📜 Historical Total (All Records)",
+                    "1d": "📅 Last 24 Hours (Today/Yesterday)",
+                    "1w": "📅 Last Week (Past 7 Days)",
+                    "1m": "📅 Last Month (Past 30 Days)",
+                    "3m": "📅 Last 3 Months",
+                    "6m": "📅 Last 6 Months",
+                    "1y": "📅 Last Year (Past 365 Days)",
+                    "2y": "📅 Last 2 Years",
+                    "3y": "📅 Last 3 Years",
+                    "5y": "📅 Last 5 Years",
+                    "10y": "📅 Last 10 Years",
+                    "allShort": "Total",
+                    "1dShort": "1 Day",
+                    "1wShort": "1 Week",
+                    "1mShort": "1 Month",
+                    "3mShort": "3 Months",
+                    "6mShort": "6 Months",
+                    "1yShort": "1 Year",
+                    "2yShort": "2 Years",
+                    "3yShort": "3 Years",
+                    "5yShort": "5 Years",
+                    "10yShort": "10 Years"
                 },
                 "calendar": {
-                    "title": "📅 收支大表格日曆 (統一 USD 計價)",
-                    "subtitle": "點擊格網中任何一天，就能看到那天賺了多少或花了多少，也可以直接對那天快捷記賬唷！",
+                    "title": "📅 Calendar Ledger (USD)",
+                    "subtitle": "Click any day on the grid to see how much you earned or spent, or record a transaction directly for that day!",
                     "days": [
-                        "日",
-                        "一",
-                        "二",
-                        "三",
-                        "四",
-                        "五",
-                        "六"
+                        "Sun",
+                        "Mon",
+                        "Tue",
+                        "Wed",
+                        "Thu",
+                        "Fri",
+                        "Sat"
                     ],
-                    "earned": "賺:",
-                    "spent": "花:",
-                    "transactionsCount": "{{count}}筆"
+                    "earned": "Earned:",
+                    "spent": "Spent:",
+                    "transactionsCount": "{{count}} tx",
+                    "dayFormat": "{{day}}"
                 },
                 "rateSettings": {
-                    "title": "調整小老闆匯率計算機",
-                    "description": "在記賬時，如果小老闆輸入了港幣 (HKD) 或人民幣 (RMB)，系統會自動以這個匯率基準，幫你變魔法換算成美金 (USD) 存進你的大撲滿喔！",
-                    "usd": "美金 (USD)",
-                    "hkd": "港幣 (HKD)",
-                    "rmb": "人民幣 (RMB)",
-                    "restore": "復原標準值",
-                    "save": "確認保存設定",
-                    "current": "目前",
-                    "equivalent": "折合",
-                    "baseInfo": "📈 自動換算器匯率基底：",
-                    "displayCurrency": "顯示幣別：",
-                    "selectTime": "選擇時光："
+                    "title": "Adjust Exchange Rates",
+                    "description": "When recording transactions, if you enter HKD or RMB, the system will automatically convert it to USD based on these rates!",
+                    "usd": "USD",
+                    "hkd": "HKD",
+                    "rmb": "RMB",
+                    "restore": "Restore Defaults",
+                    "save": "Save Settings",
+                    "current": "Current",
+                    "equivalent": "Equivalent",
+                    "baseInfo": "📈 Exchange Rate Base:",
+                    "displayCurrency": "Display Currency:",
+                    "selectTime": "Select Time Capsule:"
                 },
                 "addForm": {
-                    "titleAdd": "💰 記一筆收支日記",
-                    "titleEdit": "✏️ 修改這筆小日記",
-                    "date": "交易日期",
-                    "typeLabel": "這是賺到錢還是花出錢呢？",
-                    "incoming": "💰 存錢進來 (賺錢啦)",
-                    "outgoing": "💸 付錢出去 (花錢囉)",
-                    "businessLabel": "是屬於哪一個小生意的？",
-                    "amountLabel": "填入金額與使用的幣別",
-                    "baseUsd": "大撲滿基底: USD",
-                    "conversionTip": "🪄 點點下方卡片，金額會神奇自動換算唷：",
-                    "categoryLabel": "這是屬於哪一項收支呢？",
-                    "chooseExisting": "📖 選擇現有項目",
-                    "addNewCategory": "➕ 新增收支項目",
-                    "newCategoryPlaceholder": "例如: 買包裝紙 📄",
-                    "addBtn": "新增項目",
-                    "descLabel": "寫下一點好記的小筆記 (例: 特斯拉載客一星期的租費)",
-                    "descPlaceholder": "寫下一點簡單的小日記吧...",
-                    "paymentMethodLabel": "這筆錢是怎麼交易的？",
-                    "cancel": "取消",
-                    "save": "確認保存這筆紀錄 ✨",
+                    "titleAdd": "💰 Record a Transaction",
+                    "titleEdit": "✏️ Edit Transaction Record",
+                    "date": "Transaction Date",
+                    "typeLabel": "Is this earned income or spent cost?",
+                    "incoming": "💰 Deposit (Earned)",
+                    "outgoing": "💸 Withdraw (Spent)",
+                    "businessLabel": "Which business does this belong to?",
+                    "amountLabel": "Enter amount and select currency",
+                    "baseUsd": "Piggy Bank Base: USD",
+                    "conversionTip": "🪄 Click the cards below to see exchange rate conversions:",
+                    "categoryLabel": "Which category does this belong to?",
+                    "chooseExisting": "📖 Choose Existing Category",
+                    "addNewCategory": "➕ Add New Category",
+                    "newCategoryPlaceholder": "e.g. Wrap paper 📄",
+                    "addBtn": "Add Category",
+                    "descLabel": "Write a short note (e.g. Tesla passenger fare for 1 week)",
+                    "descPlaceholder": "Write a simple diary note...",
+                    "paymentMethodLabel": "How was this transaction paid?",
+                    "cancel": "Cancel",
+                    "save": "Confirm and Save ✨",
                     "paymentMethods": {
-                        "銀行轉帳": "銀行轉帳",
-                        "現金": "現金",
-                        "信用卡": "信用卡",
-                        "微信/支付寶": "微信/支付寶"
+                        "銀行轉帳": "Bank Transfer",
+                        "現金": "Cash",
+                        "信用卡": "Credit Card",
+                        "微信/支付寶": "WeChat/Alipay",
+                        "Bank Transfer": "Bank Transfer",
+                        "Cash": "Cash",
+                        "Credit Card": "Credit Card",
+                        "WeChat/Alipay": "WeChat/Alipay"
+                    },
+                    "categories": {
+                        "收租金 💰": "Rent Income 💰",
+                        "商品銷售 📦": "Product Sales 📦",
+                        "其他收入 💵": "Other Income 💵",
+                        "日常維修 🛠️": "Maintenance 🛠️",
+                        "水電開銷 ⚡": "Utilities ⚡",
+                        "進貨成本 📦": "Supply Cost 📦",
+                        "其他支出 💸": "Other Expense 💸"
                     }
                 },
                 "businessManager": {
-                    "title": "管理我的小生意項目",
-                    "addNew": "➕ 開啟一個全新小生意",
-                    "nameLabel": "生意名稱 (例如: 烘焙點心)",
-                    "namePlaceholder": "烘焙點心",
-                    "emojiLabel": "圖圖標 Emoji",
-                    "submit": "確認打造小生意 🚀",
-                    "currentBusinesses": "💼 正在經營中的小生意：",
-                    "close": "關閉視窗"
+                    "title": "Manage My Businesses",
+                    "addNew": "➕ Start a New Business",
+                    "nameLabel": "Business Name (e.g. Baking Shop)",
+                    "namePlaceholder": "Baking Shop",
+                    "emojiLabel": "Emoji Icon",
+                    "submit": "Create Business 🚀",
+                    "currentBusinesses": "💼 Current Active Businesses:",
+                    "close": "Close",
+                    "optionPackage": "📦 Packaging",
+                    "optionParking": "🅿️ Parking",
+                    "optionCar": "🚗 Car",
+                    "optionHouse": "🏠 House",
+                    "optionDessert": "🍰 Dessert",
+                    "optionToy": "🧸 Toy",
+                    "optionArt": "🎨 Art",
+                    "optionBike": "🚲 Bike",
+                    "optionDrink": "🥤 Drink",
+                    "optionComputer": "💻 Computer"
                 },
                 "dayDetail": {
-                    "title": "記賬大詳情",
-                    "empty": "這一天還空蕩蕩的喔，沒有任何小筆記。",
-                    "addBtn": "就在今天記一筆 💰",
-                    "close": "關閉視窗"
+                    "title": "Transaction Details",
+                    "dayString": "{{dayString}}",
+                    "empty": "This day is empty, no diary notes.",
+                    "addBtn": "Record a Transaction Today 💰",
+                    "close": "Close"
                 },
                 "report": {
-                    "title": "簡明生意損益小報表 (美金基準)",
-                    "subtitle": "各個小生意的賺錢和花錢情況匯總表，全部自動折算成美金統計！",
-                    "desc": "本項生意的全部收支紀錄加總。",
-                    "earned": "總收入",
-                    "spent": "總支出",
-                    "profit": "小利潤",
-                    "download": "下載生意小報表 CSV 📊"
+                    "title": "Business Profit & Loss Report (USD)",
+                    "subtitle": "A summary table of income and expenses for each business, automatically converted to USD!",
+                    "desc": "Total transaction records for this business.",
+                    "earned": "Total Income",
+                    "spent": "Total Expenses",
+                    "profit": "Net Profit",
+                    "download": "Download CSV Report 📊",
+                    "csvHeader": "Date,Type,Business,Category,Description,Original Amount,Currency,Converted Amount (USD),Payment Method\n",
+                    "csvIncoming": "Income 💰",
+                    "csvOutgoing": "Expense 💸"
+                },
+                "toast": {
+                    "rateRestored": "Exchange rates restored to defaults!",
+                    "rateUpdated": "Exchange rates updated successfully! 🌸",
+                    "magicConversion": "Magic! Amount converted to {{curr}} {{val}}",
+                    "csvFilename": "KidBoss_Bookkeeping_Report",
+                    "downloadSuccess": "Kid Boss business report downloaded successfully! Go take a look! 📊",
+                    "downloadFail": "Download failed, please ask the Big Boss for help!",
+                    "currencySwitched": "Piggy bank display currency switched to {{curr}}! ✨",
+                    "timeframeSwitched": "Switched to: {{timeframe}} 🌟",
+                    "syncSuccess": "✨ New local records detected and automatically synced to the cloud!",
+                    "syncConnection": "✨ Ledger successfully connected to the cloud, syncing in real-time!",
+                    "enterBusinessName": "Please enter a business name!",
+                    "businessExists": "This business name already exists!",
+                    "createBusinessSuccess": "🎉 Successfully created a new business!",
+                    "duplicateBusinessName": "Duplicate business name!",
+                    "updateBusinessSuccess": "Business and all associated ledger entries updated successfully! ✨",
+                    "deleteBusinessSuccess": "Business and all associated diaries deleted! 🧹",
+                    "enterCategoryName": "Please enter a category name!",
+                    "categoryExists": "This category already exists!",
+                    "createCategorySuccess": "🎉 Successfully added new category preset!",
+                    "invalidAmount": "Please enter a valid amount!",
+                    "enterDescription": "Please write a simple note so you won't forget what this money was for!",
+                    "editTransactionSuccess": "Transaction entry updated successfully! ✨",
+                    "createTransactionSuccess": "Recorded a new transaction! 💰",
+                    "syncCloudFailed": "Cloud sync failed, saved locally for now.",
+                    "deleteTransactionSuccess": "Ledger record successfully deleted! 🧹"
+                },
+                "ledger": {
+                    "dateLabel": "Date",
+                    "methodLabel": "Method"
+                },
+                "confirm": {
+                    "deleteBusiness": "Are you sure you want to delete the business \"{{name}}\"? All ledger diaries and categories under this business will also be deleted!",
+                    "deleteTransaction": "Are you sure you want to delete this transaction record? It cannot be recovered!"
+                },
+                "businesses": {
+                    "包裝買賣 📦": "Packaging 📦",
+                    "車位出租 🅿️": "Parking 🅿️",
+                    "汽車出租 🚗": "Car Rental 🚗",
+                    "房屋出租 🏠": "House Rental 🏠"
+                },
+                "mock": {
+                    "t-jun-1": {
+                        "description": "Monthly rent for the Da-an district apartment"
+                    },
+                    "t-jun-2": {
+                        "description": "Parking spot rent in Central Business District (HKD)"
+                    },
+                    "t-jun-3": {
+                        "description": "Tesla Model 3 rental for one week"
+                    },
+                    "t-jun-4": {
+                        "description": "Sold compostable PBS packaging bags"
+                    },
+                    "t-jun-5": {
+                        "description": "Purchased raw compostable PBS granules"
+                    },
+                    "t-jun-6": {
+                        "description": "Tesla maintenance and tire change"
+                    },
+                    "t-jun-7": {
+                        "description": "Monthly apartment utilities (electricity, water, gas)"
+                    },
+                    "t-may-1": {
+                        "description": "May rent for the apartment received successfully!"
+                    },
+                    "t-may-2": {
+                        "description": "May rent for the parking spot received successfully!"
+                    }
                 }
             },
             "documentTemplates": {
@@ -28840,7 +28996,8 @@
                 "translatingFactorySpecsCompili": "Translating factory specs & compiling PDF layout...",
                 "deletedRecord": "Deleted Record",
                 "undo": "UNDO",
-                "conventionalSachetCost": "Conventional Sachet Cost"
+                "conventionalSachetCost": "Conventional Sachet Cost",
+                "insertManualTemplateString": "袋型：\n材质结构：\n尺寸规格：  mm*  mm+  mm\n厚度：\nadditional：\n款数：     数量：     单价：￥     金额：￥     预估重量：kg     类型：\n\n---\n\n袋型：自立袋\n材质结构：黄牛皮纸-50g////PLA+PBAT可降解\n尺寸规格：235 mm*345 mm+60 mm\n厚度：130\nadditional：拉链, stamp foil\n款数：     数量：5000     单价：￥1.163     金额：￥5815     预估重量：134.05kg     类型：透明袋"
             },
             "domainHome": {},
             "ecoPackagingMistakes": {
@@ -30297,7 +30454,7 @@
                 "traditionalLabelsRelyOnNonBiod": "Traditional labels rely on non-biodegradable plastics (PP/PET) and synthetic adhesives that break down into persistent microplastics, remaining in our ecosystem for centuries.",
                 "zeroMicroplasticsCompleteBiode": "Zero Microplastics. Complete Biodegradability.",
                 "unlikeTraditionalPlasticPpPetL": "Unlike traditional plastic (PP/PET) labels that break down into persistent microplastics, our PLA compostable labels completely degrade under standard composting conditions. Over 180 days, microorganisms break down the face stock, bio-adhesive, and plant-based printing ink into clean biomass, water, and CO2, fully blending back into the natural eco-system.",
-                "ppPet180": "與傳統塑料標籤（PP/PET）破碎成微塑料長期污染環境不同，我們的可堆肥標籤在標準堆肥環境下會迅速被微生物分解。在180天的黃金降解周期內，面材、生物黏合劑及植物油墨將徹底轉化為有機養分、水及二氧化碳，無重金屬或化學毒素殘留。",
+                "ppPet180": "Unlike traditional plastic labels (PP/PET) which fragment into microplastics and pollute the environment long-term, our compostable labels decompose rapidly under standard composting conditions. Within the 180-day golden degradation cycle, the face stock, bio-adhesive, and plant-based ink convert completely into organic nutrients, water, and CO2, leaving zero heavy metals or chemical toxic residues.",
                 "material3": "Material:",
                 "certifiedCompostableClearPlaFi": "Certified Compostable Clear PLA Film & Bio-Adhesive, breaks down within 180 days, zero microplastics.",
                 "size4": "📐 Size:",
@@ -30312,10 +30469,10 @@
                 "traditionalAdhesiveSealingTape5": "Traditional adhesive sealing tapes and stickers use persistent plastic backing (PET/PVC/BOPP) and toxic solvent adhesives that leave non-biodegradable waste on packages, polluting recycling streams.",
                 "14WeekRapidComposting100NonTox": "≤14-Week Rapid Composting. 100% Non-Toxic.",
                 "madeFrom100PlantBasedCompostab": "Made from 100% plant-based compostable PLA film and high-performance bio-adhesive. Under industrial composting conditions, these stickers completely break down in less than 14 weeks (98 days) into organic biomass, water, and CO2 with absolutely zero microplastics.",
-                "100Pla1498": "採用100%天然植物源PLA膜材與環保生物粘合劑。在工業堆肥環境下可在14周（98天）內完全分解為有機物質、水和二氧化碳，不殘留任何微塑料，安全環保。",
+                "100Pla1498": "Made from 100% natural plant-sourced PLA film and eco-friendly bio-adhesive. Under industrial composting conditions, it completely decomposes into organic matter, water, and CO2 in 14 weeks (98 days), leaving no microplastics.",
                 "combustionTest": "Combustion Test",
                 "combustionSafetyTestPlaVsPet": "Combustion Safety Test: PLA vs. PET",
-                "vs": "燃燒對比測試：草木灰味 vs. 刺鼻塑料",
+                "vs": "Combustion Comparison Test: Wood ash scent vs. pungent plastic smell",
                 "compostablePla": "Compostable PLA:",
                 "burnsCleanlyWithAMildScentOfGr": "Burns cleanly with a mild scent of grass/wood ash. The sticker body remains structurally solid and intact as ash until extinguished.",
                 "regularPetPlastic": "Regular PET Plastic:",
@@ -30521,7 +30678,9 @@
                 "shareProductConfiguration": "Share Product Configuration",
                 "sharingBelowLinkWithAPersonWil": "Sharing below link with a person will let them view the same configuration you have on the screen. However, they will not be able to access your shopping cart or account information.",
                 "cancel": "Cancel",
-                "close": "Close"
+                "close": "Close",
+                "degradation180Days": "180-Day Complete Biodegradability • Zero Microplastics Residue",
+                "degradation14Weeks": "≤14-Week Complete Biodegradability • Clean Burn Zero Toxic Gases"
             },
             "pouchEcoGPTK2": {
                 "seo": {
@@ -30585,7 +30744,7 @@
                     ]
                 },
                 "sachet": {
-                    "badge": "Silk Pure Aluminum (12丝)",
+                    "badge": "Silk Pure Aluminum (12 threads)",
                     "title": "Small Sachet – Conventional Material",
                     "desc": "Ideal for sample packs, single-serve coffee/tea, cosmetic samples, and powder sachets. Made with high-strength pure aluminum laminate providing absolute moisture and light protection.",
                     "button": "View Sachet Options",
@@ -30598,7 +30757,7 @@
                     "matrix3Val": "$231.00 USD",
                     "matrix4Label": "Traditional Gravure (50k+):",
                     "matrix4Val": "$0.0378 / pc",
-                    "note": "* Optional round corners (圆角) at +$0.0336 USD / sachet. Air shipping & delivery included in standard markup formulas."
+                    "note": "* Optional round corners at +$0.0336 USD / sachet. Air shipping & delivery included in standard markup formulas."
                 },
                 "prosCons": {
                     "benefitsTitle": "Benefits",
@@ -34407,7 +34566,37 @@
                 "dashboard": "Dashboard",
                 "customer": "Customer",
                 "crm": "CRM / Inquiries",
-                "emailFollowUp": "Email Follow Up"
+                "emailFollowUp": "Email Follow Up",
+                "clawdbotSubtitle": "24/7 automation assistant, control business processes via WhatsApp/WeChat",
+                "zohoTitle": "📧 Email Integration (Zoho)",
+                "zohoStep1": "1. Install email plugin",
+                "zohoStep2": "2. Configure Zoho IMAP",
+                "zohoWarning": "⚠️ Zoho requires an App Password, generate it in Zoho Mail → Settings → Security → App Passwords",
+                "rfqAutomationTitle": "RFQ Inquiry Automation",
+                "rfqStep1": "Receive inquiry email → Auto-extract product requirements",
+                "rfqStep2": "Match quoting rules → Generate initial quotation",
+                "rfqStep3": "WhatsApp notification confirmation → Send automatically",
+                "orderNotificationsTitle": "Order Status Notifications",
+                "orderStep1": "Production completed → Auto-email customer",
+                "orderStep2": "Shipment → Fetch tracking number → Push notification",
+                "orderStep3": "Delivered → Auto-request review",
+                "followUpAutomationTitle": "Customer Follow-up Automation",
+                "followUpStep1": "Determine optimal sending time",
+                "followUpStep2": "Auto follow-up after 3 days without reply",
+                "followUpStep3": "AI generates personalized content",
+                "deployAutomationTitle": "Website Deployment Automation",
+                "deployStep1": "Send deploy via WhatsApp → Auto-deploy",
+                "deployStep2": "Deployment completed → Push confirmation message",
+                "deployStep3": "Error occurred → Auto-rollback and notify",
+                "commonCommandsTitle": "Common Commands",
+                "cmdChannelStatus": "View channel status",
+                "cmdAddChannel": "Add new channel",
+                "cmdViewLogs": "View logs",
+                "cmdConfigModel": "Configure models",
+                "relatedDocsTitle": "📚 Related Documentation",
+                "docOfficial": "Official Docs",
+                "docChannelConfig": "Channel Config",
+                "docPluginMgmt": "Plugin Management"
             },
             "resetPassword": {
                 "passwordMismatch": "Passwords do not match",
@@ -34746,7 +34935,92 @@
                 "statOver30": ">30 Days",
                 "statOver60": ">60 Days",
                 "statOver90": ">90 Days",
-                "statDomains": "Domains"
+                "statDomains": "Domains",
+                "statuses": {
+                    "new": "New Customer",
+                    "contacted": "Contacted",
+                    "quoted": "Quoted",
+                    "following_up": "Following Up",
+                    "sampling": "Sampling Stage",
+                    "won": "Won",
+                    "lost": "Lost",
+                    "spam": "Spam"
+                },
+                "sendStatuses": {
+                    "sent": "Sent",
+                    "not_sent": "Not Sent",
+                    "failed": "Failed"
+                },
+                "threadStatuses": {
+                    "active": "Active",
+                    "paused": "Paused",
+                    "partnered": "Partnered",
+                    "closed": "Closed",
+                    "pending": "Pending"
+                },
+                "age": {
+                    "sent_14": "Within 14 Days",
+                    "sent_60": "Within 60 Days",
+                    "sent_120": "Within 120 Days",
+                    "sent_240": "Within 240 Days",
+                    "sent_older": "Older than 240 Days"
+                },
+                "alerts": {
+                    "noEmailsToSend": "❌ No emails to send, please generate email content using \"AI Suggest All\" first",
+                    "confirmSendAll": "Are you sure you want to send {{count}} follow-up emails?",
+                    "sendResult": "✅ Sending completed\nSuccess: {{success}}\nFailed: {{fail}}"
+                },
+                "searchPlaceholder": "Search customer name, email, domain, requirements...",
+                "options": {
+                    "allAccounts": "All Accounts",
+                    "allContacts": "All Contacts",
+                    "followedUp": "✅ Followed Up",
+                    "pendingFollowUp": "📋 Pending Follow Up",
+                    "range30_60": "30-60 Days",
+                    "range60_90": "60-90 Days",
+                    "rangeOver90": "> 90 Days"
+                },
+                "btnAdvancedFilters": "Advanced Filters",
+                "filterCustomerStatus": "Customer Status Filter (Multi-select)",
+                "btnClearSelection": "Clear Selection",
+                "filterEmailStatus": "Email Sending Status (Multi-select)",
+                "filterResults": "Filtered Results: <strong>{{count}}</strong> records",
+                "btnClearAllFilters": "Clear All Filters",
+                "tableHeaders": {
+                    "contact": "Contact",
+                    "emailDomain": "Email / Domain",
+                    "status": "Status",
+                    "daysSent": "Days Sent",
+                    "lastSubject": "Last Subject",
+                    "aiSuggestion": "AI Suggestion",
+                    "actions": "Actions"
+                },
+                "daysUnit": "days",
+                "apply": "Apply",
+                "regenerate": "Regenerate",
+                "generating": "Generating...",
+                "aiSuggestionBtn": "AI Suggestion",
+                "checkSiteTitle": "Check website status",
+                "lastCheckedTime": "Last checked: {{time}}",
+                "checkBtn": "Check",
+                "markSentTitle": "Mark as sent",
+                "sentBtn": "Sent",
+                "manualSentTimeTitle": "Manually marked time: {{time}}",
+                "cancelBtn": "Cancel",
+                "markPendingFuTitle": "Mark as pending follow up",
+                "markFollowedUpTitle": "Mark as followed up",
+                "followedUpBtn": "Followed Up",
+                "pendingFuBtn": "Pending F/U",
+                "deleteTitle": "Delete this contact",
+                "followUpBtn": "Follow Up",
+                "companyLabel": "Company",
+                "recommendedLabel": "Recommended",
+                "noMatchingRecords": "No matching records",
+                "noMatchingDesc": "No customers matching the current filter criteria need follow up.",
+                "needsLabel": "Needs",
+                "statusActive": "Active",
+                "statusClosed": "Closed",
+                "statusUnknown": "Unknown"
             },
             "pouchEcoDemo": {
                 "startBuilding": "Start Building",
@@ -34826,7 +35100,18 @@
                 "uploadPdf": "Upload PDF Quote (Official Quote)",
                 "copyright": "© 2026 Achieve Pack Multi-Supplier Portal",
                 "privacyPolicy": "Privacy Policy",
-                "termsOfService": "Terms of Service"
+                "termsOfService": "Terms of Service",
+                "passwordError": "Incorrect password, please try again.",
+                "submitFailed": "Submission failed, please check your network and try again.",
+                "accessPassword": "Access Password",
+                "verifyLogin": "Verify Login",
+                "backToEdit": "Back to Edit",
+                "unitPriceRmb": "Unit Price (RMB)",
+                "additionalComments": "Additional Comments",
+                "additionalCommentsPlaceholder": "Please enter any other suggestions or comments here...",
+                "selectFile": "Select File",
+                "submitting": "Submitting...",
+                "submitQuote": "Submit Quote"
             },
             "colorAccuracyDigitalPrinting": {
                 "metaTitle": "Color Accuracy in Digital Packaging Printing",

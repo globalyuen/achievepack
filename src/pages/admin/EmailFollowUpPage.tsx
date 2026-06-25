@@ -4,21 +4,21 @@ import { Mail, Clock, AlertCircle, CheckCircle, Send, RefreshCw, Search, Chevron
 
 // Customer status options for filtering
 const CUSTOMER_STATUSES = [
-  { value: 'new', label: '新客户', color: 'bg-blue-100 text-blue-700', icon: Star },
-  { value: 'contacted', label: '已联系', color: 'bg-cyan-100 text-cyan-700', icon: Mail },
-  { value: 'quoted', label: '已报价', color: 'bg-purple-100 text-purple-700', icon: Tag },
-  { value: 'following_up', label: '跟进中', color: 'bg-orange-100 text-orange-700', icon: Clock },
-  { value: 'sampling', label: '样品阶段', color: 'bg-indigo-100 text-indigo-700', icon: Package },
-  { value: 'won', label: '已成交', color: 'bg-green-100 text-green-700', icon: CheckCircle },
-  { value: 'lost', label: '已丢失', color: 'bg-red-100 text-red-700', icon: XCircle },
-  { value: 'spam', label: '垃圾邮件', color: 'bg-gray-100 text-gray-500', icon: AlertCircle },
+  { value: 'new', label: 'New Customer', color: 'bg-blue-100 text-blue-700', icon: Star },
+  { value: 'contacted', label: 'Contacted', color: 'bg-cyan-100 text-cyan-700', icon: Mail },
+  { value: 'quoted', label: 'Quoted', color: 'bg-purple-100 text-purple-700', icon: Tag },
+  { value: 'following_up', label: 'Following Up', color: 'bg-orange-100 text-orange-700', icon: Clock },
+  { value: 'sampling', label: 'Sampling Stage', color: 'bg-indigo-100 text-indigo-700', icon: Package },
+  { value: 'won', label: 'Won', color: 'bg-green-100 text-green-700', icon: CheckCircle },
+  { value: 'lost', label: 'Lost', color: 'bg-red-100 text-red-700', icon: XCircle },
+  { value: 'spam', label: 'Spam', color: 'bg-gray-100 text-gray-500', icon: AlertCircle },
 ] as const
 
 // Email sending status options
 const EMAIL_SEND_STATUSES = [
-  { value: 'sent', label: '已发送', color: 'bg-green-100 text-green-700', icon: MailCheck },
-  { value: 'not_sent', label: '未发送', color: 'bg-yellow-100 text-yellow-700', icon: MailQuestion },
-  { value: 'failed', label: '发送失败', color: 'bg-red-100 text-red-700', icon: MailX },
+  { value: 'sent', label: 'Sent', color: 'bg-green-100 text-green-700', icon: MailCheck },
+  { value: 'not_sent', label: 'Not Sent', color: 'bg-yellow-100 text-yellow-700', icon: MailQuestion },
+  { value: 'failed', label: 'Failed', color: 'bg-red-100 text-red-700', icon: MailX },
 ] as const
 
 type CustomerStatus = typeof CUSTOMER_STATUSES[number]['value']
@@ -26,11 +26,11 @@ type EmailSendStatus = typeof EMAIL_SEND_STATUSES[number]['value']
 
 // Business status options
 const BUSINESS_STATUSES = [
-  { value: 'active', label: '活跃中', icon: PlayCircle, color: 'text-green-600 bg-green-100' },
-  { value: 'paused', label: '暂停', icon: PauseCircle, color: 'text-yellow-600 bg-yellow-100' },
-  { value: 'partnered', label: '已合作', icon: Handshake, color: 'text-blue-600 bg-blue-100' },
-  { value: 'closed', label: '已关闭', icon: XCircle, color: 'text-red-600 bg-red-100' },
-  { value: 'pending', label: '待跟进', icon: Clock, color: 'text-orange-600 bg-orange-100' },
+  { value: 'active', label: 'Active', icon: PlayCircle, color: 'text-green-600 bg-green-100' },
+  { value: 'paused', label: 'Paused', icon: PauseCircle, color: 'text-yellow-600 bg-yellow-100' },
+  { value: 'partnered', label: 'Partnered', icon: Handshake, color: 'text-blue-600 bg-blue-100' },
+  { value: 'closed', label: 'Closed', icon: XCircle, color: 'text-red-600 bg-red-100' },
+  { value: 'pending', label: 'Pending', icon: Clock, color: 'text-orange-600 bg-orange-100' },
 ] as const
 
 type BusinessStatus = typeof BUSINESS_STATUSES[number]['value']
@@ -796,11 +796,11 @@ Ryan`
   type SentGroupKey = 'sent_14' | 'sent_60' | 'sent_120' | 'sent_240' | 'sent_older'
   
   const SENT_GROUPS: { key: SentGroupKey; label: string; maxDays: number; color: string; borderColor: string; badgeColor: string }[] = [
-    { key: 'sent_14', label: '14 天内', maxDays: 14, color: 'from-emerald-50 to-emerald-100', borderColor: 'border-emerald-200', badgeColor: 'bg-emerald-200 text-emerald-800' },
-    { key: 'sent_60', label: '60 天内', maxDays: 60, color: 'from-cyan-50 to-cyan-100', borderColor: 'border-cyan-200', badgeColor: 'bg-cyan-200 text-cyan-800' },
-    { key: 'sent_120', label: '120 天内', maxDays: 120, color: 'from-blue-50 to-blue-100', borderColor: 'border-blue-200', badgeColor: 'bg-blue-200 text-blue-800' },
-    { key: 'sent_240', label: '240 天内', maxDays: 240, color: 'from-indigo-50 to-indigo-100', borderColor: 'border-indigo-200', badgeColor: 'bg-indigo-200 text-indigo-800' },
-    { key: 'sent_older', label: '240+ 天', maxDays: Infinity, color: 'from-slate-50 to-slate-100', borderColor: 'border-slate-200', badgeColor: 'bg-slate-200 text-slate-800' },
+    { key: 'sent_14', label: 'Within 14 Days', maxDays: 14, color: 'from-emerald-50 to-emerald-100', borderColor: 'border-emerald-200', badgeColor: 'bg-emerald-200 text-emerald-800' },
+    { key: 'sent_60', label: 'Within 60 Days', maxDays: 60, color: 'from-cyan-50 to-cyan-100', borderColor: 'border-cyan-200', badgeColor: 'bg-cyan-200 text-cyan-800' },
+    { key: 'sent_120', label: 'Within 120 Days', maxDays: 120, color: 'from-blue-50 to-blue-100', borderColor: 'border-blue-200', badgeColor: 'bg-blue-200 text-blue-800' },
+    { key: 'sent_240', label: 'Within 240 Days', maxDays: 240, color: 'from-indigo-50 to-indigo-100', borderColor: 'border-indigo-200', badgeColor: 'bg-indigo-200 text-indigo-800' },
+    { key: 'sent_older', label: 'Older than 240 Days', maxDays: Infinity, color: 'from-slate-50 to-slate-100', borderColor: 'border-slate-200', badgeColor: 'bg-slate-200 text-slate-800' },
   ]
 
   const groupedThreads = useMemo(() => {
@@ -1157,11 +1157,11 @@ Respond in this JSON format only:
     const threadsWithAI = filteredThreads.filter(t => t.aiSuggestion)
     
     if (threadsWithAI.length === 0) {
-      alert('❌ 没有可发送的邮件，请先使用 "AI Suggest All" 生成邮件内容')
+      alert(t('seoPages.pages.emailFollowUp.alerts.noEmailsToSend', '❌ No emails to send, please generate email content using "AI Suggest All" first'))
       return
     }
     
-    if (!confirm(`确定要发送 ${threadsWithAI.length} 封跟进邮件吗？`)) {
+    if (!confirm(t('seoPages.pages.emailFollowUp.alerts.confirmSendAll', { count: threadsWithAI.length }))) {
       return
     }
     
@@ -1233,7 +1233,7 @@ Respond in this JSON format only:
       needsFollowup: Math.max(0, prev.needsFollowup - successCount)
     } : null)
     
-    alert(`✅ 发送完成\n成功: ${successCount}\n失败: ${failCount}`)
+    alert(t('seoPages.pages.emailFollowUp.alerts.sendResult', { success: successCount, fail: failCount }))
     console.log(`✅ Batch send complete. Success: ${successCount}, Failed: ${failCount}`)
   }
 
@@ -1392,7 +1392,7 @@ Respond in this JSON format only:
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input
               type="text"
-              placeholder="搜索客户名称、邮箱、域名、需求..."
+              placeholder={t('seoPages.pages.emailFollowUp.searchPlaceholder', 'Search customer name, email, domain, requirements...')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
@@ -1404,7 +1404,7 @@ Respond in this JSON format only:
             onChange={(e) => setAccountFilter(e.target.value as any)}
             className="px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
           >
-            <option value="all">所有账户</option>
+            <option value="all">{t('seoPages.pages.emailFollowUp.options.allAccounts', 'All Accounts')}</option>
             <option value="achievepack">achievepack</option>
             <option value="poucheco">poucheco</option>
           </select>
@@ -1414,12 +1414,12 @@ Respond in this JSON format only:
             onChange={(e) => setFilter(e.target.value as any)}
             className="px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
           >
-            <option value="all">所有联系人</option>
-            <option value="active">✅ 已跟进</option>
-            <option value="non-active">📋 待跟进</option>
-            <option value="30days">30-60 天</option>
-            <option value="60days">60-90 天</option>
-            <option value="90days">&gt; 90 天</option>
+            <option value="all">{t('seoPages.pages.emailFollowUp.options.allContacts', 'All Contacts')}</option>
+            <option value="active">{t('seoPages.pages.emailFollowUp.options.followedUp', '✅ Followed Up')}</option>
+            <option value="non-active">{t('seoPages.pages.emailFollowUp.options.pendingFollowUp', '📋 Pending Follow Up')}</option>
+            <option value="30days">{t('seoPages.pages.emailFollowUp.options.range30_60', '30-60 Days')}</option>
+            <option value="60days">{t('seoPages.pages.emailFollowUp.options.range60_90', '60-90 Days')}</option>
+            <option value="90days">{t('seoPages.pages.emailFollowUp.options.rangeOver90', '> 90 Days')}</option>
           </select>
           
           {/* Advanced Filter Toggle */}
@@ -1432,7 +1432,7 @@ Respond in this JSON format only:
             }`}
           >
             <Filter className="w-4 h-4" />
-            高级筛选
+            {t('seoPages.pages.emailFollowUp.btnAdvancedFilters', 'Advanced Filters')}
             {(selectedCustomerStatuses.length + selectedEmailStatuses.length) > 0 && (
               <span className="px-1.5 py-0.5 text-xs bg-primary-600 text-white rounded-full">
                 {selectedCustomerStatuses.length + selectedEmailStatuses.length}
@@ -1449,14 +1449,14 @@ Respond in this JSON format only:
               <div className="flex items-center justify-between mb-2">
                 <h4 className="text-sm font-medium text-gray-700 flex items-center gap-2">
                   <Tag className="w-4 h-4" />
-                  客户状态筛选 (多选)
+                  {t('seoPages.pages.emailFollowUp.filterCustomerStatus', 'Customer Status Filter (Multi-select)')}
                 </h4>
                 {selectedCustomerStatuses.length > 0 && (
                   <button
                     onClick={() => setSelectedCustomerStatuses([])}
                     className="text-xs text-gray-500 hover:text-gray-700"
                   >
-                    清除选择
+                    {t('seoPages.pages.emailFollowUp.btnClearSelection', 'Clear Selection')}
                   </button>
                 )}
               </div>
@@ -1481,7 +1481,7 @@ Respond in this JSON format only:
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5" />
-                      {status.label}
+                      {t('seoPages.pages.emailFollowUp.statuses.' + status.value, status.label)}
                     </button>
                   )
                 })}
@@ -1493,14 +1493,14 @@ Respond in this JSON format only:
               <div className="flex items-center justify-between mb-2">
                 <h4 className="text-sm font-medium text-gray-700 flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  邮件发送状态 (多选)
+                  {t('seoPages.pages.emailFollowUp.filterEmailStatus', 'Email Sending Status (Multi-select)')}
                 </h4>
                 {selectedEmailStatuses.length > 0 && (
                   <button
                     onClick={() => setSelectedEmailStatuses([])}
                     className="text-xs text-gray-500 hover:text-gray-700"
                   >
-                    清除选择
+                    {t('seoPages.pages.emailFollowUp.btnClearSelection', 'Clear Selection')}
                   </button>
                 )}
               </div>
@@ -1525,7 +1525,7 @@ Respond in this JSON format only:
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5" />
-                      {status.label}
+                      {t('seoPages.pages.emailFollowUp.sendStatuses.' + status.value, status.label)}
                     </button>
                   )
                 })}
@@ -1535,9 +1535,7 @@ Respond in this JSON format only:
             {/* Filter Summary */}
             {(selectedCustomerStatuses.length > 0 || selectedEmailStatuses.length > 0) && (
               <div className="flex items-center justify-between bg-primary-50 rounded-lg px-3 py-2">
-                <span className="text-sm text-primary-700">
-                  筛选结果: <strong>{filteredThreads.length}</strong> 条记录
-                </span>
+                <span className="text-sm text-primary-700" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.emailFollowUp.filterResults', { count: filteredThreads.length }) }} />
                 <button
                   onClick={() => {
                     setSelectedCustomerStatuses([])
@@ -1546,7 +1544,7 @@ Respond in this JSON format only:
                   className="text-sm text-primary-600 hover:text-primary-800 flex items-center gap-1"
                 >
                   <X className="w-3.5 h-3.5" />
-                  清除所有筛选
+                  {t('seoPages.pages.emailFollowUp.btnClearAllFilters', 'Clear All Filters')}
                 </button>
               </div>
             )}
@@ -1568,7 +1566,7 @@ Respond in this JSON format only:
                   {expandedGroups[sentGroup.key] ? <ChevronDown className="w-5 h-5 text-gray-600" /> : <ChevronRight className="w-5 h-5 text-gray-600" />}
                   <MailCheck className="w-5 h-5 text-emerald-600" />
                   <span className="font-semibold text-gray-700">
-                    {sentGroup.label}
+                    {t('seoPages.pages.emailFollowUp.age.' + sentGroup.key, sentGroup.label)}
                   </span>
                   <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${sentGroup.badgeColor}`}>
                     {groupedThreads[sentGroup.key].length}
@@ -1581,13 +1579,13 @@ Respond in this JSON format only:
                   <table className="w-full min-w-[1200px] text-sm">
                     <thead className="bg-gray-50 sticky top-0">
                       <tr className="text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        <th className="px-3 py-2 w-[180px]">联系人</th>
-                        <th className="px-3 py-2 w-[200px]">邮箱 / 域名</th>
-                        <th className="px-3 py-2 w-[120px]">状态</th>
-                        <th className="px-3 py-2 w-[100px]">发送天数</th>
-                        <th className="px-3 py-2 w-[250px]">最后主题</th>
-                        <th className="px-3 py-2 w-[300px]">AI 建议</th>
-                        <th className="px-3 py-2 w-[250px] text-right">操作</th>
+                        <th className="px-3 py-2 w-[180px]">{t('seoPages.pages.emailFollowUp.tableHeaders.contact', 'Contact')}</th>
+                        <th className="px-3 py-2 w-[200px]">{t('seoPages.pages.emailFollowUp.tableHeaders.emailDomain', 'Email / Domain')}</th>
+                        <th className="px-3 py-2 w-[120px]">{t('seoPages.pages.emailFollowUp.tableHeaders.status', 'Status')}</th>
+                        <th className="px-3 py-2 w-[100px]">{t('seoPages.pages.emailFollowUp.tableHeaders.daysSent', 'Days Sent')}</th>
+                        <th className="px-3 py-2 w-[250px]">{t('seoPages.pages.emailFollowUp.tableHeaders.lastSubject', 'Last Subject')}</th>
+                        <th className="px-3 py-2 w-[300px]">{t('seoPages.pages.emailFollowUp.tableHeaders.aiSuggestion', 'AI Suggestion')}</th>
+                        <th className="px-3 py-2 w-[250px] text-right">{t('seoPages.pages.emailFollowUp.tableHeaders.actions', 'Actions')}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
@@ -1658,7 +1656,7 @@ Respond in this JSON format only:
                                 >
                                   {CUSTOMER_STATUSES.map(status => (
                                     <option key={status.value} value={status.value}>
-                                      {status.label}
+                                      {t('seoPages.pages.emailFollowUp.statuses.' + status.value, status.label)}
                                     </option>
                                   ))}
                                 </select>
@@ -1671,7 +1669,7 @@ Respond in this JSON format only:
                               <div className="flex flex-col gap-1">
                                 <span className="px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-700 inline-flex items-center gap-1 w-fit">
                                   <MailCheck className="w-3 h-3" />
-                                  {thread.days}天
+                                  {thread.days} {t('seoPages.pages.emailFollowUp.daysUnit', 'days')}
                                 </span>
                                 <span className="text-[10px] text-gray-400">
                                   {thread.lastSent}
@@ -1686,7 +1684,7 @@ Respond in this JSON format only:
                               </p>
                               {thread.customerNeeds && (
                                 <p className="text-[10px] text-gray-400 truncate max-w-[230px] mt-0.5" title={thread.customerNeeds}>
-                                  需求: {thread.customerNeeds}
+                                  {t('seoPages.pages.emailFollowUp.needsLabel', 'Needs')}: {thread.customerNeeds}
                                 </p>
                               )}
                             </td>
@@ -1711,7 +1709,7 @@ Respond in this JSON format only:
                                       }}
                                       className="text-[10px] px-1.5 py-0.5 bg-green-100 text-green-700 rounded hover:bg-green-200"
                                     >
-                                      应用
+                                      {t('seoPages.pages.emailFollowUp.apply', 'Apply')}
                                     </button>
                                     <button
                                       onClick={() => copyToClipboard(thread.aiSuggestion || '', thread.id)}
@@ -1724,7 +1722,7 @@ Respond in this JSON format only:
                                       disabled={generatingAI === thread.id}
                                       className="text-[10px] px-1.5 py-0.5 bg-purple-100 text-purple-700 rounded hover:bg-purple-200 disabled:opacity-50"
                                     >
-                                      {generatingAI === thread.id ? <Loader2 className="w-3 h-3 animate-spin" /> : '重新生成'}
+                                      {generatingAI === thread.id ? <Loader2 className="w-3 h-3 animate-spin" /> : t('seoPages.pages.emailFollowUp.regenerate', 'Regenerate')}
                                     </button>
                                   </div>
                                 </div>
@@ -1735,9 +1733,9 @@ Respond in this JSON format only:
                                   className="flex items-center gap-1 px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 disabled:opacity-50"
                                 >
                                   {generatingAI === thread.id ? (
-                                    <><Loader2 className="w-3 h-3 animate-spin" /> 生成中...</>
+                                    <><Loader2 className="w-3 h-3 animate-spin" /> {t('seoPages.pages.emailFollowUp.generating', 'Generating...')}</>
                                   ) : (
-                                    <><Sparkles className="w-3 h-3" /> AI 建议</>
+                                    <><Sparkles className="w-3 h-3" /> {t('seoPages.pages.emailFollowUp.aiSuggestionBtn', 'AI Suggestion')}</>
                                   )}
                                 </button>
                               )}
@@ -1752,17 +1750,17 @@ Respond in this JSON format only:
                                     onClick={() => checkDomainStatus(thread)}
                                     disabled={thread.domainChecking}
                                     className="flex items-center gap-1 px-2 py-1 text-[10px] bg-cyan-100 text-cyan-700 rounded hover:bg-cyan-200 disabled:opacity-50"
-                                    title={thread.domainInfo ? `上次检查: ${new Date(thread.domainInfo.lastChecked || '').toLocaleString('zh-CN')}` : '检查网站状态'}
+                                    title={thread.domainInfo ? t('seoPages.pages.emailFollowUp.lastCheckedTime', 'Last checked: {{time}}', { time: new Date(thread.domainInfo.lastChecked || '').toLocaleString() }) : t('seoPages.pages.emailFollowUp.checkSiteTitle', 'Check website status')}
                                   >
                                     {thread.domainChecking ? (
                                       <Loader2 className="w-3 h-3 animate-spin" />
                                     ) : thread.domainInfo ? (
                                       <>
                                         <CheckCircle className="w-3 h-3" />
-                                        {thread.domainInfo.status === 'active' ? '活跃' : thread.domainInfo.status === 'closed' ? '已关' : '未知'}
+                                        {thread.domainInfo.status === 'active' ? t('seoPages.pages.emailFollowUp.statusActive', 'Active') : thread.domainInfo.status === 'closed' ? t('seoPages.pages.emailFollowUp.statusClosed', 'Closed') : t('seoPages.pages.emailFollowUp.statusUnknown', 'Unknown')}
                                       </>
                                     ) : (
-                                      <><Globe className="w-3 h-3" /> 检查</>
+                                      <><Globe className="w-3 h-3" /> {t('seoPages.pages.emailFollowUp.checkBtn', 'Check')}</>
                                     )}
                                   </button>
                                 )}
@@ -1772,17 +1770,17 @@ Respond in this JSON format only:
                                   <button
                                     onClick={() => markAsSent(thread)}
                                     className="flex items-center gap-1 px-2 py-1 text-[10px] bg-green-100 text-green-700 rounded hover:bg-green-200"
-                                    title="标记为已发送"
+                                    title={t('seoPages.pages.emailFollowUp.markSentTitle', 'Mark as sent')}
                                   >
-                                    <MailCheck className="w-3 h-3" /> 已发
+                                    <MailCheck className="w-3 h-3" /> {t('seoPages.pages.emailFollowUp.sentBtn', 'Sent')}
                                   </button>
                                 ) : (
                                   <button
                                     onClick={() => unmarkAsSent(thread)}
                                     className="flex items-center gap-1 px-2 py-1 text-[10px] bg-yellow-100 text-yellow-700 rounded hover:bg-yellow-200"
-                                    title={`手动标记时间: ${getManualSentTime(thread.id)}`}
+                                    title={t('seoPages.pages.emailFollowUp.manualSentTimeTitle', 'Manually marked time: {{time}}', { time: getManualSentTime(thread.id) })}
                                   >
-                                    <CheckCheck className="w-3 h-3" /> 取消
+                                    <CheckCheck className="w-3 h-3" /> {t('seoPages.pages.emailFollowUp.cancelBtn', 'Cancel')}
                                   </button>
                                 )}
                                 
@@ -1794,12 +1792,12 @@ Respond in this JSON format only:
                                       ? 'bg-emerald-100 text-emerald-700' 
                                       : 'bg-orange-100 text-orange-700'
                                   }`}
-                                  title={thread.isActive ? "标记为待跟进" : "标记为已跟进"}
+                                  title={thread.isActive ? t('seoPages.pages.emailFollowUp.markPendingFuTitle', 'Mark as pending follow up') : t('seoPages.pages.emailFollowUp.markFollowedUpTitle', 'Mark as followed up')}
                                 >
                                   {thread.isActive ? (
-                                    <><CheckCircle className="w-3 h-3" /> 已跟进</>
+                                    <><CheckCircle className="w-3 h-3" /> {t('seoPages.pages.emailFollowUp.followedUpBtn', 'Followed Up')}</>
                                   ) : (
-                                    <><Clock className="w-3 h-3" /> 待跟进</>
+                                    <><Clock className="w-3 h-3" /> {t('seoPages.pages.emailFollowUp.pendingFuBtn', 'Pending F/U')}</>
                                   )}
                                 </button>
                                 
@@ -1807,7 +1805,7 @@ Respond in this JSON format only:
                                 <button
                                   onClick={() => deleteContact(thread)}
                                   className="flex items-center gap-1 px-2 py-1 text-[10px] bg-red-100 text-red-600 rounded hover:bg-red-200"
-                                  title="删除此联系人"
+                                  title={t('seoPages.pages.emailFollowUp.deleteTitle', 'Delete this contact')}
                                 >
                                   <Trash2 className="w-3 h-3" />
                                 </button>
@@ -1817,7 +1815,7 @@ Respond in this JSON format only:
                                   onClick={() => handleCompose(thread)}
                                   className="flex items-center gap-1 px-2 py-1 text-[10px] bg-primary-600 text-white rounded hover:bg-primary-700"
                                 >
-                                  <Reply className="w-3 h-3" /> 跟进
+                                  <Reply className="w-3 h-3" /> {t('seoPages.pages.emailFollowUp.followUpBtn', 'Follow Up')}
                                 </button>
                               </div>
                               
@@ -1825,11 +1823,11 @@ Respond in this JSON format only:
                               {thread.domainInfo && (
                                 <div className="mt-2 p-2 bg-gray-50 rounded text-[10px] text-gray-600 max-w-[240px]">
                                   <p className="truncate" title={thread.domainInfo.companyInfo}>
-                                    <strong>公司:</strong> {thread.domainInfo.companyInfo?.substring(0, 50)}...
+                                    <strong>{t('seoPages.pages.emailFollowUp.companyLabel', 'Company')}:</strong> {thread.domainInfo.companyInfo?.substring(0, 50)}...
                                   </p>
                                   {thread.domainInfo.recommendedPackaging && (
                                     <p className="truncate mt-0.5">
-                                      <strong>推荐:</strong> {thread.domainInfo.recommendedPackaging.slice(0, 2).join(', ')}
+                                      <strong>{t('seoPages.pages.emailFollowUp.recommendedLabel', 'Recommended')}:</strong> {thread.domainInfo.recommendedPackaging.slice(0, 2).join(', ')}
                                     </p>
                                   )}
                                 </div>
@@ -1849,8 +1847,8 @@ Respond in this JSON format only:
         {filteredThreads.length === 0 && (
           <div className="bg-white rounded-xl p-12 border border-gray-200 shadow-sm text-center">
             <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">没有匹配的记录</h3>
-            <p className="text-gray-500">没有符合当前筛选条件的客户需要跟进。</p>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">{t('seoPages.pages.emailFollowUp.noMatchingRecords', 'No matching records')}</h3>
+            <p className="text-gray-500">{t('seoPages.pages.emailFollowUp.noMatchingDesc', 'No customers matching the current filter criteria need follow up.')}</p>
           </div>
         )}
       </div>

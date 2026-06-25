@@ -170,11 +170,11 @@ const SKU_DESCRIPTIONS: Record<string, Record<string, {
     'compost': {
       problem: 'Traditional labels rely on non-biodegradable plastics (PP/PET) and synthetic adhesives that break down into persistent microplastics, remaining in our ecosystem for centuries.',
       solution: `Zero Microplastics. Complete Biodegradability.
-180天完全生物降解 • 零微塑料殘留
+180-Day Complete Biodegradability • Zero Microplastics Residue
 
 Unlike traditional plastic (PP/PET) labels that break down into persistent microplastics, our PLA and FSC-paper compostable labels completely degrade under standard composting conditions. Over 180 days, microorganisms break down the face stock, bio-adhesive, and plant-based printing ink into clean biomass, water, and CO2, fully blending back into the natural eco-system.
 
-與傳統塑料標籤（PP/PET）破碎成微塑料長期污染環境不同，我們的可堆肥標籤在標準堆肥環境下會迅速被微生物分解。在180天的黃金降解周期內，面材、生物黏合劑及植物油墨將徹底轉化為有機養分、水及二氧化碳，無重金屬或化學毒素殘留。`,
+Unlike traditional plastic (PP/PET) labels that fragment into microplastics and pollute the environment long-term, our compostable labels decompose rapidly under standard composting conditions. Within the 180-day golden degradation cycle, the face stock, bio-adhesive, and plant-based ink convert completely into organic nutrients, water, and CO2, leaving zero heavy metals or chemical toxic residues.`,
       features: [
         'FSC-certified paper or plant-based clear PLA film substrate',
         'Certified EN 13432 & ASTM D6400 compostable',
@@ -356,8 +356,8 @@ const colorInfoMap: Record<string, { name: string; swatchClass: string }> = {
   'natural-cork': { name: 'Natural Cork', swatchClass: 'bg-[#D2B48C] border-[#a07c50] text-neutral-900' },
   'charcoal-linen': { name: 'Charcoal Linen', swatchClass: 'bg-[#2F3E46] border-[#1f282d] text-white' },
   'white-linen': { name: 'White Linen', swatchClass: 'bg-[#F4F4F9] border-neutral-300 text-neutral-900' },
-  'white-kraft': { name: 'White Kraft (白牛皮)', swatchClass: 'bg-[#F8F9FA] border-neutral-300 text-neutral-900' },
-  'brown-kraft': { name: 'Brown Kraft (黄牛皮)', swatchClass: 'bg-[#E5C290] border-[#b08c50] text-neutral-900' },
+  'white-kraft': { name: 'White Kraft', swatchClass: 'bg-[#F8F9FA] border-neutral-300 text-neutral-900' },
+  'brown-kraft': { name: 'Brown Kraft', swatchClass: 'bg-[#E5C290] border-[#b08c50] text-neutral-900' },
 };
 
 const parseVariant = (variant: any, productId: string) => {
@@ -429,12 +429,12 @@ const getSizeDetails = (sizeCode: string, productId: string) => {
     return details[sizeCode] || { label: `Size ${sizeCode}`, sub: '' };
   } else if (productId === 'flat-bottom-pouch-with-card-insert') {
     const details: Record<string, { label: string; sub: string }> = {
-      'CUBICAL S': { label: 'Cubical Size S (半磅)', sub: '15.5 × 16.5 + 8 cm • holds ~250g' },
-      'CUBICAL M': { label: 'Cubical Size M (一磅)', sub: '19.5 × 20.5 + 8 cm • holds ~500g' },
-      'CUBICAL L': { label: 'Cubical Size L (两磅)', sub: '23 × 24 + 10 cm • holds ~1000g' },
-      'LONG S': { label: 'Long Size S (半磅)', sub: '13 × 20 + 7 cm • holds ~250g' },
-      'LONG M': { label: 'Long Size M (一磅)', sub: '13.5 × 26 + 7.5 cm • holds ~500g' },
-      'LONG L': { label: 'Long Size L (两磅)', sub: '15 × 32.5 + 10 cm • holds ~1000g' },
+      'CUBICAL S': { label: 'Cubical Size S (1/2 lb)', sub: '15.5 × 16.5 + 8 cm • holds ~250g' },
+      'CUBICAL M': { label: 'Cubical Size M (1 lb)', sub: '19.5 × 20.5 + 8 cm • holds ~500g' },
+      'CUBICAL L': { label: 'Cubical Size L (2 lb)', sub: '23 × 24 + 10 cm • holds ~1000g' },
+      'LONG S': { label: 'Long Size S (1/2 lb)', sub: '13 × 20 + 7 cm • holds ~250g' },
+      'LONG M': { label: 'Long Size M (1 lb)', sub: '13.5 × 26 + 7.5 cm • holds ~500g' },
+      'LONG L': { label: 'Long Size L (2 lb)', sub: '15 × 32.5 + 10 cm • holds ~1000g' },
     };
     return details[sizeCode] || { label: sizeCode, sub: '' };
   }
@@ -442,17 +442,17 @@ const getSizeDetails = (sizeCode: string, productId: string) => {
 };
 
 const SACHET_UNPRINTED_OPTIONS = [
-  { id: 'sample-9-pack', label: 'Silk & Kraft 9 Colors Sample Pack (蚕丝和牛皮9色各1个)', pcs: 9, price: 2.70 },
-  { id: 'off-white-100', label: 'Off-White Silk Paper 100 pcs (米白色 100个)', pcs: 100, price: 2.94 },
-  { id: 'black-100', label: 'Black Silk Paper 100 pcs (黑色 100个)', pcs: 100, price: 2.94 },
-  { id: 'pink-100', label: 'Pink Silk Paper 100 pcs (粉红色 100个)', pcs: 100, price: 2.94 },
-  { id: 'gold-100', label: 'Gold Silk Paper 100 pcs (金色 100个)', pcs: 100, price: 2.94 },
-  { id: 'blue-100', label: 'Blue Silk Paper 100 pcs (蓝色 100个)', pcs: 100, price: 2.94 },
-  { id: 'light-yellow-100', label: 'Light Yellow Silk Paper 100 pcs (浅黄色 100个)', pcs: 100, price: 2.94 },
-  { id: 'cyan-100', label: 'Teal/Cyan Silk Paper 100 pcs (青色 100个)', pcs: 100, price: 2.94 },
-  { id: 'yellow-kraft-100', label: 'Yellow Kraft Paper 100 pcs (黄色 牛皮纸100个)', pcs: 100, price: 2.94 },
-  { id: 'white-kraft-100', label: 'White Kraft Paper 100 pcs (白色 牛皮纸100个)', pcs: 100, price: 2.94 },
-  { id: 'white-cotton-100', label: 'White Cotton Paper 100 pcs (白色棉纸 100个)', pcs: 100, price: 2.94 }
+  { id: 'sample-9-pack', label: 'Silk & Kraft 9 Colors Sample Pack (1 of each)', pcs: 9, price: 2.70 },
+  { id: 'off-white-100', label: 'Off-White Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'black-100', label: 'Black Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'pink-100', label: 'Pink Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'gold-100', label: 'Gold Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'blue-100', label: 'Blue Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'light-yellow-100', label: 'Light Yellow Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'cyan-100', label: 'Teal/Cyan Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'yellow-kraft-100', label: 'Yellow Kraft Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'white-kraft-100', label: 'White Kraft Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'white-cotton-100', label: 'White Cotton Paper 100 pcs', pcs: 100, price: 2.94 }
 ];
 
 const ProductPage: React.FC = () => {
@@ -2476,7 +2476,7 @@ const ProductPage: React.FC = () => {
                               <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-1.5">
                                 <div className="md:col-span-7">
                                   <h4 className="text-sm font-bold text-green-800 mb-1">{t(`${p}.zeroMicroplasticsCompleteBiode`)}</h4>
-                                  <p className="text-xs font-semibold text-green-700 mb-2">180天完全生物降解 • 零微塑料殘留</p>
+                                  <p className="text-xs font-semibold text-green-700 mb-2">{t(`${p}.degradation180Days`, '180-Day Complete Biodegradability • Zero Microplastics Residue')}</p>
                                   <p className="text-xs text-green-800 leading-relaxed mb-2">
                                     {t(`${p}.unlikeTraditionalPlasticPpPetL`)}</p>
                                   <p className="text-[11px] text-green-700 leading-relaxed italic">
@@ -2575,7 +2575,7 @@ const ProductPage: React.FC = () => {
                               <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-1.5">
                                 <div className="md:col-span-7">
                                   <h4 className="text-sm font-bold text-emerald-800 mb-1">{t(`${p}.14WeekRapidComposting100NonTox`)}</h4>
-                                  <p className="text-xs font-semibold text-emerald-700 mb-2">≤14周完全生物降解 • 燃燒無刺鼻毒氣</p>
+                                  <p className="text-xs font-semibold text-emerald-700 mb-2">{t(`${p}.degradation14Weeks`, '≤14-Week Complete Biodegradability • Clean Burn Zero Toxic Gases')}</p>
                                   <p className="text-xs text-neutral-700 leading-relaxed mb-2">
                                     {t(`${p}.madeFrom100PlantBasedCompostab`)}</p>
                                   <p className="text-[11px] text-emerald-650 leading-relaxed italic">

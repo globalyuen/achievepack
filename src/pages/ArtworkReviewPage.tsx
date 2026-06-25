@@ -307,7 +307,7 @@ const ArtworkReviewPage: React.FC = () => {
       setAuthenticated(true)
       setPasswordError('')
     } else {
-      setPasswordError(isSupplierAuth ? '密码错误，请重试。(Incorrect password)' : 'Incorrect password. Please try again.')
+      setPasswordError(isSupplierAuth ? t('seoPages.pages.artworkReview.auth.incorrectSupplier', 'Incorrect password, please try again.') : t('seoPages.pages.artworkReview.auth.incorrect', 'Incorrect password. Please try again.'))
     }
   }
 
@@ -591,12 +591,12 @@ const ArtworkReviewPage: React.FC = () => {
       
       setItems(prev => prev.map(i => i.id === item.id ? { ...i, file_url: fileUrl, file_size: file.size, status: 'pending', updated_at: now } : i));
       
-      alert(isSupplier ? '图稿已被成功覆盖！状态已重置为待审核。' : 'Artwork overwritten successfully! Status reset to pending.');
+      alert(isSupplier ? t('seoPages.pages.artworkReview.upload.successSupplier', 'Artwork overwritten successfully! Status reset to pending.') : t('seoPages.pages.artworkReview.upload.success', 'Artwork overwritten successfully! Status reset to pending.'));
       
       return { file_url: fileUrl, file_size: file.size, status: 'pending', updated_at: now };
     } catch (error) {
       console.error('Upload failed:', error);
-      alert(isSupplier ? '上传失败。' : 'Upload failed.');
+      alert(isSupplier ? t('seoPages.pages.artworkReview.upload.failSupplier', 'Upload failed.') : t('seoPages.pages.artworkReview.upload.fail', 'Upload failed.'));
       throw error;
     }
   };
@@ -605,11 +605,11 @@ const ArtworkReviewPage: React.FC = () => {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'approved':
-        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700"><CheckCircle className="h-3 w-3" />{isSupplier ? '已批准' : 'Approved'}</span>
+        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700"><CheckCircle className="h-3 w-3" />{isSupplier ? t('seoPages.pages.artworkReview.status.approvedSupplier', 'Approved') : t('seoPages.pages.artworkReview.status.approved', 'Approved')}</span>
       case 'rejected':
-        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700"><AlertCircle className="h-3 w-3" />{isSupplier ? '需要修改' : 'Revision Needed'}</span>
+        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700"><AlertCircle className="h-3 w-3" />{isSupplier ? t('seoPages.pages.artworkReview.status.rejectedSupplier', 'Revision Needed') : t('seoPages.pages.artworkReview.status.rejected', 'Revision Needed')}</span>
       default:
-        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700"><Clock className="h-3 w-3" />{isSupplier ? '待审核' : 'Pending Review'}</span>
+        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700"><Clock className="h-3 w-3" />{isSupplier ? t('seoPages.pages.artworkReview.status.pendingSupplier', 'Pending Review') : t('seoPages.pages.artworkReview.status.pending', 'Pending Review')}</span>
     }
   }
 
@@ -619,7 +619,7 @@ const ArtworkReviewPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <RefreshCw className="h-8 w-8 animate-spin text-primary-500 mx-auto mb-4" />
-          <p className="text-gray-600">{isSupplier ? '正在加载图稿与文档系统...' : t(`${p}.loading.message`, 'Loading artwork & document system...')}</p>
+          <p className="text-gray-600">{isSupplier ? t('seoPages.pages.artworkReview.loading.messageSupplier', 'Loading artwork & document system...') : t(`${p}.loading.message`, 'Loading artwork & document system...')}</p>
         </div>
       </div>
     )
@@ -631,8 +631,8 @@ const ArtworkReviewPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <AlertCircle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <h1 className="text-xl font-semibold text-gray-900">{isSupplier ? '未找到系统' : t(`${p}.notFound.title`, 'System Not Found')}</h1>
-          <p className="text-gray-500 mt-2">{isSupplier ? '此系统不存在或已被移除。' : t(`${p}.notFound.message`, 'This system doesn\'t exist or has been removed.')}</p>
+          <h1 className="text-xl font-semibold text-gray-900">{isSupplier ? t('seoPages.pages.artworkReview.notFound.titleSupplier', 'System Not Found') : t(`${p}.notFound.title`, 'System Not Found')}</h1>
+          <p className="text-gray-500 mt-2">{isSupplier ? t('seoPages.pages.artworkReview.notFound.messageSupplier', 'This system doesn\'t exist or has been removed.') : t(`${p}.notFound.message`, 'This system doesn\'t exist or has been removed.')}</p>
         </div>
       </div>
     )
@@ -647,13 +647,13 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                <Lock className="h-8 w-8 text-primary-600" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">{isSupplier ? '图稿与文档系统' : t(`${p}.auth.title`, 'Artwork & Document System')}</h1>
-            <p className="text-gray-500 mt-2">{isSupplier ? '系统' : t(`${p}.auth.system`, 'System')}: {batch?.batch_name || (isSupplier ? '加载中...' : t(`${p}.auth.loading`, 'Loading...'))}</p>
+            <h1 className="text-2xl font-bold text-gray-900">{isSupplier ? t('seoPages.pages.artworkReview.auth.titleSupplier', 'Artwork & Document System (Supplier)') : t(`${p}.auth.title`, 'Artwork & Document System')}</h1>
+            <p className="text-gray-500 mt-2">{isSupplier ? t('seoPages.pages.artworkReview.auth.systemSupplier', 'System') : t(`${p}.auth.system`, 'System')}: {batch?.batch_name || (isSupplier ? t('seoPages.pages.artworkReview.auth.loadingSupplier', 'Loading...') : t(`${p}.auth.loading`, 'Loading...'))}</p>
           </div>
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">{isSupplier ? '输入密码' : t(`${p}.auth.enterPassword`, 'Enter Password')}</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">{isSupplier ? t('seoPages.pages.artworkReview.auth.enterPasswordSupplier', 'Enter Password') : t(`${p}.auth.enterPassword`, 'Enter Password')}</label>
               <input
                 type="password"
                 value={password}
@@ -662,11 +662,11 @@ const ArtworkReviewPage: React.FC = () => {
                   setPasswordError('')
                 }}
                 onKeyDown={(e) => e.key === 'Enter' && handleVerifyPassword()}
-                placeholder={isSupplier ? "访问密码" : t(`${p}.auth.placeholder`, "Access password")}
+                placeholder={isSupplier ? t('seoPages.pages.artworkReview.auth.placeholderSupplier', 'Access password') : t(`${p}.auth.placeholder`, "Access password")}
                 className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
               {passwordError && (
-                <p className="text-sm text-red-600 mt-2">{isSupplier ? '密码无效，请重试。' : passwordError}</p>
+                <p className="text-sm text-red-600 mt-2">{isSupplier ? t('seoPages.pages.artworkReview.auth.incorrectSupplier', 'Incorrect password, please try again.') : passwordError}</p>
               )}
             </div>
             
@@ -675,12 +675,12 @@ const ArtworkReviewPage: React.FC = () => {
               disabled={!password.trim()}
               className="w-full py-3 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition disabled:opacity-50"
             >
-              {isSupplier ? '访问系统' : t(`${p}.auth.submit`, 'Access System')}
+              {isSupplier ? t('seoPages.pages.artworkReview.auth.submitSupplier', 'Access System') : t(`${p}.auth.submit`, 'Access System')}
             </button>
           </div>
           
           <p className="text-xs text-gray-400 text-center mt-6">
-            {isSupplier ? '密码由 AchievePack 提供' : t(`${p}.auth.footer`, 'Password provided by AchievePack')}
+            {isSupplier ? t('seoPages.pages.artworkReview.auth.footerSupplier', 'Password provided by AchievePack') : t(`${p}.auth.footer`, 'Password provided by AchievePack')}
           </p>
         </div>
       </div>
@@ -698,8 +698,8 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="flex items-start gap-4 flex-1 min-w-0">
               <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto flex-shrink-0 mt-1" />
               <div className="flex-1 min-w-0">
-                <h1 className="font-semibold text-gray-900 break-words">{isSupplier ? '图稿与文档上传系统' : t(`${p}.header.title`, 'Artwork & Document System')} {batch?.batch_name || '...'}</h1>
-                <p className="text-xs text-gray-500">{isSupplier ? `共 ${items?.length || 0} 个文件 • ${stats.pending}待审核` : `${items?.length || 0} items / files • ${stats.pending} pending review`}</p>
+                <h1 className="font-semibold text-gray-900 break-words">{isSupplier ? t('seoPages.pages.artworkReview.header.titleSupplier', 'Artwork & Document System (Supplier)') : t(`${p}.header.title`, 'Artwork & Document System')} {batch?.batch_name || '...'}</h1>
+                <p className="text-xs text-gray-500">{isSupplier ? t('seoPages.pages.artworkReview.header.subtitleSupplier', { count: items?.length || 0, pending: stats.pending, defaultValue: 'Total {{count}} files • {{pending}} pending review' }) : t('seoPages.pages.artworkReview.header.subtitleCustomer', { count: items?.length || 0, pending: stats.pending, defaultValue: '{{count}} items / files • {{pending}} pending review' })}</p>
               </div>
             </div>
             {!isSupplier && stats.allReviewed && (
@@ -750,21 +750,21 @@ const ArtworkReviewPage: React.FC = () => {
           <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <Clock className="h-5 w-5 text-gray-400" />
-              <span className="text-sm text-gray-500">{isSupplier ? '待审核' : t(`${p}.stats.pending`, 'Pending')}</span>
+              <span className="text-sm text-gray-500">{isSupplier ? t('seoPages.pages.artworkReview.stats.pendingSupplier', 'Pending') : t(`${p}.stats.pending`, 'Pending')}</span>
             </div>
             <p className="text-2xl font-bold text-gray-900 mt-1">{stats.pending}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-green-500" />
-              <span className="text-sm text-gray-500">{isSupplier ? '已批准' : t(`${p}.stats.approved`, 'Approved')}</span>
+              <span className="text-sm text-gray-500">{isSupplier ? t('seoPages.pages.artworkReview.stats.approvedSupplier', 'Approved') : t(`${p}.stats.approved`, 'Approved')}</span>
             </div>
             <p className="text-2xl font-bold text-green-600 mt-1">{stats.approved}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-red-500" />
-              <span className="text-sm text-gray-500">{isSupplier ? '需要修改' : t(`${p}.stats.rejected`, 'Need Revision')}</span>
+              <span className="text-sm text-gray-500">{isSupplier ? t('seoPages.pages.artworkReview.stats.rejectedSupplier', 'Need Revision') : t(`${p}.stats.rejected`, 'Need Revision')}</span>
             </div>
             <p className="text-2xl font-bold text-red-600 mt-1">{stats.rejected}</p>
           </div>
@@ -798,33 +798,33 @@ const ArtworkReviewPage: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={isSupplier ? "请输入关键词搜索..." : t(`${p}.search.placeholder`, "Search by name, keyword, color...")}
+              placeholder={isSupplier ? t('seoPages.pages.artworkReview.search.placeholderSupplier', 'Search by name, keyword...') : t(`${p}.search.placeholder`, "Search by name, keyword, color...")}
               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
             />
           </div>
           <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1 sm:py-0">
-            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">{isSupplier ? '排序' : t(`${p}.sort.by`, 'Sort by')}</span>
+            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">{isSupplier ? t('seoPages.pages.artworkReview.sort.bySupplier', 'Sort by') : t(`${p}.sort.by`, 'Sort by')}</span>
             <select 
               value={itemSortOption}
               onChange={(e) => setItemSortOption(e.target.value as any)}
               className="text-xs border-none focus:ring-0 bg-transparent py-2.5 pr-8 font-medium text-gray-700 cursor-pointer"
             >
-              <option value="activity">{isSupplier ? '最新活动' : t(`${p}.sort.activity`, 'Latest Activity')}</option>
-              <option value="newest">{isSupplier ? '最新加入' : t(`${p}.sort.newest`, 'Newest First')}</option>
-              <option value="oldest">{isSupplier ? '最早加入' : t(`${p}.sort.oldest`, 'Oldest First')}</option>
-              <option value="name">{isSupplier ? '按名称排序' : t(`${p}.sort.name`, 'Name (A-Z)')}</option>
+              <option value="activity">{isSupplier ? t('seoPages.pages.artworkReview.sort.activitySupplier', 'Latest Activity') : t(`${p}.sort.activity`, 'Latest Activity')}</option>
+              <option value="newest">{isSupplier ? t('seoPages.pages.artworkReview.sort.newestSupplier', 'Newest First') : t(`${p}.sort.newest`, 'Newest First')}</option>
+              <option value="oldest">{isSupplier ? t('seoPages.pages.artworkReview.sort.oldestSupplier', 'Oldest First') : t(`${p}.sort.oldest`, 'Oldest First')}</option>
+              <option value="name">{isSupplier ? t('seoPages.pages.artworkReview.sort.nameSupplier', 'Name (A-Z)') : t(`${p}.sort.name`, 'Name (A-Z)')}</option>
             </select>
           </div>
           {/* Filter Tabs */}
           <div className="flex overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden items-center gap-2 mt-4 pt-4 border-t border-gray-100 pb-2 -mx-4 px-4 whitespace-nowrap sm:-mx-0 sm:px-0 sm:flex-wrap sm:pb-0">
             {[
-              { id: 'all', label: isSupplier ? '全部' : 'All', icon: CheckCircle },
-              { id: 'with-comment', label: isSupplier ? '有留言' : 'Comments', icon: MessageSquare },
-              { id: 'with-artwork', label: isSupplier ? '有预览图' : 'With Artwork', icon: FileImage },
-              { id: 'blank', label: isSupplier ? '空白卡' : 'Blank Cards', icon: LayoutGrid },
-              { id: 'approved', label: isSupplier ? '已批准' : 'Approved', icon: CheckCircle },
-              { id: 'rejected', label: isSupplier ? '需要修改' : 'Rejected', icon: AlertCircle },
-              { id: 'pending', label: isSupplier ? '待审核' : 'Pending', icon: Clock },
+              { id: 'all', label: isSupplier ? t('seoPages.pages.artworkReview.filters.allSupplier', 'All') : 'All', icon: CheckCircle },
+              { id: 'with-comment', label: isSupplier ? t('seoPages.pages.artworkReview.filters.commentsSupplier', 'Comments') : 'Comments', icon: MessageSquare },
+              { id: 'with-artwork', label: isSupplier ? t('seoPages.pages.artworkReview.filters.withArtworkSupplier', 'With Artwork') : 'With Artwork', icon: FileImage },
+              { id: 'blank', label: isSupplier ? t('seoPages.pages.artworkReview.filters.blankSupplier', 'Blank Cards') : 'Blank Cards', icon: LayoutGrid },
+              { id: 'approved', label: isSupplier ? t('seoPages.pages.artworkReview.filters.approvedSupplier', 'Approved') : 'Approved', icon: CheckCircle },
+              { id: 'rejected', label: isSupplier ? t('seoPages.pages.artworkReview.filters.rejectedSupplier', 'Rejected') : 'Rejected', icon: AlertCircle },
+              { id: 'pending', label: isSupplier ? t('seoPages.pages.artworkReview.filters.pendingSupplier', 'Pending') : 'Pending', icon: Clock },
             ].map(f => {
               const Icon = f.icon
               const isActive = itemFilter === f.id
@@ -1010,7 +1010,7 @@ const ArtworkReviewPage: React.FC = () => {
                               }}
                               className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition border border-primary-100"
                             >
-                              {isSupplier ? '上传新版本' : item.status === 'pending' ? 'Review Now' : 'View Details'}
+                              {isSupplier ? t('seoPages.pages.artworkReview.item.uploadNewVersionSupplier', 'Upload New Version') : item.status === 'pending' ? 'Review Now' : 'View Details'}
                             </button>
         
                             {item.source_link && (
@@ -1358,6 +1358,7 @@ const ReviewModal: React.FC<{
   onPreview: (url: string) => void
   onAddReply: (item: ArtworkBatchItem, text: string, assets?: { type: 'image' | 'link', url: string, name?: string }[]) => Promise<void>
 }> = ({ item, isSupplier, onSupplierUpload, onClose, onSubmit, onPreview, onAddReply }) => {
+  const { t } = useTranslation()
   const [approvalType, setApprovalType] = useState<'approve_as_is' | 'approve_with_changes' | 'not_approved' | null>(
     item.approval_type || null
   )
@@ -1394,11 +1395,11 @@ const ReviewModal: React.FC<{
         .eq('id', item.id)
 
       if (error) throw error
-      alert('留言已成功保存。')
+      alert(t('seoPages.pages.artworkReview.comment.saveSuccessSupplier', 'Comment saved successfully.'))
       setLocalItem(prev => ({ ...prev, supplier_comment: supplierComment, updated_at: now }))
     } catch (err) {
       console.error(err)
-      alert('留言保存失败。')
+      alert(t('seoPages.pages.artworkReview.comment.saveFailSupplier', 'Failed to save comment.'))
     } finally {
       setSavingSupplierComment(false)
     }
@@ -1641,15 +1642,15 @@ const ReviewModal: React.FC<{
                   <div className="flex flex-col items-center justify-center text-center mb-6">
                     <h3 className="font-bold text-gray-900 mb-2 flex items-center justify-center gap-2">
                       <Sparkles className="h-5 w-5 text-primary-500" />
-                      供应商专属 - 上传新版本
+                      {t('seoPages.pages.artworkReview.supplier.uploadTitle', 'Supplier Only - Upload New Version')}
                     </h3>
                     <p className="text-sm text-gray-600 max-w-sm mb-6">
-                      请上传最新的设计文档（如图片或PDF格式），它将会覆盖原来的文件并将状态改变为“待审核”。客户在此的反馈将为您隐藏。
+                      {t('seoPages.pages.artworkReview.supplier.uploadDesc', 'Please upload the latest design document (image or PDF format), which will overwrite the original file and reset the status to pending review. Customer feedback here will be hidden from you.')}
                     </p>
                     
                     <label className={`cursor-pointer inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 transition shadow-sm w-full max-w-sm ${uploadingNewArtwork ? 'opacity-50 cursor-not-allowed' : ''}`}>
                     {uploadingNewArtwork ? <RefreshCw className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}
-                    <span>{uploadingNewArtwork ? '正在上传...' : '选择文件并覆盖原文件'}</span>
+                    <span>{uploadingNewArtwork ? t('seoPages.pages.artworkReview.supplier.uploading', 'Uploading...') : t('seoPages.pages.artworkReview.supplier.selectFile', 'Select file and overwrite original file')}</span>
                     <input
                       type="file"
                       accept="image/*,application/pdf,.heic,.heif"
@@ -1663,12 +1664,12 @@ const ReviewModal: React.FC<{
                   <div className="mt-2 border-t border-primary-100 pt-6">
                     <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
                       <MessageSquare className="h-4 w-4 text-primary-500" />
-                      供应商留言 (Supplier Comment)
+                      {t('seoPages.pages.artworkReview.supplier.commentTitle', 'Supplier Comment')}
                     </label>
                     <textarea
                       value={supplierComment}
                       onChange={(e) => setSupplierComment(e.target.value)}
-                      placeholder="如果您有任何对该图稿的补充说明，请在此输入。留言将由管理团队看到。"
+                      placeholder={t('seoPages.pages.artworkReview.supplier.commentPlaceholder', 'If you have any supplementary instructions for this artwork, please enter them here. Comments will be seen by the management team.')}
                       rows={3}
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 transition mb-3"
                     />
@@ -1677,7 +1678,7 @@ const ReviewModal: React.FC<{
                       disabled={savingSupplierComment || supplierComment === (localItem.supplier_comment || '')}
                       className="w-full px-4 py-2.5 bg-white border border-primary-200 text-primary-700 font-bold rounded-xl hover:bg-primary-50 disabled:opacity-50 transition"
                     >
-                      {savingSupplierComment ? '保存中...' : '保存留言'}
+                      {savingSupplierComment ? t('seoPages.pages.artworkReview.supplier.savingComment', 'Saving...') : t('seoPages.pages.artworkReview.supplier.saveComment', 'Save Comment')}
                     </button>
                   </div>
                 </div>
@@ -1972,7 +1973,7 @@ const ReviewModal: React.FC<{
             onClick={onClose}
             className={`px-6 py-3.5 border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-white transition shadow-sm ${isSupplier ? 'w-full' : 'flex-1'}`}
           >
-            {isSupplier ? '关闭' : 'Cancel'}
+            {isSupplier ? t('seoPages.pages.artworkReview.supplier.close', 'Close') : 'Cancel'}
           </button>
           {!isSupplier && (
             <button

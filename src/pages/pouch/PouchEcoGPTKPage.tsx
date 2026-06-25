@@ -217,23 +217,16 @@ export default function PouchEcoGPTKPage() {
     totalCost: number, 
     unitPrice: number
   ) => {
-    const text = `Achieve Pack 小包袋詢價配置 (Small Sachet RFQ Summary):
---------------------------------------------------
-📐 規格尺寸 (Sachet Dimension): 80 × 80 mm
-🎨 印刷工藝 (Print Method): ${cardName}
-📦 單款印量 (Quantity per Design): ${qty} pcs
-🎨 規格款式 (Designs SKUs): ${designs} 款 (Designs)
-🎁 包裝總數 (Total Sachets): ${qty * designs} pcs
-🔘 圓角工藝 (Round Corners): ${round ? ' need (Yes, +$0.0336)' : ' no need (No)'}
-📝 額外備註 (Details): ${additionalDetails}
-
-估算費用 (Estimated Cost):
-- 單價 (Unit Price): $${unitPrice.toFixed(4)} USD / pc
-- 總投資 (Total Investment): $${totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD
-
---------------------------------------------------
-💬 我已使用網頁版小袋預算計算器配置完成。請客服團隊為我安排專屬樣品及設計對接！
-(I have verified my sachet configuration. Please arrange sample packages and packaging layout assistance.)`
+    const text = t('seoPages.pages.pouchEcoGPTK.rfqText', {
+      cardName,
+      qty,
+      designs,
+      total: qty * designs,
+      roundStatus: round ? t('seoPages.pages.pouchEcoGPTK.roundNeed', 'need (Yes, +$0.0336)') : t('seoPages.pages.pouchEcoGPTK.roundNoNeed', 'no need (No)'),
+      additionalDetails,
+      unitPrice: unitPrice.toFixed(4),
+      totalCost: totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})
+    })
 
     navigator.clipboard.writeText(text).then(() => {
       setWhatsappCopied(true)
@@ -1461,7 +1454,7 @@ Real-time Options Quotation:
                       Small Sachet – Conventional Material Custom Estimator
                     </h3>
                     <p className="text-xs text-neutral-500 font-medium mt-1 font-sans">
-                      Premium Silk Pure Aluminum (120um / 12丝) structure offering ultra-high moisture, oxygen, and light barriers. Dimensions: 80 × 80 mm.
+                      {t('seoPages.pages.pouchEcoGPTK.sachetDesc', 'Premium Silk Pure Aluminum (120um / 12 threads) structure offering ultra-high moisture, oxygen, and light barriers. Dimensions: 80 × 80 mm.')}
                     </p>
                   </div>
                   <Link 
@@ -2028,7 +2021,7 @@ Real-time Options Quotation:
                               onChange={(e) => setSachetTraditionalRound(e.target.checked)}
                               className="rounded text-emerald-600 focus:ring-emerald-500 w-3 h-3"
                             />
-                            <span>Include Round corner processing (圆角 +$0.0336)</span>
+                            <span>{t('seoPages.pages.pouchEcoGPTK.roundCornerProcessing', 'Include Round corner processing (Round corner +$0.0336)')}</span>
                           </label>
                         </div>
                       </div>

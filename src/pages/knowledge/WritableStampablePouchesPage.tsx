@@ -64,25 +64,25 @@ const WritableStampablePouchesPage: React.FC = () => {
           
           <div className="grid md:grid-cols-2 gap-6 mt-4">
             <div className="border border-neutral-200 rounded-xl p-5 bg-white shadow-sm space-y-2">
-              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.structure.item1Title`, '1. WRITABLE MATTE PAPER SURFACE // 纸质表面：可书写')}</h4>
+              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.structure.item1Title`, '1. WRITABLE MATTE PAPER SURFACE')}</h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
-                {t(`${p}.sections.structure.item1Desc`, 'Available in White Matte or Natural Brown Kraft (可选白卡纸 & 天然牛皮纸材质). This premium porous outer layer absorbs oil-free stamps and handwriting cleanly without smudging or bleeding.')}
+                {t(`${p}.sections.structure.item1Desc`, 'Available in White Matte or Natural Brown Kraft. This premium porous outer layer absorbs oil-free stamps and handwriting cleanly without smudging or bleeding.')}
               </p>
             </div>
             <div className="border border-neutral-200 rounded-xl p-5 bg-white shadow-sm space-y-2">
-              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.structure.item2Title`, '2. STAMPABLE SURFACE: CREATE YOUR BRAND // 可加盖印章：打造您的品牌')}</h4>
+              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.structure.item2Title`, '2. STAMPABLE SURFACE: CREATE YOUR BRAND')}</h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
                 {t(`${p}.sections.structure.item2Desc`, 'Designed to receive water-based or soy-based eco-rubber stamps easily. Ideal for logo marks, certifications, ingredient lists, and roasted-on dates.')}
               </p>
             </div>
             <div className="border border-neutral-200 rounded-xl p-5 bg-white shadow-sm space-y-2">
-              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.structure.item3Title`, '3. INTERNAL COATING & BARRIER // 内覆淋膜：防潮防油')}</h4>
+              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.structure.item3Title`, '3. INTERNAL COATING & BARRIER')}</h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
-                {t(`${p}.sections.structure.item3Desc`, 'Co-extruded moisture and oil-proof lining (防潮防油) that prevents internal oils and humidity from penetrating the outer paper surface, preserving bean freshness and bag integrity.')}
+                {t(`${p}.sections.structure.item3Desc`, 'Co-extruded moisture and oil-proof lining that prevents internal oils and humidity from penetrating the outer paper surface, preserving bean freshness and bag integrity.')}
               </p>
             </div>
             <div className="border border-neutral-200 rounded-xl p-5 bg-white shadow-sm space-y-2">
-              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.structure.item4Title`, '4. HIGH BARRIER FILM & VALVE // 高阻隔膜 & 排气阀')}</h4>
+              <h4 className="font-bold text-neutral-900 text-sm">{t(`${p}.sections.structure.item4Title`, '4. HIGH BARRIER FILM & VALVE')}</h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
                 {t(`${p}.sections.structure.item4Desc`, 'Supports integrated one-way degassing valves to vent gas while blocking ambient oxygen, providing food-grade shelf preservation for up to 12 months.')}
               </p>
@@ -190,7 +190,7 @@ const WritableStampablePouchesPage: React.FC = () => {
     },
     {
       question: "Do writable bags have high-barrier protections for coffee?",
-      answer: "Yes! The outer layer is absorbent paper, but the inner layers feature our high-barrier co-extruded bio-films with an EVOH oxygen and moisture barrier (防潮防油). This guarantees standard 12-month coffee freshness while keeping the package compostable."
+      answer: "Yes! The outer layer is absorbent paper, but the inner layers feature our high-barrier co-extruded bio-films with an EVOH oxygen and moisture barrier. This guarantees standard 12-month coffee freshness while keeping the package compostable."
     },
     {
       question: "Why should eco-friendly brands avoid sticker labels?",

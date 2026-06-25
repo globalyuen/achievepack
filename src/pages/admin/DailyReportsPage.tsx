@@ -45,11 +45,11 @@ const DEFAULT_QUICK_TERMS: Record<string, string[]> = {
     'PE/EVOH-PE', 'PET12/VMPET/PE', 'PET12/AL/PE', 'BOPP/VMPET/PE',
     'Kraft Paper/PE', 'PET12/VMPET/CPP', 'MDOPE/BOPE', 'PLA/PBAT (Compostable)',
     '70% PCR-PE', 'EVOH barrier layer', 'Metallized BOPE', 'Metallized PET',
-    'MDOPE25/镀铝BOPE25/70%PCR-EVOH-PE80', '牛皮纸50克/镀铝PLA25/PBAT60',
-    'PET12/镀铝PET12/70PCR%PE80', 'CPP cast polypropylene'
+    'MDOPE25/Metallized BOPE25/70%PCR-EVOH-PE80', 'Kraft Paper 50g/Metallized PLA25/PBAT60',
+    'PET12/Metallized PET12/70PCR% PE80', 'CPP cast polypropylene'
   ],
   '✨ Finishing': [
-    'Matte lamination (哑油)', 'Gloss lamination (光油)', 'Soft-touch matte',
+    'Matte lamination (Matte finish)', 'Gloss lamination (Gloss finish)', 'Soft-touch matte',
     'Spot UV', 'Full-surface matte OPP', 'Transparent window',
     'Kraft paper look', 'Holographic foil', 'Hot stamping gold', 'Embossing',
     'Full-bleed print', 'Frosted finish', 'High-barrier coating'
@@ -58,7 +58,7 @@ const DEFAULT_QUICK_TERMS: Record<string, string[]> = {
     'Reclosable zipper', 'Child-resistant zipper', 'Slider zipper',
     'Tear notch', 'Euro hole hang', 'Spout + cap', 'Valve (degassing)',
     'Heat seal top', 'Tin tie closure', 'Press-to-close zipper',
-    'Double zipper', 'Round corner (圆角)', 'Hang hole punched'
+    'Double zipper', 'Round corner', 'Hang hole punched'
   ],
   '👜 Bag Type': [
     'Stand-up pouch (doypack)', 'Flat bottom pouch', 'Three-side seal',
@@ -78,8 +78,8 @@ const DEFAULT_QUICK_TERMS: Record<string, string[]> = {
     '1 design × 1,000 pcs', '4 designs × 500 pcs = 2,000 pcs total'
   ],
   '📐 Dimensions': [
-    '宽 160mm × 高 160mm + 底部折边 40mm',
-    '宽 220mm × 高 200mm + 底部折边 50mm',
+    'Width 160mm × Height 160mm + Bottom Gusset 40mm',
+    'Width 220mm × Height 200mm + Bottom Gusset 50mm',
     '100 × 150mm + 30mm gusset', '130 × 200mm + 35mm gusset',
     '150 × 225mm + 40mm gusset', '200 × 280mm + 50mm gusset',
     'Thickness: 120 µm', 'Thickness: 130 µm', 'Thickness: 150 µm'
@@ -1857,7 +1857,7 @@ export default function DailyReportsPage() {
                     <label className="block text-xs uppercase font-extrabold text-gray-500">{t(`${p}.factoryRawQuoteChineseRmbSpecs`)}</label>
                     <button 
                       onClick={() => {
-                        const template = `袋型：\n材质结构：\n尺寸规格：  mm*  mm+  mm\n厚度：\nadditional：\n款数：     数量：     单价：￥     金额：￥     预估重量：kg     类型：\n\n---\n\n袋型：自立袋\n材质结构：黄牛皮纸-50g////PLA+PBAT可降解\n尺寸规格：235 mm*345 mm+60 mm\n厚度：130\nadditional：拉链, stamp foil\n款数：     数量：5000     单价：￥1.163     金额：￥5815     预估重量：134.05kg     类型：透明袋`;
+                        const template = t(`${p}.insertManualTemplateString`);
                         setCurrentRecord({...currentRecord, detail: template});
                       }}
                       className="text-[10px] font-bold text-emerald-600 hover:text-emerald-700 underline"

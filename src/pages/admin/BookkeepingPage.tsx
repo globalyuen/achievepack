@@ -72,7 +72,7 @@ export interface Transaction {
   business: string // 屬於哪一個生意 (動態)
   label: string // 收支類別 (動態)
   description: string // 備註說明
-  paymentMethod: '銀行轉帳' | '現金' | '信用卡' | '微信/支付寶'
+  paymentMethod: '銀行轉帳' | '現金' | '信用卡' | '微信/支付寶' | 'Bank Transfer' | 'Cash' | 'Credit Card' | 'WeChat/Alipay'
 }
 
 // 預設匯率
@@ -123,7 +123,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '房屋出租 🏠',
     label: '收租金 💰',
     description: '台北大安區出租房屋的月度租金',
-    paymentMethod: '銀行轉帳'
+    paymentMethod: 'Bank Transfer'
   },
   {
     id: 't-jun-2',
@@ -135,7 +135,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '車位出租 🅿️',
     label: '收租金 💰',
     description: '中環商業中心車位收租金 (港幣入帳)',
-    paymentMethod: '現金'
+    paymentMethod: 'Cash'
   },
   {
     id: 't-jun-3',
@@ -147,7 +147,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '汽車出租 🚗',
     label: '收租金 💰',
     description: '出租特斯拉 Model 3 一星期的租金',
-    paymentMethod: '微信/支付寶'
+    paymentMethod: 'WeChat/Alipay'
   },
   {
     id: 't-jun-4',
@@ -159,7 +159,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '包裝買賣 📦',
     label: '商品銷售 📦',
     description: '賣出一批環保 PBS 可降解咖啡包裝袋',
-    paymentMethod: '銀行轉帳'
+    paymentMethod: 'Bank Transfer'
   },
   {
     id: 't-jun-5',
@@ -171,7 +171,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '包裝買賣 📦',
     label: '進貨成本 📦',
     description: '向源頭工廠採購可降解 PBS 顆粒原料',
-    paymentMethod: '銀行轉帳'
+    paymentMethod: 'Bank Transfer'
   },
   {
     id: 't-jun-6',
@@ -183,7 +183,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '汽車出租 🚗',
     label: '日常維修 🛠️',
     description: '保養出租小汽車和更換新的輪胎',
-    paymentMethod: '信用卡'
+    paymentMethod: 'Credit Card'
   },
   {
     id: 't-jun-7',
@@ -195,7 +195,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '房屋出租 🏠',
     label: '水電開銷 ⚡',
     description: '繳納出租房屋的本月水電瓦斯費用',
-    paymentMethod: '信用卡'
+    paymentMethod: 'Credit Card'
   },
   
   // --- 2026年5月 ---
@@ -209,7 +209,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '房屋出租 🏠',
     label: '收租金 💰',
     description: '出租房屋5月份租金順利收到啦！',
-    paymentMethod: '銀行轉帳'
+    paymentMethod: 'Bank Transfer'
   },
   {
     id: 't-may-2',
@@ -221,7 +221,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     business: '車位出租 🅿️',
     label: '收租金 💰',
     description: '車位順利收租金！',
-    paymentMethod: '現金'
+    paymentMethod: 'Cash'
   }
 ]
 
@@ -404,9 +404,9 @@ const BookkeepingPage: React.FC = () => {
         localStorage.setItem('kid_bookkeeping_transactions', JSON.stringify(mergedTx))
 
         if (bizUpdated || txUpdated) {
-          toast.success('✨ 偵測到本機新紀錄，已自動幫你同步到雲端囉！')
+          toast.success(t(`${p}.toast.syncSuccess`, '✨ 偵測到本機新紀錄，已自動幫你同步到雲端囉！'))
         } else {
-          toast.success('✨ 記帳簿已成功連接雲端，實時同步中！')
+          toast.success(t(`${p}.toast.syncConnection`, '✨ 記帳簿已成功連接雲端，實時同步中！'))
         }
       }
 
@@ -550,14 +550,14 @@ const BookkeepingPage: React.FC = () => {
   const handleSaveBusiness = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!newBizName.trim()) {
-      toast.error('請輸入小生意名稱喔！')
+      toast.error(t(`${p}.toast.enterBusinessName`, '請輸入小生意名稱喔！'))
       return
     }
     const emoji = newBizEmoji.trim() || '📦'
     const nameWithEmoji = `${newBizName.trim()} ${emoji}`.trim()
 
     if (businesses.some(b => b.name === nameWithEmoji)) {
-      toast.error('這個小生意名字已經存在囉！')
+      toast.error(t(`${p}.toast.businessExists`, '這個小生意名字已經存在囉！'))
       return
     }
 
@@ -587,7 +587,7 @@ const BookkeepingPage: React.FC = () => {
 
     setNewBizName('')
     setNewBizEmoji('📦')
-    toast.success('🎉 成功打造了一個全新小生意項目！')
+    toast.success(t(`${p}.toast.createBusinessSuccess`, '🎉 成功打造了一個全新小生意項目！'))
   }
 
   // 編輯修改小生意
@@ -597,7 +597,7 @@ const BookkeepingPage: React.FC = () => {
     const cleanNewName = `${editingBizName.trim()} ${emoji}`.trim()
 
     if (businesses.some(b => b.name === cleanNewName && b.id !== id)) {
-      toast.error('小生意名稱重複囉！')
+      toast.error(t(`${p}.toast.duplicateBusinessName`, '小生意名稱重複囉！'))
       return
     }
 
@@ -626,12 +626,12 @@ const BookkeepingPage: React.FC = () => {
     setEditingBizId(null)
     setEditingBizName('')
     setEditingBizEmoji('')
-    toast.success('小生意與所有歷史日記已同步修改完畢！✨')
+    toast.success(t(`${p}.toast.updateBusinessSuccess`, '小生意與所有歷史日記已同步修改完畢！✨'))
   }
 
   // 刪除小生意項目
   const handleDeleteBusiness = async (id: string, name: string) => {
-    if (window.confirm(`確定要擦掉「${name}」這個小生意嗎？所有這個生意底下的記帳日記與項目也會一併消失喔！`)) {
+    if (window.confirm(t(`${p}.confirm.deleteBusiness`, { name, defaultValue: `確定要擦掉「${name}」這個小生意嗎？所有這個生意底下的記帳日記與項目也會一併消失喔！` }))) {
       const updatedBiz = businesses.filter(b => b.id !== id)
       setBusinesses(updatedBiz)
       localStorage.setItem('kid_bookkeeping_businesses', JSON.stringify(updatedBiz))
@@ -650,21 +650,21 @@ const BookkeepingPage: React.FC = () => {
         await supabase.from('kid_bookkeeping_categories').delete().eq('business_name', name)
       }
 
-      toast.success('小生意以及關聯的所有日記都擦乾淨囉！🧹')
+      toast.success(t(`${p}.toast.deleteBusinessSuccess`, '小生意以及關聯的所有日記都擦乾淨囉！🧹'))
     }
   }
 
   // 新增收支項目 Preset
   const handleAddCustomCategory = async () => {
     if (!newCategoryName.trim()) {
-      toast.error('請輸入項目類別名稱喔！')
+      toast.error(t(`${p}.toast.enterCategoryName`, '請輸入項目類別名稱喔！'))
       return
     }
 
     const catName = newCategoryName.trim()
     const existing = getCategoriesForBusiness(formBusiness, formType)
     if (existing.includes(catName)) {
-      toast.error('這個項目類別已經存在囉！')
+      toast.error(t(`${p}.toast.categoryExists`, '這個項目類別已經存在囉！'))
       return
     }
 
@@ -695,18 +695,18 @@ const BookkeepingPage: React.FC = () => {
     setFormLabel(catName)
     setShowAddCategoryInline(false)
     setNewCategoryName('')
-    toast.success('🎉 新增收支類別預設項目成功！')
+    toast.success(t(`${p}.toast.createCategorySuccess`, '🎉 新增收支類別預設項目成功！'))
   }
 
   // 保存日記交易 (新增或編輯)
   const handleSaveTransaction = (e: React.FormEvent) => {
     e.preventDefault()
     if (!formAmount || isNaN(Number(formAmount)) || Number(formAmount) <= 0) {
-      toast.error('請輸入有效的數字金額唷！')
+      toast.error(t(`${p}.toast.invalidAmount`, '請輸入有效的數字金額唷！'))
       return
     }
     if (!formDescription.trim()) {
-      toast.error('請寫下簡單的小筆記，才不會忘記這筆錢是做什麼的唷！')
+      toast.error(t(`${p}.toast.enterDescription`, '請寫下簡單的小筆記，才不會忘記這筆錢是做什麼的唷！'))
       return
     }
 
@@ -729,10 +729,10 @@ const BookkeepingPage: React.FC = () => {
 
     if (editingTransactionId) {
       setTransactions(prev => prev.map(t => (t.id === editingTransactionId ? tData : t)))
-      toast.success('小筆記修改成功啦！✨')
+      toast.success(t(`${p}.toast.editTransactionSuccess`, '小筆記修改成功啦！✨'))
     } else {
       setTransactions(prev => [tData, ...prev])
-      toast.success('記下一筆新收支囉！💰')
+      toast.success(t(`${p}.toast.createTransactionSuccess`, '記下一筆新收支囉！💰'))
     }
 
     if (dbAvailable) {
@@ -753,7 +753,7 @@ const BookkeepingPage: React.FC = () => {
         .then(({ error }) => {
           if (error) {
             console.error('Failed to save transaction to Supabase:', error)
-            toast.error('雲端儲存失敗，暫存於本機。')
+            toast.error(t(`${p}.toast.syncCloudFailed`, '雲端儲存失敗，暫存於本機。'))
           }
         })
     }
@@ -779,9 +779,9 @@ const BookkeepingPage: React.FC = () => {
 
   // 刪除交易
   const handleDeleteTransaction = (id: string) => {
-    if (window.confirm('確定要擦掉這一筆記帳小紀錄嗎？擦掉就找不回來囉！')) {
+    if (window.confirm(t(`${p}.confirm.deleteTransaction`, '確定要擦掉這一筆記帳小紀錄嗎？擦掉就找不回來囉！'))) {
       setTransactions(prev => prev.filter(t => t.id !== id))
-      toast.success('已經幫你把小筆記擦乾淨囉！🧹')
+      toast.success(t(`${p}.toast.deleteTransactionSuccess`, '已經幫你把小筆記擦乾淨囉！🧹'))
       setSelectedDayDetail(null)
 
       if (dbAvailable) {
@@ -970,21 +970,26 @@ const BookkeepingPage: React.FC = () => {
   const exportToCSV = () => {
     try {
       let csvContent = '\uFEFF' // UTF-8 BOM, 確保 Excel 開啟不亂碼
-      csvContent += '日期,收支類型,所屬生意,收支科目,備註說明,原始金額,幣別,美金折算金額,交易方式\n'
+      csvContent += t(`${p}.report.csvHeader`, '日期,收支類型,所屬生意,收支科目,備註說明,原始金額,幣別,美金折算金額,交易方式\n')
 
-      filteredTransactions.forEach(t => {
-        const typeText = t.type === 'incoming' ? '賺錢 💰' : '花錢 💸'
-        const baseUsdAmt = t.amount.toFixed(2)
+      filteredTransactions.forEach(tx => {
+        const typeText = tx.type === 'incoming' 
+          ? t(`${p}.report.csvIncoming`, '賺錢 💰') 
+          : t(`${p}.report.csvOutgoing`, '花錢 💸')
+        const businessText = t(`${p}.businesses.${tx.business}`, tx.business)
+        const labelText = t(`${p}.addForm.categories.${tx.label}`, tx.label)
+        const paymentMethodText = t(`${p}.addForm.paymentMethods.${tx.paymentMethod}`, tx.paymentMethod)
+        const baseUsdAmt = tx.amount.toFixed(2)
         const row = [
-          t.date,
+          tx.date,
           typeText,
-          t.business,
-          t.label,
-          `"${t.description.replace(/"/g, '""')}"`,
-          t.originalAmount.toFixed(2),
-          t.currency,
+          businessText,
+          labelText,
+          `"${t(`${p}.mock.${tx.id}.description`, tx.description).replace(/"/g, '""')}"`,
+          tx.originalAmount.toFixed(2),
+          tx.currency,
           baseUsdAmt,
-          t.paymentMethod
+          paymentMethodText
         ].join(',')
         csvContent += row + '\n'
       })
@@ -993,13 +998,13 @@ const BookkeepingPage: React.FC = () => {
       const url = URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.setAttribute('href', url)
-      link.setAttribute('download', `小老闆記賬報表_${new Date().toISOString().split('T')[0]}.csv`)
+      link.setAttribute('download', `${t('seoPages.pages.bookkeeping.toast.csvFilename', 'KidBoss_Bookkeeping_Report')}_${new Date().toISOString().split('T')[0]}.csv`)
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
-      toast.success('小老闆的生意報表下載成功囉！快去看看吧！📊')
+      toast.success(t('seoPages.pages.bookkeeping.toast.downloadSuccess', 'Kid Boss business report downloaded successfully! Go take a look! 📊'))
     } catch (e) {
-      toast.error('下載失敗，請聯絡大老闆幫忙看看唷！')
+      toast.error(t('seoPages.pages.bookkeeping.toast.downloadFail', 'Download failed, please ask the Big Boss for help!'))
     }
   }
 
@@ -1118,7 +1123,7 @@ const BookkeepingPage: React.FC = () => {
                       key={curr}
                       onClick={() => {
                         setDisplayCurrency(curr)
-                        toast.success(`已將存錢罐切換至 ${curr} 顯示 ✨`)
+                        toast.success(t(`${p}.toast.currencySwitched`, { curr, defaultValue: `已將存錢罐切換至 ${curr} 顯示 ✨` }))
                       }}
                       className={`px-3 py-1 rounded-lg text-xs font-black transition-all ${
                         displayCurrency === curr
@@ -1141,7 +1146,7 @@ const BookkeepingPage: React.FC = () => {
             <div className="bg-white border-2 border-[#C8E6C9] rounded-3xl p-6 shadow-md shadow-[#E2D8C3]/20 hover:border-[#81C784] transition-all flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start">
-                  <p className="text-xs font-black text-[#388E3C] uppercase tracking-wider">🐷 我的存錢罐剩下 (利潤)</p>
+                  <p className="text-xs font-black text-[#388E3C] uppercase tracking-wider">{t(`${p}.stats.profitTitle`, "🐷 我的存錢罐剩下 (利潤)")}</p>
                   <span className="text-2xl">💰</span>
                 </div>
                 <p className="text-3xl font-black text-[#2E2520] mt-3 font-mono">
@@ -1150,7 +1155,7 @@ const BookkeepingPage: React.FC = () => {
                 </p>
               </div>
               <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#E8F5E9] px-2.5 py-1.5 rounded-xl border border-[#C8E6C9]">
-                好棒！這是總共賺到、扣掉花出去後，剩下可以支配的錢！
+                {t(`${p}.stats.profitDesc`, "好棒！這是總共賺到、扣掉花出去後，剩下可以支配的錢！")}
               </p>
             </div>
 
@@ -1158,7 +1163,7 @@ const BookkeepingPage: React.FC = () => {
             <div className="bg-white border-2 border-[#FFE0B2] rounded-3xl p-6 shadow-md shadow-[#E2D8C3]/20 hover:border-[#FFB74D] transition-all flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start">
-                  <p className="text-xs font-black text-[#F57C00] uppercase tracking-wider">🎉 我總共賺進來 (收入)</p>
+                  <p className="text-xs font-black text-[#F57C00] uppercase tracking-wider">{t(`${p}.stats.incomeTitle`, "🎉 我總共賺進來 (收入)")}</p>
                   <span className="text-2xl">📈</span>
                 </div>
                 <p className="text-3xl font-black text-[#F57C00] mt-3 font-mono">
@@ -1167,7 +1172,7 @@ const BookkeepingPage: React.FC = () => {
                 </p>
               </div>
               <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#FFF3E0] px-2.5 py-1.5 rounded-xl border border-[#FFE0B2]">
-                各種生意陸陸續續收進來的零用錢都在這裡累積！
+                {t(`${p}.stats.incomeDesc`, "各種生意陸陸續續收進來的零用錢都在這裡累積！")}
               </p>
             </div>
 
@@ -1175,7 +1180,7 @@ const BookkeepingPage: React.FC = () => {
             <div className="bg-white border-2 border-[#FFE0E0] rounded-3xl p-6 shadow-md shadow-[#E2D8C3]/20 hover:border-[#FFB2B2] transition-all flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start">
-                  <p className="text-xs font-black text-[#CE8078] uppercase tracking-wider">💸 我總共花出去 (支出)</p>
+                  <p className="text-xs font-black text-[#CE8078] uppercase tracking-wider">{t(`${p}.stats.expenseTitle`, "💸 我總共花出去 (支出)")}</p>
                   <span className="text-2xl">📉</span>
                 </div>
                 <p className="text-3xl font-black text-[#CE8078] mt-3 font-mono">
@@ -1184,7 +1189,7 @@ const BookkeepingPage: React.FC = () => {
                 </p>
               </div>
               <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#FFF0F0] px-2.5 py-1.5 rounded-xl border border-[#FFE0E0]">
-                買東西的進貨成本、修理和水電費的日常花銷。
+                {t(`${p}.stats.expenseDesc`, "買東西的進貨成本、修理和水電費的日常花銷。")}
               </p>
             </div>
 
@@ -1282,7 +1287,7 @@ const BookkeepingPage: React.FC = () => {
                       key={opt.value}
                       onClick={() => {
                         setOverviewTimeframe(opt.value as TimeframeType)
-                        toast.success(`已為你切換至：${opt.label} 🌟`)
+                        toast.success(t(`${p}.toast.timeframeSwitched`, { timeframe: opt.label, defaultValue: `已為你切換至：${opt.label} 🌟` }))
                       }}
                       className={`px-4 py-2.5 rounded-2xl text-xs font-black transition-all whitespace-nowrap active:scale-95 border-2 flex items-center gap-1.5 shadow-sm hover:scale-[1.02] ${
                         isActive
@@ -1319,7 +1324,7 @@ const BookkeepingPage: React.FC = () => {
                         </span>
                         <span className="text-xl">💰</span>
                       </div>
-                      <h4 className="text-lg font-black text-[#2E2520] tracking-wide">{b.name}</h4>
+                      <h4 className="text-lg font-black text-[#2E2520] tracking-wide">{t(`${p}.businesses.${b.name}`, b.name)}</h4>
                     </div>
 
                     <div className="mt-6 space-y-2.5 font-mono text-xs border-t border-[#FAF6EE] pt-4">
@@ -1400,7 +1405,7 @@ const BookkeepingPage: React.FC = () => {
                   >
                     <option value="all">{t(`${p}.filters.businessAll`, "所有生意項目")}</option>
                     {businesses.map(b => (
-                      <option key={b.id} value={b.name}>{b.name}</option>
+                      <option key={b.id} value={b.name}>{t(`${p}.businesses.${b.name}`, b.name)}</option>
                     ))}
                   </select>
                 </div>
@@ -1424,7 +1429,7 @@ const BookkeepingPage: React.FC = () => {
               {/* 報表導出與條件重置 */}
               <div className="flex flex-wrap items-center justify-between gap-4 pt-3.5 border-t-2 border-[#EFE9DB]">
                 <span className="text-xs text-[#8E7E73] font-bold">
-                  一共顯示了 <strong className="text-[#2E2520]">{filteredTransactions.length}</strong> 筆記賬紀錄
+                  {t(`${p}.filters.recordsShownPrefix`, "一共顯示了 ")}<strong className="text-[#2E2520]">{filteredTransactions.length}</strong>{t(`${p}.filters.recordsShownSuffix`, " 筆記賬紀錄")}
                 </span>
                 <div className="flex gap-2">
                   {(searchQuery || filterType !== 'all' || filterBusiness !== 'all' || filterCurrency !== 'all') && (
@@ -1462,14 +1467,14 @@ const BookkeepingPage: React.FC = () => {
                     <p className="text-xs font-bold">{t(`${p}.filters.emptyDesc`, "點選上面「記一筆」或是「清除過濾條件」來看看吧！")}</p>
                   </div>
                 ) : (
-                  filteredTransactions.map(t => {
-                    const isIncome = t.type === 'incoming'
-                    const showConversion = t.currency !== 'USD'
-                    const colors = getBusinessStyleByName(t.business)
+                  filteredTransactions.map(tx => {
+                    const isIncome = tx.type === 'incoming'
+                    const showConversion = tx.currency !== 'USD'
+                    const colors = getBusinessStyleByName(tx.business)
 
                     return (
                       <div
-                        key={t.id}
+                        key={tx.id}
                         className="px-5 py-4.5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-[#FAF6EE]/45 transition-all"
                       >
                         {/* 左半部內容 */}
@@ -1478,18 +1483,18 @@ const BookkeepingPage: React.FC = () => {
                             <span className="text-lg">{isIncome ? '💰' : '💸'}</span>
                           </div>
                           <div>
-                            <p className="text-sm sm:text-base font-black text-[#2E2520]">{t.description}</p>
+                            <p className="text-sm sm:text-base font-black text-[#2E2520]">{t(`${p}.mock.${tx.id}.description`, tx.description)}</p>
                             <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px] text-[#8E7E73] font-bold">
                               <span className={`px-2 py-0.5 rounded text-[10px] border ${colors.bg} ${colors.text} ${colors.border}`}>
-                                {t.business}
+                                {t(`${p}.businesses.${tx.business}`, tx.business)}
                               </span>
                               <span className="bg-[#FAF6EE] border border-[#EADFCD] px-2 py-0.5 rounded text-[#8C6D3B]">
-                                {t.label}
+                                {t(`${p}.addForm.categories.${tx.label}`, tx.label)}
                               </span>
                               <span>•</span>
-                              <span>日期: {t.date}</span>
+                              <span>{t('seoPages.pages.bookkeeping.ledger.dateLabel', 'Date')}: {tx.date}</span>
                               <span>•</span>
-                              <span>管道: {t.paymentMethod}</span>
+                              <span>{t('seoPages.pages.bookkeeping.ledger.methodLabel', 'Method')}: {t('seoPages.pages.bookkeeping.addForm.paymentMethods.' + tx.paymentMethod, tx.paymentMethod)}</span>
                             </div>
                           </div>
                         </div>
@@ -1498,11 +1503,11 @@ const BookkeepingPage: React.FC = () => {
                         <div className="flex items-center gap-4 self-end sm:self-center">
                           <div className="text-right font-mono">
                             <p className={`text-base sm:text-lg font-black ${isIncome ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
-                              {isIncome ? '+' : '-'}{CURRENCY_SYMBOLS[t.currency]}{t.originalAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                              {isIncome ? '+' : '-'}{CURRENCY_SYMBOLS[tx.currency]}{tx.originalAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                             </p>
                             {showConversion && (
                               <p className="text-[10px] text-[#8E7E73] font-bold">
-                                折合: ${t.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })} USD
+                                {t('seoPages.pages.bookkeeping.rateSettings.equivalent', 'Equivalent')}: ${tx.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })} USD
                               </p>
                             )}
                           </div>
@@ -1510,13 +1515,13 @@ const BookkeepingPage: React.FC = () => {
                           {/* 編輯/刪除按鈕 */}
                           <div className="opacity-0 group-hover:opacity-100 flex gap-1 transition-all">
                             <button
-                              onClick={() => startEditTransaction(t)}
+                              onClick={() => startEditTransaction(tx)}
                               className="p-1.5 bg-[#FAF6EE] hover:bg-[#F3ECE0] rounded-xl text-[#8E7E73] border border-[#EADFCD] transition-all"
                             >
                               <Edit className="w-4 h-4 stroke-[2.5]" />
                             </button>
                             <button
-                              onClick={() => handleDeleteTransaction(t.id)}
+                              onClick={() => handleDeleteTransaction(tx.id)}
                               className="p-1.5 bg-[#FFF0F0] hover:bg-[#FFE0E0] rounded-xl text-[#CE8078] border border-[#FFE0E0] transition-all"
                             >
                               <Trash2 className="w-4 h-4 stroke-[2.5]" />
@@ -1598,7 +1603,7 @@ const BookkeepingPage: React.FC = () => {
                         <span className={`text-xs font-black font-mono px-2 py-0.5 rounded-lg border ${
                           isToday ? 'bg-[#F5B859] border-[#DE9B3E] text-[#2E2520]' : 'text-[#8E7E73] bg-[#FCFAF5] border-[#EFE9DB]'
                         }`}>
-                          {day}日
+                          {t(`${p}.calendar.dayFormat`, { day, defaultValue: `${day}日` })}
                         </span>
                         {items.length > 0 && (
                           <span className="text-[10px] bg-[#FAF6EE] text-[#8C6D3B] border border-[#EADFCD] font-bold px-1.5 py-0.2 rounded-md">
@@ -1651,27 +1656,27 @@ const BookkeepingPage: React.FC = () => {
                         <p className="text-sm">{t(`${p}.dayDetail.empty`, "這一天還空蕩蕩的喔，沒有任何小筆記。")}</p>
                       </div>
                     ) : (
-                      selectedDayDetail.items.map(t => {
-                        const isIncome = t.type === 'incoming'
-                        const colors = getBusinessStyleByName(t.business)
+                      selectedDayDetail.items.map(tx => {
+                        const isIncome = tx.type === 'incoming'
+                        const colors = getBusinessStyleByName(tx.business)
 
                         return (
-                          <div key={t.id} className="p-3.5 bg-[#FCFAF5] rounded-2xl border-2 border-[#EFE9DB] flex items-center justify-between gap-3">
+                          <div key={tx.id} className="p-3.5 bg-[#FCFAF5] rounded-2xl border-2 border-[#EFE9DB] flex items-center justify-between gap-3">
                             <div>
-                              <p className="text-sm font-black text-[#2E2520]">{t.description}</p>
+                              <p className="text-sm font-black text-[#2E2520]">{t(`${p}.mock.${tx.id}.description`, tx.description)}</p>
                               <div className="flex items-center gap-2 text-[10px] text-[#8E7E73] font-bold mt-1.5">
-                                <span className={`px-1.5 py-0.2 rounded border ${colors.bg} ${colors.text} ${colors.border}`}>{t.business}</span>
-                                <span className="bg-[#FAF6EE] border border-[#EADFCD] px-1.5 py-0.2 rounded text-[#8C6D3B]">{t.label}</span>
+                                <span className={`px-1.5 py-0.2 rounded border ${colors.bg} ${colors.text} ${colors.border}`}>{t(`${p}.businesses.${tx.business}`, tx.business)}</span>
+                                <span className="bg-[#FAF6EE] border border-[#EADFCD] px-1.5 py-0.2 rounded text-[#8C6D3B]">{t(`${p}.addForm.categories.${tx.label}`, tx.label)}</span>
                               </div>
                             </div>
                             <div className="flex items-center gap-2.5 font-mono">
                               <p className={`text-sm sm:text-base font-black ${isIncome ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
-                                {isIncome ? '+' : '-'}{CURRENCY_SYMBOLS[t.currency]}{t.originalAmount}
+                                {isIncome ? '+' : '-'}{CURRENCY_SYMBOLS[tx.currency]}{tx.originalAmount}
                               </p>
                               <button
                                 onClick={() => {
                                   setSelectedDayDetail(null)
-                                  startEditTransaction(t)
+                                  startEditTransaction(tx)
                                 }}
                                 className="p-1.5 bg-white hover:bg-[#F3ECE0] border border-[#EADFCD] rounded-lg text-[#8E7E73]"
                               >
@@ -1731,7 +1736,7 @@ const BookkeepingPage: React.FC = () => {
                   return (
                     <div key={b.id} className="p-4.5 bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div>
-                        <h4 className="text-base sm:text-lg font-black text-[#2E2520]">{b.name}</h4>
+                        <h4 className="text-base sm:text-lg font-black text-[#2E2520]">{t(`${p}.businesses.${b.name}`, b.name)}</h4>
                         <p className="text-xs text-[#8E7E73] font-bold mt-1">
                           {t(`${p}.report.desc`, "本項生意的全部收支紀錄加總。")}
                         </p>
@@ -1850,7 +1855,7 @@ const BookkeepingPage: React.FC = () => {
                 <button
                   onClick={() => {
                     setCustomRates(EXCHANGE_RATES)
-                    toast.success('匯率已復原成標準基準囉！')
+                    toast.success(t('seoPages.pages.bookkeeping.toast.rateRestored', 'Exchange rates restored to defaults!'))
                   }}
                   className="text-xs text-[#8E7E73] hover:text-[#4A3B32] font-bold"
                 >
@@ -1859,7 +1864,7 @@ const BookkeepingPage: React.FC = () => {
                 <button
                   onClick={() => {
                     setShowRateSettings(false)
-                    toast.success('匯率更新成功！儲存完畢！🌸')
+                    toast.success(t('seoPages.pages.bookkeeping.toast.rateUpdated', 'Exchange rates updated successfully! 🌸'))
                   }}
                   className="bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] font-black px-4.5 py-2.5 rounded-xl text-xs active:scale-95 transition-all border border-[#DE9B3E]"
                 >
@@ -1950,7 +1955,7 @@ const BookkeepingPage: React.FC = () => {
                             : 'bg-white border-[#EFE9DB] text-[#8E7E73] hover:border-[#EADFCD]'
                         }`}
                       >
-                        {b.name}
+                        {t(`${p}.businesses.${b.name}`, b.name)}
                       </button>
                     )
                   })}
@@ -2023,7 +2028,7 @@ const BookkeepingPage: React.FC = () => {
                             onClick={() => {
                               setFormCurrency(curr)
                               setFormAmount(val.toFixed(2))
-                              toast.info(`神奇魔法！金額已換算為 ${curr} ${val.toFixed(2)}`);
+                              toast.info(t('seoPages.pages.bookkeeping.toast.magicConversion', { curr, val: val.toFixed(2), defaultValue: `Magic! Amount converted to ${curr} ${val.toFixed(2)}` }));
                             }}
                             className={`border-2 rounded-2xl p-2.5 text-left transition-all font-mono group active:scale-95 ${
                               isCurrent
@@ -2084,7 +2089,7 @@ const BookkeepingPage: React.FC = () => {
                     className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold"
                   >
                     {getCategoriesForBusiness(formBusiness, formType).map(cat => (
-                      <option key={cat} value={cat}>{cat}</option>
+                      <option key={cat} value={cat}>{t(`${p}.addForm.categories.${cat}`, cat)}</option>
                     ))}
                   </select>
                 )}
@@ -2111,10 +2116,10 @@ const BookkeepingPage: React.FC = () => {
                   onChange={(e) => setFormPaymentMethod(e.target.value as any)}
                   className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold"
                 >
-                  <option value="銀行轉帳">{t(`${p}.addForm.paymentMethods.銀行轉帳`, '銀行轉帳')}</option>
-                  <option value="現金">{t(`${p}.addForm.paymentMethods.現金`, '現金')}</option>
-                  <option value="信用卡">{t(`${p}.addForm.paymentMethods.信用卡`, '信用卡')}</option>
-                  <option value="微信/支付寶">{t(`${p}.addForm.paymentMethods.微信/支付寶`, '微信/支付寶')}</option>
+                  <option value="Bank Transfer">{t(`${p}.addForm.paymentMethods.Bank Transfer`, 'Bank Transfer')}</option>
+                  <option value="Cash">{t(`${p}.addForm.paymentMethods.Cash`, 'Cash')}</option>
+                  <option value="Credit Card">{t(`${p}.addForm.paymentMethods.Credit Card`, 'Credit Card')}</option>
+                  <option value="WeChat/Alipay">{t(`${p}.addForm.paymentMethods.WeChat/Alipay`, 'WeChat/Alipay')}</option>
                 </select>
               </div>
 
@@ -2187,16 +2192,16 @@ const BookkeepingPage: React.FC = () => {
                       onChange={(e) => setNewBizEmoji(e.target.value)}
                       className="w-full bg-white border border-[#EFE9DB] rounded-xl px-2 py-1 text-xs text-[#4A3B32] focus:outline-none cursor-pointer"
                     >
-                      <option value="📦">📦 包裝</option>
-                      <option value="🅿️">🅿️ 車位</option>
-                      <option value="🚗">🚗 汽車</option>
-                      <option value="🏠">🏠 房屋</option>
-                      <option value="🍰">🍰 甜點</option>
-                      <option value="🧸">🧸 玩具</option>
-                      <option value="🎨">🎨 畫作</option>
-                      <option value="🚲">🚲 單車</option>
-                      <option value="🥤">🥤 飲料</option>
-                      <option value="💻">💻 電腦</option>
+                      <option value="📦">{t(`${p}.businessManager.optionPackage`, '📦 包裝')}</option>
+                      <option value="🅿️">{t(`${p}.businessManager.optionParking`, '🅿️ 車位')}</option>
+                      <option value="🚗">{t(`${p}.businessManager.optionCar`, '🚗 汽車')}</option>
+                      <option value="🏠">{t(`${p}.businessManager.optionHouse`, '🏠 房屋')}</option>
+                      <option value="🍰">{t(`${p}.businessManager.optionDessert`, '🍰 甜點')}</option>
+                      <option value="🧸">{t(`${p}.businessManager.optionToy`, '🧸 玩具')}</option>
+                      <option value="🎨">{t(`${p}.businessManager.optionArt`, '🎨 畫作')}</option>
+                      <option value="🚲">{t(`${p}.businessManager.optionBike`, '🚲 單車')}</option>
+                      <option value="🥤">{t(`${p}.businessManager.optionDrink`, '🥤 飲料')}</option>
+                      <option value="💻">{t(`${p}.businessManager.optionComputer`, '💻 電腦')}</option>
                     </select>
                   </div>
                 </div>
@@ -2263,7 +2268,7 @@ const BookkeepingPage: React.FC = () => {
                               <span className={`w-8 h-8 rounded-lg flex items-center justify-center border font-bold text-base ${colors.bg} ${colors.text} ${colors.border}`}>
                                 {b.emoji}
                               </span>
-                              <span className="font-black text-sm text-[#2E2520]">{b.name}</span>
+                              <span className="font-black text-sm text-[#2E2520]">{t(`${p}.businesses.${b.name}`, b.name)}</span>
                             </div>
                             <div className="flex items-center gap-1.5">
                               <button

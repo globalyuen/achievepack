@@ -3001,7 +3001,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                   </div>
                   <div>
                     <h2 className="text-lg font-semibold text-gray-900">🦞 Clawdbot AI Assistant</h2>
-                    <p className="text-sm text-gray-600 mt-1">24/7 自动化助手，通过 WhatsApp/微信 控制业务流程</p>
+                    <p className="text-sm text-gray-600 mt-1">{t('seoPages.pages.admin.clawdbotSubtitle', '24/7 automation assistant, control business processes via WhatsApp/WeChat')}</p>
                   </div>
                 </div>
               </div>
@@ -3010,19 +3010,19 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
               <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <Mail className="h-5 w-5 text-blue-500" />
-                  <h2 className="text-lg font-semibold">📧 邮件集成 (Zoho)</h2>
+                  <h2 className="text-lg font-semibold">{t('seoPages.pages.admin.zohoTitle', '📧 Email Integration (Zoho)')}</h2>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-sm font-medium text-gray-700 mb-2">1. 安装邮件插件</p>
+                    <p className="text-sm font-medium text-gray-700 mb-2">{t('seoPages.pages.admin.zohoStep1', '1. Install email plugin')}</p>
                     <div className="bg-gray-900 rounded-lg p-3 font-mono text-sm text-green-400 flex items-center justify-between">
                       <code>clawdbot plugins install @clawdbot/imap-email</code>
                       <button onClick={() => navigator.clipboard.writeText('clawdbot plugins install @clawdbot/imap-email')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button>
                     </div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-sm font-medium text-gray-700 mb-2">2. 配置 Zoho IMAP</p>
-                    <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs text-green-400 space-y-1">
+                    <p className="text-sm font-medium text-gray-700 mb-2">{t('seoPages.pages.admin.zohoStep2', '2. Configure Zoho IMAP')}</p>
+                    <div className="bg-gray-950 rounded-lg p-3 font-mono text-xs text-green-400 space-y-1">
                       <div className="flex items-center justify-between"><code>clawdbot config set email.imap.host "imap.zoho.com"</code><button onClick={() => navigator.clipboard.writeText('clawdbot config set email.imap.host "imap.zoho.com"')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button></div>
                       <div className="flex items-center justify-between"><code>clawdbot config set email.imap.port 993</code><button onClick={() => navigator.clipboard.writeText('clawdbot config set email.imap.port 993')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button></div>
                       <div className="flex items-center justify-between"><code>clawdbot config set email.imap.user "ryan@achievepack.com"</code><button onClick={() => navigator.clipboard.writeText('clawdbot config set email.imap.user "ryan@achievepack.com"')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button></div>
@@ -3030,7 +3030,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                     </div>
                   </div>
                   <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                    <p className="text-sm text-yellow-800">⚠️ Zoho 需要使用 App Password，在 Zoho Mail → Settings → Security → App Passwords 生成</p>
+                    <p className="text-sm text-yellow-800">{t('seoPages.pages.admin.zohoWarning', '⚠️ Zoho requires an App Password, generate it in Zoho Mail → Settings → Security → App Passwords')}</p>
                   </div>
                 </div>
               </div>
@@ -3041,12 +3041,12 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                   <div className="flex items-center gap-2 mb-3">
                     <FileText className="h-5 w-5 text-orange-500" />
-                    <h3 className="font-semibold">RFQ 询盘自动化</h3>
+                    <h3 className="font-semibold">{t('seoPages.pages.admin.rfqAutomationTitle', 'RFQ Inquiry Automation')}</h3>
                   </div>
                   <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />收到询盘邮件 → 自动提取产品需求</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />匹配报价规则 → 生成初步报价</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />WhatsApp 通知确认 → 自动发送</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.rfqStep1', 'Receive inquiry email → Auto-extract product requirements')}</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.rfqStep2', 'Match quoting rules → Generate initial quotation')}</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.rfqStep3', 'WhatsApp notification confirmation → Send automatically')}</li>
                   </ul>
                 </div>
 
@@ -3054,12 +3054,12 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                   <div className="flex items-center gap-2 mb-3">
                     <Truck className="h-5 w-5 text-blue-500" />
-                    <h3 className="font-semibold">订单状态通知</h3>
+                    <h3 className="font-semibold">{t('seoPages.pages.admin.orderNotificationsTitle', 'Order Status Notifications')}</h3>
                   </div>
                   <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />生产完成 → 自动发邮件给客户</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />发货 → 抓取物流单号 → 推送</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />送达 → 自动请求评价</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.orderStep1', 'Production completed → Auto-email customer')}</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.orderStep2', 'Shipment → Fetch tracking number → Push notification')}</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.orderStep3', 'Delivered → Auto-request review')}</li>
                   </ul>
                 </div>
 
@@ -3067,12 +3067,12 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                   <div className="flex items-center gap-2 mb-3">
                     <Users className="h-5 w-5 text-purple-500" />
-                    <h3 className="font-semibold">客户跟进自动化</h3>
+                    <h3 className="font-semibold">{t('seoPages.pages.admin.followUpAutomationTitle', 'Customer Follow-up Automation')}</h3>
                   </div>
                   <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />判断最佳发送时间</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />无回复 3 天后自动跟进</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />AI 生成个性化内容</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.followUpStep1', 'Determine optimal sending time')}</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.followUpStep2', 'Auto follow-up after 3 days without reply')}</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.followUpStep3', 'AI generates personalized content')}</li>
                   </ul>
                 </div>
 
@@ -3080,12 +3080,12 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                   <div className="flex items-center gap-2 mb-3">
                     <Globe className="h-5 w-5 text-green-500" />
-                    <h3 className="font-semibold">网站部署自动化</h3>
+                    <h3 className="font-semibold">{t('seoPages.pages.admin.deployAutomationTitle', 'Website Deployment Automation')}</h3>
                   </div>
                   <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />WhatsApp 发 "deploy" → 自动部署</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />部署完成 → 推送确认消息</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />出错 → 自动回滚并通知</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.deployStep1', 'Send deploy via WhatsApp → Auto-deploy')}</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.deployStep2', 'Deployment completed → Push confirmation message')}</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />{t('seoPages.pages.admin.deployStep3', 'Error occurred → Auto-rollback and notify')}</li>
                   </ul>
                 </div>
               </div>
@@ -3094,23 +3094,23 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
               <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <Terminal className="h-5 w-5 text-gray-700" />
-                  <h2 className="text-lg font-semibold">常用命令</h2>
+                  <h2 className="text-lg font-semibold">{t('seoPages.pages.admin.commonCommandsTitle', 'Common Commands')}</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-3">
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <p className="text-xs text-gray-500 mb-1">查看渠道状态</p>
+                    <p className="text-xs text-gray-500 mb-1">{t('seoPages.pages.admin.cmdChannelStatus', 'View channel status')}</p>
                     <code className="text-sm font-mono text-gray-800">clawdbot channels status</code>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <p className="text-xs text-gray-500 mb-1">添加新渠道</p>
+                    <p className="text-xs text-gray-500 mb-1">{t('seoPages.pages.admin.cmdAddChannel', 'Add new channel')}</p>
                     <code className="text-sm font-mono text-gray-800">clawdbot channels add</code>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <p className="text-xs text-gray-500 mb-1">查看日志</p>
+                    <p className="text-xs text-gray-500 mb-1">{t('seoPages.pages.admin.cmdViewLogs', 'View logs')}</p>
                     <code className="text-sm font-mono text-gray-800">clawdbot channels logs</code>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <p className="text-xs text-gray-500 mb-1">配置模型</p>
+                    <p className="text-xs text-gray-500 mb-1">{t('seoPages.pages.admin.cmdConfigModel', 'Configure models')}</p>
                     <code className="text-sm font-mono text-gray-800">clawdbot models list</code>
                   </div>
                 </div>
@@ -3118,16 +3118,16 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
               {/* Documentation Links */}
               <div className="bg-gray-50 rounded-xl border p-4">
-                <h3 className="font-medium text-gray-900 mb-3">📚 相关文档</h3>
+                <h3 className="font-medium text-gray-900 mb-3">{t('seoPages.pages.admin.relatedDocsTitle', '📚 Related Documentation')}</h3>
                 <div className="flex flex-wrap gap-2">
                   <a href="https://docs.clawd.bot" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-white rounded-lg border text-sm text-gray-700 hover:border-primary-300 hover:text-primary-600">
-                    <ExternalLink className="h-3 w-3" /> 官方文档
+                    <ExternalLink className="h-3 w-3" /> {t('seoPages.pages.admin.docOfficial', 'Official Docs')}
                   </a>
                   <a href="https://docs.clawd.bot/cli/channels" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-white rounded-lg border text-sm text-gray-700 hover:border-primary-300 hover:text-primary-600">
-                    <ExternalLink className="h-3 w-3" /> 渠道配置
+                    <ExternalLink className="h-3 w-3" /> {t('seoPages.pages.admin.docChannelConfig', 'Channel Config')}
                   </a>
                   <a href="https://docs.clawd.bot/cli/plugins" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-white rounded-lg border text-sm text-gray-700 hover:border-primary-300 hover:text-primary-600">
-                    <ExternalLink className="h-3 w-3" /> 插件管理
+                    <ExternalLink className="h-3 w-3" /> {t('seoPages.pages.admin.docPluginMgmt', 'Plugin Management')}
                   </a>
                 </div>
               </div>

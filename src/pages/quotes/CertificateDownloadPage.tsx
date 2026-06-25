@@ -64,7 +64,7 @@ const certificates: CertificateFile[] = [
   {
     name: 'Home Compostable Certificate',
     description: 'DIN CERTCO home compostable certification (OK Compost HOME)',
-    filename: '9P0209_en_extsigned家庭堆肥证书.pdf',
+    filename: '9P0209_en_extsigned_home_compost_certificate.pdf',
     icon: 'fa-seedling',
     category: 'environmental'
   },

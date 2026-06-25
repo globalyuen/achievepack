@@ -91,7 +91,7 @@ const SupplierHubPage: React.FC = () => {
         .single()
       
       if (error || !data) {
-        setPasswordError('访问密码错误，请重试。')
+        setPasswordError(t(`${p}.passwordError`, 'Incorrect password, please try again.'))
         return
       }
 
@@ -133,7 +133,7 @@ const SupplierHubPage: React.FC = () => {
       setIsSuccess(true)
     } catch (err) {
       console.error('Submission failed:', err)
-      alert('提交失败，请检查网络后重试。')
+      alert(t(`${p}.submitFailed`, 'Submission failed, please check your network and try again.'))
     } finally {
       setIsSubmitting(false)
     }
@@ -160,7 +160,7 @@ const SupplierHubPage: React.FC = () => {
           
           <div className="space-y-4">
             <div>
-              <label className="block text-[10px] font-black uppercase text-neutral-400 mb-2">访问密码 (Access Password)</label>
+              <label className="block text-[10px] font-black uppercase text-neutral-400 mb-2">{t(`${p}.accessPassword`, 'Access Password')}</label>
               <input 
                 type="password"
                 value={password}
@@ -174,7 +174,7 @@ const SupplierHubPage: React.FC = () => {
               onClick={handleLogin}
               className="w-full py-4 bg-black text-white font-black uppercase italic hover:translate-x-1 hover:-translate-y-1 transition-transform"
             >
-              验证登录
+              {t(`${p}.verifyLogin`, 'Verify Login')}
             </button>
           </div>
           <p className="mt-8 text-center text-[10px] text-neutral-300 font-bold uppercase tracking-widest">{t(`${p}.poweredBy`)}</p>
@@ -194,7 +194,7 @@ const SupplierHubPage: React.FC = () => {
             onClick={() => window.location.reload()}
             className="w-full py-4 bg-black text-white font-black uppercase italic hover:translate-x-1 hover:-translate-y-1 transition-transform"
           >
-            返回修改
+            {t(`${p}.backToEdit`, 'Back to Edit')}
           </button>
         </div>
       </div>
@@ -266,7 +266,7 @@ const SupplierHubPage: React.FC = () => {
 
                 {/* Pricing Input */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-green-600 mb-4 tracking-widest">报单价 (Unit Price RMB)</label>
+                  <label className="block text-[10px] font-black uppercase text-green-600 mb-4 tracking-widest">{t(`${p}.unitPriceRmb`, 'Unit Price (RMB)')}</label>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {item.target_quantities.map(qty => (
                       <div key={qty} className="bg-neutral-50 border-2 border-black p-4 hover:bg-white transition-colors">
@@ -294,12 +294,12 @@ const SupplierHubPage: React.FC = () => {
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             <label className="block text-xs font-black uppercase tracking-widest text-neutral-400 mb-4 flex items-center gap-2">
-              备注说明 (Additional Comments)
+              {t(`${p}.additionalComments`, 'Additional Comments')}
             </label>
             <textarea 
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              placeholder="如有任何其他建议或备注，请在此填写..."
+              placeholder={t(`${p}.additionalCommentsPlaceholder`, 'Please enter any other suggestions or comments here...')}
               className="w-full h-40 bg-neutral-50 border-2 border-black p-4 font-bold text-sm focus:bg-white outline-none transition-colors resize-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             />
           </div>
@@ -308,7 +308,7 @@ const SupplierHubPage: React.FC = () => {
               <Upload className="h-8 w-8 text-neutral-300 mx-auto mb-4" />
               <p className="text-[10px] font-black uppercase text-neutral-400 mb-4">{t(`${p}.uploadPdf`)}</p>
               <button className="bg-black text-white px-6 py-2 text-[10px] font-black uppercase italic hover:bg-neutral-800 transition-colors">
-                选择文件
+                {t(`${p}.selectFile`, 'Select File')}
               </button>
             </div>
             
@@ -317,7 +317,7 @@ const SupplierHubPage: React.FC = () => {
               disabled={isSubmitting || items.length === 0}
               className="w-full py-6 bg-green-500 text-black font-black uppercase italic text-xl border-4 border-black flex items-center justify-center gap-3 hover:translate-x-1 hover:-translate-y-1 transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50"
             >
-              {isSubmitting ? '正在提交...' : '确认提交报价'}
+              {isSubmitting ? t(`${p}.submitting`, 'Submitting...') : t(`${p}.submitQuote`, 'Submit Quote')}
               {!isSubmitting && <Send className="h-5 w-5" />}
             </button>
           </div>
