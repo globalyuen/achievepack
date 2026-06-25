@@ -1,8 +1,13 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Shield, Award, Flame, Layers, Beaker, Scale, ShieldAlert } from 'lucide-react'
+import { Shield, Award, Flame, Layers, Beaker, Scale, ShieldAlert, BadgePercent, Check } from 'lucide-react'
 import { getDomain } from '../utils/domain'
 import { NeoCard, NeoBadge } from './pouch/PouchUI'
+
+interface FactoryQCValidationBlockProps {
+  pageTitle?: string
+  pageDescription?: string
+}
 
 const SPEC_ICONS: Record<string, React.ReactNode> = {
   otr: <Layers className="w-6 h-6" />,
@@ -13,11 +18,42 @@ const SPEC_ICONS: Record<string, React.ReactNode> = {
   tensile: <Scale className="w-6 h-6" />,
 }
 
-export default function FactoryQCValidationBlock() {
+const detectProfile = (title = '', desc = ''): 'coffee' | 'compostable' | 'liquid' | 'recyclable' | 'digital' | 'general' => {
+  const content = `${title} ${desc}`.toLowerCase();
+  
+  if (content.includes('coffee') || content.includes('tea') || content.includes('valve') || content.includes('degassing') || content.includes('bean') || content.includes('aroma')) {
+    return 'coffee';
+  }
+  
+  if (content.includes('compostable') || content.includes('compost') || content.includes('biodegradable') || content.includes('home-compostable') || content.includes('natureflex') || content.includes('sugarcane') || content.includes('plant-based')) {
+    return 'compostable';
+  }
+  
+  if (content.includes('liquid') || content.includes('spout') || content.includes('sauce') || content.includes('baby food') || content.includes('juice') || content.includes('oil') || content.includes('vacuum') || content.includes('frozen')) {
+    return 'liquid';
+  }
+  
+  if (content.includes('recyclable') || content.includes('recycle') || content.includes('mono-pe') || content.includes('mono-pp') || content.includes('mono material') || content.includes('mono-material')) {
+    return 'recyclable';
+  }
+  
+  if (content.includes('moq') || content.includes('digital') || content.includes('print') || content.includes('custom brand') || content.includes('starter') || content.includes('artwork')) {
+    return 'digital';
+  }
+  
+  return 'general';
+};
+
+export default function FactoryQCValidationBlock({ pageTitle = '', pageDescription = '' }: FactoryQCValidationBlockProps) {
   const { t } = useTranslation()
   const isPouch = getDomain() === 'pouch'
 
+  const profileKey = detectProfile(pageTitle, pageDescription)
   const specKeys = ['otr', 'solvent', 'seal', 'cleanroom', 'puncture', 'tensile']
+
+  const badge = t(`seoPageLayout.factoryProof.profiles.${profileKey}.badge`)
+  const heading = t(`seoPageLayout.factoryProof.profiles.${profileKey}.heading`)
+  const description = t(`seoPageLayout.factoryProof.profiles.${profileKey}.description`)
 
   // Brutalist Design for Pouch.eco
   if (isPouch) {
@@ -32,10 +68,10 @@ export default function FactoryQCValidationBlock() {
               </div>
               <div className="text-left">
                 <NeoBadge color="lime" className="mb-2">
-                  {t('seoPageLayout.factoryProof.badge')}
+                  {badge}
                 </NeoBadge>
                 <h2 className="font-black text-2xl md:text-4xl uppercase tracking-tighter text-black leading-none mt-1">
-                  {t('seoPageLayout.factoryProof.heading')}
+                  {heading}
                 </h2>
               </div>
             </div>
@@ -43,15 +79,15 @@ export default function FactoryQCValidationBlock() {
 
           {/* Description */}
           <p className="font-['Space_Grotesk'] text-base font-bold text-neutral-800 leading-relaxed text-left mb-8 max-w-4xl">
-            {t('seoPageLayout.factoryProof.description')}
+            {description}
           </p>
 
           {/* 6-Grid Technical Parameters */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {specKeys.map((key) => {
-              const name = t(`seoPageLayout.factoryProof.specs.${key}.name`)
-              const value = t(`seoPageLayout.factoryProof.specs.${key}.value`)
-              const desc = t(`seoPageLayout.factoryProof.specs.${key}.desc`)
+              const name = t(`seoPageLayout.factoryProof.profiles.${profileKey}.specs.${key}.name`)
+              const value = t(`seoPageLayout.factoryProof.profiles.${profileKey}.specs.${key}.value`)
+              const desc = t(`seoPageLayout.factoryProof.profiles.${profileKey}.specs.${key}.desc`)
               
               return (
                 <div 
@@ -64,7 +100,7 @@ export default function FactoryQCValidationBlock() {
                         {SPEC_ICONS[key]}
                       </div>
                       <span className="font-mono text-[10px] font-black uppercase bg-black text-[#00FFFF] px-2 py-0.5 border border-black">
-                        {key === 'cleanroom' ? 'ISO / BRCGS' : 'ASTM TESTED'}
+                        {key === 'cleanroom' && profileKey !== 'coffee' ? 'ISO / BRCGS' : 'ASTM TESTED'}
                       </span>
                     </div>
                     <h3 className="font-black text-lg uppercase text-black mb-1">{name}</h3>
@@ -111,10 +147,10 @@ export default function FactoryQCValidationBlock() {
           </div>
           <div className="text-left">
             <span className="text-xs font-bold text-green-700 bg-green-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
-              {t('seoPageLayout.factoryProof.badge')}
+              {badge}
             </span>
             <h2 className="font-bold text-2xl md:text-3xl text-neutral-900 leading-snug mt-2">
-              {t('seoPageLayout.factoryProof.heading')}
+              {heading}
             </h2>
           </div>
         </div>
@@ -122,15 +158,15 @@ export default function FactoryQCValidationBlock() {
 
       {/* Description */}
       <p className="text-neutral-600 text-base leading-relaxed text-left mb-8 max-w-4xl">
-        {t('seoPageLayout.factoryProof.description')}
+        {description}
       </p>
 
       {/* 6-Grid Technical Parameters */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {specKeys.map((key) => {
-          const name = t(`seoPageLayout.factoryProof.specs.${key}.name`)
-          const value = t(`seoPageLayout.factoryProof.specs.${key}.value`)
-          const desc = t(`seoPageLayout.factoryProof.specs.${key}.desc`)
+          const name = t(`seoPageLayout.factoryProof.profiles.${profileKey}.specs.${key}.name`)
+          const value = t(`seoPageLayout.factoryProof.profiles.${profileKey}.specs.${key}.value`)
+          const desc = t(`seoPageLayout.factoryProof.profiles.${profileKey}.specs.${key}.desc`)
           
           return (
             <div 
@@ -143,7 +179,7 @@ export default function FactoryQCValidationBlock() {
                     {SPEC_ICONS[key]}
                   </div>
                   <span className="text-[9px] font-bold tracking-wider uppercase text-neutral-500 bg-white border border-neutral-200 px-2 py-0.5 rounded">
-                    {key === 'cleanroom' ? 'ISO / BRCGS' : 'ASTM TESTED'}
+                    {key === 'cleanroom' && profileKey !== 'coffee' ? 'ISO / BRCGS' : 'ASTM TESTED'}
                   </span>
                 </div>
                 <h3 className="font-bold text-base text-neutral-950 mb-1">{name}</h3>

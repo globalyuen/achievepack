@@ -1315,7 +1315,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   })}
 
                   {/* Factory QC Lab Validation Block */}
-                  <FactoryQCValidationBlock />
+                  <FactoryQCValidationBlock pageTitle={title} pageDescription={description} />
 
                   {/* Data Tables (Neobrutalist) */}
                   {Array.isArray(tables) && tables.map((table, idx) => (
@@ -1750,7 +1750,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               ))}
 
               {/* Factory QC Lab Validation Block */}
-              <FactoryQCValidationBlock />
+              <FactoryQCValidationBlock pageTitle={title} pageDescription={description} />
 
               {/* Data Tables */}
               {Array.isArray(tables) && tables.map((table, idx) => (

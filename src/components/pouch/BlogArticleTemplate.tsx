@@ -555,7 +555,7 @@ export default function BlogArticleTemplate({
 
           {/* Automatically inject Technical Factory Proofs */}
           <div className="pt-8 border-t-4 border-black border-dashed">
-            <FactoryQCValidationBlock />
+            <FactoryQCValidationBlock pageTitle={title} pageDescription={metaDescription} />
           </div>
         </div>
       </article>

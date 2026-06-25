@@ -38638,40 +38638,232 @@
     "factoryProof": {
       "badge": "FACTORY PROOF & LAB VALIDATION",
       "heading": "Technical Factory Validation & Quality Control",
-      "description": "We don't just supply pouches; we validate every batch. Every raw material and finished pouch runs through our 6-step testing protocol to guarantee automatic packaging line compatibility and food-safe barrier preservation.",
+      "description": "We validate every batch in our lab. Check the specs matching this page's content.",
       "requestMeeting": "Book Packaging Consultation",
       "requestSample": "Request Free Sample Kit",
       "downloadCert": "Request Certifications & Docs",
-      "specs": {
-        "otr": {
-          "name": "OTR & WVTR Barrier (MOCON)",
-          "value": "< 0.1 cc / < 0.1 g/m²/24h",
-          "desc": "Tested under ASTM D3985 & ASTM F1249 to ensure fresh shelf life up to 18 months."
+      "profiles": {
+        "coffee": {
+          "badge": "COFFEE FRESHNESS & VALVE VALIDATION",
+          "heading": "Coffee Packaging Engineering & Valve Testing",
+          "description": "Roasting coffee releases carbon dioxide and is extremely sensitive to oxygen. We validate our degassing valve release pressure, OTR/WVTR barrier, and heat seal strength to ensure coffee aroma protection and long-term shelf life.",
+          "specs": {
+            "otr": {
+              "name": "MOCON OTR Barrier Test",
+              "value": "< 0.05 cc/m²/24h/atm",
+              "desc": "Tested under ASTM D3985 to preserve coffee aromatics and lock out oxygen."
+            },
+            "solvent": {
+              "name": "GC-MS Solvent Residue",
+              "value": "< 2 mg/m²",
+              "desc": "Gas Chromatography-Mass Spectrometry guarantees zero odor transfer into coffee beans."
+            },
+            "seal": {
+              "name": "Heat Seal Strength (ASTM F88)",
+              "value": "> 20 N / 15mm Width",
+              "desc": "Optimized seal strength to support heavy 1kg coffee bags without seam ruptures."
+            },
+            "cleanroom": {
+              "name": "Valve Seating Pressure",
+              "value": "1.2 - 1.5 bar Range",
+              "desc": "Tested pressure release to expel internal CO₂ while maintaining a hermetic oxygen seal."
+            },
+            "puncture": {
+              "name": "Puncture Test (ASTM F1306)",
+              "value": "> 15 N Peak Force",
+              "desc": "Prevents whole roasted coffee beans from piercing the inner laminate layers."
+            },
+            "tensile": {
+              "name": "VFFS Line Speed Match",
+              "value": "Up to 80 bags/min",
+              "desc": "Sliding friction coefficient optimized for high-speed automatic bagging lines."
+            }
+          }
         },
-        "solvent": {
-          "name": "GC-MS Solvent Residue",
-          "value": "< 5 mg/m²",
-          "desc": "Gas Chromatography-Mass Spectrometry ensures zero odor transfer and absolute food safety."
+        "compostable": {
+          "badge": "ASTM D6400 / EN 13432 TESTING",
+          "heading": "Biopolymer Lab Validation & Compostability Proof",
+          "description": "We don't make vague green claims. Our biopolymers (NatureFlex, PLA/PBAT) are batch-tested to verify 100% biodegradation in home and industrial composting within 180 days with zero toxic ecotoxicity residues.",
+          "specs": {
+            "otr": {
+              "name": "Compostable Barrier (OTR)",
+              "value": "< 0.5 cc/m²/24h/atm",
+              "desc": "Tested barrier layers (NK/NatureFlex) ensuring moisture and aroma protection."
+            },
+            "solvent": {
+              "name": "Organic Chemical Purity",
+              "value": "PFAS Free & Heavy Metal Free",
+              "desc": "Exceeds EN 13432 criteria for organic safety and clean soil composting."
+            },
+            "seal": {
+              "name": "Biopolymer Sealing Window",
+              "value": "135°C - 150°C Optimum",
+              "desc": "Narrowed sealing temperature range preventing biopolymer deformation or thermal burn."
+            },
+            "cleanroom": {
+              "name": "TÜV OK Compost HOME",
+              "value": "Certified EN 13432 Stack",
+              "desc": "Guarantees complete organic degradation in backyard compost bins within 26 weeks."
+            },
+            "puncture": {
+              "name": "Puncture Strength (ASTM F1306)",
+              "value": "> 10 N Peak Force",
+              "desc": "Ensures biopolymer bag walls resist puncture during manual handling and packing."
+            },
+            "tensile": {
+              "name": "Tensile Strength (ASTM D882)",
+              "value": "MD > 25 MPa / TD > 20 MPa",
+              "desc": "Ensures biopolymer bags support products securely without structural stretch."
+            }
+          }
         },
-        "seal": {
-          "name": "Heat Seal Strength (ASTM F88)",
-          "value": "> 15 N / 15mm Width",
-          "desc": "Guarantees no seam burst under high pressure, perfect for VFFS automatic packing lines."
+        "liquid": {
+          "badge": "BURST STRENGTH & FOOD PURITY LAB",
+          "heading": "Spouted & Liquid Packaging Engineering",
+          "description": "Liquids and purées demand high burst seals and food-grade packaging. We test spouted pouch sealing integrity under hydraulic pressure and cleanroom BRCGS standards to guarantee zero leaks and zero chemical residues.",
+          "specs": {
+            "otr": {
+              "name": "OTR & WVTR Barrier (MOCON)",
+              "value": "< 0.1 cc / < 0.1 g/m²/24h",
+              "desc": "ASTM tested barrier to block oxygen and moisture, preventing product spoilage."
+            },
+            "solvent": {
+              "name": "GC-MS Food Purity Test",
+              "value": "< 1.5 mg/m²",
+              "desc": "Ensures absolutely zero chemical residue, mandatory for baby foods and sauces."
+            },
+            "seal": {
+              "name": "ASTM F2054 Burst Test",
+              "value": "> 2.5 bar Seam Integrity",
+              "desc": "Internal pressure test to verify sealing seams can survive hydraulic drops."
+            },
+            "cleanroom": {
+              "name": "Spout Seam Weld Strength",
+              "value": "> 25 N / 15mm Width",
+              "desc": "Ensures plastic spout assembly is fused seamlessly with the laminated film."
+            },
+            "puncture": {
+              "name": "Puncture Strength (ASTM F1306)",
+              "value": "> 14 N Peak Force",
+              "desc": "Blocks physical tears or micro-leaks caused by transit compression."
+            },
+            "tensile": {
+              "name": "BRCGS Class 100,000 Cleanroom",
+              "value": "AA Grade Certification",
+              "desc": "Produced under medical-grade cleanliness, ensuring zero airborne contaminants."
+            }
+          }
         },
-        "cleanroom": {
-          "name": "BRCGS Global Standard",
-          "value": "Grade AA Certified Factory",
-          "desc": "Produced in Class 100,000 dust-free cleanrooms, ensuring zero contamination."
+        "recyclable": {
+          "badge": "RECYCLASS STANDARDS & MONO POLYMER LAB",
+          "heading": "Mono-PE & Mono-PP Mechanical Validation",
+          "description": "Single-polymer bags must match the physical performance of multi-layer co-extrusions. We test MDO-PE orientation, EVOH content, and sliding friction to enable flawless high-speed packaging runs and curbside recycling.",
+          "specs": {
+            "otr": {
+              "name": "EVOH High Barrier Ratio",
+              "value": "< 5% EVOH Total Weight",
+              "desc": "Maintains high barrier performance while meeting circular economy recycling rules."
+            },
+            "solvent": {
+              "name": "ASTM D882 Tensile Test",
+              "value": "MD > 40 MPa / TD > 35 MPa",
+              "desc": "Mechanical tensile strength ensures bag retains structural form under stress."
+            },
+            "seal": {
+              "name": "Heat Seal Window (ASTM F88)",
+              "value": "125°C - 145°C Range",
+              "desc": "Enables hermetic seals without melting or shrinking the mono-PE outer layers."
+            },
+            "cleanroom": {
+              "name": "RecyClass Sorting Grade",
+              "value": "Grade A Curbside Ready",
+              "desc": "Certified sorting compatibility in standard municipal recycling streams."
+            },
+            "puncture": {
+              "name": "Puncture Test (ASTM F1306)",
+              "value": "> 12 N Peak Force",
+              "desc": "Prevents bag tears and punctures from dry pet kibbles or sharp snacks."
+            },
+            "tensile": {
+              "name": "Friction Coefficient (COF)",
+              "value": "0.15 - 0.22 Static/Kinetic",
+              "desc": "Ensures film glides smoothly over packaging machinery forming collars without jamming."
+            }
+          }
         },
-        "puncture": {
-          "name": "Puncture Resistance (ASTM F1306)",
-          "value": "> 12 N Peak Force",
-          "desc": "Prevents tear or puncture from sharp, hard items like coffee beans and pet kibble."
+        "digital": {
+          "badge": "DIGITAL PRINT & COLOR CALIBRATION LAB",
+          "heading": "HP Indigo Color Accuracy & Printing Proofs",
+          "description": "Low-MOQ runs must deliver enterprise-level visual branding. We inspect color alignment tolerances, ink adhesion strength, and white underprint opacity using spectrophotometer color matching to ensure pixel-perfect pouch graphics.",
+          "specs": {
+            "otr": {
+              "name": "Color Matching (X-Rite)",
+              "value": "ΔE < 1.5 Tolerance",
+              "desc": "Spectrophotometer validation ensuring brand color consistency across batches."
+            },
+            "solvent": {
+              "name": "Ink Adhesion Test (ASTM D3359)",
+              "value": "Grade 5B (100% Adhesion)",
+              "desc": "Tape peel test to ensure ink does not peel or scratch during shipping and handling."
+            },
+            "seal": {
+              "name": "White Ink Underprint Opacity",
+              "value": "> 85% Density",
+              "desc": "Ensures rich, vibrant colors when printing on transparent or brown kraft films."
+            },
+            "cleanroom": {
+              "name": "Digital Press Calibration",
+              "value": "HP Indigo Digital Certified",
+              "desc": "HP-validated polymer ink integration, offering excellent heat and rub resistance."
+            },
+            "puncture": {
+              "name": "Lamination Peeling Force",
+              "value": "> 2.0 N / 15mm Width",
+              "desc": "Ensures the printed film layer never delaminates or separates from barrier layers."
+            },
+            "tensile": {
+              "name": "VFFS Low-Temp Sealing",
+              "value": "Validated at 130°C",
+              "desc": "Ensures digital-printed pouches seal perfectly on standard heat-sealer jaws."
+            }
+          }
         },
-        "tensile": {
-          "name": "Tensile Strength (ASTM D882)",
-          "value": "MD > 35 MPa / TD > 30 MPa",
-          "desc": "Ensures shape retention and structural integrity when heavy bags are dropped or stacked."
+        "general": {
+          "badge": "FACTORY PROOF & LAB VALIDATION",
+          "heading": "Technical Factory Validation & Quality Control",
+          "description": "We don't just supply pouches; we validate every batch. Every raw material and finished pouch runs through our 6-step testing protocol to guarantee automatic packaging line compatibility and food-safe barrier preservation.",
+          "specs": {
+            "otr": {
+              "name": "OTR & WVTR Barrier (MOCON)",
+              "value": "< 0.1 cc / < 0.1 g/m²/24h",
+              "desc": "Tested under ASTM D3985 & ASTM F1249 to ensure fresh shelf life up to 18 months."
+            },
+            "solvent": {
+              "name": "GC-MS Solvent Residue",
+              "value": "< 5 mg/m²",
+              "desc": "Gas Chromatography-Mass Spectrometry ensures zero odor transfer and absolute food safety."
+            },
+            "seal": {
+              "name": "Heat Seal Strength (ASTM F88)",
+              "value": "> 15 N / 15mm Width",
+              "desc": "Guarantees no seam burst under high pressure, perfect for VFFS automatic packing lines."
+            },
+            "cleanroom": {
+              "name": "BRCGS Global Standard",
+              "value": "Grade AA Certified Factory",
+              "desc": "Produced in Class 100,000 dust-free cleanrooms, ensuring zero contamination."
+            },
+            "puncture": {
+              "name": "Puncture Resistance (ASTM F1306)",
+              "value": "> 12 N Peak Force",
+              "desc": "Prevents tear or puncture from sharp, hard items like coffee beans and pet kibble."
+            },
+            "tensile": {
+              "name": "Tensile Strength (ASTM D882)",
+              "value": "MD > 35 MPa / TD > 30 MPa",
+              "desc": "Ensures shape retention and structural integrity when heavy bags are dropped or stacked."
+            }
+          }
         }
       }
     }
