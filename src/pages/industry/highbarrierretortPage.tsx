@@ -20,14 +20,24 @@ const HighbarrierretortPage: React.FC = () => {
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="text-sm text-neutral-600">Click the product mockup below to enlarge:</p>
-          <div className="flex justify-center">
-            <ClickableImage 
-              src="/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp" 
-              alt={t(`${p}.title`)} 
-              className="max-w-full md:max-w-xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
-              caption={t(`${p}.title`)}
-            />
+          <p className="text-sm text-neutral-600">Click the product mockups below to enlarge:</p>
+          <div className="grid md:grid-cols-2 gap-6 justify-center">
+            <div className="flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/seo/retort_pouch_1.png" 
+                alt={t(`${p}.title`)} 
+                className="max-w-full rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
+                caption={t(`${p}.title`) + " - Product View"}
+              />
+            </div>
+            <div className="flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/seo/retort_pouch_2.png" 
+                alt={t(`${p}.title`)} 
+                className="max-w-full rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
+                caption={t(`${p}.title`) + " - Detail View"}
+              />
+            </div>
           </div>
         </div>
       )
@@ -103,7 +113,7 @@ const HighbarrierretortPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/high-barrier-retort"
       heroTitle={t(`${p}.heroTitle`)}
       heroSubtitle={t(`${p}.heroSubtitle`)}
-      heroImage="/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp"
+      heroImage="/imgs/seo/retort_pouch_1.png"
       heroImageAlt={t(`${p}.title`)}
       introSummary={t(`${p}.introSummary`)}
       sections={sections}
