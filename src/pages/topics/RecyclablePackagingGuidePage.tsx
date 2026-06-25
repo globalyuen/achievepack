@@ -5,8 +5,11 @@ import { Recycle, Package, CheckCircle, Award, Calendar, MessageCircle, Target, 
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const RecyclablePackagingGuidePage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.recyclablePackagingGuide';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,30 @@ const RecyclablePackagingGuidePage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg border border-blue-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Recyclability is the cornerstone of the 2026 Circular Economy. However, "recyclable" is no longer just a label; it's a <strong>technical performance standard</strong> defined by collection infrastructure, sortability, and material purity.
-            </p>
+              {t(`${p}.recyclabilityIsTheCornerstoneO`)}<strong>{t(`${p}.technicalPerformanceStandard`)}</strong> {t(`${p}.definedByCollectionInfrastruct`)}</p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
-                <h4 className="font-semibold text-blue-800">The Recyclability Crisis</h4>
+                <h4 className="font-semibold text-blue-800">{t(`${p}.theRecyclabilityCrisis`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Multi-material laminates (PET/PE) are landfill-bound</li>
-                  <li>• NIR sorting failure due to Carbon Black inks</li>
-                  <li>• Contamination from non-recyclable zippers/valves</li>
-                  <li>• Vague "store drop-off" claims without data</li>
+                  <li>{t(`${p}.multiMaterialLaminatesPetPeAre`)}</li>
+                  <li>{t(`${p}.nirSortingFailureDueToCarbonBl`)}</li>
+                  <li>{t(`${p}.contaminationFromNonRecyclable`)}</li>
+                  <li>{t(`${p}.vagueStoreDropOffClaimsWithout`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-cyan-500">
-                <h4 className="font-semibold text-cyan-800">Achieve Pack Engineering</h4>
+                <h4 className="font-semibold text-cyan-800">{t(`${p}.achievePackEngineering`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Mono-PE & Mono-PP Structures</li>
-                  <li>• MDO-PE Technology for PET Replacement</li>
-                  <li>• Recyclable Zippers & One-Way Valves</li>
-                  <li>• Cyclos-HTP Certified (&gt; 90% Recovery)</li>
+                  <li>{t(`${p}.monoPeMonoPpStructures`)}</li>
+                  <li>{t(`${p}.mdoPeTechnologyForPetReplaceme`)}</li>
+                  <li>{t(`${p}.recyclableZippersOneWayValves`)}</li>
+                  <li>{t(`${p}.cyclosHtpCertifiedGt90Recovery`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we help brands transition from non-recyclable multi-layer plastics to <strong>certified mono-material solutions</strong>. We utilize <strong>MDO-PE (Machine Direction Orientation)</strong> and <strong>High-Barrier EVOH</strong> to create pouches that are fully compatible with standard PE recycling streams while maintaining the shelf-life of traditional laminates.
-          </p>
+            {t(`${p}.atAchievePackWeHelpBrandsTrans`)}<strong>{t(`${p}.certifiedMonoMaterialSolutions`)}</strong>{t(`${p}.weUtilize`)}<strong>{t(`${p}.mdoPeMachineDirectionOrientati`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.highBarrierEvoh`)}</strong> {t(`${p}.toCreatePouchesThatAreFullyCom`)}</p>
         </div>
       )
     },
@@ -54,30 +55,29 @@ const RecyclablePackagingGuidePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Traditional pouches use PET (Polyester) for strength and PE (Polyethylene) for sealing. Because these polymers have different melting points, they cannot be recycled together. Our <strong>Mono-Material</strong> solution uses layers of the same polymer (PE/PE or PP/PP).
-          </p>
+            {t(`${p}.traditionalPouchesUsePetPolyes`)}<strong>{t(`${p}.monoMaterial`)}</strong> {t(`${p}.solutionUsesLayersOfTheSamePol`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
               <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
                 <Layers className="h-6 w-6 text-blue-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">MDO-PE Outer</h4>
-              <p className="text-sm text-neutral-600">Machine Direction Oriented PE provides the stiffness and heat resistance traditionally offered by PET.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.mdoPeOuter`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.machineDirectionOrientedPeProv`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
               <div className="p-3 bg-cyan-100 rounded-lg w-fit mb-4">
                 <Shield className="h-6 w-6 text-cyan-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">EVOH Barrier</h4>
-              <p className="text-sm text-neutral-600">A thin &lt; 5% barrier layer that blocks oxygen but remains fully compatible with PE recycling.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.evohBarrier`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.aThinLt5BarrierLayerThatBlocks`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
               <div className="p-3 bg-indigo-100 rounded-lg w-fit mb-4">
                 <Zap className="h-6 w-6 text-indigo-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">High-Speed Seal</h4>
-              <p className="text-sm text-neutral-600">Co-extruded LLDPE sealants optimized for wide seal windows on vertical and horizontal filling lines.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.highSpeedSeal`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.coExtrudedLldpeSealantsOptimiz`)}</p>
             </div>
           </div>
 
@@ -99,32 +99,30 @@ const RecyclablePackagingGuidePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            A pouch is only recyclable if it can be identified by <strong>Near-Infrared (NIR)</strong> sensors at a Material Recovery Facility (MRF).
-          </p>
+            {t(`${p}.aPouchIsOnlyRecyclableIfItCanB`)}<strong>{t(`${p}.nearInfraredNir`)}</strong> {t(`${p}.sensorsAtAMaterialRecoveryFaci`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">The Sorting Tech Stack</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.theSortingTechStack`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">NIR-Sortable Inks</h5>
-                  <p className="text-xs text-neutral-600 mt-1">We utilize carbon-black-free inks that allow NIR sensors to penetrate the surface and identify the underlying recyclable PE resin.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.nirSortableInks`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.weUtilizeCarbonBlackFreeInksTh`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Recyclable Componentry</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Our zippers and degassing valves are manufactured from 100% Polyethylene, ensuring the entire package stays in the circular loop.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.recyclableComponentry`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.ourZippersAndDegassingValvesAr`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Cyclos-HTP Verification</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Third-party lab testing verifying that &gt; 90% of the material is recoverable as high-quality recycled resin.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.cyclosHtpVerification`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.thirdPartyLabTestingVerifyingT`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Extended Producer Responsibility (EPR)</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.extendedProducerResponsibility`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                Transitioning to recyclable mono-materials is the most effective way to reduce <strong>EPR tax liability</strong> (such as California SB 54 or UK Plastic Packaging Tax). Recyclable packaging often qualifies for lower "eco-modulated" fees, providing a direct financial return on your sustainability investment.
-              </p>
+                {t(`${p}.transitioningToRecyclableMonoM`)}<strong>{t(`${p}.eprTaxLiability`)}</strong> {t(`${p}.suchAsCaliforniaSb54OrUkPlasti`)}</p>
             </div>
           </div>
         </div>
@@ -137,7 +135,7 @@ const RecyclablePackagingGuidePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Moving to recyclable packaging requires careful testing. We help you manage the transition with <strong>Material Testing Reports</strong> and <strong>Trial Rolls</strong>.
+            {t(`${p}.movingToRecyclablePackagingReq`)}<strong>{t(`${p}.materialTestingReports`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.trialRolls`)}</strong>.
           </p>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -150,19 +148,19 @@ const RecyclablePackagingGuidePage: React.FC = () => {
               />
             </div>
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Transition Benchmarks</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.transitionBenchmarks`)}</h4>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary-600" />
-                  <span><strong>Phase 1:</strong> Structure matching and barrier verification (OTR/WVTR).</span>
+                  <span><strong>{t(`${p}.phase1`)}</strong> {t(`${p}.structureMatchingAndBarrierVer`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary-600" />
-                  <span><strong>Phase 2:</strong> Trial roll production for VFFS/HFFS line testing.</span>
+                  <span><strong>{t(`${p}.phase2`)}</strong> {t(`${p}.trialRollProductionForVffsHffs`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary-600" />
-                  <span><strong>Phase 3:</strong> Final certification and 'How2Recycle' label preparation.</span>
+                  <span><strong>{t(`${p}.phase3`)}</strong> {t(`${p}.finalCertificationAndHow2recyc`)}</span>
                 </li>
               </ul>
             </div>
@@ -176,10 +174,9 @@ const RecyclablePackagingGuidePage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-blue-800 to-indigo-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Transition to Circular. Start Today.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.transitionToCircularStartToday`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to secure your brand's future with certified recyclable packaging? Our engineering team is ready to design your Mono-Material roadmap.
-          </p>
+            {t(`${p}.readyToSecureYourBrandSFutureW`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -187,19 +184,16 @@ const RecyclablePackagingGuidePage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-indigo-900 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Recyclability Consultation
-            </button>
+              {t(`${p}.bookRecyclabilityConsultation`)}</button>
             <Link
               to="/products/recyclable-mono-material-pouches"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <Package className="h-5 w-5" />
-              View Recyclable Products
-            </Link>
+              {t(`${p}.viewRecyclableProducts`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            CYCLOS-HTP CERTIFIED • PE-STREAM READY • PFAS FREE • MDO-PE TECH
-          </p>
+            {t(`${p}.cyclosHtpCertifiedPeStreamRead`)}</p>
         </div>
       )
     }
@@ -227,7 +221,7 @@ const RecyclablePackagingGuidePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Recyclable Packaging Guide | Mono-Material Engineering | Achieve Pack</title>
+        <title>{t(`${p}.recyclablePackagingGuideMonoMa`)}</title>
         <meta name="description" content="Master the technical transition to recyclable packaging. 800+ words on Mono-PE engineering, MDO-PE technology, and Cyclos-HTP certification." />
         <link rel="canonical" href="https://achievepack.com/topics/recyclable-packaging-guide" />
         <meta name="keywords" content="recyclable packaging guide, mono-material packaging, mono-PE pouches, MDO-PE technology, cyclos-htp certification, recyclable food packaging" />

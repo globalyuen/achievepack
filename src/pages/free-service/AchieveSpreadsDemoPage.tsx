@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -68,6 +69,8 @@ const staggerContainer = {
 // ============================================
 
 const Navbar = () => {
+  const { t } = useTranslation()
+
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -86,9 +89,9 @@ const Navbar = () => {
         </Link>
         
         <div className="hidden md:flex items-center gap-8 text-[#3E2723]/80 font-medium">
-          <a href="#" className="hover:text-[#8B5A2B] transition">Shop</a>
-          <a href="#" className="hover:text-[#8B5A2B] transition">Our Story</a>
-          <a href="#" className="hover:text-[#8B5A2B] transition">Sustainability</a>
+          <a href="#" className="hover:text-[#8B5A2B] transition">{t(`seoPages.pages.achieveSpreadsDemo.shop`)}</a>
+          <a href="#" className="hover:text-[#8B5A2B] transition">{t(`seoPages.pages.achieveSpreadsDemo.ourStory`)}</a>
+          <a href="#" className="hover:text-[#8B5A2B] transition">{t(`seoPages.pages.achieveSpreadsDemo.sustainability`)}</a>
           <button className="p-2 hover:bg-[#8B5A2B]/10 rounded-full transition"><Search className="w-5 h-5" /></button>
           <button className="p-2 hover:bg-[#8B5A2B]/10 rounded-full transition"><ShoppingBag className="w-5 h-5" /></button>
         </div>
@@ -108,10 +111,10 @@ const Navbar = () => {
             className="md:hidden bg-[#FDFAF5] border-t border-[#8B5A2B]/10 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4 font-semibold text-[#3E2723]">
-              <a href="#" className="py-2 border-b border-[#8B5A2B]/10">Shop</a>
-              <a href="#" className="py-2 border-b border-[#8B5A2B]/10">Our Story</a>
-              <a href="#" className="py-2 border-b border-[#8B5A2B]/10">Sustainability</a>
-              <a href="#" className="py-2">Account</a>
+              <a href="#" className="py-2 border-b border-[#8B5A2B]/10">{t(`seoPages.pages.achieveSpreadsDemo.shop`)}</a>
+              <a href="#" className="py-2 border-b border-[#8B5A2B]/10">{t(`seoPages.pages.achieveSpreadsDemo.ourStory`)}</a>
+              <a href="#" className="py-2 border-b border-[#8B5A2B]/10">{t(`seoPages.pages.achieveSpreadsDemo.sustainability`)}</a>
+              <a href="#" className="py-2">{t(`seoPages.pages.achieveSpreadsDemo.account`)}</a>
             </div>
           </motion.div>
         )}
@@ -121,6 +124,7 @@ const Navbar = () => {
 }
 
 const Hero = () => {
+  const { t } = useTranslation()
   return (
     <section className="relative min-h-screen pt-32 pb-20 px-6 overflow-hidden bg-[#FDFAF5]">
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
@@ -141,11 +145,11 @@ const Hero = () => {
           
           <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold text-[#3E2723] leading-[1.1]">
             Spread Simple.<br />
-            <span className="text-[#8B5A2B]">Spread Sustainable.</span>
+            <span className="text-[#8B5A2B]">{t(`seoPages.pages.achieveSpreadsDemo.spreadSustainable`)}</span>
           </motion.h1>
           
           <motion.p variants={fadeInUp} className="text-xl text-[#3E2723]/70 max-w-lg leading-relaxed">
-            Premium nut butters and chocolate spreads in revolutionary <span className="font-semibold text-[#8B5A2B]">Nano Banana Pro</span> packaging. Squeezable, mess-free, and 100% plastic-free.
+            Premium nut butters and chocolate spreads in revolutionary <span className="font-semibold text-[#8B5A2B]">{t(`seoPages.pages.achieveSpreadsDemo.nanoBananaPro`)}</span> packaging. Squeezable, mess-free, and 100% plastic-free.
           </motion.p>
           
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
@@ -303,6 +307,7 @@ const Features = () => {
 }
 
 const Lifestyle = () => {
+  const { t } = useTranslation()
   return (
     <section className="py-24 px-6 bg-[#3E2723] text-[#FDFAF5] relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
@@ -330,7 +335,7 @@ const Lifestyle = () => {
             Gone are the heavy glass jars and difficult-to-recycle plastic tubs.
           </p>
           <p className="text-[#FDFAF5]/70 text-lg leading-relaxed">
-            Achieve Spreads come in our signature <strong className="text-white">Nano Banana Pro</strong> pouches. 
+            Achieve Spreads come in our signature <strong className="text-white">{t(`seoPages.pages.achieveSpreadsDemo.nanoBananaPro`)}</strong> pouches. 
             Lightweight, durable, and completely plastic-free.
           </p>
           
@@ -344,6 +349,7 @@ const Lifestyle = () => {
 }
 
 const Footer = () => {
+  const { t } = useTranslation()
   return (
     <footer className="bg-[#FDFAF5] pt-24 pb-12 px-6 border-t border-[#3E2723]/5">
       <div className="max-w-7xl mx-auto">
@@ -362,7 +368,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-bold text-[#3E2723] mb-6">Shop</h4>
+            <h4 className="font-bold text-[#3E2723] mb-6">{t(`seoPages.pages.achieveSpreadsDemo.shop`)}</h4>
             <ul className="space-y-4 text-[#3E2723]/60">
               <li><a href="#" className="hover:text-[#8B5A2B]">Almond</a></li>
               <li><a href="#" className="hover:text-[#8B5A2B]">Hazelnut</a></li>
@@ -375,7 +381,7 @@ const Footer = () => {
             <h4 className="font-bold text-[#3E2723] mb-6">Company</h4>
             <ul className="space-y-4 text-[#3E2723]/60">
               <li><a href="#" className="hover:text-[#8B5A2B]">About Us</a></li>
-              <li><a href="#" className="hover:text-[#8B5A2B]">Sustainability</a></li>
+              <li><a href="#" className="hover:text-[#8B5A2B]">{t(`seoPages.pages.achieveSpreadsDemo.sustainability`)}</a></li>
               <li><a href="#" className="hover:text-[#8B5A2B]">Nano Banana Pro™</a></li>
               <li><a href="#" className="hover:text-[#8B5A2B]">Contact</a></li>
             </ul>
@@ -429,6 +435,9 @@ const DemoBanner = () => (
 // MAIN PAGE COMPONENT
 // ============================================
 export default function AchieveSpreadsDemoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.achieveSpreadsDemo'
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])

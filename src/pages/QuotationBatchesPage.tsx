@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { 
   ArrowLeft, Plus, Search, Trash2, Eye, Copy, Check, 
@@ -29,6 +30,8 @@ const FLAT_BOTTOM_PRESET_ITEMS = [
 ]
 
 const QuotationBatchesPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.quotationBatches'
   const navigate = useNavigate()
   const { user, loading: authLoading } = useAuth()
   
@@ -347,7 +350,7 @@ const QuotationBatchesPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="text-center">
         <Lock className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">Admin Access Required</h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-2">{t(`${p}.adminAccessRequired`)}</h1>
         <Link to="/login" className="text-blue-600 hover:underline">Sign In</Link>
       </div>
     </div>
@@ -364,7 +367,7 @@ const QuotationBatchesPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link to="/ctrl-x9k7m" className="text-gray-400 hover:text-gray-600"><ArrowLeft className="w-5 h-5" /></Link>
-            <h1 className="text-xl font-bold">Quotation Manager</h1>
+            <h1 className="text-xl font-bold">{t(`${p}.quotationManager`)}</h1>
           </div>
           <button onClick={() => setShowCreateModal(true)} className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
             <Plus className="w-4 h-4" />New Quote
@@ -480,7 +483,7 @@ const QuotationBatchesPage: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-xl border p-12 text-center text-gray-400"><FileText className="w-16 h-16 mx-auto mb-4 opacity-50" /><p className="text-lg">Select a quotation or create a new one</p></div>
+              <div className="bg-white rounded-xl border p-12 text-center text-gray-400"><FileText className="w-16 h-16 mx-auto mb-4 opacity-50" /><p className="text-lg">{t(`${p}.selectQuotation`)}</p></div>
             )}
           </div>
         </div>
@@ -489,7 +492,7 @@ const QuotationBatchesPage: React.FC = () => {
       {showCreateModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b flex items-center justify-between"><h2 className="text-xl font-bold">Create New Quotation</h2><button onClick={() => setShowCreateModal(false)}><X className="w-5 h-5" /></button></div>
+            <div className="p-6 border-b flex items-center justify-between"><h2 className="text-xl font-bold">{t(`${p}.createNewQuotation`)}</h2><button onClick={() => setShowCreateModal(false)}><X className="w-5 h-5" /></button></div>
             <div className="p-6 space-y-4">
               <div><label className="block text-sm font-medium mb-1">Quote Name *</label><input type="text" value={newBatch.batch_name} onChange={(e) => setNewBatch(p => ({ ...p, batch_name: e.target.value }))} placeholder="e.g., Coffee Brand Q1 2025" className="w-full border rounded-lg px-3 py-2" /></div>
               <div><label className="block text-sm font-medium mb-1">Password (auto-generated if empty)</label><input type="text" value={newBatch.password} onChange={(e) => setNewBatch(p => ({ ...p, password: e.target.value }))} placeholder="Leave empty for auto-generate" className="w-full border rounded-lg px-3 py-2" /></div>
@@ -513,7 +516,7 @@ const QuotationBatchesPage: React.FC = () => {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b flex items-center justify-between">
-              <h2 className="text-xl font-bold">Add Quote Item</h2>
+              <h2 className="text-xl font-bold">{t(`${p}.addQuoteItem`)}</h2>
               <button onClick={() => { setShowAddItemModal(false); resetAiInput() }}><X className="w-5 h-5" /></button>
             </div>
             
@@ -525,8 +528,8 @@ const QuotationBatchesPage: React.FC = () => {
               >
                 <div className="flex items-center gap-2">
                   <Wand2 className="w-5 h-5 text-purple-600" />
-                  <span className="font-semibold text-purple-900">AI Smart Input</span>
-                  <span className="text-xs bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full">Paste specs, let AI fill the form</span>
+                  <span className="font-semibold text-purple-900">{t(`${p}.aiSmartInput`)}</span>
+                  <span className="text-xs bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full">{t(`${p}.pasteSpecs`)}</span>
                 </div>
                 {showAiInput ? <ChevronUp className="w-5 h-5 text-purple-600" /> : <ChevronDown className="w-5 h-5 text-purple-600" />}
               </button>
@@ -573,7 +576,7 @@ const QuotationBatchesPage: React.FC = () => {
                   {aiParsedResult && (
                     <div className="p-4 bg-white rounded-lg border border-purple-200 space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-purple-900">Analysis Complete</span>
+                        <span className="text-sm font-medium text-purple-900">{t(`${p}.analysisComplete`)}</span>
                         <span className={`text-xs px-2 py-1 rounded-full ${aiParsedResult.confidence > 0.7 ? 'bg-green-100 text-green-700' : aiParsedResult.confidence > 0.4 ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'}`}>
                           {Math.round(aiParsedResult.confidence * 100)}% confidence
                         </span>

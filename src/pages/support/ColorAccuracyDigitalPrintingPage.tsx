@@ -1,19 +1,23 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Monitor, Printer, Scaling, ArrowRight, Layers, Target, Coins } from 'lucide-react'
 
 const ColorAccuracyDigitalPrintingPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.colorAccuracyDigitalPrinting'
+
   return (
     <SEOPageLayout 
       heroBgColor="#1e293b"
-      title="Color Accuracy in Digital Packaging Printing"
-      description="Understand the technical realities of digital color matching, screen variance, and how Achieve Pack ensures the best result for your B2B packaging production."
+      title={t(`${p}.metaTitle`)}
+      description={t(`${p}.metaDesc`)}
       keywords={['digital printing color accuracy', 'RGB vs CMYK packaging', 'custom packaging printing', 'individual printing run', 'group printing packaging']}
-      heroTitle="Understanding Color Accuracy in Digital Printing"
-      heroSubtitle="Technical insights into achieving optimal color fidelity for your packaging production."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/support/color-accuracy.png"
       heroImageAlt="Digital printing color accuracy showing RGB hex code vs physical CMYK printed packaging"
-      introSummary="To ensure we achieve the best result for your packaging, there are a few technical realities regarding color that are important to consider before we move to mass production. We prioritize transparency and precision to meet your brand guidelines."
+      introSummary={t(`${p}.introSummary`)}
       sections={[
         {
           id: 'digital-physical-gap',
@@ -63,7 +67,7 @@ const ColorAccuracyDigitalPrintingPage: React.FC = () => {
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
-                  <h4 className="font-bold text-neutral-900 mb-2">Standardization Protocol</h4>
+                  <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.standardizationProtocol`)}</h4>
                   <p className="text-sm text-neutral-600">Because multiple designs are printed simultaneously on standardized materials, we cannot manually tweak or offset the ink levels exclusively for one single design without affecting the others.</p>
                 </div>
                 <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">

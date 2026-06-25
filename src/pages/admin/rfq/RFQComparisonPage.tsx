@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams, Link } from 'react-router-dom'
 import { 
   BarChart3, FileText, Download, ChevronLeft, 
@@ -32,6 +33,8 @@ interface Submission {
 }
 
 const RFQComparisonPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.rFQComparison'
   const { batchId } = useParams<{ batchId: string }>()
   const [batch, setBatch] = useState<RFQBatch | null>(null)
   const [items, setItems] = useState<RFQItem[]>([])
@@ -197,7 +200,7 @@ const RFQComparisonPage: React.FC = () => {
               <div className="bg-black text-white p-1">
                 <BarChart3 className="h-6 w-6" />
               </div>
-              <h1 className="text-4xl font-black italic uppercase tracking-tighter">RFQ Comparison</h1>
+              <h1 className="text-4xl font-black italic uppercase tracking-tighter">{t(`${p}.pageTitle`)}</h1>
             </div>
             <p className="text-neutral-500 font-medium">Comparing {submissions.length} supplier quotes for "{batch?.name}".</p>
           </div>
@@ -218,8 +221,8 @@ const RFQComparisonPage: React.FC = () => {
         {submissions.length === 0 ? (
           <div className="border-4 border-dashed border-neutral-200 p-20 text-center bg-white">
             <TrendingDown className="h-12 w-12 text-neutral-300 mx-auto mb-4" />
-            <h2 className="text-2xl font-black italic uppercase text-neutral-300">No submissions yet</h2>
-            <p className="text-neutral-400 mt-2">Waiting for suppliers to submit their quotes.</p>
+            <h2 className="text-2xl font-black italic uppercase text-neutral-300">{t(`${p}.noSubmissions`)}</h2>
+            <p className="text-neutral-400 mt-2">{t(`${p}.waitingSuppliers`)}</p>
           </div>
         ) : (
           <div className="space-y-16">
@@ -234,19 +237,19 @@ const RFQComparisonPage: React.FC = () => {
                     
                     <div className="space-y-4 max-w-2xl">
                       <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-l-4 border-black pl-4">
-                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">Product Type</span>
+                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">{t(`${p}.productType`)}</span>
                         <span className="font-bold text-sm uppercase">{item.style || '-'}</span>
                       </div>
                       <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-l-4 border-black pl-4">
-                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">Dimensions</span>
+                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">{t(`${p}.dimensions`)}</span>
                         <span className="font-bold text-sm uppercase">{item.dimensions || '-'}</span>
                       </div>
                       <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-l-4 border-black pl-4">
-                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">Material Structure</span>
+                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">{t(`${p}.materialStructure`)}</span>
                         <span className="font-bold text-sm uppercase leading-relaxed">{item.material_spec || '-'}</span>
                       </div>
                       <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-l-4 border-black pl-4">
-                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">Key Features</span>
+                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">{t(`${p}.keyFeatures`)}</span>
                         <span className="font-bold text-sm uppercase">{item.print_type || '-'}</span>
                       </div>
                     </div>
@@ -308,8 +311,8 @@ const RFQComparisonPage: React.FC = () => {
           <div className="bg-white border-4 border-black w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
             <div className="flex justify-between items-start mb-8">
               <div>
-                <h2 className="text-3xl font-black italic uppercase">Add Manual Quote</h2>
-                <p className="text-neutral-500 font-medium text-sm">Paste vendor's text or input prices directly.</p>
+                <h2 className="text-3xl font-black italic uppercase">{t(`${p}.addManualQuote`)}</h2>
+                <p className="text-neutral-500 font-medium text-sm">{t(`${p}.addManualQuoteDesc`)}</p>
               </div>
               <button onClick={() => setIsManualModalOpen(false)} className="bg-black text-white p-2 hover:bg-red-500 transition-colors">
                 <ChevronLeft className="h-6 w-6 rotate-180" />

@@ -5,8 +5,11 @@ import { Zap, Rocket, CheckCircle, Award, Calendar, MessageCircle, Target, Shiel
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const LowMOQStartupPackagingPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.lowMOQStartupPackaging';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,30 @@ const LowMOQStartupPackagingPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-lg border border-emerald-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              For startups, high <strong>Minimum Order Quantities (MOQs)</strong> are the biggest barrier to sustainable innovation. In 2026, agility is the key to market entry and circularity.
-            </p>
+              {t(`${p}.forStartupsHigh`)}<strong>{t(`${p}.minimumOrderQuantitiesMoqs`)}</strong> {t(`${p}.areTheBiggestBarrierToSustaina`)}</p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-600">
-                <h4 className="font-semibold text-emerald-800">The Startup Barrier</h4>
+                <h4 className="font-semibold text-emerald-800">{t(`${p}.theStartupBarrier`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Traditional MOQs of 20,000+ units</li>
-                  <li>• High upfront costs for printing plates</li>
-                  <li>• Risk of dead inventory and waste</li>
-                  <li>• Inability to test seasonal SKUs</li>
+                  <li>{t(`${p}.traditionalMoqsOf20000Units`)}</li>
+                  <li>{t(`${p}.highUpfrontCostsForPrintingPla`)}</li>
+                  <li>{t(`${p}.riskOfDeadInventoryAndWaste`)}</li>
+                  <li>{t(`${p}.inabilityToTestSeasonalSkus`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-500">
-                <h4 className="font-semibold text-teal-800">The Achieve Pack Solution</h4>
+                <h4 className="font-semibold text-teal-800">{t(`${p}.theAchievePackSolution`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• MOQs as low as 500 units per SKU</li>
-                  <li>• Zero Plate Fees with Digital Printing</li>
-                  <li>• Fast 3-4 week turnaround times</li>
-                  <li>• Enterprise-grade sustainable materials</li>
+                  <li>{t(`${p}.moqsAsLowAs500UnitsPerSku`)}</li>
+                  <li>{t(`${p}.zeroPlateFeesWithDigitalPrinti`)}</li>
+                  <li>{t(`${p}.fast34WeekTurnaroundTimes`)}</li>
+                  <li>{t(`${p}.enterpriseGradeSustainableMate`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we serve as the <strong>technical incubator</strong> for the next generation of sustainable brands. By utilizing <strong>HP Indigo Digital Technology</strong> and optimized supply chain logistics, we help startups launch with enterprise-quality sustainable packaging without the enterprise-level financial risk.
-          </p>
+            {t(`${p}.atAchievePackWeServeAsThe`)}<strong>{t(`${p}.technicalIncubator`)}</strong> {t(`${p}.forTheNextGenerationOfSustaina`)}<strong>{t(`${p}.hpIndigoDigitalTechnology`)}</strong> {t(`${p}.andOptimizedSupplyChainLogisti`)}</p>
         </div>
       )
     },
@@ -54,30 +55,29 @@ const LowMOQStartupPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The secret to low MOQs is <strong>Digital Manufacturing</strong>. By eliminating the need for physical printing plates, we slash your upfront costs by thousands of dollars.
-          </p>
+            {t(`${p}.theSecretToLowMoqsIs`)}<strong>{t(`${p}.digitalManufacturing`)}</strong>{t(`${p}.byEliminatingTheNeedForPhysica`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-emerald-100 rounded-lg w-fit mb-4">
                 <Zap className="h-6 w-6 text-emerald-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Digital Precision</h4>
-              <p className="text-sm text-neutral-600">HP Indigo 25K technology ensures your startup looks like an industry leader from day one.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.digitalPrecision`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.hpIndigo25kTechnologyEnsuresYo`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-teal-100 rounded-lg w-fit mb-4">
                 <BarChart3 className="h-6 w-6 text-teal-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Inventory Lean</h4>
-              <p className="text-sm text-neutral-600">Order only what you can sell. Reduce warehouse liability and maximize your cash flow.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.inventoryLean`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.orderOnlyWhatYouCanSellReduceW`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-slate-100 rounded-lg w-fit mb-4">
                 <Shield className="h-6 w-6 text-slate-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Scalable Quality</h4>
-              <p className="text-sm text-neutral-600">The exact same high-barrier, certified materials used by global Fortune 500 brands.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.scalableQuality`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.theExactSameHighBarrierCertifi`)}</p>
             </div>
           </div>
 
@@ -99,32 +99,30 @@ const LowMOQStartupPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Startups need to pivot. Our low MOQ model allows you to <strong>test designs, flavors, and markets</strong> without being locked into a year's worth of inventory.
-          </p>
+            {t(`${p}.startupsNeedToPivotOurLowMoqMo`)}<strong>{t(`${p}.testDesignsFlavorsAndMarkets`)}</strong> {t(`${p}.withoutBeingLockedIntoAYearSWo`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">The Agile Growth Loop</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.theAgileGrowthLoop`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Multi-SKU Variety Packs</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Combine multiple designs in a single run to launch your entire product line at once.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.multiSkuVarietyPacks`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.combineMultipleDesignsInASingl`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Iterative Design</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Update your branding or regulatory information between batches with zero penalty.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.iterativeDesign`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.updateYourBrandingOrRegulatory`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Seasonal Collections</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Launch limited-edition sustainable packaging for holidays or promotions with ease.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.seasonalCollections`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.launchLimitedEditionSustainabl`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Sustainable Credibility</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.sustainableCredibility`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                By choosing <strong>Certified Recyclable or Compostable</strong> materials for your launch, you build an immediate bond of trust with conscious consumers. Achieve Pack provides the certifications you need to win shelf space and investor confidence.
-              </p>
+                {t(`${p}.byChoosing`)}<strong>{t(`${p}.certifiedRecyclableOrCompostab`)}</strong> {t(`${p}.materialsForYourLaunchYouBuild`)}</p>
             </div>
           </div>
         </div>
@@ -136,10 +134,9 @@ const LowMOQStartupPackagingPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-emerald-800 to-teal-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Start Small. Scale Sustainable.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.startSmallScaleSustainable`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to launch your product with enterprise-grade sustainable packaging? Our startup team will help you design your launch roadmap today.
-          </p>
+            {t(`${p}.readyToLaunchYourProductWithEn`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -147,19 +144,16 @@ const LowMOQStartupPackagingPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-emerald-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Startup Strategy Session
-            </button>
+              {t(`${p}.bookStartupStrategySession`)}</button>
             <Link
               to="/store"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <ShoppingBag className="h-5 w-5" />
-              Order Starter Samples
-            </Link>
+              {t(`${p}.orderStarterSamples`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            MOQ 500 • NO PLATE FEES • DIGITAL PRECISION • FAST TURNAROUND
-          </p>
+            {t(`${p}.moq500NoPlateFeesDigitalPrecis`)}</p>
         </div>
       )
     }
@@ -187,7 +181,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Low MOQ Startup Packaging | Agile Sustainable Solutions | Achieve Pack</title>
+        <title>{t(`${p}.lowMoqStartupPackagingAgileSus`)}</title>
         <meta name="description" content="The startup guide to sustainable packaging. 800+ words on low MOQ strategy, zero-plate digital printing, rapid market testing, and scalable circularity." />
         <link rel="canonical" href="https://achievepack.com/topics/low-moq-startup-packaging" />
         <meta name="keywords" content="low MOQ packaging, startup sustainable packaging, digital pouch printing, zero plate packaging, small batch pouches, agile packaging manufacturing" />

@@ -5,8 +5,11 @@ import { MousePointer2, Package, CheckCircle, Award, Calendar, MessageCircle, Ta
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const MinimalistD2CPackagingPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.minimalistD2CPackaging';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,31 @@ const MinimalistD2CPackagingPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-neutral-50 to-slate-50 p-6 rounded-lg border border-neutral-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Minimalism in 2026 is a <strong>technical strategy</strong>, not just a visual style. It is the process of reducing material weight, eliminating non-essential layers, and optimizing for <strong>logistics efficiency</strong>.
+              {t(`${p}.minimalismIn2026IsA`)}<strong>{t(`${p}.technicalStrategy`)}</strong>{t(`${p}.notJustAVisualStyleItIsTheProc`)}<strong>{t(`${p}.logisticsEfficiency`)}</strong>.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-neutral-800">
-                <h4 className="font-semibold text-neutral-900">The Over-Packaging Crisis</h4>
+                <h4 className="font-semibold text-neutral-900">{t(`${p}.theOverPackagingCrisis`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Oversized boxes filled with air</li>
-                  <li>• Non-recyclable 'aesthetic' extras</li>
-                  <li>• High DIM weight shipping costs</li>
-                  <li>• Complicated, wasteful unboxing</li>
+                  <li>{t(`${p}.oversizedBoxesFilledWithAir`)}</li>
+                  <li>{t(`${p}.nonRecyclableAestheticExtras`)}</li>
+                  <li>{t(`${p}.highDimWeightShippingCosts`)}</li>
+                  <li>{t(`${p}.complicatedWastefulUnboxing`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-slate-500">
-                <h4 className="font-semibold text-slate-800">The Minimalist Solution</h4>
+                <h4 className="font-semibold text-slate-800">{t(`${p}.theMinimalistSolution`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Right-Sized Flexible Pouches</li>
-                  <li>• Elimination of secondary boxes</li>
-                  <li>• 100% Recyclable Mono-Materials</li>
-                  <li>• High-purity, focused branding</li>
+                  <li>{t(`${p}.rightSizedFlexiblePouches`)}</li>
+                  <li>{t(`${p}.eliminationOfSecondaryBoxes`)}</li>
+                  <li>{t(`${p}.100RecyclableMonoMaterials`)}</li>
+                  <li>{t(`${p}.highPurityFocusedBranding`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we help D2C brands embrace <strong>Functional Minimalism</strong>. By replacing heavy glass, rigid PET, or unnecessary folding cartons with lightweight, high-barrier flexible pouches, we help you reduce your aggregate packaging weight by up to 80% while delivering a tactile, luxury unboxing experience that respects the consumer's intelligence and the planet's resources.
-          </p>
+            {t(`${p}.atAchievePackWeHelpD2cBrandsEm`)}<strong>{t(`${p}.functionalMinimalism`)}</strong>{t(`${p}.byReplacingHeavyGlassRigidPetO`)}</p>
         </div>
       )
     },
@@ -54,30 +56,29 @@ const MinimalistD2CPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The most sustainable package is the one that <strong>fits perfectly</strong>. Our engineering team performs a volumetric audit to ensure your pouch is 'right-sized' for your shipping mailer.
-          </p>
+            {t(`${p}.theMostSustainablePackageIsThe`)}<strong>{t(`${p}.fitsPerfectly`)}</strong>{t(`${p}.ourEngineeringTeamPerformsAVol`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-neutral-100 rounded-lg w-fit mb-4">
                 <BarChart3 className="h-6 w-6 text-neutral-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">80% Weight Saving</h4>
-              <p className="text-sm text-neutral-600">Flexible pouches weigh significantly less than rigid jars, directly lowering shipping carbon and costs.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.80WeightSaving`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.flexiblePouchesWeighSignifican`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-slate-100 rounded-lg w-fit mb-4">
                 <Layers className="h-6 w-6 text-slate-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Zero Void Fill</h4>
-              <p className="text-sm text-neutral-600">Eliminating the need for bubble wrap and tissue paper by engineering the pouch to survive transit alone.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.zeroVoidFill`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.eliminatingTheNeedForBubbleWra`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-neutral-200 rounded-lg w-fit mb-4">
                 <TrendingUp className="h-6 w-6 text-neutral-800" />
               </div>
-              <h4 className="font-bold text-neutral-900">Warehouse Density</h4>
-              <p className="text-sm text-neutral-600">Store 10x more empty pouches in the same space as rigid jars, reducing storage overhead.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.warehouseDensity`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.store10xMoreEmptyPouchesInTheS`)}</p>
             </div>
           </div>
 
@@ -99,32 +100,30 @@ const MinimalistD2CPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            A minimal aesthetic doesn't mean a minimal experience. We utilize <strong>premium tactile finishes</strong> and <strong>high-precision printing</strong> to create a luxury feel without the waste.
-          </p>
+            {t(`${p}.aMinimalAestheticDoesnTMeanAMi`)}<strong>{t(`${p}.premiumTactileFinishes`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.highPrecisionPrinting`)}</strong> {t(`${p}.toCreateALuxuryFeelWithoutTheW`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Tactile Features</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.tactileFeatures`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Soft-Touch Matte Finish</h5>
-                  <p className="text-xs text-neutral-600 mt-1">A velvety, premium hand-feel that signals quality immediately upon touch.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.softTouchMatteFinish`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.aVelvetyPremiumHandFeelThatSig`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Integrated Tear Notches</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Precision-engineered easy-open features that eliminate the need for scissors.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.integratedTearNotches`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.precisionEngineeredEasyOpenFea`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Focused Typography</h5>
-                  <p className="text-xs text-neutral-600 mt-1">High-resolution digital printing that allows your brand message to shine with clarity.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.focusedTypography`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.highResolutionDigitalPrintingT`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Sustainable Materials</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.sustainableMaterials`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                True minimalism requires <strong>material purity</strong>. Achieve Pack specializes in 100% Recyclable Mono-PE and Mono-PP structures that use the least amount of raw material to achieve the highest level of barrier protection.
-              </p>
+                {t(`${p}.trueMinimalismRequires`)}<strong>{t(`${p}.materialPurity`)}</strong>{t(`${p}.achievePackSpecializesIn100Rec`)}</p>
             </div>
           </div>
         </div>
@@ -136,10 +135,9 @@ const MinimalistD2CPackagingPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-neutral-800 to-slate-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Lighter. Cleaner. Better.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.lighterCleanerBetter`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to reduce your D2C shipping costs and embrace a minimalist, sustainable unboxing experience? Our technical team will audit your current packaging today.
-          </p>
+            {t(`${p}.readyToReduceYourD2cShippingCo`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -147,19 +145,16 @@ const MinimalistD2CPackagingPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-neutral-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Minimalist Strategy Session
-            </button>
+              {t(`${p}.bookMinimalistStrategySession`)}</button>
             <Link
               to="/store"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <ShoppingBag className="h-5 w-5" />
-              Order Minimalist Samples
-            </Link>
+              {t(`${p}.orderMinimalistSamples`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            DIM WEIGHT OPTIMIZED • 100% RECYCLABLE • PREMIUM MATTE • LOW WASTE
-          </p>
+            {t(`${p}.dimWeightOptimized100Recyclabl`)}</p>
         </div>
       )
     }
@@ -187,7 +182,7 @@ const MinimalistD2CPackagingPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Minimalist D2C Packaging | Logistics & Branding Hub | Achieve Pack</title>
+        <title>{t(`${p}.minimalistD2cPackagingLogistic`)}</title>
         <meta name="description" content="Master the technical benefits of minimalist D2C packaging. 800+ words on DIM weight reduction, material optimization, and premium unboxing experiences." />
         <link rel="canonical" href="https://achievepack.com/topics/minimalist-d2c-packaging" />
         <meta name="keywords" content="minimalist D2C packaging, D2C packaging strategy, DIM weight reduction, sustainable unboxing, lightweight flexible pouches, minimalist brand design" />

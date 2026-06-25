@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ShoppingCart, Menu, X, ArrowLeft, Palette, Award, Leaf } from 'lucide-react'
@@ -135,6 +136,9 @@ const CHOCOLATE_SCROLL_CARDS = [
 ]
 
 export default function AchieveChocolateDemoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.achieveChocolateDemo'
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [cartCount, setCartCount] = useState(0)
@@ -150,7 +154,7 @@ export default function AchieveChocolateDemoPage() {
     <div className="min-h-screen bg-[#FDFBF7] text-gray-900 font-sans">
       <Helmet>
         <title>Achieve Chocolate | Luxury Sustainable Confectionery</title>
-        <meta name="description" content="Discover Achieve Chocolate - where premium artisan flavor meets sustainable compostable packaging. Indulgence without compromise." />
+        <meta name="description" content={t(`seoPages.pages.achieveChocolateDemo.metaDesc`)} />
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
           .font-display { font-family: 'Playfair Display', serif; }
@@ -166,9 +170,9 @@ export default function AchieveChocolateDemoPage() {
             <ArrowLeft className="w-4 h-4" />
             Back to Achieve Pack
           </Link>
-          <span className="text-xs text-[#D4AF37]/80 hidden sm:block">This is a demo website created by Achieve Pack</span>
+          <span className="text-xs text-[#D4AF37]/80 hidden sm:block">{t(`seoPages.pages.achieveChocolateDemo.demoNotice`)}</span>
           <Link to="/store" className="text-sm font-medium hover:text-white transition">
-            See Packaging Specs
+            {t(`seoPages.pages.achieveChocolateDemo.seePackagingSpecs`)}
           </Link>
         </div>
       </div>
@@ -298,8 +302,8 @@ export default function AchieveChocolateDemoPage() {
             variants={fadeInUp}
             className="text-center mb-20"
           >
-            <span className="text-[#D4AF37] text-sm uppercase tracking-[0.2em] font-bold mb-4 block">The Collection</span>
-            <h2 className="text-5xl font-display font-medium text-[#2C1810] mb-6">Curated Indulgence</h2>
+            <span className="text-[#D4AF37] text-sm uppercase tracking-[0.2em] font-bold mb-4 block">{t(`seoPages.pages.achieveChocolateDemo.theCollection`)}</span>
+            <h2 className="text-5xl font-display font-medium text-[#2C1810] mb-6">{t(`seoPages.pages.achieveChocolateDemo.curatedIndulgence`)}</h2>
             <p className="text-[#5D4037] max-w-2xl mx-auto font-light text-lg">
               Each piece is created with precision, passion, and respect for nature. From bean to bar, we ensure excellence in every bite.
             </p>
@@ -349,8 +353,8 @@ export default function AchieveChocolateDemoPage() {
       {/* Features Scroll */}
       <section className="py-32 bg-[#1a1110] text-white">
         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-           <span className="text-[#D4AF37] text-sm uppercase tracking-[0.2em] font-bold mb-4 block">Craftsmanship</span>
-           <h2 className="text-4xl font-display font-medium">The Art of Packaging</h2>
+           <span className="text-[#D4AF37] text-sm uppercase tracking-[0.2em] font-bold mb-4 block">{t(`seoPages.pages.achieveChocolateDemo.craftsmanship`)}</span>
+           <h2 className="text-4xl font-display font-medium">{t(`seoPages.pages.achieveChocolateDemo.theArtOfPackaging`)}</h2>
         </div>
         <ScrollTriggeredCards cards={CHOCOLATE_SCROLL_CARDS} />
       </section>
@@ -360,8 +364,8 @@ export default function AchieveChocolateDemoPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-20 items-center">
             <div>
-              <span className="text-[#556B2F] text-sm uppercase tracking-[0.2em] font-bold mb-4 block">Our Commitment</span>
-              <h2 className="text-5xl font-display font-bold text-[#2C1810] mb-8 leading-tight">Packaged for the <br/><span className="italic text-[#556B2F]">Planet</span></h2>
+              <span className="text-[#556B2F] text-sm uppercase tracking-[0.2em] font-bold mb-4 block">{t(`seoPages.pages.achieveChocolateDemo.ourCommitment`)}</span>
+              <h2 className="text-5xl font-display font-bold text-[#2C1810] mb-8 leading-tight">{t(`seoPages.pages.achieveChocolateDemo.packagedForThe`)} <br/><span className="italic text-[#556B2F]">{t(`seoPages.pages.achieveChocolateDemo.planet`)}</span></h2>
               <p className="text-[#5D4037] text-lg mb-10 leading-relaxed">
                 We believe true luxury shouldn't cost the earth. That's why every Achieve Chocolate product comes in our signature Achieve Pack biodegradable packaging, ensuring your indulgence leaves no trace behind.
               </p>

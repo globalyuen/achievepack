@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Image, Loader2, Download, Sparkles, Copy, Check, RefreshCw, Wand2, Settings } from 'lucide-react'
 import { toast } from 'sonner'
@@ -49,6 +50,8 @@ const ASPECT_RATIOS = [
 ]
 
 const ImageGeneratorPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.imageGenerator'
   const [prompt, setPrompt] = useState('')
   const [generating, setGenerating] = useState(false)
   const [generatedImages, setGeneratedImages] = useState<string[]>([])
@@ -217,7 +220,7 @@ const ImageGeneratorPage: React.FC = () => {
                   <Wand2 className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-white">AI Image Generator</h1>
+                  <h1 className="text-xl font-bold text-white">{t(`${p}.pageTitle`)}</h1>
                   <p className="text-sm text-gray-400">Using {currentProvider.name}</p>
                 </div>
               </div>
@@ -391,8 +394,8 @@ const ImageGeneratorPage: React.FC = () => {
                   <div className="w-24 h-24 bg-gray-700 rounded-2xl flex items-center justify-center mb-4">
                     <Image className="w-12 h-12" />
                   </div>
-                  <p className="text-lg">No images generated yet</p>
-                  <p className="text-sm mt-2">Enter a prompt and click Generate</p>
+                  <p className="text-lg">{t(`${p}.noImages`)}</p>
+                  <p className="text-sm mt-2">{t(`${p}.enterPrompt`)}</p>
                 </div>
               ) : (
                 <div className="grid md:grid-cols-2 gap-4">

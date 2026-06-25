@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Globe, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Waves, Anchor, Ship  , Recycle } from 'lucide-react'
@@ -7,12 +8,15 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const RecycledOceanPlasticPackagingPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.recycledOceanPlasticPackaging'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
     {
       id: 'hero-problem',
-      title: 'The Ocean-Bound Plastic (OBP) Mission',
+      title: t(`seoPages.pages.recycledOceanPlasticPackaging.theOceanBoundPlasticMission`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -49,7 +53,7 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
     },
     {
       id: 'traceability-blockchain',
-      title: 'Traceability: The Blockchain Verification Path',
+      title: t(`seoPages.pages.recycledOceanPlasticPackaging.traceabilityTheBlockchain`),
       icon: <Anchor className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -94,7 +98,7 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
     },
     {
       id: 'material-science',
-      title: 'Material Science: High-Purity OBP Resins',
+      title: t(`seoPages.pages.recycledOceanPlasticPackaging.materialScienceHighPurity`),
       icon: <Microscope className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -138,7 +142,7 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
     },
     {
       id: 'e-e-a-t-authority',
-      title: 'E-E-A-T: The Value of "Prevented Ocean Plastic"',
+      title: t(`seoPages.pages.recycledOceanPlasticPackaging.eeatTheValueOf`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -181,7 +185,7 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Join the Ocean-Bound Plastic Mission',
+      title: t(`seoPages.pages.recycledOceanPlasticPackaging.joinTheOceanBound`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-blue-800 to-cyan-950 p-10 rounded-2xl text-white text-center shadow-2xl">
@@ -236,18 +240,18 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Recycled Ocean Plastic Packaging | OBP Certified | Achieve Pack</title>
-        <meta name="description" content="Technical guide to Recycled Ocean-Bound Plastic (OBP) packaging. 800+ words on coastal collection, blockchain traceability, and GRS certification." />
+        <title>{t(`seoPages.pages.recycledOceanPlasticPackaging.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.recycledOceanPlasticPackaging.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/recycled-ocean-plastic-packaging" />
         <meta name="keywords" content="recycled ocean plastic packaging, ocean bound plastic OBP, prevented ocean plastic, coastal waste collection, GRS certified ocean plastic, sustainable resin" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#075985"
-        title="Recycled Ocean Plastic Packaging: Protecting Our Coastlines"
-        description="Transforming high-risk coastal waste into high-performance packaging through certified OBP recovery."
+        title={t(`seoPages.pages.recycledOceanPlasticPackaging.heroTitle`)}
+        description={t(`seoPages.pages.recycledOceanPlasticPackaging.heroDesc`)}
         keywords={['ocean plastic', 'OBP packaging', 'recycled ocean plastic']}
-        heroTitle="Clean Oceans. Clear Mission."
+        heroTitle={t(`seoPages.pages.recycledOceanPlasticPackaging.heroTitle2`)}
         heroSubtitle="Coastal Recovered | GRS Certified | Blockchain Verified"
         introSummary="Ocean-Bound Plastic (OBP) is the front line of the marine pollution crisis. We provide brands with a technical solution to recover high-risk coastal waste and reprocess it into high-barrier flexible packaging, creating a tangible positive impact on global marine ecosystems."
         sections={sections}

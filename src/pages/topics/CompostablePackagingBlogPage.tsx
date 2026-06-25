@@ -1,13 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'
 import { Leaf, ShieldCheck, AlertTriangle, CheckCircle, Info, HelpCircle, FileText, Globe, BarChart3, FlaskConical, Thermometer, Droplets } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import ClickableImage from '../../components/ClickableImage';
 
 const CompostablePackagingBlogPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.compostablePackagingBlog'
+
   const sections = [
     {
       id: 'compostability-science',
-      title: 'The Science of Compostable Packaging: More Than Just "Green"',
+      title: t(`seoPages.pages.compostablePackagingBlog.theScienceOfCompostable`),
       icon: <FlaskConical className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -17,7 +21,7 @@ const CompostablePackagingBlogPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 py-4">
             <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 shadow-sm">
               <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <Thermometer className="h-4 w-4 text-primary-600" /> Thermal Triggers
+                <Thermometer className="h-4 w-4 text-primary-600" /> {t(`seoPages.pages.compostablePackagingBlog.thermalTriggers`)}
               </h4>
               <p className="text-sm leading-relaxed">
                 Industrial composting requires sustained temperatures of <strong>55°C to 60°C</strong> to trigger the hydrolysis of polymers like PLA (Polylactic Acid) and PBS (Polybutylene Succinate). Without this heat, biodegradation is significantly delayed.
@@ -25,7 +29,7 @@ const CompostablePackagingBlogPage: React.FC = () => {
             </div>
             <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 shadow-sm">
               <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <Droplets className="h-4 w-4 text-primary-600" /> Moisture & Microbes
+                <Droplets className="h-4 w-4 text-primary-600" /> {t(`seoPages.pages.compostablePackagingBlog.moistureAndMicrobes`)}
               </h4>
               <p className="text-sm leading-relaxed">
                 Active microbial colonies in professional compost facilities utilize the nitrogen and carbon in the material. Our structures are designed to be "biologically available" while maintaining a high moisture barrier during their retail life.
@@ -140,10 +144,10 @@ const CompostablePackagingBlogPage: React.FC = () => {
 
   return (
     <SEOPageLayout
-      title="The Science of Compostable Packaging 2026: Polymers & Kinetics"
-      description="Deep technical blog post on compostable packaging. Explore biodegradation kinetics, PBS/PLA/NK material science, and EN13432 toxicity standards. 800+ words of technical E-E-A-T research."
-      heroTitle="Compostable Packaging: A Biological Revolution"
-      heroSubtitle="Moving beyond the hype into the technical reality of biological polymers, disintegration kinetics, and soil health."
+      title={t(`seoPages.pages.compostablePackagingBlog.metaTitle`)}
+      description={t(`seoPages.pages.compostablePackagingBlog.metaDesc`)}
+      heroTitle={t(`seoPages.pages.compostablePackagingBlog.heroTitle`)}
+      heroSubtitle={t(`seoPages.pages.compostablePackagingBlog.heroSubtitle`)}
       heroImage="/imgs/generated/compostable_blog.png"
       introSummary="Compostable packaging represents the ultimate goal of circularity: returning packaging to the earth as life-giving biomass. This 800+ word deep-dive explores the polymer chemistry of Polybutylene Succinate (PBS) and NatureKraft (NK), the biological requirements for biodegradation, and the strict ecotoxicity testing required to earn the 'Compostable' seal. Learn how to design a biological loop for your brand."
       sections={sections}

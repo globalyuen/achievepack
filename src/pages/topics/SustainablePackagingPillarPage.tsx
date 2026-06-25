@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { BarChart3, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Layers, Leaf, Trash2 } from 'lucide-react'
@@ -7,12 +8,15 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const SustainablePackagingPillarPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.sustainablePackagingPillar'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
     {
       id: 'hero-problem',
-      title: 'The Five Pillars of 2026 Sustainable Packaging',
+      title: t(`seoPages.pages.sustainablePackagingPillar.theFivePillars`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -50,7 +54,7 @@ const SustainablePackagingPillarPage: React.FC = () => {
     },
     {
       id: 'pillar-1-2',
-      title: 'Pillars 1 & 2: Source Reduction & Recyclability',
+      title: t(`seoPages.pages.sustainablePackagingPillar.pillars1And2`),
       icon: <Recycle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -86,7 +90,7 @@ const SustainablePackagingPillarPage: React.FC = () => {
     },
     {
       id: 'pillar-3-4',
-      title: 'Pillars 3 & 4: Compostability & PCR Integration',
+      title: t(`seoPages.pages.sustainablePackagingPillar.pillars3And4`),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -126,7 +130,7 @@ const SustainablePackagingPillarPage: React.FC = () => {
     },
     {
       id: 'pillar-5-lca',
-      title: 'Pillar 5: Carbon Neutrality & LCA Analysis',
+      title: t(`seoPages.pages.sustainablePackagingPillar.pillar5`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -159,7 +163,7 @@ const SustainablePackagingPillarPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Build Your 5-Pillar Strategy',
+      title: t(`seoPages.pages.sustainablePackagingPillar.buildYourStrategy`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-indigo-800 to-black p-10 rounded-2xl text-white text-center shadow-2xl">
@@ -214,18 +218,18 @@ const SustainablePackagingPillarPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>The 5 Pillars of Sustainable Packaging | Technical Strategy | Achieve Pack</title>
-        <meta name="description" content="Master the 5 pillars of 2026 sustainable packaging: Source Reduction, Recyclability, Compostability, PCR, and Carbon Neutrality. 800+ words of technical authority." />
+        <title>{t(`seoPages.pages.sustainablePackagingPillar.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.sustainablePackagingPillar.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/sustainable-packaging-pillar" />
         <meta name="keywords" content="sustainable packaging pillars, circular economy packaging, packaging source reduction, design for recycling, PCR integration packaging, carbon neutral packaging strategy" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#1e1b4b"
-        title="Sustainable Packaging: The 5-Pillar Architecture"
-        description="Establishing technical authority through a multi-dimensional strategy for the circular economy."
+        title={t(`seoPages.pages.sustainablePackagingPillar.heroTitle`)}
+        description={t(`seoPages.pages.sustainablePackagingPillar.heroDesc`)}
         keywords={['sustainable packaging strategy', '5 pillars of sustainability', 'packaging engineering']}
-        heroTitle="Engineering. Not Emotion."
+        heroTitle={t(`seoPages.pages.sustainablePackagingPillar.heroTitle2`)}
         heroSubtitle="Source Reduction | Recyclability | Compostability | PCR | Carbon Neutral"
         introSummary="The era of single-feature sustainability is over. To succeed in 2026, brands must adopt a multi-pillar strategy that balances material efficiency, recyclability, and carbon impact. This guide provides the technical roadmap for building a future-proof packaging architecture that satisfies regulators, retailers, and the planet."
         sections={sections}

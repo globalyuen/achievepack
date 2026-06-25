@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { 
   Lock, CheckCircle, AlertCircle, Clock, 
@@ -28,6 +29,8 @@ interface RFQParticipant {
 }
 
 const SupplierHubPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.supplierHub'
   const { batchId } = useParams<{ batchId: string }>()
   
   // Auth state
@@ -140,7 +143,7 @@ const SupplierHubPage: React.FC = () => {
     <div className="min-h-screen bg-[#fcfcfc] text-black flex items-center justify-center font-sans">
       <div className="text-center">
         <Clock className="h-10 w-10 text-black animate-spin mx-auto mb-4" />
-        <p className="font-black italic uppercase">正在加载数据...</p>
+        <p className="font-black italic uppercase">{t(`${p}.loadingData`)}</p>
       </div>
     </div>
   )
@@ -152,7 +155,7 @@ const SupplierHubPage: React.FC = () => {
           <div className="bg-black text-white w-16 h-16 flex items-center justify-center mb-6 mx-auto">
             <Lock className="h-8 w-8" />
           </div>
-          <h1 className="text-3xl font-black mb-2 text-center italic uppercase tracking-tighter">供应商入口</h1>
+          <h1 className="text-3xl font-black mb-2 text-center italic uppercase tracking-tighter">{t(`${p}.supplierPortal`)}</h1>
           <p className="text-neutral-500 text-center mb-8 font-bold">{batch?.name || 'RFQ HUB'}</p>
           
           <div className="space-y-4">
@@ -174,7 +177,7 @@ const SupplierHubPage: React.FC = () => {
               验证登录
             </button>
           </div>
-          <p className="mt-8 text-center text-[10px] text-neutral-300 font-bold uppercase tracking-widest">Powered by Achieve Pack AI</p>
+          <p className="mt-8 text-center text-[10px] text-neutral-300 font-bold uppercase tracking-widest">{t(`${p}.poweredBy`)}</p>
         </div>
       </div>
     )
@@ -185,8 +188,8 @@ const SupplierHubPage: React.FC = () => {
       <div className="min-h-screen bg-[#fcfcfc] text-black flex items-center justify-center p-4 font-sans">
         <div className="max-w-md w-full border-4 border-black p-8 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <CheckCircle className="h-16 w-16 text-green-600 mb-6 mx-auto" />
-          <h1 className="text-3xl font-black mb-4 text-center italic uppercase">提交成功!</h1>
-          <p className="text-neutral-600 mb-8 text-center font-medium">您的报价已成功上传至 Achieve Pack 系统。我们会尽快审核并与您联系。</p>
+          <h1 className="text-3xl font-black mb-4 text-center italic uppercase">{t(`${p}.submitSuccess`)}</h1>
+          <p className="text-neutral-600 mb-8 text-center font-medium">{t(`${p}.submitSuccessDesc`)}</p>
           <button 
             onClick={() => window.location.reload()}
             className="w-full py-4 bg-black text-white font-black uppercase italic hover:translate-x-1 hover:-translate-y-1 transition-transform"
@@ -204,10 +207,10 @@ const SupplierHubPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="bg-black text-white font-black p-1 text-xs">ACHIEVE</div>
-            <h1 className="text-xl font-black italic uppercase tracking-tighter hidden sm:block">供应商报价门户</h1>
+            <h1 className="text-xl font-black italic uppercase tracking-tighter hidden sm:block">{t(`${p}.supplierQuotePortal`)}</h1>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-[10px] font-black uppercase text-neutral-400">当前供应商:</span>
+            <span className="text-[10px] font-black uppercase text-neutral-400">{t(`${p}.currentSupplier`)}</span>
             <span className="bg-black text-white px-2 py-0.5 text-xs font-black italic">{participant?.supplier_name}</span>
           </div>
         </div>
@@ -219,13 +222,13 @@ const SupplierHubPage: React.FC = () => {
           <div className="flex flex-wrap gap-4">
             <div className="bg-white px-4 py-2 border-2 border-black flex items-center gap-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
               <FileText className="h-4 w-4 text-neutral-500" />
-              <span className="text-xs font-bold uppercase text-neutral-400">项目编号:</span>
+              <span className="text-xs font-bold uppercase text-neutral-400">{t(`${p}.projectId`)}</span>
               <span className="text-xs font-mono">{batchId?.substring(0, 8).toUpperCase()}</span>
             </div>
             <div className="bg-white px-4 py-2 border-2 border-black flex items-center gap-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
               <Clock className="h-4 w-4 text-neutral-500" />
-              <span className="text-xs font-bold uppercase text-neutral-400">状态:</span>
-              <span className="text-xs font-black uppercase text-green-600">进行中 (ACTIVE)</span>
+              <span className="text-xs font-bold uppercase text-neutral-400">{t(`${p}.status`)}</span>
+              <span className="text-xs font-black uppercase text-green-600">{t(`${p}.inProgress`)}</span>
             </div>
           </div>
         </div>
@@ -243,19 +246,19 @@ const SupplierHubPage: React.FC = () => {
                   
                   <div className="space-y-6">
                     <div>
-                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">袋型样式 (Bag Style & Features)</span>
+                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">{t(`${p}.bagStyle`)}</span>
                       <p className="font-bold text-sm uppercase">{item.style || '-'}</p>
                     </div>
                     <div>
-                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">尺寸大小 (Dimensions / Unfolded Size)</span>
+                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">{t(`${p}.dimensions`)}</span>
                       <p className="font-bold text-sm uppercase">{item.dimensions || '-'}</p>
                     </div>
                     <div>
-                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">物料规格 (Material Structure)</span>
+                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">{t(`${p}.materialSpec`)}</span>
                       <p className="font-bold text-sm uppercase text-neutral-700 leading-relaxed">{item.material_spec || '-'}</p>
                     </div>
                     <div>
-                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">印刷工艺 (Print Type)</span>
+                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">{t(`${p}.printType`)}</span>
                       <p className="font-bold text-sm uppercase">{item.print_type || '-'}</p>
                     </div>
                   </div>
@@ -303,7 +306,7 @@ const SupplierHubPage: React.FC = () => {
           <div className="space-y-6">
             <div className="border-4 border-dashed border-neutral-200 p-8 text-center hover:border-black transition-colors bg-white">
               <Upload className="h-8 w-8 text-neutral-300 mx-auto mb-4" />
-              <p className="text-[10px] font-black uppercase text-neutral-400 mb-4">上传 PDF 报价单 (Official Quote)</p>
+              <p className="text-[10px] font-black uppercase text-neutral-400 mb-4">{t(`${p}.uploadPdf`)}</p>
               <button className="bg-black text-white px-6 py-2 text-[10px] font-black uppercase italic hover:bg-neutral-800 transition-colors">
                 选择文件
               </button>
@@ -323,10 +326,10 @@ const SupplierHubPage: React.FC = () => {
 
       <footer className="mt-24 border-t-4 border-black py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8">
-          <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">© 2026 Achieve Pack Multi-Supplier Portal</p>
+          <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">{t(`${p}.copyright`)}</p>
           <div className="flex items-center gap-8">
-            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest cursor-pointer hover:text-black transition-colors">隐私政策</span>
-            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest cursor-pointer hover:text-black transition-colors">服务条款</span>
+            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest cursor-pointer hover:text-black transition-colors">{t(`${p}.privacyPolicy`)}</span>
+            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest cursor-pointer hover:text-black transition-colors">{t(`${p}.termsOfService`)}</span>
           </div>
         </div>
       </footer>

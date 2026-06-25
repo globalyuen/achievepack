@@ -4,6 +4,7 @@ import { ArrowLeft, Lock, Loader2, Send, FileText, CreditCard, User, LogIn } fro
 import { useStore } from '../store/StoreContext'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
+import { useTranslation } from 'react-i18next'
 
 // Generate order/RFQ number
 const generateOrderNumber = (isRfq: boolean = false) => {
@@ -14,6 +15,8 @@ const generateOrderNumber = (isRfq: boolean = false) => {
 }
 
 const CheckoutPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.checkout'
   const { cart, cartTotal, clearCart, rfqCart, clearRfq } = useStore()
   const { user, loading: authLoading } = useAuth()
   const navigate = useNavigate()
@@ -159,14 +162,14 @@ const CheckoutPage: React.FC = () => {
           orderSaved = true
         } catch (dbError: any) {
           console.error('Database error:', dbError)
-          setError('Unable to process your order. Please try again or contact support.')
+          setError(t(`${p}.errorSave`))
           setIsProcessing(false)
           return // STOP - don't proceed to Stripe if order wasn't saved
         }
 
         // Only proceed to Stripe if order was saved successfully
         if (!orderSaved) {
-          setError('Unable to process your order. Please try again.')
+          setError(t(`${p}.errorSaveOrder`))
           setIsProcessing(false)
           return
         }
@@ -244,7 +247,7 @@ const CheckoutPage: React.FC = () => {
       }
     } catch (err) {
       console.error('Checkout error:', err)
-      setError('Something went wrong. Please try again.')
+      setError(t(`${p}.errorMsg`))
       setIsProcessing(false)
     }
   }
@@ -260,13 +263,13 @@ const CheckoutPage: React.FC = () => {
           {isRfqMode ? (
             <>
               <FileText className="h-16 w-16 text-neutral-300 mx-auto mb-4" />
-              <p className="text-xl mb-4">No items in your quote request</p>
-              <p className="text-neutral-500 mb-6">Add custom products to get a personalized quote</p>
+              <p className="text-xl mb-4">{t(`${p}.emptyRfqTitle`)}</p>
+              <p className="text-neutral-500 mb-6">{t(`${p}.emptyRfqDesc`)}</p>
             </>
           ) : (
-            <p className="text-xl mb-4">Your cart is empty</p>
+            <p className="text-xl mb-4">{t(`${p}.emptyCartTitle`)}</p>
           )}
-          <Link to="/store" className="text-primary-600 hover:underline">Continue Shopping</Link>
+          <Link to="/store" className="text-primary-600 hover:underline">{t(`${p}.continueShopping`)}</Link>
         </div>
       </div>
     )
@@ -277,7 +280,7 @@ const CheckoutPage: React.FC = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-neutral-50">
         <Loader2 className="h-8 w-8 animate-spin text-primary-500 mb-4" />
-        <p className="text-neutral-600">Loading...</p>
+        <p className="text-neutral-600">{t(`${p}.loading`)}</p>
       </div>
     )
   }
@@ -289,7 +292,7 @@ const CheckoutPage: React.FC = () => {
         <header className="bg-white border-b">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <Link to="/store" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition">
-              <ArrowLeft className="h-5 w-5" /> Back to Store
+              <ArrowLeft className="h-5 w-5" /> {t(`${p}.backToStore`)}
             </Link>
           </div>
         </header>
@@ -299,9 +302,9 @@ const CheckoutPage: React.FC = () => {
             <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <User className="h-10 w-10 text-primary-600" />
             </div>
-            <h1 className="text-2xl font-bold mb-3">Sign In to Continue</h1>
+            <h1 className="text-2xl font-bold mb-3">{t(`${p}.signInTitle`)}</h1>
             <p className="text-neutral-600 mb-8">
-              Please create an account or sign in to complete your checkout. This helps us process your order and send you updates.
+              {t(`${p}.signInDesc`)}
             </p>
             
             <div className="space-y-3">
@@ -310,19 +313,19 @@ const CheckoutPage: React.FC = () => {
                 className="w-full py-3 px-6 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition flex items-center justify-center gap-2"
               >
                 <LogIn className="h-5 w-5" />
-                Sign In
+                {t(`${p}.signInBtn`)}
               </Link>
               <Link
                 to={`/signin?redirect=${encodeURIComponent('/store/checkout' + (isRfqMode ? '?mode=rfq' : ''))}`}
                 className="w-full py-3 px-6 border-2 border-primary-600 text-primary-600 font-semibold rounded-xl hover:bg-primary-50 transition flex items-center justify-center gap-2"
               >
                 <User className="h-5 w-5" />
-                Create Account
+                {t(`${p}.createAccountBtn`)}
               </Link>
             </div>
             
             <p className="text-sm text-neutral-500 mt-6">
-              Your cart ({activeItems.length} item{activeItems.length > 1 ? 's' : ''}) will be saved
+              {t(`${p}.cartSaved`, { count: activeItems.length, plural: activeItems.length > 1 ? 's' : '' })}
             </p>
           </div>
         </main>
@@ -335,18 +338,18 @@ const CheckoutPage: React.FC = () => {
       <header className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <Link to="/store" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition">
-            <ArrowLeft className="h-5 w-5" /> Back to Store
+            <ArrowLeft className="h-5 w-5" /> {t(`${p}.backToStore`)}
           </Link>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-2">
-          {isRfqMode ? 'Request for Quotation' : 'Checkout'}
+          {isRfqMode ? t(`${p}.pageTitleRfq`) : t(`${p}.pageTitleCheckout`)}
         </h1>
         {isRfqMode && (
           <p className="text-neutral-600 mb-8">
-            Submit your custom product details and we'll prepare a personalized quote within 24 hours.
+            {t(`${p}.rfqDesc`)}
           </p>
         )}
         
@@ -355,12 +358,12 @@ const CheckoutPage: React.FC = () => {
           <div className="lg:col-span-2">
             <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 shadow-sm space-y-6">
               <div>
-                <h2 className="text-lg font-semibold mb-4">Contact Information</h2>
+                <h2 className="text-lg font-semibold mb-4">{t(`${p}.contactInfo`)}</h2>
                 <input 
                   name="email" 
                   type="email" 
                   required 
-                  placeholder="Email" 
+                  placeholder={t(`${p}.emailPlaceholder`)}
                   value={formData.email} 
                   readOnly
                   className="w-full p-3 border rounded-lg bg-neutral-100 text-neutral-600 cursor-not-allowed" 
@@ -368,33 +371,32 @@ const CheckoutPage: React.FC = () => {
                 <p className="text-xs text-neutral-500 mt-2 flex items-start gap-1.5">
                   <Lock className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
                   <span>
-                    This email will be used for all order communications with Achieve Pack. 
-                    To use a different email, please <a href="/signin" className="text-primary-600 hover:underline">log out</a> and sign in with your preferred email address.
+                    {t(`${p}.emailNotePart1`)}<a href="/signin" className="text-primary-600 hover:underline">{t(`${p}.logOut`)}</a>{t(`${p}.emailNotePart2`)}
                   </span>
                 </p>
               </div>
 
               <div>
-                <h2 className="text-lg font-semibold mb-4">{isRfqMode ? 'Contact Details' : 'Shipping Address'}</h2>
+                <h2 className="text-lg font-semibold mb-4">{isRfqMode ? t(`${p}.contactDetails`) : t(`${p}.shippingAddress`)}</h2>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <input name="firstName" placeholder="First Name" required value={formData.firstName} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="lastName" placeholder="Last Name" required value={formData.lastName} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="company" placeholder="Company (Optional)" value={formData.company} onChange={handleChange} className="md:col-span-2 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="address" placeholder={isRfqMode ? "Address (Optional)" : "Address"} required={!isRfqMode} value={formData.address} onChange={handleChange} className="md:col-span-2 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="city" placeholder={isRfqMode ? "City (Optional)" : "City"} required={!isRfqMode} value={formData.city} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="postalCode" placeholder={isRfqMode ? "Postal Code (Optional)" : "Postal Code"} required={!isRfqMode} value={formData.postalCode} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="country" placeholder={isRfqMode ? "Country (Optional)" : "Country"} required={!isRfqMode} value={formData.country} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="phone" placeholder="Phone" required value={formData.phone} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="firstName" placeholder={t(`${p}.firstName`)} required value={formData.firstName} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="lastName" placeholder={t(`${p}.lastName`)} required value={formData.lastName} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="company" placeholder={t(`${p}.company`)} value={formData.company} onChange={handleChange} className="md:col-span-2 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="address" placeholder={isRfqMode ? t(`${p}.addressRfq`) : t(`${p}.address`)} required={!isRfqMode} value={formData.address} onChange={handleChange} className="md:col-span-2 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="city" placeholder={isRfqMode ? t(`${p}.cityRfq`) : t(`${p}.city`)} required={!isRfqMode} value={formData.city} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="postalCode" placeholder={isRfqMode ? t(`${p}.postalCodeRfq`) : t(`${p}.postalCode`)} required={!isRfqMode} value={formData.postalCode} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="country" placeholder={isRfqMode ? t(`${p}.countryRfq`) : t(`${p}.country`)} required={!isRfqMode} value={formData.country} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="phone" placeholder={t(`${p}.phone`)} required value={formData.phone} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
                 </div>
               </div>
               
               {/* Additional Notes for RFQ */}
               {isRfqMode && (
                 <div>
-                  <h2 className="text-lg font-semibold mb-4">Additional Notes (Optional)</h2>
+                  <h2 className="text-lg font-semibold mb-4">{t(`${p}.notesTitle`)}</h2>
                   <textarea
                     name="notes"
-                    placeholder="Any special requirements, preferred delivery date, or additional information..."
+                    placeholder={t(`${p}.notesPlaceholder`)}
                     value={formData.notes}
                     onChange={handleChange}
                     rows={4}
@@ -422,21 +424,21 @@ const CheckoutPage: React.FC = () => {
                 {isRfqMode ? (
                   <>
                     <Send className="h-5 w-5" />
-                    {isProcessing ? 'Sending Request...' : 'Send Quote Request'}
+                    {isProcessing ? t(`${p}.sendingRfq`) : t(`${p}.sendRfq`)}
                   </>
                 ) : (
                   <>
                     <CreditCard className="h-5 w-5" />
-                    {isProcessing ? 'Redirecting to Stripe...' : `Pay $${activeTotal.toLocaleString()} with Stripe`}
+                    {isProcessing ? t(`${p}.redirecting`) : t(`${p}.payWithStripe`, { total: activeTotal.toLocaleString() })}
                   </>
                 )}
               </button>
               
               <p className="text-xs text-center text-neutral-500 flex items-center justify-center gap-1">
                 {isRfqMode ? (
-                  <>✉️ We'll respond within 24 hours</>
+                  <>✉️ {t(`${p}.respond24h`)}</>
                 ) : (
-                  <><Lock className="h-3 w-3" /> Secured by Stripe</>
+                  <><Lock className="h-3 w-3" /> {t(`${p}.securedStripe`)}</>
                 )}
               </p>
             </form>
@@ -445,7 +447,7 @@ const CheckoutPage: React.FC = () => {
           {/* Order/RFQ Summary */}
           <div className="bg-white rounded-xl p-6 shadow-sm h-fit">
             <h2 className="text-lg font-semibold mb-4">
-              {isRfqMode ? 'Quote Request Summary' : 'Order Summary'}
+              {isRfqMode ? t(`${p}.summaryTitleRfq`) : t(`${p}.summaryTitleCheckout`)}
             </h2>
             <div className="space-y-4">
               {activeItems.map(item => (
@@ -455,10 +457,10 @@ const CheckoutPage: React.FC = () => {
                     <h3 className="font-medium text-sm truncate">{item.name}</h3>
                     <p className="text-xs text-neutral-500 truncate">{item.variant.shape} • {item.variant.size}</p>
                     {item.customSize && (
-                      <p className="text-xs text-amber-600">Custom: {item.customSize.width}×{item.customSize.height}mm</p>
+                      <p className="text-xs text-amber-600">{t(`${p}.customSize`, { w: item.customSize.width, h: item.customSize.height })}</p>
                     )}
                     <p className={`font-semibold ${isRfqMode ? 'text-amber-600' : 'text-primary-600'}`}>
-                      {isRfqMode ? 'Est. ' : ''}${item.totalPrice.toLocaleString()}
+                      {isRfqMode ? t(`${p}.estPrice`, { price: item.totalPrice.toLocaleString() }) : t(`${p}.price`, { price: item.totalPrice.toLocaleString() })}
                     </p>
                   </div>
                 </div>
@@ -466,19 +468,19 @@ const CheckoutPage: React.FC = () => {
             </div>
             <div className="border-t mt-4 pt-4 space-y-2">
               <div className="flex justify-between text-sm">
-                <span>{isRfqMode ? 'Estimated Subtotal' : 'Subtotal'}</span>
+                <span>{isRfqMode ? t(`${p}.subtotalRfq`) : t(`${p}.subtotalCheckout`)}</span>
                 <span>${activeTotal.toLocaleString()}</span>
               </div>
               {!isRfqMode && (
-                <div className="flex justify-between text-sm text-green-600"><span>Shipping</span><span>Free</span></div>
+                <div className="flex justify-between text-sm text-green-600"><span>{t(`${p}.shipping`)}</span><span>{t(`${p}.free`)}</span></div>
               )}
               <div className={`flex justify-between text-lg font-bold pt-2 border-t ${isRfqMode ? 'text-amber-700' : ''}`}>
-                <span>{isRfqMode ? 'Estimated Total' : 'Total'}</span>
+                <span>{isRfqMode ? t(`${p}.totalRfq`) : t(`${p}.totalCheckout`)}</span>
                 <span>${activeTotal.toLocaleString()}</span>
               </div>
               {isRfqMode && (
                 <p className="text-xs text-neutral-500 italic">
-                  * Final pricing will be confirmed in your quote
+                  {t(`${p}.finalPricingNote`)}
                 </p>
               )}
             </div>

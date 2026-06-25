@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Factory, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Utensils, Truck  , Layers } from 'lucide-react'
@@ -7,6 +8,9 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const FoodPackagingSupplierServicePage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.foodPackagingSupplierService'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -63,21 +67,21 @@ const FoodPackagingSupplierServicePage: React.FC = () => {
                 <Layers className="h-6 w-6 text-orange-600" />
               </div>
               <h4 className="font-bold text-neutral-900">Co-Extrusion</h4>
-              <p className="text-sm text-neutral-600">Multi-layer extrusion lines capable of integrating EVOH and PA for superior oxygen barriers.</p>
+              <p className="text-sm text-neutral-600">{t(`seoPages.pages.foodPackagingSupplierService.multiLayerExtrusion`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-amber-100 rounded-lg w-fit mb-4">
                 <Zap className="h-6 w-6 text-amber-600" />
               </div>
               <h4 className="font-bold text-neutral-900">Digital Precision</h4>
-              <p className="text-sm text-neutral-600">HP Indigo 25K digital printing for low-MOQ, high-resolution food packaging with 0% solvent ink.</p>
+              <p className="text-sm text-neutral-600">{t(`seoPages.pages.foodPackagingSupplierService.hpIndigo`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-yellow-100 rounded-lg w-fit mb-4">
                 <Utensils className="h-6 w-6 text-yellow-600" />
               </div>
               <h4 className="font-bold text-neutral-900">Clean Room Converting</h4>
-              <p className="text-sm text-neutral-600">Controlled environments for bag-making and fitment insertion to ensure zero microbial contamination.</p>
+              <p className="text-sm text-neutral-600">{t(`seoPages.pages.foodPackagingSupplierService.controlledEnvironments`)}</p>
             </div>
           </div>
 
@@ -227,18 +231,18 @@ const FoodPackagingSupplierServicePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Food Packaging Supplier Service | Technical Engineering | Achieve Pack</title>
-        <meta name="description" content="Choose a technical food packaging supplier. 800+ words on BRCGS compliance, QA/QC protocols, factory-direct manufacturing, and supply chain security." />
+        <title>{t(`seoPages.pages.foodPackagingSupplierService.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.foodPackagingSupplierService.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/food-packaging-supplier" />
         <meta name="keywords" content="food packaging supplier, BRCGS certified packaging manufacturer, technical packaging partner, food grade pouch supplier, high barrier packaging supply chain" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#7c2d12"
-        title="Technical Food Packaging Supplier: Beyond the Pouch"
-        description="Establishing technical authority in factory-direct food packaging manufacturing and supply chain management."
+        title={t(`seoPages.pages.foodPackagingSupplierService.heroTitle`)}
+        description={t(`seoPages.pages.foodPackagingSupplierService.heroDesc`)}
         keywords={['food packaging supplier', 'BRCGS certified manufacturer', 'packaging technical partner']}
-        heroTitle="Expertise. Scale. Security."
+        heroTitle={t(`seoPages.pages.foodPackagingSupplierService.heroTitle2`)}
         heroSubtitle="BRCGS Grade A | Factory Direct | ISO 9001/14001 | Global Logistics"
         introSummary="Choosing a food packaging supplier is a strategic decision that affects your product safety, compliance, and bottom line. This guide outlines the technical benchmarks of a top-tier supplier—from BRCGS-audited manufacturing floors to laboratory-verified quality control and real-time supply chain transparency."
         sections={sections}

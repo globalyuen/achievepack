@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Layers, Factory } from 'lucide-react'
@@ -7,12 +8,15 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const CustomCompostablePouchSuppliersPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.customCompostablePouchSuppliers'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
     {
       id: 'hero-problem',
-      title: 'Custom Compostable Pouch Suppliers: Engineering for the Bio-Economy',
+      title: t(`seoPages.pages.customCompostablePouchSuppliers.engineeringForTheBioEconomy`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -49,7 +53,7 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
     },
     {
       id: 'certified-supply-chain',
-      title: 'Supply Chain Integrity: Verifiable Certifications',
+      title: t(`seoPages.pages.customCompostablePouchSuppliers.supplyChainIntegrity`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -94,7 +98,7 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
     },
     {
       id: 'barrier-engineering',
-      title: 'Barrier Engineering: Defying Bio-Material Limits',
+      title: t(`seoPages.pages.customCompostablePouchSuppliers.barrierEngineering`),
       icon: <Zap className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -132,7 +136,7 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Partner with the Compostable Experts',
+      title: t(`seoPages.pages.customCompostablePouchSuppliers.partnerWithThe`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-emerald-800 to-lime-950 p-10 rounded-2xl text-white text-center shadow-2xl">
@@ -187,18 +191,18 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Custom Compostable Pouch Suppliers | Certified High-Barrier | Achieve Pack</title>
-        <meta name="description" content="Find the master guide to custom compostable pouch suppliers. 800+ words on TUV/BPI certifications, high-barrier bio-engineering, and factory-direct supply chains." />
+        <title>{t(`seoPages.pages.customCompostablePouchSuppliers.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.customCompostablePouchSuppliers.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/custom-compostable-pouch-suppliers" />
         <meta name="keywords" content="compostable pouch suppliers, custom compostable packaging, TUV certified pouches, BPI compostable bags, sustainable packaging manufacturer, bio-polymer pouches" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#064e3b"
-        title="Custom Compostable Pouch Suppliers: Engineering the Bio-Future"
-        description="Establishing technical authority in certified, high-performance compostable packaging manufacturing."
+        title={t(`seoPages.pages.customCompostablePouchSuppliers.heroTitle`)}
+        description={t(`seoPages.pages.customCompostablePouchSuppliers.heroDesc`)}
         keywords={['compostable suppliers', 'bio-packaging', 'sustainable manufacturing']}
-        heroTitle="Certified. Proven. Bio-Pure."
+        heroTitle={t(`seoPages.pages.customCompostablePouchSuppliers.heroTitle2`)}
         heroSubtitle="TUV OK Compost Home | BPI Certified | High Barrier | BRCGS Grade A"
         introSummary="The compostable market is filled with unverified claims. This guide outlines how we use rigorous engineering and international certification standards to serve as the world's most reliable supplier of custom high-barrier compostable pouches—protecting both your product and your environmental integrity."
         sections={sections}

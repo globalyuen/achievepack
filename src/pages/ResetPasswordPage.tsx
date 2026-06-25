@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Lock, Eye, EyeOff, CheckCircle, Loader2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
+import { useTranslation } from 'react-i18next'
 
 const ResetPasswordPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.resetPassword'
   const navigate = useNavigate()
   const { updatePassword, session } = useAuth()
   const [password, setPassword] = useState('')
@@ -26,13 +29,13 @@ const ResetPasswordPage: React.FC = () => {
     setError('')
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match')
+      setError(t(`${p}.passwordMismatch`))
       setLoading(false)
       return
     }
 
     if (password.length < 6) {
-      setError('Password must be at least 6 characters')
+      setError(t(`${p}.passwordLength`))
       setLoading(false)
       return
     }
@@ -58,13 +61,13 @@ const ResetPasswordPage: React.FC = () => {
             <CheckCircle className="h-10 w-10 text-green-600" />
           </div>
           <h1 className="text-2xl font-bold text-neutral-900 mb-2">
-            Password updated!
+            {t(`${p}.successTitle`)}
           </h1>
           <p className="text-neutral-600 mb-6">
-            Your password has been successfully updated.
+            {t(`${p}.successDesc`)}
           </p>
           <p className="text-sm text-neutral-500">
-            Redirecting to dashboard...
+            {t(`${p}.redirecting`)}
           </p>
         </div>
       </div>
@@ -76,10 +79,10 @@ const ResetPasswordPage: React.FC = () => {
       <div className="max-w-md w-full">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-neutral-900 mb-2">
-            Reset your password
+            {t(`${p}.pageTitle`)}
           </h1>
           <p className="text-neutral-600">
-            Enter your new password below.
+            {t(`${p}.pageDesc`)}
           </p>
         </div>
 
@@ -92,7 +95,7 @@ const ResetPasswordPage: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-2">
-              New password
+              {t(`${p}.newPassword`)}
             </label>
             <div className="relative">
               <input
@@ -100,7 +103,7 @@ const ResetPasswordPage: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
-                placeholder="Enter new password"
+                placeholder={t(`${p}.newPasswordPlaceholder`)}
                 required
               />
               <button
@@ -115,14 +118,14 @@ const ResetPasswordPage: React.FC = () => {
 
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-2">
-              Confirm password
+              {t(`${p}.confirmPassword`)}
             </label>
             <input
               type={showPassword ? 'text' : 'password'}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
-              placeholder="Confirm new password"
+              placeholder={t(`${p}.confirmPasswordPlaceholder`)}
               required
             />
           </div>
@@ -135,10 +138,10 @@ const ResetPasswordPage: React.FC = () => {
             {loading ? (
               <>
                 <Loader2 className="h-5 w-5 animate-spin" />
-                Updating...
+                {t(`${p}.updatingBtn`)}
               </>
             ) : (
-              'Update password'
+              t(`${p}.updateBtn`)
             )}
           </button>
         </form>

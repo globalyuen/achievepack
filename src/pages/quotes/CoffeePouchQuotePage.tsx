@@ -6,8 +6,11 @@ import {
   Package, ArrowRight, Star, Shield, Truck, Clock, 
   ChevronDown, ChevronUp, Leaf, Award, Globe
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const CoffeePouchQuotePage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.coffeePouchQuote'
   const [activeTab, setActiveTab] = useState<'roto' | 'digital'>('roto')
   const [showSpecs, setShowSpecs] = useState(true)
 
@@ -79,10 +82,10 @@ const CoffeePouchQuotePage: React.FC = () => {
           <div className="flex items-center gap-3 mb-4">
             <img src="/ap-logo.svg" alt="Achieve Pack" className="h-10 brightness-0 invert" />
             <span className="text-amber-300">×</span>
-            <span className="text-xl font-light tracking-wide">Premium Coffee Packaging</span>
+            <span className="text-xl font-light tracking-wide">{t(`${p}.heroSubtitle`)}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Custom Kraft Paper<br />Coffee Pouches</h1>
-          <p className="text-xl text-amber-200 max-w-2xl">Professional flat bottom pouches with degassing valve, perfect for preserving coffee freshness and showcasing your brand.</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{t(`${p}.heroTitleLine1`)}<br />{t(`${p}.heroTitleLine2`)}</h1>
+          <p className="text-xl text-amber-200 max-w-2xl">{t(`${p}.heroDesc`)}</p>
         </div>
       </div>
 
@@ -91,12 +94,12 @@ const CoffeePouchQuotePage: React.FC = () => {
         <div className="flex items-start justify-between">
           <div>
             <img src="/ap-logo-black.svg" alt="Achieve Pack" className="h-12 mb-4" />
-            <h1 className="text-3xl font-bold">Coffee Pouch Quotation</h1>
+            <h1 className="text-3xl font-bold">{t(`${p}.quotationTitle`)}</h1>
             <p className="text-gray-500">{quoteInfo.quoteNumber}</p>
           </div>
           <div className="text-right text-sm text-gray-600">
-            <p>Created: {quoteInfo.createdAt}</p>
-            <p>Valid Until: {quoteInfo.validUntil}</p>
+            <p>{t(`${p}.created`)} {quoteInfo.createdAt}</p>
+            <p>{t(`${p}.validUntil`)} {quoteInfo.validUntil}</p>
           </div>
         </div>
       </div>
@@ -107,12 +110,12 @@ const CoffeePouchQuotePage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-6">
               <div>
-                <p className="text-sm text-gray-500">Quote Number</p>
+                <p className="text-sm text-gray-500">{t(`${p}.quoteNumber`)}</p>
                 <p className="font-bold text-lg">{quoteInfo.quoteNumber}</p>
               </div>
               <div className="h-10 w-px bg-gray-200 hidden sm:block" />
               <div>
-                <p className="text-sm text-gray-500">Valid Until</p>
+                <p className="text-sm text-gray-500">{t(`${p}.validUntil`)}</p>
                 <p className="font-semibold flex items-center gap-1"><Calendar className="w-4 h-4 text-amber-600" />{quoteInfo.validUntil}</p>
               </div>
             </div>
@@ -142,17 +145,17 @@ const CoffeePouchQuotePage: React.FC = () => {
           <div className="space-y-6">
             <div className="bg-white rounded-2xl shadow-lg border border-amber-100 p-6 print:shadow-none">
               <button onClick={() => setShowSpecs(!showSpecs)} className="flex items-center justify-between w-full text-left">
-                <h2 className="text-xl font-bold flex items-center gap-2"><Package className="w-5 h-5 text-amber-600" />Product Specifications</h2>
+                <h2 className="text-xl font-bold flex items-center gap-2"><Package className="w-5 h-5 text-amber-600" />{t(`${p}.productSpecsTitle`)}</h2>
                 {showSpecs ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
               </button>
               {showSpecs && (
                 <div className="mt-4 space-y-3">
-                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">Shape</span><span className="font-medium">{productSpecs.shape}</span></div>
-                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">Surface</span><span className="font-medium">{productSpecs.surface}</span></div>
-                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">Closure</span><span className="font-medium">{productSpecs.closure}</span></div>
-                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">Material Structure</span><span className="font-medium">{productSpecs.material}</span></div>
-                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">Print Colors</span><span className="font-medium">{productSpecs.printColors}</span></div>
-                  <div className="flex justify-between py-2"><span className="text-gray-600">Lead Time</span><span className="font-medium text-amber-700">{productSpecs.leadTime}</span></div>
+                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">{t(`${p}.shape`)}</span><span className="font-medium">{productSpecs.shape}</span></div>
+                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">{t(`${p}.surface`)}</span><span className="font-medium">{productSpecs.surface}</span></div>
+                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">{t(`${p}.closure`)}</span><span className="font-medium">{productSpecs.closure}</span></div>
+                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">{t(`${p}.materialStructure`)}</span><span className="font-medium">{productSpecs.material}</span></div>
+                  <div className="flex justify-between py-2 border-b"><span className="text-gray-600">{t(`${p}.printColors`)}</span><span className="font-medium">{productSpecs.printColors}</span></div>
+                  <div className="flex justify-between py-2"><span className="text-gray-600">{t(`${p}.leadTime`)}</span><span className="font-medium text-amber-700">{productSpecs.leadTime}</span></div>
                   <div className="flex flex-wrap gap-2 pt-3">
                     {productSpecs.features.map(f => (
                       <span key={f} className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-medium flex items-center gap-1">
@@ -168,23 +171,23 @@ const CoffeePouchQuotePage: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border border-green-100">
                 <Leaf className="w-8 h-8 text-green-600 mb-2" />
-                <h3 className="font-semibold">Eco-Friendly</h3>
-                <p className="text-sm text-gray-600">Natural kraft paper look with sustainable options</p>
+                <h3 className="font-semibold">{t(`${p}.ecoFriendlyTitle`)}</h3>
+                <p className="text-sm text-gray-600">{t(`${p}.ecoFriendlyDesc`)}</p>
               </div>
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
                 <Shield className="w-8 h-8 text-blue-600 mb-2" />
-                <h3 className="font-semibold">High Barrier</h3>
-                <p className="text-sm text-gray-600">Preserves freshness up to 12 months</p>
+                <h3 className="font-semibold">{t(`${p}.highBarrierTitle`)}</h3>
+                <p className="text-sm text-gray-600">{t(`${p}.highBarrierDesc`)}</p>
               </div>
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-100">
                 <Award className="w-8 h-8 text-purple-600 mb-2" />
-                <h3 className="font-semibold">Premium Finish</h3>
-                <p className="text-sm text-gray-600">Professional matte or gloss options</p>
+                <h3 className="font-semibold">{t(`${p}.premiumFinishTitle`)}</h3>
+                <p className="text-sm text-gray-600">{t(`${p}.premiumFinishDesc`)}</p>
               </div>
               <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-4 border border-orange-100">
                 <Globe className="w-8 h-8 text-orange-600 mb-2" />
-                <h3 className="font-semibold">Global Shipping</h3>
-                <p className="text-sm text-gray-600">FOB China, worldwide delivery</p>
+                <h3 className="font-semibold">{t(`${p}.globalShippingTitle`)}</h3>
+                <p className="text-sm text-gray-600">{t(`${p}.globalShippingDesc`)}</p>
               </div>
             </div>
           </div>
@@ -198,21 +201,21 @@ const CoffeePouchQuotePage: React.FC = () => {
               onClick={() => setActiveTab('roto')}
               className={`flex-1 py-4 px-6 text-center font-semibold transition ${activeTab === 'roto' ? 'bg-amber-50 text-amber-800 border-b-2 border-amber-600' : 'text-gray-500 hover:bg-gray-50'}`}
             >
-              <span className="block text-lg">Roto Print</span>
-              <span className="text-sm font-normal text-gray-500">MOQ 10,000 pcs • Best for large orders</span>
+              <span className="block text-lg">{t(`${p}.tabRoto`)}</span>
+              <span className="text-sm font-normal text-gray-500">{t(`${p}.tabRotoDesc`)}</span>
             </button>
             <button 
               onClick={() => setActiveTab('digital')}
               className={`flex-1 py-4 px-6 text-center font-semibold transition ${activeTab === 'digital' ? 'bg-amber-50 text-amber-800 border-b-2 border-amber-600' : 'text-gray-500 hover:bg-gray-50'}`}
             >
-              <span className="block text-lg">Digital Print</span>
-              <span className="text-sm font-normal text-gray-500">MOQ 100 pcs • Perfect for testing</span>
+              <span className="block text-lg">{t(`${p}.tabDigital`)}</span>
+              <span className="text-sm font-normal text-gray-500">{t(`${p}.tabDigitalDesc`)}</span>
             </button>
           </div>
 
           {/* Print: Show Tab Title */}
           <div className="hidden print:block p-4 bg-amber-50 border-b">
-            <h3 className="text-lg font-bold">Pricing - {activeTab === 'roto' ? 'Roto Print' : 'Digital Print'}</h3>
+            <h3 className="text-lg font-bold">{activeTab === 'roto' ? t(`${p}.pricingTitleRoto`) : t(`${p}.pricingTitleDigital`)}</h3>
           </div>
 
           {/* Pricing Notes */}
@@ -220,12 +223,12 @@ const CoffeePouchQuotePage: React.FC = () => {
             {activeTab === 'roto' ? (
               <div className="flex items-start gap-2 text-sm">
                 <Star className="w-4 h-4 text-amber-600 mt-0.5" />
-                <span><strong>Plate Cost:</strong> USD $120 per color per size. Printing on flat bottom side gusset requires extra plate.</span>
+                <span dangerouslySetInnerHTML={{ __html: t(`${p}.plateCostNote`) }} />
               </div>
             ) : (
               <div className="flex items-start gap-2 text-sm">
                 <Star className="w-4 h-4 text-amber-600 mt-0.5" />
-                <span><strong>Digital Print:</strong> No plate cost, unlimited colors. Perfect for small batches and multiple SKUs.</span>
+                <span dangerouslySetInnerHTML={{ __html: t(`${p}.digitalPrintNote`) }} />
               </div>
             )}
           </div>
@@ -236,28 +239,28 @@ const CoffeePouchQuotePage: React.FC = () => {
               <div key={product} className="mb-6 last:mb-0">
                 <h3 className="text-lg font-bold text-amber-800 mb-3 flex items-center gap-2">
                   <Package className="w-5 h-5" />
-                  {product} Coffee Pouch
-                  <span className="text-sm font-normal text-gray-500 ml-2">({items[0].size} mm)</span>
+                  {product} {t(`${p}.coffeePouch`)}
+                  <span className="text-sm font-normal text-gray-500 ml-2">({items[0].size} {t(`${p}.mm`)})</span>
                 </h3>
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
                       <tr className="bg-gray-50">
-                        <th className="text-left px-4 py-3 text-sm font-semibold text-gray-600">Size (W × H × G)</th>
-                        <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">Zipper</th>
-                        <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">Valve</th>
-                        <th className="text-right px-4 py-3 text-sm font-semibold text-gray-600">Quantity</th>
-                        <th className="text-right px-4 py-3 text-sm font-semibold text-gray-600">Unit Price</th>
-                        <th className="text-right px-4 py-3 text-sm font-semibold text-gray-600 bg-amber-50">Total</th>
+                        <th className="text-left px-4 py-3 text-sm font-semibold text-gray-600">{t(`${p}.sizeCol`)}</th>
+                        <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">{t(`${p}.zipperCol`)}</th>
+                        <th className="text-center px-4 py-3 text-sm font-semibold text-gray-600">{t(`${p}.valveCol`)}</th>
+                        <th className="text-right px-4 py-3 text-sm font-semibold text-gray-600">{t(`${p}.qtyCol`)}</th>
+                        <th className="text-right px-4 py-3 text-sm font-semibold text-gray-600">{t(`${p}.unitPriceCol`)}</th>
+                        <th className="text-right px-4 py-3 text-sm font-semibold text-gray-600 bg-amber-50">{t(`${p}.totalCol`)}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y">
                       {items.map((item, idx) => (
                         <tr key={idx} className="hover:bg-amber-50/30 transition">
-                          <td className="px-4 py-3 text-sm">{item.size} mm</td>
+                          <td className="px-4 py-3 text-sm">{item.size} {t(`${p}.mm`)}</td>
                           <td className="px-4 py-3 text-center">{item.zipper ? <CheckCircle className="w-4 h-4 text-green-500 mx-auto" /> : <span className="text-gray-300">—</span>}</td>
                           <td className="px-4 py-3 text-center">{item.valve ? <CheckCircle className="w-4 h-4 text-green-500 mx-auto" /> : <span className="text-gray-300">—</span>}</td>
-                          <td className="px-4 py-3 text-right font-medium">{item.qty.toLocaleString()} pcs</td>
+                          <td className="px-4 py-3 text-right font-medium">{item.qty.toLocaleString()} {t(`${p}.pcs`)}</td>
                           <td className="px-4 py-3 text-right">${item.unitPrice.toFixed(2)}</td>
                           <td className="px-4 py-3 text-right font-bold text-amber-800 bg-amber-50/50">${item.total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                         </tr>
@@ -274,21 +277,21 @@ const CoffeePouchQuotePage: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Terms */}
           <div className="bg-white rounded-2xl shadow-lg border border-amber-100 p-6 print:shadow-none">
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-600" />Terms & Conditions</h3>
+            <h3 className="text-lg font-bold mb-4 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-600" />{t(`${p}.termsTitle`)}</h3>
             <ul className="space-y-3 text-sm text-gray-600">
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />Prices are valid until {quoteInfo.validUntil}</li>
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />Production time: 25-30 business days after artwork approval</li>
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />Payment: 50% deposit to start, 50% before shipping</li>
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />Prices FOB Shenzhen, China. Shipping calculated separately</li>
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />Free design support and pre-production samples</li>
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />Full refund or replacement for defective products</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />{t(`${p}.terms1`, { date: quoteInfo.validUntil })}</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />{t(`${p}.terms2`)}</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />{t(`${p}.terms3`)}</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />{t(`${p}.terms4`)}</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />{t(`${p}.terms5`)}</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />{t(`${p}.terms6`)}</li>
             </ul>
           </div>
 
           {/* Contact */}
           <div className="bg-gradient-to-br from-amber-600 to-amber-700 rounded-2xl shadow-lg p-6 text-white print:bg-amber-100 print:text-gray-900">
-            <h3 className="text-lg font-bold mb-4">Ready to Order?</h3>
-            <p className="mb-6 opacity-90 print:opacity-100">Contact us today to get started with your custom coffee packaging.</p>
+            <h3 className="text-lg font-bold mb-4">{t(`${p}.readyToOrder`)}</h3>
+            <p className="mb-6 opacity-90 print:opacity-100">{t(`${p}.contactPrompt`)}</p>
             <div className="space-y-3">
               <a href="mailto:hello@achievepack.com" className="flex items-center gap-3 hover:opacity-80 transition">
                 <Mail className="w-5 h-5" />
@@ -302,7 +305,7 @@ const CoffeePouchQuotePage: React.FC = () => {
             <div className="mt-6 pt-6 border-t border-white/20 print:border-amber-300">
               <div className="flex items-center gap-2 text-sm opacity-75">
                 <Clock className="w-4 h-4" />
-                <span>Response within 24 hours</span>
+                <span>{t(`${p}.responseTime`)}</span>
               </div>
             </div>
           </div>
@@ -310,14 +313,14 @@ const CoffeePouchQuotePage: React.FC = () => {
 
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-2xl p-8 text-center print:hidden">
-          <h2 className="text-2xl font-bold text-amber-900 mb-2">Have Questions?</h2>
-          <p className="text-gray-600 mb-6">Our packaging experts are here to help you choose the perfect solution for your coffee brand.</p>
+          <h2 className="text-2xl font-bold text-amber-900 mb-2">{t(`${p}.haveQuestions`)}</h2>
+          <p className="text-gray-600 mb-6">{t(`${p}.questionsDesc`)}</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="mailto:hello@achievepack.com" className="inline-flex items-center gap-2 bg-amber-700 text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition font-medium">
-              <Mail className="w-4 h-4" />Request Custom Quote
+              <Mail className="w-4 h-4" />{t(`${p}.reqCustomQuote`)}
             </a>
             <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-amber-700 text-amber-700 px-6 py-3 rounded-lg hover:bg-amber-50 transition font-medium">
-              Contact Us<ArrowRight className="w-4 h-4" />
+              {t(`${p}.contactUs`)}<ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -329,7 +332,7 @@ const CoffeePouchQuotePage: React.FC = () => {
             <img src="/imgs/cert/brcgs.svg" alt="BRCGS" className="h-10 opacity-60" />
             <img src="/imgs/cert/iso.svg" alt="ISO" className="h-10 opacity-60" />
           </div>
-          <p>© {new Date().getFullYear()} Achieve Pack. All rights reserved.</p>
+          <p>{t(`${p}.copyright`, { year: new Date().getFullYear() })}</p>
           <p className="mt-1">www.achievepack.com • www.pouch.eco</p>
         </div>
       </div>

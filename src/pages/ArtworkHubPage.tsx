@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { ChangeEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { 
@@ -20,6 +21,9 @@ interface ArtworkWithAnalysis extends ArtworkFile {
 }
 
 export default function ArtworkHubPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.artworkHub'
+
   const navigate = useNavigate()
   const { user, signOut, loading: authLoading } = useAuth()
   const [artworks, setArtworks] = useState<ArtworkWithAnalysis[]>([])
@@ -408,7 +412,7 @@ export default function ArtworkHubPage() {
       <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
         <div className="text-center">
           <RefreshCw className="h-8 w-8 animate-spin text-primary-500 mx-auto mb-2" />
-          <p className="text-neutral-600">Loading...</p>
+          <p className="text-neutral-600">{t(`${p}.loading`)}</p>
         </div>
       </div>
     )
@@ -658,7 +662,7 @@ export default function ArtworkHubPage() {
                         </div>
                       ) : (
                         <div className="p-2 bg-orange-50 rounded-lg border border-orange-200">
-                          <span className="text-xs text-orange-700">No JSON metadata - Click Edit to add</span>
+                          <span className="text-xs text-orange-700">{t(`${p}.noJsonMeta`)}</span>
                         </div>
                       )}
                     </div>
@@ -949,8 +953,8 @@ Check color profile"
                     <Upload className="h-5 w-5 text-purple-600" />
                   </div>
                   <div>
-                    <h2 className="text-lg font-semibold text-neutral-900">Upload Artwork</h2>
-                    <p className="text-sm text-neutral-500">Upload for a customer</p>
+                    <h2 className="text-lg font-semibold text-neutral-900">{t(`${p}.uploadArtwork`)}</h2>
+                    <p className="text-sm text-neutral-500">{t(`${p}.uploadForCustomer`)}</p>
                   </div>
                 </div>
                 <button onClick={() => setShowUploadModal(false)} className="p-2 hover:bg-neutral-100 rounded-lg">
@@ -998,13 +1002,13 @@ Check color profile"
                   {uploading ? (
                     <>
                       <RefreshCw className="h-8 w-8 text-purple-500 animate-spin mb-2" />
-                      <span className="text-sm text-purple-600">Uploading...</span>
+                      <span className="text-sm text-purple-600">{t(`${p}.uploading`)}</span>
                     </>
                   ) : (
                     <>
                       <Upload className="h-8 w-8 text-purple-400 mb-2" />
-                      <span className="text-sm text-purple-600 font-medium">Click to upload files</span>
-                      <span className="text-xs text-neutral-500 mt-1">AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP, HEIC</span>
+                      <span className="text-sm text-purple-600 font-medium">{t(`${p}.clickToUpload`)}</span>
+                      <span className="text-xs text-neutral-500 mt-1">{t(`${p}.supportedFiles`)}</span>
                     </>
                   )}
                 </label>

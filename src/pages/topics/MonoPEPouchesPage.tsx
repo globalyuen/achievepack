@@ -5,8 +5,11 @@ import { Recycle, Package, CheckCircle, Award, Calendar, MessageCircle, Target, 
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const MonoPEPouchesPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.monoPEPouches';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,30 @@ const MonoPEPouchesPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Traditionally, flexible pouches have been "multi-layer" (e.g., PET/ALU/PE), making them impossible to recycle. <strong>Mono-PE (Polyethylene) pouches</strong> solve this by utilizing a single polymer family for the entire structure. In 2026, this is the <strong>#1 sustainable transition</strong> for brands aiming for 100% recyclability without sacrificing barrier performance.
-            </p>
+              {t(`${p}.traditionallyFlexiblePouchesHa`)}<strong>{t(`${p}.monoPePolyethylenePouches`)}</strong> {t(`${p}.solveThisByUtilizingASinglePol`)}<strong>{t(`${p}.1SustainableTransition`)}</strong> {t(`${p}.forBrandsAimingFor100Recyclabi`)}</p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-500">
-                <h4 className="font-semibold text-indigo-800">The Recyclability Barrier</h4>
+                <h4 className="font-semibold text-indigo-800">{t(`${p}.theRecyclabilityBarrier`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Eliminating mixed-material "contamination"</li>
-                  <li>• Compatibility with SPI Code 4 PE streams</li>
-                  <li>• High-purity resin recovery for second-life PCR</li>
-                  <li>• Compliance with EU PPWR circularity mandates</li>
+                  <li>{t(`${p}.eliminatingMixedMaterialContam`)}</li>
+                  <li>{t(`${p}.compatibilityWithSpiCode4PeStr`)}</li>
+                  <li>{t(`${p}.highPurityResinRecoveryForSeco`)}</li>
+                  <li>{t(`${p}.complianceWithEuPpwrCircularit`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                <h4 className="font-semibold text-green-800">Achieve Pack Mono Tech</h4>
+                <h4 className="font-semibold text-green-800">{t(`${p}.achievePackMonoTech`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• MDO-PE (Machine Direction Oriented) Stiffness</li>
-                  <li>• EVOH-PE High Oxygen Barrier (&lt; 0.5 OTR)</li>
-                  <li>• High-Purity "Metal-Free" Lamination</li>
-                  <li>• Recyclable PE Zippers & Spouts</li>
+                  <li>{t(`${p}.mdoPeMachineDirectionOrientedS`)}</li>
+                  <li>{t(`${p}.evohPeHighOxygenBarrierLt05Otr`)}</li>
+                  <li>{t(`${p}.highPurityMetalFreeLamination`)}</li>
+                  <li>{t(`${p}.recyclablePeZippersSpouts`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we have mastered the <strong>all-PE structure</strong>. By utilizing MDO-PE (Machine Direction Oriented) for the outer layer and specialized EVOH-PE barriers, we provide the shelf life of foil-lined bags in a format that can be dropped into standard plastic recycling bins.
-          </p>
+            {t(`${p}.atAchievePackWeHaveMasteredThe`)}<strong>{t(`${p}.allPeStructure`)}</strong>{t(`${p}.byUtilizingMdoPeMachineDirecti`)}</p>
         </div>
       )
     },
@@ -54,27 +55,25 @@ const MonoPEPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The biggest hurdle for mono-PE has always been <strong>heat resistance and stiffness</strong>. Traditional PE is too soft for high-speed filling lines and melts at the same temperature as the sealant.
-          </p>
+            {t(`${p}.theBiggestHurdleForMonoPeHasAl`)}<strong>{t(`${p}.heatResistanceAndStiffness`)}</strong>{t(`${p}.traditionalPeIsTooSoftForHighS`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">How MDO-PE Works</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.howMdoPeWorks`)}</h4>
               <p className="text-sm leading-relaxed">
-                Machine Direction Orientation (MDO) involves stretching the PE film under controlled temperature. This aligns the molecular chains, resulting in:
-              </p>
+                {t(`${p}.machineDirectionOrientationMdo`)}</p>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span><strong>High Modulus:</strong> Stiffness comparable to PET, allowing for high-speed HFFS/VFFS filling.</span>
+                  <span><strong>{t(`${p}.highModulus`)}</strong> {t(`${p}.stiffnessComparableToPetAllowi`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span><strong>Heat Resistance:</strong> An 8-12°C higher melting point, preventing the bag from melting during the sealing process.</span>
+                  <span><strong>{t(`${p}.heatResistance`)}</strong> {t(`${p}.an812CHigherMeltingPointPreven`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span><strong>Improved Clarity:</strong> Near-glass clarity for windows and product visibility.</span>
+                  <span><strong>{t(`${p}.improvedClarity`)}</strong> {t(`${p}.nearGlassClarityForWindowsAndP`)}</span>
                 </li>
               </ul>
             </div>
@@ -97,30 +96,29 @@ const MonoPEPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Recyclability is useless if the product spoils. We utilize <strong>specialized barrier additives</strong> that are compatible with the PE recycling stream (CEFLEX approved) to provide elite shelf stability.
-          </p>
+            {t(`${p}.recyclabilityIsUselessIfThePro`)}<strong>{t(`${p}.specializedBarrierAdditives`)}</strong> {t(`${p}.thatAreCompatibleWithThePeRecy`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
                 <Shield className="h-6 w-6 text-blue-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">EVOH-PE</h4>
-              <p className="text-sm text-neutral-600">A co-extruded gas barrier that blocks 99.9% of oxygen. Fully compatible with PE streams at &lt; 5% total weight.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.evohPe`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.aCoExtrudedGasBarrierThatBlock`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-indigo-100 rounded-lg w-fit mb-4">
                 <Layers className="h-6 w-6 text-indigo-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">AlOx/SiOx Coating</h4>
-              <p className="text-sm text-neutral-600">Vacuum-deposited nano-coatings that provide a glass-like moisture and oxygen barrier without using metal foil.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.aloxSioxCoating`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.vacuumDepositedNanoCoatingsTha`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-emerald-100 rounded-lg w-fit mb-4">
                 <Thermometer className="h-6 w-6 text-emerald-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Hot-Tack Strength</h4>
-              <p className="text-sm text-neutral-600">Our sealant layers are engineered for immediate bond strength, critical for heavy products like rice or pet food.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.hotTackStrength`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.ourSealantLayersAreEngineeredF`)}</p>
             </div>
           </div>
         </div>
@@ -133,27 +131,24 @@ const MonoPEPouchesPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Claiming "Recyclable" requires proof. Achieve Pack mono-PE pouches are engineered to follow the <strong>CEFLEX</strong> and <strong>PRE (Plastic Recyclers Europe)</strong> design-for-recycling guidelines.
-          </p>
+            {t(`${p}.claimingRecyclableRequiresProo`)}<strong>{t(`${p}.ceflex`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.prePlasticRecyclersEurope`)}</strong> {t(`${p}.designForRecyclingGuidelines`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-xl border border-neutral-200">
               <div className="flex items-center gap-3 mb-4">
                 <Globe className="h-6 w-6 text-primary-600" />
-                <h4 className="font-bold text-neutral-900">Global Certification</h4>
+                <h4 className="font-bold text-neutral-900">{t(`${p}.globalCertification`)}</h4>
               </div>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                Our structures have been audited and certified by third-party labs (like Cyclos-HTP or Interseroh) to ensure they achieve a <strong>recyclability rate of &gt; 90%</strong> in existing municipal infrastructure.
-              </p>
+                {t(`${p}.ourStructuresHaveBeenAuditedAn`)}<strong>{t(`${p}.recyclabilityRateOfGt90`)}</strong> {t(`${p}.inExistingMunicipalInfrastruct`)}</p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-neutral-200">
               <div className="flex items-center gap-3 mb-4">
                 <FileSearch className="h-6 w-6 text-primary-600" />
-                <h4 className="font-bold text-neutral-900">Technical Traceability</h4>
+                <h4 className="font-bold text-neutral-900">{t(`${p}.technicalTraceability`)}</h4>
               </div>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                We provide the <strong>Technical Data Sheets (TDS)</strong> and <strong>Declaration of Compliance (DoC)</strong> required for your brand's ESG reporting and Extended Producer Responsibility (EPR) fee reductions.
-              </p>
+                {t(`${p}.weProvideThe`)}<strong>{t(`${p}.technicalDataSheetsTds`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.declarationOfComplianceDoc`)}</strong> {t(`${p}.requiredForYourBrandSEsgReport`)}</p>
             </div>
           </div>
         </div>
@@ -165,10 +160,9 @@ const MonoPEPouchesPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-blue-700 to-indigo-900 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Circular Design. Proven Performance.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.circularDesignProvenPerformanc`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to transition from non-recyclable multi-layers to high-performance mono-PE? Our engineering team will match your current shelf life using our 100% recyclable structures.
-          </p>
+            {t(`${p}.readyToTransitionFromNonRecycl`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -176,19 +170,16 @@ const MonoPEPouchesPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Recyclability Audit
-            </button>
+              {t(`${p}.bookRecyclabilityAudit`)}</button>
             <Link
               to="/store"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <ShoppingBag className="h-5 w-5" />
-              Order Mono-PE Samples
-            </Link>
+              {t(`${p}.orderMonoPeSamples`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            CEFLEX COMPLIANT • SPI CODE 4 • MDO-PE TECH • BPA FREE
-          </p>
+            {t(`${p}.ceflexCompliantSpiCode4MdoPeTe`)}</p>
         </div>
       )
     }
@@ -216,7 +207,7 @@ const MonoPEPouchesPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Mono-PE Recyclable Pouches | High-Barrier Circular Tech | Achieve Pack</title>
+        <title>{t(`${p}.monoPeRecyclablePouchesHighBar`)}</title>
         <meta name="description" content="Technical guide to Mono-PE recyclable pouches. 800+ words on MDO-PE engineering, EVOH barrier science, and circular economy compliance." />
         <link rel="canonical" href="https://achievepack.com/topics/mono-pe-pouches" />
         <meta name="keywords" content="mono-PE pouches, recyclable flexible packaging, MDO-PE technology, EVOH barrier PE, circular packaging design, mono-material recyclability" />

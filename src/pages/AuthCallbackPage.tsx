@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { Loader2 } from 'lucide-react'
@@ -6,6 +7,9 @@ import { Loader2 } from 'lucide-react'
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
 const AuthCallbackPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.authCallback'
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -55,8 +59,8 @@ const AuthCallbackPage: React.FC = () => {
     <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
       <div className="text-center">
         <Loader2 className="h-12 w-12 animate-spin text-primary-600 mx-auto mb-4" />
-        <h2 className="text-xl font-semibold text-neutral-900">Signing you in...</h2>
-        <p className="text-neutral-600 mt-2">Please wait while we complete your authentication.</p>
+        <h2 className="text-xl font-semibold text-neutral-900">{t(`${p}.signingIn`)}</h2>
+        <p className="text-neutral-600 mt-2">{t(`${p}.pleaseWait`)}</p>
       </div>
     </div>
   )

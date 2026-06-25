@@ -1,15 +1,19 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Leaf, RefreshCw, AlertCircle, CheckCircle, Package, Mail, Phone } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import Footer from '../../components/Footer'
 
 const ReturnPolicyPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.returnPolicy'
+
   return (
     <>
       <Helmet>
-        <title>Return Policy | Achieve Pack</title>
-        <meta name="description" content="Return and refund policy for Achieve Pack. Find information about returning stock items, custom packaging, and our refund process." />
+        <title>{t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={t(`${p}.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/return-policy" />
       </Helmet>
 
@@ -31,8 +35,8 @@ const ReturnPolicyPage: React.FC = () => {
         <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <RefreshCw className="h-12 w-12 text-blue-200 mx-auto mb-4" />
-            <h1 className="text-4xl font-bold mb-4">Return & Refund Policy</h1>
-            <p className="text-blue-100">Clear, fair, and straightforward policies for our B2B customers.</p>
+            <h1 className="text-4xl font-bold mb-4">{t(`${p}.returnAndRefund`)}</h1>
+            <p className="text-blue-100">{t(`${p}.returnSubtitle`)}</p>
           </div>
         </section>
 
@@ -42,7 +46,7 @@ const ReturnPolicyPage: React.FC = () => {
             
             {/* Quick Summary */}
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-              <h2 className="font-semibold text-blue-800 mb-2">Quick Summary</h2>
+              <h2 className="font-semibold text-blue-800 mb-2">{t(`${p}.quickSummary`)}</h2>
               <ul className="text-sm text-blue-700 space-y-1">
                 <li>• <strong>No Physical Returns:</strong> Due to food safety and hygiene regulations, we cannot accept physical returns of packaging materials.</li>
                 <li>• <strong>Custom Printed Packaging:</strong> Non-refundable unless there is a confirmed manufacturing defect.</li>
@@ -186,7 +190,7 @@ const ReturnPolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">Refund or Replacement</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.refundReplacement`)}</h2>
               <div className="text-neutral-700 space-y-4">
                 <p>
                   Once your claim and destruction proof have been verified by our quality control team:
@@ -199,7 +203,7 @@ const ReturnPolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">How to Initiate a Return</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.howToInitiate`)}</h2>
               <div className="text-neutral-700 space-y-4">
                 <p>To start a return process, please contact our support team:</p>
                 <div className="bg-neutral-50 p-4 rounded-lg">

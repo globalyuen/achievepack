@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet'
@@ -212,6 +213,9 @@ Best regards,
 ]
 
 export default function LinkBuildingPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.linkBuilding'
+
   const [activeTab, setActiveTab] = useState<'dashboard' | 'opportunities' | 'mentions' | 'templates' | 'scan'>('dashboard')
   const [isLoading, setIsLoading] = useState(true)
   const [stats, setStats] = useState<DashboardStats | null>(null)
@@ -501,8 +505,8 @@ export default function LinkBuildingPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Link Building</h1>
-          <p className="text-sm text-gray-500">Manage backlink opportunities and outreach campaigns</p>
+          <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.pageTitle`)}</h1>
+          <p className="text-sm text-gray-500">{t(`${p}.pageSubtitle`)}</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" onClick={loadData}>
@@ -834,8 +838,8 @@ export default function LinkBuildingPage() {
           {templates.length === 0 && (
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex items-center justify-between">
               <div>
-                <p className="font-medium text-yellow-800">No templates found</p>
-                <p className="text-sm text-yellow-600">Initialize default templates to get started</p>
+                <p className="font-medium text-yellow-800">{t(`${p}.noTemplates`)}</p>
+                <p className="text-sm text-yellow-600">{t(`${p}.initTemplates`)}</p>
               </div>
               <Button onClick={initializeTemplates}>
                 <Zap className="w-4 h-4 mr-2" />

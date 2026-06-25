@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Ruler, Box, Maximize2, Package, Calculator, Settings, ArrowRightLeft, CheckCircle, Eye, X, Layers, ShoppingCart, ArrowRight, Download, Sparkles, Send, Loader2, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -38,6 +39,9 @@ const REFERENCE_DIMENSIONS: Record<string, { w: number, h: number }> = {
 };
 
 const PouchSizingPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchSizing'
+
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   // Sizing Calculator States
@@ -242,14 +246,14 @@ const PouchSizingPage: React.FC = () => {
             <div className="flex-1 space-y-6">
               <div>
                 <h4 className="text-lg font-bold text-amber-400 flex items-center gap-2 mb-2">
-                  <Sparkles className="h-5 w-5" /> 1. Enter Your Product Details
+                  <Sparkles className="h-5 w-5" /> {t(`${p}.enterDetails`)}
                 </h4>
                 <p className="text-xs text-neutral-300">Our algorithm maps volumetric density instantly to compute the perfect envelope size.</p>
               </div>
 
               {/* Product Category Select */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">What are you packaging?</label>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">{t(`${p}.whatPackaging`)}</label>
                 <div className="grid grid-cols-2 gap-2">
                   {PRODUCT_DENSITIES.map(prod => (
                     <button
@@ -270,7 +274,7 @@ const PouchSizingPage: React.FC = () => {
               {/* Weight Input Row */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Target Fill Weight</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">{t(`${p}.targetFillWeight`)}</label>
                   <div className="relative">
                     <input
                       type="number"
@@ -281,7 +285,7 @@ const PouchSizingPage: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Unit</label>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">{t(`${p}.unit`)}</label>
                   <div className="flex bg-neutral-800 rounded-xl p-1 border border-neutral-700">
                     <button
                       onClick={() => setWeightUnit('g')}
@@ -306,8 +310,8 @@ const PouchSizingPage: React.FC = () => {
               {/* Headspace Control Slider */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400">Headspace Allowance</label>
-                  <span className="text-xs font-bold text-amber-400">{headspacePercent}% (Highly Recommended)</span>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400">{t(`${p}.headspaceAllowance`)}</label>
+                  <span className="text-xs font-bold text-amber-400">{headspacePercent}% {t(`${p}.highlyRecommended`)}</span>
                 </div>
                 <input
                   type="range"
@@ -329,7 +333,7 @@ const PouchSizingPage: React.FC = () => {
             {/* Live Visual Result Display */}
             <div className="w-full lg:w-[320px] bg-neutral-950 p-6 rounded-xl border border-neutral-700 flex flex-col justify-between items-stretch">
               <div className="text-center">
-                <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Your Recommended Size</span>
+                <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">{t(`${p}.yourRecommendedSize`)}</span>
                 <div className="text-4xl font-extrabold text-amber-400 my-1">{calcResult.size}</div>
                 <div className="text-xs text-neutral-400 font-medium">{calcResult.sizeLabel}</div>
               </div>
@@ -366,15 +370,15 @@ const PouchSizingPage: React.FC = () => {
               {/* Exact Metrics List */}
               <div className="space-y-2 text-xs border-t border-neutral-800 pt-4">
                 <div className="flex justify-between">
-                  <span className="text-neutral-500">Dimensions:</span>
+                  <span className="text-neutral-500">{t(`${p}.dimensions`)}</span>
                   <span className="font-bold text-neutral-200">{calcResult.dimensions}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-500">Imperial:</span>
+                  <span className="text-neutral-500">{t(`${p}.imperial`)}</span>
                   <span className="font-semibold text-neutral-400">{calcResult.inchDims}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-neutral-500">Required Vol:</span>
+                  <span className="text-neutral-500">{t(`${p}.requiredVol`)}</span>
                   <span className="font-semibold text-neutral-400">~{Math.round(calcResult.totalVol)} ml</span>
                 </div>
               </div>
@@ -821,8 +825,8 @@ const PouchSizingPage: React.FC = () => {
   return (
     <>
       <SEOPageLayout heroBgColor="#0f172a"
-        title="Pouch Sizing Guide & Volume Density Calculator | Achieve Pack"
-        description="Complete pouch sizing guide with visual size comparison, dimensions in mm and inches, and capacity in grams. Use our volume density calculator for coffee, snacks, powders, and pet food. XXXS to XXL sizes."
+        title={t(`${p}.metaTitle`)}
+        description={t(`${p}.metaDesc`)}
         keywords={[
           'pouch sizes',
           'packaging dimensions',

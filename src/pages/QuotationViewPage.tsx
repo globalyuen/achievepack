@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { Lock, Download, CheckCircle, XCircle, Calendar, User, Building, Mail, Package, FileText, Printer } from 'lucide-react'
 import { supabase, QuotationBatch, QuotationItem } from '../lib/supabase'
 
 const QuotationViewPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.quotationView'
   const { id } = useParams<{ id: string }>()
   const [searchParams] = useSearchParams()
   const passwordParam = searchParams.get('p')
@@ -107,8 +110,8 @@ const QuotationViewPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <FileText className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold mb-2">Quotation Not Found</h1>
-          <p className="text-gray-500">This quotation may have been deleted or expired.</p>
+          <h1 className="text-2xl font-bold mb-2">{t(`${p}.quotationNotFound`)}</h1>
+          <p className="text-gray-500">{t(`${p}.deletedOrExpired`)}</p>
         </div>
       </div>
     )
@@ -134,7 +137,7 @@ const QuotationViewPage: React.FC = () => {
           <div className="flex items-start justify-between mb-8">
             <div>
               <img src="/ap-logo-black.svg" alt="Achieve Pack" className="h-10 mb-4" />
-              <h1 className="text-3xl font-bold">Quotation</h1>
+              <h1 className="text-3xl font-bold">{t(`${p}.quotationTitle`)}</h1>
               <p className="text-gray-500 text-lg">{batch.quote_number}</p>
             </div>
             <div className="text-right">
@@ -173,7 +176,7 @@ const QuotationViewPage: React.FC = () => {
             </div>
             <div className="text-right">
               <h3 className="text-sm font-medium text-gray-500 mb-2">FROM</h3>
-              <p className="font-medium">Achieve Pack</p>
+              <p className="font-medium">{t(`${p}.achievePack`)}</p>
               <p className="text-gray-600">www.achievepack.com</p>
               <p className="text-gray-600">hello@achievepack.com</p>
             </div>
@@ -236,7 +239,7 @@ const QuotationViewPage: React.FC = () => {
           <div className="flex justify-end mb-8">
             <div className="w-64">
               <div className="flex justify-between py-2">
-                <span className="text-gray-600">Subtotal</span>
+                <span className="text-gray-600">{t(`${p}.subtotal`)}</span>
                 <span>${batch.subtotal?.toFixed(2)}</span>
               </div>
               {batch.discount_percent > 0 && (
@@ -309,14 +312,14 @@ const QuotationViewPage: React.FC = () => {
             {batch.status === 'accepted' && (
               <div className="flex items-center gap-2 text-green-600">
                 <CheckCircle className="w-5 h-5" />
-                <span className="font-medium">Quote Accepted</span>
+                <span className="font-medium">{t(`${p}.quoteAccepted`)}</span>
               </div>
             )}
             
             {batch.status === 'rejected' && (
               <div className="flex items-center gap-2 text-red-600">
                 <XCircle className="w-5 h-5" />
-                <span className="font-medium">Quote Declined</span>
+                <span className="font-medium">{t(`${p}.quoteDeclined`)}</span>
               </div>
             )}
           </div>

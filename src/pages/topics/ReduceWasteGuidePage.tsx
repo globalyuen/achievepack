@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Recycle, Trash2  , Box } from 'lucide-react'
@@ -7,6 +8,7 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const ReduceWasteGuidePage: React.FC = () => {
+  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -63,21 +65,21 @@ const ReduceWasteGuidePage: React.FC = () => {
                 <TrendingUp className="h-6 w-6 text-green-600" />
               </div>
               <h4 className="font-bold text-neutral-900">Lightweighting</h4>
-              <p className="text-sm text-neutral-600">Reducing the overall micron thickness of the film by 15-25% through advanced molecular orientation.</p>
+              <p className="text-sm text-neutral-600">{t(`seoPages.pages.reduceWasteGuide.reducingThickness`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
               <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
                 <Box className="h-6 w-6 text-blue-600" />
               </div>
               <h4 className="font-bold text-neutral-900">Eliminating "Dead Air"</h4>
-              <p className="text-sm text-neutral-600">Custom sizing pouches to fit product volume exactly, reducing empty headspace and shipping volume.</p>
+              <p className="text-sm text-neutral-600">{t(`seoPages.pages.reduceWasteGuide.customSizing`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
               <div className="p-3 bg-emerald-100 rounded-lg w-fit mb-4">
                 <Recycle className="h-6 w-6 text-emerald-600" />
               </div>
               <h4 className="font-bold text-neutral-900">Mono-Material Shift</h4>
-              <p className="text-sm text-neutral-600">Replacing multi-material laminates with 100% recyclable mono-PE or mono-PP structures.</p>
+              <p className="text-sm text-neutral-600">{t(`seoPages.pages.reduceWasteGuide.replacingMulti`)}</p>
             </div>
           </div>
 
@@ -236,16 +238,16 @@ const ReduceWasteGuidePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Reduce Packaging Waste Guide | Sustainable Engineering | Achieve Pack</title>
-        <meta name="description" content="Authority guide to reducing packaging waste. 800+ words on source reduction, lightweighting, circular design, and LCA carbon footprint analysis." />
+        <title>{t(`seoPages.pages.reduceWasteGuide.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.reduceWasteGuide.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/reduce-waste-guide" />
         <meta name="keywords" content="reduce packaging waste, source reduction guide, lightweighting plastic packaging, circular packaging design, LCA carbon footprint, mono-material recycling" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#065f46"
-        title="Reduce Waste Guide: Engineering a Circular Future"
-        description="A technical roadmap to eliminating waste through engineered source reduction and circular design protocols."
+        title={t(`seoPages.pages.reduceWasteGuide.heroTitle`)}
+        description={t(`seoPages.pages.reduceWasteGuide.heroDesc`)}
         keywords={['reduce waste', 'source reduction', 'sustainable packaging guide']}
         heroTitle="Minimum Material. Maximum Impact."
         heroSubtitle="Source Reduction | Circular Design | Waste Audited"

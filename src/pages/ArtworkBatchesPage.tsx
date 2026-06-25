@@ -8,6 +8,7 @@ import {
   LayoutGrid, MessageSquare, CircleDashed, CheckCircle2,
   Image as ImageIcon, Link as LinkIcon, Crop, GripVertical
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
 import { analyzeArtworkWithXAI } from '../lib/artworkAnalysis'
@@ -23,6 +24,7 @@ const getRevisionLabel = (count: number): string => {
 }
 
 const ArtworkBatchesPage: React.FC = () => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   // Auth via AdminProtectedRoute (local password only) - no Supabase login required
   // const { user, loading: authLoading } = useAuth()

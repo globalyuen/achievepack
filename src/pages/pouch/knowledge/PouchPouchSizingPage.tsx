@@ -6,10 +6,14 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import SortableSizesTable, { STAND_UP_SIZES, FLAT_BOTTOM_SIZES } from '../../../components/SortableSizesTable'
 import { DIELINE_CATALOG, type DielineItem } from '../../../data/dielineCatalog'
+import { useTranslation } from 'react-i18next'
 
 export default function PouchPouchSizingPage() {
-  const title = "Standard Pouch Sizes Chart | Stand-Up & Flat Bottom | POUCH.ECO"
-  const description = "Comprehensive standard sizing charts for stand-up pouches and flat bottom bags. Compare dimensions in mm, volume in grams, and find the perfect tooling size."
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchPouchSizing'
+
+  const title = t(`${p}.title`)
+  const description = t(`${p}.description`)
 
   // Email Lead Gate & CAPTCHA States
   const [selectedShape, setSelectedShape] = React.useState<'stand-up' | 'flat-bottom'>('stand-up')
@@ -121,11 +125,11 @@ export default function PouchPouchSizingPage() {
         setEmailSuccess(true)
         localStorage.setItem('dieline_finder_email', clientEmail)
       } else {
-        alert(result.error || 'Failed to send email.')
+        alert(result.error || t(`${p}.leadGate.form.errorFailed`))
       }
     } catch (err) {
       console.error(err)
-      alert('A network error occurred. Please try again.')
+      alert(t(`${p}.leadGate.form.errorNetwork`))
     } finally {
       setSendingEmail(false)
       if ((window as any).turnstile && turnstileWidgetId.current) {
@@ -149,15 +153,15 @@ export default function PouchPouchSizingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm tracking-wider">KNOWLEDGE_BASE // STANDARD_SIZES</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm tracking-wider">{t(`${p}.hero.tag`)}</span>
               </div>
               
               <h1 className="font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter uppercase text-black drop-shadow-[4px_4px_0px_rgba(255,255,255,1)]">
-                The Size <span className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Matrix.</span>
+                {t(`${p}.hero.title`)} <span className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t(`${p}.hero.titleHighlight`)}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                Save time and money by utilizing our standard tooling. Browse comprehensive sizing charts for both Stand-Up Pouches and Flat Bottom Bags.
+                {t(`${p}.hero.subtitle`)}
               </p>
             </div>
 
@@ -166,11 +170,11 @@ export default function PouchPouchSizingPage() {
                 <div className="aspect-square relative overflow-hidden flex items-center justify-center bg-gray-100 p-8">
                    <img 
                     src="/imgs/seo-photos/a_size_reference_dimensions_7506199.webp" 
-                    alt="Various pouch sizes lined up for volume comparison" 
+                    alt={t(`${p}.hero.imageAlt`)} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 bg-white"
                   />
                   <div className="absolute bottom-4 left-4 bg-black text-white border-2 border-black px-3 py-1 font-['Space_Grotesk'] font-bold text-lg shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-                    VOLUME = W × H + G
+                    {t(`${p}.hero.volumeFormula`)}
                   </div>
                 </div>
               </NeoCard>
@@ -187,25 +191,25 @@ export default function PouchPouchSizingPage() {
             <div className="lg:col-span-2 space-y-12">
               <div>
                  <h2 className="text-3xl md:text-4xl font-['Space_Grotesk'] font-black uppercase mb-6">
-                   Stand-Up Pouch <span className="text-[#10b981]">Standard Sizes</span>
+                   {t(`${p}.content.standUp.title`)} <span className="text-[#10b981]">{t(`${p}.content.standUp.titleHighlight`)}</span>
                  </h2>
                  <p className="font-['JetBrains_Mono'] text-gray-700 mb-6">
-                   Stand-up pouches (Doypacks) are the most popular flexible packaging format globally. They feature a bottom gusset that expands to hold volume and stand upright. The sizes below represent our most common tooling, allowing for faster turnaround times and no custom die fees.
+                   {t(`${p}.content.standUp.desc`)}
                  </p>
                  <div className="border-4 border-black overflow-hidden bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4">
-                   <SortableSizesTable sizes={STAND_UP_SIZES} title="Stand-Up Pouch Dimensions" />
+                   <SortableSizesTable sizes={STAND_UP_SIZES} title={t(`${p}.content.standUp.tableTitle`)} />
                  </div>
               </div>
 
               <div>
                  <h2 className="text-3xl md:text-4xl font-['Space_Grotesk'] font-black uppercase mb-6">
-                   Flat Bottom Bag <span className="text-purple-500">Standard Sizes</span>
+                   {t(`${p}.content.flatBottom.title`)} <span className="text-purple-500">{t(`${p}.content.flatBottom.titleHighlight`)}</span>
                  </h2>
                  <p className="font-['JetBrains_Mono'] text-gray-700 mb-6">
-                   Flat Bottom Bags (Box Pouches) offer five printable panels and exceptional shelf stability. Because of their square base and side gussets, they often hold slightly more volume than a stand-up pouch of identical height and width.
+                   {t(`${p}.content.flatBottom.desc`)}
                  </p>
                  <div className="border-4 border-black overflow-hidden bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4">
-                   <SortableSizesTable sizes={FLAT_BOTTOM_SIZES} title="Flat Bottom Bag Dimensions" categoryColor="purple" />
+                   <SortableSizesTable sizes={FLAT_BOTTOM_SIZES} title={t(`${p}.content.flatBottom.tableTitle`)} categoryColor="purple" />
                  </div>
               </div>
             </div>
@@ -214,10 +218,10 @@ export default function PouchPouchSizingPage() {
                 {/* Neo-Brutalist Dieline Auto-Sender Lead Gate */}
                 <NeoCard className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                   <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-3 flex items-center gap-2 text-black">
-                    <Mail className="w-6 h-6 stroke-[2]" /> Get Free Dielines
+                    <Mail className="w-6 h-6 stroke-[2]" /> {t(`${p}.leadGate.title`)}
                   </h3>
                   <p className="font-['JetBrains_Mono'] text-xs text-neutral-700 mb-4 leading-normal">
-                    Select a shape and template size to receive high-fidelity vector blueprints (.AI / .PDF) directly in your email.
+                    {t(`${p}.leadGate.desc`)}
                   </p>
 
                   <div className="flex bg-gray-100 border-2 border-black p-1 mb-4">
@@ -228,7 +232,7 @@ export default function PouchPouchSizingPage() {
                         selectedShape === 'stand-up' ? 'bg-black text-[#D4FF00]' : 'text-black'
                       }`}
                     >
-                      Stand Up
+                      {t(`${p}.leadGate.shapes.standUp`)}
                     </button>
                     <button
                       type="button"
@@ -237,29 +241,29 @@ export default function PouchPouchSizingPage() {
                         selectedShape === 'flat-bottom' ? 'bg-black text-[#D4FF00]' : 'text-black'
                       }`}
                     >
-                      Flat Bottom
+                      {t(`${p}.leadGate.shapes.flatBottom`)}
                     </button>
                   </div>
 
                   {emailSuccess ? (
                     <div className="border-4 border-emerald-600 bg-emerald-50 p-4 text-center">
                       <CheckCircle className="h-6 w-6 text-emerald-600 mx-auto mb-2" />
-                      <div className="font-['Space_Grotesk'] font-black text-emerald-800 uppercase text-sm">Email Sent!</div>
+                      <div className="font-['Space_Grotesk'] font-black text-emerald-800 uppercase text-sm">{t(`${p}.leadGate.success.title`)}</div>
                       <p className="font-['JetBrains_Mono'] text-[11px] text-emerald-700 mt-1 leading-normal">
-                        Dieline templates are dispatched to <strong>{clientEmail}</strong>. Check your inbox.
+                        {t(`${p}.leadGate.success.desc1`)} <strong>{clientEmail}</strong>{t(`${p}.leadGate.success.desc2`)}
                       </p>
                       <button
                         type="button"
                         onClick={() => setEmailSuccess(false)}
                         className="font-['JetBrains_Mono'] text-xs text-black font-extrabold uppercase mt-4 underline"
                       >
-                        Send Another
+                        {t(`${p}.leadGate.success.sendAnother`)}
                       </button>
                     </div>
                   ) : (
                     <form onSubmit={handleEmailDielineSubmit} className="space-y-4">
                       <div>
-                        <label className="block font-['Space_Grotesk'] font-bold text-xs uppercase mb-1.5">Select Template Size</label>
+                        <label className="block font-['Space_Grotesk'] font-bold text-xs uppercase mb-1.5">{t(`${p}.leadGate.form.selectTemplate`)}</label>
                         <select
                           value={emailDielineFilename}
                           onChange={(e) => {
@@ -280,11 +284,11 @@ export default function PouchPouchSizingPage() {
                       </div>
 
                       <div>
-                        <label className="block font-['Space_Grotesk'] font-bold text-xs uppercase mb-1.5">Your Email Address</label>
+                        <label className="block font-['Space_Grotesk'] font-bold text-xs uppercase mb-1.5">{t(`${p}.leadGate.form.yourEmail`)}</label>
                         <input
                           type="email"
                           required
-                          placeholder="hello@brand.com"
+                          placeholder={t(`${p}.leadGate.form.emailPlaceholder`)}
                           value={clientEmail}
                           onChange={(e) => setClientEmail(e.target.value)}
                           className="w-full bg-white border-2 border-black text-xs font-bold font-['JetBrains_Mono'] px-3 py-2.5 text-black outline-none focus:bg-yellow-50 transition"
@@ -301,47 +305,41 @@ export default function PouchPouchSizingPage() {
                       >
                         {sendingEmail ? (
                           <>
-                            <Loader2 className="w-4 h-4 animate-spin" /> Emailing...
+                            <Loader2 className="w-4 h-4 animate-spin" /> {t(`${p}.leadGate.form.btnEmailing`)}
                           </>
                         ) : (
                           <>
-                            <Send className="w-4 h-4" /> Email Dieline
+                            <Send className="w-4 h-4" /> {t(`${p}.leadGate.form.btnEmailDieline`)}
                           </>
                         )}
                       </button>
 
                       <p className="font-['JetBrains_Mono'] text-[9px] text-neutral-500 text-center leading-normal">
-                        🔒 We don't spam. Your email is strictly used to deliver print dielines.
+                        {t(`${p}.leadGate.form.spamNotice`)}
                       </p>
                     </form>
                   )}
                 </NeoCard>
 
                <NeoCard className="bg-[#D4FF00] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                 <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-4">Why Use Standard Sizes?</h3>
+                 <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-4">{t(`${p}.whyStandardSizes.title`)}</h3>
                  <ul className="font-['JetBrains_Mono'] text-sm space-y-4 text-black">
-                   <li className="flex items-start gap-2">
-                     <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                     <span><strong>Zero Die Fees:</strong> We already own the tooling cutters for these sizes, saving you hundreds of dollars in setup costs.</span>
-                   </li>
-                   <li className="flex items-start gap-2">
-                     <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                     <span><strong>Faster Production:</strong> Standard sizes move through our machine queues faster than custom calibrations.</span>
-                   </li>
-                   <li className="flex items-start gap-2">
-                     <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                     <span><strong>Retail Consistency:</strong> These sizes fit perfectly on standard retail shelving and pegboards.</span>
-                   </li>
+                   {[0, 1, 2].map((idx) => (
+                     <li key={idx} className="flex items-start gap-2">
+                       <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                       <span><strong>{t(`${p}.whyStandardSizes.reasons.${idx}.title`)}</strong> {t(`${p}.whyStandardSizes.reasons.${idx}.desc`)}</span>
+                     </li>
+                   ))}
                  </ul>
                </NeoCard>
 
                <div className="bg-black text-white p-6 border-4 border-black">
-                 <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2">Need a Custom Size?</h3>
+                 <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2">{t(`${p}.needCustomSize.title`)}</h3>
                  <p className="font-['JetBrains_Mono'] text-sm text-gray-300 mb-4">
-                   Not a problem. We can manufacture pouches to your exact millimeter specifications. A one-time custom tooling fee will apply.
+                   {t(`${p}.needCustomSize.desc`)}
                  </p>
                  <NeoButton href="/quote" variant="secondary" className="w-full justify-center !bg-white !text-black hover:!bg-gray-200">
-                   Request Custom Quote
+                   {t(`${p}.needCustomSize.btn`)}
                  </NeoButton>
                </div>
             </div>
@@ -353,32 +351,11 @@ export default function PouchPouchSizingPage() {
       <section className="py-24 bg-gray-50 border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Pouch Sizing <span className="text-[#10b981]">FAQ</span>
+            {t(`${p}.faq.title`)} <span className="text-[#10b981]">{t(`${p}.faq.titleHighlight`)}</span>
           </h2>
 
           <div className="space-y-6">
-            {[
-              {
-                q: 'What do the measurements W x H + G mean?',
-                a: 'Width (W) is measured across the pouch left to right. Height (H) is measured top to bottom. Gusset (G) is the depth. For stand-up pouches, it is the bottom gusset. For flat bottom bags, it refers to the side gussets.'
-              },
-              {
-                q: 'Are the measurements internal or external?',
-                a: 'All manufacturing dimensions provided on our site and dielines are External Dimensions (Outside Dimensions / OD). You must account for the seal margins (usually 5-10mm per side) when calculating internal volume.'
-              },
-              {
-                q: 'How accurate is the volume/weight estimation?',
-                a: 'The estimations (e.g., "Holds 250g") are based on standard roasted coffee beans. If your product is very dense (like salt) it will hold much more weight. If your product is very light (like popcorn), it will hold much less weight. Always request physical samples to test.'
-              },
-              {
-                q: 'Can I change the size of the window on a standard pouch?',
-                a: 'Yes! The clear window is printed into the design, it does not require a physical cut in the bag. Therefore, you can have any shape or size of window on any of our standard pouch sizes.'
-              },
-              {
-                q: 'If I order a custom size, do I pay the die fee every time?',
-                a: 'No. The custom die fee is a one-time charge. We keep your custom cutter on file for all your future reorders.'
-              }
-            ].map((faq, idx) => (
+            {[0, 1, 2, 3, 4].map((idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
@@ -389,10 +366,10 @@ export default function PouchPouchSizingPage() {
               >
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase mb-3 flex items-start gap-3">
                   <span className="text-black flex-shrink-0">Q:</span>
-                  {faq.q}
+                  {t(`${p}.faq.items.${idx}.q`)}
                 </h3>
                 <p className="font-['JetBrains_Mono'] text-sm text-gray-700 pl-8">
-                  <span className="font-bold text-black">A:</span> {faq.a}
+                  <span className="font-bold text-black">A:</span> {t(`${p}.faq.items.${idx}.a`)}
                 </p>
               </motion.div>
             ))}
@@ -403,13 +380,13 @@ export default function PouchPouchSizingPage() {
       {/* CTA Section */}
       <section className="py-24 bg-black text-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-10">
-          <h2 className="font-black text-5xl md:text-7xl uppercase">Find Your Fit</h2>
+          <h2 className="font-black text-5xl md:text-7xl uppercase">{t(`${p}.cta.title`)}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-gray-300">
-            Let us send you a free sample pack containing our standard sizes so you can test your product volume in real life.
+            {t(`${p}.cta.desc`)}
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
             <NeoButton href="/free-service" variant="primary" className="!bg-[#D4FF00] !text-black w-full sm:w-auto text-xl py-4">
-              Get Size Samples <ArrowRight className="inline-block ml-2 w-6 h-6" />
+              {t(`${p}.cta.btn`)} <ArrowRight className="inline-block ml-2 w-6 h-6" />
             </NeoButton>
           </div>
         </div>

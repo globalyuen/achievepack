@@ -76,7 +76,7 @@ const StandUpPouchesPage: React.FC = () => {
     { 
       src: '/imgs/pouch-shape/achieve-pack-sup-hero.png', 
       title: t(`${p}.b2c.showcase.gallery.0.title`, 'Premium Printed Stand-Up Pouch'), 
-      desc: t(`${p}.b2c.showcase.gallery.0.desc`, 'Custom printed stand-up pouch showcasing beautiful digital printing with high contrast and vibrant eco-inks.') 
+      desc: t(`${p}.b2c.showcase.gallery.0.desc`, 'Custom printed stand-up pouch showcasing beautiful digital printing with high contrast and vibrant eco-inks.')
     },
     { 
       src: '/imgs/pouch-shape/achieve-pack-sup-lifestyle.png', 

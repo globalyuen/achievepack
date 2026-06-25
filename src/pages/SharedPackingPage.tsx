@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Loader2, AlertCircle, CheckCircle, Package, Send, Plus, Trash2, Lock, Download, FileSpreadsheet } from 'lucide-react';
 import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
+import { useTranslation } from 'react-i18next';
 
 interface PackingItem {
   id: number | string;
@@ -27,6 +28,7 @@ interface PackingData {
 }
 
 export default function SharedPackingPage() {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
   const [loading, setLoading] = useState(true);
@@ -125,7 +127,7 @@ export default function SharedPackingPage() {
     };
 
     const addItem = () => setItems(prev => [...prev, { id: Date.now().toString(), name: '', details: '', ctn: 0, kgCtn: 0, cbm: 0 }]);
-    const removeItem = (idx: number) => { if (confirm('确定要删除这项货物吗？')) setItems(prev => prev.filter((_, i) => i !== idx)); };
+    const removeItem = (idx: number) => { if (confirm(t('sharedPacking.confirmDelete', 'Are you sure you want to delete this item?'))) setItems(prev => prev.filter((_, i) => i !== idx)); };
 
     const handleSubmit = async () => {
       if (!id) return;
@@ -137,9 +139,9 @@ export default function SharedPackingPage() {
           body: JSON.stringify({ id, items }),
         });
         const result = await resp.json();
-        if (!result.success) throw new Error(result.error || '提交失败');
+        if (!result.success) throw new Error(result.error || t('sharedPacking.submitFailed', 'Failed to submit'));
         setSubmitted(true);
-      } catch (e: any) { alert('错误: ' + e.message); } 
+      } catch (e: any) { alert(t('sharedPacking.errorPrefix', 'Error: ') + e.message); } 
       finally { setSubmitting(false); }
     };
 
@@ -152,7 +154,7 @@ export default function SharedPackingPage() {
           <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
             <img src="/logo.png" alt="Achieve Pack" className="h-8 w-auto object-contain" />
             <div className="h-6 w-px bg-gray-200" />
-            <span className="text-sm font-semibold text-gray-600">供应商装箱信息填写</span>
+            <span className="text-sm font-semibold text-gray-600">{t('sharedPacking.supplierTitle', 'Supplier Packing Details Entry')}</span>
             <span className="ml-auto text-xs text-gray-400 font-mono">#{data.invoiceNo}</span>
           </div>
         </div>
@@ -162,16 +164,16 @@ export default function SharedPackingPage() {
             <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-4">
               <div className="flex items-center gap-2 text-white">
                 <Package className="w-5 h-5" />
-                <span className="font-bold text-lg">订单信息</span>
+                <span className="font-bold text-lg">{t('sharedPacking.orderInfo', 'Order Info')}</span>
               </div>
             </div>
             <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">发票号码</p>
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">{t('sharedPacking.invoiceNumber', 'Invoice Number')}</p>
                 <p className="font-bold text-gray-800 text-base">{data.invoiceNo}</p>
               </div>
               <div>
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">日期</p>
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">{t('sharedPacking.date', 'Date')}</p>
                 <p className="text-gray-700">{data.invoiceDate}</p>
               </div>
             </div>
@@ -181,22 +183,24 @@ export default function SharedPackingPage() {
             <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 flex items-start gap-4">
               <CheckCircle className="w-8 h-8 text-emerald-500 flex-shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-bold text-emerald-800 text-lg">✅ 装箱信息提交成功！</h3>
-                <p className="text-emerald-700 text-sm mt-1">感谢您的配合，Achieve Pack 将尽快处理并准备出货文件。</p>
+                <h3 className="font-bold text-emerald-800 text-lg">{t('sharedPacking.submitSuccess', '✅ Packing details submitted successfully!')}</h3>
+                <p className="text-emerald-700 text-sm mt-1">{t('sharedPacking.submitSuccessDesc', 'Thank you for your cooperation. Achieve Pack will process it and prepare shipping documents as soon as possible.')}</p>
               </div>
             </div>
           )}
 
           {!submitted && (
             <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-sm text-amber-800">
-              <p className="font-semibold mb-1">📦 填写说明</p>
-              <p>请填写以下每项货物的<strong>箱数（CTN）</strong>、<strong>每箱毛重（KG）</strong>及<strong>每箱体积（CBM）</strong>，然后点击<strong>提交</strong>。</p>
+              <p className="font-semibold mb-1">{t('sharedPacking.fillInstructionsTitle', '📦 Instructions')}</p>
+              <p>
+                {t('sharedPacking.instructionsPart1', 'Please fill in the')} <strong>{t('sharedPacking.ctnLabel', 'Cartons (CTN)')}</strong>, <strong>{t('sharedPacking.kgCtnLabel', 'Gross Weight/Carton (KG)')}</strong> {t('sharedPacking.and', 'and')} <strong>{t('sharedPacking.cbmLabel', 'Volume/Carton (CBM)')}</strong> {t('sharedPacking.instructionsPart2', 'for each item below, and click')} <strong>{t('sharedPacking.submit', 'Submit')}</strong>.
+              </p>
             </div>
           )}
 
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100">
-              <h2 className="font-bold text-gray-800">货物明细</h2>
+              <h2 className="font-bold text-gray-800">{t('sharedPacking.packingDetails', 'Packing Details')}</h2>
             </div>
             <div className="divide-y divide-gray-50">
               {items.map((item, idx) => (
@@ -205,34 +209,34 @@ export default function SharedPackingPage() {
                     <span className="bg-emerald-100 text-emerald-700 font-bold text-sm rounded-full w-7 h-7 flex items-center justify-center flex-shrink-0 mt-1">{idx + 1}</span>
                     <div className="flex-1 space-y-2 pr-10">
                       <div>
-                        <label className="block text-xs font-semibold text-gray-500 mb-1">货物名称 (Item Name)</label>
-                        <input type="text" value={item.name} onChange={e => updateItem(idx, 'name', e.target.value)} placeholder="输入货物名称" className="w-full font-bold text-gray-800 border-b border-gray-200 px-0 py-1 focus:border-emerald-500 outline-none transition bg-transparent" />
+                        <label className="block text-xs font-semibold text-gray-500 mb-1">{t('sharedPacking.itemNameLabel', 'Item Name')}</label>
+                        <input type="text" value={item.name} onChange={e => updateItem(idx, 'name', e.target.value)} placeholder={t('sharedPacking.itemNamePlaceholder', 'Enter item name')} className="w-full font-bold text-gray-800 border-b border-gray-200 px-0 py-1 focus:border-emerald-500 outline-none transition bg-transparent" />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-gray-500 mb-1">详细描述 (Details / SKU)</label>
-                        <textarea value={item.details} onChange={e => updateItem(idx, 'details', e.target.value)} placeholder="输入货物详细描述 (选填)" rows={2} className="w-full text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-400 outline-none bg-gray-50 resize-none" />
+                        <label className="block text-xs font-semibold text-gray-500 mb-1">{t('sharedPacking.itemDetailsLabel', 'Details / SKU')}</label>
+                        <textarea value={item.details} onChange={e => updateItem(idx, 'details', e.target.value)} placeholder={t('sharedPacking.itemDetailsPlaceholder', 'Enter item details (optional)')} rows={2} className="w-full text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-400 outline-none bg-gray-50 resize-none" />
                       </div>
                     </div>
                     <button onClick={() => removeItem(idx)} className="absolute right-0 top-1 text-red-400 hover:text-red-600 p-2 hover:bg-red-50 rounded-lg transition"><Trash2 className="w-5 h-5" /></button>
                   </div>
                   <div className="grid grid-cols-3 gap-3">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5">箱数（CTN）</label>
+                      <label className="block text-xs font-semibold text-gray-500 mb-1.5">{t('sharedPacking.ctnLabel', 'Cartons (CTN)')}</label>
                       <input type="number" min="0" value={item.ctn || ''} onChange={e => updateItem(idx, 'ctn', parseFloat(e.target.value) || 0)} className="w-full border border-gray-200 rounded-lg px-3 py-2 text-right font-mono outline-none bg-gray-50" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5">每箱毛重（KG）</label>
+                      <label className="block text-xs font-semibold text-gray-500 mb-1.5">{t('sharedPacking.kgCtnLabel', 'Gross Weight/Carton (KG)')}</label>
                       <input type="number" min="0" step="0.01" value={item.kgCtn || ''} onChange={e => updateItem(idx, 'kgCtn', parseFloat(e.target.value) || 0)} className="w-full border border-gray-200 rounded-lg px-3 py-2 text-right font-mono outline-none bg-gray-50" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5">每箱体积（CBM）</label>
+                      <label className="block text-xs font-semibold text-gray-500 mb-1.5">{t('sharedPacking.cbmLabel', 'Volume/Carton (CBM)')}</label>
                       <input type="number" min="0" step="0.001" value={item.cbm || ''} onChange={e => updateItem(idx, 'cbm', parseFloat(e.target.value) || 0)} className="w-full border border-gray-200 rounded-lg px-3 py-2 text-right font-mono outline-none bg-gray-50" />
                     </div>
                   </div>
                   {(item.ctn > 0 || item.kgCtn > 0 || item.cbm > 0) && (
                     <div className="mt-3 flex gap-4 text-xs text-gray-500 bg-gray-50 rounded-lg px-3 py-2">
-                      <span>总重量: <strong className="text-gray-700">{(item.ctn * item.kgCtn).toFixed(2)} KG</strong></span>
-                      <span>总体积: <strong className="text-gray-700">{(item.ctn * item.cbm).toFixed(3)} CBM</strong></span>
+                      <span>{t('sharedPacking.totalWeight', 'Total Weight')}: <strong className="text-gray-700">{(item.ctn * item.kgCtn).toFixed(2)} KG</strong></span>
+                      <span>{t('sharedPacking.totalVolume', 'Total Volume')}: <strong className="text-gray-700">{(item.ctn * item.cbm).toFixed(3)} CBM</strong></span>
                     </div>
                   )}
                 </div>
@@ -240,18 +244,24 @@ export default function SharedPackingPage() {
             </div>
             <div className="px-6 py-4 border-t border-gray-50">
               <button onClick={addItem} className="flex items-center justify-center gap-2 w-full py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:text-emerald-600 transition font-medium">
-                <Plus className="w-5 h-5" /> 新增货物 (Add New Item)
+                <Plus className="w-5 h-5" /> {t('sharedPacking.addNewItem', 'Add New Item')}
               </button>
             </div>
             <div className="border-t border-gray-100 bg-gray-50 px-6 py-4 flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm">
-              <div><span className="text-gray-500">总毛重: </span><strong className="text-gray-800 font-mono">{totalGross.toFixed(2)} KG</strong></div>
-              <div><span className="text-gray-500">总体积: </span><strong className="text-gray-800 font-mono">{totalCBM > 0 ? totalCBM.toFixed(3) : '---'} CBM</strong></div>
+              <div><span className="text-gray-500">{t('sharedPacking.totalGrossWeight', 'Total Gross Weight')}: </span><strong className="text-gray-800 font-mono">{totalGross.toFixed(2)} KG</strong></div>
+              <div><span className="text-gray-500">{t('sharedPacking.totalVolume', 'Total Volume')}: </span><strong className="text-gray-800 font-mono">{totalCBM > 0 ? totalCBM.toFixed(3) : '---'} CBM</strong></div>
             </div>
           </div>
 
           <div className="pb-8">
             <button onClick={handleSubmit} disabled={submitting} className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 disabled:opacity-60 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 shadow-lg transition">
-              {submitting ? <><Loader2 className="w-5 h-5 animate-spin" /> 正在提交…</> : submitted ? <><CheckCircle className="w-5 h-5" /> 重新提交更新信息</> : <><Send className="w-5 h-5" /> 提交装箱信息给 Achieve Pack</>}
+              {submitting ? (
+                <><Loader2 className="w-5 h-5 animate-spin" /> {t('sharedPacking.submitting', 'Submitting…')}</>
+              ) : submitted ? (
+                <><CheckCircle className="w-5 h-5" /> {t('sharedPacking.resubmit', 'Resubmit updated information')}</>
+              ) : (
+                <><Send className="w-5 h-5" /> {t('sharedPacking.submitToAchieve', 'Submit packing information to Achieve Pack')}</>
+              )}
             </button>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ShoppingBag, Menu, X, ArrowLeft, ArrowRight, Sun, Leaf, Droplets, Heart, Feather, Award } from 'lucide-react'
@@ -89,6 +90,9 @@ const PRODUCTS = [
 ]
 
 export default function AchieveHoneyDemoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.achieveHoneyDemo'
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeProduct, setActiveProduct] = useState(PRODUCTS[0])
@@ -107,7 +111,7 @@ export default function AchieveHoneyDemoPage() {
     <div className="min-h-screen bg-[#FDFBF7] text-stone-800 font-sans selection:bg-amber-200 selection:text-amber-900">
       <Helmet>
         <title>Achieve Honey | Nature's Sweetest Gift | Demo Site</title>
-        <meta name="description" content="Achieve Honey - Pure, organic honey drinks in sustainable bottle-shaped pouches." />
+        <meta name="description" content={t(`${p}.metaDesc`)} />
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
           .font-playfair { font-family: 'Playfair Display', serif; }
@@ -133,9 +137,9 @@ export default function AchieveHoneyDemoPage() {
           </div>
 
           <div className="hidden md:flex items-center gap-8 font-lato text-sm font-semibold tracking-widest uppercase text-stone-600">
-            <a href="#flavors" className="hover:text-amber-600 transition-colors">Collection</a>
-            <a href="#story" className="hover:text-amber-600 transition-colors">Our Story</a>
-            <a href="#sustainability" className="hover:text-amber-600 transition-colors">Sustainability</a>
+            <a href="#flavors" className="hover:text-amber-600 transition-colors">{t(`${p}.collection`)}</a>
+            <a href="#story" className="hover:text-amber-600 transition-colors">{t(`${p}.ourStory`)}</a>
+            <a href="#sustainability" className="hover:text-amber-600 transition-colors">{t(`${p}.sustainability`)}</a>
           </div>
 
           <div className="flex items-center gap-6">
@@ -167,9 +171,9 @@ export default function AchieveHoneyDemoPage() {
             <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8">
               <X className="w-8 h-8 text-stone-500" />
             </button>
-            <a href="#flavors" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-600 hover:italic transition-all">Collection</a>
-            <a href="#story" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-600 hover:italic transition-all">Our Story</a>
-            <a href="#sustainability" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-600 hover:italic transition-all">Sustainability</a>
+            <a href="#flavors" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-600 hover:italic transition-all">{t(`${p}.collection`)}</a>
+            <a href="#story" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-600 hover:italic transition-all">{t(`${p}.ourStory`)}</a>
+            <a href="#sustainability" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-600 hover:italic transition-all">{t(`${p}.sustainability`)}</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -276,7 +280,7 @@ export default function AchieveHoneyDemoPage() {
               
               {/* Floating Badge */}
               <div className="absolute top-8 right-8 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg">
-                <span className={`font-bold font-lato ${activeProduct.accent}`}>New Arrival</span>
+                <span className={`font-bold font-lato ${activeProduct.accent}`}>{t(`${p}.newArrival`)}</span>
               </div>
             </motion.div>
 
@@ -423,7 +427,7 @@ export default function AchieveHoneyDemoPage() {
               <div className="text-white">
                 <div className="flex items-center gap-2 mb-2">
                   <Feather className="w-5 h-5" />
-                  <span className="font-bold text-sm tracking-widest uppercase">The Journey</span>
+                  <span className="font-bold text-sm tracking-widest uppercase">{t(`${p}.theJourney`)}</span>
                 </div>
                 <h3 className="font-playfair text-3xl italic">"Fuel for the wild spirit."</h3>
               </div>
@@ -431,7 +435,7 @@ export default function AchieveHoneyDemoPage() {
           </motion.div>
           
           <div className="bg-[#5B4839] text-[#FDFBF7] p-12 lg:p-24 flex flex-col justify-center">
-            <span className="text-amber-400 font-bold font-lato tracking-widest uppercase mb-6">Our Mission</span>
+            <span className="text-amber-400 font-bold font-lato tracking-widest uppercase mb-6">{t(`${p}.ourMission`)}</span>
             <h2 className="font-playfair font-bold text-4xl md:text-5xl mb-8 leading-tight">
               Reconnecting with <br/> the Essentials.
             </h2>

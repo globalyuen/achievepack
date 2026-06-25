@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Mail, Clock, AlertCircle, CheckCircle, Send, RefreshCw, Search, ChevronDown, ChevronRight, Building, Calendar, ExternalLink, Star, Reply, Sparkles, Loader2, TrendingUp, Users, Globe, BarChart3, Zap, X, Copy, CheckCheck, XCircle, PlayCircle, PauseCircle, Handshake, Settings, Link, Info, Package, Filter, Tag, MailCheck, MailX, MailQuestion, Trash2 } from 'lucide-react'
 
 // Customer status options for filtering
@@ -229,6 +230,8 @@ const saveActiveStatus = (threadId: string, isActive: boolean) => {
 }
 
 const EmailFollowUpPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.emailFollowUp'
   const [threads, setThreads] = useState<EmailThread[]>([])
   const [stats, setStats] = useState<AnalysisStats | null>(null)
   const [topDomains, setTopDomains] = useState<Record<string, number>>({})
@@ -1259,7 +1262,7 @@ Respond in this JSON format only:
             </div>
             
             <div className="flex justify-between text-sm">
-              <span className="text-gray-500">Scanning emails...</span>
+              <span className="text-gray-500">{t(`${p}.scanningEmails`)}</span>
               <span className="font-medium text-primary-600">{scanProgress.percent}%</span>
             </div>
           </div>
@@ -1291,7 +1294,7 @@ Respond in this JSON format only:
               🔥 Warm Email
             </span>
           </h1>
-          <p className="text-gray-500 mt-1">Contacts who reached out via your website — personalized warm follow-up</p>
+          <p className="text-gray-500 mt-1">{t(`${p}.pageSubtitle`)}</p>
         </div>
         <button
           onClick={loadData}
@@ -1308,56 +1311,56 @@ Respond in this JSON format only:
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border border-blue-200">
             <div className="flex items-center gap-2 mb-1">
               <Users className="w-4 h-4 text-blue-600" />
-              <span className="text-xs font-medium text-blue-600">Contacts</span>
+              <span className="text-xs font-medium text-blue-600">{t(`${p}.statContacts`)}</span>
             </div>
             <p className="text-2xl font-bold text-blue-700">{stats.totalContacts}</p>
           </div>
           <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-4 border border-indigo-200">
             <div className="flex items-center gap-2 mb-1">
               <Mail className="w-4 h-4 text-indigo-600" />
-              <span className="text-xs font-medium text-indigo-600">Emails</span>
+              <span className="text-xs font-medium text-indigo-600">{t(`${p}.statEmails`)}</span>
             </div>
             <p className="text-2xl font-bold text-indigo-700">{stats.totalEmails.toLocaleString()}</p>
           </div>
           <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-4 border border-red-200">
             <div className="flex items-center gap-2 mb-1">
               <AlertCircle className="w-4 h-4 text-red-600" />
-              <span className="text-xs font-medium text-red-600">Need F/U</span>
+              <span className="text-xs font-medium text-red-600">{t(`${p}.statNeedFu`)}</span>
             </div>
             <p className="text-2xl font-bold text-red-700">{stats.needsFollowup}</p>
           </div>
           <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4 border border-orange-200">
             <div className="flex items-center gap-2 mb-1">
               <Star className="w-4 h-4 text-orange-600" />
-              <span className="text-xs font-medium text-orange-600">High Pri</span>
+              <span className="text-xs font-medium text-orange-600">{t(`${p}.statHighPri`)}</span>
             </div>
             <p className="text-2xl font-bold text-orange-700">{stats.highPriority}</p>
           </div>
           <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-4 border border-yellow-200">
             <div className="flex items-center gap-2 mb-1">
               <Clock className="w-4 h-4 text-yellow-600" />
-              <span className="text-xs font-medium text-yellow-600">&gt;30 Days</span>
+              <span className="text-xs font-medium text-yellow-600">{t(`${p}.statOver30`)}</span>
             </div>
             <p className="text-2xl font-bold text-yellow-700">{stats.over30}</p>
           </div>
           <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-4 border border-amber-200">
             <div className="flex items-center gap-2 mb-1">
               <Clock className="w-4 h-4 text-amber-600" />
-              <span className="text-xs font-medium text-amber-600">&gt;60 Days</span>
+              <span className="text-xs font-medium text-amber-600">{t(`${p}.statOver60`)}</span>
             </div>
             <p className="text-2xl font-bold text-amber-700">{stats.over60}</p>
           </div>
           <div className="bg-gradient-to-br from-rose-50 to-rose-100 rounded-xl p-4 border border-rose-200">
             <div className="flex items-center gap-2 mb-1">
               <Calendar className="w-4 h-4 text-rose-600" />
-              <span className="text-xs font-medium text-rose-600">&gt;90 Days</span>
+              <span className="text-xs font-medium text-rose-600">{t(`${p}.statOver90`)}</span>
             </div>
             <p className="text-2xl font-bold text-rose-700">{stats.over90}</p>
           </div>
           <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border border-purple-200">
             <div className="flex items-center gap-2 mb-1">
               <Globe className="w-4 h-4 text-purple-600" />
-              <span className="text-xs font-medium text-purple-600">Domains</span>
+              <span className="text-xs font-medium text-purple-600">{t(`${p}.statDomains`)}</span>
             </div>
             <p className="text-2xl font-bold text-purple-700">{Object.keys(topDomains).length}</p>
           </div>

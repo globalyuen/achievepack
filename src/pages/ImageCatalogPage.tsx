@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye, Code, Lock, LogOut, Cloud, CloudOff, Zap, Clock, AlertCircle } from 'lucide-react'
 import imageCatalog from '../data/image-catalog.json'
@@ -39,6 +40,9 @@ interface AIDescription {
 const preloadedDescriptions = (aiDescriptionsData as any).descriptions as Record<string, AIDescription>
 
 export default function ImageCatalogPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.imageCatalog'
+
   const navigate = useNavigate()
   const { user, signOut, loading: authLoading } = useAuth()
   const [searchQuery, setSearchQuery] = useState('')
@@ -543,7 +547,7 @@ Respond ONLY with valid JSON, no other text.`
       <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-500 mb-2"></div>
-          <p className="text-neutral-600">Loading...</p>
+          <p className="text-neutral-600">{t(`${p}.loading`)}</p>
         </div>
       </div>
     )
@@ -570,7 +574,7 @@ Respond ONLY with valid JSON, no other text.`
                   AI Image Catalog
                 </h1>
                 <p className="text-sm text-neutral-500">
-                  {totalImages} images · <span className="text-purple-600">{countWithAI} AI analyzed</span> · <span className="text-green-600">{countWithAltText} filled alt text</span>
+                  {totalImages} {t(`${p}.images`)} · <span className="text-purple-600">{countWithAI} AI analyzed</span> · <span className="text-green-600">{countWithAltText} filled alt text</span>
                 </p>
               </div>
             </div>
@@ -654,7 +658,7 @@ Respond ONLY with valid JSON, no other text.`
                 }`}
               >
                 <Zap className="h-4 w-4" />
-                {isAnalyzing ? `Analyzing...` : 'xAI Analyze All'}
+                {isAnalyzing ? t(`${p}.analyzing`) : t(`${p}.xaiAnalyzeAll`)}
               </button>
 
               {/* Save */}
@@ -916,7 +920,7 @@ Respond ONLY with valid JSON, no other text.`
                                 title="Analyze with xAI"
                               >
                                 <Zap className="h-3 w-3" />
-                                {analyzingImage === img.path ? '...' : 'xAI'}
+                                {analyzingImage === img.path ? '...' : t(`${p}.xai`)}
                               </button>
                             )}
                             <button

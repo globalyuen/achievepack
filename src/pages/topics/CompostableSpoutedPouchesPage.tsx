@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Shield, Zap, Target, Thermometer, Sparkles, MessageCircle, Calendar, ShoppingBag, Layers, Activity, FileText } from 'lucide-react'
@@ -13,12 +14,15 @@ const SPOUTED_POUCH_TECH_DATA = {
 }
 
 const CompostableSpoutedPouchesPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.compostableSpoutedPouches'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
     {
       id: 'the-spout-challenge',
-      title: 'Solving The Spouted Pouch recycling Crisis: True Circular Economy Design',
+      title: t(`seoPages.pages.compostableSpoutedPouches.solvingTheSpoutedPouch`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -55,7 +59,7 @@ const CompostableSpoutedPouchesPage: React.FC = () => {
     },
     {
       id: 'material-science',
-      title: 'Engineered For Liquid Barriers: Zero Leaks, Absolute Integrity',
+      title: t(`seoPages.pages.compostableSpoutedPouches.engineeredForLiquid`),
       icon: <Thermometer className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -100,7 +104,7 @@ const CompostableSpoutedPouchesPage: React.FC = () => {
     },
     {
       id: 'lab-verification',
-      title: 'Lab-Verified Composting: True End-of-Life Packaging Solutions',
+      title: t(`seoPages.pages.compostableSpoutedPouches.labVerifiedComposting`),
       icon: <Activity className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -143,7 +147,7 @@ const CompostableSpoutedPouchesPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Get Zero-Defect Compostable Liquid Pouches',
+      title: t(`seoPages.pages.compostableSpoutedPouches.getZeroDefect`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-emerald-800 to-teal-950 p-10 rounded-2xl text-white text-center shadow-2xl">
@@ -198,18 +202,18 @@ const CompostableSpoutedPouchesPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Compostable Spouted Pouches | Circular Economy Liquid Packaging | Achieve Pack</title>
-        <meta name="description" content="Premium certified compostable spouted pouches for liquid and puree brands. Explore our food-safe, leak-proof circular economy packaging and BPI-certified end-of-life solutions." />
+        <title>{t(`seoPages.pages.compostableSpoutedPouches.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.compostableSpoutedPouches.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/compostable-spouted-pouches" />
         <meta name="keywords" content="compostable spouted pouches, biodegradable spout bags, liquid compostable packaging, circular economy stand-up bags, baby food spouted pouch, organic puree pouch" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#047857"
-        title="Compostable Spouted Pouches"
-        description="Setting the industry benchmark in food-safe, leak-proof liquid packaging and true circular economy design."
+        title={t(`seoPages.pages.compostableSpoutedPouches.heroTitle`)}
+        description={t(`seoPages.pages.compostableSpoutedPouches.heroDesc`)}
         keywords={['compostable spouted pouch', 'circular economy design', 'liquid packaging']}
-        heroTitle="Circular. Certified. Leak-Proof."
+        heroTitle={t(`seoPages.pages.compostableSpoutedPouches.heroTitle2`)}
         heroSubtitle={SPOUTED_POUCH_TECH_DATA.heroSubtitle}
         introSummary="Rigid spouted pouches are a key driver of modern convenience, but they create a major waste problem due to non-recyclable multi-material constructions. Achieve Pack’s compostable spouted pouches provide a highly reliable, leak-proof, and certified organic end-of-life solution. Every component—including the high-barrier flexible body, injection-molded spout, and sealing caps—is fully compostable, protecting your product and driving clean circularity."
         sections={sections}

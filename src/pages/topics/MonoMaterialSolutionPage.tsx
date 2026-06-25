@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Layers, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Recycle, Trash2 } from 'lucide-react'
@@ -7,6 +8,9 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const MonoMaterialSolutionPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.monoMaterialSolution'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -106,17 +110,17 @@ const MonoMaterialSolutionPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="p-4 bg-white border border-neutral-200 rounded-xl">
               <div className="font-black text-2xl text-blue-600 mb-1">3X</div>
-              <p className="text-xs font-bold uppercase text-neutral-500">Stiffness</p>
+              <p className="text-xs font-bold uppercase text-neutral-500">{t(`seoPages.pages.monoMaterialSolution.stiffness`)}</p>
               <p className="text-[10px] text-neutral-400 mt-1">Allowing for thinner films and better stand-up performance on retail shelves.</p>
             </div>
             <div className="p-4 bg-white border border-neutral-200 rounded-xl">
               <div className="font-black text-2xl text-blue-600 mb-1">95%</div>
-              <p className="text-xs font-bold uppercase text-neutral-500">Haze Reduction</p>
+              <p className="text-xs font-bold uppercase text-neutral-500">{t(`seoPages.pages.monoMaterialSolution.hazeReduction`)}</p>
               <p className="text-[10px] text-neutral-400 mt-1">Delivering the crystal-clear optics of PET without the recycling penalties.</p>
             </div>
             <div className="p-4 bg-white border border-neutral-200 rounded-xl">
               <div className="font-black text-2xl text-blue-600 mb-1">+40%</div>
-              <p className="text-xs font-bold uppercase text-neutral-500">Heat Resistance</p>
+              <p className="text-xs font-bold uppercase text-neutral-500">{t(`seoPages.pages.monoMaterialSolution.heatResistance`)}</p>
               <p className="text-[10px] text-neutral-400 mt-1">Ensuring the outer layer doesn't melt during the heat-sealing process.</p>
             </div>
           </div>
@@ -220,18 +224,18 @@ const MonoMaterialSolutionPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Mono-Material Packaging Solutions | High-Performance Recyclability | Achieve Pack</title>
-        <meta name="description" content="Technical guide to mono-material packaging. 800+ words on MDO-PE technology, Mono-PP structures, and Cyclos-HTP recyclability certification." />
+        <title>{t(`seoPages.pages.monoMaterialSolution.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.monoMaterialSolution.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/mono-material-packaging" />
         <meta name="keywords" content="mono-material packaging, MDO-PE technology, mono-PE pouches, mono-PP packaging, recyclable mono-material, cyclos-htp certification" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#1e3a8a"
-        title="Mono-Material: The Blueprint for 100% Recyclability"
-        description="Establishing technical authority in homogeneous polymer engineering for the circular economy."
+        title={t(`seoPages.pages.monoMaterialSolution.heroTitle`)}
+        description={t(`seoPages.pages.monoMaterialSolution.heroDesc`)}
         keywords={['mono-material solutions', 'mono-PE engineering', 'recyclable packaging tech']}
-        heroTitle="One Polymer. Zero Waste."
+        heroTitle={t(`seoPages.pages.monoMaterialSolution.heroTitle2`)}
         heroSubtitle="MDO-PE | Mono-PP | Cyclos-HTP Certified | CEFLEX Ready"
         introSummary="The key to circularity is simplicity. By engineering complex packaging performance—including high barrier and heat resistance—into a single polymer family, we eliminate the need for non-recyclable laminates. This guide explores the material science of Mono-PE and Mono-PP, the technologies behind them, and how they secure your brand's future in a regulated market."
         sections={sections}

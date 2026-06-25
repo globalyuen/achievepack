@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Menu, X, Leaf, Award, MapPin, ArrowRight, ArrowLeft, Check, Facebook, Instagram, Twitter, Phone, Mail, ShieldCheck, Recycle, Globe, ExternalLink, Star, ChevronDown } from 'lucide-react';
@@ -307,6 +308,9 @@ const PRODUCTS = [
 ];
 
 export default function MaxiFoodsDemoPage() {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.maxiFoodsDemo';
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [cartCount, setCartCount] = useState(0);
@@ -330,8 +334,8 @@ export default function MaxiFoodsDemoPage() {
     return (
         <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-[#26c6da] selection:text-black">
             <Helmet>
-                <title>Maxi Foods | Authentic Mexican Staples with a Healthy Twist | Organic Tortilla Chips</title>
-                <meta name="description" content="Handcrafted organic Mexican tortilla chips and salsas. Gluten-free, vegan, non-GMO. Made in Airdrie, Alberta with certified compostable eco-friendly packaging." />
+                <title>{t(`seoPages.pages.maxiFoodsDemo.metaTitle`)}</title>
+                <meta name="description" content={t(`seoPages.pages.maxiFoodsDemo.metaDesc`)} />
                 <meta name="keywords" content="organic tortilla chips, Mexican food, gluten-free chips, vegan snacks, compostable packaging, Alberta food, non-GMO" />
                 <style>{`
                     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
@@ -345,9 +349,9 @@ export default function MaxiFoodsDemoPage() {
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <Link to="/free-service/website-upgrade" className="flex items-center gap-2 text-sm hover:text-white/80 transition">
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Achieve Pack
+                        {t(`seoPages.pages.maxiFoodsDemo.backToAchievePack`)}
                     </Link>
-                    <span className="text-xs text-white/80 hidden sm:block">This is a demo website created by Achieve Pack</span>
+                    <span className="text-xs text-white/80 hidden sm:block">{t(`seoPages.pages.maxiFoodsDemo.demoNotice`)}</span>
                     <Link to="/store" className="text-sm font-medium hover:text-white/80 transition">
                         Browse Packaging
                     </Link>
@@ -398,7 +402,7 @@ export default function MaxiFoodsDemoPage() {
                         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}>
                             <div className="flex items-center gap-3 mb-8">
                                 <span className="h-[2px] w-12 bg-[#26c6da]"></span>
-                                <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">Certified Organic</span>
+                                <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">{t(`seoPages.pages.maxiFoodsDemo.certifiedOrganic`)}</span>
                             </div>
                             {/* Mexican Colorful MAXI Brand */}
                             <div className="text-7xl md:text-9xl font-display font-black tracking-tighter mb-4">
@@ -433,7 +437,7 @@ export default function MaxiFoodsDemoPage() {
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <Leaf className="w-6 h-6 text-[#26c6da]" />
-                                    <span className="text-xs font-bold tracking-widest uppercase opacity-70">Certified Organic</span>
+                                    <span className="text-xs font-bold tracking-widest uppercase opacity-70">{t(`seoPages.pages.maxiFoodsDemo.certifiedOrganic`)}</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <Recycle className="w-6 h-6 text-[#26c6da]" />
@@ -445,7 +449,7 @@ export default function MaxiFoodsDemoPage() {
                 </div>
             </section>
 
-            {/* DISCOVER YOUR FLAVOR - Product Flavors Showcase with scroll animations */}
+            {/* {t(`seoPages.pages.maxiFoodsDemo.discoverYour`)} FLAVOR - Product Flavors Showcase with scroll animations */}
             <section className="py-32 bg-[#0a0a0a]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <motion.div 
@@ -457,10 +461,10 @@ export default function MaxiFoodsDemoPage() {
                     >
                         <div className="flex items-center justify-center gap-3 mb-6">
                             <span className="h-[2px] w-12 bg-[#26c6da]"></span>
-                            <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">Flavor Collection</span>
+                            <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">{t(`seoPages.pages.maxiFoodsDemo.flavorCollection`)}</span>
                             <span className="h-[2px] w-12 bg-[#26c6da]"></span>
                         </div>
-                        <h2 className="text-5xl md:text-7xl font-display font-extrabold mb-6 tracking-tighter">DISCOVER YOUR <span className="text-[#26c6da]">FLAVOR</span></h2>
+                        <h2 className="text-5xl md:text-7xl font-display font-extrabold mb-6 tracking-tighter">{t(`seoPages.pages.maxiFoodsDemo.discoverYour`)} <span className="text-[#26c6da]">{t(`seoPages.pages.maxiFoodsDemo.flavor`)}</span></h2>
                         <p className="text-xl text-white/50 max-w-2xl mx-auto">From zesty lime to bold jalapeño, each flavor is crafted with authentic Mexican spices and organic ingredients.</p>
                     </motion.div>
                     
@@ -524,7 +528,7 @@ export default function MaxiFoodsDemoPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7, delay: 0.2 }}
                     >
-                        <h2 className="text-4xl md:text-6xl font-display font-extrabold mb-4 tracking-tight">HANDCRAFTED WITH PASSION</h2>
+                        <h2 className="text-4xl md:text-6xl font-display font-extrabold mb-4 tracking-tight">{t(`seoPages.pages.maxiFoodsDemo.handcraftedWithPassion`)}</h2>
                         <p className="text-xl text-white/70 max-w-xl">Every chip is made in small batches using traditional stone-ground techniques, ensuring authentic flavor and perfect crunch.</p>
                     </motion.div>
                 </motion.div>
@@ -551,7 +555,7 @@ export default function MaxiFoodsDemoPage() {
             {/* Scroll Triggered Feature Cards - Spring Animation */}
             <section className="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#050505]">
                 <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight">WHY CHOOSE <span className="text-[#26c6da]">MAXI</span></h2>
+                    <h2 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight">{t(`seoPages.pages.maxiFoodsDemo.whyChoose`)} <span className="text-[#26c6da]">MAXI</span></h2>
                     <p className="text-white/50 mt-4">Scroll to discover our promise</p>
                 </div>
                 <ScrollTriggeredCards cards={MAXI_SCROLL_CARDS} />
@@ -940,7 +944,7 @@ export default function MaxiFoodsDemoPage() {
                             whileHover={cardHover}
                         >
                             <Award className="w-12 h-12 text-[#26c6da] mx-auto mb-4" />
-                            <h3 className="font-bold mb-2">Certified Organic</h3>
+                            <h3 className="font-bold mb-2">{t(`seoPages.pages.maxiFoodsDemo.certifiedOrganic`)}</h3>
                             <p className="text-white/50 text-sm">Canada Organic certified by Pro-Cert</p>
                         </motion.div>
                         <motion.div 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Lock, RefreshCw, Package, CheckCircle, Clock, X, ChevronLeft, ChevronRight, Zap, Shield, Coffee, Baby, Sparkles, Heart } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -35,6 +36,9 @@ const NeoCard = ({ children, color = 'bg-white', className = '' }: any) => {
 }
 
 export default function PouchEcoReclosurePage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchEcoReclosure'
+
   const [selectedImage, setSelectedImage] = useState<{ src: string; index: number } | null>(null)
   
   const navigateGallery = (direction: 'prev' | 'next') => {
@@ -144,11 +148,11 @@ export default function PouchEcoReclosurePage() {
             animate={{ opacity: 1, y: 0 }}
             className="font-['Space_Grotesk'] font-black text-7xl md:text-9xl leading-none mb-6"
           >
-            KEEP IT<br/>
-            <span className="text-[#D4FF00]">FRESH</span>
+            {t(`${p}.keepIt`)}<br/>
+            <span className="text-[#D4FF00]">{t(`${p}.fresh`)}</span>
           </motion.h1>
           <p className="font-['JetBrains_Mono'] text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Resealable zippers, spout caps & more.<br/>
+            {t(`${p}.heroSubtitle`)}<br/>
             Happy customers. Fresh products. Every time.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -162,7 +166,7 @@ export default function PouchEcoReclosurePage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-5xl text-center mb-12">
-            WHY ADD <span className="text-[#10b981]">RECLOSURE?</span>
+            {t(`${p}.whyAddReclosure`)} <span className="text-[#10b981]">{t(`${p}.reclosure`)}</span>
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
             {features.map((feature, idx) => (
@@ -188,7 +192,7 @@ export default function PouchEcoReclosurePage() {
       <section className="py-20 px-6 bg-neutral-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-5xl text-center mb-12">
-            CHOOSE YOUR <span className="text-[#10b981]">CLOSURE</span>
+            {t(`${p}.chooseYour`)} <span className="text-[#10b981]">{t(`${p}.closure`)}</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {closureTypes.map((closure, idx) => (
@@ -219,7 +223,7 @@ export default function PouchEcoReclosurePage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-5xl text-center mb-12">
-            SEE THEM IN <span className="text-[#10b981]">ACTION</span>
+            {t(`${p}.seeThemIn`)} <span className="text-[#10b981]">{t(`${p}.action`)}</span>
           </h2>
           <p className="text-center font-['JetBrains_Mono'] mb-8 text-neutral-600">
             Click any image to see it bigger →
@@ -290,7 +294,7 @@ export default function PouchEcoReclosurePage() {
       <section className="py-20 px-6 bg-neutral-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-5xl text-center mb-12">
-            WHAT'S RIGHT FOR <span className="text-[#10b981]">YOUR PRODUCT?</span>
+            {t(`${p}.whatsRightFor`)} <span className="text-[#10b981]">{t(`${p}.yourProduct`)}</span>
           </h2>
           <NeoCard color="bg-white">
             <div className="overflow-x-auto">
@@ -321,7 +325,7 @@ export default function PouchEcoReclosurePage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-5xl text-center mb-12">
-            QUICK <span className="text-[#10b981]">FACTS</span>
+            {t(`${p}.quick`)} <span className="text-[#10b981]">{t(`${p}.facts`)}</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <NeoCard color="bg-[#D4FF00]" className="text-center">
@@ -344,7 +348,7 @@ export default function PouchEcoReclosurePage() {
       <section className="py-20 px-6 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-5xl text-center mb-12">
-            COMMON <span className="text-[#10b981]">QUESTIONS</span>
+            {t(`${p}.common`)} <span className="text-[#10b981]">{t(`${p}.questions`)}</span>
           </h2>
           <div className="space-y-6">
             {[

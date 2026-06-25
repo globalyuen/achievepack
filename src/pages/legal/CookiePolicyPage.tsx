@@ -1,14 +1,18 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Leaf, Cookie, Mail, Phone } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
 const CookiePolicyPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.cookiePolicy'
+
   return (
     <>
       <Helmet>
-        <title>Cookie Policy | Achieve Pack - Eco-Friendly Packaging</title>
-        <meta name="description" content="Achieve Pack's cookie policy explains how we use cookies and similar technologies to enhance your browsing experience on our website." />
+        <title>{t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={t(`${p}.metaDesc`)} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://achievepack.com/cookie-policy" />
       </Helmet>
@@ -31,8 +35,8 @@ const CookiePolicyPage: React.FC = () => {
         <section className="bg-gradient-to-br from-amber-700 to-amber-900 text-white py-16">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <Cookie className="h-12 w-12 text-amber-300 mx-auto mb-4" />
-            <h1 className="text-4xl font-bold mb-4">Cookie Policy</h1>
-            <p className="text-amber-200">Last updated: January 2025</p>
+            <h1 className="text-4xl font-bold mb-4">{t(`${p}.cookiePolicy`)}</h1>
+            <p className="text-amber-200">{t(`${p}.lastUpdated`)}</p>
           </div>
         </section>
 
@@ -41,7 +45,7 @@ const CookiePolicyPage: React.FC = () => {
           <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-8 space-y-8">
             
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">1. What Are Cookies</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.whatAreCookies`)}</h2>
               <p className="text-neutral-700 leading-relaxed">
                 Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and to provide information to the website owners.
               </p>
@@ -51,7 +55,7 @@ const CookiePolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">2. How We Use Cookies</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.howWeUseCookies`)}</h2>
               <p className="text-neutral-700 mb-4">We use cookies for the following purposes:</p>
               <div className="space-y-4">
                 <div className="bg-neutral-50 p-4 rounded-lg">
@@ -82,7 +86,7 @@ const CookiePolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">3. Cookies We Use</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.cookiesWeUse`)}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
@@ -130,7 +134,7 @@ const CookiePolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">4. Third-Party Cookies</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.thirdPartyCookies`)}</h2>
               <p className="text-neutral-700 mb-4">
                 Some cookies are placed by third-party services that appear on our pages. We use the following third-party services:
               </p>
@@ -143,7 +147,7 @@ const CookiePolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">5. Managing Cookies</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.managingCookies`)}</h2>
               <p className="text-neutral-700 mb-4">
                 You have several options for managing cookies:
               </p>
@@ -171,7 +175,7 @@ const CookiePolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">6. Impact of Disabling Cookies</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.impactOfDisabling`)}</h2>
               <p className="text-neutral-700">
                 If you choose to disable cookies, some features of our website may not function properly. This includes:
               </p>
@@ -184,19 +188,19 @@ const CookiePolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">7. Updates to This Policy</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.updatesToPolicy`)}</h2>
               <p className="text-neutral-700">
                 We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. The updated version will be indicated by the "Last updated" date at the top of this page.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">8. Contact Us</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">{t(`${p}.contactUs`)}</h2>
               <p className="text-neutral-700 mb-4">
                 If you have questions about our use of cookies, please contact us:
               </p>
               <div className="bg-neutral-50 p-4 rounded-lg">
-                <p className="font-semibold">Achieve Pack Limited</p>
+                <p className="font-semibold">{t(`${p}.achievePackLtd`)}</p>
                 <div className="flex items-center gap-2 mt-2 text-neutral-700">
                   <Mail className="h-4 w-4 text-primary-600" />
                   <a href="mailto:ryan@achievepack.com" className="hover:text-primary-600">ryan@achievepack.com</a>

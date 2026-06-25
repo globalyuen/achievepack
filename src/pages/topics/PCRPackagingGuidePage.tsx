@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Recycle, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Layers, Trash2 } from 'lucide-react'
@@ -7,6 +8,9 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const PCRPackagingGuidePage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pCRPackagingGuide'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -220,18 +224,18 @@ const PCRPackagingGuidePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>PCR Packaging Guide | Post-Consumer Recycled Engineering | Achieve Pack</title>
-        <meta name="description" content="Master the technical integration of PCR (Post-Consumer Recycled) resin. 800+ words on GRS certification, carbon impact, and food-grade PCR compliance." />
+        <title>{t(`seoPages.pages.pCRPackagingGuide.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.pCRPackagingGuide.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/pcr-packaging-guide" />
         <meta name="keywords" content="PCR packaging guide, post-consumer recycled resin, GRS certified packaging, PCR food safe, plastic tax exemption, recycled plastic pouches" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#262626"
-        title="PCR Packaging: Engineering the Second Life"
-        description="Establishing technical authority in post-consumer recycled resin integration and traceability."
+        title={t(`seoPages.pages.pCRPackagingGuide.heroTitle`)}
+        description={t(`seoPages.pages.pCRPackagingGuide.heroDesc`)}
         keywords={['PCR packaging', 'recycled resin engineering', 'GRS certified guide']}
-        heroTitle="Recycled. Not Reduced."
+        heroTitle={t(`seoPages.pages.pCRPackagingGuide.heroTitle2`)}
         heroSubtitle="GRS Certified | 30-50% PCR | FDA Compliant | Carbon Verified"
         introSummary="The most sustainable material is the one that already exists. This guide provides the technical breakdown of how we integrate Post-Consumer Recycled (PCR) resin into high-performance packaging structures, ensuring your brand meets 2026 circularity mandates while maintaining absolute product integrity."
         sections={sections}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useTransition, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity, CustomerActivityLog } from '../lib/supabase'
@@ -69,79 +70,82 @@ function detectIndustry(text: string): string {
 
 type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building' | 'testimonials' | 'seo-migration' | 'search-analytics'
 
-// Sidebar menu structure with collapsible groups
-const sidebarMenuItems = [
-  {
-    group: 'Main',
-    items: [
-      { id: 'dashboard', label: 'Dashboard', icon: Home },
-      { id: 'customers', label: 'Customer', icon: Users, countKey: 'customers' },
-    ]
-  },
-  {
-    group: 'Order',
-    items: [
-      { id: 'order-management', label: 'Website Orders', icon: Package, externalLink: '/ctrl-x9k7m/management?tab=quotes' },
-    ]
-  },
-  {
-    group: 'CRM',
-    items: [
-      { id: 'artwork-batches', label: 'Artwork & Document System', icon: Folder, externalLink: '/ctrl-x9k7m/artwork-batches' },
-      { id: 'document-templates', label: 'Doc Templates', icon: FileText, externalLink: '/ctrl-x9k7m/document-templates' },
-      { id: 'quote-analytics', label: 'Quote Analytics', icon: BarChart3, externalLink: '/ctrl-x9k7m/quote-analytics' },
-      { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },
-      { id: 'email-followup', label: 'Email Follow Up', icon: Clock },
-      { id: 'prospects', label: 'Prospect Finder', icon: Search, externalLink: '/ctrl-x9k7m/prospects' },
-      { id: 'rfq-generator', label: 'AI RFQ Generator', icon: Wand2, externalLink: '/ctrl-x9k7m/rfq-generator' },
-    ]
-  },
-  {
-    group: 'Marketing',
-    collapsible: true,
-    defaultOpen: true,
-    items: [
-      { id: 'email-marketing', label: 'Email Marketing (Legacy)', icon: Mail },
-      { id: 'email-campaign', label: 'Email Campaign Manager', icon: Send, externalLink: '/ctrl-x9k7m/email-campaign' },
-      { id: 'seo-ranking', label: 'SEO & Ranking', icon: TrendingUp },
-      { id: 'seo-migration', label: 'SEO Migration', icon: RefreshCw },
-      { id: 'link-building', label: 'Link Building', icon: ExternalLink },
-      { id: 'search-analytics', label: 'Search Analytics', icon: Search },
-      { id: 'compostable-pouch-geo', label: 'Compostable Pouch GEO App', icon: Bot, externalLink: '/spec/compostable-pouch-geo' },
-      { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
-    ]
-  },
-  {
-    group: 'Content',
-    collapsible: true,
-    items: [
-      { id: 'image-catalog', label: 'Image Hub', icon: Folder },
-      { id: 'ai-image-gen', label: 'AI Image Gen', icon: Wand2, externalLink: '/ctrl-x9k7m/ai-image' },
-      { id: 'website', label: 'Website CMS', icon: FileCode },
-      { id: 'website-demos', label: 'Demo Sites', icon: Globe },
-      { id: 'testimonials', label: 'Testimonials', icon: MessageSquare },
-      { id: 'mockup', label: 'Mock Up', icon: Image, comingSoon: true },
-      { id: 'design', label: 'Design', icon: Palette, comingSoon: true },
-    ]
-  },
-  {
-    group: 'Finance',
-    items: [
-      { id: 'bookkeeping', label: 'Bookkeeping & Cashflow', icon: DollarSign, externalLink: '/ctrl-x9k7m/bookkeeping' }
-    ]
-  },
-  {
-    group: 'System',
-    items: [
-      { id: 'settings', label: 'Settings', icon: Settings },
-      { id: 'recycle-bin', label: 'Recycle Bin', icon: Trash2 },
-    ]
-  }
-]
-
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
 const AdminPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.admin'
+
+  // Sidebar menu structure with collapsible groups
+  const sidebarMenuItems = useMemo(() => [
+    {
+      group: 'Main',
+      items: [
+        { id: 'dashboard', label: t(`${p}.dashboard`), icon: Home },
+        { id: 'customers', label: t(`${p}.customer`), icon: Users, countKey: 'customers' },
+      ]
+    },
+    {
+      group: 'Order',
+      items: [
+        { id: 'order-management', label: 'Website Orders', icon: Package, externalLink: '/ctrl-x9k7m/management?tab=quotes' },
+      ]
+    },
+    {
+      group: 'CRM',
+      items: [
+        { id: 'artwork-batches', label: 'Artwork & Document System', icon: Folder, externalLink: '/ctrl-x9k7m/artwork-batches' },
+        { id: 'document-templates', label: 'Doc Templates', icon: FileText, externalLink: '/ctrl-x9k7m/document-templates' },
+        { id: 'quote-analytics', label: 'Quote Analytics', icon: BarChart3, externalLink: '/ctrl-x9k7m/quote-analytics' },
+        { id: 'crm', label: t(`${p}.crm`), icon: Inbox },
+        { id: 'email-followup', label: 'Email Follow Up', icon: Clock },
+        { id: 'prospects', label: 'Prospect Finder', icon: Search, externalLink: '/ctrl-x9k7m/prospects' },
+        { id: 'rfq-generator', label: 'AI RFQ Generator', icon: Wand2, externalLink: '/ctrl-x9k7m/rfq-generator' },
+      ]
+    },
+    {
+      group: 'Marketing',
+      collapsible: true,
+      defaultOpen: true,
+      items: [
+        { id: 'email-marketing', label: 'Email Marketing (Legacy)', icon: Mail },
+        { id: 'email-campaign', label: 'Email Campaign Manager', icon: Send, externalLink: '/ctrl-x9k7m/email-campaign' },
+        { id: 'seo-ranking', label: 'SEO & Ranking', icon: TrendingUp },
+        { id: 'seo-migration', label: 'SEO Migration', icon: RefreshCw },
+        { id: 'link-building', label: 'Link Building', icon: ExternalLink },
+        { id: 'search-analytics', label: 'Search Analytics', icon: Search },
+        { id: 'compostable-pouch-geo', label: 'Compostable Pouch GEO App', icon: Bot, externalLink: '/spec/compostable-pouch-geo' },
+        { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
+      ]
+    },
+    {
+      group: 'Content',
+      collapsible: true,
+      items: [
+        { id: 'image-catalog', label: 'Image Hub', icon: Folder },
+        { id: 'ai-image-gen', label: 'AI Image Gen', icon: Wand2, externalLink: '/ctrl-x9k7m/ai-image' },
+        { id: 'website', label: 'Website CMS', icon: FileCode },
+        { id: 'website-demos', label: 'Demo Sites', icon: Globe },
+        { id: 'testimonials', label: 'Testimonials', icon: MessageSquare },
+        { id: 'mockup', label: 'Mock Up', icon: Image, comingSoon: true },
+        { id: 'design', label: 'Design', icon: Palette, comingSoon: true },
+      ]
+    },
+    {
+      group: 'Finance',
+      items: [
+        { id: 'bookkeeping', label: 'Bookkeeping & Cashflow', icon: DollarSign, externalLink: '/ctrl-x9k7m/bookkeeping' }
+      ]
+    },
+    {
+      group: 'System',
+      items: [
+        { id: 'settings', label: 'Settings', icon: Settings },
+        { id: 'recycle-bin', label: 'Recycle Bin', icon: Trash2 },
+      ]
+    }
+  ], [t, p])
+
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { user, signOut, loading: authLoading } = useAuth()

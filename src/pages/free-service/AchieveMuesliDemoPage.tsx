@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -67,6 +68,8 @@ const staggerContainer = {
 // ============================================
 
 const Navbar = () => {
+  const { t } = useTranslation()
+
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -120,6 +123,7 @@ const Navbar = () => {
 }
 
 const Hero = () => {
+  const { t } = useTranslation()
   return (
     <section className="relative min-h-screen pt-32 pb-20 px-6 overflow-hidden bg-[#FFFBF0]">
       {/* Pop Art Background Elements */}
@@ -140,11 +144,11 @@ const Hero = () => {
           
           <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-black text-[#1A1A1A] leading-[0.9] tracking-tighter">
             WAKE UP <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF007F] via-[#FFD700] to-[#00FFFF]">VIBRANT.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF007F] via-[#FFD700] to-[#00FFFF]">{t(`seoPages.pages.achieveMuesliDemo.vibrant`)}</span>
           </motion.h1>
           
           <motion.p variants={fadeInUp} className="text-2xl text-[#1A1A1A] font-bold max-w-lg leading-tight">
-            Premium muesli in full-print <span className="text-[#FF007F] underline decoration-4 decoration-[#00FFFF]">Nano Banana Pro™</span> pouches. 
+            Premium muesli in full-print <span className="text-[#FF007F] underline decoration-4 decoration-[#00FFFF]">{t(`seoPages.pages.achieveMuesliDemo.nanoBananaPro`)}</span> pouches. 
             Sustainable never looked this loud.
           </motion.p>
           
@@ -220,6 +224,7 @@ const ProductCard = ({ product }: { product: typeof PRODUCTS[0] }) => {
 }
 
 const Products = () => {
+  const { t } = useTranslation()
   return (
     <section className="py-24 px-6 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto">
@@ -233,7 +238,7 @@ const Products = () => {
           <span className="bg-[#00FFFF] text-[#1A1A1A] px-4 py-1 text-lg font-black uppercase inline-block -rotate-2 border-2 border-white mb-6">
              Limited Drops
           </span>
-          <h2 className="text-5xl md:text-7xl font-black text-white mb-6">PICK YOUR POISON</h2>
+          <h2 className="text-5xl md:text-7xl font-black text-white mb-6">{t(`seoPages.pages.achieveMuesliDemo.pickYourPoison`)}</h2>
           <p className="text-white/70 max-w-2xl mx-auto text-xl font-bold">
             Actually, it's the opposite of poison. It's life-giving organic fuel.
           </p>
@@ -449,6 +454,9 @@ const DemoBanner = () => (
 // MAIN PAGE COMPONENT
 // ============================================
 export default function AchieveMuesliDemoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.achieveMuesliDemo'
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])

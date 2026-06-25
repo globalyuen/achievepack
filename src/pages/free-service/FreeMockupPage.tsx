@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { 
@@ -106,6 +107,7 @@ const POUCH_3D_MODELS = [
 ]
 
 const FreeMockupPage: React.FC = () => {
+  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
 
   // 3D Pouch Interactive states
@@ -140,8 +142,8 @@ const FreeMockupPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Free Packaging Mockup & Marketing Images – Achieve Pack</title>
-        <meta name="description" content="Get free custom packaging mockups and ready‑to‑use marketing images for your eco‑friendly pouches and bags. Perfect for Shopify, Amazon, social media, and investor decks." />
+        <title>{t(`seoPages.pages.freeMockup.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.freeMockup.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/free-service/packaging-mockup" />
         <meta name="keywords" content="packaging mockup, free packaging mockup, marketing images for packaging, eco-friendly packaging mockups, 3D pouch render, product mockup, brand packaging visualization" />
         
@@ -324,9 +326,9 @@ const FreeMockupPage: React.FC = () => {
         <section className="py-6 bg-white border-b border-neutral-200">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-neutral-600">
-              <span className="flex items-center gap-2"><Award className="h-4 w-4 text-primary-600" /> Since 2011</span>
-              <span className="flex items-center gap-2"><Users className="h-4 w-4 text-primary-600" /> 500+ brands served</span>
-              <span className="flex items-center gap-2"><Shield className="h-4 w-4 text-primary-600" /> BRC, FSC, ISO 9001 certified facilities</span>
+              <span className="flex items-center gap-2"><Award className="h-4 w-4 text-primary-600" /> {t(`seoPages.pages.freeMockup.since2011`)}</span>
+              <span className="flex items-center gap-2"><Users className="h-4 w-4 text-primary-600" /> {t(`seoPages.pages.freeMockup.brandsServed`)}</span>
+              <span className="flex items-center gap-2"><Shield className="h-4 w-4 text-primary-600" /> {t(`seoPages.pages.freeMockup.certifiedFacilities`)}</span>
             </div>
           </div>
         </section>
@@ -342,7 +344,7 @@ const FreeMockupPage: React.FC = () => {
                     <Gift className="h-4 w-4" />
                     100% FREE
                   </p>
-                  <p className="text-green-700 text-xs">No hidden costs</p>
+                  <p className="text-green-700 text-xs">{t(`seoPages.pages.freeMockup.noHiddenCosts`)}</p>
                 </div>
                 <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">Contents</h3>
                 <nav className="space-y-1">
@@ -482,7 +484,7 @@ const FreeMockupPage: React.FC = () => {
               <div className="grid lg:grid-cols-12 gap-8 items-start">
                 {/* Left: Model selector cards */}
                 <div className="lg:col-span-5 space-y-3">
-                  <p className="text-xs uppercase tracking-widest text-neutral-400 font-bold mb-2">Click to preview a 3D model ↓</p>
+                  <p className="text-xs uppercase tracking-widest text-neutral-400 font-bold mb-2">{t(`seoPages.pages.freeMockup.clickToPreview`)}</p>
                   {POUCH_3D_MODELS.map((model, idx) => (
                     <button
                       key={model.id}
@@ -522,7 +524,7 @@ const FreeMockupPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-4 mt-3 text-xs text-neutral-400">
-                    <span className="flex items-center gap-1"><RotateCw className="h-3 w-3" /> Drag to rotate</span>
+                    <span className="flex items-center gap-1"><RotateCw className="h-3 w-3" /> {t(`seoPages.pages.freeMockup.dragToRotate`)}</span>
                     <span>•</span>
                     <span>Scroll to spin</span>
                     <span>•</span>

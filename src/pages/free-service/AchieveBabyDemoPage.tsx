@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -13,6 +14,9 @@ const ASSETS = {
 }
 
 export default function AchieveBabyDemoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.achieveBabyDemo'
+
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -26,7 +30,7 @@ export default function AchieveBabyDemoPage() {
     <div ref={containerRef} className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-[#CCD5AE] selection:text-[#2C3E50] overflow-hidden">
       <Helmet>
         <title>Achieve Baby | Pure Nutrition, Zero Waste</title>
-        <meta name="description" content="Premium organic baby food in 100% home compostable pouches. Good for baby, good for the planet." />
+        <meta name="description" content={t(`seoPages.pages.achieveBabyDemo.metaDesc`)} />
       </Helmet>
 
       {/* Navigation - Minimal & Clean */}
@@ -39,7 +43,7 @@ export default function AchieveBabyDemoPage() {
             <div className="p-2 rounded-full bg-[#F1F5F9] group-hover:bg-[#E2E8F0] transition-colors">
               <ArrowLeft className="w-4 h-4" />
             </div>
-            <span className="font-medium tracking-wide text-sm">BACK TO DEMOS</span>
+            <span className="font-medium tracking-wide text-sm">{t(`seoPages.pages.achieveBabyDemo.backToDemos`)}</span>
           </Link>
           
           <div className="flex flex-col items-center">
@@ -77,7 +81,7 @@ export default function AchieveBabyDemoPage() {
 
                 <h1 className="text-6xl lg:text-7xl font-serif font-medium text-[#2C3E50] leading-[1.1] mb-8">
                   Pure Love in <br/>
-                  <span className="text-[#A4C639] italic">Every Fiber.</span>
+                  <span className="text-[#A4C639] italic">{t(`seoPages.pages.achieveBabyDemo.everyFiber`)}</span>
                 </h1>
                 
                 <p className="text-xl text-[#64748B] leading-relaxed mb-10 max-w-lg font-light">
@@ -144,8 +148,8 @@ export default function AchieveBabyDemoPage() {
         <section className="py-32 bg-white relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-24">
-              <span className="text-[#A4C639] font-bold tracking-widest text-sm uppercase block mb-4">The Collection</span>
-              <h2 className="text-4xl md:text-5xl font-serif text-[#2C3E50] mb-6">Simple Ingredients. Revolutionary Touch.</h2>
+              <span className="text-[#A4C639] font-bold tracking-widest text-sm uppercase block mb-4">{t(`seoPages.pages.achieveBabyDemo.theCollection`)}</span>
+              <h2 className="text-4xl md:text-5xl font-serif text-[#2C3E50] mb-6">{t(`seoPages.pages.achieveBabyDemo.simpleIngredients`)}</h2>
               <p className="text-[#64748B] text-lg max-w-2xl mx-auto">
                 Feel the difference of our matte, natural fiber pouches. Tactile, grippable, and completely safe.
               </p>
@@ -215,10 +219,10 @@ export default function AchieveBabyDemoPage() {
               </div>
 
               <div>
-                <span className="text-[#8B5E3C] font-bold tracking-widest text-sm uppercase block mb-4">Packaged by Earth</span>
+                <span className="text-[#8B5E3C] font-bold tracking-widest text-sm uppercase block mb-4">{t(`seoPages.pages.achieveBabyDemo.packagedByEarth`)}</span>
                 <h2 className="text-5xl font-serif text-[#2C3E50] mb-8 leading-tight">
                   Not Plastic.<br/>
-                  <span className="italic text-[#A4C639]">Just Plants.</span>
+                  <span className="italic text-[#A4C639]">{t(`seoPages.pages.achieveBabyDemo.justPlants`)}</span>
                 </h2>
 
                 <div className="space-y-12">
@@ -269,7 +273,7 @@ export default function AchieveBabyDemoPage() {
         {/* Footer */}
         <footer className="bg-[#2C3E50] text-[#E2E8F0] py-24 text-center">
             <div className="max-w-4xl mx-auto px-6">
-               <h2 className="text-4xl font-serif text-white mb-8">Ready to start the journey?</h2>
+               <h2 className="text-4xl font-serif text-white mb-8">{t(`seoPages.pages.achieveBabyDemo.readyToStart`)}</h2>
                <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
                     <input 
                       type="email" 

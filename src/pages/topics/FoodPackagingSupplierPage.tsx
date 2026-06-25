@@ -1,13 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'
 import { ShieldCheck, AlertTriangle, CheckCircle, Info, HelpCircle, FileText, Globe, BarChart3, FlaskConical, Scale, Zap, ClipboardCheck, Search } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import ClickableImage from '../../components/ClickableImage';
 
 const FoodPackagingSupplierPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.foodPackagingSupplier'
+
   const sections = [
     {
       id: 'audit-importance',
-      title: 'The Critical Audit: Ensuring Food Safety in the Global Supply Chain',
+      title: t(`seoPages.pages.foodPackagingSupplier.criticalAudit`),
       icon: <ClipboardCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -40,7 +44,7 @@ const FoodPackagingSupplierPage: React.FC = () => {
     },
     {
       id: 'migration-science',
-      title: 'Migration Science: OML, SML, and Food Contact Compliance',
+      title: t(`seoPages.pages.foodPackagingSupplier.migrationScience`),
       icon: <FlaskConical className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700 font-['Inter']">
@@ -74,7 +78,7 @@ const FoodPackagingSupplierPage: React.FC = () => {
     },
     {
       id: 'traceability-protocols',
-      title: 'End-to-End Traceability: From Resin to Retail',
+      title: t(`seoPages.pages.foodPackagingSupplier.endToEndTraceability`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -100,7 +104,7 @@ const FoodPackagingSupplierPage: React.FC = () => {
     },
     {
       id: 'supplier-scorecard',
-      title: 'The Audit Scorecard: 5 Questions to Ask Your Current Supplier',
+      title: t(`seoPages.pages.foodPackagingSupplier.auditScorecard`),
       icon: <ShieldCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -163,10 +167,10 @@ const FoodPackagingSupplierPage: React.FC = () => {
 
   return (
     <SEOPageLayout
-      title="Food Packaging Supplier Audit Guide 2026: BRCGS & GFSI Standards"
-      description="The authoritative guide to auditing food packaging suppliers. Deep-dive into BRCGS benchmarks, migration science (OML/SML), and end-to-end traceability. 800+ words of technical research."
-      heroTitle="Supplier Audits: Protecting Your Brand's Safety"
-      heroSubtitle="Mastering the technical complexity of food safety benchmarks, migration chemistry, and global supply chain transparency."
+      title={t(`seoPages.pages.foodPackagingSupplier.metaTitle`)}
+      description={t(`seoPages.pages.foodPackagingSupplier.metaDesc`)}
+      heroTitle={t(`seoPages.pages.foodPackagingSupplier.heroTitle`)}
+      heroSubtitle={t(`seoPages.pages.foodPackagingSupplier.heroSubtitle`)}
       heroImage="/imgs/generated/food_supplier.png"
       introSummary="In the modern food industry, your packaging supplier is an extension of your brand's safety culture. This 800+ word master guide leverages a decade of quality engineering expertise to help you navigate the complexity of GFSI benchmarks, HACCP implementation, and chemical migration science. Learn how to perform a deep-dive audit that ensures your pouches are not just pretty, but structurally and chemically sound."
       sections={sections}

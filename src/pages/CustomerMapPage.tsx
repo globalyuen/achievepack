@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Users, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface CustomerAddress {
   id: number;
@@ -51,6 +52,7 @@ declare global {
 }
 
 export default function CustomerMapPage() {
+  const { t } = useTranslation();
   const mapRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<any>(null);
   const [markers, setMarkers] = useState<any[]>([]);

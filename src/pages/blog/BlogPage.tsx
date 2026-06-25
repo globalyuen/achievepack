@@ -1,4 +1,5 @@
 import { useState, useMemo, useTransition, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
@@ -13,6 +14,9 @@ const supabase = createClient(
 );
 
 export default function BlogPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.blog'
+
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
@@ -94,8 +98,8 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title>Packaging Insights You'll Actually Use | Achieve Pack Blog</title>
-        <meta name="description" content="Real talk about eco-friendly packaging—no fluff, no greenwashing. Guides, comparisons, and the stuff your packaging supplier won't tell you." />
+        <title>{t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={t(`${p}.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/blog" />
         <meta property="og:title" content="Packaging Insights You'll Actually Use | Achieve Pack Blog" />
         <meta property="og:description" content="Real talk about eco-friendly packaging—guides, comparisons, and the stuff your packaging supplier won't tell you." />
@@ -130,7 +134,7 @@ export default function BlogPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
                 <input
                   type="text"
-                  placeholder="Search articles..."
+                  placeholder={t(`${p}.searchPlaceholder`)}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
@@ -163,11 +167,11 @@ export default function BlogPage() {
             {loading ? (
               <div className="flex flex-col items-center justify-center py-24 gap-4">
                 <Loader2 className="w-12 h-12 animate-spin text-green-600" />
-                <p className="text-neutral-500 text-sm">Loading insights...</p>
+                <p className="text-neutral-500 text-sm">{t(`${p}.loadingInsights`)}</p>
               </div>
             ) : filteredPosts.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-neutral-500 text-lg">No articles found matching your criteria.</p>
+                <p className="text-neutral-500 text-lg">{t(`${p}.noArticles`)}</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -222,12 +226,12 @@ export default function BlogPage() {
                         </div>
                       </div>
 
-                      {/* Read More */}
+                      {/* {t(`${p}.readMore`)} */}
                       <Link
                         to={`/blog/${post.slug}`}
                         className="inline-flex items-center gap-2 text-green-600 font-medium mt-4 hover:gap-3 transition-all"
                       >
-                        Read More
+                        {t(`${p}.readMore`)}
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>

@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { 
   Sparkles, 
@@ -393,6 +394,9 @@ const DIELINE_SHAPES: DielineShape[] = [
 ];
 
 export default function PouchDielineCreatorPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchDielineCreator'
+
   const isPouchDomain = getDomain() === 'pouch'
   const checkboxClass = isPouchDomain 
     ? "rounded-none border-2 border-black text-black focus:ring-0 w-5 h-5 cursor-pointer" 
@@ -1745,7 +1749,7 @@ export default function PouchDielineCreatorPage() {
               <ArrowLeft className="w-4 h-4" /> Dielines Catalog
             </a>
             <span className="text-gray-400">/</span>
-            <span className="text-sm font-bold text-green-500">Interactive Custom Creator</span>
+            <span className="text-sm font-bold text-green-500">{t(`${p}.interactiveCustomCreator`)}</span>
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-bold font-mono rounded-full uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" /> 100% Vector Output
@@ -1879,7 +1883,7 @@ export default function PouchDielineCreatorPage() {
               
               <div className="flex items-center gap-2 border-b border-gray-200 pb-3">
                 <Sliders className="w-5 h-5 text-green-500" />
-                <h3 className="font-bold text-sm uppercase tracking-wider text-gray-800">Dimension Parameters</h3>
+                <h3 className="font-bold text-sm uppercase tracking-wider text-gray-800">{t(`${p}.dimensionParameters`)}</h3>
               </div>
 
               {/* Sliders Grid */}
@@ -2060,7 +2064,7 @@ export default function PouchDielineCreatorPage() {
                   <>
                     <div className="flex items-center justify-between border-t border-gray-200 pt-3">
                       <div className="flex flex-col gap-0.5">
-                        <span className="text-xs font-bold text-gray-800 uppercase tracking-wider">Include Degassing Valve</span>
+                        <span className="text-xs font-bold text-gray-800 uppercase tracking-wider">{t(`${p}.includeDegassingValve`)}</span>
                         <span className="text-[10px] text-gray-500 font-mono">One-way venting valve for coffee/gasses</span>
                       </div>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -2239,7 +2243,7 @@ export default function PouchDielineCreatorPage() {
               
               <div className="flex items-center gap-2 border-b border-gray-200 pb-3">
                 <Download className="w-5 h-5 text-green-500" />
-                <h3 className="font-bold text-sm uppercase tracking-wider text-gray-800">Prepress Template Export</h3>
+                <h3 className="font-bold text-sm uppercase tracking-wider text-gray-800">{t(`${p}.prepressTemplateExport`)}</h3>
               </div>
 
               <div className="flex flex-col gap-4">
@@ -2346,7 +2350,7 @@ export default function PouchDielineCreatorPage() {
                       ) : (
                         <>
                           <Download className="w-4 h-4 stroke-[2.5]" />
-                          <span>Download Print Dieline PDF</span>
+                          <span>{t(`${p}.downloadPrintDieline`)}</span>
                         </>
                       )}
                     </button>

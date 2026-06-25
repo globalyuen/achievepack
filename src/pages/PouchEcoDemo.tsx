@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Package, Leaf, Zap, ShoppingCart, Star, Flame, Box as BoxIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
@@ -46,6 +47,9 @@ const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
 // ============================================
 
 export default function PouchEcoDemo() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchEcoDemo'
+
   const [cartCount, setCartCount] = useState(0)
 
   // Floating elements animation
@@ -147,8 +151,8 @@ export default function PouchEcoDemo() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <NeoButton>Start Building</NeoButton>
-                <NeoButton variant="secondary">View Materials</NeoButton>
+                <NeoButton>{t(`${p}.startBuilding`)}</NeoButton>
+                <NeoButton variant="secondary">{t(`${p}.viewMaterials`)}</NeoButton>
               </div>
             </div>
 
@@ -189,7 +193,7 @@ export default function PouchEcoDemo() {
           {/* Feature 1: Low MOQ */}
           <NeoCard className="md:col-span-2 bg-[#F0F0F0]">
             <Zap className="w-12 h-12 mb-4 text-[#FF00FF]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">Low MOQ Protocol</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t(`${p}.lowMoqProtocol`)}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
               Start with just 500 units. Test your market without massive inventory commitment. 
               Perfect for startups and new product launches.
@@ -232,7 +236,7 @@ export default function PouchEcoDemo() {
               Multi-layer barrier structures. O2 + moisture blocking. 
               Keeps product fresh for 6-18 months shelf life.
             </p>
-            <NeoButton variant="primary" className="text-sm">View Tech Specs</NeoButton>
+            <NeoButton variant="primary" className="text-sm">{t(`${p}.viewTechSpecs`)}</NeoButton>
           </NeoCard>
         </div>
       </section>
@@ -265,15 +269,15 @@ export default function PouchEcoDemo() {
                   {/* Stats Grid */}
                   <div className="grid grid-cols-3 gap-2 mb-6 font-['JetBrains_Mono'] text-xs border-y-2 border-black py-4 bg-gray-50">
                     <div className="text-center">
-                      <div className="font-bold">MOQ</div>
+                      <div className="font-bold">{t(`${p}.moq`)}</div>
                       <div>{product.stats.moq}</div>
                     </div>
                     <div className="text-center border-l-2 border-black">
-                      <div className="font-bold">MAT</div>
+                      <div className="font-bold">{t(`${p}.mat`)}</div>
                       <div>{product.stats.material}</div>
                     </div>
                     <div className="text-center border-l-2 border-black">
-                      <div className="font-bold">BAR</div>
+                      <div className="font-bold">{t(`${p}.bar`)}</div>
                       <div>{product.stats.barrier}</div>
                     </div>
                   </div>

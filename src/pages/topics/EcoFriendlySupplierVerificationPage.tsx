@@ -1,13 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'
 import { ShieldCheck, Info, HelpCircle, FileText, Globe, BarChart3, FlaskConical, Scale, Zap, ClipboardCheck, Search, Award, Eye, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import ClickableImage from '../../components/ClickableImage';
 
 const EcoFriendlySupplierVerificationPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoFriendlySupplierVerification'
+
   const sections = [
     {
       id: 'verification-philosophy',
-      title: 'Verification Over Marketing: Building a Trustworthy Eco-Brand',
+      title: t(`seoPages.pages.ecoFriendlySupplierVerification.verificationOverMarketing`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -40,7 +44,7 @@ const EcoFriendlySupplierVerificationPage: React.FC = () => {
     },
     {
       id: 'technical-verification',
-      title: 'Technical Verification Protocols: Beyond the Certificate',
+      title: t(`seoPages.pages.ecoFriendlySupplierVerification.technicalVerificationProtocols`),
       icon: <Search className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700 font-['Inter']">
@@ -74,7 +78,7 @@ const EcoFriendlySupplierVerificationPage: React.FC = () => {
     },
     {
       id: 'supply-chain-transparency',
-      title: 'Supply Chain Transparency: Tier 1 & Tier 2 Visibility',
+      title: t(`seoPages.pages.ecoFriendlySupplierVerification.supplyChainTransparency`),
       icon: <Eye className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -92,7 +96,7 @@ const EcoFriendlySupplierVerificationPage: React.FC = () => {
     },
     {
       id: 'procurement-scorecard',
-      title: 'Sustainable Procurement: Building Your Supplier Scorecard',
+      title: t(`seoPages.pages.ecoFriendlySupplierVerification.sustainableProcurement`),
       icon: <ClipboardCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -139,10 +143,10 @@ const EcoFriendlySupplierVerificationPage: React.FC = () => {
 
   return (
     <SEOPageLayout
-      title="Eco-Friendly Supplier Verification Guide 2026: E-E-A-T Standards"
-      description="The definitive guide to verifying eco-friendly packaging suppliers. Learn about ISO 14001, EcoVadis ratings, and technical LCA verification. 800+ words of technical research."
-      heroTitle="Eco-Verification: Transparency Beyond the Label"
-      heroSubtitle="Mastering the technical complexity of environmental audits, carbon reporting, and global supply chain transparency."
+      title={t(`seoPages.pages.ecoFriendlySupplierVerification.metaTitle`)}
+      description={t(`seoPages.pages.ecoFriendlySupplierVerification.metaDesc`)}
+      heroTitle={t(`seoPages.pages.ecoFriendlySupplierVerification.heroTitle`)}
+      heroSubtitle={t(`seoPages.pages.ecoFriendlySupplierVerification.heroSubtitle`)}
       heroImage="/imgs/generated/eco_audit.png"
       introSummary="In an era of high regulatory scrutiny, 'Eco-Friendly' is a technical claim that must be defended with data. This 800+ word master guide explores the science of environmental auditing, the metrics of Product Carbon Footprints (PCF), and the verification protocols required to ensure your supply chain is audit-proof. Learn how to build a sustainable procurement strategy based on 'Authoritativeness' and 'Trustworthiness'."
       sections={sections}

@@ -1,16 +1,20 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Scale, CheckCircle, AlertTriangle, Recycle, ArrowRight, ShieldCheck, HelpCircle, Award } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide'
 
 const StampFoilRecyclabilityPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.stampFoilRecyclability'
+
   const heroImage = '/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.jpg'
 
   const sections = [
     {
       id: 'foil-stamping-explained',
-      title: 'How Foil Stamping Affects Flexible Packaging Recyclability',
+      title: t(`${p}.heading1`),
       icon: <HelpCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -37,7 +41,7 @@ const StampFoilRecyclabilityPage: React.FC = () => {
     },
     {
       id: 'rules-of-thumb',
-      title: 'Guidelines for Using Foil Stamping Safely',
+      title: t(`${p}.heading3`),
       icon: <AlertTriangle className="h-5 w-5 text-amber-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -141,7 +145,7 @@ const StampFoilRecyclabilityPage: React.FC = () => {
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title="Does Stamp Foil Affect Packaging Recyclability? | Achieve Pack"
+      title={t(`${p}.metaTitle`)}
       description="Learn how metallic foil stamping affects the recyclability of flexible mono-PE packaging. Discover the 95% weight threshold rule for single-stream circular packaging."
       keywords={[
         'does foil stamping affect recyclability',

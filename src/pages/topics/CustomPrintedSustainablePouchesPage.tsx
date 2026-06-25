@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Printer, Palette, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Layers, MousePointer2 } from 'lucide-react'
@@ -7,12 +8,15 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const CustomPrintedSustainablePouchesPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.customPrintedSustainablePouches'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
     {
       id: 'hero-problem',
-      title: 'Custom Printed Sustainable Pouches: The Intersection of Art and Science',
+      title: t(`seoPages.pages.customPrintedSustainablePouches.intersectionOfArtAndScience`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -49,7 +53,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
     },
     {
       id: 'print-methodology',
-      title: 'Printing Methodology: Digital vs. Rotogravure',
+      title: t(`seoPages.pages.customPrintedSustainablePouches.printingMethodology`),
       icon: <Printer className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -93,7 +97,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
     },
     {
       id: 'sustainable-inks',
-      title: 'The Science of Inks: Safety & Circularity',
+      title: t(`seoPages.pages.customPrintedSustainablePouches.scienceOfInks`),
       icon: <Beaker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -131,7 +135,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Bring Your Brand to Life',
+      title: t(`seoPages.pages.customPrintedSustainablePouches.bringYourBrandToLife`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-purple-800 to-indigo-950 p-10 rounded-2xl text-white text-center shadow-2xl">
@@ -186,18 +190,18 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Custom Printed Sustainable Pouches | G7 Color Engineering | Achieve Pack</title>
-        <meta name="description" content="The master guide to custom printed sustainable pouches. 800+ words on digital vs. rotogravure, G7 color science, food-safe inks, and low-MOQ branding." />
+        <title>{t(`seoPages.pages.customPrintedSustainablePouches.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.customPrintedSustainablePouches.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/custom-printed-sustainable-pouches" />
         <meta name="keywords" content="custom printed pouches, sustainable pouch printing, digital pouch printing, G7 color matching, food safe inks, custom branded sustainable packaging" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#4c1d95"
-        title="Custom Printed Sustainable Pouches: Engineering Identity"
-        description="Transforming sustainable materials into powerful brand assets through elite printing technology and color science."
+        title={t(`seoPages.pages.customPrintedSustainablePouches.heroTitle`)}
+        description={t(`seoPages.pages.customPrintedSustainablePouches.heroDesc`)}
         keywords={['custom printed pouches', 'sustainable branding', 'packaging design']}
-        heroTitle="Your Brand. Our Tech."
+        heroTitle={t(`seoPages.pages.customPrintedSustainablePouches.heroTitle2`)}
         heroSubtitle="G7 Master Certified | Digital & Rotogravure | Food Safe Inks | Zero Plate Options"
         introSummary="Your packaging is your most visible sustainability statement. This guide outlines how we use advanced digital and rotogravure technology to deliver ultra-high-resolution branding on eco-friendly substrates—ensuring your identity is as pure as your product."
         sections={sections}

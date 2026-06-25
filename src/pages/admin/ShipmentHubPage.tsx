@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { 
   ArrowLeft, Plus, Search, Package, FileText, Image, Truck, 
@@ -57,6 +58,9 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; icon: React.
 }
 
 export default function ShipmentHubPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.shipmentHub'
+
   const { user, loading: authLoading } = useAuth()
   const navigate = useNavigate()
   const [batches, setBatches] = useState<ShipmentBatch[]>([])
@@ -385,7 +389,7 @@ Return ONLY valid JSON.` }
               <div className="h-6 w-px bg-gray-200" />
               <div className="flex items-center gap-2">
                 <Package className="h-5 w-5 text-primary-600" />
-                <h1 className="text-lg font-semibold text-gray-900">Shipment Hub</h1>
+                <h1 className="text-lg font-semibold text-gray-900">{t(`${p}.pageTitle`)}</h1>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -470,7 +474,7 @@ Return ONLY valid JSON.` }
         ) : filteredBatches.length === 0 ? (
           <div className="bg-white rounded-xl shadow-sm border p-12 text-center">
             <Package className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-500 mb-4">No shipments found</p>
+            <p className="text-gray-500 mb-4">{t(`${p}.noShipmentsFound`)}</p>
             <button
               onClick={() => setShowCreateModal(true)}
               className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
@@ -594,7 +598,7 @@ Return ONLY valid JSON.` }
                   </button>
                 )}
                 <h2 className="text-lg font-semibold text-gray-900">
-                  {createStep === 'source' ? 'Choose Data Source' : 'Create New Shipment'}
+                  {createStep === 'source' ? t(`${p}.chooseDataSource`) : t(`${p}.createNewShipment`)}
                 </h2>
               </div>
               <button
@@ -613,7 +617,7 @@ Return ONLY valid JSON.` }
                   <div className="mb-6 bg-purple-50 border border-purple-200 rounded-xl p-4 flex items-center gap-4">
                     <Loader2 className="h-8 w-8 animate-spin text-purple-500" />
                     <div>
-                      <h3 className="font-medium text-purple-900">Extracting with XAI...</h3>
+                      <h3 className="font-medium text-purple-900">{t(`${p}.extractingWithXAI`)}</h3>
                       <p className="text-sm text-purple-700">AI is analyzing your document</p>
                     </div>
                   </div>
@@ -641,7 +645,7 @@ Return ONLY valid JSON.` }
                   >
                     <FileUp className="h-8 w-8 text-purple-500 mb-3" />
                     <h3 className="font-semibold text-gray-900 mb-1">Upload Document</h3>
-                    <p className="text-sm text-gray-500">Extract info from JPG/PDF with AI</p>
+                    <p className="text-sm text-gray-500">{t(`${p}.extractInfo`)}</p>
                   </button>
 
                   {/* Option 3: Manual */}
@@ -664,7 +668,7 @@ Return ONLY valid JSON.` }
                     {templates.length === 0 ? (
                       <div className="text-center py-8 bg-gray-50 rounded-lg">
                         <FileText className="h-10 w-10 text-gray-300 mx-auto mb-2" />
-                        <p className="text-gray-500">No templates with extracted data</p>
+                        <p className="text-gray-500">{t(`${p}.noTemplates`)}</p>
                         <Link
                           to="/ctrl-x9k7m/document-templates"
                           className="text-primary-600 hover:text-primary-700 text-sm mt-2 inline-block"
@@ -758,7 +762,7 @@ Return ONLY valid JSON.` }
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Customer PO</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.customerPO`)}</label>
                       <input
                         type="text"
                         value={formData.customer_po}
@@ -771,7 +775,7 @@ Return ONLY valid JSON.` }
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Customer Name *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.customerName`)}</label>
                       <input
                         type="text"
                         value={formData.customer_name}
@@ -781,7 +785,7 @@ Return ONLY valid JSON.` }
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Customer Email</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">{t(`${p}.customerEmail`)}</label>
                       <input
                         type="email"
                         value={formData.customer_email}

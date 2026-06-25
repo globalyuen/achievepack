@@ -5,6 +5,7 @@ import { Droplets, Wind, CheckCircle, Award, Calendar, MessageCircle, Target, Sh
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const HUMIDITY_TECH_DATA = {
   wvtrTarget: "WVTR < 0.5g/m2/day (Plastic Equivalent)",
@@ -13,6 +14,8 @@ const HUMIDITY_TECH_DATA = {
 }
 
 const CompostableHumidityControlPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.compostableHumidityControl';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -24,32 +27,31 @@ const CompostableHumidityControlPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-lg border border-cyan-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Humidity control is the most difficult technical challenge in the bio-economy. In 2026, protecting moisture-sensitive products like <strong>Coffee, Spices, and Pharmaceuticals</strong> requires a 100% <strong>Compostable High-Barrier</strong>.
+              {t(`${p}.humidityControlIsTheMostDiffic`)}<strong>{t(`${p}.coffeeSpicesAndPharmaceuticals`)}</strong> {t(`${p}.requiresA100`)}<strong>{t(`${p}.compostableHighBarrier`)}</strong>.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-cyan-600">
-                <h4 className="font-semibold text-cyan-800">The Moisture Crisis</h4>
+                <h4 className="font-semibold text-cyan-800">{t(`${p}.theMoistureCrisis`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>- High WVTR (Water Vapor Transmission Rate)</li>
-                  <li>- Product clumping and mold growth</li>
-                  <li>- Aroma loss and oxidation</li>
-                  <li>- Traditional plastic/foil waste</li>
+                  <li>{t(`${p}.highWvtrWaterVaporTransmission`)}</li>
+                  <li>{t(`${p}.productClumpingAndMoldGrowth`)}</li>
+                  <li>{t(`${p}.aromaLossAndOxidation`)}</li>
+                  <li>{t(`${p}.traditionalPlasticFoilWaste`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                <h4 className="font-semibold text-blue-800">The Achieve Pack Solution</h4>
+                <h4 className="font-semibold text-blue-800">{t(`${p}.theAchievePackSolution`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>- TUV OK Compost Home High-Barrier</li>
+                  <li>{t(`${p}.tuvOkCompostHomeHighBarrier`)}</li>
                   <li>- {HUMIDITY_TECH_DATA.wvtrTarget}</li>
-                  <li>- Integrated Bio-Degassing Valves</li>
-                  <li>- Plant-based PBS/Bio-EVOH structures</li>
+                  <li>{t(`${p}.integratedBioDegassingValves`)}</li>
+                  <li>{t(`${p}.plantBasedPbsBioEvohStructures`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we have mastered <strong>Active Humidity Engineering</strong> for compostable packaging. By utilizing <strong>Bio-EVOH and PBS (Polybutylene Succinate)</strong> laminates, we deliver Water Vapor Transmission Rates (WVTR) and Oxygen Transmission Rates (OTR) that match traditional petroleum-based plastics - ensuring your product stays fresh and potent without the environmental cost.
-          </p>
+            {t(`${p}.atAchievePackWeHaveMastered`)}<strong>{t(`${p}.activeHumidityEngineering`)}</strong> {t(`${p}.forCompostablePackagingByUtili`)}<strong>{t(`${p}.bioEvohAndPbsPolybutyleneSucci`)}</strong> {t(`${p}.laminatesWeDeliverWaterVaporTr`)}</p>
         </div>
       )
     },
@@ -60,30 +62,29 @@ const CompostableHumidityControlPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Moisture protection is defined by <strong>Water Vapor Transmission Rate (WVTR)</strong>. We utilize advanced bio-polymers that create a molecular shield against environmental humidity.
-          </p>
+            {t(`${p}.moistureProtectionIsDefinedBy`)}<strong>{t(`${p}.waterVaporTransmissionRateWvtr`)}</strong>{t(`${p}.weUtilizeAdvancedBioPolymersTh`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-cyan-100 rounded-lg w-fit mb-4">
                 <Droplets className="h-6 w-6 text-cyan-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Low WVTR</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.lowWvtr`)}</h4>
               <p className="text-sm text-neutral-600">{HUMIDITY_TECH_DATA.wvtrMetric}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
                 <Wind className="h-6 w-6 text-blue-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">High Oxygen Barrier</h4>
-              <p className="text-sm text-neutral-600">Bio-EVOH layers block oxygen entry, preventing rancidity and preserving natural aromas.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.highOxygenBarrier`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.bioEvohLayersBlockOxygenEntryP`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-slate-100 rounded-lg w-fit mb-4">
                 <Layers className="h-6 w-6 text-slate-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Multi-Layer Purity</h4>
-              <p className="text-sm text-neutral-600">100% compostable laminates (Paper/PBS/Bio-EVOH) for maximum structural integrity.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.multiLayerPurity`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.100CompostableLaminatesPaperPb`)}</p>
             </div>
           </div>
 
@@ -105,32 +106,30 @@ const CompostableHumidityControlPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            Humidity control is not just about the film; it is about the <strong>Closure System</strong>. We provide integrated bio-components that maintain the internal micro-climate.
-          </p>
+            {t(`${p}.humidityControlIsNotJustAboutT`)}<strong>{t(`${p}.closureSystem`)}</strong>{t(`${p}.weProvideIntegratedBioComponen`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Closure Engineering</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.closureEngineering`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Compostable Degassing Valves</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Allowing CO2 to escape from fresh coffee while blocking oxygen and moisture entry.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.compostableDegassingValves`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.allowingCo2ToEscapeFromFreshCo`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Hermetic Bio-Zippers</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Re-sealable closures made from 100% compostable resins that maintain a moisture-proof seal.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.hermeticBioZippers`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.reSealableClosuresMadeFrom100C`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Heat Seal Integrity</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Optimized for high-speed filling lines to ensure zero leaks or moisture ingress.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.heatSealIntegrity`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.optimizedForHighSpeedFillingLi`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Sustainable Credibility</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.sustainableCredibility`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                By utilizing <strong>TUV Certified Home Compostable</strong> materials, you build an immediate bond of trust with conscious consumers. Achieve Pack provides the certifications you need to prove your humidity-control packaging is both high-performance and environmentally pure.
-              </p>
+                {t(`${p}.byUtilizing`)}<strong>{t(`${p}.tuvCertifiedHomeCompostable`)}</strong> {t(`${p}.materialsYouBuildAnImmediateBo`)}</p>
             </div>
           </div>
         </div>
@@ -142,10 +141,9 @@ const CompostableHumidityControlPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-cyan-800 to-blue-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Stay Dry. Stay Pure. Stay Sustainable.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.stayDryStayPureStaySustainable`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to secure a high-barrier, compostable humidity-control supply chain for your brand? Our engineering team will review your WVTR requirements today.
-          </p>
+            {t(`${p}.readyToSecureAHighBarrierCompo`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -153,19 +151,16 @@ const CompostableHumidityControlPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-cyan-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Barrier Strategy Session
-            </button>
+              {t(`${p}.bookBarrierStrategySession`)}</button>
             <Link
               to="/store"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <ShoppingBag className="h-5 w-5" />
-              Order Barrier Samples
-            </Link>
+              {t(`${p}.orderBarrierSamples`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            TUV CERTIFIED - LOW WVTR - HIGH OTR - BIO-VALVE EQUIPPED
-          </p>
+            {t(`${p}.tuvCertifiedLowWvtrHighOtrBioV`)}</p>
         </div>
       )
     }
@@ -193,7 +188,7 @@ const CompostableHumidityControlPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Compostable Humidity Control | High-Barrier Bio-Packaging | Achieve Pack</title>
+        <title>{t(`${p}.compostableHumidityControlHigh`)}</title>
         <meta name="description" content="The technical guide to compostable humidity control. 800+ words on WVTR science, Bio-EVOH barriers, compostable degassing valves, and dry-goods preservation." />
         <link rel="canonical" href="https://achievepack.com/topics/compostable-humidity-control" />
         <meta name="keywords" content="compostable humidity control, high barrier compostable, WVTR bio-packaging, compostable coffee valves, moisture proof compostable, bio-EVOH barrier" />

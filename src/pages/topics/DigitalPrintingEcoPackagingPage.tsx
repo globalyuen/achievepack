@@ -5,8 +5,11 @@ import { Zap, Palette, CheckCircle, Award, Calendar, MessageCircle, Target, Shie
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const DigitalPrintingEcoPackagingPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.digitalPrintingEcoPackaging';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,30 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-lg border border-cyan-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Digital printing is no longer just for small batches; it is the <strong>most sustainable manufacturing protocol</strong> for modern agile brands. By eliminating plates, chemicals, and excessive waste, digital printing aligns perfectly with 2026 circularity goals.
-            </p>
+              {t(`${p}.digitalPrintingIsNoLongerJustF`)}<strong>{t(`${p}.mostSustainableManufacturingPr`)}</strong> {t(`${p}.forModernAgileBrandsByEliminat`)}</p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-cyan-600">
-                <h4 className="font-semibold text-cyan-800">Traditional Print Waste</h4>
+                <h4 className="font-semibold text-cyan-800">{t(`${p}.traditionalPrintWaste`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• High set-up waste (hundreds of meters)</li>
-                  <li>• Expensive and toxic metal plates</li>
-                  <li>• Solvent-based ink emissions (VOCs)</li>
-                  <li>• Mandatory high MOQs (dead inventory)</li>
+                  <li>{t(`${p}.highSetUpWasteHundredsOfMeters`)}</li>
+                  <li>{t(`${p}.expensiveAndToxicMetalPlates`)}</li>
+                  <li>{t(`${p}.solventBasedInkEmissionsVocs`)}</li>
+                  <li>{t(`${p}.mandatoryHighMoqsDeadInventory`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                <h4 className="font-semibold text-blue-800">The Digital Advantage</h4>
+                <h4 className="font-semibold text-blue-800">{t(`${p}.theDigitalAdvantage`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Zero Plate Fees & Zero Plate Waste</li>
-                  <li>• HP Indigo ElectroInk (Food Safe/Compostable)</li>
-                  <li>• Low MOQ (500 units) = No Dead Stock</li>
-                  <li>• 100% Variable Data & Hyper-Personalization</li>
+                  <li>{t(`${p}.zeroPlateFeesZeroPlateWaste`)}</li>
+                  <li>{t(`${p}.hpIndigoElectroinkFoodSafeComp`)}</li>
+                  <li>{t(`${p}.lowMoq500UnitsNoDeadStock`)}</li>
+                  <li>{t(`${p}.100VariableDataHyperPersonaliz`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we utilize the <strong>HP Indigo 25K</strong>—the world's most advanced digital press for flexible packaging. This technology allows us to provide brands with ultra-high resolution (1200 DPI), G7-certified color accuracy, and a significantly lower environmental footprint than traditional rotogravure or flexographic printing.
-          </p>
+            {t(`${p}.atAchievePackWeUtilizeThe`)}<strong>{t(`${p}.hpIndigo25k`)}</strong>{t(`${p}.theWorldSMostAdvancedDigitalPr`)}</p>
         </div>
       )
     },
@@ -54,30 +55,29 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The secret to digital sustainability lies in the ink. Unlike traditional solvent-based inks, <strong>HP Indigo ElectroInk</strong> is designed for the circular economy.
-          </p>
+            {t(`${p}.theSecretToDigitalSustainabili`)}<strong>{t(`${p}.hpIndigoElectroink`)}</strong> {t(`${p}.isDesignedForTheCircularEconom`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-cyan-100 rounded-lg w-fit mb-4">
                 <Shield className="h-6 w-6 text-cyan-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Food Safe Purity</h4>
-              <p className="text-sm text-neutral-600">Meets the strictest FDA and EFSA regulations for direct and indirect food contact. Solvent-free and low-odor.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.foodSafePurity`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.meetsTheStrictestFdaAndEfsaReg`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
                 <Leaf className="h-6 w-6 text-blue-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Compostable Ready</h4>
-              <p className="text-sm text-neutral-600">Certified for industrial and home compostable structures. The ink breaks down fully during the composting cycle.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.compostableReady`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.certifiedForIndustrialAndHomeC`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-indigo-100 rounded-lg w-fit mb-4">
                 <Palette className="h-6 w-6 text-indigo-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">G7 Color Accuracy</h4>
-              <p className="text-sm text-neutral-600">Spectrophotometer-controlled color consistency (Delta-E &lt; 2.0) across all material substrates.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.g7ColorAccuracy`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.spectrophotometerControlledCol`)}</p>
             </div>
           </div>
 
@@ -99,32 +99,30 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The biggest waste in the packaging industry is <strong>obsolescence</strong>. Traditional printing forces brands to order 20,000+ units, much of which ends up in landfills due to SKU changes or rebranding.
-          </p>
+            {t(`${p}.theBiggestWasteInThePackagingI`)}<strong>{t(`${p}.obsolescence`)}</strong>{t(`${p}.traditionalPrintingForcesBrand`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">The Lean Packaging Model</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.theLeanPackagingModel`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Just-In-Time (JIT) Production</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Order only what you need. Reduce warehouse storage and capital tie-up.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.justInTimeJitProduction`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.orderOnlyWhatYouNeedReduceWare`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Rapid Prototyping</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Test new market concepts or seasonal flavors without the risk of high upfront costs.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.rapidPrototyping`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.testNewMarketConceptsOrSeasona`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Variable Data (VDP)</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Print unique QR codes, serial numbers, or personalized graphics on every single unit.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.variableDataVdp`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.printUniqueQrCodesSerialNumber`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Carbon Footprint Reduction</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.carbonFootprintReduction`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                By eliminating the energy-intensive process of plate making and reducing setup waste by &gt; 90%, digital printing is the most carbon-efficient method for medium and short-run production.
-              </p>
+                {t(`${p}.byEliminatingTheEnergyIntensiv`)}</p>
             </div>
           </div>
         </div>
@@ -137,7 +135,7 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            We operate the most advanced digital manufacturing facility for eco-friendly pouches. Our technology stack is designed for <strong>speed, quality, and circularity</strong>.
+            {t(`${p}.weOperateTheMostAdvancedDigita`)}<strong>{t(`${p}.speedQualityAndCircularity`)}</strong>.
           </p>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -150,19 +148,19 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
               />
             </div>
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Technical Benchmarks</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.technicalBenchmarks`)}</h4>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-cyan-600" />
-                  <span><strong>Resolution:</strong> Up to 1200 DPI for photographic-quality results.</span>
+                  <span><strong>{t(`${p}.resolution`)}</strong> {t(`${p}.upTo1200DpiForPhotographicQual`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-cyan-600" />
-                  <span><strong>Substrates:</strong> Mono-PE, Mono-PP, Kraft, and Compostable films.</span>
+                  <span><strong>{t(`${p}.substrates`)}</strong> {t(`${p}.monoPeMonoPpKraftAndCompostabl`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-cyan-600" />
-                  <span><strong>Finishes:</strong> In-line spot varnish, matte, gloss, and soft-touch.</span>
+                  <span><strong>{t(`${p}.finishes`)}</strong> {t(`${p}.inLineSpotVarnishMatteGlossAnd`)}</span>
                 </li>
               </ul>
             </div>
@@ -176,10 +174,9 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-cyan-800 to-blue-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Zero Plates. Zero Waste. Total Precision.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.zeroPlatesZeroWasteTotalPrecis`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Ready to experience the power of digital printing? Our technical team will help you optimize your artwork for our HP Indigo fleet today.
-          </p>
+            {t(`${p}.readyToExperienceThePowerOfDig`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -187,19 +184,16 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-cyan-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Print Consultation
-            </button>
+              {t(`${p}.bookPrintConsultation`)}</button>
             <Link
               to="/store"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <ShoppingBag className="h-5 w-5" />
-              Order Digital Samples
-            </Link>
+              {t(`${p}.orderDigitalSamples`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            HP INDIGO 25K • G7 CERTIFIED • FOOD SAFE INKS • NO PLATE FEES
-          </p>
+            {t(`${p}.hpIndigo25kG7CertifiedFoodSafe`)}</p>
         </div>
       )
     }
@@ -227,7 +221,7 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Digital Printing for Eco-Packaging | HP Indigo 25K | Achieve Pack</title>
+        <title>{t(`${p}.digitalPrintingForEcoPackaging`)}</title>
         <meta name="description" content="Master the technical benefits of digital printing. 800+ words on HP Indigo 25K technology, zero-plate sustainability, food-safe inks, and low-MOQ agility." />
         <link rel="canonical" href="https://achievepack.com/topics/digital-printing-eco-packaging" />
         <meta name="keywords" content="digital printing eco packaging, HP Indigo 25K flexible packaging, zero plate printing, sustainable packaging printing, low MOQ pouches, variable data packaging" />

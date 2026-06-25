@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
@@ -43,15 +44,18 @@ const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
 )
 
 export default function PouchEcoSolutionsPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchEcoSolutions'
+
   const brand = getBrandConfig()
 
   const solutions = [
     {
       id: 'startup',
       icon: <Rocket className="w-16 h-16" />,
-      title: 'Startup Packaging',
-      tagline: 'Launch with Confidence',
-      description: 'Perfect for new brands testing the market. Low 500-unit MOQ lets you start small and scale as you grow.',
+      title: t(`${p}.solutions.startup.title`),
+      tagline: t(`${p}.solutions.startup.tagline`),
+      description: t(`${p}.solutions.startup.desc`),
       benefits: [
         '500 unit minimum order',
         'Free design consultation',
@@ -60,15 +64,15 @@ export default function PouchEcoSolutionsPage() {
       ],
       color: 'bg-[#D4FF00]',
       image: getImage('stand-up-pouch/stand800'),
-      cta: 'Start Your Brand',
+      cta: t(`${p}.solutions.startup.cta`),
       link: '/store?category=starter'
     },
     {
       id: 'ecommerce',
       icon: <ShoppingBag className="w-16 h-16" />,
-      title: 'Ecommerce Shipping',
-      tagline: 'Lightweight & Durable',
-      description: 'Save 22% on shipping costs with our lightweight compostable pouches. Perfect for direct-to-consumer brands.',
+      title: t(`${p}.solutions.ecommerce.title`),
+      tagline: t(`${p}.solutions.ecommerce.tagline`),
+      description: t(`${p}.solutions.ecommerce.desc`),
       benefits: [
         '70% lighter than rigid packaging',
         '22% shipping cost savings',
@@ -77,15 +81,15 @@ export default function PouchEcoSolutionsPage() {
       ],
       color: 'bg-[#00FFFF]',
       image: getImage('mailer/mailer800'),
-      cta: 'Reduce Shipping Costs',
+      cta: t(`${p}.solutions.ecommerce.cta`),
       link: '/solutions/ecommerce-shipping'
     },
     {
       id: 'sustainable',
       icon: <Leaf className="w-16 h-16" />,
-      title: 'Sustainable Launch',
-      tagline: 'Eco from Day One',
-      description: 'Launch your sustainable product with packaging that matches your values. BPI certified compostable materials.',
+      title: t(`${p}.solutions.sustainable.title`),
+      tagline: t(`${p}.solutions.sustainable.tagline`),
+      description: t(`${p}.solutions.sustainable.desc`),
       benefits: [
         'EN13432 & ASTM D6400 certified',
         'Home & industrial composting',
@@ -94,15 +98,15 @@ export default function PouchEcoSolutionsPage() {
       ],
       color: 'bg-[#FF00FF]',
       image: getImage('compostable/compostable800'),
-      cta: 'Go Compostable',
+      cta: t(`${p}.solutions.sustainable.cta`),
       link: '/materials/compostable'
     },
     {
       id: 'coffee',
       icon: <Coffee className="w-16 h-16" />,
-      title: 'Coffee & Tea',
-      tagline: 'Degassing Valve Included',
-      description: 'Specialized bags for fresh roasted coffee and premium tea. One-way valve releases CO2 while keeping oxygen out.',
+      title: t(`${p}.solutions.coffee.title`),
+      tagline: t(`${p}.solutions.coffee.tagline`),
+      description: t(`${p}.solutions.coffee.desc`),
       benefits: [
         'One-way degassing valve',
         'High barrier kraft options',
@@ -111,15 +115,15 @@ export default function PouchEcoSolutionsPage() {
       ],
       color: 'bg-neutral-900 text-white',
       image: getImage('coffee/coffee800'),
-      cta: 'Explore Coffee Bags',
+      cta: t(`${p}.solutions.coffee.cta`),
       link: '/industry/coffee-tea'
     },
     {
       id: 'custom',
       icon: <Sparkles className="w-16 h-16" />,
-      title: 'Custom Solutions',
-      tagline: 'Your Vision, Our Expertise',
-      description: 'Need something unique? Work with our team to create custom shapes, sizes, materials, and features.',
+      title: t(`${p}.solutions.custom.title`),
+      tagline: t(`${p}.solutions.custom.tagline`),
+      description: t(`${p}.solutions.custom.desc`),
       benefits: [
         'Any size or shape',
         'Custom material structures',
@@ -128,15 +132,15 @@ export default function PouchEcoSolutionsPage() {
       ],
       color: 'bg-white',
       image: getImage('custom/custom800'),
-      cta: 'Start Custom Project',
+      cta: t(`${p}.solutions.custom.cta`),
       link: '/contact'
     },
     {
       id: 'bulk',
       icon: <Box className="w-16 h-16" />,
-      title: 'Bulk Orders',
-      tagline: 'Scale with Savings',
-      description: 'Ready to scale? Get volume pricing for orders over 10,000 units. Perfect for established brands.',
+      title: t(`${p}.solutions.bulk.title`),
+      tagline: t(`${p}.solutions.bulk.tagline`),
+      description: t(`${p}.solutions.bulk.desc`),
       benefits: [
         'Volume discounts available',
         'Flexible MOQ negotiation',
@@ -145,30 +149,30 @@ export default function PouchEcoSolutionsPage() {
       ],
       color: 'bg-[#10b981] text-white',
       image: getImage('bulk/bulk800'),
-      cta: 'Request Volume Quote',
+      cta: t(`${p}.solutions.bulk.cta`),
       link: '/contact'
     }
   ]
 
   const useCases = [
     {
-      title: 'Product Sampling',
-      description: 'Test market fit with small batches',
+      title: t(`${p}.useCases.sampling`),
+      description: t(`${p}.useCases.samplingDesc`),
       icon: <Target className="w-6 h-6" />
     },
     {
-      title: 'Seasonal Products',
-      description: 'Limited edition runs without excess inventory',
+      title: t(`${p}.useCases.seasonal`),
+      description: t(`${p}.useCases.seasonalDesc`),
       icon: <Sparkles className="w-6 h-6" />
     },
     {
-      title: 'Crowdfunding Campaigns',
-      description: 'Fulfill backers with professional packaging',
+      title: t(`${p}.useCases.crowdfunding`),
+      description: t(`${p}.useCases.crowdfundingDesc`),
       icon: <Users className="w-6 h-6" />
     },
     {
-      title: 'Retail Expansion',
-      description: 'Shelf-ready packaging that stands out',
+      title: t(`${p}.useCases.retail`),
+      description: t(`${p}.useCases.retailDesc`),
       icon: <TrendingUp className="w-6 h-6" />
     }
   ]
@@ -196,24 +200,24 @@ export default function PouchEcoSolutionsPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
-              <span className="font-['JetBrains_Mono'] font-bold text-sm">💡 SOLUTIONS FOR EVERY BRAND</span>
+              <span className="font-['JetBrains_Mono'] font-bold text-sm">{t(`${p}.solutionsHeadingTag`)}</span>
             </div>
             
             <h1 className="font-black text-6xl md:text-8xl uppercase leading-[0.9] mb-6">
-              Find Your<br/>
-              <span className="text-[#10b981]">Perfect Fit</span>
+              {t(`${p}.solutionsTitle1`)}<br/>
+              <span className="text-[#10b981]">{t(`${p}.solutionsTitle2`)}</span>
             </h1>
             
             <p className="font-['JetBrains_Mono'] text-lg md:text-xl mb-12 max-w-2xl mx-auto">
-              Whether you're launching a startup, scaling an ecommerce brand, or creating custom packaging, we have eco-friendly solutions tailored to your needs.
+              {t(`${p}.solutionsDesc`)}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <NeoButton to="/store" variant="primary">
-                Browse All Solutions
+                {t(`${p}.browseAll`)}
               </NeoButton>
               <NeoButton to="/contact" variant="secondary">
-                Talk to an Expert
+                {t(`${p}.talkToExpert`)}
               </NeoButton>
             </div>
           </motion.div>
@@ -278,10 +282,10 @@ export default function PouchEcoSolutionsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-black text-5xl md:text-7xl uppercase mb-4">
-              Popular <span className="text-[#10b981]">Use Cases</span>
+              {t(`${p}.popularUseCases`)} <span className="text-[#10b981]">{t(`${p}.popularUseCasesHighlight`)}</span>
             </h2>
             <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto">
-              Our eco packaging adapts to your specific needs
+              {t(`${p}.popularUseCasesDesc`)}
             </p>
           </div>
 
@@ -313,18 +317,18 @@ export default function PouchEcoSolutionsPage() {
       <section className="py-24 px-4 md:px-6 border-t-4 border-black bg-[#10b981] text-white">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="font-black text-5xl md:text-7xl uppercase">
-            Not Sure Where<br/>
-            to Start?
+            {t(`${p}.ctaSection.titleLine1`)}<br/>
+            {t(`${p}.ctaSection.titleLine2`)}
           </h2>
           <p className="font-['JetBrains_Mono'] text-xl">
-            Book a free 30-minute consultation. We'll help you choose the perfect packaging solution for your brand.
+            {t(`${p}.ctaSection.desc`)}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <NeoButton to="/contact" variant="yellow">
-              Get Expert Advice
+              {t(`${p}.ctaSection.btnExpert`)}
             </NeoButton>
             <NeoButton to="/store" variant="secondary">
-              Browse All Options
+              {t(`${p}.ctaSection.btnBrowse`)}
             </NeoButton>
           </div>
 
@@ -332,15 +336,15 @@ export default function PouchEcoSolutionsPage() {
           <div className="flex flex-wrap justify-center gap-4 pt-8">
             <div className="flex items-center gap-2 bg-white text-black border-4 border-black px-4 py-2 font-black text-sm">
               <CheckCircle className="w-5 h-5 text-[#10b981]" />
-              1,200+ Happy Brands
+              {t(`${p}.ctaSection.trust1`)}
             </div>
             <div className="flex items-center gap-2 bg-white text-black border-4 border-black px-4 py-2 font-black text-sm">
               <CheckCircle className="w-5 h-5 text-[#10b981]" />
-              50M+ Pouches Made
+              {t(`${p}.ctaSection.trust2`)}
             </div>
             <div className="flex items-center gap-2 bg-white text-black border-4 border-black px-4 py-2 font-black text-sm">
               <CheckCircle className="w-5 h-5 text-[#10b981]" />
-              40+ Countries
+              {t(`${p}.ctaSection.trust3`)}
             </div>
           </div>
         </div>
@@ -365,7 +369,7 @@ export default function PouchEcoSolutionsPage() {
                 <span className="font-black text-xl">POUCH.ECO</span>
               </div>
               <p className="text-sm text-gray-600 font-['JetBrains_Mono']">
-                Eco packaging for the next generation of sustainable brands.
+                {t(`${p}.footer.tagline`)}
               </p>
             </div>
 
@@ -400,7 +404,7 @@ export default function PouchEcoSolutionsPage() {
           </div>
 
           <div className="border-t-2 border-black pt-8 text-center text-sm text-gray-600 font-['JetBrains_Mono']">
-            © 2026 {brand.name}. All rights reserved. Made with 💚 for the planet.
+            {t(`${p}.footer.copyright`, { year: 2026, brand: brand.name })}
           </div>
         </div>
       </footer>

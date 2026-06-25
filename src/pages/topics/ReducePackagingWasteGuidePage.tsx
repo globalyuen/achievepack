@@ -2,8 +2,11 @@ import React from 'react';
 import { Leaf, ShieldCheck, AlertTriangle, CheckCircle, Info, HelpCircle, FileText, Globe, BarChart3, FlaskConical, Zap, Minimize2, Truck } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import ClickableImage from '../../components/ClickableImage';
+import { useTranslation, Trans } from "react-i18next";
 
 const ReducePackagingWasteGuidePage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.reducePackagingWasteGuide';
   const sections = [
     {
       id: 'waste-reduction-hierarchy',
@@ -12,29 +15,23 @@ const ReducePackagingWasteGuidePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg leading-relaxed">
-            In the sustainable packaging strategy of 2026, the first and most critical pillar is <strong>Reduction</strong>. While recycling and composting are essential, engineering waste *out* of the system provides the most immediate carbon and cost savings. According to the <strong>EPA Waste Management Hierarchy</strong>, source reduction is significantly more effective than recycling because it eliminates the energy intensity required for material recovery.
-          </p>
+            {t(`${p}.inTheSustainablePackagingStrat`)}<strong>{t(`${p}.reduction`)}</strong>{t(`${p}.whileRecyclingAndCompostingAre`)}<strong>{t(`${p}.epaWasteManagementHierarchy`)}</strong>{t(`${p}.sourceReductionIsSignificantly`)}</p>
           <div className="grid md:grid-cols-2 gap-8 py-4">
             <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 shadow-sm">
               <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <BarChart3 className="h-4 w-4 text-primary-600" /> Lightweighting Physics
-              </h4>
+                <BarChart3 className="h-4 w-4 text-primary-600" /> {t(`${p}.lightweightingPhysics`)}</h4>
               <p className="text-sm leading-relaxed">
-                By utilizing advanced <strong>high-modulus polymers</strong>, we can reduce the micron thickness of a pouch by 15-20% while maintaining the same burst strength and puncture resistance. This process, known as "Lightweighting," directly reduces the total mass of plastic entering the economy.
-              </p>
+                {t(`${p}.byUtilizingAdvanced`)}<strong>{t(`${p}.highModulusPolymers`)}</strong>{t(`${p}.weCanReduceTheMicronThicknessO`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 shadow-sm">
               <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <Globe className="h-4 w-4 text-primary-600" /> Resource Conservation
-              </h4>
+                <Globe className="h-4 w-4 text-primary-600" /> {t(`${p}.resourceConservation`)}</h4>
               <p className="text-sm leading-relaxed">
-                Reducing material at the source means less water consumed during manufacturing, less energy used in transportation, and less waste for consumers to manage at end-of-life.
-              </p>
+                {t(`${p}.reducingMaterialAtTheSourceMea`)}</p>
             </div>
           </div>
           <p className="text-md leading-relaxed font-semibold">
-            At Achieve Pack, our "Reduction-First" engineering approach helps brands hit their ESG targets while simultaneously lowering their unit packaging costs.
-          </p>
+            {t(`${p}.atAchievePackOurReductionFirst`)}</p>
         </div>
       )
     },
@@ -45,18 +42,16 @@ const ReducePackagingWasteGuidePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700 font-['Inter']">
           <p className="text-md leading-relaxed">
-            "Slack-fill" is the empty space (air) inside a package. Excessive slack-fill is a primary source of packaging waste and transport inefficiency.
-          </p>
+            {t(`${p}.slackFillIsTheEmptySpaceAirIns`)}</p>
           <div className="bg-primary-50 p-8 rounded-2xl border border-primary-100">
-            <h4 className="text-primary-900 font-bold mb-4">Engineering the Optimal Fit</h4>
+            <h4 className="text-primary-900 font-bold mb-4">{t(`${p}.engineeringTheOptimalFit`)}</h4>
             <p className="text-sm leading-relaxed mb-4">
-              We use <strong>Volumetric Displacement Modeling</strong> to calculate the exact dimensions required for your product. Eliminating just 10% of excess air in a pouch can lead to:
-            </p>
+              {t(`${p}.weUse`)}<strong>{t(`${p}.volumetricDisplacementModeling`)}</strong> {t(`${p}.toCalculateTheExactDimensionsR`)}</p>
             <ul className="grid grid-cols-2 gap-4 text-xs font-bold text-primary-700 uppercase tracking-wider">
-              <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3" /> 10% Plastic Reduction</li>
-              <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3" /> 15% More Pallet Space</li>
-              <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3" /> 12% Lower CO2e</li>
-              <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3" /> Improved Branding</li>
+              <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3" /> {t(`${p}.10PlasticReduction`)}</li>
+              <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3" /> {t(`${p}.15MorePalletSpace`)}</li>
+              <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3" /> {t(`${p}.12LowerCo2e`)}</li>
+              <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3" /> {t(`${p}.improvedBranding`)}</li>
             </ul>
           </div>
           <ClickableImage 
@@ -74,13 +69,11 @@ const ReducePackagingWasteGuidePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-md leading-relaxed">
-            Flexible packaging is inherently more efficient than rigid formats (glass or tins), but custom "Right-Sizing" takes this advantage further.
-          </p>
+            {t(`${p}.flexiblePackagingIsInherentlyM`)}</p>
           <div className="bg-neutral-900 text-white p-8 rounded-2xl shadow-xl">
-            <h4 className="text-primary-400 font-bold mb-4">The Freight Efficiency Math</h4>
+            <h4 className="text-primary-400 font-bold mb-4">{t(`${p}.theFreightEfficiencyMath`)}</h4>
             <p className="text-sm leading-relaxed text-neutral-300">
-              By reducing the pouch footprint, we increase the <strong>Palletization Density</strong>. This means you can ship more product per truckload, directly reducing the "Carbon per Unit" of your logistics chain. For a typical CPG brand, this can result in thousands of tons of CO2e avoided annually.
-            </p>
+              {t(`${p}.byReducingThePouchFootprintWeI`)}<strong>{t(`${p}.palletizationDensity`)}</strong>{t(`${p}.thisMeansYouCanShipMoreProduct`)}</p>
           </div>
         </div>
       )
@@ -92,16 +85,15 @@ const ReducePackagingWasteGuidePage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-md leading-relaxed">
-            Packaging waste is only half the problem; <strong>food waste</strong> is the other. High-performance closures ensure that food stays fresh longer once the package is opened.
-          </p>
+            {t(`${p}.packagingWasteIsOnlyHalfThePro`)}<strong>{t(`${p}.foodWaste`)}</strong> {t(`${p}.isTheOtherHighPerformanceClosu`)}</p>
           <div className="grid md:grid-cols-2 gap-6 text-sm">
             <div className="p-6 border border-neutral-100 rounded-xl bg-white shadow-sm">
-              <h5 className="font-bold mb-2">High-Integrity Zippers</h5>
-              <p className="text-xs text-neutral-600">Our custom-engineered zippers provide a hermetic reseal, preventing oxygen and moisture ingress that causes premature spoilage.</p>
+              <h5 className="font-bold mb-2">{t(`${p}.highIntegrityZippers`)}</h5>
+              <p className="text-xs text-neutral-600">{t(`${p}.ourCustomEngineeredZippersProv`)}</p>
             </div>
             <div className="p-6 border border-neutral-100 rounded-xl bg-white shadow-sm">
-              <h5 className="font-bold mb-2">Precision Spouts</h5>
-              <p className="text-xs text-neutral-600">For liquids and powders, precision spouts ensure accurate dosing and 99% product evacuation, leaving minimal food residue in the bag.</p>
+              <h5 className="font-bold mb-2">{t(`${p}.precisionSpouts`)}</h5>
+              <p className="text-xs text-neutral-600">{t(`${p}.forLiquidsAndPowdersPrecisionS`)}</p>
             </div>
           </div>
         </div>

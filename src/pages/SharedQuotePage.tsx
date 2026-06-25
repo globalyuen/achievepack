@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom';
 import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon, SlidersHorizontal, MessageCircle, Calendar, RotateCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,6 +8,9 @@ import SEO from '../components/SEO';
 const ADMIN_PWD = '8888****';
 
 const SharedQuotePage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.sharedQuote'
+
   const { id } = useParams<{ id: string }>();
   const [quoteHtml, setQuoteHtml] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -455,7 +459,7 @@ const SharedQuotePage: React.FC = () => {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
         <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
-        <p className="text-gray-600 font-bold">Securely loading quotation...</p>
+        <p className="text-gray-600 font-bold">{t(`${p}.loadingQuote`)}</p>
       </div>
     );
   }
@@ -467,7 +471,7 @@ const SharedQuotePage: React.FC = () => {
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-50 flex items-center justify-center">
             <AlertCircle className="w-8 h-8 text-red-500" />
           </div>
-          <h1 className="text-xl font-black text-gray-900 mb-2">Unable to Load Quotation</h1>
+          <h1 className="text-xl font-black text-gray-900 mb-2">{t(`${p}.unableToLoad`)}</h1>
           <p className="text-sm text-gray-500 mb-6">{error}</p>
           <button
             onClick={retryFetch}
@@ -475,7 +479,7 @@ const SharedQuotePage: React.FC = () => {
           >
             <Loader2 className="w-4 h-4" /> Try Again
           </button>
-          <p className="text-xs text-gray-400 mt-4">If this issue persists, please contact us via WhatsApp at +852 6970 4411</p>
+          <p className="text-xs text-gray-400 mt-4">{t(`${p}.contactSupport`)}</p>
         </div>
       </div>
     );
@@ -588,8 +592,8 @@ const SharedQuotePage: React.FC = () => {
                 <Lock className="w-5 h-5 text-indigo-600" />
               </div>
               <div className="flex-1">
-                <h2 className="text-base font-black text-gray-900">Admin Access</h2>
-                <p className="text-xs text-gray-500">Enter password to edit</p>
+                <h2 className="text-base font-black text-gray-900">{t(`${p}.adminAccess`)}</h2>
+                <p className="text-xs text-gray-500">{t(`${p}.enterPassword`)}</p>
               </div>
               <button onClick={() => setShowPwdModal(false)} className="text-gray-400 hover:text-gray-600">
                 <X className="w-5 h-5" />
@@ -619,7 +623,7 @@ const SharedQuotePage: React.FC = () => {
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="Achieve Pack" className="h-8 w-auto" />
             <span className="h-4 w-px bg-gray-300 mx-1" />
-            <span className="text-xs font-black text-gray-700 uppercase tracking-tighter">Secure Quotation Viewer</span>
+            <span className="text-xs font-black text-gray-700 uppercase tracking-tighter">{t(`${p}.secureViewer`)}</span>
           </div>
           <div className="flex items-center gap-2">
             <button onClick={editMode ? () => setEditMode(false) : handleEditClick} className="flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold text-xs transition">
@@ -856,7 +860,7 @@ const SharedQuotePage: React.FC = () => {
           {/* Media Attachments Section (Visible to Customer) */}
           {(photos.length > 0 || videos.length > 0) && (
             <div className="border-t-2 border-neutral-100 p-8 sm:p-12 bg-neutral-50">
-              <h2 className="text-2xl font-black uppercase mb-8 tracking-tighter">Quotation Media Attachments</h2>
+              <h2 className="text-2xl font-black uppercase mb-8 tracking-tighter">{t(`${p}.mediaAttachments`)}</h2>
               
               {photos.length > 0 && (
                 <div className="mb-12">
@@ -893,7 +897,7 @@ const SharedQuotePage: React.FC = () => {
                           className="w-24 h-24 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer relative bg-black group"
                           onClick={() => setLightbox({ src: item.url, type: 'video' })}
                         >
-                          <video muted={true} src={item.url} className="w-full h-full object-cover opacity-60" />
+                          <video src={item.url} className="w-full h-full object-cover opacity-60" />
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform">
                               <VideoIcon className="w-4 h-4 text-white" />
@@ -942,7 +946,7 @@ const SharedQuotePage: React.FC = () => {
               {lightbox.type === 'image' ? (
                 <img src={lightbox.src} className="max-w-full max-h-[85vh] border-4 border-white shadow-2xl" alt="Enlarged view" />
               ) : (
-                <video muted={true} src={lightbox.src} controls autoPlay className="max-w-full max-h-[85vh] border-4 border-white shadow-2xl" />
+                <video src={lightbox.src} controls autoPlay className="max-w-full max-h-[85vh] border-4 border-white shadow-2xl" />
               )}
             </motion.div>
           </motion.div>
@@ -1026,8 +1030,8 @@ const SharedQuotePage: React.FC = () => {
             className="flex items-center gap-3 bg-white border-4 border-black p-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all group"
           >
             <div className="hidden group-hover:block whitespace-nowrap">
-              <p className="text-[10px] font-black uppercase text-gray-500 leading-none mb-1">Expert Advice</p>
-              <p className="text-sm font-black uppercase">Book Meeting</p>
+              <p className="text-[10px] font-black uppercase text-gray-500 leading-none mb-1">{t(`${p}.expertAdvice`)}</p>
+              <p className="text-sm font-black uppercase">{t(`${p}.bookMeeting`)}</p>
             </div>
             <div className="bg-blue-600 p-2 rounded-lg text-white">
               <Calendar className="w-6 h-6" />
@@ -1046,8 +1050,8 @@ const SharedQuotePage: React.FC = () => {
             className="flex items-center gap-3 bg-white border-4 border-black p-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all group"
           >
             <div className="hidden group-hover:block whitespace-nowrap">
-              <p className="text-[10px] font-black uppercase text-gray-500 leading-none mb-1">Quick Questions</p>
-              <p className="text-sm font-black uppercase">WhatsApp Me</p>
+              <p className="text-[10px] font-black uppercase text-gray-500 leading-none mb-1">{t(`${p}.quickQuestions`)}</p>
+              <p className="text-sm font-black uppercase">{t(`${p}.whatsappMe`)}</p>
             </div>
             <div className="bg-[#25D366] p-2 rounded-lg text-white">
               <MessageCircle className="w-6 h-6" />

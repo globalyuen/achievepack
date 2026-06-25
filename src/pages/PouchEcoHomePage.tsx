@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { 
@@ -64,6 +65,9 @@ const NeoBadge = ({ children, color = 'bg-[#10b981]' }: any) => (
 )
 
 export default function PouchEcoHomePage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchEcoHome'
+
   const brand = getBrandConfig()
   const content = getDomainContent('homepage')
   const { cartCount, setIsCartOpen } = useStore()
@@ -124,23 +128,23 @@ export default function PouchEcoHomePage() {
   const features = [
     {
       icon: <Zap className="w-12 h-12 text-[#10b981]" />,
-      title: "Start Small, Dream Big",
-      description: "Begin with just 500 units. Test your market without massive inventory risks. Perfect for startups and new product launches.",
-      badge: "500 MOQ",
+      title: t(`${p}.features.startSmall`),
+      description: t(`${p}.features.startSmallDesc`),
+      badge: t(`${p}.features.startSmallBadge`),
       color: "bg-[#D4FF00]"
     },
     {
       icon: <Leaf className="w-12 h-12 text-[#10b981]" />,
-      title: "Truly Compostable",
-      description: "EN13432 & ASTM D6400 certified. Your packaging becomes soil in 90-180 days. Home & industrial composting compatible.",
-      badge: "BPI Certified",
+      title: t(`${p}.features.trulyCompostable`),
+      description: t(`${p}.features.trulyCompostableDesc`),
+      badge: t(`${p}.features.trulyCompostableBadge`),
       color: "bg-[#00FFFF]"
     },
     {
       icon: <Sparkles className="w-12 h-12 text-[#10b981]" />,
-      title: "8 Premium Finishes",
-      description: "Matte, glossy, soft-touch, metallic, holographic, spot UV, embossed, debossed. Make your brand stand out on the shelf.",
-      badge: "Premium",
+      title: t(`${p}.features.premiumFinishes`),
+      description: t(`${p}.features.premiumFinishesDesc`),
+      badge: t(`${p}.features.premiumFinishesBadge`),
       color: "bg-[#FF00FF]"
     }
   ]
@@ -148,10 +152,10 @@ export default function PouchEcoHomePage() {
   const products = [
     {
       id: 'starter',
-      name: 'Starter Kit',
-      tagline: 'Perfect for Testing',
-      description: 'Compostable pouches from 500 units. Ideal for product launches and market testing.',
-      price: 'From $0.50/bag',
+      name: t(`${p}.products.starterKit`),
+      tagline: t(`${p}.products.starterTagline`),
+      description: t(`${p}.products.starterDesc`),
+      price: t(`${p}.products.starterPrice`),
       moq: '500',
       image: getImage('stand-up-pouch/stand800'),
       badges: ['Compostable', 'Low MOQ', 'Fast Ship'],
@@ -159,10 +163,10 @@ export default function PouchEcoHomePage() {
     },
     {
       id: 'pro',
-      name: 'Pro Pack',
-      tagline: 'Best Value',
-      description: 'High-barrier recyclable pouches. Food-safe certified. Premium finishes available.',
-      price: 'From $0.35/bag',
+      name: t(`${p}.products.proPack`),
+      tagline: t(`${p}.products.proTagline`),
+      description: t(`${p}.products.proDesc`),
+      price: t(`${p}.products.proPrice`),
       moq: '2,000',
       image: getImage('flat-bottom/flat-bottom800'),
       badges: ['Recyclable', 'Food Safe', 'Premium'],
@@ -170,10 +174,10 @@ export default function PouchEcoHomePage() {
     },
     {
       id: 'custom',
-      name: 'Custom Solution',
-      tagline: 'Unlimited Options',
-      description: 'Fully custom design, size, material, and features. Work with our team to create your perfect pouch.',
-      price: 'Custom Quote',
+      name: t(`${p}.products.customSolution`),
+      tagline: t(`${p}.products.customTagline`),
+      description: t(`${p}.products.customDesc`),
+      price: t(`${p}.products.customPrice`),
       moq: 'Flexible',
       image: getImage('side-gusset/side-gusset800'),
       badges: ['Custom', 'Any MOQ', 'Full Service'],
@@ -182,10 +186,10 @@ export default function PouchEcoHomePage() {
   ]
 
   const socialProof = [
-    { icon: <Users className="w-6 h-6" />, number: "1,200+", label: "Happy Brands" },
-    { icon: <Package className="w-6 h-6" />, number: "50M+", label: "Pouches Made" },
-    { icon: <Globe className="w-6 h-6" />, number: "40+", label: "Countries" },
-    { icon: <Star className="w-6 h-6" />, number: "4.9/5", label: "Rating" }
+    { icon: <Users className="w-6 h-6" />, number: "1,200+", label: t(`${p}.socialProof.happyBrands`) },
+    { icon: <Package className="w-6 h-6" />, number: "50M+", label: t(`${p}.socialProof.pouchesMade`) },
+    { icon: <Globe className="w-6 h-6" />, number: "40+", label: t(`${p}.socialProof.countries`) },
+    { icon: <Star className="w-6 h-6" />, number: "4.9/5", label: t(`${p}.socialProof.rating`) }
   ]
 
   return (
@@ -340,11 +344,11 @@ export default function PouchEcoHomePage() {
             >
               <div className="relative z-10 rotate-2 group">
                 <div className="aspect-square flex items-center justify-center relative bg-black border-4 border-black">
-                  <video muted={true} 
+                  <video 
                     src="/video/hero/bag.mov"
                     autoPlay
                     loop
-                    
+                    muted
                     playsInline
                     className="w-full h-full object-cover"
                     poster="/imgs/hero/pouch-eco-cover.jpg"
@@ -531,7 +535,7 @@ export default function PouchEcoHomePage() {
         
         <div className="max-w-4xl mx-auto border-4 border-black p-4 bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
           <div className="aspect-video relative bg-black">
-            <video muted={true} 
+            <video 
               src="/pouch-social.mp4"
               controls
               className="w-full h-full object-cover"

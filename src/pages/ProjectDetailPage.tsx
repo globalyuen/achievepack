@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { supabase, Project, Profile, Quote, ArtworkFile, Order, Document, ArtworkComment } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
@@ -17,6 +18,9 @@ import ProjectAddShippingModal from '../components/admin/ProjectAddShippingModal
 type ProjectTab = 'customer' | 'overview' | 'rfq' | 'artwork' | 'stock' | 'custom' | 'shipping' | 'doc'
 
 const ProjectDetailPage: React.FC = () => {
+    const { t } = useTranslation()
+    const p = 'seoPages.pages.projectDetail'
+
     const { projectId } = useParams<{ projectId: string }>()
     const navigate = useNavigate()
     const { user } = useAuth()
@@ -38,14 +42,14 @@ const ProjectDetailPage: React.FC = () => {
 
     // Sidebar Menu Items
     const menuItems = [
-        { id: 'customer', label: 'Customer', icon: User },
-        { id: 'overview', label: 'Project', icon: FileText },
-        { id: 'rfq', label: 'RFQ', icon: FileCheck },
-        { id: 'artwork', label: 'Artwork', icon: ImageIcon },
-        { id: 'stock', label: 'Stock', icon: Package },
-        { id: 'custom', label: 'Custom', icon: Box },
-        { id: 'shipping', label: 'Shipping', icon: Truck },
-        { id: 'doc', label: 'Doc', icon: Files },
+        { id: 'customer', label: t(`${p}.tabCustomer`), icon: User },
+        { id: 'overview', label: t(`${p}.tabProject`), icon: FileText },
+        { id: 'rfq', label: t(`${p}.tabRfq`), icon: FileCheck },
+        { id: 'artwork', label: t(`${p}.tabArtwork`), icon: ImageIcon },
+        { id: 'stock', label: t(`${p}.tabStock`), icon: Package },
+        { id: 'custom', label: t(`${p}.tabCustom`), icon: Box },
+        { id: 'shipping', label: t(`${p}.tabShipping`), icon: Truck },
+        { id: 'doc', label: t(`${p}.tabDoc`), icon: Files },
     ]
 
     useEffect(() => {
@@ -136,7 +140,7 @@ const ProjectDetailPage: React.FC = () => {
             <div className="flex items-center justify-center min-h-screen bg-gray-50">
                 <div className="flex flex-col items-center">
                     <div className="w-12 h-12 border-4 border-primary-100 border-t-primary-500 rounded-full animate-spin mb-4"></div>
-                    <p className="text-gray-500 font-medium">Loading Project Details...</p>
+                    <p className="text-gray-500 font-medium">{t(`${p}.loadingProjectDetails`)}</p>
                 </div>
             </div>
         )
@@ -146,8 +150,8 @@ const ProjectDetailPage: React.FC = () => {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
                 <AlertCircle className="h-16 w-16 text-red-500 mb-4" />
-                <h1 className="text-2xl font-bold text-gray-900 mb-2">Project Not Found</h1>
-                <p className="text-gray-500 mb-6 text-center max-w-md">We couldn't find the project you're looking for. It might have been deleted or the link is incorrect.</p>
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">{t(`${p}.projectNotFound`)}</h1>
+                <p className="text-gray-500 mb-6 text-center max-w-md">{t(`${p}.projectNotFoundDesc`)}</p>
                 <button onClick={() => navigate('/ctrl-x9k7m')} className="px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition font-semibold">
                     Return to All Projects
                 </button>
@@ -165,13 +169,13 @@ const ProjectDetailPage: React.FC = () => {
                         className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-primary-600 transition"
                     >
                         <ArrowLeft className="h-4 w-4" />
-                        Back to All Projects
+                        {t(`${p}.backToAllProjects`)}
                     </button>
                 </div>
 
                 <div className="px-6 mb-6">
                     <div className="p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
-                        <p className="text-[10px] font-bold text-primary-500 uppercase tracking-wider mb-1">Active Project</p>
+                        <p className="text-[10px] font-bold text-primary-500 uppercase tracking-wider mb-1">{t(`${p}.activeProject`)}</p>
                         <h2 className="text-lg font-bold text-gray-900 truncate">{project.project_code}</h2>
                         <div className="flex items-center gap-2 mt-2">
                             <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${project.status === 'production' ? 'bg-indigo-100 text-indigo-700' :
@@ -220,7 +224,7 @@ const ProjectDetailPage: React.FC = () => {
                             </span>
                         </div>
                         <div className="flex-1 min-w-0">
-                            <p className="text-sm font-bold text-gray-900 truncate">{customer?.full_name || 'Anonymous'}</p>
+                            <p className="text-sm font-bold text-gray-900 truncate">{customer?.full_name || t(`${p}.anonymous`)}</p>
                             <p className="text-[10px] text-gray-500 truncate">{project.customer_email}</p>
                         </div>
                     </div>
@@ -232,9 +236,9 @@ const ProjectDetailPage: React.FC = () => {
                 {/* Sub-header / Breadcrumbs */}
                 <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 sticky top-0 z-10">
                     <div className="flex items-center gap-2">
-                        <Link to="/ctrl-x9k7m" className="text-gray-400 hover:text-gray-600 transition">Admin</Link>
+                        <Link to="/ctrl-x9k7m" className="text-gray-400 hover:text-gray-600 transition">{t(`${p}.admin`)}</Link>
                         <ChevronRight className="h-4 w-4 text-gray-300" />
-                        <Link to="/ctrl-x9k7m?tab=projects" className="text-gray-400 hover:text-gray-600 transition">Projects</Link>
+                        <Link to="/ctrl-x9k7m?tab=projects" className="text-gray-400 hover:text-gray-600 transition">{t(`${p}.projects`)}</Link>
                         <ChevronRight className="h-4 w-4 text-gray-300" />
                         <span className="font-bold text-gray-900">{project.project_code}</span>
                         <span className="mx-2 text-gray-300">/</span>
@@ -244,7 +248,7 @@ const ProjectDetailPage: React.FC = () => {
                     <div className="flex items-center gap-4">
                         <button className="flex items-center gap-2 px-4 py-2 bg-gray-50 text-gray-600 rounded-xl hover:bg-gray-100 transition text-sm font-semibold">
                             <Download className="h-4 w-4" />
-                            Project Summary
+                            {t(`${p}.projectSummary`)}
                         </button>
                     </div>
                 </header>
@@ -295,7 +299,7 @@ const ProjectDetailPage: React.FC = () => {
                 <ProjectAddOrderModal
                     projectId={projectId!}
                     customerEmail={project.customer_email || ''}
-                    customerName={customer?.full_name || 'Anonymous'}
+                    customerName={customer?.full_name || t(`${p}.anonymous`)}
                     orderType={activeTab === 'stock' ? 'stock' : 'custom'}
                     onClose={() => setShowAddOrderModal(false)}
                     onSuccess={() => {

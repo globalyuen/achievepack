@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Mail, Send, Upload, CheckCircle, AlertCircle, Eye, Code, FileText, User, Users, Trash2 } from 'lucide-react';
@@ -12,6 +13,8 @@ interface EmailRecipient {
 }
 
 const EmailCampaignPage = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.emailCampaign'
   const [subject, setSubject] = useState('📦 The State of Sustainable Packaging 2026');
   const [recipients, setRecipients] = useState<EmailRecipient[]>([]);
   const [body, setBody] = useState(`
@@ -169,11 +172,11 @@ const EmailCampaignPage = () => {
         <div className="flex justify-between items-center mb-8">
           <div>
             <NeoBadge className="mb-2">Admin Tools</NeoBadge>
-            <h1 className="text-4xl font-black uppercase">Email Campaign Manager</h1>
+            <h1 className="text-4xl font-black uppercase">{t(`${p}.pageTitle`)}</h1>
           </div>
           <div className="flex gap-4">
             <NeoButton variant="secondary" onClick={() => setRecipients([])}>
-              <Trash2 className="w-4 h-4 mr-2" /> Clear List
+              <Trash2 className="w-4 h-4 mr-2" /> {t(`${p}.clearList`)}
             </NeoButton>
             <NeoButton variant="primary" onClick={handleSendTest} disabled={isSending}>
               <Mail className="w-4 h-4 mr-2" /> Send Test
@@ -201,7 +204,7 @@ const EmailCampaignPage = () => {
                   </button>
                 </div>
                 <div className="pb-4">
-                  <span className="text-xs font-bold text-neutral-400 uppercase">Live Editor</span>
+                  <span className="text-xs font-bold text-neutral-400 uppercase">{t(`${p}.liveEditor`)}</span>
                 </div>
               </div>
 
@@ -260,14 +263,14 @@ const EmailCampaignPage = () => {
                   />
                   <div className="border-4 border-black border-dashed p-8 text-center bg-white hover:bg-neutral-50 transition-colors">
                     <Upload className="w-8 h-8 mx-auto mb-2" />
-                    <p className="font-black uppercase text-sm">Upload CSV</p>
-                    <p className="text-xs text-neutral-500 font-bold">Format: email, name, company</p>
+                    <p className="font-black uppercase text-sm">{t(`${p}.uploadCsv`)}</p>
+                    <p className="text-xs text-neutral-500 font-bold">{t(`${p}.csvFormat`)}</p>
                   </div>
                 </div>
 
                 {recipients.length > 0 && (
                   <div className="bg-white border-4 border-black p-4 max-h-[300px] overflow-y-auto">
-                    <p className="text-xs font-black uppercase mb-4 border-b pb-2">Loaded List ({recipients.length})</p>
+                    <p className="text-xs font-black uppercase mb-4 border-b pb-2">{t(`${p}.loadedList`)} ({recipients.length})</p>
                     <div className="space-y-2">
                       {recipients.slice(0, 10).map((r, i) => (
                         <div key={i} className="text-xs font-bold truncate">

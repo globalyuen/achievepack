@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Shield, Users, Database, Share2, Settings, Clock, RefreshCw, Mail } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
 const PrivacyPolicyPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.privacyPolicy'
+
   const [activeSection, setActiveSection] = useState('intro')
 
   const sections = [
@@ -45,8 +49,8 @@ const PrivacyPolicyPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy | Achieve Pack</title>
-        <meta name="description" content="Achieve Pack Privacy Policy - How we collect, use, and protect your personal information when using our services." />
+        <title>{t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={t(`${p}.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/privacy" />
       </Helmet>
       
@@ -67,7 +71,7 @@ const PrivacyPolicyPage: React.FC = () => {
           {/* Left Sidebar Navigation */}
           <aside className="hidden lg:block w-64 flex-shrink-0">
             <div className="sticky top-24 bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
-              <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">Table of Contents</h3>
+              <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t(`${p}.tableOfContents`)}</h3>
               <nav className="space-y-1">
                 {sections.map((section) => (
                   <button
@@ -89,8 +93,8 @@ const PrivacyPolicyPage: React.FC = () => {
           {/* Main Content */}
           <main className="flex-1 min-w-0">
             <div className="text-center mb-8">
-              <h1 className="text-4xl font-bold text-neutral-900 mb-4">Privacy Policy</h1>
-              <p className="text-neutral-500">Last updated: January 12, 2026</p>
+              <h1 className="text-4xl font-bold text-neutral-900 mb-4">{t(`${p}.privacyPolicy`)}</h1>
+              <p className="text-neutral-500">{t(`${p}.lastUpdated`)}</p>
             </div>
 
             <div className="space-y-8">
@@ -100,7 +104,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
                     <Shield className="h-5 w-5 text-primary-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-neutral-900">Introduction</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t(`${p}.introduction`)}</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
                   <p>ACHIEVE PACK COMPANY (also referred to as "Achieve Pack", "we", "our" and "us") is committed to protecting the privacy of our users. This Privacy Policy explains how we collect, use, and share information about you when you use our websites and other online services (collectively, the "Services").</p>
@@ -114,7 +118,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                     <Database className="h-5 w-5 text-blue-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-neutral-900">Information We Collect</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t(`${p}.infoWeCollect`)}</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
                   <p>We collect information about you when you use the Services, including the following types of information:</p>
@@ -141,7 +145,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                     <Users className="h-5 w-5 text-green-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-neutral-900">How We Use Your Information</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t(`${p}.howWeUseInfo`)}</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
                   <p>We use the information we collect about you to provide, maintain, and improve the Services and to personalise your experience. This includes using the information to:</p>
@@ -161,7 +165,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
                     <Share2 className="h-5 w-5 text-purple-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-neutral-900">Sharing Your Information</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t(`${p}.sharingInfo`)}</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
                   <p>We may share your information with third parties in the following circumstances:</p>
@@ -188,7 +192,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
                     <Settings className="h-5 w-5 text-orange-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-neutral-900">Your Choices</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t(`${p}.yourChoices`)}</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
                   <p>You have certain choices regarding the information we collect and how it is used:</p>
@@ -214,7 +218,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center">
                     <Clock className="h-5 w-5 text-slate-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-neutral-900">Data Retention</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t(`${p}.dataRetention`)}</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
                   <p>We retain your personal data for as long as reasonably necessary to:</p>
@@ -234,7 +238,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center">
                     <RefreshCw className="h-5 w-5 text-cyan-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-neutral-900">Changes to This Privacy Policy</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t(`${p}.changesToPolicy`)}</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
                   <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technologies, legal requirements, or other operational needs.</p>
@@ -248,7 +252,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
                     <Mail className="h-5 w-5 text-primary-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-neutral-900">Contact Us</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t(`${p}.contactUs`)}</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
                   <p>If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at:</p>
@@ -273,7 +277,7 @@ const PrivacyPolicyPage: React.FC = () => {
         {/* Footer */}
         <footer className="bg-neutral-900 text-white py-8 mt-12">
           <div className="max-w-5xl mx-auto px-4 text-center">
-            <p className="text-neutral-400 text-sm">© 2026 Achieve Pack. All rights reserved.</p>
+            <p className="text-neutral-400 text-sm">{t(`${p}.copyright`)}</p>
             <div className="flex justify-center gap-6 mt-4 text-sm">
               <Link to="/terms-of-use" className="text-neutral-400 hover:text-white">Terms of Use</Link>
               <Link to="/privacy" className="text-neutral-400 hover:text-white">Privacy Policy</Link>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet'
@@ -48,6 +49,9 @@ interface EmailStats {
 }
 
 export default function ProspectFinderPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.prospectFinder'
+
   const [activeTab, setActiveTab] = useState<'search' | 'results' | 'campaigns' | 'autosend' | 'logs' | 'followup'>('search')
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('Hong Kong')
@@ -638,12 +642,12 @@ export default function ProspectFinderPage() {
         <div className="flex justify-between items-center mb-8">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-bold flex items-center gap-2">Prospect Finder</h1>
+                <h1 className="text-2xl font-bold flex items-center gap-2">{t(`${p}.pageTitle`)}</h1>
                 <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-bold rounded-full flex items-center gap-1 uppercase tracking-wider">
                   ❄️ Cold Email
                 </span>
               </div>
-              <p className="text-neutral-500">AI-powered cold outreach — search, personalize & send to new prospects (60k+ emails sent history)</p>
+              <p className="text-neutral-500">{t(`${p}.pageSubtitle`)}</p>
             </div>
             <div className="flex items-center gap-4">
                  <div className="flex items-center gap-3">
@@ -783,7 +787,7 @@ export default function ProspectFinderPage() {
                     </div>
 
                     <div className="p-4 bg-blue-50 text-blue-800 rounded-lg text-sm">
-                        <p className="font-medium mb-1">💡 Pro Tip:</p>
+                        <p className="font-medium mb-1">{t(`${p}.proTip`)}</p>
                         <p>Use specific keywords combined with locations for better results. The system will automatically filter out duplicates and blocked domains.</p>
                     </div>
                 </div>
@@ -793,7 +797,7 @@ export default function ProspectFinderPage() {
                 <div>
                      <div className="flex justify-between items-center mb-4">
                         <div className="flex gap-4 items-center">
-                            <h2 className="text-lg font-semibold">Results ({filteredResults.length})</h2>
+                            <h2 className="text-lg font-semibold">{t(`${p}.results`)} ({filteredResults.length})</h2>
                             <Input 
                                 placeholder="Filter results..." 
                                 className="w-[250px] h-8" 
@@ -955,7 +959,7 @@ export default function ProspectFinderPage() {
                     {/* Controls */}
                         <div className="flex justify-between items-center">
                             <div className="flex gap-4 items-center">
-                                <h2 className="text-lg font-semibold">Sent History ({historyStats?.total_sent || history.length})</h2>
+                                <h2 className="text-lg font-semibold">{t(`${p}.sentHistory`)} ({historyStats?.total_sent || history.length})</h2>
                                 <Input 
                                 placeholder="Search history..." 
                                 className="w-[250px] h-8" 
@@ -1152,7 +1156,7 @@ export default function ProspectFinderPage() {
                                     }
                                 </p>
                                 {lastRunAt && (
-                                    <p className="text-xs text-neutral-500 mt-2">Last run: {new Date(lastRunAt).toLocaleString()}</p>
+                                    <p className="text-xs text-neutral-500 mt-2">{t(`${p}.lastRun`)} {new Date(lastRunAt).toLocaleString()}</p>
                                 )}
                             </div>
                             <div className="flex items-center gap-3">
@@ -1188,7 +1192,7 @@ export default function ProspectFinderPage() {
                         {isLoadingTemplate ? (
                             <div className="p-8 text-center">
                                 <Loader2 className="w-8 h-8 animate-spin mx-auto text-neutral-400" />
-                                <p className="text-neutral-500 mt-2">Loading template...</p>
+                                <p className="text-neutral-500 mt-2">{t(`${p}.loadingTemplate`)}</p>
                             </div>
                         ) : templatePreview ? (
                             <div className="p-6 space-y-4">
@@ -1261,14 +1265,14 @@ export default function ProspectFinderPage() {
             {activeTab === 'logs' && (
                 <div className="space-y-4">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-lg font-semibold">Activity Logs</h2>
+                        <h2 className="text-lg font-semibold">{t(`${p}.activityLogs`)}</h2>
                         <Button variant="ghost" size="sm" onClick={() => setLogs([])} className="gap-2">
                             Clear Logs
                         </Button>
                     </div>
                     <div className="border rounded-lg bg-neutral-900 text-neutral-100 p-4 font-mono text-sm h-[400px] overflow-y-auto">
                         {logs.length === 0 ? (
-                            <p className="text-neutral-500">No logs yet. Actions will appear here.</p>
+                            <p className="text-neutral-500">{t(`${p}.noLogs`)}</p>
                         ) : (
                             logs.map((log, idx) => (
                                 <div key={idx} className={`py-1 border-b border-neutral-800 last:border-0 ${
@@ -1286,7 +1290,7 @@ export default function ProspectFinderPage() {
                         )}
                     </div>
                     <div className="p-4 bg-blue-50 text-blue-800 rounded-lg text-sm">
-                        <p className="font-medium mb-1">💡 API Endpoints:</p>
+                        <p className="font-medium mb-1">{t(`${p}.apiEndpoints`)}</p>
                         <ul className="list-disc list-inside space-y-1">
                             <li>Status: <code className="bg-blue-100 px-1 rounded">{API_BASE}/api/automation/status</code></li>
                             <li>Start: <code className="bg-blue-100 px-1 rounded">{API_BASE}/api/automation/start</code></li>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { BarChart3, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, FileSearch, Trash2, MicroscopeIcon  , Recycle } from 'lucide-react'
@@ -7,12 +8,15 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const RealWorldSustainabilityPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.realWorldSustainability'
+
   const { openCalendly } = useCalendly()
 
   const sections = [
     {
       id: 'hero-problem',
-      title: 'Moving Beyond Greenwashing: The Reality of 2026',
+      title: t(`seoPages.pages.realWorldSustainability.movingBeyondGreenwashing`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -49,7 +53,7 @@ const RealWorldSustainabilityPage: React.FC = () => {
     },
     {
       id: 'lca-science',
-      title: 'Life Cycle Assessment (LCA): The Truth in Numbers',
+      title: t(`seoPages.pages.realWorldSustainability.lifeCycleAssessment`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -94,7 +98,7 @@ const RealWorldSustainabilityPage: React.FC = () => {
     },
     {
       id: 'regulatory-compliance',
-      title: 'Navigating the Global Regulatory Minefield',
+      title: t(`seoPages.pages.realWorldSustainability.navigatingTheGlobal`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -132,7 +136,7 @@ const RealWorldSustainabilityPage: React.FC = () => {
     },
     {
       id: 'real-world-circularity',
-      title: 'Real-World Circularity: Closing the Loop',
+      title: t(`seoPages.pages.realWorldSustainability.realWorldCircularity`),
       icon: <Recycle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -172,7 +176,7 @@ const RealWorldSustainabilityPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Audit Your Real-World Sustainability',
+      title: t(`seoPages.pages.realWorldSustainability.auditYourRealWorld`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-neutral-800 to-black p-10 rounded-2xl text-white text-center shadow-2xl">
@@ -227,18 +231,18 @@ const RealWorldSustainabilityPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Real-World Sustainability | LCA & Regulatory Compliance | Achieve Pack</title>
-        <meta name="description" content="The definitive guide to real-world packaging sustainability. 800+ words on ISO 14040 LCA, FTC Green Guide compliance, and verifiable carbon reduction data." />
+        <title>{t(`seoPages.pages.realWorldSustainability.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.realWorldSustainability.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/topics/real-world-sustainability" />
         <meta name="keywords" content="real-world sustainability packaging, ISO 14040 LCA, FTC green guides compliance, packaging carbon footprint, sustainable supply chain audit, EPR packaging tax" />
       </Helmet>
 
       <SEOPageLayout 
         heroBgColor="#171717"
-        title="Real-World Sustainability: Data vs. Marketing"
-        description="Establishing technical authority through verifiable Life Cycle Assessments and global regulatory compliance."
+        title={t(`seoPages.pages.realWorldSustainability.heroTitle`)}
+        description={t(`seoPages.pages.realWorldSustainability.heroDesc`)}
         keywords={['real-world sustainability', 'LCA packaging', 'sustainable compliance']}
-        heroTitle="Data. Not Distraction."
+        heroTitle={t(`seoPages.pages.realWorldSustainability.heroTitle2`)}
         heroSubtitle="ISO 14040 LCA | Regulatory Compliant | Verifiable Impact"
         introSummary="The time for vague sustainability claims is over. We help brands build technical authority by providing the quantifiable evidence—from cradle-to-grave Life Cycle Assessments to third-party recyclability certifications—required to thrive in a regulated, data-driven global market."
         sections={sections}

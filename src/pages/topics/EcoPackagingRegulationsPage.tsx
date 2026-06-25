@@ -5,8 +5,11 @@ import { Scale, Shield, CheckCircle, Award, Calendar, MessageCircle, Target, Zap
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation, Trans } from "react-i18next";
 
 const EcoPackagingRegulationsPage: React.FC = () => {
+    const { t } = useTranslation();
+    const p = 'seoPages.pages.ecoPackagingRegulations';
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -18,32 +21,30 @@ const EcoPackagingRegulationsPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-slate-50 to-blue-50 p-6 rounded-lg border border-slate-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              Compliance is the new baseline for brand survival. In 2026, packaging regulations have shifted from voluntary guidelines to <strong>legally enforceable mandates</strong> with significant financial penalties for non-compliance.
-            </p>
+              {t(`${p}.complianceIsTheNewBaselineForB`)}<strong>{t(`${p}.legallyEnforceableMandates`)}</strong> {t(`${p}.withSignificantFinancialPenalt`)}</p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-slate-800">
-                <h4 className="font-semibold text-slate-900">Regulatory Hurdles</h4>
+                <h4 className="font-semibold text-slate-900">{t(`${p}.regulatoryHurdles`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• EU PPWR (Packaging & Packaging Waste Regulation)</li>
-                  <li>• California SB 54 (Plastic Pollution Prevention)</li>
-                  <li>• UK Plastic Packaging Tax mandates</li>
-                  <li>• FTC Green Guides (Anti-Greenwashing)</li>
+                  <li>{t(`${p}.euPpwrPackagingPackagingWasteR`)}</li>
+                  <li>{t(`${p}.californiaSb54PlasticPollution`)}</li>
+                  <li>{t(`${p}.ukPlasticPackagingTaxMandates`)}</li>
+                  <li>{t(`${p}.ftcGreenGuidesAntiGreenwashing`)}</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                <h4 className="font-semibold text-blue-800">Achieve Pack Compliance</h4>
+                <h4 className="font-semibold text-blue-800">{t(`${p}.achievePackCompliance`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Certified 100% Recyclable Mono-Materials</li>
-                  <li>• Verifiable 30%+ PCR Content Integration</li>
-                  <li>• PFAS-Free Aqueous Barrier Coatings</li>
-                  <li>• ISO 14040 Life Cycle Assessments (LCA)</li>
+                  <li>{t(`${p}.certified100RecyclableMonoMate`)}</li>
+                  <li>{t(`${p}.verifiable30PcrContentIntegrat`)}</li>
+                  <li>{t(`${p}.pfasFreeAqueousBarrierCoatings`)}</li>
+                  <li>{t(`${p}.iso14040LifeCycleAssessmentsLc`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="mt-4 leading-relaxed">
-            At Achieve Pack, we serve as your <strong>regulatory technical partner</strong>. We monitor the shifting requirements of the EU, North America, and Australia to ensure your packaging remains compliant, tax-exempt, and protected against greenwashing litigation.
-          </p>
+            {t(`${p}.atAchievePackWeServeAsYour`)}<strong>{t(`${p}.regulatoryTechnicalPartner`)}</strong>{t(`${p}.weMonitorTheShiftingRequiremen`)}</p>
         </div>
       )
     },
@@ -54,30 +55,29 @@ const EcoPackagingRegulationsPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            The <strong>Packaging and Packaging Waste Regulation (PPWR)</strong> is the most ambitious environmental law in history, mandating that all packaging in the EU must be <strong>recyclable</strong> by 2030 and meet strict <strong>recycled content</strong> targets.
-          </p>
+            {t(`${p}.the`)}<strong>{t(`${p}.packagingAndPackagingWasteRegu`)}</strong> {t(`${p}.isTheMostAmbitiousEnvironmenta`)}<strong>{t(`${p}.recyclable`)}</strong> {t(`${p}.by2030AndMeetStrict`)}<strong>{t(`${p}.recycledContent`)}</strong> {t(`${p}.targets`)}</p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-slate-100 rounded-lg w-fit mb-4">
                 <Recycle className="h-6 w-6 text-slate-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Design for Recycling</h4>
-              <p className="text-sm text-neutral-600">Mandatory adherence to 'Recyclability Performance Grades' (A to E). We target Grade A for all mono-materials.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.designForRecycling`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.mandatoryAdherenceToRecyclabil`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
                 <TrendingUp className="h-6 w-6 text-blue-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Recycled Content</h4>
-              <p className="text-sm text-neutral-600">Minimum 35% recycled content required for plastic packaging by 2030. We are already GRS-ready.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.recycledContent1`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.minimum35RecycledContentRequir`)}</p>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
               <div className="p-3 bg-indigo-100 rounded-lg w-fit mb-4">
                 <Shield className="h-6 w-6 text-indigo-600" />
               </div>
-              <h4 className="font-bold text-neutral-900">Reduction Targets</h4>
-              <p className="text-sm text-neutral-600">A 15% reduction in overall packaging waste per capita by 2040. Flexible pouches are the primary tool for this reduction.</p>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.reductionTargets`)}</h4>
+              <p className="text-sm text-neutral-600">{t(`${p}.a15ReductionInOverallPackaging`)}</p>
             </div>
           </div>
 
@@ -99,32 +99,30 @@ const EcoPackagingRegulationsPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            California's <strong>Plastic Pollution Prevention and Packaging Producer Responsibility Act (SB 54)</strong> requires all single-use packaging to be <strong>recyclable or compostable</strong> by 2032.
-          </p>
+            {t(`${p}.californiaS`)}<strong>{t(`${p}.plasticPollutionPreventionAndP`)}</strong> {t(`${p}.requiresAllSingleUsePackagingT`)}<strong>{t(`${p}.recyclableOrCompostable`)}</strong> {t(`${p}.by2032`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">SB 54 Compliance Pillars</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.sb54CompliancePillars`)}</h4>
               <ul className="space-y-3 text-sm">
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">EPR Fee Modulation</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Non-compliant brands pay higher fees. Our mono-materials qualify for the lowest fee tiers.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.eprFeeModulation`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.nonCompliantBrandsPayHigherFee`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Plastic Source Reduction</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Mandates a 25% reduction in plastic packaging weight. Lightweight pouches are the optimal solution.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.plasticSourceReduction`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.mandatesA25ReductionInPlasticP`)}</p>
                 </li>
                 <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
-                  <h5 className="font-bold text-neutral-900">Certified Recovery</h5>
-                  <p className="text-xs text-neutral-600 mt-1">Claims of recyclability must be backed by evidence of actual recovery in the California infrastructure.</p>
+                  <h5 className="font-bold text-neutral-900">{t(`${p}.certifiedRecovery`)}</h5>
+                  <p className="text-xs text-neutral-600 mt-1">{t(`${p}.claimsOfRecyclabilityMustBeBac`)}</p>
                 </li>
               </ul>
             </div>
             <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
-              <h4 className="font-bold text-neutral-900 mb-2">Anti-Greenwashing & The FTC</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t(`${p}.antiGreenwashingTheFtc`)}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                The <strong>FTC Green Guides</strong> (and similar laws like the UK CMA Green Claims Code) require that environmental claims be <strong>specific, prominent, and verifiable</strong>. Achieve Pack provides the <strong>ISO 14040 LCA data</strong> and <strong>Cyclos-HTP certifications</strong> you need to make bulletproof claims without legal risk.
-              </p>
+                {t(`${p}.the`)}<strong>{t(`${p}.ftcGreenGuides`)}</strong> {t(`${p}.andSimilarLawsLikeTheUkCmaGree`)}<strong>{t(`${p}.specificProminentAndVerifiable`)}</strong>{t(`${p}.achievePackProvidesThe`)}<strong>{t(`${p}.iso14040LcaData`)}</strong> {t(`${p}.and`)}<strong>{t(`${p}.cyclosHtpCertifications`)}</strong> {t(`${p}.youNeedToMakeBulletproofClaims`)}</p>
             </div>
           </div>
         </div>
@@ -137,8 +135,7 @@ const EcoPackagingRegulationsPage: React.FC = () => {
       content: (
         <div className="space-y-6 text-neutral-700">
           <p>
-            We don't just supply bags; we supply compliance. Our <strong>EEAT Regulatory Protocol</strong> ensures your brand is protected.
-          </p>
+            {t(`${p}.weDonTJustSupplyBagsWeSupplyCo`)}<strong>{t(`${p}.eeatRegulatoryProtocol`)}</strong> {t(`${p}.ensuresYourBrandIsProtected`)}</p>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
@@ -150,19 +147,19 @@ const EcoPackagingRegulationsPage: React.FC = () => {
               />
             </div>
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900">Compliance Deliverables</h4>
+              <h4 className="font-bold text-neutral-900">{t(`${p}.complianceDeliverables`)}</h4>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600" />
-                  <span><strong>Declaration of Compliance (DoC):</strong> Full material and safety data.</span>
+                  <span><strong>{t(`${p}.declarationOfComplianceDoc`)}</strong> {t(`${p}.fullMaterialAndSafetyData`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600" />
-                  <span><strong>GRS Certificates:</strong> Verifying recycled content for tax relief.</span>
+                  <span><strong>{t(`${p}.grsCertificates`)}</strong> {t(`${p}.verifyingRecycledContentForTax`)}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600" />
-                  <span><strong>LCA Reports:</strong> ISO-compliant carbon impact data.</span>
+                  <span><strong>{t(`${p}.lcaReports`)}</strong> {t(`${p}.isoCompliantCarbonImpactData`)}</span>
                 </li>
               </ul>
             </div>
@@ -176,10 +173,9 @@ const EcoPackagingRegulationsPage: React.FC = () => {
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-slate-800 to-blue-950 p-10 rounded-2xl text-white text-center shadow-2xl">
-          <h3 className="text-3xl font-bold mb-6">Compliant. Certified. Confident.</h3>
+          <h3 className="text-3xl font-bold mb-6">{t(`${p}.compliantCertifiedConfident`)}</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Is your packaging ready for the 2026 regulatory audit? Our technical team will perform a compliance review and design your transition roadmap.
-          </p>
+            {t(`${p}.isYourPackagingReadyForThe2026`)}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -187,19 +183,16 @@ const EcoPackagingRegulationsPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Book Regulatory Consultation
-            </button>
+              {t(`${p}.bookRegulatoryConsultation`)}</button>
             <Link
               to="/company/certificates"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
               <Award className="h-5 w-5" />
-              Our Certification Hub
-            </Link>
+              {t(`${p}.ourCertificationHub`)}</Link>
           </div>
           <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
-            PPWR COMPLIANT • SB 54 READY • GRS CERTIFIED • FTC ALIGNED
-          </p>
+            {t(`${p}.ppwrCompliantSb54ReadyGrsCerti`)}</p>
         </div>
       )
     }
@@ -227,7 +220,7 @@ const EcoPackagingRegulationsPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Eco-Packaging Regulations Guide | Global Compliance | Achieve Pack</title>
+        <title>{t(`${p}.ecoPackagingRegulationsGuideGl`)}</title>
         <meta name="description" content="Master the technical landscape of eco-packaging regulations. 800+ words on EU PPWR, California SB 54, FTC Green Guides, and global plastic tax compliance." />
         <link rel="canonical" href="https://achievepack.com/topics/eco-packaging-regulations" />
         <meta name="keywords" content="eco-packaging regulations, EU PPWR guide, California SB 54 compliance, FTC Green Guides packaging, global plastic tax, sustainable packaging law" />

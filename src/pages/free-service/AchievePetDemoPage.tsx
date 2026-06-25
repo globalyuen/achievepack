@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { 
@@ -82,6 +83,9 @@ const PRODUCTS = [
 ]
 
 export default function AchievePetDemoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.achievePetDemo'
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeProduct, setActiveProduct] = useState(PRODUCTS[0])
   const [cartCount, setCartCount] = useState(0)
@@ -108,7 +112,7 @@ export default function AchievePetDemoPage() {
         <Link to="/free-service/website-upgrade" className="flex items-center gap-2 hover:underline">
           <ArrowLeft className="w-4 h-4" /> RET_TO_BASE
         </Link>
-        <span className="hidden md:inline">SYSTEM_STATUS: ONLINE // DEMO_MODE</span>
+        <span className="hidden md:inline">{t(`seoPages.pages.achievePetDemo.systemStatus`)}</span>
         <span className="uppercase tracking-widest">AchievePack_v2.0</span>
       </div>
 
@@ -120,7 +124,7 @@ export default function AchievePetDemoPage() {
               <Crown className="text-[#D4FF00] w-6 h-6" />
             </div>
             <span className="font-display font-black text-2xl tracking-tighter">
-              PAW<span className="text-[#00FFFF]">.OS</span>
+              PAW<span className="text-[#00FFFF]">.{t(`seoPages.pages.achievePetDemo.pawOs`).split('.')[1]}</span>
             </span>
           </div>
 

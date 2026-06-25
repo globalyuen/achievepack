@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { CheckCircle, AlertTriangle, ArrowRight, Shield, Zap, Leaf, XCircle } from 'lucide-react'
@@ -7,13 +8,16 @@ import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide'
 
 export default function CompostableZipperNoRemovalPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.compostableZipperNoRemoval'
+
   const floatAnim = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
-  const title = "Do I Need to Remove the Zipper from Compostable Bags? | Achieve Pack"
-  const description = "Everything you need to know about compostable packaging zippers and valves. Spoiler: You DO NOT need to rip them off before composting! Learn why our bags are 100% circular."
+  const title = t(`${p}.metaTitle`)
+  const description = t(`${p}.metaDesc`)
 
   return (
     <PouchLayout>
@@ -29,7 +33,7 @@ export default function CompostableZipperNoRemovalPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="inline-block bg-[#059669] text-white border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm text-white">ACHIEVE_LABS: CIRCULAR_TECH</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm text-white">{t(`${p}.achieveLabs`)}</span>
               </div>
               
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
@@ -39,7 +43,7 @@ export default function CompostableZipperNoRemovalPage() {
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; Do I need to remove the zipper?<br/>
+                {t(`${p}.doINeedToRemove`)}
                 &gt; Do I need to cut out the valve?<br/>
                 &gt; The answer: ABSOLUTELY NOT.
               </p>

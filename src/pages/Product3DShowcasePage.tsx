@@ -1,9 +1,13 @@
 import React, { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Sparkles, Leaf, Palette, Download, Mail } from 'lucide-react'
 
 export default function Product3DShowcasePage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.product3DShowcase'
+
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -64,13 +68,13 @@ export default function Product3DShowcasePage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
-              NEW Free 3D Product Generator
+              {t(`${p}.new3dGen`)}
             </div>
             <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              See Your Product
+              {t(`${p}.seeYourProduct`)}
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-600">
-                In 3D Reality
+                {t(`${p}.in3dReality`)}
               </span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -81,7 +85,7 @@ export default function Product3DShowcasePage() {
                 href="#generate"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-xl hover:bg-green-700 transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
-                Generate Free 3D Model
+                {t(`${p}.generateFreeModel`)}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
@@ -114,7 +118,7 @@ export default function Product3DShowcasePage() {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-6">
                 <Leaf className="w-4 h-4" />
-                Sustainable Materials
+                {t(`${p}.sustainableMaterials`)}
               </div>
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
                 Visualize Eco-Friendly Materials in 3D
@@ -165,7 +169,7 @@ export default function Product3DShowcasePage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium mb-6">
               <Palette className="w-4 h-4" />
-              Infinite Customization
+              {t(`${p}.infiniteCustomization`)}
             </div>
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
               Customize Every Detail
@@ -206,10 +210,10 @@ export default function Product3DShowcasePage() {
           className="container mx-auto px-6 text-center"
         >
           <h2 className="text-5xl font-bold text-gray-900 mb-8">
-            From Creation to
+            {t(`${p}.fromCreationTo`)}
             <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-600">
-              Complete Decomposition
+              {t(`${p}.completeDecomposition`)}
             </span>
           </h2>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
@@ -234,7 +238,7 @@ export default function Product3DShowcasePage() {
         >
           <div className="max-w-4xl mx-auto text-center text-white mb-8">
             <h2 className="text-6xl font-bold mb-6">
-              Ready to See Your Product in 3D?
+              Ready to {t(`${p}.seeYourProduct`)} in 3D?
             </h2>
             <p className="text-2xl opacity-90 mb-12">
               Generate photorealistic mockups in seconds. Completely free.

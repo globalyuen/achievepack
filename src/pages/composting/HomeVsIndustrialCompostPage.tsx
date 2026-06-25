@@ -144,7 +144,7 @@ const HomeVsIndustrialCompostPage: React.FC = () => {
   const faqs = [
     {
       question: t(`${p}.faqQ1`),
-      answer: t(`${p}.faqA1`)
+      answer: t(`${p}.faqA1`),
     },
     {
       question: t(`${p}.faqQ2`),

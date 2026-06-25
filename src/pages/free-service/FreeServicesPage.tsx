@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { 
   Gift, ArrowRight, Calendar, Check, Star, Shield, Award,
@@ -94,11 +95,14 @@ const structuredData = {
 }
 
 export default function FreeServicesPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.freeServices'
+
   return (
     <>
       <Helmet>
-        <title>Free Packaging Services | Design, Mockup & Support | Achieve Pack</title>
-        <meta name="description" content="Get free packaging design consultation, 3D mockups, website design & customer center. Eco-friendly experts serving US & EU brands." />
+        <title>{t(`seoPages.pages.freeServices.metaTitle`)}</title>
+        <meta name="description" content={t(`seoPages.pages.freeServices.metaDesc`)} />
         <link rel="canonical" href="https://achievepack.com/free-service" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
@@ -113,17 +117,17 @@ export default function FreeServicesPage() {
             <nav className="flex items-center gap-2 text-sm text-neutral-500 mb-6">
               <Link to="/" className="hover:text-primary-600 transition">Home</Link>
               <ChevronRight className="h-4 w-4" />
-              <span className="text-neutral-900 font-medium">Free Services</span>
+              <span className="text-neutral-900 font-medium">{t(`seoPages.pages.freeServices.freeServices`)}</span>
             </nav>
 
             <div className="text-center max-w-3xl mx-auto">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-neutral-100 mb-6">
                 <Gift className="h-5 w-5 text-primary-600" />
-                <span className="text-sm font-medium text-neutral-700">100% Free • No Obligation</span>
+                <span className="text-sm font-medium text-neutral-700">{t(`seoPages.pages.freeServices.noObligation`)}</span>
               </div>
 
               <h1 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-4 leading-tight">
-                Free Services for <span className="text-primary-600">Eco-Friendly</span> Packaging Brands
+                Free Services for <span className="text-primary-600">{t(`seoPages.pages.freeServices.ecoFriendly`)}</span> Packaging Brands
               </h1>
               
               <p className="text-lg md:text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
@@ -133,7 +137,7 @@ export default function FreeServicesPage() {
               <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-8">
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-primary-600">4</div>
-                  <div className="text-sm text-neutral-500">Free Services</div>
+                  <div className="text-sm text-neutral-500">{t(`seoPages.pages.freeServices.freeServices`)}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-primary-600">500+</div>
@@ -162,7 +166,7 @@ export default function FreeServicesPage() {
         {/* Services Grid */}
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 text-center mb-4">What Free Services Do You Need?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 text-center mb-4">{t(`seoPages.pages.freeServices.whatServicesDoYouNeed`)}</h2>
             <p className="text-neutral-600 text-center mb-12 max-w-2xl mx-auto">Choose the service that fits your needs. All services are complimentary for brands exploring sustainable packaging.</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -196,7 +200,7 @@ export default function FreeServicesPage() {
         {/* Buyer Guide */}
         <section className="py-16 px-4 bg-neutral-50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 text-center mb-4">How to Choose the Right Packaging Partner</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 text-center mb-4">{t(`seoPages.pages.freeServices.howToChoosePartner`)}</h2>
             <p className="text-neutral-600 text-center mb-12 max-w-2xl mx-auto">Making the switch to eco-friendly packaging involves several considerations.</p>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -220,7 +224,7 @@ export default function FreeServicesPage() {
         {/* FAQ Section */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 text-center mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 text-center mb-4">{t(`seoPages.pages.freeServices.frequentlyAskedQuestions`)}</h2>
             <p className="text-neutral-600 text-center mb-12">Common questions about our free services</p>
             <div className="space-y-4">
               {FAQ_DATA.map((faq, i) => (
@@ -248,7 +252,7 @@ export default function FreeServicesPage() {
         {/* CTA Section */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">{t(`seoPages.pages.freeServices.readyToGetStarted`)}</h2>
             <p className="text-neutral-600 mb-8 max-w-xl mx-auto">Book a free 30-minute consultation to discuss your packaging needs with our team.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-all shadow-lg">

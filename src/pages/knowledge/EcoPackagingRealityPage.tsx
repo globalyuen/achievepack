@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { 
@@ -11,6 +12,9 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 import { isPouch, getBrandConfig } from '../../utils/domain'
 
 export default function EcoPackagingRealityPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.ecoPackagingReality'
+
   const { openCalendly } = useCalendly()
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
@@ -81,8 +85,8 @@ export default function EcoPackagingRealityPage() {
   return (
     <>
       <Helmet>
-        <title>The Eco-Packaging Reality: Compostability vs. Recyclability | Achieve Pack</title>
-        <meta name="description" content="An honest engineering analysis of the eco-packaging landscape. Deep research on compostability skepticism, recyclability realities, and B2B coffee freshness barriers." />
+        <title>{t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={t(`${p}.metaDesc`)} />
         <meta name="keywords" content="compostable packaging skepticism, recyclable mono-pe, compostable coffee bags, coffee freshness barrier, post-consumer recycled pcr, packaging transparency, eco-friendly coffee packaging" />
         <link rel="canonical" href="https://achievepack.com/knowledge/eco-packaging-reality" />
         
@@ -150,8 +154,8 @@ export default function EcoPackagingRealityPage() {
                 Industry Transparency Analysis
               </span>
               <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight font-['Outfit'] text-[#f5efe6]">
-                Eco-Packaging Reality:<br />
-                The Honest Truth
+                {t(`${p}.heroTitleLine1`)}<br />
+                {t(`${p}.heroTitleLine2`)}
               </h1>
               <p className="text-lg md:text-xl text-neutral-400 mb-8 max-w-2xl mx-auto leading-relaxed">
                 An engineering breakdown of compostability skepticism, recyclability parameters, and high-barrier coffee preservation freshness. No greenwashing, just material science.
@@ -430,7 +434,7 @@ export default function EcoPackagingRealityPage() {
             </div>
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-3">
-                <h3 className="text-xl font-bold text-neutral-900">Ryan Wong</h3>
+                <h3 className="text-xl font-bold text-neutral-900">{t(`${p}.authorName`)}</h3>
                 <span className="bg-[#2d2a24] text-[#f5efe6] text-[9px] font-mono font-bold tracking-widest px-2.5 py-0.5 rounded uppercase">
                   CO-FOUNDER & TECHNICAL AUTHOR
                 </span>
