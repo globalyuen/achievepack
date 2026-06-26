@@ -6,7 +6,7 @@ import {
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon, FileCheck,
   ClipboardList, Hash, History, ScrollText, RotateCcw,
-  ChevronUp, ChevronDown, ArrowRight, Share, Download, ShieldCheck
+  ChevronUp, ChevronDown, ArrowRight, Share, Download, ShieldCheck, Users
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
@@ -16,6 +16,7 @@ import CoaTab from '../../components/admin/CoaTab';
 import SeoMigrationDashboard from '../../components/admin/SeoMigrationDashboard';
 import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
 import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
+import FamilyTab from '../../components/admin/FamilyTab';
 import * as XLSX from 'xlsx';
 import { useTranslation, Trans } from "react-i18next";
 
@@ -104,7 +105,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'>('reports');
+  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'|'family'>('reports');
   const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
@@ -1334,7 +1335,18 @@ export default function DailyReportsPage() {
             <span className="hidden xs:inline">{t(`${p}.seoGeoMonitor`)}</span>
             <span className="xs:hidden">{t(`${p}.seo`)}</span>
           </button>
+          <button onClick={() => setActiveTab('family')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'family' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <Users className="w-4 h-4"/>
+            <span>Family Resume</span>
+          </button>
         </div>
+
+        {/* Tab Content: Family */}
+        {activeTab === 'family' && (
+          <div className="mt-8">
+            <FamilyTab />
+          </div>
+        )}
 
         {/* Tab Content: Packing List */}
         {activeTab === 'packing' && (

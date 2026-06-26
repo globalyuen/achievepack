@@ -295,6 +295,7 @@ export default function Footer() {
               <li><Link to="/industry/sustainable-kraft-solutions" className="hover:text-primary-400 font-medium text-primary-400">Sustainable Kraft Solutions <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/brown-white-kraft" className="hover:text-primary-400 font-medium text-primary-400">Brown vs White Kraft <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/kraft-window-pouch" className="hover:text-primary-400 font-medium text-primary-400">Kraft Window Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/industry/durable-reusable-pouches" className="hover:text-primary-400 font-medium text-primary-400">Eco-Friendly Ziplock Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 

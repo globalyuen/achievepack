@@ -707,6 +707,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/industry/brown-white-kraft" className="hover:underline">Brown vs White Kraft <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
                 <li><Link to="/industry/kraft-window-pouch" className="hover:underline">Kraft Window Pouches <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
                 <li><Link to="/industry/eco-friendly-tea-coffee" className="hover:underline">Eco Coffee & Tea Bags <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
+                <li><Link to="/industry/durable-reusable-pouches" className="hover:underline">Eco-Friendly Ziplock Pouches <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
               </ul>
             </div>
             <div>
