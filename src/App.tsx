@@ -2803,6 +2803,15 @@ function App() {
                 <li><Link to="/industry/baby-food" className="hover:text-primary-500">{t('footer.links.babyFood')}</Link></li>
                 <li><Link to="/industry/frozen-food" className="hover:text-primary-500">{t('footer.links.frozenFood')}</Link></li>
                 <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-500 font-medium text-primary-500">{t('footer.links.citrusOil')} <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">{t('appHome.string_30')}</span></Link></li>
+                <li><Link to="/industry/fresh-produce" className="hover:text-primary-500 font-medium text-primary-500">Fresh Produce Packaging <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/wholesale-unprinted-pouches" className="hover:text-primary-500 font-medium text-primary-500">Wholesale Unprinted Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/low-moq-fast-turnaround" className="hover:text-primary-500 font-medium text-primary-500">Low MOQ Packaging <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/australia-shipping-coo" className="hover:text-primary-500 font-medium text-primary-500">Import & Shipping Guide <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/high-barrier-food-pouches" className="hover:text-primary-500 font-medium text-primary-500">High-Barrier Food Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/high-barrier-retort" className="hover:text-primary-500 font-medium text-primary-500">High-Barrier Retort Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/pet-food-quad-seal" className="hover:text-primary-500 font-medium text-primary-500">Pet Food Quad Seal Bags <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/sustainable-healthcare-packaging" className="hover:text-primary-500 font-medium text-primary-500">Sustainable Healthcare <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/meat-jerky-packaging" className="hover:text-primary-500 font-medium text-primary-500">Meat Jerky Packaging <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               </ul>
             </div>
           </div>
@@ -2894,7 +2903,17 @@ function App() {
                 <li><Link to="/function/rice-paper-bags" className="hover:text-primary-500">{t('appHome.string_73')}</Link></li>
                 <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-500">{t('appHome.string_74')}</Link></li>
                 <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-500">{t('appHome.string_75')}</Link></li>
-
+                <li><Link to="/industry/premium-matte-pouches" className="hover:text-primary-500 font-medium text-primary-500">Premium Matte Finish <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/premium-finishes" className="hover:text-primary-500 font-medium text-primary-500">Premium Pouch Finishes <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/premium-soft-touch" className="hover:text-primary-500 font-medium text-primary-500">Premium Soft Touch <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/custom-die-cut-pouches" className="hover:text-primary-500 font-medium text-primary-500">Custom Die-Cut Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/resealable-tin-tie-bags" className="hover:text-primary-500 font-medium text-primary-500">Resealable Tin Tie Bags <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/clear-transparent-pouches" className="hover:text-primary-500 font-medium text-primary-500">Clear Transparent Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/euro-hole-hang-bags" className="hover:text-primary-500 font-medium text-primary-500">Euro Hole Hang Bags <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/custom-spout-pouches" className="hover:text-primary-500 font-medium text-primary-500">Custom Spout Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/child-resistant-cbd" className="hover:text-primary-500 font-medium text-primary-500">Child Resistant Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/matcha-supplement-sachets" className="hover:text-primary-500 font-medium text-primary-500">Matcha Supplement Sachets <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/sustainable-tea-sachets" className="hover:text-primary-500 font-medium text-primary-500">Sustainable Tea Sachets <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               </ul>
             </div>
 
@@ -2921,6 +2940,10 @@ function App() {
                 <li><Link to="/composting/plastic-free" className="hover:text-primary-500">{t('appHome.string_87')}</Link></li>
                 <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-500">{t('appHome.string_88')}</Link></li>
                 <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">{t('appHome.string_89')}</Link></li>
+                <li><Link to="/industry/pla-compostable-packaging" className="hover:text-primary-500 font-medium text-primary-500">PLA Compostable Guide <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/compostable-laminated-film" className="hover:text-primary-500 font-medium text-primary-500">Compostable Laminated Film <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/compostable-protein-bags" className="hover:text-primary-500 font-medium text-primary-500">Compostable Protein Bags <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/eco-coffee-bags-valve" className="hover:text-primary-500 font-medium text-primary-500">Compostable Coffee Bags <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               </ul>
             </div>
 
@@ -2932,6 +2955,7 @@ function App() {
                 <li><Link to="/biope/bio-pe-vs-compostable" className="hover:text-primary-500">{t('appHome.string_92')}</Link></li>
                 <li><Link to="/biope/bio-pe-epr-regulations" className="hover:text-primary-500">{t('appHome.string_93')}</Link></li>
                 <li><Link to="/biope/inside-im-green-bio-pe" className="hover:text-primary-500">{t('appHome.string_94')}</Link></li>
+                <li><Link to="/industry/eco-friendly-tea-coffee" className="hover:text-primary-500 font-medium text-primary-500">Eco Coffee & Tea Bags <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               </ul>
             </div>
 
@@ -2944,6 +2968,7 @@ function App() {
                 <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-500">{t('appHome.string_97')}</Link></li>
                 <li><Link to="/pcr/recyclable-vs-pcr-biobased" className="hover:text-primary-500">{t('appHome.string_98')}</Link></li>
                 <li><Link to="/materials/pcr" className="hover:text-primary-500">{t('appHome.string_99')}</Link></li>
+                <li><Link to="/industry/pcr-packaging-pouches" className="hover:text-primary-500 font-medium text-primary-500">PCR Packaging Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               </ul>
             </div>
 
@@ -2956,6 +2981,11 @@ function App() {
                 <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-500">{t('appHome.string_102')}</Link></li>
                 <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-500">{t('appHome.string_103')}</Link></li>
                 <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-500">{t('appHome.string_104')}</Link></li>
+                <li><Link to="/industry/recyclable-vacuum-bags" className="hover:text-primary-500 font-medium text-primary-500">Recyclable Vacuum Bags <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/sustainable-kraft-solutions" className="hover:text-primary-500 font-medium text-primary-500">Sustainable Kraft Solutions <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/brown-white-kraft" className="hover:text-primary-500 font-medium text-primary-500">Brown vs White Kraft <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/kraft-window-pouch" className="hover:text-primary-500 font-medium text-primary-500">Kraft Window Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+                <li><Link to="/industry/durable-reusable-pouches" className="hover:text-primary-500 font-medium text-primary-500">Eco-Friendly Ziplock Pouches <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               </ul>
             </div>
 
