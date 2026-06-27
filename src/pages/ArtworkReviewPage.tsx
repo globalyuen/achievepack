@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, Link, useLocation } from 'react-router-dom'
 import { 
-  Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight,
+  Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight, ChevronDown,
   RefreshCw, FileImage, Sparkles, AlertTriangle, Info, Send, MessageSquare,
-  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, Trash2, Paperclip
+  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, Trash2, Paperclip, Pin
 } from 'lucide-react'
 import { Image as ImageIcon, Link as LinkIcon } from 'lucide-react'
 import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
@@ -105,6 +105,36 @@ const ArtworkReviewPage: React.FC = () => {
   
   const [itemSortOption, setItemSortOption] = useState<'name' | 'newest' | 'oldest' | 'activity'>('activity')
 
+  // Collapsed sections state
+  const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({})
+
+  useEffect(() => {
+    if (batchId) {
+      try {
+        const saved = localStorage.getItem(`ap_review_collapsed_sections_${batchId}`)
+        setCollapsedSections(saved ? JSON.parse(saved) : {})
+      } catch {
+        setCollapsedSections({})
+      }
+    }
+  }, [batchId])
+
+  const toggleSectionCollapse = (secName: string) => {
+    if (!batchId) return
+    setCollapsedSections(prev => {
+      const updated = {
+        ...prev,
+        [secName]: !prev[secName]
+      }
+      try {
+        localStorage.setItem(`ap_review_collapsed_sections_${batchId}`, JSON.stringify(updated))
+      } catch (e) {
+        console.error(e)
+      }
+      return updated
+    })
+  }
+
   // Stats
   const stats = useMemo(() => {
     const total = (items || []).length
@@ -154,6 +184,12 @@ const ArtworkReviewPage: React.FC = () => {
 
     // Sort
     return filtered.sort((a, b) => {
+      // Pin status first (pinned at top)
+      const aPinned = !!a.ai_analysis?.pinned
+      const bPinned = !!b.ai_analysis?.pinned
+      if (aPinned && !bPinned) return -1
+      if (!aPinned && bPinned) return 1
+
       switch (itemSortOption) {
         case 'newest':
           return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
@@ -865,10 +901,27 @@ const ArtworkReviewPage: React.FC = () => {
             if (sectionItems.length === 0) return null // Hide empty sections from customer
             
             return (
-              <div key={secName} className="bg-white rounded-2xl border border-gray-200 p-6 space-y-6 shadow-sm">
+              <div 
+                key={secName} 
+                className={`bg-white rounded-2xl border border-gray-200 p-6 shadow-sm transition-all duration-200 ${
+                  !collapsedSections[secName] ? 'space-y-6' : ''
+                }`}
+              >
                 {/* Section Header */}
                 <div className="border-b border-gray-100 pb-3 flex items-center justify-between">
                   <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                    {/* Collapse/Expand Toggle Button */}
+                    <button
+                      onClick={() => toggleSectionCollapse(secName)}
+                      className="p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded transition flex-shrink-0"
+                      title={collapsedSections[secName] ? "Expand Section" : "Collapse Section"}
+                    >
+                      {collapsedSections[secName] ? (
+                        <ChevronRight className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
+                    </button>
                     <span className="h-4 w-1 bg-primary-600 rounded-full"></span>
                     {secName}
                   </h2>
@@ -877,160 +930,167 @@ const ArtworkReviewPage: React.FC = () => {
                   </span>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {sectionItems.map((item) => {
-                    const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
-                    const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
-                    const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
-                    
-                    // Sequential number based on global filteredItems list
-                    const globalIndex = filteredItems.findIndex(fi => fi.id === item.id)
-                    
-                    return (
-                      <div 
-                        key={item.id} 
-                        className={`bg-white rounded-xl border overflow-hidden hover:shadow-lg transition ${
-                          item?.status === 'approved' ? 'border-green-200' :
-                          item?.status === 'rejected' ? 'border-red-200' : 'border-gray-200'
-                        }`}
-                      >
-                        {/* Preview */}
+                {!collapsedSections[secName] && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    {sectionItems.map((item) => {
+                      const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
+                      const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
+                      const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
+                      
+                      // Sequential number based on global filteredItems list
+                      const globalIndex = filteredItems.findIndex(fi => fi.id === item.id)
+                      
+                      return (
                         <div 
-                          className="aspect-[4/3] bg-gray-100 relative cursor-pointer overflow-hidden group"
-                          onClick={() => {
-                            setSelectedItem(item)
-                            setShowReviewModal(true)
-                          }}
+                          key={item.id} 
+                          className={`bg-white rounded-xl border overflow-hidden hover:shadow-lg transition ${
+                            item?.status === 'approved' ? 'border-green-200' :
+                            item?.status === 'rejected' ? 'border-red-200' : 'border-gray-200'
+                          }`}
                         >
-                          {(() => {
-                            const customThumbUrl = item.ai_analysis?.thumbnail_url
-                            const displayUrl = customThumbUrl || (isImage ? item.file_url : null)
-                            const cropSettings = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
-        
-                            if (displayUrl) {
-                              return (
-                                <img 
-                                  src={displayUrl} 
-                                  alt={item.name}
-                                  className="w-full h-full object-contain"
-                                  style={{
-                                    transform: `translate(${cropSettings.x}%, ${cropSettings.y}%) scale(${cropSettings.scale})`
-                                  }}
-                                />
-                              )
-                            } else if (isVideo) {
-                              return (
-                                <video muted={true} 
-                                  src={item.file_url} 
-                                  controls
-                                  className="w-full h-full object-contain bg-black pointer-events-none"
-                                />
-                              )
-                            } else if (isPdf) {
-                              return (
-                                <iframe 
-                                  src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
-                                  className="w-full h-full border-0 pointer-events-none" 
-                                  scrolling="no"
-                                />
-                              )
-                            } else {
-                              return (
-                                <div className="w-full h-full flex items-center justify-center">
-                                  <FileImage className="h-12 w-12 text-gray-300" />
-                                </div>
-                              )
-                            }
-                          })()}
-                          {/* Status and Number Badges moved to info section */}
-                          {/* AI Badge */}
-                          {item.ai_analysis?.analyzed_at && (
-                            <div className="absolute bottom-2 right-2">
-                              <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-indigo-100 text-indigo-700">
-                                <Sparkles className="h-3 w-3" />
-                                AI
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                        
-                        {/* Info */}
-                        <div className="p-3">
-                          <div className="flex flex-col gap-1 mb-2 items-start">
-                            {getStatusBadge(item?.status || 'pending')}
-                            {(item.revision_count ?? 0) > 0 && (
-                              <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-bold rounded-full bg-orange-100 text-orange-700 border border-orange-200">
-                                🔄 {getRevisionLabel(item.revision_count!)} Pending
-                              </span>
+                          {/* Preview */}
+                          <div 
+                            className="aspect-[4/3] bg-gray-100 relative cursor-pointer overflow-hidden group"
+                            onClick={() => {
+                              setSelectedItem(item)
+                              setShowReviewModal(true)
+                            }}
+                          >
+                            {item.ai_analysis?.pinned && (
+                              <div className="absolute top-2.5 left-2.5 z-10 p-1.5 rounded-lg bg-amber-500 text-white shadow-sm flex items-center justify-center" title="Important / Pinned">
+                                <Pin className="h-3.5 w-3.5 fill-current" />
+                              </div>
+                            )}
+                            {(() => {
+                              const customThumbUrl = item.ai_analysis?.thumbnail_url
+                              const displayUrl = customThumbUrl || (isImage ? item.file_url : null)
+                              const cropSettings = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
+          
+                              if (displayUrl) {
+                                return (
+                                  <img 
+                                    src={displayUrl} 
+                                    alt={item.name}
+                                    className="w-full h-full object-contain"
+                                    style={{
+                                      transform: `translate(${cropSettings.x}%, ${cropSettings.y}%) scale(${cropSettings.scale})`
+                                    }}
+                                  />
+                                )
+                              } else if (isVideo) {
+                                return (
+                                  <video muted={true} 
+                                    src={item.file_url} 
+                                    controls
+                                    className="w-full h-full object-contain bg-black pointer-events-none"
+                                  />
+                                )
+                              } else if (isPdf) {
+                                return (
+                                  <iframe 
+                                    src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                                    className="w-full h-full border-0 pointer-events-none" 
+                                    scrolling="no"
+                                  />
+                                )
+                              } else {
+                                return (
+                                  <div className="w-full h-full flex items-center justify-center">
+                                    <FileImage className="h-12 w-12 text-gray-300" />
+                                  </div>
+                                )
+                              }
+                            })()}
+                            {/* Status and Number Badges moved to info section */}
+                            {/* AI Badge */}
+                            {item.ai_analysis?.analyzed_at && (
+                              <div className="absolute bottom-2 right-2">
+                                <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-indigo-100 text-indigo-700">
+                                  <Sparkles className="h-3 w-3" />
+                                  AI
+                                </span>
+                              </div>
                             )}
                           </div>
-                          <h3 className="font-medium text-gray-900 text-xs leading-snug line-clamp-2 break-words" title={item?.name || 'Untitled'}>{item?.name || 'Untitled'}</h3>
-                          {item?.ai_analysis?.title && (
-                            <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
-                          )}
-                          <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
-                            <div className="flex flex-col gap-0.5">
-                              <span className="text-[10px] text-gray-400 flex items-center gap-1">
-                                <Clock className="h-2.5 w-2.5" />
-                                Updated: {item.updated_at ? new Date(item.updated_at).toLocaleDateString() : 'Recently'}
-                              </span>
-                              {item.file_size && item.file_size > 0 && (
-                                <span className="text-[10px] text-gray-400 font-medium">
-                                  Size: {formatFileSize(item.file_size)}
+                          
+                          {/* Info */}
+                          <div className="p-3">
+                            <div className="flex flex-col gap-1 mb-2 items-start">
+                              {getStatusBadge(item?.status || 'pending')}
+                              {(item.revision_count ?? 0) > 0 && (
+                                <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-bold rounded-full bg-orange-100 text-orange-700 border border-orange-200">
+                                  🔄 {getRevisionLabel(item.revision_count!)} Pending
                                 </span>
                               )}
                             </div>
-                            {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
-                              <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
-                                <MessageSquare className="h-2.5 w-2.5" />
-                                {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
-                              </span>
+                            <h3 className="font-medium text-gray-900 text-xs leading-snug line-clamp-2 break-words" title={item?.name || 'Untitled'}>{item?.name || 'Untitled'}</h3>
+                            {item?.ai_analysis?.title && (
+                              <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
                             )}
-                          </div>
-                          {/* Thread preview on card */}
-                          {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
-                            <div className="mt-1 space-y-1">
-                              {item.customer_comment && (
-                                <p className="text-[10px] text-yellow-700 truncate">
-                                  You: {item.customer_comment}
-                                </p>
+                            <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
+                              <div className="flex flex-col gap-0.5">
+                                <span className="text-[10px] text-gray-400 flex items-center gap-1">
+                                  <Clock className="h-2.5 w-2.5" />
+                                  Updated: {item.updated_at ? new Date(item.updated_at).toLocaleDateString() : 'Recently'}
+                                </span>
+                                {item.file_size && item.file_size > 0 && (
+                                  <span className="text-[10px] text-gray-400 font-medium">
+                                    Size: {formatFileSize(item.file_size)}
+                                  </span>
+                                )}
+                              </div>
+                              {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
+                                <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
+                                  <MessageSquare className="h-2.5 w-2.5" />
+                                  {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
+                                </span>
                               )}
-                              {(item.ai_analysis?.replies ?? []).slice(-1).map((r: any, i: number) => (
-                                <p key={i} className={`text-[10px] truncate ${r?.author === 'Admin' ? 'text-blue-600' : 'text-gray-500'}`}>
-                                  {r?.author === 'Admin' ? 'AP: ' : 'You: '}{r?.text}
-                                </p>
-                              ))}
                             </div>
-                          ) : null}
-                          <div className="flex items-center gap-2 mt-2">
-                            <button 
-                              onClick={() => {
-                                setSelectedItem(item)
-                                setShowReviewModal(true)
-                              }}
-                              className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition border border-primary-100"
-                            >
-                              {isSupplier ? t('seoPages.pages.artworkReview.item.uploadNewVersionSupplier', 'Upload New Version') : item.status === 'pending' ? 'Review Now' : 'View Details'}
-                            </button>
-        
-                            {item.source_link && (
-                              <a
-                                href={item.source_link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                                className="p-2 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition"
-                                title="View Original Source File"
+                            {/* Thread preview on card */}
+                            {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
+                              <div className="mt-1 space-y-1">
+                                {item.customer_comment && (
+                                  <p className="text-[10px] text-yellow-700 truncate">
+                                    You: {item.customer_comment}
+                                  </p>
+                                )}
+                                {(item.ai_analysis?.replies ?? []).slice(-1).map((r: any, i: number) => (
+                                  <p key={i} className={`text-[10px] truncate ${r?.author === 'Admin' ? 'text-blue-600' : 'text-gray-500'}`}>
+                                    {r?.author === 'Admin' ? 'AP: ' : 'You: '}{r?.text}
+                                  </p>
+                                ))}
+                              </div>
+                            ) : null}
+                            <div className="flex items-center gap-2 mt-2">
+                              <button 
+                                onClick={() => {
+                                  setSelectedItem(item)
+                                  setShowReviewModal(true)
+                                }}
+                                className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition border border-primary-100"
                               >
-                                <ExternalLink className="h-4 w-4" />
-                              </a>
-                            )}
+                                {isSupplier ? t('seoPages.pages.artworkReview.item.uploadNewVersionSupplier', 'Upload New Version') : item.status === 'pending' ? 'Review Now' : 'View Details'}
+                              </button>
+          
+                              {item.source_link && (
+                                <a
+                                  href={item.source_link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="p-2 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition"
+                                  title="View Original Source File"
+                                >
+                                  <ExternalLink className="h-4 w-4" />
+                                </a>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )
-                  })}
-                </div>
+                      )
+                    })}
+                  </div>
+                )}
               </div>
             )
           })}

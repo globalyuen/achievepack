@@ -641,7 +641,6 @@ export type ArtworkBatchItem = {
   file_type?: string
   file_size?: number
   
-  // AI Analysis
   ai_analysis?: {
     title?: string
     description?: string
@@ -656,6 +655,7 @@ export type ArtworkBatchItem = {
     thumbnail_crop?: { scale: number, x: number, y: number }
     section_name?: string
     zone?: 'current' | 'old'
+    pinned?: boolean
   }
   
   // Customer review

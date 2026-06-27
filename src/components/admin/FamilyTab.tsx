@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { User, Plus, Edit2, Trash2, Save, X, Download } from 'lucide-react';
+import { User, Plus, Edit2, Trash2, Save, X, Download, Copy, CheckCircle2 } from 'lucide-react';
+import SchoolTracker from './SchoolTracker';
 
 interface Certificate {
   id: string;
@@ -9,6 +10,7 @@ interface Certificate {
   awardZh: string;
   awardEn: string;
   category: 'In-School' | 'Out-of-School';
+  school?: 'WYN' | 'JFLS';
 }
 
 interface School {
@@ -19,6 +21,19 @@ interface School {
   nameEn: string;
 }
 
+interface SubjectScore {
+  subjectZh: string;
+  subjectEn: string;
+  score: string;
+}
+
+interface AcademicReport {
+  term: string;
+  average: string;
+  conduct: string;
+  scores: SubjectScore[];
+}
+
 interface Profile {
   id: string;
   name: string;
@@ -26,6 +41,7 @@ interface Profile {
   genderZh: string;
   genderEn: string;
   dob: string;
+  hkid?: string;
   photoUrl: string;
   schools: School[];
   fatherName: string;
@@ -39,6 +55,7 @@ interface Profile {
   addressZh: string;
   addressEn: string;
   certificates: Certificate[];
+  academicReports?: AcademicReport[];
 }
 
 const INITIAL_PROFILES: Profile[] = [
@@ -49,6 +66,7 @@ const INITIAL_PROFILES: Profile[] = [
     genderZh: '男',
     genderEn: 'Male',
     dob: '20-06-2014',
+    hkid: 'F537497(5)',
     photoUrl: '/max-photo.png',
     schools: [
       { id: 's1', grade: 'P5', period: '2026.04-present', nameZh: '世界龍岡學校黃耀南小學, 香港', nameEn: 'L.K.W.F.S. Ltd. Wong Yiu Nam Primary School, Hong Kong' },
@@ -85,12 +103,35 @@ const INITIAL_PROFILES: Profile[] = [
       { id: 'm13', date: '2024-04', titleZh: '電影配音比賽', titleEn: 'Movie Dubbing Competition', awardZh: '優異表現', awardEn: 'Outstanding Performance', category: 'In-School' },
       { id: 'm14', date: '2025-04', titleZh: '學期評估', titleEn: 'Semester Assessment', awardZh: '學聖獎', awardEn: 'Scholar Award', category: 'In-School' },
       { id: 'm15', date: '2024-01', titleZh: '明星獎', titleEn: 'Star Awards', awardZh: '外語之星', awardEn: 'Foreign Language Star', category: 'In-School' },
+      { id: 'm_new6', date: '2026-06', titleZh: '期末評估', titleEn: 'Final Assessment', awardZh: '學業獎', awardEn: 'Academic Award', category: 'In-School', school: 'WYN' },
+      { id: 'm_new7', date: '2026-06', titleZh: '期末評估', titleEn: 'Final Assessment', awardZh: '中文科學科獎', awardEn: 'Chinese Subject Award', category: 'In-School', school: 'WYN' },
+      { id: 'm_new8', date: '2026-06', titleZh: '期末評估', titleEn: 'Final Assessment', awardZh: '英文科學科獎', awardEn: 'English Subject Award', category: 'In-School', school: 'WYN' },
+      { id: 'm_new9', date: '2026-06', titleZh: '期末評估', titleEn: 'Final Assessment', awardZh: '數學科學科獎', awardEn: 'Math Subject Award', category: 'In-School', school: 'WYN' },
 
       // Out-of-School
       { id: 'm4', date: '2024-06', titleZh: '第四屆 SHINE LIKE STARS 全國青少年英語風采大賽', titleEn: '4th SHINE LIKE STARS National Youth English Proficiency Show', awardZh: '優異表現', awardEn: 'Outstanding Performance', category: 'Out-of-School' },
       { id: 'm6', date: '2022-11', titleZh: 'RSL 第一級音樂表演(架子鼓)二級證書', titleEn: 'RSL Level 1 Award in Music Performance Grade 2 Drums', awardZh: '優異成績通過', awardEn: 'Passed with Distinction', category: 'Out-of-School' },
       { id: 'm11', date: '2025-12', titleZh: '青少年人工智能編程水平測試 (Python)', titleEn: 'Youth AI Coding Level Test (Python)', awardZh: '七級', awardEn: 'Level 7', category: 'Out-of-School' },
     ],
+    academicReports: [
+      {
+        term: '2025/26 年度 下學期 (P5)',
+        average: 'A',
+        conduct: 'A-',
+        scores: [
+          { subjectZh: '中國語文', subjectEn: 'Chinese Language', score: 'A' },
+          { subjectZh: '普通話', subjectEn: 'Putonghua', score: 'A' },
+          { subjectZh: '英國語文', subjectEn: 'English Language', score: 'A' },
+          { subjectZh: '數學', subjectEn: 'Mathematics', score: 'A' },
+          { subjectZh: '常識', subjectEn: 'General Studies', score: 'A' },
+          { subjectZh: '人文', subjectEn: 'Humanities', score: 'A' },
+          { subjectZh: '科學', subjectEn: 'Science', score: 'B' },
+          { subjectZh: '音樂', subjectEn: 'Music', score: 'A' },
+          { subjectZh: '視覺藝術', subjectEn: 'Visual Arts', score: 'B' },
+          { subjectZh: '體育課', subjectEn: 'Physical Education', score: 'B' },
+        ]
+      }
+    ]
   },
   {
     id: 'yt',
@@ -99,6 +140,7 @@ const INITIAL_PROFILES: Profile[] = [
     genderZh: '男',
     genderEn: 'Male',
     dob: '31-08-2016',
+    hkid: 'F537499(1)',
     photoUrl: '/yt-photo.png',
     schools: [
       { id: 's1', grade: 'P4', period: '2026.04-present', nameZh: '世界龍岡學校黃耀南小學, 香港', nameEn: 'L.K.W.F.S. Ltd. Wong Yiu Nam Primary School, Hong Kong' },
@@ -130,14 +172,58 @@ const INITIAL_PROFILES: Profile[] = [
       { id: 'y14', date: '2025-11', titleZh: '閱讀考級', titleEn: 'Reading Level Exam', awardZh: '閱讀貢士一星', awardEn: 'Reading Scholar 1 Star', category: 'In-School' },
       { id: 'y15', date: '2025-10', titleZh: '跨學科融合作業', titleEn: 'Interdisciplinary Assignment', awardZh: '一等獎', awardEn: 'First Prize', category: 'In-School' },
       { id: 'y16', date: '2025-2026', titleZh: '跳繩之星', titleEn: 'Rope Skipping Star', awardZh: '新星', awardEn: 'Rising Star', category: 'In-School' },
+      { id: 'y_new1', date: '2026-06', titleZh: '期末評估', titleEn: 'Final Assessment', awardZh: '學業獎', awardEn: 'Academic Award', category: 'In-School', school: 'WYN' },
+      { id: 'y_new2', date: '2026-06', titleZh: '期末評估', titleEn: 'Final Assessment', awardZh: '常識(人文)學科獎', awardEn: 'General Studies (Humanities) Subject Award', category: 'In-School', school: 'WYN' },
       // Out-of-School
       { id: 'y9', date: '2025-12', titleZh: '第四屆 SHINE LIKE STARS 全國青少年英語風采大賽', titleEn: '4th SHINE LIKE STARS National Youth English Proficiency Show', awardZh: 'Sparkle Speaker', awardEn: 'Sparkle Speaker', category: 'Out-of-School' },
       { id: 'y11', date: '2025-09', titleZh: '青少年人工智能編程水平測試 (Python)', titleEn: 'Youth AI Coding Level Test (Python)', awardZh: '五級', awardEn: 'Level 5', category: 'Out-of-School' },
     ],
+    academicReports: [
+      {
+        term: '2025/26 年度 下學期 (P4)',
+        average: 'B',
+        conduct: 'A-',
+        scores: [
+          { subjectZh: '中國語文', subjectEn: 'Chinese Language', score: 'B' },
+          { subjectZh: '普通話', subjectEn: 'Putonghua', score: 'A' },
+          { subjectZh: '英國語文', subjectEn: 'English Language', score: 'B' },
+          { subjectZh: '數學', subjectEn: 'Mathematics', score: 'A' },
+          { subjectZh: '小學人文', subjectEn: 'Pri Humanities', score: 'A' },
+          { subjectZh: '小學科學', subjectEn: 'Pri Science', score: 'A' },
+          { subjectZh: '音樂', subjectEn: 'Music', score: 'A' },
+          { subjectZh: '視覺藝術', subjectEn: 'Visual Arts', score: 'C' },
+        ]
+      }
+    ]
   },
 ];
 
+const CopyButton = ({ text, label }: { text: string | (() => string), label?: string }) => {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = async () => {
+    try {
+      const content = typeof text === 'function' ? text() : text;
+      await navigator.clipboard.writeText(content);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy', err);
+    }
+  };
+  return (
+    <button 
+      onClick={handleCopy}
+      className="flex items-center gap-1 px-2 py-0.5 text-xs bg-gray-200/60 hover:bg-gray-200 text-gray-600 rounded transition-colors print:hidden font-normal"
+      title="Copy to clipboard"
+    >
+      {copied ? <CheckCircle2 className="w-3 h-3 text-green-600" /> : <Copy className="w-3 h-3" />}
+      {label && <span>{copied ? 'Copied!' : label}</span>}
+    </button>
+  );
+};
+
 export default function FamilyTab() {
+  const [activeSubTab, setActiveSubTab] = useState<'resumes' | 'schoolTracker'>('schoolTracker');
   const [profiles, setProfiles] = useState<Profile[]>(() => {
     const saved = localStorage.getItem('family_resumes_v4');
     if (saved) {
@@ -211,12 +297,35 @@ export default function FamilyTab() {
 
   if (!activeProfile) return null;
 
-  const inSchoolCerts = activeProfile.certificates.filter(c => c.category === 'In-School').sort((a, b) => b.date.localeCompare(a.date));
+  const inSchoolWYN = activeProfile.certificates.filter(c => c.category === 'In-School' && c.school === 'WYN').sort((a, b) => b.date.localeCompare(a.date));
+  const inSchoolJFLS = activeProfile.certificates.filter(c => c.category === 'In-School' && c.school !== 'WYN').sort((a, b) => b.date.localeCompare(a.date));
   const outOfSchoolCerts = activeProfile.certificates.filter(c => c.category === 'Out-of-School').sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 font-sans print:p-0 print:border-none print:shadow-none">
-      <div className="flex justify-between items-center mb-6 print:hidden">
+    <div className="space-y-6 max-w-6xl mx-auto">
+      {/* Sub-Navigation Toggle */}
+      <div className="flex justify-center mb-2 print:hidden">
+        <div className="flex gap-2 p-1 bg-gray-200/50 rounded-xl w-fit">
+          <button 
+            onClick={() => setActiveSubTab('resumes')}
+            className={`px-6 py-2 rounded-lg font-bold transition-colors text-sm ${activeSubTab === 'resumes' ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+          >
+            Resumes (簡歷)
+          </button>
+          <button 
+            onClick={() => setActiveSubTab('schoolTracker')}
+            className={`px-6 py-2 rounded-lg font-bold transition-colors text-sm ${activeSubTab === 'schoolTracker' ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+          >
+            School Tracker (升學追蹤)
+          </button>
+        </div>
+      </div>
+
+      {activeSubTab === 'schoolTracker' ? (
+        <SchoolTracker />
+      ) : (
+        <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 font-sans print:p-0 print:border-none print:shadow-none">
+          <div className="flex justify-between items-center mb-6 print:hidden">
         <div className="flex gap-4">
           {profiles.map(p => (
             <button
@@ -263,14 +372,21 @@ export default function FamilyTab() {
             
             <div className="mt-4 flex gap-8 text-sm">
               <div>
-                <p className="font-bold border-b border-gray-300 pb-0.5 mb-1">個人資料 <span className="font-normal text-gray-500 text-xs ml-1">Personal Info</span></p>
+                <div className="flex items-center gap-2 border-b border-gray-300 pb-0.5 mb-1">
+                  <p className="font-bold">個人資料 <span className="font-normal text-gray-500 text-xs">Personal Info</span></p>
+                  <CopyButton text={() => `Name: ${activeProfile.name} (${activeProfile.englishName})\nGender: ${activeProfile.genderZh} (${activeProfile.genderEn})\nDOB: ${activeProfile.dob}\nHKID: ${activeProfile.hkid || 'N/A'}`} />
+                </div>
                 <div className="text-gray-800">
                   <p>性別 / Gender: {activeProfile.genderZh} <span className="text-gray-500">({activeProfile.genderEn})</span></p>
                   <p>出生日期 / DOB: {activeProfile.dob}</p>
+                  {activeProfile.hkid && <p>香港身份證 / HKID: {activeProfile.hkid}</p>}
                 </div>
               </div>
               <div>
-                <p className="font-bold border-b border-gray-300 pb-0.5 mb-1">聯絡方式 <span className="font-normal text-gray-500 text-xs ml-1">Contact</span></p>
+                <div className="flex items-center gap-2 border-b border-gray-300 pb-0.5 mb-1">
+                  <p className="font-bold">聯絡方式 <span className="font-normal text-gray-500 text-xs">Contact</span></p>
+                  <CopyButton text={() => `Mother (${activeProfile.motherName}): ${activeProfile.motherContact}\nFather (${activeProfile.fatherName}): ${activeProfile.fatherContact}\nAddress: ${activeProfile.addressZh}`} />
+                </div>
                 <div className="text-gray-800">
                   <p>Mother ({activeProfile.motherName}): {activeProfile.motherContact}</p>
                   <p>Father ({activeProfile.fatherName}): {activeProfile.fatherContact}</p>
@@ -294,7 +410,10 @@ export default function FamilyTab() {
 
         {/* Education Section */}
         <div className="mb-4">
-          <h3 className="text-lg font-bold bg-gray-100 px-2 py-1 mb-2">教育背景 <span className="font-normal text-sm text-gray-600 ml-1">Education</span></h3>
+          <div className="flex justify-between items-center bg-gray-100 px-2 py-1 mb-2">
+            <h3 className="text-lg font-bold">教育背景 <span className="font-normal text-sm text-gray-600 ml-1">Education</span></h3>
+            <CopyButton text={() => activeProfile.schools.map(s => `${s.period} (Grade: ${s.grade}): ${s.nameZh} / ${s.nameEn}`).join('\n')} label="Copy" />
+          </div>
           <table className="w-full text-sm text-left border-collapse">
             <tbody>
               {activeProfile.schools.map((s, idx) => (
@@ -313,48 +432,122 @@ export default function FamilyTab() {
           </table>
         </div>
 
+        {/* Academic Performance Section */}
+        {activeProfile.academicReports && activeProfile.academicReports.length > 0 && (
+          <div className="mb-4">
+            <div className="flex justify-between items-center bg-gray-100 px-2 py-1 mb-2">
+              <h3 className="text-lg font-bold">學業成績 <span className="font-normal text-sm text-gray-600 ml-1">Academic Performance</span></h3>
+              <CopyButton text={() => activeProfile.academicReports!.map(r => `Term: ${r.term}\nAverage: ${r.average}, Conduct: ${r.conduct}\nScores: ${r.scores.map(s => `${s.subjectZh}: ${s.score}`).join(', ')}`).join('\n\n')} label="Copy" />
+            </div>
+            {activeProfile.academicReports.map((report, rIdx) => (
+              <div key={rIdx} className="mb-3 last:mb-0">
+                <div className="flex items-center gap-4 text-sm font-semibold text-gray-800 mb-1 px-1 border-l-2 border-blue-600">
+                  <span>{report.term}</span>
+                  <span className="text-blue-700">平均分 Average: {report.average}</span>
+                  <span className="text-blue-700">操行 Conduct: {report.conduct}</span>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm px-2">
+                  {report.scores.map((s, sIdx) => (
+                    <div key={sIdx} className="flex justify-between items-center py-1 border-b border-gray-100">
+                      <span className="text-gray-600">{s.subjectZh}</span>
+                      <span className="font-bold text-gray-900">{s.score}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* In-School Awards Section */}
         <div className="mb-4">
           <div className="flex justify-between items-center bg-gray-100 px-2 py-1 mb-2">
             <h3 className="text-lg font-bold">校內榮譽與獎項 <span className="font-normal text-sm text-gray-600 ml-1">In-School Honors & Awards</span></h3>
+            <CopyButton text={() => [...inSchoolWYN, ...inSchoolJFLS].map(c => `[${c.date}] ${c.titleZh} (${c.titleEn}) - ${c.awardZh} (${c.awardEn})`).join('\n')} label="Copy" />
           </div>
-          <table className="w-full text-sm text-left border-collapse print:text-[13px]">
-            <thead>
-              <tr className="border-b-2 border-gray-800">
-                <th className="py-1 px-1 w-24">時間 <br/><span className="text-xs font-normal text-gray-500">Date</span></th>
-                <th className="py-1 px-1">項目名稱 <br/><span className="text-xs font-normal text-gray-500">Event / Activity</span></th>
-                <th className="py-1 px-1 w-48">獲得榮譽 <br/><span className="text-xs font-normal text-gray-500">Award / Position</span></th>
-                <th className="py-1 px-1 w-16 print:hidden">操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              {inSchoolCerts.map(cert => (
-                <tr key={cert.id} className="border-b border-gray-200 hover:bg-gray-50 group break-inside-avoid">
-                  <td className="py-2 px-1 align-top whitespace-nowrap text-gray-600 font-medium">{cert.date}</td>
-                  <td className="py-2 px-1 align-top">
-                    <div className="font-bold">{cert.titleZh}</div>
-                    <div className="text-gray-500 text-xs">{cert.titleEn}</div>
-                  </td>
-                  <td className="py-2 px-1 align-top">
-                    <div className="font-semibold text-blue-800">{cert.awardZh}</div>
-                    <div className="text-blue-600/80 text-xs">{cert.awardEn}</div>
-                  </td>
-                  <td className="py-2 px-1 align-top print:hidden">
-                    <div className="opacity-0 group-hover:opacity-100 flex gap-1">
-                      <button onClick={() => { setEditForm(cert); setEditingCertId(cert.id); }} className="text-gray-400 hover:text-blue-600"><Edit2 className="w-4 h-4" /></button>
-                      <button onClick={() => handleDeleteCert(cert.id)} className="text-gray-400 hover:text-red-600"><Trash2 className="w-4 h-4" /></button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+          {inSchoolWYN.length > 0 && (
+            <div className="mb-4">
+              <h4 className="text-sm font-bold text-blue-800 mb-1 border-b border-gray-200 pb-1">世界龍岡學校黃耀南小學 <span className="font-normal text-xs text-gray-500">L.K.W.F.S. Ltd. Wong Yiu Nam Primary School</span></h4>
+              <table className="w-full text-sm text-left border-collapse print:text-[13px]">
+                <thead>
+                  <tr className="border-b-2 border-gray-800">
+                    <th className="py-1 px-1 w-24">時間 <br/><span className="text-xs font-normal text-gray-500">Date</span></th>
+                    <th className="py-1 px-1">項目名稱 <br/><span className="text-xs font-normal text-gray-500">Event / Activity</span></th>
+                    <th className="py-1 px-1 w-48">獲得榮譽 <br/><span className="text-xs font-normal text-gray-500">Award / Position</span></th>
+                    <th className="py-1 px-1 w-16 print:hidden">操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {inSchoolWYN.map(cert => (
+                    <tr key={cert.id} className="border-b border-gray-200 hover:bg-gray-50 group break-inside-avoid">
+                      <td className="py-2 px-1 align-top whitespace-nowrap text-gray-600 font-medium">{cert.date}</td>
+                      <td className="py-2 px-1 align-top">
+                        <div className="font-bold">{cert.titleZh}</div>
+                        <div className="text-gray-500 text-xs">{cert.titleEn}</div>
+                      </td>
+                      <td className="py-2 px-1 align-top">
+                        <div className="font-semibold text-blue-800">{cert.awardZh}</div>
+                        <div className="text-blue-600/80 text-xs">{cert.awardEn}</div>
+                      </td>
+                      <td className="py-2 px-1 align-top print:hidden">
+                        <div className="opacity-0 group-hover:opacity-100 flex gap-1">
+                          <button onClick={() => { setEditForm(cert); setEditingCertId(cert.id); }} className="text-gray-400 hover:text-blue-600"><Edit2 className="w-4 h-4" /></button>
+                          <button onClick={() => handleDeleteCert(cert.id)} className="text-gray-400 hover:text-red-600"><Trash2 className="w-4 h-4" /></button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {inSchoolJFLS.length > 0 && (
+            <div>
+              <h4 className="text-sm font-bold text-blue-800 mb-1 border-b border-gray-200 pb-1">東莞市嘉榮外國語學校 <span className="font-normal text-xs text-gray-500">Dongguan Jiarong Foreign Language School</span></h4>
+              <table className="w-full text-sm text-left border-collapse print:text-[13px]">
+                <thead>
+                  <tr className="border-b-2 border-gray-800">
+                    <th className="py-1 px-1 w-24">時間 <br/><span className="text-xs font-normal text-gray-500">Date</span></th>
+                    <th className="py-1 px-1">項目名稱 <br/><span className="text-xs font-normal text-gray-500">Event / Activity</span></th>
+                    <th className="py-1 px-1 w-48">獲得榮譽 <br/><span className="text-xs font-normal text-gray-500">Award / Position</span></th>
+                    <th className="py-1 px-1 w-16 print:hidden">操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {inSchoolJFLS.map(cert => (
+                    <tr key={cert.id} className="border-b border-gray-200 hover:bg-gray-50 group break-inside-avoid">
+                      <td className="py-2 px-1 align-top whitespace-nowrap text-gray-600 font-medium">{cert.date}</td>
+                      <td className="py-2 px-1 align-top">
+                        <div className="font-bold">{cert.titleZh}</div>
+                        <div className="text-gray-500 text-xs">{cert.titleEn}</div>
+                      </td>
+                      <td className="py-2 px-1 align-top">
+                        <div className="font-semibold text-blue-800">{cert.awardZh}</div>
+                        <div className="text-blue-600/80 text-xs">{cert.awardEn}</div>
+                      </td>
+                      <td className="py-2 px-1 align-top print:hidden">
+                        <div className="opacity-0 group-hover:opacity-100 flex gap-1">
+                          <button onClick={() => { setEditForm(cert); setEditingCertId(cert.id); }} className="text-gray-400 hover:text-blue-600"><Edit2 className="w-4 h-4" /></button>
+                          <button onClick={() => handleDeleteCert(cert.id)} className="text-gray-400 hover:text-red-600"><Trash2 className="w-4 h-4" /></button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
 
         {/* Out-of-School Awards Section */}
         {outOfSchoolCerts.length > 0 && (
           <div className="mb-4">
-            <h3 className="text-lg font-bold bg-gray-100 px-2 py-1 mb-2">校外榮譽與獎項 <span className="font-normal text-sm text-gray-600 ml-1">Out-of-School Honors & Awards</span></h3>
+            <div className="flex justify-between items-center bg-gray-100 px-2 py-1 mb-2">
+              <h3 className="text-lg font-bold">校外榮譽與獎項 <span className="font-normal text-sm text-gray-600 ml-1">Out-of-School Honors & Awards</span></h3>
+              <CopyButton text={() => outOfSchoolCerts.map(c => `[${c.date}] ${c.titleZh} (${c.titleEn}) - ${c.awardZh} (${c.awardEn})`).join('\n')} label="Copy" />
+            </div>
             <table className="w-full text-sm text-left border-collapse print:text-[13px]">
               <thead>
                 <tr className="border-b-2 border-gray-800">
@@ -423,6 +616,15 @@ export default function FamilyTab() {
                   <option value="Out-of-School">Out-of-School (校外)</option>
                 </select>
               </div>
+              {editForm.category === 'In-School' && (
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">School</label>
+                  <select className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value={editForm.school || 'JFLS'} onChange={e => setEditForm({...editForm, school: e.target.value as any})}>
+                    <option value="JFLS">東莞市嘉榮外國語學校 (JFLS)</option>
+                    <option value="WYN">世界龍岡學校黃耀南小學 (WYN)</option>
+                  </select>
+                </div>
+              )}
             </div>
             <div className="flex justify-end gap-3">
               <button onClick={() => setEditingCertId(null)} className="px-4 py-2 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg">Cancel</button>
@@ -457,6 +659,8 @@ export default function FamilyTab() {
           }
         }
       `}</style>
+        </div>
+      )}
     </div>
   );
 }

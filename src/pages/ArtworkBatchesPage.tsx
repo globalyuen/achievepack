@@ -95,6 +95,36 @@ const ArtworkBatchesPage: React.FC = () => {
     localStorage.setItem('ap_created_sections', JSON.stringify(createdSections))
   }, [createdSections])
 
+  // Collapsed sections state
+  const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({})
+
+  useEffect(() => {
+    if (selectedBatch) {
+      try {
+        const saved = localStorage.getItem(`ap_collapsed_sections_${selectedBatch.id}`)
+        setCollapsedSections(saved ? JSON.parse(saved) : {})
+      } catch {
+        setCollapsedSections({})
+      }
+    }
+  }, [selectedBatch])
+
+  const toggleSectionCollapse = (secName: string) => {
+    if (!selectedBatch) return
+    setCollapsedSections(prev => {
+      const updated = {
+        ...prev,
+        [secName]: !prev[secName]
+      }
+      try {
+        localStorage.setItem(`ap_collapsed_sections_${selectedBatch.id}`, JSON.stringify(updated))
+      } catch (e) {
+        console.error(e)
+      }
+      return updated
+    })
+  }
+
   useEffect(() => {
     setActiveSection('all')
   }, [selectedBatch])
@@ -158,8 +188,37 @@ const ArtworkBatchesPage: React.FC = () => {
   const [fileProgresses, setFileProgresses] = useState<FileProgress[]>([])
 
   // Layout states for admin customization
-  const [gridCols, setGridCols] = useState(3)
-  const [cardSize, setCardSize] = useState<'small' | 'large'>('large')
+  const [gridCols, setGridCols] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('ap_artwork_grid_cols')
+      return saved ? parseInt(saved, 10) : 3
+    } catch {
+      return 3
+    }
+  })
+  const [cardSize, setCardSize] = useState<'large' | 'small' | 'simple' | 'raw'>(() => {
+    try {
+      return (localStorage.getItem('ap_artwork_card_size') as any) || 'large'
+    } catch {
+      return 'large'
+    }
+  })
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('ap_artwork_grid_cols', String(gridCols))
+    } catch (e) {
+      console.error(e)
+    }
+  }, [gridCols])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('ap_artwork_card_size', cardSize)
+    } catch (e) {
+      console.error(e)
+    }
+  }, [cardSize])
 
   useEffect(() => {
     if (croppingItem) {
@@ -1162,6 +1221,36 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
+  // Toggle Pin Item (inside section)
+  const handleTogglePinItem = async (item: ArtworkBatchItem) => {
+    try {
+      const updatedAnalysis = {
+        ...(item.ai_analysis || {}),
+        pinned: !item.ai_analysis?.pinned
+      }
+      
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ ai_analysis: updatedAnalysis })
+        .eq('id', item.id)
+        
+      if (error) throw error
+      
+      setBatchItems(prev => prev.map(i => i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i))
+      
+      // Update cache if it exists
+      if (batchItemsCache[item.batch_id]) {
+        setBatchItemsCache(prev => ({
+          ...prev,
+          [item.batch_id]: prev[item.batch_id].map(i => i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i)
+        }))
+      }
+    } catch (err) {
+      console.error('Error toggling pin item:', err)
+      alert('Failed to toggle pin on artwork')
+    }
+  }
+
   // Toggle Pin Batch
   const handleTogglePinBatch = async (batch: ArtworkBatch) => {
     const isPinned = batch.batch_name.startsWith('📌 ');
@@ -1265,6 +1354,12 @@ const ArtworkBatchesPage: React.FC = () => {
 
     // Sort
     return filtered.sort((a, b) => {
+      // Pin status first (pinned at top)
+      const aPinned = !!a.ai_analysis?.pinned
+      const bPinned = !!b.ai_analysis?.pinned
+      if (aPinned && !bPinned) return -1
+      if (!aPinned && bPinned) return 1
+
       switch (itemSortOption) {
         case 'newest':
           return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
@@ -1635,6 +1730,246 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   };
 
+  // Raw Table View Renderer
+  const renderRawTable = (sectionItems: ArtworkBatchItem[]) => {
+    return (
+      <div className="overflow-x-auto bg-white rounded-xl border border-gray-200 shadow-sm">
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="bg-gray-50 border-b border-gray-200 text-xs font-bold text-gray-500 uppercase tracking-wider">
+              <th className="px-4 py-3 w-10 text-center">Pin</th>
+              <th className="px-4 py-3 w-16">Preview</th>
+              <th className="px-4 py-3">File Name</th>
+              <th className="px-4 py-3 w-36">Section</th>
+              <th className="px-4 py-3 w-28">Customer</th>
+              <th className="px-4 py-3 w-32">Status</th>
+              <th className="px-4 py-3 w-28">Updated</th>
+              <th className="px-4 py-3 w-20 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100 text-sm">
+            {sectionItems.map(item => {
+              const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
+              const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
+              const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
+              const displayUrl = item.ai_analysis?.thumbnail_url || (isImage ? item.file_url : null)
+              const crop = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
+              const isPinned = !!item.ai_analysis?.pinned
+
+              return (
+                <tr 
+                  key={item.id} 
+                  className={`hover:bg-gray-50/80 transition-colors ${
+                    dragOverItemId === item.id 
+                      ? 'bg-primary-50 animate-pulse' 
+                      : ''
+                  }`}
+                  onDragOver={(e) => {
+                    e.preventDefault()
+                    if (dragOverItemId !== item.id) setDragOverItemId(item.id)
+                  }}
+                  onDragLeave={() => setDragOverItemId(null)}
+                  onDrop={async (e) => {
+                    e.preventDefault()
+                    setDragOverItemId(null)
+                    const file = e.dataTransfer.files?.[0]
+                    if (file) {
+                      await uploadProofFile(file, item.id)
+                    }
+                  }}
+                >
+                  {/* Pin button */}
+                  <td className="px-4 py-2.5 text-center">
+                    <button
+                      onClick={() => handleTogglePinItem(item)}
+                      className={`p-1.5 rounded-lg transition-colors ${
+                        isPinned 
+                          ? 'text-amber-500 bg-amber-50 hover:bg-amber-100' 
+                          : 'text-gray-400 hover:text-gray-600 hover:bg-gray-100'
+                      }`}
+                      title={isPinned ? 'Unpin Artwork' : 'Pin Artwork to Top'}
+                    >
+                      <Pin className={`h-4 w-4 ${isPinned ? 'fill-current' : ''}`} />
+                    </button>
+                  </td>
+                  
+                  {/* Preview Thumbnail */}
+                  <td className="px-4 py-2.5">
+                    <div className="h-10 w-10 bg-gray-50 border border-gray-200 rounded overflow-hidden flex items-center justify-center relative">
+                      {item.file_url ? (
+                        displayUrl ? (
+                          <img 
+                            src={displayUrl} 
+                            alt={item.name} 
+                            className="h-full w-full object-contain"
+                            style={{
+                              transform: `translate(${crop.x}%, ${crop.y}%) scale(${crop.scale})`,
+                            }}
+                          />
+                        ) : isPdf ? (
+                          <div className="text-[8px] font-bold text-red-500 bg-red-50 px-1 py-0.5 rounded">PDF</div>
+                        ) : isVideo ? (
+                          <div className="text-[8px] font-bold text-blue-500 bg-blue-50 px-1 py-0.5 rounded">VID</div>
+                        ) : (
+                          <Files className="h-5 w-5 text-gray-400" />
+                        )
+                      ) : (
+                        <CircleDashed className="h-4 w-4 text-gray-300 animate-spin" />
+                      )}
+                    </div>
+                  </td>
+
+                  {/* File Name */}
+                  <td className="px-4 py-2.5 font-medium text-gray-900">
+                    {editingFileName === item.id ? (
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          value={fileNameValue}
+                          onChange={(e) => setFileNameValue(e.target.value)}
+                          className="px-2 py-1 text-sm font-medium border border-gray-300 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500 w-full max-w-xs"
+                          autoFocus
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') handleRenameFile(item.id)
+                            if (e.key === 'Escape') {
+                              setEditingFileName(null)
+                              setFileNameValue('')
+                            }
+                          }}
+                        />
+                        <button
+                          onClick={() => handleRenameFile(item.id)}
+                          disabled={savingFileName}
+                          className="p-1 text-green-600 hover:bg-green-50 rounded"
+                        >
+                          {savingFileName ? <RefreshCw className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setEditingFileName(null)
+                            setFileNameValue('')
+                          }}
+                          className="p-1 text-gray-400 hover:bg-gray-100 rounded"
+                        >
+                          <X className="h-3 w-3" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1 group/name">
+                        <span className="truncate max-w-[240px] md:max-w-[360px]" title={item.name}>{item.name}</span>
+                        <button 
+                          onClick={() => {
+                            setFileNameValue(item.name)
+                            setEditingFileName(item.id)
+                          }}
+                          className="opacity-0 group-hover/name:opacity-100 p-1 text-gray-400 hover:text-primary-600 rounded transition"
+                        >
+                          <Pencil className="h-3 w-3" />
+                        </button>
+                      </div>
+                    )}
+                    {item.ai_analysis?.title && (
+                      <div className="text-xs text-gray-400 mt-0.5 line-clamp-1">{item.ai_analysis.title}</div>
+                    )}
+                  </td>
+
+                  {/* Section dropdown */}
+                  <td className="px-4 py-2.5">
+                    <select
+                      value={item.ai_analysis?.section_name || 'Uncategorized'}
+                      onChange={(e) => handleMoveItemToSection(item, e.target.value)}
+                      className="text-xs font-semibold text-gray-700 bg-white border border-gray-200 rounded px-2 py-1 max-w-[130px] truncate"
+                    >
+                      {sectionsList.map(sec => (
+                        <option key={sec} value={sec}>{sec}</option>
+                      ))}
+                    </select>
+                  </td>
+
+                  {/* Customer visibility zone */}
+                  <td className="px-4 py-2.5">
+                    <button
+                      onClick={() => handleToggleItemZone(item)}
+                      className={`text-[9px] font-bold px-2 py-0.5 rounded transition border ${
+                        (item.ai_analysis?.zone || 'current') === 'current'
+                          ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100'
+                          : 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100'
+                      }`}
+                    >
+                      {(item.ai_analysis?.zone || 'current') === 'current' ? 'VISIBLE' : 'HIDDEN'}
+                    </button>
+                  </td>
+
+                  {/* Status Badge */}
+                  <td className="px-4 py-2.5">
+                    {getStatusBadge(item.status)}
+                  </td>
+
+                  {/* Date / Size */}
+                  <td className="px-4 py-2.5 text-xs text-gray-500 whitespace-nowrap">
+                    <div>{new Date(item.updated_at).toLocaleDateString()}</div>
+                    {item.file_size > 0 && (
+                      <div className="text-[10px] text-gray-400 font-medium">{formatFileSize(item.file_size)}</div>
+                    )}
+                  </td>
+
+                  {/* Actions */}
+                  <td className="px-4 py-2.5 text-right whitespace-nowrap">
+                    <div className="flex items-center justify-end gap-1.5">
+                      {/* View/Download proof */}
+                      {item.file_url ? (
+                        <a 
+                          href={item.file_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1 text-gray-400 hover:text-primary-600 hover:bg-gray-100 rounded"
+                          title="Download / View file"
+                        >
+                          <Download className="h-4 w-4" />
+                        </a>
+                      ) : (
+                        <button disabled className="p-1 text-gray-200 cursor-not-allowed">
+                          <Download className="h-4 w-4" />
+                        </button>
+                      )}
+                      {/* Crop thumbnail */}
+                      {displayUrl && (
+                        <button
+                          onClick={() => setCroppingItem(item)}
+                          className="p-1 text-gray-400 hover:text-primary-600 hover:bg-gray-100 rounded"
+                          title="Crop thumbnail"
+                        >
+                          <Crop className="h-4 w-4" />
+                        </button>
+                      )}
+                      {/* Upload button */}
+                      <label className="p-1 text-gray-400 hover:text-primary-600 hover:bg-gray-100 rounded cursor-pointer">
+                        <Upload className="h-4 w-4" />
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          onChange={(e) => handleUpdateItemFile(e, item.id)}
+                        />
+                      </label>
+                      {/* Delete */}
+                      <button
+                        onClick={() => handleDeleteItem(item.id)}
+                        className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded"
+                        title="Delete"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
   // Status badge
 
 
@@ -1642,6 +1977,232 @@ const ArtworkBatchesPage: React.FC = () => {
     const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
     const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
     const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
+
+    if (cardSize === 'simple') {
+      const isPinned = !!item.ai_analysis?.pinned
+      const isVisible = (item.ai_analysis?.zone || 'current') === 'current'
+      const displayUrl = item.ai_analysis?.thumbnail_url || (isImage ? item.file_url : null)
+      const crop = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
+
+      return (
+        <div 
+          key={item.id} 
+          className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition relative group"
+        >
+          {/* Preview image */}
+          <div
+            onDragOver={(e) => {
+              e.preventDefault()
+              if (dragOverItemId !== item.id) setDragOverItemId(item.id)
+            }}
+            onDragLeave={() => setDragOverItemId(null)}
+            onDrop={async (e) => {
+              e.preventDefault()
+              setDragOverItemId(null)
+              const file = e.dataTransfer.files?.[0]
+              if (file) {
+                await uploadProofFile(file, item.id)
+              }
+            }}
+            className={`aspect-square bg-gray-100 relative overflow-hidden transition-all border-2 ${
+              dragOverItemId === item.id 
+                ? 'border-primary-500 bg-primary-50 animate-pulse' 
+                : 'border-transparent'
+            }`}
+          >
+            {/* Floating Pin Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                handleTogglePinItem(item)
+              }}
+              className={`absolute top-1.5 left-1.5 z-25 p-1 rounded bg-white/90 border border-gray-100 shadow-sm transition-all ${
+                isPinned 
+                  ? 'text-amber-500 opacity-100' 
+                  : 'text-gray-400 opacity-0 group-hover:opacity-100 hover:text-amber-500'
+              }`}
+              title={isPinned ? 'Unpin Artwork' : 'Pin Artwork'}
+            >
+              <Pin className={`h-3 w-3 ${isPinned ? 'fill-current' : ''}`} />
+            </button>
+
+            {/* Floating Status Badge */}
+            <div className="absolute top-1.5 right-1.5 z-20 scale-75 origin-top-right">
+              {getStatusBadge(item.status)}
+            </div>
+
+            {/* Actual image content */}
+            {item.file_url ? (
+              <>
+                {displayUrl ? (
+                  <div className="w-full h-full overflow-hidden relative bg-gray-50 flex items-center justify-center">
+                    <img 
+                      src={displayUrl} 
+                      alt={item.name} 
+                      className="w-full h-full pointer-events-none object-contain"
+                      style={{
+                        transform: `translate(${crop.x}%, ${crop.y}%) scale(${crop.scale})`,
+                      }}
+                    />
+                    {!isImage && (
+                      <div className="absolute bottom-1.5 left-1.5 bg-black/60 px-1.5 py-0.5 rounded text-[8px] font-bold text-white uppercase tracking-wider">
+                        {isPdf ? 'PDF' : isVideo ? 'Video' : 'Doc'}
+                      </div>
+                    )}
+                  </div>
+                ) : isVideo ? (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-900 text-white relative">
+                    <video muted={true} src={item.file_url} className="w-full h-full object-cover" controls={false} />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      <span className="px-1.5 py-0.5 bg-black/60 rounded text-[8px] font-bold tracking-wider uppercase">Video</span>
+                    </div>
+                  </div>
+                ) : isPdf ? (
+                  <div className="w-full h-full relative overflow-hidden bg-gray-50 flex items-center justify-center">
+                    <iframe 
+                      src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                      className="w-full h-full border-0 pointer-events-none" 
+                      scrolling="no"
+                    />
+                    <div className="absolute bottom-1.5 left-1.5 bg-black/60 px-1.5 py-0.5 rounded text-[8px] font-bold text-white uppercase tracking-wider z-10">
+                      PDF
+                    </div>
+                  </div>
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 text-gray-400 p-2">
+                    <Files className="h-6 w-6 text-gray-300" />
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center p-2 text-center bg-gray-50">
+                <CircleDashed className="h-5 w-5 text-gray-300 animate-spin mb-1" />
+                <label className="cursor-pointer">
+                  <span className="px-2 py-1 bg-primary-600 hover:bg-primary-700 text-white rounded text-[9px] font-bold shadow-sm transition block">
+                    Upload
+                  </span>
+                  <input 
+                    type="file" 
+                    className="hidden" 
+                    onChange={(e) => handleUpdateItemFile(e, item.id)}
+                  />
+                </label>
+              </div>
+            )}
+
+            {/* Hover Actions Overlay */}
+            {item.file_url && (
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 z-10">
+                {/* View/Download */}
+                <a 
+                  href={item.file_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-1 rounded bg-white text-gray-700 hover:bg-gray-100 shadow"
+                  title="View / Download File"
+                >
+                  <Download className="h-3 w-3" />
+                </a>
+
+                {/* Customer Visibility Toggle */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleToggleItemZone(item)
+                  }}
+                  className={`p-1 rounded shadow text-white ${
+                    isVisible ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'
+                  }`}
+                  title={isVisible ? 'Visible to Customer. Click to hide.' : 'Hidden from Customer. Click to show.'}
+                >
+                  {isVisible ? <Eye className="h-3 w-3" /> : <Lock className="h-3 w-3" />}
+                </button>
+
+                {/* Crop */}
+                {displayUrl && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setCroppingItem(item)
+                    }}
+                    className="p-1 rounded bg-white text-gray-700 hover:bg-gray-100 shadow"
+                    title="Crop Thumbnail"
+                  >
+                    <Crop className="h-3 w-3" />
+                  </button>
+                )}
+
+                {/* Upload Proof */}
+                <label className="p-1 rounded bg-white text-gray-700 hover:bg-gray-100 shadow cursor-pointer">
+                  <Upload className="h-3 w-3" />
+                  <input 
+                    type="file" 
+                    className="hidden" 
+                    onChange={(e) => handleUpdateItemFile(e, item.id)}
+                  />
+                </label>
+
+                {/* Delete */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleDeleteItem(item.id)
+                  }}
+                  className="p-1 rounded bg-white text-red-600 hover:bg-red-50 shadow"
+                  title="Delete artwork"
+                >
+                  <Trash2 className="h-3 w-3" />
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Text bottom bar */}
+          <div className="p-1.5 bg-white border-t border-gray-50 flex items-center justify-between gap-1">
+            {editingFileName === item.id ? (
+              <div className="flex items-center gap-1 w-full">
+                <input
+                  type="text"
+                  value={fileNameValue}
+                  onChange={(e) => setFileNameValue(e.target.value)}
+                  className="w-full px-1 py-0.5 text-[10px] border border-gray-300 rounded"
+                  autoFocus
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleRenameFile(item.id)
+                    if (e.key === 'Escape') {
+                      setEditingFileName(null)
+                      setFileNameValue('')
+                    }
+                  }}
+                />
+                <button
+                  onClick={() => handleRenameFile(item.id)}
+                  className="p-0.5 text-green-600 hover:bg-green-50 rounded"
+                >
+                  <Check className="h-2.5 w-2.5" />
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center justify-between w-full min-w-0 group/name">
+                <span className="text-[10px] font-semibold text-gray-700 truncate" title={item.name}>
+                  {item.name}
+                </span>
+                <button 
+                  onClick={() => {
+                    setFileNameValue(item.name)
+                    setEditingFileName(item.id)
+                  }}
+                  className="opacity-0 group-hover/name:opacity-100 p-0.5 text-gray-400 hover:text-primary-600 rounded transition flex-shrink-0"
+                >
+                  <Pencil className="h-2.5 w-2.5" />
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div key={item.id} className={`bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition ${cardSize === 'small' ? 'p-2' : ''}`}>
         {/* Preview */}
@@ -1665,6 +2226,23 @@ const ArtworkBatchesPage: React.FC = () => {
               : 'border-transparent'
           }`}
         >
+          {/* Floating Pin Button */}
+          {item.file_url && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                handleTogglePinItem(item)
+              }}
+              className={`absolute top-2 left-2 z-20 p-1.5 rounded-lg bg-white/95 border border-gray-100 shadow-sm transition-all ${
+                item.ai_analysis?.pinned 
+                  ? 'text-amber-500 opacity-100' 
+                  : 'text-gray-400 opacity-0 group-hover/preview:opacity-100 hover:text-amber-500'
+              }`}
+              title={item.ai_analysis?.pinned ? 'Unpin artwork' : 'Pin artwork to top of section'}
+            >
+              <Pin className={`h-3.5 w-3.5 ${item.ai_analysis?.pinned ? 'fill-current' : ''}`} />
+            </button>
+          )}
           {item.file_url ? (
             <>
               {(() => {
@@ -2850,25 +3428,38 @@ const ArtworkBatchesPage: React.FC = () => {
                   
                   <div className="flex flex-wrap items-center gap-4">
                     {/* Grid Column Selector */}
-                    <div className="flex items-center gap-1.5 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
-                      <span className="text-[10px] uppercase font-black text-gray-400 px-2">Columns:</span>
-                      {[1, 2, 3, 4, 5, 6].map(num => (
-                        <button
-                          key={num}
-                          onClick={() => setGridCols(num)}
-                          className={`h-7 w-7 flex items-center justify-center rounded text-xs font-bold transition ${
-                            gridCols === num 
-                              ? 'bg-primary-600 text-white shadow-sm' 
-                              : 'text-gray-500 hover:bg-gray-100'
-                          }`}
-                        >
-                          {num}
-                        </button>
-                      ))}
-                    </div>
+                    {cardSize !== 'raw' && (
+                      <div className="flex items-center gap-1.5 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
+                        <span className="text-[10px] uppercase font-black text-gray-400 px-2">Columns:</span>
+                        {[1, 2, 3, 4, 5, 6].map(num => (
+                          <button
+                            key={num}
+                            onClick={() => setGridCols(num)}
+                            className={`h-7 w-7 flex items-center justify-center rounded text-xs font-bold transition ${
+                              gridCols === num 
+                                ? 'bg-primary-600 text-white shadow-sm' 
+                                : 'text-gray-500 hover:bg-gray-100'
+                            }`}
+                          >
+                            {num}
+                          </button>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Card Size Toggle */}
                     <div className="flex items-center gap-1 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
+                      <button
+                        onClick={() => setCardSize('simple')}
+                        className={`px-3 py-1 rounded text-[10px] font-bold uppercase transition ${
+                          cardSize === 'simple' 
+                            ? 'bg-gray-800 text-white shadow-sm' 
+                            : 'text-gray-500 hover:bg-gray-100'
+                        }`}
+                        title="Simple Small view"
+                      >
+                        Simple
+                      </button>
                       <button
                         onClick={() => setCardSize('small')}
                         className={`px-3 py-1 rounded text-[10px] font-bold uppercase transition ${
@@ -2876,6 +3467,7 @@ const ArtworkBatchesPage: React.FC = () => {
                             ? 'bg-gray-800 text-white shadow-sm' 
                             : 'text-gray-500 hover:bg-gray-100'
                         }`}
+                        title="Small view"
                       >
                         Small
                       </button>
@@ -2886,8 +3478,20 @@ const ArtworkBatchesPage: React.FC = () => {
                             ? 'bg-gray-800 text-white shadow-sm' 
                             : 'text-gray-500 hover:bg-gray-100'
                         }`}
+                        title="Large view"
                       >
                         Large
+                      </button>
+                      <button
+                        onClick={() => setCardSize('raw')}
+                        className={`px-3 py-1 rounded text-[10px] font-bold uppercase transition ${
+                          cardSize === 'raw' 
+                            ? 'bg-gray-800 text-white shadow-sm' 
+                            : 'text-gray-500 hover:bg-gray-100'
+                        }`}
+                        title="Raw List table view"
+                      >
+                        Raw List
                       </button>
                     </div>
 
@@ -3001,7 +3605,9 @@ const ArtworkBatchesPage: React.FC = () => {
                               setActiveDragSection(null)
                             }
                           }}
-                          className={`bg-white rounded-2xl border p-6 space-y-6 shadow-sm transition-all duration-200 ${
+                          className={`bg-white rounded-2xl border p-6 shadow-sm transition-all duration-200 ${
+                            !collapsedSections[secName] ? 'space-y-6' : ''
+                          } ${
                             draggedSection === secName 
                               ? 'opacity-40 border-dashed border-primary-300 scale-[0.99] bg-gray-50' 
                               : dragOverSection === secName 
@@ -3012,6 +3618,19 @@ const ArtworkBatchesPage: React.FC = () => {
                           {/* Section Header */}
                           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-4">
                             <div className="flex items-center gap-3">
+                              {/* Collapse/Expand Toggle Button */}
+                              <button
+                                onClick={() => toggleSectionCollapse(secName)}
+                                className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition"
+                                title={collapsedSections[secName] ? "Expand Section" : "Collapse Section"}
+                              >
+                                {collapsedSections[secName] ? (
+                                  <ChevronRight className="h-4 w-4" />
+                                ) : (
+                                  <ChevronDown className="h-4 w-4" />
+                                )}
+                              </button>
+
                               {/* Grip Handle for Reordering */}
                               <div
                                 onMouseDown={() => setActiveDragSection(secName)}
@@ -3026,6 +3645,10 @@ const ArtworkBatchesPage: React.FC = () => {
                                 name={secName} 
                                 onSave={(newName) => handleRenameSection(secName, newName)} 
                               />
+
+                              <span className="text-xs bg-gray-100 text-gray-500 font-bold px-2 py-0.5 rounded-full">
+                                {sectionItems.length} {sectionItems.length === 1 ? 'item' : 'items'}
+                              </span>
                               
                               {sectionsList.length > 1 && (
                                 <div className="flex items-center bg-gray-50 border border-gray-200 rounded-xl p-0.5 shadow-sm">
@@ -3087,21 +3710,25 @@ const ArtworkBatchesPage: React.FC = () => {
                             </div>
                           </div>
                           
-                          {isEmpty ? (
-                            <div className="text-center py-10 border-2 border-dashed border-gray-100 rounded-xl">
-                              <FileImage className="h-10 w-10 text-gray-300 mx-auto mb-2" />
-                              <p className="text-sm text-gray-500">This section is empty</p>
-                              <p className="text-xs text-gray-400 mt-1">Move items here using the section selector on any artwork card</p>
-                            </div>
-                          ) : (
-                            <div 
-                              className="grid gap-4"
-                              style={{ 
-                                gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))` 
-                              }}
-                            >
-                              {sectionItems.map(item => renderItemCard(item))}
-                            </div>
+                          {!collapsedSections[secName] && (
+                            isEmpty ? (
+                              <div className="text-center py-10 border-2 border-dashed border-gray-100 rounded-xl">
+                                <FileImage className="h-10 w-10 text-gray-300 mx-auto mb-2" />
+                                <p className="text-sm text-gray-500">This section is empty</p>
+                                <p className="text-xs text-gray-400 mt-1">Move items here using the section selector on any artwork card</p>
+                              </div>
+                            ) : cardSize === 'raw' ? (
+                              renderRawTable(sectionItems)
+                            ) : (
+                              <div 
+                                className="grid gap-4"
+                                style={{ 
+                                  gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))` 
+                                }}
+                              >
+                                {sectionItems.map(item => renderItemCard(item))}
+                              </div>
+                            )
                           )}
                         </div>
                       )
