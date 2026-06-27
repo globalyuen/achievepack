@@ -455,17 +455,28 @@ export default function FamilyTab() {
               </div>
             </div>
             {activeProfile.academicReports.map((report, rIdx) => (
-              <div key={rIdx} className="mb-3 last:mb-0">
-                <div className="flex items-center gap-4 text-sm font-semibold text-gray-800 mb-1 px-1 border-l-2 border-blue-600">
-                  <span>{report.term}</span>
-                  <span className="text-blue-700">平均分 Average: {report.average}</span>
-                  <span className="text-blue-700">操行 Conduct: {report.conduct}</span>
+              <div key={rIdx} className="mb-4 last:mb-0 bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                <div className="flex flex-wrap items-center justify-between bg-blue-50/60 px-4 py-2 border-b border-blue-100">
+                  <div className="font-bold text-blue-900">{report.term}</div>
+                  <div className="flex gap-4">
+                    <div className="flex items-center gap-2">
+                      <span className="text-gray-600 text-xs font-medium">平均分 Average:</span>
+                      <span className="font-extrabold text-blue-800 bg-white px-2.5 py-0.5 rounded shadow-sm border border-blue-100/50">{report.average}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-gray-600 text-xs font-medium">操行 Conduct:</span>
+                      <span className="font-extrabold text-blue-800 bg-white px-2.5 py-0.5 rounded shadow-sm border border-blue-100/50">{report.conduct}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm px-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-sm p-4 print:p-2 print:gap-x-4">
                   {report.scores.map((s, sIdx) => (
-                    <div key={sIdx} className="flex justify-between items-center py-1 border-b border-gray-100">
-                      <span className="text-gray-600">{s.subjectZh}</span>
-                      <span className="font-bold text-gray-900">{s.score}</span>
+                    <div key={sIdx} className="flex justify-between items-center py-2 border-b border-gray-100 hover:bg-gray-50 transition-colors px-1 rounded">
+                      <div className="flex flex-col">
+                        <span className="text-gray-800 font-bold">{s.subjectZh}</span>
+                        <span className="text-gray-400 text-[11px] uppercase tracking-wider">{s.subjectEn}</span>
+                      </div>
+                      <span className={`font-bold text-base px-3 py-1 rounded-md ${s.score.includes('A') ? 'text-green-700 bg-green-50 border border-green-100' : s.score.includes('B') ? 'text-blue-700 bg-blue-50 border border-blue-100' : 'text-orange-700 bg-orange-50 border border-orange-100'}`}>{s.score}</span>
                     </div>
                   ))}
                 </div>
