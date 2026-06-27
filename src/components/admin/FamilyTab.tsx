@@ -225,7 +225,7 @@ const CopyButton = ({ text, label }: { text: string | (() => string), label?: st
 export default function FamilyTab() {
   const [activeSubTab, setActiveSubTab] = useState<'resumes' | 'schoolTracker'>('schoolTracker');
   const [profiles, setProfiles] = useState<Profile[]>(() => {
-    const saved = localStorage.getItem('family_resumes_v4');
+    const saved = localStorage.getItem('family_resumes_v5');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -243,7 +243,7 @@ export default function FamilyTab() {
   const [profileForm, setProfileForm] = useState<Partial<Profile>>({});
 
   useEffect(() => {
-    localStorage.setItem('family_resumes_v4', JSON.stringify(profiles));
+    localStorage.setItem('family_resumes_v5', JSON.stringify(profiles));
   }, [profiles]);
 
   const activeProfile = profiles.find(p => p.id === activeProfileId);
