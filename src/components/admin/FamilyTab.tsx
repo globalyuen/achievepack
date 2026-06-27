@@ -43,6 +43,7 @@ interface Profile {
   dob: string;
   hkid?: string;
   photoUrl: string;
+  scorePageUrl?: string;
   schools: School[];
   fatherName: string;
   fatherJobZh: string;
@@ -68,6 +69,7 @@ const INITIAL_PROFILES: Profile[] = [
     dob: '20-06-2014',
     hkid: 'F537497(5)',
     photoUrl: '/max-photo.png',
+    scorePageUrl: '/max-score.jpg',
     schools: [
       { id: 's1', grade: 'P5', period: '2026.04-present', nameZh: '世界龍岡學校黃耀南小學, 香港', nameEn: 'L.K.W.F.S. Ltd. Wong Yiu Nam Primary School, Hong Kong' },
       { id: 's2', grade: 'P2-P6', period: '2021.09-2026.03', nameZh: '東莞市嘉榮外國語學校，東莞', nameEn: 'Dongguan Jiarong Foreign Language School, Dongguan' },
@@ -142,6 +144,7 @@ const INITIAL_PROFILES: Profile[] = [
     dob: '31-08-2016',
     hkid: 'F537499(1)',
     photoUrl: '/yt-photo.png',
+    scorePageUrl: '/yt-score.jpg',
     schools: [
       { id: 's1', grade: 'P4', period: '2026.04-present', nameZh: '世界龍岡學校黃耀南小學, 香港', nameEn: 'L.K.W.F.S. Ltd. Wong Yiu Nam Primary School, Hong Kong' },
       { id: 's2', grade: 'P1-P4', period: '2021.09-2026.03', nameZh: '東莞市嘉榮外國語學校，東莞', nameEn: 'Dongguan Jiarong Foreign Language School, Dongguan' },
@@ -437,7 +440,19 @@ export default function FamilyTab() {
           <div className="mb-4">
             <div className="flex justify-between items-center bg-gray-100 px-2 py-1 mb-2">
               <h3 className="text-lg font-bold">學業成績 <span className="font-normal text-sm text-gray-600 ml-1">Academic Performance</span></h3>
-              <CopyButton text={() => activeProfile.academicReports!.map(r => `Term: ${r.term}\nAverage: ${r.average}, Conduct: ${r.conduct}\nScores: ${r.scores.map(s => `${s.subjectZh}: ${s.score}`).join(', ')}`).join('\n\n')} label="Copy" />
+              <div className="flex gap-2 items-center">
+                {activeProfile.scorePageUrl && (
+                  <a 
+                    href={activeProfile.scorePageUrl} 
+                    download
+                    className="flex items-center gap-1 px-2 py-0.5 text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 rounded transition-colors print:hidden font-medium"
+                    title="Download Score Page"
+                  >
+                    <Download className="w-3 h-3" /> 下載成績表
+                  </a>
+                )}
+                <CopyButton text={() => activeProfile.academicReports!.map(r => `Term: ${r.term}\nAverage: ${r.average}, Conduct: ${r.conduct}\nScores: ${r.scores.map(s => `${s.subjectZh}: ${s.score}`).join(', ')}`).join('\n\n')} label="Copy" />
+              </div>
             </div>
             {activeProfile.academicReports.map((report, rIdx) => (
               <div key={rIdx} className="mb-3 last:mb-0">
