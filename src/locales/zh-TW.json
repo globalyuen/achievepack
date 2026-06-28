@@ -44611,22 +44611,51 @@
       ]
     },
     "pet_food_quad_seal": {
-      "title": "頂級寵物食品包裝的四邊封袋",
-      "description": "了解為何四邊封袋是尋求結構完整性與品牌展示空間的頂級寵物食品品牌的首選。",
-      "aeoSummary": "四邊封袋提供四個清晰的展示面板與卓越的結構穩定性，非常適合寵物食品等重型產品。它們能實現最大化的品牌宣傳和可靠的貨架展示。",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: 一家美國頂級寵物食品品牌利用我們的四邊封袋提升了零售形象。我們開發了 1 公斤四邊封咖啡/寵物食品袋格式，探索了可堆肥直立袋選項，並提供詳細的刀模圖，以確保所有四個封合面板上的圖稿對齊精確。",
+      "title": "Quad Seal Pouches for Premium Pet Food",
+      "hero": {
+        "title": "Heavy-Duty Quad Seal Pet Food Bags",
+        "subtitle": "Maximum branding space and structural stability.",
+        "description": "Our quad seal (side gusset) pouches offer superior strength for heavy pet food volumes while providing five panels of continuous printable real estate."
+      },
+      "challenges": {
+        "title": "Pet Food Packaging Challenges",
+        "items": [
+          "Bags tipping over or losing shape on retail shelves.",
+          "Grease from kibble permeating the outer layers of the bag.",
+          "Lack of strong handles for carrying large, heavy bags of dog food."
+        ]
+      },
+      "solutions": {
+        "title": "Our Quad Seal Solutions",
+        "items": [
+          {
+            "title": "Reinforced Side Seals",
+            "description": "The four corner seals provide exceptional structural rigidity, ensuring the bag stands perfectly upright even with 10kg+ of product."
+          },
+          {
+            "title": "Grease-Resistant Laminates",
+            "description": "We engineer robust multi-layer structures (e.g., PET/VMPET/PE) that lock in odors and prevent kibble fats from staining the exterior."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "什麼是四邊封袋？",
-          "answer": "四邊封袋在袋子的四個角落都有封邊，提供了一個堅挺的盒狀外型，能夠完美直立。"
+          "q": "Can you add a zipper to a quad seal bag?",
+          "a": "Yes, we can incorporate top sliders or front-pocket zippers for easy resealability and consumer convenience."
         },
         {
-          "question": "為什麼四邊封袋更適合寵物食品？",
-          "answer": "它為較重的重量提供卓越的強度，並提供四個不受干擾的面板用於品牌宣傳與營養資訊展示。"
+          "q": "Are handles available for heavy pet food bags?",
+          "a": "Absolutely. We offer heavy-duty punched handles or reinforced plastic strap handles for easy carrying of high-volume bags."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "FDA & BRC Certified",
+          "href": "/fda_brc_certified"
         },
         {
-          "question": "四邊封袋可以用環保材質製作嗎？",
-          "answer": "是的，我們正在積極開發並供應使用可回收與可堆肥軟性包裝材料的四邊封結構。"
+          "label": "Beef Jerky Barrier",
+          "href": "/beef_jerky_barrier"
         }
       ]
     },
@@ -44946,242 +44975,590 @@
       ]
     },
     "pla_rice": {
-      "title": "PLA 大米包裝：環保且可持續",
-      "description": "適用於大米和穀物的可持續 PLA（聚乳酸）包裝解決方案。完全可堆肥的材料，同時保持產品新鮮度。",
-      "aeoSummary": "我們的 PLA 大米包裝結合了可持續的植物基材料和出色的結構完整性。我們利用高品質的 PLA 薄膜來確保可堆肥性，同時為穀物提供足夠的防潮層。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：一家具有環保意識的穀物供應商希望為其手工大米提供完全可堆肥的袋子。我們設計了一種多層 PLA 結構，該結構保持了所需的防潮層，以防止穀物變質，確保包裝符合工業可堆肥標準，同時能承受零售搬運。",
+      "title": "PLA Rice Paper Packaging Solutions",
+      "hero": {
+        "title": "Sustainable PLA Rice Paper Pouches",
+        "subtitle": "Eco-friendly, tactile packaging for premium brands.",
+        "description": "Combine the artisanal look of rice paper with the compostable benefits of PLA for a truly sustainable packaging solution."
+      },
+      "challenges": {
+        "title": "Common Packaging Challenges",
+        "items": [
+          "Finding eco-friendly materials that maintain a premium feel.",
+          "Ensuring moisture and oxygen barriers in compostable packaging.",
+          "Standing out on retail shelves with unique textures."
+        ]
+      },
+      "solutions": {
+        "title": "Our PLA Rice Paper Solutions",
+        "items": [
+          {
+            "title": "Compostable PLA Liners",
+            "description": "We use polylactic acid (PLA) inner layers that are fully compostable, ensuring your packaging meets sustainability goals."
+          },
+          {
+            "title": "Artisanal Rice Paper Exterior",
+            "description": "A textured rice paper outer layer provides a premium, handcrafted look that appeals to eco-conscious consumers."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "PLA 包裝適合裝大米嗎？",
-          "answer": "是的，PLA 提供良好的防潮層，可保持大米等乾貨的新鮮度，同時完全可堆肥。"
+          "q": "Is PLA rice paper packaging fully compostable?",
+          "a": "Yes, our PLA and rice paper combinations are designed to be industrially compostable, breaking down without leaving toxic residues."
         },
         {
-          "question": "PLA 代表什麼？",
-          "answer": "PLA 代表聚乳酸，一種從玉米澱粉等可再生資源中提取的可生物降解聚合物。"
+          "q": "Can I print custom designs on rice paper?",
+          "a": "Absolutely. We offer high-quality custom printing on the rice paper surface, allowing your brand artwork to shine while maintaining the textured feel."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Home vs Industrial Compostable",
+          "href": "/home_vs_industrial_compostable"
         },
         {
-          "question": "PLA 袋可以承受重型穀物嗎？",
-          "answer": "是的，如果經過適當的複合和封口，PLA 袋具有足夠的抗拉強度來裝填重型大米和穀物。"
+          "label": "Rice Paper Artisanal",
+          "href": "/rice_paper_artisanal"
         }
       ]
     },
     "rice_paper_artisanal": {
-      "title": "手工和紙包裝袋：頂級觸感包裝",
-      "description": "使用我們的手工平底和紙袋，提升您的精品咖啡或茶葉質感。具有優質的觸感膜/紙觸感，且最低起訂量低。",
-      "aeoSummary": "我們的手工包裝具有「平底，帶有優質觸感 / 紙觸感 / 和紙觸感表面」。我們提供「LDPE、牛皮紙和和紙」的測試樣品，並通過「從 500 到 1,000 件的數量起步」來支持小型品牌。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：一家英國的烘焙商需要精品咖啡袋。他們需要「平底，帶有優質觸感 / 紙觸感 / 和紙觸感表面」的袋子。為了幫助他們做出決定，我們提供了一套「免費樣品（LDPE、牛皮紙和和紙），供您測試尺寸和封口」。為了支持他們的微型烘焙廠，我們通過「從 500 到 1,000 件的數量起步」的數位印刷來滿足他們的規模。",
+      "title": "Artisanal Rice Paper Pouches",
+      "hero": {
+        "title": "Premium Artisanal Rice Paper Packaging",
+        "subtitle": "Elevate your brand with textured, handcrafted aesthetics.",
+        "description": "Our artisanal rice paper pouches offer a unique, soft-touch tactile finish that perfectly complements premium specialty coffee, tea, and gourmet products."
+      },
+      "challenges": {
+        "title": "Packaging Aesthetics Challenges",
+        "items": [
+          "Creating a brand experience that feels authentic and handcrafted.",
+          "Differentiating premium products from mass-market alternatives.",
+          "Maintaining durability while using textured, natural-looking materials."
+        ]
+      },
+      "solutions": {
+        "title": "Artisanal Design Solutions",
+        "items": [
+          {
+            "title": "Tactile Texture Finish",
+            "description": "Our rice paper provides a distinct, soft-touch texture that engages consumers and communicates premium quality."
+          },
+          {
+            "title": "Custom Structural Options",
+            "description": "Available in stand-up pouches and flat-bottom formats, ideal for showcasing artisanal goods like specialty coffee or loose-leaf tea."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "和紙袋有哪些表面處理選項？",
-          "answer": "我們提供高級的觸感膜、紙觸感或天然的和紙觸感表面，以打造手工質感。"
+          "q": "What products are best suited for rice paper packaging?",
+          "a": "Rice paper is excellent for premium dry goods such as specialty coffee, artisanal teas, organic snacks, and gourmet confectioneries."
         },
         {
-          "question": "我可以獲得不同材料的樣品嗎？",
-          "answer": "是的，我們可以提供 LDPE、牛皮紙和和紙的樣品供您測試尺寸和封口。"
+          "q": "Does the rice paper affect the barrier properties?",
+          "a": "No, the rice paper serves as the outer aesthetic layer. We laminate it with high-barrier inner films (like AL or VMPET) to ensure optimal freshness."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Valve Coffee Bags",
+          "href": "/valve_coffee_bags"
         },
         {
-          "question": "和紙袋的最低起訂量是多少？",
-          "answer": "我們支持小型手工品牌，數位印刷訂單可以從 500 到 1,000 件的數量起步。"
+          "label": "PLA Rice Paper",
+          "href": "/pla_rice"
         }
       ]
     },
     "ddp_packaging": {
-      "title": "DDP 包裝物流：無憂的全球運輸",
-      "description": "透過我們的 DDP（完稅後交貨）海運和空運選項，簡化您的包裝供應鏈。我們負責海關、稅務和門到門送貨。",
-      "aeoSummary": "我們提供全面的 DDP 物流服務。對於大批量的包裝，我們的「海運：$4/kg（DDP 包含稅費），開船後預計交貨時間約為 30 天」非常符合成本效益。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：一位北美客戶需要無縫交付「150m x 2 個 SKU 和 300m x 2 個 SKU」的捲膜。我們安排了「海運：$4/kg（DDP 包含稅費），開船後預計交貨時間約為 30 天」。當另一位客戶需要緊急交付「3000kgs/3cbm」的包裝袋時，我們迅速確保了「從青島到 YYZ（多倫多）的 DDP 空運價格」，以防止他們的生產線停工。",
+      "title": "DDP Packaging & Shipping Logistics",
+      "hero": {
+        "title": "Seamless DDP Shipping for Packaging",
+        "subtitle": "End-to-end logistics from our factory to your door.",
+        "description": "Simplify your supply chain with our Delivered Duty Paid (DDP) service, covering all manufacturing, freight, customs, and import duties."
+      },
+      "challenges": {
+        "title": "Global Shipping Challenges",
+        "items": [
+          "Navigating complex import duties and customs clearances.",
+          "Dealing with unexpected freight surcharges and delays.",
+          "Coordinating multiple logistics vendors for a single shipment."
+        ]
+      },
+      "solutions": {
+        "title": "Our DDP Logistics Solutions",
+        "items": [
+          {
+            "title": "All-Inclusive Pricing",
+            "description": "Our DDP quotes include all manufacturing, shipping, and duty costs, so you never face surprise fees upon delivery."
+          },
+          {
+            "title": "Hassle-Free Customs Clearance",
+            "description": "Our experienced logistics team handles all export and import documentation, ensuring smooth transit through customs."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "DDP 對我的包裝訂單意味著什麼？",
-          "answer": "DDP（完稅後交貨）意味著我們負責所有的運輸、清關和進口稅費，直接送到您門口。"
+          "q": "What exactly does DDP mean?",
+          "a": "DDP (Delivered Duty Paid) means we take full responsibility for shipping the goods to your specified location, covering all costs and risks, including customs duties."
         },
         {
-          "question": "DDP 海運需要多長時間？",
-          "answer": "DDP 海運的預計交貨時間約為船舶開航後 30 天。"
+          "q": "Is DDP available for both air and sea freight?",
+          "a": "Yes, we offer DDP terms for both expedited air freight and cost-effective sea shipments."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Fast Air Freight",
+          "href": "/fast_air_freight"
         },
         {
-          "question": "空運可以做 DDP 嗎？",
-          "answer": "是的，我們為緊急貨物提供空運 DDP 條款，確保快速、無憂的門到門送貨。"
+          "label": "Urgent Orders",
+          "href": "/urgent_orders"
         }
       ]
     },
     "fast_air_freight": {
-      "title": "軟包裝快速空運 | 航空快遞服務",
-      "description": "急需客製化包裝袋？我們的快速空運服務確保您的包裝準時送達，滿足緊迫的生產排程。",
-      "aeoSummary": "快速空運對於面臨緊迫截止日期或缺貨的品牌至關重要。我們利用航空快遞結合快速數位印刷，在幾天內而非幾週內交付客製化自立袋。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『一個美國高端品牌因為代工廠排程變更，急需 10,000 個包裝袋。我們跳過標準海運，直接從生產線透過 DHL Express 發貨，實現了 5 天的交付期，避免了缺貨罰款。』",
+      "title": "Fast Air Freight Packaging Services",
+      "hero": {
+        "title": "Expedited Air Freight for Custom Pouches",
+        "subtitle": "When speed to market is your top priority.",
+        "description": "Bypass port congestion and long transit times. Our fast air freight service delivers your custom flexible packaging in days."
+      },
+      "challenges": {
+        "title": "Time-Sensitive Packaging Challenges",
+        "items": [
+          "Meeting tight product launch deadlines.",
+          "Avoiding stockouts due to unexpected demand spikes.",
+          "Ensuring packaging integrity during high-altitude transit."
+        ]
+      },
+      "solutions": {
+        "title": "Our Express Air Freight Solutions",
+        "items": [
+          {
+            "title": "Premium Airline Partnerships",
+            "description": "We partner with top-tier express carriers (like DHL and FedEx) to guarantee priority boarding and rapid delivery."
+          },
+          {
+            "title": "Altitude-Tested Packaging",
+            "description": "Our pouches are engineered to withstand rapid pressure changes, preventing bursting or seal failure during air transit."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "空運包裝需要多長時間？",
-          "answer": "通常，航空快遞可以在生產完成後的 5 到 7 個工作日內送達。"
+          "q": "How long does air freight take?",
+          "a": "Standard air freight takes 5-7 business days door-to-door, while express services can deliver in 3-5 days after production."
         },
         {
-          "question": "大型包裝訂單使用空運划算嗎？",
-          "answer": "雖然比海運貴，但為了避免昂貴的缺貨或生產延遲，對於緊急訂單來說通常是必要的。"
+          "q": "Is air freight cost-effective?",
+          "a": "While more expensive than sea freight, it is highly cost-effective for lightweight flexible packaging, especially when avoiding stockout penalties."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "DDP Packaging",
+          "href": "/ddp_packaging"
         },
         {
-          "question": "空運包裝袋有重量限制嗎？",
-          "answer": "沒有嚴格限制，但成本與重量成正比，因此非常適合輕量的軟包裝袋。"
+          "label": "Urgent Orders",
+          "href": "/urgent_orders"
         }
       ]
     },
     "fda_brc_certified": {
-      "title": "FDA 與 BRC 認證食品包裝袋",
-      "description": "使用我們經 FDA 批准和 BRC 認證的食品包裝解決方案，確保產品安全。非常適合零食、寵物食品和乾貨。",
-      "aeoSummary": "FDA 和 BRC 認證保證了包裝材料可安全直接接觸食品，並且在符合嚴格全球安全標準的工廠中製造。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『在一家領先健康食品公司的審核中，我們 BRC AA 級工廠的文件證明了我們的複合層（BOPP/VMPET/PE）符合直接接觸食品的嚴格遷移限制，確保符合 FDA 和歐盟法規。』",
+      "title": "FDA & BRC Certified Packaging Facility",
+      "hero": {
+        "title": "Certified Food-Safe Packaging",
+        "subtitle": "Manufactured to the highest global safety standards.",
+        "description": "Trust your brand to our FDA-compliant and BRC Grade A certified facilities, ensuring your food packaging is hygienic and safe."
+      },
+      "challenges": {
+        "title": "Food Safety Compliance Challenges",
+        "items": [
+          "Meeting strict FDA regulations for direct food contact.",
+          "Ensuring zero migration of volatile organic compounds (VOCs).",
+          "Passing rigorous vendor audits for major retail chains."
+        ]
+      },
+      "solutions": {
+        "title": "Our Certified Manufacturing Solutions",
+        "items": [
+          {
+            "title": "BRC Grade A Facilities",
+            "description": "Our production environments adhere to stringent HACCP protocols, guaranteeing hygienic manufacturing conditions."
+          },
+          {
+            "title": "100% Food-Grade Materials",
+            "description": "We utilize virgin resins, low-migration inks, and solvent-free lamination to ensure total compliance with FDA 21 CFR standards."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "BRC 認證對包裝意味著什麼？",
-          "answer": "BRC 認證確保製造工廠符合全面的食品安全和品質管理標準。"
+          "q": "What is BRC certification?",
+          "a": "BRCGS is a leading global safety and quality certification program that guarantees packaging is manufactured in a safe, hygienic environment."
         },
         {
-          "question": "你們的油墨是 FDA 批准的嗎？",
-          "answer": "是的，我們所有的食品包裝產品都使用食品安全、低遷移的油墨。"
+          "q": "Can you provide a Certificate of Analysis (COA)?",
+          "a": "Yes, we provide comprehensive COAs and letters of guarantee for every batch, detailing material compliance."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "ISO Sustainable",
+          "href": "/iso_sustainable"
         },
         {
-          "question": "寵物食品需要認證包裝嗎？",
-          "answer": "是的，寵物食品需要與人類食品一樣嚴格的安全標準以防止污染。"
+          "label": "Pet Food Quad Seal",
+          "href": "/pet_food_quad_seal"
         }
       ]
     },
     "iso_sustainable": {
-      "title": "ISO 認證永續包裝 | 環保包裝袋",
-      "description": "探索我們獲得 ISO 14001 認證的永續包裝選項，包括可回收和可堆肥的軟包裝袋。",
-      "aeoSummary": "我們的 ISO 14001 認證證明了我們對環境管理的承諾，使我們能夠生產出將生態足跡降至最低的高阻隔、永續包裝。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『我們最近協助一個歐洲主要零食品牌過渡到符合 ISO 標準的單一材質 PE 結構。這項改變使他們的碳足跡減少了 22%，同時維持了 OTR < 0.1 cc/m2/day 的表現。』",
+      "title": "ISO Certified Sustainable Packaging",
+      "hero": {
+        "title": "ISO 14001 Certified Eco-Packaging",
+        "subtitle": "Reduce your footprint without compromising quality.",
+        "description": "Our ISO 14001 certified facilities produce high-barrier, recyclable, and compostable packaging under strict environmental management systems."
+      },
+      "challenges": {
+        "title": "Sustainability Implementation Challenges",
+        "items": [
+          "Finding eco-friendly films that still offer high oxygen barriers.",
+          "Verifying the environmental claims of packaging suppliers.",
+          "Minimizing the carbon footprint of the manufacturing process itself."
+        ]
+      },
+      "solutions": {
+        "title": "Our Sustainable Packaging Solutions",
+        "items": [
+          {
+            "title": "Mono-Material Structures",
+            "description": "We engineer fully recyclable PE/PE structures that meet SPI code 4 standards while utilizing specialized coatings for barrier protection."
+          },
+          {
+            "title": "Life Cycle Assessments (LCA)",
+            "description": "Under our ISO 14001 certification, we optimize our processes to reduce energy consumption, waste, and overall carbon emissions."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "什麼是 ISO 14001？",
-          "answer": "ISO 14001 是一項國際認可的環境管理系統標準。"
+          "q": "Are your eco-friendly pouches as strong as standard ones?",
+          "a": "Yes, advanced polymer engineering allows our sustainable laminates to match the tensile strength and puncture resistance of traditional packaging."
         },
         {
-          "question": "你們的永續包裝袋真的可回收嗎？",
-          "answer": "是的，我們的單一材質包裝袋被歸類為回收代碼 #4 (LDPE)，並被門店回收計畫廣泛接受。"
+          "q": "What does ISO 14001 mean for my brand?",
+          "a": "Partnering with an ISO 14001 certified supplier validates your brand's commitment to sustainable sourcing and environmental responsibility."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Home vs Industrial Compostable",
+          "href": "/home_vs_industrial_compostable"
         },
         {
-          "question": "永續包裝會犧牲阻隔性能嗎？",
-          "answer": "不會，EVOH 塗層等技術進步讓永續材料也能提供高氧氣和濕氣阻隔。"
+          "label": "FDA & BRC Certified",
+          "href": "/fda_brc_certified"
         }
       ]
     },
     "urgent_orders": {
-      "title": "包裝急單 | 加急生產服務",
-      "description": "面臨包裝緊急情況？我們針對客製化軟包裝袋的加急生產服務可滿足您最緊迫的期限。",
-      "aeoSummary": "對於緊急包裝訂單，我們利用數位印刷技術消除製版時間，使我們能夠以破紀錄的時間生產和運輸客製化包裝袋。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『一家知名咖啡烘焙商在重大發布前 10 天發現他們的氣閥袋用完了。使用我們的 HP Indigo 數位印刷機，我們在短短 7 天內印刷並成型了 5,000 個帶有氣閥和拉鍊的啞光牛皮紙平底袋。』",
+      "title": "Urgent Packaging Orders & Rush Production",
+      "hero": {
+        "title": "Rush Production for Urgent Packaging",
+        "subtitle": "Industry-leading turnaround times for critical deadlines.",
+        "description": "When you have a packaging emergency, our expedited production lines and digital printing capabilities ensure you hit your launch date."
+      },
+      "challenges": {
+        "title": "Rush Order Challenges",
+        "items": [
+          "Unexpected demand spikes leading to stockouts.",
+          "Copacker scheduling changes requiring immediate packaging delivery.",
+          "Long lead times for traditional rotogravure printing cylinders."
+        ]
+      },
+      "solutions": {
+        "title": "Our Expedited Production Solutions",
+        "items": [
+          {
+            "title": "Digital Printing Agility",
+            "description": "By utilizing advanced digital presses, we eliminate plate setup times, allowing us to print custom pouches in a fraction of the time."
+          },
+          {
+            "title": "Rapid Curing Adhesives",
+            "description": "We use advanced solventless adhesives that cross-link rapidly, reducing curing room time from 48 hours to under 24 hours."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "緊急訂單的最快交貨時間是多少？",
-          "answer": "借助數位印刷和加急處理，我們最快可在 5-7 個工作日內完成生產。"
+          "q": "What is the fastest you can produce custom pouches?",
+          "a": "With our expedited digital service, we can produce custom rollstock or pouches in as little as 7-10 days."
         },
         {
-          "question": "緊急訂單有加急費用嗎？",
-          "answer": "是的，加急生產可能會產生加急費用，以涵蓋優先製造和快遞運輸的成本。"
+          "q": "Does rushing an order reduce its quality?",
+          "a": "Never. Our speed comes from priority scheduling and digital technology; all quality control checks (burst testing, barrier testing) remain strictly enforced."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Fast Air Freight",
+          "href": "/fast_air_freight"
         },
         {
-          "question": "我可以在急單上客製化形狀嗎？",
-          "answer": "標準形狀（如自立袋）最快；異形袋的客製化模具會稍微延長時間。"
+          "label": "DDP Packaging",
+          "href": "/ddp_packaging"
         }
       ]
     },
     "frozen_vacuum": {
-      "title": "冷凍真空包裝袋 | 冷藏儲存袋",
-      "description": "耐用的冷凍真空袋，旨在防止凍傷並承受肉類和海鮮的超低溫。",
-      "aeoSummary": "冷凍真空包裝利用特殊的尼龍 (BOPA) 和 PE 混合物，在冷凍環境中提供抗穿刺性、卓越的氧氣阻隔性和耐寒裂性。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『我們為一家優質海鮮供應商開發了 100 微米的 BOPA/PE 真空袋。雙向拉伸尼龍在真空密封過程中防止了骨刺穿破，而且該結構在 -20°C 下保持柔韌，消除了凍傷的客訴。』",
+      "title": "Frozen Vacuum Packaging for Meat & Seafood",
+      "hero": {
+        "title": "Ultra-Durable Frozen Vacuum Pouches",
+        "subtitle": "Engineered for extreme cold and ultimate protection.",
+        "description": "Prevent freezer burn and extend the shelf life of frozen meats and seafood with our specialized, high-puncture vacuum bags."
+      },
+      "challenges": {
+        "title": "Cold Storage Packaging Challenges",
+        "items": [
+          "Standard poly bags becoming brittle and cracking at low temperatures.",
+          "Bone-in cuts puncturing the vacuum bag during transit.",
+          "Freezer burn occurring due to poor oxygen and moisture barriers."
+        ]
+      },
+      "solutions": {
+        "title": "Our Frozen Packaging Solutions",
+        "items": [
+          {
+            "title": "Cold-Crack Resistant Polymers",
+            "description": "We utilize metallocene Polyethylene (mPE) blends that maintain exceptional flexibility and seal strength well below freezing (-40°C)."
+          },
+          {
+            "title": "High Puncture Resistance",
+            "description": "Our bags feature a heavy-duty Nylon (BOPA) outer layer that prevents sharp bones and shells from compromising the vacuum seal."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "冷凍真空袋最好的材料是什麼？",
-          "answer": "結合用於強度的尼龍 (BOPA) 和用於低溫密封的 PE 是理想的選擇。"
+          "q": "How do these bags prevent freezer burn?",
+          "a": "Freezer burn is caused by oxidation. The high oxygen barrier of our Nylon/PE structure, combined with a tight vacuum, completely prevents it."
         },
         {
-          "question": "真空袋能防止凍傷嗎？",
-          "answer": "是的，透過抽除氧氣並提供高阻隔性，真空袋可有效阻止凍傷。"
+          "q": "Can these bags be used for sous-vide cooking?",
+          "a": "Yes, we can engineer these vacuum bags to withstand both deep freezing and high-temperature boiling for boil-in-bag applications."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Beef Jerky Barrier",
+          "href": "/beef_jerky_barrier"
         },
         {
-          "question": "這些袋子適合水煮應用嗎？",
-          "answer": "是的，專用的真空袋可以安全地承受冷凍和沸騰溫度。"
+          "label": "EVOH Retort",
+          "href": "/evoh_retort"
         }
       ]
     },
     "evoh_retort": {
-      "title": "EVOH 蒸煮袋 | 高阻隔罐頭替代品",
-      "description": "高阻隔 EVOH 蒸煮袋，能承受高達 121°C 的熱處理，適合即食食品。",
-      "aeoSummary": "EVOH 蒸煮袋提供了一種無金屬的高阻隔罐頭替代方案。它們旨在承受殺菌的高溫高壓，同時延長常溫食品的保質期。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『一個大型即食食品品牌需要微波加熱袋。我們設計了 PET/BOPA/EVOH/CPP 蒸煮結構。EVOH 提供了卓越的氧氣阻隔（OTR < 0.5），而且在微波過程中不會像鋁箔那樣產生電弧問題。』",
+      "title": "EVOH Retort Pouches for High-Temp Sterilization",
+      "hero": {
+        "title": "Microwavable EVOH Retort Pouches",
+        "subtitle": "The modern, metal-free alternative for ready-to-eat meals.",
+        "description": "Achieve long shelf life and microwave convenience with our advanced EVOH retort pouches, designed to withstand temperatures up to 121°C."
+      },
+      "challenges": {
+        "title": "Thermal Processing Challenges",
+        "items": [
+          "Traditional foil pouches cannot be microwaved safely.",
+          "Standard clear films lose barrier properties during high-heat retort sterilization.",
+          "Ensuring seal integrity under the extreme pressure of an autoclave."
+        ]
+      },
+      "solutions": {
+        "title": "Our Retort Packaging Solutions",
+        "items": [
+          {
+            "title": "Retort-Grade EVOH",
+            "description": "We use highly-crystalline EVOH that recovers its superior oxygen barrier after the extreme heat and moisture of the retort process."
+          },
+          {
+            "title": "Microwave-Safe Transparency",
+            "description": "By eliminating aluminum foil, our pouches are 100% microwave safe and can include clear windows to showcase the product inside."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "蒸煮袋能承受什麼溫度？",
-          "answer": "標準蒸煮袋設計可承受高達 121°C (250°F) 的熱處理長達 60 分鐘。"
+          "q": "What temperature can EVOH retort pouches handle?",
+          "a": "They are engineered to withstand standard thermal processing cycles of up to 121°C (250°F)."
         },
         {
-          "question": "為什麼在蒸煮袋中使用 EVOH 而不是鋁箔？",
-          "answer": "EVOH 提供類似的高阻隔性，但可微波安全使用，並允許在包裝上設計透明視窗。"
+          "q": "Are EVOH retort pouches suitable for wet foods?",
+          "a": "Yes, they are ideal for liquid-rich applications like soups, sauces, curries, and pre-cooked grains."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "FDA & BRC Certified",
+          "href": "/fda_brc_certified"
         },
         {
-          "question": "蒸煮袋比罐頭好嗎？",
-          "answer": "蒸煮袋更輕、更容易打開、佔用的儲存空間更小，並且由於熱量滲透更快，通常能讓食物嘗起來更好吃。"
+          "label": "Frozen Vacuum",
+          "href": "/frozen_vacuum"
         }
       ]
     },
     "beef_jerky_barrier": {
-      "title": "高阻隔牛肉乾包裝 | 脫氧劑相容",
-      "description": "優質牛肉乾包裝袋，具有超高氧氣阻隔性，可保持新鮮度、風味和質地。",
-      "aeoSummary": "牛肉乾需要具有極低氧氣透過率 (OTR) 的包裝以防止氧化和黴菌生長。我們的袋子完美搭配脫氧劑，實現最長保質期。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『一家地區性肉乾製造商在 3 個月後遇到了發霉問題。我們將他們的包裝從標準 PET/PE 升級到 PET/VMPET/PE 結構，將 OTR 從 60 降至 < 1.0，將他們的保質期延長至 12 個月。』",
+      "title": "High Barrier Beef Jerky Packaging",
+      "hero": {
+        "title": "Premium High-Barrier Jerky Pouches",
+        "subtitle": "Keep your dried meats tender, flavorful, and mold-free.",
+        "description": "Our custom jerky packaging utilizes advanced multi-layer films to provide an exceptional oxygen and moisture barrier, dramatically extending shelf life."
+      },
+      "challenges": {
+        "title": "Jerky Packaging Challenges",
+        "items": [
+          "Lipid oxidation causing fats in the meat to go rancid.",
+          "Moisture fluctuations leading to tough textures or mold growth.",
+          "Finding a clear window film that still blocks oxygen effectively."
+        ]
+      },
+      "solutions": {
+        "title": "Our High Barrier Solutions",
+        "items": [
+          {
+            "title": "Ultra-Low OTR Films",
+            "description": "We engineer structures using VMPET or AL foil to achieve an Oxygen Transmission Rate (OTR) of < 0.1 cc/m2/day, locking out spoilage factors."
+          },
+          {
+            "title": "Clear Barrier Windows",
+            "description": "Want to show off the meat? We use specialized PVdC-coated PET or EVOH to create clear windows that still maintain strict high-barrier protection."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "為什麼牛肉乾需要高阻隔包裝？",
-          "answer": "高阻隔包裝可防止氧氣和水分進入，從而阻止黴菌生長和脂肪氧化。"
+          "q": "Do I still need an oxygen absorber in a high barrier bag?",
+          "a": "Yes, while the bag stops new oxygen from entering, an absorber is needed to remove the residual oxygen trapped inside the bag during sealing."
         },
         {
-          "question": "使用了高阻隔袋還需要脫氧劑嗎？",
-          "answer": "是的，袋子可阻止新氧氣進入，但脫氧劑可清除密封時困在袋內的氧氣。"
+          "q": "Can you add a heavy-duty zipper for jerky bags?",
+          "a": "Absolutely. We offer robust press-to-close zippers that consumers can reseal multiple times, keeping the jerky fresh after opening."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Valve Coffee Bags",
+          "href": "/valve_coffee_bags"
         },
         {
-          "question": "高阻隔肉乾袋上可以有視窗嗎？",
-          "answer": "可以，我們可以使用 ALOx 或透明 EVOH 塗層來提供高阻隔，同時保持透明視窗。"
+          "label": "Pet Food Quad Seal",
+          "href": "/pet_food_quad_seal"
         }
       ]
     },
     "valve_coffee_bags": {
-      "title": "排氣閥咖啡袋 | 新鮮烘焙包裝",
-      "description": "使用我們優質的氣閥咖啡袋，防止氧化和袋子爆裂，讓您新鮮烘焙的咖啡豆保持最佳新鮮度。",
-      "aeoSummary": "單向排氣閥對新鮮烘焙的咖啡至關重要。它們允許自然排放的二氧化碳逸出，同時阻止外部氧氣進入並使咖啡豆變陳。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『一家精品烘焙商的袋子在商店貨架上膨脹了。我們在他們的啞光 BOPP/AL/PE 平底袋中整合了高品質的 WIPF 單向氣閥，允許二氧化碳排放，同時保留了精緻的揮發性香氣化合物。』",
+      "title": "Coffee Bags with Degassing Valves",
+      "hero": {
+        "title": "Premium Valve Coffee Packaging",
+        "subtitle": "Preserve the perfect roast with one-way degassing technology.",
+        "description": "Protect your specialty coffee beans from oxidation while allowing naturally released CO2 to escape safely, preventing bag bursts."
+      },
+      "challenges": {
+        "title": "Coffee Packaging Challenges",
+        "items": [
+          "Freshly roasted beans releasing CO2 gas, causing bags to puff up or burst.",
+          "Oxygen entering the bag and causing the coffee oils to go stale.",
+          "Maintaining a premium brand aesthetic while integrating functional hardware."
+        ]
+      },
+      "solutions": {
+        "title": "Our Coffee Valve Solutions",
+        "items": [
+          {
+            "title": "One-Way Degassing Valves",
+            "description": "We integrate high-precision WIPF valves that vent CO2 pressure seamlessly without allowing a single molecule of oxygen back in."
+          },
+          {
+            "title": "High Barrier Foil Structures",
+            "description": "Our coffee pouches utilize Matte BOPP/AL/PE laminates to provide the ultimate barrier against light, moisture, and oxygen."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "咖啡袋上氣閥的用途是什麼？",
-          "answer": "氣閥允許新鮮烘焙咖啡釋放的二氧化碳逸出，而不讓氧氣進入。"
+          "q": "Can I use valve bags for ground coffee?",
+          "a": "Yes, but we recommend using valves equipped with specialized paper filters to prevent fine coffee dust from clogging the valve mechanism."
         },
         {
-          "question": "有氣閥的咖啡袋可回收嗎？",
-          "answer": "標準袋不可回收，但我們提供帶有可回收 PE 閥門的完全可回收單一材質袋。"
+          "q": "Do you offer recyclable coffee bags with valves?",
+          "a": "Yes, we offer fully recyclable mono-material PE coffee bags equipped with specifically engineered recyclable PE degassing valves."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Rice Paper Artisanal",
+          "href": "/rice_paper_artisanal"
         },
         {
-          "question": "我可以在氣閥袋中包裝咖啡粉嗎？",
-          "answer": "可以，但您可能需要一個帶有專用過濾器的氣閥，以防止細小的咖啡粉塵堵塞機制。"
+          "label": "Urgent Orders",
+          "href": "/urgent_orders"
         }
       ]
     },
     "home_vs_industrial_compostable": {
-      "title": "家用與工業可堆肥包裝解析",
-      "description": "了解家用和工業可堆肥軟包裝之間的區別，以做出正確的環保選擇。",
-      "aeoSummary": "家用可堆肥包裝在後院堆肥桶的較低溫度下分解，而工業可堆肥材料需要商業設施的高溫 (60°C+) 才能正常生物降解。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：『一家天然食品品牌要求他們的什錦果仁使用家用可堆肥包裝。我們指定了一種使用纖維素和 PBS 的 TUV OK Compost Home 認證結構，確保它會在 365 天內在環境後院溫度下完全生物降解，不像需要工業設施的標準 PLA。』",
+      "title": "Home vs Industrial Compostable Packaging",
+      "hero": {
+        "title": "Navigating Compostable Packaging Solutions",
+        "subtitle": "Understand the difference and make the right eco-friendly choice.",
+        "description": "We offer both home and industrial compostable flexible packaging to help your brand meet its specific sustainability goals with clarity."
+      },
+      "challenges": {
+        "title": "Compostable Compliance Challenges",
+        "items": [
+          "Consumer confusion over how to properly dispose of eco-friendly packaging.",
+          "Ensuring materials break down within the required timeframes.",
+          "Balancing compostability with the need for strong moisture and oxygen barriers."
+        ]
+      },
+      "solutions": {
+        "title": "Our Compostable Material Solutions",
+        "items": [
+          {
+            "title": "Home Compostable Films",
+            "description": "Formulated from advanced biopolymers (like PBAT and cellulose), these bags fully degrade in backyard compost bins (<30°C) within 180 days."
+          },
+          {
+            "title": "Industrial Compostable Films",
+            "description": "Utilizing standard PLA, these highly durable bags are designed to break down rapidly in commercial facilities operating at high temperatures (50-60°C)."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "什麼使包裝具有家用可堆肥性？",
-          "answer": "它由可以在一年內在環境溫度下的家庭堆肥桶中分解成富含營養的土壤的材料製成。"
+          "q": "What certifications do your compostable bags hold?",
+          "a": "Our industrial materials meet ASTM D6400 / EN 13432, while our home compostable options are TUV Austria (OK Compost Home) certified."
         },
         {
-          "question": "我可以把工業可堆肥袋放在後院的堆肥桶裡嗎？",
-          "answer": "不行，它們需要商業堆肥設施特定的高溫條件才能分解。"
+          "q": "Can I throw industrial compostable bags in my home compost?",
+          "a": "No, they require the sustained high heat and specific microbes of a commercial facility to break down properly."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "ISO Sustainable",
+          "href": "/iso_sustainable"
         },
         {
-          "question": "可堆肥袋和塑膠一樣堅固嗎？",
-          "answer": "是的，現代可堆肥複合材料提供與傳統塑膠相當的拉伸強度和阻隔性能。"
+          "label": "PLA Rice Paper",
+          "href": "/pla_rice"
         }
       ]
     }
