@@ -4,13 +4,13 @@ import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS } from '../../store/productData';
 import { ShoppingBag, ArrowRight } from 'lucide-react';
-import { getProductImage } from '../../utils/productImageMapper';
+
 
 export default function PouchShopPage() {
   const { t } = useTranslation();
 
   // Filter only some featured eco products for now, or just show all FEATURED_PRODUCTS
-  const shopProducts = FEATURED_PRODUCTS.filter(p => p.category === 'eco-digital' || p.category === 'sample' || p.category === 'eco-stock-plain');
+  const shopProducts = FEATURED_PRODUCTS.filter(p => p.category === 'custom-printed' || p.category === 'sample' || p.category === 'eco-stock');
 
   return (
     <PouchLayout>
@@ -31,7 +31,7 @@ export default function PouchShopPage() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {shopProducts.map((product) => {
-            const imageUrl = getProductImage(product.id, 'Stand Up Pouch / Doypack', product.images[0]);
+            const imageUrl = product.images?.[0] || '';
             
             return (
               <Link 

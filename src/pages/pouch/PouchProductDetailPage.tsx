@@ -3,8 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS } from '../../store/productData';
-import { getProductImage } from '../../utils/productImageMapper';
-import { ArrowLeft, Check, Package, Sparkles } from 'lucide-react';
+import { ArrowLeft, Check, Package, Sparkles, Globe } from 'lucide-react';
 import { NeoButton } from '../../components/pouch/PouchUI';
 
 export default function PouchProductDetailPage() {
@@ -26,7 +25,7 @@ export default function PouchProductDetailPage() {
     );
   }
 
-  const imageUrl = getProductImage(product.id, 'Stand Up Pouch / Doypack', product.images[0]);
+  const imageUrl = product.images?.[0] || '';
 
   return (
     <PouchLayout>
