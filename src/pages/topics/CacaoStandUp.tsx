@@ -2,7 +2,7 @@ import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { useTranslation } from 'react-i18next';
 // Note: Ensure the hero image exists or replace with a generic placeholder
-import heroImage from '../../assets/topics/cacao-stand-up.jpg';
+import heroImage from '../../assets/topics/cacao_stand_up_1782651703937.jpg';
 
 export default function CacaoStandUp() {
   const { t } = useTranslation();

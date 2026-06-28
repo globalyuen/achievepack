@@ -2,7 +2,7 @@ import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { useTranslation } from 'react-i18next';
 // Note: Ensure the hero image exists or replace with a generic placeholder
-import heroImage from '../../assets/topics/crisps-shaped.jpg';
+import heroImage from '../../assets/topics/crisps_shaped_1782652153043.jpg';
 
 export default function CrispsShaped() {
   const { t } = useTranslation();

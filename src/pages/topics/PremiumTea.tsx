@@ -2,7 +2,7 @@ import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { useTranslation } from 'react-i18next';
 // Note: Ensure the hero image exists or replace with a generic placeholder
-import heroImage from '../../assets/topics/premium-tea.jpg';
+import heroImage from '../../assets/topics/premium_tea_1782651722027.jpg';
 
 export default function PremiumTea() {
   const { t } = useTranslation();

@@ -2,7 +2,7 @@ import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { useTranslation } from 'react-i18next';
 // Note: Ensure the hero image exists or replace with a generic placeholder
-import heroImage from '../../assets/topics/cocktail-spout.jpg';
+import heroImage from '../../assets/topics/cocktail_spout_1782652130798.jpg';
 
 export default function CocktailSpout() {
   const { t } = useTranslation();

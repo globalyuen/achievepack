@@ -2,7 +2,7 @@ import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { useTranslation } from 'react-i18next';
 // Note: Ensure the hero image exists or replace with a generic placeholder
-import heroImage from '../../assets/topics/spices-moisture-proof.jpg';
+import heroImage from '../../assets/topics/spices_moisture_proof_1782651713135.jpg';
 
 export default function SpicesMoistureProof() {
   const { t } = useTranslation();
