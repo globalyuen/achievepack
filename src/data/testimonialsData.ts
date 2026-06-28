@@ -39,7 +39,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-emerald-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/jasmin-compostable.webp',
   },
   {
     id: 'melanie-dylan-kim',
@@ -53,7 +53,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-violet-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/eloquence-luxury.webp',
   },
   {
     id: 'nastasha-mckeon',
@@ -67,7 +67,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-amber-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/organic-amber.webp',
   },
   {
     id: 'paul-ramos',
@@ -81,7 +81,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-blue-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/eco-biodegradable-blue.webp',
   },
   {
     id: 'carlo-ciummei',
@@ -95,7 +95,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-red-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/minimal-black.webp',
   },
   {
     id: 'alexandre-garnier',
@@ -109,7 +109,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-sky-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/modern-cyan.webp',
   },
   {
     id: 'l-shopify',
@@ -123,7 +123,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-teal-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/modern-cyan.webp',
   },
   {
     id: 'nelus-cornelus',
@@ -137,7 +137,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-purple-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/sauce-pouch.webp',
   },
   {
     id: 'harvey-hayes',
@@ -151,7 +151,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-green-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/jasmin-compostable.webp',
   },
   {
     id: 'muhammad-basheer',
@@ -165,7 +165,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-orange-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/organic-amber.webp',
   },
   {
     id: 'steffen',
@@ -179,7 +179,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-indigo-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/eco-biodegradable-blue.webp',
   },
   {
     id: 'jm-canada',
@@ -193,7 +193,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-pink-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/vibrant-pink.webp',
   },
   {
     id: 'sarah-evaravenspell',
@@ -207,7 +207,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-lime-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/tea-pouch.webp',
   },
   {
     id: 'fm-allen',
@@ -221,7 +221,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-cyan-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/modern-cyan.webp',
   },
   {
     id: 'deidre-holland',
@@ -235,7 +235,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-fuchsia-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/vibrant-pink.webp',
   },
   {
     id: 'caitlyn-dixon',
@@ -249,7 +249,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-rose-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/decal-packaging.webp',
   },
   {
     id: 'eunice-ng',
@@ -263,7 +263,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-emerald-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/jasmin-compostable.webp',
   },
   {
     id: 'sarah-taylor',
@@ -277,7 +277,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-yellow-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/organic-amber.webp',
   },
   {
     id: 'mary-elebute',
@@ -291,7 +291,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-violet-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/sauce-pouch.webp',
   },
   {
     id: 'ato-crew',
@@ -305,7 +305,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-cyan-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/eco-biodegradable-blue.webp',
   },
   {
     id: 'thea-samuel',
@@ -319,7 +319,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-green-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/jasmin-compostable.webp',
   },
   {
     id: 'j-cook',
@@ -333,7 +333,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-orange-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/organic-amber.webp',
   },
   {
     id: 'ramesh',
@@ -347,7 +347,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-indigo-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/minimal-black.webp',
   },
   {
     id: 'danielle',
@@ -361,7 +361,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-pink-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/vibrant-pink.webp',
   },
   {
     id: 'rubel-roy',
@@ -375,7 +375,7 @@ export const TESTIMONIALS: Testimonial[] = [
     companyLogo: '',
     brandLogo: '',
     bgColor: 'bg-lime-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp',
+    pouchImage: '/imgs/testimonials/pouch-hover/tea-pouch.webp',
   },
   // === ORIGINAL TESTIMONIALS WITH IMAGES ===
   {
