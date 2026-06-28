@@ -15,7 +15,7 @@ export default function PlaRice() {
       heroImage={heroImage} // Un-comment when image is generated
       aeoSummary={t(`${tKey}.aeoSummary`)}
       eeatDetails={t(`${tKey}.eeatDetails`)}
-      faqs={t(`${tKey}.faqs`, { returnObjects: true })}
+      faqs={(t(`${tKey}.faqs`, { returnObjects: true }) as unknown) as any}
     />
   );
 }

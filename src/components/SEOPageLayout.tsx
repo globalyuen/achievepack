@@ -758,13 +758,13 @@ interface SEOPageLayoutProps {
   // SEO Meta
   title: string
   description: string
-  keywords: string[]
+  keywords?: string[]
   canonicalUrl?: string
   ogImage?: string
   
   // Page Content
-  heroTitle: string
-  heroSubtitle: string
+  heroTitle?: string
+  heroSubtitle?: string
   aboveTitle?: React.ReactNode
   heroImage?: string
   heroImageAlt?: string
@@ -773,10 +773,10 @@ interface SEOPageLayoutProps {
   heroLogoAlt?: string
   
   // Intro/Summary (Answer-first approach)
-  introSummary: string
+  introSummary?: string
   
   // Main Content Sections
-  sections: {
+  sections?: {
     id: string
     title: string
     icon?: React.ReactNode
@@ -795,6 +795,10 @@ interface SEOPageLayoutProps {
   // Schema Type
   schemaType?: 'Article' | 'Product' | 'FAQPage' | 'WebPage' | 'Service'
   contentCategory?: string // 用於選擇合適的作者實體
+  
+  // Custom Additions for Subagent generated pages
+  aeoSummary?: string
+  eeatDetails?: string
   
   // Related Links
   relatedLinks?: {
@@ -826,18 +830,20 @@ interface SEOPageLayoutProps {
 const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   title,
   description,
-  keywords,
+  keywords = [],
   canonicalUrl,
   ogImage = '/imgs/og-image.webp',
-  heroTitle,
-  heroSubtitle,
+  heroTitle = '',
+  heroSubtitle = '',
   heroImage,
   heroImageAlt,
   hero3DModelUrl,
   heroLogo,
   heroLogoAlt,
-  introSummary,
-  sections,
+  introSummary = '',
+  sections = [],
+  aeoSummary,
+  eeatDetails,
   faqs,
   tables,
   schemaType = 'WebPage',
@@ -1205,6 +1211,19 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     </h2>
                     <p className="text-xl font-bold leading-relaxed text-black">{introSummary}</p>
                     
+                    {aeoSummary && (
+                      <div className="mt-4 p-4 bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <h4 className="font-black font-mono uppercase tracking-tight text-black mb-2">QUICK_ANSWER // AEO</h4>
+                        <p className="text-sm font-bold text-black">{aeoSummary}</p>
+                      </div>
+                    )}
+                    {eeatDetails && (
+                      <div className="mt-4 p-4 bg-black border-2 border-black text-white shadow-[2px_2px_0px_0px_rgba(212,255,0,1)]">
+                        <h4 className="font-black font-mono uppercase tracking-tight text-[#D4FF00] mb-2">EXPERTISE_&_AUTHORITY // EEAT</h4>
+                        <p className="text-sm font-bold text-white">{eeatDetails}</p>
+                      </div>
+                    )}
+
                     {/* E-E-A-T trust byline */}
                     <div className="pt-4 border-t border-black/10 flex flex-wrap items-center gap-4 text-xs font-['JetBrains_Mono'] font-bold text-black/80">
                       <div className="flex items-center gap-2">
@@ -1645,6 +1664,18 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 <div className="flex-1">
                   <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
                   <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
+                  {aeoSummary && (
+                    <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-100">
+                      <h4 className="font-bold text-green-800 mb-2">Quick Answer (AEO)</h4>
+                      <p className="text-green-900">{aeoSummary}</p>
+                    </div>
+                  )}
+                  {eeatDetails && (
+                    <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                      <h4 className="font-bold text-blue-800 mb-2">Expertise & Authority</h4>
+                      <p className="text-blue-900">{eeatDetails}</p>
+                    </div>
+                  )}
                   
                   {/* E-E-A-T Trust & Expertise Byline */}
                   <div className="mt-4 pt-4 border-t border-neutral-100 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
