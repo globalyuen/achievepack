@@ -117,36 +117,7 @@ const USACoffeePage = lazy(() => import('../pages/usa/USACoffeePage'));
 const USASnacksPage = lazy(() => import('../pages/usa/USASnacksPage'));
 const USALabelingGuidePage = lazy(() => import('../pages/usa/USALabelingGuidePage'));
 
-  // Phase 2 Topics
-  { path: "/topics/cacao_stand_up", element: <LazyRoute component={() => import('../pages/topics/CacaoStandUp')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/spices_moisture_proof", element: <LazyRoute component={() => import('../pages/topics/SpicesMoistureProof')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/premium_tea", element: <LazyRoute component={() => import('../pages/topics/PremiumTea')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/cocktail_spout", element: <LazyRoute component={() => import('../pages/topics/CocktailSpout')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/candy_uv", element: <LazyRoute component={() => import('../pages/topics/CandyUv')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/crisps_shaped", element: <LazyRoute component={() => import('../pages/topics/CrispsShaped')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/dried_fruits_tear_notch", element: <LazyRoute component={() => import('../pages/topics/DriedFruitsTearNotch')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/cheese_pocket_zipper", element: <LazyRoute component={() => import('../pages/topics/CheesePocketZipper')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/euro_hole_hang", element: <LazyRoute component={() => import('../pages/topics/EuroHoleHang')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/pharma_velcro", element: <LazyRoute component={() => import('../pages/topics/PharmaVelcro')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/detergent_spout", element: <LazyRoute component={() => import('../pages/topics/DetergentSpout')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/electronics_anti_static", element: <LazyRoute component={() => import('../pages/topics/ElectronicsAntiStatic')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/apparel_zipper", element: <LazyRoute component={() => import('../pages/topics/ApparelZipper')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/hologram_hot_stamping", element: <LazyRoute component={() => import('../pages/topics/HologramHotStamping')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/granola_soft_touch", element: <LazyRoute component={() => import('../pages/topics/GranolaSoftTouch')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/collagen_high_barrier", element: <LazyRoute component={() => import('../pages/topics/CollagenHighBarrier')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/pla_rice", element: <LazyRoute component={() => import('../pages/topics/PlaRice')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/rice_paper_artisanal", element: <LazyRoute component={() => import('../pages/topics/RicePaperArtisanal')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/ddp_packaging", element: <LazyRoute component={() => import('../pages/topics/DdpPackaging')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/fast_air_freight", element: <LazyRoute component={() => import('../pages/topics/FastAirFreight')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/fda_brc_certified", element: <LazyRoute component={() => import('../pages/topics/FdaBrcCertified')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/iso_sustainable", element: <LazyRoute component={() => import('../pages/topics/IsoSustainable')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/urgent_orders", element: <LazyRoute component={() => import('../pages/topics/UrgentOrders')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/frozen_vacuum", element: <LazyRoute component={() => import('../pages/topics/FrozenVacuum')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/evoh_retort", element: <LazyRoute component={() => import('../pages/topics/EvohRetort')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/beef_jerky_barrier", element: <LazyRoute component={() => import('../pages/topics/BeefJerkyBarrier')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/home_vs_industrial_compostable", element: <LazyRoute component={() => import('../pages/topics/HomeVsIndustrialCompostable')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/pet_food_quad_seal", element: <LazyRoute component={() => import('../pages/topics/PetFoodQuadSeal')} fallback={<LoadingFallback />} /> },
-  { path: "/topics/valve_coffee_bags", element: <LazyRoute component={() => import('../pages/topics/ValveCoffeeBags')} fallback={<LoadingFallback />} /> },
+
 
   // Spec Pages - Material Structures
 const PcrPetDuplexClearPage = lazy(() => import('../pages/spec/PcrPetDuplexClearPage'));
