@@ -1547,6 +1547,30 @@ export default function DailyReportsPage() {
                   </div>
                   <div className="ml-5 pl-4 border-l-2 border-gray-200">
                     <p className="text-sm font-semibold text-blue-700 mb-1">{log.message}</p>
+                    {log.source === 'Quote Tracking' && log.raw_data?.quoteId && (
+                      <div className="mb-2">
+                        <a 
+                          href={`/view-quote/${log.raw_data.quoteId}`} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 px-2 py-1 rounded hover:bg-indigo-100 transition-colors"
+                        >
+                          <LinkIcon className="w-3 h-3"/> View Quote
+                        </a>
+                      </div>
+                    )}
+                    {log.source === 'Quote Generator' && (
+                      <div className="mb-2 mt-1">
+                        <a 
+                          href={`/view-quote/${log.id}`} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[10px] font-bold text-purple-600 bg-purple-50 border border-purple-100 px-2 py-1 rounded hover:bg-purple-100 transition-colors"
+                        >
+                          <LinkIcon className="w-3 h-3"/> View Generated Quote
+                        </a>
+                      </div>
+                    )}
                     {log.raw_data?.subject && <p className="text-sm text-gray-800 font-medium">{t(`${p}.topic`)}{log.raw_data.subject}"</p>}
                     {log.raw_data?.customer_matched && <p className="text-xs text-gray-500 mt-1 mb-2">{t(`${p}.matchedTo`)}<span className="font-mono bg-amber-100 text-amber-800 px-1 py-0.5 rounded">[{log.raw_data.customer_matched}]</span></p>}
                     
