@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ExternalLink, Star, Quote, X, Play, ChevronLeft, ChevronRight } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
@@ -17,6 +17,46 @@ export default function TestimonialsWall() {
   const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
   const [videoTestimonial, setVideoTestimonial] = useState<Testimonial | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  // Randomize sequence of testimonials on component mount
+  const [shuffledTestimonials, setShuffledTestimonials] = useState<Testimonial[]>(() => {
+    const arr = [...TESTIMONIALS]
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+    return arr
+  })
+
+  const isPausedRef = useRef(false)
+
+  // Auto-scroll logic with pause on hover
+  useEffect(() => {
+    const container = scrollContainerRef.current
+    if (!container) return
+
+    const intervalId = setInterval(() => {
+      if (isPausedRef.current || activeTestimonial || videoTestimonial) return
+
+      const cardWidth = 364 // card width (340) + gap (24)
+      const maxScrollLeft = container.scrollWidth - container.clientWidth
+
+      if (container.scrollLeft >= maxScrollLeft - 15) {
+        // Wrap around to beginning smoothly
+        container.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+        })
+      } else {
+        container.scrollBy({
+          left: cardWidth,
+          behavior: 'smooth'
+        })
+      }
+    }, 4000) // Scroll every 4 seconds
+
+    return () => clearInterval(intervalId)
+  }, [activeTestimonial, videoTestimonial])
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -396,8 +436,10 @@ export default function TestimonialsWall() {
             <div 
               ref={scrollContainerRef}
               className="flex overflow-x-auto gap-6 pb-6 pt-2 snap-x scroll-smooth scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20"
+              onMouseEnter={() => { isPausedRef.current = true }}
+              onMouseLeave={() => { isPausedRef.current = false }}
             >
-              {TESTIMONIALS.map((testimonial) => (
+              {shuffledTestimonials.map((testimonial) => (
                 <div key={testimonial.id} className="w-[300px] md:w-[340px] flex-shrink-0 snap-start">
                   {renderTestimonialCard(testimonial)}
                 </div>
