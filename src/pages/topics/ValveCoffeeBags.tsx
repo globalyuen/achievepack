@@ -2,7 +2,7 @@ import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { useTranslation } from 'react-i18next';
 // Note: Ensure the hero image exists or replace with a generic placeholder
-import heroImage from '../../assets/topics/valve-coffee-bags.webp';
+import heroImage from '../../assets/topics/valve-coffee-bags.jpg';
 
 export default function ValveCoffeeBags() {
   const { t } = useTranslation();

@@ -2,7 +2,7 @@ import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { useTranslation } from 'react-i18next';
 // Note: Ensure the hero image exists or replace with a generic placeholder
-import heroImage from '../../assets/topics/matcha-sachet.webp';
+import heroImage from '../../assets/topics/matcha-sachet.jpg';
 
 export default function MatchaSachet() {
   const { t } = useTranslation();

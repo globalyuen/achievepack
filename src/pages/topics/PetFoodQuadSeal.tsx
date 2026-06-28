@@ -2,7 +2,7 @@ import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { useTranslation } from 'react-i18next';
 // Note: Ensure the hero image exists or replace with a generic placeholder
-import heroImage from '../../assets/topics/pet-food-quad-seal.webp';
+import heroImage from '../../assets/topics/pet-food-quad-seal.jpg';
 
 export default function PetFoodQuadSeal() {
   const { t } = useTranslation();
