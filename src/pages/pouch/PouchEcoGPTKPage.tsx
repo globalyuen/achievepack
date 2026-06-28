@@ -145,7 +145,7 @@ const SACHET_MOCKUPS = [
   '/imgs/store/products/small-sachet-conventional-thumbnail-5.png'
 ];
 
-export default function PouchEcoGPTKPage() {
+export default function PouchEcoGPTKPage({ hideNav = false }: { hideNav?: boolean }) {
   const { t } = useTranslation();
   const p = 'seoPages.pages.pouchEcoGPTK';
 
@@ -2254,11 +2254,11 @@ Real-time Options Quotation:
         </PouchLayout>
       ) : (
         <div className="min-h-screen flex flex-col justify-between bg-white">
-          <SiteHeader />
+          {!hideNav && <SiteHeader />}
           <div className="flex-grow">
             {renderUnifiedPricingPage()}
           </div>
-          <Footer />
+          {!hideNav && <Footer />}
         </div>
       )}
 

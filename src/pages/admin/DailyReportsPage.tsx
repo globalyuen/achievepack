@@ -6,7 +6,7 @@ import {
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon, FileCheck,
   ClipboardList, Hash, History, ScrollText, RotateCcw,
-  ChevronUp, ChevronDown, ArrowRight, Share, Download, ShieldCheck, Users
+  ChevronUp, ChevronDown, ArrowRight, Share, Download, ShieldCheck, Users, DollarSign
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
@@ -17,6 +17,7 @@ import SeoMigrationDashboard from '../../components/admin/SeoMigrationDashboard'
 import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
 import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
 import FamilyTab from '../../components/admin/FamilyTab';
+import PouchEcoGPTKPage from '../pouch/PouchEcoGPTKPage';
 import * as XLSX from 'xlsx';
 import { useTranslation, Trans } from "react-i18next";
 
@@ -105,7 +106,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'|'family'>('reports');
+  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'|'family'|'pricing'>('reports');
   const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
@@ -1292,52 +1293,56 @@ export default function DailyReportsPage() {
 
         {/* Tab Switcher - Responsive Pill Layout */}
         <div className="flex flex-wrap gap-2 mb-6 p-1.5 bg-gray-100/80 rounded-2xl print:hidden">
-          <button onClick={() => setActiveTab('reports')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'reports' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('reports')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'reports' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <ClipboardList className="w-4 h-4"/>
             <span className="hidden xs:inline">{t(`${p}.dailyReports`)}</span>
             <span className="xs:hidden">{t(`${p}.reports`)}</span>
           </button>
-          <button onClick={() => setActiveTab('logs')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'logs' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('logs')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'logs' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <History className="w-4 h-4"/>
             <span className="hidden xs:inline">{t(`${p}.auditLogs`)}</span>
             <span className="xs:hidden">{t(`${p}.logs`)}</span>
           </button>
-          <button onClick={() => setActiveTab('rfq')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'rfq' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('rfq')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'rfq' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <FileText className="w-4 h-4"/>
             <span className="hidden xs:inline">{t(`${p}.rfqMaker`)}</span>
             <span className="xs:hidden">{t(`${p}.rfq`)}</span>
           </button>
-          <button onClick={() => setActiveTab('quote')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'quote' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('quote')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'quote' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <FileText className="w-4 h-4"/>
             <span className="hidden xs:inline">{t(`${p}.quoteGen`)}</span>
             <span className="xs:hidden">{t(`${p}.quote`)}</span>
           </button>
-          <button onClick={() => setActiveTab('packing')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'packing' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('packing')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'packing' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <Package className="w-4 h-4"/>
             {t(`${p}.packingList`)}</button>
-          <button onClick={() => setActiveTab('spec')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'spec' ? 'bg-sky-600 text-white shadow-md shadow-sky-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('spec')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'spec' ? 'bg-sky-600 text-white shadow-md shadow-sky-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <FileCheck className="w-4 h-4"/>
             <span className="hidden xs:inline">{t(`${p}.specMaker`)}</span>
             <span className="xs:hidden">{t(`${p}.spec`)}</span>
           </button>
-          <button onClick={() => setActiveTab('compliance')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'compliance' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('compliance')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'compliance' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <ShieldCheck className="w-4 h-4"/>
             <span className="hidden xs:inline">{t(`${p}.complianceDoc`)}</span>
             <span className="xs:hidden">{t(`${p}.compliance`)}</span>
           </button>
-          <button onClick={() => setActiveTab('coa')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'coa' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('coa')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'coa' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <ScrollText className="w-4 h-4"/>
             <span className="hidden xs:inline">{t(`${p}.coaGen`)}</span>
             <span className="xs:hidden">{t(`${p}.coa`)}</span>
           </button>
-          <button onClick={() => setActiveTab('seo')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'seo' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('seo')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'seo' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <Activity className="w-4 h-4"/>
             <span className="hidden xs:inline">{t(`${p}.seoGeoMonitor`)}</span>
             <span className="xs:hidden">{t(`${p}.seo`)}</span>
           </button>
-          <button onClick={() => setActiveTab('family')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'family' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+          <button onClick={() => setActiveTab('family')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'family' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
             <Users className="w-4 h-4"/>
             <span>Family Resume</span>
+          </button>
+          <button onClick={() => setActiveTab('pricing')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'pricing' ? 'bg-green-600 text-white shadow-md shadow-green-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <DollarSign className="w-4 h-4"/>
+            <span>Pricing</span>
           </button>
         </div>
 
@@ -1345,6 +1350,13 @@ export default function DailyReportsPage() {
         {activeTab === 'family' && (
           <div className="mt-8">
             <FamilyTab />
+          </div>
+        )}
+
+        {/* Tab Content: Pricing */}
+        {activeTab === 'pricing' && (
+          <div className="mt-8">
+            <PouchEcoGPTKPage hideNav={true} />
           </div>
         )}
 
