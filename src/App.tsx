@@ -3014,7 +3014,20 @@ function App() {
             </div>
 
             {/* Support */}
+            
             <div>
+              <h4 className="text-sm font-semibold mb-2">Trending Topics</h4>
+              <ul className="space-y-1.5 text-xs text-neutral-300">
+                <li><Link to="/topics/cacao_stand_up" className="hover:text-primary-500">Cacao Stand Up</Link></li>
+                <li><Link to="/topics/spices_moisture_proof" className="hover:text-primary-500">Spices Moisture Proof</Link></li>
+                <li><Link to="/topics/premium_tea" className="hover:text-primary-500">Premium Tea</Link></li>
+                <li><Link to="/topics/cocktail_spout" className="hover:text-primary-500">Cocktail Spout</Link></li>
+                <li><Link to="/topics/candy_uv" className="hover:text-primary-500">Candy UV</Link></li>
+                <li><Link to="/topics/crisps_shaped" className="hover:text-primary-500">Crisps Shaped</Link></li>
+              </ul>
+            </div>
+
+<div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.support')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
                 <li><Link to="/support/faqs" className="hover:text-primary-500">{t('footer.links.faqs')}</Link></li>
