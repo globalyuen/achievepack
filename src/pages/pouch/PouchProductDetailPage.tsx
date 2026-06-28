@@ -84,7 +84,7 @@ export default function PouchProductDetailPage() {
                 </div>
 
                 <div className="space-y-3 mb-8">
-                  {product.features.map((feature, idx) => (
+                  {(product.features || []).map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="mt-1 flex-shrink-0 bg-[#D4FF00] border-2 border-black rounded-full p-0.5">
                         <Check className="w-4 h-4" strokeWidth={3} />
