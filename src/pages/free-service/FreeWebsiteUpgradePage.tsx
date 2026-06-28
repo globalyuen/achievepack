@@ -350,7 +350,8 @@ const ourWorkDemos = [
     subtag: "Gov-Style Minimalist",
     desc: "Clean, authority-building design for sustainable packaging. Large typography and clear impact metrics.",
     image: "/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp",
-    badgeType: "eco"
+    badgeType: "eco",
+    link: "/free-service/achieve-pouch-eco-demo"
   },
   {
     title: "Achieve Coffee",
@@ -358,7 +359,8 @@ const ourWorkDemos = [
     subtag: "Premium Branding",
     desc: "A minimalist, aesthetic specialty coffee experience with infinite scroll marquee and bold typography.",
     image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80",
-    badgeType: "accent"
+    badgeType: "accent",
+    link: "/free-service/pencil-demo"
   },
   {
     title: "Maxi Foods",
@@ -366,7 +368,8 @@ const ourWorkDemos = [
     subtag: "Clean Label",
     desc: "Authentic Mexican staples redesigned with a modern health-conscious aesthetic and vibrant glassmorphism.",
     image: "/imgs/maxi-foods-packaging.jpg",
-    badgeType: "liquid"
+    badgeType: "liquid",
+    link: "/free-service/maxi-foods-demo"
   },
   {
     title: "Achieve Chips",
@@ -374,7 +377,8 @@ const ourWorkDemos = [
     subtag: "Organic Chips",
     desc: "Premium organic potato chips with bold flavors and 100% compostable packaging. Modern e-commerce design.",
     image: "/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_hero_kv_4003688.webp",
-    badgeType: "luxury"
+    badgeType: "luxury",
+    link: "/free-service/achieve-chips-demo"
   },
   {
     title: "Achieve Tea",
@@ -382,7 +386,8 @@ const ourWorkDemos = [
     subtag: "Organic Tea",
     desc: "A serene, eco-luxury tea brand experience highlighting plastic-free, compostable packaging and wellness.",
     image: "/imgs/demo-site/tea/hero.png",
-    badgeType: "eco"
+    badgeType: "eco",
+    link: "/free-service/achieve-tea-demo"
   },
   {
     title: "Achieve Energy",
@@ -390,7 +395,8 @@ const ourWorkDemos = [
     subtag: "High Voltage",
     desc: "Futuristic dark mode design with neon accents. High-energy visuals for a next-gen spouted pouch product.",
     image: "/imgs/demo-site/energy/hero.png",
-    badgeType: "accent"
+    badgeType: "accent",
+    link: "/free-service/achieve-energy-demo"
   },
   {
     title: "Achieve Honey",
@@ -398,7 +404,8 @@ const ourWorkDemos = [
     subtag: "Sweetest Gift",
     desc: "Organic honey drinks in eco-friendly bottle-shaped pouches. Experience the taste of nature.",
     image: "/imgs/demo-site/honey/hero.png",
-    badgeType: "eco"
+    badgeType: "eco",
+    link: "/free-service/achieve-honey-demo"
   },
   {
     title: "Achieve Chocolate",
@@ -406,7 +413,8 @@ const ourWorkDemos = [
     subtag: "Luxury Experience",
     desc: "A sustainable luxury chocolate brand showcase featuring premium rigid boxes and compostable pouches.",
     image: "/imgs/achieve-chocolate/hero-main.png",
-    badgeType: "luxury"
+    badgeType: "luxury",
+    link: "/free-service/achieve-chocolate-demo"
   },
   {
     title: "Achieve Supps",
@@ -414,7 +422,8 @@ const ourWorkDemos = [
     subtag: "Nano Tech",
     desc: "Scientific minimalist branding for stick packs. Highlighting precision dosage and clean ingredients.",
     image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=2574&auto=format&fit=crop",
-    badgeType: "accent"
+    badgeType: "accent",
+    link: "/free-service/achieve-supplement-demo"
   },
   {
     title: "Achieve Superfood",
@@ -422,7 +431,8 @@ const ourWorkDemos = [
     subtag: "Pure Superfoods",
     desc: "Earthy, organic branding for premium superfoods. Highlighting compostable pouch textures and natural ingredients.",
     image: "/imgs/demo-site/superfood/hero.png",
-    badgeType: "eco"
+    badgeType: "eco",
+    link: "/free-service/achieve-superfood-demo"
   },
   {
     title: "Achieve Cleaning",
@@ -430,7 +440,8 @@ const ourWorkDemos = [
     subtag: "Plastic Free",
     desc: "Revolutionary concentrated cleaning tablets in nano banana pro packaging. Modern, clean, and zero-waste aesthetic.",
     image: "/imgs/demo-site/cleaning/hero.png",
-    badgeType: "liquid"
+    badgeType: "liquid",
+    link: "/free-service/achieve-cleaning-demo"
   },
   {
     title: "Achieve Spreads",
@@ -438,7 +449,8 @@ const ourWorkDemos = [
     subtag: "Squeeze Pack",
     desc: "Premium nut butters in compostable Nano Banana Pro squeeze pouches. Earthy, organic, and mess-free.",
     image: "/imgs/demo-site/spreads/hero.png",
-    badgeType: "eco"
+    badgeType: "eco",
+    link: "/free-service/achieve-spreads-demo"
   },
   {
     title: "Achieve Muesli",
@@ -446,7 +458,8 @@ const ourWorkDemos = [
     subtag: "Full Print Pouch",
     desc: "Pop-art inspired muesli brand with edge-to-edge printing on biodegradable Nano Banana Pro.",
     image: "/imgs/demo-site/muesli/hero.png",
-    badgeType: "luxury"
+    badgeType: "luxury",
+    link: "/free-service/achieve-muesli-demo"
   },
   {
     title: "Achieve Bath",
@@ -454,7 +467,8 @@ const ourWorkDemos = [
     subtag: "Nano Banana Pro™ Clear",
     desc: "Minimalist luxury bath bombs in revolutionary clear compostable pouches. Experience the purity of direct print.",
     image: "/imgs/demo-site/bath/hero.png",
-    badgeType: "eco"
+    badgeType: "eco",
+    link: "/free-service/achieve-bath-demo"
   },
   {
     title: "PAW.OS",
@@ -462,7 +476,8 @@ const ourWorkDemos = [
     subtag: "PAW.OS",
     desc: "Neo-Brutalist pet nutrition interface. High-vis packaging for high-performance biological units.",
     image: "/imgs/demo-site/pet/hero.png",
-    badgeType: "accent"
+    badgeType: "accent",
+    link: "/free-service/achieve-pet-demo"
   },
   {
     title: "Achieve Skin",
@@ -470,7 +485,8 @@ const ourWorkDemos = [
     subtag: "Fluid Animations",
     desc: "Holographic spout pouches for premium serums. Glassmorphism UI with fluid animations.",
     image: "/imgs/demo-site/skin/hero.png",
-    badgeType: "luxury"
+    badgeType: "luxury",
+    link: "/free-service/achieve-skin-demo"
   },
   {
     title: "Achieve Baby",
@@ -478,7 +494,8 @@ const ourWorkDemos = [
     subtag: "Safe & Gentle Nutrition",
     desc: "A \"Soft 3D\" experience featuring puffy claymorphism, pastel aesthetics, and gentle interactions designed for parent trust.",
     image: "/imgs/demo-site/baby/achieve_baby_hero_v2_1770342396693.png",
-    badgeType: "eco"
+    badgeType: "eco",
+    link: "/free-service/achieve-baby-demo"
   }
 ]
 
@@ -1608,7 +1625,7 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                         </p>
                         
                         <Link 
-                          to={SEO_PAGES[idx % SEO_PAGES.length]}
+                          to={item.link || '#'}
                           className="px-6 py-2 bg-white hover:bg-neutral-100 text-neutral-950 font-bold rounded-full text-[11px] uppercase tracking-wider transition-all duration-300 shadow-md self-start inline-flex items-center gap-1.5"
                         >
                           {t(`${p}.viewDemo`)}<ArrowRight className="h-3 w-3" />
