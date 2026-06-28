@@ -290,6 +290,36 @@ export default function Footer() {
               <li><Link to="/topics/custom-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.customSolutions', 'Custom Solutions')}</Link></li>
               <li><Link to="/topics/reduce-packaging-waste" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.reducingWaste', 'Reducing Waste')}</Link></li>
               <li><Link to="/topics/custom-vs-standard-packaging" className="text-gray-400 hover:text-white transition-colors">{t('pouchEcoFooter.customVsStandard', 'Custom vs. Standard')}</Link></li>
+              <li><Link to="/topics/matcha-sachet" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.matcha_sachet.title', 'Matcha Sachet')}</Link></li>
+              <li><Link to="/topics/cacao-stand-up" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.cacao_stand_up.title', 'Cacao Stand Up')}</Link></li>
+              <li><Link to="/topics/spices-moisture-proof" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.spices_moisture_proof.title', 'Spices Moisture Proof')}</Link></li>
+              <li><Link to="/topics/premium-tea" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.premium_tea.title', 'Premium Tea')}</Link></li>
+              <li><Link to="/topics/cocktail-spout" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.cocktail_spout.title', 'Cocktail Spout')}</Link></li>
+              <li><Link to="/topics/candy-uv" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.candy_uv.title', 'Candy UV')}</Link></li>
+              <li><Link to="/topics/crisps-shaped" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.crisps_shaped.title', 'Crisps Shaped')}</Link></li>
+              <li><Link to="/topics/dried-fruits-tear-notch" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.dried_fruits_tear_notch.title', 'Dried Fruits Tear Notch')}</Link></li>
+              <li><Link to="/topics/cheese-pocket-zipper" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.cheese_pocket_zipper.title', 'Cheese Pocket Zipper')}</Link></li>
+              <li><Link to="/topics/euro-hole-hang" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.euro_hole_hang.title', 'Euro Hole Hang')}</Link></li>
+              <li><Link to="/topics/pet-food-quad-seal" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.pet_food_quad_seal.title', 'Pet Food Quad Seal')}</Link></li>
+              <li><Link to="/topics/pharma-velcro" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.pharma_velcro.title', 'Pharma Velcro')}</Link></li>
+              <li><Link to="/topics/detergent-spout" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.detergent_spout.title', 'Detergent Spout')}</Link></li>
+              <li><Link to="/topics/electronics-anti-static" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.electronics_anti_static.title', 'Electronics Anti Static')}</Link></li>
+              <li><Link to="/topics/apparel-zipper" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.apparel_zipper.title', 'Apparel Zipper')}</Link></li>
+              <li><Link to="/topics/hologram-hot-stamping" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.hologram_hot_stamping.title', 'Hologram Hot Stamping')}</Link></li>
+              <li><Link to="/topics/granola-soft-touch" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.granola_soft_touch.title', 'Granola Soft Touch')}</Link></li>
+              <li><Link to="/topics/collagen-high-barrier" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.collagen_high_barrier.title', 'Collagen High Barrier')}</Link></li>
+              <li><Link to="/topics/pla-rice" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.pla_rice.title', 'PLA Rice')}</Link></li>
+              <li><Link to="/topics/rice-paper-artisanal" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.rice_paper_artisanal.title', 'Rice Paper Artisanal')}</Link></li>
+              <li><Link to="/topics/ddp-packaging" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.ddp_packaging.title', 'DDP Packaging')}</Link></li>
+              <li><Link to="/topics/fast-air-freight" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.fast_air_freight.title', 'Fast Air Freight')}</Link></li>
+              <li><Link to="/topics/fda-brc-certified" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.fda_brc_certified.title', 'FDA BRC Certified')}</Link></li>
+              <li><Link to="/topics/iso-sustainable" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.iso_sustainable.title', 'ISO Sustainable')}</Link></li>
+              <li><Link to="/topics/urgent-orders" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.urgent_orders.title', 'Urgent Orders')}</Link></li>
+              <li><Link to="/topics/frozen-vacuum" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.frozen_vacuum.title', 'Frozen Vacuum')}</Link></li>
+              <li><Link to="/topics/evoh-retort" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.evoh_retort.title', 'EVOH Retort')}</Link></li>
+              <li><Link to="/topics/beef-jerky-barrier" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.beef_jerky_barrier.title', 'Beef Jerky Barrier')}</Link></li>
+              <li><Link to="/topics/valve-coffee-bags" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.valve_coffee_bags.title', 'Valve Coffee Bags')}</Link></li>
+              <li><Link to="/topics/home-vs-industrial-compostable" className="text-gray-400 hover:text-white transition-colors">{t('seo_topics.home_vs_industrial_compostable.title', 'Home vs Industrial Compostable')}</Link></li>
               <li><Link to="/blog/stamp-foil-recyclability" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.stampFoilRecyclability', 'Stamp Foil Recyclability')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/recyclable-vacuum-bags" className="hover:text-primary-400 font-medium text-primary-400">Recyclable Vacuum Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/sustainable-kraft-solutions" className="hover:text-primary-400 font-medium text-primary-400">Sustainable Kraft Solutions <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>

@@ -1,9 +1,9 @@
 {
-  "generated": "2026-06-27",
-  "total_images": 4510,
+  "generated": "2026-06-28",
+  "total_images": 4520,
   "total_categories": 173,
   "extensions": {
-    ".webp": 1303,
+    ".webp": 1313,
     ".png": 2972,
     ".jpg": 232,
     ".svg": 3
@@ -27638,8 +27638,68 @@
       ]
     },
     "testimonials/pouch-hover": {
-      "count": 13,
+      "count": 23,
       "images": [
+        {
+          "filename": "vibrant-pink.webp",
+          "path": "/imgs/testimonials/pouch-hover/vibrant-pink.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:48.320Z"
+        },
+        {
+          "filename": "modern-cyan.webp",
+          "path": "/imgs/testimonials/pouch-hover/modern-cyan.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:48.255Z"
+        },
+        {
+          "filename": "minimal-black.webp",
+          "path": "/imgs/testimonials/pouch-hover/minimal-black.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:48.192Z"
+        },
+        {
+          "filename": "organic-amber.webp",
+          "path": "/imgs/testimonials/pouch-hover/organic-amber.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:48.131Z"
+        },
+        {
+          "filename": "eco-biodegradable-blue.webp",
+          "path": "/imgs/testimonials/pouch-hover/eco-biodegradable-blue.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:48.056Z"
+        },
+        {
+          "filename": "decal-packaging.webp",
+          "path": "/imgs/testimonials/pouch-hover/decal-packaging.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:47.997Z"
+        },
+        {
+          "filename": "sauce-pouch.webp",
+          "path": "/imgs/testimonials/pouch-hover/sauce-pouch.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:47.934Z"
+        },
+        {
+          "filename": "tea-pouch.webp",
+          "path": "/imgs/testimonials/pouch-hover/tea-pouch.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:47.856Z"
+        },
+        {
+          "filename": "eloquence-luxury.webp",
+          "path": "/imgs/testimonials/pouch-hover/eloquence-luxury.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:47.792Z"
+        },
+        {
+          "filename": "jasmin-compostable.webp",
+          "path": "/imgs/testimonials/pouch-hover/jasmin-compostable.webp",
+          "extension": ".webp",
+          "modified": "2026-06-28T04:37:47.701Z"
+        },
         {
           "filename": "michelle.webp",
           "path": "/imgs/testimonials/pouch-hover/michelle.webp",

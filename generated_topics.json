@@ -1,0 +1,182 @@
+[
+  {
+    "topic": "Matcha Sachet",
+    "kebab": "matcha-sachet",
+    "camel": "MatchaSachet",
+    "snake": "matcha_sachet"
+  },
+  {
+    "topic": "Cacao Stand Up",
+    "kebab": "cacao-stand-up",
+    "camel": "CacaoStandUp",
+    "snake": "cacao_stand_up"
+  },
+  {
+    "topic": "Spices Moisture Proof",
+    "kebab": "spices-moisture-proof",
+    "camel": "SpicesMoistureProof",
+    "snake": "spices_moisture_proof"
+  },
+  {
+    "topic": "Premium Tea",
+    "kebab": "premium-tea",
+    "camel": "PremiumTea",
+    "snake": "premium_tea"
+  },
+  {
+    "topic": "Cocktail Spout",
+    "kebab": "cocktail-spout",
+    "camel": "CocktailSpout",
+    "snake": "cocktail_spout"
+  },
+  {
+    "topic": "Candy UV",
+    "kebab": "candy-uv",
+    "camel": "CandyUv",
+    "snake": "candy_uv"
+  },
+  {
+    "topic": "Crisps Shaped",
+    "kebab": "crisps-shaped",
+    "camel": "CrispsShaped",
+    "snake": "crisps_shaped"
+  },
+  {
+    "topic": "Dried Fruits Tear Notch",
+    "kebab": "dried-fruits-tear-notch",
+    "camel": "DriedFruitsTearNotch",
+    "snake": "dried_fruits_tear_notch"
+  },
+  {
+    "topic": "Cheese Pocket Zipper",
+    "kebab": "cheese-pocket-zipper",
+    "camel": "CheesePocketZipper",
+    "snake": "cheese_pocket_zipper"
+  },
+  {
+    "topic": "Euro Hole Hang",
+    "kebab": "euro-hole-hang",
+    "camel": "EuroHoleHang",
+    "snake": "euro_hole_hang"
+  },
+  {
+    "topic": "Pet Food Quad Seal",
+    "kebab": "pet-food-quad-seal",
+    "camel": "PetFoodQuadSeal",
+    "snake": "pet_food_quad_seal"
+  },
+  {
+    "topic": "Pharma Velcro",
+    "kebab": "pharma-velcro",
+    "camel": "PharmaVelcro",
+    "snake": "pharma_velcro"
+  },
+  {
+    "topic": "Detergent Spout",
+    "kebab": "detergent-spout",
+    "camel": "DetergentSpout",
+    "snake": "detergent_spout"
+  },
+  {
+    "topic": "Electronics Anti Static",
+    "kebab": "electronics-anti-static",
+    "camel": "ElectronicsAntiStatic",
+    "snake": "electronics_anti_static"
+  },
+  {
+    "topic": "Apparel Zipper",
+    "kebab": "apparel-zipper",
+    "camel": "ApparelZipper",
+    "snake": "apparel_zipper"
+  },
+  {
+    "topic": "Hologram Hot Stamping",
+    "kebab": "hologram-hot-stamping",
+    "camel": "HologramHotStamping",
+    "snake": "hologram_hot_stamping"
+  },
+  {
+    "topic": "Granola Soft Touch",
+    "kebab": "granola-soft-touch",
+    "camel": "GranolaSoftTouch",
+    "snake": "granola_soft_touch"
+  },
+  {
+    "topic": "Collagen High Barrier",
+    "kebab": "collagen-high-barrier",
+    "camel": "CollagenHighBarrier",
+    "snake": "collagen_high_barrier"
+  },
+  {
+    "topic": "PLA Rice",
+    "kebab": "pla-rice",
+    "camel": "PlaRice",
+    "snake": "pla_rice"
+  },
+  {
+    "topic": "Rice Paper Artisanal",
+    "kebab": "rice-paper-artisanal",
+    "camel": "RicePaperArtisanal",
+    "snake": "rice_paper_artisanal"
+  },
+  {
+    "topic": "DDP Packaging",
+    "kebab": "ddp-packaging",
+    "camel": "DdpPackaging",
+    "snake": "ddp_packaging"
+  },
+  {
+    "topic": "Fast Air Freight",
+    "kebab": "fast-air-freight",
+    "camel": "FastAirFreight",
+    "snake": "fast_air_freight"
+  },
+  {
+    "topic": "FDA BRC Certified",
+    "kebab": "fda-brc-certified",
+    "camel": "FdaBrcCertified",
+    "snake": "fda_brc_certified"
+  },
+  {
+    "topic": "ISO Sustainable",
+    "kebab": "iso-sustainable",
+    "camel": "IsoSustainable",
+    "snake": "iso_sustainable"
+  },
+  {
+    "topic": "Urgent Orders",
+    "kebab": "urgent-orders",
+    "camel": "UrgentOrders",
+    "snake": "urgent_orders"
+  },
+  {
+    "topic": "Frozen Vacuum",
+    "kebab": "frozen-vacuum",
+    "camel": "FrozenVacuum",
+    "snake": "frozen_vacuum"
+  },
+  {
+    "topic": "EVOH Retort",
+    "kebab": "evoh-retort",
+    "camel": "EvohRetort",
+    "snake": "evoh_retort"
+  },
+  {
+    "topic": "Beef Jerky Barrier",
+    "kebab": "beef-jerky-barrier",
+    "camel": "BeefJerkyBarrier",
+    "snake": "beef_jerky_barrier"
+  },
+  {
+    "topic": "Valve Coffee Bags",
+    "kebab": "valve-coffee-bags",
+    "camel": "ValveCoffeeBags",
+    "snake": "valve_coffee_bags"
+  },
+  {
+    "topic": "Home vs Industrial Compostable",
+    "kebab": "home-vs-industrial-compostable",
+    "camel": "HomeVsIndustrialCompostable",
+    "snake": "home_vs_industrial_compostable"
+  }
+]

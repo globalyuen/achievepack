@@ -489,6 +489,36 @@ const SnackBrandManagerPage = lazyWithRetry(() => import('./pages/solutions/Snac
 const CitrusOilPackagingPage = lazyWithRetry(() => import('./pages/solutions/CitrusOilPackagingPage'))
 
 // Topics Pages - AI Search Volume SEO - Lazy loaded
+const MatchaSachetPage = lazyWithRetry(() => import('./pages/topics/MatchaSachet'))
+const CacaoStandUpPage = lazyWithRetry(() => import('./pages/topics/CacaoStandUp'))
+const SpicesMoistureProofPage = lazyWithRetry(() => import('./pages/topics/SpicesMoistureProof'))
+const PremiumTeaPage = lazyWithRetry(() => import('./pages/topics/PremiumTea'))
+const CocktailSpoutPage = lazyWithRetry(() => import('./pages/topics/CocktailSpout'))
+const CandyUvPage = lazyWithRetry(() => import('./pages/topics/CandyUv'))
+const CrispsShapedPage = lazyWithRetry(() => import('./pages/topics/CrispsShaped'))
+const DriedFruitsTearNotchPage = lazyWithRetry(() => import('./pages/topics/DriedFruitsTearNotch'))
+const CheesePocketZipperPage = lazyWithRetry(() => import('./pages/topics/CheesePocketZipper'))
+const EuroHoleHangPage = lazyWithRetry(() => import('./pages/topics/EuroHoleHang'))
+const PetFoodQuadSealPage = lazyWithRetry(() => import('./pages/topics/PetFoodQuadSeal'))
+const PharmaVelcroPage = lazyWithRetry(() => import('./pages/topics/PharmaVelcro'))
+const DetergentSpoutPage = lazyWithRetry(() => import('./pages/topics/DetergentSpout'))
+const ElectronicsAntiStaticPage = lazyWithRetry(() => import('./pages/topics/ElectronicsAntiStatic'))
+const ApparelZipperPage = lazyWithRetry(() => import('./pages/topics/ApparelZipper'))
+const HologramHotStampingPage = lazyWithRetry(() => import('./pages/topics/HologramHotStamping'))
+const GranolaSoftTouchPage = lazyWithRetry(() => import('./pages/topics/GranolaSoftTouch'))
+const CollagenHighBarrierPage = lazyWithRetry(() => import('./pages/topics/CollagenHighBarrier'))
+const PlaRicePage = lazyWithRetry(() => import('./pages/topics/PlaRice'))
+const RicePaperArtisanalPage = lazyWithRetry(() => import('./pages/topics/RicePaperArtisanal'))
+const DdpPackagingPage = lazyWithRetry(() => import('./pages/topics/DdpPackaging'))
+const FastAirFreightPage = lazyWithRetry(() => import('./pages/topics/FastAirFreight'))
+const FdaBrcCertifiedPage = lazyWithRetry(() => import('./pages/topics/FdaBrcCertified'))
+const IsoSustainablePage = lazyWithRetry(() => import('./pages/topics/IsoSustainable'))
+const UrgentOrdersPage = lazyWithRetry(() => import('./pages/topics/UrgentOrders'))
+const FrozenVacuumPage = lazyWithRetry(() => import('./pages/topics/FrozenVacuum'))
+const EvohRetortPage = lazyWithRetry(() => import('./pages/topics/EvohRetort'))
+const BeefJerkyBarrierPage = lazyWithRetry(() => import('./pages/topics/BeefJerkyBarrier'))
+const ValveCoffeeBagsPage = lazyWithRetry(() => import('./pages/topics/ValveCoffeeBags'))
+const HomeVsIndustrialCompostablePage = lazyWithRetry(() => import('./pages/topics/HomeVsIndustrialCompostable'))
 const EcoFriendlyFoodPackagingPage = lazyWithRetry(() => import('./pages/topics/EcoFriendlyFoodPackagingPage'))
 const RealWorldSustainabilityPage = lazyWithRetry(() => import('./pages/topics/RealWorldSustainabilityPage'))
 const SustainablePackagingPillarPage = lazyWithRetry(() => import('./pages/topics/SustainablePackagingPillarPage'))
@@ -1455,6 +1485,36 @@ if (getDomain() === 'pouch') {
                         <Route path="/solutions/citrus-oil-packaging" element={<CitrusOilPackagingPage />} />
 
                         {/* Topics Pages - AI Search Volume SEO */}
+          <Route path="topics/matcha-sachet" element={<MatchaSachetPage />} />
+          <Route path="topics/cacao-stand-up" element={<CacaoStandUpPage />} />
+          <Route path="topics/spices-moisture-proof" element={<SpicesMoistureProofPage />} />
+          <Route path="topics/premium-tea" element={<PremiumTeaPage />} />
+          <Route path="topics/cocktail-spout" element={<CocktailSpoutPage />} />
+          <Route path="topics/candy-uv" element={<CandyUvPage />} />
+          <Route path="topics/crisps-shaped" element={<CrispsShapedPage />} />
+          <Route path="topics/dried-fruits-tear-notch" element={<DriedFruitsTearNotchPage />} />
+          <Route path="topics/cheese-pocket-zipper" element={<CheesePocketZipperPage />} />
+          <Route path="topics/euro-hole-hang" element={<EuroHoleHangPage />} />
+          <Route path="topics/pet-food-quad-seal" element={<PetFoodQuadSealPage />} />
+          <Route path="topics/pharma-velcro" element={<PharmaVelcroPage />} />
+          <Route path="topics/detergent-spout" element={<DetergentSpoutPage />} />
+          <Route path="topics/electronics-anti-static" element={<ElectronicsAntiStaticPage />} />
+          <Route path="topics/apparel-zipper" element={<ApparelZipperPage />} />
+          <Route path="topics/hologram-hot-stamping" element={<HologramHotStampingPage />} />
+          <Route path="topics/granola-soft-touch" element={<GranolaSoftTouchPage />} />
+          <Route path="topics/collagen-high-barrier" element={<CollagenHighBarrierPage />} />
+          <Route path="topics/pla-rice" element={<PlaRicePage />} />
+          <Route path="topics/rice-paper-artisanal" element={<RicePaperArtisanalPage />} />
+          <Route path="topics/ddp-packaging" element={<DdpPackagingPage />} />
+          <Route path="topics/fast-air-freight" element={<FastAirFreightPage />} />
+          <Route path="topics/fda-brc-certified" element={<FdaBrcCertifiedPage />} />
+          <Route path="topics/iso-sustainable" element={<IsoSustainablePage />} />
+          <Route path="topics/urgent-orders" element={<UrgentOrdersPage />} />
+          <Route path="topics/frozen-vacuum" element={<FrozenVacuumPage />} />
+          <Route path="topics/evoh-retort" element={<EvohRetortPage />} />
+          <Route path="topics/beef-jerky-barrier" element={<BeefJerkyBarrierPage />} />
+          <Route path="topics/valve-coffee-bags" element={<ValveCoffeeBagsPage />} />
+          <Route path="topics/home-vs-industrial-compostable" element={<HomeVsIndustrialCompostablePage />} />
                         <Route path="/topics/eco-friendly-food-packaging" element={<EcoFriendlyFoodPackagingPage />} />
                         <Route path="/topics/real-world-sustainability" element={<RealWorldSustainabilityPage />} />
                         <Route path="/topics/sustainable-packaging" element={<SustainablePackagingPillarPage />} />
