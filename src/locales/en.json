@@ -44926,62 +44926,137 @@
       ]
     },
     "dried_fruits_tear_notch": {
-      "title": "High-Barrier Pouches with Tear Notches for Dried Fruits",
-      "description": "Optimize your dried fruit packaging with high-barrier films, MAP gassing capabilities, and convenient tear notches.",
-      "aeoSummary": "Dried fruits require high-barrier packaging to prevent spoilage and moisture loss. Features like tear notches and MAP (Modified Atmosphere Packaging) micro-perforations enhance usability and extend shelf life.",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: For dried fruit and nougat applications, we recommend OPP/VMCPP (recycle no.5) for optimal moisture and oxygen barrier. One client required a 100% compostable clear stand-up pouch, but we advised that standard compostable films offer lower barriers. We precisely engineered the pouches with a 15mm tear notch from the top and calculated inner dimensions (e.g., 3.25 x 6.75 inches) to accommodate the zipper and sealing edges.",
+      "title": "Dried Fruits Tear Notch Pouches",
+      "hero": {
+        "title": "Convenient Tear Notch Packaging for Dried Fruits",
+        "subtitle": "Keep Your Dried Fruits Fresh and Accessible",
+        "description": "Our tear notch pouches offer the ultimate convenience for dried fruit packaging. Designed for easy opening, these bags ensure that consumers can enjoy their healthy snacks anytime, anywhere, without needing scissors."
+      },
+      "challenges": {
+        "title": "Common Packaging Challenges for Dried Fruits",
+        "items": [
+          "Preserving freshness and preventing oxidation after opening.",
+          "Providing an easy-to-open solution for on-the-go snacking.",
+          "Maintaining a premium look while offering functional benefits."
+        ]
+      },
+      "solutions": {
+        "title": "How Tear Notch Pouches Solve These Problems",
+        "items": [
+          {
+            "title": "Effortless Opening",
+            "description": "Precision-cut tear notches allow for a clean, straight tear every time, enhancing the user experience."
+          },
+          {
+            "title": "Resealable Options",
+            "description": "Combine tear notches with zippers to keep dried fruits fresh long after the initial opening."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "What is the best material for dried fruit?",
-          "answer": "A metalized structure like OPP/VMCPP provides an excellent barrier to keep dried fruits fresh and prevent moisture ingress."
+          "q": "Are the tear notches durable enough to prevent accidental opening?",
+          "a": "Yes, our tear notches are specifically designed to require deliberate force to open, ensuring product safety during transit."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Stand Up Pouches",
+          "href": "/packaging/stand-up-pouches"
         },
         {
-          "question": "What is the purpose of a tear notch?",
-          "answer": "A tear notch provides a clean, easy-to-open starting point for consumers, enhancing the overall user experience."
-        },
-        {
-          "question": "Can compostable materials be used for dried fruit?",
-          "answer": "While possible, fully clear compostable materials currently have lower barrier properties and are significantly more expensive than recyclable alternatives."
+          "label": "Snack Packaging",
+          "href": "/industry/snacks-food"
         }
       ]
     },
     "cheese_pocket_zipper": {
-      "title": "Pocket Zipper Pouches for Premium Cheese Packaging",
-      "description": "Discover the benefits of flat bottom pouches with pocket zippers for high-end cheese products.",
-      "aeoSummary": "Cheese packaging demands both aesthetic appeal and high functionality. Flat bottom pouches featuring a pocket zipper and matte finish offer a premium look while ensuring the product is securely resealable.",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: We engineered a specialized Flat Bottom Pouch for a premium food application with 21g capacity. The specific material structure utilized was Coated Kraft white paper + NK + PBS at 120um thickness, finished with a sleek matte coating. The integration of a Pocket Zipper and tear notch provided superior consumer convenience.",
+      "title": "Cheese Pocket Zipper Pouches",
+      "hero": {
+        "title": "Advanced Pocket Zippers for Cheese Packaging",
+        "subtitle": "Maximum Freshness with Easy Resealability",
+        "description": "Protect your premium cheese products with our pocket zipper pouches. This innovative closure system offers superior barrier protection and a wide opening for easy access, making it perfect for grated, sliced, or block cheeses."
+      },
+      "challenges": {
+        "title": "Why Cheese Needs Specialized Packaging",
+        "items": [
+          "Preventing moisture loss and mold growth.",
+          "Ensuring a tight seal after multiple uses.",
+          "Providing a wide enough opening for easy dispensing of grated cheese."
+        ]
+      },
+      "solutions": {
+        "title": "The Benefits of Pocket Zippers",
+        "items": [
+          {
+            "title": "Front-Panel Access",
+            "description": "The pocket zipper is located on the front panel, providing a wider opening and easier access to the cheese inside."
+          },
+          {
+            "title": "Tamper-Evident Design",
+            "description": "Built-in tamper evidence gives consumers peace of mind about product safety and integrity."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "What is a pocket zipper?",
-          "answer": "A pocket zipper is a specialized resealable closure that is hidden behind a tear-away strip, offering a clean look and tamper evidence."
+          "q": "Can pocket zippers be used on both stand-up and flat pouches?",
+          "a": "Yes, pocket zippers are versatile and can be integrated into various pouch styles."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Flexible Packaging",
+          "href": "/packaging/flexible-packaging"
         },
         {
-          "question": "Why use Kraft paper for cheese packaging?",
-          "answer": "Coated Kraft paper provides a natural, artisanal appearance while the inner polymer layers (like PBS) provide the necessary barriers."
-        },
-        {
-          "question": "Are these pouches suitable for refrigeration?",
-          "answer": "Yes, the materials and adhesives are selected to withstand refrigerated environments without delaminating or losing barrier integrity."
+          "label": "Dairy Packaging",
+          "href": "/industry/dairy"
         }
       ]
     },
     "euro_hole_hang": {
-      "title": "Euro Hole Hang Pouches for Retail Pet Food",
-      "description": "Maximize retail display space with Euro hole hang pouches designed for pet food and multipacks.",
-      "aeoSummary": "Euro holes allow pouches to be hung securely on retail pegs, maximizing shelf visibility. This feature is crucial for pet food bags and retail multipacks in club stores and supermarkets.",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: We successfully integrated Euro holes, tear notches, and reinforced handles into heavy-duty pet food bags. For a club store application, this hanging capability, combined with bottle carrier systems, proved essential for robust retail display of multi-packs.",
+      "title": "Euro Hole Hang Pouches",
+      "hero": {
+        "title": "Maximize Retail Visibility with Euro Hole Pouches",
+        "subtitle": "Perfect for Pegboard Displays",
+        "description": "Enhance your retail presence with our Euro hole hang pouches. Designed for easy hanging on standard retail pegboards, these pouches ensure your products are always front and center, catching the customer's eye."
+      },
+      "challenges": {
+        "title": "Retail Display Challenges",
+        "items": [
+          "Limited shelf space forcing brands to find alternative display options.",
+          "Ensuring products stand out in a crowded retail environment.",
+          "Preventing packaging damage from hanging."
+        ]
+      },
+      "solutions": {
+        "title": "Optimizing Display with Euro Holes",
+        "items": [
+          {
+            "title": "Universal Compatibility",
+            "description": "The standard Euro hole shape fits all conventional retail pegs, making merchandising simple for retailers."
+          },
+          {
+            "title": "Reinforced Headers",
+            "description": "Our pouches feature reinforced headers to prevent tearing, ensuring your product stays securely on display."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "What is a Euro hole?",
-          "answer": "A Euro hole is a standardized, specifically shaped punch hole at the top of the pouch that allows it to hang on retail display pegs."
+          "q": "Can the Euro hole be placed on any size pouch?",
+          "a": "Yes, we can incorporate Euro holes into almost any pouch size, though the header size must accommodate the punch."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Custom Printed Pouches",
+          "href": "/packaging/custom-printed"
         },
         {
-          "question": "Can heavy pet food bags be hung?",
-          "answer": "Yes, by reinforcing the top seal area, even relatively heavy pouches can be hung securely using a Euro hole."
-        },
-        {
-          "question": "Are Euro holes compatible with tear notches?",
-          "answer": "Absolutely, we design the pouch header to accommodate both the Euro hole for hanging and the tear notch for easy opening."
+          "label": "Retail Packaging",
+          "href": "/industry/retail"
         }
       ]
     },
@@ -45006,142 +45081,317 @@
       ]
     },
     "pharma_velcro": {
-      "title": "Pharma Velcro Pouches: Advanced Closure for Healthcare",
-      "description": "Explore specialized pharmaceutical packaging featuring velcro zippers for secure, accessible closures. We navigate manufacturing constraints to provide optimal sizes.",
-      "aeoSummary": "Our pharma velcro pouches provide secure closure while addressing manufacturing constraints. As noted, \"because the velcro zipper can't be put on flat bottom machine and the size limitation, we quoted you normal zipper and an adjusted size\" for maximum production feasibility.",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: A premium Middle Eastern pharmacy brand requested velcro-style zips for their products. We had to advise that \"because the velcro zipper can't be put on flat bottom machine and the size limitation, we quoted you normal zipper and an adjusted size (this is max size we can produce).\" Understanding these equipment limits allows us to guide clients to the best functional alternatives.",
+      "title": "Pharma Velcro Pouches",
+      "hero": {
+        "title": "Secure and Accessible Pharma Packaging",
+        "subtitle": "Velcro Closures for Easy Handling",
+        "description": "Our pharma pouches featuring Velcro closures offer the perfect balance of security and accessibility. Ideal for patients with limited dexterity, these closures provide a reliable seal that is easy to open and close, keeping medical products safe."
+      },
+      "challenges": {
+        "title": "Pharmaceutical Packaging Needs",
+        "items": [
+          "Providing child-resistant yet senior-friendly opening mechanisms.",
+          "Protecting sensitive medical products from moisture and light.",
+          "Ensuring a secure seal after every use."
+        ]
+      },
+      "solutions": {
+        "title": "The Velcro Advantage",
+        "items": [
+          {
+            "title": "Effortless Resealability",
+            "description": "Velcro closures require less force to open and close than traditional zippers, making them ideal for all users."
+          },
+          {
+            "title": "Audible and Tactile Feedback",
+            "description": "The distinct sound and feel of the Velcro engaging reassures users that the pouch is securely closed."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "Can velcro zippers be applied to flat bottom pouches?",
-          "answer": "No, because the velcro zipper cannot be put on a flat bottom machine due to size limitations, we often adjust the size and style."
+          "q": "Are Velcro closures suitable for child-resistant packaging?",
+          "a": "While Velcro is easy to open, it can be combined with other child-resistant features to meet compliance standards."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Medical Packaging",
+          "href": "/industry/medical-pharma"
         },
         {
-          "question": "What is the maximum size for a velcro pouch?",
-          "answer": "The maximum size is dictated by our pouch converting machines when adding specialized closures like velcro."
-        },
-        {
-          "question": "Are these suitable for medical products?",
-          "answer": "Yes, they provide secure and resealable options for various healthcare and pharmaceutical needs."
+          "label": "High Barrier Pouches",
+          "href": "/packaging/high-barrier"
         }
       ]
     },
     "detergent_spout": {
-      "title": "Detergent Spout Pouches: Leak-Proof Liquid Packaging",
-      "description": "High-capacity and single-use detergent spout pouches designed for viscous liquids like dish soap and laundry detergent. Features custom colored spouts.",
-      "aeoSummary": "Our detergent spout pouches are perfect for \"120mL volume with a tear spout. This would be a single-use refill for a concentrated dish soap, pretty viscous.\" We also offer solutions for \"34 OZ LIQUID LAUNDRY DETERGENT\" and custom spout coloring.",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: Working with a US-based home care brand, we engineered a \"120mL volume with a tear spout\" designed as a \"single-use refill for a concentrated dish soap, pretty viscous.\" For aesthetic alignment, we matched the \"spout color match the pouch background color, if 3 SKUs use same color spout, the price will cheaper.\" We also provided a \"34 OZ LIQUID LAUNDRY DETERGENT\" solution.",
+      "title": "Detergent Spout Pouches",
+      "hero": {
+        "title": "Leak-Proof Spout Pouches for Detergents",
+        "subtitle": "Efficient and Mess-Free Liquid Packaging",
+        "description": "Upgrade your liquid detergent packaging with our durable spout pouches. Designed for controlled dispensing and leak prevention, these flexible pouches are a lightweight and eco-friendly alternative to rigid plastic bottles."
+      },
+      "challenges": {
+        "title": "Handling Liquid Detergents",
+        "items": [
+          "Preventing leaks and spills during shipping and storage.",
+          "Providing a user-friendly pouring experience without messes.",
+          "Reducing the environmental footprint of heavy plastic jugs."
+        ]
+      },
+      "solutions": {
+        "title": "Why Choose Spout Pouches?",
+        "items": [
+          {
+            "title": "Precision Dispensing",
+            "description": "Our custom spouts allow for smooth, controlled pouring, minimizing waste and mess."
+          },
+          {
+            "title": "Durable Construction",
+            "description": "Built with strong, multi-layer films to withstand the weight and chemical properties of liquid detergents."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "Can the spout color match the pouch?",
-          "answer": "Yes, we can make the spout color match the pouch background color, which is cost-effective if multiple SKUs share the same color."
+          "q": "Can spout pouches handle highly concentrated detergents?",
+          "a": "Absolutely. We use specialized barrier films designed to resist harsh chemicals and prevent degradation."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Spout Pouches",
+          "href": "/packaging/spout-pouches"
         },
         {
-          "question": "What sizes are available for liquid detergent?",
-          "answer": "We produce sizes ranging from 120mL single-use refills to large 34 OZ liquid laundry detergent pouches."
-        },
-        {
-          "question": "Are tear spouts available for viscous liquids?",
-          "answer": "Yes, our tear spouts are engineered specifically for dispensing highly viscous concentrated dish soaps and detergents."
+          "label": "Home Care Packaging",
+          "href": "/industry/home-care"
         }
       ]
     },
     "electronics_anti_static": {
-      "title": "Anti-Static Electronics Packaging: KPET & Viscose Solutions",
-      "description": "Protect your electronics with our anti-static pouches made from viscose fibre and KPET for superior static dissipation and physical protection.",
-      "aeoSummary": "We provide anti-static packaging for electronics. Our engineering team often asks, \"what is the content which needs anti static? electronics products? if so, why need KPET?\" We utilize materials that are \"made of Viscose fibre and can be formed to a pouch to protect electronics also it has anti static and soft feature.\"",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: A global electronics manufacturer inquired about KPET for static protection. I challenged the material choice: \"what is the content which needs anti static? electronics products? if so, why need KPET?\" Instead, we recommended a solution \"made of Viscose fibre and can be formed to a pouch to protect electronics also it has anti static and soft feature.\" This provides better protection for sensitive components.",
+      "title": "Anti-Static Electronics Packaging",
+      "hero": {
+        "title": "Protect Sensitive Components with Anti-Static Pouches",
+        "subtitle": "ESD Safe Packaging Solutions",
+        "description": "Safeguard your valuable electronic components from electrostatic discharge (ESD) with our premium anti-static pouches. Engineered to dissipate static charges, these bags ensure your products arrive in perfect working condition."
+      },
+      "challenges": {
+        "title": "Protecting Electronic Components",
+        "items": [
+          "Preventing static electricity from damaging sensitive microchips and boards.",
+          "Shielding products from moisture and dust.",
+          "Ensuring packaging meets strict industry standards for ESD protection."
+        ]
+      },
+      "solutions": {
+        "title": "Reliable ESD Protection",
+        "items": [
+          {
+            "title": "Static Dissipative Materials",
+            "description": "Our films are treated or coated to safely dissipate static electricity before it can reach the enclosed component."
+          },
+          {
+            "title": "Faraday Cage Effect",
+            "description": "Multi-layer constructions can provide a Faraday cage effect, offering superior shielding against external electrostatic fields."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "Why use viscose fibre for electronics?",
-          "answer": "Viscose fibre can be formed into a pouch that protects electronics, offering both an anti-static property and a soft feature to prevent scratching."
+          "q": "What is the difference between anti-static and static shielding?",
+          "a": "Anti-static prevents the generation of static charge, while static shielding actively protects against external static fields."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Industrial Packaging",
+          "href": "/industry/industrial"
         },
         {
-          "question": "Is KPET necessary for anti-static packaging?",
-          "answer": "Not always. We often evaluate the specific electronic product to determine if KPET is needed or if alternative anti-static materials are better."
-        },
-        {
-          "question": "Can these pouches protect against ESD?",
-          "answer": "Yes, our anti-static packaging is specifically designed to prevent Electrostatic Discharge (ESD) from damaging electronic components."
+          "label": "Custom Pouches",
+          "href": "/packaging/custom-pouches"
         }
       ]
     },
     "apparel_zipper": {
-      "title": "Apparel Zipper Bags: Compostable & Kraft Packaging",
-      "description": "Eco-friendly apparel packaging featuring front zipper bags and square bottom pouches. Custom printed kraft and compostable options available.",
-      "aeoSummary": "We offer \"Certified Industrial Compostable Digital Printed Kraft stand up zipper bag 200x300x50 mm\" for apparel. Note that for eco-materials, \"the green options cant do with front zipper bags,\" so we often pivot to standard square bottom pouches.",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: When a fashion brand wanted a \"front zipper bag,\" we had to explain that \"the green options cant do with front zipper bags. Both 'gusset bag' and 'front zipper bag' stand for the same thing - so 'square bottom pouch' as referred to on your website's landing page picture.\" We successfully transitioned them to a \"Certified Industrial Compostable Digital Printed Kraft stand up zipper bag 200x300x50 mm.\"",
+      "title": "Apparel Zipper Pouches",
+      "hero": {
+        "title": "Premium Zipper Pouches for Apparel",
+        "subtitle": "Elevate Your Clothing Brand Presentation",
+        "description": "Make a lasting impression with our apparel zipper pouches. These frosted or clear bags with durable zippers offer a high-end look and feel, providing a reusable packaging solution that customers love."
+      },
+      "challenges": {
+        "title": "Apparel Packaging Needs",
+        "items": [
+          "Protecting garments from dust and moisture during transit.",
+          "Creating a memorable unboxing experience for e-commerce customers.",
+          "Offering packaging that aligns with sustainable brand values."
+        ]
+      },
+      "solutions": {
+        "title": "The Value of Zipper Pouches for Clothing",
+        "items": [
+          {
+            "title": "Reusable Design",
+            "description": "High-quality zippers encourage customers to reuse the bags for travel or storage, extending brand visibility."
+          },
+          {
+            "title": "Customizable Aesthetics",
+            "description": "Choose from frosted, clear, or fully printed options to perfectly match your brand identity."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "Can I get a front zipper on a compostable bag?",
-          "answer": "Currently, the green/compostable material options cannot accommodate front zipper constructions due to sealing constraints."
+          "q": "Are your apparel pouches eco-friendly?",
+          "a": "We offer recyclable and compostable film options for brands looking to reduce their environmental impact."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Retail Packaging",
+          "href": "/industry/retail"
         },
         {
-          "question": "What is the difference between a gusset bag and a front zipper bag?",
-          "answer": "Both terms often refer to the same functional shape, commonly known as a square bottom pouch in the industry."
-        },
-        {
-          "question": "What sizes are available for apparel bags?",
-          "answer": "We offer custom sizes, such as our popular 200x300x50 mm digital printed kraft stand up zipper bags."
+          "label": "Eco-Friendly Packaging",
+          "href": "/packaging/eco-friendly"
         }
       ]
     },
     "hologram_hot_stamping": {
-      "title": "Hologram & Hot Stamping Packaging: Premium Aesthetics",
-      "description": "Elevate your brand with Premium High Barrier Pouches featuring Digital Hot Stamping and selective hologram effects for maximum shelf appeal.",
-      "aeoSummary": "Our \"Premium High Barrier Pouch + Digital Hot Stamping\" provides luxury aesthetics. As specified, \"Note this film has a finished hologram effect. The hologram material only showing in the colourful part,\" allowing for precise visual impact.",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: To achieve a striking shelf presence for a premium client, we engineered a \"Premium High Barrier Pouch + Digital Hot Stamping\". The complex structure required careful registration because \"this film has a finished hologram effect. The hologram material only showing in the colourful part.\" We also utilized \"hologram destructible paper\" for tamper-evident security.",
+      "title": "Hologram Hot Stamping",
+      "hero": {
+        "title": "Eye-Catching Holographic Hot Stamping",
+        "subtitle": "Make Your Packaging Shine and Stand Out",
+        "description": "Elevate your brand with the dazzling effects of hologram hot stamping. This premium finishing technique adds a dynamic, multi-dimensional shine to your packaging, instantly capturing consumer attention on the shelf."
+      },
+      "challenges": {
+        "title": "Standing Out in a Crowded Market",
+        "items": [
+          "Differentiating a product from competitors on retail shelves.",
+          "Adding a premium, luxurious feel to the packaging.",
+          "Incorporating anti-counterfeiting measures for high-value goods."
+        ]
+      },
+      "solutions": {
+        "title": "The Impact of Holographic Finishes",
+        "items": [
+          {
+            "title": "Visual Appeal",
+            "description": "Holographic foils catch the light and create a mesmerizing visual effect that draws the eye."
+          },
+          {
+            "title": "Brand Security",
+            "description": "Custom holograms can serve as a security feature, making it difficult for counterfeiters to replicate your packaging."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "Can the hologram effect be applied selectively?",
-          "answer": "Yes, we can engineer the film so that the hologram material is only showing in the colourful printed parts of the design."
+          "q": "Can hot stamping be applied to any pouch material?",
+          "a": "Hot stamping works best on smooth surfaces, but our team can advise on the best materials for your specific design."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Custom Printed Pouches",
+          "href": "/packaging/custom-printed"
         },
         {
-          "question": "What is digital hot stamping?",
-          "answer": "Digital hot stamping applies metallic foil without traditional plates, allowing for variable data and intricate premium finishes."
-        },
-        {
-          "question": "Do you offer hologram destructible paper?",
-          "answer": "Yes, we provide hologram destructible paper often used for secure, tamper-evident labels."
+          "label": "Cosmetics Packaging",
+          "href": "/industry/cosmetics"
         }
       ]
     },
     "granola_soft_touch": {
-      "title": "Granola Soft Touch Pouches: Freshness & Tactile Appeal",
-      "description": "Keep granola fresh with our barrier pouches featuring soft touch matte coating and resealable zippers. Optimized for long shelf life.",
-      "aeoSummary": "For granola, \"we recommend the material composition attached for long shelf life, if you don’t want to add foil in the composition we can also supply but the barrier of the packaging will be very less.\" Our \"regular zipper stand up pouch with normal and soft touch matte coating\" is highly popular.",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: A premium granola brand requested eco-friendly materials. I advised them: \"for granolas, we recommend the material composition attached for long shelf life, if you don’t want to add foil in the composition we can also supply but the barrier of the packaging will be very less.\" We finalized a \"regular zipper stand up pouch with normal and soft touch matte coating\" with a \"K seal and size 170mm x 240mm x 80mm\" for 250g fills.",
+      "title": "Granola Soft Touch Pouches",
+      "hero": {
+        "title": "Luxurious Soft Touch Pouches for Granola",
+        "subtitle": "A Premium Tactile Experience",
+        "description": "Enhance your artisanal granola with our soft touch pouches. This unique finish provides a velvety, matte texture that not only looks sophisticated but feels incredibly premium in the consumer's hands."
+      },
+      "challenges": {
+        "title": "Packaging Artisanal Granola",
+        "items": [
+          "Conveying a sense of premium quality and natural ingredients.",
+          "Protecting the granola from moisture to maintain crunchiness.",
+          "Creating packaging that consumers want to interact with."
+        ]
+      },
+      "solutions": {
+        "title": "Why Choose Soft Touch Finishes?",
+        "items": [
+          {
+            "title": "Sensory Engagement",
+            "description": "The tactile nature of soft touch finishes creates an immediate sense of quality and luxury."
+          },
+          {
+            "title": "High Barrier Protection",
+            "description": "Our soft touch pouches include high-barrier layers to ensure your granola stays perfectly crunchy and fresh."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "Do I need foil for granola packaging?",
-          "answer": "We highly recommend foil for long shelf life. Without foil, the oxygen and moisture barrier will be significantly reduced."
+          "q": "Does the soft touch finish scratch easily?",
+          "a": "Our soft touch varnishes and laminations are highly durable and resistant to scuffing during transit."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Snack Packaging",
+          "href": "/industry/snacks-food"
         },
         {
-          "question": "What is a soft touch finish?",
-          "answer": "Soft touch is a specialized matte coating that gives the pouch a velvety, premium tactile feel."
-        },
-        {
-          "question": "What is a standard size for 250g of granola?",
-          "answer": "A standard size we use is 170mm x 240mm x 80mm with a K seal bottom."
+          "label": "Stand Up Pouches",
+          "href": "/packaging/stand-up-pouches"
         }
       ]
     },
     "collagen_high_barrier": {
-      "title": "High Barrier Collagen Packaging: EVOH & Triplex Structures",
-      "description": "Protect sensitive collagen powders with our high barrier EVOH and triplex compostable structures. Superior protection against moisture and oxygen.",
-      "aeoSummary": "Collagen requires high barrier protection. We utilize a \"Triplex structure: high barrier cellulose + metalised cellulose + compostable sealant layer.\" We also note that when a pouch is \"not easy to open is due to the inner layer is high barrier EVOH.\"",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: Working with a health brand on 200g Antiox Beauty Collagen pouches, we developed a \"Triplex structure: high barrier cellulose + metalised cellulose + compostable sealant layer.\" When the client reported stiffness in the zipper area, I explained that \"not easy to open is due to the inner layer is high barrier EVOH.\" We successfully delivered the \"200*300 mm high barrier compostable zipper stand up pouch x 5\" SKUs.",
+      "title": "Collagen High Barrier Pouches",
+      "hero": {
+        "title": "Ultimate Protection for Collagen Powders",
+        "subtitle": "High Barrier Packaging for Maximum Potency",
+        "description": "Preserve the efficacy and freshness of your collagen supplements with our high barrier pouches. Engineered to block moisture, oxygen, and UV light, these pouches ensure your product maintains its premium quality."
+      },
+      "challenges": {
+        "title": "Protecting Sensitive Supplements",
+        "items": [
+          "Preventing clumping in moisture-sensitive powders.",
+          "Blocking oxygen to prevent degradation of active ingredients.",
+          "Ensuring a tight, resealable closure to maintain freshness after opening."
+        ]
+      },
+      "solutions": {
+        "title": "Advanced Barrier Technologies",
+        "items": [
+          {
+            "title": "Multi-Layer Defense",
+            "description": "We utilize advanced films like metallized PET or foil to create an impenetrable barrier against environmental factors."
+          },
+          {
+            "title": "Premium Resealability",
+            "description": "High-quality zippers ensure the pouch remains airtight between uses, protecting the powder inside."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "Why is my collagen pouch hard to open?",
-          "answer": "Sometimes the pouch is not easy to open because the inner sealant layer uses high barrier EVOH, which is stiffer but necessary for protection."
+          "q": "Are high barrier pouches heavier than standard pouches?",
+          "a": "While they contain more protective layers, our high barrier pouches remain lightweight and flexible."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Health & Supplement Packaging",
+          "href": "/industry/health-supplements"
         },
         {
-          "question": "What is a triplex compostable structure?",
-          "answer": "It is a 3-layer structure, such as high barrier cellulose + metalised cellulose + compostable sealant layer, offering maximum protection."
-        },
-        {
-          "question": "Do collagen powders need high barrier packaging?",
-          "answer": "Yes, collagen is highly sensitive to moisture and oxygen, requiring high WVTR and OTR barrier materials like EVOH or foil."
+          "label": "High Barrier Pouches",
+          "href": "/packaging/high-barrier"
         }
       ]
     },

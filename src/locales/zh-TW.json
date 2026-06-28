@@ -44476,62 +44476,137 @@
       ]
     },
     "dried_fruits_tear_notch": {
-      "title": "附撕裂口的高阻隔果乾袋",
-      "description": "透過高阻隔薄膜、MAP 充氣功能與便利的撕裂口，優化您的果乾包裝。",
-      "aeoSummary": "果乾需要高阻隔包裝以防止變質與水分流失。撕裂口與 MAP（氣調包裝）微穿孔等功能可提升易用性並延長保存期限。",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: 對於果乾和牛軋糖的應用，我們推薦 OPP/VMCPP (回收 5 號) 以達到最佳的防潮與阻氧效果。一位客戶要求 100% 可堆肥的透明直立袋，但我們建議標準的可堆肥薄膜阻隔性較低。我們精確設計了距離袋頂 15mm 的撕裂口，並計算內部尺寸 (例如 3.25 x 6.75 英寸) 以容納夾鏈與封邊空間。",
+      "title": "Dried Fruits Tear Notch Pouches",
+      "hero": {
+        "title": "Convenient Tear Notch Packaging for Dried Fruits",
+        "subtitle": "Keep Your Dried Fruits Fresh and Accessible",
+        "description": "Our tear notch pouches offer the ultimate convenience for dried fruit packaging. Designed for easy opening, these bags ensure that consumers can enjoy their healthy snacks anytime, anywhere, without needing scissors."
+      },
+      "challenges": {
+        "title": "Common Packaging Challenges for Dried Fruits",
+        "items": [
+          "Preserving freshness and preventing oxidation after opening.",
+          "Providing an easy-to-open solution for on-the-go snacking.",
+          "Maintaining a premium look while offering functional benefits."
+        ]
+      },
+      "solutions": {
+        "title": "How Tear Notch Pouches Solve These Problems",
+        "items": [
+          {
+            "title": "Effortless Opening",
+            "description": "Precision-cut tear notches allow for a clean, straight tear every time, enhancing the user experience."
+          },
+          {
+            "title": "Resealable Options",
+            "description": "Combine tear notches with zippers to keep dried fruits fresh long after the initial opening."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "果乾最好的包裝材質是什麼？",
-          "answer": "像 OPP/VMCPP 這樣的金屬化結構能提供優異的阻隔性，保持果乾新鮮並防止濕氣侵入。"
+          "q": "Are the tear notches durable enough to prevent accidental opening?",
+          "a": "Yes, our tear notches are specifically designed to require deliberate force to open, ensuring product safety during transit."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Stand Up Pouches",
+          "href": "/packaging/stand-up-pouches"
         },
         {
-          "question": "撕裂口的用途是什麼？",
-          "answer": "撕裂口為消費者提供了一個乾淨、易於撕開的起始點，提升整體的用戶體驗。"
-        },
-        {
-          "question": "可堆肥材質可以用於果乾嗎？",
-          "answer": "雖然可行，但完全透明的可堆肥材質目前阻隔性較低，且價格明顯高於可回收的替代方案。"
+          "label": "Snack Packaging",
+          "href": "/industry/snacks-food"
         }
       ]
     },
     "cheese_pocket_zipper": {
-      "title": "頂級起司包裝的口袋拉鍊袋",
-      "description": "探索附有口袋拉鍊的平底袋在高端起司產品中的優勢。",
-      "aeoSummary": "起司包裝需要兼顧美觀與高度功能性。具備口袋拉鍊與消光表面的平底袋能提供頂級外觀，同時確保產品可安全重複密封。",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: 我們為一款 21 克容量的頂級食品應用設計了專屬的平底袋。具體的材質結構採用了塗層白色牛皮紙 + NK + PBS (厚度 120um)，並搭配時尚的消光塗層。口袋拉鍊與撕裂口的整合提供了卓越的消費者便利性。",
+      "title": "Cheese Pocket Zipper Pouches",
+      "hero": {
+        "title": "Advanced Pocket Zippers for Cheese Packaging",
+        "subtitle": "Maximum Freshness with Easy Resealability",
+        "description": "Protect your premium cheese products with our pocket zipper pouches. This innovative closure system offers superior barrier protection and a wide opening for easy access, making it perfect for grated, sliced, or block cheeses."
+      },
+      "challenges": {
+        "title": "Why Cheese Needs Specialized Packaging",
+        "items": [
+          "Preventing moisture loss and mold growth.",
+          "Ensuring a tight seal after multiple uses.",
+          "Providing a wide enough opening for easy dispensing of grated cheese."
+        ]
+      },
+      "solutions": {
+        "title": "The Benefits of Pocket Zippers",
+        "items": [
+          {
+            "title": "Front-Panel Access",
+            "description": "The pocket zipper is located on the front panel, providing a wider opening and easier access to the cheese inside."
+          },
+          {
+            "title": "Tamper-Evident Design",
+            "description": "Built-in tamper evidence gives consumers peace of mind about product safety and integrity."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "什麼是口袋拉鍊？",
-          "answer": "口袋拉鍊是一種特殊的重複密封設計，隱藏在可撕開的條帶後方，提供簡潔的外觀並具備防拆功能。"
+          "q": "Can pocket zippers be used on both stand-up and flat pouches?",
+          "a": "Yes, pocket zippers are versatile and can be integrated into various pouch styles."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Flexible Packaging",
+          "href": "/packaging/flexible-packaging"
         },
         {
-          "question": "為什麼起司包裝要使用牛皮紙？",
-          "answer": "塗層牛皮紙提供了自然、手工藝的外觀，而內部的聚合物層 (如 PBS) 則提供必要的阻隔性。"
-        },
-        {
-          "question": "這些袋子適合冷藏嗎？",
-          "answer": "是的，所選擇的材質與黏合劑能夠承受冷藏環境，不會發生脫層或喪失阻隔完整性。"
+          "label": "Dairy Packaging",
+          "href": "/industry/dairy"
         }
       ]
     },
     "euro_hole_hang": {
-      "title": "零售寵物食品的歐規吊孔袋",
-      "description": "透過專為寵物食品與多入裝設計的歐規吊孔袋，最大化零售展示空間。",
-      "aeoSummary": "歐規吊孔允許袋子安全地懸掛在零售掛勾上，最大化貨架能見度。這項功能對於量販店和超市中的寵物食品袋與零售多入包裝至關重要。",
-      "eeatDetails": "From Ryan Wong's Engineering Notebook: 我們成功地將歐規吊孔、撕裂口與加固提把整合到重型寵物食品袋中。對於量販店應用而言，這種懸掛功能結合瓶裝提把系統，被證明是多入包裝強固零售展示的必備條件。",
+      "title": "Euro Hole Hang Pouches",
+      "hero": {
+        "title": "Maximize Retail Visibility with Euro Hole Pouches",
+        "subtitle": "Perfect for Pegboard Displays",
+        "description": "Enhance your retail presence with our Euro hole hang pouches. Designed for easy hanging on standard retail pegboards, these pouches ensure your products are always front and center, catching the customer's eye."
+      },
+      "challenges": {
+        "title": "Retail Display Challenges",
+        "items": [
+          "Limited shelf space forcing brands to find alternative display options.",
+          "Ensuring products stand out in a crowded retail environment.",
+          "Preventing packaging damage from hanging."
+        ]
+      },
+      "solutions": {
+        "title": "Optimizing Display with Euro Holes",
+        "items": [
+          {
+            "title": "Universal Compatibility",
+            "description": "The standard Euro hole shape fits all conventional retail pegs, making merchandising simple for retailers."
+          },
+          {
+            "title": "Reinforced Headers",
+            "description": "Our pouches feature reinforced headers to prevent tearing, ensuring your product stays securely on display."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "什麼是歐規吊孔？",
-          "answer": "歐規吊孔是袋子頂部一個標準化、特定形狀的打孔，允許它懸掛在零售展示掛勾上。"
+          "q": "Can the Euro hole be placed on any size pouch?",
+          "a": "Yes, we can incorporate Euro holes into almost any pouch size, though the header size must accommodate the punch."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Custom Printed Pouches",
+          "href": "/packaging/custom-printed"
         },
         {
-          "question": "沉重的寵物食品袋可以懸掛嗎？",
-          "answer": "可以的，透過加固頂部封口區域，即便是相對較重的袋子也能利用歐規吊孔安全懸掛。"
-        },
-        {
-          "question": "歐規吊孔與撕裂口相容嗎？",
-          "answer": "絕對可以，我們會設計袋子頂部空間，以同時容納用於懸掛的歐規吊孔和方便撕開的撕裂口。"
+          "label": "Retail Packaging",
+          "href": "/industry/retail"
         }
       ]
     },
@@ -44556,142 +44631,317 @@
       ]
     },
     "pharma_velcro": {
-      "title": "醫藥魔術貼包裝袋：醫療保健的先進封口技術",
-      "description": "探索專為醫藥產品設計的魔術貼拉鏈包裝，提供安全且易於使用的封口。我們克服生產限制，為您提供最佳尺寸方案。",
-      "aeoSummary": "我們的醫藥魔術貼包裝袋提供安全的封口，同時解決了生產限制。正如我們所指出的：「因為魔術貼拉鏈無法用於平底製袋機，且有尺寸限制，我們為您報價了普通拉鏈並調整了尺寸」以實現最高的生產可行性。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：一家中東的優質藥房品牌要求為其產品配備魔術貼拉鏈。我們必須建議：「因為魔術貼拉鏈無法用於平底製袋機，且有尺寸限制，我們為您報價了普通拉鏈並調整了尺寸（這是我們能生產的最大尺寸）。」了解這些設備限制使我們能夠引導客戶選擇最佳的功能替代方案。",
+      "title": "Pharma Velcro Pouches",
+      "hero": {
+        "title": "Secure and Accessible Pharma Packaging",
+        "subtitle": "Velcro Closures for Easy Handling",
+        "description": "Our pharma pouches featuring Velcro closures offer the perfect balance of security and accessibility. Ideal for patients with limited dexterity, these closures provide a reliable seal that is easy to open and close, keeping medical products safe."
+      },
+      "challenges": {
+        "title": "Pharmaceutical Packaging Needs",
+        "items": [
+          "Providing child-resistant yet senior-friendly opening mechanisms.",
+          "Protecting sensitive medical products from moisture and light.",
+          "Ensuring a secure seal after every use."
+        ]
+      },
+      "solutions": {
+        "title": "The Velcro Advantage",
+        "items": [
+          {
+            "title": "Effortless Resealability",
+            "description": "Velcro closures require less force to open and close than traditional zippers, making them ideal for all users."
+          },
+          {
+            "title": "Audible and Tactile Feedback",
+            "description": "The distinct sound and feel of the Velcro engaging reassures users that the pouch is securely closed."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "魔術貼拉鏈可以用在平底袋上嗎？",
-          "answer": "不行，因為尺寸限制，魔術貼拉鏈無法用於平底製袋機，因此我們通常會調整尺寸和袋型。"
+          "q": "Are Velcro closures suitable for child-resistant packaging?",
+          "a": "While Velcro is easy to open, it can be combined with other child-resistant features to meet compliance standards."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Medical Packaging",
+          "href": "/industry/medical-pharma"
         },
         {
-          "question": "魔術貼包裝袋的最大尺寸是多少？",
-          "answer": "在添加魔術貼等特殊封口時，最大尺寸由我們的製袋機規格決定。"
-        },
-        {
-          "question": "這些包裝適合醫療產品嗎？",
-          "answer": "是的，它們為各種醫療保健和醫藥需求提供了安全且可重複密封的選擇。"
+          "label": "High Barrier Pouches",
+          "href": "/packaging/high-barrier"
         }
       ]
     },
     "detergent_spout": {
-      "title": "洗滌劑吸嘴袋：防漏液體包裝解決方案",
-      "description": "專為洗碗精和洗衣液等粘稠液體設計的大容量和一次性洗滌劑吸嘴袋。提供客製化顏色的吸嘴。",
-      "aeoSummary": "我們的洗滌劑吸嘴袋非常適合「120mL 容量帶有撕裂吸嘴。這將是濃縮洗碗精的一次性補充裝，非常粘稠。」我們也提供「34 盎司液體洗衣液」的解決方案以及客製化吸嘴顏色。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：在與一家美國家庭護理品牌合作時，我們設計了「120mL 容量帶有撕裂吸嘴」，作為「濃縮洗碗精的一次性補充裝，非常粘稠」。為了美觀一致，我們讓「吸嘴顏色與包裝袋背景顏色相匹配，如果 3 個 SKU 使用相同顏色的吸嘴，價格會更便宜。」我們還提供了一個「34 盎司液體洗衣液」的解決方案。",
+      "title": "Detergent Spout Pouches",
+      "hero": {
+        "title": "Leak-Proof Spout Pouches for Detergents",
+        "subtitle": "Efficient and Mess-Free Liquid Packaging",
+        "description": "Upgrade your liquid detergent packaging with our durable spout pouches. Designed for controlled dispensing and leak prevention, these flexible pouches are a lightweight and eco-friendly alternative to rigid plastic bottles."
+      },
+      "challenges": {
+        "title": "Handling Liquid Detergents",
+        "items": [
+          "Preventing leaks and spills during shipping and storage.",
+          "Providing a user-friendly pouring experience without messes.",
+          "Reducing the environmental footprint of heavy plastic jugs."
+        ]
+      },
+      "solutions": {
+        "title": "Why Choose Spout Pouches?",
+        "items": [
+          {
+            "title": "Precision Dispensing",
+            "description": "Our custom spouts allow for smooth, controlled pouring, minimizing waste and mess."
+          },
+          {
+            "title": "Durable Construction",
+            "description": "Built with strong, multi-layer films to withstand the weight and chemical properties of liquid detergents."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "吸嘴顏色可以與包裝袋匹配嗎？",
-          "answer": "是的，我們可以使吸嘴顏色與包裝袋背景顏色相匹配，如果多個 SKU 共享相同顏色，這將非常符合成本效益。"
+          "q": "Can spout pouches handle highly concentrated detergents?",
+          "a": "Absolutely. We use specialized barrier films designed to resist harsh chemicals and prevent degradation."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Spout Pouches",
+          "href": "/packaging/spout-pouches"
         },
         {
-          "question": "液體洗滌劑有哪些尺寸可供選擇？",
-          "answer": "我們生產的尺寸從 120mL 一次性補充裝到 34 盎司的大型液體洗衣液包裝袋不等。"
-        },
-        {
-          "question": "粘稠液體可以使用撕裂吸嘴嗎？",
-          "answer": "是的，我們的撕裂吸嘴專為分配高粘度的濃縮洗碗精和洗滌劑而設計。"
+          "label": "Home Care Packaging",
+          "href": "/industry/home-care"
         }
       ]
     },
     "electronics_anti_static": {
-      "title": "防靜電電子包裝：KPET 與粘膠纖維解決方案",
-      "description": "使用我們由粘膠纖維和 KPET 製成的防靜電包裝袋來保護您的電子產品，提供卓越的靜電消散和物理保護。",
-      "aeoSummary": "我們為電子產品提供防靜電包裝。我們的工程團隊經常會問：「什麼內容物需要防靜電？電子產品？如果是，為什麼需要 KPET？」我們使用的材料「由粘膠纖維製成，可以製成包裝袋來保護電子產品，同時具有防靜電和柔軟的特性。」",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：一家全球電子產品製造商詢問使用 KPET 進行靜電保護。我質疑了這個材料選擇：「什麼內容物需要防靜電？電子產品？如果是，為什麼需要 KPET？」相反，我們推薦了一種解決方案：「由粘膠纖維製成，可以製成包裝袋來保護電子產品，同時具有防靜電和柔軟的特性。」這為敏感元件提供了更好的保護。",
+      "title": "Anti-Static Electronics Packaging",
+      "hero": {
+        "title": "Protect Sensitive Components with Anti-Static Pouches",
+        "subtitle": "ESD Safe Packaging Solutions",
+        "description": "Safeguard your valuable electronic components from electrostatic discharge (ESD) with our premium anti-static pouches. Engineered to dissipate static charges, these bags ensure your products arrive in perfect working condition."
+      },
+      "challenges": {
+        "title": "Protecting Electronic Components",
+        "items": [
+          "Preventing static electricity from damaging sensitive microchips and boards.",
+          "Shielding products from moisture and dust.",
+          "Ensuring packaging meets strict industry standards for ESD protection."
+        ]
+      },
+      "solutions": {
+        "title": "Reliable ESD Protection",
+        "items": [
+          {
+            "title": "Static Dissipative Materials",
+            "description": "Our films are treated or coated to safely dissipate static electricity before it can reach the enclosed component."
+          },
+          {
+            "title": "Faraday Cage Effect",
+            "description": "Multi-layer constructions can provide a Faraday cage effect, offering superior shielding against external electrostatic fields."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "為什麼要在電子產品中使用粘膠纖維？",
-          "answer": "粘膠纖維可以製成保護電子產品的包裝袋，不僅具有防靜電特性，而且材質柔軟，可防止刮傷。"
+          "q": "What is the difference between anti-static and static shielding?",
+          "a": "Anti-static prevents the generation of static charge, while static shielding actively protects against external static fields."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Industrial Packaging",
+          "href": "/industry/industrial"
         },
         {
-          "question": "防靜電包裝必須使用 KPET 嗎？",
-          "answer": "不一定。我們通常會評估具體的電子產品，以確定是否需要 KPET，或者是否有更好的替代防靜電材料。"
-        },
-        {
-          "question": "這些包裝袋能防止靜電放電 (ESD) 嗎？",
-          "answer": "是的，我們的防靜電包裝專為防止靜電放電 (ESD) 損壞電子元件而設計。"
+          "label": "Custom Pouches",
+          "href": "/packaging/custom-pouches"
         }
       ]
     },
     "apparel_zipper": {
-      "title": "服飾拉鏈袋：可堆肥與牛皮紙包裝",
-      "description": "環保服飾包裝，提供前拉鏈袋和方底袋。備有客製化印刷牛皮紙和可堆肥選項。",
-      "aeoSummary": "我們為服飾提供「經認證的工業可堆肥數位印刷牛皮紙直立拉鏈袋 200x300x50 mm」。請注意，對於環保材料，「綠色環保選項無法製作前拉鏈袋」，因此我們通常會改用標準的方底袋。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：當一個時尚品牌想要「前拉鏈袋」時，我們必須解釋「綠色環保選項無法製作前拉鏈袋。『風琴袋』和『前拉鏈袋』代表的是同一個東西——也就是您網站登錄頁面圖片上所指的『方底袋』。」我們成功地將他們轉換為「經認證的工業可堆肥數位印刷牛皮紙直立拉鏈袋 200x300x50 mm」。",
+      "title": "Apparel Zipper Pouches",
+      "hero": {
+        "title": "Premium Zipper Pouches for Apparel",
+        "subtitle": "Elevate Your Clothing Brand Presentation",
+        "description": "Make a lasting impression with our apparel zipper pouches. These frosted or clear bags with durable zippers offer a high-end look and feel, providing a reusable packaging solution that customers love."
+      },
+      "challenges": {
+        "title": "Apparel Packaging Needs",
+        "items": [
+          "Protecting garments from dust and moisture during transit.",
+          "Creating a memorable unboxing experience for e-commerce customers.",
+          "Offering packaging that aligns with sustainable brand values."
+        ]
+      },
+      "solutions": {
+        "title": "The Value of Zipper Pouches for Clothing",
+        "items": [
+          {
+            "title": "Reusable Design",
+            "description": "High-quality zippers encourage customers to reuse the bags for travel or storage, extending brand visibility."
+          },
+          {
+            "title": "Customizable Aesthetics",
+            "description": "Choose from frosted, clear, or fully printed options to perfectly match your brand identity."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "我可以在可堆肥袋上做前拉鏈嗎？",
-          "answer": "目前，由於封口技術的限制，綠色/可堆肥材料選項無法適應前拉鏈結構。"
+          "q": "Are your apparel pouches eco-friendly?",
+          "a": "We offer recyclable and compostable film options for brands looking to reduce their environmental impact."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Retail Packaging",
+          "href": "/industry/retail"
         },
         {
-          "question": "風琴袋和前拉鏈袋有什麼區別？",
-          "answer": "這兩個術語通常指的是相同的形狀結構，在業內通常被稱為方底袋。"
-        },
-        {
-          "question": "服飾袋有哪些尺寸？",
-          "answer": "我們提供客製化尺寸，例如我們受歡迎的 200x300x50 mm 數位印刷牛皮紙直立拉鏈袋。"
+          "label": "Eco-Friendly Packaging",
+          "href": "/packaging/eco-friendly"
         }
       ]
     },
     "hologram_hot_stamping": {
-      "title": "雷射全息與燙金包裝：極致奢華美學",
-      "description": "使用我們結合數位燙金和局部雷射全息效果的優質高阻隔包裝袋，提升您的品牌形象，最大化貨架吸引力。",
-      "aeoSummary": "我們的「優質高阻隔包裝袋 + 數位燙金」提供奢華的美學效果。正如規格所述：「請注意，此薄膜具有成品雷射全息效果。雷射全息材料僅顯示在彩色部分」，從而實現精準的視覺衝擊。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：為了讓一個高端客戶在貨架上脫穎而出，我們設計了「優質高阻隔包裝袋 + 數位燙金」。這種複雜的結構需要精確的套印，因為「此薄膜具有成品雷射全息效果。雷射全息材料僅顯示在彩色部分。」我們還利用了「雷射全息易碎紙」來實現防偽安全。",
+      "title": "Hologram Hot Stamping",
+      "hero": {
+        "title": "Eye-Catching Holographic Hot Stamping",
+        "subtitle": "Make Your Packaging Shine and Stand Out",
+        "description": "Elevate your brand with the dazzling effects of hologram hot stamping. This premium finishing technique adds a dynamic, multi-dimensional shine to your packaging, instantly capturing consumer attention on the shelf."
+      },
+      "challenges": {
+        "title": "Standing Out in a Crowded Market",
+        "items": [
+          "Differentiating a product from competitors on retail shelves.",
+          "Adding a premium, luxurious feel to the packaging.",
+          "Incorporating anti-counterfeiting measures for high-value goods."
+        ]
+      },
+      "solutions": {
+        "title": "The Impact of Holographic Finishes",
+        "items": [
+          {
+            "title": "Visual Appeal",
+            "description": "Holographic foils catch the light and create a mesmerizing visual effect that draws the eye."
+          },
+          {
+            "title": "Brand Security",
+            "description": "Custom holograms can serve as a security feature, making it difficult for counterfeiters to replicate your packaging."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "雷射全息效果可以局部應用嗎？",
-          "answer": "是的，我們可以設計薄膜，使雷射全息材料僅顯示在設計的彩色印刷部分。"
+          "q": "Can hot stamping be applied to any pouch material?",
+          "a": "Hot stamping works best on smooth surfaces, but our team can advise on the best materials for your specific design."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Custom Printed Pouches",
+          "href": "/packaging/custom-printed"
         },
         {
-          "question": "什麼是數位燙金？",
-          "answer": "數位燙金無需傳統印版即可應用金屬箔，允許列印可變數據並實現複雜的高端表面處理。"
-        },
-        {
-          "question": "你們提供雷射全息易碎紙嗎？",
-          "answer": "是的，我們提供通常用於安全、防偽標籤的雷射全息易碎紙。"
+          "label": "Cosmetics Packaging",
+          "href": "/industry/cosmetics"
         }
       ]
     },
     "granola_soft_touch": {
-      "title": "麥片觸感膜包裝袋：保鮮與極致觸感",
-      "description": "使用我們帶有啞光觸感膜和可重複密封拉鏈的阻隔包裝袋，保持麥片新鮮。專為延長保質期而優化。",
-      "aeoSummary": "對於麥片，「我們推薦附上的材料結構以延長保質期，如果您不想在結構中添加鋁箔，我們也可以提供，但包裝的阻隔性會非常低。」我們的「帶有普通和啞光觸感膜的標準直立拉鏈袋」非常受歡迎。",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：一個優質麥片品牌要求使用環保材料。我建議他們：「對於麥片，我們推薦附上的材料結構以延長保質期，如果您不想在結構中添加鋁箔，我們也可以提供，但包裝的阻隔性會非常低。」我們最終確定了一款 250 克容量的「帶有普通和啞光觸感膜的標準直立拉鏈袋」，並採用「K 型封底，尺寸為 170mm x 240mm x 80mm」。",
+      "title": "Granola Soft Touch Pouches",
+      "hero": {
+        "title": "Luxurious Soft Touch Pouches for Granola",
+        "subtitle": "A Premium Tactile Experience",
+        "description": "Enhance your artisanal granola with our soft touch pouches. This unique finish provides a velvety, matte texture that not only looks sophisticated but feels incredibly premium in the consumer's hands."
+      },
+      "challenges": {
+        "title": "Packaging Artisanal Granola",
+        "items": [
+          "Conveying a sense of premium quality and natural ingredients.",
+          "Protecting the granola from moisture to maintain crunchiness.",
+          "Creating packaging that consumers want to interact with."
+        ]
+      },
+      "solutions": {
+        "title": "Why Choose Soft Touch Finishes?",
+        "items": [
+          {
+            "title": "Sensory Engagement",
+            "description": "The tactile nature of soft touch finishes creates an immediate sense of quality and luxury."
+          },
+          {
+            "title": "High Barrier Protection",
+            "description": "Our soft touch pouches include high-barrier layers to ensure your granola stays perfectly crunchy and fresh."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "麥片包裝需要鋁箔嗎？",
-          "answer": "我們強烈建議使用鋁箔以延長保質期。如果沒有鋁箔，阻氧和阻水性能將顯著降低。"
+          "q": "Does the soft touch finish scratch easily?",
+          "a": "Our soft touch varnishes and laminations are highly durable and resistant to scuffing during transit."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Snack Packaging",
+          "href": "/industry/snacks-food"
         },
         {
-          "question": "什麼是觸感膜表面處理？",
-          "answer": "觸感膜是一種特殊的啞光塗層，賦予包裝袋天鵝絨般的高級觸感。"
-        },
-        {
-          "question": "250 克麥片的標準尺寸是多少？",
-          "answer": "我們使用的標準尺寸是 170mm x 240mm x 80mm，底部為 K 型封底。"
+          "label": "Stand Up Pouches",
+          "href": "/packaging/stand-up-pouches"
         }
       ]
     },
     "collagen_high_barrier": {
-      "title": "高阻隔膠原蛋白包裝：EVOH 與三層複合結構",
-      "description": "使用我們的高阻隔 EVOH 和三層可堆肥結構，保護敏感的膠原蛋白粉。提供卓越的防潮和防氧保護。",
-      "aeoSummary": "膠原蛋白需要高阻隔保護。我們使用「三層結構：高阻隔纖維素 + 鍍鋁纖維素 + 可堆肥密封層」。我們還注意到，當包裝袋「不容易打開時，是因為內層是高阻隔 EVOH。」",
-      "eeatDetails": "來自 Ryan Wong 的工程筆記：在與一個健康品牌合作開發 200 克 Antiox Beauty Collagen 包裝袋時，我們開發了「三層結構：高阻隔纖維素 + 鍍鋁纖維素 + 可堆肥密封層」。當客戶反映拉鏈區域較硬時，我解釋說「不容易打開是因為內層是高阻隔 EVOH。」我們成功交付了這 5 個 SKU 的「200*300 mm 高阻隔可堆肥直立拉鏈袋」。",
+      "title": "Collagen High Barrier Pouches",
+      "hero": {
+        "title": "Ultimate Protection for Collagen Powders",
+        "subtitle": "High Barrier Packaging for Maximum Potency",
+        "description": "Preserve the efficacy and freshness of your collagen supplements with our high barrier pouches. Engineered to block moisture, oxygen, and UV light, these pouches ensure your product maintains its premium quality."
+      },
+      "challenges": {
+        "title": "Protecting Sensitive Supplements",
+        "items": [
+          "Preventing clumping in moisture-sensitive powders.",
+          "Blocking oxygen to prevent degradation of active ingredients.",
+          "Ensuring a tight, resealable closure to maintain freshness after opening."
+        ]
+      },
+      "solutions": {
+        "title": "Advanced Barrier Technologies",
+        "items": [
+          {
+            "title": "Multi-Layer Defense",
+            "description": "We utilize advanced films like metallized PET or foil to create an impenetrable barrier against environmental factors."
+          },
+          {
+            "title": "Premium Resealability",
+            "description": "High-quality zippers ensure the pouch remains airtight between uses, protecting the powder inside."
+          }
+        ]
+      },
       "faqs": [
         {
-          "question": "為什麼我的膠原蛋白包裝袋很難打開？",
-          "answer": "有時候包裝袋不容易打開，是因為內部密封層使用了高阻隔 EVOH，它比較硬，但對產品保護是必要的。"
+          "q": "Are high barrier pouches heavier than standard pouches?",
+          "a": "While they contain more protective layers, our high barrier pouches remain lightweight and flexible."
+        }
+      ],
+      "related_links": [
+        {
+          "label": "Health & Supplement Packaging",
+          "href": "/industry/health-supplements"
         },
         {
-          "question": "什麼是三層可堆肥結構？",
-          "answer": "這是一種 3 層結構，例如高阻隔纖維素 + 鍍鋁纖維素 + 可堆肥密封層，提供最大的保護。"
-        },
-        {
-          "question": "膠原蛋白粉需要高阻隔包裝嗎？",
-          "answer": "是的，膠原蛋白對濕氣和氧氣非常敏感，需要像 EVOH 或鋁箔這樣的高 WVTR 和 OTR 阻隔材料。"
+          "label": "High Barrier Pouches",
+          "href": "/packaging/high-barrier"
         }
       ]
     },
