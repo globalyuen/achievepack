@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, MapPin, TrendingUp, Calendar, Clock, Bell, ExternalLink, Save, X, Edit2, Info, CheckCircle2, Copy } from 'lucide-react';
+import staticInquiries from '../../data/calendly_inquiries.json';
 
 export type FollowUpStatus = '未跟進' | '已發郵件' | '已聯絡/WhatsApp' | '已通話/會議' | '已寄樣品' | '報價中' | '已下單' | '無效/垃圾';
 
@@ -62,7 +63,7 @@ END:VCALENDAR`;
 };
 
 export default function CalendlyFollowUp() {
-  const [inquiries, setInquiries] = useState<CalendlyInquiry[]>([]);
+  const [inquiries, setInquiries] = useState<CalendlyInquiry[]>(staticInquiries as CalendlyInquiry[]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
@@ -79,19 +80,17 @@ export default function CalendlyFollowUp() {
 
   // Fetch inquiries from API
   useEffect(() => {
+    setLoading(true);
     fetch('/api/calendly-inquiries')
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data)) {
+        if (Array.isArray(data) && data.length > 0) {
           setInquiries(data);
-        } else {
-          setError('Failed to fetch Calendly inquiries');
         }
         setLoading(false);
       })
       .catch(err => {
-        console.error(err);
-        setError('Error loading inquiries');
+        console.warn('API error, using static fallback:', err);
         setLoading(false);
       });
   }, []);
