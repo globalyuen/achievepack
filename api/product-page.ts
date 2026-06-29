@@ -52,11 +52,18 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Dynamic SEO data preparation
-    const titleText = `${product.name} | Achieve Pack`;
+    const host = req.headers.host || '';
+    const isPouch = host.includes('pouch.eco');
+    
+    const brandName = isPouch ? 'Pouch.eco' : 'Achieve Pack';
+    const siteUrl = isPouch ? 'https://www.pouch.eco' : 'https://achievepack.com';
+    const productPath = isPouch ? `/shop/${product.id}` : `/store/product/${product.id}`;
+    
+    const titleText = `${product.name} | ${brandName}`;
     const descText = product.shortDesc || product.description.substring(0, 160);
     const keywordsText = `${product.name.toLowerCase()}, eco-friendly packaging, sustainable packaging, custom printed pouches, ${product.category.replace(/-/g, ' ')}`;
-    const productUrl = `https://achievepack.com/store/product/${product.id}`;
-    const primaryImage = product.images[0]?.startsWith('http') ? product.images[0] : `https://achievepack.com${product.images[0]}`;
+    const productUrl = `${siteUrl}${productPath}`;
+    const primaryImage = product.images[0]?.startsWith('http') ? product.images[0] : `${siteUrl}${product.images[0]}`;
     
     // Extract optional details for rich metadata
     let materialVal = 'Recyclable PE';
@@ -94,7 +101,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     const price = product.basePrice || 0;
     const shippingCost = ('shippingCost' in product ? product.shippingCost : 0) || 0;
-    const imageUrls = product.images.map((img: string) => img.startsWith('http') ? img : `https://achievepack.com${img}`);
+    const imageUrls = product.images.map((img: string) => img.startsWith('http') ? img : `${siteUrl}${img}`);
 
     // Create JSON-LD Product Schema
     const jsonLd = {
@@ -107,7 +114,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       "mpn": product.id,
       "brand": {
         "@type": "Brand",
-        "name": "Achieve Pack"
+        "name": brandName
       },
       "offers": {
         "@type": "Offer",
@@ -119,7 +126,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         "availability": product.inStock !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
         "seller": {
           "@type": "Organization",
-          "name": "Achieve Pack"
+          "name": brandName
         },
         "shippingDetails": {
           "@type": "OfferShippingDetails",
@@ -163,7 +170,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   <meta property="og:description" content="${escapeHtml(descText)}" />
   <meta property="og:image" content="${primaryImage}" />
   <meta property="og:url" content="${productUrl}" />
-  <meta property="og:site_name" content="Achieve Pack" />
+  <meta property="og:site_name" content="${brandName}" />
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(titleText)}" />
