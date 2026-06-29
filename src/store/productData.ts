@@ -1064,6 +1064,96 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
   {
+    id: 'spouted-stand-up-pouch-bio-pe',
+    name: 'Bio-PE Spouted Stand Up Pouch',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered with sugarcane-derived plant-based polyethylene (Bio-PE). Formulated with a PET12/AL7/NY15/Bio-PE80 structure, this pouch provides identical barrier performance to traditional plastic while significantly reducing your brand’s carbon footprint. Fully recyclable in standard PE streams, featuring robust welded seals and a tamper-evident resealable screw cap for liquids, purees, baby foods, and refills.',
+    shortDesc: 'Eco-friendly sugarcane Bio-PE stand-up pouch with leak-proof spout',
+    features: [
+      "Advanced B2B Specs: Sugarcane-based Bio-PE, 8mm inner spout diameter",
+      "Premium Eco Material: Engineered using renewable PET12/AL7/NY15/Bio-PE80.",
+      "100% Recyclable: Compatible with standard PE recycling streams (#2 and #4).",
+      "Leak-Proof Welded Seals: Built for transport of liquid, puree, and food-grade formulations.",
+      "Tamper-Evident Cap: Built-in reliable closure system to preserve freshness."
+    ],
+    images: [
+      '/imgs/store/products/spouted-foil-pouch-thumbnail-1.webp',
+      '/imgs/store/products/spouted-foil-pouch-thumbnail-2.webp',
+      '/imgs/store/products/spouted-foil-pouch-thumbnail-3.jpg',
+      '/imgs/store/products/spouted-foil-pouch-thumbnail-4.webp',
+      '/imgs/store/products/spouted-foil-pouch-thumbnail-5.webp',
+      "/imgs/pouch-shape/ads/a_achieve_pack_spout_pouch_closeup_5874382.webp",
+      "/imgs/illustrated/a_achievepack_spout_pouches_1062736.webp",
+      "/imgs/function/spout/a_detail_spout_cap_2155787.webp",
+      "/imgs/store/closure/spout.webp"
+    ],
+    badge: '🌱 Sugarcane Bio-PE',
+    rating: 4.9,
+    reviews: 18,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 100,
+    shape: 'Spouted Stand Up Pouch',
+    material: 'PET12/AL7/NY15/Bio-PE80',
+    basePrice: 585,
+    pricePerPiece: 5.85,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '140x220mm - 360x504mm',
+    viewQuoteLink: '/view-quote/0f9739d6-438c-4adc-b031-10964cdc94c3',
+    sizeWithQuantities: [
+      {
+        id: 'spouted-stand-up-pouch-bio-pe-140-220',
+        label: '140*220+35×2mm (250ml)',
+        dimensions: '140*220+35×2mm • 250ml • Bio-PE • 8mm Spout',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 5.850, totalPrice: 585 },
+          { quantity: 500, unitPrice: 1.442, totalPrice: 721 },
+          { quantity: 1000, unitPrice: 1.024, totalPrice: 1024 },
+          { quantity: 2000, unitPrice: 0.560, totalPrice: 1121 },
+          { quantity: 5000, unitPrice: 0.491, totalPrice: 2453 }
+        ]
+      },
+      {
+        id: 'spouted-stand-up-pouch-bio-pe-200-280',
+        label: '200*280+45×2mm (500ml)',
+        dimensions: '200*280+45×2mm • 500ml • Bio-PE • 8mm Spout',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 6.600, totalPrice: 660 },
+          { quantity: 500, unitPrice: 1.608, totalPrice: 804 },
+          { quantity: 1000, unitPrice: 1.214, totalPrice: 1214 },
+          { quantity: 2000, unitPrice: 0.750, totalPrice: 1499 },
+          { quantity: 5000, unitPrice: 0.657, totalPrice: 3283 }
+        ]
+      },
+      {
+        id: 'spouted-stand-up-pouch-bio-pe-300-420',
+        label: '300*420+45×2mm (1000ml)',
+        dimensions: '300*420+45×2mm • 1000ml • Bio-PE • 8mm Spout',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 8.320, totalPrice: 832 },
+          { quantity: 500, unitPrice: 1.824, totalPrice: 912 },
+          { quantity: 1000, unitPrice: 1.406, totalPrice: 1406 },
+          { quantity: 2000, unitPrice: 0.943, totalPrice: 1885 },
+          { quantity: 5000, unitPrice: 0.873, totalPrice: 4363 }
+        ]
+      },
+      {
+        id: 'spouted-stand-up-pouch-bio-pe-360-504',
+        label: '360*504+50×2mm (1500ml)',
+        dimensions: '360*504+50×2mm • 1500ml • Bio-PE • 8mm Spout',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 10.040, totalPrice: 1004 },
+          { quantity: 500, unitPrice: 2.272, totalPrice: 1136 },
+          { quantity: 1000, unitPrice: 1.877, totalPrice: 1877 },
+          { quantity: 2000, unitPrice: 1.413, totalPrice: 2827 },
+          { quantity: 5000, unitPrice: 1.089, totalPrice: 5443 }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 100+ pieces. Please consult our team.'
+  },
+  {
     id: 'recyclable-3ss-evoh-pe-102x152',
     name: '102mm x 152mm Three-side Seal Pouch ( Recyclable PE / EVOH-PE )',
     category: 'eco-stock',
