@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, MapPin, TrendingUp, Calendar, Clock, Bell, ExternalLink, Save, X, Edit2, Info, CheckCircle2, Copy } from 'lucide-react';
-import staticInquiries from '../../data/calendly_inquiries.json';
+import { supabase } from '../../lib/supabase';
 
 export type FollowUpStatus = '未跟進' | '已發郵件' | '已聯絡/WhatsApp' | '已通話/會議' | '已寄樣品' | '報價中' | '已下單' | '無效/垃圾';
 
@@ -13,6 +13,8 @@ interface CalendlyInquiry {
   duration: string;
   inquiry: string;
   raw_date: string;
+  status: FollowUpStatus;
+  notes: string;
 }
 
 const STATUS_COLORS: Record<FollowUpStatus, string> = {
@@ -63,69 +65,84 @@ END:VCALENDAR`;
 };
 
 export default function CalendlyFollowUp() {
-  const [inquiries, setInquiries] = useState<CalendlyInquiry[]>(staticInquiries as CalendlyInquiry[]);
+  const [inquiries, setInquiries] = useState<CalendlyInquiry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  
-  // Local storage for follow-up state (status and custom notes)
-  const [leadStates, setLeadStates] = useState<Record<string, { status: FollowUpStatus; notes: string }>>(() => {
-    const saved = localStorage.getItem('calendly_followup_states_v1');
-    return saved ? JSON.parse(saved) : {};
-  });
 
   const [editingLead, setEditingLead] = useState<CalendlyInquiry | null>(null);
   const [editStatus, setEditStatus] = useState<FollowUpStatus>('未跟進');
   const [editNotes, setEditNotes] = useState('');
 
-  // Fetch inquiries from API
-  useEffect(() => {
+  // Fetch inquiries from Supabase
+  const fetchInquiries = async () => {
     setLoading(true);
-    fetch('/api/calendly-inquiries')
-      .then(res => res.json())
-      .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setInquiries(data);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        console.warn('API error, using static fallback:', err);
-        setLoading(false);
-      });
-  }, []);
+    try {
+      const { data, error } = await supabase
+        .from('calendly_inquiries')
+        .select('*')
+        .order('raw_date', { ascending: false });
 
-  // Save states to local storage
+      if (error) throw error;
+      if (data) {
+        setInquiries(data as CalendlyInquiry[]);
+      }
+    } catch (err: any) {
+      console.error('Error fetching from Supabase:', err);
+      setError('Error loading inquiries: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    localStorage.setItem('calendly_followup_states_v1', JSON.stringify(leadStates));
-  }, [leadStates]);
+    fetchInquiries();
+  }, []);
 
   const handleEditClick = (lead: CalendlyInquiry) => {
     setEditingLead(lead);
-    const state = leadStates[lead.id] || { status: '未跟進', notes: '' };
-    setEditStatus(state.status);
-    setEditNotes(state.notes);
+    setEditStatus(lead.status || '未跟進');
+    setEditNotes(lead.notes || '');
   };
 
-  const handleSaveEdit = () => {
+  const handleSaveEdit = async () => {
     if (!editingLead) return;
-    setLeadStates(prev => ({
-      ...prev,
-      [editingLead.id]: { status: editStatus, notes: editNotes }
-    }));
-    setEditingLead(null);
+    try {
+      const { error } = await supabase
+        .from('calendly_inquiries')
+        .update({
+          status: editStatus,
+          notes: editNotes
+        })
+        .eq('id', editingLead.id);
+
+      if (error) throw error;
+
+      // Update state locally
+      setInquiries(prev => prev.map(item => 
+        item.id === editingLead.id 
+          ? { ...item, status: editStatus, notes: editNotes } 
+          : item
+      ));
+      
+      setEditingLead(null);
+    } catch (err: any) {
+      console.error('Error updating inquiry:', err);
+      alert('儲存失敗: ' + err.message);
+    }
   };
 
   const filteredInquiries = inquiries.filter(lead => {
     const term = searchTerm.toLowerCase();
-    const state = leadStates[lead.id] || { status: '未跟進', notes: '' };
+    const status = lead.status || '未跟進';
+    const notes = lead.notes || '';
     return (
       lead.name.toLowerCase().includes(term) ||
-      lead.inquiry.toLowerCase().includes(term) ||
-      lead.email.toLowerCase().includes(term) ||
-      lead.phone.includes(term) ||
-      state.status.toLowerCase().includes(term) ||
-      state.notes.toLowerCase().includes(term)
+      (lead.inquiry && lead.inquiry.toLowerCase().includes(term)) ||
+      (lead.email && lead.email.toLowerCase().includes(term)) ||
+      (lead.phone && lead.phone.includes(term)) ||
+      status.toLowerCase().includes(term) ||
+      notes.toLowerCase().includes(term)
     );
   });
 
@@ -153,14 +170,14 @@ export default function CalendlyFollowUp() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
               <span className="text-xs text-amber-100 block mb-1">未跟進</span>
               <span className="text-3xl font-extrabold">
-                {inquiries.filter(l => (leadStates[l.id]?.status || '未跟進') === '未跟進').length}
+                {inquiries.filter(l => (l.status || '未跟進') === '未跟進').length}
               </span>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
               <span className="text-xs text-amber-100 block mb-1">跟進中</span>
               <span className="text-3xl font-extrabold">
                 {inquiries.filter(l => {
-                  const s = leadStates[l.id]?.status || '未跟進';
+                  const s = l.status || '未跟進';
                   return s !== '未跟進' && s !== '已下單' && s !== '無效/垃圾';
                 }).length}
               </span>
@@ -168,7 +185,7 @@ export default function CalendlyFollowUp() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
               <span className="text-xs text-amber-100 block mb-1">已下單</span>
               <span className="text-3xl font-extrabold text-green-300">
-                {inquiries.filter(l => (leadStates[l.id]?.status || '未跟進') === '已下單').length}
+                {inquiries.filter(l => (l.status || '未跟進') === '已下單').length}
               </span>
             </div>
           </div>
@@ -211,7 +228,8 @@ export default function CalendlyFollowUp() {
             </thead>
             <tbody>
               {filteredInquiries.map((lead, idx) => {
-                const state = leadStates[lead.id] || { status: '未跟進', notes: '' };
+                const status = lead.status || '未跟進';
+                const notes = lead.notes || '';
                 return (
                   <tr key={lead.id} className={`border-b border-gray-100 hover:bg-amber-50/30 transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'}`}>
                     <td className="py-3 px-4 align-top">
@@ -238,12 +256,12 @@ export default function CalendlyFollowUp() {
                       </div>
                     </td>
                     <td className="py-3 px-4 align-top">
-                      <span className={`px-2.5 py-1 border rounded-full text-xs font-semibold ${STATUS_COLORS[state.status]}`}>
-                        {state.status}
+                      <span className={`px-2.5 py-1 border rounded-full text-xs font-semibold ${STATUS_COLORS[status]}`}>
+                        {status}
                       </span>
-                      {state.notes && (
+                      {notes && (
                         <p className="mt-2 text-xs text-gray-500 line-clamp-2 italic border-l-2 border-gray-300 pl-2">
-                          {state.notes}
+                          {notes}
                         </p>
                       )}
                     </td>
