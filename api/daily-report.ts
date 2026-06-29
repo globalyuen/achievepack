@@ -1,5 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
+import * as fs from 'fs'
+import * as path from 'path'
 
 interface TrafficData {
   domain: string
@@ -32,6 +34,16 @@ interface BusinessMetrics {
   newOrders: number
   newCustomers: number
   totalRevenue: number
+}
+
+interface CalendlyInquiry {
+  name: string
+  email: string
+  phone: string
+  meeting_time: string
+  duration: string
+  inquiry: string
+  raw_date: string
 }
 
 // Initialize Supabase
@@ -71,10 +83,11 @@ export default async function handler(
     const reportDate = yesterday.toISOString().split('T')[0]
 
     // Fetch data for both domains
-    const [achievepackData, pouchData, businessMetrics] = await Promise.all([
+    const [achievepackData, pouchData, businessMetrics, calendlyInquiries] = await Promise.all([
       fetchDomainData('achievepack.com', reportDate),
       fetchDomainData('pouch.eco', reportDate),
-      fetchBusinessMetrics(reportDate)
+      fetchBusinessMetrics(reportDate),
+      fetchCalendlyInquiries()
     ])
 
     // Generate email content
@@ -82,7 +95,8 @@ export default async function handler(
       achievepack: achievepackData,
       pouch: pouchData,
       metrics: businessMetrics,
-      date: reportDate
+      date: reportDate,
+      calendlyInquiries
     })
 
     // Send email via Resend
@@ -234,6 +248,92 @@ async function fetchBusinessMetrics(date: string): Promise<BusinessMetrics> {
 }
 
 /**
+ * Fetch Calendly inquiries from Obsidian vault
+ * Scans the 00-Inbox directory for "New-Event" .md files and parses them
+ */
+async function fetchCalendlyInquiries(): Promise<CalendlyInquiry[]> {
+  const VAULT_INBOX = path.join(
+    '/Users/ryanmacmini/Desktop/1 App i made/Master Achieve Pack',
+    'ob vault - ap ctr follow up/00-Inbox'
+  )
+
+  try {
+    if (!fs.existsSync(VAULT_INBOX)) return []
+
+    const files = fs.readdirSync(VAULT_INBOX)
+      .filter(f => f.includes('New-Event-') && !f.includes('Re-New-Event') && f.endsWith('.md'))
+      .sort()
+      .reverse() // most recent first
+      .slice(0, 30) // last 30 inquiries for email brevity
+
+    const inquiries: CalendlyInquiry[] = []
+
+    for (const file of files) {
+      const content = fs.readFileSync(path.join(VAULT_INBOX, file), 'utf-8')
+
+      // Extract name from title frontmatter
+      const titleMatch = content.match(/title:\s*"?New Event:\s*(.+?)"?\s*\n/)
+      const dateMatch  = content.match(/date:\s*(.+)/)
+      const emailMatch = content.match(/\[.*?mailto:(.*?)\]/)
+      const phoneMatch = content.match(/\*\*Phone Number[^*]*\*\*\s*\n+([^\n*]+)/)
+      const timeMatch  = content.match(/\*\*Event Date\/Time:\*\*\s*([^\n]+)/)
+
+      // Inquiry: text after "Please share anything..."
+      const inquiryMatch = content.match(
+        /Please share anything[\s\S]*?\n([\s\S]+?)(?:\[View event|\-{3}|$)/
+      )
+
+      let inquiry = ''
+      if (inquiryMatch) {
+        inquiry = inquiryMatch[1]
+          .replace(/\*\*/g, '')
+          .replace(/\[.*?\]/g, '')
+          .replace(/\n/g, ' ')
+          .trim()
+          .slice(0, 300)
+      }
+
+      let phone = ''
+      if (phoneMatch) {
+        phone = phoneMatch[1]
+          .replace(/\*\*/g, '')
+          .replace(/Please share.*/, '')
+          .trim()
+      }
+
+      let meetingTime = ''
+      if (timeMatch) {
+        meetingTime = timeMatch[1]
+          .replace(/\*\*/g, '')
+          .replace(/\(China.*?\)/, '')
+          .replace(/\s+Description.*/, '')
+          .trim()
+      }
+
+      const durMatch = content.match(/(\d+)\s*Minute Meeting/)
+      const duration = durMatch ? `${durMatch[1]} min` : '15 min'
+
+      if (titleMatch) {
+        inquiries.push({
+          name:         titleMatch[1].replace(/---.*/, '').trim(),
+          email:        emailMatch ? emailMatch[1] : '',
+          phone:        phone,
+          meeting_time: meetingTime,
+          duration,
+          inquiry,
+          raw_date:     dateMatch ? dateMatch[1].trim() : ''
+        })
+      }
+    }
+
+    return inquiries
+  } catch (err) {
+    console.error('Error reading Calendly inquiries:', err)
+    return []
+  }
+}
+
+/**
  * Generate HTML email content
  */
 function generateEmailHTML(data: {
@@ -241,8 +341,9 @@ function generateEmailHTML(data: {
   pouch: { traffic: TrafficData; seo: SEORankingData }
   metrics: BusinessMetrics
   date: string
+  calendlyInquiries: CalendlyInquiry[]
 }) {
-  const { achievepack, pouch, metrics, date } = data
+  const { achievepack, pouch, metrics, date, calendlyInquiries } = data
 
   return `
 <!DOCTYPE html>
@@ -371,6 +472,37 @@ function generateEmailHTML(data: {
   <div class="container">
     <h1>📊 Daily Performance Report</h1>
     <p style="color: #666; font-size: 16px;">Report Date: <strong>${date}</strong></p>
+
+    <!-- Calendly Follow-Ups Section -->
+    ${
+      calendlyInquiries.length > 0 ? `
+    <div class="domain-section" style="border-left-color: #f59e0b; background-color: #fffbeb;">
+      <h2 style="color: #d97706;">📅 Calendly Follow-Ups <span style="font-size:16px;font-weight:normal;color:#92400e;">(${calendlyInquiries.length} recent inquiries)</span></h2>
+      <p style="color:#78350f;margin-bottom:16px;">Leads who booked a Calendly meeting via ryan@achievepack.com — prioritize follow-up today!</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Meeting Time (HKT)</th>
+            <th>Inquiry Summary</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${calendlyInquiries.map((lead, i) => `
+            <tr style="${i % 2 === 0 ? 'background:#fffdf0;' : ''}">
+              <td style="color:#9ca3af;">${i + 1}</td>
+              <td style="font-weight:600;color:#1a1a1a;">${lead.name}</td>
+              <td style="color:#374151;white-space:nowrap;">${lead.phone || '—'}</td>
+              <td style="color:#374151;font-size:13px;white-space:nowrap;">${lead.meeting_time || lead.raw_date}</td>
+              <td style="color:#374151;font-size:13px;max-width:300px;">${lead.inquiry ? lead.inquiry.slice(0, 200) + (lead.inquiry.length > 200 ? '…' : '') : '(No notes left)'}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>` : ''
+    }
 
     <!-- Business Metrics Overview -->
     <div class="domain-section" style="border-left-color: #10b981; background-color: #f0fdf4;">
