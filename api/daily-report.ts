@@ -46,6 +46,15 @@ interface CalendlyInquiry {
   raw_date: string
 }
 
+interface DirectInquiry {
+  name: string
+  email: string
+  subject: string
+  date: string
+  inquiry: string
+  source_file: string
+}
+
 // Initialize Supabase
 const supabase = createClient(
   process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '',
@@ -83,11 +92,12 @@ export default async function handler(
     const reportDate = yesterday.toISOString().split('T')[0]
 
     // Fetch data for both domains
-    const [achievepackData, pouchData, businessMetrics, calendlyInquiries] = await Promise.all([
+    const [achievepackData, pouchData, businessMetrics, calendlyInquiries, directInquiries] = await Promise.all([
       fetchDomainData('achievepack.com', reportDate),
       fetchDomainData('pouch.eco', reportDate),
       fetchBusinessMetrics(reportDate),
-      fetchCalendlyInquiries()
+      fetchCalendlyInquiries(),
+      fetchDirectInquiries()
     ])
 
     // Generate email content
@@ -96,7 +106,8 @@ export default async function handler(
       pouch: pouchData,
       metrics: businessMetrics,
       date: reportDate,
-      calendlyInquiries
+      calendlyInquiries,
+      directInquiries
     })
 
     // Send email via Resend
@@ -335,6 +346,105 @@ async function fetchCalendlyInquiries(): Promise<CalendlyInquiry[]> {
 }
 
 /**
+ * Fetch direct email inquiries from Obsidian vault
+ */
+async function fetchDirectInquiries(): Promise<DirectInquiry[]> {
+  const VAULT_INBOX = path.join(
+    '/Users/ryanmacmini/Desktop/1 App i made/Master Achieve Pack',
+    'ob vault - ap ctr follow up/00-Inbox'
+  )
+
+  const keywords = ['inquiry', 'enquiry', 'quote', 'rfq', 'request', 'sample', 'interested', 'contact']
+  const internalDomains = ['achievepack.com', 'pouch.eco', 'yihai-packaging.com']
+  const blacklistDomains = ['paypal.com', 'paypal.com.hk', 'discord.com', 'github.com', 'google.com', 'google-cloud', 'tesla', 'carousell']
+
+  try {
+    if (!fs.existsSync(VAULT_INBOX)) return []
+
+    const files = fs.readdirSync(VAULT_INBOX)
+    const directInquiries: DirectInquiry[] = []
+
+    for (const file of files) {
+      if (!file.endsWith('.md')) continue
+      const nameLower = file.toLowerCase()
+
+      // Exclude replies
+      if (
+        nameLower.startsWith('re-') || 
+        nameLower.startsWith('fwd-') || 
+        nameLower.startsWith('re:') || 
+        nameLower.startsWith('fw:') || 
+        nameLower.startsWith('回复-') || 
+        nameLower.startsWith('答复-')
+      ) {
+        continue
+      }
+
+      // Must contain one of the keywords
+      if (!keywords.some(k => nameLower.includes(k))) {
+        continue
+      }
+
+      const content = fs.readFileSync(path.join(VAULT_INBOX, file), 'utf-8')
+
+      // Parse metadata from frontmatter
+      const titleMatch = content.match(/title:\s*"?(.+?)"?\s*\n/)
+      const fromMatch  = content.match(/from:\s*"?(.+?)"?\s*\n/)
+      const dateMatch  = content.match(/date:\s*(.+)/)
+
+      const sender = fromMatch ? fromMatch[1].toLowerCase() : ''
+      const title = titleMatch ? titleMatch[1] : file
+
+      // Skip internal emails
+      if (internalDomains.some(d => sender.includes(d))) {
+        continue
+      }
+
+      // Skip blacklist domains
+      if (blacklistDomains.some(d => sender.includes(d))) {
+        continue
+      }
+
+      // Skip Calendly emails (handled separately)
+      if (sender.includes('notifications@calendly.com') || nameLower.includes('new-event')) {
+        continue
+      }
+
+      // Extract inquiry text body
+      const bodyMatch = content.match(/## 📝 內容\s*\n([\s\S]+?)(?:\n\s*---|## 🤖|\Z)/)
+      let inquiryText = ''
+      if (bodyMatch) {
+        inquiryText = bodyMatch[1]
+          .replace(/\*\*/g, '')
+          .replace(/\[.*?\]/g, '')
+          .replace(/\n/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .slice(0, 200)
+      }
+
+      directInquiries.push({
+        name: fromMatch ? fromMatch[1].replace(/&lt;.*?&gt;/, '').replace(/&quot;/g, '').trim() : 'Unknown Senders',
+        email: fromMatch ? (fromMatch[1].match(/&lt;(.*?)&gt;/) || [null, fromMatch[1]])[1] : '',
+        subject: title,
+        date: dateMatch ? dateMatch[1].trim() : '',
+        inquiry: inquiryText,
+        source_file: file
+      })
+    }
+
+    // Sort by date descending and take top 30
+    return directInquiries
+      .sort((a, b) => b.date.localeCompare(a.date))
+      .slice(0, 30)
+
+  } catch (err) {
+    console.error('Error reading direct inquiries:', err)
+    return []
+  }
+}
+
+/**
  * Generate HTML email content
  */
 function generateEmailHTML(data: {
@@ -343,8 +453,9 @@ function generateEmailHTML(data: {
   metrics: BusinessMetrics
   date: string
   calendlyInquiries: CalendlyInquiry[]
+  directInquiries: DirectInquiry[]
 }) {
-  const { achievepack, pouch, metrics, date, calendlyInquiries } = data
+  const { achievepack, pouch, metrics, date, calendlyInquiries, directInquiries } = data
 
   return `
 <!DOCTYPE html>
@@ -498,6 +609,37 @@ function generateEmailHTML(data: {
               <td style="color:#374151;white-space:nowrap;">${lead.phone || '—'}</td>
               <td style="color:#374151;font-size:13px;white-space:nowrap;">${lead.meeting_time || lead.raw_date}</td>
               <td style="color:#374151;font-size:13px;max-width:300px;">${lead.inquiry ? lead.inquiry.slice(0, 200) + (lead.inquiry.length > 200 ? '…' : '') : '(No notes left)'}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>` : ''
+    }
+
+    <!-- Direct Email Inquiries Section -->
+    ${
+      directInquiries.length > 0 ? `
+    <div class="domain-section" style="border-left-color: #3b82f6; background-color: #eff6ff;">
+      <h2 style="color: #2563eb;">✉️ Direct Email Inquiries <span style="font-size:16px;font-weight:normal;color:#1d4ed8;">(${directInquiries.length} recent inquiries)</span></h2>
+      <p style="color:#1e3a8a;margin-bottom:16px;">Direct emails asking for quotes, samples, or product details — prioritize follow-up today!</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Sender</th>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Message Snippet</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${directInquiries.map((lead, i) => `
+            <tr style="${i % 2 === 0 ? 'background:#f8fafc;' : ''}">
+              <td style="color:#94a3b8;">${i + 1}</td>
+              <td style="font-weight:600;color:#1e293b;white-space:nowrap;">${lead.name}</td>
+              <td style="color:#0f172a;font-weight:500;">${lead.subject}</td>
+              <td style="color:#334155;font-size:13px;white-space:nowrap;">${lead.date}</td>
+              <td style="color:#334155;font-size:13px;max-width:320px;">${lead.inquiry ? lead.inquiry.slice(0, 200) + (lead.inquiry.length > 200 ? '…' : '') : '(Empty message)'}</td>
             </tr>
           `).join('')}
         </tbody>
