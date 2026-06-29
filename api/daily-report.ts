@@ -297,7 +297,8 @@ async function fetchCalendlyInquiries(): Promise<CalendlyInquiry[]> {
       if (phoneMatch) {
         phone = phoneMatch[1]
           .replace(/\*\*/g, '')
-          .replace(/Please share.*/, '')
+          .replace(/Please share.*/i, '')
+          .replace(/\s{2,}/g, ' ')
           .trim()
       }
 
