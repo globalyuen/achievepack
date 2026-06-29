@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
-import { FEATURED_PRODUCTS } from '../../store/productData';
+import { FEATURED_PRODUCTS, getProductSubCategory } from '../../store/productData';
 import { ShoppingBag, ArrowRight, Filter, ChevronRight } from 'lucide-react';
 
 const CATEGORIES = [
@@ -58,8 +58,16 @@ export default function PouchShopPage() {
   };
 
   const filteredProducts = FEATURED_PRODUCTS.filter(p => {
-    // Basic category check
-    const matchesCategory = activeCategory === 'all' || p.category === activeCategory || (p as any).subCategory === activeCategory;
+    // Get product subCategory using helper
+    const subCat = getProductSubCategory(p);
+    
+    // Normalize categories (e.g. sample vs samples)
+    const matchesCategory = activeCategory === 'all' || 
+      p.category === activeCategory || 
+      subCat === activeCategory ||
+      (activeCategory === 'sample' && subCat === 'samples') ||
+      (activeCategory === 'eco-stock' && (subCat === 'eco-stock-plain' || subCat === 'eco-stock-custom-print')) ||
+      (activeCategory === 'conventional-stock' && subCat === 'conventional-stock-plain');
     
     // Some products don't have shape prop, fallback to name matching
     const matchesShape = activeShape === 'all' || 
