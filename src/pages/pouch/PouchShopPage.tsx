@@ -89,8 +89,8 @@ export default function PouchShopPage() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex flex-col lg:flex-row gap-12">
           
-          {/* Sidebar Filters */}
-          <div className="lg:w-1/4 flex-shrink-0 space-y-8">
+          {/* Sidebar Filters - Desktop Only */}
+          <div className="hidden lg:block lg:w-1/4 flex-shrink-0 space-y-8">
             <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6">
               <div className="flex items-center gap-2 mb-6 border-b-4 border-black pb-4">
                 <Filter className="w-6 h-6" strokeWidth={3} />
@@ -142,8 +142,64 @@ export default function PouchShopPage() {
             </div>
           </div>
 
-          {/* Product Grid */}
+          {/* Product Grid & Mobile Filters Container */}
           <div className="lg:w-3/4">
+            {/* Mobile Filters - Visible only on mobile/tablet */}
+            <div className="lg:hidden space-y-6 mb-8 bg-white border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <Filter className="w-4 h-4" strokeWidth={3} />
+                  <span className="font-black uppercase text-xs tracking-wider">Categories</span>
+                  {activeCategory !== 'all' && (
+                    <span className="text-[10px] bg-black text-[#D4FF00] font-['JetBrains_Mono'] px-1.5 py-0.5 ml-auto font-bold uppercase">
+                      {CATEGORIES.find(c => c.id === activeCategory)?.label}
+                    </span>
+                  )}
+                </div>
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none no-scrollbar -mx-2 px-2">
+                  {CATEGORIES.map(cat => (
+                    <button
+                      key={cat.id}
+                      onClick={() => setActiveCategory(cat.id)}
+                      className={`whitespace-nowrap px-3 py-1.5 font-['JetBrains_Mono'] font-bold text-[10px] transition-colors border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${
+                        activeCategory === cat.id 
+                          ? 'bg-black text-[#D4FF00]' 
+                          : 'bg-white text-black hover:bg-[#F0F0F0]'
+                      }`}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="border-t border-black pt-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Filter className="w-4 h-4" strokeWidth={3} />
+                  <span className="font-black uppercase text-xs tracking-wider">Shapes</span>
+                  {activeShape !== 'all' && (
+                    <span className="text-[10px] bg-[#FF00FF] text-white font-['JetBrains_Mono'] px-1.5 py-0.5 ml-auto font-bold uppercase">
+                      {SHAPES.find(s => s.id === activeShape)?.label}
+                    </span>
+                  )}
+                </div>
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none no-scrollbar -mx-2 px-2">
+                  {SHAPES.map(shape => (
+                    <button
+                      key={shape.id}
+                      onClick={() => setActiveShape(shape.id)}
+                      className={`whitespace-nowrap px-3 py-1.5 font-['JetBrains_Mono'] font-bold text-[10px] transition-colors border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${
+                        activeShape === shape.id 
+                          ? 'bg-[#FF00FF] text-white' 
+                          : 'bg-white text-black hover:bg-[#F0F0F0]'
+                      }`}
+                    >
+                      {shape.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
             <div className="mb-8 font-['JetBrains_Mono'] font-bold flex items-center justify-between border-b-4 border-black pb-4">
               <div className="text-xl">
                 Showing <span className="bg-[#D4FF00] border-2 border-black px-2">{filteredProducts.length}</span> Products
