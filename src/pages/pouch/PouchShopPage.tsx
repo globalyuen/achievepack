@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS } from '../../store/productData';
@@ -30,8 +30,32 @@ const SHAPES = [
 
 export default function PouchShopPage() {
   const { t } = useTranslation();
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [activeShape, setActiveShape] = useState('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  
+  const activeCategory = searchParams.get('category') || 'all';
+  const activeShape = searchParams.get('shape') || 'all';
+
+  const setActiveCategory = (category: string) => {
+    setSearchParams(prev => {
+      if (category === 'all') {
+        prev.delete('category');
+      } else {
+        prev.set('category', category);
+      }
+      return prev;
+    });
+  };
+
+  const setActiveShape = (shape: string) => {
+    setSearchParams(prev => {
+      if (shape === 'all') {
+        prev.delete('shape');
+      } else {
+        prev.set('shape', shape);
+      }
+      return prev;
+    });
+  };
 
   const filteredProducts = FEATURED_PRODUCTS.filter(p => {
     // Basic category check

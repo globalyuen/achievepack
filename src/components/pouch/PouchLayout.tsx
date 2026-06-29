@@ -85,16 +85,48 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               </div>
             </div>
 
-            <Link
-              to="/shop"
-              className={`px-2 py-1 transition-colors ${
-                isActive('/shop') 
-                  ? 'bg-[#D4FF00] text-black border-2 border-black' 
-                  : 'text-[#10B981] hover:bg-[#10B981] hover:text-white border-2 border-transparent hover:border-black'
-              }`}
-            >
-              [SHOP]
-            </Link>
+            {/* Shop Dropdown */}
+            <div className="relative group">
+              <Link
+                to="/shop"
+                className={`px-2 py-1 transition-colors flex items-center gap-1 ${
+                  isActive('/shop') 
+                    ? 'bg-[#D4FF00] text-black border-2 border-black font-black' 
+                    : 'text-[#10B981] hover:bg-[#10B981] hover:text-white border-2 border-transparent hover:border-black'
+                }`}
+              >
+                [{t('pouchLayout.shop', 'SHOP')} ▾]
+              </Link>
+              <div className="absolute left-0 mt-2 w-56 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black hidden group-hover:block">
+                <Link to="/shop" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase">
+                  {t('pouchLayout.allShop', 'All Products')}
+                </Link>
+                <Link to="/shop?category=sample" className="block px-4 py-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                  {t('pouchLayout.samplePacks', 'Sample Packs')}
+                </Link>
+                <Link to="/shop?category=custom-pouches" className="block px-4 py-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                  {t('pouchLayout.customPouches', 'Custom Pouches')}
+                </Link>
+                <Link to="/shop?category=eco-stock" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                  {t('pouchLayout.ecoStock', 'Eco Stock')}
+                </Link>
+                <Link to="/shop?category=eco-digital" className="block px-4 py-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                  {t('pouchLayout.ecoDigital', 'Eco Digital')}
+                </Link>
+                <Link to="/shop?category=conventional-stock" className="block px-4 py-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                  {t('pouchLayout.conventionalStock', 'Conventional Stock')}
+                </Link>
+                <Link to="/shop?category=conventional-digital" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                  {t('pouchLayout.conventionalDigital', 'Conventional Digital')}
+                </Link>
+                <Link to="/shop?category=boxes" className="block px-4 py-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                  {t('pouchLayout.customBoxes', 'Custom Boxes')}
+                </Link>
+                <Link to="/shop?category=3d-print" className="block px-4 py-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                  {t('pouchLayout.threeDPrinting', '3D Printing')}
+                </Link>
+              </div>
+            </div>
 
             {[
               { label: t('pouchLayout.cert', 'CERT'), path: '/certifications' },
@@ -419,17 +451,29 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     [OPTIONS]
                   </Link>
 
-                  <Link
-                    to="/shop"
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 border-4 border-black transition-all mt-4 ${
-                      isActive('/shop') 
-                        ? 'bg-[#D4FF00] text-black' 
-                        : 'bg-[#10B981] text-white hover:bg-black hover:text-[#10B981]'
-                    }`}
-                  >
-                    [SHOP / STORE]
-                  </Link>
+                  <div className="border-4 border-black p-4 bg-white mt-4 space-y-2">
+                    <Link
+                      to="/shop"
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block px-3 py-2 border-2 border-black transition-all font-black text-center ${
+                        isActive('/shop') 
+                          ? 'bg-[#D4FF00] text-black' 
+                          : 'bg-[#10B981] text-white hover:bg-black'
+                      }`}
+                    >
+                      [SHOP / STORE]
+                    </Link>
+                    <div className="grid grid-cols-2 gap-2 text-[10px] font-['Space_Grotesk']">
+                      <Link to="/shop?category=sample" onClick={() => setIsMenuOpen(false)} className="block p-1 bg-[#F0F0F0] hover:bg-[#D4FF00] border-2 border-black font-bold uppercase text-center">Sample Packs</Link>
+                      <Link to="/shop?category=custom-pouches" onClick={() => setIsMenuOpen(false)} className="block p-1 bg-[#F0F0F0] hover:bg-[#D4FF00] border-2 border-black font-bold uppercase text-center">Custom Pouches</Link>
+                      <Link to="/shop?category=eco-stock" onClick={() => setIsMenuOpen(false)} className="block p-1 bg-[#F0F0F0] hover:bg-[#D4FF00] border-2 border-black font-bold uppercase text-center">Eco Stock</Link>
+                      <Link to="/shop?category=eco-digital" onClick={() => setIsMenuOpen(false)} className="block p-1 bg-[#F0F0F0] hover:bg-[#D4FF00] border-2 border-black font-bold uppercase text-center">Eco Digital</Link>
+                      <Link to="/shop?category=conventional-stock" onClick={() => setIsMenuOpen(false)} className="block p-1 bg-[#F0F0F0] hover:bg-[#D4FF00] border-2 border-black font-bold uppercase text-center">Conventional Stock</Link>
+                      <Link to="/shop?category=conventional-digital" onClick={() => setIsMenuOpen(false)} className="block p-1 bg-[#F0F0F0] hover:bg-[#D4FF00] border-2 border-black font-bold uppercase text-center">Conv Digital</Link>
+                      <Link to="/shop?category=boxes" onClick={() => setIsMenuOpen(false)} className="block p-1 bg-[#F0F0F0] hover:bg-[#D4FF00] border-2 border-black font-bold uppercase text-center">Custom Boxes</Link>
+                      <Link to="/shop?category=3d-print" onClick={() => setIsMenuOpen(false)} className="block p-1 bg-[#F0F0F0] hover:bg-[#D4FF00] border-2 border-black font-bold uppercase text-center">3D Printing</Link>
+                    </div>
+                  </div>
                   
                   <div className="h-4"></div>
 
