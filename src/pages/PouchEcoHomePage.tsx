@@ -15,6 +15,7 @@ import Newsletter from '../components/Newsletter'
 import { useStore } from '../store/StoreContext'
 import ProductCarousel from '../components/ProductCarousel'
 import { ThreePouchViewer } from '../components/ThreePouchViewer'
+import { FEATURED_PRODUCTS } from '../store/productData'
 
 /**
  * Pouch.eco Homepage - B2C Focused
@@ -517,6 +518,83 @@ export default function PouchEcoHomePage() {
         </div>
         
         <ProductCarousel autoPlay autoPlayInterval={4000} />
+      </section>
+
+      {/* Featured Products Section */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto border-t-4 border-black">
+        <div className="text-center mb-16">
+          <div className="inline-block bg-[#10b981] text-white border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase tracking-wider mb-6">
+            🔥 HOT OFF THE PRESS
+          </div>
+          <h2 className="font-black text-5xl md:text-7xl uppercase mb-6 leading-none">
+            Featured <span className="text-[#10b981]">Products</span>
+          </h2>
+          <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto text-neutral-700">
+            Explore our bestselling sustainable packaging solutions. Order sample packs or request custom prints.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {FEATURED_PRODUCTS.filter(p => ['sample-sizing-pack', 'compostable-stand-up-pouches', 'spouted-foil-pouch'].includes(p.id)).map((product) => {
+            const imageUrl = product.images?.[0] || '';
+            return (
+              <Link 
+                key={product.id}
+                to={`/shop/${product.id}`}
+                className="group border-4 border-black bg-white hover:bg-neutral-50 transition-colors relative flex flex-col h-full shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200"
+              >
+                <div className="aspect-square border-b-4 border-black p-4 bg-white relative overflow-hidden flex items-center justify-center">
+                  <img 
+                    src={imageUrl} 
+                    alt={product.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {product.badge && (
+                    <div className="absolute top-4 right-4 bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-bold text-xs px-2 py-1 uppercase border-2 border-black z-10 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      {product.badge}
+                    </div>
+                  )}
+                </div>
+
+                <div className="p-6 flex-grow flex flex-col justify-between">
+                  <div>
+                    <div className="text-[10px] font-['JetBrains_Mono'] font-bold text-[#10B981] mb-1 uppercase tracking-tight">
+                      {product.category.replace('-', ' ')}
+                    </div>
+                    <h3 className="text-xl font-black uppercase leading-tight mb-2 group-hover:underline">
+                      {product.name}
+                    </h3>
+                    <p className="text-xs font-['Space_Grotesk'] line-clamp-2 mb-4 text-gray-600">
+                      {product.shortDesc}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t-2 border-black font-['JetBrains_Mono'] font-bold">
+                    <div>
+                      {product.basePrice > 0 ? (
+                        <span className="text-lg font-black">${product.basePrice.toFixed(2)}<span className="text-xs text-gray-500">/ea</span></span>
+                      ) : (
+                        <span className="text-sm font-black text-[#FF00FF]">Custom Quote</span>
+                      )}
+                    </div>
+                    <div className="bg-[#10b981] border-2 border-black p-1.5 text-white group-hover:bg-black group-hover:text-[#D4FF00] transition-colors">
+                      <ArrowRight className="w-4 h-4" strokeWidth={3} />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link 
+            to="/shop"
+            className="inline-block bg-[#D4FF00] border-4 border-black px-8 py-4 font-black uppercase tracking-widest hover:bg-black hover:text-[#D4FF00] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200"
+          >
+            Explore Full Shop
+          </Link>
+        </div>
       </section>
 
       {/* Social Video Section */}

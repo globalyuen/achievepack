@@ -72,7 +72,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 [{t('pouchLayout.products', 'PRODUCTS')} ▾]
               </button>
               
-              <div className="absolute left-0 mt-2 w-48 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black hidden group-hover:block">
+              <div className="absolute left-0 mt-2 w-48 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black hidden group-hover:block before:absolute before:-top-2 before:left-0 before:w-full before:h-2 before:content-['']">
                 <Link to="/products" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-sm font-bold uppercase">
                   {t('pouchLayout.allProducts', 'All Products')}
                 </Link>
@@ -97,7 +97,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               >
                 [{t('pouchLayout.shop', 'SHOP')} ▾]
               </Link>
-              <div className="absolute left-0 mt-2 w-56 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black hidden group-hover:block">
+              <div className="absolute left-0 mt-2 w-56 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black hidden group-hover:block before:absolute before:-top-2 before:left-0 before:w-full before:h-2 before:content-['']">
                 <Link to="/shop" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase">
                   {t('pouchLayout.allShop', 'All Products')}
                 </Link>
