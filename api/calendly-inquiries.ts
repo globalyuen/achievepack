@@ -127,13 +127,22 @@ function parseInquiryContent(text: string, filename: string) {
     .trim()
 
   let invitee_email = ""
-  const em = text.match(/\[.*?mailto:(.*?)\]/)
-  if (em) {
-    invitee_email = em[1].trim().toLowerCase()
-  } else {
-    const em_fallback = text.match(/[\w\.-]+@[\w\.-]+\.\w+/)
-    if (em_fallback) {
-      invitee_email = em_fallback[0].trim().toLowerCase()
+  // 1. Try targeting "Invitee Email:" explicitly
+  const inviteeEmailMatch = text.match(/\*\*Invitee Email:\*\*\s*(?:\n|\s)*\[?(mailto:)?([^\]\)\s]+)/i) || text.match(/Invitee Email:\s*(?:\n|\s)*\[?(mailto:)?([^\]\)\s]+)/i)
+  if (inviteeEmailMatch) {
+    invitee_email = inviteeEmailMatch[2].replace(/mailto:/i, '').trim().toLowerCase()
+  }
+
+  // 2. Fallback: extract all emails and filter out system/internal ones
+  if (!invitee_email || invitee_email.includes('calendly') || invitee_email.includes('achievepack') || invitee_email.includes('pouch.eco')) {
+    const allEmails = text.match(/[\w\.-]+@[\w\.-]+\.\w+/g) || []
+    const filtered = allEmails.map(e => e.trim().toLowerCase()).filter(e => {
+      return !e.includes('calendly') && 
+             !e.includes('achievepack') && 
+             !e.includes('pouch.eco')
+    })
+    if (filtered.length > 0) {
+      invitee_email = filtered[0]
     }
   }
 

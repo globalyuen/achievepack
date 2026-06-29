@@ -59,13 +59,22 @@ function parseInquiryContent(text, filename) {
     .trim();
 
   let invitee_email = "";
-  const em = text.match(/\[.*?mailto:(.*?)\]/);
-  if (em) {
-    invitee_email = em[1].trim().toLowerCase();
-  } else {
-    const em_fallback = text.match(/[\w\.-]+@[\w\.-]+\.\w+/);
-    if (em_fallback) {
-      invitee_email = em_fallback[0].trim().toLowerCase();
+  // 1. Try targeting "Invitee Email:" explicitly
+  const inviteeEmailMatch = text.match(/\*\*Invitee Email:\*\*\s*(?:\n|\s)*\[?(mailto:)?([^\]\)\s]+)/i) || text.match(/Invitee Email:\s*(?:\n|\s)*\[?(mailto:)?([^\]\)\s]+)/i);
+  if (inviteeEmailMatch) {
+    invitee_email = inviteeEmailMatch[2].replace(/mailto:/i, '').trim().toLowerCase();
+  }
+
+  // 2. Fallback: extract all emails and filter out system/internal ones
+  if (!invitee_email || invitee_email.includes('calendly') || invitee_email.includes('achievepack') || invitee_email.includes('pouch.eco')) {
+    const allEmails = text.match(/[\w\.-]+@[\w\.-]+\.\w+/g) || [];
+    const filtered = allEmails.map(e => e.trim().toLowerCase()).filter(e => {
+      return !e.includes('calendly') && 
+             !e.includes('achievepack') && 
+             !e.includes('pouch.eco');
+    });
+    if (filtered.length > 0) {
+      invitee_email = filtered[0];
     }
   }
 
@@ -131,7 +140,7 @@ async function uploadBatchWithRetries(batch, batchIndex, retries = 3) {
     try {
       const { error } = await supabase
         .from('calendly_inquiries')
-        .upsert(batch, { onConflict: 'id', ignoreDuplicates: true });
+        .upsert(batch, { onConflict: 'id' }); // NOTE: we removed ignoreDuplicates: true here so we force update the emails in the database!
 
       if (error) {
         throw error;
@@ -185,30 +194,46 @@ async function syncToSupabase() {
   const inquiries = Array.from(meetings.values());
   console.log(`Parsed ${inquiries.length} unique Calendly inquiries from files.`);
 
+  // First, fetch existing status/notes from Supabase so we don't wipe out Ryan's custom entries on upsert!
+  console.log('Fetching existing inquiries status/notes from Supabase to preserve them...');
+  const { data: existingData, error: fetchErr } = await supabase
+    .from('calendly_inquiries')
+    .select('id, status, notes');
+
+  const existingMap = new Map();
+  if (!fetchErr && existingData) {
+    existingData.forEach(item => {
+      existingMap.set(item.id, { status: item.status, notes: item.notes });
+    });
+    console.log(`Loaded ${existingMap.size} existing items to preserve notes/status.`);
+  }
+
   const batchSize = 50;
   let successCount = 0;
 
   for (let i = 0; i < inquiries.length; i += batchSize) {
-    const batch = inquiries.slice(i, i + batchSize).map(item => ({
-      id: item.id,
-      name: item.name,
-      email: item.email || null,
-      phone: item.phone || null,
-      meeting_time: item.meeting_time || null,
-      duration: item.duration || null,
-      inquiry: item.inquiry || null,
-      raw_date: item.raw_date || null,
-      source_file: item.source_file || null,
-      status: '未跟進',
-      notes: ''
-    }));
+    const batch = inquiries.slice(i, i + batchSize).map(item => {
+      const saved = existingMap.get(item.id) || { status: '未跟進', notes: '' };
+      return {
+        id: item.id,
+        name: item.name,
+        email: item.email || null,
+        phone: item.phone || null,
+        meeting_time: item.meeting_time || null,
+        duration: item.duration || null,
+        inquiry: item.inquiry || null,
+        raw_date: item.raw_date || null,
+        source_file: item.source_file || null,
+        status: saved.status,
+        notes: saved.notes
+      };
+    });
 
     const ok = await uploadBatchWithRetries(batch, i);
     if (ok) {
       successCount += batch.length;
       console.log(`Synced batch of ${batch.length} inquiries (${successCount}/${inquiries.length})...`);
     }
-    // Add small cooling delay between batch requests
     await delay(300);
   }
 
