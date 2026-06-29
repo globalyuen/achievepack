@@ -718,6 +718,10 @@ const NotFoundPage = lazyWithRetry(() => import('./pages/NotFoundPage'))
 // Reviews Page - Lazy loaded
 const ReviewsPage = lazyWithRetry(() => import('./pages/ReviewsPage'))
 
+// EP Shop Pages - Lazy loaded
+const PouchShopPage = lazyWithRetry(() => import('./pages/pouch/PouchShopPage'))
+const PouchProductDetailPage = lazyWithRetry(() => import('./pages/pouch/PouchProductDetailPage'))
+
 // Artwork Batch Pages - Lazy loaded
 const ArtworkBatchesPage = lazyWithRetry(() => import('./pages/ArtworkBatchesPage'))
 const ArtworkReviewPage = lazyWithRetry(() => import('./pages/ArtworkReviewPage'))
@@ -770,6 +774,8 @@ if (getDomain() === 'pouch') {
                     <Suspense fallback={<PageLoader />}>
                       <MultilingualRoutes>
                         <Route path="/" element={<PouchHomePage />} />
+                        <Route path="/shop" element={<PouchShopPage />} />
+                        <Route path="/shop/:productId" element={<PouchProductDetailPage />} />
                         <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                   <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
                   <Route path="/dieline-creator" element={<PouchDielineCreatorPage />} />
@@ -1202,6 +1208,8 @@ if (getDomain() === 'pouch') {
                     <Suspense fallback={<PageLoader />}>
                       <MultilingualRoutes>
                         <Route path="/" element={<App />} />
+                        <Route path="/shop" element={<PouchShopPage />} />
+                        <Route path="/shop/:productId" element={<PouchProductDetailPage />} />
                         <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                         <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
                         <Route path="/dieline-creator" element={<PouchDielineCreatorPage />} />
