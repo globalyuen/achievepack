@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { FEATURED_PRODUCTS } from '../src/store/productData';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,7 +17,7 @@ function getTodayDateString() {
 }
 
 // Helper to determine sitemap parameters dynamically
-function getSitemapParams(route) {
+function getSitemapParams(route: string) {
   if (route === '/' || route === '') {
     return { changefreq: 'daily', priority: '1.0' };
   }
@@ -25,8 +26,13 @@ function getSitemapParams(route) {
   const firstSegment = segments[0];
 
   // Core hubs
-  if (segments.length === 1 && ['blog', 'store', 'products', 'materials', 'solutions', 'packaging', 'industry'].includes(firstSegment)) {
+  if (segments.length === 1 && ['blog', 'store', 'shop', 'products', 'materials', 'solutions', 'packaging', 'industry'].includes(firstSegment)) {
     return { changefreq: 'weekly', priority: '0.9' };
+  }
+  
+  // Product detail pages
+  if (firstSegment === 'shop' || (firstSegment === 'store' && segments[1] === 'product')) {
+    return { changefreq: 'weekly', priority: '0.8' };
   }
   
   // Blog articles and persona solutions
@@ -39,7 +45,7 @@ function getSitemapParams(route) {
     return { changefreq: 'monthly', priority: '0.7' };
   }
   
-  // Custom dashboard / control centers (should be lower or excluded - let's set 0.3 for admin / control routes)
+  // Custom dashboard / control centers (should be excluded)
   if (firstSegment === 'ctrl-x9k7m' || firstSegment === 'dashboard') {
     return { changefreq: 'monthly', priority: '0.3' };
   }
@@ -48,7 +54,7 @@ function getSitemapParams(route) {
 }
 
 // Helper to get alternate language links for a route
-function getAlternateLinks(domain, route) {
+function getAlternateLinks(domain: string, route: string) {
   const cleanRoute = route === '/' ? '' : route;
   return [
     { lang: 'x-default', href: `${domain}${cleanRoute}` },
@@ -59,8 +65,8 @@ function getAlternateLinks(domain, route) {
   ];
 }
 
-// Generate single sitemap content
-function buildSitemapXml(domain, routes) {
+// Generate sitemap content
+function buildSitemapXml(domain: string, routes: string[]) {
   const today = getTodayDateString();
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n`;
@@ -72,11 +78,10 @@ function buildSitemapXml(domain, routes) {
   // Filter out duplicate trailing slash / root duplicates
   const uniqueRoutes = Array.from(new Set(routes.map(r => r === '/' ? '' : r))).sort();
   
-// Ensure homepage is first
+  // Ensure homepage is first
   if (!uniqueRoutes.includes('')) {
     uniqueRoutes.unshift('');
   } else {
-    // move root to front
     const index = uniqueRoutes.indexOf('');
     if (index > -1) {
       uniqueRoutes.splice(index, 1);
@@ -134,25 +139,36 @@ function generate() {
 
   // Dynamic published Soro articles
   const autopilotStatePath = path.join(__dirname, '../src/data/autopilot_state.json');
-  let dynamicBlogRoutes = [];
+  let dynamicBlogRoutes: string[] = [];
   if (fs.existsSync(autopilotStatePath)) {
     try {
       const apState = JSON.parse(fs.readFileSync(autopilotStatePath, 'utf-8'));
       if (apState && apState.keywordBank) {
         dynamicBlogRoutes = apState.keywordBank
-          .filter(k => k.status === 'Published' && k.slug)
-          .map(k => `/blog/${k.slug}`);
+          .filter((k: any) => k.status === 'Published' && k.slug)
+          .map((k: any) => `/blog/${k.slug}`);
         console.log(`📡 Loaded ${dynamicBlogRoutes.length} dynamic blog routes from autopilot_state.json`);
       }
-    } catch (e) {
+    } catch (e: any) {
       console.warn('⚠️ Could not load dynamic blog routes from autopilot_state.json:', e.message);
     }
   }
 
-  const pouchRoutes = [...(mapping.pouch || []), ...dynamicBlogRoutes];
-  const achieveRoutes = [...(mapping.achieve || []), ...dynamicBlogRoutes];
+  // Dynamic products sitemap injection
+  const productB2CRoutes = FEATURED_PRODUCTS.map(p => `/shop/${p.id}`);
+  const productB2BRoutes = FEATURED_PRODUCTS.map(p => `/store/product/${p.id}`);
+  console.log(`🛍️ Found ${FEATURED_PRODUCTS.length} products to inject into sitemaps.`);
 
-  console.log(`📊 Loaded ${pouchRoutes.length} B2C (pouch) and ${achieveRoutes.length} B2B (achieve) routes.`);
+  // Merge lists and include core shop route
+  const basePouchRoutes = mapping.pouch || [];
+  if (!basePouchRoutes.includes('/shop')) {
+    basePouchRoutes.push('/shop');
+  }
+
+  const pouchRoutes = [...basePouchRoutes, ...dynamicBlogRoutes, ...productB2CRoutes];
+  const achieveRoutes = [...(mapping.achieve || []), ...dynamicBlogRoutes, ...productB2BRoutes];
+
+  console.log(`📊 Loaded ${pouchRoutes.length} B2C (pouch.eco) and ${achieveRoutes.length} B2B (achievepack) routes.`);
 
   // 1. Generate pouch.eco B2C sitemap
   console.log('✍️ Generating sitemap-pouch.xml...');
@@ -179,7 +195,7 @@ function generate() {
   // Add Pouch routes
   pouchRoutes.forEach(route => {
     if (route.includes('ctrl-x9k7m') || route.includes('dashboard')) {
-      return; // Skip admin/dashboard routes entirely
+      return;
     }
     const cleanRoute = route === '/' ? '' : route;
     const { changefreq, priority } = getSitemapParams(route);
@@ -210,7 +226,7 @@ function generate() {
   // Add Achieve routes
   achieveRoutes.forEach(route => {
     if (route.includes('ctrl-x9k7m') || route.includes('dashboard')) {
-      return; // Skip admin/dashboard routes entirely
+      return;
     }
     const cleanRoute = route === '/' ? '' : route;
     const { changefreq, priority } = getSitemapParams(route);

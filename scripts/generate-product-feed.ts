@@ -6,8 +6,8 @@ import { FEATURED_PRODUCTS } from '../src/store/productData';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const OUTPUT_PATH = path.join(__dirname, '../public/google-merchant-feed.xml');
-const BASE_URL = 'https://achievepack.com';
+const OUTPUT_PATH_ACHIEVE = path.join(__dirname, '../public/google-merchant-feed.xml');
+const OUTPUT_PATH_POUCH = path.join(__dirname, '../public/google-merchant-feed-pouch.xml');
 
 function escapeXml(unsafe: string): string {
   return unsafe
@@ -18,17 +18,23 @@ function escapeXml(unsafe: string): string {
     .replace(/'/g, '&apos;');
 }
 
-function generateFeed() {
-  console.log('🔄 Starting high-fidelity Google Merchant Feed generation...');
+function generateFeed(domain: 'pouch' | 'achieve') {
+  const isPouch = domain === 'pouch';
+  const brandName = isPouch ? 'Pouch.eco' : 'Achieve Pack';
+  const baseUrl = isPouch ? 'https://www.pouch.eco' : 'https://achievepack.com';
+  const outputPath = isPouch ? OUTPUT_PATH_POUCH : OUTPUT_PATH_ACHIEVE;
+
+  console.log(`🔄 Starting high-fidelity Google Merchant Feed generation for ${brandName}...`);
 
   const items = FEATURED_PRODUCTS.map((product) => {
     const id = product.id;
-    const gmcId = id.length > 50 ? id.substring(0, 50) : id;
+    const gmcId = isPouch ? `pouch-${id}` : id;
     const title = escapeXml(product.name);
-    const link = `${BASE_URL}/store/product/${id}`;
+    const productPath = isPouch ? `/shop/${id}` : `/store/product/${id}`;
+    const link = `${baseUrl}${productPath}`;
     
     // Ensure image URLs are absolute
-    const imageUrls = product.images.map(img => img.startsWith('http') ? img : `${BASE_URL}${img}`);
+    const imageUrls = product.images.map(img => img.startsWith('http') ? img : `${baseUrl}${img}`);
     const primaryImage = imageUrls[0] || '';
     const additionalImages = imageUrls.slice(1, 11); // Up to 10 extra images
     
@@ -129,7 +135,12 @@ function generateFeed() {
     if (size) richDescription += `\n• Available Sizing: ${size}`;
     if (product.turnaround) richDescription += `\n• Production Turnaround: ${product.turnaround}`;
     if (product.minOrder) richDescription += `\n• Minimum Order Quantity (MOQ): ${product.minOrder} units`;
-    richDescription += `\n\nAchieve Pack specializes in high-quality, professional B2B and B2C custom packaging solutions. Our products are engineered for maximum durability, shelf appeal, and sustainable performance. Perfect for startups, retail brands, and industrial suppliers seeking customizable pouches, sustainable bags, and branded mailer packaging. Fully compliant with modern environmental standards. Order your custom printed packaging sample packs or retail collections today!`;
+    
+    if (isPouch) {
+      richDescription += `\n\nPouch.eco is your premium partner for high-quality, professional B2C sustainable and compostable custom packaging solutions. Our products are engineered for maximum durability, premium retail aesthetics, and certified eco-friendly performance. Ideal for direct-to-consumer (DTC) brands, eco-conscious startups, and retail suppliers looking for compostable pouches, bio-PE bags, and recyclable barrier packaging. Completely plastic-free options available. Order assorted eco sample packs or request custom pricing online!`;
+    } else {
+      richDescription += `\n\nAchieve Pack specializes in high-quality, professional B2B and B2C custom packaging solutions. Our products are engineered for maximum durability, shelf appeal, and sustainable performance. Perfect for startups, retail brands, and industrial suppliers seeking customizable pouches, sustainable bags, and branded mailer packaging. Fully compliant with modern environmental standards. Order your custom printed packaging sample packs or retail collections today!`;
+    }
 
     const descriptionEscaped = escapeXml(richDescription);
 
@@ -148,7 +159,7 @@ function generateFeed() {
       <g:condition>new</g:condition>
       <g:availability>${inStock}</g:availability>
       <g:price>${priceStr}</g:price>
-      <g:brand>Achieve Pack</g:brand>
+      <g:brand>${brandName}</g:brand>
       <g:google_product_category>${googleCategory}</g:google_product_category>
       <g:product_type>${productType}</g:product_type>
       <g:identifier_exists>no</g:identifier_exists>`;
@@ -181,22 +192,23 @@ function generateFeed() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
-    <title>Achieve Pack Product Feed</title>
-    <link>${BASE_URL}</link>
-    <description>Sustainable and Custom Packaging Solutions - Automated Feed</description>
+    <title>${brandName} Product Feed</title>
+    <link>${baseUrl}</link>
+    <description>${isPouch ? 'Eco-Friendly DTC Packaging Feed' : 'Sustainable B2B Packaging Solutions Feed'}</description>
 ${items.join('\n')}
   </channel>
 </rss>`;
 
-  fs.writeFileSync(OUTPUT_PATH, xml, 'utf-8');
-  console.log(`✅ Google Merchant Feed generated successfully!`);
+  fs.writeFileSync(outputPath, xml, 'utf-8');
+  console.log(`✅ Google Merchant Feed generated successfully for ${brandName}!`);
   console.log(`📝 Generated ${items.length} products`);
-  console.log(`📍 Saved to: ${OUTPUT_PATH}`);
+  console.log(`📍 Saved to: ${outputPath}`);
 }
 
 try {
-  generateFeed();
+  generateFeed('achieve');
+  generateFeed('pouch');
 } catch (error: any) {
-  console.error('❌ Error generating product feed:', error.message);
+  console.error('❌ Error generating product feeds:', error.message);
   process.exit(1);
 }

@@ -1,0 +1,38 @@
+const fs = require('fs');
+const content = fs.readFileSync('src/store/productData.ts', 'utf8');
+
+const start = content.indexOf('const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [');
+if (start !== -1) {
+  const sub = content.substring(start);
+  const regex = /id:\s*['"]([^'"]+)['"]/g;
+  let match;
+  const blocks = [];
+  while ((match = regex.exec(sub)) !== null) {
+    blocks.push({ id: match[1], index: match.index });
+  }
+
+  console.log('CONVENTIONAL_STOCK_PRODUCTS quote links:');
+  for (let i = 0; i < blocks.length; i++) {
+    const current = blocks[i];
+    const next = blocks[i + 1];
+    const blockText = sub.substring(current.index, next ? next.index : sub.length);
+    
+    if (blockText.includes('viewQuoteLink')) {
+      const nameMatch = blockText.match(/name:\s*['"]([^'"]+)['"]/);
+      const linkMatch = blockText.match(/viewQuoteLink:\s*['"]([^'"]+)['"]/);
+      const materialMatch = blockText.match(/material:\s*['"]([^'"]+)['"]/);
+      
+      console.log(`ID: ${current.id}`);
+      console.log(`  Name: ${nameMatch ? nameMatch[1] : 'Unknown'}`);
+      console.log(`  Material: ${materialMatch ? materialMatch[1] : 'Unknown'}`);
+      console.log(`  Link: ${linkMatch ? linkMatch[1] : 'None'}`);
+      console.log('----------------');
+    }
+    
+    if (blockText.includes('FEATURED_PRODUCTS')) {
+      break;
+    }
+  }
+} else {
+  console.log('CONVENTIONAL_STOCK_PRODUCTS array not found.');
+}
