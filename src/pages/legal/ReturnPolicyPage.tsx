@@ -3,18 +3,22 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Leaf, RefreshCw, AlertCircle, CheckCircle, Package, Mail, Phone } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
+import { isPouch, getBrandConfig, getBaseUrl } from '../../utils/domain'
 import Footer from '../../components/Footer'
+import StoreFooter from '../../components/StoreFooter'
 
 const ReturnPolicyPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.returnPolicy'
+  const isPouchDomain = isPouch()
+  const brand = getBrandConfig()
 
   return (
     <>
       <Helmet>
-        <title>{t(`${p}.metaTitle`)}</title>
-        <meta name="description" content={t(`${p}.metaDesc`)} />
-        <link rel="canonical" href="https://achievepack.com/return-policy" />
+        <title>{isPouchDomain ? `Return & Refund Policy | Pouch.eco` : t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={isPouchDomain ? `Return and refund policy for Pouch.eco. Learn about our food-grade safety guidelines and defect claims.` : t(`${p}.metaDesc`)} />
+        <link rel="canonical" href={`${getBaseUrl()}/return-policy`} />
       </Helmet>
 
       <div className="min-h-screen bg-neutral-50">
@@ -26,17 +30,17 @@ const ReturnPolicyPage: React.FC = () => {
             </Link>
             <Link to="/" className="flex items-center gap-2">
               <Leaf className="h-6 w-6 text-primary-600" />
-              <span className="text-xl font-bold text-primary-600">AchievePack</span>
+              <span className="text-xl font-bold text-primary-600">{brand.name}</span>
             </Link>
           </div>
         </header>
 
         {/* Hero */}
-        <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+        <section className={`bg-gradient-to-br ${isPouchDomain ? 'from-green-600 to-green-800' : 'from-blue-600 to-blue-800'} text-white py-16`}>
           <div className="max-w-4xl mx-auto px-4 text-center">
             <RefreshCw className="h-12 w-12 text-blue-200 mx-auto mb-4" />
             <h1 className="text-4xl font-bold mb-4">{t(`${p}.returnAndRefund`)}</h1>
-            <p className="text-blue-100">{t(`${p}.returnSubtitle`)}</p>
+            <p className="text-blue-100">{isPouchDomain ? 'Clear, fair, and straightforward policies for our packaging storefront.' : t(`${p}.returnSubtitle`)}</p>
           </div>
         </section>
 
@@ -45,9 +49,9 @@ const ReturnPolicyPage: React.FC = () => {
           <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-8 space-y-8">
             
             {/* Quick Summary */}
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-              <h2 className="font-semibold text-blue-800 mb-2">{t(`${p}.quickSummary`)}</h2>
-              <ul className="text-sm text-blue-700 space-y-1">
+            <div className={`border-l-4 p-4 rounded-r-lg ${isPouchDomain ? 'bg-green-50 border-green-500 text-green-700' : 'bg-blue-50 border-blue-500 text-blue-700'}`}>
+              <h2 className={`font-semibold mb-2 ${isPouchDomain ? 'text-green-800' : 'text-blue-800'}`}>{t(`${p}.quickSummary`)}</h2>
+              <ul className="text-sm space-y-1">
                 <li>• <strong>No Physical Returns:</strong> Due to food safety and hygiene regulations, we cannot accept physical returns of packaging materials.</li>
                 <li>• <strong>Custom Printed Packaging:</strong> Non-refundable unless there is a confirmed manufacturing defect.</li>
                 <li>• <strong>Defective Items:</strong> Must be reported within 14 days and destroyed with proof.</li>
@@ -62,7 +66,7 @@ const ReturnPolicyPage: React.FC = () => {
               </h2>
               <div className="text-neutral-700 space-y-4">
                 <p className="font-medium text-red-700">
-                  As a supplier of food-grade packaging, Achieve Pack maintains strict hygiene and safety protocols.
+                  As a supplier of food-grade packaging, {brand.name} maintains strict hygiene and safety protocols.
                 </p>
                 
                 <div className="my-8 rounded-2xl overflow-hidden shadow-lg border border-neutral-200">
@@ -166,7 +170,7 @@ const ReturnPolicyPage: React.FC = () => {
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg mt-4">
                   <h3 className="font-semibold text-amber-800 mb-2">Artwork Approval</h3>
                   <p className="text-sm text-amber-700">
-                    We require formal digital proof approval before starting any custom production. Please review all proofs carefully for spelling, colors, layout, and dimensions. Achieve Pack is not responsible for errors approved by the client during the proofing stage.
+                    We require formal digital proof approval before starting any custom production. Please review all proofs carefully for spelling, colors, layout, and dimensions. {brand.name} is not responsible for errors approved by the client during the proofing stage.
                   </p>
                 </div>
               </div>
@@ -209,11 +213,11 @@ const ReturnPolicyPage: React.FC = () => {
                 <div className="bg-neutral-50 p-4 rounded-lg">
                   <div className="flex items-center gap-2 text-neutral-700">
                     <Mail className="h-4 w-4 text-primary-600" />
-                    <a href="mailto:ryan@achievepack.com" className="hover:text-primary-600">ryan@achievepack.com</a>
+                    <a href={`mailto:${brand.email}`} className="hover:text-primary-600">{brand.email}</a>
                   </div>
                   <div className="flex items-center gap-2 mt-2 text-neutral-700">
                     <Phone className="h-4 w-4 text-primary-600" />
-                    <a href="tel:+85269704411" className="hover:text-primary-600">+852 6970 4411</a>
+                    <a href={`tel:${brand.phone.replace(/[^+\d]/g, '')}`} className="hover:text-primary-600">{brand.phone}</a>
                   </div>
                   <p className="text-sm mt-3">Please include your Order ID and the reason for the return in your message.</p>
                 </div>
@@ -224,14 +228,14 @@ const ReturnPolicyPage: React.FC = () => {
 
           {/* Back to Home */}
           <div className="text-center mt-8">
-            <Link to="/" className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition">
+            <Link to="/" className={`inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold transition ${isPouchDomain ? 'bg-green-600 hover:bg-green-700' : 'bg-primary-600 hover:bg-primary-700'}`}>
               <ArrowLeft className="h-5 w-5" /> Back to Home
             </Link>
           </div>
         </div>
 
         {/* Footer */}
-        <Footer />
+        {isPouchDomain ? <Footer /> : <StoreFooter />}
       </div>
     </>
   )
