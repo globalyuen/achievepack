@@ -15,6 +15,7 @@ export type ProductSubCategory =
   | 'boxes'                     // Custom: Boxes
   | 'custom-pouches'            // Custom: Custom Pouches with Live Quote
   | '3d-print'                  // 3D Printing Filament / Rollstock
+  | 'reusable'                  // Reusable Containers / Canisters
 
 // Legacy product interface (keeping for backward compatibility)
 export interface PouchProduct {
@@ -1063,6 +1064,241 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
+  {
+    id: 'reusable-acrylic-airtight-canister',
+    name: 'Reusable Acrylic Airtight Canister',
+    category: 'eco-stock',
+    subCategory: 'reusable',
+    description: 'A premium, highly durable, and reusable acrylic airtight canister designed for dry goods, tea, coffee, herbs, and beauty products. Engineered with a food-grade, high-clarity acrylic body and an airtight double-layer protective gold cap with silicone gasket to ensure long-term freshness and moisture preservation. A sustainable alternative to single-use retail packaging, optimized for continuous home and commercial refilling.',
+    shortDesc: 'Premium reusable acrylic storage canister with double-layer airtight gold cap',
+    features: [
+      "Zero Waste Circular Design: Engineered for infinite washing and refilling cycles to replace single-use packaging.",
+      "High-Clarity Food-Grade Acrylic: Elegant glass-like transparency with high shatter resistance and low shipping weight.",
+      "Dual-Layer Gold Screw Cap: Double-layer protection cap with food-grade internal threads for a leak-proof, airtight seal.",
+      "Silicone Sealing Gasket: Marine-grade freshness preservation protecting contents from air and humidity.",
+      "Multiple Size Classifications: Available in 20 exact capacities from 100ml to 400ml to match any retail shelf space."
+    ],
+    images: [
+      '/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-1.jpg',
+      '/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-2.jpg'
+    ],
+    badge: '🔄 Reusable Canister',
+    rating: 4.8,
+    reviews: 14,
+    inStock: true,
+    turnaround: '12-15 days',
+    minOrder: 100,
+    shape: 'Airtight Canister',
+    material: 'High-Clarity Food-Grade Acrylic & Double-Layer Gold Cap',
+    basePrice: 146,
+    pricePerPiece: 1.46,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '55x100mm to 88x140mm',
+    sizeWithQuantities: [
+      {
+        id: 'reusable-canister-88-140',
+        label: '88*140 Gold Double-Layer (400ml)',
+        dimensions: '88*140mm • 400ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 3.22, totalPrice: 322.0 },
+          { quantity: 500, unitPrice: 2.90, totalPrice: 1450.0 },
+          { quantity: 1000, unitPrice: 2.58, totalPrice: 2580.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-88-110-thin',
+        label: '88*110 Gold Double-Layer (Thin) (300ml)',
+        dimensions: '88*110mm • 300ml • Gold Cap (Thin)',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 2.94, totalPrice: 294.0 },
+          { quantity: 500, unitPrice: 2.65, totalPrice: 1325.0 },
+          { quantity: 1000, unitPrice: 2.35, totalPrice: 2350.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-88-110-red',
+        label: '88*110 Red Double-Layer (350ml)',
+        dimensions: '88*110mm • 350ml • Red Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.96, totalPrice: 196.0 },
+          { quantity: 500, unitPrice: 1.76, totalPrice: 880.0 },
+          { quantity: 1000, unitPrice: 1.57, totalPrice: 1570.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-88-90',
+        label: '88*90 Gold Double-Layer (300ml)',
+        dimensions: '88*90mm • 300ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.82, totalPrice: 182.0 },
+          { quantity: 500, unitPrice: 1.64, totalPrice: 820.0 },
+          { quantity: 1000, unitPrice: 1.46, totalPrice: 1460.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-88-85',
+        label: '88*85 Gold Double-Layer (250ml)',
+        dimensions: '88*85mm • 250ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 2.24, totalPrice: 224.0 },
+          { quantity: 500, unitPrice: 2.02, totalPrice: 1010.0 },
+          { quantity: 1000, unitPrice: 1.79, totalPrice: 1790.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-88-60',
+        label: '88*60 Gold Double-Layer (150ml)',
+        dimensions: '88*60mm • 150ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.93, totalPrice: 193.0 },
+          { quantity: 500, unitPrice: 1.74, totalPrice: 870.0 },
+          { quantity: 1000, unitPrice: 1.54, totalPrice: 1540.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-80-100',
+        label: '80*100 Gold Double-Layer (200ml)',
+        dimensions: '80*100mm • 200ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 2.02, totalPrice: 202.0 },
+          { quantity: 500, unitPrice: 1.82, totalPrice: 910.0 },
+          { quantity: 1000, unitPrice: 1.62, totalPrice: 1620.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-70-160',
+        label: '70*160 Gold Double-Layer (300ml)',
+        dimensions: '70*160mm • 300ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 2.66, totalPrice: 266.0 },
+          { quantity: 500, unitPrice: 2.39, totalPrice: 1195.0 },
+          { quantity: 1000, unitPrice: 2.13, totalPrice: 2130.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-70-125',
+        label: '70*125 Gold Double-Layer (200ml)',
+        dimensions: '70*125mm • 200ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.96, totalPrice: 196.0 },
+          { quantity: 500, unitPrice: 1.76, totalPrice: 880.0 },
+          { quantity: 1000, unitPrice: 1.57, totalPrice: 1570.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-70-120-thin',
+        label: '70*120 Gold Double-Layer (Thin) (260ml)',
+        dimensions: '70*120mm • 260ml • Gold Cap (Thin)',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.68, totalPrice: 168.0 },
+          { quantity: 500, unitPrice: 1.51, totalPrice: 755.0 },
+          { quantity: 1000, unitPrice: 1.34, totalPrice: 1340.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-70-90',
+        label: '70*90 Gold Double-Layer (150ml)',
+        dimensions: '70*90mm • 150ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.90, totalPrice: 190.0 },
+          { quantity: 500, unitPrice: 1.71, totalPrice: 855.0 },
+          { quantity: 1000, unitPrice: 1.52, totalPrice: 1520.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-60-130',
+        label: '60*130 Gold Double-Layer (180ml)',
+        dimensions: '60*130mm • 180ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.90, totalPrice: 190.0 },
+          { quantity: 500, unitPrice: 1.71, totalPrice: 855.0 },
+          { quantity: 1000, unitPrice: 1.52, totalPrice: 1520.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-60-100',
+        label: '60*100 Gold Double-Layer (135ml)',
+        dimensions: '60*100mm • 135ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.82, totalPrice: 182.0 },
+          { quantity: 500, unitPrice: 1.64, totalPrice: 820.0 },
+          { quantity: 1000, unitPrice: 1.46, totalPrice: 1460.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-60-95',
+        label: '60*95 Gold Double-Layer (120ml)',
+        dimensions: '60*95mm • 120ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.68, totalPrice: 168.0 },
+          { quantity: 500, unitPrice: 1.51, totalPrice: 755.0 },
+          { quantity: 1000, unitPrice: 1.34, totalPrice: 1340.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-60-80',
+        label: '60*80 Gold Double-Layer (100ml)',
+        dimensions: '60*80mm • 100ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.46, totalPrice: 146.0 },
+          { quantity: 500, unitPrice: 1.31, totalPrice: 655.0 },
+          { quantity: 1000, unitPrice: 1.17, totalPrice: 1170.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-57-111',
+        label: '57*111 Gold Double-Layer (120ml)',
+        dimensions: '57*111mm • 120ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.82, totalPrice: 182.0 },
+          { quantity: 500, unitPrice: 1.64, totalPrice: 820.0 },
+          { quantity: 1000, unitPrice: 1.46, totalPrice: 1460.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-55-125-inner',
+        label: '55*125 Gold Inner-Liner (150ml)',
+        dimensions: '55*125mm • 150ml • Gold Inner-Liner',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 2.10, totalPrice: 210.0 },
+          { quantity: 500, unitPrice: 1.89, totalPrice: 945.0 },
+          { quantity: 1000, unitPrice: 1.68, totalPrice: 1680.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-55-100-inner',
+        label: '55*100 Gold Inner-Liner (100ml)',
+        dimensions: '55*100mm • 100ml • Gold Inner-Liner',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.82, totalPrice: 182.0 },
+          { quantity: 500, unitPrice: 1.64, totalPrice: 820.0 },
+          { quantity: 1000, unitPrice: 1.46, totalPrice: 1460.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-55-125',
+        label: '55*125 Gold Double-Layer (150ml)',
+        dimensions: '55*125mm • 150ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.82, totalPrice: 182.0 },
+          { quantity: 500, unitPrice: 1.64, totalPrice: 820.0 },
+          { quantity: 1000, unitPrice: 1.46, totalPrice: 1460.0 }
+        ]
+      },
+      {
+        id: 'reusable-canister-55-100',
+        label: '55*100 Gold Double-Layer (120ml)',
+        dimensions: '55*100mm • 120ml • Gold Cap',
+        quantityOptions: [
+          { quantity: 100, unitPrice: 1.54, totalPrice: 154.0 },
+          { quantity: 500, unitPrice: 1.39, totalPrice: 695.0 },
+          { quantity: 1000, unitPrice: 1.23, totalPrice: 1230.0 }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom pad printing and labels are available from 100+ units. Please consult our team.'
+  },
   {
     id: 'spouted-stand-up-pouch-bio-pe',
     name: 'Bio-PE Spouted Stand Up Pouch',

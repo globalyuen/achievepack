@@ -115,6 +115,7 @@ export default function Footer() {
               <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.combustionSafetyTest', 'Combustion Safety Test')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/materials/conventional-printed-sachets" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.conventionalPrintedSachets', 'Conventional Printed Sachets')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/topics/eu-ppwr-compliance" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.euPpwrCompliance', 'EU PPWR Compliance')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/reusable-packaging" className="hover:text-primary-400 font-medium text-primary-400">Reusable Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
           

@@ -1,11 +1,11 @@
 {
   "generated": "2026-06-30",
-  "total_images": 4520,
+  "total_images": 4522,
   "total_categories": 173,
   "extensions": {
     ".webp": 1313,
     ".png": 2972,
-    ".jpg": 232,
+    ".jpg": 234,
     ".svg": 3
   },
   "categories": {
@@ -23850,8 +23850,20 @@
       ]
     },
     "store/products": {
-      "count": 322,
+      "count": 324,
       "images": [
+        {
+          "filename": "reusable-acrylic-airtight-canister-thumbnail-2.jpg",
+          "path": "/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-30T08:14:22.964Z"
+        },
+        {
+          "filename": "reusable-acrylic-airtight-canister-thumbnail-1.jpg",
+          "path": "/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-30T08:14:22.961Z"
+        },
         {
           "filename": "compostable-citrus-orange-filament-rollstock-seaweed.png",
           "path": "/imgs/store/products/compostable-citrus-orange-filament-rollstock-seaweed.png",

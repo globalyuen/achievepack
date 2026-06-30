@@ -802,7 +802,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/industry/brown-white-kraft" className="hover:underline">Brown vs White Kraft <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
                 <li><Link to="/industry/kraft-window-pouch" className="hover:underline">Kraft Window Pouches <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
                 <li><Link to="/industry/eco-friendly-tea-coffee" className="hover:underline">Eco Coffee & Tea Bags <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/durable-reusable-pouches" className="hover:underline">Eco-Friendly Ziplock Pouches <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
+                <li><Link to="/industry/durable-reusable-pouches" className="hover:underline">{t('pouchLayoutFooter.links.durableReusable', 'Eco-Friendly Ziplock Pouches')}</Link></li>
+                <li><Link to="/knowledge/reusable-packaging" className="hover:underline text-[#10b981]">Reusable Canisters <span className="bg-black text-[#D4FF00] text-[9px] px-1 py-0.5 ml-1 border border-black font-black uppercase">New</span></Link></li>
               </ul>
             </div>
             <div>
@@ -921,6 +922,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:underline text-cyan-600">[OCEAN PLASTIC]</Link></li>
                     <li><Link to="/topics/compostable-zipper-durability" className="hover:underline text-emerald-600">[ZIPPER DURABILITY]</Link></li>
                     <li><Link to="/knowledge/pha-vs-pla" className="hover:underline text-[#D4FF00] bg-black px-1">[PHA VS PLA]</Link></li>
+                    <li><Link to="/knowledge/reusable-packaging" className="hover:underline text-[#D4FF00] bg-black px-1">[REUSABLE PACK]</Link></li>
                   </ul>
                 </div>
                 <div>
@@ -971,7 +973,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 { name: 'CITRUS_OIL', path: '/solutions/citrus-oil-packaging', color: 'bg-[#D4FF00]' },
                 { name: 'STAMP_FOIL', path: '/blog/stamp-foil-recyclability', color: 'bg-[#D4FF00]' },
                 { name: 'PHA_VS_PLA', path: '/knowledge/pha-vs-pla', color: 'bg-[#D4FF00]' },
-
+                { name: 'REUSABLE_PACK', path: '/knowledge/reusable-packaging', color: 'bg-[#D4FF00]' },
               ].map((topic, i) => (
                 <Link 
                   key={i}

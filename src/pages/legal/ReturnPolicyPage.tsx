@@ -203,6 +203,37 @@ const ReturnPolicyPage: React.FC = () => {
                   <li><strong>Replacement:</strong> We will expedite a reprint/remake of the defective items at no additional cost.</li>
                   <li><strong>Refund:</strong> If a replacement is not possible or desired, a refund will be issued to your original payment method.</li>
                 </ul>
+
+                {/* Structured Return Costs & Restocking Fee Table for Google Merchant Center / Store Quality */}
+                <h3 className="font-semibold text-neutral-900 mt-6">Return Costs & Restocking Fees (退貨費用與手續費)</h3>
+                <div className="overflow-x-auto border border-neutral-200 rounded-lg my-4">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-neutral-200 bg-neutral-50 text-neutral-700">
+                        <th className="text-left py-3 px-4 font-semibold">Fee Type (費用項目)</th>
+                        <th className="text-left py-3 px-4 font-semibold">Cost (金額)</th>
+                        <th className="text-left py-3 px-4 font-semibold">Details (說明)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-neutral-600">
+                      <tr className="border-b border-neutral-100">
+                        <td className="py-3 px-4 font-medium text-neutral-900">Return Shipping (退貨運費)</td>
+                        <td className="py-3 px-4 text-green-600 font-semibold">$0.00 (Free / 免運)</td>
+                        <td className="py-3 px-4">For food safety/hygiene, we do not accept physical returns. No return shipping is required.</td>
+                      </tr>
+                      <tr className="border-b border-neutral-100">
+                        <td className="py-3 px-4 font-medium text-neutral-900">Restocking Fee (上架手續費)</td>
+                        <td className="py-3 px-4 text-neutral-900">$0.00 (None / 無)</td>
+                        <td className="py-3 px-4">We never charge restocking or admin fees for any processed refund or defect replacement.</td>
+                      </tr>
+                      <tr className="border-b border-neutral-100">
+                        <td className="py-3 px-4 font-medium text-neutral-900">Replacement Shipping (換貨運費)</td>
+                        <td className="py-3 px-4 text-green-600 font-semibold">$0.00 (Free / 免運)</td>
+                        <td className="py-3 px-4">Replacements for verified defective goods are printed and shipped 100% free of charge.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </section>
 

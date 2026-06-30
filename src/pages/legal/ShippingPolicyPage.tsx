@@ -127,6 +127,40 @@ const ShippingPolicyPage: React.FC = () => {
                 <p>
                   {t(`${p}.shippingCostsAreCalculatedBase`)}</p>
                 
+                {/* Structured Shipping Rates Table for Google Merchant Center / Store Quality */}
+                <div className="overflow-x-auto border border-neutral-200 rounded-lg my-6">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-neutral-200 bg-neutral-50 text-neutral-700">
+                        <th className="text-left py-3 px-4 font-semibold">Service / Order Type (服務/訂單類型)</th>
+                        <th className="text-left py-3 px-4 font-semibold">Rate (運費)</th>
+                        <th className="text-left py-3 px-4 font-semibold">Coverage (適用地區)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-neutral-600">
+                      <tr className="border-b border-neutral-100">
+                        <td className="py-3 px-4 font-medium text-neutral-900">Sample Packs (樣品包)</td>
+                        <td className="py-3 px-4 text-neutral-900 font-semibold">$40.00 USD</td>
+                        <td className="py-3 px-4">Flat rate worldwide via Air Express (全球空運快遞)</td>
+                      </tr>
+                      <tr className="border-b border-neutral-100">
+                        <td className="py-3 px-4 font-medium text-neutral-900">Orders over $2,000 USD (滿額免運)</td>
+                        <td className="py-3 px-4 text-green-600 font-semibold">$0.00 (Free / 免運)</td>
+                        <td className="py-3 px-4">Standard Shipping (USA, UK, Canada, Australia, EU, East Asia)</td>
+                      </tr>
+                      <tr className="border-b border-neutral-100">
+                        <td className="py-3 px-4 font-medium text-neutral-900">Standard Orders (標準訂單)</td>
+                        <td className="py-3 px-4 text-neutral-900">From $15.00 USD</td>
+                        <td className="py-3 px-4">Calculated dynamically at checkout based on weight and volume</td>
+                      </tr>
+                      <tr className="border-b border-neutral-100">
+                        <td className="py-3 px-4 font-medium text-neutral-900">Custom Bulk Orders (大宗訂製)</td>
+                        <td className="py-3 px-4 text-neutral-900">Calculated Quote</td>
+                        <td className="py-3 px-4">Based on weight, volume, destination, and selected shipping method (Air/Sea)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
                   <h3 className="font-semibold text-amber-800 mb-2">{t(`${p}.importDutiesTaxes`)}</h3>

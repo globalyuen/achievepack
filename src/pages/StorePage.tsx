@@ -52,6 +52,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
       { id: 'eco-stock-plain', label: 'Eco Stock (Plain)', count: 5 },
       { id: 'conventional-stock-plain', label: 'Conventional Stock', count: 1 },
       { id: '3d-print', label: '3D Printing', count: 1 },
+      { id: 'reusable', label: 'Reusable Packaging', count: 1 },
     ]
   },
   {
@@ -85,6 +86,7 @@ const CATEGORIES = [
   { id: 'mailer', label: 'Mailer Bags' },
   { id: 'custom-pouches', label: 'Custom Pouches' },
   { id: '3d-print', label: '3D Printing' },
+  { id: 'reusable', label: 'Reusable' },
 ]
 
 const SHAPES = [

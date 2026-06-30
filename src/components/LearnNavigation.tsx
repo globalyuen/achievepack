@@ -46,6 +46,7 @@ const LEARN_PAGES = {
       { name: 'Plastic-Free Kraft', link: '/materials/plastic-free-kraft', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
       { name: 'Combustion Safety Test', link: '/materials/combustion-safety-test', image: '/imgs/materials/combustion-safety-test.jpg' },
       { name: 'Conventional Printed Sachets', link: '/materials/conventional-printed-sachets', image: '/imgs/store/products/small-sachet-conventional-thumbnail-1.png' },
+      { name: 'Reusable Canisters', link: '/knowledge/reusable-packaging', image: '/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-1.jpg' },
     ]
   },
   industries: {

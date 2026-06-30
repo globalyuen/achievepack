@@ -15,6 +15,7 @@ const CATEGORIES = [
   { id: 'conventional-digital', label: 'Conventional Digital' },
   { id: 'boxes', label: 'Custom Boxes' },
   { id: '3d-print', label: '3D Printing' },
+  { id: 'reusable', label: 'Reusable' },
 ];
 
 const SHAPES = [

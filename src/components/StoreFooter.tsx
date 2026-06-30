@@ -95,6 +95,7 @@ export default function StoreFooter() {
               <li><Link to="/industry/kraft-window-pouch" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Kraft Window Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/eco-friendly-tea-coffee" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco Coffee & Tea Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/durable-reusable-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco-Friendly Ziplock Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/reusable-packaging" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Reusable Canisters <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 

@@ -379,6 +379,7 @@ const EcoPackagingRealityPage = lazyWithRetry(() => import('./pages/knowledge/Ec
 const WritableStampablePouchesPage = lazyWithRetry(() => import('./pages/knowledge/WritableStampablePouchesPage'))
 const ColorMatchingPage = lazyWithRetry(() => import('./pages/knowledge/ColorMatchingPage'))
 const PhaVsPla = lazyWithRetry(() => import('./pages/knowledge/PhaVsPla'))
+const ReusablePackagingPage = lazyWithRetry(() => import('./pages/knowledge/ReusablePackagingPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -814,6 +815,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
                   <Route path="/knowledge/digital-printing-pantone-color-matching" element={<PouchColorMatchingPage />} />
                   <Route path="/knowledge/pha-vs-pla" element={<PhaVsPla />} />
+                  <Route path="/knowledge/reusable-packaging" element={<ReusablePackagingPage />} />
                   {/* <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} /> */}
                   {/* <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} /> */}
                   {/* <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} /> */}
@@ -1425,6 +1427,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
                         <Route path="/knowledge/digital-printing-pantone-color-matching" element={<ColorMatchingPage />} />
                         <Route path="/knowledge/pha-vs-pla" element={<PhaVsPla />} />
+                        <Route path="/knowledge/reusable-packaging" element={<ReusablePackagingPage />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />
