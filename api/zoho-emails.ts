@@ -129,34 +129,45 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Mode B: Search messages sent to/from email address
     const searchUrl = `https://mail.zoho.${config.zoho_region}/api/accounts/${accountId}/messages/search`
+    const targetEmail = (email as string).toLowerCase().trim()
     
     // Search sent emails
     let sentMessages: any[] = []
     try {
-      const sentResp = await fetch(`${searchUrl}?searchKey=to:${email}`, { headers })
+      const sentResp = await fetch(`${searchUrl}?searchKey=to:${targetEmail}`, { headers })
       const sentData = await sentResp.json() as any
       sentMessages = sentData.data || []
     } catch (e) {
-      console.warn(`Sent search failed for ${email}:`, e)
+      console.warn(`Sent search failed for ${targetEmail}:`, e)
     }
 
     // Search received emails
     let receivedMessages: any[] = []
     try {
-      const receivedResp = await fetch(`${searchUrl}?searchKey=from:${email}`, { headers })
+      const receivedResp = await fetch(`${searchUrl}?searchKey=from:${targetEmail}`, { headers })
       const receivedData = await receivedResp.json() as any
       receivedMessages = receivedData.data || []
     } catch (e) {
-      console.warn(`Received search failed for ${email}:`, e)
+      console.warn(`Received search failed for ${targetEmail}:`, e)
     }
 
     // Combine and deduplicate
     const combined = [...sentMessages, ...receivedMessages]
     const seenIds = new Set<string>()
+    
     const uniqueMessages = combined.filter(msg => {
       if (!msg.messageId || seenIds.has(msg.messageId)) {
         return false
       }
+      
+      // Strict filter: Zoho searchKey is fuzzy. We strictly verify that the target email
+      // is actually listed in msg.toAddress or msg.fromAddress to prevent showing unrelated threads.
+      const from = (msg.fromAddress || '').toLowerCase()
+      const to = (msg.toAddress || '').toLowerCase()
+      if (!from.includes(targetEmail) && !to.includes(targetEmail)) {
+        return false
+      }
+      
       seenIds.add(msg.messageId)
       return true
     })
@@ -173,5 +184,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   } catch (error: any) {
     console.error('Error in Zoho emails handler:', error.message)
     return res.status(500).json({ error: error.message })
+  }
+}
+
+// Extend string helper
+declare global {
+  interface String {
+    strip(): string;
+  }
+}
+if (!String.prototype.strip) {
+  String.prototype.strip = function() {
+    return this.trim()
   }
 }

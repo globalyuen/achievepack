@@ -1,0 +1,107 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node'
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+
+  if (req.method === 'OPTIONS') return res.status(200).end()
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
+
+  const XAI_API_KEY = process.env.XAI_API_KEY
+  if (!XAI_API_KEY) {
+    return res.status(500).json({ error: 'XAI API key not configured' })
+  }
+
+  const { name, email, inquiry, history } = req.body
+
+  if (!name) {
+    return res.status(400).json({ error: 'Missing customer name' })
+  }
+
+  // Format email history for prompt
+  let historyText = 'No emails found in Zoho Mail history.'
+  if (Array.isArray(history) && history.length > 0) {
+    historyText = history.map((msg, i) => {
+      const date = msg.sentDateInGMT 
+        ? new Date(parseInt(msg.sentDateInGMT)).toUTCString()
+        : 'Unknown Date'
+      const isSent = msg.fromAddress?.includes('achievepack') || msg.fromAddress?.includes('pouch.eco')
+      return `[Email ${i + 1}]
+Date: ${date}
+Direction: ${isSent ? 'Sent (by Ryan/Us)' : 'Received (from Customer)'}
+Subject: ${msg.subject || ''}
+Summary: ${msg.summary || ''}
+`
+    }).join('\n')
+  }
+
+  const systemPrompt = `You are a professional CRM assistant for Achieve Pack & Pouch.eco. Your job is to analyze Calendly bookings and Zoho Mail histories to suggest follow-up actions and draft emails for Ryan Wong.
+
+We sell flexible packaging, spouted stand up pouches, coffee bags, biodegradable packaging, etc.
+
+Analyze:
+1. **Interaction Status**: Check if Ryan has already replied to the customer based on Zoho history. Summarize what has happened.
+2. **Next Steps**: Suggest what concrete actions Ryan should take.
+3. **Email Draft**: Draft a highly professional, contextual follow-up email in English.
+   - If Ryan hasn't replied yet, draft the initial response to their inquiry.
+   - If Ryan replied and is waiting for information, draft a polite reminder or follow-up.
+   - If the customer paid for samples or sent artworks, draft a confirmation and next steps.
+
+Return your response ONLY in JSON format:
+{
+  "statusSummary": "Brief summary of current interaction status in Traditional Chinese (e.g. 已回信要求運費 / 尚未回覆 / 客戶已付款等)",
+  "nextAction": "Actionable next steps in Traditional Chinese (e.g., 寄出樣品，並分享快遞單號 / 檢查客戶提供的 AI 設計圖檔)",
+  "emailDraft": "The email draft to send to the customer (in English, professional, friendly, with placeholders like [Ryan Wong] or [Customer Name])"
+}`
+
+  const userPrompt = `Customer Details:
+Name: ${name}
+Email: ${email || 'N/A'}
+Inquiry Details: ${inquiry || 'No inquiry text left.'}
+
+Zoho Mail Interaction History:
+${historyText}
+
+Analyze this customer contact and return the suggested actions and email draft in the specified JSON format.`
+
+  try {
+    const response = await fetch('https://api.x.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${XAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'grok-beta', // stable fallback model
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt }
+        ],
+        temperature: 0.3,
+        response_format: { type: 'json_object' }
+      })
+    })
+
+    if (!response.ok) {
+      console.error('xAI API error:', response.status)
+      throw new Error(`xAI returned status ${response.status}`)
+    }
+
+    const resData: any = await response.json()
+    const content = resData.choices?.[0]?.message?.content || '{}'
+    
+    let result = JSON.parse(content)
+    return res.status(200).json(result)
+
+  } catch (error: any) {
+    console.error('AI Suggestion Error:', error)
+    // Fallback to simple rules if AI fails
+    const hasHistory = Array.isArray(history) && history.length > 0
+    const fallback = {
+      statusSummary: hasHistory ? '已有郵件記錄（AI分析失敗）' : '尚未回覆',
+      nextAction: hasHistory ? '檢查最新收到的信件內容' : '發送首封跟進郵件',
+      emailDraft: `Hi ${name},\n\nThank you for booking a meeting with us. I would love to follow up on your packaging inquiries regarding stand-up pouches.\n\nPlease let me know your specifications.\n\nBest Regards,\nRyan Wong`
+    }
+    return res.status(200).json(fallback)
+  }
+}

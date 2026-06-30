@@ -81,6 +81,10 @@ export default function CalendlyFollowUp() {
   const [loadingEmailBodyId, setLoadingEmailBodyId] = useState<string | null>(null);
   const [activeEmailBodyId, setActiveEmailBodyId] = useState<string | null>(null);
 
+  // AI Suggestion States
+  const [aiSuggestion, setAiSuggestion] = useState<{ statusSummary: string; nextAction: string; emailDraft: string } | null>(null);
+  const [loadingAi, setLoadingAi] = useState(false);
+
   // Fetch inquiries from Supabase
   const fetchInquiries = async () => {
     setLoading(true);
@@ -144,10 +148,42 @@ export default function CalendlyFollowUp() {
     }
   };
 
+  const fetchAiSuggestion = async () => {
+    if (!editingLead) return;
+    setLoadingAi(true);
+    setAiSuggestion(null);
+    try {
+      const response = await fetch('/api/calendly-ai-suggest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: editingLead.name,
+          email: editingLead.email,
+          inquiry: editingLead.inquiry,
+          history: zohoEmails
+        })
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setAiSuggestion(data);
+      } else {
+        alert('AI 建議生成失敗，請確認 XAI API 密鑰配置。');
+      }
+    } catch (e) {
+      console.error('Error fetching AI suggestion:', e);
+      alert('連線失敗，請稍後再試。');
+    } finally {
+      setLoadingAi(false);
+    }
+  };
+
   const handleEditClick = (lead: CalendlyInquiry) => {
     setEditingLead(lead);
     setEditStatus(lead.status || '未跟進');
     setEditNotes(lead.notes || '');
+    setAiSuggestion(null); // Clear previous AI recommendation
     if (lead.email) {
       fetchZohoEmails(lead.email);
     } else {
@@ -264,16 +300,16 @@ export default function CalendlyFollowUp() {
       ) : error ? (
         <div className="text-center py-12 text-red-500">{error}</div>
       ) : (
-        <div className="overflow-x-auto rounded-xl border border-gray-200">
-          <table className="w-full text-left text-sm border-collapse min-w-[800px]">
+        <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+          <table className="w-full text-left text-xs border-collapse min-w-[850px]">
             <thead>
-              <tr className="bg-gray-100 border-b border-gray-200 text-gray-700">
-                <th className="py-3 px-4 font-semibold w-[20%]">客戶姓名 / 會議類型</th>
-                <th className="py-3 px-4 font-semibold w-[15%]">聯絡方式</th>
-                <th className="py-3 px-4 font-semibold w-[20%]">預約時間</th>
-                <th className="py-3 px-4 font-semibold w-[25%]">客戶留言/需求</th>
-                <th className="py-3 px-4 font-semibold w-[15%]">跟進狀態及備忘</th>
-                <th className="py-3 px-4 font-semibold w-16">操作</th>
+              <tr className="bg-gray-100 border-b border-gray-200 text-gray-600 text-xs uppercase tracking-wider">
+                <th className="py-2.5 px-3 font-bold text-left w-[18%]">客戶 / 會議</th>
+                <th className="py-2.5 px-3 font-bold text-left w-[22%]">聯絡資料</th>
+                <th className="py-2.5 px-3 font-bold text-left w-[18%]">預約時段</th>
+                <th className="py-2.5 px-3 font-bold text-left w-[25%]">客戶需求與留言</th>
+                <th className="py-2.5 px-3 font-bold text-left w-[14%]">跟進備忘</th>
+                <th className="py-2.5 px-3 font-bold text-center w-[3%]">操作</th>
               </tr>
             </thead>
             <tbody>
@@ -281,44 +317,46 @@ export default function CalendlyFollowUp() {
                 const status = lead.status || '未跟進';
                 const notes = lead.notes || '';
                 return (
-                  <tr key={lead.id} className={`border-b border-gray-100 hover:bg-amber-50/30 transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'}`}>
-                    <td className="py-3 px-4 align-top">
-                      <div className="font-bold text-amber-900">{lead.name}</div>
-                      <div className="text-xs text-gray-500 mt-0.5">{lead.duration} Meeting</div>
+                  <tr key={lead.id} className={`border-b border-gray-100 hover:bg-amber-50/20 transition-colors text-xs ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/20'}`}>
+                    <td className="py-2 px-3 align-middle">
+                      <div className="font-bold text-gray-800 leading-snug">{lead.name}</div>
+                      <div className="text-[10px] text-gray-400 mt-0.5">{lead.duration} Meeting</div>
                     </td>
-                    <td className="py-3 px-4 align-top text-xs space-y-1">
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-semibold text-gray-700">✉:</span>
-                        <a href={`mailto:${lead.email}`} className="text-blue-600 hover:underline">{lead.email || '—'}</a>
+                    <td className="py-2 px-3 align-middle text-[11px] leading-tight space-y-0.5">
+                      <div className="flex items-center gap-1">
+                        <span className="text-gray-400">✉</span>
+                        <a href={`mailto:${lead.email}`} className="text-blue-600 hover:underline break-all font-mono">{lead.email || '—'}</a>
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-semibold text-gray-700">📞:</span>
-                        <span>{lead.phone || '—'}</span>
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 align-top text-xs">
-                      <div className="font-semibold text-gray-800">{lead.meeting_time}</div>
-                      <div className="text-gray-400 mt-0.5">Clipped: {lead.raw_date}</div>
-                    </td>
-                    <td className="py-3 px-4 align-top text-xs text-gray-600 leading-relaxed max-w-xs">
-                      <div className="line-clamp-3" title={lead.inquiry}>
-                        {lead.inquiry || <span className="text-gray-400 italic">（沒有留下任何需求）</span>}
+                      <div className="flex items-center gap-1">
+                        <span className="text-gray-400">📞</span>
+                        <span className="text-gray-600 font-mono">{lead.phone || '—'}</span>
                       </div>
                     </td>
-                    <td className="py-3 px-4 align-top">
-                      <span className={`px-2.5 py-1 border rounded-full text-xs font-semibold ${STATUS_COLORS[status]}`}>
-                        {status}
-                      </span>
-                      {notes && (
-                        <p className="mt-2 text-xs text-gray-500 line-clamp-2 italic border-l-2 border-gray-300 pl-2">
-                          {notes}
-                        </p>
-                      )}
+                    <td className="py-2 px-3 align-middle text-[11px] leading-snug text-gray-600">
+                      <div className="font-semibold text-gray-700">{lead.meeting_time}</div>
+                      <div className="text-[10px] text-gray-400 mt-0.5">{lead.raw_date}</div>
                     </td>
-                    <td className="py-3 px-4 align-top">
+                    <td className="py-2 px-3 align-middle text-[11px] text-gray-500 leading-relaxed max-w-xs">
+                      <div className="line-clamp-2" title={lead.inquiry}>
+                        {lead.inquiry || <span className="text-gray-300 italic">（無留言）</span>}
+                      </div>
+                    </td>
+                    <td className="py-2 px-3 align-middle">
+                      <div className="flex flex-col gap-1 items-start">
+                        <span className={`px-2 py-0.5 border rounded-full text-[10px] font-bold ${STATUS_COLORS[status]}`}>
+                          {status}
+                        </span>
+                        {notes && (
+                          <span className="text-[10px] text-gray-400 line-clamp-1 italic max-w-[120px] truncate" title={notes}>
+                            {notes}
+                          </span>
+                        )}
+                      </div>
+                    </td>
+                    <td className="py-2 px-3 align-middle text-center">
                       <button
                         onClick={() => handleEditClick(lead)}
-                        className="p-2 text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors"
+                        className="p-1.5 text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors inline-block animate-none"
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
@@ -431,6 +469,58 @@ export default function CalendlyFollowUp() {
                     })}
                   </div>
                 )}
+              </div>
+
+              {/* AI Suggestion Section */}
+              <div className="border-t pt-4 mt-4">
+                <div className="flex justify-between items-center mb-2">
+                  <label className="text-sm font-bold text-gray-700 flex items-center gap-1.5">
+                    <span className="text-amber-500">✨</span>
+                    🤖 Antigravity 智能跟進建議
+                  </label>
+                  {!aiSuggestion && !loadingAi && (
+                    <button
+                      onClick={fetchAiSuggestion}
+                      className="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 text-[10px] font-bold rounded-lg border border-amber-200 transition-colors"
+                    >
+                      生成建議
+                    </button>
+                  )}
+                </div>
+
+                {loadingAi ? (
+                  <div className="text-center py-4 text-xs text-gray-500 animate-pulse">分析信件往來並生成建議中...</div>
+                ) : aiSuggestion ? (
+                  <div className="p-3 bg-gradient-to-r from-amber-50/50 to-orange-50/30 rounded-xl border border-amber-100/60 text-xs space-y-2">
+                    <div className="flex flex-col gap-1">
+                      <div>
+                        <span className="font-semibold text-amber-900">當前狀態：</span>
+                        <span className="text-gray-700">{aiSuggestion.statusSummary}</span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-amber-900">建議下一步：</span>
+                        <span className="text-gray-700">{aiSuggestion.nextAction}</span>
+                      </div>
+                    </div>
+                    <div className="mt-2.5">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-semibold text-amber-900">建議回覆草稿 (英文)：</span>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(aiSuggestion.emailDraft);
+                            alert('郵件草稿已複製到剪貼簿！');
+                          }}
+                          className="text-[10px] text-amber-700 hover:underline flex items-center gap-1 font-bold"
+                        >
+                          <Copy className="w-3 h-3"/> 複製草稿
+                        </button>
+                      </div>
+                      <pre className="p-2.5 bg-white rounded border border-gray-150 text-[11px] text-gray-700 whitespace-pre-wrap font-mono leading-relaxed max-h-40 overflow-y-auto">
+                        {aiSuggestion.emailDraft}
+                      </pre>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
 
