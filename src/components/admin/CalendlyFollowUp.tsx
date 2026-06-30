@@ -74,6 +74,13 @@ export default function CalendlyFollowUp() {
   const [editStatus, setEditStatus] = useState<FollowUpStatus>('未跟進');
   const [editNotes, setEditNotes] = useState('');
 
+  // Zoho Mail Integration States
+  const [zohoEmails, setZohoEmails] = useState<any[]>([]);
+  const [loadingZoho, setLoadingZoho] = useState(false);
+  const [activeEmailBody, setActiveEmailBody] = useState<string | null>(null);
+  const [loadingEmailBodyId, setLoadingEmailBodyId] = useState<string | null>(null);
+  const [activeEmailBodyId, setActiveEmailBodyId] = useState<string | null>(null);
+
   // Fetch inquiries from Supabase
   const fetchInquiries = async () => {
     setLoading(true);
@@ -99,10 +106,53 @@ export default function CalendlyFollowUp() {
     fetchInquiries();
   }, []);
 
+  const fetchZohoEmails = async (emailStr: string) => {
+    setLoadingZoho(true);
+    setZohoEmails([]);
+    setActiveEmailBody(null);
+    setActiveEmailBodyId(null);
+    try {
+      const response = await fetch(`/api/zoho-emails?email=${encodeURIComponent(emailStr)}`);
+      if (response.ok) {
+        const data = await response.json();
+        setZohoEmails(data);
+      } else {
+        console.warn('Failed to fetch Zoho emails');
+      }
+    } catch (e) {
+      console.error('Error fetching Zoho emails:', e);
+    } finally {
+      setLoadingZoho(false);
+    }
+  };
+
+  const fetchEmailBody = async (messageId: string) => {
+    setLoadingEmailBodyId(messageId);
+    setActiveEmailBody(null);
+    try {
+      const response = await fetch(`/api/zoho-emails?messageId=${encodeURIComponent(messageId)}`);
+      if (response.ok) {
+        const data = await response.json();
+        setActiveEmailBody(data.body || '（此郵件無內容）');
+      } else {
+        alert('無法載入郵件內容');
+      }
+    } catch (e) {
+      console.error('Error fetching email body:', e);
+    } finally {
+      setLoadingEmailBodyId(null);
+    }
+  };
+
   const handleEditClick = (lead: CalendlyInquiry) => {
     setEditingLead(lead);
     setEditStatus(lead.status || '未跟進');
     setEditNotes(lead.notes || '');
+    if (lead.email) {
+      fetchZohoEmails(lead.email);
+    } else {
+      setZohoEmails([]);
+    }
   };
 
   const handleSaveEdit = async () => {
@@ -325,6 +375,62 @@ export default function CalendlyFollowUp() {
               <div className="bg-amber-50 p-4 rounded-xl border border-amber-100 text-xs text-amber-900">
                 <span className="font-bold">預約需求：</span>
                 <p className="mt-1 leading-relaxed text-amber-800">{editingLead.inquiry || '（未填寫）'}</p>
+              </div>
+
+              {/* Zoho Email History Section */}
+              <div className="border-t pt-4">
+                <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                  📧 Zoho 郵件往來記錄
+                </label>
+                
+                {loadingZoho ? (
+                  <div className="text-center py-4 text-xs text-gray-500 animate-pulse">連線 Zoho Mail 中...</div>
+                ) : zohoEmails.length === 0 ? (
+                  <div className="text-center py-4 text-xs text-gray-400 bg-gray-50 rounded-xl border border-dashed">
+                    沒有與此客戶的 Zoho 郵件記錄
+                  </div>
+                ) : (
+                  <div className="space-y-2.5 max-h-60 overflow-y-auto pr-1">
+                    {zohoEmails.map((msg, index) => {
+                      const date = msg.sentDateInGMT 
+                        ? new Date(parseInt(msg.sentDateInGMT)).toLocaleString('zh-TW', { hour12: false })
+                        : '未知日期';
+                      const isSentByUs = msg.fromAddress?.includes('achievepack') || msg.fromAddress?.includes('pouch.eco');
+                      
+                      return (
+                        <div key={msg.messageId || index} className="p-3 bg-gray-50 rounded-xl border border-gray-100 text-xs">
+                          <div className="flex justify-between items-start gap-2 mb-1">
+                            <span className={`font-semibold ${isSentByUs ? 'text-indigo-600' : 'text-emerald-600'}`}>
+                              {isSentByUs ? '📤 寄出' : '📥 收到'}
+                            </span>
+                            <span className="text-[10px] text-gray-400">{date}</span>
+                          </div>
+                          <div className="font-semibold text-gray-800 line-clamp-1 mb-1">{msg.subject || '（無主題）'}</div>
+                          <div className="text-gray-500 line-clamp-2 mb-2">{msg.summary}</div>
+                          
+                          {loadingEmailBodyId === msg.messageId ? (
+                            <div className="text-[10px] text-amber-600 font-semibold">載入全文中...</div>
+                          ) : activeEmailBody && activeEmailBodyId === msg.messageId ? (
+                            <div className="mt-2 p-2 bg-white rounded border border-gray-200 text-[11px] text-gray-700 whitespace-pre-wrap font-mono leading-relaxed max-h-40 overflow-y-auto">
+                              {activeEmailBody}
+                            </div>
+                          ) : (
+                            <button
+                              onClick={() => {
+                                setActiveEmailBodyId(msg.messageId);
+                                fetchEmailBody(msg.messageId);
+                              }}
+                              className="text-[10px] text-blue-600 hover:underline font-semibold"
+                            >
+                              展開郵件全文
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
 
