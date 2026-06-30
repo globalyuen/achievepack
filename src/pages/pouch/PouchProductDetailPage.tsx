@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS } from '../../store/productData';
 import { ArrowLeft, Check, Package, Sparkles, Globe } from 'lucide-react';
@@ -26,9 +27,50 @@ export default function PouchProductDetailPage() {
   }
 
   const imageUrl = product.images?.[0] || '';
+  
+  // Dynamic Product structured data for Google Merchant crawler auto-detection
+  const absoluteImageUrl = imageUrl.startsWith('http') 
+    ? imageUrl 
+    : `https://www.pouch.eco${imageUrl}`;
+  const productUrl = `https://www.pouch.eco/shop/${productId}`;
+
+  const productSchema = {
+    '@context': 'https://schema.org/',
+    '@type': 'Product',
+    'name': product.name,
+    'image': absoluteImageUrl,
+    'description': product.description || product.shortDesc || product.name,
+    'sku': product.id,
+    'brand': {
+      '@type': 'Brand',
+      'name': 'Pouch.eco'
+    },
+    'offers': {
+      '@type': 'Offer',
+      'url': productUrl,
+      'priceCurrency': 'USD',
+      'price': product.basePrice || 0.00,
+      'priceValidUntil': '2028-12-31',
+      'itemCondition': 'https://schema.org/NewCondition',
+      'availability': product.inStock !== false ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      'seller': {
+        '@type': 'Organization',
+        'name': 'Pouch.eco'
+      }
+    }
+  };
 
   return (
     <PouchLayout>
+      <Helmet>
+        <title>{`${product.name} | Pouch.eco`}</title>
+        <meta name="description" content={product.description || product.shortDesc || product.name} />
+        <link rel="canonical" href={productUrl} />
+        <script type="application/ld+json">
+          {JSON.stringify(productSchema)}
+        </script>
+      </Helmet>
+
       <div className="bg-[#F0F0F0] min-h-screen border-b-4 border-black">
         {/* Back Link */}
         <div className="max-w-7xl mx-auto px-4 pt-8">
