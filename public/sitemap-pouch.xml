@@ -7530,6 +7530,50 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://pouch.eco/knowledge/bottle-printing-guide</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/knowledge/bottle-printing-guide" />
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/fr/knowledge/bottle-printing-guide</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/knowledge/bottle-printing-guide" />
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/es/knowledge/bottle-printing-guide</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/knowledge/bottle-printing-guide" />
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/zh-tw/knowledge/bottle-printing-guide</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/knowledge/bottle-printing-guide" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/knowledge/bottle-printing-guide" />
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://pouch.eco/knowledge/digital-printing-pantone-color-matching</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/knowledge/digital-printing-pantone-color-matching" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/knowledge/digital-printing-pantone-color-matching" />

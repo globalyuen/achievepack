@@ -47,6 +47,7 @@ const LEARN_PAGES = {
       { name: 'Combustion Safety Test', link: '/materials/combustion-safety-test', image: '/imgs/materials/combustion-safety-test.jpg' },
       { name: 'Conventional Printed Sachets', link: '/materials/conventional-printed-sachets', image: '/imgs/store/products/small-sachet-conventional-thumbnail-1.png' },
       { name: 'Reusable Canisters', link: '/knowledge/reusable-packaging', image: '/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-1.jpg' },
+      { name: 'Bottle Printing Guide', link: '/knowledge/bottle-printing-guide', image: '/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-2.jpg' },
     ]
   },
   industries: {
