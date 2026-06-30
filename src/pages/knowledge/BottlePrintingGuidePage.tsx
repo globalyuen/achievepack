@@ -322,8 +322,8 @@ export default function BottlePrintingGuidePage() {
 
           <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
             <h4 className="font-black text-lg uppercase mb-3 text-black">2. {t.methodLaser}</h4>
-            <div className="w-full aspect-[4/3] mb-3">
-              <LaserEngravingSVG />
+            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black">
+              <img src="/imgs/knowledge/bottle-printing-laser-engraving.jpg" alt="Laser Engraving Schematic" className="w-full h-full object-cover" />
             </div>
             <p className="text-xs text-neutral-600 font-bold font-['JetBrains_Mono']">
               {currentLang === 'zh-TW' 
@@ -346,8 +346,8 @@ export default function BottlePrintingGuidePage() {
 
           <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
             <h4 className="font-black text-lg uppercase mb-3 text-black">4. {t.methodScreen}</h4>
-            <div className="w-full aspect-[4/3] mb-3">
-              <SilkScreenSVG />
+            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black">
+              <img src="/imgs/knowledge/bottle-printing-silk-screen.jpg" alt="Silk Screen Printing Schematic" className="w-full h-full object-cover" />
             </div>
             <p className="text-xs text-neutral-600 font-bold font-['JetBrains_Mono']">
               {currentLang === 'zh-TW' 
@@ -472,8 +472,8 @@ export default function BottlePrintingGuidePage() {
 
           <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col justify-between">
             <h4 className="font-bold text-xl text-neutral-900 mb-4">2. {t.methodLaser}</h4>
-            <div className="w-full aspect-[4/3] mb-4">
-              <LaserEngravingSVG />
+            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100">
+              <img src="/imgs/knowledge/bottle-printing-laser-engraving.jpg" alt="Laser Engraving Schematic" className="w-full h-full object-cover" />
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed">
               {currentLang === 'zh-TW' 
@@ -496,8 +496,8 @@ export default function BottlePrintingGuidePage() {
 
           <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col justify-between">
             <h4 className="font-bold text-xl text-neutral-900 mb-4">4. {t.methodScreen}</h4>
-            <div className="w-full aspect-[4/3] mb-4">
-              <SilkScreenSVG />
+            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100">
+              <img src="/imgs/knowledge/bottle-printing-silk-screen.jpg" alt="Silk Screen Printing Schematic" className="w-full h-full object-cover" />
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed">
               {currentLang === 'zh-TW' 

@@ -1,11 +1,11 @@
 {
   "generated": "2026-06-30",
-  "total_images": 4524,
+  "total_images": 4526,
   "total_categories": 173,
   "extensions": {
     ".webp": 1313,
     ".png": 2972,
-    ".jpg": 236,
+    ".jpg": 238,
     ".svg": 3
   },
   "categories": {
@@ -12742,19 +12742,31 @@
       ]
     },
     "knowledge": {
-      "count": 9,
+      "count": 11,
       "images": [
+        {
+          "filename": "bottle-printing-silk-screen.jpg",
+          "path": "/imgs/knowledge/bottle-printing-silk-screen.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-30T09:43:29.947Z"
+        },
         {
           "filename": "bottle-printing-sticker-label.jpg",
           "path": "/imgs/knowledge/bottle-printing-sticker-label.jpg",
           "extension": ".jpg",
-          "modified": "2026-06-30T09:27:39.035Z"
+          "modified": "2026-06-30T09:42:21.784Z"
+        },
+        {
+          "filename": "bottle-printing-laser-engraving.jpg",
+          "path": "/imgs/knowledge/bottle-printing-laser-engraving.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-30T09:39:50.258Z"
         },
         {
           "filename": "bottle-printing-heat-transfer.jpg",
           "path": "/imgs/knowledge/bottle-printing-heat-transfer.jpg",
           "extension": ".jpg",
-          "modified": "2026-06-30T09:26:51.306Z"
+          "modified": "2026-06-30T09:39:10.747Z"
         },
         {
           "filename": "premium-finishes-pouch.png",
