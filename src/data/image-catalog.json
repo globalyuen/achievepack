@@ -1,11 +1,11 @@
 {
   "generated": "2026-06-30",
-  "total_images": 4522,
+  "total_images": 4524,
   "total_categories": 173,
   "extensions": {
     ".webp": 1313,
     ".png": 2972,
-    ".jpg": 234,
+    ".jpg": 236,
     ".svg": 3
   },
   "categories": {
@@ -12742,8 +12742,20 @@
       ]
     },
     "knowledge": {
-      "count": 7,
+      "count": 9,
       "images": [
+        {
+          "filename": "bottle-printing-sticker-label.jpg",
+          "path": "/imgs/knowledge/bottle-printing-sticker-label.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-30T09:27:39.035Z"
+        },
+        {
+          "filename": "bottle-printing-heat-transfer.jpg",
+          "path": "/imgs/knowledge/bottle-printing-heat-transfer.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-30T09:26:51.306Z"
+        },
         {
           "filename": "premium-finishes-pouch.png",
           "path": "/imgs/knowledge/premium-finishes-pouch.png",
