@@ -110,13 +110,13 @@ export default function CalendlyFollowUp() {
     fetchInquiries();
   }, []);
 
-  const fetchZohoEmails = async (emailStr: string) => {
+  const fetchZohoEmails = async (emailStr: string, nameStr: string) => {
     setLoadingZoho(true);
     setZohoEmails([]);
     setActiveEmailBody(null);
     setActiveEmailBodyId(null);
     try {
-      const response = await fetch(`/api/zoho-emails?email=${encodeURIComponent(emailStr)}`);
+      const response = await fetch(`/api/zoho-emails?email=${encodeURIComponent(emailStr)}&name=${encodeURIComponent(nameStr)}`);
       if (response.ok) {
         const data = await response.json();
         setZohoEmails(data);
@@ -169,7 +169,7 @@ export default function CalendlyFollowUp() {
         const data = await response.json();
         setAiSuggestion(data);
       } else {
-        alert('AI 建議生成失敗，請確認 XAI API 密鑰配置。');
+        alert('AI 建議生成失敗，請確認 GEMINI_API_KEY 配置。');
       }
     } catch (e) {
       console.error('Error fetching AI suggestion:', e);
@@ -184,11 +184,7 @@ export default function CalendlyFollowUp() {
     setEditStatus(lead.status || '未跟進');
     setEditNotes(lead.notes || '');
     setAiSuggestion(null); // Clear previous AI recommendation
-    if (lead.email) {
-      fetchZohoEmails(lead.email);
-    } else {
-      setZohoEmails([]);
-    }
+    fetchZohoEmails(lead.email || '', lead.name || '');
   };
 
   const handleSaveEdit = async () => {
@@ -301,15 +297,15 @@ export default function CalendlyFollowUp() {
         <div className="text-center py-12 text-red-500">{error}</div>
       ) : (
         <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-          <table className="w-full text-left text-xs border-collapse min-w-[850px]">
+          <table className="w-full text-left text-xs border-collapse min-w-[700px]">
             <thead>
-              <tr className="bg-gray-100 border-b border-gray-200 text-gray-600 text-xs uppercase tracking-wider">
-                <th className="py-2.5 px-3 font-bold text-left w-[18%]">客戶 / 會議</th>
-                <th className="py-2.5 px-3 font-bold text-left w-[22%]">聯絡資料</th>
-                <th className="py-2.5 px-3 font-bold text-left w-[18%]">預約時段</th>
-                <th className="py-2.5 px-3 font-bold text-left w-[25%]">客戶需求與留言</th>
-                <th className="py-2.5 px-3 font-bold text-left w-[14%]">跟進備忘</th>
-                <th className="py-2.5 px-3 font-bold text-center w-[3%]">操作</th>
+              <tr className="bg-gray-100 border-b border-gray-200 text-gray-600 text-[11px] uppercase tracking-wider">
+                <th className="py-2 px-2 font-bold w-[16%]">客戶</th>
+                <th className="py-2 px-2 font-bold w-[20%]">聯絡資料</th>
+                <th className="py-2 px-2 font-bold w-[16%]">預約時段</th>
+                <th className="py-2 px-2 font-bold w-[25%]">需求留言</th>
+                <th className="py-2 px-2 font-bold w-[15%]">狀態備忘</th>
+                <th className="py-2 px-2 font-bold text-center w-[8%]">操作</th>
               </tr>
             </thead>
             <tbody>
@@ -318,30 +314,30 @@ export default function CalendlyFollowUp() {
                 const notes = lead.notes || '';
                 return (
                   <tr key={lead.id} className={`border-b border-gray-100 hover:bg-amber-50/20 transition-colors text-xs ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/20'}`}>
-                    <td className="py-2 px-3 align-middle">
+                    <td className="py-2 px-2 align-middle">
                       <div className="font-bold text-gray-800 leading-snug">{lead.name}</div>
-                      <div className="text-[10px] text-gray-400 mt-0.5">{lead.duration} Meeting</div>
+                      <div className="text-[10px] text-gray-400 mt-0.5">{lead.duration}</div>
                     </td>
-                    <td className="py-2 px-3 align-middle text-[11px] leading-tight space-y-0.5">
+                    <td className="py-2 px-2 align-middle text-[11px] leading-tight space-y-0.5">
                       <div className="flex items-center gap-1">
                         <span className="text-gray-400">✉</span>
-                        <a href={`mailto:${lead.email}`} className="text-blue-600 hover:underline break-all font-mono">{lead.email || '—'}</a>
+                        <a href={`mailto:${lead.email}`} className="text-blue-600 hover:underline break-all font-mono line-clamp-1" title={lead.email}>{lead.email || '—'}</a>
                       </div>
                       <div className="flex items-center gap-1">
                         <span className="text-gray-400">📞</span>
-                        <span className="text-gray-600 font-mono">{lead.phone || '—'}</span>
+                        <span className="text-gray-600 font-mono line-clamp-1" title={lead.phone}>{lead.phone || '—'}</span>
                       </div>
                     </td>
-                    <td className="py-2 px-3 align-middle text-[11px] leading-snug text-gray-600">
+                    <td className="py-2 px-2 align-middle text-[11px] leading-snug text-gray-600">
                       <div className="font-semibold text-gray-700">{lead.meeting_time}</div>
                       <div className="text-[10px] text-gray-400 mt-0.5">{lead.raw_date}</div>
                     </td>
-                    <td className="py-2 px-3 align-middle text-[11px] text-gray-500 leading-relaxed max-w-xs">
+                    <td className="py-2 px-2 align-middle text-[11px] text-gray-500 leading-relaxed max-w-[200px]">
                       <div className="line-clamp-2" title={lead.inquiry}>
                         {lead.inquiry || <span className="text-gray-300 italic">（無留言）</span>}
                       </div>
                     </td>
-                    <td className="py-2 px-3 align-middle">
+                    <td className="py-2 px-2 align-middle">
                       <div className="flex flex-col gap-1 items-start">
                         <span className={`px-2 py-0.5 border rounded-full text-[10px] font-bold ${STATUS_COLORS[status]}`}>
                           {status}
@@ -353,12 +349,12 @@ export default function CalendlyFollowUp() {
                         )}
                       </div>
                     </td>
-                    <td className="py-2 px-3 align-middle text-center">
+                    <td className="py-2 px-2 align-middle text-center">
                       <button
                         onClick={() => handleEditClick(lead)}
-                        className="p-1.5 text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors inline-block animate-none"
+                        className="px-2 py-1.5 text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors inline-block font-bold"
                       >
-                        <Edit2 className="w-4 h-4" />
+                        編輯/跟進
                       </button>
                     </td>
                   </tr>

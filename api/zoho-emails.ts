@@ -127,49 +127,71 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(200).json({ body: messageBody })
     }
 
-    // Mode B: Search messages sent to/from email address
+    // Mode B: Search messages
+    const targetEmail = (email as string || '').toLowerCase().trim()
+    const targetName = (req.query.name as string || '').toLowerCase().trim()
+    
+    // Safety check to avoid returning all emails if input is empty
+    if (!targetEmail && !targetName) {
+      return res.status(200).json([])
+    }
+
+    const isGenericEmail = targetEmail === 'notifications@calendly.com' || targetEmail.includes('achievepack.com') || targetEmail.includes('pouch.eco') || targetEmail.length < 5
+    const actualSearchEmail = isGenericEmail ? '' : targetEmail
+    
+    // Build Zoho Search Key
+    let searchKey = ''
+    if (actualSearchEmail && targetName) {
+      searchKey = `(to:${actualSearchEmail} OR subject:${targetName} OR from:${actualSearchEmail} OR content:${targetName})`
+    } else if (actualSearchEmail) {
+      searchKey = `(to:${actualSearchEmail} OR from:${actualSearchEmail})`
+    } else if (targetName && targetName.length > 2) {
+      // If we don't have a valid email, search by name
+      searchKey = `${targetName}`
+    } else {
+      return res.status(200).json([])
+    }
+
     const searchUrl = `https://mail.zoho.${config.zoho_region}/api/accounts/${accountId}/messages/search`
-    const targetEmail = (email as string).toLowerCase().trim()
     
-    // Search sent emails
-    let sentMessages: any[] = []
+    // Perform search
+    let messages: any[] = []
     try {
-      const sentResp = await fetch(`${searchUrl}?searchKey=to:${targetEmail}`, { headers })
-      const sentData = await sentResp.json() as any
-      sentMessages = sentData.data || []
+      const resp = await fetch(`${searchUrl}?searchKey=${encodeURIComponent(searchKey)}&limit=30`, { headers })
+      const data = await resp.json() as any
+      messages = data.data || []
     } catch (e) {
-      console.warn(`Sent search failed for ${targetEmail}:`, e)
+      console.warn(`Search failed for ${searchKey}:`, e)
     }
 
-    // Search received emails
-    let receivedMessages: any[] = []
-    try {
-      const receivedResp = await fetch(`${searchUrl}?searchKey=from:${targetEmail}`, { headers })
-      const receivedData = await receivedResp.json() as any
-      receivedMessages = receivedData.data || []
-    } catch (e) {
-      console.warn(`Received search failed for ${targetEmail}:`, e)
-    }
-
-    // Combine and deduplicate
-    const combined = [...sentMessages, ...receivedMessages]
+    // Deduplicate and filter strictly
     const seenIds = new Set<string>()
-    
-    const uniqueMessages = combined.filter(msg => {
+    const uniqueMessages = messages.filter(msg => {
       if (!msg.messageId || seenIds.has(msg.messageId)) {
         return false
       }
       
-      // Strict filter: Zoho searchKey is fuzzy. We strictly verify that the target email
-      // is actually listed in msg.toAddress or msg.fromAddress to prevent showing unrelated threads.
       const from = (msg.fromAddress || '').toLowerCase()
       const to = (msg.toAddress || '').toLowerCase()
-      if (!from.includes(targetEmail) && !to.includes(targetEmail)) {
-        return false
-      }
+      const subject = (msg.subject || '').toLowerCase()
+      const summary = (msg.summary || '').toLowerCase()
       
-      seenIds.add(msg.messageId)
-      return true
+      let matched = false
+      if (actualSearchEmail) {
+        if (from.includes(actualSearchEmail) || to.includes(actualSearchEmail)) {
+          matched = true
+        }
+      } else if (targetName && targetName.length > 2) {
+        if (from.includes(targetName) || to.includes(targetName) || subject.includes(targetName) || summary.includes(targetName)) {
+          matched = true
+        }
+      }
+
+      if (matched) {
+        seenIds.add(msg.messageId)
+        return true
+      }
+      return false
     })
 
     // Sort by date descending
