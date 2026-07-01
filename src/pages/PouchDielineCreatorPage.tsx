@@ -51,7 +51,7 @@ interface DielinePreset {
 }
 
 interface DielineShape {
-  id: 'stand_up' | 'k_seal' | 'flat_bottom_one_zipper' | 'flat_bottom_normal_zipper' | 'box_bottom' | 'side_gusset' | 'three_side_seal' | 'center_seal';
+  id: 'stand_up' | 'k_seal' | 'flat_bottom_one_zipper' | 'flat_bottom_normal_zipper' | 'box_bottom' | 'side_gusset' | 'three_side_seal' | 'center_seal' | 'spout_center' | 'spout_corner';
   label: string;
   description: string;
   icon: React.ReactNode;
@@ -277,6 +277,46 @@ const SHAPE_PRESETS: Record<string, DielinePreset[]> = {
       bottomSealCurve: 0,
       roundCorners: false
     }
+  ],
+  spout_center: [
+    {
+      name: 'Curry Sauce Spout (110x160x60)',
+      description: 'Refer to Chip Shop Curry Sauce Pouch (300g)',
+      width: 110,
+      height: 160,
+      gusset: 60,
+      zipper: 0,
+      tearNotch: 0,
+      sideSeals: 6.5,
+      bottomSealCurve: 30,
+      roundCorners: true
+    },
+    {
+      name: 'Juice Pouch w/ Spout (200ml)',
+      description: 'Standard center spout pouch for drinks',
+      width: 100,
+      height: 150,
+      gusset: 50,
+      zipper: 0,
+      tearNotch: 0,
+      sideSeals: 6,
+      bottomSealCurve: 25,
+      roundCorners: true
+    }
+  ],
+  spout_corner: [
+    {
+      name: 'Corner Spout Pouch (150x220x80)',
+      description: 'Standard refill pouch with corner spout',
+      width: 150,
+      height: 220,
+      gusset: 80,
+      zipper: 0,
+      tearNotch: 0,
+      sideSeals: 10,
+      bottomSealCurve: 35,
+      roundCorners: true
+    }
   ]
 };
 
@@ -390,6 +430,34 @@ const DIELINE_SHAPES: DielineShape[] = [
         <path d="M47 25 L53 30 M47 40 L53 45 M47 55 L53 60" strokeWidth="1" />
       </svg>
     )
+  },
+  {
+    id: 'spout_center',
+    label: 'Center Spout Pouch',
+    description: 'Stand up pouch with spout welded at the top center',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M33 22 H67 V30 L65 32 L67 34 V60 C67 66 61 69 50 69 C39 69 33 66 33 60 V34 L35 32 L33 30 Z" />
+        <path d="M33 60 C38 63 62 63 68 60" strokeWidth="1.5" />
+        <rect x="47" y="14" width="6" height="8" rx="0.5" fill="currentColor" fillOpacity="0.2" />
+        <rect x="44" y="8" width="12" height="6" rx="1" fill="currentColor" />
+      </svg>
+    )
+  },
+  {
+    id: 'spout_corner',
+    label: 'Corner Spout Pouch',
+    description: 'Stand up pouch with spout welded at a 45-degree angle beveled corner',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M43 18 H67 V30 L65 32 L67 34 V60 C67 66 61 69 50 69 C39 69 33 66 33 60 V30 L43 18 Z" />
+        <path d="M33 60 C38 63 62 63 68 60" strokeWidth="1.5" />
+        <g transform="translate(38,24) rotate(-45)">
+          <rect x="-3" y="-8" width="6" height="8" rx="0.5" fill="currentColor" fillOpacity="0.2" />
+          <rect x="-6" y="-14" width="12" height="6" rx="1" fill="currentColor" />
+        </g>
+      </svg>
+    )
   }
 ];
 
@@ -403,7 +471,7 @@ export default function PouchDielineCreatorPage() {
     : "rounded border border-gray-300 bg-white accent-green-500 focus:ring-0 w-5 h-5 cursor-pointer"
 
   // Active Shape State
-  const [activeShape, setActiveShape] = useState<'stand_up' | 'k_seal' | 'flat_bottom_one_zipper' | 'flat_bottom_normal_zipper' | 'box_bottom' | 'side_gusset' | 'three_side_seal' | 'center_seal'>('stand_up')
+  const [activeShape, setActiveShape] = useState<'stand_up' | 'k_seal' | 'flat_bottom_one_zipper' | 'flat_bottom_normal_zipper' | 'box_bottom' | 'side_gusset' | 'three_side_seal' | 'center_seal' | 'spout_center' | 'spout_corner'>('stand_up')
 
   // Marquee scroll states
   const shapeContainerRef = useRef<HTMLDivElement>(null)
@@ -776,7 +844,7 @@ export default function PouchDielineCreatorPage() {
 
   // Sync bottomSealCurve based on gusset and shape
   useEffect(() => {
-    if (activeShape === 'stand_up' || activeShape === 'k_seal') {
+    if (activeShape === 'stand_up' || activeShape === 'k_seal' || activeShape === 'spout_center' || activeShape === 'spout_corner') {
       setBottomSealCurve(Math.round(gusset / 2))
     } else {
       setBottomSealCurve(0)
@@ -1206,6 +1274,245 @@ export default function PouchDielineCreatorPage() {
           doc.line(frontX - 6, gussetY, frontX - 6, gussetY + gusset);
           doc.text(`${gusset}mm`, frontX - 11, gussetY + gusset / 2, { angle: 90 });
 
+        } else if (activeShape === 'spout_center' || activeShape === 'spout_corner') {
+          const frontX = margin;
+          const backX = margin + width + 30;
+          const panelY = margin + 20;
+          const B = activeShape === 'spout_corner' ? 30 : 0;
+          const topSealH = 10;
+          const bottomSealH = bottomSealCurve;
+          const spoutW = 9.6;
+          const spoutH = 15;
+          const capW = 12;
+          const capH = 10;
+
+          // Drawing Front & Back panels
+          [frontX, backX].forEach((startX, idx) => {
+            const isFront = idx === 0;
+            const label = isFront ? 'Front' : 'Back';
+
+            // Bleed border (3mm)
+            if (showBleedLines) {
+              doc.setDrawColor(16, 185, 129);
+              doc.setLineWidth(0.3);
+              doc.setLineDashPattern([2, 2], 0);
+              ctx.beginPath();
+              if (activeShape === 'spout_corner') {
+                if (isFront) {
+                  ctx.moveTo(startX + B - 3, panelY - 3);
+                  ctx.lineTo(startX + width + 3, panelY - 3);
+                  ctx.lineTo(startX + width + 3, panelY + height + 3);
+                  ctx.lineTo(startX - 3, panelY + height + 3);
+                  ctx.lineTo(startX - 3, panelY + B - 3);
+                } else {
+                  ctx.moveTo(startX - 3, panelY - 3);
+                  ctx.lineTo(startX + width - B + 3, panelY - 3);
+                  ctx.lineTo(startX + width + 3, panelY + B - 3);
+                  ctx.lineTo(startX + width + 3, panelY + height + 3);
+                  ctx.lineTo(startX - 3, panelY + height + 3);
+                }
+              } else {
+                ctx.rect(startX - 3, panelY - 3, width + 6, height + 6);
+              }
+              ctx.closePath();
+              ctx.stroke();
+              doc.setLineDashPattern([], 0);
+            }
+
+            // Shaded weld seals (opacity)
+            ctx.fillStyle = 'rgb(240, 240, 240)';
+            ctx.beginPath();
+            if (activeShape === 'spout_corner') {
+              if (isFront) {
+                ctx.moveTo(startX + B, panelY);
+                ctx.lineTo(startX + width, panelY);
+                ctx.lineTo(startX + width, panelY + height);
+                ctx.lineTo(startX, panelY + height);
+                ctx.lineTo(startX, panelY + B);
+                ctx.closePath();
+                ctx.fill();
+              } else {
+                ctx.moveTo(startX, panelY);
+                ctx.lineTo(startX + width - B, panelY);
+                ctx.lineTo(startX + width, panelY + B);
+                ctx.lineTo(startX + width, panelY + height);
+                ctx.lineTo(startX, panelY + height);
+                ctx.closePath();
+                ctx.fill();
+              }
+            } else {
+              ctx.rect(startX, panelY, width, height);
+              ctx.fill();
+            }
+
+            // Un-shade safe zone (solid white)
+            ctx.fillStyle = 'rgb(255, 255, 255)';
+            ctx.beginPath();
+            if (activeShape === 'spout_corner') {
+              if (isFront) {
+                ctx.moveTo(startX + B + 5, panelY + topSealH + 5);
+                ctx.lineTo(startX + width - sideSeals - 5, panelY + topSealH + 5);
+                ctx.lineTo(startX + width - sideSeals - 5, panelY + height - bottomSealH - 5);
+                ctx.lineTo(startX + sideSeals + 5, panelY + height - bottomSealH - 5);
+                ctx.lineTo(startX + sideSeals + 5, panelY + B + 5);
+              } else {
+                ctx.moveTo(startX + sideSeals + 5, panelY + topSealH + 5);
+                ctx.lineTo(startX + width - B - 5, panelY + topSealH + 5);
+                ctx.lineTo(startX + width - sideSeals - 5, panelY + B + 5);
+                ctx.lineTo(startX + width - sideSeals - 5, panelY + height - bottomSealH - 5);
+                ctx.lineTo(startX + sideSeals + 5, panelY + height - bottomSealH - 5);
+              }
+            } else {
+              ctx.rect(startX + sideSeals + 5, panelY + topSealH + 5, width - sideSeals * 2 - 10, height - topSealH - bottomSealH - 10);
+            }
+            ctx.closePath();
+            ctx.fill();
+
+            // Cut line boundary
+            if (showCutLines) {
+              doc.setDrawColor(225, 29, 72);
+              doc.setLineWidth(0.6);
+              ctx.beginPath();
+              if (activeShape === 'spout_corner') {
+                if (isFront) {
+                  ctx.moveTo(startX + B, panelY);
+                  ctx.lineTo(startX + width, panelY);
+                  ctx.lineTo(startX + width, panelY + height);
+                  ctx.lineTo(startX, panelY + height);
+                  ctx.lineTo(startX, panelY + B);
+                } else {
+                  ctx.moveTo(startX, panelY);
+                  ctx.lineTo(startX + width - B, panelY);
+                  ctx.lineTo(startX + width, panelY + B);
+                  ctx.lineTo(startX + width, panelY + height);
+                  ctx.lineTo(startX, panelY + height);
+                }
+              } else {
+                if (roundCorners) {
+                  doc.roundedRect(startX, panelY, width, height, 8, 8);
+                } else {
+                  doc.rect(startX, panelY, width, height);
+                }
+              }
+              if (activeShape === 'spout_corner') {
+                ctx.closePath();
+                ctx.stroke();
+              }
+            }
+
+            // Safe Art Zone (Dotted Amber)
+            if (showSafeZone) {
+              doc.setDrawColor(245, 158, 11);
+              doc.setLineWidth(0.3);
+              doc.setLineDashPattern([1, 2], 0);
+              ctx.beginPath();
+              if (activeShape === 'spout_corner') {
+                if (isFront) {
+                  ctx.moveTo(startX + B + 5, panelY + topSealH + 5);
+                  ctx.lineTo(startX + width - sideSeals - 5, panelY + topSealH + 5);
+                  ctx.lineTo(startX + width - sideSeals - 5, panelY + height - bottomSealH - 5);
+                  ctx.lineTo(startX + sideSeals + 5, panelY + height - bottomSealH - 5);
+                  ctx.lineTo(startX + sideSeals + 5, panelY + B + 5);
+                } else {
+                  ctx.moveTo(startX + sideSeals + 5, panelY + topSealH + 5);
+                  ctx.lineTo(startX + width - B - 5, panelY + topSealH + 5);
+                  ctx.lineTo(startX + width - sideSeals - 5, panelY + B + 5);
+                  ctx.lineTo(startX + width - sideSeals - 5, panelY + height - bottomSealH - 5);
+                  ctx.lineTo(startX + sideSeals + 5, panelY + height - bottomSealH - 5);
+                }
+              } else {
+                ctx.rect(startX + sideSeals + 5, panelY + topSealH + 5, width - sideSeals * 2 - 10, height - topSealH - bottomSealH - 10);
+              }
+              ctx.closePath();
+              ctx.stroke();
+              doc.setLineDashPattern([], 0);
+            }
+
+            // Draw Spout Assembly
+            const drawSpout = (centerX: number, centerY: number, angleDeg: number) => {
+              ctx.save();
+              ctx.translate(centerX, centerY);
+              ctx.rotate(angleDeg * Math.PI / 180);
+              // Neck
+              doc.setFillColor(240, 240, 240);
+              doc.setDrawColor(225, 29, 72);
+              doc.setLineWidth(0.4);
+              doc.rect(-spoutW/2, -spoutH, spoutW, spoutH, 'DF');
+              // Thread lines
+              doc.line(-spoutW/2, -spoutH*0.7, spoutW/2, -spoutH*0.7);
+              doc.line(-spoutW/2, -spoutH*0.4, spoutW/2, -spoutH*0.4);
+              // Cap
+              doc.setFillColor(239, 68, 68);
+              doc.setDrawColor(185, 28, 28);
+              doc.rect(-capW/2, -spoutH - capH, capW, capH, 'DF');
+              // Vertical ribs on cap
+              doc.setDrawColor(255, 255, 255);
+              doc.setLineWidth(0.2);
+              doc.line(-capW/4, -spoutH - capH + 1, -capW/4, -spoutH - 1);
+              doc.line(0, -spoutH - capH + 1, 0, -spoutH - 1);
+              doc.line(capW/4, -spoutH - capH + 1, capW/4, -spoutH - 1);
+              ctx.restore();
+            };
+
+            if (activeShape === 'spout_center') {
+              drawSpout(startX + width / 2, panelY, 0);
+            } else if (activeShape === 'spout_corner') {
+              if (isFront) {
+                drawSpout(startX + B / 2, panelY + B / 2, -45);
+              } else {
+                drawSpout(startX + width - B / 2, panelY + B / 2, 45);
+              }
+            }
+
+            // Bottom curve weld line (crease line)
+            doc.setDrawColor(59, 130, 246);
+            doc.setLineWidth(0.4);
+            doc.setLineDashPattern([3, 3], 0);
+            ctx.beginPath();
+            ctx.moveTo(startX, panelY + height - bottomSealH);
+            ctx.bezierCurveTo(
+              startX + width * 0.25, panelY + height - bottomSealH * 0.3,
+              startX + width * 0.75, panelY + height - bottomSealH * 0.3,
+              startX + width, panelY + height - bottomSealH
+            );
+            ctx.stroke();
+            doc.setLineDashPattern([], 0);
+
+            // Labels
+            doc.setFont('Helvetica', 'bold');
+            doc.setFontSize(14);
+            doc.setTextColor(150, 150, 150);
+            doc.text(label.toUpperCase(), startX + width / 2 - 12, panelY + height / 2);
+          });
+
+          // Draw Bottom Gusset Panel
+          const gussetY = panelY + height + 20;
+          doc.setDrawColor(225, 29, 72);
+          doc.setLineWidth(0.6);
+          doc.rect(frontX, gussetY, width, gusset, 'D');
+
+          doc.setDrawColor(59, 130, 246);
+          doc.setLineWidth(0.4);
+          doc.setLineDashPattern([3, 3], 0);
+          doc.line(frontX, gussetY + gusset / 2, frontX + width, gussetY + gusset / 2);
+          doc.setLineDashPattern([], 0);
+          doc.setFont('Helvetica', 'bold');
+          doc.setFontSize(10);
+          doc.setTextColor(30, 41, 59);
+          doc.text('BOTTOM GUSSET', frontX + width / 2 - 18, gussetY + gusset / 2 - 3);
+
+          // Dimension annotations
+          doc.setFontSize(8);
+          doc.setTextColor(59, 130, 246);
+          doc.setDrawColor(59, 130, 246);
+          doc.setLineWidth(0.3);
+          doc.line(frontX, panelY - 8, frontX + width, panelY - 8);
+          doc.text(`${width}mm`, frontX + width / 2 - 5, panelY - 11);
+          doc.line(frontX - 6, panelY, frontX - 6, panelY + height);
+          doc.text(`${height}mm`, frontX - 11, panelY + height / 2, { angle: 90 });
+          doc.line(frontX - 6, gussetY, frontX - 6, gussetY + gusset);
+          doc.text(`${gusset}mm`, frontX - 11, gussetY + gusset / 2, { angle: 90 });
+
         } else if (activeShape === 'flat_bottom_one_zipper' || activeShape === 'flat_bottom_normal_zipper' || activeShape === 'box_bottom') {
           const lGussetX = margin;
           const frontX = margin + gusset + spacing;
@@ -1576,6 +1883,122 @@ export default function PouchDielineCreatorPage() {
               ctx.stroke();
               if (typeof ctx.setLineDash === 'function') ctx.setLineDash([]);
             }
+          });
+
+          // Gusset
+          const bGussetY = pY + h + 8;
+          doc.setDrawColor(225, 29, 72);
+          doc.rect(fX, bGussetY, w, g);
+          doc.setDrawColor(59, 130, 246);
+          doc.setLineDashPattern([2, 2], 0);
+          doc.line(fX, bGussetY + g / 2, fX + w, bGussetY + g / 2);
+          doc.setLineDashPattern([], 0);
+
+        } else if (activeShape === 'spout_center' || activeShape === 'spout_corner') {
+          const fX = viewX + 15;
+          const bX = fX + w + 10;
+          const pY = viewY + 15;
+          const sB = activeShape === 'spout_corner' ? 30 * pScale : 0;
+          const sTopSealH = 10 * pScale;
+          const sBottomSealH = bottomSealCurve * pScale;
+          const sSpoutW = 9.6 * pScale;
+          const sSpoutH = 15 * pScale;
+          const sCapW = 12 * pScale;
+          const sCapH = 10 * pScale;
+
+          // Draw Front & Back Panel Scaled
+          [fX, bX].forEach((x, idx) => {
+            const isFront = idx === 0;
+            const label = isFront ? 'Front' : 'Back';
+            ctx.fillStyle = 'rgb(245, 245, 245)';
+            ctx.beginPath();
+            if (activeShape === 'spout_corner') {
+              if (isFront) {
+                ctx.moveTo(x + sB, pY);
+                ctx.lineTo(x + w, pY);
+                ctx.lineTo(x + w, pY + h);
+                ctx.lineTo(x, pY + h);
+                ctx.lineTo(x, pY + sB);
+              } else {
+                ctx.moveTo(x, pY);
+                ctx.lineTo(x + w - sB, pY);
+                ctx.lineTo(x + w, pY + sB);
+                ctx.lineTo(x + w, pY + h);
+                ctx.lineTo(x, pY + h);
+              }
+            } else {
+              ctx.rect(x, pY, w, h);
+            }
+            ctx.closePath();
+            ctx.fill();
+
+            // Cut border
+            doc.setDrawColor(225, 29, 72);
+            doc.setLineWidth(0.4);
+            ctx.beginPath();
+            if (activeShape === 'spout_corner') {
+              if (isFront) {
+                ctx.moveTo(x + sB, pY);
+                ctx.lineTo(x + w, pY);
+                ctx.lineTo(x + w, pY + h);
+                ctx.lineTo(x, pY + h);
+                ctx.lineTo(x, pY + sB);
+              } else {
+                ctx.moveTo(x, pY);
+                ctx.lineTo(x + w - sB, pY);
+                ctx.lineTo(x + w, pY + sB);
+                ctx.lineTo(x + w, pY + h);
+                ctx.lineTo(x, pY + h);
+              }
+            } else {
+              if (roundCorners) {
+                doc.roundedRect(x, pY, w, h, 3, 3);
+              } else {
+                doc.rect(x, pY, w, h);
+              }
+            }
+            if (activeShape === 'spout_corner') {
+              ctx.closePath();
+              ctx.stroke();
+            }
+
+            // Draw Spout Assembly (Scaled)
+            const drawSpoutA4 = (cx: number, cy: number, angleDeg: number) => {
+              ctx.save();
+              ctx.translate(cx, cy);
+              ctx.rotate(angleDeg * Math.PI / 180);
+              // Neck
+              doc.setFillColor(240, 240, 240);
+              doc.setDrawColor(225, 29, 72);
+              doc.setLineWidth(0.2);
+              doc.rect(-sSpoutW/2, -sSpoutH, sSpoutW, sSpoutH, 'DF');
+              // Cap
+              doc.setFillColor(239, 68, 68);
+              doc.setDrawColor(185, 28, 28);
+              doc.rect(-sCapW/2, -sSpoutH - sCapH, sCapW, sCapH, 'DF');
+              ctx.restore();
+            };
+
+            if (activeShape === 'spout_center') {
+              drawSpoutA4(x + w / 2, pY, 0);
+            } else if (activeShape === 'spout_corner') {
+              if (isFront) {
+                drawSpoutA4(x + sB / 2, pY + sB / 2, -45);
+              } else {
+                drawSpoutA4(x + w - sB / 2, pY + sB / 2, 45);
+              }
+            }
+
+            // Bottom curve fold (dotted blue)
+            const foldY = pY + h - sBottomSealH;
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgb(59, 130, 246)';
+            ctx.lineWidth = 0.4;
+            if (typeof ctx.setLineDash === 'function') ctx.setLineDash([2, 2]);
+            ctx.moveTo(x, foldY);
+            ctx.bezierCurveTo(x + w * 0.25, pY + h - sBottomSealH * 0.3, x + w * 0.75, pY + h - sBottomSealH * 0.3, x + w, foldY);
+            ctx.stroke();
+            if (typeof ctx.setLineDash === 'function') ctx.setLineDash([]);
           });
 
           // Gusset
@@ -1970,13 +2393,13 @@ export default function PouchDielineCreatorPage() {
                   <div className="space-y-2 bg-gray-50 p-3 rounded-2xl border border-gray-200">
                     <div className="flex justify-between items-center text-xs font-semibold flex-wrap">
                       <span className="text-gray-600 font-bold">
-                        {activeShape === 'stand_up' || activeShape === 'k_seal' 
+                        {activeShape === 'stand_up' || activeShape === 'k_seal' || activeShape === 'spout_center' || activeShape === 'spout_corner'
                           ? 'Bottom Gusset Flat Height (BG)' 
                           : 'Side Gusset Width (SG)'}
                       </span>
                       <span className="text-green-600 font-mono font-bold">
                         {(gusset / 25.4).toFixed(2)} in / {gusset} mm 
-                        {(activeShape === 'stand_up' || activeShape === 'k_seal') && (
+                        {(activeShape === 'stand_up' || activeShape === 'k_seal' || activeShape === 'spout_center' || activeShape === 'spout_corner') && (
                           <span className="text-gray-400"> ({(gusset / 2 / 25.4).toFixed(2)}" depth)</span>
                         )}
                       </span>
@@ -2005,7 +2428,7 @@ export default function PouchDielineCreatorPage() {
                     </div>
                     <input
                       type="range"
-                      min={activeShape === 'stand_up' || activeShape === 'k_seal' ? "40" : "20"}
+                      min={activeShape === 'stand_up' || activeShape === 'k_seal' || activeShape === 'spout_center' || activeShape === 'spout_corner' ? "40" : "20"}
                       max="150"
                       value={gusset}
                       onChange={(e) => handleGussetChangeMm(e.target.value)}
@@ -2015,7 +2438,7 @@ export default function PouchDielineCreatorPage() {
                 )}
 
                 {/* Include Zipper Toggle (Conditional) */}
-                {activeShape !== 'side_gusset' && activeShape !== 'center_seal' && (
+                {activeShape !== 'side_gusset' && activeShape !== 'center_seal' && activeShape !== 'spout_center' && activeShape !== 'spout_corner' && (
                   <>
                     <div className="flex items-center justify-between border-t border-gray-200 pt-3">
                       <div className="flex flex-col gap-0.5">
@@ -2060,7 +2483,7 @@ export default function PouchDielineCreatorPage() {
                 )}
 
                 {/* Include Valve Toggle (Conditional) */}
-                {activeShape !== 'three_side_seal' && (
+                {activeShape !== 'three_side_seal' && activeShape !== 'spout_center' && activeShape !== 'spout_corner' && (
                   <>
                     <div className="flex items-center justify-between border-t border-gray-200 pt-3">
                       <div className="flex flex-col gap-0.5">
@@ -2419,6 +2842,229 @@ export default function PouchDielineCreatorPage() {
                         <rect x="0" y="0" width={scales.w} height={scales.h} rx={roundCorners ? 12 : 0} />
                       </clipPath>
                     </defs>
+
+                    {/* spout_center / spout_corner shapes */}
+                    {(activeShape === 'spout_center' || activeShape === 'spout_corner') && (() => {
+                      const bevel = 30 * scales.scale;
+                      const topSealH = 10 * scales.scale;
+                      const bottomSealH = bottomSealCurve * scales.scale;
+                      const spoutW = 9.6 * scales.scale;
+                      const spoutH = 15 * scales.scale;
+                      const capW = 12 * scales.scale;
+                      const capH = 10 * scales.scale;
+
+                      // Helper to render the spout assembly
+                      const renderSpoutAssembly = () => (
+                        <g className="text-gray-700">
+                          {/* Spout Neck */}
+                          <rect x={-spoutW/2} y={-spoutH} width={spoutW} height={spoutH} fill="#f1f5f9" stroke="#e11d48" strokeWidth="1.5" />
+                          {/* Thread lines on neck */}
+                          <line x1={-spoutW/2} y1={-spoutH*0.7} x2={spoutW/2} y2={-spoutH*0.7} stroke="#e11d48" strokeWidth="1" />
+                          <line x1={-spoutW/2} y1={-spoutH*0.4} x2={spoutW/2} y2={-spoutH*0.4} stroke="#e11d48" strokeWidth="1" />
+                          {/* Cap */}
+                          <rect x={-capW/2} y={-spoutH - capH} width={capW} height={capH} fill="#ef4444" stroke="#b91c1c" strokeWidth="1.5" rx="1" />
+                          {/* Ribbed lines on cap */}
+                          <line x1={-capW/4} y1={-spoutH - capH + 1} x2={-capW/4} y2={-spoutH - 1} stroke="#ffffff" strokeWidth="1" />
+                          <line x1="0" y1={-spoutH - capH + 1} x2="0" y2={-spoutH - 1} stroke="#ffffff" strokeWidth="1" />
+                          <line x1={capW/4} y1={-spoutH - capH + 1} x2={capW/4} y2={-spoutH - 1} stroke="#ffffff" strokeWidth="1" />
+                        </g>
+                      );
+
+                      return (
+                        <>
+                          {/* FRONT PANEL */}
+                          <g transform="translate(0, 0)">
+                            {/* Bleeds (3mm) */}
+                            {showBleedLines && (
+                              activeShape === 'spout_corner' ? (
+                                <path
+                                  d={`M ${bevel - 3},${-3} L ${scales.w + 3},${-3} L ${scales.w + 3},${scales.h + 3} L ${-3},${scales.h + 3} L ${-3},${bevel - 3} Z`}
+                                  fill="none"
+                                  stroke="#10b981"
+                                  strokeWidth="1.2"
+                                  strokeDasharray="4,4"
+                                />
+                              ) : (
+                                <rect x="-8" y="-8" width={scales.w + 16} height={scales.h + 16} fill="none" stroke="#10b981" strokeWidth="1.2" strokeDasharray="4,4" />
+                              )
+                            )}
+                            {/* Cut / Boundary lines */}
+                            {showCutLines && (
+                              activeShape === 'spout_corner' ? (
+                                <path
+                                  d={`M ${bevel},0 L ${scales.w},0 L ${scales.w},${scales.h} L 0,${scales.h} L 0,${bevel} Z`}
+                                  fill="#3b82f6"
+                                  fillOpacity="0.08"
+                                  stroke="#e11d48"
+                                  strokeWidth="2.2"
+                                />
+                              ) : (
+                                <rect x="0" y="0" width={scales.w} height={scales.h} fill="#3b82f6" fillOpacity="0.08" stroke="#e11d48" strokeWidth="2.2" rx={roundCorners ? 12 : 0} />
+                              )
+                            )}
+                            {/* Shaded weld seals (Left, Right, Top, Bottom) */}
+                            <g opacity="0.12">
+                              {/* Left & Right side seals */}
+                              {activeShape === 'spout_corner' ? (
+                                <>
+                                  <path d={`M 0,${bevel} L ${scales.seals},${bevel + scales.seals} V ${scales.h - bottomSealH} H 0 Z`} fill="#ffffff" />
+                                  <rect x={scales.w - scales.seals} y={topSealH} width={scales.seals} height={scales.h - topSealH - bottomSealH} fill="#ffffff" />
+                                </>
+                              ) : (
+                                <>
+                                  <rect x="0" y={topSealH} width={scales.seals} height={scales.h - topSealH - bottomSealH} fill="#ffffff" />
+                                  <rect x={scales.w - scales.seals} y={topSealH} width={scales.seals} height={scales.h - topSealH - bottomSealH} fill="#ffffff" />
+                                </>
+                              )}
+                              {/* Top seal */}
+                              {activeShape === 'spout_corner' ? (
+                                <path d={`M ${bevel},0 H ${scales.w} V ${topSealH} H ${bevel + scales.seals} L ${scales.seals},${bevel + scales.seals} L 0,${bevel} Z`} fill="#ffffff" />
+                              ) : (
+                                <rect x="0" y="0" width={scales.w} height={topSealH} fill="#ffffff" />
+                              )}
+                              {/* Bottom seal */}
+                              <rect x="0" y={scales.h - bottomSealH} width={scales.w} height={bottomSealH} fill="#ffffff" />
+                            </g>
+
+                            {/* Spout Protrusion (Front) */}
+                            {activeShape === 'spout_center' && (
+                              <g transform={`translate(${scales.w / 2}, 0)`}>
+                                {renderSpoutAssembly()}
+                              </g>
+                            )}
+                            {activeShape === 'spout_corner' && (
+                              <g transform={`translate(${bevel / 2}, ${bevel / 2})`}>
+                                <g transform="rotate(-45)">
+                                  {renderSpoutAssembly()}
+                                </g>
+                              </g>
+                            )}
+
+                            {/* Safe Art Zone */}
+                            {showSafeZone && (
+                              activeShape === 'spout_corner' ? (
+                                <path
+                                  d={`M ${bevel + 10},${topSealH + 10} H ${scales.w - scales.seals - 10} V ${scales.h - bottomSealH - 10} H ${scales.seals + 10} V ${bevel + 10} Z`}
+                                  fill="none"
+                                  stroke="#f59e0b"
+                                  strokeWidth="1.2"
+                                  strokeDasharray="2,3"
+                                />
+                              ) : (
+                                <rect x={scales.seals + 10} y={topSealH + 10} width={scales.w - scales.seals * 2 - 20} height={scales.h - topSealH - bottomSealH - 20} fill="none" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="2,3" />
+                              )
+                            )}
+
+                            {/* Fold Crease for Bottom Gusset */}
+                            {showFoldLines && (
+                              <path d={`M 0,${scales.h - bottomSealH} C ${scales.w * 0.25},${scales.h - bottomSealH * 0.3} ${scales.w * 0.75},${scales.h - bottomSealH * 0.3} ${scales.w},${scales.h - bottomSealH}`} fill="none" stroke="#3b82f6" strokeWidth="1.8" strokeDasharray="5,4" />
+                            )}
+
+                            <text x={scales.w / 2} y={scales.h / 2} fill="#374151" fillOpacity="0.3" fontSize="13" fontWeight="black" textAnchor="middle" letterSpacing="1">FRONT PANEL</text>
+                          </g>
+
+                          {/* BACK PANEL */}
+                          <g transform={`translate(${scales.w + scales.spacing}, 0)`}>
+                            {/* Bleeds (3mm) */}
+                            {showBleedLines && (
+                              activeShape === 'spout_corner' ? (
+                                <path
+                                  d={`M ${-3},${-3} L ${scales.w - bevel + 3},${-3} L ${scales.w + 3},${bevel - 3} V ${scales.h + 3} H ${-3} Z`}
+                                  fill="none"
+                                  stroke="#10b981"
+                                  strokeWidth="1.2"
+                                  strokeDasharray="4,4"
+                                />
+                              ) : (
+                                <rect x="-8" y="-8" width={scales.w + 16} height={scales.h + 16} fill="none" stroke="#10b981" strokeWidth="1.2" strokeDasharray="4,4" />
+                              )
+                            )}
+                            {/* Cut / Boundary lines */}
+                            {showCutLines && (
+                              activeShape === 'spout_corner' ? (
+                                <path
+                                  d={`M 0,0 L ${scales.w - bevel},0 L ${scales.w},${bevel} V ${scales.h} H 0 Z`}
+                                  fill="#3b82f6"
+                                  fillOpacity="0.08"
+                                  stroke="#e11d48"
+                                  strokeWidth="2.2"
+                                />
+                              ) : (
+                                <rect x="0" y="0" width={scales.w} height={scales.h} fill="#3b82f6" fillOpacity="0.08" stroke="#e11d48" strokeWidth="2.2" rx={roundCorners ? 12 : 0} />
+                              )
+                            )}
+                            {/* Shaded weld seals (Left, Right, Top, Bottom) */}
+                            <g opacity="0.12">
+                              {/* Left & Right side seals */}
+                              {activeShape === 'spout_corner' ? (
+                                <>
+                                  <rect x="0" y={topSealH} width={scales.seals} height={scales.h - topSealH - bottomSealH} fill="#ffffff" />
+                                  <path d={`M ${scales.w},${bevel} L ${scales.w - scales.seals},${bevel + scales.seals} V ${scales.h - bottomSealH} H ${scales.w} Z`} fill="#ffffff" />
+                                </>
+                              ) : (
+                                <>
+                                  <rect x="0" y={topSealH} width={scales.seals} height={scales.h - topSealH - bottomSealH} fill="#ffffff" />
+                                  <rect x={scales.w - scales.seals} y={topSealH} width={scales.seals} height={scales.h - topSealH - bottomSealH} fill="#ffffff" />
+                                </>
+                              )}
+                              {/* Top seal */}
+                              {activeShape === 'spout_corner' ? (
+                                <path d={`M 0,0 H ${scales.w - bevel} L ${scales.w},${bevel} L ${scales.w - scales.seals},${bevel + scales.seals} H ${scales.seals} V ${topSealH} H 0 Z`} fill="#ffffff" />
+                              ) : (
+                                <rect x="0" y="0" width={scales.w} height={topSealH} fill="#ffffff" />
+                              )}
+                              {/* Bottom seal */}
+                              <rect x="0" y={scales.h - bottomSealH} width={scales.w} height={bottomSealH} fill="#ffffff" />
+                            </g>
+
+                            {/* Spout Protrusion (Back) */}
+                            {activeShape === 'spout_center' && (
+                              <g transform={`translate(${scales.w / 2}, 0)`}>
+                                {renderSpoutAssembly()}
+                              </g>
+                            )}
+                            {activeShape === 'spout_corner' && (
+                              <g transform={`translate(${scales.w - bevel / 2}, ${bevel / 2})`}>
+                                <g transform="rotate(45)">
+                                  {renderSpoutAssembly()}
+                                </g>
+                              </g>
+                            )}
+
+                            {/* Safe Art Zone */}
+                            {showSafeZone && (
+                              activeShape === 'spout_corner' ? (
+                                <path
+                                  d={`M ${scales.seals + 10},${topSealH + 10} H ${scales.w - bevel - 10} L ${scales.w - scales.seals - 10} L ${scales.w - scales.seals - 10},${bevel + 10} V ${scales.h - bottomSealH - 10} H ${scales.seals + 10} Z`}
+                                  fill="none"
+                                  stroke="#f59e0b"
+                                  strokeWidth="1.2"
+                                  strokeDasharray="2,3"
+                                />
+                              ) : (
+                                <rect x={scales.seals + 10} y={topSealH + 10} width={scales.w - scales.seals * 2 - 20} height={scales.h - topSealH - bottomSealH - 20} fill="none" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="2,3" />
+                              )
+                            )}
+
+                            {/* Fold Crease for Bottom Gusset */}
+                            {showFoldLines && (
+                              <path d={`M 0,${scales.h - bottomSealH} C ${scales.w * 0.25},${scales.h - bottomSealH * 0.3} ${scales.w * 0.75},${scales.h - bottomSealH * 0.3} ${scales.w},${scales.h - bottomSealH}`} fill="none" stroke="#3b82f6" strokeWidth="1.8" strokeDasharray="5,4" />
+                            )}
+
+                            <text x={scales.w / 2} y={scales.h / 2} fill="#374151" fillOpacity="0.3" fontSize="13" fontWeight="black" textAnchor="middle" letterSpacing="1">BACK PANEL</text>
+                          </g>
+
+                          {/* BOTTOM GUSSET */}
+                          <g transform={`translate(0, ${scales.h + 30})`}>
+                            <rect x="0" y="0" width={scales.w} height={scales.g} fill="#3b82f6" fillOpacity="0.08" stroke="#e11d48" strokeWidth="2.2" />
+                            {showFoldLines && (
+                              <line x1="0" y1={scales.g / 2} x2={scales.w} y2={scales.g / 2} stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4,4" />
+                            )}
+                            <text x={scales.w / 2} y={scales.g / 2 + 3} fill="#374151" fillOpacity="0.3" fontSize="10" fontWeight="black" textAnchor="middle" letterSpacing="1">BOTTOM GUSSET</text>
+                          </g>
+                        </>
+                      );
+                    })()}
 
                     {/* 1. STAND UP / K-SEAL SHAPES */}
                     {(activeShape === 'stand_up' || activeShape === 'k_seal') && (
