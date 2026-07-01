@@ -859,9 +859,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   breadcrumbs,
   materialType
 }) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
+  
+  // Derive a dynamic key from the URL path for automatic section rendering (e.g. buyer concerns)
+  const slug = location.pathname.split('/').pop() || '';
+  const pathKey = slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  const concernsNamespace = `seoPages.buyerConcerns.${pathKey}`;
+  
   const [isPending, startTransition] = useTransition()
 
   const [scrollPercent, setScrollPercent] = useState(0)
@@ -1366,6 +1372,112 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                       </div>
                     </section>
                   ))}
+
+                  {/* Buyer Concerns & Solutions (Neobrutalist) */}
+                  {i18n.exists(`${concernsNamespace}.title`) && (
+                    <section id="buyer-concerns" className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mt-12 mb-12">
+                      <div className="flex items-center gap-3 border-b-4 border-black pb-4 mb-6">
+                        <div className="p-2 bg-[#00FFFF] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          <Users className="w-6 h-6 text-black stroke-[3px]" />
+                        </div>
+                        <h2 className="font-black text-2xl md:text-3xl uppercase tracking-tight">
+                          {t(`${concernsNamespace}.title`, 'Buyer Concerns & Solutions')}
+                        </h2>
+                      </div>
+                      
+                      <div className="space-y-6">
+                        {/* Concern 1 */}
+                        {i18n.exists(`${concernsNamespace}.concern1Title`) && (
+                          <div className="border-2 border-black p-5 bg-[#F9F9F9] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+                            <h3 className="font-black text-xl uppercase mb-3 flex items-start gap-2">
+                              <span className="bg-black text-white px-2 py-0.5 text-sm">01</span>
+                              {t(`${concernsNamespace}.concern1Title`)}
+                            </h3>
+                            <div className="mb-4 p-3 bg-red-50 border-l-4 border-red-500 font-['Space_Grotesk'] text-red-900 font-semibold">
+                              <span className="text-xs uppercase font-black text-red-600 block mb-1">Pain Point</span>
+                              "{t(`${concernsNamespace}.concern1Pain`)}"
+                            </div>
+                            <div className="p-4 bg-[#D4FF00]/20 border-l-4 border-[#10b981] font-['Space_Grotesk'] text-emerald-950">
+                              <span className="text-xs uppercase font-black text-emerald-700 block mb-1">Our Solution</span>
+                              {t(`${concernsNamespace}.concern1Solution`)}
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Concern 2 */}
+                        {i18n.exists(`${concernsNamespace}.concern2Title`) && (
+                          <div className="border-2 border-black p-5 bg-[#F9F9F9] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+                            <h3 className="font-black text-xl uppercase mb-3 flex items-start gap-2">
+                              <span className="bg-black text-white px-2 py-0.5 text-sm">02</span>
+                              {t(`${concernsNamespace}.concern2Title`)}
+                            </h3>
+                            <div className="mb-4 p-3 bg-red-50 border-l-4 border-red-500 font-['Space_Grotesk'] text-red-900 font-semibold">
+                              <span className="text-xs uppercase font-black text-red-600 block mb-1">Pain Point</span>
+                              "{t(`${concernsNamespace}.concern2Pain`)}"
+                            </div>
+                            <div className="p-4 bg-[#D4FF00]/20 border-l-4 border-[#10b981] font-['Space_Grotesk'] text-emerald-950">
+                              <span className="text-xs uppercase font-black text-emerald-700 block mb-1">Our Solution</span>
+                              {t(`${concernsNamespace}.concern2Solution`)}
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Concern 3 */}
+                        {i18n.exists(`${concernsNamespace}.concern3Title`) && (
+                          <div className="border-2 border-black p-5 bg-[#F9F9F9] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+                            <h3 className="font-black text-xl uppercase mb-3 flex items-start gap-2">
+                              <span className="bg-black text-white px-2 py-0.5 text-sm">03</span>
+                              {t(`${concernsNamespace}.concern3Title`)}
+                            </h3>
+                            <div className="mb-4 p-3 bg-red-50 border-l-4 border-red-500 font-['Space_Grotesk'] text-red-900 font-semibold">
+                              <span className="text-xs uppercase font-black text-red-600 block mb-1">Pain Point</span>
+                              "{t(`${concernsNamespace}.concern3Pain`)}"
+                            </div>
+                            <div className="p-4 bg-[#D4FF00]/20 border-l-4 border-[#10b981] font-['Space_Grotesk'] text-emerald-950">
+                              <span className="text-xs uppercase font-black text-emerald-700 block mb-1">Our Solution</span>
+                              {t(`${concernsNamespace}.concern3Solution`)}
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Concern 4 */}
+                        {i18n.exists(`${concernsNamespace}.concern4Title`) && (
+                          <div className="border-2 border-black p-5 bg-[#F9F9F9] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+                            <h3 className="font-black text-xl uppercase mb-3 flex items-start gap-2">
+                              <span className="bg-black text-white px-2 py-0.5 text-sm">04</span>
+                              {t(`${concernsNamespace}.concern4Title`)}
+                            </h3>
+                            <div className="mb-4 p-3 bg-red-50 border-l-4 border-red-500 font-['Space_Grotesk'] text-red-900 font-semibold">
+                              <span className="text-xs uppercase font-black text-red-600 block mb-1">Pain Point</span>
+                              "{t(`${concernsNamespace}.concern4Pain`)}"
+                            </div>
+                            <div className="p-4 bg-[#D4FF00]/20 border-l-4 border-[#10b981] font-['Space_Grotesk'] text-emerald-950">
+                              <span className="text-xs uppercase font-black text-emerald-700 block mb-1">Our Solution</span>
+                              {t(`${concernsNamespace}.concern4Solution`)}
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Concern 5 */}
+                        {i18n.exists(`${concernsNamespace}.concern5Title`) && (
+                          <div className="border-2 border-black p-5 bg-[#F9F9F9] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+                            <h3 className="font-black text-xl uppercase mb-3 flex items-start gap-2">
+                              <span className="bg-black text-white px-2 py-0.5 text-sm">05</span>
+                              {t(`${concernsNamespace}.concern5Title`)}
+                            </h3>
+                            <div className="mb-4 p-3 bg-red-50 border-l-4 border-red-500 font-['Space_Grotesk'] text-red-900 font-semibold">
+                              <span className="text-xs uppercase font-black text-red-600 block mb-1">Pain Point</span>
+                              "{t(`${concernsNamespace}.concern5Pain`)}"
+                            </div>
+                            <div className="p-4 bg-[#D4FF00]/20 border-l-4 border-[#10b981] font-['Space_Grotesk'] text-emerald-950">
+                              <span className="text-xs uppercase font-black text-emerald-700 block mb-1">Our Solution</span>
+                              {t(`${concernsNamespace}.concern5Solution`)}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </section>
+                  )}
 
                   {/* FAQ Accordion (Neobrutalist) */}
                   {Array.isArray(faqs) && faqs.length > 0 && (
