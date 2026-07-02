@@ -929,6 +929,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/eco-friendly-packaging-supplier" element={<PouchEcoFriendlySupplierServicePage />} />
                   <Route path="/topics/custom-packaging" element={<PouchCustomBrandPackagingPage />} />
                   <Route path="/topics/reduce-packaging-waste" element={<PouchReduceWasteGuidePage />} />
+                  <Route path="/topics/reduce-waste-guide" element={<PouchReduceWasteGuidePage />} />
                   <Route path="/topics/compostable-baby-food-bags" element={<PouchCompostableBabyFoodBagsPage />} />
                   <Route path="/topics/green-coffee-materials" element={<PouchGreenCoffeeMaterialsPage />} />
                   <Route path="/topics/recyclable-snack-packaging" element={<PouchRecyclableSnackPackagingPage />} />
@@ -1544,6 +1545,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/topics/eco-friendly-packaging-supplier" element={<EcoFriendlySupplierServicePage />} />
                         <Route path="/topics/custom-packaging" element={<CustomBrandPackagingPage />} />
                         <Route path="/topics/reduce-packaging-waste" element={<ReduceWasteGuidePage />} />
+                        <Route path="/topics/reduce-waste-guide" element={<ReduceWasteGuidePage />} />
                         <Route path="/topics/dtc-sustainable-packaging" element={<DTCSustainablePackagingPage />} />
                         <Route path="/topics/green-coffee-materials" element={<GreenCoffeeMaterialsPage />} />
                         <Route path="/topics/digital-printing-eco-packaging" element={<DigitalPrintingEcoPackagingPage />} />
