@@ -2,13 +2,67 @@ import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
-import { Coffee, Leaf, CheckCircle, Calendar, ArrowRight, Package, Shield, Clock, Sparkles, TrendingUp, Heart } from 'lucide-react'
+import { Coffee, Leaf, CheckCircle, Calendar, ArrowRight, Package, Shield, Clock, Sparkles, TrendingUp, Heart, Wind, AlertTriangle, Droplet, Sun, Unlock } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchCoffeeTeaPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  const localTranslations = {
+    'en': {
+      sectionTitle: '5 Common Coffee & Tea Packaging Problems (And Solutions)',
+      problemLabel: 'Problem:',
+      solutionLabel: 'Solution:',
+      painPoints: [
+        { title: 'Degassing Issues', desc: 'Freshly roasted coffee releases CO2. Without a valve, the bag can burst.', solution: 'One-way degassing valves to release CO2 while blocking oxygen.' },
+        { title: 'Oxygen Exposure', desc: 'Oxygen stales coffee and tea quickly.', solution: 'High-barrier multi-layer materials to keep oxygen out.' },
+        { title: 'Moisture Contamination', desc: 'Moisture causes clumping and mold.', solution: 'Foil or metallized barriers for maximum moisture protection.' },
+        { title: 'UV Light Damage', desc: 'Light degrades the delicate oils in coffee and tea.', solution: 'Opaque packaging designs with UV-blocking layers.' },
+        { title: 'Poor Resealability', desc: 'Once opened, products lose freshness if not sealed properly.', solution: 'Premium press-to-close zippers or tin ties for airtight resealing.' }
+      ]
+    },
+    'es': {
+      sectionTitle: '5 Problemas Comunes de Empaque de Café y Té (Y Soluciones)',
+      problemLabel: 'Problema:',
+      solutionLabel: 'Solución:',
+      painPoints: [
+        { title: 'Problemas de Desgasificación', desc: 'El café recién tostado libera CO2. Sin una válvula, la bolsa puede reventar.', solution: 'Válvulas de desgasificación unidireccionales para liberar CO2 mientras bloquean el oxígeno.' },
+        { title: 'Exposición al Oxígeno', desc: 'El oxígeno envejece el café y el té rápidamente.', solution: 'Materiales multicapa de alta barrera para mantener el oxígeno fuera.' },
+        { title: 'Contaminación por Humedad', desc: 'La humedad causa grumos y moho.', solution: 'Barreras de papel de aluminio o metalizadas para máxima protección contra la humedad.' },
+        { title: 'Daño por Luz UV', desc: 'La luz degrada los delicados aceites del café y el té.', solution: 'Diseños de envases opacos con capas que bloquean los rayos UV.' },
+        { title: 'Mala Capacidad de Resellado', desc: 'Una vez abiertos, los productos pierden frescura si no se sellan correctamente.', solution: 'Cierres de presión de primera calidad o lazos de estaño para un resellado hermético.' }
+      ]
+    },
+    'fr': {
+      sectionTitle: '5 Problèmes Courants d\'Emballage de Café et de Thé (Et Solutions)',
+      problemLabel: 'Problème :',
+      solutionLabel: 'Solution :',
+      painPoints: [
+        { title: 'Problèmes de Dégazage', desc: 'Le café fraîchement torréfié libère du CO2. Sans valve, le sac peut éclater.', solution: 'Valves de dégazage unidirectionnelles pour libérer le CO2 tout en bloquant l\'oxygène.' },
+        { title: 'Exposition à l\'Oxygène', desc: 'L\'oxygéne rassit rapidement le café et le thé.', solution: 'Matériaux multicouches à haute barrière pour empêcher l\'oxygène d\'entrer.' },
+        { title: 'Contamination par l\'Humidité', desc: 'L\'humidité provoque des grumeaux et de la moisissure.', solution: 'Barrières en feuille ou métallisées pour une protection maximale contre l\'humidité.' },
+        { title: 'Dommages Causés par la Lumière UV', desc: 'La lumière dégrade les huiles délicates du café et du thé.', solution: 'Conceptions d\'emballages opaques avec couches bloquant les UV.' },
+        { title: 'Mauvaise Refermabilité', desc: 'Une fois ouverts, les produits perdent de leur fraîcheur s\'ils ne sont pas correctement scellés.', solution: 'Fermetures à glissière à pression de qualité supérieure ou attaches en étain pour un refermement hermétique.' }
+      ]
+    },
+    'zh-TW': {
+      sectionTitle: '5 個常見的咖啡與茶包裝問題（及解決方案）',
+      problemLabel: '問題：',
+      solutionLabel: '解決方案：',
+      painPoints: [
+        { title: '排氣問題', desc: '剛烘焙的咖啡豆會釋放二氧化碳。如果沒有排氣閥，袋子可能會破裂。', solution: '單向排氣閥可釋放二氧化碳同時阻擋氧氣。' },
+        { title: '氧氣暴露', desc: '氧氣會使咖啡和茶迅速變質。', solution: '高阻隔多層材料可將氧氣隔絕在外。' },
+        { title: '濕氣污染', desc: '濕氣會導致結塊和發霉。', solution: '鋁箔或金屬化阻隔層可提供最大的防潮保護。' },
+        { title: '紫外線傷害', desc: '光線會破壞咖啡和茶中脆弱的油脂。', solution: '具有防紫外線層的不透明包裝設計。' },
+        { title: '重複密封性差', desc: '產品一旦開封，如果密封不當，就會失去新鮮度。', solution: '優質的按壓拉鍊或錫條，可實現氣密式重複密封。' }
+      ]
+    }
+  }
+
+  const currentLang = i18n.language || 'en'
+  const localizedContent = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations['en']
 
   // Scroll detection for animations
   useEffect(() => {
@@ -647,6 +701,50 @@ export default function PouchCoffeeTeaPage() {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems */}
+      <section className="py-24 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center max-w-4xl mx-auto">
+            {localizedContent.sectionTitle}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img 
+                src="/imgs/knowledge/coffee-tea-packaging-pain-points.jpg" 
+                alt="5 Common Problems in Coffee and Tea Packaging" 
+                className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover rounded-none"
+              />
+            </div>
+            <div className="space-y-6">
+              {[
+                { ...localizedContent.painPoints[0], icon: Wind },
+                { ...localizedContent.painPoints[1], icon: AlertTriangle },
+                { ...localizedContent.painPoints[2], icon: Droplet },
+                { ...localizedContent.painPoints[3], icon: Sun },
+                { ...localizedContent.painPoints[4], icon: Unlock }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <item.icon className="w-8 h-8 text-[#FF00FF]" />
+                  </div>
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mb-2">
+                      <span className="font-bold">{localizedContent.problemLabel}</span> {item.desc}
+                    </p>
+                    <p className="font-['JetBrains_Mono'] text-sm text-[#10b981] font-bold">
+                      {localizedContent.solutionLabel} {item.solution}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

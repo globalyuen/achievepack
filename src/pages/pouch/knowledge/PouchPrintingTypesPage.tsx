@@ -6,6 +6,84 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+const translations = {
+  en: {
+    title: "5 Common Printing Types Problems (And Solutions)",
+    p1: "Inconsistent Colors Across Runs",
+    d1: "Slight color variations between different production batches can hurt brand identity.",
+    s1: "Use Rotogravure with Pantone spot colors for exact matching, or implement strict color profiling for HP Indigo digital presses.",
+    p2: "High Setup Costs for Multiple SKUs",
+    d2: "Paying for multiple cylinder plates for different flavors or variations becomes prohibitively expensive.",
+    s2: "Utilize Digital Printing for multi-SKU runs to completely eliminate cylinder plate fees.",
+    p3: "Blurry or Pixelated Graphics",
+    d3: "Low-resolution artwork resulting in poor print quality and unreadable text on the packaging.",
+    s3: "Ensure artwork is 300+ DPI and in CMYK. Digital provides 1200 DPI resolution, while Rotogravure excels in sharp, solid vector lines.",
+    p4: "Misregistration of Colors",
+    d4: "Colors not aligning perfectly, creating a blurry or overlapped appearance on the final print.",
+    s4: "Rotogravure uses automated tension control and optical sensors to ensure perfect plate alignment during high-speed printing.",
+    p5: "Long Lead Times for Prototyping",
+    d5: "Waiting weeks for custom printed samples delays product launches and marketing efforts.",
+    s5: "Leverage Digital Printing for rapid prototyping and short runs, delivering market-ready samples in a fraction of the time."
+  },
+  es: {
+    title: "5 Problemas Comunes de Tipos de Impresión (Y Soluciones)",
+    p1: "Colores Inconsistentes entre Tiradas",
+    d1: "Ligeras variaciones de color entre diferentes lotes de producción pueden dañar la identidad de la marca.",
+    s1: "Utilice el rotograbado con colores directos Pantone para una coincidencia exacta, o implemente un perfil de color estricto para las prensas digitales HP Indigo.",
+    p2: "Altos Costos de Configuración para Múltiples SKUs",
+    d2: "Pagar por múltiples cilindros para diferentes sabores o variaciones se vuelve prohibitivamente costoso.",
+    s2: "Utilice la impresión digital para tiradas de múltiples SKU para eliminar completamente las tarifas de placas de cilindros.",
+    p3: "Gráficos Borrosos o Pixelados",
+    d3: "Diseños de baja resolución que resultan en mala calidad de impresión y texto ilegible en el empaque.",
+    s3: "Asegúrese de que el diseño sea de 300+ DPI y en CMYK. Lo digital proporciona 1200 DPI, mientras que el rotograbado sobresale en líneas vectoriales nítidas y sólidas.",
+    p4: "Desajuste de Colores",
+    d4: "Los colores no se alinean perfectamente, creando una apariencia borrosa o superpuesta en la impresión final.",
+    s4: "El rotograbado utiliza control automático de tensión y sensores ópticos para garantizar una alineación perfecta de las placas durante la impresión a alta velocidad.",
+    p5: "Largos Tiempos de Entrega para Prototipos",
+    d5: "Esperar semanas por muestras impresas personalizadas retrasa los lanzamientos de productos y los esfuerzos de marketing.",
+    s5: "Aproveche la impresión digital para la creación rápida de prototipos y tiradas cortas, entregando muestras listas para el mercado en una fracción del tiempo."
+  },
+  fr: {
+    title: "5 Problèmes Courants des Types d'Impression (Et Solutions)",
+    p1: "Couleurs Incohérentes entre les Tirages",
+    d1: "De légères variations de couleur entre différents lots de production peuvent nuire à l'identité de la marque.",
+    s1: "Utilisez l'héliogravure avec des couleurs d'accompagnement Pantone pour une correspondance exacte, ou mettez en œuvre un profilage colorimétrique strict pour les presses numériques HP Indigo.",
+    p2: "Coûts de Configuration Élevés pour de Multiples SKUs",
+    d2: "Payer pour de multiples cylindres pour différentes saveurs ou variations devient prohibitif.",
+    s2: "Utilisez l'impression numérique pour les tirages multi-SKU afin d'éliminer complètement les frais de plaques de cylindre.",
+    p3: "Graphiques Flous ou Pixélisés",
+    d3: "Illustrations à basse résolution entraînant une mauvaise qualité d'impression et un texte illisible sur l'emballage.",
+    s3: "Assurez-vous que l'illustration est de 300+ DPI et en CMYK. Le numérique fournit 1200 DPI, tandis que l'héliogravure excelle dans les lignes vectorielles nettes et solides.",
+    p4: "Défaut d'Alignement des Couleurs",
+    d4: "Les couleurs ne s'alignent pas parfaitement, créant un aspect flou ou superposé sur l'impression finale.",
+    s4: "L'héliogravure utilise un contrôle de tension automatisé et des capteurs optiques pour assurer un alignement parfait des plaques lors de l'impression à grande vitesse.",
+    p5: "Longs Délais pour le Prototypage",
+    d5: "Attendre des semaines pour des échantillons imprimés sur mesure retarde les lancements de produits et les efforts de marketing.",
+    s5: "Tirez parti de l'impression numérique pour le prototypage rapide et les courts tirages, en livrant des échantillons prêts pour le marché en une fraction du temps."
+  },
+  "zh-TW": {
+    title: "5個常見的印刷類型問題（及解決方案）",
+    p1: "批次間顏色不一致",
+    d1: "不同生產批次之間輕微的顏色變化會損害品牌形象。",
+    s1: "使用凹版印刷和 Pantone 專色進行精確匹配，或對 HP Indigo 數位印刷機實施嚴格的色彩配置。",
+    p2: "多個 SKU 的高昂設置成本",
+    d2: "為不同口味或變化支付多個滾筒印版的費用變得極其昂貴。",
+    s2: "利用數位印刷進行多 SKU 生產，完全消除滾筒印版費用。",
+    p3: "圖形模糊或像素化",
+    d3: "低分辨率的設計導致印刷質量差和包裝上的文字難以閱讀。",
+    s3: "確保圖稿為 300+ DPI 且為 CMYK。數位印刷提供 1200 DPI，而凹版印刷在清晰、實心的矢量線條方面表現出色。",
+    p4: "顏色套印不準",
+    d4: "顏色無法完美對齊，在最終印刷品上造成模糊或重疊的外觀。",
+    s4: "凹版印刷使用自動張力控制和光學傳感器，確保在高速印刷期間印版完美對齊。",
+    p5: "原型製作交貨期長",
+    d5: "等待數週才能獲得定製印刷樣品，會延遲產品發布和營銷工作。",
+    s5: "利用數位印刷進行快速原型製作和短版印刷，在極短的時間內交付可推向市場的樣品。"
+  }
+};
+
+const sectionsForPouch = ["5 Common Printing Types Problems (And Solutions)"];
+const sectionsForAchieve = ["5 Common Printing Types Problems (And Solutions)"];
+
 export default function PouchPrintingTypesPage() {
   const { t } = useTranslation();
   const p = 'seoPages.pages.pouchPrintingTypes';
@@ -120,6 +198,78 @@ export default function PouchPrintingTypesPage() {
             <p>
               {t(`${p}.deepDive.whichToChoose.desc`, "The decision is almost entirely mathematical. If you are ordering fewer than 5,000 to 10,000 bags per design, Digital Printing is cheaper because you avoid plate fees. Once you cross the 10,000 bag threshold per design, the cheap unit cost of Rotogravure outweighs the initial cost of the plates, making it the most economical choice.")}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {t(`${p}.problems.title`, "5 Common Printing Types Problems (And Solutions)")}
+          </h2>
+          
+          <div className="mb-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <img 
+              src="/imgs/knowledge/printing-types-pain-points.jpg" 
+              alt={t(`${p}.problems.imgAlt`, "Printing Types Pain Points and Solutions")}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          <div className="space-y-8">
+            {[
+              {
+                title: t(`${p}.problems.items.0.title`, "Inconsistent Colors Across Runs"),
+                desc: t(`${p}.problems.items.0.desc`, "Slight color variations between different production batches can hurt brand identity."),
+                solution: t(`${p}.problems.items.0.solution`, "Use Rotogravure with Pantone spot colors for exact matching, or implement strict color profiling for HP Indigo digital presses."),
+                icon: <CheckCircle className="w-8 h-8 text-pink-500" />
+              },
+              {
+                title: t(`${p}.problems.items.1.title`, "High Setup Costs for Multiple SKUs"),
+                desc: t(`${p}.problems.items.1.desc`, "Paying for multiple cylinder plates for different flavors or variations becomes prohibitively expensive."),
+                solution: t(`${p}.problems.items.1.solution`, "Utilize Digital Printing for multi-SKU runs to completely eliminate cylinder plate fees."),
+                icon: <Layers className="w-8 h-8 text-blue-500" />
+              },
+              {
+                title: t(`${p}.problems.items.2.title`, "Blurry or Pixelated Graphics"),
+                desc: t(`${p}.problems.items.2.desc`, "Low-resolution artwork resulting in poor print quality and unreadable text on the packaging."),
+                solution: t(`${p}.problems.items.2.solution`, "Ensure artwork is 300+ DPI and in CMYK. Digital provides 1200 DPI resolution, while Rotogravure excels in sharp, solid vector lines."),
+                icon: <Cpu className="w-8 h-8 text-orange-500" />
+              },
+              {
+                title: t(`${p}.problems.items.3.title`, "Misregistration of Colors"),
+                desc: t(`${p}.problems.items.3.desc`, "Colors not aligning perfectly, creating a blurry or overlapped appearance on the final print."),
+                solution: t(`${p}.problems.items.3.solution`, "Rotogravure uses automated tension control and optical sensors to ensure perfect plate alignment during high-speed printing."),
+                icon: <Printer className="w-8 h-8 text-green-500" />
+              },
+              {
+                title: t(`${p}.problems.items.4.title`, "Long Lead Times for Prototyping"),
+                desc: t(`${p}.problems.items.4.desc`, "Waiting weeks for custom printed samples delays product launches and marketing efforts."),
+                solution: t(`${p}.problems.items.4.solution`, "Leverage Digital Printing for rapid prototyping and short runs, delivering market-ready samples in a fraction of the time."),
+                icon: <CheckCircle className="w-8 h-8 text-purple-500" />
+              }
+            ].map((problem, idx) => (
+              <div key={idx} className="flex gap-4 md:gap-6 bg-gray-50 p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="flex-shrink-0 mt-1">
+                  {problem.icon}
+                </div>
+                <div>
+                  <h3 className="font-['Space_Grotesk'] font-black text-xl md:text-2xl uppercase mb-2">
+                    {problem.title}
+                  </h3>
+                  <p className="font-['JetBrains_Mono'] text-gray-700 mb-4">
+                    {problem.desc}
+                  </p>
+                  <div className="bg-white border-2 border-black p-4">
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold flex items-start gap-2">
+                      <span className="text-green-600 uppercase">{t(`${p}.problems.solutionLabel`, "Solution:")}</span>
+                      <span className="text-black">{problem.solution}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

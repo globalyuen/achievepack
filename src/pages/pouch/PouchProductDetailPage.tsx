@@ -4,12 +4,57 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS } from '../../store/productData';
-import { ArrowLeft, Check, Package, Sparkles, Globe } from 'lucide-react';
+import { ArrowLeft, Check, Package, Sparkles, Globe, AlertTriangle, ShieldCheck } from 'lucide-react';
 import { NeoButton } from '../../components/pouch/PouchUI';
+
+const TRANSLATIONS = {
+  en: {
+    title: "5 Common Pouch Packaging Problems (And Solutions)",
+    problems: [
+      { title: "Poor Seal Integrity", solution: "Advanced Multi-layer Heat Sealing Tech" },
+      { title: "Punctures and Leaks", solution: "High-Tensile Composite Films" },
+      { title: "Inconsistent Stand-Up Stability", solution: "Gusset Reinforcement & Precision Bottom Folding" },
+      { title: "Zipper / Closure Failure", solution: "Press-to-Close Zippers with strict QC" },
+      { title: "UV / Moisture Degradation", solution: "Specialized EVOH / Foil Barrier Layers" }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Empaque (y Soluciones)",
+    problems: [
+      { title: "Mala Integridad del Sello", solution: "Tecnología Avanzada de Sellado Multicapa" },
+      { title: "Pinchazos y Fugas", solution: "Películas Compuestas de Alta Resistencia" },
+      { title: "Estabilidad Inconsistente", solution: "Refuerzo y Plegado Preciso del Fondo" },
+      { title: "Falla del Cierre", solution: "Cierres a Presión con estricto Control de Calidad" },
+      { title: "Degradación por UV / Humedad", solution: "Capas de Barrera Especializadas" }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage (et Solutions)",
+    problems: [
+      { title: "Mauvaise Intégrité du Scellage", solution: "Technologie Avancée de Scellage Multicouche" },
+      { title: "Perforations et Fuites", solution: "Films Composites à Haute Résistance" },
+      { title: "Stabilité Inconstante", solution: "Renforcement et Pliage Précis du Fond" },
+      { title: "Défaillance de la Fermeture", solution: "Fermetures à Pression avec un contrôle qualité strict" },
+      { title: "Dégradation par UV / Humidité", solution: "Couches Barrières Spécialisées" }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的軟包裝問題 (及其解決方案)",
+    problems: [
+      { title: "封口密封不良", solution: "先進的多層熱封技術" },
+      { title: "刺破與漏液", solution: "高抗拉複合薄膜" },
+      { title: "直立穩定性不佳", solution: "底部風琴加固與精密折疊" },
+      { title: "夾鏈失效", solution: "嚴格品管的壓扣式夾鏈" },
+      { title: "紫外線/濕氣降解", solution: "專業的高阻隔層" }
+    ]
+  }
+};
 
 export default function PouchProductDetailPage() {
   const { productId } = useParams();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language || 'en';
+  const tData = TRANSLATIONS[currentLang as keyof typeof TRANSLATIONS] || TRANSLATIONS.en;
 
   const product = FEATURED_PRODUCTS.find(p => p.id === productId);
 
@@ -163,6 +208,38 @@ export default function PouchProductDetailPage() {
                 </div>
               </div>
 
+            </div>
+          </div>
+        </div>
+
+        {/* 5 Common Problems Section */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="bg-white border-4 border-black p-8 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h2 className="text-3xl md:text-4xl font-black uppercase mb-8 text-center">{tData.title}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                {tData.problems.map((prob, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <AlertTriangle className="w-6 h-6 text-red-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-black uppercase text-lg mb-1">{prob.title}</h3>
+                      <div className="flex items-center gap-2 text-[#10B981] font-['JetBrains_Mono'] font-bold text-sm">
+                        <ShieldCheck className="w-4 h-4" />
+                        <span>{prob.solution}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="border-4 border-black aspect-square flex items-center justify-center bg-gray-100 overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <img 
+                  src="/imgs/knowledge/pouch-packaging-pain-points.jpg" 
+                  alt="Pouch Packaging Pain Points" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

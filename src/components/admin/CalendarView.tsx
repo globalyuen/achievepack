@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-  startOfMonth, endOfMonth, startOfWeek, endOfWeek, 
-  eachDayOfInterval, format, isSameMonth, isToday, 
-  addMonths, subMonths, parseISO, isSameDay
+  startOfWeek, endOfWeek, 
+  eachDayOfInterval, format, isToday, 
+  parseISO, isSameDay,
+  addDays, subDays
 } from 'date-fns';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageSquare, Calendar as CalendarIcon, Phone } from 'lucide-react';
 import { DailyReport } from '../../lib/supabase';
+import { FollowUpStatus, UnifiedInquiry } from './UnifiedInbox';
 
 interface CalendarViewProps {
   reports: DailyReport[];
@@ -20,19 +22,54 @@ const STATUS_COLORS: Record<string, string> = {
   'Scheduled': 'bg-indigo-100 text-indigo-800 border-indigo-200'
 };
 
+const INQUIRY_STATUS_COLORS: Record<FollowUpStatus, string> = {
+  '未跟進': 'bg-gray-100 text-gray-600 border-gray-200',
+  '已發郵件': 'bg-blue-50 text-blue-700 border-blue-200',
+  '已聯絡/WhatsApp': 'bg-indigo-50 text-indigo-700 border-indigo-200',
+  '已通話/會議': 'bg-purple-50 text-purple-700 border-purple-200',
+  '已寄樣品': 'bg-yellow-50 text-yellow-700 border-yellow-200',
+  '報價中': 'bg-orange-50 text-orange-700 border-orange-200',
+  '已下單': 'bg-green-50 text-green-700 border-green-200',
+  '無效/垃圾': 'bg-red-50 text-red-700 border-red-200',
+};
+
 export default function CalendarView({ reports }: CalendarViewProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
-  
-  const monthStart = startOfMonth(currentDate);
-  const monthEnd = endOfMonth(monthStart);
-  const startDate = startOfWeek(monthStart, { weekStartsOn: 0 }); // Start on Sunday
-  const endDate = endOfWeek(monthEnd, { weekStartsOn: 0 });
+  const [viewMode, setViewMode] = useState<30 | 60 | 120>(30);
+  const [inquiries, setInquiries] = useState<UnifiedInquiry[]>([]);
+  const [loadingInquiries, setLoadingInquiries] = useState(false);
 
-  const dateFormat = "MMMM yyyy";
+  useEffect(() => {
+    const fetchInquiries = async () => {
+      setLoadingInquiries(true);
+      try {
+        const response = await fetch('/api/unified-inbox');
+        if (response.ok) {
+          const data = await response.json();
+          setInquiries(data);
+        }
+      } catch (err) {
+        console.error('Error fetching unified inquiries:', err);
+      } finally {
+        setLoadingInquiries(false);
+      }
+    };
+    fetchInquiries();
+  }, []);
+  
+  // Compute rolling date range centered on currentDate
+  const halfDays = viewMode / 2;
+  const rawStartDate = subDays(currentDate, halfDays);
+  const rawEndDate = addDays(currentDate, halfDays);
+  
+  const startDate = startOfWeek(rawStartDate, { weekStartsOn: 0 }); // Start on Sunday
+  const endDate = endOfWeek(rawEndDate, { weekStartsOn: 0 });
+
+  const dateFormat = "MMM d, yyyy";
   const days = eachDayOfInterval({ start: startDate, end: endDate });
 
-  const nextMonth = () => setCurrentDate(addMonths(currentDate, 1));
-  const prevMonth = () => setCurrentDate(subMonths(currentDate, 1));
+  const nextPeriod = () => setCurrentDate(addDays(currentDate, viewMode));
+  const prevPeriod = () => setCurrentDate(subDays(currentDate, viewMode));
 
   // Map reports to dates
   const getReportsForDay = (day: Date) => {
@@ -43,18 +80,47 @@ export default function CalendarView({ reports }: CalendarViewProps) {
     });
   };
 
+  const getInquiriesForDay = (day: Date) => {
+    return inquiries.filter(iq => {
+      if (!iq.raw_date) return false;
+      const inqDate = parseISO(iq.raw_date);
+      return isSameDay(day, inqDate);
+    });
+  };
+
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
       {/* Calendar Header */}
-      <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-gray-50/50">
-        <div className="flex items-center gap-4">
-          <h2 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">
-            {format(currentDate, dateFormat)}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-gray-50/50 gap-4">
+        <div className="flex flex-col gap-1">
+          <h2 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight flex items-center gap-2">
+            Centered on {format(currentDate, dateFormat)}
           </h2>
+          <p className="text-sm text-gray-500 font-medium">
+            Displaying from {format(startDate, 'MMM d')} to {format(endDate, 'MMM d')}
+          </p>
         </div>
-        <div className="flex items-center gap-2">
+        
+        <div className="flex flex-wrap items-center gap-2">
+          {/* View Mode Toggles */}
+          <div className="flex bg-gray-200 p-1 rounded-xl mr-2">
+            {[30, 60, 120].map((mode) => (
+              <button
+                key={mode}
+                onClick={() => setViewMode(mode as 30|60|120)}
+                className={`px-3 py-1 text-xs font-bold rounded-lg transition-colors ${
+                  viewMode === mode 
+                    ? 'bg-white text-gray-900 shadow-sm' 
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {mode} Days
+              </button>
+            ))}
+          </div>
+
           <button 
-            onClick={prevMonth}
+            onClick={prevPeriod}
             className="p-2 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-gray-200"
           >
             <ChevronLeft className="w-5 h-5 text-gray-600" />
@@ -66,13 +132,19 @@ export default function CalendarView({ reports }: CalendarViewProps) {
             Today
           </button>
           <button 
-            onClick={nextMonth}
+            onClick={nextPeriod}
             className="p-2 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-gray-200"
           >
             <ChevronRight className="w-5 h-5 text-gray-600" />
           </button>
         </div>
       </div>
+
+      {loadingInquiries && (
+        <div className="bg-blue-50 text-blue-600 text-xs font-bold px-4 py-2 flex items-center justify-center">
+          Loading inquiries (Calendly/WhatsApp)...
+        </div>
+      )}
 
       {/* Days of week */}
       <div className="grid grid-cols-7 border-b border-gray-100 bg-gray-50">
@@ -84,16 +156,20 @@ export default function CalendarView({ reports }: CalendarViewProps) {
       </div>
 
       {/* Calendar Grid */}
-      <div className="grid grid-cols-7 auto-rows-[120px] sm:auto-rows-[160px] bg-gray-200 gap-[1px]">
+      <div className={`grid grid-cols-7 bg-gray-200 gap-[1px] ${viewMode === 30 ? 'auto-rows-[160px]' : viewMode === 60 ? 'auto-rows-[120px]' : 'auto-rows-[100px]'}`}>
         {days.map((day, i) => {
           const dayReports = getReportsForDay(day);
-          const isCurrentMonth = isSameMonth(day, monthStart);
+          const dayInquiries = getInquiriesForDay(day);
           const isTodayDate = isToday(day);
+          const totalItems = dayReports.length + dayInquiries.length;
+          
+          // Check if this day is outside the exact raw view mode range (fade it slightly)
+          const isOutsideRange = day < rawStartDate || day > rawEndDate;
 
           return (
             <div 
               key={day.toString()} 
-              className={`bg-white p-1 sm:p-2 flex flex-col transition-colors hover:bg-gray-50 overflow-hidden ${!isCurrentMonth ? 'opacity-50 bg-gray-50' : ''}`}
+              className={`bg-white p-1 sm:p-2 flex flex-col transition-colors hover:bg-gray-50 overflow-hidden ${isOutsideRange ? 'opacity-40 bg-gray-50' : ''}`}
             >
               <div className="flex justify-between items-start mb-1">
                 <span className={`text-xs sm:text-sm font-bold flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full ${
@@ -103,25 +179,48 @@ export default function CalendarView({ reports }: CalendarViewProps) {
                 }`}>
                   {format(day, 'd')}
                 </span>
-                {dayReports.length > 0 && (
+                {totalItems > 0 && (
                   <span className="text-[10px] font-bold text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-md hidden sm:block">
-                    {dayReports.length}
+                    {totalItems}
                   </span>
                 )}
               </div>
               
               <div className="flex-1 overflow-y-auto space-y-1 pr-1 custom-scrollbar">
+                
+                {/* Render Reports */}
                 {dayReports.map((report) => {
                   const statusColor = STATUS_COLORS[report.status] || 'bg-gray-100 text-gray-800 border-gray-200';
-                  
                   return (
                     <div 
-                      key={report.id} 
+                      key={`rep-${report.id}`} 
                       className={`text-[9px] sm:text-[10px] leading-tight p-1.5 rounded-lg border ${statusColor} truncate cursor-pointer hover:opacity-80 transition-opacity`}
-                      title={`${report.customer} - ${report.category}`}
+                      title={`Report: ${report.customer} - ${report.category}`}
                     >
-                      <div className="font-bold truncate">{report.customer || 'Unnamed'}</div>
+                      <div className="font-bold truncate flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-current opacity-50"></span>
+                        {report.customer || 'Unnamed'}
+                      </div>
                       <div className="truncate opacity-80">{report.category}</div>
+                    </div>
+                  );
+                })}
+
+                {/* Render Inquiries */}
+                {dayInquiries.map((iq) => {
+                  const statusColor = INQUIRY_STATUS_COLORS[iq.status] || 'bg-gray-100 text-gray-600 border-gray-200';
+                  return (
+                    <div 
+                      key={`inq-${iq.id}`} 
+                      className={`text-[9px] sm:text-[10px] leading-tight p-1.5 rounded-lg border ${statusColor} truncate cursor-pointer hover:opacity-80 transition-opacity`}
+                      title={`Inquiry: ${iq.name} - ${iq.status}`}
+                    >
+                      <div className="font-bold truncate flex items-center gap-1">
+                        {iq.hasWhatsApp && <Phone className="w-2.5 h-2.5" />}
+                        {iq.hasEmail && <CalendarIcon className="w-2.5 h-2.5" />}
+                        {iq.name}
+                      </div>
+                      <div className="truncate opacity-80">{iq.status}</div>
                     </div>
                   );
                 })}

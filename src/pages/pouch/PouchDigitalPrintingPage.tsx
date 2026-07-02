@@ -1,4 +1,4 @@
-import { Cpu, Zap, Palette, CheckCircle, X, DollarSign, Clock, Sparkles } from 'lucide-react'
+import { Cpu, Zap, Palette, CheckCircle, X, DollarSign, Clock, Sparkles, AlertTriangle } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
@@ -10,12 +10,48 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
+const translations = {
+  en: [
+    { title: "Color Inconsistency Across Batches", desc: "Digital printing uses precise color management profiles (ICC) and requires no plate setup, ensuring exact color matching across every run." },
+    { title: "High Minimum Order Quantities (MOQ)", desc: "Digital printing eliminates plates, making short runs and multiple SKUs cost-effective." },
+    { title: "Long Lead Times for New Designs", desc: "Direct-to-file printing skips plate-making, reducing setup time from weeks to just days." },
+    { title: "Registration Errors in Complex Designs", desc: "Digital presses use advanced sensors and direct continuous printing, eliminating plate misalignment issues." },
+    { title: "Difficulty in Variable Data Printing (VDP)", desc: "Digital technology allows every single pouch to have unique codes, numbers, or graphics without slowing down the process." }
+  ],
+  es: [
+    { title: "Inconsistencia de Color Entre Lotes", desc: "La impresión digital utiliza perfiles precisos de gestión de color (ICC) y no requiere configuración de planchas, asegurando una coincidencia de color exacta en cada tirada." },
+    { title: "Altas Cantidades Mínimas de Pedido (MOQ)", desc: "La impresión digital elimina las planchas, lo que hace que las tiradas cortas y múltiples SKU sean rentables." },
+    { title: "Largos Tiempos de Entrega para Nuevos Diseños", desc: "La impresión directa desde el archivo omite la creación de planchas, reduciendo el tiempo de configuración de semanas a solo días." },
+    { title: "Errores de Registro en Diseños Complejos", desc: "Las prensas digitales utilizan sensores avanzados e impresión continua directa, eliminando los problemas de desalineación de planchas." },
+    { title: "Dificultad en la Impresión de Datos Variables (VDP)", desc: "La tecnología digital permite que cada bolsa tenga códigos, números o gráficos únicos sin ralentizar el proceso." }
+  ],
+  fr: [
+    { title: "Incohérence des Couleurs Entre les Lots", desc: "L'impression numérique utilise des profils de gestion des couleurs précis (ICC) et ne nécessite aucune configuration de plaque, garantissant une correspondance exacte des couleurs à chaque tirage." },
+    { title: "Quantités Minimales de Commande Élevées (MOQ)", desc: "L'impression numérique élimine les plaques, rendant les courts tirages et les multiples SKU rentables." },
+    { title: "Longs Délais de Réalisation pour les Nouveaux Designs", desc: "L'impression directe à partir du fichier saute l'étape de création de plaques, réduisant le temps de configuration de quelques semaines à quelques jours." },
+    { title: "Erreurs de Repérage dans les Designs Complexes", desc: "Les presses numériques utilisent des capteurs avancés et une impression continue directe, éliminant les problèmes de désalignement des plaques." },
+    { title: "Difficulté de l'Impression de Données Variables (VDP)", desc: "La technologie numérique permet à chaque sachet d'avoir des codes, des numéros ou des graphiques uniques sans ralentir le processus." }
+  ],
+  "zh-TW": [
+    { title: "批次間顏色不一致", desc: "數位印刷採用精確的色彩管理設定檔 (ICC) 且無需製版，確保每次印刷的顏色完全一致。" },
+    { title: "最低訂購量 (MOQ) 過高", desc: "數位印刷免去了製版費用，使得短版印刷和多款 SKU 變得具有成本效益。" },
+    { title: "新設計交期過長", desc: "直接從檔案印刷省去了製版步驟，將準備時間從數週縮短至僅需幾天。" },
+    { title: "複雜設計中的套印誤差", desc: "數位印刷機使用先進的感測器和直接連續印刷技術，消除了版位不準的問題。" },
+    { title: "變動資料印刷 (VDP) 困難", desc: "數位技術允許每個包裝袋擁有獨特的代碼、編號或圖形，而不會降低生產速度。" }
+  ]
+};
+
+const sectionsForPouch = translations;
+const sectionsForAchieve = translations;
+
 // ============================================
 // MAIN PAGE
 // ============================================
 
 export default function PouchDigitalPrintingPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const problems = sectionsForPouch[lang as keyof typeof sectionsForPouch] || sectionsForPouch.en
 
   const ADVANTAGES = [
     {
@@ -317,6 +353,39 @@ export default function PouchDigitalPrintingPage() {
               </div>
             </div>
           </NeoCard>
+        </div>
+      </section>
+
+      {/* 5 Common Problems */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="w-full lg:w-1/2">
+              <h2 className="font-black text-4xl mb-8 uppercase">5 Common Digital Printing Problems (And Solutions)</h2>
+              <div className="space-y-6">
+                {problems.map((prob, idx) => (
+                  <NeoCard key={idx} className="bg-white">
+                    <div className="flex gap-4">
+                      <AlertTriangle className="w-8 h-8 text-yellow-500 flex-shrink-0" />
+                      <div>
+                        <h3 className="font-black text-xl mb-2">{prob.title}</h3>
+                        <p className="text-gray-700">{prob.desc}</p>
+                      </div>
+                    </div>
+                  </NeoCard>
+                ))}
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <div className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden rounded-2xl">
+                <img 
+                  src="/imgs/knowledge/digital-printing-pain-points.jpg" 
+                  alt="Digital Printing Pain Points" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

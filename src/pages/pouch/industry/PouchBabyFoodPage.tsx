@@ -6,6 +6,84 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations = {
+  en: {
+    title: "5 Common Baby Food Pouch Problems (And Solutions)",
+    p1: "Puncture & Leakage during Transit",
+    d1: "Pouches can burst or leak during shipping, causing product loss and damaging brand reputation.",
+    s1: "Use reinforced laminated barrier films with high puncture resistance and strong seal integrity.",
+    p2: "Spout Choking Hazards for Infants",
+    d2: "Standard spouts can pose a severe choking hazard to babies and toddlers if swallowed.",
+    s2: "Implement anti-choke, large-diameter spouts that strictly comply with infant safety standards.",
+    p3: "Chemical Leaching during Hot-Fill",
+    d3: "High temperatures during the hot-fill process can cause harmful chemicals to migrate into the food.",
+    s3: "Utilize BPA-free, phthalate-free interior layers that are certified heat-stable up to 95°C.",
+    p4: "Difficulty in Complete Emptying",
+    d4: "Consumers struggle to squeeze out all the contents, leading to food waste and frustration.",
+    s4: "Design an ergonomic pouch shape with a smooth, non-stick interior layer for zero residue.",
+    p5: "Inability to Withstand Pasteurization",
+    d5: "Standard pouches may delaminate or melt when subjected to high-temperature sterilization.",
+    s5: "Adopt retort-grade lamination allowing high-temperature sterilization without any delamination."
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas de Comida para Bebés (Y Soluciones)",
+    p1: "Perforaciones y Fugas durante el Tránsito",
+    d1: "Las bolsas pueden reventar o gotear durante el envío, causando pérdida de producto y dañando la reputación.",
+    s1: "Utilice películas de barrera laminadas reforzadas con alta resistencia a la perforación y fuerte integridad del sello.",
+    p2: "Riesgos de Asfixia por Boquilla para Bebés",
+    d2: "Las boquillas estándar pueden representar un grave peligro de asfixia para bebés y niños pequeños.",
+    s2: "Implemente boquillas anti-asfixia de gran diámetro que cumplan estrictamente con las normas de seguridad infantil.",
+    p3: "Lixiviación Química durante el Llenado en Caliente",
+    d3: "Las altas temperaturas pueden hacer que productos químicos nocivos migren a los alimentos.",
+    s3: "Utilice capas interiores sin BPA ni ftalatos que estén certificadas como estables al calor hasta 95°C.",
+    p4: "Dificultad para Vaciar Completamente",
+    d4: "Los consumidores luchan por exprimir todo el contenido, lo que genera desperdicio de alimentos.",
+    s4: "Diseñe una forma de bolsa ergonómica con una capa interior lisa y antiadherente para cero residuos.",
+    p5: "Incapacidad para Soportar la Pasteurización",
+    d5: "Las bolsas estándar pueden deslaminarse o derretirse cuando se someten a esterilización a alta temperatura.",
+    s5: "Adopte laminación de grado esterilizable que permita la esterilización a alta temperatura sin deslaminación."
+  },
+  fr: {
+    title: "5 Problèmes Courants des Gourdes pour Bébés (Et Solutions)",
+    p1: "Perforation et Fuite pendant le Transport",
+    d1: "Les gourdes peuvent éclater ou fuir pendant l'expédition, entraînant une perte de produit.",
+    s1: "Utilisez des films barrières laminés renforcés avec une haute résistance à la perforation.",
+    p2: "Risques d'Étouffement liés au Bouchon",
+    d2: "Les bouchons standard peuvent présenter un grave risque d'étouffement pour les bébés.",
+    s2: "Mettez en œuvre des bouchons anti-étouffement de grand diamètre conformes aux normes de sécurité.",
+    p3: "Lixiviation Chimique lors du Remplissage à Chaud",
+    d3: "Les températures élevées peuvent provoquer la migration de produits chimiques nocifs dans les aliments.",
+    s3: "Utilisez des couches intérieures sans BPA ni phtalates, certifiées stables à la chaleur jusqu'à 95°C.",
+    p4: "Difficulté de Vidage Complet",
+    d4: "Les consommateurs ont du mal à extraire tout le contenu, ce qui entraîne un gaspillage alimentaire.",
+    s4: "Concevez une forme de gourde ergonomique avec une couche intérieure lisse pour zéro résidu.",
+    p5: "Incapacité à Résister à la Pasteurisation",
+    d5: "Les gourdes standard peuvent se délaminer ou fondre lors de la stérilisation à haute température.",
+    s5: "Adoptez une lamination de qualité autoclave permettant une stérilisation à haute température."
+  },
+  "zh-TW": {
+    title: "嬰兒食品袋的 5 個常見問題（及解決方案）",
+    p1: "運輸過程中的刺穿和洩漏",
+    d1: "包裝袋在運輸過程中可能會破裂或洩漏，導致產品損失並損害品牌聲譽。",
+    s1: "使用具有高抗穿刺性和強大密封完整性的加固層壓阻隔膜。",
+    p2: "嬰兒吞嚥吸嘴的窒息風險",
+    d2: "標準吸嘴如果不慎吞嚥，可能對嬰幼兒構成嚴重的窒息危險。",
+    s2: "採用嚴格符合嬰兒安全標準的大口徑防窒息吸嘴。",
+    p3: "熱灌裝過程中的化學物質溶出",
+    d3: "熱灌裝過程中的高溫可能導致有害化學物質遷移到食品中。",
+    s3: "使用不含 BPA 和鄰苯二甲酸酯的內層，這些內層經過認證，耐熱高達 95°C。",
+    p4: "難以完全擠出內容物",
+    d4: "消費者難以擠出所有內容物，導致食物浪費和挫敗感。",
+    s4: "設計符合人體工程學的包裝袋形狀，配以光滑的不粘內層，實現零殘留。",
+    p5: "無法承受巴氏殺菌",
+    d5: "標準包裝袋在進行高溫滅菌時可能會發生分層或熔化。",
+    s5: "採用可蒸煮級別的層壓材料，允許進行高溫滅菌而不分層。"
+  }
+};
+
+const sectionsForPouch = ["5 Common Baby Food Pouch Problems (And Solutions)"];
+const sectionsForAchieve = ["5 Common Baby Food Pouch Problems (And Solutions)"];
+
 export default function PouchBabyFoodPage() {
   const { t } = useTranslation()
 
@@ -217,6 +295,63 @@ export default function PouchBabyFoodPage() {
             <p>
               {t('seoPages.pages.pouchBabyFood.weLevelThePlaying')}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {translations[t('seoPages.language', 'en') as keyof typeof translations]?.title || translations.en.title}
+          </h2>
+          
+          <div className="mb-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <img 
+              src="/imgs/knowledge/baby-food-pouch-pain-points.jpg" 
+              alt="Baby Food Pouch Pain Points"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          <div className="space-y-8">
+            {[1, 2, 3, 4, 5].map((num) => {
+              const lang = t('seoPages.language', 'en') as keyof typeof translations;
+              const tObj = translations[lang] || translations.en;
+              const p = tObj[`p${num}` as keyof typeof tObj];
+              const d = tObj[`d${num}` as keyof typeof tObj];
+              const s = tObj[`s${num}` as keyof typeof tObj];
+              
+              const icons = [
+                <Package className="w-8 h-8 text-pink-500" key="1" />,
+                <Shield className="w-8 h-8 text-blue-500" key="2" />,
+                <Thermometer className="w-8 h-8 text-orange-500" key="3" />,
+                <Droplets className="w-8 h-8 text-green-500" key="4" />,
+                <CheckCircle className="w-8 h-8 text-purple-500" key="5" />
+              ];
+              
+              return (
+                <div key={num} className="flex gap-4 md:gap-6 bg-gray-50 p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="flex-shrink-0 mt-1">
+                    {icons[num - 1]}
+                  </div>
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl md:text-2xl uppercase mb-2">
+                      {p}
+                    </h3>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 mb-4">
+                      {d}
+                    </p>
+                    <div className="bg-white border-2 border-black p-4">
+                      <p className="font-['JetBrains_Mono'] text-sm font-bold flex items-start gap-2">
+                        <span className="text-green-600 uppercase">Solution:</span>
+                        <span className="text-black">{s}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

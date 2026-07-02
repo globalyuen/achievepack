@@ -2,13 +2,138 @@ import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
-import { Heart, Leaf, CheckCircle, Calendar, ArrowRight, Package, Shield, Clock, Sparkles, Star, PawPrint } from 'lucide-react'
+import { Heart, Leaf, CheckCircle, Calendar, ArrowRight, Package, Shield, Clock, Sparkles, Star, PawPrint, AlertCircle, CheckCircle2 } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Pet Food Packaging Problems (And Solutions)",
+    problems: [
+      {
+        title: "Oxygen & Moisture Spoilage",
+        desc: "Kibble goes stale and raw food spoils quickly due to poor barrier layers.",
+        solution: "High-barrier EVOH films block moisture and oxygen, extending shelf life."
+      },
+      {
+        title: "Odor Leakage",
+        desc: "Strong pet food smells escape the packaging, putting off customers.",
+        solution: "Odor-proof laminated structures keep smells locked securely inside."
+      },
+      {
+        title: "Heavy Weight Tears",
+        desc: "Large bulk bags break or tear open under the weight of the food.",
+        solution: "Reinforced side gussets and quad seals easily support 10kg+ capacities."
+      },
+      {
+        title: "Re-sealing Failures",
+        desc: "Cheap zippers break or fail to close, causing the food to go bad.",
+        solution: "Heavy-duty PTC zippers or Velcro closures ensure repeated reliable sealing."
+      },
+      {
+        title: "Sustainability Demands",
+        desc: "Modern consumers demand eco-friendly options, rejecting single-use plastics.",
+        solution: "Home compostable and recyclable mono-materials meet market demands perfectly."
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Envasado de Alimentos para Mascotas (Y Soluciones)",
+    problems: [
+      {
+        title: "Deterioro por Oxígeno y Humedad",
+        desc: "Las croquetas se ponen rancias rápidamente debido a capas de barrera deficientes.",
+        solution: "Las películas EVOH de alta barrera bloquean la humedad y el oxígeno."
+      },
+      {
+        title: "Fugas de Olores",
+        desc: "Los olores fuertes de la comida para mascotas escapan del envase.",
+        solution: "Estructuras laminadas a prueba de olores mantienen los aromas sellados."
+      },
+      {
+        title: "Desgarros por Peso Pesado",
+        desc: "Las bolsas grandes se rompen o se abren bajo el peso de la comida.",
+        solution: "Fuelles laterales reforzados y sellos cuádruples soportan capacidades de 10kg+."
+      },
+      {
+        title: "Fallos de Resellado",
+        desc: "Las cremalleras baratas se rompen o no cierran, estropeando la comida.",
+        solution: "Cremalleras PTC resistentes o cierres de Velcro aseguran un sellado confiable."
+      },
+      {
+        title: "Exigencias de Sostenibilidad",
+        desc: "Los consumidores modernos exigen opciones ecológicas.",
+        solution: "Los monomateriales compostables y reciclables satisfacen estas demandas."
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage d'Aliments pour Animaux (Et Solutions)",
+    problems: [
+      {
+        title: "Altération par l'Oxygène et l'Humidité",
+        desc: "Les croquettes rassissent rapidement à cause de mauvaises couches barrières.",
+        solution: "Les films EVOH haute barrière bloquent l'humidité et l'oxygène."
+      },
+      {
+        title: "Fuite d'Odeurs",
+        desc: "Les fortes odeurs de nourriture pour animaux s'échappent de l'emballage.",
+        solution: "Des structures laminées anti-odeurs gardent les senteurs verrouillées à l'intérieur."
+      },
+      {
+        title: "Déchirures dues au Poids",
+        desc: "Les grands sacs se cassent ou se déchirent sous le poids de la nourriture.",
+        solution: "Les soufflets latéraux renforcés et les quatre soudures supportent facilement 10kg+."
+      },
+      {
+        title: "Échecs de Refermeture",
+        desc: "Les fermetures éclair bon marché se cassent ou ne ferment plus.",
+        solution: "Des fermetures éclair PTC robustes ou des fermetures Velcro assurent une étanchéité répétée."
+      },
+      {
+        title: "Exigences de Durabilité",
+        desc: "Les consommateurs modernes exigent des options écologiques.",
+        solution: "Les mono-matériaux compostables et recyclables répondent parfaitement aux attentes."
+      }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的寵物食品包裝問題 (及其解決方案)",
+    problems: [
+      {
+        title: "氧氣與濕氣導致變質",
+        desc: "由於阻隔層品質差，乾糧容易受潮，生食容易變質。",
+        solution: "高阻隔 EVOH 薄膜能有效阻擋濕氣和氧氣，延長保質期。"
+      },
+      {
+        title: "氣味外洩",
+        desc: "濃烈的寵物食品氣味從包裝中漏出，影響消費者觀感。",
+        solution: "防臭複合結構將氣味牢牢鎖在包裝內。"
+      },
+      {
+        title: "過重導致破裂",
+        desc: "大容量包裝袋容易因飼料重量而破裂。",
+        solution: "加固的側邊折邊和四邊封口輕鬆支撐 10 公斤以上的重量。"
+      },
+      {
+        title: "重新密封失效",
+        desc: "廉價的拉鍊容易損壞或無法密合，導致食品變質。",
+        solution: "重型 PTC 拉鍊或魔鬼氈封口確保反覆可靠密封。"
+      },
+      {
+        title: "永續環保需求",
+        desc: "現代消費者拒絕一次性塑膠，要求環保包裝選項。",
+        solution: "家庭可堆肥和可回收的單一材質完美滿足市場需求。"
+      }
+    ]
+  }
+}
+
 export default function PouchPetFoodPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const currentTranslation = translations[lang] || translations.en
 
   // Scroll detection
   useEffect(() => {
@@ -491,6 +616,61 @@ export default function PouchPetFoodPage() {
             <p>
               {t('seoPages.pages.pouchPetFood.byOfferingLowMinimum')}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {currentTranslation.title}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              {currentTranslation.problems.map((prob: any, idx: number) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-gray-50 p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                >
+                  <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-3 text-red-600 flex items-center gap-2">
+                    <AlertCircle className="w-6 h-6" />
+                    {prob.title}
+                  </h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mb-4 pl-8">
+                    {prob.desc}
+                  </p>
+                  <div className="pl-8">
+                    <div className="bg-[#D4FF00]/20 p-4 border-l-4 border-[#10b981]">
+                      <h4 className="font-['Space_Grotesk'] font-bold text-sm uppercase text-[#10b981] flex items-center gap-2 mb-1">
+                        <CheckCircle2 className="w-4 h-4" /> Solution
+                      </h4>
+                      <p className="font-['JetBrains_Mono'] text-sm text-gray-800">
+                        {prob.solution}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="sticky top-24"
+              >
+                <img 
+                  src="/imgs/knowledge/pet-food-packaging-pain-points.jpg" 
+                  alt="Pet Food Packaging Pain Points"
+                  className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>

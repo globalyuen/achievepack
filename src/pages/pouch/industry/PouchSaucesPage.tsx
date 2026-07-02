@@ -7,8 +7,60 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations = {
+  en: {
+    title: "5 Common Sauce Packaging Problems (And Solutions)",
+    problems: [
+      { q: "Spout base leakage during transport", a: "Solution: Reinforced ultrasonic welding and anti-leak flange design.", icon: "Droplets" },
+      { q: "Pouch delamination from high-acid or oily sauces", a: "Solution: Multi-layer high-barrier films (e.g., PET/AL/PE) with specialized adhesive.", icon: "Shield" },
+      { q: "Deformation during hot-fill pasteurization", a: "Solution: High-temperature resistant CPP inner layers supporting up to 95°C.", icon: "Zap" },
+      { q: "Poor dispensing flow and product waste inside the pouch", a: "Solution: Ergonomic spout angles and flexible, easily squeezable materials.", icon: "CheckCircle" },
+      { q: "Pouch bursting upon drop impact or heavy stacking", a: "Solution: Drop-test certified nylon (BOPA) integration for structural flexibility.", icon: "Package" }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Envasado de Salsas (Y Soluciones)",
+    problems: [
+      { q: "Fugas en la base de la boquilla durante el transporte", a: "Solución: Soldadura ultrasónica reforzada y diseño de brida antifugas.", icon: "Droplets" },
+      { q: "Delaminación de la bolsa por salsas ácidas o aceitosas", a: "Solución: Películas multicapa de alta barrera con adhesivo especializado.", icon: "Shield" },
+      { q: "Deformación durante la pasteurización de llenado en caliente", a: "Solución: Capas internas de CPP resistentes a altas temperaturas que soportan hasta 95°C.", icon: "Zap" },
+      { q: "Flujo de dispensación deficiente y desperdicio de producto", a: "Solución: Ángulos de boquilla ergonómicos y materiales flexibles y fáciles de apretar.", icon: "CheckCircle" },
+      { q: "Estallido de la bolsa por impacto de caída o apilamiento", a: "Solución: Integración de nylon (BOPA) certificado en pruebas de caída para mayor flexibilidad.", icon: "Package" }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage de Sauces (Et Solutions)",
+    problems: [
+      { q: "Fuite à la base du bec verseur pendant le transport", a: "Solution: Soudage par ultrasons renforcé et conception de bride anti-fuite.", icon: "Droplets" },
+      { q: "Délamination du sachet due aux sauces acides ou huileuses", a: "Solution: Films multicouches à haute barrière avec adhésif spécialisé.", icon: "Shield" },
+      { q: "Déformation lors de la pasteurisation à remplissage à chaud", a: "Solution: Couches internes en CPP résistant aux hautes températures jusqu'à 95°C.", icon: "Zap" },
+      { q: "Mauvais écoulement et gaspillage de produit", a: "Solution: Angles de bec verseur ergonomiques et matériaux flexibles facilement compressibles.", icon: "CheckCircle" },
+      { q: "Éclatement du sachet lors d'un impact de chute", a: "Solution: Intégration de nylon (BOPA) certifié contre les chutes pour une flexibilité structurelle.", icon: "Package" }
+    ]
+  },
+  "zh-TW": {
+    title: "5 個常見的醬料包裝問題（及解決方案）",
+    problems: [
+      { q: "運輸過程中吸嘴底部漏液", a: "解決方案：強化超音波焊接和防漏法蘭設計。", icon: "Droplets" },
+      { q: "高酸或高油醬料導致包裝袋分層", a: "解決方案：採用專用黏合劑的多層高阻隔薄膜。", icon: "Shield" },
+      { q: "熱灌裝巴氏殺菌過程中的變形", a: "解決方案：耐高溫 CPP 內層，最高可承受 95°C。", icon: "Zap" },
+      { q: "擠出不順暢及袋內殘留浪費", a: "解決方案：符合人體工學的吸嘴角度和柔韌易擠壓的材質。", icon: "CheckCircle" },
+      { q: "掉落衝擊或重壓堆疊時破袋", a: "解決方案：整合防摔認證尼龍 (BOPA) 以提供結構柔韌性。", icon: "Package" }
+    ]
+  }
+}
+
+const sectionsForPouch = translations
+const sectionsForAchieve = translations
+
+const iconMap = {
+  Droplets, Shield, Zap, CheckCircle, Package
+}
+
 export default function PouchSaucesPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const pageT = sectionsForPouch[lang as keyof typeof sectionsForPouch] || sectionsForPouch.en
 
   // Scroll detection
   useEffect(() => {
@@ -238,6 +290,46 @@ export default function PouchSaucesPage() {
             <p>
               {t('seoPages.pages.pouchSauces.aSinglePalletOf')} 
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-orange-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="cyan">Troubleshooting</NeoBadge>
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-12 italic">
+            {pageT.title}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              {pageT.problems.map((prob, idx) => {
+                const IconComp = iconMap[prob.icon as keyof typeof iconMap] || Package;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-start gap-4"
+                  >
+                    <IconComp className="w-8 h-8 text-[#FF0000] flex-shrink-0" />
+                    <div>
+                      <h4 className="font-black text-lg mb-2">{prob.q}</h4>
+                      <p className="font-['JetBrains_Mono'] text-gray-600 font-bold">{prob.a}</p>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+            <div>
+              <ClickableImage 
+                src="/imgs/knowledge/pouch-sauces-pain-points.jpg" 
+                alt={pageT.title}
+                className="w-full h-auto object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -2,13 +2,58 @@ import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
-import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Zap, Sparkles, Star, Cookie } from 'lucide-react'
+import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Zap, Sparkles, Star, Cookie, AlertTriangle } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Snack Packaging Problems (And Solutions)",
+    problems: [
+      { q: "1. Stale Chips & Loss of Crunch", desc: "Poor moisture barriers lead to soggy snacks.", solution: "High-barrier multi-layer films ensure maximum crunch retention." },
+      { q: "2. Grease & Oil Stains", desc: "Oil seeps through low-quality materials, ruining the packaging's appearance.", solution: "Specialized grease-resistant inner linings keep the exterior pristine." },
+      { q: "3. Zipper Failure", desc: "Weak closures pop open or fail to reseal properly.", solution: "Heavy-duty press-to-close zippers guarantee a reliable, airtight seal every time." },
+      { q: "4. Puncture Leaks", desc: "Sharp snacks like chips or nuts poke through thin pouches.", solution: "Puncture-resistant laminations protect the bag's integrity during transport." },
+      { q: "5. Poor Shelf Appeal", desc: "Dull printing makes the product blend in with competitors.", solution: "Vibrant up to 10-color printing with matte/gloss finishes makes your brand pop." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Envasado de Snacks (y Soluciones)",
+    problems: [
+      { q: "1. Snacks Rancios y Pérdida de Crujido", desc: "Las barreras de humedad deficientes provocan bocadillos empapados.", solution: "Películas multicapa de alta barrera aseguran la máxima retención de crujido." },
+      { q: "2. Manchas de Grasa y Aceite", desc: "El aceite se filtra a través de materiales de baja calidad, arruinando la apariencia.", solution: "Revestimientos interiores especializados resistentes a la grasa mantienen el exterior impecable." },
+      { q: "3. Fallo de la Cremallera", desc: "Los cierres débiles se abren o no se vuelven a sellar correctamente.", solution: "Cremalleras de alta resistencia garantizan un sellado hermético y confiable en todo momento." },
+      { q: "4. Fugas por Perforación", desc: "Bocadillos afilados como papas fritas o nueces perforan las bolsas delgadas.", solution: "Laminaciones resistentes a perforaciones protegen la integridad de la bolsa durante el transporte." },
+      { q: "5. Pobre Atractivo en el Estante", desc: "La impresión opaca hace que el producto se confunda con los competidores.", solution: "Impresión vibrante de hasta 10 colores con acabados mate/brillante resalta su marca." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage de Snacks (et Solutions)",
+    problems: [
+      { q: "1. Snacks Rasssis et Perte de Croustillant", desc: "De mauvaises barrières contre l'humidité conduisent à des snacks détrempés.", solution: "Films multicouches à haute barrière assurent une conservation maximale du croustillant." },
+      { q: "2. Taches de Graisse et d'Huile", desc: "L'huile s'infiltre à travers des matériaux de mauvaise qualité, ruinant l'apparence.", solution: "Doublures intérieures spécialisées résistantes à la graisse gardent l'extérieur impeccable." },
+      { q: "3. Défaillance de la Fermeture Éclair", desc: "Les fermetures faibles s'ouvrent ou ne se referment pas correctement.", solution: "Fermetures éclair robustes garantissent une étanchéité fiable à chaque fois." },
+      { q: "4. Fuites par Perforation", desc: "Les snacks pointus comme les chips ou les noix percent les sachets fins.", solution: "Stratifications résistantes aux perforations protègent l'intégrité du sac." },
+      { q: "5. Mauvais Attrait en Rayon", desc: "Une impression terne fait que le produit se fond parmi ses concurrents.", solution: "Impression vibrante jusqu'à 10 couleurs avec finitions mates/brillantes fait ressortir votre marque." }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的零食包裝問題（及解決方案）",
+    problems: [
+      { q: "1. 零食變質與失去酥脆感", desc: "防潮性差會導致零食變軟。", solution: "高阻隔多層薄膜確保最大程度地保持酥脆。" },
+      { q: "2. 油脂污漬", desc: "油脂滲透劣質材料，破壞包裝外觀。", solution: "專業的防油內襯保持外觀完美無瑕。" },
+      { q: "3. 夾鏈失效", desc: "脆弱的封口容易彈開或無法正確重新密封。", solution: "重型按壓式夾鏈確保每次都能達到可靠的氣密密封。" },
+      { q: "4. 穿刺洩漏", desc: "洋芋片或堅果等尖銳零食會刺穿薄袋。", solution: "防穿刺層壓材料在運輸過程中保護袋子的完整性。" },
+      { q: "5. 貨架吸引力差", desc: "暗淡的印刷使產品在競爭對手中顯得平庸。", solution: "高達 10 色的鮮豔印刷搭配霧面/亮面飾面，讓您的品牌脫穎而出。" }
+    ]
+  }
+}
+
 export default function PouchSnacksPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.language || 'en'
+  const tLocal = translations[currentLang] || translations['en']
 
   // Scroll detection
   useEffect(() => {
@@ -496,6 +541,60 @@ export default function PouchSnacksPage() {
             <p>
               {t('seoPages.pages.pouchSnacks.coupledWithOurHighdefinition')}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-[#F0F0F0] border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8 leading-tight">
+                {tLocal.title.split(' (')[0]} <br/>
+                <span className="text-[#10b981]">({tLocal.title.split(' (')[1] || 'And Solutions)'}</span>
+              </h2>
+              <div className="space-y-6">
+                {tLocal.problems.map((prob: any, idx: number) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                  >
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2 flex items-center gap-2">
+                      <AlertTriangle className="text-red-500 w-6 h-6 flex-shrink-0" />
+                      {prob.q}
+                    </h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-600 mb-3 ml-8">
+                      {prob.desc}
+                    </p>
+                    <div className="flex items-start gap-2 bg-[#D4FF00]/20 p-3 ml-8 border-l-4 border-[#10b981]">
+                      <CheckCircle className="text-[#10b981] w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <p className="font-['JetBrains_Mono'] text-sm font-bold text-black">
+                        {prob.solution}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="lg:sticky lg:top-24"
+            >
+              <div className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white p-4">
+                <ClickableImage 
+                  src="/imgs/knowledge/snack-pouch-pain-points.jpg"
+                  alt="Snack Pouch Engineering"
+                  className="w-full h-auto object-cover border-4 border-black"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

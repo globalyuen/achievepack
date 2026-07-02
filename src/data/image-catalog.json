@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-02",
-  "total_images": 4585,
+  "total_images": 4602,
   "total_categories": 173,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 296,
+    ".jpg": 313,
     ".svg": 3
   },
   "categories": {
@@ -12742,8 +12742,110 @@
       ]
     },
     "knowledge": {
-      "count": 70,
+      "count": 87,
       "images": [
+        {
+          "filename": "pfas-free-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/pfas-free-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:17:16.811Z"
+        },
+        {
+          "filename": "packaging-terms-of-service-pain-points.jpg",
+          "path": "/imgs/knowledge/packaging-terms-of-service-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:15:27.541Z"
+        },
+        {
+          "filename": "testimonials-pain-points.jpg",
+          "path": "/imgs/knowledge/testimonials-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:15:08.748Z"
+        },
+        {
+          "filename": "digital-printing-pain-points.jpg",
+          "path": "/imgs/knowledge/digital-printing-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:15:08.681Z"
+        },
+        {
+          "filename": "workshop-register-pain-points.jpg",
+          "path": "/imgs/knowledge/workshop-register-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:15:05.256Z"
+        },
+        {
+          "filename": "eco-pouch-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/eco-pouch-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:14:24.532Z"
+        },
+        {
+          "filename": "pouch-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:13:59.785Z"
+        },
+        {
+          "filename": "baby-food-pouch-pain-points.jpg",
+          "path": "/imgs/knowledge/baby-food-pouch-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:13:24.034Z"
+        },
+        {
+          "filename": "coffee-tea-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/coffee-tea-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:12:25.542Z"
+        },
+        {
+          "filename": "pouch-sauces-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-sauces-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:11:58.797Z"
+        },
+        {
+          "filename": "pet-food-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/pet-food-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:10:47.726Z"
+        },
+        {
+          "filename": "snack-pouch-pain-points.jpg",
+          "path": "/imgs/knowledge/snack-pouch-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:10:28.833Z"
+        },
+        {
+          "filename": "flat-bottom-gusset-pain-points.jpg",
+          "path": "/imgs/knowledge/flat-bottom-gusset-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:09:26.737Z"
+        },
+        {
+          "filename": "frozen-food-pain-points.jpg",
+          "path": "/imgs/knowledge/frozen-food-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:09:23.982Z"
+        },
+        {
+          "filename": "pouch-size-guide-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-size-guide-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:09:21.680Z"
+        },
+        {
+          "filename": "printing-types-pain-points.jpg",
+          "path": "/imgs/knowledge/printing-types-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:08:06.100Z"
+        },
+        {
+          "filename": "pouch-sizing-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-sizing-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:07:35.371Z"
+        },
         {
           "filename": "pouch-options-pain-points.jpg",
           "path": "/imgs/knowledge/pouch-options-pain-points.jpg",

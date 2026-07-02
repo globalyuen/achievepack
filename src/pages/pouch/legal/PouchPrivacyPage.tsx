@@ -1,17 +1,83 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Shield, Users, Database, Share2, Settings, Clock, RefreshCw, Mail } from 'lucide-react'
+import { ArrowLeft, Shield, Users, Database, Share2, Settings, Clock, RefreshCw, Mail, AlertTriangle, CheckCircle } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    sectionTitle: '5 Common Privacy Problems (And Solutions)',
+    problems: [
+      {
+        title: 'Data Breaches',
+        desc: 'Sensitive personal information exposed to malicious actors.',
+        solution: 'Robust AES-256 encryption for all data at rest and in transit.'
+      },
+      {
+        title: 'Unwanted Tracking',
+        desc: 'Third-party cookies tracking users across the web without clear consent.',
+        solution: 'Granular cookie controls allowing precise opt-in/opt-out preferences.'
+      },
+      {
+        title: 'Third-Party Data Sharing',
+        desc: 'User data sold or shared with unverified third-party vendors.',
+        solution: 'Strict vendor audits and zero-sale data policies.'
+      },
+      {
+        title: 'Complicated Opt-Outs',
+        desc: 'Intentionally confusing settings making it hard to delete data.',
+        solution: 'One-click opt-out dashboard and simple data deletion requests.'
+      },
+      {
+        title: 'Opaque Data Policies',
+        desc: 'Privacy policies filled with dense legalese that users cannot understand.',
+        solution: 'Plain language summaries provided for all major policy updates.'
+      }
+    ]
+  },
+  es: {
+    sectionTitle: '5 Problemas Comunes de Privacidad (Y Soluciones)',
+    problems: [
+      { title: 'Violaciones de Datos', desc: 'Información personal confidencial expuesta a actores malintencionados.', solution: 'Cifrado robusto AES-256 para todos los datos en reposo y en tránsito.' },
+      { title: 'Rastreo no Deseado', desc: 'Cookies de terceros que rastrean a los usuarios en la web sin su consentimiento claro.', solution: 'Controles granulares de cookies que permiten preferencias precisas.' },
+      { title: 'Intercambio de Datos con Terceros', desc: 'Datos del usuario vendidos o compartidos con proveedores no verificados.', solution: 'Auditorías estrictas de proveedores y políticas de cero venta de datos.' },
+      { title: 'Exclusiones Complicadas', desc: 'Configuraciones intencionalmente confusas que dificultan la eliminación de datos.', solution: 'Panel de exclusión voluntaria con un clic y solicitudes sencillas de eliminación de datos.' },
+      { title: 'Políticas de Datos Opacas', desc: 'Políticas de privacidad llenas de jerga legal que los usuarios no pueden entender.', solution: 'Resúmenes en lenguaje sencillo para todas las actualizaciones importantes de las políticas.' }
+    ]
+  },
+  fr: {
+    sectionTitle: '5 Problèmes Courants de Confidentialité (Et Solutions)',
+    problems: [
+      { title: 'Violations de Données', desc: 'Informations personnelles sensibles exposées à des acteurs malveillants.', solution: 'Chiffrement robuste AES-256 pour toutes les données au repos et en transit.' },
+      { title: 'Suivi Indésirable', desc: 'Cookies tiers suivant les utilisateurs sur le web sans consentement clair.', solution: 'Contrôles granulaires des cookies permettant des préférences précises.' },
+      { title: 'Partage de Données avec des Tiers', desc: 'Données utilisateur vendues ou partagées avec des fournisseurs non vérifiés.', solution: 'Audits stricts des fournisseurs et politiques de non-vente des données.' },
+      { title: 'Désinscriptions Compliquées', desc: 'Paramètres intentionnellement confus rendant difficile la suppression des données.', solution: 'Tableau de bord de désinscription en un clic et demandes de suppression simples.' },
+      { title: 'Politiques de Données Opaques', desc: 'Politiques de confidentialité remplies de jargon juridique incompréhensible.', solution: 'Résumés en langage clair pour toutes les mises à jour majeures.' }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: '5 個常見隱私問題（及解決方案）',
+    problems: [
+      { title: '資料外洩', desc: '敏感的個人資訊暴露給惡意行為者。', solution: '對所有靜態和傳輸中的資料進行強大的 AES-256 加密。' },
+      { title: '不必要的追蹤', desc: '第三方 Cookie 在未經明確同意的情況下跨網路追蹤使用者。', solution: '精細的 Cookie 控制，允許精確的選擇加入/退出偏好。' },
+      { title: '第三方資料分享', desc: '使用者資料被出售或分享給未經核實的第三方供應商。', solution: '嚴格的供應商稽核和零資料出售政策。' },
+      { title: '複雜的退出機制', desc: '故意令人困惑的設定，使刪除資料變得困難。', solution: '一鍵退出儀表板和簡單的資料刪除請求。' },
+      { title: '不透明的資料政策', desc: '隱私權政策充滿了使用者無法理解的艱澀法律術語。', solution: '為所有主要政策更新提供通俗易懂的摘要。' }
+    ]
+  }
+}
+
 const PouchPrivacyPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchPrivacy'
+  const currentLang = i18n.language || 'en'
+  const langData = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en
   const [activeSection, setActiveSection] = useState('intro')
 
   const sections = [
     { id: 'intro', label: t(`${p}.sections.intro.label`) },
+    { id: 'problems', label: langData.sectionTitle },
     { id: 'information-collect', label: t(`${p}.sections.information-collect.label`) },
     { id: 'how-we-use', label: t(`${p}.sections.how-we-use.label`) },
     { id: 'sharing', label: t(`${p}.sections.sharing.label`) },
@@ -99,6 +165,37 @@ const PouchPrivacyPage: React.FC = () => {
                 <div className="prose prose-neutral max-w-none">
                   <p>{t(`${p}.sections.intro.p1`)}</p>
                   <p>{t(`${p}.sections.intro.p2`)}</p>
+                </div>
+              </section>
+
+              {/* Common Problems */}
+              <section id="problems" className="bg-white rounded-xl p-8 shadow-sm border border-neutral-100">
+                <div className="flex flex-col md:flex-row gap-8 mb-6">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                        <AlertTriangle className="h-5 w-5 text-red-600" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-neutral-900">{langData.sectionTitle}</h2>
+                    </div>
+                    <div className="space-y-6">
+                      {langData.problems.map((problem, idx) => (
+                        <div key={idx} className="flex gap-4">
+                          <div className="mt-1">
+                            <CheckCircle className="h-5 w-5 text-green-500" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-neutral-900">{problem.title}</h3>
+                            <p className="text-red-500 text-sm mt-1 mb-2"><span className="font-medium">Problem:</span> {problem.desc}</p>
+                            <p className="text-green-600 text-sm"><span className="font-medium">Solution:</span> {problem.solution}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="w-full md:w-1/3">
+                    <img src="/imgs/knowledge/privacy-pain-points.jpg" alt="Privacy Problems and Solutions" className="w-full h-auto rounded-lg shadow-md object-cover" />
+                  </div>
                 </div>
               </section>
 

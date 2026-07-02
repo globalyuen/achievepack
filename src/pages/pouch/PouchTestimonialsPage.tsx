@@ -1,15 +1,60 @@
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Star, Quote, Sparkles, Award, TrendingUp, Heart } from 'lucide-react'
+import { Star, Quote, Sparkles, Award, TrendingUp, Heart, XCircle, CheckCircle } from 'lucide-react'
 import { useEffect } from 'react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { getImagesForPage } from '../../data/imageHub'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common Pouch Packaging Problems (And Solutions)",
+    problems: [
+      { title: 'High Minimum Order Quantities (MOQs)', desc: 'Startups struggle to order tens of thousands of units.', solution: 'We start at just 500 units to help you test the market without massive risk.' },
+      { title: 'Inconsistent Printing Quality', desc: 'Colors don\'t match the brand guide and look cheap on shelf.', solution: 'Our HD digital printing ensures vibrant, precise colors that make your brand pop.' },
+      { title: 'Lack of Sustainable Options', desc: 'Finding true eco-friendly packaging is confusing and expensive.', solution: 'We offer BPI-certified compostable and recyclable options at competitive prices.' },
+      { title: 'Unreliable Barrier Protection', desc: 'Products lose freshness or spoil before expiration dates.', solution: 'Custom barrier films (EVOH, AL, Foil-lined) designed for your specific product needs.' },
+      { title: 'Poor Customer Support', desc: 'Left in the dark about order status and technical details.', solution: 'Dedicated packaging experts guide you from design to delivery.' }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de Empaque (Y Soluciones)",
+    problems: [
+      { title: 'Altas Cantidades Mínimas (MOQ)', desc: 'Las startups luchan por pedir decenas de miles de unidades.', solution: 'Comenzamos con solo 500 unidades para ayudarlo a probar el mercado sin riesgos masivos.' },
+      { title: 'Calidad de Impresión Inconsistente', desc: 'Los colores no coinciden y se ven baratos en el estante.', solution: 'Nuestra impresión digital HD garantiza colores vibrantes y precisos.' },
+      { title: 'Falta de Opciones Sostenibles', desc: 'Encontrar envases ecológicos es confuso y costoso.', solution: 'Ofrecemos opciones compostables y reciclables certificadas por BPI a precios competitivos.' },
+      { title: 'Protección de Barrera Poco Confiable', desc: 'Los productos pierden frescura o se echan a perder.', solution: 'Películas de barrera personalizadas diseñadas para sus necesidades específicas.' },
+      { title: 'Atención al Cliente Deficiente', desc: 'Sin información sobre el estado del pedido y detalles técnicos.', solution: 'Expertos en empaque dedicados lo guían desde el diseño hasta la entrega.' }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants d'Emballage (Et Solutions)",
+    problems: [
+      { title: 'Quantités Minimales Élevées (MOQ)', desc: 'Les startups peinent à commander des dizaines de milliers d\'unités.', solution: 'Nous commençons à seulement 500 unités pour vous aider à tester le marché sans risque.' },
+      { title: 'Qualité d\'Impression Incohérente', desc: 'Les couleurs ne correspondent pas et paraissent bas de gamme.', solution: 'Notre impression numérique HD garantit des couleurs vibrantes et précises.' },
+      { title: 'Manque d\'Options Durables', desc: 'Trouver de vrais emballages écologiques est cher et confus.', solution: 'Nous offrons des options compostables et recyclables certifiées BPI à des prix compétitifs.' },
+      { title: 'Protection de Barrière Peu Fiable', desc: 'Les produits perdent de leur fraîcheur ou se gâtent.', solution: 'Films barrière personnalisés conçus pour vos besoins spécifiques.' },
+      { title: 'Mauvais Service Client', desc: 'Laissé dans l\'ignorance quant à l\'état de la commande.', solution: 'Des experts dédiés vous guident de la conception à la livraison.' }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: "5個常見的包裝袋問題 (以及解決方案)",
+    problems: [
+      { title: '最低訂購量 (MOQ) 過高', desc: '新創公司難以一次訂購數萬個單位。', solution: '我們從500個起訂，幫助您在沒有巨大風險的情況下測試市場。' },
+      { title: '印刷品質不穩定', desc: '顏色與品牌指南不符，在貨架上看起來很廉價。', solution: '我們的高清數位印刷確保色彩鮮豔精確，讓您的品牌脫穎而出。' },
+      { title: '缺乏環保選擇', desc: '尋找真正的環保包裝既令人困惑又昂貴。', solution: '我們以具競爭力的價格提供獲得BPI認證的可堆肥和可回收選項。' },
+      { title: '阻隔保護不可靠', desc: '產品在保質期前失去新鮮度或變質。', solution: '為您的特定產品需求設計的客製化阻隔膜（EVOH、鋁箔內襯）。' },
+      { title: '客戶服務不佳', desc: '對訂單狀態和技術細節一無所知。', solution: '專屬的包裝專家為您提供從設計到交付的全程指導。' }
+    ]
+  }
+};
+
 export default function PouchTestimonialsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const p = 'seoPages.pages.pouchTestimonials';
+  const currentLang = i18n.language || 'en';
+  const localT = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en;
 
   // 从 imageHub 获取相关图片
   const pageImages = getImagesForPage('/testimonials')
@@ -475,6 +520,45 @@ export default function PouchTestimonialsPage() {
             animation: scroll-right-fast 4s linear infinite;
           }
         `}</style>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-16 px-4 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
+              {localT.problemsTitle}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="border-4 border-black overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white rounded-lg">
+                <img 
+                  src="/imgs/knowledge/testimonials-pain-points.jpg" 
+                  alt={localT.problemsTitle}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-6">
+              {localT.problems.map((prob, idx) => (
+                <div key={idx} className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4 items-start">
+                  <div className="mt-1">
+                    <XCircle className="w-6 h-6 text-red-500 mb-2" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-1">{prob.title}</h3>
+                    <p className="text-gray-600 mb-2 text-sm">{prob.desc}</p>
+                    <div className="flex gap-2 items-start text-[#10b981] font-medium mt-2 bg-[#10b981]/10 p-2 border border-[#10b981]/30">
+                      <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm">{prob.solution}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* CTA Section */}

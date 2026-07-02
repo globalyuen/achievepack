@@ -6,8 +6,84 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
+const LOCAL_TRANSLATIONS: Record<string, any> = {
+  en: {
+    sectionTitle: "5 Common Frozen Food Packaging Problems (And Solutions)",
+    p1Title: "Cold Flex Cracking",
+    p1Desc: "Pouch material shatters at sub-zero temperatures.",
+    p1Sol: "Specially formulated LLDPE/Nylon blends with high cold-flex resistance.",
+    p2Title: "Sharp Edge Puncture",
+    p2Desc: "Frozen food items with sharp edges pierce the bag.",
+    p2Sol: "Multi-layer co-extruded structures and heavy-duty puncture-resistant films.",
+    p3Title: "Freezer Burn",
+    p3Desc: "Air penetration dehydrating the food.",
+    p3Sol: "High-barrier EVOH or Metallized layers that block oxygen and moisture transfer.",
+    p4Title: "Seal Failure",
+    p4Desc: "Seals popping open due to temperature shock.",
+    p4Sol: "Specialized sealant layers and robust active heat-sealing technologies for extreme cold.",
+    p5Title: "Condensation & Delamination",
+    p5Desc: "Moisture causing graphics to peel.",
+    p5Sol: "Reverse printing trapped between layers with moisture-resistant adhesives."
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes del Envasado de Alimentos Congelados (Y Soluciones)",
+    p1Title: "Agrietamiento por flexión en frío",
+    p1Desc: "El material de la bolsa se rompe a temperaturas bajo cero.",
+    p1Sol: "Mezclas de LLDPE/Nylon especialmente formuladas con alta resistencia a la flexión en frío.",
+    p2Title: "Perforación por bordes afilados",
+    p2Desc: "Los alimentos congelados con bordes afilados perforan la bolsa.",
+    p2Sol: "Estructuras coextruidas multicapa y películas resistentes a perforaciones de alta resistencia.",
+    p3Title: "Quemadura por congelación",
+    p3Desc: "Penetración de aire que deshidrata los alimentos.",
+    p3Sol: "Capas de EVOH o metalizadas de alta barrera que bloquean la transferencia de oxígeno y humedad.",
+    p4Title: "Fallo del sello",
+    p4Desc: "Los sellos se abren debido al choque de temperatura.",
+    p4Sol: "Capas de sellado especializadas y tecnologías robustas de termosellado activo para frío extremo.",
+    p5Title: "Condensación y delaminación",
+    p5Desc: "La humedad hace que los gráficos se despeguen.",
+    p5Sol: "Impresión inversa atrapada entre capas con adhesivos resistentes a la humedad."
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants d'Emballage des Surgelés (Et Solutions)",
+    p1Title: "Fissuration par flexion à froid",
+    p1Desc: "Le matériau de la poche se brise à des températures inférieures à zéro.",
+    p1Sol: "Mélanges LLDPE/Nylon spécialement formulés avec une haute résistance à la flexion à froid.",
+    p2Title: "Perforation par des bords tranchants",
+    p2Desc: "Les aliments surgelés aux bords tranchants percent le sac.",
+    p2Sol: "Structures coextrudées multicouches et films très résistants aux perforations.",
+    p3Title: "Brûlure de congélation",
+    p3Desc: "La pénétration de l'air déshydrate les aliments.",
+    p3Sol: "Couches EVOH ou métallisées à haute barrière qui bloquent le transfert d'oxygène et d'humidité.",
+    p4Title: "Défaillance de l'étanchéité",
+    p4Desc: "Les scellés s'ouvrent en raison du choc thermique.",
+    p4Sol: "Couches de scellage spécialisées et technologies de thermoscellage actif robustes pour le froid extrême.",
+    p5Title: "Condensation et délamination",
+    p5Desc: "L'humidité provoque le décollement des graphiques.",
+    p5Sol: "Impression inversée emprisonnée entre les couches avec des adhésifs résistants à l'humidité."
+  },
+  'zh-TW': {
+    sectionTitle: "冷凍食品包裝的 5 個常見問題（及解決方案）",
+    p1Title: "冷彎曲開裂",
+    p1Desc: "袋子材料在零度以下的溫度會碎裂。",
+    p1Sol: "特製的 LLDPE/尼龍混合物，具有高冷彎曲阻力。",
+    p2Title: "銳角刺穿",
+    p2Desc: "帶有銳角的冷凍食品刺破袋子。",
+    p2Sol: "多層共擠結構和重型抗穿刺薄膜。",
+    p3Title: "冷凍燒",
+    p3Desc: "空氣滲透導致食物脫水。",
+    p3Sol: "高阻隔 EVOH 或金屬化層，可阻擋氧氣和水分轉移。",
+    p4Title: "密封失效",
+    p4Desc: "由於溫度衝擊導致密封爆開。",
+    p4Sol: "專用的密封層和適用於極端寒冷的強大主動熱封技術。",
+    p5Title: "冷凝與脫層",
+    p5Desc: "濕氣導致圖案剝落。",
+    p5Sol: "夾在各層之間的反向印刷，並使用防潮粘合劑。"
+  }
+};
+
 export default function PouchFrozenFoodPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const locT = LOCAL_TRANSLATIONS[i18n.language] || LOCAL_TRANSLATIONS.en
 
   const floatAnim = {
     y: [0, -10, 0],
@@ -232,6 +308,51 @@ export default function PouchFrozenFoodPage() {
             <p>
               {t('seoPages.pages.pouchFrozenFood.weAlsoOfferSpecialized')}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-cyan-50 border-t-4 border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-6">
+          <NeoBadge color="blue">Problem & Solution</NeoBadge>
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-12">
+            {locT.sectionTitle}
+          </h2>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {[
+                { title: locT.p1Title, desc: locT.p1Desc, sol: locT.p1Sol },
+                { title: locT.p2Title, desc: locT.p2Desc, sol: locT.p2Sol },
+                { title: locT.p3Title, desc: locT.p3Desc, sol: locT.p3Sol },
+                { title: locT.p4Title, desc: locT.p4Desc, sol: locT.p4Sol },
+                { title: locT.p5Title, desc: locT.p5Desc, sol: locT.p5Sol },
+              ].map((item, i) => (
+                <div key={i} className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative">
+                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-[#00FFFF] border-4 border-black flex items-center justify-center font-black">
+                    {i + 1}
+                  </div>
+                  <h3 className="font-black text-xl uppercase mb-2">{item.title}</h3>
+                  <div className="flex gap-3 mb-3">
+                    <Snowflake className="w-5 h-5 text-red-500 shrink-0" />
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{item.desc}</p>
+                  </div>
+                  <div className="flex gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-600 shrink-0" />
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold text-black">{item.sol}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="sticky top-24">
+              <ClickableImage 
+                src="/imgs/knowledge/frozen-food-pain-points.jpg" 
+                alt="Common Frozen Food Packaging Problems" 
+                className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              />
+            </div>
           </div>
         </div>
       </section>

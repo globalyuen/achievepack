@@ -2,13 +2,58 @@ import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
-import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Beaker, Sparkles, Star, Pill } from 'lucide-react'
+import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Beaker, Sparkles, Star, Pill, AlertTriangle, Droplets, Zap, Wind, Maximize } from 'lucide-react'
+
+const translations = {
+  en: {
+    title: "5 Common Supplement Packaging Problems (And Solutions)",
+    problems: [
+      { title: "Clumping & Moisture Damage", desc: "High-barrier aluminum or EVOH films that block moisture (MVTR < 1.0) to prevent hardening.", icon: Droplets },
+      { title: "Oxidation & Loss of Potency", desc: "Nitrogen flushing and oxygen barriers to protect sensitive active ingredients.", icon: Wind },
+      { title: "Messy Dispensing & Scooping", desc: "Wide-mouth openings and press-to-close resealable zippers for easy scoop access.", icon: Maximize },
+      { title: "Puncture or Tearing", desc: "Multi-layer laminated structures designed with high puncture resistance for heavy powders.", icon: Shield },
+      { title: "Static Cling & Powder Adhesion", desc: "Specialized anti-static inner layers that ensure all powder dispenses smoothly.", icon: Zap }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes en el Envasado de Suplementos (Y Soluciones)",
+    problems: [
+      { title: "Aglutinación y Daño por Humedad", desc: "Películas de alta barrera (aluminio o EVOH) que bloquean la humedad para evitar el endurecimiento.", icon: Droplets },
+      { title: "Oxidación y Pérdida de Potencia", desc: "Barrido con nitrógeno y barreras de oxígeno para proteger los ingredientes activos.", icon: Wind },
+      { title: "Dispensado y Uso de Cuchara Sucios", desc: "Aberturas anchas y cierres herméticos reutilizables para un fácil acceso.", icon: Maximize },
+      { title: "Perforación o Desgarro", desc: "Estructuras laminadas multicapa con alta resistencia a la perforación para polvos pesados.", icon: Shield },
+      { title: "Adherencia Estática del Polvo", desc: "Capas interiores antiestáticas que garantizan que todo el polvo se dispense sin problemas.", icon: Zap }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage de Suppléments (Et Solutions)",
+    problems: [
+      { title: "Agglutination et Dégâts Dus à l'Humidité", desc: "Films haute barrière (aluminium ou EVOH) qui bloquent l'humidité pour éviter le durcissement.", icon: Droplets },
+      { title: "Oxydation et Perte de Puissance", desc: "Rinçage à l'azote et barrières à l'oxygène pour protéger les ingrédients sensibles.", icon: Wind },
+      { title: "Distribution et Utilisation de Cuillères Salissantes", desc: "Larges ouvertures et fermetures à glissière refermables pour un accès facile.", icon: Maximize },
+      { title: "Perforation ou Déchirure", desc: "Structures stratifiées multicouches conçues avec une haute résistance à la perforation.", icon: Shield },
+      { title: "Adhérence Statique de la Poudre", desc: "Couches intérieures antistatiques spécialisées assurant une distribution fluide de la poudre.", icon: Zap }
+    ]
+  },
+  "zh-TW": {
+    title: "5 個常見的保健食品包裝問題 (及其解決方案)",
+    problems: [
+      { title: "結塊與受潮", desc: "採用高阻隔鋁箔或 EVOH 薄膜阻擋水氣，防止粉末變硬。", icon: Droplets },
+      { title: "氧化與效力流失", desc: "充氮技術與高阻氧層，完美保護敏感的活性成分。", icon: Wind },
+      { title: "取粉困難與容易灑出", desc: "寬口設計與高品質夾鏈條，方便使用量勺取用。", icon: Maximize },
+      { title: "穿刺或破裂", desc: "多層複合結構設計，具有高抗穿刺性，可承受沉重的粉末。", icon: Shield },
+      { title: "靜電吸附", desc: "專業抗靜電內層，確保粉末不沾黏在袋內。", icon: Zap }
+    ]
+  }
+}
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchSupplementsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = (i18n.language || 'en') as keyof typeof translations
+  const locale = translations[currentLang] || translations.en
 
   // Scroll detection
   useEffect(() => {
@@ -445,6 +490,46 @@ export default function PouchSupplementsPage() {
             <p>
               {t('seoPages.pages.pouchSupplements.switchingToFlexibleStandup')}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="md:w-1/2">
+              <ClickableImage 
+                src="/imgs/knowledge/supplement-packaging-pain-points.jpg" 
+                alt="Supplement packaging problems and solutions" 
+                className="w-full h-auto object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              />
+            </div>
+            <div className="md:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+                {locale.title}
+              </h2>
+              <div className="space-y-6">
+                {locale.problems.map((prob, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex gap-4 bg-white p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                  >
+                    <div className="flex-shrink-0">
+                      <prob.icon className="w-8 h-8 text-[#10b981]" />
+                    </div>
+                    <div>
+                      <h3 className="font-['Space_Grotesk'] font-bold text-xl uppercase mb-1">{prob.title}</h3>
+                      <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{prob.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

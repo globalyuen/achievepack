@@ -5,8 +5,65 @@ import { ArrowLeft, FileText, Truck, CreditCard, Package, Shield, AlertCircle, S
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 
+const termsTranslations: Record<string, any> = {
+  en: {
+    problemsTitle: "5 Common Packaging Order Problems (And Solutions)",
+    prob1Title: "Unexpected Color Variations",
+    prob1Desc: "Pain Point: Colors look different from digital proof to final product. Solution: We utilize strict Pantone matching and transparent tolerance guidelines.",
+    prob2Title: "Hidden Shipping Fees",
+    prob2Desc: "Pain Point: Surprise customs or duty charges on delivery. Solution: We offer DDP shipping ensuring all costs are calculated upfront.",
+    prob3Title: "Incorrect Sizing",
+    prob3Desc: "Pain Point: The pouch doesn't fit the actual product perfectly. Solution: We provide physical sample verification and 3D mockups before mass production.",
+    prob4Title: "Production Delays",
+    prob4Desc: "Pain Point: Missing launch dates due to factory delays. Solution: We offer guaranteed timelines with transparent real-time tracking.",
+    prob5Title: "Quantity Shortages",
+    prob5Desc: "Pain Point: Receiving fewer units than ordered without compensation. Solution: We clearly outline quantity tolerances and automatically refund any shortages."
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de Pedidos de Empaque (y Soluciones)",
+    prob1Title: "Variaciones de Color Inesperadas",
+    prob1Desc: "Problema: Los colores difieren de la prueba digital al producto final. Solución: Utilizamos una estricta igualación de Pantone y pautas de tolerancia transparentes.",
+    prob2Title: "Tarifas de Envío Ocultas",
+    prob2Desc: "Problema: Cargos sorpresivos de aduanas en la entrega. Solución: Ofrecemos envío DDP asegurando que todos los costos se calculan por adelantado.",
+    prob3Title: "Tamaño Incorrecto",
+    prob3Desc: "Problema: La bolsa no se ajusta perfectamente al producto real. Solución: Proporcionamos verificación física de muestras y maquetas 3D antes de la producción en masa.",
+    prob4Title: "Retrasos en la Producción",
+    prob4Desc: "Problema: Fechas de lanzamiento perdidas debido a retrasos de fábrica. Solución: Ofrecemos plazos garantizados con seguimiento transparente en tiempo real.",
+    prob5Title: "Escasez de Cantidad",
+    prob5Desc: "Problema: Recibir menos unidades de las pedidas sin compensación. Solución: Detallamos claramente las tolerancias de cantidad y reembolsamos automáticamente las faltas."
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants de Commandes d'Emballage (Et Solutions)",
+    prob1Title: "Variations de Couleur Inattendues",
+    prob1Desc: "Problème: Les couleurs diffèrent de l'épreuve numérique au produit final. Solution: Nous utilisons une correspondance Pantone stricte et des directives de tolérance transparentes.",
+    prob2Title: "Frais d'Expédition Cachés",
+    prob2Desc: "Problème: Frais de douane surprises à la livraison. Solution: Nous offrons l'expédition DDP garantissant que tous les coûts sont calculés à l'avance.",
+    prob3Title: "Dimensionnement Incorrect",
+    prob3Desc: "Problème: La pochette ne s'adapte pas parfaitement au produit réel. Solution: Nous fournissons une vérification physique des échantillons et des maquettes 3D avant la production de masse.",
+    prob4Title: "Retards de Production",
+    prob4Desc: "Problème: Dates de lancement manquées en raison de retards d'usine. Solution: Nous offrons des délais garantis avec un suivi transparent en temps réel.",
+    prob5Title: "Pénurie de Quantité",
+    prob5Desc: "Problème: Recevoir moins d'unités que commandé sans compensation. Solution: Nous décrivons clairement les tolérances de quantité et remboursons automatiquement les manques."
+  },
+  'zh-TW': {
+    problemsTitle: "5 個常見包裝訂單問題（與解決方案）",
+    prob1Title: "意外的顏色差異",
+    prob1Desc: "痛點：最終產品與數位校對的顏色不同。 解決方案：我們採用嚴格的 Pantone 配色和透明的公差指南。",
+    prob2Title: "隱藏的運輸費用",
+    prob2Desc: "痛點：交貨時出現意外的海關或關稅費用。 解決方案：我們提供 DDP 運輸，確保所有費用都會提前計算。",
+    prob3Title: "尺寸不正確",
+    prob3Desc: "痛點：包裝袋無法完美貼合實際產品。 解決方案：我們在量產前提供實體樣品驗證和 3D 模型。",
+    prob4Title: "生產延遲",
+    prob4Desc: "痛點：因工廠延遲而錯過上市日期。 解決方案：我們提供有保證的時間表和透明的即時追蹤。",
+    prob5Title: "數量短缺",
+    prob5Desc: "痛點：收到的單位少於訂購數量，且未獲得補償。 解決方案：我們明確列出數量公差，並自動退還任何短缺的費用。"
+  }
+}
+
 const PouchTermsPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const currentLang = termsTranslations[lang] || termsTranslations['en']
   const [activeSection, setActiveSection] = useState('production')
 
   const sections = [
@@ -18,6 +75,7 @@ const PouchTermsPage: React.FC = () => {
     { id: 'color', label: t('terms.nav.color') },
     { id: 'quantity', label: t('terms.nav.quantity') },
     { id: 'quality', label: t('terms.nav.quality') },
+    { id: 'problems', label: currentLang.problemsTitle },
     { id: 'cancellations', label: t('terms.nav.cancellations') },
     { id: 'liability', label: t('terms.nav.liability') },
     { id: 'acknowledgment', label: t('terms.nav.acknowledgment') },
@@ -35,7 +93,7 @@ const PouchTermsPage: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sectionIds = ['production', 'shipping', 'payment', 'specifications', 'ip', 'color', 'quantity', 'quality', 'cancellations', 'liability', 'acknowledgment']
+      const sectionIds = ['production', 'shipping', 'payment', 'specifications', 'ip', 'color', 'quantity', 'quality', 'problems', 'cancellations', 'liability', 'acknowledgment']
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i])
         if (el && el.getBoundingClientRect().top <= 150) {
@@ -305,6 +363,60 @@ const PouchTermsPage: React.FC = () => {
               <div className="text-neutral-700">
                 <p>{t('terms.quality.desc')}</p>
               </div>
+            </section>
+
+            {/* 5 Common Problems */}
+            <section id="problems" className="bg-white rounded-xl p-8 shadow-sm border border-neutral-100">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
+                  <AlertCircle className="h-5 w-5 text-indigo-600" />
+                </div>
+                <h2 className="text-2xl font-bold text-neutral-900">{currentLang.problemsTitle}</h2>
+              </div>
+              <div className="mb-6">
+                <img 
+                  src="/imgs/knowledge/packaging-terms-of-service-pain-points.jpg" 
+                  alt="Packaging Terms of Service Pain Points" 
+                  className="w-full rounded-xl shadow-sm object-cover h-64"
+                />
+              </div>
+              <ul className="space-y-6">
+                <li className="flex gap-4">
+                  <div className="mt-1"><Palette className="h-5 w-5 text-indigo-500" /></div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-900 mb-1">{currentLang.prob1Title}</h3>
+                    <p className="text-neutral-700">{currentLang.prob1Desc}</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="mt-1"><Truck className="h-5 w-5 text-indigo-500" /></div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-900 mb-1">{currentLang.prob2Title}</h3>
+                    <p className="text-neutral-700">{currentLang.prob2Desc}</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="mt-1"><Package className="h-5 w-5 text-indigo-500" /></div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-900 mb-1">{currentLang.prob3Title}</h3>
+                    <p className="text-neutral-700">{currentLang.prob3Desc}</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="mt-1"><CheckCircle className="h-5 w-5 text-indigo-500" /></div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-900 mb-1">{currentLang.prob4Title}</h3>
+                    <p className="text-neutral-700">{currentLang.prob4Desc}</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="mt-1"><Scale className="h-5 w-5 text-indigo-500" /></div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-900 mb-1">{currentLang.prob5Title}</h3>
+                    <p className="text-neutral-700">{currentLang.prob5Desc}</p>
+                  </div>
+                </li>
+              </ul>
             </section>
 
             {/* Cancellations & Returns */}

@@ -1,16 +1,85 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { Ruler, Package, Download, Zap, CheckCircle, ArrowRight, Eye, Calculator, Maximize2, Settings, ArrowRightLeft, X, Box, Info, Scale, Layers, ChevronRight } from 'lucide-react'
+import { Ruler, Package, Download, Zap, CheckCircle, ArrowRight, Eye, Calculator, Maximize2, Settings, ArrowRightLeft, X, Box, Info, Scale, Layers, ChevronRight, AlertTriangle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { getBaseUrl } from '../../utils/domain'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
+const localTranslations = {
+  en: {
+    pouchSizeGuidePage: {
+      problems: {
+        badge: "TROUBLESHOOTING",
+        heading: "5 Common Pouch Sizing Problems (And Solutions)",
+        items: [
+          { title: "Underestimating Volume & Density", desc: "Fluffy products need much larger bags than their weight suggests. Always use our density multiplier before choosing a size." },
+          { title: "Insufficient Headspace for Sealing", desc: "If the pouch is too full, you cannot heat seal or close the zipper. Always leave 1-1.5 inches of headspace at the top." },
+          { title: "Pouch Tips Over When Filled", desc: "A gusset that is too small for the product's weight distribution causes tipping. Ensure your bottom gusset matches your fill weight." },
+          { title: "Artwork Distortion After Filling", desc: "As the pouch expands, edges and the gusset warp the design. Keep critical design elements away from the very edges." },
+          { title: "Relying on Competitor Sizes", desc: "Not all '250g' pouches are the same dimensions. Always measure your physical product or request sample bags to test." }
+        ]
+      }
+    }
+  },
+  es: {
+    pouchSizeGuidePage: {
+      problems: {
+        badge: "SOLUCIÓN DE PROBLEMAS",
+        heading: "5 Problemas Comunes de Tamaño de Bolsas (Y Soluciones)",
+        items: [
+          { title: "Subestimar Volumen y Densidad", desc: "Los productos esponjosos necesitan bolsas más grandes de lo que sugiere su peso. Siempre use nuestro multiplicador de densidad antes de elegir." },
+          { title: "Espacio de Cabeza Insuficiente para Sellar", desc: "Si la bolsa está demasiado llena, no podrá sellarla con calor o cerrar la cremallera. Deje siempre 1-1.5 pulgadas de espacio libre." },
+          { title: "La Bolsa se Vuelca al Llenarse", desc: "Un fuelle demasiado pequeño para la distribución del peso hace que se vuelque. Asegúrese de que el fuelle inferior coincida con el peso de llenado." },
+          { title: "Distorsión del Diseño al Llenar", desc: "A medida que la bolsa se expande, los bordes deforman el diseño. Mantenga los elementos críticos lejos de los bordes." },
+          { title: "Confiar en Tamaños de la Competencia", desc: "No todas las bolsas de '250g' tienen las mismas dimensiones. Siempre mida su producto físico o solicite bolsas de muestra." }
+        ]
+      }
+    }
+  },
+  fr: {
+    pouchSizeGuidePage: {
+      problems: {
+        badge: "DÉPANNAGE",
+        heading: "5 Problèmes Courants de Taille de Sachet (Et Solutions)",
+        items: [
+          { title: "Sous-estimer le Volume et la Densité", desc: "Les produits volumineux nécessitent des sachets plus grands. Utilisez toujours notre multiplicateur de densité avant de choisir." },
+          { title: "Espace Libre Insuffisant pour le Scellage", desc: "Si le sachet est trop plein, vous ne pouvez pas le sceller ni fermer le zip. Laissez toujours 2,5 à 4 cm d'espace libre." },
+          { title: "Le Sachet Bascule une Fois Rempli", desc: "Un soufflet trop petit pour la répartition du poids provoque le basculement. Adaptez le soufflet inférieur au poids de remplissage." },
+          { title: "Déformation du Design Après Remplissage", desc: "Lorsque le sachet s'élargit, les bords déforment le design. Éloignez les éléments critiques des bords." },
+          { title: "Se Fier aux Tailles Concurrentes", desc: "Tous les sachets de '250g' n'ont pas les mêmes dimensions. Mesurez toujours votre produit ou demandez des échantillons." }
+        ]
+      }
+    }
+  },
+  'zh-TW': {
+    pouchSizeGuidePage: {
+      problems: {
+        badge: "疑難排解",
+        heading: "5 個常見的包裝袋尺寸問題 (及解決方案)",
+        items: [
+          { title: "低估體積與密度", desc: "蓬鬆產品需要的袋子比其重量所暗示的要大。在選擇尺寸之前，請始終使用我們的密度乘數。" },
+          { title: "頂部封口空間不足", desc: "如果袋子裝得太滿，您將無法進行熱封或拉上拉鍊。始終在頂部保留 1-1.5 英寸的空間。" },
+          { title: "裝滿後袋子傾倒", desc: "對於產品重量分佈而言過小的底部角撐板會導致傾倒。確保您的底部角撐板與您的填充重量相匹配。" },
+          { title: "填充後設計圖案變形", desc: "隨著袋子的膨脹，邊緣和角撐板會使設計變形。將關鍵設計元素遠離邊緣。" },
+          { title: "依賴競爭對手的尺寸", desc: "並非所有“250克”的袋子尺寸都相同。始終測量您的實體產品或索取樣品袋進行測試。" }
+        ]
+      }
+    }
+  }
+}
+
 export default function PouchSizeGuidePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const baseUrl = getBaseUrl()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  React.useEffect(() => {
+    Object.keys(localTranslations).forEach(lang => {
+      i18n.addResourceBundle(lang, 'translation', localTranslations[lang as keyof typeof localTranslations], true, true)
+    })
+  }, [i18n])
 
   const standUpSizes = [
     { size: 'XXXS', image: '/imgs/store/size/stand-up/xxxs.webp', capacity: '10-25g', dim: '80×130+50mm', bestFor: 'Samples, Spices' },
@@ -218,6 +287,43 @@ export default function PouchSizeGuidePage() {
             <h4 className="font-black text-2xl uppercase mb-4">{t('pouchSizeGuidePage.techCards.dieline.title')}</h4>
             <p className="text-sm font-['JetBrains_Mono'] text-gray-600">{t('pouchSizeGuidePage.techCards.dieline.description')}</p>
           </NeoCard>
+        </div>
+      </section>
+
+      {/* Problems Section */}
+      <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 relative">
+              <div className="absolute inset-0 bg-magenta-600 translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/pouch-size-guide-pain-points.jpg" 
+                alt="Pouch sizing pain points" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl bg-white"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <NeoBadge color="yellow">{t('pouchSizeGuidePage.problems.badge', 'TROUBLESHOOTING')}</NeoBadge>
+              <h2 className="font-black text-4xl md:text-6xl uppercase mt-6 leading-tight">
+                {t('pouchSizeGuidePage.problems.heading', '5 Common Pouch Sizing Problems (And Solutions)')}
+              </h2>
+              <div className="mt-8 space-y-6">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="shrink-0 mt-1">
+                      <AlertTriangle className="w-6 h-6 text-magenta-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-black text-xl">{t(`pouchSizeGuidePage.problems.items.${i}.title`, localTranslations.en.pouchSizeGuidePage.problems.items[i as 0|1|2|3|4].title)}</h4>
+                      <p className="text-gray-600 font-['JetBrains_Mono'] mt-1 leading-relaxed">
+                        {t(`pouchSizeGuidePage.problems.items.${i}.desc`, localTranslations.en.pouchSizeGuidePage.problems.items[i as 0|1|2|3|4].desc)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

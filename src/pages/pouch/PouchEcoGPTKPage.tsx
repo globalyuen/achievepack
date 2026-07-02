@@ -7,7 +7,7 @@ import {
   Coffee, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, Ruler, 
   Sparkles, DollarSign, Clock, HelpCircle, Mail, Download, Compass, 
   MapPin, Check, Layers, AlertCircle, ShoppingBag, Grid, Info, Sparkle, Globe,
-  Copy, Phone, RefreshCw, AlertTriangle, Calendar, ChevronDown, ChevronRight, MessageSquare
+  Copy, Phone, RefreshCw, AlertTriangle, Calendar, ChevronDown, ChevronRight, MessageSquare, Package
 } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import SiteHeader from '../../components/SiteHeader'
@@ -145,8 +145,58 @@ const SACHET_MOCKUPS = [
   '/imgs/store/products/small-sachet-conventional-thumbnail-5.png'
 ];
 
+const translations = {
+  en: {
+    title: "5 Common Eco Pouch Problems (And Solutions)",
+    problems: [
+      { q: "High MOQ for custom printed eco-friendly pouches", a: "Solution: Digital printing allows ultra-low MOQ starting at 500 units.", icon: "Package" },
+      { q: "Poor oxygen/moisture barrier in standard kraft bags", a: "Solution: EVOH gas lock or metalised PLA core for maximum protection.", icon: "Shield" },
+      { q: "Expensive cylinder plate setup fees", a: "Solution: Digital CMYK printing waives all plate costs.", icon: "DollarSign" },
+      { q: "Long lead times for custom dimensions", a: "Solution: Millimeter-precise custom sizing without tooling delays.", icon: "Clock" },
+      { q: "Weak sealing strength in compostable materials", a: "Solution: Certified PBAT/PLA high-strength heat sealant layers.", icon: "CheckCircle" }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas Ecológicas (Y Soluciones)",
+    problems: [
+      { q: "MOQ alto para bolsas ecológicas impresas personalizadas", a: "Solución: La impresión digital permite MOQ ultra bajos a partir de 500 unidades.", icon: "Package" },
+      { q: "Mala barrera de oxígeno/humedad en bolsas kraft estándar", a: "Solución: Bloqueo de gas EVOH o núcleo de PLA metalizado para máxima protección.", icon: "Shield" },
+      { q: "Costosas tarifas de configuración de placas", a: "Solución: La impresión digital CMYK exime todos los costos de placas.", icon: "DollarSign" },
+      { q: "Largos tiempos de entrega para dimensiones personalizadas", a: "Solución: Tamaño personalizado preciso al milímetro sin demoras en herramientas.", icon: "Clock" },
+      { q: "Fuerza de sellado débil en materiales compostables", a: "Solución: Capas de sellador térmico de alta resistencia certificadas PBAT/PLA.", icon: "CheckCircle" }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets Écologiques (Et Solutions)",
+    problems: [
+      { q: "MOQ élevé pour les sachets écologiques imprimés personnalisés", a: "Solution : L'impression numérique permet un MOQ ultra-faible à partir de 500 unités.", icon: "Package" },
+      { q: "Mauvaise barrière à l'oxygène et à l'humidité dans les sacs kraft", a: "Solution : Verrouillage aux gaz EVOH ou noyau en PLA métallisé pour une protection maximale.", icon: "Shield" },
+      { q: "Frais de configuration de plaques coûteux", a: "Solution : L'impression numérique CMYK supprime tous les frais de plaques.", icon: "DollarSign" },
+      { q: "Longs délais pour les dimensions personnalisées", a: "Solution : Dimensionnement sur mesure au millimètre près sans retard d'outillage.", icon: "Clock" },
+      { q: "Faible résistance d'étanchéité des matériaux compostables", a: "Solution : Couches de scellage thermique haute résistance certifiées PBAT/PLA.", icon: "CheckCircle" }
+    ]
+  },
+  "zh-TW": {
+    title: "5 個常見的環保袋問題（及解決方案）",
+    problems: [
+      { q: "客製化環保袋的起訂量高", a: "解決方案：數位印刷支援從 500 件起的超低起訂量。", icon: "Package" },
+      { q: "標準牛皮紙袋的氧氣/濕氣阻隔性差", a: "解決方案：EVOH 氣體鎖定或金屬化 PLA 核心，提供最大保護。", icon: "Shield" },
+      { q: "昂貴的版費", a: "解決方案：CMYK 數位印刷免除所有版費。", icon: "DollarSign" },
+      { q: "客製化尺寸的交貨時間長", a: "解決方案：毫米級的精確客製尺寸，無需模具延遲。", icon: "Clock" },
+      { q: "可堆肥材料的封口強度弱", a: "解決方案：認證的 PBAT/PLA 高強度熱封層。", icon: "CheckCircle" }
+    ]
+  }
+};
+
+const sectionsForPouch = translations;
+const sectionsForAchieve = translations;
+
+const iconMap: Record<string, React.ElementType> = { Package, Shield, DollarSign, Clock, CheckCircle };
+
 export default function PouchEcoGPTKPage({ hideNav = false }: { hideNav?: boolean }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language || 'en';
+  const pageT = sectionsForPouch[lang as keyof typeof sectionsForPouch] || sectionsForPouch.en;
   const p = 'seoPages.pages.pouchEcoGPTK';
 
   const rotatingCategories = [
@@ -2163,6 +2213,34 @@ Real-time Options Quotation:
                 </tbody>
               </table>
             </div>
+          </div>
+        </section>
+
+        {/* NEW SECTION */}
+        <section className="max-w-3xl mx-auto px-4 md:px-6 pt-16">
+          <div className="text-center space-y-2 mb-8">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-neutral-950 font-['Outfit']">
+              {pageT.title}
+            </h2>
+            <div className="mt-6 rounded-2xl overflow-hidden shadow-lg border border-neutral-200">
+              <img src="/imgs/knowledge/eco-pouch-packaging-pain-points.jpg" alt="Eco Pouch Packaging Solutions" className="w-full h-auto object-cover" />
+            </div>
+          </div>
+          <div className="space-y-4">
+            {pageT.problems.map((prob, idx) => {
+              const IconComponent = iconMap[prob.icon] || Package;
+              return (
+                <div key={idx} className="bg-white border border-neutral-200 rounded-2xl p-5 flex items-start gap-4 shadow-sm hover:border-emerald-500 transition-colors">
+                  <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl">
+                    <IconComponent className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-neutral-900 text-sm">{prob.q}</h3>
+                    <p className="text-xs text-neutral-600 mt-1">{prob.a}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 

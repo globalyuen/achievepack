@@ -7,8 +7,133 @@ import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common PFAS-Free Packaging Problems (And Solutions)",
+    problems: [
+      {
+        title: "Grease Resistance vs. Toxicity",
+        problem: "Traditional grease-proofing uses toxic PFAS that contaminate food.",
+        solution: "Aqueous dispersion coatings provide Kit 12+ grease barrier safely without forever chemicals."
+      },
+      {
+        title: "Shelf Life Degradation",
+        problem: "Removing PFAS often reduces oxygen and moisture barrier properties.",
+        solution: "Mechanical barrier orientation (MDO) seals oxygen out, preserving shelf life."
+      },
+      {
+        title: "Impure Recyclability",
+        problem: "Chemical coatings contaminate paper and plastic recycling streams.",
+        solution: "Our bio-wax coatings are 100% recyclable and compostable in standard facilities."
+      },
+      {
+        title: "Regulatory Non-Compliance",
+        problem: "Global bans like California AB 1200 catch brands off-guard.",
+        solution: "Certified Total Fluorine <50ppm guarantees immediate compliance with upcoming laws."
+      },
+      {
+        title: "Supply Chain Migration",
+        problem: "NIAS (Non-Intentionally Added Substances) can migrate from inks and adhesives.",
+        solution: "Rigorous supply-chain screening and high-purity sealants prevent cross-contamination."
+      }
+    ]
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes de Empaques sin PFAS (y Soluciones)",
+    problems: [
+      {
+        title: "Resistencia a la Grasa vs. Toxicidad",
+        problem: "Los antigrasos tradicionales usan PFAS tóxicos que contaminan los alimentos.",
+        solution: "Los recubrimientos de dispersión acuosa ofrecen barrera Kit 12+ sin productos químicos eternos."
+      },
+      {
+        title: "Degradación de la Vida Útil",
+        problem: "Eliminar PFAS a menudo reduce la barrera contra el oxígeno y la humedad.",
+        solution: "La orientación de barrera mecánica (MDO) sella el oxígeno, conservando la frescura."
+      },
+      {
+        title: "Reciclabilidad Impura",
+        problem: "Los recubrimientos químicos contaminan los flujos de reciclaje de papel y plástico.",
+        solution: "Nuestros recubrimientos de biocera son 100% reciclables y compostables."
+      },
+      {
+        title: "Incumplimiento Normativo",
+        problem: "Prohibiciones globales como la AB 1200 de California sorprenden a las marcas.",
+        solution: "El flúor total certificado <50 ppm garantiza el cumplimiento inmediato."
+      },
+      {
+        title: "Migración en la Cadena de Suministro",
+        problem: "Las NIAS pueden migrar desde tintas y adhesivos.",
+        solution: "El riguroso control de la cadena de suministro evita la contaminación cruzada."
+      }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants des Emballages Sans PFAS (et Solutions)",
+    problems: [
+      {
+        title: "Résistance aux Graisses vs Toxicité",
+        problem: "Les anti-graisses traditionnels utilisent des PFAS toxiques qui contaminent les aliments.",
+        solution: "Les revêtements en dispersion aqueuse offrent une barrière Kit 12+ sans produits chimiques éternels."
+      },
+      {
+        title: "Dégradation de la Durée de Conservation",
+        problem: "Supprimer les PFAS réduit souvent la barrière à l'oxygène et à l'humidité.",
+        solution: "L'orientation de la barrière mécanique (MDO) bloque l'oxygène, préservant la fraîcheur."
+      },
+      {
+        title: "Recyclabilité Impure",
+        problem: "Les revêtements chimiques contaminent le recyclage du papier et du plastique.",
+        solution: "Nos revêtements en bio-cire sont 100 % recyclables et compostables."
+      },
+      {
+        title: "Non-Conformité Réglementaire",
+        problem: "Les interdictions mondiales comme l'AB 1200 en Californie surprennent les marques.",
+        solution: "Un fluor total certifié <50 ppm garantit une conformité immédiate."
+      },
+      {
+        title: "Migration dans la Chaîne d'Approvisionnement",
+        problem: "Les NIAS peuvent migrer à partir des encres et des adhésifs.",
+        solution: "Un contrôle rigoureux de la chaîne d'approvisionnement empêche la contamination croisée."
+      }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: "無 PFAS 包裝的 5 個常見問題（及解決方案）",
+    problems: [
+      {
+        title: "防油與毒性",
+        problem: "傳統的防油處理使用會污染食物的有毒 PFAS。",
+        solution: "水性分散塗層安全地提供 Kit 12+ 的防油屏障，不含永久性化學物質。"
+      },
+      {
+        title: "保存期限縮短",
+        problem: "去除 PFAS 通常會降低氧氣和水分阻隔性能。",
+        solution: "機械阻隔取向 (MDO) 將氧氣密封，保持新鮮度。"
+      },
+      {
+        title: "回收不純",
+        problem: "化學塗層會污染紙張和塑料的回收過程。",
+        solution: "我們的生物蠟塗層在標準設施中 100% 可回收和可堆肥。"
+      },
+      {
+        title: "不符合法規",
+        problem: "加州 AB 1200 等全球禁令常讓品牌措手不及。",
+        solution: "認證的總氟量 <50ppm 保證立即符合即將出台的法律。"
+      },
+      {
+        title: "供應鏈遷移",
+        problem: "非有意添加物質 (NIAS) 可能會從油墨和粘合劑中遷移。",
+        solution: "嚴格的供應鏈篩查和高純度密封劑可防止交叉污染。"
+      }
+    ]
+  }
+};
+
 const PouchPFASFreePackagingPage: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const langData = localTranslations[currentLang] || localTranslations.en;
   const p = 'seoPages.pages.pouchPFASFreePackaging';
   const baseUrl = getBaseUrl()
   
@@ -118,6 +243,39 @@ const PouchPFASFreePackagingPage: React.FC = () => {
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
                 {t(`${p}.tech.items.3.desc`, "We perform Non-Intentionally Added Substances (NIAS) screening to ensure no chemical migration from adhesives or inks compromises the PFAS-free status of the bag.")}
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">SOLUTIONS_ARCHIVE</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">{langData.sectionTitle}</h2>
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="space-y-8">
+              {langData.problems.map((item, index) => (
+                <div key={index} className="flex gap-4 items-start p-6 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-slate-50">
+                  <div className="w-12 h-12 bg-black text-white flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-[#D4FF00]" />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-xl uppercase mb-2">{item.title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-red-600 mb-2"><strong>Problem:</strong> {item.problem}</p>
+                    <p className="font-['JetBrains_Mono'] text-green-700"><strong>Solution:</strong> {item.solution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative sticky top-24">
+              <div className="absolute inset-0 bg-yellow-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/pfas-free-packaging-pain-points.jpg" 
+                alt="PFAS-Free Engineering Solutions" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
             </div>
           </div>
         </div>

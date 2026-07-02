@@ -4,9 +4,115 @@ import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 import ClickableImage from '../../components/ClickableImage';
+import { AlertCircle, CheckCircle2 } from 'lucide-react';
+
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Unprinted Pouch Problems (And Solutions)",
+    items: [
+      {
+        problem: "Unsure of material look & feel before bulk printing.",
+        solution: "Unprinted sample kits let you feel Kraft, PET, PE physically."
+      },
+      {
+        problem: "Unsure if your product fits inside the pouch.",
+        solution: "Physical blank samples allow for live fill testing."
+      },
+      {
+        problem: "Testing zipper, spout, and tear-notch durability.",
+        solution: "Blank pouches are fully functional, test the closure and tearing directly."
+      },
+      {
+        problem: "High cost & delay of getting full custom-printed samples.",
+        solution: "Blank stock samples ship immediately at a fraction of the cost."
+      },
+      {
+        problem: "Need to configure heat sealer equipment settings.",
+        solution: "Blank samples are identical in structure, allowing you to run seal tests before final production."
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes con Bolsas Lisas (Y Soluciones)",
+    items: [
+      {
+        problem: "Inseguridad sobre el aspecto y tacto del material antes de imprimir al por mayor.",
+        solution: "Los kits de muestras sin imprimir permiten sentir físicamente el Kraft, PET y PE."
+      },
+      {
+        problem: "Dudas sobre si el producto cabe dentro de la bolsa.",
+        solution: "Las muestras físicas en blanco permiten pruebas de llenado reales."
+      },
+      {
+        problem: "Necesidad de probar la durabilidad de cierres, boquillas y muescas de apertura.",
+        solution: "Las bolsas lisas son totalmente funcionales, pruebe el cierre y la apertura directamente."
+      },
+      {
+        problem: "Alto costo y demora en obtener muestras impresas personalizadas.",
+        solution: "Las muestras en blanco en stock se envían inmediatamente por una fracción del costo."
+      },
+      {
+        problem: "Necesidad de configurar los ajustes del equipo de termosellado.",
+        solution: "Las muestras en blanco tienen una estructura idéntica, permitiendo pruebas de sellado antes de la producción final."
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants avec les Sachets Neutres (Et Solutions)",
+    items: [
+      {
+        problem: "Incertitude sur l'aspect et le toucher du matériau avant l'impression en vrac.",
+        solution: "Les kits d'échantillons non imprimés vous permettent de toucher le Kraft, le PET et le PE physiquement."
+      },
+      {
+        problem: "Doute sur la capacité du produit à rentrer dans le sachet.",
+        solution: "Les échantillons physiques neutres permettent des tests de remplissage en conditions réelles."
+      },
+      {
+        problem: "Test de la durabilité de la fermeture zip, du bouchon et de l'encoche de déchirure.",
+        solution: "Les sachets neutres sont entièrement fonctionnels, testez directement la fermeture et la déchirure."
+      },
+      {
+        problem: "Coût élevé et délai pour obtenir des échantillons imprimés sur mesure.",
+        solution: "Les échantillons en stock neutres sont expédiés immédiatement à une fraction du coût."
+      },
+      {
+        problem: "Nécessité de configurer les réglages de l'équipement de thermocollage.",
+        solution: "Les échantillons neutres ont une structure identique, vous permettant de faire des tests de scellage avant la production finale."
+      }
+    ]
+  },
+  'zh-TW': {
+    title: "5個常見空白軟包裝痛點 (與解決方案)",
+    items: [
+      {
+        problem: "大量印刷前無法確認材質的外觀與觸感。",
+        solution: "無印刷樣品包讓您能實際感受牛皮紙、PET和PE材質。"
+      },
+      {
+        problem: "不確定產品是否能裝入袋中。",
+        solution: "實體空白樣品可讓您進行實際充填測試。"
+      },
+      {
+        problem: "需要測試夾鏈、吸嘴和撕口的耐用性。",
+        solution: "空白袋具備完整功能，可直接測試封口和撕開效果。"
+      },
+      {
+        problem: "取得全客製印刷樣品的成本高且耗時。",
+        solution: "庫存空白樣品可立即出貨，且成本大幅降低。"
+      },
+      {
+        problem: "需要設定熱封設備的參數。",
+        solution: "空白樣品結構相同，可讓您在最終生產前進行封口測試。"
+      }
+    ]
+  }
+};
 
 const PouchUnprintedSamplesPage: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const currentLang = translations[i18n.language] ? i18n.language : 'en';
+    const langData = translations[currentLang];
 
     return (
         <PouchLayout>
@@ -75,7 +181,7 @@ const PouchUnprintedSamplesPage: React.FC = () => {
                         </div>
 
                         {/* Pricing/Order Section */}
-                        <NeoCard className="bg-[#D4FF00] p-8 md:p-12 text-center border-black border-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                        <NeoCard className="bg-[#D4FF00] p-8 md:p-12 text-center border-black border-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-16">
                             <h3 className="text-3xl font-black uppercase mb-4">{t('pouchUnprintedSamplesPage.orderKit.title')}</h3>
                             <div className="text-5xl font-black mb-6">{t('pouchUnprintedSamplesPage.orderKit.price')}</div>
                             <p className="font-bold mb-8 max-w-md mx-auto">{t('pouchUnprintedSamplesPage.orderKit.description')}</p>
@@ -88,6 +194,36 @@ const PouchUnprintedSamplesPage: React.FC = () => {
                                 {t('pouchUnprintedSamplesPage.orderKit.cta')}
                             </a>
                         </NeoCard>
+
+                        {/* 5 Common Problems Section */}
+                        <div className="mb-16">
+                            <h3 className="text-3xl font-black uppercase mb-8 border-b-4 border-black pb-4">
+                                {langData.title}
+                            </h3>
+                            <div className="grid md:grid-cols-2 gap-8 items-start">
+                                <div className="space-y-6">
+                                    {langData.items.map((item: any, index: number) => (
+                                        <NeoCard key={index} className="p-6 bg-white border-2 border-black">
+                                            <div className="flex gap-4 mb-3">
+                                                <AlertCircle className="w-6 h-6 text-red-500 shrink-0" />
+                                                <p className="font-bold">{item.problem}</p>
+                                            </div>
+                                            <div className="flex gap-4">
+                                                <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" />
+                                                <p className="text-gray-700 font-medium">{item.solution}</p>
+                                            </div>
+                                        </NeoCard>
+                                    ))}
+                                </div>
+                                <div className="sticky top-8">
+                                    <img 
+                                        src="/imgs/knowledge/unprinted-pouch-samples-pain-points.jpg" 
+                                        alt="Unprinted Pouch Samples Pain Points" 
+                                        className="w-full h-auto border-4 border-black rounded-lg shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover"
+                                    />
+                                </div>
+                            </div>
+                        </div>
 
                         {/* Gallery Section */}
                         <div className="mt-16">

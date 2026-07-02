@@ -4,7 +4,7 @@ import { supabase } from '../../lib/supabase';
 
 export type FollowUpStatus = '未跟進' | '已發郵件' | '已聯絡/WhatsApp' | '已通話/會議' | '已寄樣品' | '報價中' | '已下單' | '無效/垃圾';
 
-interface UnifiedInquiry {
+export interface UnifiedInquiry {
   id: string;
   name: string;
   phone: string;

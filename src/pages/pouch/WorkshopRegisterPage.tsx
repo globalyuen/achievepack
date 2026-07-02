@@ -1,13 +1,61 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Calendar, Users, Zap, CheckCircle, Clock, MapPin } from 'lucide-react';
+import { Calendar, Users, Zap, CheckCircle, Clock, MapPin, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { NeoCard, NeoButton, NeoBadge } from '@/components/pouch/PouchUI';
 import PouchLayout from '@/components/pouch/PouchLayout';
 import { useTranslation } from 'react-i18next';
 
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Packaging Problems (And Solutions)",
+    items: [
+      { problem: "High Cost of Eco-materials", solution: "Optimize design to use less material overall." },
+      { problem: "Durability Issues", solution: "Implement multi-layer advanced barriers." },
+      { problem: "Regulatory Compliance", solution: "Follow standardized certification guidelines." },
+      { problem: "Supply Chain Delays", solution: "Source materials closer to manufacturing hubs." },
+      { problem: "Greenwashing Risks", solution: "Use transparent Life Cycle Assessments." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Empaque (Y Soluciones)",
+    items: [
+      { problem: "Alto costo de los eco-materiales", solution: "Optimizar el diseño para usar menos material en general." },
+      { problem: "Problemas de durabilidad", solution: "Implementar barreras avanzadas multicapa." },
+      { problem: "Cumplimiento normativo", solution: "Seguir pautas de certificación estandarizadas." },
+      { problem: "Retrasos en la cadena de suministro", solution: "Obtener materiales más cerca de los centros de fabricación." },
+      { problem: "Riesgos de lavado verde", solution: "Usar evaluaciones de ciclo de vida transparentes." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage (Et Solutions)",
+    items: [
+      { problem: "Coût élevé des éco-matériaux", solution: "Optimiser la conception pour utiliser moins de matériaux globaux." },
+      { problem: "Problèmes de durabilité", solution: "Mettre en œuvre des barrières multicouches avancées." },
+      { problem: "Conformité réglementaire", solution: "Suivre des directives de certification standardisées." },
+      { problem: "Retards de la chaîne d'approvisionnement", solution: "S'approvisionner plus près des centres de fabrication." },
+      { problem: "Risques d'écoblanchiment", solution: "Utiliser des analyses de cycle de vie transparentes." }
+    ]
+  },
+  'zh-TW': {
+    title: "5個常見包裝問題（及解決方案）",
+    items: [
+      { problem: "環保材料成本高昂", solution: "優化設計以減少整體材料用量。" },
+      { problem: "耐用性問題", solution: "實施多層高級阻隔層。" },
+      { problem: "合規性挑戰", solution: "遵循標準化的認證指南。" },
+      { problem: "供應鏈延遲", solution: "將材料採購轉移至製造中心附近。" },
+      { problem: "漂綠風險", solution: "使用透明的生命週期評估。" }
+    ]
+  }
+};
+
+const sectionsForPouch = ['problems-solutions'];
+const sectionsForAchieve = ['problems-solutions'];
+
 const WorkshopRegisterPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language || 'en';
+  const tLocal = translations[lang] || translations['en'];
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,6 +113,29 @@ const WorkshopRegisterPage = () => {
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> {t('workshopRegisterPage.whoIsThisFor.item2')}</li>
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> {t('workshopRegisterPage.whoIsThisFor.item3')}</li>
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" /> {t('workshopRegisterPage.whoIsThisFor.item4')}</li>
+                </ul>
+              </NeoCard>
+
+              <NeoCard color="bg-white" className="mb-6">
+                <h3 className="font-black uppercase mb-4">{tLocal.title}</h3>
+                <img 
+                  src="/imgs/knowledge/workshop-register-pain-points.jpg" 
+                  alt="Packaging problems and solutions"
+                  className="w-full h-auto mb-6 border-2 border-black object-cover rounded"
+                />
+                <ul className="space-y-4">
+                  {tLocal.items.map((item: any, i: number) => (
+                    <li key={i} className="flex flex-col gap-1">
+                      <div className="flex items-start gap-2 text-red-600 font-bold">
+                        <AlertCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                        <span>{item.problem}</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-green-700 font-medium ml-2">
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                        <span>{item.solution}</span>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </NeoCard>
 
