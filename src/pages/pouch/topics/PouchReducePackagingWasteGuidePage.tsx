@@ -7,10 +7,64 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations = {
+  en: {
+    painPoints: {
+      title: "5 Common Reduce Packaging Waste Problems (And Solutions)",
+      items: [
+        { title: "Overpackaging & Excessive Void Fill", desc: "Solution: Custom-sized flexible pouches fit the product perfectly, eliminating the need for dunnage and reducing volumetric weight." },
+        { title: "Unrecyclable Multi-Layer Materials", desc: "Solution: Mono-material PE/PP structures provide high barrier properties while being 100% recyclable in existing streams." },
+        { title: "High Carbon Footprint in Transport", desc: "Solution: Lightweight pouches reduce transport emissions by up to 80% due to better packing density compared to rigid containers." },
+        { title: "Food Spoilage & Reduced Shelf Life", desc: "Solution: Advanced high-barrier EVOH laminations protect against oxygen and moisture, extending shelf life and preventing food waste." },
+        { title: "Lack of Circularity (End-of-Life)", desc: "Solution: Implementing Post-Consumer Recycled (PCR) content resins into packaging layers creates a closed-loop packaging lifecycle." }
+      ]
+    }
+  },
+  es: {
+    painPoints: {
+      title: "5 Problemas Comunes para Reducir el Desperdicio de Empaques (Y Soluciones)",
+      items: [
+        { title: "Sobreempaque y Relleno Excesivo", desc: "Solución: Las bolsas flexibles a medida se adaptan perfectamente, eliminando material de relleno y reduciendo el peso volumétrico." },
+        { title: "Materiales Multicapa No Reciclables", desc: "Solución: Estructuras monomateriales de PE/PP ofrecen alta barrera siendo 100% reciclables." },
+        { title: "Alta Huella de Carbono en Transporte", desc: "Solución: Las bolsas ligeras reducen emisiones de transporte hasta un 80% gracias a su mejor densidad de empaque." },
+        { title: "Deterioro de Alimentos", desc: "Solución: Laminaciones avanzadas EVOH protegen contra oxígeno y humedad, extendiendo la vida útil." },
+        { title: "Falta de Circularidad", desc: "Solución: Integrar resinas recicladas posconsumo (PCR) crea un ciclo de vida de empaque cerrado." }
+      ]
+    }
+  },
+  fr: {
+    painPoints: {
+      title: "5 Problèmes Courants liés à la Réduction des Déchets (Et Solutions)",
+      items: [
+        { title: "Suremballage et Remplissage Excessif", desc: "Solution : Les sachets flexibles sur mesure s'adaptent parfaitement, éliminant le calage et réduisant le poids." },
+        { title: "Matériaux Multicouches Non Recyclables", desc: "Solution : Les structures mono-matériaux PE/PP offrent une haute barrière tout en étant 100% recyclables." },
+        { title: "Forte Empreinte Carbone en Transport", desc: "Solution : Les sachets légers réduisent les émissions jusqu'à 80% grâce à une meilleure densité d'emballage." },
+        { title: "Détérioration des Aliments", desc: "Solution : Les laminages avancés EVOH protègent contre l'oxygène et l'humidité, prolongeant la durée de conservation." },
+        { title: "Manque de Circularité", desc: "Solution : L'intégration de résines recyclées post-consommation (PCR) crée un cycle de vie fermé." }
+      ]
+    }
+  },
+  'zh-TW': {
+    painPoints: {
+      title: "5 個常見減少包裝浪費的問題 (及解決方案)",
+      items: [
+        { title: "過度包裝和過多的填充物", desc: "解決方案：定制尺寸的軟包裝袋完全貼合產品，消除對緩衝材料的需求並減少體積重量。" },
+        { title: "不可回收的多層材料", desc: "解決方案：單一材質 PE/PP 結構提供高阻隔性能，同時在現有回收系統中 100% 可回收。" },
+        { title: "運輸碳足跡高", desc: "解決方案：輕量化的軟袋比硬質容器具有更好的包裝密度，可將運輸碳排放減少高達 80%。" },
+        { title: "食物腐敗及保質期縮短", desc: "解決方案：先進的 EVOH 高阻隔塗層可防止氧氣和水分滲透，延長保質期並防止食物浪費。" },
+        { title: "缺乏循環性 (生命週期結束)", desc: "解決方案：在包裝層中加入消費後回收 (PCR) 樹脂材料，打造閉環的包裝生命週期。" }
+      ]
+    }
+  }
+} as const;
+
 const PouchReducePackagingWasteGuidePage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'pouchReducePackagingWasteGuidePage'
   const baseUrl = getBaseUrl()
+  
+  const currentLang = (i18n.language || 'en') as keyof typeof translations;
+  const tLocal = translations[currentLang] || translations['en'];
   
   const WASTE_METRICS = [
     { label: t(`${p}.metrics.massReduct.label`), value: t(`${p}.metrics.massReduct.value`), unit: t(`${p}.metrics.massReduct.unit`), desc: t(`${p}.metrics.massReduct.desc`) },
@@ -158,6 +212,42 @@ const PouchReducePackagingWasteGuidePage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt={t(`${p}.science.alt`)} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="orange">PAIN POINTS & SOLUTIONS</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">
+            {tLocal.painPoints.title}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              {tLocal.painPoints.items.map((item: any, i: number) => {
+                const icons = [<Package key="i1" />, <Recycle key="i2" />, <Globe key="i3" />, <Shield key="i4" />, <Leaf key="i5" />];
+                return (
+                  <div key={i} className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-10 h-10 bg-black text-white flex items-center justify-center shrink-0">
+                        {icons[i]}
+                      </div>
+                      <h4 className="font-black text-lg uppercase leading-tight">{item.title}</h4>
+                    </div>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 text-sm">{item.desc}</p>
+                  </div>
+                )
+              })}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-orange-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/reduce-packaging-waste-pain-points.jpg" 
+                alt="Reduce Packaging Waste Pain Points" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

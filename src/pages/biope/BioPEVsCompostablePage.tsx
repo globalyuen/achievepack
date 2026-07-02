@@ -117,8 +117,112 @@ const ImageTextRow: React.FC<{
   )
 }
 
+const translations = {
+  en: {
+    title: "5 Common Bio-PE vs Compostable Problems (And Solutions)",
+    problems: [
+      {
+        problem: "Shelf Life and Degradation Risk",
+        solution: "Bio-PE provides identical barrier properties to traditional PE, ensuring a long shelf life without premature breakdown, unlike some compostable films."
+      },
+      {
+        problem: "Recycling Stream Confusion",
+        solution: "Implement clear labeling and consumer education so Bio-PE enters the PE recycling stream (RIC 4), and compostable packaging goes to industrial composters."
+      },
+      {
+        problem: "Barrier to Oxygen and Moisture",
+        solution: "For sensitive products like food or pharmaceuticals, Bio-PE is engineered to maintain high barrier integrity, outperforming standard compostable alternatives."
+      },
+      {
+        problem: "Cost and Scalability Challenges",
+        solution: "Bio-PE drops perfectly into existing PE extrusion infrastructure, reducing manufacturing overhead and offering better cost scalability than novel compostable resins."
+      },
+      {
+        problem: "End-of-Life Infrastructure Gaps",
+        solution: "Align material choice with target market capabilities: use compostable where industrial facilities are prevalent, and Bio-PE where PE recycling is well-established."
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes (Y Soluciones) en Bio-PE vs Compostable",
+    problems: [
+      {
+        problem: "Riesgo de Vida Útil y Degradación",
+        solution: "El Bio-PE proporciona propiedades de barrera idénticas al PE tradicional, garantizando una larga vida útil sin descomposición prematura, a diferencia de algunas películas compostables."
+      },
+      {
+        problem: "Confusión en el Flujo de Reciclaje",
+        solution: "Implementar un etiquetado claro y educación al consumidor para que el Bio-PE entre en el flujo de reciclaje de PE (RIC 4) y los envases compostables vayan a compostadores industriales."
+      },
+      {
+        problem: "Barrera contra el Oxígeno y la Humedad",
+        solution: "Para productos sensibles como alimentos o productos farmacéuticos, el Bio-PE está diseñado para mantener una alta integridad de barrera, superando a las alternativas compostables estándar."
+      },
+      {
+        problem: "Desafíos de Costo y Escalabilidad",
+        solution: "El Bio-PE se adapta perfectamente a la infraestructura de extrusión de PE existente, reduciendo los costos de fabricación y ofreciendo una mejor escalabilidad de costos que las resinas compostables novedosas."
+      },
+      {
+        problem: "Brechas en la Infraestructura del Fin de Vida Útil",
+        solution: "Alinear la elección de material con las capacidades del mercado objetivo: usar compostable donde prevalecen las instalaciones industriales, y Bio-PE donde el reciclaje de PE está bien establecido."
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants (Et Solutions) : Bio-PE vs Compostable",
+    problems: [
+      {
+        problem: "Risque sur la Durée de Conservation et la Dégradation",
+        solution: "Le Bio-PE offre des propriétés barrières identiques à celles du PE traditionnel, assurant une longue durée de conservation sans décomposition prématurée, contrairement à certains films compostables."
+      },
+      {
+        problem: "Confusion dans la Filière de Recyclage",
+        solution: "Mettre en œuvre un étiquetage clair et éduquer les consommateurs pour que le Bio-PE intègre la filière de recyclage du PE (RIC 4), tandis que les emballages compostables vont vers le compostage industriel."
+      },
+      {
+        problem: "Barrière à l'Oxygène et à l'Humidité",
+        solution: "Pour les produits sensibles comme l'alimentation ou les produits pharmaceutiques, le Bio-PE maintient une haute intégrité de barrière, surpassant les alternatives compostables standards."
+      },
+      {
+        problem: "Défis de Coût et d'Évolutivité",
+        solution: "Le Bio-PE s'intègre parfaitement dans les infrastructures d'extrusion de PE existantes, réduisant les frais de fabrication et offrant une meilleure évolutivité des coûts que les nouvelles résines compostables."
+      },
+      {
+        problem: "Lacunes des Infrastructures de Fin de Vie",
+        solution: "Aligner le choix du matériau sur les capacités du marché cible : utiliser le compostable là où les installations industrielles sont répandues, et le Bio-PE là où le recyclage du PE est bien établi."
+      }
+    ]
+  },
+  'zh-TW': {
+    title: "生物基PE與可堆肥包裝的5個常見問題（及解決方案）",
+    problems: [
+      {
+        problem: "保質期與降解風險",
+        solution: "Bio-PE（生物基聚乙烯）提供與傳統PE相同的阻隔性能，確保產品具有較長的保質期，不會像某些可堆肥薄膜那樣過早降解。"
+      },
+      {
+        problem: "回收管道混淆",
+        solution: "實施清晰的標籤與消費者教育，確保Bio-PE進入正確的PE回收系統（RIC 4），而可堆肥包裝則進入工業堆肥設施。"
+      },
+      {
+        problem: "氧氣與濕氣阻隔",
+        solution: "對於食品或藥品等敏感產品，Bio-PE的設計可保持高度的阻隔完整性，其表現優於標準的可堆肥替代品。"
+      },
+      {
+        problem: "成本與可擴展性挑戰",
+        solution: "Bio-PE可完美導入現有的PE押出設備，降低製造成本，並提供比新型可堆肥樹脂更好的成本擴展性。"
+      },
+      {
+        problem: "產品壽命終止時的基礎設施差距",
+        solution: "根據目標市場的基礎設施選擇材料：在工業堆肥設施普及的地區使用可堆肥材料，而在PE回收系統完善的地區使用Bio-PE。"
+      }
+    ]
+  }
+}
+
 const BioPEVsCompostablePage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const transContent = translations[i18n.language as keyof typeof translations] || translations.en
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.bioPEVsCompostable'
 
@@ -694,6 +798,37 @@ const BioPEVsCompostablePage: React.FC = () => {
                       <Link to="/store" className="flex items-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
                         Browse Store
                       </Link>
+                    </div>
+                  </div>
+                </ImageTextRow>
+              </section>
+
+              {/* Pain Points Section */}
+              <section id="pain-points" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100 mb-8">
+                <ImageTextRow
+                  image="/imgs/knowledge/biope-vs-compostable-pain-points.jpg"
+                  imageAlt="Eco-friendly packaging pain points illustration"
+                  imageCaption="5 Common Bio-PE vs Compostable Problems"
+                  imageLeft={false}
+                >
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
+                      <TrendingDown className="h-7 w-7 text-red-600" />
+                      {transContent.title}
+                    </h2>
+                    <div className="space-y-6">
+                      {transContent.problems.map((item, idx) => (
+                        <div key={idx} className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                          <h4 className="font-semibold text-red-800 mb-2 flex items-center gap-2">
+                            <Zap className="h-5 w-5 text-amber-500" />
+                            {item.problem}
+                          </h4>
+                          <p className="text-neutral-700">
+                            <span className="font-medium text-green-700 mr-2">Solution:</span>
+                            {item.solution}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </ImageTextRow>

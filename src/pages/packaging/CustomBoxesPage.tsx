@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, CheckCircle, Shield, Target, Calendar, Phone, Download, Mail, Leaf, Award, TrendingUp, MessageCircle, Factory, BarChart3, ArrowLeftRight, ShoppingBag, Sparkles } from 'lucide-react'
+import { Package, CheckCircle, Shield, Target, Calendar, Phone, Download, Mail, Leaf, Award, TrendingUp, MessageCircle, Factory, BarChart3, ArrowLeftRight, ShoppingBag, Sparkles, AlertTriangle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
@@ -7,9 +7,55 @@ import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const CustomBoxesPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.customBoxes'
+
+  const localTranslations = {
+    en: {
+      problemsTitle: "5 Common Custom Boxes Problems (And Solutions)",
+      problems: [
+        { title: "Crushing During Shipping", desc: "High-strength E-flute corrugated material." },
+        { title: "Inconsistent Brand Colors", desc: "CMYK offset printing with Pantone matching." },
+        { title: "High Minimum Order Quantities", desc: "Low MOQ of 200 pieces." },
+        { title: "Slow Assembly Time", desc: "Auto-bottom or pre-glued crash-bottom designs." },
+        { title: "Environmental Concerns", desc: "FSC certified materials and eco-friendly inks." }
+      ]
+    },
+    es: {
+      problemsTitle: "5 Problemas Comunes de Cajas Personalizadas (y Soluciones)",
+      problems: [
+        { title: "Aplastamiento durante el envío", desc: "Material corrugado de flauta E de alta resistencia." },
+        { title: "Colores de marca inconsistentes", desc: "Impresión offset CMYK con coincidencia Pantone." },
+        { title: "Cantidades mínimas de pedido altas", desc: "MOQ bajo de 200 piezas." },
+        { title: "Tiempo de montaje lento", desc: "Diseños de fondo automático o preencolados." },
+        { title: "Preocupaciones ambientales", desc: "Materiales certificados FSC y tintas ecológicas." }
+      ]
+    },
+    fr: {
+      problemsTitle: "5 Problèmes Courants des Boîtes Personnalisées (et Solutions)",
+      problems: [
+        { title: "Écrasement pendant l'expédition", desc: "Matériau ondulé cannelure E à haute résistance." },
+        { title: "Couleurs de marque incohérentes", desc: "Impression offset CMYK avec correspondance Pantone." },
+        { title: "Quantités minimales de commande élevées", desc: "Faible MOQ de 200 pièces." },
+        { title: "Temps d'assemblage lent", desc: "Conceptions à fond automatique ou pré-collées." },
+        { title: "Préoccupations environnementales", desc: "Matériaux certifiés FSC et encres écologiques." }
+      ]
+    },
+    'zh-TW': {
+      problemsTitle: "自訂紙盒的 5 個常見問題 (及解決方案)",
+      problems: [
+        { title: "運輸過程中的擠壓", desc: "高強度E瓦楞材質。" },
+        { title: "品牌顏色不一致", desc: "帶有 Pantone 匹配的 CMYK 膠印。" },
+        { title: "起訂量高", desc: "200 件的低起訂量。" },
+        { title: "組裝時間慢", desc: "自動扣底或預膠黏底設計。" },
+        { title: "環保問題", desc: "FSC認證材料和環保油墨。" }
+      ]
+    }
+  };
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const currentLangData = localTranslations[currentLang] || localTranslations.en;
+
   // Safe array fallbacks to prevent runtime crashes
   const mailerSizesVal = t(`${p}.sections.overview.mailer.sizes`, { returnObjects: true });
   const mailerSizes = Array.isArray(mailerSizesVal) ? mailerSizesVal : [
@@ -340,6 +386,35 @@ const CustomBoxesPage: React.FC = () => {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'problems-solutions',
+      title: currentLangData.problemsTitle,
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-1/2">
+              <img 
+                src="/imgs/knowledge/custom-boxes-pain-points.jpg" 
+                alt="Custom Boxes Pain Points and Solutions" 
+                className="w-full rounded-lg shadow-md"
+              />
+            </div>
+            <div className="md:w-1/2 space-y-4">
+              {currentLangData.problems.map((prob, idx) => (
+                <div key={idx} className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100 flex gap-3">
+                  <div className="mt-1"><AlertTriangle className="h-5 w-5 text-amber-500" /></div>
+                  <div>
+                    <h4 className="font-bold text-neutral-900">{prob.title}</h4>
+                    <p className="text-sm text-neutral-600 mt-1">{prob.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )

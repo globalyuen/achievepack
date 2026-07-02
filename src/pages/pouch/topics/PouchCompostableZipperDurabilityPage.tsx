@@ -6,8 +6,52 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { useTranslation, Trans } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common Compostable Zipper Problems (And Solutions)",
+    painPoints: [
+      { q: "Brittle Zippers (Breakage)", a: "Solution: Blending PBAT for flexibility." },
+      { q: "Poor Sealing Strength (Separation)", a: "Solution: Co-extrusion with PLA and PHA." },
+      { q: "Moisture Degradation (Loss of track grip)", a: "Solution: Enhanced moisture barriers like ALOX coating." },
+      { q: "Heat Sensitivity (Warping during sealing)", a: "Solution: Precise thermal calibration and low-melt-point polymers." },
+      { q: "Limited Reclosability (Wear and tear)", a: "Solution: Reinforced interlocking tracks and thicker profile designs." }
+    ]
+  },
+  es: {
+    sectionTitle: "5 problemas comunes de cremalleras compostables (y soluciones)",
+    painPoints: [
+      { q: "Cremalleras quebradizas (Rotura)", a: "Solución: Mezcla de PBAT para mayor flexibilidad." },
+      { q: "Poca fuerza de sellado (Separación)", a: "Solución: Coextrusión con PLA y PHA." },
+      { q: "Degradación por humedad (Pérdida de agarre)", a: "Solución: Barreras mejoradas contra la humedad como el recubrimiento ALOX." },
+      { q: "Sensibilidad al calor (Deformación)", a: "Solución: Calibración térmica precisa y polímeros de bajo punto de fusión." },
+      { q: "Re-sellado limitado (Desgaste)", a: "Solución: Pistas entrelazadas reforzadas y diseños de perfiles más gruesos." }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 problèmes courants liés aux fermetures compostables (et solutions)",
+    painPoints: [
+      { q: "Fermetures fragiles (Casse)", a: "Solution : Mélange de PBAT pour la flexibilité." },
+      { q: "Faible résistance d'étanchéité (Séparation)", a: "Solution : Co-extrusion avec PLA et PHA." },
+      { q: "Dégradation par l'humidité (Perte d'adhérence)", a: "Solution : Barrières d'humidité améliorées comme le revêtement ALOX." },
+      { q: "Sensibilité à la chaleur (Déformation)", a: "Solution : Étalonnage thermique précis et polymères à bas point de fusion." },
+      { q: "Refermabilité limitée (Usure)", a: "Solution : Pistes à emboîtement renforcées et conceptions de profils plus épais." }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: "5 個常見的可堆肥拉鍊問題（及解決方案）",
+    painPoints: [
+      { q: "拉鍊脆化 (斷裂)", a: "解決方案：混合 PBAT 以提高柔韌性。" },
+      { q: "密封強度差 (分離)", a: "解決方案：與 PLA 和 PHA 共擠出。" },
+      { q: "濕氣降解 (軌道失去抓地力)", a: "解決方案：增強防潮層，例如 ALOX 塗層。" },
+      { q: "熱敏感性 (密封時翹曲)", a: "解決方案：精確的熱校準和低熔點聚合物。" },
+      { q: "可重複密封性有限 (磨損)", a: "解決方案：加固的互鎖軌道和更厚的輪廓設計。" }
+    ]
+  }
+};
 export default function PouchCompostableZipperDurabilityPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language || 'en';
+  const localT = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en;
   const p = 'seoPages.pages.pouchCompostableZipperDurability';
 
   const floatAnim = {
@@ -100,6 +144,41 @@ export default function PouchCompostableZipperDurabilityPage() {
             <p>
               <Trans i18nKey={`${p}.physics.sections.2.paragraphs.0`} components={[<strong key="0" />]} />
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-black">
+            {localT.sectionTitle}
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <img 
+              src="/imgs/knowledge/compostable-zipper-pain-points.jpg" 
+              alt="Compostable Zipper Pain Points"
+              className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rotate-1 hover:rotate-0 transition-transform duration-300"
+            />
+            <div className="space-y-6">
+              {localT.painPoints.map((pt, idx) => (
+                <div key={idx} className="flex gap-4">
+                  <div className="mt-1 flex-shrink-0">
+                    <AlertTriangle className="w-6 h-6 text-[#059669]" />
+                  </div>
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-1 text-black">
+                      {pt.q}
+                    </h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700">
+                      <CheckCircle className="inline w-4 h-4 mr-2 text-[#D4FF00] bg-black rounded-full" />
+                      <span className="font-bold">{pt.a}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

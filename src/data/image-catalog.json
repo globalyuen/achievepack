@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-02",
-  "total_images": 4602,
+  "total_images": 4639,
   "total_categories": 173,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 313,
+    ".jpg": 350,
     ".svg": 3
   },
   "categories": {
@@ -12742,8 +12742,260 @@
       ]
     },
     "knowledge": {
-      "count": 87,
+      "count": 124,
       "images": [
+        {
+          "filename": "material-data-sheet-pain-points.jpg",
+          "path": "/imgs/knowledge/material-data-sheet-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:41:54.792Z"
+        },
+        {
+          "filename": "pcr-plastics-pain-points.jpg",
+          "path": "/imgs/knowledge/pcr-plastics-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:41:41.124Z"
+        },
+        {
+          "filename": "recyclable-vs-pcr-pain-points.jpg",
+          "path": "/imgs/knowledge/recyclable-vs-pcr-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:40:52.447Z"
+        },
+        {
+          "filename": "imgreen-biope-pain-points.jpg",
+          "path": "/imgs/knowledge/imgreen-biope-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:40:30.795Z"
+        },
+        {
+          "filename": "biope-vs-compostable-pain-points.jpg",
+          "path": "/imgs/knowledge/biope-vs-compostable-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:39:50.644Z"
+        },
+        {
+          "filename": "packaging-knowledge-search-pain-points.jpg",
+          "path": "/imgs/knowledge/packaging-knowledge-search-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:38:46.767Z"
+        },
+        {
+          "filename": "flat-bottom-bags-pain-points.jpg",
+          "path": "/imgs/knowledge/flat-bottom-bags-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:36:59.394Z"
+        },
+        {
+          "filename": "spout-pouches-pain-points.jpg",
+          "path": "/imgs/knowledge/spout-pouches-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:36:32.718Z"
+        },
+        {
+          "filename": "flat-pouches-pain-points.jpg",
+          "path": "/imgs/knowledge/flat-pouches-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:35:43.211Z"
+        },
+        {
+          "filename": "pouch-factory-tour-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-factory-tour-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:34:32.461Z"
+        },
+        {
+          "filename": "sustainable-packaging-pillars-pain-points.jpg",
+          "path": "/imgs/knowledge/sustainable-packaging-pillars-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:33:58.735Z"
+        },
+        {
+          "filename": "sustainable-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/sustainable-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:33:57.348Z"
+        },
+        {
+          "filename": "recyclable-snack-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/recyclable-snack-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:32:50.141Z"
+        },
+        {
+          "filename": "minimalist-d2c-pain-points.jpg",
+          "path": "/imgs/knowledge/minimalist-d2c-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:32:38.367Z"
+        },
+        {
+          "filename": "low-moq-startup-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/low-moq-startup-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:31:43.145Z"
+        },
+        {
+          "filename": "real-world-sustainability-pain-points.jpg",
+          "path": "/imgs/knowledge/real-world-sustainability-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:31:26.543Z"
+        },
+        {
+          "filename": "eco-friendly-supplier-verification-pain-points.jpg",
+          "path": "/imgs/knowledge/eco-friendly-supplier-verification-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:31:00.049Z"
+        },
+        {
+          "filename": "compostable-certification-pain-points.jpg",
+          "path": "/imgs/knowledge/compostable-certification-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:30:31.225Z"
+        },
+        {
+          "filename": "compostable-humidity-control-pain-points.jpg",
+          "path": "/imgs/knowledge/compostable-humidity-control-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:29:34.335Z"
+        },
+        {
+          "filename": "home-compostable-coffee-bags-pain-points.jpg",
+          "path": "/imgs/knowledge/home-compostable-coffee-bags-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:29:25.015Z"
+        },
+        {
+          "filename": "eco-packaging-regulations-pain-points.jpg",
+          "path": "/imgs/knowledge/eco-packaging-regulations-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:29:14.646Z"
+        },
+        {
+          "filename": "mono-pe-pouches-pain-points.jpg",
+          "path": "/imgs/knowledge/mono-pe-pouches-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:28:59.921Z"
+        },
+        {
+          "filename": "custom-compostable-pouch-suppliers-pain-points.jpg",
+          "path": "/imgs/knowledge/custom-compostable-pouch-suppliers-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:28:33.518Z"
+        },
+        {
+          "filename": "compostable-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/compostable-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:27:43.713Z"
+        },
+        {
+          "filename": "dynamic-topic-pain-points.jpg",
+          "path": "/imgs/knowledge/dynamic-topic-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:27:21.305Z"
+        },
+        {
+          "filename": "eco_friendly_food_packaging_pain_points.jpg",
+          "path": "/imgs/knowledge/eco_friendly_food_packaging_pain_points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:26:54.231Z"
+        },
+        {
+          "filename": "food-packaging-supplier-pain-points.jpg",
+          "path": "/imgs/knowledge/food-packaging-supplier-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:26:32.299Z"
+        },
+        {
+          "filename": "reduce-waste-pain-points.jpg",
+          "path": "/imgs/knowledge/reduce-waste-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:25:43.373Z"
+        },
+        {
+          "filename": "digital-printing-eco-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/digital-printing-eco-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:24:25.239Z"
+        },
+        {
+          "filename": "recyclable-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/recyclable-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:24:15.843Z"
+        },
+        {
+          "filename": "mono-material-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/mono-material-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:24:03.573Z"
+        },
+        {
+          "filename": "child-resistant-mylar-bags-pain-points.jpg",
+          "path": "/imgs/knowledge/child-resistant-mylar-bags-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:23:23.512Z"
+        },
+        {
+          "filename": "custom-brand-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/custom-brand-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:23:09.167Z"
+        },
+        {
+          "filename": "green-coffee-packaging-materials-pain-points.jpg",
+          "path": "/imgs/knowledge/green-coffee-packaging-materials-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:22:16.582Z"
+        },
+        {
+          "filename": "compostable-spouted-pouches-pain-points.jpg",
+          "path": "/imgs/knowledge/compostable-spouted-pouches-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:21:53.776Z"
+        },
+        {
+          "filename": "custom-vs-standard-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/custom-vs-standard-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:20:33.632Z"
+        },
+        {
+          "filename": "reduce-packaging-waste-pain-points.jpg",
+          "path": "/imgs/knowledge/reduce-packaging-waste-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:20:29.340Z"
+        },
+        {
+          "filename": "compostable-zipper-no-removal-pain-points.jpg",
+          "path": "/imgs/knowledge/compostable-zipper-no-removal-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:19:44.874Z"
+        },
+        {
+          "filename": "pcr-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/pcr-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:18:40.258Z"
+        },
+        {
+          "filename": "compostable-baby-food-bags-pain-points.jpg",
+          "path": "/imgs/knowledge/compostable-baby-food-bags-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:18:29.208Z"
+        },
+        {
+          "filename": "privacy-pain-points.jpg",
+          "path": "/imgs/knowledge/privacy-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:17:43.241Z"
+        },
+        {
+          "filename": "ocean-plastic-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/ocean-plastic-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T03:17:41.767Z"
+        },
         {
           "filename": "pfas-free-packaging-pain-points.jpg",
           "path": "/imgs/knowledge/pfas-free-packaging-pain-points.jpg",
@@ -12859,12 +13111,6 @@
           "modified": "2026-07-02T03:05:39.275Z"
         },
         {
-          "filename": "sustainable-packaging-pain-points.jpg",
-          "path": "/imgs/knowledge/sustainable-packaging-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T03:05:03.244Z"
-        },
-        {
           "filename": "white-ink-underprint-pain-points.jpg",
           "path": "/imgs/knowledge/white-ink-underprint-pain-points.jpg",
           "extension": ".jpg",
@@ -12893,12 +13139,6 @@
           "path": "/imgs/knowledge/foil-stamping-recyclability-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T03:01:57.450Z"
-        },
-        {
-          "filename": "compostable-packaging-pain-points.jpg",
-          "path": "/imgs/knowledge/compostable-packaging-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T03:01:49.876Z"
         },
         {
           "filename": "pouch-materials-pain-points.jpg",
@@ -13003,12 +13243,6 @@
           "modified": "2026-07-02T02:53:54.465Z"
         },
         {
-          "filename": "pcr-packaging-pain-points.jpg",
-          "path": "/imgs/knowledge/pcr-packaging-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T02:53:48.864Z"
-        },
-        {
           "filename": "kraft-high-barrier-pain-points.jpg",
           "path": "/imgs/knowledge/kraft-high-barrier-pain-points.jpg",
           "extension": ".jpg",
@@ -13087,22 +13321,10 @@
           "modified": "2026-07-02T02:46:56.222Z"
         },
         {
-          "filename": "flat-bottom-bags-pain-points.jpg",
-          "path": "/imgs/knowledge/flat-bottom-bags-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T02:46:42.964Z"
-        },
-        {
           "filename": "spout-pouch-pain-points.jpg",
           "path": "/imgs/knowledge/spout-pouch-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T02:46:03.098Z"
-        },
-        {
-          "filename": "flat-pouches-pain-points.jpg",
-          "path": "/imgs/knowledge/flat-pouches-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T02:45:54.045Z"
         },
         {
           "filename": "stand-up-pouches-pain-points.jpg",

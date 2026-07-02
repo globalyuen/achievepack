@@ -7,10 +7,57 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+export const sectionsForPouch = ["5 Common Home Compostable Coffee Bag Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Home Compostable Coffee Bag Problems (And Solutions)"];
+
+const translations = {
+  en: {
+    title: "5 Common Home Compostable Coffee Bag Problems (And Solutions)",
+    problems: [
+      { q: "1. Poor Moisture Barrier", a: "Coffee goes stale quickly. Solution: Metallized cellulose (NatureFlex) for high-barrier protection." },
+      { q: "2. Non-Compostable Valves", a: "Traditional valves leave plastic in soil. Solution: Certified PLA compostable degassing valves." },
+      { q: "3. Weak Seals", a: "Bags pop open during shipping. Solution: High-heat sealing PBS/PBAT inner layers." },
+      { q: "4. Ink Toxicity", a: "Inks contaminate compost. Solution: Soy and water-based compost-safe inks." },
+      { q: "5. Consumer Confusion", a: "Mixed with regular recycling. Solution: Clear TÜV OK compost HOME printing instructions." }
+    ]
+  },
+  es: {
+    title: "5 problemas comunes de las bolsas de café compostables en casa (y soluciones)",
+    problems: [
+      { q: "1. Pobre barrera contra la humedad", a: "El café se vuelve rancio. Solución: Celulosa metalizada (NatureFlex) para alta barrera." },
+      { q: "2. Válvulas no compostables", a: "Las válvulas tradicionales dejan plástico. Solución: Válvulas desgasificadoras de PLA certificadas." },
+      { q: "3. Sellos débiles", a: "Las bolsas se abren en tránsito. Solución: Capas internas de PBS/PBAT de sellado térmico." },
+      { q: "4. Toxicidad de la tinta", a: "Las tintas contaminan el compost. Solución: Tintas seguras para compost a base de soja y agua." },
+      { q: "5. Confusión del consumidor", a: "Mezclado con reciclaje. Solución: Instrucciones claras impresas de TÜV OK compost HOME." }
+    ]
+  },
+  fr: {
+    title: "5 problèmes courants des sacs de café compostables à domicile (et solutions)",
+    problems: [
+      { q: "1. Mauvaise barrière à l'humidité", a: "Le café s'évente rapidement. Solution: Cellulose métallisée (NatureFlex) pour une haute protection." },
+      { q: "2. Valves non compostables", a: "Les valves classiques laissent du plastique. Solution: Valves de dégazage compostables en PLA certifié." },
+      { q: "3. Soudures faibles", a: "Les sacs s'ouvrent pendant le transport. Solution: Couches internes PBS/PBAT pour un scellage thermique élevé." },
+      { q: "4. Toxicité de l'encre", a: "Les encres contaminent le compost. Solution: Encres à base de soja et d'eau sans danger pour le compost." },
+      { q: "5. Confusion des consommateurs", a: "Mélangé au recyclage standard. Solution: Instructions d'impression claires TÜV OK compost HOME." }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的家用可堆肥咖啡袋問題（及解決方案）",
+    problems: [
+      { q: "1. 防潮性差", a: "咖啡容易變質。解決方案：使用金屬化纖維素 (NatureFlex) 提供高阻隔保護。" },
+      { q: "2. 不可堆肥的排氣閥", a: "傳統排氣閥會殘留塑膠。解決方案：使用經過認證的 PLA 堆肥排氣閥。" },
+      { q: "3. 封口不牢固", a: "運輸過程中袋子容易破裂。解決方案：採用 PBS/PBAT 高溫熱封內層。" },
+      { q: "4. 油墨毒性", a: "油墨會污染堆肥土壤。解決方案：使用大豆和水性環保油墨。" },
+      { q: "5. 消費者分類混淆", a: "常與一般回收物混淆。解決方案：清晰印製 TÜV OK compost HOME 標示。" }
+    ]
+  }
+};
+
 const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'pouchHomeCompostableCoffeeBagsPage'
   const baseUrl = getBaseUrl()
+  const currentLang = translations[i18n.language as keyof typeof translations] || translations.en;
   
   const COFFEE_METRICS = [
     { label: t(`${p}.metrics.aroma.label`), value: t(`${p}.metrics.aroma.value`), unit: t(`${p}.metrics.aroma.unit`), desc: t(`${p}.metrics.aroma.desc`) },
@@ -147,6 +194,44 @@ const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
               <h4 className="font-black text-2xl uppercase mb-4">{t(`${p}.science.item3Title`)}</h4>
               <p className="font-['JetBrains_Mono'] text-sm opacity-70">{t(`${p}.science.item3Desc`)}</p>
             </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">PAIN POINTS</NeoBadge>
+              <h2 className="font-black text-5xl md:text-6xl mt-6 uppercase leading-tight italic mb-8">
+                {currentLang.title}
+              </h2>
+              <div className="space-y-6">
+                {currentLang.problems.map((prob, idx) => {
+                  const Icon = [Droplets, Wind, Shield, Beaker, CheckCircle][idx];
+                  return (
+                    <div key={idx} className="flex gap-4 p-4 border-4 border-black hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] transition-all bg-amber-50">
+                      <div className="mt-1">
+                        <Icon className="w-8 h-8 text-amber-800" />
+                      </div>
+                      <div>
+                        <h4 className="font-black text-xl uppercase mb-1">{prob.q}</h4>
+                        <p className="font-['JetBrains_Mono'] text-gray-700">{prob.a}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-amber-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/home-compostable-coffee-bags-pain-points.jpg" 
+                alt={currentLang.title}
+                className="relative z-10 border-4 border-black w-full shadow-2xl object-cover aspect-square"
+              />
+            </div>
           </div>
         </div>
       </section>

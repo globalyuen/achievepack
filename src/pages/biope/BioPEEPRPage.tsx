@@ -117,10 +117,159 @@ const ImageTextRow: React.FC<{
   )
 }
 
+const painPointsData: Record<string, {
+  title: string;
+  items: {title: string; problem: string; solution: string; icon: string}[]
+}> = {
+  en: {
+    title: "5 Common Bio-PE & EPR Compliance Problems (And Solutions)",
+    items: [
+      {
+        title: "1. High EPR Compliance Costs",
+        problem: "Non-recyclable packaging incurs heavy EPR fees in Europe and North America.",
+        solution: "Transition to mono-material Bio-PE structures which qualify for the lowest EPR fee brackets due to their 100% recyclability in existing PE streams.",
+        icon: "Scale"
+      },
+      {
+        title: "2. Barrier Performance Loss",
+        problem: "Switching to mono-material PE often sacrifices oxygen and moisture barriers.",
+        solution: "Use advanced MDO-PE combined with EVOH coatings that maintain high barrier properties without compromising recyclability.",
+        icon: "Layers"
+      },
+      {
+        title: "3. Sorting Facility Rejection",
+        problem: "Multi-layer packaging is often rejected by optical sorters at recycling facilities.",
+        solution: "Bio-PE mono-materials reflect NIR sensors identically to conventional PE, ensuring 100% sorting accuracy and recovery.",
+        icon: "Recycle"
+      },
+      {
+        title: "4. Machinability & Sealing Issues",
+        problem: "Sustainable films often suffer from poor heat resistance, causing sealing issues on high-speed lines.",
+        solution: "Engineer the Bio-PE structure with high-density outer layers for heat resistance and metallocene inner layers for high-strength sealing.",
+        icon: "Zap"
+      },
+      {
+        title: "5. Brand Sustainability Verification",
+        problem: "Brands struggle to prove their packaging's bio-based origin and recyclability.",
+        solution: "Utilize carbon-14 dating certification for the Bio-PE content and recognized recyclability certifications (e.g., Cyclos-HTP) for transparent claims.",
+        icon: "FileCheck"
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Bio-PE y Cumplimiento EPR (Y Soluciones)",
+    items: [
+      {
+        title: "1. Altos Costos de Cumplimiento EPR",
+        problem: "Los empaques no reciclables incurren en tarifas EPR muy altas en Europa y Norteamérica.",
+        solution: "Haga la transición a estructuras Bio-PE monomateriales que califican para las tarifas EPR más bajas debido a su reciclabilidad del 100% en flujos de PE existentes.",
+        icon: "Scale"
+      },
+      {
+        title: "2. Pérdida de Rendimiento de Barrera",
+        problem: "Cambiar a PE monomaterial a menudo sacrifica las barreras contra el oxígeno y la humedad.",
+        solution: "Utilice MDO-PE avanzado combinado con recubrimientos de EVOH que mantienen altas propiedades de barrera sin comprometer la reciclabilidad.",
+        icon: "Layers"
+      },
+      {
+        title: "3. Rechazo en Instalaciones de Clasificación",
+        problem: "Los empaques multicapa a menudo son rechazados por clasificadores ópticos en las instalaciones de reciclaje.",
+        solution: "Los monomateriales Bio-PE reflejan los sensores NIR idénticamente al PE convencional, garantizando un 100% de precisión en la clasificación y recuperación.",
+        icon: "Recycle"
+      },
+      {
+        title: "4. Problemas de Maquinabilidad y Sellado",
+        problem: "Las películas sostenibles a menudo sufren de baja resistencia al calor, causando problemas de sellado en líneas de alta velocidad.",
+        solution: "Diseñe la estructura Bio-PE con capas externas de alta densidad para resistencia al calor y capas internas de metaloceno para sellado de alta resistencia.",
+        icon: "Zap"
+      },
+      {
+        title: "5. Verificación de Sostenibilidad de la Marca",
+        problem: "Las marcas luchan por demostrar el origen biológico y la reciclabilidad de sus envases.",
+        solution: "Utilice la certificación de datación por carbono-14 para el contenido Bio-PE y certificaciones de reciclabilidad reconocidas (ej. Cyclos-HTP).",
+        icon: "FileCheck"
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants de Bio-PE et de Conformité REP (Et Solutions)",
+    items: [
+      {
+        title: "1. Coûts Élevés de Conformité REP",
+        problem: "Les emballages non recyclables entraînent de lourdes taxes REP en Europe et en Amérique du Nord.",
+        solution: "Passez aux structures Bio-PE mono-matériaux qui bénéficient des tranches tarifaires REP les plus basses grâce à leur recyclabilité à 100 % dans les flux PE existants.",
+        icon: "Scale"
+      },
+      {
+        title: "2. Perte de Performance Barrière",
+        problem: "Passer au PE mono-matériau sacrifie souvent les barrières contre l'oxygène et l'humidité.",
+        solution: "Utilisez du MDO-PE avancé combiné à des revêtements EVOH qui maintiennent des propriétés barrières élevées sans compromettre la recyclabilité.",
+        icon: "Layers"
+      },
+      {
+        title: "3. Rejet par les Centres de Tri",
+        problem: "Les emballages multicouches sont souvent rejetés par les trieurs optiques dans les centres de recyclage.",
+        solution: "Les mono-matériaux Bio-PE reflètent les capteurs NIR identiquement au PE conventionnel, assurant 100% de précision de tri et de récupération.",
+        icon: "Recycle"
+      },
+      {
+        title: "4. Problèmes d'Usinabilité et de Scellage",
+        problem: "Les films durables souffrent souvent d'une faible résistance à la chaleur, causant des problèmes de scellage sur les lignes à grande vitesse.",
+        solution: "Concevez la structure Bio-PE avec des couches externes haute densité pour la résistance à la chaleur et des couches internes métallocènes pour un scellage haute résistance.",
+        icon: "Zap"
+      },
+      {
+        title: "5. Vérification de la Durabilité de la Marque",
+        problem: "Les marques peinent à prouver l'origine biosourcée et la recyclabilité de leurs emballages.",
+        solution: "Utilisez la certification de datation au carbone-14 pour le contenu Bio-PE et des certifications de recyclabilité reconnues (ex. Cyclos-HTP).",
+        icon: "FileCheck"
+      }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的 Bio-PE 與 EPR 合規問題 (及解決方案)",
+    items: [
+      {
+        title: "1. 高昂的 EPR 合規成本",
+        problem: "不可回收的包裝在歐洲和北美會產生高額的 EPR (生產者延伸責任) 費用。",
+        solution: "過渡到單一材質 Bio-PE 結構，由於其在現有 PE 回收系統中 100% 可回收，可適用最低的 EPR 費用標準。",
+        icon: "Scale"
+      },
+      {
+        title: "2. 阻隔性能損失",
+        problem: "改用單一材質 PE 通常會犧牲氧氣和水分阻隔性。",
+        solution: "使用先進的 MDO-PE 結合 EVOH 塗層，在不影響可回收性的情況下保持高阻隔性能。",
+        icon: "Layers"
+      },
+      {
+        title: "3. 分揀設施拒絕",
+        problem: "多層包裝在回收設施中經常被光學分揀機拒絕。",
+        solution: "Bio-PE 單一材質對 NIR (近紅外線) 傳感器的反射與傳統 PE 相同，確保 100% 的分揀準確度和回收率。",
+        icon: "Recycle"
+      },
+      {
+        title: "4. 上機加工與封口問題",
+        problem: "永續薄膜通常耐熱性差，在高速生產線上容易導致封口問題。",
+        solution: "設計 Bio-PE 結構，外層使用高密度材質以提高耐熱性，內層使用茂金屬以實現高強度低溫封口。",
+        icon: "Zap"
+      },
+      {
+        title: "5. 品牌永續性驗證",
+        problem: "品牌難以證明其包裝的生物基來源和可回收性。",
+        solution: "利用碳-14 年代測定認證 Bio-PE 含量，並獲取認可的可回收性認證 (如 Cyclos-HTP) 以提供透明的聲明。",
+        icon: "FileCheck"
+      }
+    ]
+  }
+};
+
 const BioPEEPRPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.bioPEEPR'
+
+  const currentLang = i18n.language || 'en'
+  const localizedPainPoints = painPointsData[currentLang] || painPointsData.en
 
   // Helper to render bold prefixes (split by colon or Chinese full-width colon)
   const renderBullet = (text: string) => {
@@ -506,6 +655,55 @@ const BioPEEPRPage: React.FC = () => {
                 </div>
               </div>
             </ImageTextRow>
+          </div>
+        </section>
+
+        {/* Pain Points Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
+              <AlertTriangle className="h-8 w-8 text-amber-600" />
+              {localizedPainPoints.title}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6">
+                {localizedPainPoints.items.map((item, idx) => {
+                  let IconComponent = CheckCircle;
+                  if (item.icon === 'Scale') IconComponent = Scale;
+                  if (item.icon === 'Layers') IconComponent = Layers;
+                  if (item.icon === 'Recycle') IconComponent = Recycle;
+                  if (item.icon === 'Zap') IconComponent = Zap;
+                  if (item.icon === 'FileCheck') IconComponent = FileCheck;
+                  
+                  return (
+                    <div key={idx} className="bg-neutral-50 p-6 rounded-xl border border-neutral-100 shadow-sm hover:shadow-md transition">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="bg-amber-100 p-2 rounded-lg">
+                          <IconComponent className="h-6 w-6 text-amber-600" />
+                        </div>
+                        <h3 className="text-xl font-bold text-neutral-900">{item.title}</h3>
+                      </div>
+                      <div className="space-y-3 pl-14">
+                        <p className="text-neutral-700">
+                          <strong className="text-amber-800">{currentLang === 'es' ? 'Punto de Dolor:' : currentLang === 'fr' ? 'Problème:' : currentLang === 'zh-TW' ? '痛點:' : 'Pain Point:'}</strong> {item.problem}
+                        </p>
+                        <p className="text-neutral-700">
+                          <strong className="text-green-700">{currentLang === 'es' ? 'Solución:' : currentLang === 'fr' ? 'Solution:' : currentLang === 'zh-TW' ? '解決方案:' : 'Solution:'}</strong> {item.solution}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="relative h-full flex items-center">
+                <ClickableImage 
+                  src="/imgs/knowledge/bio-pe-epr-compliance-pain-points.jpg"
+                  alt="Bio-PE and EPR compliance problems and solutions"
+                  className="w-full rounded-xl shadow-2xl"
+                  caption={currentLang === 'es' ? 'Soluciones de ingeniería modernas para el cumplimiento de Bio-PE' : currentLang === 'fr' ? 'Solutions d\'ingénierie modernes pour la conformité Bio-PE' : currentLang === 'zh-TW' ? 'Bio-PE 合規的現代工程解決方案' : 'Modern engineering solutions for Bio-PE compliance'}
+                />
+              </div>
+            </div>
           </div>
         </section>
 

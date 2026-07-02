@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Leaf, CheckCircle, Award, Calendar, Shield, Recycle, Factory, Package, X, ChevronRight, ChevronDown, Sprout, Globe, Target, HelpCircle, ArrowRight, TrendingDown, BarChart3, FileCheck, Zap, ClipboardCheck, Layers } from 'lucide-react'
+import { Leaf, CheckCircle, Award, Calendar, Shield, Recycle, Factory, Package, X, ChevronRight, ChevronDown, Sprout, Globe, Target, HelpCircle, ArrowRight, TrendingDown, BarChart3, FileCheck, Zap, ClipboardCheck, Layers, AlertTriangle, Wrench } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
@@ -20,6 +20,49 @@ const IMAGES = {
   procurementChecklist: '/imgs/biope/what/a_procurement_checklist_9621956.webp',
   skuImplementation: '/imgs/biope/what/a_sku_implementation_2737996.webp',
   nextSteps: '/imgs/biope/what/a_next_steps_cta_7469630.webp',
+}
+
+const localTranslations = {
+  en: {
+    painPointsTitle: "5 Common Bio-PE Problems (And Solutions)",
+    problems: [
+      { p: "High Cost Premium", s: "Optimize thickness and blend ratios." },
+      { p: "Sourcing Instability", s: "Partner with established suppliers with secured supply chains." },
+      { p: "Certification Ambiguity", s: "Require ASTM D6866 and ISCC PLUS certifications." },
+      { p: "Processing Parameters", s: "Fine-tune extrusion and sealing temperatures." },
+      { p: "Greenwashing Accusations", s: "Provide transparent LCA (Life Cycle Assessment) data." }
+    ]
+  },
+  es: {
+    painPointsTitle: "5 Problemas Comunes del Bio-PE (Y Soluciones)",
+    problems: [
+      { p: "Prima de Alto Costo", s: "Optimizar el grosor y las proporciones de mezcla." },
+      { p: "Inestabilidad de Abastecimiento", s: "Asociarse con proveedores establecidos con cadenas de suministro aseguradas." },
+      { p: "Ambigüedad de Certificación", s: "Exigir certificaciones ASTM D6866 e ISCC PLUS." },
+      { p: "Parámetros de Procesamiento", s: "Ajustar las temperaturas de extrusión y sellado." },
+      { p: "Acusaciones de Lavado de Imagen Verde", s: "Proporcionar datos transparentes de Evaluación del Ciclo de Vida (LCA)." }
+    ]
+  },
+  fr: {
+    painPointsTitle: "5 Problèmes Courants du Bio-PE (Et Solutions)",
+    problems: [
+      { p: "Surcoût Élevé", s: "Optimiser l'épaisseur et les ratios de mélange." },
+      { p: "Instabilité d'Approvisionnement", s: "S'associer à des fournisseurs établis avec des chaînes d'approvisionnement sécurisées." },
+      { p: "Ambiguïté de Certification", s: "Exiger les certifications ASTM D6866 et ISCC PLUS." },
+      { p: "Paramètres de Traitement", s: "Ajuster les températures d'extrusion et de scellage." },
+      { p: "Accusations d'Écoblanchiment", s: "Fournir des données transparentes d'Analyse du Cycle de Vie (ACV)." }
+    ]
+  },
+  'zh-TW': {
+    painPointsTitle: "5 個常見的 Bio-PE 問題（與解決方案）",
+    problems: [
+      { p: "高成本溢價", s: "最佳化厚度與混合比例。" },
+      { p: "採購不穩定", s: "與具備穩定供應鏈的成熟供應商合作。" },
+      { p: "認證模糊", s: "要求提供 ASTM D6866 與 ISCC PLUS 認證。" },
+      { p: "加工參數", s: "微調擠出與封口溫度。" },
+      { p: "漂綠指控", s: "提供透明的生命週期評估 (LCA) 數據。" }
+    ]
+  }
 }
 
 // Clickable Image Component with lightbox
@@ -109,7 +152,9 @@ const ImageTextRow: React.FC<{
 }
 
 const WhatIsBioPEPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const currentLocalTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.whatIsBioPE'
 
@@ -288,6 +333,7 @@ const WhatIsBioPEPage: React.FC = () => {
                   <a href="#eco-digital" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Eco Digital Solutions</a>
                   <a href="#procurement" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Procurement Checklist</a>
                   <a href="#sku-strategy" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">SKU Implementation</a>
+                  <a href="#pain-points" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Common Problems</a>
                   <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">FAQ</a>
                 </nav>
               </div>
@@ -647,6 +693,37 @@ const WhatIsBioPEPage: React.FC = () => {
                           {t(`${p}.sku.note`)}
                         </p>
                       </div>
+                    </div>
+                  </div>
+                </ImageTextRow>
+              </section>
+
+              {/* Pain Points Section */}
+              <section id="pain-points" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
+                <ImageTextRow
+                  image="/imgs/knowledge/what-is-bio-pe-pain-points.jpg"
+                  imageAlt="5 Common Bio-PE Problems and Solutions"
+                  imageCaption="Addressing common challenges with bio-based polyethylene"
+                  imageLeft={true}
+                >
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4 flex items-center gap-3">
+                      <AlertTriangle className="h-7 w-7 text-amber-500" />
+                      {currentLocalTrans.painPointsTitle}
+                    </h2>
+                    <div className="space-y-4">
+                      {currentLocalTrans.problems.map((prob, idx) => (
+                        <div key={idx} className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                          <p className="font-semibold text-neutral-800 flex items-start gap-2 mb-1">
+                            <AlertTriangle className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                            {prob.p}
+                          </p>
+                          <p className="text-neutral-600 flex items-start gap-2">
+                            <Wrench className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                            {prob.s}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </ImageTextRow>

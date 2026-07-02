@@ -1,10 +1,53 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { ArrowLeft, Lock, Loader2, Send, FileText, CreditCard, User, LogIn } from 'lucide-react'
+import { ArrowLeft, Lock, Loader2, Send, FileText, CreditCard, User, LogIn, CheckCircle, RefreshCcw, Clock } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
+
+const seoTranslations: Record<string, any> = {
+  en: {
+    title: "5 Common Checkout & RFQ Problems (And Solutions)",
+    problems: [
+      { icon: "FileText", title: "Complex Quote Requests", desc: "Simplified RFQ form with instant estimated pricing based on your selections." },
+      { icon: "CheckCircle", title: "Unclear Customization Details", desc: "Clear summary of custom size, shape, and artwork specs before finalizing." },
+      { icon: "CreditCard", title: "Lack of B2B Payment Flexibility", desc: "Secure credit card processing and flexible invoice generation options." },
+      { icon: "RefreshCcw", title: "Difficult Reordering", desc: "Saved cart states and easy order duplication for returning clients." },
+      { icon: "Clock", title: "Delayed Communication", desc: "Automated RFQ email triggers and guaranteed 24-hour response time." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Pago y Cotización (Y Soluciones)",
+    problems: [
+      { icon: "FileText", title: "Solicitudes de Cotización Complejas", desc: "Formulario RFQ simplificado con precios estimados instantáneos según sus selecciones." },
+      { icon: "CheckCircle", title: "Detalles de Personalización Confusos", desc: "Resumen claro del tamaño, forma y especificaciones de arte antes de finalizar." },
+      { icon: "CreditCard", title: "Falta de Flexibilidad de Pago B2B", desc: "Procesamiento seguro de tarjetas de crédito y opciones flexibles de generación de facturas." },
+      { icon: "RefreshCcw", title: "Reordenamiento Difícil", desc: "Estados de carrito guardados y duplicación fácil de pedidos para clientes recurrentes." },
+      { icon: "Clock", title: "Comunicación Retrasada", desc: "Correos electrónicos automáticos de RFQ y tiempo de respuesta garantizado de 24 horas." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants de Paiement et Devis (Et Solutions)",
+    problems: [
+      { icon: "FileText", title: "Demandes de Devis Complexes", desc: "Formulaire RFQ simplifié avec tarification estimée instantanée selon vos choix." },
+      { icon: "CheckCircle", title: "Détails de Personnalisation Flous", desc: "Résumé clair de la taille, forme et des spécifications d'illustration avant validation." },
+      { icon: "CreditCard", title: "Manque de Flexibilité de Paiement B2B", desc: "Traitement sécurisé des cartes de crédit et options flexibles de facturation." },
+      { icon: "RefreshCcw", title: "Recommandes Difficiles", desc: "États de panier enregistrés et duplication facile des commandes pour les clients fidèles." },
+      { icon: "Clock", title: "Communication Retardée", desc: "E-mails RFQ automatiques et délai de réponse garanti de 24 heures." }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的結帳與報價問題（及解決方案）",
+    problems: [
+      { icon: "FileText", title: "報價請求繁瑣", desc: "簡化的 RFQ 表單，根據您的選擇提供即時預估價格。" },
+      { icon: "CheckCircle", title: "客製化細節不明確", desc: "在最終確認前，提供清晰的尺寸、形狀和圖稿規格摘要。" },
+      { icon: "CreditCard", title: "缺乏 B2B 付款彈性", desc: "安全的信用卡處理與彈性的發票生成選項。" },
+      { icon: "RefreshCcw", title: "重新下單困難", desc: "儲存購物車狀態，方便回流客戶輕鬆複製訂單。" },
+      { icon: "Clock", title: "溝通延遲", desc: "自動觸發 RFQ 電子郵件，保證 24 小時內回覆。" }
+    ]
+  }
+}
 
 // Generate order/RFQ number
 const generateOrderNumber = (isRfq: boolean = false) => {
@@ -15,7 +58,7 @@ const generateOrderNumber = (isRfq: boolean = false) => {
 }
 
 const CheckoutPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.checkout'
   const { cart, cartTotal, clearCart, rfqCart, clearRfq } = useStore()
   const { user, loading: authLoading } = useAuth()
@@ -483,6 +526,47 @@ const CheckoutPage: React.FC = () => {
                   {t(`${p}.finalPricingNote`)}
                 </p>
               )}
+            </div>
+          </div>
+        </div>
+
+        {/* SEO Knowledge Section */}
+        <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border border-neutral-100">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl font-bold mb-8 text-neutral-900">
+                {seoTranslations[i18n.language]?.title || seoTranslations.en.title}
+              </h2>
+              <div className="space-y-6">
+                {(seoTranslations[i18n.language]?.problems || seoTranslations.en.problems).map((item: any, idx: number) => {
+                  const Icon = {
+                    FileText,
+                    CheckCircle,
+                    CreditCard,
+                    RefreshCcw,
+                    Clock
+                  }[item.icon as string] || CheckCircle;
+                  return (
+                    <div key={idx} className="flex gap-4">
+                      <div className="mt-1 flex-shrink-0 w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center">
+                        <Icon className="h-5 w-5 text-primary-600" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-neutral-900 mb-1">{item.title}</h3>
+                        <p className="text-neutral-600 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-lg h-[600px]">
+              <img 
+                src="/imgs/knowledge/checkout-pain-points.jpg" 
+                alt="Checkout and RFQ Pain Points Solutions" 
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
           </div>
         </div>

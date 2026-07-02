@@ -1,14 +1,63 @@
 import React from 'react'
-import { Droplets, Package, CheckCircle, Shield, Settings, MessageCircle, Target, Calendar, Phone, Download, Mail, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Leaf } from 'lucide-react'
+import { Droplets, Package, CheckCircle, Shield, Settings, MessageCircle, Target, Calendar, Phone, Download, Mail, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Leaf, AlertCircle, CheckCircle2 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const translations: Record<string, { title: string, problems: { painPoint: string, solution: string }[] }> = {
+  en: {
+    title: "5 Common Spout Pouch Problems (And Solutions)",
+    problems: [
+      { painPoint: "Leakage at the spout insertion area", solution: "Reinforced double-seal ultrasonic welding around the spout base." },
+      { painPoint: "Pouch bursting during hot-fill or retort", solution: "Multi-layer laminated films (e.g., PET/AL/NY/PE) with high temperature tolerance." },
+      { painPoint: "Difficulty dispensing viscous products", solution: "15mm+ large diameter spouts and squeezable ergonomic shape designs." },
+      { painPoint: "Cap choking hazards for baby food", solution: "Tamper-evident, anti-choke oversized butterfly caps for maximum safety." },
+      { painPoint: "Film delamination from acidic contents", solution: "Specialized acid-resistant adhesive lamination to maintain structural integrity." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas con Boquilla (Y Soluciones)",
+    problems: [
+      { painPoint: "Fugas en el área de inserción de la boquilla", solution: "Soldadura ultrasónica de doble sellado reforzado alrededor de la base de la boquilla." },
+      { painPoint: "Estallido de la bolsa durante el llenado en caliente", solution: "Películas laminadas multicapa (ej. PET/AL/NY/PE) con alta tolerancia térmica." },
+      { painPoint: "Dificultad para dispensar productos viscosos", solution: "Boquillas de gran diámetro de más de 15 mm y diseños ergonómicos exprimibles." },
+      { painPoint: "Peligro de asfixia con tapas para comida de bebé", solution: "Tapas de mariposa extra grandes, a prueba de manipulaciones y antiasfixia." },
+      { painPoint: "Delaminación por contenidos ácidos", solution: "Laminación con adhesivo especial resistente a los ácidos para mantener la integridad." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets à Bec Verseur (Et Solutions)",
+    problems: [
+      { painPoint: "Fuites au niveau de la zone d'insertion du bec", solution: "Soudure par ultrasons à double joint renforcé autour de la base du bec." },
+      { painPoint: "Éclatement du sachet lors du remplissage à chaud", solution: "Films multicouches (ex. PET/AL/NY/PE) avec une haute tolérance à la température." },
+      { painPoint: "Difficulté à distribuer des produits visqueux", solution: "Becs de grand diamètre (plus de 15 mm) et formes ergonomiques souples." },
+      { painPoint: "Risque d'étouffement avec les bouchons (aliments bébés)", solution: "Bouchons papillon surdimensionnés anti-étouffement avec témoin d'effraction." },
+      { painPoint: "Délaminage du film par des contenus acides", solution: "Lamination adhésive spéciale résistante aux acides pour maintenir la structure." }
+    ]
+  },
+  'zh-TW': {
+    title: "吸嘴袋的 5 個常見問題 (與解決方案)",
+    problems: [
+      { painPoint: "吸嘴插入區域漏液", solution: "在吸嘴底部周圍採用加固的雙層超音波焊接。" },
+      { painPoint: "熱灌裝或高溫殺菌時破袋", solution: "使用具備耐高溫特性的多層複合薄膜 (例如 PET/AL/NY/PE)。" },
+      { painPoint: "高黏度產品難以擠出", solution: "採用 15mm 以上的大口徑吸嘴及符合人體工學的可擠壓形狀設計。" },
+      { painPoint: "嬰兒食品瓶蓋的窒息風險", solution: "使用防拆卸的防窒息超大蝴蝶蓋，確保最高安全性。" },
+      { painPoint: "酸性內容物導致薄膜分層", solution: "使用專用的耐酸粘合劑進行複合，保持結構完整性。" }
+    ]
+  }
+};
 const SpoutPouchesPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
+  
+  const getLangKey = (lang: string) => {
+    if (lang.toLowerCase() === 'zh-tw' || lang.toLowerCase() === 'zh') return 'zh-TW';
+    if (['en', 'es', 'fr'].includes(lang.split('-')[0])) return lang.split('-')[0];
+    return 'en';
+  };
+  const currentTranslations = translations[getLangKey(i18n.language || 'en')];
   const p = 'seoPages.pages.spoutPouches'
   // Safe array fallbacks to prevent runtime crashes
   const overviewAdvantagesVal = t(`${p}.sections.overview.advantages`, { returnObjects: true });
@@ -549,6 +598,40 @@ const SpoutPouchesPage: React.FC = () => {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points',
+      title: currentTranslations.title,
+      icon: <AlertCircle className="h-5 w-5 text-red-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              {currentTranslations.problems.map((prob, idx) => (
+                <div key={idx} className="bg-white p-4 rounded-xl border border-neutral-200 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-neutral-900">{prob.painPoint}</h4>
+                      <div className="flex items-start gap-2 mt-2">
+                        <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 shrink-0" />
+                        <p className="text-sm text-green-800">{prob.solution}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div>
+              <ClickableImage 
+                src="/imgs/knowledge/spout-pouches-pain-points.jpg" 
+                alt={currentTranslations.title} 
+                className="w-full h-full object-cover rounded-xl shadow-md border border-neutral-200 min-h-[300px]"
+              />
+            </div>
           </div>
         </div>
       )

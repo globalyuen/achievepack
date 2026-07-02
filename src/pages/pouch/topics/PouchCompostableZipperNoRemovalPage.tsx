@@ -6,9 +6,58 @@ import { Recycle, CheckCircle, AlertTriangle, ArrowRight, Shield, Zap, Leaf } fr
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Compostable Zipper Problems (And Solutions)",
+    badge: "Pain Points",
+    problems: [
+      { q: "1. Consumer Confusion & Compliance", a: "Solution: Fully compostable zippers eliminate the need to tear off the zipper before composting, ensuring the entire pouch goes into the organic bin safely." },
+      { q: "2. Incomplete Degradation in Soil", a: "Solution: Utilizing certified home-compostable PLA/PHA blends guarantees the zipper track degrades at the same rate as the pouch body without leaving microplastics." },
+      { q: "3. Weak Seal Strength & Shelf Life", a: "Solution: Advanced biopolymer co-extrusion maintains high barrier properties and burst strength, matching conventional PE zippers while remaining 100% compostable." },
+      { q: "4. Manufacturing Speed & Sealing Temp", a: "Solution: Low-temperature activation bio-resins allow manufacturers to run VFFS machines at high speeds without melting or warping the delicate compostable film." },
+      { q: "5. High Cost & Sourcing Challenges", a: "Solution: Integrated production from bio-resin to final zipper profile reduces supply chain overhead, making fully compostable closures cost-competitive for sustainable brands." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de los Cierres Compostables (Y Soluciones)",
+    badge: "Puntos Críticos",
+    problems: [
+      { q: "1. Confusión del Consumidor y Cumplimiento", a: "Solución: Los cierres totalmente compostables eliminan la necesidad de arrancar el cierre antes del compostaje, asegurando que toda la bolsa vaya al contenedor orgánico de manera segura." },
+      { q: "2. Degradación Incompleta en el Suelo", a: "Solución: La utilización de mezclas de PLA/PHA compostables en el hogar garantiza que la pista del cierre se degrade al mismo ritmo que el cuerpo de la bolsa sin dejar microplásticos." },
+      { q: "3. Débil Resistencia del Sello y Vida Útil", a: "Solución: La coextrusión avanzada de biopolímeros mantiene altas propiedades de barrera, igualando a los cierres convencionales de PE pero siendo 100% compostables." },
+      { q: "4. Velocidad de Fabricación y Temperatura de Sellado", a: "Solución: Las bio-resinas de activación a baja temperatura permiten a los fabricantes operar máquinas a altas velocidades sin derretir la película compostable." },
+      { q: "5. Alto Costo y Desafíos de Abastecimiento", a: "Solución: La producción integrada reduce los gastos generales de la cadena de suministro, haciendo que los cierres compostables sean competitivos en costos para las marcas sostenibles." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants liés aux Zips Compostables (Et Solutions)",
+    badge: "Points Douloureux",
+    problems: [
+      { q: "1. Confusion du Consommateur et Conformité", a: "Solution : Les fermetures éclair entièrement compostables éliminent le besoin d'arracher le zip avant le compostage, garantissant que la pochette entière aille dans le bac organique en toute sécurité." },
+      { q: "2. Dégradation Incomplète dans le Sol", a: "Solution : L'utilisation de mélanges PLA/PHA certifiés compostables à domicile garantit que le zip se dégrade au même rythme que le corps de la pochette sans microplastiques." },
+      { q: "3. Faible Résistance du Sceau et Durée de Conservation", a: "Solution : La co-extrusion de biopolymères maintient des propriétés barrières élevées, égalant les zips en PE conventionnels tout en restant 100 % compostables." },
+      { q: "4. Vitesse de Fabrication et Température de Scellage", a: "Solution : Les bio-résines à activation basse température permettent de faire fonctionner les machines à grande vitesse sans faire fondre le film compostable délicat." },
+      { q: "5. Coût Élevé et Défis d'Approvisionnement", a: "Solution : La production intégrée réduit les frais de la chaîne d'approvisionnement, rendant les fermetures compostables compétitives pour les marques durables." }
+    ]
+  },
+  'zh-TW': {
+    title: "可堆肥夾鏈袋的5個常見問題（及解決方案）",
+    badge: "痛點分析",
+    problems: [
+      { q: "1. 消費者困惑與合規性", a: "解決方案：全可堆肥夾鏈免除了在堆肥前撕下夾鏈的需要，確保整個包裝袋安全進入有機垃圾箱。" },
+      { q: "2. 土壤中降解不完全", a: "解決方案：使用經過家庭堆肥認證的 PLA/PHA 混合物，確保夾鏈軌道與袋身以相同速度降解，不留微塑料。" },
+      { q: "3. 密封強度弱與保質期短", a: "解決方案：先進的生物聚合物共擠出技術保持了高阻隔性能，可與傳統 PE 夾鏈相媲美，同時保持 100% 可堆肥。" },
+      { q: "4. 生產速度與封口溫度", a: "解決方案：低溫活化生物樹脂使製造商能夠高速運行包裝機，而不會熔化脆弱的可堆肥薄膜。" },
+      { q: "5. 成本高與採購挑戰", a: "解決方案：從生物樹脂到最終夾鏈的整合生產降低了供應鏈成本，使全可堆肥封口對可持續品牌更具成本競爭力。" }
+    ]
+  }
+};
+
 export default function PouchCompostableZipperNoRemovalPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'pouchCompostableZipperNoRemovalPage'
+  const currentLang = i18n?.language || 'en'
+  const localT = translations[currentLang] || translations['en']
 
   const floatAnim = {
     y: [0, -10, 0],
@@ -104,6 +153,41 @@ export default function PouchCompostableZipperNoRemovalPage() {
             <p>
               {t(`${p}.guide.p5`)}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative order-2 lg:order-1">
+              <div className="absolute inset-0 bg-[#10b981] translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/compostable-zipper-no-removal-pain-points.jpg" 
+                alt="Compostable Zipper Pain Points" 
+                className="relative z-10 border-4 border-black w-full shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <NeoBadge color="green" className="bg-[#10b981] text-white border-black">{localT.badge}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-6xl mt-6 uppercase leading-tight mb-12 text-black">
+                {localT.title}
+              </h2>
+              <div className="space-y-6">
+                {localT.problems.map((prob: any, idx: number) => (
+                  <div key={idx} className="bg-neutral-50 p-6 border-l-4 border-[#10b981] shadow-sm border-y-4 border-r-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                    <h4 className="font-bold text-black text-xl mb-3 flex items-start gap-3">
+                      <AlertTriangle className="w-6 h-6 text-[#10b981] flex-shrink-0 mt-1" />
+                      {prob.q}
+                    </h4>
+                    <p className="text-gray-700 text-md leading-relaxed font-['JetBrains_Mono'] ml-9">
+                      {prob.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -6,9 +6,114 @@ import { Recycle, CheckCircle, AlertTriangle, ArrowRight, Shield, Zap, Leaf, The
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 
+const localTranslations = {
+  en: {
+    title: "5 Common Compostable Spouted Pouch Problems (And Solutions)",
+    items: [
+      {
+        q: "Weak Seal Strength",
+        a: "Solution: Multi-layer biopolymer co-extrusion for robust sealing and integrity."
+      },
+      {
+        q: "Poor Moisture & Oxygen Barrier",
+        a: "Solution: High-barrier metallized compostable films (e.g., AlOx or SiOx coated PLA/PBS)."
+      },
+      {
+        q: "Spout Leakage or Detachment",
+        a: "Solution: Bio-based spouts ultrasonically or thermally welded with precise temperature control."
+      },
+      {
+        q: "Short Shelf Life for Liquids",
+        a: "Solution: Advanced barrier coatings ensuring equivalent shelf life to conventional plastics."
+      },
+      {
+        q: "Incomplete Composting",
+        a: "Solution: Certified EN 13432 compostable materials that break down entirely within 90-180 days."
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas con Boquilla Compostables (Y Soluciones)",
+    items: [
+      {
+        q: "Baja resistencia de sellado",
+        a: "Solución: Coextrusión de biopolímeros multicapa para un sellado e integridad robustos."
+      },
+      {
+        q: "Pobre barrera contra humedad y oxígeno",
+        a: "Solución: Películas compostables metalizadas de alta barrera (ej. PLA/PBS con recubrimiento de AlOx o SiOx)."
+      },
+      {
+        q: "Fuga o desprendimiento de la boquilla",
+        a: "Solución: Boquillas de base biológica soldadas por ultrasonido o térmicamente con control preciso de temperatura."
+      },
+      {
+        q: "Corta vida útil para líquidos",
+        a: "Solución: Recubrimientos de barrera avanzados que garantizan una vida útil equivalente a los plásticos convencionales."
+      },
+      {
+        q: "Compostaje incompleto",
+        a: "Solución: Materiales compostables certificados EN 13432 que se descomponen completamente en 90-180 días."
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets à Bec Compostables (Et Solutions)",
+    items: [
+      {
+        q: "Faible résistance de scellage",
+        a: "Solution : Co-extrusion de biopolymères multicouches pour un scellage et une intégrité robustes."
+      },
+      {
+        q: "Mauvaise barrière contre l'humidité et l'oxygène",
+        a: "Solution : Films compostables métallisés à haute barrière (ex. PLA/PBS revêtus d'AlOx ou de SiOx)."
+      },
+      {
+        q: "Fuite ou détachement du bec",
+        a: "Solution : Becs biosourcés soudés par ultrasons ou thermiquement avec un contrôle précis de la température."
+      },
+      {
+        q: "Durée de conservation courte pour les liquides",
+        a: "Solution : Revêtements barrières avancés garantissant une durée de conservation équivalente aux plastiques conventionnels."
+      },
+      {
+        q: "Compostage incomplet",
+        a: "Solution : Matériaux compostables certifiés EN 13432 qui se décomposent entièrement en 90-180 jours."
+      }
+    ]
+  },
+  "zh-TW": {
+    title: "5 個可堆肥吸嘴袋常見問題 (與解決方案)",
+    items: [
+      {
+        q: "封口強度不足",
+        a: "解決方案：採用多層生物聚合物共擠壓技術，實現穩固的封口與完整性。"
+      },
+      {
+        q: "防潮防氧阻隔性差",
+        a: "解決方案：使用高阻隔金屬化可堆肥薄膜（例如塗有 AlOx 或 SiOx 的 PLA/PBS）。"
+      },
+      {
+        q: "吸嘴洩漏或脫落",
+        a: "解決方案：透過精確的溫度控制，使用超聲波或熱焊接技術結合生物基吸嘴。"
+      },
+      {
+        q: "液體產品保質期短",
+        a: "解決方案：先進的阻隔塗層，確保保質期與傳統塑膠相當。"
+      },
+      {
+        q: "堆肥降解不完全",
+        a: "解決方案：採用經 EN 13432 認證的可堆肥材料，能在 90-180 天內完全分解。"
+      }
+    ]
+  }
+}
 export default function PouchCompostableSpoutedPouchesPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'pouchCompostableSpoutedPouchesPage'
+  
+  const currentLang = i18n.language || 'en'
+  const langData = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en
 
   const floatAnim = {
     y: [0, -10, 0],
@@ -104,6 +209,50 @@ export default function PouchCompostableSpoutedPouchesPage() {
             <p>
               {t(`${p}.science.p5`)}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+                {langData.title}
+              </h2>
+              <div className="space-y-6">
+                {langData.items.map((item, idx) => {
+                  const icons = [<Shield className="w-8 h-8 text-[#059669]" />, <Thermometer className="w-8 h-8 text-[#059669]" />, <AlertTriangle className="w-8 h-8 text-[#059669]" />, <CheckCircle className="w-8 h-8 text-[#059669]" />, <Recycle className="w-8 h-8 text-[#059669]" />]
+                  return (
+                    <motion.div 
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4"
+                    >
+                      <div className="flex-shrink-0 mt-1">{icons[idx]}</div>
+                      <div>
+                        <h4 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2">{item.q}</h4>
+                        <p className="font-['JetBrains_Mono'] text-gray-700">{item.a}</p>
+                      </div>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </div>
+            <div className="relative">
+              <NeoCard className="bg-[#059669] relative z-10 -rotate-2 !p-0 overflow-hidden group border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                <img 
+                  src="/imgs/knowledge/compostable-spouted-pouches-pain-points.jpg" 
+                  alt="Compostable Spouted Pouches Pain Points" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </NeoCard>
+              <div className="absolute top-10 -right-10 w-full h-full border-4 border-black bg-[#D4FF00] -z-0 rotate-3" />
+            </div>
           </div>
         </div>
       </section>

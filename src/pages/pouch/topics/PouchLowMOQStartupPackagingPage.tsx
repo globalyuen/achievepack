@@ -1,14 +1,82 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
-import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Rocket } from 'lucide-react'
+import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Rocket, AlertCircle, Clock, DollarSign, Sliders, TrendingDown } from 'lucide-react'
+
+const translations: Record<string, Record<string, string>> = {
+  en: {
+    problemsBadge: "Pain Points",
+    problemsTitle1: "5 Common",
+    problemsTitle2: "Startup Packaging Problems (And Solutions)",
+    prob1Title: "1. High Initial Capital Requirement",
+    prob1Desc: "Custom packaging often demands huge upfront costs. Solution: Digital printing eliminates plate fees, making small runs affordable.",
+    prob2Title: "2. Long Lead Times Delaying Launch",
+    prob2Desc: "Traditional manufacturing takes months. Solution: Agile production and rapid prototyping ensure you get to market faster.",
+    prob3Title: "3. Inconsistent Quality in Small Batches",
+    prob3Desc: "Small orders often suffer from poor quality control. Solution: Implementing strict, scalable QA protocols regardless of order size.",
+    prob4Title: "4. Limited Customization for Low Volumes",
+    prob4Desc: "Suppliers restrict options for small orders. Solution: Variable data printing allows unlimited designs without extra setup.",
+    prob5Title: "5. High Per-Unit Costs",
+    prob5Desc: "Startups pay a premium per unit. Solution: Strategic structural design and scalable material roadmaps that lower costs as volume grows.",
+  },
+  es: {
+    problemsBadge: "Puntos de Dolor",
+    problemsTitle1: "5 Problemas Comunes",
+    problemsTitle2: "de Empaque para Startups (Y Soluciones)",
+    prob1Title: "1. Alto Requisito de Capital Inicial",
+    prob1Desc: "El empaque personalizado suele exigir enormes costos iniciales. Solución: La impresión digital elimina las tarifas de las planchas.",
+    prob2Title: "2. Largos Tiempos de Entrega que Retrasan el Lanzamiento",
+    prob2Desc: "La fabricación tradicional lleva meses. Solución: La producción ágil garantiza llegar al mercado más rápido.",
+    prob3Title: "3. Calidad Inconsistente en Lotes Pequeños",
+    prob3Desc: "Los pedidos pequeños suelen sufrir un control de calidad deficiente. Solución: Implementar protocolos de calidad estrictos y escalables.",
+    prob4Title: "4. Opciones de Personalización Limitadas",
+    prob4Desc: "Los proveedores restringen las opciones. Solución: La impresión de datos variables permite diseños ilimitados.",
+    prob5Title: "5. Altos Costos por Unidad",
+    prob5Desc: "Las startups pagan una prima por unidad. Solución: Diseño estratégico que reduce los costos a medida que aumenta el volumen.",
+  },
+  fr: {
+    problemsBadge: "Points Faibles",
+    problemsTitle1: "5 Problèmes Courants",
+    problemsTitle2: "d'Emballage pour Startups (Et Solutions)",
+    prob1Title: "1. Besoin en Capital Initial Élevé",
+    prob1Desc: "L'emballage personnalisé exige souvent d'énormes coûts. Solution : L'impression numérique rend les petites séries abordables.",
+    prob2Title: "2. Délais de Livraison Longs Retardant le Lancement",
+    prob2Desc: "La fabrication traditionnelle prend des mois. Solution : La production agile vous assure une mise sur le marché plus rapide.",
+    prob3Title: "3. Qualité Incohérente des Petits Lots",
+    prob3Desc: "Les petites commandes souffrent d'un mauvais contrôle qualité. Solution : Mettre en œuvre des protocoles stricts.",
+    prob4Title: "4. Personnalisation Limitée pour les Faibles Volumes",
+    prob4Desc: "Les fournisseurs restreignent les options. Solution : L'impression de données variables permet des conceptions illimitées.",
+    prob5Title: "5. Coûts Unitaires Élevés",
+    prob5Desc: "Les startups paient une prime par unité. Solution : Conception stratégique qui réduit les coûts avec l'augmentation du volume.",
+  },
+  'zh-TW': {
+    problemsBadge: "常見痛點",
+    problemsTitle1: "5大常見",
+    problemsTitle2: "新創包裝問題（與解決方案）",
+    prob1Title: "1. 初期資金需求高",
+    prob1Desc: "客製化包裝通常需要龐大的前期成本。解決方案：數位印刷免除了版費，讓小批量生產更具成本效益。",
+    prob2Title: "2. 交期過長延誤上市時間",
+    prob2Desc: "傳統製造通常需要數個月。解決方案：敏捷生產和快速打樣確保您能更快進入市場。",
+    prob3Title: "3. 小批量生產品質不穩定",
+    prob3Desc: "小訂單往往缺乏嚴格的品管。解決方案：無論訂單大小，皆實施嚴格且可擴展的品質保證協議。",
+    prob4Title: "4. 小批量客製化選項受限",
+    prob4Desc: "供應商通常會限制小訂單的選擇。解決方案：變動資料印刷允許無限制的設計，無需額外設定費用。",
+    prob5Title: "5. 單件成本偏高",
+    prob5Desc: "新創公司往往承受較高的單價。解決方案：策略性的結構設計和可擴展的材料藍圖，隨著產量增加降低成本。",
+  }
+}
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
 const PouchLowMOQStartupPackagingPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n?.language || 'en'
+  const localT = (key: string) => {
+    const langObj = translations[currentLang] || translations['en'] || {}
+    return langObj[key] || translations['en'][key] || ''
+  }
   const p = 'pouchLowMOQStartupPackagingPage'
   const baseUrl = getBaseUrl()
   
@@ -171,6 +239,48 @@ const PouchLowMOQStartupPackagingPage: React.FC = () => {
                 src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                 alt={t(`${p}.science.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">{localT('problemsBadge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">
+                {localT('problemsTitle1')}<br/>
+                {localT('problemsTitle2')}
+              </h2>
+              <div className="mt-12 space-y-6">
+                {[
+                  { title: localT('prob1Title'), desc: localT('prob1Desc'), icon: <DollarSign className="w-8 h-8" /> },
+                  { title: localT('prob2Title'), desc: localT('prob2Desc'), icon: <Clock className="w-8 h-8" /> },
+                  { title: localT('prob3Title'), desc: localT('prob3Desc'), icon: <AlertCircle className="w-8 h-8" /> },
+                  { title: localT('prob4Title'), desc: localT('prob4Desc'), icon: <Sliders className="w-8 h-8" /> },
+                  { title: localT('prob5Title'), desc: localT('prob5Desc'), icon: <TrendingDown className="w-8 h-8" /> }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white p-6 border-4 border-black flex gap-6 items-start hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                    <div className="mt-1 flex-shrink-0 text-black">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-black uppercase text-lg mb-2">{item.title}</h4>
+                      <p className="font-['JetBrains_Mono'] text-gray-700 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/low-moq-startup-packaging-pain-points.jpg" 
+                alt="Startup Packaging Pain Points" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl object-cover aspect-square"
               />
             </div>
           </div>

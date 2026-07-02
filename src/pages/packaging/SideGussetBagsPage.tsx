@@ -1,10 +1,55 @@
 import React from 'react'
-import { Package, CheckCircle, Layers, Shield, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
+import { Package, CheckCircle, Layers, Shield, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, AlertTriangle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations: Record<string, any> = {
+  en: {
+    painPointsTitle: "5 Common Side Gusset Bags Problems (And Solutions)",
+    painPoints: [
+      { title: "Puncture & Tearing", desc: "Multi-layer lamination (Nylon/PET) prevents transit damage." },
+      { title: "Seal Integrity", desc: "Reinforced quad sealing ensures freshness and prevents leaks." },
+      { title: "Resealability", desc: "Integrated tin ties or adhesive strips for easy re-closure." },
+      { title: "Degassing Failures", desc: "Premium one-way valves for optimal coffee off-gassing." },
+      { title: "Shelf Stability", desc: "Precision bottom folding ensures the bag stands perfectly upright." }
+    ]
+  },
+  es: {
+    painPointsTitle: "5 Problemas Comunes de Bolsas con Fuelle Lateral (Y Soluciones)",
+    painPoints: [
+      { title: "Perforaciones y Desgarros", desc: "Laminación multicapa (Nylon/PET) que previene daños en tránsito." },
+      { title: "Integridad del Sellado", desc: "Sellado cuádruple reforzado para frescura y sin fugas." },
+      { title: "Capacidad de Resellado", desc: "Cierres de estaño o tiras adhesivas integradas para cerrar fácilmente." },
+      { title: "Fallos de Desgasificación", desc: "Válvulas unidireccionales premium para el café." },
+      { title: "Estabilidad en Estante", desc: "Plegado inferior de precisión para que la bolsa se mantenga vertical." }
+    ]
+  },
+  fr: {
+    painPointsTitle: "5 Problèmes Courants des Sachets à Soufflets Latéraux (Et Solutions)",
+    painPoints: [
+      { title: "Perforation et Déchirure", desc: "Stratification multicouche (Nylon/PET) prévenant les dommages." },
+      { title: "Intégrité de l'Étanchéité", desc: "Scellage quadruple renforcé garantissant la fraîcheur." },
+      { title: "Refermabilité", desc: "Attaches en étain ou bandes adhésives intégrées pour une fermeture facile." },
+      { title: "Défaillances de Dégazage", desc: "Vannes unidirectionnelles premium pour le café." },
+      { title: "Stabilité en Rayon", desc: "Pliage de fond de précision assurant une tenue parfaite." }
+    ]
+  },
+  'zh-TW': {
+    painPointsTitle: "5 種常見的側邊折角袋問題 (與解決方案)",
+    painPoints: [
+      { title: "穿刺與撕裂", desc: "多層複合材質 (Nylon/PET) 防止運輸過程受損。" },
+      { title: "密封完整性", desc: "加強型四邊封口，確保新鮮不漏氣。" },
+      { title: "可重複密封性", desc: "內建鐵絲束帶或自黏條，方便重新封口。" },
+      { title: "排氣閥失效", desc: "頂級單向排氣閥，完美釋放咖啡氣體。" },
+      { title: "貨架穩定性", desc: "精密的底部折疊技術，確保袋子完美直立。" }
+    ]
+  }
+};
+
 const SideGussetBagsPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en';
+  const tLocal = localTranslations[lang] || localTranslations['en'];
   const p = 'seoPages.pages.sideGussetBags'
   // Safe array fallbacks to prevent runtime crashes
   const applicationsItemsVal = t(`${p}.sections.applications.items`, { returnObjects: true });
@@ -271,6 +316,37 @@ const SideGussetBagsPage: React.FC = () => {
           <div className="bg-primary-50 p-4 rounded-lg">
             <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.materialComparison.guideTitle`)}</h4>
             <p className="text-sm text-primary-700">{t(`${p}.sections.materialComparison.guideText`)}</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points',
+      title: tLocal.painPointsTitle,
+      icon: <AlertTriangle className="h-5 w-5 text-red-500" />,
+      content: (
+        <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div className="space-y-4">
+              {tLocal.painPoints.map((point: any, idx: number) => (
+                <div key={idx} className="flex gap-3 bg-neutral-50 p-4 rounded-lg">
+                  <div className="flex-shrink-0">
+                    <AlertTriangle className="h-5 w-5 text-red-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-neutral-900">{point.title}</h4>
+                    <p className="text-sm text-neutral-600">{point.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div>
+              <img 
+                src="/imgs/knowledge/side-gusset-bags-pain-points.jpg" 
+                alt="Side Gusset Bags Problems and Solutions" 
+                className="w-full rounded-xl shadow-lg"
+              />
+            </div>
           </div>
         </div>
       )

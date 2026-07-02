@@ -7,10 +7,69 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const painPointsTranslations: Record<string, any> = {
+  en: {
+    title: "5 Common Mono-PE Pouch Problems (And Solutions)",
+    badge: "Engineering Insights",
+    items: [
+      { title: "Poor Stiffness & Machinability", desc: "Solution: Incorporating MDO-PE (Machine Direction Orientation PE) to increase rigidity and enable high-speed packaging.", icon: "Factory" },
+      { title: "Weak Barrier Properties", desc: "Solution: EVOH co-extrusion or ultra-thin ALOX/SiOX coating that maintains recyclability while protecting shelf life.", icon: "Shield" },
+      { title: "Compromised Heat Sealing", desc: "Solution: Multi-layer PE design with a low-temperature sealing inner layer and a high-heat resistant outer layer.", icon: "Thermometer" },
+      { title: "Poor Printing Quality", desc: "Solution: Specialized surface treatment and high-tension PE films to ensure vivid colors and crisp graphics.", icon: "Droplets" },
+      { title: "Puncture Resistance", desc: "Solution: Utilizing advanced metallocene PE blends (mPE) to enhance toughness and prevent leaks.", icon: "Target" }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Bolsas Mono-PE (Y Soluciones)",
+    badge: "Perspectivas de Ingeniería",
+    items: [
+      { title: "Poca Rigidez y Maquinabilidad", desc: "Solución: Incorporar MDO-PE (PE con Orientación en Dirección de Máquina) para aumentar la rigidez.", icon: "Factory" },
+      { title: "Propiedades de Barrera Débiles", desc: "Solución: Coextrusión de EVOH o recubrimiento ultrafino de ALOX/SiOX que mantiene la reciclabilidad.", icon: "Shield" },
+      { title: "Sellado Térmico Comprometido", desc: "Solución: Diseño de PE multicapa con una capa de sellado a baja temperatura y una capa exterior resistente al calor.", icon: "Thermometer" },
+      { title: "Mala Calidad de Impresión", desc: "Solución: Tratamiento superficial especializado y películas de PE de alta tensión para gráficos nítidos.", icon: "Droplets" },
+      { title: "Resistencia a la Perforación", desc: "Solución: Uso de mezclas avanzadas de PE metaloceno (mPE) para mejorar la dureza y prevenir fugas.", icon: "Target" }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets Mono-PE (Et Solutions)",
+    badge: "Perspectives d'Ingénierie",
+    items: [
+      { title: "Faible Rigidité et Usinabilité", desc: "Solution: Intégration de MDO-PE (PE à orientation dans le sens de la machine) pour augmenter la rigidité.", icon: "Factory" },
+      { title: "Faibles Propriétés Barrières", desc: "Solution: Co-extrusion d'EVOH ou revêtement ultra-fin ALOX/SiOX qui maintient la recyclabilité.", icon: "Shield" },
+      { title: "Scellage Thermique Compromis", desc: "Solution: Conception PE multicouche avec une couche de scellage basse température et une couche extérieure résistante à la chaleur.", icon: "Thermometer" },
+      { title: "Mauvaise Qualité d'Impression", desc: "Solution: Traitement de surface spécialisé et films PE haute tension pour des graphismes nets.", icon: "Droplets" },
+      { title: "Résistance à la Perforation", desc: "Solution: Utilisation de mélanges de PE métallocène (mPE) avancés pour améliorer la ténacité.", icon: "Target" }
+    ]
+  },
+  'zh-TW': {
+    title: "單一PE材質包裝袋的5個常見問題（與解決方案）",
+    badge: "工程洞察",
+    items: [
+      { title: "挺度與加工性差", desc: "解決方案：引入 MDO-PE（機器方向延伸 PE）以增加剛性，實現高速包裝。", icon: "Factory" },
+      { title: "阻隔性能弱", desc: "解決方案：EVOH 共擠或超薄 ALOX/SiOX 塗層，在保持可回收性的同時延長保質期。", icon: "Shield" },
+      { title: "熱封性能受損", desc: "解決方案：多層 PE 設計，包含低溫熱封內層與耐高溫外層。", icon: "Thermometer" },
+      { title: "印刷品質不佳", desc: "解決方案：專業表面處理與高張力 PE 薄膜，確保色彩鮮豔與圖案清晰。", icon: "Droplets" },
+      { title: "抗穿刺性不足", desc: "解決方案：採用先進的茂金屬 PE (mPE) 混合材料增強韌性，防止漏液。", icon: "Target" }
+    ]
+  }
+}
+
+const getIcon = (name: string) => {
+  switch (name) {
+    case 'Factory': return <Factory className="w-8 h-8" />
+    case 'Shield': return <Shield className="w-8 h-8" />
+    case 'Thermometer': return <Thermometer className="w-8 h-8" />
+    case 'Droplets': return <Droplets className="w-8 h-8" />
+    case 'Target': return <Target className="w-8 h-8" />
+    default: return <CheckCircle className="w-8 h-8" />
+  }
+}
+
 const PouchMonoPEPouchesPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'pouchMonoPEPouchesPage'
   const baseUrl = getBaseUrl()
+  const localT = painPointsTranslations[i18n.language] || painPointsTranslations['en']
   
   const MONO_METRICS = [
     { label: t(`${p}.metrics.recyclability.label`), value: t(`${p}.metrics.recyclability.value`), unit: t(`${p}.metrics.recyclability.unit`), desc: t(`${p}.metrics.recyclability.desc`) },
@@ -170,6 +229,41 @@ const PouchMonoPEPouchesPage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/topics/mono-pe-recyclable-hero.png" 
                 alt={t(`${p}.science.imageAlt`)} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">{localT.badge}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-6xl mt-6 uppercase leading-tight italic">
+                {localT.title}
+              </h2>
+              <div className="mt-12 space-y-4">
+                {localT.items.map((item: any, i: number) => (
+                  <div key={i} className="bg-white p-6 border-4 border-black flex gap-6 items-start hover:translate-x-1 hover:translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="text-blue-600 flex-shrink-0 mt-1">
+                      {getIcon(item.icon)}
+                    </div>
+                    <div>
+                      <h4 className="font-black uppercase text-xl mb-2">{item.title}</h4>
+                      <p className="font-['JetBrains_Mono'] text-gray-700 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-yellow-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/mono-pe-pouches-pain-points.jpg" 
+                alt="Mono PE Pouches Pain Points" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

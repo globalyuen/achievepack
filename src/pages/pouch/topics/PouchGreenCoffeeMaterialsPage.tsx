@@ -7,8 +7,70 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common Green Coffee Packaging Materials Problems (And Solutions)",
+    badge: "ENGINEERING",
+    pain1Title: "1. Moisture Fluctuations",
+    pain1Desc: "High-barrier foil structures with low WVTR.",
+    pain2Title: "2. Oxidation (Staling)",
+    pain2Desc: "Multi-layer laminates (EVOH/Aluminum) for low OTR.",
+    pain3Title: "3. Puncture & Tearing",
+    pain3Desc: "Durable PET/NY/PE structures for mechanical strength.",
+    pain4Title: "4. CO2 Build-up",
+    pain4Desc: "Integrated one-way degassing valves.",
+    pain5Title: "5. UV Light Degradation",
+    pain5Desc: "Opaque metallized films blocking UV rays."
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes de Materiales de Empaque para Café Verde (Y Soluciones)",
+    badge: "INGENIERÍA",
+    pain1Title: "1. Fluctuaciones de Humedad",
+    pain1Desc: "Estructuras de lámina de alta barrera con bajo WVTR.",
+    pain2Title: "2. Oxidación (Envejecimiento)",
+    pain2Desc: "Laminados multicapa (EVOH/Aluminio) para bajo OTR.",
+    pain3Title: "3. Perforación y Desgarro",
+    pain3Desc: "Estructuras duraderas de PET/NY/PE para resistencia mecánica.",
+    pain4Title: "4. Acumulación de CO2",
+    pain4Desc: "Válvulas desgasificadoras unidireccionales integradas.",
+    pain5Title: "5. Degradación por Luz UV",
+    pain5Desc: "Películas metalizadas opacas que bloquean los rayos UV."
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants des Matériaux d'Emballage du Café Vert (Et Solutions)",
+    badge: "INGÉNIERIE",
+    pain1Title: "1. Fluctuations d'humidité",
+    pain1Desc: "Structures en feuilles à haute barrière avec faible WVTR.",
+    pain2Title: "2. Oxydation (Vieillissement)",
+    pain2Desc: "Stratifiés multicouches (EVOH/Aluminium) pour un faible OTR.",
+    pain3Title: "3. Perforation et Déchirure",
+    pain3Desc: "Structures durables en PET/NY/PE pour la résistance mécanique.",
+    pain4Title: "4. Accumulation de CO2",
+    pain4Desc: "Vannes de dégazage unidirectionnelles intégrées.",
+    pain5Title: "5. Dégradation par la lumière UV",
+    pain5Desc: "Films métallisés opaques bloquant les rayons UV."
+  },
+  'zh-TW': {
+    sectionTitle: "生豆包裝材料的 5 個常見問題（與解決方案）",
+    badge: "工程設計",
+    pain1Title: "1. 水分波動",
+    pain1Desc: "低 WVTR (水氣透過率) 的高阻隔鋁箔結構。",
+    pain2Title: "2. 氧化 (老化)",
+    pain2Desc: "低 OTR (氧氣透過率) 的多層複合 (EVOH/鋁) 結構。",
+    pain3Title: "3. 穿刺與撕裂",
+    pain3Desc: "具有高機械強度的耐用 PET/NY/PE 結構。",
+    pain4Title: "4. 二氧化碳積聚",
+    pain4Desc: "整合單向排氣閥。",
+    pain5Title: "5. 紫外線降解",
+    pain5Desc: "阻擋紫外線的不透明金屬化薄膜。"
+  }
+};
+
 const PouchGreenCoffeeMaterialsPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const currentLang = localTranslations[lang] || localTranslations.en;
+  
   const p = 'pouchGreenCoffeeMaterialsPage'
   const baseUrl = getBaseUrl()
   
@@ -185,6 +247,65 @@ const PouchGreenCoffeeMaterialsPage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/blog/How/a_compostable_pouch_material_structure_5028836.webp" 
                 alt={t(`${p}.science.imgAlt`)} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">{currentLang.badge}</NeoBadge>
+              <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">
+                {currentLang.sectionTitle}
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Droplets className="w-10 h-10 flex-shrink-0 text-blue-600" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain1Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain1Desc}</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Wind className="w-10 h-10 flex-shrink-0 text-gray-500" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain2Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain2Desc}</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Shield className="w-10 h-10 flex-shrink-0 text-yellow-600" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain3Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain3Desc}</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Factory className="w-10 h-10 flex-shrink-0 text-red-600" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain4Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain4Desc}</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Thermometer className="w-10 h-10 flex-shrink-0 text-orange-600" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain5Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain5Desc}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/green-coffee-packaging-materials-pain-points.jpg" 
+                alt="Green Coffee Packaging Materials Pain Points" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

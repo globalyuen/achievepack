@@ -11,7 +11,7 @@ import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 
 const StandUpPouchesPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.standUpPouches'
 
@@ -102,6 +102,51 @@ const StandUpPouchesPage: React.FC = () => {
     if (newIndex >= supPhotoGallery.length) newIndex = 0
     setGalleryEnlarged({ src: supPhotoGallery[newIndex].src, index: newIndex })
   }
+
+  const localTranslations: Record<string, { title: string, problems: { q: string, a: string }[] }> = {
+    en: {
+      title: "5 Common Stand-Up Pouch Problems (And Solutions)",
+      problems: [
+        { q: "1. Puncture & Tear Risks", a: "Solution: High-barrier laminated films with nylon layers for maximum puncture resistance." },
+        { q: "2. Leaking Seals", a: "Solution: Reinforced bottom gussets and ultrasonic sealing technology to prevent ruptures." },
+        { q: "3. Poor Shelf Stability", a: "Solution: Precision dieline engineering for optimal weight distribution to prevent tipping." },
+        { q: "4. Loss of Freshness", a: "Solution: EVOH barrier layers and one-way degassing valves blocking oxygen and moisture." },
+        { q: "5. Zipper Failures", a: "Solution: Heavy-duty press-to-close zippers with powder-proof technology for reliable resealing." }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de las Bolsas Stand-Up (Y Soluciones)",
+      problems: [
+        { q: "1. Riesgos de Perforación", a: "Solución: Películas laminadas de alta barrera con capas de nailon." },
+        { q: "2. Sellos con Fugas", a: "Solución: Fuelles inferiores reforzados y tecnología de sellado ultrasónico." },
+        { q: "3. Mala Estabilidad", a: "Solución: Ingeniería de precisión para una distribución óptima del peso." },
+        { q: "4. Pérdida de Frescura", a: "Solución: Capas EVOH y válvulas que bloquean el oxígeno y la humedad." },
+        { q: "5. Fallos en el Cierre", a: "Solución: Cierres de alta resistencia con tecnología a prueba de polvo." }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants des Sachets Doypack (Et Solutions)",
+      problems: [
+        { q: "1. Risques de Perforation", a: "Solution: Films laminés haute barrière avec couches de nylon." },
+        { q: "2. Fuites des Soudures", a: "Solution: Soufflets renforcés et technologie de soudage par ultrasons." },
+        { q: "3. Mauvaise Stabilité", a: "Solution: Ingénierie de précision pour une répartition optimale du poids." },
+        { q: "4. Perte de Fraîcheur", a: "Solution: Couches barrières EVOH et valves bloquant l'oxygène." },
+        { q: "5. Défaillances du Zip", a: "Solution: Fermetures à glissière robustes avec technologie anti-poussière." }
+      ]
+    },
+    'zh-TW': {
+      title: "自立袋的 5 個常見問題 (與解決方案)",
+      problems: [
+        { q: "1. 穿刺與撕裂風險", a: "解決方案：採用尼龍層的高阻隔複合薄膜，提供最大抗穿刺能力。" },
+        { q: "2. 封口洩漏", a: "解決方案：加固的底部折邊和超音波封口技術，防止破裂。" },
+        { q: "3. 貨架穩定性差", a: "解決方案：精密的刀模工程實現最佳的重量分佈，防止傾倒。" },
+        { q: "4. 失去新鮮度", a: "解決方案：EVOH 阻隔層和單向排氣閥阻擋氧氣和水分。" },
+        { q: "5. 夾鏈失效", a: "解決方案：採用防粉末技術的重型夾鏈，確保可靠的重複密封。" }
+      ]
+    }
+  };
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const localT = localTranslations[currentLang] || localTranslations['en'];
 
   // ----------------------------------------------------
   // DUAL DOMAIN RENDERING BRANCH (1): pouch.eco (B2C)
@@ -289,6 +334,39 @@ const StandUpPouchesPage: React.FC = () => {
                 </p>
                 <p className="text-[10px] text-neutral-200 mt-1">{t(`${p}.b2c.specPricing.samplesDesc`)}</p>
               </NeoCard>
+            </div>
+          </div>
+        </section>
+
+        {/* 5 Common Problems and Solutions */}
+        <section className="py-24 px-6 bg-white border-b-4 border-black">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+            <div className="flex-1 space-y-6">
+              <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-5xl uppercase tracking-tight">
+                {localT.title}
+              </h2>
+              <div className="space-y-4">
+                {localT.problems.map((prob, idx) => (
+                  <NeoCard key={idx} color="bg-[#F0F0F0]" className="border-2 border-black">
+                    <div className="flex items-start gap-3">
+                      <Shield className="w-6 h-6 text-[#10b981] flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-black text-lg">{prob.q}</h4>
+                        <p className="font-['JetBrains_Mono'] text-sm mt-1">{prob.a}</p>
+                      </div>
+                    </div>
+                  </NeoCard>
+                ))}
+              </div>
+            </div>
+            <div className="w-full lg:w-5/12">
+              <div className="border-4 border-black bg-white p-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <img 
+                  src="/imgs/knowledge/stand-up-pouches-pain-points.jpg" 
+                  alt="Common Stand-up Pouches Problems and Solutions" 
+                  className="w-full h-auto object-cover border-2 border-black"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -496,6 +574,35 @@ const StandUpPouchesPage: React.FC = () => {
                 <p className="text-[10px] text-neutral-500 truncate mt-0.5">{photo.desc}</p>
               </button>
             ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'problems',
+      title: localT.title,
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex-1 space-y-4">
+              {localT.problems.map((prob, idx) => (
+                <div key={idx} className="flex gap-3 bg-neutral-50 p-4 border border-neutral-200 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                  <div>
+                    <h5 className="font-bold text-neutral-900">{prob.q}</h5>
+                    <p className="text-sm text-neutral-600 mt-1">{prob.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="w-full md:w-1/3">
+              <img 
+                src="/imgs/knowledge/stand-up-pouches-pain-points.jpg" 
+                alt="Stand Up Pouch Pain Points" 
+                className="w-full rounded-xl shadow-md border border-neutral-200"
+              />
+            </div>
           </div>
         </div>
       )

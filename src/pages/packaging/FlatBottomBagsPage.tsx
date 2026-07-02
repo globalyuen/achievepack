@@ -6,8 +6,131 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const translations: Record<string, Record<string, any>> = {
+  en: {
+    title: "5 Common Flat Bottom Bags Problems (And Solutions)",
+    problems: [
+      {
+        title: "Bag tipping over during filling",
+        desc: "Instability before filling causes line disruptions.",
+        solution: "Reinforced bottom sealing and rigid gusset structures."
+      },
+      {
+        title: "Valve failure in coffee packaging",
+        desc: "Degassing valve leaks oxygen, ruining coffee.",
+        solution: "High-precision one-way WIPF valves with ultrasonic welding."
+      },
+      {
+        title: "Zipper detachment",
+        desc: "Closure separating from the bag when pulled.",
+        solution: "Upgraded heat seal strength and wider zipper flanges."
+      },
+      {
+        title: "Punctures from sharp products",
+        desc: "Nuts or pet food piercing the film.",
+        solution: "Multi-layer laminated films with high-puncture resistance (e.g., Nylon/BOPA)."
+      },
+      {
+        title: "Loss of freshness or aroma",
+        desc: "Oxygen or moisture ingress.",
+        solution: "High-barrier EVOH or Aluminum foil inner layers."
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas de Fondo Plano (Y Soluciones)",
+    problems: [
+      {
+        title: "La bolsa se vuelca durante el llenado",
+        desc: "La inestabilidad antes del llenado causa interrupciones en la línea.",
+        solution: "Sellado inferior reforzado y estructuras de fuelle rígidas."
+      },
+      {
+        title: "Falla de la válvula en empaques de café",
+        desc: "La válvula desgasificadora filtra oxígeno, arruinando el café.",
+        solution: "Válvulas desgasificadoras unidireccionales de alta precisión con soldadura ultrasónica."
+      },
+      {
+        title: "Desprendimiento del cierre",
+        desc: "El cierre se separa de la bolsa al tirar de él.",
+        solution: "Mayor fuerza de sellado térmico y pestañas de cierre más anchas."
+      },
+      {
+        title: "Perforaciones por productos puntiagudos",
+        desc: "Nueces o comida para mascotas perforando la película.",
+        solution: "Películas laminadas multicapa con alta resistencia a las perforaciones (ej. Nylon/BOPA)."
+      },
+      {
+        title: "Pérdida de frescura o aroma",
+        desc: "Ingreso de oxígeno o humedad.",
+        solution: "Capas internas de alta barrera de EVOH o papel de aluminio."
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets à Fond Plat (Et Solutions)",
+    problems: [
+      {
+        title: "Le sachet bascule pendant le remplissage",
+        desc: "L'instabilité avant le remplissage perturbe la ligne de production.",
+        solution: "Scellage inférieur renforcé et structures à soufflet rigides."
+      },
+      {
+        title: "Défaillance de la valve pour le café",
+        desc: "La valve de dégazage laisse fuir l'oxygène, gâchant le café.",
+        solution: "Valves de dégazage unidirectionnelles de haute précision avec soudure par ultrasons."
+      },
+      {
+        title: "Détachement de la fermeture zippée",
+        desc: "La fermeture se sépare du sachet lorsqu'on tire.",
+        solution: "Résistance du thermoscellage améliorée et rebords de zip plus larges."
+      },
+      {
+        title: "Perforations par des produits pointus",
+        desc: "Noix ou aliments pour animaux perçant le film.",
+        solution: "Films laminés multicouches à haute résistance à la perforation (ex. Nylon/BOPA)."
+      },
+      {
+        title: "Perte de fraîcheur ou d'arôme",
+        desc: "Pénétration d'oxygène ou d'humidité.",
+        solution: "Couches internes à haute barrière en EVOH ou en aluminium."
+      }
+    ]
+  },
+  "zh-TW": {
+    title: "平底袋的 5 個常見問題（與解決方案）",
+    problems: [
+      {
+        title: "充填時袋子傾倒",
+        desc: "充填前的不穩定會導致生產線中斷。",
+        solution: "加固的底部封口和堅固的側邊結構。"
+      },
+      {
+        title: "咖啡包裝中的排氣閥失效",
+        desc: "排氣閥洩漏氧氣，破壞咖啡品質。",
+        solution: "採用超聲波焊接的高精度單向排氣閥。"
+      },
+      {
+        title: "夾鏈脫落",
+        desc: "拉扯時夾鏈與袋子分離。",
+        solution: "升級熱封強度並加寬夾鏈邊緣。"
+      },
+      {
+        title: "被尖銳產品刺破",
+        desc: "堅果或寵物食品刺穿薄膜。",
+        solution: "具有高抗穿刺性的多層複合薄膜（例如尼龍/BOPA）。"
+      },
+      {
+        title: "失去新鮮度或香氣",
+        desc: "氧氣或濕氣進入。",
+        solution: "高阻隔的 EVOH 或鋁箔內層。"
+      }
+    ]
+  }
+};
+
 const FlatBottomBagsPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = React.useState<{ src: string; index: number } | null>(null)
   const p = 'seoPages.pages.flatBottomBags'
@@ -82,7 +205,47 @@ const FlatBottomBagsPage: React.FC = () => {
     }
   })) : [];
 
+  const currentLang = i18n.language || 'en';
+  const localT = translations[currentLang] || translations['en'];
+
+  const painPointsSection = {
+    id: 'pain-points',
+    title: localT.title,
+    icon: <Shield className="h-5 w-5 text-primary-600" />,
+    content: (
+      <div className="space-y-6 text-neutral-700">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="space-y-4">
+            {localT.problems.map((p: any, idx: number) => (
+              <div key={idx} className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                <h4 className="font-semibold text-red-900 flex items-center gap-2">
+                  <Shield className="h-4 w-4 text-red-600" />
+                  {p.title}
+                </h4>
+                <p className="text-sm text-red-700 mt-1">{p.desc}</p>
+                <div className="mt-2 bg-green-50 p-2 rounded border border-green-200">
+                  <p className="text-sm text-green-800 font-medium flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                    {p.solution}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="sticky top-6">
+            <ClickableImage 
+              src="/imgs/knowledge/flat-bottom-bags-pain-points.jpg"
+              alt={localT.title}
+              className="w-full rounded-xl shadow-lg border border-neutral-200"
+            />
+          </div>
+        </div>
+      </div>
+    )
+  };
+
   const sections = [
+    painPointsSection,
     {
       id: 'scenario-trigger',
       title: t(`${p}.sections.scenarioTrigger.title`),

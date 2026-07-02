@@ -1,0 +1,330 @@
+{
+  "products": {
+    "sample-sizing-pack": {
+      "name": "Pack d'Échantillons de Tailles (Plastique Conventionnel)",
+      "shortDesc": "Échantillons gratuits + 40$ de frais d'expédition",
+      "description": "Échantillons gratuits aux dimensions standard en matériau plastique conventionnel. Idéal pour tester différentes tailles pour vos produits.",
+      "features": [
+        "Plusieurs Tailles Standard",
+        "Plastique Conventionnel",
+        "Échantillons Gratuits",
+        "Expédition Rapide"
+      ]
+    },
+    "sample-assorted-eco": {
+      "name": "Échantillon de Pochettes Écologiques Assorties",
+      "shortDesc": "Échantillons gratuits + 40$ de frais d'expédition",
+      "description": "Pochettes-échantillons écologiques assorties comprenant des matériaux PCR/Bio, Recyclable et Compostable.",
+      "features": [
+        "Matériaux PCR/Bio",
+        "Options Recyclables",
+        "Options Compostables",
+        "Pack Varié"
+      ]
+    },
+    "sample-top-film": {
+      "name": "Film supérieur imprimé numériquement sur mesure selon votre design",
+      "shortDesc": "20$ d'échantillon + 40$ de frais d'expédition",
+      "description": "Échantillon de film imprimé numériquement en grand format. Idéal pour tester la qualité d'impression et les couleurs.",
+      "features": [
+        "760mm x 1000mm",
+        "Qualité d'Impression Numérique",
+        "Test des Couleurs",
+        "Délai Rapide"
+      ]
+    },
+    "sample-hand-sealed": {
+      "name": "Pochettes Scellées à la Main Imprimées Numériquement sur Mesure",
+      "shortDesc": "20$ d'échantillon + 40$ de frais d'expédition",
+      "description": "Pochettes scellées à la main imprimées numériquement en format personnalisé. Testez vos spécifications exactes avant une commande en gros.",
+      "features": [
+        "Tailles Personnalisées",
+        "Scellé à la Main",
+        "Impression Numérique",
+        "Personnalisation Complète"
+      ]
+    },
+    "conven-3ss-clear-xzip": {
+      "name": "Pochette 3 Côtés Scellés – Transparente, Sans Fermeture Éclair",
+      "shortDesc": "À partir de 90 US$ pour 100 pcs",
+      "description": "Pochette 3 côtés scellés cristal transparente avec finition basse barrière. Parfaite pour mettre en valeur vos produits avec une visibilité totale.",
+      "features": [
+        "Matériau Transparent",
+        "Basse Barrière (Brillant)",
+        "Impression Numérique",
+        "Livraison Gratuite"
+      ]
+    },
+    "conven-3ss-clear-zip": {
+      "name": "Pochette 3 Côtés Scellés – Transparente, Avec Fermeture Éclair",
+      "shortDesc": "À partir de 110 US$ pour 100 pcs",
+      "description": "Pochette 3 côtés scellés transparente refermable. Combine la visibilité du produit avec la praticité d'une fermeture refermable.",
+      "features": [
+        "Matériau Transparent",
+        "Fermeture Éclair Refermable",
+        "Basse Barrière (Brillant)",
+        "Impression Numérique"
+      ]
+    },
+    "conven-3ss-met-xzip": {
+      "name": "Pochette 3 Côtés Scellés – Métallisée, Sans Fermeture Éclair",
+      "shortDesc": "À partir de 90 US$ pour 100 pcs",
+      "description": "Pochette 3 côtés scellés métallisée avec protection haute barrière. Idéale pour les produits sensibles à la lumière et à l'humidité.",
+      "features": [
+        "Matériau Métallisé",
+        "Haute Barrière (Mat)",
+        "Protection contre la Lumière",
+        "Impression Numérique"
+      ]
+    },
+    "conven-3ss-met-zip": {
+      "name": "Pochette 3 Côtés Scellés – Métallisée, Avec Fermeture Éclair",
+      "shortDesc": "À partir de 110 US$ pour 100 pcs",
+      "description": "Pochette 3 côtés scellés métallisée premium avec fermeture éclair. Protection maximale avec refermeture pratique pour la conservation de la fraîcheur.",
+      "features": [
+        "Matériau Métallisé",
+        "Fermeture Éclair Refermable",
+        "Haute Barrière (Mat)",
+        "Fraîcheur Maximale"
+      ]
+    },
+    "conven-sup-clear-xzip": {
+      "name": "Pochette Debout – Transparente, Sans Fermeture Éclair",
+      "shortDesc": "À partir de 90 US$ pour 100 pcs",
+      "description": "Pochette debout transparente avec une excellente présence en rayon. Met en valeur votre produit tout en se tenant debout sur les étagères.",
+      "features": [
+        "Matériau Transparent",
+        "Design Debout",
+        "Basse Barrière (Brillant)",
+        "Présence en Rayon"
+      ]
+    },
+    "conven-sup-clear-zip": {
+      "name": "Pochette Debout – Transparente, Avec Fermeture Éclair",
+      "shortDesc": "À partir de 100 US$ pour 100 pcs",
+      "description": "Pochette debout transparente refermable. Mélange parfait entre visibilité, attrait en rayon et praticité de refermeture.",
+      "features": [
+        "Matériau Transparent",
+        "Debout + Fermeture Éclair",
+        "Basse Barrière (Brillant)",
+        "Livraison Gratuite"
+      ]
+    },
+    "conven-sup-met-xzip": {
+      "name": "Pochette Debout – Métallisée, Sans Fermeture Éclair",
+      "shortDesc": "À partir de 90 US$ pour 100 pcs",
+      "description": "Pochette debout métallisée avec protection haute barrière. Allie une apparence premium à la protection du produit.",
+      "features": [
+        "Matériau Métallisé",
+        "Design Debout",
+        "Haute Barrière (Mat)",
+        "Look Premium"
+      ]
+    },
+    "conven-sup-met-zip": {
+      "name": "Pochette Debout – Métallisée, Avec Fermeture Éclair",
+      "shortDesc": "À partir de 100 US$ pour 100 pcs",
+      "description": "Pochette debout métallisée premium avec fermeture éclair. Notre option la plus vendue combinant toutes les caractéristiques premium.",
+      "features": [
+        "Matériau Métallisé",
+        "Debout + Fermeture Éclair",
+        "Haute Barrière (Mat)",
+        "Meilleure Vente"
+      ]
+    },
+    "conven-fb-met-zip": {
+      "name": "Pochette à Fond Plat – Métallisée, Avec Fermeture Éclair",
+      "shortDesc": "À partir de 900 US$ pour 500 pcs",
+      "description": "Pochette à fond plat avec fermeture éclair et protection haute barrière métallisée. Offre une stabilité maximale, une structure élégante et une présentation premium en rayon.",
+      "features": [
+        "Matériau Métallisé",
+        "Fond Plat + Fermeture Éclair",
+        "Haute Barrière (Mat)",
+        "Structure Auto-portante"
+      ]
+    },
+    "small-sachet-conventional": {
+      "name": "Petit Sachet – Matériau Conventionnel",
+      "shortDesc": "À partir de 159,60 US$ pour 500 pcs",
+      "description": "Petit sachet imprimé sur mesure en structure multi-laminée aluminium pur soie premium (120 microns / 12丝). Offre une barrière ultra-haute contre l'humidité et la lumière. Parfait pour le café, le thé, les poudres en dose individuelle et les échantillons cosmétiques.",
+      "features": [
+        "Aluminium Pur Soie (12丝)",
+        "Barrière Ultra-Haute",
+        "Dorure à Chaud & Impression Numérique",
+        "Tailles & Formes Personnalisées"
+      ]
+    },
+    "eco-3side": {
+      "name": "Éco Numérique – Pochette 3 Côtés Scellés",
+      "shortDesc": "À partir de 100 US$ pour 1 000 pcs",
+      "description": "Pochette 3 côtés scellés écologique. Choisissez parmi les matériaux PCR/Bio Plastique, Mono Recyclable ou Biodégradable.",
+      "features": [
+        "Matériaux Écologiques",
+        "30% Moins de Carbone",
+        "Impression Numérique",
+        "Durable"
+      ]
+    },
+    "eco-centerseal": {
+      "name": "Éco Numérique – Pochette à Scellement Central",
+      "shortDesc": "À partir de 100 US$ pour 1 000 pcs",
+      "description": "Scellement central écologique. Design simple et économique avec des options de matériaux durables.",
+      "features": [
+        "Matériaux Écologiques",
+        "Scellement Central",
+        "Impression Numérique",
+        "Durable"
+      ]
+    },
+    "eco-standup": {
+      "name": "Éco Numérique – Pochette Debout / Doypack",
+      "shortDesc": "À partir de 120 US$ pour 1 000 pcs",
+      "description": "Pochette debout écologique premium. Excellente présence en rayon avec des matériaux durables.",
+      "features": [
+        "Matériaux Écologiques",
+        "Debout",
+        "Impression Numérique",
+        "Premium"
+      ]
+    },
+    "eco-boxbottom": {
+      "name": "Éco Numérique – Pochette à Fond Box",
+      "shortDesc": "À partir de 170 US$ pour 1 000 pcs",
+      "description": "Pochette écologique à fond box. Stabilité et capacité maximales avec des matériaux durables.",
+      "features": [
+        "Matériaux Écologiques",
+        "Fond Box",
+        "Haute Capacité",
+        "Durable"
+      ]
+    },
+    "eco-flatbottom": {
+      "name": "Éco Numérique – Pochette à Fond Plat Carré",
+      "shortDesc": "À partir de 190 US$ pour 1 000 pcs",
+      "description": "Pochette écologique à fond plat. Design fond plat premium avec matériaux écologiques.",
+      "features": [
+        "Matériaux Écologiques",
+        "Fond Plat",
+        "Design Premium",
+        "Durable"
+      ]
+    },
+    "eco-quadseal": {
+      "name": "Éco Numérique – Pochette Quad Seal",
+      "shortDesc": "À partir de 160 US$ pour 1 000 pcs",
+      "description": "Pochette écologique Quad Seal. Scellement aux quatre coins pour une stabilité maximale avec des matériaux durables.",
+      "features": [
+        "Matériaux Écologiques",
+        "Quad Seal",
+        "Haute Stabilité",
+        "Durable"
+      ]
+    },
+    "eco-sidegusset": {
+      "name": "Éco Numérique – Pochette à Soufflet Latéral",
+      "shortDesc": "À partir de 140 US$ pour 1 000 pcs",
+      "description": "Pochette écologique à soufflet latéral. Style classique de sac à café avec des matériaux durables.",
+      "features": [
+        "Matériaux Écologiques",
+        "Soufflet Latéral",
+        "Style Sac à Café",
+        "Durable"
+      ]
+    },
+    "media__1780570697340.jpg": {
+      "name": "Bobine Écologique Personnalisée",
+      "shortDesc": "Film bobine écologique sur mesure conçu pour les lignes d'emballage automatisées Form-Fill-Seal",
+      "description": "Film bobine écologique sur mesure spécialement conçu pour les machines d'emballage automatisées Form-Fill-Seal (FFS). Choisissez parmi les matériaux PCR/Bio Plastique, Mono Recyclable ou Biodégradable.",
+      "features": [
+        "Matériaux Écologiques : Sélectionnez parmi des films polymères biodégradables, compostables ou recyclables",
+        "Prêt pour FFS Automatisé : Conçu pour un glissement optimal et une haute résistance à la traction sur les machines d'emballage automatiques",
+        "Impression Numérique Personnalisée : Frais de cliché supprimés et reproduction multicolore vivid pour les petites séries",
+        "Certifié Qualité Alimentaire : 100% conforme aux normes de sécurité FDA, LFGB et BRC"
+      ]
+    },
+    "food-grade-three-layer-chocolate-cushioning-paper-pad": {
+      "name": "Plateau Alvéolé Gaufrette Trois Couches Alimentaire pour Chocolat, Imprimé Noir et Blanc, Anti-humidité et Absorbant les Chocs",
+      "shortDesc": "Plateau alvéolé gaufrette 3 couches alimentaire pour chocolat avec absorption des chocs anti-humidité",
+      "description": "Un plateau de protection en papier alimentaire premium conçu avec une structure alvéolée gaufrette à trois couches. Spécialement conçu pour les chocolats fins, la confiserie, les pâtisseries et les produits de boulangerie délicats. Offre une absorption supérieure des chocs, une résistance à l'humidité et un amortissement pour éviter les fractures ou l'écrasement lors du transport. Fabriqué à 100% en papier naturel biodégradable et compostable avec des designs imprimés noir et blanc sans danger alimentaire.",
+      "features": [
+        "Sécurité Alimentaire & Conformité FDA : Fabriqué à partir de papier 100% alimentaire pour un contact direct avec la confiserie.",
+        "Coussin Alvéolé Gaufrette 3 Couches : Le motif gaufrette expansé offre une protection excellente contre les chocs.",
+        "Anti-humidité & Résistant aux Huiles : Les couches extérieures empêchent l'absorption de graisse et maintiennent une présentation premium.",
+        "100% Biodégradable & Compostable : Alternative végétale aux protège-bulles en plastique.",
+        "Options d'Impression & Taille Personnalisées : Personnalisable avec une impression noir et blanc sur mesure pour correspondre aux logos."
+      ]
+    },
+    "reusable-acrylic-airtight-canister": {
+      "name": "Bocal Acrylique Hermétique Réutilisable",
+      "shortDesc": "Bocal de stockage acrylique réutilisable premium avec couvercle doré hermétique double couche",
+      "description": "Un bocal acrylique hermétique premium, très durable et réutilisable, conçu pour les produits secs, le thé, le café, les herbes et les produits de beauté. Conçu avec un corps en acrylique alimentaire haute clarté et un couvercle doré protecteur hermétique double couche avec joint en silicone pour assurer la fraîcheur et la préservation de l'humidité sur le long terme. Une alternative durable à l'emballage à usage unique, optimisé pour un rechargement continu à domicile et en usage commercial.",
+      "features": [
+        "Design Circulaire Zéro Déchet : Conçu pour des cycles infinis de lavage et de remplissage en remplacement de l'emballage à usage unique.",
+        "Acrylique Alimentaire Haute Clarté : Transparence élégante semblable au verre avec haute résistance aux chocs et faible poids d'expédition.",
+        "Bouchon Vissé Doré Double Couche : Capuchon de protection double couche avec filetage interne alimentaire pour un sceau hermétique anti-fuite.",
+        "Joint en Silicone : Préservation de la fraîcheur de qualité marine protégeant le contenu de l'air et de l'humidité.",
+        "Plusieurs Classifications de Taille : Disponible en 20 capacités exactes de 100ml à 400ml pour s'adapter à tout espace de rayon."
+      ]
+    },
+    "spouted-stand-up-pouch-bio-pe": {
+      "name": "Pochette Debout à Bec Verseur Bio-PE",
+      "shortDesc": "Pochette debout Bio-PE à base de canne à sucre écologique avec bec verseur étanche",
+      "description": "Une solution d'emballage B2B en gros premium sur mesure conçue avec du polyéthylène végétal dérivé de la canne à sucre (Bio-PE). Formulée avec une structure PET12/AL7/NY15/Bio-PE80, cette pochette offre des performances de barrière identiques au plastique traditionnel tout en réduisant considérablement l'empreinte carbone de votre marque. Entièrement recyclable dans les filières PE standard, avec des soudures robustes et un bouchon à vis refermable inviolable pour les liquides, purées, aliments pour bébés et recharges.",
+      "features": [
+        "Spécifications B2B Avancées : Bio-PE à base de canne à sucre, diamètre intérieur du bec 8mm",
+        "Matériau Écologique Premium : Conçu avec du PET12/AL7/NY15/Bio-PE80 renouvelable.",
+        "100% Recyclable : Compatible avec les filières de recyclage PE standard (#2 et #4).",
+        "Soudures Étanches : Conçu pour le transport de liquides, purées et formulations alimentaires.",
+        "Bouchon Inviolable : Système de fermeture intégré fiable pour préserver la fraîcheur."
+      ]
+    },
+    "recyclable-3ss-evoh-pe-102x152": {
+      "name": "Pochette Trois Côtés Scellés 102mm x 152mm ( PE Recyclable / EVOH-PE )",
+      "shortDesc": "Pochette trois côtés scellés B2B premium sur devis en film composite PE Recyclable/EVOH-PE",
+      "description": "Une solution d'emballage B2B en gros premium sur mesure conçue pour répondre aux normes commerciales les plus élevées. Intégrant une structure composite haute performance PE Recyclable/EVOH-PE, ce produit assure une défense barrière maximale contre l'humidité, la lumière et l'oxydation. Formulé spécifiquement pour maintenir la fraîcheur et l'intégrité structurelle pour la présentation en rayon, il offre une préservation exceptionnelle de la durée de conservation pour le café, le thé, les snacks biologiques ou les composants industriels. Propose une largeur de soudure standard, des bords plats propres et des encoches de déchirure facile.",
+      "features": [
+        "Spécifications B2B Avancées : Composite EVOH-PE haute barrière, largeur de soudure standard, sans fermeture éclair",
+        "Design Trois Côtés Scellés : Format plat optimisé pour les présentations retail professionnelles et un emballage efficace.",
+        "Structure Matériau Premium : Conçu avec du mono-PE 100% recyclable à polymère unique avec barrière EVOH.",
+        "Paliers de Prix Gros : MOQ bas à partir de 200 pièces avec remises par volume progressives.",
+        "Choix Éco-Responsable : Structure entièrement recyclable conçue pour les filières de récupération circulaire standard."
+      ]
+    },
+    "rice-paper-500g-standup": {
+      "name": "Pochette Debout Zippée 220mm x 240mm + 90mm ( Papier de Riz / PBAT )",
+      "shortDesc": "Pochette debout B2B premium sur devis en Papier de Riz 30g / PBAT 100 avec valve de dégazage PLA",
+      "description": "Une solution d'emballage B2B en gros premium sur mesure conçue pour répondre aux normes commerciales les plus élevées. Intégrant une structure multi-couches compostable robuste en Papier de Riz 30g / PBAT 100, ce produit assure une défense barrière maximale contre l'humidité, la lumière et l'oxydation. Formulé spécifiquement pour maintenir les arômes et l'intégrité structurelle pour la présentation en rayon, il offre une préservation exceptionnelle de la durée de conservation pour le café, les aliments de spécialité, les produits biologiques ou les fournitures industrielles. Comporte des encoches de déchirure pratiques, une fermeture éclair refermable fiable, une valve de dégazage PLA et des lignes de soudure robustes.",
+      "features": [
+        "Spécifications B2B Avancées : Fermeture éclair biodégradable refermable, valve de dégazage PLA",
+        "Design Pochette Debout : Emballage commercial B2B parfaitement formé et optimisé pour le marquage professionnel.",
+        "Structure Matériau Premium : Conçu avec des couches compostables haute performance en Papier de Riz 30g / PBAT 100.",
+        "Paliers de Prix Gros : MOQ bas à partir de 500 pièces avec remises personnalisées.",
+        "Système de Fermeture Sécurisé : Soudures intégrées fiables pour préserver la fraîcheur et bloquer l'humidité."
+      ]
+    },
+    "stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl": {
+      "name": "Pochette Debout 300mm x 340mm + 150mm ( Papier Kraft Blanc 60g )",
+      "shortDesc": "Pochette debout B2B premium sur devis en Papier Kraft Blanc 60g/Revêtement Aluminium PLA/PLA+PBAT Biodégradable",
+      "description": "Une solution d'emballage B2B en gros premium sur mesure conçue pour répondre aux normes commerciales les plus élevées. Intégrant une structure multi-couches robuste en Papier Kraft Blanc 60g/Revêtement Aluminium PLA/PLA+PBAT Biodégradable, ce produit assure une défense barrière maximale contre l'humidité, la lumière et l'oxydation. Formulé spécifiquement pour maintenir les arômes et l'intégrité structurelle pour la présentation en rayon, il offre une préservation exceptionnelle de la durée de conservation pour le café, les aliments de spécialité, les produits biologiques ou les fournitures industrielles. Comporte des encoches de déchirure pratiques et des lignes de soudure robustes.",
+      "features": [
+        "Spécifications B2B Avancées : Fermeture éclair biodégradable 13mm-PLA2, sac transparent",
+        "Design Pochette Debout : Emballage commercial B2B parfaitement formé et optimisé pour le marquage professionnel.",
+        "Structure Matériau Premium : Conçu avec des couches haute performance en Papier Kraft Blanc 60g/Revêtement Aluminium PLA/PLA+PBAT Biodégradable.",
+        "Paliers de Prix Gros : MOQ bas à partir de 1 000 pièces avec remises personnalisées.",
+        "Système de Fermeture Sécurisé : Soudures intégrées fiables pour préserver la fraîcheur et bloquer l'humidité."
+      ]
+    },
+    "stand-up-zipper-bag-50-tablets-white-kraft-paper-60g-pla-pba": {
+      "name": "Pochette Debout 215 mm * 215 mm * 100 mm ( Papier Kraft Blanc 60g )",
+      "shortDesc": "Pochette debout B2B premium sur devis en Papier Kraft Blanc 60g / PLA+PBAT Biodégradable",
+      "description": "Une solution d'emballage B2B en gros premium sur mesure conçue pour répondre aux normes commerciales les plus élevées. Intégrant une structure multi-couches robuste en Papier Kraft Blanc 60g / PLA+PBAT Biodégradable, ce produit assure une défense barrière maximale contre l'humidité, la lumière et l'oxydation. Formulé spécifiquement pour maintenir les arômes et l'intégrité structurelle pour la présentation en rayon, il offre une préservation exceptionnelle de la durée de conservation pour le café, les aliments de spécialité, les produits biologiques ou les fournitures industrielles. Comporte des encoches de déchirure pratiques et des lignes de soudure robustes.",
+      "features": [
+        "Spécifications B2B Avancées : Huile anti-décoloration partielle, fermeture éclair biodégradable 13mm PLA2, épaisseur 135",
+        "Design Pochette Debout : Emballage commercial B2B parfaitement formé et optimisé pour le marquage professionnel.",
+        "Structure Matériau Premium : Conçu avec des couches haute performance en Papier Kraft Blanc 60g / PLA+PBAT Biodégradable.",
+        "Paliers de Prix Gros : MOQ bas à partir de 1 000 pièces avec remises personnalisées.",
+        "Système de Fermeture Sécurisé : Soudures intégrées fiables pour préserver la fraîcheur et bloquer l'humidité."
+      ]
+    }
+  }
+}

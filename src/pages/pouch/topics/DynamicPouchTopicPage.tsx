@@ -3,6 +3,49 @@ import { useParams, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import * as LucideIcons from 'lucide-react'
+
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common Pouch Packaging Problems (And Solutions)",
+    problems: [
+      { problem: "Poor Seal Integrity (Leaks)", solution: "Advanced multi-layer extrusion and precise heat-sealing technology.", icon: "ShieldAlert" },
+      { problem: "Oxygen & Moisture Permeation", solution: "High-barrier films (EVOH, AL) to extend shelf life.", icon: "Wind" },
+      { problem: "Puncture & Tear", solution: "Reinforced puncture-resistant nylon or PET outer layers.", icon: "Scissors" },
+      { problem: "Zipper Malfunction", solution: "Premium quality resealable zip-locks tested for 100+ uses.", icon: "Lock" },
+      { problem: "Inconsistent Printing Quality", solution: "High-definition rotogravure and digital printing with color matching.", icon: "Palette" }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: "5 個常見的包裝袋問題（與解決方案）",
+    problems: [
+      { problem: "封口不嚴（洩漏）", solution: "先進的多層擠壓與精確熱封技術。", icon: "ShieldAlert" },
+      { problem: "氧氣與水分滲透", solution: "使用高阻隔薄膜（EVOH, 鋁箔）延長保質期。", icon: "Wind" },
+      { problem: "刺穿與撕裂", solution: "強化耐刺穿的尼龍或 PET 外層。", icon: "Scissors" },
+      { problem: "拉鏈故障", solution: "優質可重複密封拉鏈，經過 100 次以上使用測試。", icon: "Lock" },
+      { problem: "印刷品質不一", solution: "高解析度凹版與數位印刷，具備精準色彩匹配。", icon: "Palette" }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas comunes de los envases (y soluciones)",
+    problems: [
+      { problem: "Mala integridad del sellado (Fugas)", solution: "Extrusión multicapa avanzada y tecnología de sellado térmico preciso.", icon: "ShieldAlert" },
+      { problem: "Permeación de oxígeno y humedad", solution: "Películas de alta barrera (EVOH, AL) para extender la vida útil.", icon: "Wind" },
+      { problem: "Perforación y desgarro", solution: "Capas exteriores reforzadas de nailon o PET resistentes a perforaciones.", icon: "Scissors" },
+      { problem: "Mal funcionamiento de la cremallera", solution: "Cierres de cremallera resellables de primera calidad probados para más de 100 usos.", icon: "Lock" },
+      { problem: "Calidad de impresión inconsistente", solution: "Huecograbado de alta definición e impresión digital con igualación de color.", icon: "Palette" }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes courants des sachets (et solutions)",
+    problems: [
+      { problem: "Mauvaise intégrité de l'étanchéité (Fuites)", solution: "Extrusion multicouche avancée et technologie de thermoscellage précise.", icon: "ShieldAlert" },
+      { problem: "Perméation d'oxygène et d'humidité", solution: "Films à haute barrière (EVOH, AL) pour prolonger la durée de conservation.", icon: "Wind" },
+      { problem: "Perforation et déchirure", solution: "Couches extérieures renforcées en nylon ou PET résistantes aux perforations.", icon: "Scissors" },
+      { problem: "Dysfonctionnement de la fermeture", solution: "Fermetures à glissière de qualité supérieure testées pour plus de 100 utilisations.", icon: "Lock" },
+      { problem: "Qualité d'impression irrégulière", solution: "Héliogravure haute définition et impression numérique avec correspondance des couleurs.", icon: "Palette" }
+    ]
+  }
+}
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -37,7 +80,9 @@ interface MigrationContent {
 }
 
 const DynamicPouchTopicPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = (i18n.resolvedLanguage || 'en') as keyof typeof localTranslations
+  const tLocal = localTranslations[currentLang] || localTranslations.en
   const { slug } = useParams<{ slug: string }>()
   const baseUrl = getBaseUrl()
   
@@ -117,6 +162,39 @@ const DynamicPouchTopicPage: React.FC = () => {
           </div>
         </section>
       ))}
+
+      {/* Pain Points Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="font-black text-5xl text-center mb-16 uppercase leading-tight">{tLocal.problemsTitle}</h2>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              {tLocal.problems.map((item, idx) => {
+                const IconComp = (LucideIcons as any)[item.icon] || LucideIcons.AlertCircle
+                return (
+                  <NeoCard key={idx} color="bg-white" className="flex items-start gap-4 p-6">
+                    <div className="bg-black text-[#D4FF00] p-3 border-2 border-black">
+                      <IconComp className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-black text-xl uppercase mb-2">{item.problem}</h3>
+                      <p className="font-['JetBrains_Mono'] text-gray-700">{item.solution}</p>
+                    </div>
+                  </NeoCard>
+                )
+              })}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/dynamic-topic-pain-points.jpg" 
+                alt="Pain Points Illustration" 
+                className="relative z-10 border-4 border-black w-full grayscale hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-24 bg-white border-b-4 border-black">

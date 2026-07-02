@@ -4,10 +4,135 @@ import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../../components/pouch/PouchLayout';
 import { NeoCard, NeoBadge, NeoButton } from '../../../components/pouch/PouchUI';
 import ClickableImage from '../../../components/ClickableImage';
-import { Thermometer, Zap, Shield, Database, ArrowRight } from 'lucide-react';
+import { Thermometer, Zap, Shield, Database, ArrowRight, AlertTriangle, CheckCircle2 } from 'lucide-react';
+
+const localTranslations = {
+    en: {
+        title: "5 Common High Heat Candle Packaging Problems (And Solutions)",
+        problems: [
+            {
+                title: "1. Melting & Deformation During Transit",
+                desc: "Candles exposed to summer heat can melt and warp standard packaging.",
+                solution: "Solution: Use heat-resistant, multi-layer laminated films that maintain structural integrity up to 90°C (194°F)."
+            },
+            {
+                title: "2. Fragrance & Essential Oil Loss",
+                desc: "Volatile fragrance oils can seep out, diminishing the candle's scent over time.",
+                solution: "Solution: Integrate high-barrier AL (Aluminum) or VMPET layers to lock in aromas and prevent oil migration."
+            },
+            {
+                title: "3. Leaking of Melted Wax",
+                desc: "If wax melts, weak seals can burst, ruining other products in the shipment.",
+                solution: "Solution: Engineer reinforced side gussets and bottom seals using heavy-duty LLDPE for leak-proof performance."
+            },
+            {
+                title: "4. Aesthetic Degradation & Grease Marks",
+                desc: "Oils can stain the exterior packaging, making the product look cheap.",
+                solution: "Solution: Apply an oil-resistant matte or gloss BOPP outer layer that repels grease and maintains a premium look."
+            },
+            {
+                title: "5. Recyclability vs. Heat Resistance",
+                desc: "Traditional heat-resistant pouches use mixed materials that are non-recyclable.",
+                solution: "Solution: Transition to Mono-PE high-temperature tolerant structures that are fully recyclable (Store Drop-off)."
+            }
+        ]
+    },
+    es: {
+        title: "5 Problemas Comunes de Empaque para Velas a Alta Temperatura (Y Soluciones)",
+        problems: [
+            {
+                title: "1. Derretimiento y Deformación Durante el Tránsito",
+                desc: "Las velas expuestas al calor del verano pueden derretirse y deformar el empaque estándar.",
+                solution: "Solución: Utilice películas laminadas multicapa resistentes al calor que mantienen la integridad estructural hasta 90°C (194°F)."
+            },
+            {
+                title: "2. Pérdida de Fragancia y Aceites Esenciales",
+                desc: "Los aceites aromáticos volátiles pueden filtrarse, disminuyendo el aroma de la vela con el tiempo.",
+                solution: "Solución: Integre capas de alta barrera de AL (Aluminio) o VMPET para retener aromas y evitar la migración de aceite."
+            },
+            {
+                title: "3. Fuga de Cera Derretida",
+                desc: "Si la cera se derrite, los sellos débiles pueden reventar, arruinando otros productos en el envío.",
+                solution: "Solución: Diseñe fuelles laterales y sellos inferiores reforzados usando LLDPE de alta resistencia para un rendimiento a prueba de fugas."
+            },
+            {
+                title: "4. Degradación Estética y Marcas de Grasa",
+                desc: "Los aceites pueden manchar el empaque exterior, haciendo que el producto parezca barato.",
+                solution: "Solución: Aplique una capa exterior de BOPP mate o brillante resistente al aceite que repela la grasa y mantenga un aspecto premium."
+            },
+            {
+                title: "5. Reciclabilidad vs. Resistencia al Calor",
+                desc: "Las bolsas tradicionales resistentes al calor usan materiales mixtos que no son reciclables.",
+                solution: "Solución: Haga la transición a estructuras de Mono-PE tolerantes a altas temperaturas que son totalmente reciclables."
+            }
+        ]
+    },
+    fr: {
+        title: "5 Problèmes Courants d'Emballage de Bougies à Haute Température (Et Solutions)",
+        problems: [
+            {
+                title: "1. Fonte et Déformation Pendant le Transport",
+                desc: "Les bougies exposées à la chaleur estivale peuvent fondre et déformer l'emballage standard.",
+                solution: "Solution : Utilisez des films multicouches résistants à la chaleur qui maintiennent l'intégrité structurelle jusqu'à 90°C."
+            },
+            {
+                title: "2. Perte de Parfum et d'Huiles Essentielles",
+                desc: "Les huiles parfumées volatiles peuvent s'infiltrer, diminuant le parfum de la bougie avec le temps.",
+                solution: "Solution : Intégrez des couches barrières en AL (Aluminium) ou VMPET pour retenir les arômes et empêcher la migration d'huile."
+            },
+            {
+                title: "3. Fuite de Cire Fondue",
+                desc: "Si la cire fond, les joints faibles peuvent éclater, ruinant d'autres produits dans l'expédition.",
+                solution: "Solution : Concevez des soufflets latéraux et des joints inférieurs renforcés en utilisant du LLDPE robuste pour des performances étanches."
+            },
+            {
+                title: "4. Dégradation Esthétique et Traces de Graisse",
+                desc: "Les huiles peuvent tacher l'emballage extérieur, donnant au produit un aspect bon marché.",
+                solution: "Solution : Appliquez une couche extérieure en BOPP mat ou brillant résistante à l'huile qui repousse la graisse et maintient un aspect premium."
+            },
+            {
+                title: "5. Recyclabilité vs. Résistance à la Chaleur",
+                desc: "Les sachets traditionnels résistants à la chaleur utilisent des matériaux mixtes non recyclables.",
+                solution: "Solution : Passez à des structures Mono-PE tolérantes aux hautes températures qui sont entièrement recyclables."
+            }
+        ]
+    },
+    "zh-TW": {
+        title: "高溫蠟燭包裝的5個常見問題 (及其解決方案)",
+        problems: [
+            {
+                title: "1. 運輸過程中的融化與變形",
+                desc: "暴露在夏季高溫下的蠟燭可能會融化並使標準包裝變形。",
+                solution: "解決方案：使用耐熱的多層複合薄膜，可在高達 90°C (194°F) 的環境下保持結構完整性。"
+            },
+            {
+                title: "2. 香氣與精油流失",
+                desc: "易揮發的香精油可能會滲出，導致蠟燭的香味隨著時間減弱。",
+                solution: "解決方案：加入高阻隔的鋁箔(AL)或鍍鋁(VMPET)層，鎖住香氣並防止油脂滲透。"
+            },
+            {
+                title: "3. 融化蠟液外漏",
+                desc: "如果蠟融化，薄弱的封口可能會破裂，毀壞運輸中的其他產品。",
+                solution: "解決方案：使用重型 LLDPE 設計加固的側邊摺邊和底部封口，以實現防漏性能。"
+            },
+            {
+                title: "4. 外觀受損與油漬",
+                desc: "油脂會弄髒外包裝，使產品看起來廉價。",
+                solution: "解決方案：塗上一層防油的啞光或亮光 BOPP 外層，可排斥油脂並保持高級質感。"
+            },
+            {
+                title: "5. 可回收性與耐熱性的衝突",
+                desc: "傳統的耐熱袋使用不可回收的混合材料。",
+                solution: "解決方案：轉向使用可耐高溫的單一材質 PE (Mono-PE) 結構，實現完全可回收。"
+            }
+        ]
+    }
+};
 
 const PouchHighHeatCandlePackagingPage: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const currentLang = i18n.language || 'en';
+    const localT = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en;
     return (
         <PouchLayout>
             <Helmet>
@@ -157,6 +282,37 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                         </div>
                     </NeoCard>
 
+
+                    {/* 5 Common Problems Section */}
+                    <NeoCard className="mb-12 border-4 border-black p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white">
+                        <h3 className="text-3xl md:text-4xl font-black uppercase mb-8 italic text-center underline decoration-magenta-600 decoration-8 underline-offset-8">
+                            {localT.title}
+                        </h3>
+                        <div className="grid md:grid-cols-2 gap-12 items-center">
+                            <div className="space-y-6">
+                                {localT.problems.map((prob, idx) => (
+                                    <div key={idx} className="border-l-4 border-black pl-4">
+                                        <h4 className="font-black uppercase text-xl flex items-center gap-2 mb-2">
+                                            <AlertTriangle className="text-magenta-600 shrink-0" size={24} />
+                                            {prob.title}
+                                        </h4>
+                                        <p className="font-medium text-sm mb-2">{prob.desc}</p>
+                                        <p className="font-bold text-sm flex items-start gap-2 text-[#6b8000] bg-[#f4ffcc] p-2 border-2 border-[#D4FF00]">
+                                            <CheckCircle2 className="shrink-0 mt-0.5" size={16} />
+                                            <span>{prob.solution}</span>
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="h-full">
+                                <ClickableImage 
+                                    src="/imgs/knowledge/high-heat-candle-packaging-pain-points.jpg" 
+                                    alt="High Heat Candle Packaging Pain Points" 
+                                    className="border-4 border-black w-full h-full object-cover shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" 
+                                />
+                            </div>
+                        </div>
+                    </NeoCard>
 
                     {/* Expert Knowledge Section */}
                     <NeoCard className="bg-[#D4FF00] p-8 md:p-12 mb-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">

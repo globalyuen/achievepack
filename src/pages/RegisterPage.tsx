@@ -1,15 +1,63 @@
 import React, { useState, useRef } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { Mail, ArrowLeft, Loader2 } from 'lucide-react'
+import { Mail, ArrowLeft, Loader2, AlertCircle, CheckCircle2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation, Trans } from 'react-i18next'
+
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common User Registration Problems (And Solutions)",
+    items: [
+      { problem: "High Drop-off Rates During Sign-Up", solution: "Passwordless authentication and social login." },
+      { problem: "Friction from Remembering Passwords", solution: "Email OTP codes and magic links." },
+      { problem: "Security Vulnerabilities", solution: "Multi-factor authentication (MFA) and rate limiting." },
+      { problem: "User Typos in Email Addresses", solution: "Real-time email validation and feedback." },
+      { problem: "Delayed OTP Delivery", solution: "Countdown timers with clear resend mechanisms." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Registro (Y Soluciones)",
+    items: [
+      { problem: "Altas tasas de abandono", solution: "Autenticación sin contraseña e inicio de sesión social." },
+      { problem: "Fricción por recordar contraseñas", solution: "Códigos OTP por correo y enlaces mágicos." },
+      { problem: "Vulnerabilidades de seguridad", solution: "Autenticación multifactor (MFA) y limitación de tasa." },
+      { problem: "Errores en direcciones de correo", solution: "Validación de correo en tiempo real." },
+      { problem: "Entrega retrasada de OTP", solution: "Temporizadores con mecanismos claros de reenvío." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Inscription (Et Solutions)",
+    items: [
+      { problem: "Taux d'abandon élevés", solution: "Authentification sans mot de passe et connexion sociale." },
+      { problem: "Friction liée aux mots de passe", solution: "Codes OTP par e-mail et liens magiques." },
+      { problem: "Vulnérabilités de sécurité", solution: "Authentification multifacteur (MFA) et limitation du taux." },
+      { problem: "Fautes de frappe dans les e-mails", solution: "Validation des e-mails en temps réel." },
+      { problem: "Retard de livraison des OTP", solution: "Comptes à rebours avec mécanismes de renvoi." }
+    ]
+  },
+  'zh-TW': {
+    title: "5個常見的用戶註冊問題（及解決方案）",
+    items: [
+      { problem: "註冊期間的高流失率", solution: "無密碼身份驗證和社交登入。" },
+      { problem: "記住密碼的摩擦", solution: "電子郵件 OTP 驗證碼和魔術連結。" },
+      { problem: "安全漏洞", solution: "多重身份驗證 (MFA) 和頻率限制。" },
+      { problem: "電子郵件地址輸入錯誤", solution: "即時電子郵件驗證和反饋。" },
+      { problem: "OTP 傳送延遲", solution: "帶有清晰重發機制的倒數計時器。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = ['problems-solutions'];
+export const sectionsForAchieve = ['problems-solutions'];
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const redirectTo = searchParams.get('redirect') || '/dashboard'
   const { sendOtp, verifyOtp, signInWithGoogle } = useAuth()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const tLocal = translations[lang] || translations['en']
   const p = 'seoPages.pages.register'
   
   const [email, setEmail] = useState('')
@@ -281,6 +329,30 @@ const RegisterPage: React.FC = () => {
               <Link to="/privacy" className="text-primary-600 hover:underline" key="1" />
             ]} />
           </p>
+        </div>
+
+        {/* 5 Common Problems (And Solutions) Section */}
+        <div className="bg-white rounded-2xl p-8 shadow-lg mt-8">
+          <h3 className="text-xl font-bold text-neutral-900 mb-4">{tLocal.title}</h3>
+          <img 
+            src="/imgs/knowledge/user-registration-pain-points.jpg" 
+            alt="User Registration Problems and Solutions"
+            className="w-full h-auto mb-6 rounded-lg object-cover"
+          />
+          <ul className="space-y-4">
+            {tLocal.items.map((item: any, i: number) => (
+              <li key={i} className="flex flex-col gap-1">
+                <div className="flex items-start gap-2 text-red-600 font-bold">
+                  <AlertCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <span>{item.problem}</span>
+                </div>
+                <div className="flex items-start gap-2 text-green-700 font-medium ml-2">
+                  <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <span>{item.solution}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

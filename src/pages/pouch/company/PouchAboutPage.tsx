@@ -1,16 +1,62 @@
 import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
-import { Building2, Target, Heart, Users, Award, Leaf } from 'lucide-react'
+import { Building2, Target, Heart, Users, Award, Leaf, CheckCircle2 } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
+
+const localTranslations = {
+  en: {
+    title: "5 Common Sustainable Packaging Problems (And Solutions)",
+    problems: [
+      { q: "High Cost of Eco-Friendly Materials", a: "Engineered optimization of material thickness and bulk purchasing." },
+      { q: "Poor Barrier Properties (Shelf Life)", a: "Multi-layer high-barrier recyclable structures (e.g., EVOH)." },
+      { q: "Aesthetic Limitations (Dull Printing)", a: "Advanced flexographic and digital printing on sustainable films." },
+      { q: "Supply Chain Unreliability", a: "Diversified sourcing and automated tracking systems." },
+      { q: "Lack of Certifications (Greenwashing)", a: "Fully certified BRCGS, FSC, and compostable processes." }
+    ]
+  },
+  es: {
+    title: "5 problemas comunes de embalaje sostenible (y soluciones)",
+    problems: [
+      { q: "Alto costo de materiales ecológicos", a: "Optimización diseñada del espesor del material y compras al por mayor." },
+      { q: "Pobres propiedades de barrera", a: "Estructuras reciclables multicapa de alta barrera (ej. EVOH)." },
+      { q: "Limitaciones estéticas", a: "Impresión digital y flexográfica avanzada sobre películas sostenibles." },
+      { q: "Falta de confiabilidad en la cadena de suministro", a: "Abastecimiento diversificado y sistemas de seguimiento automatizados." },
+      { q: "Falta de certificaciones", a: "Procesos totalmente certificados BRCGS, FSC y compostables." }
+    ]
+  },
+  fr: {
+    title: "5 problèmes courants d'emballage durable (et solutions)",
+    problems: [
+      { q: "Coût élevé des matériaux écologiques", a: "Optimisation de l'épaisseur des matériaux et achats en gros." },
+      { q: "Mauvaises propriétés de barrière", a: "Structures recyclables multicouches à haute barrière (ex. EVOH)." },
+      { q: "Limites esthétiques", a: "Impression numérique et flexographique avancée sur des films durables." },
+      { q: "Manque de fiabilité de la chaîne d'approvisionnement", a: "Approvisionnement diversifié et systèmes de suivi automatisés." },
+      { q: "Manque de certifications", a: "Processus entièrement certifiés BRCGS, FSC et compostables." }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的可持續包裝問題 (及解決方案)",
+    problems: [
+      { q: "環保材料成本高昂", a: "工程化優化材料厚度與大宗採購。" },
+      { q: "阻隔性能差（保質期短）", a: "多層高阻隔可回收結構（如 EVOH）。" },
+      { q: "美觀限制（印刷暗淡）", a: "在可持續薄膜上進行先進的柔版和數字印刷。" },
+      { q: "供應鏈不可靠", a: "多元化採購和自動化追蹤系統。" },
+      { q: "缺乏認證（漂綠）", a: "完全認證的 BRCGS、FSC 和可堆肥流程。" }
+    ]
+  }
+}
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 export default function PouchAboutPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchAbout'
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+
+  const lang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const currentTranslations = localTranslations[lang] || localTranslations.en;
 
   const faqs = [
     {
@@ -223,6 +269,39 @@ export default function PouchAboutPage() {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 text-left border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <NeoBadge color="magenta">SOLUTIONS</NeoBadge>
+              <h2 className="font-black text-4xl md:text-5xl uppercase mt-4 mb-8">
+                {currentTranslations.title}
+              </h2>
+              <div className="space-y-6">
+                {currentTranslations.problems.map((prob, idx) => (
+                  <div key={idx} className="flex gap-4 items-start bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <CheckCircle2 className="w-8 h-8 text-[#10b981] flex-shrink-0" />
+                    <div>
+                      <h3 className="font-black text-xl uppercase mb-2">{prob.q}</h3>
+                      <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">{prob.a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/sustainable-packaging-pain-points.jpg" 
+                alt="5 Common Problems and Solutions" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>

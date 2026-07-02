@@ -118,9 +118,155 @@ const ImageTextRow: React.FC<{
   )
 }
 
+const pcrPainPointsTranslations: Record<string, any> = {
+  en: {
+    title: "5 Common PCR Problems (And Solutions)",
+    points: [
+      {
+        title: "Contamination & Impurities",
+        desc: "Recycled plastics often contain impurities, leading to black specks or discoloration.",
+        solution: "Multi-stage filtration and sorting technology ensures high purity.",
+        icon: "Shield"
+      },
+      {
+        title: "Structural Weakness",
+        desc: "High PCR content can compromise tensile strength, making packaging brittle.",
+        solution: "Co-extrusion with virgin resin layers provides robust structural support.",
+        icon: "Layers"
+      },
+      {
+        title: "Unpleasant Odors",
+        desc: "Residual smells from previous contents can remain in recycled plastic.",
+        solution: "Advanced deodorization and outgassing during the pelletizing process.",
+        icon: "Recycle"
+      },
+      {
+        title: "Inconsistent Coloring",
+        desc: "PCR batches vary in base color, making precise brand color matching difficult.",
+        solution: "High-opacity masterbatches or strategic dark-colored packaging designs.",
+        icon: "Target"
+      },
+      {
+        title: "Processing Instability",
+        desc: "PCR melts at different temperatures, causing uneven thickness.",
+        solution: "Specialized extrusion screws and real-time thickness monitoring.",
+        icon: "TrendingUp"
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes del PCR (Y Soluciones)",
+    points: [
+      {
+        title: "Contaminación e Impurezas",
+        desc: "Los plásticos reciclados suelen contener impurezas, lo que provoca manchas negras o decoloración.",
+        solution: "La tecnología de filtración y clasificación de múltiples etapas garantiza una alta pureza.",
+        icon: "Shield"
+      },
+      {
+        title: "Debilidad Estructural",
+        desc: "Un alto contenido de PCR puede comprometer la resistencia a la tracción, haciendo que el envase sea frágil.",
+        solution: "La coextrusión con capas de resina virgen proporciona un soporte estructural robusto.",
+        icon: "Layers"
+      },
+      {
+        title: "Olores Desagradables",
+        desc: "Pueden quedar olores residuales de contenidos anteriores en el plástico reciclado.",
+        solution: "Desodorización avanzada y desgasificación durante el proceso de peletización.",
+        icon: "Recycle"
+      },
+      {
+        title: "Coloración Inconsistente",
+        desc: "Los lotes de PCR varían en el color base, dificultando la igualación precisa de los colores de la marca.",
+        solution: "Masterbatches de alta opacidad o diseños estratégicos de envases en colores oscuros.",
+        icon: "Target"
+      },
+      {
+        title: "Inestabilidad en el Procesamiento",
+        desc: "El PCR se funde a diferentes temperaturas, causando un grosor desigual.",
+        solution: "Tornillos de extrusión especializados y monitoreo de grosor en tiempo real.",
+        icon: "TrendingUp"
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants du PCR (Et Solutions)",
+    points: [
+      {
+        title: "Contamination et Impuretés",
+        desc: "Les plastiques recyclés contiennent souvent des impuretés, entraînant des taches noires ou une décoloration.",
+        solution: "La technologie de filtration et de tri à plusieurs étapes garantit une grande pureté.",
+        icon: "Shield"
+      },
+      {
+        title: "Faiblesse Structurelle",
+        desc: "Une teneur élevée en PCR peut compromettre la résistance à la traction, rendant l'emballage cassant.",
+        solution: "La coextrusion avec des couches de résine vierge offre un support structurel robuste.",
+        icon: "Layers"
+      },
+      {
+        title: "Odeurs Désagréables",
+        desc: "Des odeurs résiduelles des contenus précédents peuvent persister dans le plastique recyclé.",
+        solution: "Désodorisation avancée et dégazage pendant le processus de granulation.",
+        icon: "Recycle"
+      },
+      {
+        title: "Coloration Incohérente",
+        desc: "Les lots de PCR varient en couleur de base, ce qui complique l'association précise des couleurs de la marque.",
+        solution: "Mélanges maîtres à haute opacité ou conceptions stratégiques d'emballages de couleur sombre.",
+        icon: "Target"
+      },
+      {
+        title: "Instabilité de Traitement",
+        desc: "Le PCR fond à des températures différentes, provoquant une épaisseur inégale.",
+        solution: "Vis d'extrusion spécialisées et surveillance de l'épaisseur en temps réel.",
+        icon: "TrendingUp"
+      }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的 PCR 問題（及解決方案）",
+    points: [
+      {
+        title: "污染與雜質",
+        desc: "回收塑料通常含有雜質，導致出現黑點或變色。",
+        solution: "多階段過濾和分選技術可確保高純度。",
+        icon: "Shield"
+      },
+      {
+        title: "結構弱化",
+        desc: "高 PCR 含量可能會損害拉伸強度，使包裝變脆。",
+        solution: "與原生樹脂層共擠出可提供堅固的結構支撐。",
+        icon: "Layers"
+      },
+      {
+        title: "難聞的氣味",
+        desc: "以前內容物的殘留氣味可能會保留在回收塑料中。",
+        solution: "在造粒過程中進行先進的脫臭和排氣處理。",
+        icon: "Recycle"
+      },
+      {
+        title: "著色不一致",
+        desc: "PCR 批次的底色各不相同，難以精確匹配品牌顏色。",
+        solution: "高不透明度色母粒或採用深色的策略性包裝設計。",
+        icon: "Target"
+      },
+      {
+        title: "加工不穩定",
+        desc: "PCR 在不同溫度下熔化，導致厚度不均。",
+        solution: "專用擠出螺桿和實時厚度監控。",
+        icon: "TrendingUp"
+      }
+    ]
+  }
+}
+
 const PCRRealisticPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
+
+  const lang = i18n.language || 'en'
+  const painPointsData = pcrPainPointsTranslations[lang] || pcrPainPointsTranslations['en']
 
   const p = 'seoPages.pages.pcrRealistic'
   const keywords = t(`${p}.keywords`, { returnObjects: true }) as string[] || []
@@ -583,6 +729,48 @@ const PCRRealisticPage: React.FC = () => {
                 </p>
               </div>
             </ImageTextRow>
+          </div>
+        </section>
+
+        {/* 5 Common PCR Problems Section */}
+        <section className="py-16 bg-neutral-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center flex items-center justify-center gap-3">
+              <Shield className="h-8 w-8 text-teal-600" />
+              {painPointsData.title}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                {painPointsData.points.map((pt: any, idx: number) => {
+                  const Icon = {
+                    Shield: Shield,
+                    Layers: Layers,
+                    Recycle: Recycle,
+                    Target: Target,
+                    TrendingUp: TrendingUp
+                  }[pt.icon] || CheckCircle;
+                  return (
+                    <div key={idx} className="bg-white p-5 rounded-xl shadow-sm border border-neutral-100 flex gap-4 items-start">
+                      <div className="bg-teal-50 p-3 rounded-lg flex-shrink-0">
+                        <Icon className="h-6 w-6 text-teal-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-neutral-900 text-lg mb-1">{pt.title}</h4>
+                        <p className="text-neutral-600 text-sm mb-2">{pt.desc}</p>
+                        <p className="text-teal-700 text-sm font-medium bg-teal-50 p-2 rounded inline-block">Solution: {pt.solution}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+              <div className="relative">
+                <ClickableImage 
+                  src="/imgs/knowledge/pcr-pain-points.jpg"
+                  alt={painPointsData.title}
+                  className="w-full rounded-xl shadow-2xl object-cover"
+                />
+              </div>
+            </div>
           </div>
         </section>
 

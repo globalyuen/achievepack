@@ -7,8 +7,54 @@ import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const FlatPouchesPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
+
+  const translations = {
+    en: {
+      title: "5 Common Flat Pouch Problems (And Solutions)",
+      items: [
+        { q: "Weak Seals & Leaks", a: "Solution: Reinforced wide seal borders and high-temp laminating for secure edges." },
+        { q: "Messy, Uneven Opening", a: "Solution: Precision laser scoring and V-notch for a clean, straight tear." },
+        { q: "Moisture Caking in Powders", a: "Solution: High-barrier AL or VMPET layers to block moisture." },
+        { q: "Blurry Print on Small Sizes", a: "Solution: High-res rotogravure printing for crisp text." },
+        { q: "Slow Packing on Auto-Lines", a: "Solution: Custom slip additives for low friction and fast filling." }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes en Bolsas Planas (y Soluciones)",
+      items: [
+        { q: "Sellos Débiles y Fugas", a: "Solución: Bordes de sellado anchos y reforzados con laminación a alta temperatura." },
+        { q: "Apertura Desigual y Sucia", a: "Solución: Marcado láser de precisión y muesca en V para un desgarro limpio y recto." },
+        { q: "Apelmazamiento por Humedad en Polvos", a: "Solución: Capas de alta barrera de AL o VMPET para bloquear la humedad." },
+        { q: "Impresión Borrosa en Tamaños Pequeños", a: "Solución: Impresión de huecograbado de alta resolución para textos nítidos." },
+        { q: "Empaque Lento en Líneas Automáticas", a: "Solución: Aditivos de deslizamiento personalizados para baja fricción y llenado rápido." }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants des Sachets Plats (et Solutions)",
+      items: [
+        { q: "Joints Faibles et Fuites", a: "Solution : Bords de scellage larges et renforcés avec laminage à haute température." },
+        { q: "Ouverture Inégale et Salissante", a: "Solution : Découpe laser de précision et encoche en V pour une déchirure nette et droite." },
+        { q: "Agglomération de Poudre due à l'Humidité", a: "Solution : Couches haute barrière en AL ou VMPET pour bloquer l'humidité." },
+        { q: "Impression Floue sur Petits Formats", a: "Solution : Impression en héliogravure haute résolution pour des textes nets." },
+        { q: "Emballage Lent sur Lignes Automatiques", a: "Solution : Additifs de glissement personnalisés pour une faible friction et un remplissage rapide." }
+      ]
+    },
+    'zh-TW': {
+      title: "平底袋的 5 個常見問題 (與解決方案)",
+      items: [
+        { q: "封口薄弱與漏液", a: "解決方案：加固寬邊封口與高溫複合技術，確保邊緣牢固。" },
+        { q: "撕開不均勻與凌亂", a: "解決方案：精密雷射打線與V型撕口，實現乾淨筆直的撕裂。" },
+        { q: "粉末受潮結塊", a: "解決方案：高阻隔純鋁或鍍鋁層，有效阻絕水分與氧氣。" },
+        { q: "小尺寸印刷模糊", a: "解決方案：高解析度凹版印刷，確保微小文字與色彩清晰。" },
+        { q: "自動包裝線速度慢", a: "解決方案：內層特製滑爽劑，降低摩擦力，實現高速自動充填。" }
+      ]
+    }
+  };
+  const currentLang = (i18n.language || 'en') as keyof typeof translations;
+  const localT = translations[currentLang] || translations.en;
+
   const p = 'seoPages.pages.flatPouches'
   // Safe array fallbacks to prevent runtime crashes
   const overviewAdvantagesVal = t(`${p}.sections.overview.advantages`, { returnObjects: true });
@@ -448,6 +494,35 @@ const FlatPouchesPage: React.FC = () => {
           <div className="bg-primary-50 p-4 rounded-lg">
             <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.materialComparison.guideTitle`)}</h4>
             <p className="text-sm text-primary-700">{t(`${p}.sections.materialComparison.guideText`)}</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points-solutions',
+      title: localT.title,
+      icon: <Shield className="h-5 w-5 text-red-600" />,
+      content: (
+        <div className="bg-red-50 p-6 rounded-lg border border-red-100">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              {localT.items.map((item, idx) => (
+                <div key={idx} className="flex gap-3">
+                  <CheckCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-neutral-900">{item.q}</h4>
+                    <p className="text-sm text-neutral-600 mt-1">{item.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div>
+              <img 
+                src="/imgs/knowledge/flat-pouches-pain-points.jpg" 
+                alt="Flat Pouch Pain Points and Solutions" 
+                className="w-full h-auto rounded-xl shadow-md border border-neutral-200"
+              />
+            </div>
           </div>
         </div>
       )

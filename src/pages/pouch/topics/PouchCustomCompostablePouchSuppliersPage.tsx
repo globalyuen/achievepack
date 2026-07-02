@@ -1,16 +1,66 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
-import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Leaf } from 'lucide-react'
+import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Leaf, AlertTriangle } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Custom Compostable Pouch Problems (And Solutions)",
+    badge: "Pain Points",
+    problems: [
+      { q: "1. Low Barrier Properties", a: "Solution: Advanced metallized compostable films or ALOX/SIOX coatings are used to improve oxygen and moisture barriers." },
+      { q: "2. Poor Seal Strength", a: "Solution: Utilizing innovative bio-based sealants ensures robust seal integrity even at high speeds." },
+      { q: "3. Premature Degradation", a: "Solution: Implementing controlled-release stabilizing additives extends shelf life without compromising compostability." },
+      { q: "4. Limited Print Quality", a: "Solution: Utilizing eco-friendly water-based or soy-based inks combined with surface pre-treatments allows for vibrant printing." },
+      { q: "5. High MOQ Requirements", a: "Solution: Adopting agile digital printing on compostable substrates enables cost-effective short runs and lower MOQs." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas Compostables (Y Soluciones)",
+    badge: "Puntos Críticos",
+    problems: [
+      { q: "1. Bajas Propiedades de Barrera", a: "Solución: Se utilizan películas compostables metalizadas avanzadas o recubrimientos ALOX/SIOX para mejorar la barrera." },
+      { q: "2. Poca Resistencia del Sello", a: "Solución: El uso de selladores innovadores de base biológica garantiza la integridad del sello a altas velocidades." },
+      { q: "3. Degradación Prematura", a: "Solución: La implementación de aditivos estabilizadores prolonga la vida útil sin comprometer la compostabilidad." },
+      { q: "4. Calidad de Impresión Limitada", a: "Solución: La utilización de tintas ecológicas a base de agua o soja permite una impresión vibrante." },
+      { q: "5. Altos Requisitos de MOQ", a: "Solución: La adopción de impresión digital ágil permite tiradas cortas rentables y MOQs más bajos." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets Compostables (Et Solutions)",
+    badge: "Points Douloureux",
+    problems: [
+      { q: "1. Faibles Propriétés de Barrière", a: "Solution: Des films compostables métallisés avancés ou des revêtements ALOX/SIOX sont utilisés pour améliorer la barrière." },
+      { q: "2. Faible Résistance du Joint", a: "Solution: L'utilisation de scellants biosourcés innovants garantit l'intégrité du joint même à grande vitesse." },
+      { q: "3. Dégradation Prématurée", a: "Solution: La mise en œuvre d'additifs stabilisants prolonge la durée de conservation sans compromettre la compostabilité." },
+      { q: "4. Qualité d'Impression Limitée", a: "Solution: L'utilisation d'encres écologiques à base d'eau ou de soja permet une impression éclatante." },
+      { q: "5. Exigences MOQ Élevées", a: "Solution: L'adoption de l'impression numérique agile permet des tirages courts rentables." }
+    ]
+  },
+  'zh-TW': {
+    title: "定制可降解包裝袋的5個常見問題（及解決方案）",
+    badge: "痛點分析",
+    problems: [
+      { q: "1. 阻隔性能低", a: "解決方案：使用先進的金屬化可降解薄膜或 ALOX/SIOX 塗層來提高阻氧和阻水性。" },
+      { q: "2. 封口強度差", a: "解決方案：利用創新的生物基密封劑確保在高速運作下的封口完整性。" },
+      { q: "3. 過早降解", a: "解決方案：添加控釋穩定劑，延長保質期而不影響可降解性。" },
+      { q: "4. 印刷質量有限", a: "解決方案：使用環保的水性或大豆基油墨，實現鮮豔的高解析度印刷。" },
+      { q: "5. 起訂量要求高", a: "解決方案：在可降解基材上採用靈活的數字印刷，實現高性價比的小批量生產。" }
+    ]
+  }
+}
+
 const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'pouchCustomCompostablePouchSuppliersPage'
   const baseUrl = getBaseUrl()
+  
+  const currentLang = i18n.language || 'en'
+  const localT = translations[currentLang] || translations['en']
   
   const BIO_METRICS = [
     { label: t(`${p}.metrics.bioDegrade.label`), value: t(`${p}.metrics.bioDegrade.value`), unit: t(`${p}.metrics.bioDegrade.unit`), desc: t(`${p}.metrics.bioDegrade.desc`) },
@@ -170,6 +220,39 @@ const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt={t(`${p}.science.imageAlt`)} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">{localT.badge}</NeoBadge>
+              <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">
+                {localT.title}
+              </h2>
+              <div className="space-y-6">
+                {localT.problems.map((prob: any, i: number) => (
+                  <div key={i} className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                    <h4 className="font-black text-xl uppercase mb-2 flex items-center gap-3">
+                      <AlertTriangle className="w-6 h-6 text-red-500" />
+                      {prob.q}
+                    </h4>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 pl-9">{prob.a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/custom-compostable-pouch-suppliers-pain-points.jpg" 
+                alt="Compostable Pouch Problems" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

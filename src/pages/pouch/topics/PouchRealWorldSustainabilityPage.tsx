@@ -7,10 +7,58 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+export const translations = {
+  en: {
+    sectionTitle: "5 Common Real World Sustainability Problems (And Solutions)",
+    problems: [
+      { title: "Greenwashing Risks", desc: "Solution: Transparent supply chain tracking and verifiable LCA data." },
+      { title: "Compliance with changing EPR laws", desc: "Solution: Utilizing standardized reporting and pre-certified sustainable materials." },
+      { title: "High cost of sustainable materials", desc: "Solution: Optimized material science reducing waste and thickness without sacrificing barrier properties." },
+      { title: "Unreliable end-of-life processing", desc: "Solution: Designing mono-materials matching local infrastructure." },
+      { title: "Slower production speeds with eco-materials", desc: "Solution: Specialized coatings engineered for high-speed filling lines." }
+    ]
+  },
+  es: {
+    sectionTitle: "5 problemas comunes de sostenibilidad en el mundo real (y soluciones)",
+    problems: [
+      { title: "Riesgos de lavado verde", desc: "Solución: Seguimiento transparente de la cadena de suministro y datos de ACV verificables." },
+      { title: "Cumplimiento de las cambiantes leyes de REP", desc: "Solución: Uso de informes estandarizados y materiales sostenibles precertificados." },
+      { title: "Alto costo de los materiales sostenibles", desc: "Solución: Ciencia de materiales optimizada que reduce el desperdicio y el grosor sin sacrificar las propiedades de barrera." },
+      { title: "Procesamiento de fin de vida útil poco confiable", desc: "Solución: Diseño de monomateriales que se adapten a la infraestructura local." },
+      { title: "Velocidades de producción más lentas con materiales ecológicos", desc: "Solución: Recubrimientos especializados diseñados para líneas de llenado de alta velocidad." }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 problèmes courants de durabilité dans le monde réel (et solutions)",
+    problems: [
+      { title: "Risques d'écoblanchiment", desc: "Solution : Suivi transparent de la chaîne d'approvisionnement et données d'ACV vérifiables." },
+      { title: "Conformité aux lois REP changeantes", desc: "Solution : Utilisation de rapports standardisés et de matériaux durables pré-certifiés." },
+      { title: "Coût élevé des matériaux durables", desc: "Solution : Science des matériaux optimisée réduisant les déchets et l'épaisseur sans sacrifier les propriétés barrières." },
+      { title: "Traitement de fin de vie non fiable", desc: "Solution : Conception de mono-matériaux adaptés aux infrastructures locales." },
+      { title: "Vitesses de production plus lentes avec des éco-matériaux", desc: "Solution : Revêtements spécialisés conçus pour les lignes de remplissage à grande vitesse." }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: "5 個常見的現實世界永續性問題（與解決方案）",
+    problems: [
+      { title: "漂綠風險", desc: "解決方案：透明的供應鏈追蹤與可驗證的生命週期評估數據。" },
+      { title: "應對不斷變化的 EPR 法規", desc: "解決方案：利用標準化報告與預先認證的永續材料。" },
+      { title: "永續材料成本高昂", desc: "解決方案：優化材料科學，在不犧牲阻隔性的前提下減少浪費與厚度。" },
+      { title: "產品報廢處理不可靠", desc: "解決方案：設計符合當地基礎設施的單一材質包裝。" },
+      { title: "環保材料導致生產速度變慢", desc: "解決方案：專為高速填充線設計的特殊塗層。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = translations;
+export const sectionsForAchieve = translations;
+
 const PouchRealWorldSustainabilityPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'pouchRealWorldSustainabilityPage'
   const baseUrl = getBaseUrl()
+  
+  const pageT = translations[i18n.language as keyof typeof translations] || translations.en;
   
   const IMPACT_METRICS = [
     { label: t(`${p}.metrics.carbonProof.label`), value: t(`${p}.metrics.carbonProof.value`), unit: t(`${p}.metrics.carbonProof.unit`), desc: t(`${p}.metrics.carbonProof.desc`) },
@@ -172,6 +220,40 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
                 alt={t(`${p}.science.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-black text-4xl md:text-6xl uppercase italic">
+              {pageT.sectionTitle}
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/real-world-sustainability-pain-points.jpg"
+                alt={pageT.sectionTitle}
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+            <div className="space-y-6">
+              {pageT.problems.map((prob, idx) => (
+                <div key={idx} className="bg-white border-4 border-black p-6 flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-transform">
+                  <div className="bg-black text-[#D4FF00] p-2 flex-shrink-0 mt-1">
+                    <CheckCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-black uppercase text-xl mb-2">{prob.title}</h4>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 leading-relaxed">{prob.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -7,8 +7,133 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common Custom Packaging Problems (And Solutions)",
+    problems: [
+      {
+        title: "Color Inconsistency",
+        problem: "Brand colors vary between digital screens and final printed pouches.",
+        solution: "Pantone (PMS) matching with spectrophotometer calibration ensures 100% color accuracy."
+      },
+      {
+        title: "High Minimum Order Quantities (MOQ)",
+        problem: "Startups cannot afford the high MOQs required by traditional printing.",
+        solution: "HP Indigo digital printing allows for low MOQ with zero plate costs."
+      },
+      {
+        title: "Fading and Scratching",
+        problem: "Printed designs scratch off or fade during shipping and handling.",
+        solution: "We use a reverse printing technique combined with a protective laminate layer."
+      },
+      {
+        title: "Slow Time to Market",
+        problem: "Traditional printing requires long lead times for plate creation and setup.",
+        solution: "Digital printing eliminates plates, reducing turnaround times to just days."
+      },
+      {
+        title: "Poor Print Resolution",
+        problem: "Complex gradients and photographic images look pixelated on standard packaging.",
+        solution: "1200 DPI high-definition digital printing captures intricate details and gradients flawlessly."
+      }
+    ]
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes del Empaque Personalizado (y Soluciones)",
+    problems: [
+      {
+        title: "Inconsistencia de Color",
+        problem: "Los colores de la marca varían entre las pantallas digitales y las bolsas impresas.",
+        solution: "La igualación Pantone (PMS) con calibración espectrofotométrica garantiza una precisión del 100%."
+      },
+      {
+        title: "Altas Cantidades Mínimas de Pedido (MOQ)",
+        problem: "Las startups no pueden pagar los altos MOQ de la impresión tradicional.",
+        solution: "La impresión digital HP Indigo permite MOQ bajos sin costos de planchas."
+      },
+      {
+        title: "Decoloración y Rayones",
+        problem: "Los diseños impresos se rayan o se desvanecen durante el envío.",
+        solution: "Utilizamos una técnica de impresión inversa combinada con una capa protectora laminada."
+      },
+      {
+        title: "Lentitud en el Lanzamiento",
+        problem: "La impresión tradicional requiere largos tiempos de entrega para las planchas.",
+        solution: "La impresión digital elimina las planchas, reduciendo el tiempo a solo días."
+      },
+      {
+        title: "Baja Resolución de Impresión",
+        problem: "Los degradados e imágenes fotográficas se ven pixelados en el empaque estándar.",
+        solution: "La impresión digital de alta definición de 1200 DPI captura detalles impecablemente."
+      }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants d'Emballage Personnalisé (et Solutions)",
+    problems: [
+      {
+        title: "Incohérence des Couleurs",
+        problem: "Les couleurs de la marque varient entre les écrans numériques et les sachets imprimés.",
+        solution: "La correspondance Pantone (PMS) avec calibrage spectrophotométrique garantit une précision de 100 %."
+      },
+      {
+        title: "Quantités Minimales de Commande (MOQ) Élevées",
+        problem: "Les startups ne peuvent pas se permettre les MOQ élevés de l'impression traditionnelle.",
+        solution: "L'impression numérique HP Indigo permet de faibles MOQ sans frais de plaque."
+      },
+      {
+        title: "Décoloration et Rayures",
+        problem: "Les motifs imprimés se rayent ou s'effacent pendant l'expédition.",
+        solution: "Nous utilisons une technique d'impression inversée combinée à une couche protectrice stratifiée."
+      },
+      {
+        title: "Mise sur le Marché Lente",
+        problem: "L'impression traditionnelle nécessite de longs délais pour la création des plaques.",
+        solution: "L'impression numérique élimine les plaques, réduisant les délais à quelques jours."
+      },
+      {
+        title: "Mauvaise Résolution d'Impression",
+        problem: "Les dégradés et les images photographiques semblent pixélisés sur un emballage standard.",
+        solution: "L'impression numérique haute définition 1200 DPI capture les détails de manière impeccable."
+      }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: "客製化包裝的 5 個常見問題（及解決方案）",
+    problems: [
+      {
+        title: "顏色不一致",
+        problem: "品牌顏色在數位螢幕和最終印刷的袋子之間存在差異。",
+        solution: "Pantone (PMS) 匹配和分光光度計校準可確保 100% 的顏色準確度。"
+      },
+      {
+        title: "最低訂購量 (MOQ) 高",
+        problem: "新創公司無法負擔傳統印刷所需的高最低訂購量。",
+        solution: "HP Indigo 數位印刷允許低 MOQ，且無需製版費用。"
+      },
+      {
+        title: "褪色和刮痕",
+        problem: "印刷圖案在運輸和處理過程中會被刮掉或褪色。",
+        solution: "我們使用反面印刷技術結合保護性複合層。"
+      },
+      {
+        title: "上市時間慢",
+        problem: "傳統印刷需要很長的製版和設置時間。",
+        solution: "數位印刷消除了製版過程，將交貨時間縮短至幾天。"
+      },
+      {
+        title: "列印解析度差",
+        problem: "複雜的漸層和攝影圖像在標準包裝上看起來有像素感。",
+        solution: "1200 DPI 高畫質數位印刷完美捕捉複雜細節和漸層。"
+      }
+    ]
+  }
+};
+
 const PouchCustomBrandPackagingPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation();
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const langData = localTranslations[currentLang] || localTranslations.en;
   const p = 'pouchCustomBrandPackagingPage'
   const baseUrl = getBaseUrl()
   
@@ -170,6 +295,39 @@ const PouchCustomBrandPackagingPage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt={t(`${p}.logistics.alt`)} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">SOLUTIONS_ARCHIVE</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">{langData.sectionTitle}</h2>
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="space-y-8">
+              {langData.problems.map((item, index) => (
+                <div key={index} className="flex gap-4 items-start p-6 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-slate-50">
+                  <div className="w-12 h-12 bg-black text-white flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-[#D4FF00]" />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-xl uppercase mb-2">{item.title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-red-600 mb-2"><strong>Problem:</strong> {item.problem}</p>
+                    <p className="font-['JetBrains_Mono'] text-green-700"><strong>Solution:</strong> {item.solution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative sticky top-24">
+              <div className="absolute inset-0 bg-indigo-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/custom-brand-packaging-pain-points.jpg" 
+                alt="Custom Packaging Engineering Solutions" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

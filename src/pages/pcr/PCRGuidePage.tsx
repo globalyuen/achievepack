@@ -2,11 +2,134 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Recycle, CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Factory, Eye, Sparkles, Layers, ShieldCheck } from 'lucide-react'
+import { Recycle, CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Factory, Eye, Sparkles, Layers, ShieldCheck, AlertTriangle } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
 import SocialShareButtons from '../../components/SocialShareButtons'
+
+const localTranslations: Record<string, any> = {
+  en: {
+    problemsTitle: "5 Common PCR Problems (And Solutions)",
+    problems: [
+      {
+        title: "1. Impurities and Gel Particles (Black Spots)",
+        desc: "PCR materials often contain trace contaminants that appear as black spots or gels in the film.",
+        solution: "Solution: We use advanced optical sorting and multi-stage melt filtration to ensure high clarity and purity."
+      },
+      {
+        title: "2. Inconsistent Color and Appearance",
+        desc: "Variations in recycled feedstocks can lead to unpredictable tints (often yellowish or grayish) in the final product.",
+        solution: "Solution: Employing multi-layer co-extrusion technology, we place the PCR layer in the core, surrounded by virgin layers for a consistent, premium finish."
+      },
+      {
+        title: "3. Reduced Mechanical and Barrier Strength",
+        desc: "The recycling process can degrade polymer chains, reducing tensile strength and barrier performance.",
+        solution: "Solution: We blend PCR with high-performance virgin resins and apply specialized barrier coatings (like EVOH or AlOx) to meet strict shelf-life requirements."
+      },
+      {
+        title: "4. Residual Odors",
+        desc: "Post-consumer plastics can retain odors from their previous uses, which is unacceptable for food or cosmetic packaging.",
+        solution: "Solution: Our suppliers utilize intensive washing and vacuum degassing during pelletization to eliminate volatile organic compounds (VOCs)."
+      },
+      {
+        title: "5. Unreliable Heat Sealing",
+        desc: "Using PCR in the sealing layer can cause inconsistent seal strength, leading to leaks.",
+        solution: "Solution: We guarantee the innermost sealing layer remains 100% virgin LLDPE, ensuring reliable, hermetic seals on every pouch."
+      }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de PCR (Y Soluciones)",
+    problems: [
+      {
+        title: "1. Impurezas y Partículas de Gel (Puntos Negros)",
+        desc: "Los materiales PCR a menudo contienen contaminantes traza que aparecen como puntos negros o geles en la película.",
+        solution: "Solución: Utilizamos clasificación óptica avanzada y filtración de fusión de múltiples etapas para garantizar alta claridad y pureza."
+      },
+      {
+        title: "2. Color y Apariencia Inconsistentes",
+        desc: "Las variaciones en las materias primas recicladas pueden provocar tintes impredecibles (a menudo amarillentos o grisáceos) en el producto final.",
+        solution: "Solución: Empleando tecnología de coextrusión de múltiples capas, colocamos la capa de PCR en el núcleo, rodeada de capas vírgenes para un acabado consistente y premium."
+      },
+      {
+        title: "3. Resistencia Mecánica y de Barrera Reducidas",
+        desc: "El proceso de reciclaje puede degradar las cadenas de polímeros, reduciendo la resistencia a la tracción y el rendimiento de la barrera.",
+        solution: "Solución: Mezclamos PCR con resinas vírgenes de alto rendimiento y aplicamos recubrimientos de barrera especializados para cumplir con estrictos requisitos de vida útil."
+      },
+      {
+        title: "4. Olores Residuales",
+        desc: "Los plásticos posconsumo pueden retener olores de sus usos anteriores, lo cual es inaceptable para envases de alimentos o cosméticos.",
+        solution: "Solución: Nuestros proveedores utilizan lavado intensivo y desgasificación al vacío durante la granulación para eliminar los compuestos orgánicos volátiles (COV)."
+      },
+      {
+        title: "5. Sellado Térmico Poco Confiable",
+        desc: "El uso de PCR en la capa de sellado puede causar una resistencia de sellado inconsistente, lo que provoca fugas.",
+        solution: "Solución: Garantizamos que la capa de sellado más interna siga siendo 100% LLDPE virgen, asegurando sellos herméticos y confiables en cada bolsa."
+      }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants de PCR (Et Solutions)",
+    problems: [
+      {
+        title: "1. Impuretés et Particules de Gel (Points Noirs)",
+        desc: "Les matériaux PCR contiennent souvent des traces de contaminants qui apparaissent sous forme de points noirs ou de gels dans le film.",
+        solution: "Solution : Nous utilisons un tri optique avancé et une filtration à l'état fondu en plusieurs étapes pour garantir une clarté et une pureté élevées."
+      },
+      {
+        title: "2. Couleur et Apparence Incohérentes",
+        desc: "Les variations des matières premières recyclées peuvent entraîner des teintes imprévisibles (souvent jaunâtres ou grisâtres) dans le produit final.",
+        solution: "Solution : En utilisant la technologie de coextrusion multicouche, nous plaçons la couche PCR au cœur, entourée de couches vierges pour une finition cohérente et haut de gamme."
+      },
+      {
+        title: "3. Résistance Mécanique et Barrière Réduites",
+        desc: "Le processus de recyclage peut dégrader les chaînes polymères, réduisant ainsi la résistance à la traction et les performances de la barrière.",
+        solution: "Solution : Nous mélangeons la PCR avec des résines vierges haute performance et appliquons des revêtements barrières spécialisés pour répondre aux exigences strictes de durée de conservation."
+      },
+      {
+        title: "4. Odeurs Résiduelles",
+        desc: "Les plastiques post-consommation peuvent conserver les odeurs de leurs utilisations précédentes, ce qui est inacceptable pour les emballages alimentaires ou cosmétiques.",
+        solution: "Solution : Nos fournisseurs utilisent un lavage intensif et un dégazage sous vide pendant la granulation pour éliminer les composés organiques volatils (COV)."
+      },
+      {
+        title: "5. Thermoscellage Peu Fiable",
+        desc: "L'utilisation de PCR dans la couche de scellage peut entraîner une résistance de scellage incohérente, entraînant des fuites.",
+        solution: "Solution : Nous garantissons que la couche de scellage la plus interne reste à 100 % en LLDPE vierge, garantissant des scellages fiables et hermétiques sur chaque sachet."
+      }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: "5 個常見的 PCR 問題（與解決方案）",
+    problems: [
+      {
+        title: "1. 雜質與晶點（黑點）",
+        desc: "PCR 材料通常含有微量污染物，會在薄膜中呈現黑點或晶點。",
+        solution: "解決方案：我們採用先進的光學分選與多級熔體過濾，確保高清晰度與純度。"
+      },
+      {
+        title: "2. 顏色與外觀不均勻",
+        desc: "回收原料的變化可能導致最終產品出現不可預測的色調（通常偏黃或偏灰）。",
+        solution: "解決方案：採用多層共擠技術，我們將 PCR 層置於核心，外圍以原生料包覆，呈現一致的優質外觀。"
+      },
+      {
+        title: "3. 機械與阻隔強度降低",
+        desc: "回收過程會降解聚合物鏈，降低拉伸強度與阻隔性能。",
+        solution: "解決方案：我們將 PCR 與高性能原生樹脂混合，並塗佈特殊的阻隔塗層，以符合嚴格的保質期要求。"
+      },
+      {
+        title: "4. 殘留異味",
+        desc: "消費後塑膠可能會殘留先前使用的異味，這對於食品或化妝品包裝是不可接受的。",
+        solution: "解決方案：我們的供應商在造粒過程中進行強力清洗與真空脫氣，消除揮發性有機化合物 (VOC)。"
+      },
+      {
+        title: "5. 熱封不可靠",
+        desc: "在封合層使用 PCR 會導致封合強度不均，進而造成洩漏。",
+        solution: "解決方案：我們保證最內層的封合層 100% 採用原生 LLDPE，確保每個包裝袋都有可靠、密封的封口。"
+      }
+    ]
+  }
+}
 
 // Image paths - using imgs/pcr/guide folder (v2 for cache busting)
 const IMAGES = {
@@ -118,8 +241,12 @@ const ImageTextRow: React.FC<{
 }
 
 const PCRGuidePage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
+
+  const currentLang = i18n.language || 'en'
+  const langKey = currentLang.startsWith('zh') ? 'zh-TW' : currentLang.split('-')[0]
+  const content = localTranslations[langKey] || localTranslations['en']
 
   const p = 'seoPages.pages.pcrGuide'
   const keywords = t(`${p}.keywords`, { returnObjects: true }) as string[] || []
@@ -575,6 +702,37 @@ const PCRGuidePage: React.FC = () => {
                 </p>
               </div>
             </ImageTextRow>
+          </div>
+        </section>
+
+        {/* Common Problems Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
+              <AlertTriangle className="h-8 w-8 text-amber-500" />
+              {content.problemsTitle}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                {content.problems.map((prob: any, idx: number) => (
+                  <div key={idx} className="bg-neutral-50 p-6 rounded-xl border border-neutral-100">
+                    <h3 className="font-bold text-lg text-neutral-900 mb-2">{prob.title}</h3>
+                    <p className="text-neutral-600 mb-3">{prob.desc}</p>
+                    <div className="flex items-start gap-2 text-teal-700 bg-teal-50/50 p-3 rounded-lg">
+                      <CheckCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
+                      <p className="font-medium">{prob.solution}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="sticky top-24">
+                <ClickableImage 
+                  src="/imgs/knowledge/pcr-pain-points.jpg"
+                  alt="PCR Problems and Solutions"
+                  className="w-full rounded-2xl shadow-xl border border-neutral-100"
+                />
+              </div>
+            </div>
           </div>
         </section>
 

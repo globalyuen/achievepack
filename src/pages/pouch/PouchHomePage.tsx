@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, type MouseEvent, type UIEvent } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play, Sparkles, BookOpen, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play, Sparkles, BookOpen, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -15,6 +15,52 @@ import KnowHowCarousel from '../../components/KnowHowCarousel'
 // ============================================
 // NEO-BRUTALIST COMPONENTS (Local)
 // ============================================
+
+export const translations = {
+  en: {
+    sectionTitle: "5 Common Pouch Packaging Problems (And Solutions)",
+    problems: [
+      { title: "High Minimum Order Quantities", desc: "Solution: Digital printing allowing runs as low as 500 units without setup fees." },
+      { title: "Poor Barrier Performance", desc: "Solution: Advanced multi-layer materials to protect against moisture and oxygen." },
+      { title: "Inconsistent Branding Colors", desc: "Solution: Precise color matching tech for vibrant and accurate brand representation." },
+      { title: "Non-Sustainable Materials", desc: "Solution: Certified compostable, recyclable, and bio-based options." },
+      { title: "Slow Turnaround Times", desc: "Solution: Optimized supply chain delivering production in 6-8 weeks." }
+    ]
+  },
+  es: {
+    sectionTitle: "5 problemas comunes del envasado en bolsas (y soluciones)",
+    problems: [
+      { title: "Altas cantidades mínimas de pedido", desc: "Solución: Impresión digital que permite tiradas desde 500 unidades sin gastos de preparación." },
+      { title: "Bajo rendimiento de barrera", desc: "Solución: Materiales multicapa avanzados para proteger contra la humedad y el oxígeno." },
+      { title: "Colores de marca inconsistentes", desc: "Solución: Tecnología de coincidencia de color precisa para una representación de marca vibrante y precisa." },
+      { title: "Materiales no sostenibles", desc: "Solución: Opciones certificadas compostables, reciclables y de base biológica." },
+      { title: "Tiempos de entrega lentos", desc: "Solución: Cadena de suministro optimizada que entrega la producción en 6-8 semanas." }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 problèmes courants d'emballage en sachets (et solutions)",
+    problems: [
+      { title: "Quantités minimales de commande élevées", desc: "Solution : Impression numérique permettant des tirages à partir de 500 unités sans frais de configuration." },
+      { title: "Faibles performances de la barrière", desc: "Solution : Matériaux multicouches avancés pour protéger de l'humidité et de l'oxygène." },
+      { title: "Couleurs de marque incohérentes", desc: "Solution : Technologie de correspondance précise des couleurs pour une représentation de la marque vibrante et précise." },
+      { title: "Matériaux non durables", desc: "Solution : Options certifiées compostables, recyclables et biosourcées." },
+      { title: "Délais d'exécution lents", desc: "Solution : Chaîne d'approvisionnement optimisée livrant la production en 6 à 8 semaines." }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: "5 個常見的軟包裝問題（與解決方案）",
+    problems: [
+      { title: "最低訂購量（MOQ）過高", desc: "解決方案：數位印刷允許低至 500 件的訂單，無需版費。" },
+      { title: "阻隔性能差", desc: "解決方案：先進的多層材料可防潮和防氧。" },
+      { title: "品牌顏色不一致", desc: "解決方案：精確的色彩匹配技術，實現鮮豔且準確的品牌展示。" },
+      { title: "不可持續的材料", desc: "解決方案：經過認證的可堆肥、可回收和生物基選項。" },
+      { title: "交貨時間緩慢", desc: "解決方案：優化的供應鏈，可在 6-8 週內交付生產。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = translations;
+export const sectionsForAchieve = translations;
 
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
@@ -110,9 +156,11 @@ const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, cove
 // ============================================
 
 export default function PouchHomePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const productsRef = useRef<HTMLElement>(null)
+
+  const pageT = translations[i18n.language as keyof typeof translations] || translations.en;
 
 
 
@@ -1013,6 +1061,40 @@ export default function PouchHomePage() {
                   isMobile={false} 
                 />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-black text-4xl md:text-6xl uppercase italic">
+              {pageT.sectionTitle}
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/pouch-packaging-pain-points.jpg"
+                alt={pageT.sectionTitle}
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+            <div className="space-y-6">
+              {pageT.problems.map((prob, idx) => (
+                <div key={idx} className="bg-white border-4 border-black p-6 flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-transform">
+                  <div className="bg-black text-[#D4FF00] p-2 flex-shrink-0 mt-1">
+                    <CheckCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-black uppercase text-xl mb-2">{prob.title}</h4>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 leading-relaxed">{prob.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

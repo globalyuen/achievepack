@@ -115,10 +115,117 @@ const ImageTextRow: React.FC<{
   )
 }
 
+const translations = {
+  en: {
+    title: "5 Common I'm Green Bio-PE Problems (And Solutions)",
+    problems: [
+      {
+        title: "1. Higher Cost Compared to Fossil PE",
+        desc: "Bio-PE typically carries a price premium. Solution: Optimize packaging thickness to reduce material usage without sacrificing performance, balancing the sustainability premium."
+      },
+      {
+        title: "2. End-of-Life Confusion",
+        desc: "Consumers often mistakenly think it's compostable. Solution: Add clear on-pack labeling directing consumers to standard PE recycling streams (RIC 4), as Bio-PE is recyclable, not compostable."
+      },
+      {
+        title: "3. Land Use and Sourcing Concerns",
+        desc: "Worry about deforestation for sugarcane. Solution: Rely on Bonsucro-certified sugarcane that utilizes degraded pasture lands, ensuring zero deforestation."
+      },
+      {
+        title: "4. Barrier Property Limitations",
+        desc: "Standard PE lacks high oxygen barriers. Solution: Combine Bio-PE with high-barrier materials (like EVOH or metallization) in multi-layer structures for products requiring extended shelf life."
+      },
+      {
+        title: "5. Risk of Greenwashing Accusations",
+        desc: "Unverified claims can damage brand trust. Solution: Utilize ASTM D6866 certification to scientifically prove bio-based carbon content, ensuring transparent marketing claims."
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes del Bio-PE (Y Soluciones)",
+    problems: [
+      {
+        title: "1. Mayor Costo Comparado con el PE Fósil",
+        desc: "El Bio-PE tiene una prima de precio. Solución: Optimizar el grosor del envase para reducir el uso de material sin sacrificar el rendimiento."
+      },
+      {
+        title: "2. Confusión al Final de su Vida Útil",
+        desc: "Suele confundirse con material compostable. Solución: Etiquetado claro que dirija a los consumidores a las corrientes de reciclaje de PE estándar (RIC 4)."
+      },
+      {
+        title: "3. Preocupaciones sobre el Uso de la Tierra",
+        desc: "Preocupación por la deforestación. Solución: Usar caña de azúcar certificada por Bonsucro cultivada en tierras de pastoreo degradadas, garantizando cero deforestación."
+      },
+      {
+        title: "4. Limitaciones de Propiedad de Barrera",
+        desc: "El PE carece de altas barreras al oxígeno. Solución: Combinar Bio-PE con materiales de alta barrera (como EVOH) en estructuras multicapa."
+      },
+      {
+        title: "5. Riesgo de Acusaciones de Greenwashing",
+        desc: "Las afirmaciones no verificadas dañan la confianza. Solución: Utilizar la certificación ASTM D6866 para demostrar científicamente el contenido de carbono de origen biológico."
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants du Bio-PE (Et Solutions)",
+    problems: [
+      {
+        title: "1. Coût Plus Élevé que le PE Fossile",
+        desc: "Le Bio-PE comporte une prime de prix. Solution : Optimiser l'épaisseur de l'emballage pour réduire l'utilisation de matériaux sans sacrifier les performances."
+      },
+      {
+        title: "2. Confusion en Fin de Vie",
+        desc: "Souvent confondu avec un matériau compostable. Solution : Étiquetage clair orientant les consommateurs vers les filières de recyclage PE standard (RIC 4)."
+      },
+      {
+        title: "3. Préoccupations Liées à l'Utilisation des Terres",
+        desc: "Inquiétudes concernant la déforestation. Solution : S'appuyer sur la canne à sucre certifiée Bonsucro issue de pâturages dégradés, garantissant une déforestation nulle."
+      },
+      {
+        title: "4. Limites des Propriétés Barrières",
+        desc: "Le PE manque de hautes barrières à l'oxygène. Solution : Combiner le Bio-PE avec des matériaux à haute barrière (comme l'EVOH) dans des structures multicouches."
+      },
+      {
+        title: "5. Risque d'Accusations d'Écoblanchiment",
+        desc: "Les allégations non vérifiées nuisent à la confiance. Solution : Utiliser la certification ASTM D6866 pour prouver scientifiquement la teneur en carbone biosourcé."
+      }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的綠色生物聚乙烯(Bio-PE)問題（及解決方案）",
+    problems: [
+      {
+        title: "1. 成本高於石化 PE",
+        desc: "Bio-PE 的價格通常較高。解決方案：優化包裝厚度，在不犧牲性能的情況下減少材料用量，以平衡永續發展帶來的溢價。"
+      },
+      {
+        title: "2. 報廢處理的混淆",
+        desc: "消費者常誤以為它是可堆肥的。解決方案：在包裝上加上清晰的標籤，引導消費者進入標準的 PE 回收系統 (RIC 4)，因為 Bio-PE 是可回收的，不可堆肥。"
+      },
+      {
+        title: "3. 土地使用與來源疑慮",
+        desc: "擔憂種植甘蔗導致森林砍伐。解決方案：採用 Bonsucro 認證的甘蔗，利用退化的牧草地，確保零森林砍伐。"
+      },
+      {
+        title: "4. 阻隔性能的限制",
+        desc: "標準 PE 缺乏高氧氣阻隔性。解決方案：在多層結構中將 Bio-PE 與高阻隔材料（如 EVOH 或金屬化）結合，用於需要延長保存期限的產品。"
+      },
+      {
+        title: "5. 漂綠(Greenwashing)指控風險",
+        desc: "未經證實的聲明會損害品牌信任。解決方案：利用 ASTM D6866 認證科學證明生物基碳含量，確保行銷聲明透明可信。"
+      }
+    ]
+  }
+}
+
 const InsideImGreenBioPEPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.insideImGreenBioPE'
+
+  const currentLang = i18n.language || 'en'
+  const langKey = translations[currentLang as keyof typeof translations] ? currentLang : 'en'
+  const currentTranslations = translations[langKey as keyof typeof translations]
 
   // Helper to render bold prefixes (split by colon or Chinese full-width colon)
   const renderBullet = (text: string) => {
@@ -578,8 +685,33 @@ const InsideImGreenBioPEPage: React.FC = () => {
           </div>
         </section>
 
+        {/* 5 Common Problems Section */}
+        <section className="py-16 bg-white border-t">
+          <div className="max-w-7xl mx-auto px-4">
+            <ImageTextRow
+              image="/imgs/knowledge/imgreen-biope-pain-points.jpg"
+              imageAlt="5 Common I'm Green Bio-PE Problems and Solutions"
+              imageCaption="Addressing real-world challenges with bio-based PE packaging"
+              imageLeft={false}
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
+                <AlertTriangle className="h-8 w-8 text-amber-500" />
+                {currentTranslations.title}
+              </h2>
+              <div className="space-y-6">
+                {currentTranslations.problems.map((problem, idx) => (
+                  <div key={idx} className="bg-neutral-50 p-4 rounded-xl border border-neutral-100 shadow-sm">
+                    <h3 className="font-bold text-lg text-neutral-900 mb-2">{problem.title}</h3>
+                    <p className="text-neutral-700">{problem.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </ImageTextRow>
+          </div>
+        </section>
+
         {/* FAQ Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-neutral-50 border-t">
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
               <HelpCircle className="h-8 w-8 text-green-600" />

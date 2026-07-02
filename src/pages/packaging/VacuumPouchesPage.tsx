@@ -1,11 +1,56 @@
 import React from 'react'
-import { Package, CheckCircle, Shield, Thermometer, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
+import { Package, CheckCircle, Shield, Thermometer, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, AlertCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 
 const VacuumPouchesPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.vacuumPouches'
+  const lang = i18n.language?.startsWith('zh') ? 'zh-TW' : (i18n.language || 'en');
+
+  const localTranslations = {
+    en: {
+      title: "5 Common Vacuum Pouch Problems (And Solutions)",
+      problems: [
+        { title: "Puncture from Bone-in Products", desc: "Bone-in meats can easily pierce standard pouches, causing loss of vacuum.", solution: "Use high-puncture resistant PA/PE pouches with 120-150 micron thickness." },
+        { title: "Loss of Vacuum Over Time", desc: "Air gradually seeps back into the pouch during frozen storage.", solution: "Switch to high-barrier EVOH co-extruded films for maximum oxygen resistance." },
+        { title: "Seal Area Wrinkles", desc: "Wrinkles in the seal area can cause micro-leaks and spoil the food.", solution: "Ensure proper pouch sizing and use smooth chamber vacuum sealing." },
+        { title: "Meat Discoloration", desc: "Red meat turns brown quickly due to oxygen exposure.", solution: "Utilize high-barrier pouches and proper vacuum levels to halt oxidation." },
+        { title: "Delamination During Sous Vide", desc: "Standard pouches can delaminate or burst at high temperatures.", solution: "Use specially formulated cookable PA/PE pouches designed for up to 100°C." }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de las Bolsas de Vacío (Y Soluciones)",
+      problems: [
+        { title: "Perforación por Productos con Hueso", desc: "Las carnes con hueso pueden perforar fácilmente las bolsas estándar.", solution: "Use bolsas PA/PE de alta resistencia a la perforación con 120-150 micras." },
+        { title: "Pérdida de Vacío con el Tiempo", desc: "El aire se filtra gradualmente durante el almacenamiento congelado.", solution: "Cambie a películas coextruidas de EVOH de alta barrera." },
+        { title: "Arrugas en el Área de Sellado", desc: "Las arrugas en el sellado pueden causar microfugas.", solution: "Asegure el tamaño adecuado y use sellado en cámara de vacío suave." },
+        { title: "Decoloración de la Carne", desc: "La carne roja se vuelve marrón rápidamente por la exposición al oxígeno.", solution: "Utilice bolsas de alta barrera y niveles de vacío adecuados." },
+        { title: "Delaminación durante Sous Vide", desc: "Las bolsas estándar pueden delaminarse o estallar a altas temperaturas.", solution: "Use bolsas PA/PE cocinables formuladas para hasta 100°C." }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants des Sacs Sous Vide (Et Solutions)",
+      problems: [
+        { title: "Perforation par les Produits à Os", desc: "Les viandes avec os peuvent facilement percer les sacs standards.", solution: "Utilisez des sacs PA/PE à haute résistance (120-150 microns)." },
+        { title: "Perte de Vide avec le Temps", desc: "L'air s'infiltre progressivement pendant le stockage congelé.", solution: "Passez aux films coextrudés EVOH haute barrière." },
+        { title: "Plis dans la Zone de Scellage", desc: "Les plis dans le scellage peuvent causer des micro-fuites.", solution: "Assurez-vous de la bonne taille du sac et d'un scellage lisse." },
+        { title: "Décoloration de la Viande", desc: "La viande rouge brunit rapidement en raison de l'exposition à l'oxygène.", solution: "Utilisez des sacs haute barrière et des niveaux de vide appropriés." },
+        { title: "Délaminage pendant la Cuisson Sous Vide", desc: "Les sacs standards peuvent se délaminer ou éclater à haute température.", solution: "Utilisez des sacs PA/PE de cuisson formulés pour résister jusqu'à 100°C." }
+      ]
+    },
+    "zh-TW": {
+      title: "5 個常見的真空袋問題 (及解決方案)",
+      problems: [
+        { title: "帶骨產品刺破", desc: "帶骨肉類很容易刺破標準真空袋，導致漏氣。", solution: "使用厚度120-150微米的高抗穿刺PA/PE袋。" },
+        { title: "長時間後失去真空", desc: "在冷凍儲存過程中，空氣逐漸滲回袋中。", solution: "改用高阻隔EVOH共擠薄膜以獲得最大的抗氧性。" },
+        { title: "封口處起皺", desc: "封口處的皺紋會導致微漏，使食物變質。", solution: "確保袋子尺寸合適，並使用平整的腔式真空封口。" },
+        { title: "肉類變色", desc: "紅肉因接觸氧氣而迅速變褐。", solution: "使用高阻隔袋和適當的真空度來阻止氧化。" },
+        { title: "舒肥過程中脫層", desc: "標準袋在高溫下可能會脫層或破裂。", solution: "使用專為高達100°C設計的可水煮PA/PE真空袋。" }
+      ]
+    }
+  }
+  const currentTranslation = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en;
 
   const rawBenefits = t(`${p}.sections.overview.benefits`, { returnObjects: true })
   const benefits = Array.isArray(rawBenefits) ? rawBenefits : [
@@ -352,6 +397,42 @@ const VacuumPouchesPage: React.FC = () => {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points',
+      title: currentTranslation.title,
+      icon: <AlertCircle className="h-5 w-5 text-red-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="mb-6 rounded-xl overflow-hidden shadow-sm">
+            <img 
+              src="/imgs/knowledge/vacuum-pouches-pain-points.jpg" 
+              alt="Common vacuum pouch problems and solutions" 
+              className="w-full h-auto object-cover max-h-64"
+            />
+          </div>
+          <div className="grid gap-4">
+            {currentTranslation.problems.map((problem, idx) => (
+              <div key={idx} className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm flex flex-col md:flex-row gap-4">
+                <div className="flex-1">
+                  <h4 className="font-semibold text-red-700 flex items-center gap-2">
+                    <AlertCircle className="h-4 w-4" />
+                    {problem.title}
+                  </h4>
+                  <p className="text-sm text-neutral-600 mt-1">{problem.desc}</p>
+                </div>
+                <div className="flex-1 bg-green-50 p-3 rounded border border-green-100">
+                  <h4 className="font-semibold text-green-800 flex items-center gap-2 mb-1">
+                    <CheckCircle className="h-4 w-4" />
+                    Solution
+                  </h4>
+                  <p className="text-sm text-green-700">{problem.solution}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )

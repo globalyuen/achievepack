@@ -7,10 +7,68 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations: Record<string, any> = {
+  en: {
+    problemsSectionTitle: "5 Common Compostable Certification Problems (And Solutions)",
+    p1Title: "1. Long Testing Durations",
+    p1Desc: "Industrial composting certification can take up to 12 months. Solution: Leverage pre-certified materials (e.g., NatureFlex) to bypass initial material testing.",
+    p2Title: "2. High Certification Costs",
+    p2Desc: "Small brands struggle with thousands of dollars in fees. Solution: Partner with a manufacturer holding umbrella certifications to extend to your brand.",
+    p3Title: "3. Home vs. Industrial Confusion",
+    p3Desc: "Mislabeling can lead to greenwashing accusations. Solution: Ensure strict adherence to BPI (Industrial) or OK Compost Home standards with distinct on-pack messaging.",
+    p4Title: "4. Supply Chain Traceability",
+    p4Desc: "Difficulty proving the organic origin of biopolymers. Solution: Implement strict material audits and utilize supplier transparency tracking.",
+    p5Title: "5. Inks & Adhesives Compliance",
+    p5Desc: "Standard inks can ruin a compostable structure. Solution: Utilize heavy-metal-free, water-based inks and compostable-certified adhesives.",
+  },
+  es: {
+    problemsSectionTitle: "5 Problemas Comunes de Certificación de Compostaje (Y Soluciones)",
+    p1Title: "1. Largos períodos de prueba",
+    p1Desc: "La certificación de compostaje industrial puede tardar hasta 12 meses. Solución: Aprovechar materiales precertificados (ej. NatureFlex) para evitar pruebas iniciales.",
+    p2Title: "2. Altos costos de certificación",
+    p2Desc: "Las pequeñas marcas luchan con tarifas de miles de dólares. Solución: Asociarse con un fabricante con certificaciones paraguas para extenderlas a su marca.",
+    p3Title: "3. Confusión entre compostaje doméstico e industrial",
+    p3Desc: "El mal etiquetado puede llevar a acusaciones de lavado verde (greenwashing). Solución: Garantizar el cumplimiento estricto de BPI o OK Compost Home con mensajes claros en el empaque.",
+    p4Title: "4. Trazabilidad de la cadena de suministro",
+    p4Desc: "Dificultad para demostrar el origen orgánico de los biopolímeros. Solución: Implementar auditorías estrictas de materiales y usar seguimiento de transparencia de proveedores.",
+    p5Title: "5. Cumplimiento de tintas y adhesivos",
+    p5Desc: "Las tintas estándar pueden arruinar una estructura compostable. Solución: Utilizar tintas a base de agua sin metales pesados y adhesivos certificados compostables.",
+  },
+  fr: {
+    problemsSectionTitle: "5 Problèmes Courants de Certification de Compostage (Et Solutions)",
+    p1Title: "1. Longues durées de test",
+    p1Desc: "La certification de compostage industriel peut prendre jusqu'à 12 mois. Solution : Utiliser des matériaux pré-certifiés pour éviter les tests initiaux.",
+    p2Title: "2. Coûts de certification élevés",
+    p2Desc: "Les petites marques luttent contre des frais de plusieurs milliers de dollars. Solution : S'associer à un fabricant détenant des certifications parapluie.",
+    p3Title: "3. Confusion entre compostage domestique et industriel",
+    p3Desc: "Un mauvais étiquetage peut mener à des accusations d'écoblanchiment. Solution : Assurer un respect strict des normes BPI ou OK Compost Home avec des messages clairs.",
+    p4Title: "4. Traçabilité de la chaîne d'approvisionnement",
+    p4Desc: "Difficulté à prouver l'origine organique des biopolymères. Solution : Mettre en œuvre des audits de matériaux stricts.",
+    p5Title: "5. Conformité des encres et adhésifs",
+    p5Desc: "Les encres standards peuvent ruiner une structure compostable. Solution : Utiliser des encres à l'eau sans métaux lourds et des adhésifs certifiés.",
+  },
+  'zh-TW': {
+    problemsSectionTitle: "5 個常見的可堆肥認證問題（及解決方案）",
+    p1Title: "1. 測試時間過長",
+    p1Desc: "工業堆肥認證可能需要長達12個月。解決方案：利用預先認證的材料（例如NatureFlex）來跳過初步測試。",
+    p2Title: "2. 認證成本高昂",
+    p2Desc: "小品牌難以負擔數千美元的費用。解決方案：與擁有傘形認證的製造商合作，將認證延伸至您的品牌。",
+    p3Title: "3. 家庭與工業堆肥的混淆",
+    p3Desc: "標籤錯誤可能導致漂綠指控。解決方案：嚴格遵守BPI（工業）或OK Compost Home標準，並在包裝上提供清晰的訊息。",
+    p4Title: "4. 供應鏈可追溯性",
+    p4Desc: "難以證明生物聚合物的有機來源。解決方案：實施嚴格的材料審計並利用供應商透明度追蹤。",
+    p5Title: "5. 油墨和黏合劑的合規性",
+    p5Desc: "標準油墨會破壞可堆肥結構。解決方案：使用不含重金屬的水性油墨和經過可堆肥認證的黏合劑。",
+  }
+}
+
 const PouchCompostableCertificationFAQPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'pouchCompostableCertificationFAQPage'
   const baseUrl = getBaseUrl()
+  
+  const currentLang = i18n.language || 'en'
+  const tLocal = translations[currentLang] || translations['en']
   
   const CERT_METRICS = [
     { label: t(`${p}.metrics.biodegradation.label`), value: t(`${p}.metrics.biodegradation.value`), unit: t(`${p}.metrics.biodegradation.unit`), desc: t(`${p}.metrics.biodegradation.desc`) },
@@ -159,6 +217,45 @@ const PouchCompostableCertificationFAQPage: React.FC = () => {
               <h4 className="font-black text-2xl uppercase mb-4">{t(`${p}.science.item3Title`)}</h4>
               <p className="font-['JetBrains_Mono'] text-sm opacity-70">{t(`${p}.science.item3Desc`)}</p>
             </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems */}
+      <section className="py-24 bg-gray-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="blue">Problem Solving</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">
+            {tLocal.problemsSectionTitle}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {[
+                { title: tLocal.p1Title, desc: tLocal.p1Desc, icon: Thermometer },
+                { title: tLocal.p2Title, desc: tLocal.p2Desc, icon: Target },
+                { title: tLocal.p3Title, desc: tLocal.p3Desc, icon: Globe },
+                { title: tLocal.p4Title, desc: tLocal.p4Desc, icon: BarChart3 },
+                { title: tLocal.p5Title, desc: tLocal.p5Desc, icon: Beaker },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 items-start bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <div className="bg-emerald-100 p-3 rounded-full border-2 border-black flex-shrink-0">
+                    <item.icon className="w-6 h-6 text-emerald-800" />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-xl uppercase mb-2">{item.title}</h4>
+                    <p className="font-['JetBrains_Mono'] text-gray-700">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/compostable-certification-pain-points.jpg" 
+                alt={tLocal.problemsSectionTitle} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -1,14 +1,60 @@
 import React from 'react'
-import { Factory, Leaf, CheckCircle, Clock, Award, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle, TrendingUp, BarChart3, ArrowLeftRight, ShoppingBag, Coffee, Sparkles, Globe, Recycle, Building2 } from 'lucide-react'
+import { Factory, Leaf, CheckCircle, Clock, Award, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle, TrendingUp, BarChart3, ArrowLeftRight, ShoppingBag, Coffee, Sparkles, Globe, Recycle, Building2, AlertTriangle, Zap } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const IndustrialCompostablePage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.industrialCompostable'
+  const lang = (i18n.language || 'en') as 'en' | 'es' | 'fr' | 'zh-TW'
+
+  const localTranslations = {
+    en: {
+      title: "5 Common Industrial Composting Problems (And Solutions)",
+      problems: [
+        { title: "Premature Degradation in Transit", desc: "Solution: High-barrier lamination layers protect structural integrity until composting facility arrival." },
+        { title: "Incomplete Breakdown in Active Facilities", desc: "Solution: Custom formulation matching EN 13432 thickness limits to ensure full disintegration." },
+        { title: "Sealing Weakness at High Composting Temps", desc: "Solution: Optimized sealant layers tested under thermal fluctuation." },
+        { title: "Ink Migration Hazards", desc: "Solution: Certified compostable water-based/soy inks preventing heavy metal accumulation." },
+        { title: "Strict Facility Rejection Rates", desc: "Solution: Clear DIN CERTCO/BPI certification printing to guarantee visual recognition." }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de Compostaje Industrial (y Soluciones)",
+      problems: [
+        { title: "Degradación Prematura en Tránsito", desc: "Solución: Las capas de laminación de alta barrera protegen la integridad estructural hasta llegar a la planta." },
+        { title: "Desintegración Incompleta", desc: "Solución: Formulación personalizada que cumple con los límites de espesor de la norma EN 13432." },
+        { title: "Debilidad del Sellado", desc: "Solución: Capas de sellado optimizadas probadas bajo fluctuación térmica." },
+        { title: "Riesgos de Migración de Tinta", desc: "Solución: Tintas certificadas a base de agua/soja que evitan la acumulación de metales pesados." },
+        { title: "Altas Tasas de Rechazo en Plantas", desc: "Solución: Impresión clara de la certificación DIN CERTCO/BPI para garantizar el reconocimiento visual." }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants de Compostage Industriel (et Solutions)",
+      problems: [
+        { title: "Dégradation Prématurée lors du Transport", desc: "Solution : Des couches de lamination barrière protègent l'intégrité structurelle jusqu'à la centrale." },
+        { title: "Désintégration Incomplète en Usine", desc: "Solution : Formulation sur mesure conforme aux limites d'épaisseur de la norme EN 13432." },
+        { title: "Faiblesse du Scellage à Haute Température", desc: "Solution : Couches d'étanchéité optimisées et testées sous fluctuations thermiques." },
+        { title: "Risques de Migration d'Encre", desc: "Solution : Encres certifiées à base d'eau ou de soja évitant l'accumulation de métaux lourds." },
+        { title: "Taux de Rejet Élevés en Usine", desc: "Solution : Impression claire des certifications DIN CERTCO/BPI pour garantir la reconnaissance visuelle." }
+      ]
+    },
+    'zh-TW': {
+      title: "5 個常見的工業堆肥問題（與解決方案）",
+      problems: [
+        { title: "運輸途中的提前降解", desc: "解決方案：高阻隔層壓保護結構完整性，直至送達堆肥設施。" },
+        { title: "在堆肥設施中分解不完全", desc: "解決方案：嚴格符合 EN 13432 厚度限制的客製化配方，確保完全瓦解。" },
+        { title: "高溫堆肥下的封口弱化", desc: "解決方案：經受熱波動測試的優化熱封層。" },
+        { title: "油墨遷移危害", desc: "解決方案：使用經認證的環保水性/大豆油墨，防止重金屬殘留。" },
+        { title: "堆肥廠的高拒收率", desc: "解決方案：清晰印製 DIN CERTCO/BPI 認證標誌，保證視覺識別與快速放行。" }
+      ]
+    }
+  }
+
+  const currentT = localTranslations[lang] || localTranslations.en
 
   const getTranslationArray = <T = string,>(key: string): T[] => {
     const val = t(key, { returnObjects: true });
@@ -577,6 +623,36 @@ const IndustrialCompostablePage: React.FC = () => {
                 {t(`${p}.sections.decisionCta.explore.btn`)}
               </Link>
             </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'common-problems',
+      title: currentT.title,
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg mb-4">{currentT.title}</p>
+          <div className="mb-6 rounded-xl overflow-hidden border border-neutral-200 shadow-sm">
+            <img 
+              src="/imgs/knowledge/industrial-compostable-pain-points.jpg" 
+              alt="Industrial Compostable Problems and Solutions" 
+              className="w-full h-auto object-cover max-h-80"
+            />
+          </div>
+          <div className="space-y-4">
+            {currentT.problems.map((prob, idx) => (
+              <div key={idx} className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm flex gap-4 items-start">
+                <div className="bg-primary-100 p-2 rounded-full mt-1 shrink-0">
+                  <Zap className="h-5 w-5 text-primary-600" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-neutral-900 mb-1">{prob.title}</h4>
+                  <p className="text-sm text-neutral-600">{prob.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )

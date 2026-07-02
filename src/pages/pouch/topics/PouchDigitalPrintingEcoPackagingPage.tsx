@@ -1,15 +1,79 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { Palette, TrendingUp } from 'lucide-react'
+import { Palette, TrendingUp, Package, Timer, Recycle, Image as ImageIcon, Target } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+export const sectionsForPouch = ["5 Common Digital Printing Packaging Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Digital Printing Packaging Problems (And Solutions)"];
+
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common Digital Printing Packaging Problems (And Solutions)",
+    badge: "ENGINEERING",
+    pain1Title: "1. High Minimum Order Quantities (MOQs)",
+    pain1Desc: "Digital printing eliminates setup costs, allowing for short runs and print-on-demand.",
+    pain2Title: "2. Long Lead Times",
+    pain2Desc: "No printing plates required, significantly accelerating production and turnaround times.",
+    pain3Title: "3. Setup Waste & Inefficiency",
+    pain3Desc: "Sustainable process with zero plate waste and highly precise ink deposition.",
+    pain4Title: "4. Limited Design Flexibility",
+    pain4Desc: "Variable data printing enables unlimited SKUs, personalization, and rapid prototyping.",
+    pain5Title: "5. Inconsistent Color Registration",
+    pain5Desc: "High-precision digital presses ensure vibrant, sharp, and perfectly aligned graphics."
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes del Empaque con Impresión Digital (Y Soluciones)",
+    badge: "INGENIERÍA",
+    pain1Title: "1. Altos Volúmenes Mínimos de Pedido (MOQs)",
+    pain1Desc: "La impresión digital elimina los costos de configuración, permitiendo tiradas cortas.",
+    pain2Title: "2. Largos Tiempos de Entrega",
+    pain2Desc: "No requiere placas de impresión, acelerando significativamente los tiempos de producción.",
+    pain3Title: "3. Desperdicio de Configuración",
+    pain3Desc: "Proceso sostenible sin desperdicio de placas y deposición de tinta altamente precisa.",
+    pain4Title: "4. Flexibilidad de Diseño Limitada",
+    pain4Desc: "Permite SKUs ilimitados, personalización y prototipado rápido sin costo adicional.",
+    pain5Title: "5. Registro de Color Inconsistente",
+    pain5Desc: "Las prensas digitales de alta precisión garantizan gráficos vibrantes y perfectamente alineados."
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants d'Emballage par Impression Numérique (Et Solutions)",
+    badge: "INGÉNIERIE",
+    pain1Title: "1. Quantités Minimales de Commande (MOQ) Élevées",
+    pain1Desc: "L'impression numérique élimine les frais de configuration, permettant de courtes séries.",
+    pain2Title: "2. Délais de Livraison Longs",
+    pain2Desc: "Aucune plaque d'impression n'est requise, ce qui accélère la production.",
+    pain3Title: "3. Gaspillage de Configuration",
+    pain3Desc: "Processus durable sans gaspillage de plaques et utilisation précise de l'encre.",
+    pain4Title: "4. Flexibilité de Conception Limitée",
+    pain4Desc: "Permet des SKU illimités, la personnalisation et le prototypage rapide.",
+    pain5Title: "5. Enregistrement Incohérent des Couleurs",
+    pain5Desc: "Les presses numériques de haute précision garantissent des graphismes éclatants et nets."
+  },
+  'zh-TW': {
+    sectionTitle: "數位印刷包裝的 5 個常見問題（與解決方案）",
+    badge: "工程設計",
+    pain1Title: "1. 最小起訂量 (MOQ) 過高",
+    pain1Desc: "數位印刷消除了版費，實現小批量與隨選列印，降低庫存壓力。",
+    pain2Title: "2. 交貨期過長",
+    pain2Desc: "無需製作印刷版，大幅縮短生產與交貨時間，快速響應市場。",
+    pain3Title: "3. 設置浪費與低效",
+    pain3Desc: "環保永續製程，零印版浪費且油墨沉積精準無耗損。",
+    pain4Title: "4. 設計靈活性受限",
+    pain4Desc: "可變數據印刷支援無限 SKU、客製化設計及快速打樣。",
+    pain5Title: "5. 顏色套印不準確",
+    pain5Desc: "高精度數位印刷機確保色彩鮮豔、邊緣銳利且完美對位。"
+  }
+};
+
 const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const currentLang = localTranslations[lang] || localTranslations.en;
   
   const PRINT_METRICS = [
     { label: t('pouchDigitalPrintingEcoPackagingPage.engineering.metrics.m1.label'), value: t('pouchDigitalPrintingEcoPackagingPage.engineering.metrics.m1.value'), unit: t('pouchDigitalPrintingEcoPackagingPage.engineering.metrics.m1.unit'), desc: t('pouchDigitalPrintingEcoPackagingPage.engineering.metrics.m1.desc') },
@@ -156,6 +220,65 @@ const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/topics/digital-printing-press-hero.png" 
                 alt={t('pouchDigitalPrintingEcoPackagingPage.lab.title').replace(/<br\s*\/?>/gi, ' ')} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">{currentLang.badge}</NeoBadge>
+              <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">
+                {currentLang.sectionTitle}
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Package className="w-10 h-10 flex-shrink-0 text-blue-600" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain1Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain1Desc}</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Timer className="w-10 h-10 flex-shrink-0 text-gray-500" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain2Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain2Desc}</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Recycle className="w-10 h-10 flex-shrink-0 text-green-600" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain3Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain3Desc}</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <ImageIcon className="w-10 h-10 flex-shrink-0 text-purple-600" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain4Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain4Desc}</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <Target className="w-10 h-10 flex-shrink-0 text-red-600" />
+                  <div>
+                    <h4 className="font-black uppercase text-xl">{currentLang.pain5Title}</h4>
+                    <p className="font-['JetBrains_Mono'] opacity-70 mt-2">{currentLang.pain5Desc}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/digital-printing-eco-packaging-pain-points.jpg" 
+                alt="Digital Printing Eco Packaging Pain Points" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

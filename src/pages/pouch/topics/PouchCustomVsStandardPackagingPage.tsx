@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
@@ -24,8 +24,71 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations = {
+  en: {
+    problems: {
+      title: "5 Common Custom vs Standard Packaging Problems (And Solutions)",
+      items: [
+        { q: "1. High MOQs for Custom Packaging", a: "Solution: Start with standard pouches and premium labels to test the market before committing to large print runs." },
+        { q: "2. Expensive Setup Costs (Plates)", a: "Solution: Utilize digital printing technology which eliminates the need for expensive printing plates." },
+        { q: "3. Poor Brand Differentiation with Standard Pouches", a: "Solution: Apply premium textured labels (like hot foil or spot UV) to elevate the look of standard packaging." },
+        { q: "4. Long Lead Times for Custom Runs", a: "Solution: Use standard pouches which are in stock and can be labeled and shipped in a fraction of the time." },
+        { q: "5. Managing Multiple SKUs is Expensive", a: "Solution: Use the 'Combined SKU Hack'—print a universal custom pouch and apply variable data labels for each specific product variant." }
+      ]
+    }
+  },
+  es: {
+    problems: {
+      title: "5 Problemas Comunes de Empaques Personalizados vs Estándar (Y Soluciones)",
+      items: [
+        { q: "1. Altos MOQs para Empaques Personalizados", a: "Solución: Comience con bolsas estándar y etiquetas premium para probar el mercado antes de comprometerse con grandes tiradas de impresión." },
+        { q: "2. Costos de Configuración Costosos (Planchas)", a: "Solución: Utilice la tecnología de impresión digital que elimina la necesidad de costosas planchas de impresión." },
+        { q: "3. Poca Diferenciación de Marca con Bolsas Estándar", a: "Solución: Aplique etiquetas texturizadas premium (como estampado en caliente o UV puntual) para elevar el aspecto del empaque estándar." },
+        { q: "4. Largos Tiempos de Entrega para Tiradas Personalizadas", a: "Solución: Utilice bolsas estándar que estén en stock y puedan etiquetarse y enviarse en una fracción del tiempo." },
+        { q: "5. Gestionar Múltiples SKUs es Costoso", a: "Solución: Utilice el 'Truco de SKU Combinado': imprima una bolsa personalizada universal y aplique etiquetas de datos variables para cada variante de producto específico." }
+      ]
+    }
+  },
+  fr: {
+    problems: {
+      title: "5 Problèmes Courants d'Emballages Personnalisés vs Standard (Et Solutions)",
+      items: [
+        { q: "1. MOQ Élevés pour l'Emballage Personnalisé", a: "Solution : Commencez par des sachets standard et des étiquettes premium pour tester le marché avant de vous engager dans de grands tirages d'impression." },
+        { q: "2. Coûts de Configuration Coûteux (Plaques)", a: "Solution : Utilisez la technologie d'impression numérique qui élimine le besoin de plaques d'impression coûteuses." },
+        { q: "3. Mauvaise Différenciation de Marque avec les Sachets Standard", a: "Solution : Appliquez des étiquettes texturées premium (comme le marquage à chaud ou le vernis sélectif) pour rehausser l'aspect de l'emballage standard." },
+        { q: "4. Délais de Livraison Longs pour les Tirages Personnalisés", a: "Solution : Utilisez des sachets standard qui sont en stock et peuvent être étiquetés et expédiés en une fraction du temps." },
+        { q: "5. Gérer Plusieurs SKU est Coûteux", a: "Solution : Utilisez le « Hack SKU Combiné » — imprimez un sachet personnalisé universel et appliquez des étiquettes de données variables pour chaque variante de produit spécifique." }
+      ]
+    }
+  },
+  'zh-TW': {
+    problems: {
+      title: "定制與標準包裝的 5 個常見問題 (及解決方案)",
+      items: [
+        { q: "1. 定制包裝的最低訂購量（MOQ）過高", a: "解決方案：在承諾大量印刷之前，先使用標準小袋和高級標籤來測試市場。" },
+        { q: "2. 昂貴的設置成本（印版）", a: "解決方案：利用數位印刷技術，消除昂貴印刷版的需求。" },
+        { q: "3. 採用標準包裝難以凸顯品牌差異化", a: "解決方案：應用高級紋理標籤（如燙金或局部 UV）以提升標準包裝的外觀。" },
+        { q: "4. 定制印刷的交貨時間長", a: "解決方案：使用庫存中的標準小袋，這些小袋可以在短時間內貼上標籤並發貨。" },
+        { q: "5. 管理多個 SKU 成本高昂", a: "解決方案：使用「合併 SKU 技巧」—印刷通用的定制小袋，並為每個特定產品變體應用可變數據標籤。" }
+      ]
+    }
+  }
+};
+
+export const sectionsForPouch = ["5 Common Custom vs Standard Packaging Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Custom vs Standard Packaging Problems (And Solutions)"];
+
 const PouchCustomVsStandardPackagingPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  useEffect(() => {
+    Object.keys(translations).forEach(lang => {
+      i18n.addResourceBundle(lang, 'translation', { pouchCustomVsStandardPackagingPage: translations[lang as keyof typeof translations] }, true, true)
+    })
+  }, [i18n])
+
+  const currentLang = i18n.language || 'en';
+  const pageT = translations[currentLang as keyof typeof translations] || translations.en;
   const p = 'pouchCustomVsStandardPackagingPage'
   const baseUrl = getBaseUrl()
 
@@ -208,6 +271,38 @@ const PouchCustomVsStandardPackagingPage: React.FC = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-gray-50 border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-6">
+          <NeoBadge color="blue">Insights</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12 text-center">
+            {pageT.problems.title}
+          </h2>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {pageT.problems.items.map((item, i) => (
+                <div key={i} className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                  <h4 className="font-black text-xl mb-2 flex items-center gap-3">
+                    <CheckCircle className="w-6 h-6 text-emerald-600 shrink-0" />
+                    <span>{item.q}</span>
+                  </h4>
+                  <p className="font-['JetBrains_Mono'] text-gray-700 pl-9">{item.a}</p>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-500 translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/custom-vs-standard-packaging-pain-points.jpg" 
+                alt="Custom vs Standard Packaging Pain Points" 
+                className="relative z-10 border-4 border-black w-full h-auto object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>

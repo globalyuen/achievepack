@@ -1,11 +1,89 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { Microscope, TrendingUp } from 'lucide-react'
+import { Microscope, TrendingUp, Layers, Thermometer, Wind, Shield, Droplets } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
+
+const translations = {
+  en: {
+    title: "5 Common Recyclable Packaging Problems (And Solutions)",
+    p1: "Inadequate Barrier Properties",
+    d1: "Single-material structures (Mono-PE/PP) often lack the oxygen and moisture barriers of mixed materials like PET/AL/PE.",
+    s1: "Apply advanced barrier coatings like AlOx, SiOx, or EVOH co-extrusion while maintaining cyclos-HTP cyclability.",
+    p2: "Poor Heat Sealing Performance",
+    d2: "Mono-materials tend to shrink or warp under high sealing temperatures, compromising pouch integrity.",
+    s2: "Use multi-layer PE co-extrusion with a high-density (HDPE) heat-resistant outer layer and a low-density (LDPE) sealant layer.",
+    p3: "Lack of Stiffness and Aesthetics",
+    d3: "Recyclable PE pouches often feel soft, stretch easily, and lack the premium look of traditional laminates.",
+    s3: "Incorporate Machine Direction Oriented (MDO) PE or Biaxially Oriented PE (BOPE) for enhanced stiffness, clarity, and printability.",
+    p4: "Reduced Puncture Resistance",
+    d4: "Mono-material films are typically more susceptible to punctures from sharp edges or heavy contents.",
+    s4: "Increase the gauge of the sealant layer and utilize specialized metallocene PE (mPE) blends to boost dart impact strength.",
+    p5: "Sorting Facility Rejections",
+    d5: "Pouches with incompatible inks, adhesives, or attachments (like non-PE zippers) are rejected at recycling centers.",
+    s5: "Ensure all components (zipper, spout, valve) are made from the same polymer family and use washable inks."
+  },
+  es: {
+    title: "5 Problemas Comunes de Empaques Reciclables (Y Soluciones)",
+    p1: "Propiedades de Barrera Inadecuadas",
+    d1: "Las estructuras monomateriales a menudo carecen de barreras contra oxígeno y humedad como las de PET/AL/PE.",
+    s1: "Aplique recubrimientos de barrera avanzados como AlOx, SiOx o coextrusión de EVOH manteniendo la reciclabilidad.",
+    p2: "Mal Rendimiento de Sellado Térmico",
+    d2: "Los monomateriales tienden a encogerse o deformarse bajo altas temperaturas, comprometiendo la bolsa.",
+    s2: "Use coextrusión de PE multicapa con una capa exterior resistente al calor (HDPE) y una selladora (LDPE).",
+    p3: "Falta de Rigidez y Estética",
+    d3: "Las bolsas de PE reciclable a menudo se sienten suaves, se estiran fácilmente y carecen de un aspecto premium.",
+    s3: "Incorpore PE orientado en la dirección de la máquina (MDO) o PE biorientado (BOPE) para mayor rigidez y claridad.",
+    p4: "Resistencia Reducida a Perforaciones",
+    d4: "Las películas monomateriales son típicamente más susceptibles a pinchazos por bordes afilados.",
+    s4: "Aumente el grosor de la capa selladora y use mezclas de PE metaloceno (mPE) para mejorar la resistencia al impacto.",
+    p5: "Rechazos en Instalaciones de Clasificación",
+    d5: "Las bolsas con tintas, adhesivos o cierres incompatibles son rechazadas en los centros de reciclaje.",
+    s5: "Asegure que todos los componentes (cierre, boquilla) sean de la misma familia de polímeros y use tintas lavables."
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballages Recyclables (Et Solutions)",
+    p1: "Propriétés Barrières Inadéquates",
+    d1: "Les structures mono-matériaux manquent souvent des barrières à l'oxygène et à l'humidité des matériaux mixtes.",
+    s1: "Appliquez des revêtements barrières avancés comme l'AlOx, le SiOx ou la co-extrusion d'EVOH tout en maintenant la recyclabilité.",
+    p2: "Mauvaise Performance de Thermoscellage",
+    d2: "Les mono-matériaux ont tendance à rétrécir ou à se déformer sous des températures élevées, compromettant le sachet.",
+    s2: "Utilisez une co-extrusion de PE multicouche avec une couche extérieure résistante (HDPE) et une couche scellante (LDPE).",
+    p3: "Manque de Rigidité et d'Esthétique",
+    d3: "Les sachets en PE recyclable sont souvent souples, s'étirent facilement et manquent d'un aspect haut de gamme.",
+    s3: "Intégrez du PE orienté (MDO) ou bi-orienté (BOPE) pour une rigidité, une clarté et une imprimabilité accrues.",
+    p4: "Résistance Réduite aux Perforations",
+    d4: "Les films mono-matériaux sont généralement plus vulnérables aux perforations par des arêtes vives.",
+    s4: "Augmentez l'épaisseur de la couche scellante et utilisez des mélanges de PE métallocène (mPE) pour améliorer la résistance.",
+    p5: "Rejets dans les Centres de Tri",
+    d5: "Les sachets avec des encres, colles ou fermetures incompatibles sont rejetés par les centres de recyclage.",
+    s5: "Assurez-vous que tous les composants soient de la même famille de polymères et utilisez des encres lavables."
+  },
+  "zh-TW": {
+    title: "5個常見的可回收包裝問題（及解決方案）",
+    p1: "阻隔性能不足",
+    d1: "單一材質結構（如單一PE/PP）通常缺乏傳統PET/AL/PE複合材料的氧氣和水分阻隔性。",
+    s1: "應用AlOx、SiOx或EVOH共擠等先進的高阻隔塗層，同時保持其可回收性。",
+    p2: "熱封性能差",
+    d2: "單一材質在高溫密封下容易收縮或變形，影響包裝袋的完整性。",
+    s2: "採用多層PE共擠技術，外層使用耐熱的高密度聚乙烯（HDPE），內層使用低密度（LDPE）密封層。",
+    p3: "缺乏挺度與美觀",
+    d3: "可回收PE袋通常手感較軟、易拉伸，缺乏傳統複合材料的高級質感。",
+    s3: "引入機器方向拉伸PE（MDO-PE）或雙向拉伸PE（BOPE）以提高挺度、透明度和印刷適性。",
+    p4: "抗穿刺性降低",
+    d4: "單一材質薄膜通常更容易被鋒利邊緣或重物刺破。",
+    s4: "增加密封層的厚度，並使用特殊的茂金屬PE（mPE）混合物來提高抗衝擊強度。",
+    p5: "分揀中心拒收",
+    d5: "帶有不相容油墨、黏合劑或附件（如非PE拉鏈）的袋子會在回收中心被拒收。",
+    s5: "確保所有組件（拉鏈、吸嘴、氣閥）均由同一聚合物家族製成，並使用可清洗油墨。"
+  }
+};
+
+const sectionsForPouch = ["5 Common Recyclable Packaging Problems (And Solutions)"];
+const sectionsForAchieve = ["5 Common Recyclable Packaging Problems (And Solutions)"];
 
 const PouchRecyclablePackagingGuidePage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -159,6 +237,72 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {t('pouchRecyclablePackagingGuidePage.problems.title', "5 Common Recyclable Packaging Problems (And Solutions)")}
+          </h2>
+          
+          <div className="mb-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <img 
+              src="/imgs/knowledge/recyclable-packaging-pain-points.jpg" 
+              alt={t('pouchRecyclablePackagingGuidePage.problems.imgAlt', "Recyclable Packaging Pain Points and Solutions")}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          <div className="space-y-8">
+            {[
+              {
+                title: t('pouchRecyclablePackagingGuidePage.problems.items.0.title', "Inadequate Barrier Properties"),
+                desc: t('pouchRecyclablePackagingGuidePage.problems.items.0.desc', "Single-material structures (Mono-PE/PP) often lack the oxygen and moisture barriers of mixed materials like PET/AL/PE."),
+                solution: t('pouchRecyclablePackagingGuidePage.problems.items.0.solution', "Apply advanced barrier coatings like AlOx, SiOx, or EVOH co-extrusion while maintaining cyclos-HTP cyclability."),
+                icon: <Layers className="w-8 h-8 text-pink-500" />
+              },
+              {
+                title: t('pouchRecyclablePackagingGuidePage.problems.items.1.title', "Poor Heat Sealing Performance"),
+                desc: t('pouchRecyclablePackagingGuidePage.problems.items.1.desc', "Mono-materials tend to shrink or warp under high sealing temperatures, compromising pouch integrity."),
+                solution: t('pouchRecyclablePackagingGuidePage.problems.items.1.solution', "Use multi-layer PE co-extrusion with a high-density (HDPE) heat-resistant outer layer and a low-density (LDPE) sealant layer."),
+                icon: <Thermometer className="w-8 h-8 text-blue-500" />
+              },
+              {
+                title: t('pouchRecyclablePackagingGuidePage.problems.items.2.title', "Lack of Stiffness and Aesthetics"),
+                desc: t('pouchRecyclablePackagingGuidePage.problems.items.2.desc', "Recyclable PE pouches often feel soft, stretch easily, and lack the premium look of traditional laminates."),
+                solution: t('pouchRecyclablePackagingGuidePage.problems.items.2.solution', "Incorporate Machine Direction Oriented (MDO) PE or Biaxially Oriented PE (BOPE) for enhanced stiffness, clarity, and printability."),
+                icon: <Wind className="w-8 h-8 text-orange-500" />
+              },
+              {
+                title: t('pouchRecyclablePackagingGuidePage.problems.items.3.title', "Reduced Puncture Resistance"),
+                desc: t('pouchRecyclablePackagingGuidePage.problems.items.3.desc', "Mono-material films are typically more susceptible to punctures from sharp edges or heavy contents."),
+                solution: t('pouchRecyclablePackagingGuidePage.problems.items.3.solution', "Increase the gauge of the sealant layer and utilize specialized metallocene PE (mPE) blends to boost dart impact strength."),
+                icon: <Shield className="w-8 h-8 text-green-500" />
+              },
+              {
+                title: t('pouchRecyclablePackagingGuidePage.problems.items.4.title', "Sorting Facility Rejections"),
+                desc: t('pouchRecyclablePackagingGuidePage.problems.items.4.desc', "Pouches with incompatible inks, adhesives, or attachments (like non-PE zippers) are rejected at recycling centers."),
+                solution: t('pouchRecyclablePackagingGuidePage.problems.items.4.solution', "Ensure all components (zipper, spout, valve) are made from the same polymer family and use washable inks."),
+                icon: <Droplets className="w-8 h-8 text-purple-500" />
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-neutral-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:translate-x-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 mt-1">{item.icon}</div>
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-2 text-black">{item.title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-red-600 font-bold mb-3">{item.desc}</p>
+                    <div className="bg-black text-white p-4 font-['JetBrains_Mono'] text-sm">
+                      <span className="text-[#D4FF00] font-bold uppercase mb-1 block">Engineering Solution:</span>
+                      {item.solution}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

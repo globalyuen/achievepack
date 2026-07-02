@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Scale, Gavel, FileText } from 'lucide-react'
@@ -7,8 +7,72 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations = {
+  en: {
+    problems: {
+      title: "5 Common Eco Packaging Regulations Problems (And Solutions)",
+      items: [
+        { q: "1. Greenwashing & False Claims", a: "Solution: Use strict third-party certifications and ensure ISO/ASTM standard compliance." },
+        { q: "2. PCR Content Mandates", a: "Solution: Validate supplier chain-of-custody and utilize verified PCR materials (like GRS)." },
+        { q: "3. Extended Producer Responsibility (EPR) Taxes", a: "Solution: Optimize packaging weight and switch to mono-material structures to lower EPR fees." },
+        { q: "4. Navigating Conflicting Regional Regulations", a: "Solution: Adopt a globally compliant baseline standard (like EU PPWR) as your minimum specification." },
+        { q: "5. Decreased Shelf Life with Eco-Materials", a: "Solution: Implement high-barrier sustainable coatings (e.g., AlOx/SiOx) to maintain freshness and recyclability." }
+      ]
+    }
+  },
+  es: {
+    problems: {
+      title: "5 Problemas Comunes de Regulaciones de Empaques Ecológicos (Y Soluciones)",
+      items: [
+        { q: "1. Lavado Verde (Greenwashing) y Afirmaciones Falsas", a: "Solución: Utilice certificaciones estrictas de terceros y garantice el cumplimiento de las normas ISO/ASTM." },
+        { q: "2. Mandatos de Contenido Reciclado (PCR)", a: "Solución: Valide la cadena de custodia del proveedor y utilice materiales PCR verificados (como GRS)." },
+        { q: "3. Impuestos de Responsabilidad Extendida del Productor (EPR)", a: "Solución: Optimice el peso del empaque y cambie a estructuras monomateriales para reducir las tarifas de EPR." },
+        { q: "4. Navegación por Regulaciones Regionales Conflictivas", a: "Solución: Adopte un estándar base que cumpla con los requisitos globales (como EU PPWR) como su especificación mínima." },
+        { q: "5. Disminución de la Vida Útil con Eco-Materiales", a: "Solución: Implemente recubrimientos sostenibles de alta barrera (ej. AlOx/SiOx) para mantener la frescura y la reciclabilidad." }
+      ]
+    }
+  },
+  fr: {
+    problems: {
+      title: "5 Problèmes Courants liés aux Réglementations sur les Emballages Écologiques (Et Solutions)",
+      items: [
+        { q: "1. Écoblanchiment (Greenwashing) et Fausses Déclarations", a: "Solution : Utilisez des certifications tierces strictes et assurez la conformité aux normes ISO/ASTM." },
+        { q: "2. Obligations de Contenu Recyclé (PCR)", a: "Solution : Validez la chaîne de traçabilité des fournisseurs et utilisez des matériaux PCR vérifiés (comme GRS)." },
+        { q: "3. Taxes de Responsabilité Élargie des Producteurs (REP)", a: "Solution : Optimisez le poids des emballages et passez aux structures mono-matériaux pour réduire les frais de REP." },
+        { q: "4. Naviguer dans des Réglementations Régionales Conflictuelles", a: "Solution : Adoptez une norme de base conforme à l'échelle mondiale (comme le PPWR de l'UE) comme spécification minimale." },
+        { q: "5. Durée de Conservation Réduite avec les Éco-Matériaux", a: "Solution : Mettez en œuvre des revêtements durables à haute barrière (par ex. AlOx/SiOx) pour maintenir la fraîcheur et la recyclabilité." }
+      ]
+    }
+  },
+  'zh-TW': {
+    problems: {
+      title: "環保包裝法規的 5 個常見問題 (及解決方案)",
+      items: [
+        { q: "1. 漂綠與虛假宣傳", a: "解決方案：使用嚴格的第三方認證並確保符合 ISO/ASTM 標準。" },
+        { q: "2. 消费後回收 (PCR) 含量要求", a: "解決方案：驗證供應商的監管鏈並使用經過驗證的 PCR 材料（如 GRS）。" },
+        { q: "3. 延伸生產者責任 (EPR) 稅", a: "解決方案：優化包裝重量並轉向單一材質結構以降低 EPR 費用。" },
+        { q: "4. 應對相互衝突的地區法規", a: "解決方案：採用全球通用的合規基準標準（例如歐盟 PPWR）作為您的最低規格。" },
+        { q: "5. 環保材料導致保質期縮短", a: "解決方案：採用高阻隔性可持續塗層（例如 AlOx/SiOx）以保持產品新鮮度和可回收性。" }
+      ]
+    }
+  }
+};
+
+export const sectionsForPouch = ["5 Common Eco Packaging Regulations Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Eco Packaging Regulations Problems (And Solutions)"];
+
 const PouchEcoPackagingRegulationsPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  useEffect(() => {
+    Object.keys(translations).forEach(lang => {
+      i18n.addResourceBundle(lang, 'translation', { pouchEcoPackagingRegulationsPage: translations[lang as keyof typeof translations] }, true, true)
+    })
+  }, [i18n])
+
+  const currentLang = i18n.language || 'en';
+  const pageT = translations[currentLang as keyof typeof translations] || translations.en;
+
   const p = 'pouchEcoPackagingRegulationsPage'
   const baseUrl = getBaseUrl()
   
@@ -171,6 +235,38 @@ const PouchEcoPackagingRegulationsPage: React.FC = () => {
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt={t(`${p}.science.imageAlt`)} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-gray-50 border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-6">
+          <NeoBadge color="blue">Insights</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12 text-center">
+            {pageT.problems.title}
+          </h2>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {pageT.problems.items.map((item, i) => (
+                <div key={i} className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                  <h4 className="font-black text-xl mb-2 flex items-center gap-3">
+                    <CheckCircle className="w-6 h-6 text-emerald-600 shrink-0" />
+                    <span>{item.q}</span>
+                  </h4>
+                  <p className="font-['JetBrains_Mono'] text-gray-700 pl-9">{item.a}</p>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-500 translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/eco-packaging-regulations-pain-points.jpg" 
+                alt="Eco Packaging Regulations Pain Points" 
+                className="relative z-10 border-4 border-black w-full h-auto object-cover"
               />
             </div>
           </div>

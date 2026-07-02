@@ -7,6 +7,114 @@ import { useTranslation } from 'react-i18next'
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
 
+export const translations = {
+  en: {
+    "login.problems.title": "5 Common B2B Portal Problems (And Solutions)",
+    "login.problems.1.title": "Forgotten Passwords",
+    "login.problems.1.desc": "We provide secure, fast email reset links.",
+    "login.problems.2.title": "Slow Loading Dashboards",
+    "login.problems.2.desc": "Optimized with edge caching for instant access.",
+    "login.problems.3.title": "Unauthorized Access",
+    "login.problems.3.desc": "Protected by Cloudflare Turnstile and role-based security.",
+    "login.problems.4.title": "Lost Order History",
+    "login.problems.4.desc": "A centralized dashboard for all quotes and orders.",
+    "login.problems.5.title": "Confusing Navigation",
+    "login.problems.5.desc": "Streamlined UX for an intuitive experience."
+  },
+  es: {
+    "login.problems.title": "5 Problemas Comunes en Portales B2B (Y Soluciones)",
+    "login.problems.1.title": "Contraseñas Olvidadas",
+    "login.problems.1.desc": "Proporcionamos enlaces seguros y rápidos de recuperación por correo.",
+    "login.problems.2.title": "Paneles de Carga Lenta",
+    "login.problems.2.desc": "Optimizados con caché en el borde para acceso instantáneo.",
+    "login.problems.3.title": "Acceso no Autorizado",
+    "login.problems.3.desc": "Protegido por Cloudflare Turnstile y seguridad basada en roles.",
+    "login.problems.4.title": "Historial de Pedidos Perdido",
+    "login.problems.4.desc": "Un panel centralizado para todas las cotizaciones y pedidos.",
+    "login.problems.5.title": "Navegación Confusa",
+    "login.problems.5.desc": "Experiencia de usuario optimizada e intuitiva."
+  },
+  fr: {
+    "login.problems.title": "5 Problèmes Courants des Portails B2B (Et Solutions)",
+    "login.problems.1.title": "Mots de Passe Oubliés",
+    "login.problems.1.desc": "Nous fournissons des liens de réinitialisation sécurisés et rapides.",
+    "login.problems.2.title": "Tableaux de Bord Lents",
+    "login.problems.2.desc": "Optimisés avec une mise en cache périphérique pour un accès instantané.",
+    "login.problems.3.title": "Accès Non Autorisé",
+    "login.problems.3.desc": "Protégé par Cloudflare Turnstile et sécurité basée sur les rôles.",
+    "login.problems.4.title": "Historique des Commandes Perdu",
+    "login.problems.4.desc": "Un tableau de bord centralisé pour tous les devis et commandes.",
+    "login.problems.5.title": "Navigation Confuse",
+    "login.problems.5.desc": "Expérience utilisateur simplifiée et intuitive."
+  },
+  'zh-TW': {
+    "login.problems.title": "5 個常見的 B2B 入口網站問題 (與解決方案)",
+    "login.problems.1.title": "忘記密碼",
+    "login.problems.1.desc": "我們提供安全且快速的電子郵件重設連結。",
+    "login.problems.2.title": "載入緩慢的儀表板",
+    "login.problems.2.desc": "透過邊緣快取優化，實現即時存取。",
+    "login.problems.3.title": "未經授權的存取",
+    "login.problems.3.desc": "受到 Cloudflare Turnstile 和基於角色的安全保護。",
+    "login.problems.4.title": "遺失訂單歷史",
+    "login.problems.4.desc": "所有報價和訂單的集中式儀表板。",
+    "login.problems.5.title": "令人困惑的導航",
+    "login.problems.5.desc": "精簡的使用者體驗，提供直觀的操作。"
+  }
+}
+
+export const sectionsForPouch = [
+  {
+    type: 'content',
+    content: (
+      <div className="py-12 bg-white w-full border-t border-neutral-200">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-neutral-900">{translations.en['login.problems.title']}</h2>
+          <img src="/imgs/knowledge/login-page-pain-points.jpg" alt="Login portal pain points" className="w-full h-auto rounded-xl shadow-lg mb-8 object-cover" />
+          <ul className="space-y-6">
+            <li className="flex items-start gap-4">
+              <Lock className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-semibold text-neutral-900">{translations.en['login.problems.1.title']}</h3>
+                <p className="text-neutral-600">{translations.en['login.problems.1.desc']}</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-4">
+              <Loader2 className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-semibold text-neutral-900">{translations.en['login.problems.2.title']}</h3>
+                <p className="text-neutral-600">{translations.en['login.problems.2.desc']}</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-4">
+              <EyeOff className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-semibold text-neutral-900">{translations.en['login.problems.3.title']}</h3>
+                <p className="text-neutral-600">{translations.en['login.problems.3.desc']}</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-4">
+              <Mail className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-semibold text-neutral-900">{translations.en['login.problems.4.title']}</h3>
+                <p className="text-neutral-600">{translations.en['login.problems.4.desc']}</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-4">
+              <ChevronRight className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-semibold text-neutral-900">{translations.en['login.problems.5.title']}</h3>
+                <p className="text-neutral-600">{translations.en['login.problems.5.desc']}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    )
+  }
+]
+
+export const sectionsForAchieve = sectionsForPouch
+
 const LoginPage: React.FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()

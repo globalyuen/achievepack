@@ -2,11 +2,137 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Factory, Eye, Recycle, Palette, TrendingUp, MessageSquare, Users, ClipboardCheck, Layers } from 'lucide-react'
+import { CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Factory, Eye, Recycle, Palette, TrendingUp, MessageSquare, Users, ClipboardCheck, Layers, AlertCircle } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
 import SocialShareButtons from '../../components/SocialShareButtons'
+
+export const sectionsForAchieve = ["5 Common PCR Packaging Problems (And Solutions)"]
+export const sectionsForPouch = sectionsForAchieve
+
+const translations = {
+  en: {
+    problemsSectionTitle: "5 Common PCR Packaging Problems (And Solutions)",
+    problems: [
+      {
+        title: "1. Inconsistent Material Quality & Color Variations",
+        description: "PCR batches often vary in color and contain impurities.",
+        solution: "Multi-stage sorting and advanced compounding techniques, often blending with specific ratios of virgin material to stabilize appearance and quality."
+      },
+      {
+        title: "2. Compromised Mechanical Strength",
+        description: "Recycled plastics can be more brittle and less durable than virgin materials.",
+        solution: "Implementing multi-layer co-extrusion (like A-B-A structures) to place PCR in the core while using virgin plastic for structural integrity on the outer layers."
+      },
+      {
+        title: "3. Unpleasant Odors",
+        description: "Residual smells from post-consumer use can remain in the recycled plastic.",
+        solution: "Utilizing intensive washing, vacuum degassing during extrusion, and incorporating specialized odor scavengers."
+      },
+      {
+        title: "4. Supply Chain Unpredictability",
+        description: "Sourcing a consistent volume of high-quality PCR resin can be challenging.",
+        solution: "Establishing strategic partnerships with GRS-certified recycling facilities to guarantee a stable, traceable supply."
+      },
+      {
+        title: "5. Regulatory Compliance & Safety",
+        description: "Meeting food-grade or cosmetic-grade standards with PCR is rigorous and complex.",
+        solution: "Employing EFSA/FDA-approved recycling processes, strict traceability protocols, and comprehensive migration testing."
+      }
+    ]
+  },
+  es: {
+    problemsSectionTitle: "5 Problemas Comunes de Empaques PCR (Y Soluciones)",
+    problems: [
+      {
+        title: "1. Calidad Inconsistente y Variaciones de Color",
+        description: "Los lotes de PCR a menudo varían en color y contienen impurezas.",
+        solution: "Clasificación en múltiples etapas y técnicas avanzadas de composición, mezclando con proporciones específicas de material virgen."
+      },
+      {
+        title: "2. Resistencia Mecánica Comprometida",
+        description: "Los plásticos reciclados pueden ser más frágiles y menos duraderos.",
+        solution: "Implementación de coextrusión multicapa (como estructuras A-B-A) para colocar PCR en el núcleo y plástico virgen en el exterior."
+      },
+      {
+        title: "3. Olores Desagradables",
+        description: "Los olores residuales del uso posconsumo pueden permanecer en el plástico reciclado.",
+        solution: "Lavado intensivo, desgasificación al vacío durante la extrusión e incorporación de eliminadores de olores."
+      },
+      {
+        title: "4. Imprevisibilidad de la Cadena de Suministro",
+        description: "Obtener un volumen constante de resina PCR de alta calidad puede ser un desafío.",
+        solution: "Establecer asociaciones estratégicas con instalaciones de reciclaje certificadas por GRS para garantizar un suministro estable."
+      },
+      {
+        title: "5. Cumplimiento Normativo y Seguridad",
+        description: "Cumplir con los estándares de grado alimenticio o cosmético con PCR es complejo.",
+        solution: "Emplear procesos de reciclaje aprobados por EFSA/FDA, protocolos estrictos de trazabilidad y pruebas exhaustivas de migración."
+      }
+    ]
+  },
+  fr: {
+    problemsSectionTitle: "5 Problèmes Courants des Emballages PCR (Et Solutions)",
+    problems: [
+      {
+        title: "1. Qualité Inconstante et Variations de Couleur",
+        description: "Les lots de PCR varient souvent en couleur et contiennent des impuretés.",
+        solution: "Tri à plusieurs étapes et techniques avancées de compoundage, mélangeant avec des proportions spécifiques de matériau vierge."
+      },
+      {
+        title: "2. Résistance Mécanique Compromise",
+        description: "Les plastiques recyclés peuvent être plus fragiles et moins durables.",
+        solution: "Mise en œuvre d'une coextrusion multicouche (structures A-B-A) pour placer le PCR au cœur et le plastique vierge à l'extérieur."
+      },
+      {
+        title: "3. Odeurs Désagréables",
+        description: "Des odeurs résiduelles peuvent subsister dans le plastique recyclé.",
+        solution: "Lavage intensif, dégazage sous vide lors de l'extrusion et intégration de capteurs d'odeurs."
+      },
+      {
+        title: "4. Imprévisibilité de la Chaîne d'Approvisionnement",
+        description: "Obtenir un volume constant de résine PCR de haute qualité est un défi.",
+        solution: "Établissement de partenariats stratégiques avec des installations certifiées GRS pour garantir un approvisionnement stable."
+      },
+      {
+        title: "5. Conformité Réglementaire et Sécurité",
+        description: "Atteindre les normes alimentaires ou cosmétiques avec le PCR est complexe.",
+        solution: "Utilisation de processus de recyclage approuvés par l'EFSA/FDA et tests de migration complets."
+      }
+    ]
+  },
+  'zh-TW': {
+    problemsSectionTitle: "5個常見的PCR包裝問題 (及解決方案)",
+    problems: [
+      {
+        title: "1. 材料質量不穩定與顏色差異",
+        description: "PCR批次通常顏色不一且含有雜質。",
+        solution: "多階段分揀與先進改性技術，並依特定比例與新料混合以穩定外觀與質量。"
+      },
+      {
+        title: "2. 機械強度下降",
+        description: "回收塑料可能比新料更脆且不耐用。",
+        solution: "採用多層共擠技術 (如A-B-A結構)，將PCR置於芯層，外層使用新料以確保強度。"
+      },
+      {
+        title: "3. 異味殘留",
+        description: "消費後使用的殘留氣味可能留在回收塑料中。",
+        solution: "進行密集清洗、擠出過程中抽真空脫氣，並加入專用的除味劑。"
+      },
+      {
+        title: "4. 供應鏈不穩定",
+        description: "獲取持續且高質量的PCR樹脂面臨挑戰。",
+        solution: "與GRS認證的回收設施建立戰略合作夥伴關係，以保證穩定且可追溯的供應。"
+      },
+      {
+        title: "5. 法規遵從與安全性",
+        description: "PCR達到食品級或化妝品級標準非常複雜且嚴格。",
+        solution: "採用EFSA/FDA批准的回收工藝、嚴格的追溯協議及全面的遷移測試。"
+      }
+    ]
+  }
+}
 
 // Image paths - using imgs/PCR/7 folder
 const IMAGES = {
@@ -116,7 +242,10 @@ const ImageTextRow: React.FC<{
 }
 
 const PCR7ChecklistPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language || 'en').toLowerCase()
+  const resolvedLang = lang.includes('zh') ? 'zh-TW' : ['es', 'fr'].includes(lang) ? lang : 'en'
+  const currentTranslations = translations[resolvedLang as keyof typeof translations] || translations.en
   const { openCalendly } = useCalendly()
 
   const p = 'seoPages.pages.pcr7Checklist'
@@ -556,6 +685,43 @@ const PCR7ChecklistPage: React.FC = () => {
                 </p>
               </div>
             </ImageTextRow>
+          </div>
+        </section>
+
+        {/* Pain Points Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-10 text-center flex items-center justify-center gap-3">
+              <AlertCircle className="h-8 w-8 text-rose-600" />
+              {currentTranslations.problemsSectionTitle}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <img 
+                  src="/imgs/knowledge/pcr-plastics-pain-points.jpg" 
+                  alt={currentTranslations.problemsSectionTitle}
+                  className="w-full rounded-2xl shadow-xl border border-neutral-100"
+                />
+              </div>
+              <div className="space-y-6">
+                {currentTranslations.problems.map((prob, idx) => (
+                  <div key={idx} className="bg-neutral-50 rounded-xl p-6 border border-neutral-100 hover:shadow-md transition">
+                    <h3 className="text-lg font-bold text-neutral-900 mb-2 flex items-start gap-2">
+                      <span className="text-rose-600 mt-1"><X className="h-5 w-5" /></span>
+                      {prob.title}
+                    </h3>
+                    <p className="text-neutral-600 text-sm mb-4 pl-7">{prob.description}</p>
+                    <div className="bg-emerald-50 rounded-lg p-4 ml-7">
+                      <h4 className="text-emerald-800 font-semibold text-sm mb-1 flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4" />
+                        Solution
+                      </h4>
+                      <p className="text-emerald-700 text-sm">{prob.solution}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

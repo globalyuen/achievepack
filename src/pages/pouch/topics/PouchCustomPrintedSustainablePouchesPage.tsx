@@ -1,14 +1,124 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
-import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Printer, Palette } from 'lucide-react'
+import { AlertTriangle, BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Printer, Palette } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Custom Printed Sustainable Pouches Problems (And Solutions)",
+    badge: "Troubleshooting",
+    problems: [
+      {
+        problem: "Fading or Bleeding Inks on Sustainable Materials",
+        solution: "UV-Cured Eco Inks (Provides high color fastness without harsh solvents)"
+      },
+      {
+        problem: "Weak Seams on Compostable Films",
+        solution: "Advanced Heat Seal Engineering (Optimized temperature control ensures robust, leak-proof seams)"
+      },
+      {
+        problem: "Inconsistent Material Thickness (Gauge Variation)",
+        solution: "Automated Gauge Control & Extrusion Tech (Ensures uniform film thickness)"
+      },
+      {
+        problem: "Delamination of Multi-layer Sustainable Films",
+        solution: "High-Bond Solventless Lamination (Maintains structural integrity without compromising compostability)"
+      },
+      {
+        problem: "Poor Print Registration due to Material Stretch",
+        solution: "Tension-Controlled Printing (Maintains precise registration even on extensible bio-polymers)"
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas Sostenibles Impresas (y Soluciones)",
+    badge: "Solución de problemas",
+    problems: [
+      {
+        problem: "Tintas que se desvanecen o corren en materiales sostenibles",
+        solution: "Tintas Ecológicas de Curado UV (Alta solidez de color sin solventes agresivos)"
+      },
+      {
+        problem: "Costuras débiles en películas compostables",
+        solution: "Ingeniería Avanzada de Sellado por Calor (Control de temperatura para costuras robustas)"
+      },
+      {
+        problem: "Espesor inconsistente del material",
+        solution: "Control Automático de Calibre (Garantiza un espesor de película uniforme)"
+      },
+      {
+        problem: "Delaminación de películas sostenibles multicapa",
+        solution: "Laminación Sin Solventes de Alta Adherencia (Mantiene la integridad estructural)"
+      },
+      {
+        problem: "Mal registro de impresión por el estiramiento del material",
+        solution: "Impresión con Control de Tensión (Mantiene un registro preciso en biopolímeros extensibles)"
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets Durables Imprimés (et Solutions)",
+    badge: "Dépannage",
+    problems: [
+      {
+        problem: "Encres qui s'estompent ou bavent sur les matériaux durables",
+        solution: "Encres Écologiques à Séchage UV (Haute solidité des couleurs sans solvants agressifs)"
+      },
+      {
+        problem: "Coutures faibles sur les films compostables",
+        solution: "Ingénierie Avancée de Thermoscellage (Contrôle de température pour des coutures robustes)"
+      },
+      {
+        problem: "Épaisseur irrégulière du matériau",
+        solution: "Contrôle Automatique d'Épaisseur (Garantit une épaisseur de film uniforme)"
+      },
+      {
+        problem: "Délamination des films durables multicouches",
+        solution: "Lamination Sans Solvant à Haute Adhérence (Maintient l'intégrité structurelle)"
+      },
+      {
+        problem: "Mauvais repérage d'impression dû à l'étirement du matériau",
+        solution: "Impression à Tension Contrôlée (Maintient un repérage précis sur les biopolymères extensibles)"
+      }
+    ]
+  },
+  "zh-TW": {
+    title: "客製化印刷永續包裝袋的 5 個常見問題 (及解決方案)",
+    badge: "疑難排解",
+    problems: [
+      {
+        problem: "永續材質上的油墨褪色或暈染",
+        solution: "UV固化環保油墨 (提供高色牢度且無刺激性溶劑)"
+      },
+      {
+        problem: "可堆肥薄膜的接縫脆弱",
+        solution: "先進熱封工程 (優化溫度控制確保堅固防漏的接縫)"
+      },
+      {
+        problem: "材質厚度不均",
+        solution: "自動化厚度控制與擠出技術 (確保薄膜厚度均勻)"
+      },
+      {
+        problem: "多層永續薄膜的脫層現象",
+        solution: "高黏合無溶劑貼合 (在不影響可堆肥性的情況下保持結構完整性)"
+      },
+      {
+        problem: "材質拉伸導致的印刷套印不良",
+        solution: "張力控制印刷 (在可延伸的生物聚合物上也能保持精確的套印)"
+      }
+    ]
+  }
+}
+
 const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const currentLang = lang.startsWith('zh') ? 'zh-TW' : (lang.split('-')[0] || 'en')
+  const localT = translations[currentLang] || translations.en
   const p = 'pouchCustomPrintedSustainablePouchesPage'
   const baseUrl = getBaseUrl()
   
@@ -170,6 +280,40 @@ const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
                 alt={t(`${p}.science.alt`)} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-100 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="red">{localT.badge}</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">
+            {localT.title}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              {localT.problems.map((item: any, i: number) => (
+                <div key={i} className="bg-white border-4 border-black p-6 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                  <h4 className="font-black text-lg uppercase flex items-start gap-3 mb-2 text-red-600">
+                    <AlertTriangle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                    {item.problem}
+                  </h4>
+                  <p className="font-['JetBrains_Mono'] text-gray-700 flex items-start gap-3 pl-9">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 text-green-600 mt-0.5" />
+                    {item.solution}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/custom-printed-sustainable-pouches-pain-points.jpg" 
+                alt="5 Common Custom Printed Sustainable Pouches Problems" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

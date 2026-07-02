@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useCallback, useTransition } from 'react'
 import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { Search, ArrowRight, ShoppingCart, Leaf, Package, Factory, FileText, Users, Award, ShoppingBag, Boxes, Beaker, BookOpen } from 'lucide-react'
+import { Search, ArrowRight, ShoppingCart, Leaf, Package, Factory, FileText, Users, Award, ShoppingBag, Boxes, Beaker, BookOpen, AlertTriangle, CheckCircle } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { LEARN_PAGES } from '../components/LearnNavigation'
 import { useTranslation } from 'react-i18next'
@@ -29,6 +29,120 @@ const CATEGORY_MAPPING: Record<string, string> = {
   spec: 'Spec',
   recyclable: 'Materials',
 }
+
+const translations = {
+  en: [
+    {
+      title: "Information Overload",
+      description: "Finding the right packaging material among hundreds of options can be overwhelming and time-consuming.",
+      solution: "A centralized, searchable knowledge base categorizes packaging solutions by material, feature, and industry for rapid discovery."
+    },
+    {
+      title: "Unclear Material Specs",
+      description: "Technical specifications for sustainable materials (like PCR or Bio-PE) are often buried in dense PDFs.",
+      solution: "Filtering by 'Materials' and 'Spec' surfaces technical details, barrier properties, and thickness instantly."
+    },
+    {
+      title: "Choosing Between Solutions",
+      description: "Brands struggle to decide whether standard or custom packaging better suits their launch timeline.",
+      solution: "Case studies and direct comparisons highlight practical performance differences to guide your decision-making."
+    },
+    {
+      title: "Compliance and Regulations Confusion",
+      description: "Global recycling standards and compostability certifications vary widely and change frequently.",
+      solution: "Dedicated topics cover up-to-date global recycling standards and regional compliance regulations."
+    },
+    {
+      title: "Uncertainty on Product Suitability",
+      description: "It's difficult to know which eco-friendly material works best for specific products like liquids or powders.",
+      solution: "Filtering by 'Industries' matches packaging types to specific sector requirements, ensuring optimal product protection."
+    }
+  ],
+  es: [
+    {
+      title: "Sobrecarga de Información",
+      description: "Encontrar el material de embalaje adecuado entre cientos de opciones puede ser abrumador y llevar mucho tiempo.",
+      solution: "Una base de conocimientos centralizada y buscable clasifica las soluciones por material, característica e industria para un descubrimiento rápido."
+    },
+    {
+      title: "Especificaciones de Material Poco Claras",
+      description: "Las especificaciones técnicas de materiales sostenibles a menudo están ocultas en PDFs densos.",
+      solution: "Filtrar por 'Materiales' y 'Especificaciones' muestra los detalles técnicos y propiedades de barrera al instante."
+    },
+    {
+      title: "Elegir Entre Soluciones",
+      description: "Las marcas luchan por decidir si el embalaje estándar o personalizado se adapta mejor a su línea de tiempo.",
+      solution: "Los estudios de caso y las comparaciones directas destacan las diferencias prácticas de rendimiento."
+    },
+    {
+      title: "Confusión sobre Cumplimiento y Regulaciones",
+      description: "Los estándares globales de reciclaje y certificaciones de compostabilidad varían y cambian frecuentemente.",
+      solution: "Temas dedicados cubren los estándares de reciclaje actualizados y las regulaciones de cumplimiento regional."
+    },
+    {
+      title: "Incertidumbre sobre la Idoneidad del Producto",
+      description: "Es difícil saber qué material ecológico funciona mejor para productos específicos como líquidos o polvos.",
+      solution: "Filtrar por 'Industrias' adapta los tipos de embalaje a los requisitos de sectores específicos."
+    }
+  ],
+  fr: [
+    {
+      title: "Surcharge d'Informations",
+      description: "Trouver le bon matériau d'emballage parmi des centaines d'options peut être accablant et chronophage.",
+      solution: "Une base de connaissances centralisée classe les solutions d'emballage par matériau, caractéristique et industrie."
+    },
+    {
+      title: "Spécifications de Matériaux Floues",
+      description: "Les spécifications techniques pour les matériaux durables sont souvent enfouies dans des PDF denses.",
+      solution: "Le filtrage par 'Matériaux' et 'Spécifications' fait ressortir instantanément les détails techniques et les propriétés de barrière."
+    },
+    {
+      title: "Choisir Entre les Solutions",
+      description: "Les marques ont du mal à décider si l'emballage standard ou personnalisé convient mieux à leur calendrier.",
+      solution: "Les études de cas et les comparaisons directes soulignent les différences de performances pratiques."
+    },
+    {
+      title: "Confusion sur la Conformité et les Réglementations",
+      description: "Les normes mondiales de recyclage et les certifications de compostabilité varient et changent fréquemment.",
+      solution: "Des sujets dédiés couvrent les normes de recyclage à jour et les réglementations de conformité régionales."
+    },
+    {
+      title: "Incertitude sur l'Adéquation du Produit",
+      description: "Il est difficile de savoir quel matériau écologique convient le mieux à des produits spécifiques.",
+      solution: "Le filtrage par 'Industries' fait correspondre les types d'emballage aux exigences spécifiques du secteur."
+    }
+  ],
+  "zh-TW": [
+    {
+      title: "資訊超載",
+      description: "在數百種選項中尋找合適的包裝材料可能會令人不知所措且耗時。",
+      solution: "集中且可搜尋的知識庫依材料、特徵和行業對包裝解決方案進行分類，實現快速探索。"
+    },
+    {
+      title: "材料規格不清楚",
+      description: "永續材料的技術規格通常隱藏在密集的 PDF 文件中。",
+      solution: "透過「材料」和「規格」進行篩選，可立即顯示技術細節和阻隔特性。"
+    },
+    {
+      title: "在解決方案之間做出選擇",
+      description: "品牌難以決定標準或客製化包裝哪個更適合他們的上市時間表。",
+      solution: "案例研究和直接比較突出了實際效能差異，以指導您的決策。"
+    },
+    {
+      title: "合規與法規的困惑",
+      description: "全球回收標準和可堆肥認證差異很大且經常變化。",
+      solution: "專屬主題涵蓋了最新的全球回收標準和區域合規法規。"
+    },
+    {
+      title: "對產品適用性的不確定性",
+      description: "很難知道哪種環保材料最適合液體或粉末等特定產品。",
+      solution: "透過「行業」篩選，將包裝類型與特定行業需求進行匹配，確保最佳的產品保護。"
+    }
+  ]
+};
+
+export const sectionsForPouch = translations;
+export const sectionsForAchieve = translations;
 
 // Generate categories from LEARN_PAGES keys
 const CATEGORIES = [
@@ -74,7 +188,7 @@ const ALL_PAGES = Object.entries(LEARN_PAGES).flatMap(([key, category]) =>
 )
 
 export default function LearnSearchPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.learnSearch'
   const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -286,6 +400,43 @@ export default function LearnSearchPage() {
                 ))}
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Pain Points Section */}
+        <section className="py-16 bg-neutral-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-neutral-900">
+                5 Common Packaging Knowledge Problems (And Solutions)
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <img 
+                  src="/imgs/knowledge/packaging-knowledge-search-pain-points.jpg" 
+                  alt="Packaging Knowledge Search Solutions" 
+                  className="rounded-2xl shadow-xl w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="space-y-6">
+                {(translations[i18n.language as keyof typeof translations] || translations.en).map((item, idx) => (
+                  <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-neutral-200">
+                    <h3 className="text-xl font-bold text-neutral-900 mb-2 flex items-center gap-2">
+                      <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0" />
+                      {item.title}
+                    </h3>
+                    <p className="text-neutral-600 mb-4">{item.description}</p>
+                    <div className="flex items-start gap-2 bg-primary-50 p-4 rounded-lg">
+                      <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-primary-900 font-medium">{item.solution}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

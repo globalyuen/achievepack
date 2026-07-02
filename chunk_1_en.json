@@ -1,0 +1,330 @@
+{
+  "products": {
+    "sample-sizing-pack": {
+      "name": "Sizing Pack (Conventional Plastic)",
+      "shortDesc": "Free samples + $40 shipping",
+      "description": "Free samples in standard sizes with conventional plastic material. Perfect for testing different sizes for your products.",
+      "features": [
+        "Multiple Standard Sizes",
+        "Conventional Plastic",
+        "Free Samples",
+        "Fast Shipping"
+      ]
+    },
+    "sample-assorted-eco": {
+      "name": "Assorted Eco Pouches Sample",
+      "shortDesc": "Free samples + $40 shipping",
+      "description": "Mixed eco-friendly sample pouches including PCR/Bio, Recyclable, and Compostable materials.",
+      "features": [
+        "PCR/Bio Materials",
+        "Recyclable Options",
+        "Compostable Options",
+        "Variety Pack"
+      ]
+    },
+    "sample-top-film": {
+      "name": "Custom digital printed top film of your design",
+      "shortDesc": "$20 sample + $40 shipping",
+      "description": "Large format digital printed film sample. Perfect for testing print quality and colors.",
+      "features": [
+        "760mm x 1000mm",
+        "Digital Print Quality",
+        "Color Testing",
+        "Fast Turnaround"
+      ]
+    },
+    "sample-hand-sealed": {
+      "name": "Custom Digital Printed Hand Sealed Pouches",
+      "shortDesc": "$20 sample + $40 shipping",
+      "description": "Custom size hand-sealed digital printed pouches. Test your exact specifications before bulk order.",
+      "features": [
+        "Custom Sizes",
+        "Hand Sealed",
+        "Digital Print",
+        "Full Customization"
+      ]
+    },
+    "conven-3ss-clear-xzip": {
+      "name": "3 Side Seal Pouch – Clear, No Zipper",
+      "shortDesc": "From US$90 for 100 pcs",
+      "description": "Crystal clear 3-side seal pouch with low barrier finish. Perfect for showcasing your products with full visibility.",
+      "features": [
+        "Clear Material",
+        "Low Barrier (Glossy)",
+        "Digital Print",
+        "Free Shipping"
+      ]
+    },
+    "conven-3ss-clear-zip": {
+      "name": "3 Side Seal Pouch – Clear, With Zipper",
+      "shortDesc": "From US$110 for 100 pcs",
+      "description": "Resealable clear 3-side seal pouch. Combines product visibility with convenient resealing functionality.",
+      "features": [
+        "Clear Material",
+        "Resealable Zipper",
+        "Low Barrier (Glossy)",
+        "Digital Print"
+      ]
+    },
+    "conven-3ss-met-xzip": {
+      "name": "3 Side Seal Pouch – Metalised, No Zipper",
+      "shortDesc": "From US$90 for 100 pcs",
+      "description": "Metalised 3-side seal pouch with high barrier protection. Ideal for light-sensitive and moisture-sensitive products.",
+      "features": [
+        "Metalised Material",
+        "High Barrier (Matte)",
+        "Light Protection",
+        "Digital Print"
+      ]
+    },
+    "conven-3ss-met-zip": {
+      "name": "3 Side Seal Pouch – Metalised, With Zipper",
+      "shortDesc": "From US$110 for 100 pcs",
+      "description": "Premium metalised 3-side seal with zipper. Maximum protection with convenient reseal for freshness retention.",
+      "features": [
+        "Metalised Material",
+        "Resealable Zipper",
+        "High Barrier (Matte)",
+        "Maximum Freshness"
+      ]
+    },
+    "conven-sup-clear-xzip": {
+      "name": "Stand Up Pouch – Clear, No Zipper",
+      "shortDesc": "From US$90 for 100 pcs",
+      "description": "Clear stand-up pouch with excellent shelf presence. Showcases your product while standing upright on shelves.",
+      "features": [
+        "Clear Material",
+        "Stand Up Design",
+        "Low Barrier (Glossy)",
+        "Shelf Presence"
+      ]
+    },
+    "conven-sup-clear-zip": {
+      "name": "Stand Up Pouch – Clear, With Zipper",
+      "shortDesc": "From US$100 for 100 pcs",
+      "description": "Resealable clear stand-up pouch. Perfect blend of visibility, shelf appeal, and resealable convenience.",
+      "features": [
+        "Clear Material",
+        "Stand Up + Zipper",
+        "Low Barrier (Glossy)",
+        "Free Shipping"
+      ]
+    },
+    "conven-sup-met-xzip": {
+      "name": "Stand Up Pouch – Metalised, No Zipper",
+      "shortDesc": "From US$90 for 100 pcs",
+      "description": "Metalised stand-up pouch with high barrier protection. Combines premium appearance with product protection.",
+      "features": [
+        "Metalised Material",
+        "Stand Up Design",
+        "High Barrier (Matte)",
+        "Premium Look"
+      ]
+    },
+    "conven-sup-met-zip": {
+      "name": "Stand Up Pouch – Metalised, With Zipper",
+      "shortDesc": "From US$100 for 100 pcs",
+      "description": "Premium metalised stand-up pouch with zipper. Our best-selling option combining all premium features.",
+      "features": [
+        "Metalised Material",
+        "Stand Up + Zipper",
+        "High Barrier (Matte)",
+        "Best Seller"
+      ]
+    },
+    "conven-fb-met-zip": {
+      "name": "Flat Bottom Pouch – Metalised, With Zipper",
+      "shortDesc": "From US$900 for 500 pcs",
+      "description": "Flat bottom zipper pouch with metalised high-barrier protection. Provides maximum stability, elegant structure, and premium shelf presentation.",
+      "features": [
+        "Metalised Material",
+        "Flat Bottom + Zipper",
+        "High Barrier (Matte)",
+        "Self-Standing Structure"
+      ]
+    },
+    "small-sachet-conventional": {
+      "name": "Small Sachet – Conventional Material",
+      "shortDesc": "From US$159.60 for 500 pcs",
+      "description": "Custom printed small sachet pouch made of premium silk pure aluminum multi-laminated structure (120 microns / 12丝). Provides ultra-high moisture and light barrier. Perfect for single-serving coffee, tea, powders, and cosmetic samples.",
+      "features": [
+        "Silk Pure Aluminum (12丝)",
+        "Ultra-High Barrier",
+        "Hot Stamping & Digital Print",
+        "Custom Sizing & Shapes"
+      ]
+    },
+    "eco-3side": {
+      "name": "Eco Digital – 3 Side Seal Pouch",
+      "shortDesc": "From US$100 for 1,000 pcs",
+      "description": "Eco-friendly 3-side seal pouch. Choose from PCR/Bio Plastic, Mono Recyclable, or Biodegradable materials.",
+      "features": [
+        "Eco Materials",
+        "30% Lower Carbon",
+        "Digital Print",
+        "Sustainable"
+      ]
+    },
+    "eco-centerseal": {
+      "name": "Eco Digital – Center Seal Pouch",
+      "shortDesc": "From US$100 for 1,000 pcs",
+      "description": "Eco-friendly center seal. Simple and cost-effective design with sustainable material options.",
+      "features": [
+        "Eco Materials",
+        "Center Seal",
+        "Digital Print",
+        "Sustainable"
+      ]
+    },
+    "eco-standup": {
+      "name": "Eco Digital – Stand Up Pouch / Doypack",
+      "shortDesc": "From US$120 for 1,000 pcs",
+      "description": "Premium eco stand-up pouch. Excellent shelf presence with sustainable materials.",
+      "features": [
+        "Eco Materials",
+        "Stand Up",
+        "Digital Print",
+        "Premium"
+      ]
+    },
+    "eco-boxbottom": {
+      "name": "Eco Digital – Box Bottom Pouch",
+      "shortDesc": "From US$170 for 1,000 pcs",
+      "description": "Eco box bottom pouch. Maximum stability and capacity with sustainable materials.",
+      "features": [
+        "Eco Materials",
+        "Box Bottom",
+        "High Capacity",
+        "Sustainable"
+      ]
+    },
+    "eco-flatbottom": {
+      "name": "Eco Digital – Flat Squared Bottom Pouch",
+      "shortDesc": "From US$190 for 1,000 pcs",
+      "description": "Eco flat bottom pouch. Premium flat bottom design with eco-friendly materials.",
+      "features": [
+        "Eco Materials",
+        "Flat Bottom",
+        "Premium Design",
+        "Sustainable"
+      ]
+    },
+    "eco-quadseal": {
+      "name": "Eco Digital – Quad Seal Pouch",
+      "shortDesc": "From US$160 for 1,000 pcs",
+      "description": "Eco quad seal pouch. Four-corner seal for maximum stability with sustainable materials.",
+      "features": [
+        "Eco Materials",
+        "Quad Seal",
+        "High Stability",
+        "Sustainable"
+      ]
+    },
+    "eco-sidegusset": {
+      "name": "Eco Digital – Side Gusset Pouch",
+      "shortDesc": "From US$140 for 1,000 pcs",
+      "description": "Eco side gusset pouch. Classic coffee bag style with sustainable materials.",
+      "features": [
+        "Eco Materials",
+        "Side Gusset",
+        "Coffee Bag Style",
+        "Sustainable"
+      ]
+    },
+    "media__1780570697340.jpg": {
+      "name": "Custom Eco Rollstock",
+      "shortDesc": "Bespoke custom eco-friendly rollstock film designed for automated Form-Fill-Seal packaging lines",
+      "description": "Custom eco-friendly rollstock film engineered specifically for automated Form-Fill-Seal (FFS) packaging machinery. Choose from PCR/Bio Plastic, Mono Recyclable, or Biodegradable materials.",
+      "features": [
+        "Eco Materials: Select from biodegradable, compostable, or recyclable polymer films",
+        "Automated FFS Ready: Engineered for seamless slip and high tensile strength on automatic packaging machines",
+        "Digital Custom Print: Waived plate fees and vivid multi-color reproduction for short runs",
+        "Food Grade Certified: 100% compliant with FDA, LFGB, and BRC safety standards"
+      ]
+    },
+    "food-grade-three-layer-chocolate-cushioning-paper-pad": {
+      "name": "Food-Grade Three-Layer Chocolate Cushioning Paper Pad, Black and White Printed, Moisture-Proof and Shock-Absorbing Honeycomb Waffle Paper Pad",
+      "shortDesc": "Food-grade 3-layer chocolate cushioning honeycomb waffle pad with moisture-proof shock absorption",
+      "description": "A premium food-grade cushioning paper pad engineered with a three-layer honeycomb waffle structure. Designed specifically for fine chocolates, confectionery, pastries, and delicate baked goods. Provides superior shock absorption, moisture resistance, and cushioning buffer to prevent cracking or crushing during transit. Made of 100% natural biodegradable and compostable paper materials with food-safe black and white printed designs.",
+      "features": [
+        "Food Safe & FDA Compliant: Manufactured from 100% food-grade paper for direct confectionery contact.",
+        "3-Layer Honeycomb Waffle Cushioning: Expanded waffle pattern provides excellent shock-absorbing protection.",
+        "Moisture-Proof & Oil-Resistant: Outer layers prevent grease absorption and maintain premium presentation.",
+        "100% Biodegradable & Compostable: Plant-based alternative to plastic bubble liners.",
+        "Custom Print & Size Options: Brandable with custom black and white print to match logo designs."
+      ]
+    },
+    "reusable-acrylic-airtight-canister": {
+      "name": "Reusable Acrylic Airtight Canister",
+      "shortDesc": "Premium reusable acrylic storage canister with double-layer airtight gold cap",
+      "description": "A premium, highly durable, and reusable acrylic airtight canister designed for dry goods, tea, coffee, herbs, and beauty products. Engineered with a food-grade, high-clarity acrylic body and an airtight double-layer protective gold cap with silicone gasket to ensure long-term freshness and moisture preservation. A sustainable alternative to single-use retail packaging, optimized for continuous home and commercial refilling.",
+      "features": [
+        "Zero Waste Circular Design: Engineered for infinite washing and refilling cycles to replace single-use packaging.",
+        "High-Clarity Food-Grade Acrylic: Elegant glass-like transparency with high shatter resistance and low shipping weight.",
+        "Dual-Layer Gold Screw Cap: Double-layer protection cap with food-grade internal threads for a leak-proof, airtight seal.",
+        "Silicone Sealing Gasket: Marine-grade freshness preservation protecting contents from air and humidity.",
+        "Multiple Size Classifications: Available in 20 exact capacities from 100ml to 400ml to match any retail shelf space."
+      ]
+    },
+    "spouted-stand-up-pouch-bio-pe": {
+      "name": "Bio-PE Spouted Stand Up Pouch",
+      "shortDesc": "Eco-friendly sugarcane Bio-PE stand-up pouch with leak-proof spout",
+      "description": "A premium, custom-spec wholesale B2B packaging solution engineered with sugarcane-derived plant-based polyethylene (Bio-PE). Formulated with a PET12/AL7/NY15/Bio-PE80 structure, this pouch provides identical barrier performance to traditional plastic while significantly reducing your brand’s carbon footprint. Fully recyclable in standard PE streams, featuring robust welded seals and a tamper-evident resealable screw cap for liquids, purees, baby foods, and refills.",
+      "features": [
+        "Advanced B2B Specs: Sugarcane-based Bio-PE, 8mm inner spout diameter",
+        "Premium Eco Material: Engineered using renewable PET12/AL7/NY15/Bio-PE80.",
+        "100% Recyclable: Compatible with standard PE recycling streams (#2 and #4).",
+        "Leak-Proof Welded Seals: Built for transport of liquid, puree, and food-grade formulations.",
+        "Tamper-Evident Cap: Built-in reliable closure system to preserve freshness."
+      ]
+    },
+    "recyclable-3ss-evoh-pe-102x152": {
+      "name": "102mm x 152mm Three-side Seal Pouch ( Recyclable PE / EVOH-PE )",
+      "shortDesc": "Premium custom-quoted B2B three-side seal pouch made of Recyclable PE/EVOH-PE composite film",
+      "description": "A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a high-performance Recyclable PE/EVOH-PE composite structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain freshness and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, tea, organic snacks, or industrial components. Features standard seal width, clean flat edges, and easy-open tear notches.",
+      "features": [
+        "Advanced B2B Specs: High-barrier EVOH-PE composite, standard seal width, no zipper",
+        "Three-side Seal Design: Optimized flat format for professional retail presentations and efficient packing.",
+        "Premium Material Structure: Engineered using 100% recyclable single-polymer mono-PE with EVOH barrier.",
+        "Wholesale Value Tiers: Low MOQ starting from 200 pieces with tiered volume discounts.",
+        "Eco-Conscious Choice: Fully recyclable structure designed for standard circular recovery streams."
+      ]
+    },
+    "rice-paper-500g-standup": {
+      "name": "220mm x 240mm + 90mm Stand Up Zipper Pouch ( Rice Paper / PBAT )",
+      "shortDesc": "Premium custom-quoted B2B stand up pouch made of Rice paper 30g / PBAT 100 with PLA degassing valve",
+      "description": "A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty Rice paper 30g / PBAT 100 compostable multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches, a reliable resealable zipper, a PLA degassing valve, and robust seal lines.",
+      "features": [
+        "Advanced B2B Specs: Resealable biodegradable zipper, PLA degassing valve",
+        "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+        "Premium Material Structure: Engineered using high-performance Rice paper 30g / PBAT 100 compostable layers.",
+        "Wholesale Value Tiers: Low MOQ starting from 500 pieces with custom discounts.",
+        "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+      ]
+    },
+    "stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl": {
+      "name": "300mm x 340mm + 150mm Stand Up Pouch ( White Kraft Paper 60g )",
+      "shortDesc": "Premium custom-quoted B2B stand up pouch made of White Kraft Paper 60g/PLA Aluminum Coating/PLA+PBAT Biodegradable",
+      "description": "A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty White Kraft Paper 60g/PLA Aluminum Coating/PLA+PBAT Biodegradable multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.",
+      "features": [
+        "Advanced B2B Specs: Biodegradable zipper 13mm-PLA2, transparent bag",
+        "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+        "Premium Material Structure: Engineered using high-performance White Kraft Paper 60g/PLA Aluminum Coating/PLA+PBAT Biodegradable layers.",
+        "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+        "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+      ]
+    },
+    "stand-up-zipper-bag-50-tablets-white-kraft-paper-60g-pla-pba": {
+      "name": "215 mm * 215 mm * 100 mm Stand Up Pouch ( White kraft paper 60g )",
+      "shortDesc": "Premium custom-quoted B2B stand up pouch made of White kraft paper 60g / PLA+PBAT biodegradable",
+      "description": "A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty White kraft paper 60g / PLA+PBAT biodegradable multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.",
+      "features": [
+        "Advanced B2B Specs: Partial anti-discoloration oil, biodegradable zipper 13mm PLA2, thickness 135",
+        "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+        "Premium Material Structure: Engineered using high-performance White kraft paper 60g / PLA+PBAT biodegradable layers.",
+        "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+        "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+      ]
+    }
+  }
+}

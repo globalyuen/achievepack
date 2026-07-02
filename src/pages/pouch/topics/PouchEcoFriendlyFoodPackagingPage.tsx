@@ -7,9 +7,54 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const localTranslations: Record<string, any> = {
+  en: {
+    title: "5 Common Eco-Friendly Food Packaging Problems (And Solutions)",
+    problems: [
+      { title: "Shelf Life Reduction (Oxygen & Moisture Barrier)", desc: "Eco-materials often have high transmission rates. Solution: Multi-layer high-barrier films (EVOH) with eco-friendly laminates." },
+      { title: "Compromised Seal Strength", desc: "Heat-sealing biodegradable materials can cause weak seals. Solution: Advanced heat-sealing technologies and robust zipper structures tailored for sustainable films." },
+      { title: "Cost of Transition", desc: "Higher material costs compared to traditional plastics. Solution: Optimized gauge thickness (down-gauging) without losing performance to offset material costs." },
+      { title: "Compliance and Certifications", desc: "Navigating complex food safety regulations. Solution: Pre-certified FDA and EFSA compliant materials ready for immediate deployment." },
+      { title: "Print Quality Issues", desc: "Inks reacting poorly on eco-materials. Solution: Solvent-free laminations and high-definition water-based or soy-based digital printing." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes del Empaque de Alimentos Ecológico (Y Soluciones)",
+    problems: [
+      { title: "Reducción de la Vida Útil (Barrera de Oxígeno y Humedad)", desc: "Los eco-materiales a menudo tienen altas tasas de transmisión. Solución: Películas de alta barrera multicapa (EVOH) con laminados ecológicos." },
+      { title: "Resistencia de Sellado Comprometida", desc: "Sellar térmicamente materiales biodegradables puede causar sellos débiles. Solución: Tecnologías avanzadas de sellado térmico y estructuras de cierre resistentes." },
+      { title: "Costo de Transición", desc: "Mayores costos de materiales. Solución: Grosor de calibre optimizado (down-gauging) sin perder rendimiento para compensar los costos." },
+      { title: "Cumplimiento y Certificaciones", desc: "Navegar por regulaciones complejas. Solución: Materiales precertificados por FDA y EFSA listos para su uso inmediato." },
+      { title: "Problemas de Calidad de Impresión", desc: "Tintas que reaccionan mal en eco-materiales. Solución: Laminaciones sin solventes e impresión digital de alta definición a base de agua." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage Alimentaire Écologique (Et Solutions)",
+    problems: [
+      { title: "Réduction de la Durée de Conservation", desc: "Les éco-matériaux ont souvent des taux de transmission élevés. Solution : Films haute barrière multicouches (EVOH) avec des stratifiés écologiques." },
+      { title: "Force de Scellage Compromise", desc: "Le thermoscellage de matériaux biodégradables peut affaiblir les joints. Solution : Technologies de thermoscellage avancées et structures de fermeture éclair robustes." },
+      { title: "Coût de Transition", desc: "Coûts des matériaux plus élevés. Solution : Épaisseur de jauge optimisée (down-gauging) sans perte de performance pour compenser les coûts." },
+      { title: "Conformité et Certifications", desc: "Naviguer dans les réglementations complexes. Solution : Matériaux pré-certifiés FDA et EFSA prêts pour un déploiement immédiat." },
+      { title: "Problèmes de Qualité d'Impression", desc: "Les encres réagissent mal sur les éco-matériaux. Solution : Laminations sans solvant et impression numérique haute définition à base d'eau." }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的環保食品包裝問題 (及解決方案)",
+    problems: [
+      { title: "保質期縮短 (氧氣和水分阻隔)", desc: "環保材料通常具有較高的滲透率。解決方案：採用環保複合材料的多層高阻隔薄膜 (EVOH)。" },
+      { title: "密封強度受損", desc: "生物降解材料的熱封可能導致密封不牢。解決方案：先進的熱封技術和專為可持續薄膜設計的堅固拉鍊結構。" },
+      { title: "過渡成本", desc: "材料成本高於傳統塑料。解決方案：優化厚度 (減薄) 而不損失性能，以抵消材料成本。" },
+      { title: "合規性和認證", desc: "應對複雜的食品安全法規。解決方案：預先獲得 FDA 和 EFSA 認證的材料，可立即投入使用。" },
+      { title: "印刷質量問題", desc: "油墨在環保材料上反應不佳。解決方案：無溶劑複合和高清晰度水性或大豆基數字印刷。" }
+    ]
+  }
+}
+
 const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const baseUrl = getBaseUrl()
+  const currentLang = i18n.language || 'en'
+  const localData = localTranslations[currentLang] || localTranslations['en']
   
   const FOOD_METRICS = [
     { label: t('pouchEcoFriendlyFoodPackagingPage.engineering.metrics.o2_label'), value: '< 1.0', unit: 'cc/m²', desc: t('pouchEcoFriendlyFoodPackagingPage.engineering.metrics.o2_desc') },
@@ -169,6 +214,42 @@ const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_04_digital_print_var_c_4560298.webp" 
                 alt="Technical Food Pouch Manufacturing" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">{localData.title}</NeoBadge>
+              <h2 className="font-black text-4xl md:text-5xl mt-6 uppercase leading-tight italic mb-12">
+                {localData.title}
+              </h2>
+              <div className="space-y-6">
+                {localData.problems.map((problem: any, idx: number) => {
+                  const Icon = [Droplets, Zap, TrendingUp, Shield, Beaker][idx]
+                  return (
+                    <div key={idx} className="bg-white border-4 border-black p-6 flex gap-6 hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                      <Icon className="w-10 h-10 flex-shrink-0 text-emerald-600" />
+                      <div>
+                        <h4 className="font-black text-xl uppercase mb-2">{problem.title}</h4>
+                        <p className="font-['JetBrains_Mono'] text-gray-700 leading-relaxed">{problem.desc}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/eco_friendly_food_packaging_pain_points.jpg" 
+                alt="5 Common Problems and Solutions" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

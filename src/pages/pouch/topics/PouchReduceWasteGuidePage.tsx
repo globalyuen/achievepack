@@ -9,8 +9,54 @@ import ClickableImage from '../../../components/ClickableImage'
 
 const PouchReduceWasteGuidePage: React.FC = () => {
   const baseUrl = getBaseUrl()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language || 'en') as 'en' | 'es' | 'fr' | 'zh-TW'
   
+  const localTranslations = {
+    en: {
+      title: "5 Common Waste Reduction Problems (And Solutions)",
+      problems: [
+        { q: "Over-Packaging Material Waste", a: "Solution: Right-sizing and structural optimization." },
+        { q: "High Sealing Defect Rates", a: "Solution: Advanced quality control and precise sealing calibration." },
+        { q: "Ink & Setup Waste in Printing", a: "Solution: Digital printing with zero setup waste." },
+        { q: "Non-Recyclable Mixed Layers", a: "Solution: Mono-material PE/PP structures for recyclability." },
+        { q: "Inefficient Die-Cutting Yield", a: "Solution: Optimized die-line layout to maximize roll usage." }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de Reducción de Desperdicio (y Soluciones)",
+      problems: [
+        { q: "Desperdicio por Sobreembalaje", a: "Solución: Tamaño adecuado y optimización estructural." },
+        { q: "Altas Tasas de Defectos de Sellado", a: "Solución: Control de calidad avanzado y calibración precisa." },
+        { q: "Desperdicio de Tinta y Configuración", a: "Solución: Impresión digital sin desperdicio de configuración." },
+        { q: "Capas Mixtas No Reciclables", a: "Solución: Estructuras monomateriales de PE/PP." },
+        { q: "Rendimiento Ineficiente de Troquelado", a: "Solución: Diseño de troquel optimizado." }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants de Réduction des Déchets (et Solutions)",
+      problems: [
+        { q: "Gaspillage dû au Suremballage", a: "Solution : Dimensionnement adapté et optimisation structurelle." },
+        { q: "Taux de Défauts de Scellage Élevés", a: "Solution : Contrôle qualité avancé et calibrage précis." },
+        { q: "Gaspillage d'Encre et de Configuration", a: "Solution : Impression numérique sans gaspillage." },
+        { q: "Couches Mixtes Non Recyclables", a: "Solution : Structures mono-matériaux PE/PP." },
+        { q: "Rendement de Découpe Inefficace", a: "Solution : Disposition de découpe optimisée." }
+      ]
+    },
+    'zh-TW': {
+      title: "5 個常見的減少浪費問題（與解決方案）",
+      problems: [
+        { q: "過度包裝導致的材料浪費", a: "解決方案：尺寸優化與結構設計優化。" },
+        { q: "封口不良導致的高不良率", a: "解決方案：先進的品質控制與精確的封口校準。" },
+        { q: "印刷油墨與設置浪費", a: "解決方案：採用無設置浪費的數位印刷。" },
+        { q: "不可回收的混合材質", a: "解決方案：採用可回收的單一材質 PE/PP 結構。" },
+        { q: "模切良率低下", a: "解決方案：優化刀模排版以最大化卷材利用率。" }
+      ]
+    }
+  }
+
+  const currentT = localTranslations[lang] || localTranslations.en
+
   const WASTE_METRICS = [
     { label: t('pouchReduceWasteGuidePage.engineering.metrics.m1.label'), value: t('pouchReduceWasteGuidePage.engineering.metrics.m1.value'), unit: t('pouchReduceWasteGuidePage.engineering.metrics.m1.unit'), desc: t('pouchReduceWasteGuidePage.engineering.metrics.m1.desc') },
     { label: t('pouchReduceWasteGuidePage.engineering.metrics.m2.label'), value: t('pouchReduceWasteGuidePage.engineering.metrics.m2.value'), unit: t('pouchReduceWasteGuidePage.engineering.metrics.m2.unit'), desc: t('pouchReduceWasteGuidePage.engineering.metrics.m2.desc') },
@@ -156,6 +202,39 @@ const PouchReduceWasteGuidePage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_04_digital_print_var_c_4560298.webp" 
                 alt={t('pouchReduceWasteGuidePage.lab.title').replace(/<br\s*\/?>/gi, ' ')} 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">PAIN POINTS & SOLUTIONS</NeoBadge>
+              <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight italic">
+                {currentT.title}
+              </h2>
+              <div className="mt-8 space-y-4">
+                {currentT.problems.map((prob, idx) => (
+                  <div key={idx} className="bg-[#F0F0F0] border-4 border-black p-6 flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <Trash2 className="w-8 h-8 text-magenta flex-shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-black uppercase text-lg mb-1">{prob.q}</h4>
+                      <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{prob.a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-magenta translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/reduce-waste-pain-points.jpg" 
+                alt="Waste Reduction Pain Points" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

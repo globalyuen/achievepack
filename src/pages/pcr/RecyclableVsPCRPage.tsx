@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Recycle, CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Leaf, Layers, Target, TrendingUp, Map, ClipboardList } from 'lucide-react'
+import { Recycle, CheckCircle, Calendar, Shield, Package, X, ChevronDown, HelpCircle, ArrowRight, Zap, Leaf, Layers, Target, TrendingUp, Map, ClipboardList, AlertTriangle, ShieldAlert, Droplets, Image as ImageIcon, Banknote } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
@@ -18,6 +18,7 @@ const IMAGES = {
   priorityLayeredHierarchy: '/imgs/recyclable/vs/a_priority_layered_hierarchy_3434507.webp?v=2',
   marketStrategyRegional: '/imgs/recyclable/vs/a_market_strategy_regional_0314261.webp?v=2',
   ctaMaterialRoadmap: '/imgs/recyclable/vs/a_cta_material_roadmap_8490370.webp?v=2',
+  painPoints: '/imgs/knowledge/recyclable-vs-pcr-pain-points.jpg',
 }
 
 // Clickable Image Component with lightbox
@@ -115,9 +116,163 @@ const ImageTextRow: React.FC<{
   )
 }
 
+const ICONS: Record<string, React.FC<any>> = {
+  Droplets,
+  ShieldAlert,
+  ImageIcon,
+  AlertTriangle,
+  Banknote
+}
+
+const localTranslations = {
+  en: {
+    problemsTitle: '5 Common Recyclable vs PCR Problems (And Solutions)',
+    problems: [
+      {
+        title: 'Barrier Property Compromise',
+        problem: 'Switching to mono-material recyclable or PCR can reduce oxygen and moisture barriers.',
+        solution: 'We use advanced EVOH barrier coatings inside mono-PE structures to maintain product shelf life.',
+        icon: 'Droplets'
+      },
+      {
+        title: 'Structural Integrity & Weak Seals',
+        problem: 'Mono-PE and PCR materials may have lower heat resistance, causing sealing issues.',
+        solution: 'AchievePack formulates customized PE blends with wider sealing windows for strong, reliable seals.',
+        icon: 'ShieldAlert'
+      },
+      {
+        title: 'Aesthetic and Printing Limitations',
+        problem: 'PCR can have a yellowish tint or specks, and mono-materials might lack gloss.',
+        solution: 'We offer high-opacity white under-layers and matte/gloss hybrid finishes to ensure vibrant, premium branding.',
+        icon: 'ImageIcon'
+      },
+      {
+        title: 'Regulatory and Food Safety Compliance',
+        problem: 'Standard PCR is not food-safe due to contamination risks.',
+        solution: 'We strictly use FDA-approved, food-grade PCR or recommend 100% recyclable mono-PE for direct food contact applications.',
+        icon: 'AlertTriangle'
+      },
+      {
+        title: 'Cost and Supply Chain Instability',
+        problem: 'High-quality PCR and advanced recyclable materials can be expensive and hard to source.',
+        solution: 'By leveraging global supplier networks and scalable manufacturing, we ensure stable pricing and consistent material availability.',
+        icon: 'Banknote'
+      }
+    ]
+  },
+  es: {
+    problemsTitle: '5 problemas comunes de materiales reciclables frente a PCR (y soluciones)',
+    problems: [
+      {
+        title: 'Compromiso de la propiedad barrera',
+        problem: 'Cambiar a monomaterial reciclable o PCR puede reducir las barreras de oxígeno y humedad.',
+        solution: 'Utilizamos recubrimientos de barrera EVOH avanzados dentro de las estructuras de mono-PE para mantener la vida útil del producto.',
+        icon: 'Droplets'
+      },
+      {
+        title: 'Integridad estructural y sellos débiles',
+        problem: 'Los materiales mono-PE y PCR pueden tener una menor resistencia al calor, lo que causa problemas de sellado.',
+        solution: 'AchievePack formula mezclas de PE personalizadas con ventanas de sellado más amplias para obtener sellos fuertes y confiables.',
+        icon: 'ShieldAlert'
+      },
+      {
+        title: 'Limitaciones estéticas y de impresión',
+        problem: 'El PCR puede tener un tinte amarillento o motas, y los monomateriales pueden carecer de brillo.',
+        solution: 'Ofrecemos capas inferiores blancas de alta opacidad y acabados híbridos mate/brillante para garantizar una marca vibrante y premium.',
+        icon: 'ImageIcon'
+      },
+      {
+        title: 'Cumplimiento normativo y de seguridad alimentaria',
+        problem: 'El PCR estándar no es seguro para los alimentos debido a los riesgos de contaminación.',
+        solution: 'Utilizamos estrictamente PCR de grado alimenticio aprobado por la FDA o recomendamos mono-PE 100% reciclable para aplicaciones de contacto directo con alimentos.',
+        icon: 'AlertTriangle'
+      },
+      {
+        title: 'Costo e inestabilidad de la cadena de suministro',
+        problem: 'El PCR de alta calidad y los materiales reciclables avanzados pueden ser costosos y difíciles de obtener.',
+        solution: 'Al aprovechar las redes de proveedores globales y la fabricación escalable, garantizamos precios estables y disponibilidad de materiales constante.',
+        icon: 'Banknote'
+      }
+    ]
+  },
+  fr: {
+    problemsTitle: '5 problèmes courants liés aux matériaux recyclables et au PCR (et solutions)',
+    problems: [
+      {
+        title: 'Compromis sur les propriétés barrières',
+        problem: 'Passer au mono-matériau recyclable ou au PCR peut réduire les barrières contre l\'oxygène et l\'humidité.',
+        solution: 'Nous utilisons des revêtements barrières EVOH avancés à l\'intérieur des structures mono-PE pour maintenir la durée de conservation du produit.',
+        icon: 'Droplets'
+      },
+      {
+        title: 'Intégrité structurelle et joints faibles',
+        problem: 'Les matériaux mono-PE et PCR peuvent avoir une résistance à la chaleur plus faible, causant des problèmes de scellage.',
+        solution: 'AchievePack formule des mélanges de PE personnalisés avec des fenêtres de scellage plus larges pour des joints solides et fiables.',
+        icon: 'ShieldAlert'
+      },
+      {
+        title: 'Limites esthétiques et d\'impression',
+        problem: 'Le PCR peut avoir une teinte jaunâtre ou des taches, et les mono-matériaux peuvent manquer de brillance.',
+        solution: 'Nous proposons des sous-couches blanches à haute opacité et des finitions hybrides mat/brillant pour garantir une image de marque vibrante et premium.',
+        icon: 'ImageIcon'
+      },
+      {
+        title: 'Conformité réglementaire et sécurité alimentaire',
+        problem: 'Le PCR standard n\'est pas sûr pour les aliments en raison des risques de contamination.',
+        solution: 'Nous utilisons strictement du PCR de qualité alimentaire approuvé par la FDA ou recommandons du mono-PE 100 % recyclable pour les applications en contact direct avec les aliments.',
+        icon: 'AlertTriangle'
+      },
+      {
+        title: 'Coût et instabilité de la chaîne d\'approvisionnement',
+        problem: 'Le PCR de haute qualité et les matériaux recyclables avancés peuvent être coûteux et difficiles à trouver.',
+        solution: 'En tirant parti de réseaux de fournisseurs mondiaux et d\'une fabrication évolutive, nous garantissons des prix stables et une disponibilité constante des matériaux.',
+        icon: 'Banknote'
+      }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: '5 個常見的可回收與 PCR 問題 (及解決方案)',
+    problems: [
+      {
+        title: '阻隔性能妥協',
+        problem: '改用單一材質可回收材料或 PCR 可能會降低氧氣和水分的阻隔性。',
+        solution: '我們在單一 PE 結構內部使用先進的 EVOH 阻隔塗層，以保持產品的保質期。',
+        icon: 'Droplets'
+      },
+      {
+        title: '結構完整性與封口薄弱',
+        problem: '單一 PE 和 PCR 材料的耐熱性可能較低，導致封口問題。',
+        solution: 'AchievePack 配製客製化的 PE 混合物，具有更寬的封口溫度範圍，可實現堅固可靠的密封。',
+        icon: 'ShieldAlert'
+      },
+      {
+        title: '美觀與印刷限制',
+        problem: 'PCR 可能會帶有淡黃色調或斑點，而單一材質可能缺乏光澤。',
+        solution: '我們提供高不透明度的白色底層和霧面/亮面混合飾面，確保充滿活力的高端品牌形象。',
+        icon: 'ImageIcon'
+      },
+      {
+        title: '法規與食品安全合規',
+        problem: '由於污染風險，標準 PCR 不符合食品安全標準。',
+        solution: '我們嚴格使用 FDA 批准的食品級 PCR，或建議直接接觸食品的應用使用 100% 可回收單一 PE。',
+        icon: 'AlertTriangle'
+      },
+      {
+        title: '成本與供應鏈不穩定',
+        problem: '高品質的 PCR 和先進的可回收材料可能很昂貴且難以採購。',
+        solution: '透過利用全球供應商網絡和可擴展的製造，我們確保價格穩定和材料供應的一致性。',
+        icon: 'Banknote'
+      }
+    ]
+  }
+}
+
 const RecyclableVsPCRPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
+
+  const lang = (i18n.language || 'en') as keyof typeof localTranslations
+  const currentTranslations = localTranslations[lang] || localTranslations.en
 
   const p = 'seoPages.pages.recyclableVsPcr'
   const keywords = t(`${p}.keywords`, { returnObjects: true }) as string[] || []
@@ -343,6 +498,40 @@ const RecyclableVsPCRPage: React.FC = () => {
                   )
                 })}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Common Problems Section */}
+        <section className="py-16 bg-neutral-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3 justify-center text-center">
+              <AlertTriangle className="h-8 w-8 text-amber-500" />
+              {currentTranslations.problemsTitle}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6">
+                {currentTranslations.problems.map((prob, idx) => {
+                  const Icon = ICONS[prob.icon] || CheckCircle;
+                  return (
+                    <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-neutral-100 hover:shadow-md transition">
+                      <h3 className="text-lg font-bold text-neutral-900 flex items-center gap-2 mb-2">
+                        <Icon className="h-5 w-5 text-amber-500" />
+                        {prob.title}
+                      </h3>
+                      <p className="text-red-700 text-sm mb-2 font-medium">Problem: <span className="font-normal text-neutral-700">{prob.problem}</span></p>
+                      <p className="text-emerald-700 text-sm font-medium">Solution: <span className="font-normal text-neutral-700">{prob.solution}</span></p>
+                    </div>
+                  )
+                })}
+              </div>
+              <div className="relative h-full flex flex-col justify-center">
+                <ClickableImage 
+                  src={IMAGES.painPoints}
+                  alt={currentTranslations.problemsTitle}
+                  className="w-full rounded-xl shadow-2xl"
+                />
+              </div>
             </div>
           </div>
         </section>

@@ -7,8 +7,132 @@ import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    title: "5 Common Recyclable Snack Packaging Problems (And Solutions)",
+    problems: [
+      {
+        title: "Loss of Crispness",
+        desc: "Moisture penetrates mono-materials faster than foil, turning snacks stale.",
+        solution: "Engineered High-Barrier Mono-PP with WVTR < 0.5, ensuring crunch preservation."
+      },
+      {
+        title: "Grease Leakage",
+        desc: "Oils from chips and nuts compromise the packaging layers over time.",
+        solution: "Specialized grease-resistant inner sealant layers that block fat migration."
+      },
+      {
+        title: "Machinery Jamming",
+        desc: "Sustainable films often have high friction, causing jams on automated FFS lines.",
+        solution: "Optimized Coefficient of Friction (COF) for seamless high-speed running."
+      },
+      {
+        title: "Recycling Facility Rejection",
+        desc: "Some 'recyclable' pouches use undetectable inks or minor layers, leading to MRF rejection.",
+        solution: "100% NIR-sortable structures designed for true circular recovery."
+      },
+      {
+        title: "Delamination",
+        desc: "Layers separate due to weak bonding in mono-material structures.",
+        solution: "Advanced solventless lamination tailored for Mono-PE/PP compatibility."
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes en Empaques Reciclables para Snacks (Y Soluciones)",
+    problems: [
+      {
+        title: "Pérdida de Crujencia",
+        desc: "La humedad penetra más rápido en los monomateriales, endureciendo los snacks.",
+        solution: "Mono-PP de alta barrera diseñado con WVTR < 0.5, asegurando la conservación del crujido."
+      },
+      {
+        title: "Fuga de Grasa",
+        desc: "Los aceites de las papas fritas y nueces comprometen las capas del empaque con el tiempo.",
+        solution: "Capas selladoras internas especializadas resistentes a la grasa que bloquean la migración de grasas."
+      },
+      {
+        title: "Atascos en la Maquinaria",
+        desc: "Las películas sostenibles suelen tener alta fricción, causando atascos en líneas FFS.",
+        solution: "Coeficiente de fricción (COF) optimizado para un funcionamiento impecable a alta velocidad."
+      },
+      {
+        title: "Rechazo en Instalaciones de Reciclaje",
+        desc: "Algunas bolsas usan tintas indetectables, lo que provoca su rechazo en los centros de reciclaje.",
+        solution: "Estructuras 100% clasificables por NIR diseñadas para una verdadera recuperación circular."
+      },
+      {
+        title: "Delaminación",
+        desc: "Las capas se separan debido a una unión débil en las estructuras monomateriales.",
+        solution: "Laminación avanzada sin solventes adaptada para la compatibilidad con Mono-PE/PP."
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballages Recyclables pour Snacks (Et Solutions)",
+    problems: [
+      {
+        title: "Perte de Croustillant",
+        desc: "L'humidité pénètre plus vite dans les mono-matériaux, ramollissant les snacks.",
+        solution: "Mono-PP haute barrière conçu avec WVTR < 0.5, assurant la préservation du croustillant."
+      },
+      {
+        title: "Fuites de Graisse",
+        desc: "Les huiles des chips et des noix compromettent les couches d'emballage avec le temps.",
+        solution: "Couches scellantes internes spécialisées résistantes aux graisses."
+      },
+      {
+        title: "Blocage des Machines",
+        desc: "Les films durables ont souvent une forte friction, causant des blocages sur les lignes FFS.",
+        solution: "Coefficient de friction (COF) optimisé pour un fonctionnement à haute vitesse."
+      },
+      {
+        title: "Rejet par les Centres de Tri",
+        desc: "Certains sachets utilisent des encres indétectables, entraînant un rejet.",
+        solution: "Structures 100% triables par NIR conçues pour une véritable récupération circulaire."
+      },
+      {
+        title: "Délaminage",
+        desc: "Les couches se séparent en raison d'une faible adhérence.",
+        solution: "Laminage avancé sans solvant adapté à la compatibilité Mono-PE/PP."
+      }
+    ]
+  },
+  "zh-TW": {
+    title: "5 個可回收零食包裝常見問題（與解決方案）",
+    problems: [
+      {
+        title: "失去酥脆感",
+        desc: "水分穿透單一材質的速度比鋁箔快，導致零食變軟。",
+        solution: "專利高阻隔單一 PP 材質（WVTR < 0.5），確保完全鎖住酥脆感。"
+      },
+      {
+        title: "油脂滲漏",
+        desc: "洋芋片和堅果的油脂會隨著時間破壞包裝層。",
+        solution: "特製防油內封層，有效阻擋脂肪滲透。"
+      },
+      {
+        title: "機器卡料",
+        desc: "環保薄膜通常摩擦力較高，容易在自動包裝線上造成卡料。",
+        solution: "優化摩擦係數 (COF)，確保高速生產順暢無阻。"
+      },
+      {
+        title: "回收廠拒收",
+        desc: "部分「可回收」包裝使用無法識別的油墨，導致回收廠拒收。",
+        solution: "100% 支援近紅外線 (NIR) 分揀結構，實現真正的循環回收。"
+      },
+      {
+        title: "脫層",
+        desc: "單一材質結構層間黏合力弱，導致包裝分離。",
+        solution: "採用專為 Mono-PE/PP 設計的先進無溶劑複合技術。"
+      }
+    ]
+  }
+};
 const PouchRecyclableSnackPackagingPage: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const langKey = (i18n.language || 'en').toLowerCase();
+  const lang = langKey.startsWith('zh') ? 'zh-TW' : langKey.startsWith('es') ? 'es' : langKey.startsWith('fr') ? 'fr' : 'en';
   const p = 'seoPages.pages.pouchRecyclableSnackPackaging';
   const baseUrl = getBaseUrl()
   
@@ -153,6 +277,44 @@ const PouchRecyclableSnackPackagingPage: React.FC = () => {
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt="Verified Snack Packaging Manufacturing" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">PAIN_POINTS_RESOLVED</NeoBadge>
+          <h2 className="font-black text-4xl md:text-6xl mt-6 uppercase leading-tight mb-12">
+            {localTranslations[lang]?.title || localTranslations.en.title}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {(localTranslations[lang]?.problems || localTranslations.en.problems).map((prob, i) => {
+                const icons = [Wind, Droplets, Factory, Recycle, Shield];
+                const Icon = icons[i % icons.length];
+                return (
+                  <div key={i} className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                    <div className="bg-black text-white p-3 h-fit">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-black text-xl uppercase mb-2">{prob.title}</h3>
+                      <p className="font-['JetBrains_Mono'] text-sm text-gray-600 mb-2"><strong>Problem:</strong> {prob.desc}</p>
+                      <p className="font-['JetBrains_Mono'] text-sm text-green-700"><strong>Solution:</strong> {prob.solution}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/recyclable-snack-packaging-pain-points.jpg" 
+                alt="5 Common Problems" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

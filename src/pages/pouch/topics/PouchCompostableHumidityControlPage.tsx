@@ -7,6 +7,49 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
+const translations = {
+  en: {
+    problemsTitle: "5 Common Compostable Humidity Problems (And Solutions)",
+    p1: { q: "Clumping Powders", a: "Use high-barrier metallized compostable films with ultra-low WVTR." },
+    p2: { q: "Premature Degradation", a: "Implement a dual-layer bio-polymer structure with a moisture-resistant inner sealant." },
+    p3: { q: "Brittle Packaging", a: "Incorporate plant-based plasticizers to maintain film flexibility across varying humidity levels." },
+    p4: { q: "Loss of Flavor/Aroma", a: "Utilize EVOH-equivalent compostable barrier coatings to lock in aromatics." },
+    p5: { q: "Ineffective Resealing", a: "Deploy precision-engineered, heavy-duty PLA zippers for airtight, repeated resealability." }
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de Humedad en Compostables (Y Soluciones)",
+    p1: { q: "Polvos Aglutinados", a: "Use películas compostables metalizadas de alta barrera con WVTR ultra bajo." },
+    p2: { q: "Degradación Prematura", a: "Implemente una estructura de biopolímero de doble capa con sellador interior resistente a la humedad." },
+    p3: { q: "Empaque Quebradizo", a: "Incorpore plastificantes de origen vegetal para mantener la flexibilidad de la película." },
+    p4: { q: "Pérdida de Sabor/Aroma", a: "Utilice recubrimientos de barrera compostables (equivalentes a EVOH) para retener aromas." },
+    p5: { q: "Resellado Ineficaz", a: "Despliegue cremalleras PLA de alta resistencia diseñadas para un resellado hermético repetido." }
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants d'Humidité Compostable (Et Solutions)",
+    p1: { q: "Poudres Agglomérées", a: "Utilisez des films compostables métallisés à haute barrière avec un très faible WVTR." },
+    p2: { q: "Dégradation Prématurée", a: "Mettez en œuvre une structure de biopolymère à double couche avec un scellant intérieur résistant à l'humidité." },
+    p3: { q: "Emballage Cassant", a: "Incorporez des plastifiants d'origine végétale pour maintenir la flexibilité du film." },
+    p4: { q: "Perte de Saveur/Arôme", a: "Utilisez des revêtements barrières compostables (équivalent EVOH) pour conserver les aromates." },
+    p5: { q: "Refermeture Inefficace", a: "Déployez des fermetures éclair en PLA ultra-résistantes conçues pour une refermeture hermétique." }
+  },
+  zh: {
+    problemsTitle: "5 個常見的可堆肥濕度控制問題（與解決方案）",
+    p1: { q: "粉末結塊", a: "使用具有超低 WVTR 的高阻隔金屬化可堆肥薄膜。" },
+    p2: { q: "過早降解", a: "採用雙層生物聚合物結構及防潮內封層。" },
+    p3: { q: "包裝變脆", a: "加入植物基增塑劑，以維持在不同濕度下的薄膜柔韌性。" },
+    p4: { q: "風味/香氣流失", a: "利用等同於 EVOH 的可堆肥阻隔塗層鎖住香氣。" },
+    p5: { q: "重新密封無效", a: "配置精密設計的耐用 PLA 夾鏈條，實現氣密且可重複的密封。" }
+  }
+}
+
+export const sectionsForPouch = [
+  "5 Common Compostable Humidity Control Problems (And Solutions)"
+];
+
+export const sectionsForAchieve = [
+  "5 Common Compostable Humidity Control Problems (And Solutions)"
+];
+
 const PouchCompostableHumidityControlPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'pouchCompostableHumidityControlPage'
@@ -188,6 +231,42 @@ const PouchCompostableHumidityControlPage: React.FC = () => {
                 <p className="font-['JetBrains_Mono'] text-gray-700 pl-11">{faq.a}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-100 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="font-black text-4xl md:text-6xl uppercase leading-tight italic mb-12 text-center">
+            {translations.en.problemsTitle}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="space-y-6">
+              {[
+                { icon: Package, ...translations.en.p1 },
+                { icon: Wind, ...translations.en.p2 },
+                { icon: Shield, ...translations.en.p3 },
+                { icon: Thermometer, ...translations.en.p4 },
+                { icon: CheckCircle, ...translations.en.p5 }
+              ].map((item, i) => (
+                <div key={i} className="bg-white border-4 border-black p-6 flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <item.icon className="w-8 h-8 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-black text-xl uppercase mb-2">{item.q}</h4>
+                    <p className="font-['JetBrains_Mono'] text-gray-700">{item.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative sticky top-24">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/compostable-humidity-control-pain-points.jpg" 
+                alt="5 Common Problems" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>

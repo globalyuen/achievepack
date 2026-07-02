@@ -1,11 +1,57 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Play, X, ChevronLeft, ChevronRight, Factory, Printer, Layers, Scissors, Package, CheckCircle } from 'lucide-react'
+import { Play, X, ChevronLeft, ChevronRight, Factory, Printer, Layers, Scissors, Package, CheckCircle, AlertTriangle, Lightbulb } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+
+export const sectionsForPouch = ["5 Common Factory Tour Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Factory Tour Problems (And Solutions)"];
+
+const translations = {
+  en: {
+    title: "5 Common Factory Tour Problems (And Solutions)",
+    problems: [
+      { title: "Inconsistent Sealing Strength", desc: "Real-time ultrasonic seal inspection and automated pressure calibration." },
+      { title: "Color Variation in Printing", desc: "In-line Pantone matching systems and automated registration control." },
+      { title: "Material Delamination", desc: "Advanced curing rooms and plasma surface treatment." },
+      { title: "Slow Changeover Times", desc: "Quick-change digital printing and modular converting components." },
+      { title: "High Defect Rates", desc: "100% optical inspection systems and AI-driven defect rejection." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes en la Fábrica (y Soluciones)",
+    problems: [
+      { title: "Fuerza de sellado inconsistente", desc: "Inspección ultrasónica de sellado en tiempo real y calibración de presión automatizada." },
+      { title: "Variación de color en la impresión", desc: "Sistemas en línea de coincidencia Pantone y control de registro automatizado." },
+      { title: "Delaminación del material", desc: "Salas de curado avanzado y tratamiento de superficie por plasma." },
+      { title: "Tiempos de cambio lentos", desc: "Impresión digital de cambio rápido y componentes de conversión modulares." },
+      { title: "Altas tasas de defectos", desc: "Sistemas de inspección óptica del 100% y rechazo de defectos impulsado por IA." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants en Usine (et Solutions)",
+    problems: [
+      { title: "Force de scellage incohérente", desc: "Inspection par ultrasons en temps réel du scellage et étalonnage automatisé de la pression." },
+      { title: "Variation de couleur à l'impression", desc: "Systèmes en ligne de correspondance Pantone et contrôle d'alignement automatisé." },
+      { title: "Délaminage des matériaux", desc: "Chambres de durcissement avancées et traitement de surface au plasma." },
+      { title: "Temps de changement lents", desc: "Impression numérique à changement rapide et composants de conversion modulaires." },
+      { title: "Taux de défauts élevés", desc: "Systèmes d'inspection optique à 100 % et rejet des défauts par l'IA." }
+    ]
+  },
+  "zh-TW": {
+    title: "5 個常見工廠製造問題（與解決方案）",
+    problems: [
+      { title: "封口強度不均", desc: "即時超音波封口檢測與自動壓力校準。" },
+      { title: "印刷色差", desc: "線上 Pantone 配色系統與自動套印控制。" },
+      { title: "材料脫層", desc: "先進熟化室與電漿表面處理。" },
+      { title: "換線時間長", desc: "快速換線數位印刷與模組化製袋組件。" },
+      { title: "高瑕疵率", desc: "100% 光學檢測系統與 AI 驅動瑕疵剔除。" }
+    ]
+  }
+};
 
 interface Video {
   id: string
@@ -61,8 +107,10 @@ const FACTORY_VIDEOS: Video[] = [
 ]
 
 export default function PouchFactoryTourPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchFactoryTour'
+  const lang = (i18n.language || 'en') as keyof typeof translations;
+  const pageT = translations[lang] || translations.en;
   const [activeVideo, setActiveVideo] = useState<Video | null>(null)
 
   const handleNext = () => {
@@ -276,6 +324,42 @@ export default function PouchFactoryTourPage() {
                 </ul>
               </NeoCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 px-4 bg-white border-b-4 border-black text-left">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
+              {pageT.title}
+            </h2>
+          </div>
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="w-full lg:w-1/2">
+              <img 
+                src="/imgs/knowledge/pouch-factory-tour-pain-points.jpg" 
+                alt="Factory Tour Problems and Solutions" 
+                className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover rounded-xl"
+              />
+            </div>
+            <div className="w-full lg:w-1/2 space-y-6">
+              {pageT.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="flex gap-4 items-start p-6 border-4 border-black bg-neutral-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+                  <div className="flex-shrink-0 mt-1">
+                    <AlertTriangle className="w-6 h-6 text-red-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-lg uppercase mb-2">{prob.title}</h4>
+                    <div className="flex items-start gap-2 text-neutral-600 font-['Space_Grotesk']">
+                      <Lightbulb className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
+                      <p>{prob.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

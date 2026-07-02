@@ -1,10 +1,55 @@
 import React from 'react'
-import { FileText, CheckCircle, Info, Download, Layers, ShieldCheck, Sparkles, ArrowRight } from 'lucide-react'
+import { FileText, CheckCircle, Info, Download, Layers, ShieldCheck, Sparkles, ArrowRight, AlertTriangle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 
+const translations = {
+  en: {
+    title: "5 Common Material Data Sheet Problems (And Solutions)",
+    items: [
+      { problem: "Incomplete Material Specifications", solution: "Provide exact layer thickness, GSM, and material grades." },
+      { problem: "Missing Barrier Properties Data", solution: "Clearly list Oxygen and Water Vapor Transmission Rates (OTR/WVTR)." },
+      { problem: "Unclear Compliance & Certifications", solution: "Include FDA, BRC, or EU food contact compliance data." },
+      { problem: "Inconsistent Heat Sealing Parameters", solution: "Specify exact sealing temperature, pressure, and dwell time." },
+      { problem: "Lack of Environmental Data", solution: "Provide precise percentage breakdown of materials for EPR reporting." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes con las Hojas de Datos de Materiales (Y Soluciones)",
+    items: [
+      { problem: "Especificaciones de material incompletas", solution: "Proporcione el grosor exacto de la capa, GSM y grados del material." },
+      { problem: "Faltan datos de propiedades de barrera", solution: "Enumere claramente las tasas de transmisión de oxígeno y vapor de agua (OTR/WVTR)." },
+      { problem: "Cumplimiento y certificaciones poco claros", solution: "Incluya datos de cumplimiento de contacto con alimentos de la FDA, BRC o la UE." },
+      { problem: "Parámetros de sellado térmico inconsistentes", solution: "Especifique la temperatura, presión y tiempo de sellado exactos." },
+      { problem: "Falta de datos ambientales", solution: "Proporcione un desglose porcentual preciso de los materiales para los informes EPR." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants liés aux Fiches Techniques des Matériaux (Et Solutions)",
+    items: [
+      { problem: "Spécifications de matériaux incomplètes", solution: "Fournissez l'épaisseur exacte de la couche, le GSM et les grades de matériaux." },
+      { problem: "Données sur les propriétés barrières manquantes", solution: "Indiquez clairement les taux de transmission de l'oxygène et de la vapeur d'eau (OTR/WVTR)." },
+      { problem: "Conformité et certifications peu claires", solution: "Incluez les données de conformité au contact alimentaire FDA, BRC ou UE." },
+      { problem: "Paramètres de thermoscellage incohérents", solution: "Spécifiez la température, la pression et le temps de scellage exacts." },
+      { problem: "Manque de données environnementales", solution: "Fournissez une répartition précise en pourcentage des matériaux pour les rapports REP." }
+    ]
+  },
+  "zh-TW": {
+    title: "5 個常見的材料數據表問題（及其解決方案）",
+    items: [
+      { problem: "材料規格不完整", solution: "提供精確的層厚、克重 (GSM) 和材料等級。" },
+      { problem: "缺乏阻隔性能數據", solution: "清楚列出氧氣和水蒸氣透過率 (OTR/WVTR)。" },
+      { problem: "合規與認證不明確", solution: "包含 FDA、BRC 或歐盟食品接觸合規數據。" },
+      { problem: "熱封參數不一致", solution: "指定確切的熱封溫度、壓力和時間。" },
+      { problem: "缺乏環境影響數據", solution: "提供材料的精確百分比明細，以供 EPR 報告使用。" }
+    ]
+  }
+};
+
 const MaterialDataSheetPage: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language || 'en';
+  const trans = translations[currentLang as keyof typeof translations] || translations.en;
 
   const getTranslationArray = <T = string,>(key: string): T[] => {
     const val = t(key, { returnObjects: true });
@@ -242,6 +287,35 @@ const MaterialDataSheetPage: React.FC = () => {
               <Download className="w-4 h-4" />
               {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.downloadBtn')}
             </a>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'problems',
+      title: trans.title,
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              {trans.items.map((item, idx) => (
+                <div key={idx} className="flex gap-3 bg-white p-4 rounded-xl shadow-sm border border-neutral-100">
+                  <AlertTriangle className="h-5 w-5 text-primary-600 shrink-0 mt-0.5" />
+                  <div>
+                    <h5 className="font-bold text-neutral-900">{item.problem}</h5>
+                    <p className="text-sm text-neutral-600 mt-1">{item.solution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img 
+                src="/imgs/knowledge/material-data-sheet-pain-points.jpg" 
+                alt="Material Data Sheet Pain Points" 
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
           </div>
         </div>
       )
