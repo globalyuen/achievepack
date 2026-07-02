@@ -339,7 +339,7 @@ const PouchPCRPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-red-400 translate-x-4 translate-y-4 border-4 border-black" />
               <img 
-                src="/imgs/knowledge/pcr-pain-points.jpg" 
+                src="/imgs/knowledge/pouch-pcr-pain-points.jpg" 
                 alt="PCR Packaging Pain Points" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl object-cover h-full min-h-[500px]"
               />

@@ -280,7 +280,7 @@ export default function PouchRecyclablePage() {
             <NeoCard className="bg-[#00FFFF] p-0 overflow-hidden border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] rotate-1 group">
               <div className="aspect-square relative overflow-hidden">
                 <img 
-                  src="/imgs/knowledge/recyclable-pouch-pain-points.jpg" 
+                  src="/imgs/knowledge/pouch-recyclable-pain-points.jpg" 
                   alt="Recyclable Pouch Problems and Solutions" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />

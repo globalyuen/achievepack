@@ -18,7 +18,7 @@ const translations: Record<string, any> = {
       },
       {
         title: "Narrow Heat Sealing Window",
-        description: "The heat sealing temperature range for Bio-PE can be narrower, leading to inconsistent seals.",
+        description: "The heat sealing temperature range for Bio-PE can be narrower compared to fossil PE, leading to inconsistent seals.",
         solution: "Implement precise temperature control and use specialized sealant layers (like Bio-PE blended with plastomers) to broaden the sealing window."
       },
       {
@@ -317,7 +317,7 @@ const PouchBioPEPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
               <img 
-                src="/imgs/knowledge/bio-pe-pouch-pain-points.jpg" 
+                src="/imgs/knowledge/pouch-biope-pain-points.jpg" 
                 alt="Bio-PE Pouch Problems and Solutions" 
                 className="relative z-10 border-4 border-black w-full object-cover aspect-square"
               />

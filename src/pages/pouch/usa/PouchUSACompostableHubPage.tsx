@@ -8,7 +8,7 @@ import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 
 const translations: Record<string, any> = {
   en: {
-    heading: "5 Common Compostable Packaging Problems (And Solutions)",
+    heading: "5 Common USA Compostable Packaging Problems (And Solutions)",
     problems: [
       { q: "Poor Barrier Properties (Moisture/Oxygen)", a: "We utilize high-barrier ALOX/SiOX coated compostable films to lock in freshness." },
       { q: "Weak Seal Strength", a: "Our multi-layer co-extrusion technology and optimized heat-sealing ensure robust, leak-proof edges." },
@@ -18,7 +18,7 @@ const translations: Record<string, any> = {
     ]
   },
   es: {
-    heading: "5 Problemas comunes de los envases compostables (y soluciones)",
+    heading: "5 Problemas comunes de los envases compostables en EE. UU. (y soluciones)",
     problems: [
       { q: "Pobres propiedades de barrera (humedad/oxígeno)", a: "Utilizamos películas compostables recubiertas de ALOX/SiOX de alta barrera para mantener la frescura." },
       { q: "Débil resistencia de sellado", a: "Nuestra tecnología de coextrusión multicapa y sellado térmico optimizado garantizan bordes robustos a prueba de fugas." },
@@ -28,7 +28,7 @@ const translations: Record<string, any> = {
     ]
   },
   fr: {
-    heading: "5 Problèmes courants liés aux emballages compostables (et solutions)",
+    heading: "5 Problèmes courants liés aux emballages compostables aux États-Unis (et solutions)",
     problems: [
       { q: "Faibles propriétés de barrière (humidité/oxygène)", a: "Nous utilisons des films compostables à haute barrière enduits d'ALOX/SiOX pour conserver la fraîcheur." },
       { q: "Faible résistance du scellage", a: "Notre technologie de co-extrusion multicouche et un scellage thermique optimisé garantissent des bords robustes et étanches." },
@@ -38,7 +38,7 @@ const translations: Record<string, any> = {
     ]
   },
   'zh-TW': {
-    heading: "5 個常見的可堆肥包裝問題（及解決方案）",
+    heading: "5 個常見的美國可堆肥包裝問題（及解決方案）",
     problems: [
       { q: "阻隔性能差（水分/氧氣）", a: "我們使用高阻隔 ALOX/SiOX 塗層可堆肥薄膜來鎖住新鮮度。" },
       { q: "密封強度弱", a: "我們的多層共擠壓技術和優化的熱封工藝確保了堅固、防漏的邊緣。" },
@@ -51,8 +51,8 @@ const translations: Record<string, any> = {
 
 const problemIcons = [Droplets, Lock, Hourglass, Factory, Palette];
 
-export const sectionsForPouch = ["5 Common Compostable Packaging Problems (And Solutions)"];
-export const sectionsForAchieve = ["5 Common Compostable Packaging Problems (And Solutions)"];
+export const sectionsForPouch = ["5 Common USA Compostable Packaging Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common USA Compostable Packaging Problems (And Solutions)"];
 
 export default function PouchUSACompostableHubPage() {
   const { t, i18n } = useTranslation()
@@ -189,8 +189,8 @@ export default function PouchUSACompostableHubPage() {
               <NeoCard className="bg-[#D4FF00] relative z-10 rotate-2 !p-0 overflow-hidden group border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
                 <div className="aspect-square relative overflow-hidden">
                   <img 
-                    src="/imgs/knowledge/compostable-packaging-pain-points.jpg" 
-                    alt="Compostable Packaging Materials" 
+                    src="/imgs/knowledge/usa-compostable-hub-pain-points.jpg" 
+                    alt="USA Compostable Packaging Solutions" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 bg-white"
                   />
                 </div>

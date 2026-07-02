@@ -291,7 +291,7 @@ export default function PouchCompostablePage() {
       </section>
 
       {/* 5 Common Problems Section */}
-      <section className="py-24 bg-white border-t-4 border-black">
+      <section id="compostable-problems" className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-black">
             {localT.problemsTitle}
@@ -318,7 +318,7 @@ export default function PouchCompostablePage() {
             </div>
             <div className="relative">
               <img 
-                src="/imgs/knowledge/compostable-pouches-pain-points.jpg" 
+                src="/imgs/knowledge/pouch-compostable-pain-points.jpg" 
                 alt="Compostable Pouches Engineering Solutions" 
                 className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover"
               />

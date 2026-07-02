@@ -129,11 +129,11 @@ const translations = {
   }
 };
 
-const sectionsForPouch = [
+export const sectionsForPouch = [
   { id: 'plastic-free-kraft-problems', translationKey: 'title' }
 ];
 
-const sectionsForAchieve = [
+export const sectionsForAchieve = [
   { id: 'plastic-free-kraft-problems', translationKey: 'title' }
 ];
 
@@ -310,7 +310,7 @@ export default function PouchPlasticFreeKraftPage() {
           <div className="sticky top-24">
             <NeoCard className="!p-0 overflow-hidden border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
               <img 
-                src="/imgs/knowledge/plastic-free-kraft-pain-points.jpg" 
+                src="/imgs/knowledge/pouch-plastic-free-kraft-pain-points.jpg" 
                 alt="Plastic-Free Kraft Pain Points" 
                 className="w-full h-auto object-cover"
               />

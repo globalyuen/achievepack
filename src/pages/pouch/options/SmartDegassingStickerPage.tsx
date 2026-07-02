@@ -5,12 +5,12 @@ import { ArrowRight, CheckCircle, Package, Leaf, Zap, Shield, Sparkles, ChevronD
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 
-export const sectionsForPouch = ["5 Common Degassing Valve Problems (And Solutions)"];
-export const sectionsForAchieve = ["5 Common Degassing Valve Problems (And Solutions)"];
+export const sectionsForPouch = ["5 Common Smart Degassing Sticker Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Smart Degassing Sticker Problems (And Solutions)"];
 
 const translations = {
   en: {
-    sectionTitle: "5 Common Degassing Valve Problems (And Solutions)",
+    sectionTitle: "5 Common Smart Degassing Sticker Problems (And Solutions)",
     problems: [
       {
         title: "Pouch Bursting During Shipping",
@@ -40,7 +40,7 @@ const translations = {
     ]
   },
   es: {
-    sectionTitle: "5 Problemas Comunes con Válvulas Desgasificadoras (Y Soluciones)",
+    sectionTitle: "5 Problemas Comunes con Válvulas Adhesivas Desgasificadoras (Y Soluciones)",
     problems: [
       {
         title: "Rotura de la Bolsa Durante el Envío",
@@ -70,7 +70,7 @@ const translations = {
     ]
   },
   fr: {
-    sectionTitle: "5 Problèmes Courants avec les Valves de Dégazage (Et Solutions)",
+    sectionTitle: "5 Problèmes Courants avec les Autocollants de Dégazage (Et Solutions)",
     problems: [
       {
         title: "Rupture de la Poche Pendant l'Expédition",
@@ -100,7 +100,7 @@ const translations = {
     ]
   },
   "zh-TW": {
-    sectionTitle: "5 個常見的排氣閥問題（及解決方案）",
+    sectionTitle: "5 個常見的智能排氣貼片問題（及解決方案）",
     problems: [
       {
         title: "運輸過程中袋子破裂",

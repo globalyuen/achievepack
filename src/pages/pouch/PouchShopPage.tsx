@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS, getProductSubCategory } from '../../store/productData';
 import { useProductTranslation } from '../../utils/productTranslation';
-import { ShoppingBag, ArrowRight, Filter, ChevronRight, CheckCircle, AlertTriangle } from 'lucide-react';
+import { ShoppingBag, ArrowRight, Filter, ChevronRight, CheckCircle, AlertTriangle, Package, Clock, FileText, ShieldCheck, Scale } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Products' },
@@ -49,6 +49,14 @@ const LOCAL_TRANSLATIONS = {
       { title: "Eco-Laminate Print Inconsistencies", desc: "Apply corona discharge surface pre-treatment and high-adhesion water-based flexographic/digital inks on Kraft, PLA, and mono-PE." },
       { title: "Mechanical Puncture & Flex Cracking", desc: "Incorporate high-tensile Oriented Polyamide (OPA) or Biaxially-Oriented Polyethylene (BOPE) protective outer layers." },
       { title: "Reclosable Zipper Separation", desc: "Deploy ultrasonic welding and thermo-bonded heavy-duty press-to-close or hook-and-loop (Velcro) closures." }
+    ],
+    sourcingTitle: "5 Common Pouch Sourcing Problems (And Solutions)",
+    sourcingProblems: [
+      { title: "High Minimum Order Quantities (MOQ)", desc: "Low-MOQ digital printing enables brands to order custom pouches starting at just 500 units, reducing inventory risk." },
+      { title: "Slow Lead Times & Prototyping", desc: "Rapid pre-press tooling, 3D interactive dieline renders, and express physical sample kits ship in 3-5 days." },
+      { title: "Artwork Alignment & Dieline Errors", desc: "Automated dieline generation coupled with professional pre-press verification prevents printing crop and bleed issues." },
+      { title: "Unverifiable Sustainability Claims", desc: "Fully certified compostable (EN 13432) and recyclable mono-PE laminates backed by transparent material specifications." },
+      { title: "Incorrect Pouch Volume / Sizing", desc: "Custom dimensions and volume calculation tools, paired with blank fit-test samples to verify product fit before bulk production." }
     ]
   },
   es: {
@@ -59,6 +67,14 @@ const LOCAL_TRANSLATIONS = {
       { title: "Inconsistencias de impresión en eco-laminados", desc: "Pretratamiento superficial por descarga de corona y tintas flexográficas/digitales al agua de alta adhesión en Kraft, PLA y mono-PE." },
       { title: "Punción mecánica y agrietamiento por flexión", desc: "Capas protectoras exteriores de poliamida orientada de alta resistencia (OPA) o polietileno orientado biaxialmente (BOPE)." },
       { title: "Separación del cierre recerrable", desc: "Soldadura ultrasónica y cierres de presión termosellados de alta resistencia o de gancho y bucle (Velcro)." }
+    ],
+    sourcingTitle: "5 Problemas Comunes en la Compra de Bolsas (Y Soluciones)",
+    sourcingProblems: [
+      { title: "Altas Cantidades Mínimas de Pedido (MOQ)", desc: "La impresión digital con bajo MOQ permite a las marcas ordenar bolsas personalizadas desde 500 unidades, reduciendo riesgos." },
+      { title: "Plazos de Entrega y Prototipado Lentos", desc: "Herramientas rápidas de pre-prensa, renders 3D interactivos y kits de muestras físicas exprés enviados en 3-5 días." },
+      { title: "Errores de Alineación y Líneas de Troquel (Dielines)", desc: "La generación automatizada de líneas de troquel y la verificación profesional de pre-prensa evitan problemas de corte y sangrado." },
+      { title: "Reclamaciones de Sostenibilidad No Verificables", desc: "Laminados compostables certificados (EN 13432) y mono-PE reciclables respaldados por fichas técnicas transparentes." },
+      { title: "Volumen / Tamaño de Bolsa Incorrecto", desc: "Dimensiones personalizadas y herramientas de cálculo de volumen, junto con muestras en blanco para pruebas de llenado antes de la producción en masa." }
     ]
   },
   fr: {
@@ -69,6 +85,14 @@ const LOCAL_TRANSLATIONS = {
       { title: "Incohérences d'impression sur éco-stratifiés", desc: "Prétraitement de surface par décharge Corona et encres flexographiques/numériques à base d'eau à haute adhérence sur Kraft, PLA et mono-PE." },
       { title: "Perforation mécanique et fissures de flexion", desc: "Couches externes de protection en polyamide orienté haute résistance (OPA) ou polyéthylène orienté biaxialement (BOPE)." },
       { title: "Séparation de la fermeture à glissière refermable", desc: "Soudage par ultrasons et fermetures à glissière robustes thermosoudées ou auto-agrippantes (Velcro)." }
+    ],
+    sourcingTitle: "5 Problèmes Courants d'Approvisionnement en Sachets (Et Solutions)",
+    sourcingProblems: [
+      { title: "Quantités Minimales de Commande (MOQ) Élevées", desc: "L'impression numérique à faible MOQ permet de commander des sachets personnalisés dès 500 unités, limitant les risques de stock." },
+      { title: "Délais de Livraison et Prototypage Lents", desc: "Pré-presse rapide, rendus de tracé de découpe 3D interactifs et expédition de kits d'échantillons physiques sous 3 à 5 jours." },
+      { title: "Erreurs d'Alignement Graphique et de Tracé de Découpe", desc: "Génération automatisée des tracés de découpe et vérification pré-presse professionnelle pour éviter les défauts de cadrage." },
+      { title: "Allégations Écologiques Non Vérifiables", desc: "Matériaux compostables certifiés (EN 13432) et complexes mono-PE recyclables avec fiches techniques transparentes." },
+      { title: "Volume et Dimensions Inadaptés", desc: "Dimensions sur mesure, outils de calcul de volume et fourniture de maquettes vierges pour tester la contenance réelle." }
     ]
   },
   'zh-TW': {
@@ -78,6 +102,28 @@ const LOCAL_TRANSLATIONS = {
       { title: "熱封強度不足與層壓剝離", desc: "採用精密雙階段熱粘（Hot Tack）與聚烯氣塑性體（POP）密封層，確保堅固的氣密強度。" },
       { title: "環保層壓材料印刷不均", desc: "在牛皮紙、PLA 和單一材質 PE 上應用電暈放電表面前處理與高粘附力水性/數位油墨。" },
       { title: "機械穿刺與抗撓曲龜裂", desc: "在多層結構中結合高拉伸定向聚醯胺（OPA）或雙向拉伸聚乙烯（BOPE）保護性外層。" },
+      { title: "可重複密封拉鍊脫離", desc: "部署超音波焊接與熱結合重型按壓密封拉鍊或魔鬼氈（Velcro）閉合系統。" }
+    ],
+    sourcingTitle: "5個常見的包裝袋採購與訂製問題（以及解決方案）",
+    sourcingProblems: [
+      { title: "起訂量（MOQ）過高", desc: "採用低起訂量的數位印刷技術，讓品牌僅需 500 袋起即可客製，大幅降低庫存與資金風險。" },
+      { title: "打樣與交期緩慢", desc: "提供快速印前處理、3D 互動刀模圖渲染，並可在 3 至 5 天內寄出實體空白樣品包進行測試。" },
+      { title: "設計稿對齊與刀模圖錯誤", desc: "自動化刀模圖生成搭配專業印前人工審查，完美預防印刷裁切、出血及折邊對齊問題。" },
+      { title: "環保材料真實性難以驗證", desc: "提供獲得完整國際認證（如 EN 13432 工業堆肥）的生物可降解及單一材質可回收 mono-PE 層壓材料。" },
+      { title: "包裝袋容量與尺寸估算錯誤", desc: "客製化尺寸與容量計算工具，並提供實體空白樣品進行裝填測試，確保大貨生產前容量無誤。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = [
+  { id: 'pouch-shop-problems', translationKey: 'title' },
+  { id: 'pouch-shop-sourcing-problems', translationKey: 'sourcingTitle' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'pouch-shop-problems', translationKey: 'title' },
+  { id: 'pouch-shop-sourcing-problems', translationKey: 'sourcingTitle' }
+];機械穿刺與抗撓曲龜裂", desc: "在多層結構中結合高拉伸定向聚醯胺（OPA）或雙向拉伸聚乙烯（BOPE）保護性外層。" },
       { title: "可重複密封拉鍊脫離", desc: "部署超音波焊接與熱結合重型按壓密封拉鍊或魔鬼氈（Velcro）閉合系統。" }
     ]
   }
@@ -439,6 +485,37 @@ export default function PouchShopPage() {
           </div>
           <div className="w-full md:w-1/2">
             <img src="/imgs/knowledge/pouch-packaging-pain-points.jpg" alt="Pouch Packaging Solutions" className="w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] object-cover aspect-video" />
+          </div>
+        </div>
+      </div>
+
+      {/* 5 Common Pouch Sourcing Problems (And Solutions) Section */}
+      <div id="pouch-shop-sourcing-problems" className="max-w-7xl mx-auto px-4 py-16 border-t-4 border-black">
+        <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row-reverse gap-8 items-center">
+          <div className="w-full md:w-1/2">
+            <h2 className="text-3xl font-black uppercase mb-6 border-b-4 border-black pb-2">
+              {((LOCAL_TRANSLATIONS as any)[i18n.language] || LOCAL_TRANSLATIONS.en).sourcingTitle}
+            </h2>
+            <div className="space-y-4">
+              {(((LOCAL_TRANSLATIONS as any)[i18n.language] || LOCAL_TRANSLATIONS.en).sourcingProblems).map((prob: any, idx: number) => {
+                const icons = [Package, Clock, FileText, ShieldCheck, Scale];
+                const IconComponent = icons[idx] || CheckCircle;
+                return (
+                  <div key={idx} className="flex gap-4">
+                    <div className="bg-[#D4FF00] border-2 border-black p-2 h-fit flex-shrink-0">
+                      <IconComponent className="w-6 h-6 text-black" strokeWidth={2.5} />
+                    </div>
+                    <div>
+                      <h3 className="font-black uppercase text-lg">{prob.title}</h3>
+                      <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{prob.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <img src="/imgs/knowledge/pouch-shop-pain-points.jpg" alt="Pouch Sourcing Solutions" className="w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] object-cover aspect-video" />
           </div>
         </div>
       </div>

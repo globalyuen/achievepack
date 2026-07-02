@@ -93,6 +93,7 @@ export default function UnifiedInbox() {
 
   // AI Suggestion States
   const [aiSuggestion, setAiSuggestion] = useState<{ statusSummary: string; nextAction: string; whatsappDraft: string } | null>(null);
+  const [enlargedMedia, setEnlargedMedia] = useState<{ src: string; type: 'image' | 'video' } | null>(null);
   const [loadingAi, setLoadingAi] = useState(false);
 
   // Fetch inquiries from unified API
@@ -395,10 +396,11 @@ export default function UnifiedInbox() {
           <table className="w-full text-left text-sm border-collapse min-w-[800px]">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-200 text-gray-600 text-xs uppercase tracking-wider">
-                <th className="py-3 px-4 font-bold w-[25%]">客戶資訊</th>
+                <th className="py-3 px-4 font-bold w-[20%]">客戶資訊</th>
                 <th className="py-3 px-4 font-bold w-[10%]">渠道</th>
-                <th className="py-3 px-4 font-bold w-[35%]">最新對話/詢問 (Chat/Inquiry)</th>
-                <th className="py-3 px-4 font-bold w-[20%]">狀態與備忘</th>
+                <th className="py-3 px-4 font-bold w-[30%]">最新對話/詢問 (Chat/Inquiry)</th>
+                <th className="py-3 px-4 font-bold w-[15%]">多媒體 (Media)</th>
+                <th className="py-3 px-4 font-bold w-[15%]">狀態與備忘</th>
                 <th className="py-3 px-4 font-bold text-center w-[10%]">操作</th>
               </tr>
             </thead>
@@ -406,6 +408,7 @@ export default function UnifiedInbox() {
               {filteredInquiries.map((lead, idx) => {
                 const status = lead.status || '未跟進';
                 const notes = lead.whatsappData?.notes || lead.emailData?.notes || '';
+                const mediaItems = extractMediaItems(lead.whatsappData?.chat_history || '', lead.name || '');
                 return (
                   <tr key={lead.id} className="hover:bg-indigo-50/30 transition-colors bg-white group">
                     <td className="py-3 px-4 align-top">
@@ -462,6 +465,51 @@ export default function UnifiedInbox() {
                           </div>
                         )}
                       </div>
+                    </td>
+                    <td className="py-3 px-4 align-top">
+                      {mediaItems.length > 0 ? (
+                        <div className="flex flex-wrap gap-1.5 max-w-[120px]">
+                          {mediaItems.map((item, mIdx) => {
+                            if (item.type === 'image') {
+                              return (
+                                <img 
+                                  key={mIdx}
+                                  src={item.src} 
+                                  alt={item.filename}
+                                  className="w-10 h-10 object-cover rounded-lg border border-gray-200 cursor-zoom-in hover:scale-105 transition-transform shadow-sm"
+                                  onClick={() => setEnlargedMedia({ src: item.src, type: 'image' })}
+                                />
+                              );
+                            } else if (item.type === 'video') {
+                              return (
+                                <div 
+                                  key={mIdx}
+                                  className="relative w-10 h-10 rounded-lg border border-gray-200 bg-gray-900 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform overflow-hidden shadow-sm"
+                                  onClick={() => setEnlargedMedia({ src: item.src, type: 'video' })}
+                                >
+                                  <video src={item.src} className="w-full h-full object-cover opacity-60" />
+                                  <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-[10px]">▶</span>
+                                </div>
+                              );
+                            } else {
+                              return (
+                                <a 
+                                  key={mIdx}
+                                  href={item.src}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="w-10 h-10 rounded-lg border border-gray-200 bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors shadow-sm"
+                                  title={item.filename}
+                                >
+                                  <Download className="w-4 h-4" />
+                                </a>
+                              );
+                            }
+                          })}
+                        </div>
+                      ) : (
+                        <span className="text-gray-400 text-xs italic">無媒體檔案</span>
+                      )}
                     </td>
                     <td className="py-3 px-4 align-top">
                       <div className="flex flex-col gap-1.5 items-start">
@@ -727,6 +775,26 @@ export default function UnifiedInbox() {
           </div>
         </div>
       )}
+      {enlargedMedia && (
+        <div 
+          className="fixed inset-0 bg-black/85 backdrop-blur-md z-[9999] flex items-center justify-center p-4"
+          onClick={() => setEnlargedMedia(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] bg-white rounded-2xl p-2 shadow-2xl flex flex-col items-center" onClick={e => e.stopPropagation()}>
+            <button 
+              onClick={() => setEnlargedMedia(null)} 
+              className="absolute -top-12 right-0 p-2 text-white hover:text-gray-200 text-sm flex items-center gap-1 bg-black/40 hover:bg-black/60 rounded-lg transition-colors"
+            >
+              <X className="w-5 h-5" /> 關閉 (Close)
+            </button>
+            {enlargedMedia.type === 'image' ? (
+              <img src={enlargedMedia.src} className="max-w-full max-h-[80vh] rounded-lg object-contain" alt="Enlarged" />
+            ) : (
+              <video src={enlargedMedia.src} controls autoPlay className="max-w-full max-h-[80vh] rounded-lg object-contain" />
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -850,5 +918,39 @@ const parseNotesAiSummary = (notes: string) => {
     nextAction: nextMatch ? nextMatch[1].trim() : '',
     whatsappDraft: draftMatch ? draftMatch[1].trim() : ''
   };
+};
+
+export interface MediaItem {
+  src: string;
+  filename: string;
+  type: 'image' | 'video' | 'other';
+}
+
+export const extractMediaItems = (history: string, name: string): MediaItem[] => {
+  if (!history) return [];
+  const items: MediaItem[] = [];
+  
+  // Reset regex lastIndex
+  const imgRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+  let match;
+  while ((match = imgRegex.exec(history)) !== null) {
+    const src = resolveMediaUrl(match[2], name);
+    const filename = match[2].split('/').pop() || '';
+    items.push({ src, filename, type: 'image' });
+  }
+  
+  const fileRegex = /\[Attached File:\s*([^\]]+)\]\(([^)]+)\)/gi;
+  while ((match = fileRegex.exec(history)) !== null) {
+    const filename = match[1];
+    const src = resolveMediaUrl(match[2], name);
+    const isVideo = filename.toLowerCase().endsWith('.mp4') || filename.toLowerCase().endsWith('.mov');
+    items.push({ 
+      src, 
+      filename, 
+      type: isVideo ? 'video' : 'other' 
+    });
+  }
+  
+  return items;
 };
 

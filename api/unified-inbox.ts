@@ -136,8 +136,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Add Calendly, merge if phone matches
     calendlyList.forEach(c => {
       const formattedPhone = c.phone ? formatPhone(c.phone) : ''
-      if (formattedPhone && unifiedMap.has(formattedPhone)) {
-        const existing = unifiedMap.get(formattedPhone)
+      let matchedKey = ''
+      
+      if (formattedPhone) {
+        for (const [key, value] of unifiedMap.entries()) {
+          if (phoneMatches(value.phone, formattedPhone)) {
+            matchedKey = key
+            break
+          }
+        }
+      }
+
+      if (matchedKey) {
+        const existing = unifiedMap.get(matchedKey)
         existing.hasEmail = true
         existing.emailData = c
         // Prefer Calendly name if available
@@ -174,6 +185,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 function formatPhone(phone: string): string {
   if (!phone) return ''
   return phone.replace(/[\s\-\(\)]/g, '')
+}
+
+function phoneMatches(p1: string, p2: string): boolean {
+  if (!p1 || !p2) return false
+  const d1 = p1.replace(/\D/g, '')
+  const d2 = p2.replace(/\D/g, '')
+  if (!d1 || !d2) return false
+  if (d1 === d2) return true
+  const len = Math.min(d1.length, d2.length)
+  if (len >= 7) {
+    return d1.endsWith(d2) || d2.endsWith(d1)
+  }
+  return false
 }
 
 function getAllMarkdownFiles(dirPath: string): string[] {
