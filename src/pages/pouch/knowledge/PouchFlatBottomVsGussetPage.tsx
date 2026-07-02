@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { 
   Package, ArrowRight, Layers, Sparkles, ZoomIn, Check, Info, 
-  ChevronRight, RefreshCw, BarChart2, ShieldAlert, Award
+  ChevronRight, RefreshCw, BarChart2, ShieldAlert, Award, CheckCircle
 } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
@@ -15,64 +15,137 @@ const MOCKUP_IMAGES = {
   sideGusset: '/imgs/pouch-shape/flat-bottom-vs-gusset/side-gusset.png',
 }
 
-const translations = {
+const translations: Record<string, any> = {
   en: {
-    ppTitle: "5 Common Pouch Engineering Problems (And Solutions)",
-    pp1q: "1. Shelf Instability",
-    pp1a: "Standard side gusset pouches often tip over on retail shelves, creating a poor presentation. Solution: Flat bottom pouches feature a perfectly flat base, acting like a rigid box for superior stability.",
-    pp2q: "2. Artwork Distortion",
-    pp2a: "Side gussets can fold into the main front panel, interrupting branding. Solution: Flat bottom designs offer 5 completely flat, uninterrupted panels for maximum branding real estate.",
-    pp3q: "3. Space Inefficiency",
-    pp3a: "Bulging gusset bags waste space during shipping and display. Solution: The box-like structure of flat bottom bags maximizes internal volume and improves carton packing density by up to 15%.",
-    pp4q: "4. Seal Integrity Risks",
-    pp4a: "Complex quad-seals can be prone to microscopic leaks at the corners. Solution: AchievePack uses reinforced corner sealing and pressure-tested multi-layer laminates to guarantee a 100% airtight barrier.",
-    pp5q: "5. Automated Filling Jamming",
-    pp5a: "Some gusset bags resist opening smoothly on automated filling lines. Solution: We engineer pre-opened zipper formats and precision scoring to ensure smooth compatibility with high-speed filling equipment."
+    problemsTitle: "5 Common Flat Bottom vs Gusset Problems (And Solutions)",
+    problems: [
+      {
+        title: "1. Shelf Instability",
+        desc: "Standard side gusset pouches often tip over on retail shelves, causing poor brand presentation and display disruption.",
+        sol: "Flat bottom pouches feature a completely flat, rigid base that ensures they stand upright and remain stable even when empty or light."
+      },
+      {
+        title: "2. Artwork & Branding Distortion",
+        desc: "Side gussets fold inward and can distort logos, product names, or key regulatory information printed near the edges.",
+        sol: "Flat bottom designs provide 5 distinct, flat panels (front, back, left gusset, right gusset, bottom) for clean, undistorted graphics."
+      },
+      {
+        title: "3. Space and Shipping Inefficiency",
+        desc: "Standard bottom gusset bags tend to bulge when filled, wasting valuable space in shipping cartons and retail shelves.",
+        sol: "The box-like rectangular structure of flat bottom bags maximizes internal volume and improves carton packing density by up to 15%."
+      },
+      {
+        title: "4. Corner Seal Integrity Failures",
+        desc: "The transition from the side gusset to the bottom seal creates thick material overlaps prone to microscopic leaks.",
+        sol: "AchievePack utilizes reinforced quad-seal technology and automated thermal calibration to ensure 100% airtight hermetic seals."
+      },
+      {
+        title: "5. High-Speed Filling Jamming",
+        desc: "Flexible side gussets can resist opening fully on automated lines, causing product spillage and line shutdowns.",
+        sol: "We integrate precision laser scoring and pre-opened zipper designs for reliable opening and seamless high-speed line integration."
+      }
+    ]
   },
   es: {
-    ppTitle: "5 Problemas Comunes de Ingeniería de Bolsas (Y Soluciones)",
-    pp1q: "1. Inestabilidad en los Estantes",
-    pp1a: "Las bolsas de fuelle lateral estándar a menudo se cacan en los estantes, creando una mala presentación. Solución: Las bolsas de fondo plano cuentan con una base perfectamente plana que actúa como una caja rígida.",
-    pp2q: "2. Distorsión del Diseño",
-    pp2a: "Los fuelles laterales pueden plegarse sobre el panel frontal, interrumpiendo la marca. Solución: Los diseños de fondo plano ofrecen 5 paneles completamente planos y sin interrupciones.",
-    pp3q: "3. Ineficiencia de Espacio",
-    pp3a: "Las bolsas con fuelle abultadas desperdician espacio durante el envío. Solución: La estructura tipo caja maximiza el volumen interno y mejora la densidad de embalaje en cartón hasta en un 15%.",
-    pp4q: "4. Riesgos de Integridad del Sello",
-    pp4a: "Los sellos cuádruples complejos pueden ser propensos a fugas microscópicas. Solución: Usamos sellado de esquinas reforzado para garantizar una barrera 100% hermética.",
-    pp5q: "5. Atascos en el Llenado Automático",
-    pp5a: "Algunas bolsas con fuelle no se abren suavemente en líneas automatizadas. Solución: Diseñamos formatos de cremallera preabierta para garantizar la compatibilidad con equipos de alta velocidad."
+    problemsTitle: "5 Problemas Comunes de Bolsas de Fondo Plano frente a Fuelle (Y Soluciones)",
+    problems: [
+      {
+        title: "1. Inestabilidad en los Estantes",
+        desc: "Las bolsas de fuelle lateral estándar a menudo se caen en los estantes, causando una mala presentación de la marca.",
+        sol: "Las bolsas de fondo plano cuentan con una base rígida y plana que asegura que se mantengan erguidas y estables."
+      },
+      {
+        title: "2. Distorsión del Diseño y la Marca",
+        desc: "Los fuelles laterales se pliegan hacia adentro y pueden distorsionar los logotipos o la información clave impresa cerca de los bordes.",
+        sol: "Los diseños de fondo plano ofrecen 5 paneles planos distintos para gráficos limpios y sin distorsiones."
+      },
+      {
+        title: "3. Ineficiencia de Espacio y Envío",
+        desc: "Las bolsas con fuelle inferior estándar tienden a hincharse al llenarse, desperdiciando espacio en cajas y estantes.",
+        sol: "La estructura rectangular tipo caja de las bolsas de fondo plano maximiza el volumen y mejora la densidad de empaque hasta en un 15%."
+      },
+      {
+        title: "4. Fallos en la Integridad del Sellado de Esquinas",
+        desc: "La transición del fuelle lateral al sello inferior crea superposiciones de material propensas a fugas microscópicas.",
+        sol: "AchievePack utiliza tecnología de sellado cuádruple reforzado y calibración térmica para garantizar sellos 100% herméticos."
+      },
+      {
+        title: "5. Atascos en el Llenado de Alta Velocidad",
+        desc: "Los fuelles laterales flexibles pueden resistirse a abrirse por completo en líneas automatizadas, causando derrames.",
+        sol: "Integramos marcado láser de precisión y diseños de cremallera preabierta para una apertura confiable y un llenado rápido."
+      }
+    ]
   },
   fr: {
-    ppTitle: "5 Problèmes Courants d'Ingénierie des Sachets (Et Solutions)",
-    pp1q: "1. Instabilité en Rayon",
-    pp1a: "Les sachets à soufflets latéraux standards basculent souvent sur les étagères. Solution : Les sachets à fond plat disposent d'une base parfaitement plate pour une stabilité supérieure.",
-    pp2q: "2. Distorsion du Design",
-    pp2a: "Les soufflets latéraux peuvent plier le panneau principal, interrompant la marque. Solution : Les conceptions à fond plat offrent 5 panneaux ininterrompus pour une visibilité maximale.",
-    pp3q: "3. Inefficacité de l'Espace",
-    pp3a: "Les sacs bombés gaspillent de l'espace lors de l'expédition. Solution : La structure en forme de boîte maximise le volume interne et améliore la densité d'emballage en carton jusqu'à 15 %.",
-    pp4q: "4. Risques d'Intégrité du Scellage",
-    pp4a: "Les soudures quadruples peuvent présenter des fuites microscopiques aux coins. Solution : Nous utilisons une technologie de scellage des coins renforcée pour garantir une barrière 100 % hermétique.",
-    pp5q: "5. Blocages de Remplissage Automatique",
-    pp5a: "Certains sacs à soufflets s'ouvrent difficilement sur les lignes automatisées. Solution : Nous concevons des formats de zip pré-ouverts pour une compatibilité fluide."
+    problemsTitle: "5 Problèmes Courants des Sachets Fond Plat vs Soufflet (Et Solutions)",
+    problems: [
+      {
+        title: "1. Instabilité en Rayon",
+        desc: "Les sachets à soufflets latéraux standards basculent souvent sur les étagères, nuisant à la présentation de la marque.",
+        sol: "Les sachets à fond plat disposent d'une base rigide et plane qui garantit qu'ils restent debout de manière stable."
+      },
+      {
+        title: "2. Distorsion du Design et du Branding",
+        desc: "Les soufflets latéraux se replient vers l'intérieur et peuvent déformer les logos ou les informations clés près des bords.",
+        sol: "Les modèles à fond plat offrent 5 panneaux plats distincts pour des graphismes nets et sans aucune distorsion."
+      },
+      {
+        title: "3. Inefficacité de l'Espace et du Transport",
+        desc: "Les sachets à soufflet inférieur ont tendance à gonfler lorsqu'ils sont remplis, gaspillant de l'espace dans les cartons.",
+        sol: "La structure rectangulaire des sachets à fond plat maximise le volume et améliore la densité d'emballage jusqu'à 15%."
+      },
+      {
+        title: "4. Défauts d'Étanchéité des Soudures de Coins",
+        desc: "La transition entre le soufflet et la soudure inférieure crée des superpositions de matière sujettes aux micro-fuites.",
+        sol: "AchievePack utilise une technologie de soudure renforcée à quatre côtés et un étalonnage thermique pour garantir une étanchéité à 100%."
+      },
+      {
+        title: "5. Blocages lors du Remplissage à Haute Vitesse",
+        desc: "Les soufflets latéraux flexibles peuvent résister à l'ouverture sur les lignes automatisées, provoquant des déversements.",
+        sol: "Nous intégrons un pré-façonnage laser et des zips pré-ouverts pour une ouverture fiable et une intégration fluide sur ligne rapide."
+      }
+    ]
   },
   'zh-TW': {
-    ppTitle: "5 個常見的包裝袋工程問題 (與解決方案)",
-    pp1q: "1. 貨架不穩定",
-    pp1a: "標準側折袋在零售貨架上經常傾倒，導致展示效果不佳。解決方案：平底袋具有完全平坦的底部，像硬盒一樣提供卓越的穩定性。",
-    pp2q: "2. 圖案變形",
-    pp2a: "側邊折疊處可能會影響正面圖案的完整性。解決方案：平底設計提供 5 個完全平坦、不間斷的印刷版面，最大化品牌展示空間。",
-    pp3q: "3. 空間利用率低",
-    pp3a: "膨脹的折邊袋在運輸和展示過程中浪費空間。解決方案：平底袋的盒狀結構最大化了內部容積，並將裝箱密度提高了高達 15%。",
-    pp4q: "4. 密封完整性風險",
-    pp4a: "複雜的四邊封口在角落容易出現微小洩漏。解決方案：我們使用加固的角落密封技術和經過壓力測試的多層複合材料，保證 100% 氣密屏障。",
-    pp5q: "5. 自動化灌裝卡頓",
-    pp5a: "一些折邊袋在自動灌裝線上難以順利打開。解決方案：我們設計了預開口拉鍊格式和精確壓痕，以確保與高速灌裝設備的順暢兼容。"
+    problemsTitle: "5 個常見的平底袋與折邊袋工程問題 (與解決方案)",
+    problems: [
+      {
+        title: "1. 貨架展示不穩定",
+        desc: "標準側折袋在零售貨架上經常傾倒，導致品牌展示效果不佳且貨架雜亂。",
+        sol: "平底袋具有完全平坦且堅固的底部，可確保包裝袋直立並保持極佳的穩定性。"
+      },
+      {
+        title: "2. 印刷圖案與品牌資訊變形",
+        desc: "側折邊向內折疊可能會使邊緣附近的商標、產品名稱或重要法規資訊產生變形。",
+        sol: "平底設計提供 5 個獨立且平整的印刷面（正面、背面、左側、右側及底部），展現清晰不變形的圖案。"
+      },
+      {
+        title: "3. 空間利用與運輸效率低下",
+        desc: "標準底折袋裝滿後容易向外膨脹，浪費了運輸紙箱和零售貨架的寶貴空間。",
+        sol: "平底袋類似紙盒的矩形結構最大化了內部容積，並將裝箱包裝密度提高達 15%。"
+      },
+      {
+        title: "4. 角落封口完整性風險",
+        desc: "側邊折角過渡到底部封口處會形成材料重疊，容易產生微小的洩漏孔隙。",
+        sol: "AchievePack 採用加強型四邊封技術與自動化熱合校準，確保 100% 氣密與防漏。"
+      },
+      {
+        title: "5. 高速自動灌裝卡頓",
+        desc: "柔性的側折袋在自動化灌裝線上可能無法順利撐開，導致物料溢出或生產線停機。",
+        sol: "我們結合了精密雷射打孔和預開口拉鍊設計，確保包裝袋可靠開啟並完美相容高速灌裝。"
+      }
+    ]
   }
 }
+
+const sectionsForPouch = ["5 Common Flat Bottom vs Gusset Problems (And Solutions)"];
+const sectionsForAchieve = ["5 Common Flat Bottom vs Gusset Problems (And Solutions)"];
 
 export default function PouchFlatBottomVsGussetPage() {
   const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchFlatBottomVsGusset'
+  const currentLang = i18n.language || 'en'
+  const tContent = translations[currentLang] || translations.en
   
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<'3d' | 'mockup'>('3d')
@@ -510,11 +583,11 @@ export default function PouchFlatBottomVsGussetPage() {
         </div>
       </section>
 
-      {/* 5 Common Problems Section */}
+      {/* 5 Common Flat Bottom vs Gusset Problems (And Solutions) */}
       <section className="py-24 bg-zinc-50 border-b-4 border-black">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase text-center mb-12">
-            {translations[i18n.language as keyof typeof translations]?.ppTitle || translations.en.ppTitle}
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase text-center mb-12 text-black">
+            {tContent.problemsTitle}
           </h2>
           
           <div className="flex flex-col lg:flex-row gap-12 items-center">
@@ -529,20 +602,26 @@ export default function PouchFlatBottomVsGussetPage() {
             </div>
             
             <div className="lg:w-1/2 space-y-6">
-              {[1, 2, 3, 4, 5].map((idx) => {
-                const lang = (i18n.language as keyof typeof translations) || 'en';
-                const qKey = `pp${idx}q` as keyof typeof translations['en'];
-                const aKey = `pp${idx}a` as keyof typeof translations['en'];
-                const qText = translations[lang]?.[qKey] || translations.en[qKey];
-                const aText = translations[lang]?.[aKey] || translations.en[aKey];
+              {tContent.problems.map((prob: any, idx: number) => {
+                const icons = [
+                  <CheckCircle className="h-5 w-5 text-lime-500 shrink-0" />,
+                  <Layers className="h-5 w-5 text-cyan-500 shrink-0" />,
+                  <Package className="h-5 w-5 text-pink-500 shrink-0" />,
+                  <Sparkles className="h-5 w-5 text-purple-500 shrink-0" />,
+                  <Info className="h-5 w-5 text-blue-500 shrink-0" />
+                ];
                 return (
                   <div key={idx} className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
                     <div className="bg-lime-400 text-black p-3 border-2 border-black h-fit flex-shrink-0">
-                      <ShieldAlert className="w-6 h-6" />
+                      {icons[idx] || <CheckCircle className="h-5 w-5 text-lime-500 shrink-0" />}
                     </div>
                     <div>
-                      <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2 text-black">{qText}</h3>
-                      <p className="font-['JetBrains_Mono'] text-sm text-zinc-700 leading-relaxed">{aText}</p>
+                      <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2 text-black">{prob.title}</h3>
+                      <p className="font-['JetBrains_Mono'] text-sm text-zinc-600 mb-4">{prob.desc}</p>
+                      <div className="bg-lime-300 p-4 border-2 border-black flex gap-3 items-start">
+                        <Check className="h-5 w-5 shrink-0 mt-0.5 text-black" />
+                        <p className="font-['JetBrains_Mono'] text-sm font-bold text-black">{prob.sol}</p>
+                      </div>
                     </div>
                   </div>
                 )

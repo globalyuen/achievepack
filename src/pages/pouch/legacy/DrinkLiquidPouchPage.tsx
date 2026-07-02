@@ -69,10 +69,13 @@ const translations = {
   }
 }
 
+const sectionsForPouch = translations
+const sectionsForAchieve = translations
+
 export default function DrinkLiquidPouchPage() {
   const { t, i18n } = useTranslation()
   const currentLang = i18n.language || 'en'
-  const tLocal = translations[currentLang as keyof typeof translations] || translations.en
+  const tLocal = sectionsForPouch[currentLang as keyof typeof sectionsForPouch] || sectionsForPouch.en
 
   const sections = [
     {

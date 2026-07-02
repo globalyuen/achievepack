@@ -130,6 +130,9 @@ const translations: Record<string, any> = {
   }
 }
 
+const sectionsForPouch = ["5 Common Pet Food Packaging Problems (And Solutions)"]
+const sectionsForAchieve = ["5 Common Pet Food Packaging Problems (And Solutions)"]
+
 export default function PouchPetFoodPage() {
   const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'
@@ -665,7 +668,7 @@ export default function PouchPetFoodPage() {
                 className="sticky top-24"
               >
                 <img 
-                  src="/imgs/knowledge/pet-food-packaging-pain-points.jpg" 
+                  src="/imgs/knowledge/pet-food-pain-points.jpg" 
                   alt="Pet Food Packaging Pain Points"
                   className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover"
                 />

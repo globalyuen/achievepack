@@ -1,11 +1,17 @@
 import DualDomainSEOHead from '../../components/DualDomainSEOHead'
-import { Package, Leaf, Truck, Zap, CheckCircle, Sparkles, AlertTriangle, ArrowRight } from 'lucide-react'
+import { Package, Leaf, Truck, Zap, CheckCircle, Sparkles, AlertTriangle, ArrowRight, Droplets, Lock, Recycle, Hourglass, Palette } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { getBaseUrl } from '../../utils/domain'
 
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
+
+const problemIcons = [Droplets, Lock, Recycle, Hourglass, Palette]
+
+export const sectionsForPouch = ["5 Common Flexible Pouch Problems (And Solutions)"]
+export const sectionsForAchieve = ["5 Common Flexible Pouch Problems (And Solutions)"]
+
 
 const translations: Record<string, any> = {
   en: {
@@ -239,20 +245,23 @@ export default function PouchSolutionsPage() {
               {currentLang.title}
             </h2>
             <div className="space-y-6">
-              {currentLang.items.map((item: any, idx: number) => (
-                <NeoCard key={idx} className="bg-white hover:-translate-y-1 transition-transform">
-                  <div className="flex items-start gap-4">
-                    <AlertTriangle className="w-6 h-6 text-[#FF00FF] shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-bold text-xl mb-2">{item.problem}</h4>
-                      <div className="flex items-start gap-2 text-gray-700">
-                        <ArrowRight className="w-5 h-5 text-[#22c55e] shrink-0 mt-0.5" />
-                        <p className="font-['Space_Grotesk']">{item.solution}</p>
+              {currentLang.items.map((item: any, idx: number) => {
+                const IconComponent = problemIcons[idx] || AlertTriangle
+                return (
+                  <NeoCard key={idx} className="bg-white hover:-translate-y-1 transition-transform">
+                    <div className="flex items-start gap-4">
+                      <IconComponent className="w-6 h-6 text-[#FF00FF] shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold text-xl mb-2">{item.problem}</h4>
+                        <div className="flex items-start gap-2 text-gray-700">
+                          <ArrowRight className="w-5 h-5 text-[#22c55e] shrink-0 mt-0.5" />
+                          <p className="font-['Space_Grotesk']">{item.solution}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </NeoCard>
-              ))}
+                  </NeoCard>
+                )
+              })}
             </div>
           </div>
           <div className="w-full md:w-1/2">

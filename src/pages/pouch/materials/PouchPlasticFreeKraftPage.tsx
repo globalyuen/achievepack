@@ -129,6 +129,14 @@ const translations = {
   }
 };
 
+const sectionsForPouch = [
+  { id: 'plastic-free-kraft-problems', translationKey: 'title' }
+];
+
+const sectionsForAchieve = [
+  { id: 'plastic-free-kraft-problems', translationKey: 'title' }
+];
+
 export default function PouchPlasticFreeKraftPage() {
   const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchPlasticFreeKraft'
@@ -270,7 +278,7 @@ export default function PouchPlasticFreeKraftPage() {
       </section>
 
       {/* 5 Common Problems Section */}
-      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+      <section id="plastic-free-kraft-problems" className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="mb-12">
           <h2 className="font-black text-5xl md:text-6xl uppercase text-black">
             {(translations[i18n.language as keyof typeof translations] || translations.en).title}

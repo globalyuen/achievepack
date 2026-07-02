@@ -5,6 +5,9 @@ import { ArrowRight, CheckCircle, Package, Leaf, Zap, Shield, Sparkles, ChevronD
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 
+export const sectionsForPouch = ["5 Common Degassing Valve Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Degassing Valve Problems (And Solutions)"];
+
 const translations = {
   en: {
     sectionTitle: "5 Common Degassing Valve Problems (And Solutions)",

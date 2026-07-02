@@ -162,6 +162,14 @@ const translations = {
   }
 }
 
+const sectionsForPouch = [
+  { id: 'pouch-factory-problems', translationKey: 'painPointsTitle' }
+];
+
+const sectionsForAchieve = [
+  { id: 'pouch-factory-problems', translationKey: 'painPointsTitle' }
+];
+
 export default function PouchFactoryTourPage() {
   const { t, i18n } = useTranslation()
   const currentLang = i18n.language || 'en'
@@ -355,8 +363,8 @@ export default function PouchFactoryTourPage() {
         </div>
       </section>
 
-      {/* Pain Points Section */}
-      <section className="py-16 px-4 bg-white border-b-4 border-black">
+      {/* 5 Common Pouch Factory Problems (And Solutions) Section */}
+      <section id="pouch-factory-problems" className="py-16 px-4 bg-white border-b-4 border-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
@@ -383,8 +391,8 @@ export default function PouchFactoryTourPage() {
             <div className="relative">
               <NeoCard className="p-2 bg-[#D4FF00]">
                 <img 
-                  src="/imgs/knowledge/pouch-manufacturing-pain-points.jpg" 
-                  alt="Pouch Manufacturing Pain Points"
+                  src="/imgs/knowledge/pouch-factory-tour-pain-points.jpg" 
+                  alt="Pouch Factory Tour Pain Points"
                   className="w-full h-auto border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] object-cover"
                 />
               </NeoCard>

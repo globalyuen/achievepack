@@ -1,47 +1,170 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
-import { Layout, Leaf, Droplets, AlertTriangle } from 'lucide-react'
+import { Layout, Leaf, Droplets, AlertTriangle, Shield, Droplet } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+
+export const sectionsForPouch = [
+  { id: 'pain-points', translationKey: 'title' }
+]
+
+export const sectionsForAchieve = [
+  { id: 'pain-points', translationKey: 'title' }
+]
 
 const translations: Record<string, any> = {
   en: {
     title: "5 Common Refill Pouch Problems (And Solutions)",
-    p1: { title: "Leakage at the Spout", desc: "Solution: Reinforced spout sealing and leak-proof thread design." },
-    p2: { title: "Poor Stand-up Stability", desc: "Solution: Engineered bottom gusset geometry for optimal center of gravity." },
-    p3: { title: "Delamination of Layers", desc: "Solution: Advanced adhesive lamination and structural integrity testing." },
-    p4: { title: "Difficult to Pour", desc: "Solution: Ergonomically angled spouts and directional flow control." },
-    p5: { title: "Low Eco-Friendliness", desc: "Solution: Mono-material compostable or recyclable films replacing multi-layer foil." }
+    desc: "Don't let poor packaging compromise your brand. Here are the top 5 pain points and how AchievePack engineering solves them.",
+    points: [
+      {
+        title: "1. Spout Leakage & Fitment Failure",
+        problem: "Weak fitment seals leading to liquid leakage under shipping pressure.",
+        solution: "Low-temperature ultrasonic spout sealing and dual-seal threaded caps."
+      },
+      {
+        title: "2. Poor Stand-up Stability",
+        problem: "Improper bottom gussets causing pouches to tip over or sag on store shelves.",
+        solution: "Precision-engineered bottom gusset geometry for optimal center of gravity."
+      },
+      {
+        title: "3. Layer Delamination",
+        problem: "Chemical reaction between surfactant-rich contents and lamination adhesives.",
+        solution: "Advanced chemical-resistant solventless polyurethane adhesive lamination."
+      },
+      {
+        title: "4. Puncture & Tear Risks",
+        problem: "High compression and impact during courier transit leading to puncture or burst.",
+        solution: "Multi-layer co-extrusion incorporating high-tensile BOPA (Nylon) barrier layers."
+      },
+      {
+        title: "5. Difficult or Gluggy Pouring",
+        problem: "High-viscosity liquids glugging or splashing during the refilling process.",
+        solution: "Ergonomically angled spouts and directional venting channels for continuous air flow."
+      }
+    ]
   },
   es: {
     title: "5 Problemas Comunes de las Bolsas de Recarga (y Soluciones)",
-    p1: { title: "Fugas en la Boquilla", desc: "Solución: Sellado de boquilla reforzado y diseño de rosca a prueba de fugas." },
-    p2: { title: "Mala Estabilidad Vertical", desc: "Solución: Geometría de fuelle inferior diseñada para un centro de gravedad óptimo." },
-    p3: { title: "Delaminación de Capas", desc: "Solución: Laminación adhesiva avanzada y pruebas de integridad estructural." },
-    p4: { title: "Dificultad para Verter", desc: "Solución: Boquillas con ángulo ergonómico y control de flujo direccional." },
-    p5: { title: "Baja Sostenibilidad", desc: "Solución: Películas monomaterial compostables o reciclables que reemplazan el papel de aluminio multicapa." }
+    desc: "No permita que un embalaje deficiente comprometa su marca. Aquí están los 5 principales problemas y cómo AchievePack los resuelve.",
+    points: [
+      {
+        title: "1. Fugas en la Boquilla y Falla de Ajuste",
+        problem: "Sellos de ajuste débiles que provocan fugas de líquido bajo la presión del envío.",
+        solution: "Sellado de boquilla ultrasónico a baja temperatura y tapones roscados de doble sello."
+      },
+      {
+        title: "2. Mala Estabilidad Vertical",
+        problem: "Fuelles inferiores inadecuados que hacen que las bolsas se caigan o se doblen en los estantes.",
+        solution: "Geometría de fuelle inferior diseñada con precisión para un centro de gravedad óptimo."
+      },
+      {
+        title: "3. Delaminación de Capas",
+        problem: "Reacción química entre contenidos ricos en tensioactivos y adhesivos de laminación.",
+        solution: "Laminación avanzada con adhesivos de poliuretano sin disolventes resistentes a químicos."
+      },
+      {
+        title: "4. Riesgos de Perforación y Rotura",
+        problem: "Alta compresión e impacto durante el transporte que provocan perforaciones o roturas.",
+        solution: "Coextrusión multicapa que incorpora capas de barrera de BOPA (Nailon) de alta resistencia."
+      },
+      {
+        title: "5. Vertido Difícil o Irregular",
+        problem: "Líquidos de alta viscosidad que salpican o fluyen de forma irregular durante la recarga.",
+        solution: "Boquillas con ángulo ergonómico y canales de ventilación direccionales para un flujo de aire continuo."
+      }
+    ]
   },
   fr: {
     title: "5 Problèmes Courants des Poches de Recharge (et Solutions)",
-    p1: { title: "Fuites au Bec Verseur", desc: "Solution : Scellage renforcé du bec et conception de filetage étanche." },
-    p2: { title: "Mauvaise Stabilité Verticale", desc: "Solution : Géométrie du soufflet de fond conçue pour un centre de gravité optimal." },
-    p3: { title: "Délaminage des Couches", desc: "Solution : Lamination adhésive avancée et tests d'intégrité structurelle." },
-    p4: { title: "Difficile à Verser", desc: "Solution : Becs inclinés de manière ergonomique et contrôle du flux directionnel." },
-    p5: { title: "Faible Éco-responsabilité", desc: "Solution : Films mono-matériaux compostables ou recyclables remplaçant les feuilles multicouches." }
+    desc: "Ne laissez pas un mauvais emballage compromettre votre marque. Voici les 5 principaux points faibles et comment AchievePack les résout.",
+    points: [
+      {
+        title: "1. Fuite au Bec Verseur & Défaut de Fixation",
+        problem: "Des joints de bec fragiles entraînant des fuites de liquide sous la pression du transport.",
+        solution: "Scellage par ultrasons du bec à basse température et bouchons filetés à double étanchéité."
+      },
+      {
+        title: "2. Mauvaise Stabilité Verticale",
+        problem: "Des soufflets de fond inadéquats faisant basculer ou s'affaisser les poches sur les étagères.",
+        solution: "Géométrie du soufflet de fond conçue de précision pour un centre de gravité optimal."
+      },
+      {
+        title: "3. Délaminage des Couches",
+        problem: "Réaction chimique entre les composants tensioactifs et les adhésifs de lamination.",
+        solution: "Lamination avancée avec adhésifs polyuréthane sans solvant résistants aux produits chimiques."
+      },
+      {
+        title: "4. Risques de Perforation & d'Éclatement",
+        problem: "Forte compression et chocs pendant le transport routier provoquant des perforations.",
+        solution: "Coextrusion multicouche intégrant des couches de barrière BOPA (Nylon) à haute résistance."
+      },
+      {
+        title: "5. Versage Difficile ou Irrégulier",
+        problem: "Liquides à haute viscosité qui éclaboussent ou s'écoulent difficilement lors de la recharge.",
+        solution: "Becs inclinés ergonomiques et canaux de ventilation directionnels pour un flux d'air continu."
+      }
+    ]
   },
   'zh-TW': {
     title: "補充包的 5 個常見問題 (與解決方案)",
-    p1: { title: "吸嘴處漏液", desc: "解決方案：加強吸嘴密封和防漏螺紋設計。" },
-    p2: { title: "直立穩定性差", desc: "解決方案：優化底部折邊幾何形狀，達到最佳重心。" },
-    p3: { title: "材料層分層", desc: "解決方案：先進的粘合劑複合和結構完整性測試。" },
-    p4: { title: "傾倒困難", desc: "解決方案：人體工學角度吸嘴和定向流量控制。" },
-    p5: { title: "環保性不足", desc: "解決方案：單一材料可堆肥或可回收薄膜取代多層鋁箔。" }
+    desc: "不要讓劣質包裝損害您的品牌。以下是 5 個主要痛點以及 AchievePack 的工程解決方案。",
+    points: [
+      {
+        title: "1. 吸嘴處漏液與配件失效",
+        problem: "配件封口強度不足，導致在運輸壓力下液體發生滲漏。",
+        solution: "採用低溫超音波吸嘴封合技術與雙重密封螺紋蓋設計。"
+      },
+      {
+        title: "2. 直立穩定性差",
+        problem: "底部折邊設計不當，導致包裝袋在貨架上傾倒或下塌。",
+        solution: "精密設計的底部折邊幾何形狀，以實現最佳的重心分佈。"
+      },
+      {
+        title: "3. 材料層分層",
+        problem: "富含表面活性劑的內容物與複合黏合劑發生化學反應導致分層。",
+        solution: "使用先進的耐化學性無溶劑聚氨酯黏合劑進行複合。"
+      },
+      {
+        title: "4. 穿刺與破袋風險",
+        problem: "快遞運輸過程中的高擠壓和衝擊，導致包裝被刺破或脹破。",
+        solution: "多層共擠複合技術，並加入高抗拉強度的 BOPA (尼龍) 阻隔層。"
+      },
+      {
+        title: "5. 傾倒困難與噴濺",
+        problem: "高粘度液體在重複灌裝過程中產生噴濺或流動不暢。",
+        solution: "符合人體工學的傾斜吸嘴與定向排氣通道，確保空氣流暢對流。"
+      }
+    ]
   },
   zh: {
-    title: "补充包的 5 个常见问题 (与解决方案)",
-    p1: { title: "吸嘴处漏液", desc: "解决方案：加强吸嘴密封和防漏螺纹设计。" },
-    p2: { title: "直立稳定性差", desc: "解决方案：优化底部折边几何形状，达到最佳重心。" },
-    p3: { title: "材料层分层", desc: "解决方案：先进的粘合剂复合和结构完整性测试。" },
-    p4: { title: "倾倒困难", desc: "解决方案：人体工学角度吸嘴和定向流量控制。" },
-    p5: { title: "环保性不足", desc: "解决方案：单一材料可堆肥或可回收薄膜取代多层铝箔。" }
+    title: "補充包的 5 个常见问题 (与解决方案)",
+    desc: "不要让劣质包装损害您的品牌。以下是 5 个主要痛点以及 AchievePack 的工程解决方案。",
+    points: [
+      {
+        title: "1. 吸嘴处漏液与配件失效",
+        problem: "配件封口强度不足，导致在运输压力下液体发生渗漏。",
+        solution: "采用低温超音波吸嘴封合技术与双重密封螺纹盖设计。"
+      },
+      {
+        title: "2. 直立稳定性差",
+        problem: "底部折边设计不当，导致包装袋在货架上倾倒或下塌。",
+        solution: "精密设计的底部折边几何形状，以实现最佳的重心分布。"
+      },
+      {
+        title: "3. 材料层分层",
+        problem: "富含表面活性剂的内容物与复合黏合剂发生化学反应导致分层。",
+        solution: "使用先进的耐化学性无溶剂聚氨酯黏合剂进行复合。"
+      },
+      {
+        title: "4. 穿刺与破袋风险",
+        problem: "快递运输过程中的高挤压和冲击，导致包装被刺破或胀破。",
+        solution: "多层共挤复合技术，并加入高抗拉强度的 BOPA (尼龙) 阻隔层。"
+      },
+      {
+        title: "5. 倾倒困难与喷溅",
+        problem: "高粘度液体在重复灌装过程中产生喷溅或流动不畅。",
+        solution: "符合人体工学的倾斜吸嘴与定向排气通道，确保空气流畅对流。"
+      }
+    ]
   }
 }
 
@@ -147,18 +270,39 @@ export default function RefillPouchesPage() {
       icon: <AlertTriangle className="w-6 h-6 text-black" />,
       content: (
         <div className="space-y-6">
-          <img src="/imgs/knowledge/refill-pouches-pain-points.jpg" alt="Refill Pouches Pain Points" className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-6" />
-          <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-            <ul className="space-y-4 text-lg font-medium">
-              {[1, 2, 3, 4, 5].map((num) => (
-                <li key={num} className="flex items-start gap-3">
-                  <AlertTriangle className="w-6 h-6 shrink-0 mt-1" />
-                  <div>
-                    <strong>{tLocal[`p${num}`].title}:</strong> {tLocal[`p${num}`].desc}
+          <p className="text-lg leading-relaxed">{tLocal.desc}</p>
+          
+          <div className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <img 
+              src="/imgs/knowledge/refill-pouches-pain-points.jpg" 
+              alt="5 Common Refill Pouch Problems" 
+              className="w-full h-auto border-b-4 border-black object-cover"
+            />
+            <div className="p-6 bg-white space-y-6">
+              {tLocal.points.map((point: any, idx: number) => {
+                const icons = [
+                  <AlertTriangle className="w-6 h-6 text-red-500" />,
+                  <Layout className="w-6 h-6 text-blue-500" />,
+                  <Leaf className="w-6 h-6 text-green-500" />,
+                  <Shield className="w-6 h-6 text-purple-500" />,
+                  <Droplet className="w-6 h-6 text-cyan-500" />
+                ];
+                return (
+                  <div key={idx} className="flex gap-4">
+                    <div className="mt-1">{icons[idx] || <AlertTriangle className="w-6 h-6 text-red-500" />}</div>
+                    <div>
+                      <h4 className="font-black text-lg text-black">{point.title}</h4>
+                      <p className="text-red-600 font-medium text-sm mt-1">
+                        <span className="font-bold">Problem:</span> {point.problem}
+                      </p>
+                      <p className="text-green-700 font-bold text-sm mt-1">
+                        <span className="font-black text-black">Solution:</span> {point.solution}
+                      </p>
+                    </div>
                   </div>
-                </li>
-              ))}
-            </ul>
+                )
+              })}
+            </div>
           </div>
         </div>
       )

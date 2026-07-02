@@ -169,104 +169,151 @@ const SPEC_FINDER_DATABASE = [
   }
 ]
 
-const LOCAL_TRANSLATIONS: Record<string, any> = {
+export const sectionsForPouch = ["5 Common Technical Specifications Problems (And Solutions)"]
+export const sectionsForAchieve = ["5 Common Technical Specifications Problems (And Solutions)"]
+
+const translations: Record<string, any> = {
   en: {
-    title: "5 Common Technical Spec Problems (And Solutions)",
-    problems: [
+    sectionTitle: "5 Common Technical Specifications Problems (And Solutions)",
+    desc: "Technical specification errors can compromise barrier integrity. Here is how our engineering team solves them.",
+    points: [
       {
-        title: "High OTR/WVTR Causing Spoilage",
-        desc: "Solution: Ultra-high barrier metallized or foil-equivalent structures that lock out oxygen and moisture."
+        icon: AlertCircle,
+        title: "1. Barrier Permeation & Spoilage",
+        problem: "High OTR/WVTR rates lead to oxygen and moisture ingress, causing product spoilage.",
+        solution: "Deploy ultra-high barrier metallized films or aluminum foil laminates for near-zero transmission."
       },
       {
-        title: "Greenwashing & Unverified Claims",
-        desc: "Solution: Certified compostable (EN 13432) or recyclable structures with real lab testing."
+        icon: ShieldCheck,
+        title: "2. Regulatory Compliance & Greenwashing",
+        problem: "Unverified biodegradable or recyclable claims expose brands to greenwashing penalties.",
+        solution: "Use EN 13432 certified compostable or 100% recyclable mono-PE materials with full lab credentials."
       },
       {
-        title: "Guesswork in Material Selection",
-        desc: "Solution: Our Spec Finder app matches your exact product requirements to precise materials."
+        icon: Layers,
+        title: "3. Spec Guesswork & Over-Packaging",
+        problem: "Selecting incorrect material structures leads to mechanical failure or unnecessarily high costs.",
+        solution: "Use our Material Spec Finder to match product weight and chemistry with precise technical specs."
       },
       {
-        title: "Inaccurate Thickness & GSM Specs",
-        desc: "Solution: Detailed layer-by-layer technical data sheets ensuring QA compliance."
+        icon: FileText,
+        title: "4. Caliper & GSM Deviations",
+        problem: "Variations in layer thickness and grammage cause inconsistent heat-sealing and pouch leaks.",
+        solution: "Maintain strict QA tolerances with layer-by-layer TDS (Technical Data Sheets) compliance."
       },
       {
-        title: "Difficulty Transitioning from Fossil-Plastics",
-        desc: "Solution: Drop-in bio-based PE and PCR alternatives that run on existing machinery."
+        icon: Zap,
+        title: "5. Machinery Processing Failures",
+        problem: "Eco-films fail to run efficiently or melt incorrectly on legacy form-fill-seal machines.",
+        solution: "Optimize coefficient of friction (COF) and heat seal windows for drop-in bio-based alternatives."
       }
     ]
   },
   es: {
-    title: "5 Problemas Comunes de Especificaciones Técnicas (Y Soluciones)",
-    problems: [
+    sectionTitle: "5 Problemas Comunes de Especificaciones Técnicas (Y Soluciones)",
+    desc: "Los errores de especificación técnica pueden comprometer la integridad de la barrera. He aquí cómo los resuelve nuestro equipo.",
+    points: [
       {
-        title: "Alto OTR/WVTR que Causa Deterioro",
-        desc: "Solución: Estructuras metalizadas de barrera ultra alta o equivalentes a aluminio que bloquean el oxígeno y la humedad."
+        icon: AlertCircle,
+        title: "1. Permeación de Barrera y Deterioro",
+        problem: "Altas tasas de OTR/WVTR permiten el ingreso de oxígeno y humedad, deteriorando el producto.",
+        solution: "Implementar películas metalizadas de ultra alta barrera o laminados de aluminio para una transmisión casi nula."
       },
       {
-        title: "Lavado Verde y Afirmaciones no Verificadas",
-        desc: "Solución: Estructuras compostables certificadas (EN 13432) o reciclables con pruebas reales de laboratorio."
+        icon: ShieldCheck,
+        title: "2. Cumplimiento Normativo y Lavado Verde",
+        problem: "Afirmaciones biodegradables o reciclables no verificadas exponen a las marcas a sanciones por lavado verde.",
+        solution: "Utilizar materiales compostables certificados EN 13432 o mono-PE 100% reciclables con credenciales de laboratorio."
       },
       {
-        title: "Suposiciones en la Selección de Materiales",
-        desc: "Solución: Nuestra aplicación Spec Finder ajusta exactamente los requisitos de su producto a materiales precisos."
+        icon: Layers,
+        title: "3. Suposiciones de Especificación",
+        problem: "Seleccionar estructuras de material incorrectas provoca fallos mecánicos o costes innecesariamente altos.",
+        solution: "Usar nuestro buscador de especificaciones de materiales para hacer coincidir el peso y la química con especificaciones técnicas precisas."
       },
       {
-        title: "Especificaciones Inexactas de Grosor y GSM",
-        desc: "Solución: Fichas técnicas detalladas capa por capa que garantizan el cumplimiento de QA."
+        icon: FileText,
+        title: "4. Desviaciones de Calibre y GSM",
+        problem: "Variaciones en el espesor y gramaje de las capas causan un sellado térmico inconsistente y fugas en la bolsa.",
+        solution: "Mantener tolerancias estrictas de control de calidad con el cumplimiento de fichas técnicas (TDS) capa por capa."
       },
       {
-        title: "Dificultad en la Transición de Plásticos Fósiles",
-        desc: "Solución: Alternativas de PE de base biológica y PCR que funcionan en maquinaria existente."
+        icon: Zap,
+        title: "5. Fallos de Procesamiento en Maquinaria",
+        problem: "Las películas ecológicas no funcionan de manera eficiente o se derriten incorrectamente en máquinas de envasado antiguas.",
+        solution: "Optimizar el coeficiente de fricción (COF) y las ventanas de sellado térmico para alternativas biológicas directas."
       }
     ]
   },
   fr: {
-    title: "5 Problèmes Courants de Spécifications Techniques (Et Solutions)",
-    problems: [
+    sectionTitle: "5 Problèmes Courants de Spécifications Techniques (Et Solutions)",
+    desc: "Les erreurs de spécifications techniques peuvent compromettre la barrière. Voici comment notre équipe d'ingénieurs les résout.",
+    points: [
       {
-        title: "OTR/WVTR Élevé Causant la Détérioration",
-        desc: "Solution : Structures métallisées à ultra-haute barrière ou équivalentes à l'aluminium qui bloquent l'oxygène et l'humidité."
+        icon: AlertCircle,
+        title: "1. Perméation de la Barrière et Altération",
+        problem: "Des taux d'OTR/WVTR élevés entraînent l'intrusion d'oxygène et d'humidité, causant la perte du produit.",
+        solution: "Déployer des films métallisés à ultra-haute barrière ou des stratifiés d'aluminium pour une transmission quasi nulle."
       },
       {
-        title: "Écoblanchiment et Allégations Non Vérifiées",
-        desc: "Solution : Structures compostables certifiées (EN 13432) ou recyclables avec de vrais tests en laboratoire."
+        icon: ShieldCheck,
+        title: "2. Conformité Réglementaire et Écoblanchiment",
+        problem: "Les allégations non vérifiées de biodégradabilité ou de recyclabilité exposent les marques à des pénalités d'écoblanchiment.",
+        solution: "Utiliser des matériaux compostables certifiés EN 13432 ou du mono-PE 100% recyclable avec des rapports de laboratoire complets."
       },
       {
-        title: "Incertitude dans le Choix des Matériaux",
-        desc: "Solution : Notre application Spec Finder associe exactement les exigences de votre produit à des matériaux précis."
+        icon: Layers,
+        title: "3. Incertitude sur les Spécifications",
+        problem: "Le choix de structures de matériaux incorrectes entraîne des défaillances mécaniques ou des coûts élevés.",
+        solution: "Utiliser notre Material Spec Finder pour aligner le poids et la chimie avec des spécifications techniques précises."
       },
       {
-        title: "Spécifications Inexactes d'Épaisseur et de GSM",
-        desc: "Solution : Fiches techniques détaillées couche par couche garantissant la conformité QA."
+        icon: FileText,
+        title: "4. Écarts d'Épaisseur et de GSM",
+        problem: "Les variations d'épaisseur et de grammage des couches provoquent des soudures thermiques irrégulières et des fuites.",
+        solution: "Maintenir des tolérances QA strictes grâce à la conformité aux fiches techniques (TDS) couche par couche."
       },
       {
-        title: "Difficulté de Transition des Plastiques Fossiles",
-        desc: "Solution : Alternatives en PE biosourcé et PCR fonctionnant sur les machines existantes."
+        icon: Zap,
+        title: "5. Problèmes de Passage sur Machine",
+        problem: "Les films écologiques ne défilent pas efficacement ou fondent mal sur les ensacheuses traditionnelles.",
+        solution: "Optimiser le coefficient de friction (COF) et les plages de thermoscellage pour les alternatives biosourcées."
       }
     ]
   },
   'zh-TW': {
-    title: "5 個常見的技術規格問題（與解決方案）",
-    problems: [
+    sectionTitle: "5 個常見的技術規格問題（與解決方案）",
+    desc: "技術規格錯誤可能會損害阻隔完整性。以下是我們工程團隊的合理解決方案。",
+    points: [
       {
-        title: "高 OTR/WVTR 導致產品變質",
-        desc: "解決方案：超高阻隔金屬化或等同鋁箔的結構，有效阻絕氧氣與水分。"
+        icon: AlertCircle,
+        title: "1. 阻隔滲透與產品變質",
+        problem: "高 OTR/WVTR 導致氧氣與水分滲入，引起產品變質損壞。",
+        solution: "採用超高阻隔金屬化薄膜或鋁箔複合結構，實現近乎零的滲透率。"
       },
       {
-        title: "漂綠與未經證實的環保聲明",
-        desc: "解決方案：具備實際實驗室測試的認證可堆肥 (EN 13432) 或可回收結構。"
+        icon: ShieldCheck,
+        title: "2. 法規合規性與漂綠風險",
+        problem: "未經證實的生物降解或可回收聲明，會使品牌面臨法律處罰與漂綠指控。",
+        solution: "使用具備完整實驗室報告的 EN 13432 認證可堆肥材料或 100% 可回收單一 PE 材料。"
       },
       {
-        title: "材料選擇憑藉猜測",
-        desc: "解決方案：我們的規格搜尋器應用程式能將您的產品需求與精確材料相匹配。"
+        icon: Layers,
+        title: "3. 材料規格憑空猜測",
+        problem: "憑經驗選擇不正確的材料結構會導致機械故障或不必要的昂貴成本。",
+        solution: "使用我們的材料規格搜尋器，將產品重量與化學特性與精確的技術規格相匹配。"
       },
       {
-        title: "厚度與克重規格不準確",
-        desc: "解決方案：詳細的逐層技術數據表，確保符合品質保證 (QA)。"
+        icon: FileText,
+        title: "4. 厚度與克重（GSM）偏差",
+        problem: "材料厚度與每平方米克重的變異會導致熱封不均勻及包裝袋漏氣。",
+        solution: "通過嚴格遵守逐層技術數據表（TDS）以維持極高的品管公差。"
       },
       {
-        title: "難以從化石塑膠過渡",
-        desc: "解決方案：可直接替代的生物基 PE 與 PCR 替代品，且適用於現有機器。"
+        icon: Zap,
+        title: "5. 包裝機械加工故障",
+        problem: "環保薄膜在傳統自動包裝機上運轉不順暢或熱封熔點不合適。",
+        solution: "為直接替代的生物基或回收塑料優化摩擦係數（COF）與熱封溫度窗口。"
       }
     ]
   }
@@ -277,7 +324,7 @@ export default function PouchTechSpecsPage() {
   const pouchMode = isPouch()
 
   const lang = i18n.language?.toLowerCase().startsWith('es') ? 'es' : i18n.language?.toLowerCase().startsWith('fr') ? 'fr' : i18n.language?.toLowerCase().startsWith('zh') ? 'zh-TW' : 'en';
-  const localT = LOCAL_TRANSLATIONS[lang] || LOCAL_TRANSLATIONS['en'];
+  const localT = translations[lang] || translations['en'];
 
   // Material Spec Finder States
   const [selectedIndustry, setSelectedIndustry] = useState<string>('coffee')
@@ -758,30 +805,42 @@ export default function PouchTechSpecsPage() {
       </section>
 
       {/* 5 Common Problems Section */}
-      <section className="py-20 bg-[#F9F9F9] border-b-4 border-black">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="border-4 border-black bg-white p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            <h2 className="font-black text-3xl md:text-5xl uppercase mb-12 flex items-center gap-4">
-              <AlertCircle className="w-10 h-10 text-[#D4FF00] fill-black" />
-              {localT.title}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-black text-4xl md:text-5xl text-black mt-4 mb-4">
+              {localT.sectionTitle}
             </h2>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                {localT.problems.map((prob: any, idx: number) => (
-                  <div key={idx} className="flex gap-4 items-start border-b-2 border-dashed border-black pb-4 last:border-0">
-                    <div className="bg-black text-[#D4FF00] font-black w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                      {idx + 1}
+            <p className="text-lg text-gray-755 max-w-3xl mx-auto font-['Space_Grotesk'] font-bold">
+              {localT.desc}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {localT.points.map((pt: any, idx: number) => (
+                <NeoCard key={idx} className="p-5 border-2 border-black bg-neutral-50 hover:bg-neutral-100 transition-colors">
+                  <div className="flex gap-4">
+                    <div className="mt-1">
+                      <pt.icon className="w-8 h-8 text-black" />
                     </div>
                     <div>
-                      <h3 className="font-black text-lg uppercase mb-1">{prob.title}</h3>
-                      <p className="font-['Space_Grotesk'] text-gray-700 font-bold">{prob.desc}</p>
+                      <h3 className="font-black text-xl text-black mb-2 uppercase">{pt.title}</h3>
+                      <p className="text-sm text-red-700 font-bold mb-1"><strong>Problem:</strong> {pt.problem}</p>
+                      <p className="text-sm text-green-700 font-bold"><strong>Solution:</strong> {pt.solution}</p>
                     </div>
                   </div>
-                ))}
-              </div>
-              <div className="border-4 border-black bg-black p-2 shadow-[8px_8px_0px_0px_rgba(212,255,0,1)] transform rotate-1">
-                <img src="/imgs/knowledge/technical-specifications-pain-points.jpg" alt={localT.title} className="w-full h-auto border-2 border-[#D4FF00]" />
-              </div>
+                </NeoCard>
+              ))}
+            </div>
+            <div>
+              <NeoCard className="p-2 bg-neutral-100 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <img 
+                  src="/imgs/knowledge/technical-specifications-pain-points.jpg" 
+                  alt="5 common technical specifications problems and solutions" 
+                  className="w-full object-cover border-2 border-black"
+                />
+              </NeoCard>
             </div>
           </div>
         </div>
@@ -1137,24 +1196,26 @@ export default function PouchTechSpecsPage() {
       </section>
 
       {/* 5 Common Problems Section (Achieve) */}
-      <section className="py-20 bg-neutral-900 border-b border-neutral-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="mb-12">
+      <section className="py-24 bg-neutral-900 border-b border-neutral-800 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/20 mb-4">
               <AlertCircle className="w-3.5 h-3.5" /> Pain Points & Solutions
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{localT.title}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">{localT.sectionTitle}</h2>
+            <p className="text-lg text-neutral-400 max-w-3xl mx-auto mt-4">{localT.desc}</p>
           </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              {localT.problems.map((prob: any, idx: number) => (
+              {localT.points.map((pt: any, idx: number) => (
                 <div key={idx} className="flex gap-4 items-start">
-                  <div className="bg-neutral-800 border border-neutral-700 text-emerald-400 font-bold w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner">
-                    {idx + 1}
+                  <div className="bg-neutral-800 border border-neutral-700 text-emerald-400 font-bold w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner">
+                    <pt.icon className="w-6 h-6 text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2 text-neutral-200">{prob.title}</h3>
-                    <p className="text-neutral-400 leading-relaxed">{prob.desc}</p>
+                    <h3 className="text-xl font-semibold mb-2 text-neutral-200">{pt.title}</h3>
+                    <p className="text-neutral-400 leading-relaxed mb-1"><strong className="text-red-400">Problem:</strong> {pt.problem}</p>
+                    <p className="text-neutral-300 leading-relaxed"><strong className="text-emerald-400">Solution:</strong> {pt.solution}</p>
                   </div>
                 </div>
               ))}
@@ -1162,7 +1223,7 @@ export default function PouchTechSpecsPage() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
               <div className="relative bg-neutral-950 p-2.5 rounded-3xl shadow-2xl border border-neutral-800">
-                <img src="/imgs/knowledge/technical-specifications-pain-points.jpg" alt={localT.title} className="w-full h-auto rounded-2xl border border-neutral-850" />
+                <img src="/imgs/knowledge/technical-specifications-pain-points.jpg" alt={localT.sectionTitle} className="w-full h-auto rounded-2xl border border-neutral-850" />
               </div>
             </div>
           </div>

@@ -130,6 +130,14 @@ const translations: Record<string, any> = {
   }
 };
 
+const sectionsForPouch = [
+  { id: 'bio-pe-problems', translationKey: 'sectionTitle' }
+];
+
+const sectionsForAchieve = [
+  { id: 'bio-pe-problems', translationKey: 'sectionTitle' }
+];
+
 const PouchBioPEPage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchBioPE'
@@ -301,7 +309,7 @@ const PouchBioPEPage: React.FC = () => {
       </section>
 
       {/* 5 Common Problems */}
-      <section className="py-24 bg-white border-t-4 border-black">
+      <section id="bio-pe-problems" className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-black text-5xl md:text-7xl uppercase mb-16 text-center">{localT.sectionTitle}</h2>
           

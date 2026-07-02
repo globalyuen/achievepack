@@ -7,55 +7,74 @@ import { ThreeFloatingBackground } from '../../components/ThreeFloatingBackgroun
 
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
+const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Pouch Packaging Problems (And Solutions)",
+    problems: [
+      { id: 1, title: "Poor Barrier Properties", description: "Standard single-layer films fail to prevent oxygen and moisture transmission, leading to premature food spoilage and shortened shelf life.", solution: "Deploy co-extruded multi-layer laminates incorporating EVOH, ALOX, or metalized films to establish near-zero transmission barriers." },
+      { id: 2, title: "Zipper & Closure Failure", description: "Weak zipper seals or misalignment can cause the bag to split open or fail to reclose properly, ruining product freshness.", solution: "Incorporate precision-molded PE/PP zippers utilizing ultrasonic seal technology and tactile feedback grooves to ensure a reliable seal." },
+      { id: 3, title: "Seam Splitting & Leaking", description: "Insufficient heat sealing parameters cause pouch side seams to rupture during filling, packaging, or drop impacts.", solution: "Increase seal width parameters and utilize specialized metallocene-catalyzed PE sealants to expand the thermal sealing window." },
+      { id: 4, title: "Inconsistent Tear Propagation", description: "Users struggle to open the pouch cleanly, causing jagged tears that bypass the resealable zipper or spill content.", solution: "Implement precise laser-scoring along the tear line, paired with ergonomic tear notches, ensuring a straight and clean tear." },
+      { id: 5, title: "Puncture & Flex Cracking", description: "Abrasive products or rough transport cause micro-punctures or pinholes, destroying the package vacuum or barrier.", solution: "Integrate a high-tenacity nylon (BOPA) or oriented polyester (PET) intermediate layer to absorb mechanical stresses and drop impacts." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas de Empaque (Y Soluciones)",
+    problems: [
+      { id: 1, title: "Malas Propiedades de Barrera", description: "Las películas estándar de una sola capa no logran evitar la transmisión de oxígeno y humedad, lo que provoca el deterioro prematuro de los alimentos y reduce su vida útil.", solution: "Utilice laminados multicapa coextruidos que incorporen películas de EVOH, ALOX o metalizadas para establecer barreras de transmisión cercanas a cero." },
+      { id: 2, title: "Fallo del Cierre (Zipper)", description: "Los sellados débiles de la cremallera o la desalineación pueden hacer que la bolsa se abra o no se vuelva a cerrar correctamente, arruinando la frescura del producto.", solution: "Incorpore cremalleras de PE/PP moldeadas con precisión mediante tecnología de sellado ultrasónico y ranuras de retroalimentación táctil para garantizar un sellado confiable." },
+      { id: 3, title: "Fugas y Desgarro de Costuras", description: "Los parámetros de sellado térmico insuficientes provocan la ruptura de las costuras laterales de la bolsa durante el llenado, envasado o impactos por caídas.", solution: "Aumente los parámetros de ancho de sellado y utilice selladores de PE especializados catalizados por metalloceno para ampliar la ventana de sellado térmico." },
+      { id: 4, title: "Propagación Inconsistente del Desgarro", description: "Los usuarios tienen dificultades para abrir la bolsa de manera limpia, lo que provoca desgarros irregulares que omiten la cremallera resellable o derraman el contenido.", solution: "Implemente un marcado láser preciso a lo largo de la línea de desgarro, junto con muescas de desgarro ergonómicas, garantizando un desgarro recto y limpio." },
+      { id: 5, title: "Perforación y Agrietamiento por Flexión", description: "Los productos abrasivos o el transporte brusco provocan microperforaciones o poros, destruyendo el vacío o la barrera del paquete.", solution: "Integre una capa intermedia de nailon de alta tenacidad (BOPA) o poliéster orientado (PET) para absorber los esfuerzos mecánicos y los impactos por caídas." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets d'Emballage (Et Solutions)",
+    problems: [
+      { id: 1, title: "Mauvaises Propriétés de Barrière", description: "Les films monocouches standard ne parviennent pas à empêcher la transmission de l'oxygène et de l'humidité, ce qui entraîne une détérioration prématurée des aliments et raccourcit la durée de conservation.", solution: "Déployez des stratifiés multicouches coextrudés intégrant des films EVOH, ALOX ou métallisés pour établir des barrières de transmission proches de zéro." },
+      { id: 2, title: "Défaillance de la Fermeture Éclair", description: "Des joints de fermeture éclair faibles ou un mauvais alignement peuvent provoquer l'ouverture du sachet ou l'impossibilité de le refermer correctement, ruinant la fraîcheur du produit.", solution: "Incorporez des fermetures éclair en PE/PP moulées de précision utilisant la technologie de scellage par ultrasons et des rainures de retour tactile pour assurer une fermeture fiable." },
+      { id: 3, title: "Rupture des Soudures et Fuites", description: "Des paramètres de thermoscellage insuffisants provoquent la rupture des soudures latérales du sachet lors du remplissage, du conditionnement ou des impacts de chute.", solution: "Augmentez les paramètres de largeur de scellage et utilisez des agents de scellage PE spécialisés catalisés par métallocène pour élargir la fenêtre de thermoscellage." },
+      { id: 4, title: "Propagation Inégale de la Déchirure", description: "Les utilisateurs ont du mal à ouvrir le sachet proprement, ce qui provoque des déchirures irrégulières qui contournent la fermeture éclair refermable ou renversent le contenu.", solution: "Mettez en œuvre un traçage laser précis le long de la ligne de déchirure, associé à des encoches de déchirure ergonomiques, garantissant une déchirure droite et propre." },
+      { id: 5, title: "Perforation et Fissuration par Flexion", description: "Les produits abrasifs ou les transports rugueux provoquent des micro-perforations ou des trous d'épingle, détruisant le vide ou la barrière de l'emballage.", solution: "Intégrez une couche intermédiaire en nylon haute ténacité (BOPA) ou en polyester orienté (PET) pour absorber les contraintes mécaniques et les impacts de chute." }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見軟包裝袋問題 (與解決方案)",
+    problems: [
+      { id: 1, title: "阻隔性能不佳", description: "標準單層薄膜無法有效阻隔氧氣與水氣滲透，導致食品過早變質並縮短保質期。", solution: "採用結合 EVOH、ALOX 或鍍鋁薄膜的共擠多層複合結構，建立近乎零滲透的阻隔層。" },
+      { id: 2, title: "夾鏈結構失效", description: "夾鏈密封強度不足或對齊不良，容易導致包裝袋裂開或無法重新密封，從而破壞產品新鮮度。", solution: "採用精密模塑的 PE/PP 夾鏈，配合超聲波熱封技術與觸覺反饋凹槽，確保可靠的密封效果。" },
+      { id: 3, title: "封口處開裂洩漏", description: "熱封參數設定不當會導致包裝袋側邊熱封強度不足，在充填、包裝或跌落時破裂漏氣。", solution: "增加熱封寬度參數，並使用特殊的茂金屬催化 PE 密封材料，以拓寬熱封溫度窗口。" },
+      { id: 4, title: "易撕引導不均勻", description: "使用者難以整齊地撕開包裝袋，導致撕裂口呈鋸齒狀，甚至避開夾鏈或使內容物灑出。", solution: "沿撕裂線進行精確的雷射打孔定位，並搭配符合人體工學的易撕口，確保撕開時平整且筆直。" },
+      { id: 5, title: "刺破與撓曲開裂", description: "具棱角的產品或粗暴的運輸過程會造成微小的刺破或針孔，破壞包裝的真空或阻隔狀態。", solution: "結合高韌性雙向拉伸尼龍 (BOPA) 或定向聚酯 (PET) 中間層，以吸收機械應力與跌落衝擊。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = [
+  { id: 'pouch-problems', translationKey: 'title' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'pouch-problems', translationKey: 'title' }
+];
+
+const getIcon = (id: number) => {
+  switch (id) {
+    case 1: return <ShieldAlert className="w-6 h-6" />;
+    case 2: return <Wrench className="w-6 h-6" />;
+    case 3: return <Droplets className="w-6 h-6" />;
+    case 4: return <Scissors className="w-6 h-6" />;
+    case 5: return <Crosshair className="w-6 h-6" />;
+    default: return <ShieldAlert className="w-6 h-6" />;
+  }
+};
+
 export default function PouchProductsPage() {
   const { t, i18n } = useTranslation()
   const lang = (i18n.language || 'en').startsWith('zh') ? 'zh-TW' : (i18n.language || 'en').substring(0, 2)
   const safeLang = ['en', 'es', 'fr', 'zh-TW'].includes(lang) ? lang : 'en'
+  const tLocal = translations[safeLang] || translations['en']
 
-  const LOCAL_TRANSLATIONS = {
-    en: {
-      title: "5 Common Pouch Packaging Problems (And Solutions)",
-      problems: [
-        { id: 1, icon: <ShieldAlert className="w-6 h-6"/>, title: "Poor Barrier Properties", solution: "Multi-layer laminate structures to block oxygen and moisture." },
-        { id: 2, icon: <Wrench className="w-6 h-6"/>, title: "Zipper Failure", solution: "Precision-engineered press-to-close zippers with audible tactile feedback." },
-        { id: 3, icon: <Droplets className="w-6 h-6"/>, title: "Leaking Side Seams", solution: "Wide seal margins with specialized heat sealants." },
-        { id: 4, icon: <Scissors className="w-6 h-6"/>, title: "Difficulty in Opening", solution: "Laser-scored tear notches for clean, straight-line opening." },
-        { id: 5, icon: <Crosshair className="w-6 h-6"/>, title: "Punctures During Transit", solution: "Addition of a nylon (BOPA) or PET layer for high puncture resistance." }
-      ]
-    },
-    es: {
-      title: "5 Problemas Comunes de Empaque (Y Soluciones)",
-      problems: [
-        { id: 1, icon: <ShieldAlert className="w-6 h-6"/>, title: "Malas propiedades de barrera", solution: "Estructuras laminadas multicapa para bloquear oxígeno y humedad." },
-        { id: 2, icon: <Wrench className="w-6 h-6"/>, title: "Fallo del cierre (Zipper)", solution: "Cierres a presión diseñados con precisión y respuesta táctil audible." },
-        { id: 3, icon: <Droplets className="w-6 h-6"/>, title: "Fugas en costuras laterales", solution: "Márgenes de sellado amplios con selladores térmicos especializados." },
-        { id: 4, icon: <Scissors className="w-6 h-6"/>, title: "Dificultad para abrir", solution: "Muescas de desgarro marcadas con láser para apertura recta." },
-        { id: 5, icon: <Crosshair className="w-6 h-6"/>, title: "Perforaciones en tránsito", solution: "Capa de nailon (BOPA) o PET para alta resistencia a la perforación." }
-      ]
-    },
-    fr: {
-      title: "5 Problèmes Courants d'Emballage (Et Solutions)",
-      problems: [
-        { id: 1, icon: <ShieldAlert className="w-6 h-6"/>, title: "Mauvaises propriétés de barrière", solution: "Structures stratifiées multicouches contre l'oxygène et l'humidité." },
-        { id: 2, icon: <Wrench className="w-6 h-6"/>, title: "Défaillance de la fermeture", solution: "Fermetures zippées conçues avec précision avec retour tactile." },
-        { id: 3, icon: <Droplets className="w-6 h-6"/>, title: "Fuites aux coutures latérales", solution: "Larges marges de scellage avec mastics thermiques spécialisés." },
-        { id: 4, icon: <Scissors className="w-6 h-6"/>, title: "Difficulté d'ouverture", solution: "Encoches de déchirure au laser pour une ouverture propre." },
-        { id: 5, icon: <Crosshair className="w-6 h-6"/>, title: "Perforations pendant le transport", solution: "Couche de nylon (BOPA) ou PET pour une haute résistance." }
-      ]
-    },
-    'zh-TW': {
-      title: "5 個常見軟包裝問題（與工程解決方案）",
-      problems: [
-        { id: 1, icon: <ShieldAlert className="w-6 h-6"/>, title: "阻隔性能差", solution: "多層複合結構，有效阻擋氧氣和水分。" },
-        { id: 2, icon: <Wrench className="w-6 h-6"/>, title: "拉鏈容易損壞", solution: "精密設計的按壓式拉鏈，具有清晰的觸覺反饋。" },
-        { id: 3, icon: <Droplets className="w-6 h-6"/>, title: "側邊封口洩漏", solution: "加寬的封口邊緣，採用專業的熱封材料。" },
-        { id: 4, icon: <Scissors className="w-6 h-6"/>, title: "難以撕開", solution: "激光打孔易撕口，實現整齊直線撕開。" },
-        { id: 5, icon: <Crosshair className="w-6 h-6"/>, title: "運輸過程中刺破", solution: "增加尼龍 (BOPA) 或 PET 層，提供高抗刺穿性。" }
-      ]
-    }
-  };
-  // @ts-ignore
-  const tLocal = LOCAL_TRANSLATIONS[safeLang] || LOCAL_TRANSLATIONS['en'];
   const PRODUCTS = [
     {
       id: 'stand-up',
@@ -263,11 +282,16 @@ export default function PouchProductsPage() {
                 <div key={item.id} className="bg-zinc-900 border-2 border-white p-6 hover:bg-zinc-800 transition-colors">
                   <div className="flex items-start gap-4">
                     <div className="bg-[#D4FF00] text-black p-3 rounded-full flex-shrink-0">
-                      {item.icon}
+                      {getIcon(item.id)}
                     </div>
                     <div>
                       <h3 className="font-bold text-xl uppercase mb-2">{item.title}</h3>
-                      <p className="font-['JetBrains_Mono'] text-sm text-zinc-300">
+                      {item.description && (
+                        <p className="font-['JetBrains_Mono'] text-sm text-zinc-400 mb-2">
+                          {item.description}
+                        </p>
+                      )}
+                      <p className="font-['JetBrains_Mono'] text-sm text-[#D4FF00] font-bold">
                         {item.solution}
                       </p>
                     </div>

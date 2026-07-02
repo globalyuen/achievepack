@@ -7,33 +7,33 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 
-const pcrProblemsTranslations = {
+const translations: Record<string, any> = {
   en: {
     sectionTitle: "5 Common PCR Packaging Problems (And Solutions)",
     problems: [
       {
         title: "Odor and Discoloration",
-        desc: "PCR materials often have off-odors and visual impurities.",
+        description: "PCR materials often have off-odors and visual impurities.",
         solution: "Multi-layer co-extrusion shielding with a virgin contact layer."
       },
       {
         title: "Reduced Structural Strength",
-        desc: "Recycled plastics can become brittle over time.",
+        description: "Recycled plastics can become brittle over time.",
         solution: "Proprietary blending with reinforcing polymers for high tensile strength."
       },
       {
         title: "Food Safety Compliance",
-        desc: "Risk of contaminant migration in food-grade applications.",
+        description: "Risk of contaminant migration in food-grade applications.",
         solution: "FDA-approved functional barrier layers to block migration."
       },
       {
         title: "Material Inconsistency",
-        desc: "Batch-to-batch variation in PCR resin performance.",
+        description: "Batch-to-batch variation in PCR resin performance.",
         solution: "Strict GRS-certified sourcing and automated quality control."
       },
       {
         title: "Poor Seal Integrity",
-        desc: "Impurities can interfere with the heat sealing process.",
+        description: "Impurities can interfere with the heat sealing process.",
         solution: "Advanced sealant web optimization for consistent hermetic seals."
       }
     ]
@@ -43,27 +43,27 @@ const pcrProblemsTranslations = {
     problems: [
       {
         title: "Olor y Decoloración",
-        desc: "Los materiales PCR a menudo tienen malos olores e impurezas visuales.",
+        description: "Los materiales PCR a menudo tienen malos olores e impurezas visuales.",
         solution: "Blindaje de coextrusión multicapa con una capa de contacto virgen."
       },
       {
         title: "Resistencia Estructural Reducida",
-        desc: "Los plásticos reciclados pueden volverse quebradizos.",
+        description: "Los plásticos reciclados pueden volverse quebradizos.",
         solution: "Mezcla patentada con polímeros de refuerzo para una alta resistencia a la tracción."
       },
       {
         title: "Cumplimiento de Seguridad Alimentaria",
-        desc: "Riesgo de migración de contaminantes en aplicaciones alimentarias.",
+        description: "Riesgo de migración de contaminantes en aplicaciones alimentarias.",
         solution: "Capas de barrera funcionales aprobadas por la FDA."
       },
       {
         title: "Inconsistencia del Material",
-        desc: "Variación entre lotes en la resina PCR.",
+        description: "Variación entre lotes en la resina PCR.",
         solution: "Abastecimiento estricto certificado por GRS y control de calidad automático."
       },
       {
         title: "Poca Integridad del Sello",
-        desc: "Las impurezas interfieren con el sellado térmico.",
+        description: "Las impurezas interfieren con el sellado térmico.",
         solution: "Optimización avanzada de la red de sellado para sellos herméticos consistentes."
       }
     ]
@@ -73,27 +73,27 @@ const pcrProblemsTranslations = {
     problems: [
       {
         title: "Odeur et Décoloration",
-        desc: "Les matériaux PCR présentent souvent de mauvaises odeurs et des impuretés.",
+        description: "Les matériaux PCR présentent souvent de mauvaises odeurs et des impuretés.",
         solution: "Blindage par coextrusion multicouche avec une couche de contact vierge."
       },
       {
         title: "Résistance Structurelle Réduite",
-        desc: "Les plastiques recyclés peuvent devenir cassants.",
+        description: "Les plastiques recyclés peuvent devenir cassants.",
         solution: "Mélange breveté avec des polymères de renforcement pour une haute résistance."
       },
       {
         title: "Conformité Sécurité Alimentaire",
-        desc: "Risque de migration de contaminants dans les applications alimentaires.",
+        description: "Risque de migration de contaminants dans les applications alimentaires.",
         solution: "Couches barrières fonctionnelles approuvées par la FDA."
       },
       {
         title: "Incohérence des Matériaux",
-        desc: "Variation d'un lot à l'autre de la résine PCR.",
+        description: "Variation d'un lot à l'autre de la résine PCR.",
         solution: "Approvisionnement strict certifié GRS et contrôle de qualité."
       },
       {
         title: "Mauvaise Intégrité du Scellage",
-        desc: "Les impuretés interfèrent avec le thermoscellage.",
+        description: "Les impuretés interfèrent avec le thermoscellage.",
         solution: "Optimisation avancée de la bande de scellage pour des scellés cohérents."
       }
     ]
@@ -103,32 +103,40 @@ const pcrProblemsTranslations = {
     problems: [
       {
         title: "異味與變色",
-        desc: "PCR 材料通常帶有異味與視覺雜質。",
+        description: "PCR 材料通常帶有異味與視覺雜質。",
         solution: "使用原生接觸層的多層共擠出屏障技術。"
       },
       {
         title: "結構強度降低",
-        desc: "回收塑料容易變脆並降低耐用性。",
+        description: "回收塑料容易變脆並降低耐用性。",
         solution: "混合強化聚合物的專利配方，提供高拉伸強度。"
       },
       {
         title: "食品安全合規性",
-        desc: "食品級應用中的污染物質遷移風險。",
+        description: "食品級應用中的污染物質遷移風險。",
         solution: "採用 FDA 認可的功能性阻隔層，阻擋物質遷移。"
       },
       {
         title: "材料不穩定",
-        desc: "PCR 樹脂在性能上存在批次差異。",
+        description: "PCR 樹脂在性能上存在批次差異。",
         solution: "嚴格的 GRS 認證採購與自動化品質控制。"
       },
       {
         title: "密封完整性差",
-        desc: "雜質會干擾熱封過程。",
+        description: "雜質會干擾熱封過程。",
         solution: "先進的密封層優化，確保穩定的氣密密封。"
       }
     ]
   }
 };
+
+const sectionsForPouch = [
+  { id: "pcr-problems", translationKey: "sectionTitle" }
+];
+
+const sectionsForAchieve = [
+  { id: "pcr-problems", translationKey: "sectionTitle" }
+];;
 const PouchPCRPage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchPCR'
@@ -136,8 +144,7 @@ const PouchPCRPage: React.FC = () => {
   const baseUrl = getBaseUrl()
   
   const currentLang = i18n.language || 'en';
-  // @ts-ignore
-  const localDict = pcrProblemsTranslations[currentLang] || pcrProblemsTranslations['en'];
+  const localT = translations[currentLang] || translations['en'];
   
   const PCR_BENEFITS = [
     { icon: Recycle, title: t(`${p}.benefits.virginReduction.title`), desc: t(`${p}.benefits.virginReduction.desc`) },
@@ -305,20 +312,20 @@ const PouchPCRPage: React.FC = () => {
       </section>
 
       {/* 5 Common Problems Section */}
-      <section className="py-24 bg-white border-t-4 border-black">
+      <section id="pcr-problems" className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            {localDict.sectionTitle}
+            {localT.sectionTitle}
           </h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              {localDict.problems.map((prob: any, idx: number) => (
+              {localT.problems.map((prob: any, idx: number) => (
                 <div key={idx} className="bg-gray-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2 flex items-center gap-2 text-red-600">
                     <AlertTriangle className="w-6 h-6" />
                     {prob.title}
                   </h3>
-                  <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mb-4">{prob.desc}</p>
+                  <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mb-4">{prob.description}</p>
                   <div className="bg-cyan-50 border-l-4 border-cyan-500 p-4">
                     <h4 className="font-['Space_Grotesk'] font-bold text-sm uppercase mb-1 flex items-center gap-2 text-cyan-800">
                       <Wrench className="w-4 h-4" />
@@ -332,7 +339,7 @@ const PouchPCRPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-red-400 translate-x-4 translate-y-4 border-4 border-black" />
               <img 
-                src="/imgs/knowledge/pcr-packaging-pain-points.jpg" 
+                src="/imgs/knowledge/pcr-pain-points.jpg" 
                 alt="PCR Packaging Pain Points" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl object-cover h-full min-h-[500px]"
               />

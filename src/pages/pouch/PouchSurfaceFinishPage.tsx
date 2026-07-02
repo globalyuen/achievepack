@@ -16,6 +16,9 @@ interface FAQItem {
   a: string
 }
 
+export const sectionsForPouch = ["5 Common Pouch Surface Finish Problems (And Solutions)"]
+export const sectionsForAchieve = ["5 Common Pouch Surface Finish Problems (And Solutions)"]
+
 const translations = {
   en: {
     sectionTitle: "5 Common Pouch Surface Finish Problems (And Solutions)",

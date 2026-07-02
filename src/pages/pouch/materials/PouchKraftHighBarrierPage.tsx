@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'
-import { Shield, Zap, Package, ArrowRight, CheckCircle, Award, BarChart3, Droplets, Sun, Wind, AlertTriangle } from 'lucide-react'
+import { Shield, Zap, Package, ArrowRight, CheckCircle, Award, BarChart3, Droplets, Sun, Wind, AlertTriangle, Wrench } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -127,7 +127,15 @@ const translations: Record<string, any> = {
       }
     ]
   }
-}
+};
+
+export const sectionsForPouch = [
+  { id: 'kraft-high-barrier-problems', translationKey: 'problemsTitle' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'kraft-high-barrier-problems', translationKey: 'problemsTitle' }
+];
 
 const PouchKraftHighBarrierPage: React.FC = () => {
   const { t, i18n } = useTranslation()
@@ -258,7 +266,7 @@ const PouchKraftHighBarrierPage: React.FC = () => {
       </section>
 
       {/* 5 Common Problems Section */}
-      <section className="py-24 bg-white border-b-4 border-black">
+      <section id="kraft-high-barrier-problems" className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-black">
             {localT.problemsTitle}
@@ -275,7 +283,7 @@ const PouchKraftHighBarrierPage: React.FC = () => {
                     <span className="font-bold text-red-500">Problem:</span> {prob.description}
                   </p>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
+                    <Wrench className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
                     <p className="font-['JetBrains_Mono'] text-sm text-gray-700">
                       <span className="font-bold text-[#10b981]">Solution:</span> {prob.solution}
                     </p>

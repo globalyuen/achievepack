@@ -42,27 +42,27 @@ const translations: Record<string, any> = {
       {
         title: "Bajas Propiedades de Barrera",
         description: "Los materiales compostables a menudo carecen de las barreras contra el oxígeno y la humedad de los plásticos tradicionales.",
-        solution: "Utilizamos recubrimientos avanzados de biopolímeros y películas compostables metalizadas de alta barrera."
+        solution: "Utilizamos recubrimientos de biopolímeros avanzados y películas compostables metalizadas de alta barrera (como PLA recubierto con ALOx/SiOx) para igualar el rendimiento de barrera tradicional."
       },
       {
         title: "Poca Resistencia del Sello",
         description: "El sellado por calor estándar puede deformarse o fallar en películas compostables.",
-        solution: "Nuestras bolsas cuentan con selladores especializados de base biológica con temperaturas de inicio más bajas."
+        solution: "Nuestras bolsas cuentan con selladores especializados de base biológica con temperaturas de inicio más bajas y capas de sellado térmico optimizadas para sellos fuertes y consistentes."
       },
       {
         title: "Degradación Prematura / Vida Útil Corta",
         description: "Los productos pueden comprometer la integridad estructural de la bolsa con el tiempo.",
-        solution: "Empleamos laminación multicapa utilizando tecnologías adhesivas que mantienen la integridad en el estante."
+        solution: "Empleamos laminación multicapa utilizando tecnologías de adhesivos que mantienen la integridad en el estante pero se descomponen de manera confiable en condiciones de compostaje industrial."
       },
       {
         title: "Impresión y Estética Limitadas",
         description: "Lograr una marca vibrante y premium puede ser difícil en películas ecológicas.",
-        solution: "A través de optimizaciones de tratamiento de superficie y tintas certificadas compostables, ofrecemos gráficos de alta resolución."
+        solution: "A través de optimizaciones del tratamiento de superficie (tratamiento corona) y tintas certificadas compostables, ofrecemos gráficos de alta resolución e impacto visual impresionante."
       },
       {
         title: "Alto Costo del Material",
         description: "Los envases sostenibles suelen tener un precio superior.",
-        solution: "Al optimizar el grosor del calibre y aprovechar las economías de escala, ofrecemos soluciones rentables."
+        solution: "Al optimizar el espesor del calibre (reducción de espesor) y aprovechar las economías de escala, ofrecemos soluciones rentables sin sacrificar la calidad."
       }
     ]
   },
@@ -72,27 +72,27 @@ const translations: Record<string, any> = {
       {
         title: "Faibles Propriétés Barrières",
         description: "Les matériaux compostables manquent souvent des barrières contre l'oxygène et l'humidité des plastiques traditionnels.",
-        solution: "Nous utilisons des revêtements biopolymères avancés et des films compostables métallisés à haute barrière."
+        solution: "Nous utilisons des revêtements de biopolymères avancés et des films compostables métallisés à haute barrière (comme le PLA enduit d'ALOx/SiOx) pour égaler les performances barrières traditionnelles."
       },
       {
         title: "Faible Résistance de Scellage",
         description: "Le thermoscellage standard peut se déformer ou échouer sur les films compostables.",
-        solution: "Nos sachets sont dotés de scellants biosourcés spécialisés avec des températures d'initiation plus basses."
+        solution: "Nos sachets sont dotés de scellants biosourcés spécialisés avec des températures d'initiation plus basses et de couches de thermoscellage optimisées pour des soudures solides et régulières."
       },
       {
         title: "Dégradation Prématurée",
         description: "Les produits peuvent compromettre l'intégrité structurelle du sachet avec le temps.",
-        solution: "Nous utilisons une stratification multicouche avec des adhésifs qui maintiennent l'intégrité en rayon."
+        solution: "Nous employons un laminage multicouche utilisant des technologies adhésives qui maintiennent l'intégrité en rayon mais se dégradent de manière fiable dans des conditions de compostage industriel."
       },
       {
         title: "Imprimabilité et Esthétique Limitées",
         description: "Obtenir une image de marque vibrante peut être difficile sur des films écologiques.",
-        solution: "Grâce à des traitements de surface optimisés et des encres certifiées compostables, nous offrons des graphismes époustouflants."
+        solution: "Grâce à des optimisations de traitement de surface (traitement corona) et des encres certifiées compostables, nous offrons des graphismes haute résolution époustouflants."
       },
       {
         title: "Coût Matériel Élevé",
         description: "Les emballages durables ont généralement un prix plus élevé.",
-        solution: "En optimisant l'épaisseur et en tirant parti des économies d'échelle, nous proposons des solutions rentables."
+        solution: "En optimisant l'épaisseur du film (down-gauging) et en tirant parti des économies d'échelle, nous fournisons des solutions rentables sans sacrifier la qualité."
       }
     ]
   },

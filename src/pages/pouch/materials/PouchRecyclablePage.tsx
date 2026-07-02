@@ -7,97 +7,143 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 
 type LocalTranslation = {
   problemsTitle: string;
-  p1Title: string;
-  p1Desc: string;
-  p1Sol: string;
-  p2Title: string;
-  p2Desc: string;
-  p2Sol: string;
-  p3Title: string;
-  p3Desc: string;
-  p3Sol: string;
-  p4Title: string;
-  p4Desc: string;
-  p4Sol: string;
-  p5Title: string;
-  p5Desc: string;
-  p5Sol: string;
+  problems: {
+    title: string;
+    description: string;
+    solution: string;
+  }[];
 };
 
 const translations: Record<string, LocalTranslation> = {
   en: {
     problemsTitle: "5 Common Recyclable Pouch Problems (And Solutions)",
-    p1Title: "1. Poor Barrier Performance",
-    p1Desc: "Mono-materials often lack oxygen and moisture barriers.",
-    p1Sol: "Solution: High-barrier coatings like EVOH or AlOx.",
-    p2Title: "2. Heat Sealing Issues",
-    p2Desc: "Mono-PE can distort or melt unevenly during sealing.",
-    p2Sol: "Solution: Co-extruded PE with optimized low-temperature seal layers.",
-    p3Title: "3. Low Puncture Resistance",
-    p3Desc: "Standard mono-material PE is flexible but weak.",
-    p3Sol: "Solution: Using MDO-PE (Machine Direction Oriented PE) for increased tensile strength.",
-    p4Title: "4. Subpar Printing Quality",
-    p4Desc: "Direct printing on PE can look dull and stretch.",
-    p4Sol: "Solution: Reverse printing on clear MDO-PE.",
-    p5Title: "5. Slower Machine Speeds",
-    p5Desc: "Flexible mono-materials can cause jams on packaging lines.",
-    p5Sol: "Solution: Stiffer film structures and slip additives."
+    problems: [
+      {
+        title: "1. Poor Barrier Performance",
+        description: "Mono-materials often lack oxygen and moisture barriers.",
+        solution: "Solution: High-barrier coatings like EVOH or AlOx."
+      },
+      {
+        title: "2. Heat Sealing Issues",
+        description: "Mono-PE can distort or melt unevenly during sealing.",
+        solution: "Solution: Co-extruded PE with optimized low-temperature seal layers."
+      },
+      {
+        title: "3. Low Puncture Resistance",
+        description: "Standard mono-material PE is flexible but weak.",
+        solution: "Solution: Using MDO-PE (Machine Direction Oriented PE) for increased tensile strength."
+      },
+      {
+        title: "4. Subpar Printing Quality",
+        description: "Direct printing on PE can look dull and stretch.",
+        solution: "Solution: Reverse printing on clear MDO-PE."
+      },
+      {
+        title: "5. Slower Machine Speeds",
+        description: "Flexible mono-materials can cause jams on packaging lines.",
+        solution: "Solution: Stiffer film structures and slip additives."
+      }
+    ]
   },
   es: {
     problemsTitle: "5 Problemas Comunes de las Bolsas Reciclables (y Soluciones)",
-    p1Title: "1. Rendimiento de barrera deficiente",
-    p1Desc: "Los monomateriales suelen carecer de barreras contra el oxígeno y la humedad.",
-    p1Sol: "Solución: Recubrimientos de alta barrera como EVOH o AlOx.",
-    p2Title: "2. Problemas de sellado térmico",
-    p2Desc: "El mono-PE puede distorsionarse o fundirse de forma desigual.",
-    p2Sol: "Solución: PE coextruido con capas de sellado de baja temperatura.",
-    p3Title: "3. Baja resistencia a la punción",
-    p3Desc: "El mono-PE estándar es flexible pero débil.",
-    p3Sol: "Solución: Uso de MDO-PE para mayor resistencia a la tracción.",
-    p4Title: "4. Calidad de impresión inferior",
-    p4Desc: "La impresión directa en PE puede verse opaca.",
-    p4Sol: "Solución: Impresión inversa en MDO-PE transparente.",
-    p5Title: "5. Velocidades de máquina más lentas",
-    p5Desc: "Los materiales flexibles pueden causar atascos en las líneas.",
-    p5Sol: "Solución: Estructuras de película más rígidas y aditivos de deslizamiento."
+    problems: [
+      {
+        title: "1. Rendimiento de barrera deficiente",
+        description: "Los monomateriales suelen carecer de barreras contra el oxígeno y la humedad.",
+        solution: "Solución: Recubrimientos de alta barrera como EVOH o AlOx."
+      },
+      {
+        title: "2. Problemas de sellado térmico",
+        description: "El mono-PE puede distorsionarse o fundirse de forma desigual.",
+        solution: "Solución: PE coextruido con capas de sellado de baja temperatura."
+      },
+      {
+        title: "3. Baja resistencia a la punción",
+        description: "El mono-PE estándar es flexible pero débil.",
+        solution: "Solución: Uso de MDO-PE para mayor resistencia a la tracción."
+      },
+      {
+        title: "4. Calidad de impresión inferior",
+        description: "La impresión directa en PE puede verse opaca.",
+        solution: "Solución: Impresión inversa en MDO-PE transparente."
+      },
+      {
+        title: "5. Velocidades de máquina más lentas",
+        description: "Los materiales flexibles pueden causar atascos en las líneas.",
+        solution: "Solución: Estructuras de película más rígidas y aditivos de deslizamiento."
+      }
+    ]
   },
   fr: {
     problemsTitle: "5 Problèmes Courants des Sachets Recyclables (et Solutions)",
-    p1Title: "1. Mauvaise performance de barrière",
-    p1Desc: "Les mono-matériaux manquent souvent de barrières contre l'oxygène et l'humidité.",
-    p1Sol: "Solution : Revêtements haute barrière comme l'EVOH ou l'AlOx.",
-    p2Title: "2. Problèmes de thermoscellage",
-    p2Desc: "Le mono-PE peut se déformer lors du scellage.",
-    p2Sol: "Solution : PE co-extrudé avec des couches de scellage à basse température.",
-    p3Title: "3. Faible résistance à la perforation",
-    p3Desc: "Le mono-PE standard est flexible mais faible.",
-    p3Sol: "Solution : Utilisation de MDO-PE pour une résistance accrue à la traction.",
-    p4Title: "4. Qualité d'impression médiocre",
-    p4Desc: "L'impression directe sur PE peut paraître terne.",
-    p4Sol: "Solution : Impression inversée sur MDO-PE transparent.",
-    p5Title: "5. Vitesses de machine plus lentes",
-    p5Desc: "Les matériaux flexibles peuvent provoquer des bourrages.",
-    p5Sol: "Solution : Structures de films plus rigides et additifs de glissement."
+    problems: [
+      {
+        title: "1. Mauvaise performance de barrière",
+        description: "Les mono-matériaux manquent souvent de barrières contre l'oxygène et l'humidité.",
+        solution: "Solution : Revêtements haute barrière comme l'EVOH ou l'AlOx."
+      },
+      {
+        title: "2. Problèmes de thermoscellage",
+        description: "Le mono-PE peut se déformer lors du scellage.",
+        solution: "Solution : PE co-extrudé avec des couches de scellage à basse température."
+      },
+      {
+        title: "3. Faible résistance à la perforation",
+        description: "Le mono-PE standard est flexible mais faible.",
+        solution: "Solution : Utilisation de MDO-PE pour une résistance accrue à la traction."
+      },
+      {
+        title: "4. Qualité d'impression médiocre",
+        description: "L'impression directe sur PE peut paraître terne.",
+        solution: "Solution : Impression inversée sur MDO-PE transparent."
+      },
+      {
+        title: "5. Vitesses de machine plus lentes",
+        description: "Les matériaux flexibles peuvent provoquer des bourrages.",
+        solution: "Solution : Structures de films plus rigides et additifs de glissement."
+      }
+    ]
   },
   'zh-TW': {
     problemsTitle: "可回收包裝袋的 5 個常見問題 (及解決方案)",
-    p1Title: "1. 阻隔性能差",
-    p1Desc: "單一材質通常缺乏氧氣和水分阻隔性。",
-    p1Sol: "解決方案：使用 EVOH 或 AlOx 等高阻隔塗層。",
-    p2Title: "2. 熱封問題",
-    p2Desc: "單一 PE 在密封時容易變形或熔化不均。",
-    p2Sol: "解決方案：使用優化的低溫熱封層的共擠 PE。",
-    p3Title: "3. 耐穿刺性低",
-    p3Desc: "標準單一 PE 柔韌但強度弱。",
-    p3Sol: "解決方案：使用 MDO-PE (機器方向定向 PE) 提高拉伸強度。",
-    p4Title: "4. 印刷品質不佳",
-    p4Desc: "直接在 PE 上印刷會顯得暗淡。",
-    p4Sol: "解決方案：在透明 MDO-PE 上進行反面印刷。",
-    p5Title: "5. 機器速度較慢",
-    p5Desc: "柔性單一材質容易在包裝線上導致卡機。",
-    p5Sol: "解決方案：使用更硬的薄膜結構和滑動劑。"
+    problems: [
+      {
+        title: "1. 阻隔性能差",
+        description: "單一材質通常缺乏氧氣和水分阻隔性。",
+        solution: "解決方案：使用 EVOH 或 AlOx 等高阻隔塗層。"
+      },
+      {
+        title: "2. 熱封問題",
+        description: "單一 PE 在密封時容易變形或熔化不均。",
+        solution: "解決方案：使用優化的低溫熱封層的共擠 PE。"
+      },
+      {
+        title: "3. 耐穿刺性低",
+        description: "標準單一 PE 柔韌但強度弱。",
+        solution: "解決方案：使用 MDO-PE (機器方向定向 PE) 提高拉伸強度。"
+      },
+      {
+        title: "4. 印刷品質不佳",
+        description: "直接在 PE 上印刷會顯得暗淡。",
+        solution: "解決方案：在透明 MDO-PE 上進行反面印刷。"
+      },
+      {
+        title: "5. 機器速度較慢",
+        description: "柔性單一材質容易在包裝線上導致卡機。",
+        solution: "解決方案：使用更硬的薄膜結構和滑動劑。"
+      }
+    ]
   }
 };
+
+export const sectionsForPouch = [
+  { id: 'recyclable-problems', translationKey: 'problemsTitle' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'recyclable-problems', translationKey: 'problemsTitle' }
+];
 
 export default function PouchRecyclablePage() {
   const { t, i18n } = useTranslation()
@@ -197,66 +243,36 @@ export default function PouchRecyclablePage() {
       </section>
 
       {/* 5 Common Problems Section */}
-      <section className="py-24 px-4 md:px-6 bg-white border-t-4 border-black">
+      <section id="recyclable-problems" className="py-24 px-4 md:px-6 bg-white border-t-4 border-black">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-black text-4xl md:text-5xl uppercase mb-12">{tLocal.problemsTitle}</h2>
             
             <div className="space-y-8">
-              <div className="flex gap-4">
-                <div className="bg-[#00FFFF] p-3 h-fit border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <Shield size={24} className="text-black" />
-                </div>
-                <div>
-                  <h4 className="font-black text-xl uppercase mb-1">{tLocal.p1Title}</h4>
-                  <p className="font-['JetBrains_Mono'] text-sm mb-1">{tLocal.p1Desc}</p>
-                  <p className="font-['JetBrains_Mono'] text-sm font-bold text-[#FF00FF]">{tLocal.p1Sol}</p>
-                </div>
-              </div>
+              {tLocal.problems.map((prob, idx) => {
+                const IconComponent = [Shield, Zap, CheckCircle, Award, Droplets][idx];
+                const colors = [
+                  { bg: 'bg-[#00FFFF]', text: 'text-black' },
+                  { bg: 'bg-[#D4FF00]', text: 'text-black' },
+                  { bg: 'bg-[#FF00FF]', text: 'text-white' },
+                  { bg: 'bg-black', text: 'text-white' },
+                  { bg: 'bg-white', text: 'text-black' }
+                ][idx];
+                const solColor = ['text-[#FF00FF]', 'text-[#FF00FF]', 'text-[#00FFFF]', 'text-[#00FFFF]', 'text-[#FF00FF]'][idx];
 
-              <div className="flex gap-4">
-                <div className="bg-[#D4FF00] p-3 h-fit border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <Zap size={24} className="text-black" />
-                </div>
-                <div>
-                  <h4 className="font-black text-xl uppercase mb-1">{tLocal.p2Title}</h4>
-                  <p className="font-['JetBrains_Mono'] text-sm mb-1">{tLocal.p2Desc}</p>
-                  <p className="font-['JetBrains_Mono'] text-sm font-bold text-[#FF00FF]">{tLocal.p2Sol}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="bg-[#FF00FF] p-3 h-fit border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <CheckCircle size={24} className="text-white" />
-                </div>
-                <div>
-                  <h4 className="font-black text-xl uppercase mb-1">{tLocal.p3Title}</h4>
-                  <p className="font-['JetBrains_Mono'] text-sm mb-1">{tLocal.p3Desc}</p>
-                  <p className="font-['JetBrains_Mono'] text-sm font-bold text-[#00FFFF]">{tLocal.p3Sol}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="bg-black p-3 h-fit border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <Award size={24} className="text-white" />
-                </div>
-                <div>
-                  <h4 className="font-black text-xl uppercase mb-1">{tLocal.p4Title}</h4>
-                  <p className="font-['JetBrains_Mono'] text-sm mb-1">{tLocal.p4Desc}</p>
-                  <p className="font-['JetBrains_Mono'] text-sm font-bold text-[#00FFFF]">{tLocal.p4Sol}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="bg-white p-3 h-fit border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <Droplets size={24} className="text-black" />
-                </div>
-                <div>
-                  <h4 className="font-black text-xl uppercase mb-1">{tLocal.p5Title}</h4>
-                  <p className="font-['JetBrains_Mono'] text-sm mb-1">{tLocal.p5Desc}</p>
-                  <p className="font-['JetBrains_Mono'] text-sm font-bold text-[#FF00FF]">{tLocal.p5Sol}</p>
-                </div>
-              </div>
+                return (
+                  <div key={idx} className="flex gap-4">
+                    <div className={`${colors.bg} p-3 h-fit border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
+                      <IconComponent size={24} className={colors.text} />
+                    </div>
+                    <div>
+                      <h4 className="font-black text-xl uppercase mb-1">{prob.title}</h4>
+                      <p className="font-['JetBrains_Mono'] text-sm mb-1">{prob.description}</p>
+                      <p className={`font-['JetBrains_Mono'] text-sm font-bold ${solColor}`}>{prob.solution}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Leaf, Recycle, CheckCircle, ArrowRight, Shield, Globe } from 'lucide-react'
+import { Leaf, Recycle, CheckCircle, ArrowRight, Shield, Globe, Droplets, Lock, Hourglass, Factory, Palette } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 
-const painPointsTranslations: Record<string, any> = {
+const translations: Record<string, any> = {
   en: {
     heading: "5 Common Compostable Packaging Problems (And Solutions)",
     problems: [
@@ -49,13 +49,18 @@ const painPointsTranslations: Record<string, any> = {
   }
 }
 
+const problemIcons = [Droplets, Lock, Hourglass, Factory, Palette];
+
+export const sectionsForPouch = ["5 Common Compostable Packaging Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Compostable Packaging Problems (And Solutions)"];
+
 export default function PouchUSACompostableHubPage() {
   const { t, i18n } = useTranslation()
   const title = t('pouchUSACompostableHubPage.title')
   const description = t('pouchUSACompostableHubPage.description')
   
   const currentLang = i18n.language || 'en'
-  const localizedData = painPointsTranslations[currentLang] || painPointsTranslations['en']
+  const localizedData = translations[currentLang] || translations['en']
 
   return (
     <PouchLayout>
@@ -153,35 +158,38 @@ export default function PouchUSACompostableHubPage() {
                 {localizedData.heading}
               </h2>
               <div className="space-y-6">
-                {localizedData.problems.map((problem: any, idx: number) => (
-                  <motion.div 
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex gap-4 p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-emerald-50"
-                  >
-                    <div className="text-emerald-500 mt-1">
-                      <Shield className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-['Space_Grotesk'] font-bold text-xl uppercase mb-2 text-black">
-                        {problem.q}
-                      </h3>
-                      <p className="font-['JetBrains_Mono'] text-gray-700">
-                        {problem.a}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
+                {localizedData.problems.map((problem: any, idx: number) => {
+                  const IconComponent = problemIcons[idx] || Shield;
+                  return (
+                    <motion.div 
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex gap-4 p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-emerald-50"
+                    >
+                      <div className="text-emerald-500 mt-1">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3 className="font-['Space_Grotesk'] font-bold text-xl uppercase mb-2 text-black">
+                          {problem.q}
+                        </h3>
+                        <p className="font-['JetBrains_Mono'] text-gray-700">
+                          {problem.a}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
             <div className="relative">
               <NeoCard className="bg-[#D4FF00] relative z-10 rotate-2 !p-0 overflow-hidden group border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
                 <div className="aspect-square relative overflow-hidden">
                   <img 
-                    src="/imgs/knowledge/compostable-pouches-pain-points.jpg" 
+                    src="/imgs/knowledge/compostable-packaging-pain-points.jpg" 
                     alt="Compostable Packaging Materials" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 bg-white"
                   />

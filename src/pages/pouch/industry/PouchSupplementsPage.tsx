@@ -46,6 +46,10 @@ const translations = {
     ]
   }
 }
+
+const sectionsForPouch = ["5 Common Supplement Packaging Problems (And Solutions)"];
+const sectionsForAchieve = ["5 Common Supplement Packaging Problems (And Solutions)"];
+
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'

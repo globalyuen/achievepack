@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS, getProductSubCategory } from '../../store/productData';
 import { useProductTranslation } from '../../utils/productTranslation';
-import { ShoppingBag, ArrowRight, Filter, ChevronRight, CheckCircle } from 'lucide-react';
+import { ShoppingBag, ArrowRight, Filter, ChevronRight, CheckCircle, AlertTriangle } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Products' },
@@ -44,44 +44,52 @@ const LOCAL_TRANSLATIONS = {
   en: {
     title: "5 Common Pouch Packaging Problems (And Solutions)",
     problems: [
-      { title: "Punctures During Shipping", desc: "Use multi-layer barrier films for structural integrity." },
-      { title: "Loss of Freshness", desc: "High-barrier EVOH layers and airtight ziplocks." },
-      { title: "Poor Print on Eco Materials", desc: "Digital printing on treated recyclable laminates." },
-      { title: "Zipper Failures", desc: "Heavy-duty press-to-close zippers with precision heat-sealing." },
-      { title: "Non-Recyclable Waste", desc: "Mono-material PE structures for 100% recyclability." }
+      { title: "Moisture & Oxygen Permeation", desc: "Use high-barrier EVOH & AlOx metallized coatings to protect sensitive contents without compromising recyclability." },
+      { title: "Heat Seal Weakness & Delamination", desc: "Implement precision dual-stage hot tack and Polyolefin Plastomer (POP) sealing layers for hermetic seal strength." },
+      { title: "Eco-Laminate Print Inconsistencies", desc: "Apply corona discharge surface pre-treatment and high-adhesion water-based flexographic/digital inks on Kraft, PLA, and mono-PE." },
+      { title: "Mechanical Puncture & Flex Cracking", desc: "Incorporate high-tensile Oriented Polyamide (OPA) or Biaxially-Oriented Polyethylene (BOPE) protective outer layers." },
+      { title: "Reclosable Zipper Separation", desc: "Deploy ultrasonic welding and thermo-bonded heavy-duty press-to-close or hook-and-loop (Velcro) closures." }
     ]
   },
   es: {
-    title: "5 Problemas Comunes de Empaque (Y Soluciones)",
+    title: "5 Problemas Comunes de Empaque de Bolsas (Y Soluciones)",
     problems: [
-      { title: "Perforaciones durante el envío", desc: "Uso de películas de barrera multicapa para la integridad estructural." },
-      { title: "Pérdida de frescura", desc: "Capas EVOH de alta barrera y cierres herméticos." },
-      { title: "Mala impresión en ecológicos", desc: "Impresión digital en laminados reciclables tratados." },
-      { title: "Fallos en el cierre", desc: "Cierres de presión con sellado térmico de precisión." },
-      { title: "Residuos no reciclables", desc: "Estructuras de PE monomaterial 100% reciclables." }
+      { title: "Permeación de humedad y oxígeno", desc: "Recubrimientos metalizados EVOH y AlOx de alta barrera protegen alimentos y químicos del ingreso de humedad/oxígeno." },
+      { title: "Debilidad del sellado térmico / delaminación", desc: "Capas de sellado de plastómero de poliolefina (POP) y Hot Tack de precisión de doble etapa para una resistencia del sello robusta." },
+      { title: "Inconsistencias de impresión en eco-laminados", desc: "Pretratamiento superficial por descarga de corona y tintas flexográficas/digitales al agua de alta adhesión en Kraft, PLA y mono-PE." },
+      { title: "Punción mecánica y agrietamiento por flexión", desc: "Capas protectoras exteriores de poliamida orientada de alta resistencia (OPA) o polietileno orientado biaxialmente (BOPE)." },
+      { title: "Separación del cierre recerrable", desc: "Soldadura ultrasónica y cierres de presión termosellados de alta resistencia o de gancho y bucle (Velcro)." }
     ]
   },
   fr: {
-    title: "5 Problèmes Courants d'Emballage (Et Solutions)",
+    title: "5 Problèmes Courants d'Emballage de Sachets (Et Solutions)",
     problems: [
-      { title: "Perforations lors de l'expédition", desc: "Films barrières multicouches pour l'intégrité." },
-      { title: "Perte de fraîcheur", desc: "Couches EVOH haute barrière et zips hermétiques." },
-      { title: "Mauvaise impression", desc: "Impression numérique sur stratifiés recyclables." },
-      { title: "Défaillances du zip", desc: "Fermetures à pression robustes avec thermoscellage." },
-      { title: "Déchets non recyclables", desc: "Structures mono-matériau en PE 100 % recyclables." }
+      { title: "Perméation de l'humidité et de l'oxygène", desc: "Revêtements métallisés EVOH et AlOx haute barrière protégeant les aliments/produits chimiques sans compromettre la recyclabilité." },
+      { title: "Faiblesse du thermoscellage / délamination", desc: "Couches de scellage en plastomère de polyoléfine (POP) et Hot Tack de précision à double étape pour une résistance robuste." },
+      { title: "Incohérences d'impression sur éco-stratifiés", desc: "Prétraitement de surface par décharge Corona et encres flexographiques/numériques à base d'eau à haute adhérence sur Kraft, PLA et mono-PE." },
+      { title: "Perforation mécanique et fissures de flexion", desc: "Couches externes de protection en polyamide orienté haute résistance (OPA) ou polyéthylène orienté biaxialement (BOPE)." },
+      { title: "Séparation de la fermeture à glissière refermable", desc: "Soudage par ultrasons et fermetures à glissière robustes thermosoudées ou auto-agrippantes (Velcro)." }
     ]
   },
   'zh-TW': {
-    title: "5個常見的包裝袋問題（以及解決方案）",
+    title: "5個常見的軟包裝袋問題（以及解決方案）",
     problems: [
-      { title: "運輸過程中的刺穿", desc: "使用多層阻隔膜確保結構完整性。" },
-      { title: "失去新鮮度", desc: "高阻隔 EVOH 層和氣密拉鍊。" },
-      { title: "環保材料印刷不良", desc: "在經過處理的可回收層壓板上進行數位印刷。" },
-      { title: "拉鍊故障", desc: "採用精密熱封的重型按壓密封拉鍊。" },
-      { title: "不可回收廢棄物", desc: "採用單一材質 PE 結構，實現 100% 可回收。" }
+      { title: "水分與氧氣滲透", desc: "採用高阻隔 EVOH & AlOx 金屬化塗層，在不影響可回收性的情況下保護敏感內容物。" },
+      { title: "熱封強度不足與層壓剝離", desc: "採用精密雙階段熱粘（Hot Tack）與聚烯氣塑性體（POP）密封層，確保堅固的氣密強度。" },
+      { title: "環保層壓材料印刷不均", desc: "在牛皮紙、PLA 和單一材質 PE 上應用電暈放電表面前處理與高粘附力水性/數位油墨。" },
+      { title: "機械穿刺與抗撓曲龜裂", desc: "在多層結構中結合高拉伸定向聚醯胺（OPA）或雙向拉伸聚乙烯（BOPE）保護性外層。" },
+      { title: "可重複密封拉鍊脫離", desc: "部署超音波焊接與熱結合重型按壓密封拉鍊或魔鬼氈（Velcro）閉合系統。" }
     ]
   }
 };
+
+export const sectionsForPouch = [
+  { id: 'pouch-shop-problems', translationKey: 'title' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'pouch-shop-problems', translationKey: 'title' }
+];
 
 export default function PouchShopPage() {
   const { t, i18n } = useTranslation();
@@ -419,18 +427,18 @@ export default function PouchShopPage() {
               {(LOCAL_TRANSLATIONS[i18n.language as keyof typeof LOCAL_TRANSLATIONS]?.problems || LOCAL_TRANSLATIONS.en.problems).map((prob, idx) => (
                 <div key={idx} className="flex gap-4">
                   <div className="bg-[#D4FF00] border-2 border-black p-2 h-fit flex-shrink-0">
-                    <CheckCircle className="w-6 h-6" strokeWidth={2.5} />
+                    <AlertTriangle className="w-6 h-6 text-black" strokeWidth={2.5} />
                   </div>
                   <div>
                     <h3 className="font-black uppercase text-lg">{prob.title}</h3>
-                    <p className="font-['JetBrains_Mono'] text-sm">{prob.desc}</p>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{prob.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           <div className="w-full md:w-1/2">
-            <img src="/imgs/knowledge/sustainable-custom-pouches-pain-points.jpg" alt="Packaging solutions" className="w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] object-cover aspect-video" />
+            <img src="/imgs/knowledge/pouch-packaging-pain-points.jpg" alt="Pouch Packaging Solutions" className="w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] object-cover aspect-video" />
           </div>
         </div>
       </div>

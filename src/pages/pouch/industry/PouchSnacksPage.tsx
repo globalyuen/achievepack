@@ -7,53 +7,61 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
-const translations: Record<string, any> = {
+const translations = {
   en: {
     title: "5 Common Snack Packaging Problems (And Solutions)",
     problems: [
-      { q: "1. Stale Chips & Loss of Crunch", desc: "Poor moisture barriers lead to soggy snacks.", solution: "High-barrier multi-layer films ensure maximum crunch retention." },
-      { q: "2. Grease & Oil Stains", desc: "Oil seeps through low-quality materials, ruining the packaging's appearance.", solution: "Specialized grease-resistant inner linings keep the exterior pristine." },
-      { q: "3. Zipper Failure", desc: "Weak closures pop open or fail to reseal properly.", solution: "Heavy-duty press-to-close zippers guarantee a reliable, airtight seal every time." },
-      { q: "4. Puncture Leaks", desc: "Sharp snacks like chips or nuts poke through thin pouches.", solution: "Puncture-resistant laminations protect the bag's integrity during transport." },
-      { q: "5. Poor Shelf Appeal", desc: "Dull printing makes the product blend in with competitors.", solution: "Vibrant up to 10-color printing with matte/gloss finishes makes your brand pop." }
+      { q: "Oxygen & Moisture Ingress causing staleness", a: "Solution: Metallized or high-barrier EVOH layer for ultra-low OTR & WVTR.", icon: "Leaf" },
+      { q: "Grease staining & oil seepage", a: "Solution: Specialized grease-resistant inner linings with high oil-resistance index.", icon: "Shield" },
+      { q: "Puncture from sharp-edged snacks (chips, pretzels)", a: "Solution: BOPA (nylon) laminated layer for high tear & puncture resistance.", icon: "Zap" },
+      { q: "Airtight seal failure under high pressure", a: "Solution: High-integrity sealing resins and press-to-close airtight zippers.", icon: "CheckCircle" },
+      { q: "High static electricity during filling", a: "Solution: Anti-static treatment on inner film layers to prevent crumbs from sticking to the seal area.", icon: "Package" }
     ]
   },
   es: {
-    title: "5 Problemas Comunes de Envasado de Snacks (y Soluciones)",
+    title: "5 Problemas Comunes de Envasado de Snacks (Y Soluciones)",
     problems: [
-      { q: "1. Snacks Rancios y Pérdida de Crujido", desc: "Las barreras de humedad deficientes provocan bocadillos empapados.", solution: "Películas multicapa de alta barrera aseguran la máxima retención de crujido." },
-      { q: "2. Manchas de Grasa y Aceite", desc: "El aceite se filtra a través de materiales de baja calidad, arruinando la apariencia.", solution: "Revestimientos interiores especializados resistentes a la grasa mantienen el exterior impecable." },
-      { q: "3. Fallo de la Cremallera", desc: "Los cierres débiles se abren o no se vuelven a sellar correctamente.", solution: "Cremalleras de alta resistencia garantizan un sellado hermético y confiable en todo momento." },
-      { q: "4. Fugas por Perforación", desc: "Bocadillos afilados como papas fritas o nueces perforan las bolsas delgadas.", solution: "Laminaciones resistentes a perforaciones protegen la integridad de la bolsa durante el transporte." },
-      { q: "5. Pobre Atractivo en el Estante", desc: "La impresión opaca hace que el producto se confunda con los competidores.", solution: "Impresión vibrante de hasta 10 colores con acabados mate/brillante resalta su marca." }
+      { q: "Ingreso de oxígeno y humedad que causa pérdida de crujido", a: "Solución: Capa metalizada o EVOH de alta barrera para OTR y WVTR ultra bajos.", icon: "Leaf" },
+      { q: "Manchas de grasa y filtración de aceite", a: "Solución: Revestimientos interiores especializados resistentes a la grasa con alto índice de resistencia al aceite.", icon: "Shield" },
+      { q: "Perforación por snacks de bordes afilados (papas fritas, pretzels)", a: "Solución: Capa laminada de BOPA (nylon) para alta resistencia al desgarro y la perforación.", icon: "Zap" },
+      { q: "Fallo del sellado hermético bajo alta presión", a: "Solución: Resinas de sellado de alta integridad y cremalleras herméticas a presión.", icon: "CheckCircle" },
+      { q: "Alta electricidad estática durante el llenado", a: "Solución: Tratamiento antiestático en las capas internas de la película para evitar que las migas se adhieran al área de sellado.", icon: "Package" }
     ]
   },
   fr: {
-    title: "5 Problèmes Courants d'Emballage de Snacks (et Solutions)",
+    title: "5 Problèmes Courants d'Emballage de Snacks (Et Solutions)",
     problems: [
-      { q: "1. Snacks Rasssis et Perte de Croustillant", desc: "De mauvaises barrières contre l'humidité conduisent à des snacks détrempés.", solution: "Films multicouches à haute barrière assurent une conservation maximale du croustillant." },
-      { q: "2. Taches de Graisse et d'Huile", desc: "L'huile s'infiltre à travers des matériaux de mauvaise qualité, ruinant l'apparence.", solution: "Doublures intérieures spécialisées résistantes à la graisse gardent l'extérieur impeccable." },
-      { q: "3. Défaillance de la Fermeture Éclair", desc: "Les fermetures faibles s'ouvrent ou ne se referment pas correctement.", solution: "Fermetures éclair robustes garantissent une étanchéité fiable à chaque fois." },
-      { q: "4. Fuites par Perforation", desc: "Les snacks pointus comme les chips ou les noix percent les sachets fins.", solution: "Stratifications résistantes aux perforations protègent l'intégrité du sac." },
-      { q: "5. Mauvais Attrait en Rayon", desc: "Une impression terne fait que le produit se fond parmi ses concurrents.", solution: "Impression vibrante jusqu'à 10 couleurs avec finitions mates/brillantes fait ressortir votre marque." }
+      { q: "Pénétration d'oxygène et d'humidité provoquant le rassissement", a: "Solution: Couche métallisée ou EVOH haute barrière pour des taux d'OTR et WVTR ultra-bas.", icon: "Leaf" },
+      { q: "Taches de graisse et infiltration d'huile", a: "Solution: Doublures intérieures spécialisées résistantes à la graisse avec un indice élevé de résistance à l'huile.", icon: "Shield" },
+      { q: "Perforation par des snacks aux bords tranchants (chips, bretzels)", a: "Solution: Couche laminée de BOPA (nylon) pour une résistance élevée à la déchirure et à la perforation.", icon: "Zap" },
+      { q: "Défaillance de l'étanchéité à l'air sous haute pression", a: "Solution: Résines de scellage haute intégrité et fermetures éclair étanches à pression.", icon: "CheckCircle" },
+      { q: "Électricité statique élevée lors du remplissage", a: "Solution: Traitement antistatique sur les couches de film internes pour empêcher les miettes de coller à la zone de scellage.", icon: "Package" }
     ]
   },
-  'zh-TW': {
+  "zh-TW": {
     title: "5 個常見的零食包裝問題（及解決方案）",
     problems: [
-      { q: "1. 零食變質與失去酥脆感", desc: "防潮性差會導致零食變軟。", solution: "高阻隔多層薄膜確保最大程度地保持酥脆。" },
-      { q: "2. 油脂污漬", desc: "油脂滲透劣質材料，破壞包裝外觀。", solution: "專業的防油內襯保持外觀完美無瑕。" },
-      { q: "3. 夾鏈失效", desc: "脆弱的封口容易彈開或無法正確重新密封。", solution: "重型按壓式夾鏈確保每次都能達到可靠的氣密密封。" },
-      { q: "4. 穿刺洩漏", desc: "洋芋片或堅果等尖銳零食會刺穿薄袋。", solution: "防穿刺層壓材料在運輸過程中保護袋子的完整性。" },
-      { q: "5. 貨架吸引力差", desc: "暗淡的印刷使產品在競爭對手中顯得平庸。", solution: "高達 10 色的鮮豔印刷搭配霧面/亮面飾面，讓您的品牌脫穎而出。" }
+      { q: "氧氣與水分滲入導致零食受潮變軟", a: "解決方案：採用金屬化或高阻隔 EVOH 層，提供極低的透氧率 (OTR) 與透濕率 (WVTR)。", icon: "Leaf" },
+      { q: "油脂滲透與污漬", a: "解決方案：專業防油內襯，具備高耐油指數以防止油脂滲出。", icon: "Shield" },
+      { q: "尖銳零食（洋芋片、脆餅）刺穿袋身", a: "解決方案：整合 BOPA（尼龍）層壓材料，提升抗撕裂與抗穿刺性能。", icon: "Zap" },
+      { q: "高壓下氣密密封失效", a: "解決方案：使用高強度密封樹脂及按壓式氣密夾鏈。", icon: "CheckCircle" },
+      { q: "充填過程中產生高靜電", a: "解決方案：內層薄膜進行防靜電處理，防止碎屑吸附於封口處影響密封。", icon: "Package" }
     ]
   }
 }
 
+const sectionsForPouch = translations
+const sectionsForAchieve = translations
+
+const iconMap = {
+  Leaf, Shield, Zap, CheckCircle, Package
+}
+
+
 export default function PouchSnacksPage() {
   const { t, i18n } = useTranslation()
-  const currentLang = i18n.language || 'en'
-  const tLocal = translations[currentLang] || translations['en']
+  const lang = i18n.language || 'en'
+  const pageT = sectionsForPouch[lang as keyof typeof sectionsForPouch] || sectionsForPouch.en
 
   // Scroll detection
   useEffect(() => {
@@ -548,38 +556,31 @@ export default function PouchSnacksPage() {
       {/* 5 Common Problems Section */}
       <section className="py-24 bg-[#F0F0F0] border-t-4 border-black">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <NeoBadge color="green">Troubleshooting</NeoBadge>
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-12 italic">
+            {pageT.title}
+          </h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8 leading-tight">
-                {tLocal.title.split(' (')[0]} <br/>
-                <span className="text-[#10b981]">({tLocal.title.split(' (')[1] || 'And Solutions)'}</span>
-              </h2>
-              <div className="space-y-6">
-                {tLocal.problems.map((prob: any, idx: number) => (
-                  <motion.div 
+            <div className="space-y-6">
+              {pageT.problems.map((prob: any, idx: number) => {
+                const IconComp = iconMap[prob.icon as keyof typeof iconMap] || Package;
+                return (
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                    className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-start gap-4"
                   >
-                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2 flex items-center gap-2">
-                      <AlertTriangle className="text-red-500 w-6 h-6 flex-shrink-0" />
-                      {prob.q}
-                    </h3>
-                    <p className="font-['JetBrains_Mono'] text-sm text-gray-600 mb-3 ml-8">
-                      {prob.desc}
-                    </p>
-                    <div className="flex items-start gap-2 bg-[#D4FF00]/20 p-3 ml-8 border-l-4 border-[#10b981]">
-                      <CheckCircle className="text-[#10b981] w-5 h-5 flex-shrink-0 mt-0.5" />
-                      <p className="font-['JetBrains_Mono'] text-sm font-bold text-black">
-                        {prob.solution}
-                      </p>
+                    <IconComp className="w-8 h-8 text-[#10b981] flex-shrink-0" />
+                    <div>
+                      <h4 className="font-black text-lg mb-2">{prob.q}</h4>
+                      <p className="font-['JetBrains_Mono'] text-gray-600 font-bold">{prob.a}</p>
                     </div>
                   </motion.div>
-                ))}
-              </div>
+                )
+              })}
             </div>
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
@@ -598,7 +599,6 @@ export default function PouchSnacksPage() {
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section className="py-24 bg-gray-50 border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">

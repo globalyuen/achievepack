@@ -6,7 +6,10 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 import { getBaseUrl } from '../../../utils/domain'
 
-const LOCAL_TRANSLATIONS = {
+export const sectionsForPouch = ["5 Common Citrus Oil Packaging Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Citrus Oil Packaging Problems (And Solutions)"];
+
+const translations = {
   en: {
     sectionTitle: '5 Common Citrus Oil Packaging Problems (And Solutions)',
     pp1Title: 'Terpene Permeation',
@@ -63,8 +66,8 @@ const LOCAL_TRANSLATIONS = {
 
 export default function PouchCitrusOilPackagingPage() {
   const { t, i18n } = useTranslation()
-  const lang = (i18n.language || 'en') as keyof typeof LOCAL_TRANSLATIONS
-  const currentLang = LOCAL_TRANSLATIONS[lang] || LOCAL_TRANSLATIONS['en']
+  const lang = (i18n.language || 'en') as keyof typeof translations
+  const currentLang = translations[lang] || translations['en']
 
   const baseUrl = getBaseUrl()
 

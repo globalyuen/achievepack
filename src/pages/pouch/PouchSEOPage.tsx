@@ -1,70 +1,146 @@
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Search, TrendingUp, Target, Award, BarChart3, CheckCircle, ArrowRight, Calendar, AlertTriangle } from 'lucide-react'
+import { Search, TrendingUp, Target, Award, BarChart3, CheckCircle, ArrowRight, Calendar, AlertTriangle, Globe, Zap, Layers, Crosshair } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton } from '../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+export const sectionsForPouch = ["5 Common Pouch SEO Problems (And Solutions)"]
+export const sectionsForAchieve = ["5 Common Pouch SEO Problems (And Solutions)"]
+
 const translations = {
   en: {
-    problemsTitle: "5 Common SEO Problems (And Solutions)",
-    p1: "Low Organic Traffic",
-    s1: "Target long-tail eco-friendly keywords to attract high-intent buyers.",
-    p2: "High Bounce Rate",
-    s2: "Optimize page speed and ensure mobile responsiveness.",
-    p3: "Poor Keyword Rankings",
-    s3: "Create comprehensive guides focused on sustainable packaging.",
-    p4: "Lack of Authority",
-    s4: "Build backlinks from authoritative sustainability blogs.",
-    p5: "Keyword Cannibalization",
-    s5: "Map distinct keywords clearly to specific product or blog pages."
+    sectionTitle: "5 Common Pouch SEO Problems (And Solutions)",
+    desc: "Struggling to rank your sustainable packaging brand? Here are the top 5 technical SEO and search visibility pain points, solved with modern web engineering.",
+    points: [
+      {
+        title: "1. Low Search Visibility for Eco Keywords",
+        problem: "Search engines fail to index specific compostable material certifications.",
+        solution: "Implement structured Schema.org markup with certification details."
+      },
+      {
+        title: "2. High Bounce Rate on Technical Pages",
+        problem: "Heavy content and unoptimized spec sheets slow down mobile page load speeds.",
+        solution: "Replace PDFs with interactive web tables, lazy-load images, and use high-performance CDNs."
+      },
+      {
+        title: "3. Keyword Cannibalization",
+        problem: "Overlapping product pages for 'compostable' and 'biodegradable' compete against each other.",
+        solution: "Establish a clear URL taxonomy and map explicit canonical links."
+      },
+      {
+        title: "4. Regional Search Auditing",
+        problem: "B2B buyers in target geographical markets fail to find relevant product pages.",
+        solution: "Engineer geo-targeted landing pages with localized H1s and metadata."
+      },
+      {
+        title: "5. Incomplete RFQ/Lead Attribution",
+        problem: "Inability to track which search queries lead to high-value sample and quote requests.",
+        solution: "Integrate custom server-side event tracking for RFQ forms."
+      }
+    ]
   },
   es: {
-    problemsTitle: "5 Problemas Comunes de SEO (y Soluciones)",
-    p1: "Bajo Tráfico Orgánico",
-    s1: "Apunta a palabras clave ecológicas de cola larga para atraer compradores.",
-    p2: "Alta Tasa de Rebote",
-    s2: "Optimiza la velocidad de la página y la adaptabilidad móvil.",
-    p3: "Baja Clasificación de Palabras Clave",
-    s3: "Crea guías completas centradas en envases sostenibles.",
-    p4: "Falta de Autoridad",
-    s4: "Construye enlaces de retroceso desde blogs de sostenibilidad autorizados.",
-    p5: "Canibalización de Palabras Clave",
-    s5: "Asigna distintas palabras clave claramente a páginas específicas de productos."
+    sectionTitle: "5 Problemas Comunes de SEO en Bolsas (y Soluciones)",
+    desc: "¿Tiene dificultades para posicionar su marca de empaques sostenibles? Aquí están los 5 principales puntos críticos de SEO técnico y visibilidad de búsqueda, resueltos con ingeniería web moderna.",
+    points: [
+      {
+        title: "1. Baja visibilidad de búsqueda para palabras clave ecológicas",
+        problem: "Los motores de búsqueda no logran indexar certificaciones específicas de materiales compostables.",
+        solution: "Implementar marcado estructurado de Schema.org con detalles de certificación."
+      },
+      {
+        title: "2. Alta tasa de rebote en páginas de productos técnicos",
+        problem: "El contenido pesado y las hojas de especificaciones ralentizan la velocidad de carga en dispositivos móviles.",
+        solution: "Reemplazar archivos PDF con tablas web interactivas, retrasar la carga de imágenes y usar CDN de alto rendimiento."
+      },
+      {
+        title: "3. Canibalización de palabras clave",
+        problem: "Las páginas de productos superpuestas para 'compostable' y 'biodegradable' compiten entre sí.",
+        solution: "Establecer una taxonomía de URL clara y asignar enlaces canónicos explícitos."
+      },
+      {
+        title: "4. Auditoría de búsqueda regional",
+        problem: "Los compradores B2B en los mercados geográficos objetivos no encuentran las páginas de productos relevantes.",
+        solution: "Desarrollar páginas de destino con orientación geográfica, H1 y metadatos localizados."
+      },
+      {
+        title: "5. Atribución incompleta de solicitudes de cotización/leads",
+        problem: "Incapacidad para rastrear qué consultas de búsqueda conducen a solicitudes de muestras y cotizaciones de alto valor.",
+        solution: "Integrar el seguimiento de eventos en el servidor para formularios de solicitud de cotización."
+      }
+    ]
   },
   fr: {
-    problemsTitle: "5 Problèmes Courants de SEO (et Solutions)",
-    p1: "Faible Trafic Organique",
-    s1: "Ciblez des mots-clés écologiques de longue traîne.",
-    p2: "Taux de Rebond Élevé",
-    s2: "Optimisez la vitesse de la page et la réactivité mobile.",
-    p3: "Mauvais Classement des Mots-Clés",
-    s3: "Créez des guides complets axés sur les emballages durables.",
-    p4: "Manque d'Autorité",
-    s4: "Obtenez des backlinks de blogs de développement durable faisant autorité.",
-    p5: "Cannibalisation des Mots-Clés",
-    s5: "Mappez clairement des mots-clés distincts à des pages spécifiques."
+    sectionTitle: "5 Problèmes Courants de SEO pour Sachets (et Solutions)",
+    desc: "Vous avez du mal à classer votre marque d'emballages durables ? Voici les 5 principaux points douloureux du SEO technique et de la visibilité de recherche, résolus grâce à l'ingénierie web moderne.",
+    points: [
+      {
+        title: "1. Faible visibilité de recherche pour les mots-clés écologiques",
+        problem: "Les moteurs de recherche ne parviennent pas à indexer les certifications de matériaux compostables spécifiques.",
+        solution: "Implémenter le balisage structuré Schema.org avec les détails de certification."
+      },
+      {
+        title: "2. Taux de rebond élevé sur les pages techniques de produits",
+        problem: "Les contenus lourds et les fiches techniques ralentissent la vitesse de chargement sur mobile.",
+        solution: "Remplacer les PDF par des tableaux web interactifs, charger les images en différé et utiliser des CDN performants."
+      },
+      {
+        title: "3. Cannibalisation des mots-clés",
+        problem: "Les pages de produits en double pour 'compostable' et 'biodégradable' se font concurrence.",
+        solution: "Établir une taxonomie d'URL claire et mapper des liens canoniques explicites."
+      },
+      {
+        title: "4. Audit de recherche régionale",
+        problem: "Les acheteurs B2B sur les marchés géographiques ciblés ne trouvent pas les pages de produits pertinentes.",
+        solution: "Concevoir des pages de destination géo-ciblées avec des H1 et des métadonnées localisés."
+      },
+      {
+        title: "5. Attribution incomplète des RFQ/leads",
+        problem: "Impossible de savoir quelles requêtes de recherche mènent aux demandes de devis et d'échantillons de grande valeur.",
+        solution: "Intégrer un suivi personnalisé des événements côté serveur pour les formulaires de demande de devis."
+      }
+    ]
   },
   'zh-TW': {
-    problemsTitle: "5個常見SEO問題（及解決方案）",
-    p1: "自然流量低",
-    s1: "鎖定長尾環保關鍵字，吸引高意向買家。",
-    p2: "跳出率高",
-    s2: "優化頁面載入速度，並確保良好的移動設備響應性。",
-    p3: "關鍵字排名差",
-    s3: "建立專注於可持續包裝的全面指南。",
-    p4: "缺乏權威性",
-    s4: "從權威的可持續發展部落格建立反向連結。",
-    p5: "關鍵字蠶食",
-    s5: "將不同的關鍵字清晰地映射到特定產品或部落格頁面。"
+    sectionTitle: "5個常見軟包裝SEO問題（及解決方案）",
+    desc: "難以提升您環保包裝品牌的搜尋排名？以下是 5 大技術性 SEO 與搜尋能見度痛點，透過現代網頁工程技術完美解決。",
+    points: [
+      {
+        title: "1. 環保關鍵字搜尋能見度低",
+        problem: "搜尋引擎未能有效索引特定可堆肥材料的認證資訊。",
+        solution: "導入包含認證細節的結構化資料標記 (Schema.org)。"
+      },
+      {
+        title: "2. 技術產品頁面跳出率高",
+        problem: "龐大的規格檔案拖慢了行動裝置網頁的載入速度。",
+        solution: "用互動式網頁表格取代 PDF 下載，實施圖片懶加載並搭配高效能 CDN。"
+      },
+      {
+        title: "3. 關鍵字自我蠶食",
+        problem: "針對「可堆肥」與「可生物降解」的產品頁面相互競爭相同流量。",
+        solution: "建立清晰的網頁網址階層架構並對應明確的標準連結 (Canonical)。"
+      },
+      {
+        title: "4. 區域搜尋定位不精確",
+        problem: "目標地理市場的 B2B 買家無法尋得相應的在地化產品頁面。",
+        solution: "開發具備在地化 H1 標題與元數據 (Metadata) 的地理定位登陸頁面。"
+      },
+      {
+        title: "5. 詢價單與線索歸因不完整",
+        problem: "無法追蹤是哪些搜尋字詞帶來了高價值的樣品及報價請求。",
+        solution: "針對詢價表單整合客製化伺服器端事件追蹤機制。"
+      }
+    ]
   }
 }
 
 
 export default function PouchSEOPage() {
   const { t, i18n } = useTranslation()
-  const currentLang = (translations as any)[i18n.language] || translations.en
+  const lang = (i18n.language || 'en') as keyof typeof translations;
+  const currentLang = translations[lang] || translations.en;
 
   // Add scroll detection for enhanced animations
   useEffect(() => {
@@ -475,8 +551,11 @@ export default function PouchSEOPage() {
           >
             <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-4 flex items-center justify-center gap-4">
               <AlertTriangle className="h-10 w-10 text-[#10b981]" />
-              {currentLang.problemsTitle}
+              {currentLang.sectionTitle}
             </h2>
+            <p className="text-lg font-['JetBrains_Mono'] text-neutral-600 max-w-3xl mx-auto mt-4">
+              {currentLang.desc}
+            </p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -487,21 +566,28 @@ export default function PouchSEOPage() {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              {[1, 2, 3, 4, 5].map((num) => (
-                <div key={num} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-start gap-4">
-                  <div className="bg-[#D4FF00] border-2 border-black w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
-                    {num}
+              {currentLang.points.map((pt, idx) => {
+                const icons = [Globe, Zap, Layers, Crosshair, BarChart3]
+                const IconComponent = icons[idx] || AlertTriangle
+                return (
+                  <div key={idx} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-start gap-4">
+                    <div className="bg-[#D4FF00] border-2 border-black p-2 flex items-center justify-center font-bold flex-shrink-0">
+                      <IconComponent className="h-5 w-5 text-black" />
+                    </div>
+                    <div>
+                      <h3 className="font-['Space_Grotesk'] font-black uppercase text-lg mb-1">
+                        {pt.title}
+                      </h3>
+                      <p className="font-['JetBrains_Mono'] text-sm text-red-600 font-semibold mb-1">
+                        <strong>Problem:</strong> {pt.problem}
+                      </p>
+                      <p className="font-['JetBrains_Mono'] text-sm text-emerald-600 font-semibold">
+                        <strong>Solution:</strong> {pt.solution}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-['Space_Grotesk'] font-black uppercase text-lg mb-1">
-                      {currentLang[`p${num}`]}
-                    </h3>
-                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">
-                      {currentLang[`s${num}`]}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </motion.div>
 
             <motion.div
@@ -512,8 +598,8 @@ export default function PouchSEOPage() {
             >
               <div className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
                 <img 
-                  src="/imgs/knowledge/seo-packaging-pain-points.jpg" 
-                  alt="SEO Problems and Solutions" 
+                  src="/imgs/knowledge/pouch-seo-pain-points.jpg" 
+                  alt="5 Common Pouch SEO Problems and Solutions" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>

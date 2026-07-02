@@ -1,4 +1,4 @@
-import { Shield, Clock, Target, Zap, Package, Droplets, Wind, HelpCircle, ArrowRight, AlertTriangle } from 'lucide-react'
+import { Shield, Clock, Target, Zap, Package, Droplets, Wind, HelpCircle, ArrowRight, AlertTriangle, Wrench } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
@@ -95,6 +95,18 @@ const propertiesData2 = [
   { material: 'KPET 12', o2: '8', wvtr: '12' },
   { material: 'PEARL 30', o2: '2200', wvtr: '9' },
   { material: 'MAT OPP 20', o2: '1900', wvtr: '6' },
+];
+
+// ============================================
+// SECTIONS FOR NAVIGATION
+// ============================================
+
+const sectionsForPouch = [
+  { id: 'material-barrier-problems', translationKey: 'sectionTitle' }
+];
+
+const sectionsForAchieve = [
+  { id: 'material-barrier-problems', translationKey: 'sectionTitle' }
 ];
 
 // ============================================
@@ -265,33 +277,38 @@ export default function PouchMaterialBarrierPropertiesPage() {
       </section>
 
       {/* 5 Common Problems */}
-      <section className="py-16 px-4 bg-white border-t-4 border-black">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-black text-4xl mb-12 uppercase text-center">{tLocal.sectionTitle}</h2>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden bg-[#D4FF00]">
+      <section id="material-barrier-problems" className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="font-black text-5xl md:text-7xl uppercase mb-16 text-center">{tLocal.sectionTitle}</h2>
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
               <img 
                 src="/imgs/knowledge/material-barrier-properties-pain-points.jpg" 
-                alt={tLocal.sectionTitle}
-                className="w-full h-auto mix-blend-multiply"
+                alt={tLocal.sectionTitle} 
+                className="relative z-10 border-4 border-black w-full object-cover aspect-square"
               />
             </div>
-            <div className="space-y-6">
-              {tLocal.problems.map((prob, idx) => (
-                <NeoCard key={idx} color={idx % 2 === 0 ? "bg-[#00FFFF]" : "bg-[#FF00FF]"}>
-                  <div className="flex gap-4">
-                    <div className="mt-1">
-                      <AlertTriangle className={idx % 2 === 0 ? "text-black" : "text-white"} />
+            
+            <div className="space-y-8">
+              {tLocal.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                  <h3 className="font-black text-2xl uppercase mb-4 flex items-center gap-3">
+                    <span className="bg-black text-white w-8 h-8 flex items-center justify-center font-['JetBrains_Mono'] text-sm">{idx + 1}</span>
+                    {prob.title}
+                  </h3>
+                  <div className="space-y-4 font-['JetBrains_Mono'] text-sm">
+                    <div className="flex gap-3">
+                      <AlertTriangle className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
+                      <p className="text-gray-700">{prob.desc}</p>
                     </div>
-                    <div>
-                      <h3 className={`font-black text-xl mb-2 ${idx % 2 === 0 ? "text-black" : "text-white"}`}>{prob.title}</h3>
-                      <p className={`font-bold mb-2 ${idx % 2 === 0 ? "text-gray-900" : "text-white"}`}>{prob.desc}</p>
-                      <div className="bg-white border-2 border-black p-3 font-mono text-sm shadow-[4px_4px_0px_0px_#000]">
-                        <span className="font-black text-black">SOLUTION:</span> <span className="text-gray-800">{prob.solution}</span>
-                      </div>
+                    <div className="flex gap-3">
+                      <Wrench className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-1" />
+                      <p className="text-gray-900 font-bold">{prob.solution}</p>
                     </div>
                   </div>
-                </NeoCard>
+                </div>
               ))}
             </div>
           </div>

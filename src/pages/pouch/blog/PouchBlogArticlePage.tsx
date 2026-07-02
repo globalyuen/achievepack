@@ -5,7 +5,7 @@ import { Loader2, AlertCircle, ArrowLeft, Package, Info, CheckCircle, HelpCircle
 import { useTranslation } from 'react-i18next'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 
-// Local translations
+// Local translations for common pain points and engineering solutions
 const translations = {
   en: {
     problemsTitle: "5 Common Compostable Packaging Problems (And Solutions)",
