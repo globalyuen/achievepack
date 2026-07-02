@@ -17,6 +17,8 @@ import SeoMigrationDashboard from '../../components/admin/SeoMigrationDashboard'
 import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
 import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
 import FamilyTab from '../../components/admin/FamilyTab';
+import CalendlyFollowUp from '../../components/admin/CalendlyFollowUp';
+import WhatsAppFollowUp from '../../components/admin/WhatsAppFollowUp';
 import PouchEcoGPTKPage from '../pouch/PouchEcoGPTKPage';
 import * as XLSX from 'xlsx';
 import { useTranslation, Trans } from "react-i18next";
@@ -106,7 +108,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'|'family'|'pricing'>('reports');
+  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'|'family'|'pricing'>('reports');
   const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
@@ -181,6 +183,17 @@ export default function DailyReportsPage() {
     })
   );
 
+  const insertWebhookLog = async (payload: any) => {
+    const resp = await fetch('/api/admin-db-tunnel', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ payload })
+    });
+    const result = await resp.json();
+    if (!resp.ok || !result.success) throw new Error(result.error || 'DB Tunnel API Error');
+    return { data: result.data, error: null };
+  };
+
   const persistCustomTerms = async (
     updatedCustom: Record<string, string[]>,
     updatedHidden: Record<string, string[]>
@@ -188,12 +201,11 @@ export default function DailyReportsPage() {
     setSavingTerms(true);
     try {
       const payload = { terms: updatedCustom, hiddenTerms: updatedHidden };
-      // Always INSERT — anon key has INSERT but not UPDATE on webhook_logs (RLS).
       // fetchData always reads the latest row by created_at desc, so this is safe.
-      const { data } = await supabase.from('webhook_logs').insert({
+      const { data } = await insertWebhookLog({
         source: 'quick_terms_config', status: 'Config',
         message: 'Quick-pick term library', raw_data: payload
-      }).select('id').single();
+      });
       if (data?.id) setCustomTermsLogId(data.id);
     } finally { setSavingTerms(false); }
   };
@@ -305,12 +317,12 @@ export default function DailyReportsPage() {
       const base64Text = btoa(encodeURIComponent(rawText));
 
       // 1. Temporarily store the giant risky raw string into the database to bypass all Cloudflare WAF POST limiters/monitors!
-      const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
+      const { data: dbLog, error: dbErr } = await insertWebhookLog({
         status: 'Processing',
         source: 'Magic Paste Engine',
         message: 'Awaiting AI extraction via Secure Tunnel',
         raw_data: { text_base64: base64Text }
-      }]).select().single();
+      });
 
       if (dbErr || !dbLog) throw new Error("DB Tunnel Error: " + (dbErr?.message || JSON.stringify(dbErr)));
 
@@ -392,12 +404,12 @@ export default function DailyReportsPage() {
       const base64Text = btoa(encodeURIComponent(currentRecord.detail));
 
       // 1. Store in DB tunnel to bypass Cloudflare WAF
-      const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
+      const { data: dbLog, error: dbErr } = await insertWebhookLog({
         status: 'Processing',
         source: 'Quote Generator',
         message: 'Awaiting AI translation',
         raw_data: { text_base64: base64Text, customer: currentRecord.customer || 'Valued Client' }
-      }]).select().single();
+      });
       if (dbErr || !dbLog) throw new Error("DB Tunnel Error: " + (dbErr?.message || "Unknown"));
 
       // 2. Call API — only returns compact JSON (fast, <8s, no timeout!)
@@ -689,12 +701,12 @@ export default function DailyReportsPage() {
       const base64Text = btoa(encodeURIComponent(rfqCustomerText));
 
       // Use DB tunnel to bypass Cloudflare WAF
-      const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
+      const { data: dbLog, error: dbErr } = await insertWebhookLog({
         status: 'Processing',
         source: 'RFQ Maker',
         message: 'Converting customer RFQ to Chinese vendor format',
         raw_data: { text_base64: base64Text }
-      }]).select().single();
+      });
       
       if (dbErr || !dbLog) throw new Error("DB Tunnel Error: " + (dbErr?.message || "Unknown"));
 
@@ -1291,60 +1303,127 @@ export default function DailyReportsPage() {
           )}
         </div>
 
-        {/* Tab Switcher - Responsive Pill Layout */}
-        <div className="flex flex-wrap gap-2 mb-6 p-1.5 bg-gray-100/80 rounded-2xl print:hidden">
-          <button onClick={() => setActiveTab('reports')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'reports' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <ClipboardList className="w-4 h-4"/>
-            <span className="hidden xs:inline">{t(`${p}.dailyReports`)}</span>
-            <span className="xs:hidden">{t(`${p}.reports`)}</span>
-          </button>
-          <button onClick={() => setActiveTab('logs')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'logs' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <History className="w-4 h-4"/>
-            <span className="hidden xs:inline">{t(`${p}.auditLogs`)}</span>
-            <span className="xs:hidden">{t(`${p}.logs`)}</span>
-          </button>
-          <button onClick={() => setActiveTab('rfq')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'rfq' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <FileText className="w-4 h-4"/>
-            <span className="hidden xs:inline">{t(`${p}.rfqMaker`)}</span>
-            <span className="xs:hidden">{t(`${p}.rfq`)}</span>
-          </button>
-          <button onClick={() => setActiveTab('quote')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'quote' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <FileText className="w-4 h-4"/>
-            <span className="hidden xs:inline">{t(`${p}.quoteGen`)}</span>
-            <span className="xs:hidden">{t(`${p}.quote`)}</span>
-          </button>
-          <button onClick={() => setActiveTab('packing')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'packing' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <Package className="w-4 h-4"/>
-            {t(`${p}.packingList`)}</button>
-          <button onClick={() => setActiveTab('spec')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'spec' ? 'bg-sky-600 text-white shadow-md shadow-sky-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <FileCheck className="w-4 h-4"/>
-            <span className="hidden xs:inline">{t(`${p}.specMaker`)}</span>
-            <span className="xs:hidden">{t(`${p}.spec`)}</span>
-          </button>
-          <button onClick={() => setActiveTab('compliance')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'compliance' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <ShieldCheck className="w-4 h-4"/>
-            <span className="hidden xs:inline">{t(`${p}.complianceDoc`)}</span>
-            <span className="xs:hidden">{t(`${p}.compliance`)}</span>
-          </button>
-          <button onClick={() => setActiveTab('coa')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'coa' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <ScrollText className="w-4 h-4"/>
-            <span className="hidden xs:inline">{t(`${p}.coaGen`)}</span>
-            <span className="xs:hidden">{t(`${p}.coa`)}</span>
-          </button>
-          <button onClick={() => setActiveTab('seo')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'seo' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <Activity className="w-4 h-4"/>
-            <span className="hidden xs:inline">{t(`${p}.seoGeoMonitor`)}</span>
-            <span className="xs:hidden">{t(`${p}.seo`)}</span>
-          </button>
-          <button onClick={() => setActiveTab('family')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'family' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <Users className="w-4 h-4"/>
-            <span>Family Resume</span>
-          </button>
-          <button onClick={() => setActiveTab('pricing')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'pricing' ? 'bg-green-600 text-white shadow-md shadow-green-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
-            <DollarSign className="w-4 h-4"/>
-            <span>Pricing</span>
-          </button>
+        {/* Tab Switcher - Grouped Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 print:hidden">
+          
+          {/* Customer Follow Up */}
+          <div>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5"><Users className="w-4 h-4" /> Customer Follow Up</h3>
+            <div className="flex flex-wrap gap-2 p-2 bg-gray-100/80 rounded-2xl shadow-inner border border-gray-200/50">
+              <button onClick={() => setActiveTab('calendly')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'calendly' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <Calendar className="w-4 h-4"/>
+                <span className="hidden xs:inline">Email & Calendly Follow Up</span>
+                <span className="xs:hidden">Email</span>
+              </button>
+              <button onClick={() => setActiveTab('whatsapp')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'whatsapp' ? 'bg-green-600 text-white shadow-md shadow-green-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <MessageSquare className="w-4 h-4"/>
+                <span className="hidden xs:inline">WhatsApp Follow Up</span>
+                <span className="xs:hidden">WhatsApp</span>
+              </button>
+              <button onClick={() => setActiveTab('reports')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'reports' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <ClipboardList className="w-4 h-4"/>
+                <span className="hidden xs:inline">{t(`${p}.dailyReports`)}</span>
+                <span className="xs:hidden">{t(`${p}.reports`)}</span>
+              </button>
+              <button onClick={() => setActiveTab('logs')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'logs' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <History className="w-4 h-4"/>
+                <span className="hidden xs:inline">{t(`${p}.auditLogs`)}</span>
+                <span className="xs:hidden">{t(`${p}.logs`)}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Cost Follow Up */}
+          <div>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5"><DollarSign className="w-4 h-4" /> Cost Follow Up</h3>
+            <div className="flex flex-wrap gap-2 p-2 bg-gray-100/80 rounded-2xl shadow-inner border border-gray-200/50">
+              <button onClick={() => setActiveTab('rfq')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'rfq' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <FileText className="w-4 h-4"/>
+                <span className="hidden xs:inline">{t(`${p}.rfqMaker`)}</span>
+                <span className="xs:hidden">{t(`${p}.rfq`)}</span>
+              </button>
+              <button onClick={() => setActiveTab('quote')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'quote' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <FileText className="w-4 h-4"/>
+                <span className="hidden xs:inline">{t(`${p}.quoteGen`)}</span>
+                <span className="xs:hidden">{t(`${p}.quote`)}</span>
+              </button>
+              <button onClick={() => setActiveTab('pricing')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'pricing' ? 'bg-green-600 text-white shadow-md shadow-green-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <DollarSign className="w-4 h-4"/>
+                <span>Pricing</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Shipping Follow Up */}
+          <div>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5"><Package className="w-4 h-4" /> Shipping Follow Up</h3>
+            <div className="flex flex-wrap gap-2 p-2 bg-gray-100/80 rounded-2xl shadow-inner border border-gray-200/50">
+              <button onClick={() => setActiveTab('packing')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'packing' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <Package className="w-4 h-4"/>
+                {t(`${p}.packingList`)}
+              </button>
+            </div>
+          </div>
+
+          {/* Document Follow Up */}
+          <div>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5"><ScrollText className="w-4 h-4" /> Document Follow Up</h3>
+            <div className="flex flex-wrap gap-2 p-2 bg-gray-100/80 rounded-2xl shadow-inner border border-gray-200/50">
+              <button onClick={() => setActiveTab('spec')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'spec' ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <FileCheck className="w-4 h-4"/>
+                <span className="hidden xs:inline">{t(`${p}.specMaker`)}</span>
+                <span className="xs:hidden">{t(`${p}.spec`)}</span>
+              </button>
+              <button onClick={() => setActiveTab('compliance')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'compliance' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <ShieldCheck className="w-4 h-4"/>
+                <span className="hidden xs:inline">{t(`${p}.complianceDoc`)}</span>
+                <span className="xs:hidden">{t(`${p}.compliance`)}</span>
+              </button>
+              <button onClick={() => setActiveTab('coa')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'coa' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <ScrollText className="w-4 h-4"/>
+                <span className="hidden xs:inline">{t(`${p}.coaGen`)}</span>
+                <span className="xs:hidden">{t(`${p}.coa`)}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Website Follow Up */}
+          <div>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5"><Activity className="w-4 h-4" /> Website Follow Up</h3>
+            <div className="flex flex-wrap gap-2 p-2 bg-gray-100/80 rounded-2xl shadow-inner border border-gray-200/50">
+              <button onClick={() => setActiveTab('seo')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'seo' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <Activity className="w-4 h-4"/>
+                <span className="hidden xs:inline">{t(`${p}.seoGeoMonitor`)}</span>
+                <span className="xs:hidden">{t(`${p}.seo`)}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Other */}
+          <div>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5"><Users className="w-4 h-4" /> Other</h3>
+            <div className="flex flex-wrap gap-2 p-2 bg-gray-100/80 rounded-2xl shadow-inner border border-gray-200/50">
+              <button onClick={() => setActiveTab('family')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'family' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <Users className="w-4 h-4"/>
+                <span>Family Resume</span>
+              </button>
+            </div>
+          </div>
         </div>
+
+        {/* Tab Content: Calendly Follow Up */}
+        {activeTab === 'calendly' && (
+          <div className="mt-8">
+            <CalendlyFollowUp />
+          </div>
+        )}
+
+        {/* Tab Content: WhatsApp Follow Up */}
+        {activeTab === 'whatsapp' && (
+          <div className="mt-8">
+            <WhatsAppFollowUp />
+          </div>
+        )}
 
         {/* Tab Content: Family */}
         {activeTab === 'family' && (

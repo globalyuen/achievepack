@@ -117,6 +117,7 @@ export default function Footer() {
               <li><Link to="/topics/eu-ppwr-compliance" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.euPpwrCompliance', 'EU PPWR Compliance')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/knowledge/reusable-packaging" className="hover:text-primary-400 font-medium text-primary-400">Reusable Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/knowledge/bottle-printing-guide" className="hover:text-primary-400 font-medium text-primary-400">Bottle Printing Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/pouch-heat-sealing-temperature-guide" className="hover:text-primary-400 font-medium text-primary-400">Heat Sealing Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
           
@@ -206,6 +207,7 @@ export default function Footer() {
               <li><Link to="/knowledge/writable-stampable-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.writableStampable', 'Writable & Stampable Pouches')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/knowledge/digital-printing-pantone-color-matching" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.colorMatchingGuide', 'Color Matching Guide')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/knowledge/pha-vs-pla" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.phaVsPla', 'PHA vs PLA Comparison')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/pouch-heat-sealing-temperature-guide" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.heatSealingGuide', 'Heat Sealing Guide')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/support/sample-quote" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">{t('pouchEcoFooter.customPrintedSample', 'Custom Printed Sample')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>

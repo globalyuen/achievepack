@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { User, Plus, Edit2, Trash2, Save, X, Download, Copy, CheckCircle2 } from 'lucide-react';
 import SchoolTracker from './SchoolTracker';
-import CalendlyFollowUp from './CalendlyFollowUp';
 
 interface Certificate {
   id: string;
@@ -227,7 +226,7 @@ const CopyButton = ({ text, label }: { text: string | (() => string), label?: st
 };
 
 export default function FamilyTab() {
-  const [activeSubTab, setActiveSubTab] = useState<'resumes' | 'schoolTracker' | 'calendlyFollowUp'>('schoolTracker');
+  const [activeSubTab, setActiveSubTab] = useState<'resumes' | 'schoolTracker'>('schoolTracker');
   const [profiles, setProfiles] = useState<Profile[]>(() => {
     const saved = localStorage.getItem('family_resumes_v5');
     if (saved) {
@@ -322,19 +321,11 @@ export default function FamilyTab() {
           >
             School Tracker (升學追蹤)
           </button>
-          <button 
-            onClick={() => setActiveSubTab('calendlyFollowUp')}
-            className={`px-6 py-2 rounded-lg font-bold transition-colors text-sm ${activeSubTab === 'calendlyFollowUp' ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
-          >
-            Calendly Follow-Up (會議跟進)
-          </button>
         </div>
       </div>
 
       {activeSubTab === 'schoolTracker' ? (
         <SchoolTracker />
-      ) : activeSubTab === 'calendlyFollowUp' ? (
-        <CalendlyFollowUp />
       ) : (
         <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 font-sans print:p-0 print:border-none print:shadow-none">
           <div className="flex justify-between items-center mb-6 print:hidden">

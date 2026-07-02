@@ -85,6 +85,17 @@ export default function SeoMigrationDashboard() {
   const [subagentStatus, setSubagentStatus] = useState<string | null>(null)
   const [pendingApprovalPages, setPendingApprovalPages] = useState<any[]>([])
 
+  const insertWebhookLog = async (payload: any) => {
+    const resp = await fetch('/api/admin-db-tunnel', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ payload })
+    });
+    const result = await resp.json();
+    if (!resp.ok || !result.success) throw new Error(result.error || 'DB Tunnel API Error');
+    return { data: result.data, error: null };
+  };
+
   const handleApprovePage = async (slug: string) => {
     try {
       const { data, error } = await supabase
@@ -129,12 +140,12 @@ export default function SeoMigrationDashboard() {
             }
             cfg.logs = [newLog, ...(cfg.logs || [])]
 
-            await supabase.from('webhook_logs').insert([{
+            await insertWebhookLog({
               source: 'soro_autopilot_config',
               status: 'Config',
               message: 'Soro Autopilot Draft Approved by User',
               raw_data: cfg
-            }])
+            })
           }
         }
       }
@@ -176,7 +187,7 @@ export default function SeoMigrationDashboard() {
     setAutopilotLogs(updatedLogs);
 
     try {
-      await supabase.from('webhook_logs').insert([{
+      await insertWebhookLog({
         source: 'soro_autopilot_config',
         status: 'Config',
         message: 'Updated Soro Autopilot Settings',
@@ -186,7 +197,7 @@ export default function SeoMigrationDashboard() {
           logs: updatedLogs,
           totalLinkedAnchors: totalLinkedAnchorsCount
         }
-      }]);
+      });
     } catch (err) {
       console.error('Failed to persist autopilot toggle:', err);
     }
@@ -246,7 +257,7 @@ export default function SeoMigrationDashboard() {
       setAutopilotLogs(updatedLogs);
 
       try {
-        await supabase.from('webhook_logs').insert([{
+        await insertWebhookLog({
           source: 'soro_autopilot_config',
           status: 'Config',
           message: 'Discovered new keywords',
@@ -256,7 +267,7 @@ export default function SeoMigrationDashboard() {
             logs: updatedLogs,
             totalLinkedAnchors: totalLinkedAnchorsCount
           }
-        }]);
+        });
       } catch (err) {
         console.error('Failed to persist keyword discovery:', err);
       }
@@ -319,7 +330,7 @@ export default function SeoMigrationDashboard() {
         setAutopilotLogs(updatedLogs);
 
         try {
-          await supabase.from('webhook_logs').insert([{
+          await insertWebhookLog({
             source: 'soro_autopilot_config',
             status: 'Config',
             message: 'Manual autopilot execution',
@@ -329,7 +340,7 @@ export default function SeoMigrationDashboard() {
               logs: updatedLogs,
               totalLinkedAnchors: totalLinkedAnchorsCount + 2
             }
-          }]);
+          });
           
           await loadData();
         } catch (err) {

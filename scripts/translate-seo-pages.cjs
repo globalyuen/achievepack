@@ -89,10 +89,14 @@ async function translateToLanguage(content, langCode, langInfo) {
   }
 
   console.log(`    Translating seoPages...`);
-  const translatedSeoPages = await translateObject(content.seoPages, langInfo.code, langContent.seoPages);
-  
-  langContent.seoPages = translatedSeoPages;
+  if (content.seoPages) {
+    langContent.seoPages = await translateObject(content.seoPages, langInfo.code, langContent.seoPages);
+  }
 
+  console.log(`    Translating buyerConcerns...`);
+  if (content.buyerConcerns) {
+    langContent.buyerConcerns = await translateObject(content.buyerConcerns, langInfo.code, langContent.buyerConcerns);
+  }
   fs.writeFileSync(langPath, JSON.stringify(langContent, null, 4), 'utf-8');
   
   console.log(`\n    ✅ Saved ${langCode}.json`);

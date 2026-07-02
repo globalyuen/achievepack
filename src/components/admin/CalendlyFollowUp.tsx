@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, MapPin, TrendingUp, Calendar, Clock, Bell, ExternalLink, Save, X, Edit2, Info, CheckCircle2, Copy } from 'lucide-react';
+import { Search, MapPin, TrendingUp, Calendar, Clock, Bell, ExternalLink, Save, X, Edit2, Info, CheckCircle2, Copy, Mail, Phone } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 export type FollowUpStatus = '未跟進' | '已發郵件' | '已聯絡/WhatsApp' | '已通話/會議' | '已寄樣品' | '報價中' | '已下單' | '無效/垃圾';
@@ -69,6 +69,7 @@ export default function CalendlyFollowUp() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [viewMode, setViewMode] = useState<'table' | 'calendar'>('table');
 
   const [editingLead, setEditingLead] = useState<CalendlyInquiry | null>(null);
   const [editStatus, setEditStatus] = useState<FollowUpStatus>('未跟進');
@@ -228,6 +229,26 @@ export default function CalendlyFollowUp() {
     );
   });
 
+  // Group by date for calendar view
+  const groupedByDate = filteredInquiries.reduce((acc, lead) => {
+    // Try to get a sortable date string, fallback to 'Unknown Date'
+    let dateStr = 'Unknown Date';
+    if (lead.raw_date) {
+      const match = lead.raw_date.match(/\d{4}-\d{2}-\d{2}/);
+      if (match) dateStr = match[0];
+      else dateStr = lead.raw_date;
+    } else if (lead.meeting_time) {
+      dateStr = lead.meeting_time;
+    }
+    
+    if (!acc[dateStr]) acc[dateStr] = [];
+    acc[dateStr].push(lead);
+    return acc;
+  }, {} as Record<string, CalendlyInquiry[]>);
+
+  // Sort dates descending
+  const sortedDates = Object.keys(groupedByDate).sort((a, b) => b.localeCompare(a));
+
   return (
     <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 font-sans text-gray-900">
       
@@ -286,6 +307,22 @@ export default function CalendlyFollowUp() {
           />
           <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
         </div>
+        
+        <div className="flex items-center gap-2 bg-gray-100 p-1 rounded-xl">
+          <button
+            onClick={() => setViewMode('table')}
+            className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-colors ${viewMode === 'table' ? 'bg-white shadow text-gray-800' : 'text-gray-500 hover:text-gray-700'}`}
+          >
+            列表檢視 (Table)
+          </button>
+          <button
+            onClick={() => setViewMode('calendar')}
+            className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-colors ${viewMode === 'calendar' ? 'bg-white shadow text-gray-800' : 'text-gray-500 hover:text-gray-700'}`}
+          >
+            日曆檢視 (Calendar)
+          </button>
+        </div>
+
         <div className="text-sm font-bold text-gray-500">
           顯示 {filteredInquiries.length} 筆項目
         </div>
@@ -295,66 +332,74 @@ export default function CalendlyFollowUp() {
         <div className="text-center py-12 text-gray-500">載入中...</div>
       ) : error ? (
         <div className="text-center py-12 text-red-500">{error}</div>
-      ) : (
-        <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-          <table className="w-full text-left text-xs border-collapse min-w-[700px]">
+      ) : viewMode === 'table' ? (
+        <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
+          <table className="w-full text-left text-sm border-collapse min-w-[800px]">
             <thead>
-              <tr className="bg-gray-100 border-b border-gray-200 text-gray-600 text-[11px] uppercase tracking-wider">
-                <th className="py-2 px-2 font-bold w-[16%]">客戶</th>
-                <th className="py-2 px-2 font-bold w-[20%]">聯絡資料</th>
-                <th className="py-2 px-2 font-bold w-[16%]">預約時段</th>
-                <th className="py-2 px-2 font-bold w-[25%]">需求留言</th>
-                <th className="py-2 px-2 font-bold w-[15%]">狀態備忘</th>
-                <th className="py-2 px-2 font-bold text-center w-[8%]">操作</th>
+              <tr className="bg-gray-50 border-b border-gray-200 text-gray-600 text-xs uppercase tracking-wider">
+                <th className="py-3 px-4 font-bold w-[25%]">客戶資訊</th>
+                <th className="py-3 px-4 font-bold w-[15%]">預約時段</th>
+                <th className="py-3 px-4 font-bold w-[35%]">需求留言</th>
+                <th className="py-3 px-4 font-bold w-[15%]">狀態與備忘</th>
+                <th className="py-3 px-4 font-bold text-center w-[10%]">操作</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-gray-100">
               {filteredInquiries.map((lead, idx) => {
                 const status = lead.status || '未跟進';
                 const notes = lead.notes || '';
                 return (
-                  <tr key={lead.id} className={`border-b border-gray-100 hover:bg-amber-50/20 transition-colors text-xs ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/20'}`}>
-                    <td className="py-2 px-2 align-middle">
-                      <div className="font-bold text-gray-800 leading-snug">{lead.name}</div>
-                      <div className="text-[10px] text-gray-400 mt-0.5">{lead.duration}</div>
-                    </td>
-                    <td className="py-2 px-2 align-middle text-[11px] leading-tight space-y-0.5">
-                      <div className="flex items-center gap-1">
-                        <span className="text-gray-400">✉</span>
-                        <a href={`mailto:${lead.email}`} className="text-blue-600 hover:underline break-all font-mono line-clamp-1" title={lead.email}>{lead.email || '—'}</a>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="text-gray-400">📞</span>
-                        <span className="text-gray-600 font-mono line-clamp-1" title={lead.phone}>{lead.phone || '—'}</span>
-                      </div>
-                    </td>
-                    <td className="py-2 px-2 align-middle text-[11px] leading-snug text-gray-600">
-                      <div className="font-semibold text-gray-700">{lead.meeting_time}</div>
-                      <div className="text-[10px] text-gray-400 mt-0.5">{lead.raw_date}</div>
-                    </td>
-                    <td className="py-2 px-2 align-middle text-[11px] text-gray-500 leading-relaxed max-w-[200px]">
-                      <div className="line-clamp-2" title={lead.inquiry}>
-                        {lead.inquiry || <span className="text-gray-300 italic">（無留言）</span>}
-                      </div>
-                    </td>
-                    <td className="py-2 px-2 align-middle">
-                      <div className="flex flex-col gap-1 items-start">
-                        <span className={`px-2 py-0.5 border rounded-full text-[10px] font-bold ${STATUS_COLORS[status]}`}>
-                          {status}
-                        </span>
-                        {notes && (
-                          <span className="text-[10px] text-gray-400 line-clamp-1 italic max-w-[120px] truncate" title={notes}>
-                            {notes}
+                  <tr key={lead.id} className="hover:bg-amber-50/30 transition-colors bg-white group">
+                    <td className="py-3 px-4 align-top">
+                      <div className="font-bold text-gray-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">{lead.name}</div>
+                      <div className="flex flex-col gap-1 text-[11px]">
+                        {lead.email && (
+                          <a href={`mailto:${lead.email}`} className="text-gray-500 hover:text-blue-600 flex items-center gap-1.5 w-max transition-colors" title={lead.email}>
+                            <Mail className="w-3.5 h-3.5 opacity-70" /> 
+                            <span className="truncate max-w-[200px]">{lead.email}</span>
+                          </a>
+                        )}
+                        {lead.phone && (
+                          <span className="text-gray-500 flex items-center gap-1.5 w-max" title={lead.phone}>
+                            <Phone className="w-3.5 h-3.5 opacity-70" /> 
+                            <span className="truncate max-w-[200px]">{lead.phone}</span>
                           </span>
                         )}
                       </div>
                     </td>
-                    <td className="py-2 px-2 align-middle text-center">
+                    <td className="py-3 px-4 align-top text-xs text-gray-600">
+                      <div className="font-semibold text-gray-800 mb-0.5 flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5 text-gray-400" />
+                        {lead.meeting_time}
+                      </div>
+                      <div className="text-[10px] text-gray-400 ml-5">{lead.duration} • {lead.raw_date}</div>
+                    </td>
+                    <td className="py-3 px-4 align-top">
+                      <div className="text-[12px] text-gray-600 leading-relaxed max-w-full">
+                        <div className="line-clamp-3 hover:line-clamp-none transition-all" title={lead.inquiry}>
+                          {lead.inquiry || <span className="text-gray-400 italic">（無留言）</span>}
+                        </div>
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 align-top">
+                      <div className="flex flex-col gap-1.5 items-start">
+                        <span className={`px-2.5 py-1 border rounded-md text-[11px] font-bold shadow-sm ${STATUS_COLORS[status]}`}>
+                          {status}
+                        </span>
+                        {notes && (
+                          <div className="text-[11px] text-gray-500 bg-gray-50 p-1.5 rounded border border-gray-100 w-full max-h-16 overflow-y-auto" title={notes}>
+                            {notes}
+                          </div>
+                        )}
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 align-top text-center">
                       <button
                         onClick={() => handleEditClick(lead)}
-                        className="px-2 py-1.5 text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors inline-block font-bold"
+                        className="w-full px-3 py-1.5 text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200/50 rounded-lg transition-colors font-bold text-xs shadow-sm flex items-center justify-center gap-1.5"
                       >
-                        編輯/跟進
+                        <Edit2 className="w-3.5 h-3.5" />
+                        跟進
                       </button>
                     </td>
                   </tr>
@@ -362,13 +407,63 @@ export default function CalendlyFollowUp() {
               })}
               {filteredInquiries.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="text-center py-12 text-gray-500">
-                    找不到符合條件的預約跟進項目。
+                  <td colSpan={5} className="text-center py-16 text-gray-500 bg-gray-50/50">
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <Info className="w-6 h-6 text-gray-400" />
+                      <span>找不到符合條件的預約跟進項目。</span>
+                    </div>
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
+        </div>
+      ) : (
+        <div className="space-y-6">
+          {sortedDates.length === 0 ? (
+            <div className="text-center py-12 text-gray-500 bg-gray-50 rounded-2xl border border-dashed">
+              找不到符合條件的預約項目。
+            </div>
+          ) : (
+            sortedDates.map((dateStr) => (
+              <div key={dateStr} className="bg-gray-50 rounded-2xl p-4 border border-gray-100 shadow-sm">
+                <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2 border-b pb-2">
+                  <Calendar className="w-5 h-5 text-amber-600"/>
+                  {dateStr}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {groupedByDate[dateStr].map(lead => {
+                    const status = lead.status || '未跟進';
+                    return (
+                      <div key={lead.id} className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-bold text-gray-900 line-clamp-1">{lead.name}</h4>
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${STATUS_COLORS[status]}`}>
+                            {status}
+                          </span>
+                        </div>
+                        <div className="text-xs text-gray-600 mb-2 font-mono flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5 text-gray-400"/>
+                          <span className="line-clamp-1">{lead.meeting_time} ({lead.duration})</span>
+                        </div>
+                        <div className="text-[11px] text-gray-500 mb-4 line-clamp-2 min-h-[2rem]">
+                          {lead.inquiry || '（無留言需求）'}
+                        </div>
+                        <div className="flex items-center gap-2 border-t pt-3 mt-auto">
+                          <button
+                            onClick={() => handleEditClick(lead)}
+                            className="flex-1 px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition-colors text-center"
+                          >
+                            檢視詳情 / 跟進
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))
+          )}
         </div>
       )}
 

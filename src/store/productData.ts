@@ -45,6 +45,7 @@ export interface BaseStoreProduct {
   id: string
   name: string
   category: StoreCategory
+  sustainability?: 'conventional' | 'recyclable' | 'compostable' | 'reusable'
   productType?: ProductType        // 'sample' | 'stock' | 'custom' (optional for backward compat)
   subCategory?: ProductSubCategory // for sidebar grouping (optional for backward compat)
   description: string
@@ -1088,7 +1089,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     inStock: true,
     turnaround: '12-15 days',
     minOrder: 100,
-    shape: 'Airtight Canister',
+    shape: 'Bottle',
     material: 'High-Clarity Food-Grade Acrylic & Double-Layer Gold Cap',
     basePrice: 146,
     pricePerPiece: 1.46,

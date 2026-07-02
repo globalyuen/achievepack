@@ -7,9 +7,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-  if (!GEMINI_API_KEY) {
-    return res.status(500).json({ error: 'GEMINI_API_KEY not configured' })
+  const XAI_API_KEY = process.env.XAI_API_KEY
+  if (!XAI_API_KEY) {
+    return res.status(500).json({ error: 'XAI API key not configured' })
   }
 
   const { name, email, inquiry, history } = req.body
@@ -35,7 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }).join('\n')
   }
 
-  const systemPrompt = `You are "Antigravity", a professional CRM AI assistant for Achieve Pack & Pouch.eco. Your job is to analyze Calendly bookings and Zoho Mail histories to suggest follow-up actions and draft emails for Ryan Wong.
+  const systemPrompt = `You are a professional CRM assistant for Achieve Pack & Pouch.eco. Your job is to analyze Calendly bookings and Zoho Mail histories to suggest follow-up actions and draft emails for Ryan Wong.
 
 We sell flexible packaging, spouted stand up pouches, coffee bags, biodegradable packaging, etc.
 
@@ -44,7 +44,7 @@ Analyze:
 2. **Next Steps**: Suggest what concrete actions Ryan should take.
 3. **Email Draft**: Draft a highly professional, contextual follow-up email in English. Include the customer's original inquiry and any previous email context if applicable.
 
-Return your response ONLY in JSON format without markdown wrapping, exactly like this:
+Return your response ONLY in JSON format:
 {
   "statusSummary": "Brief summary of current interaction status in Traditional Chinese (HK) (e.g. 已回信要求運費 / 尚未回覆 / 客戶已付款等)",
   "nextAction": "Actionable next steps in Traditional Chinese (HK) (e.g., 寄出樣辦，並分享快遞單號 / 檢查客戶提供的 AI 設計圖檔)",
@@ -59,33 +59,33 @@ Inquiry Details: ${inquiry || 'No inquiry text left.'}
 Zoho Mail Interaction History:
 ${historyText}
 
-Please analyze this customer contact and return the suggested actions and email draft in the specified JSON format.`
+Analyze this customer contact and return the suggested actions and email draft in the specified JSON format.`
 
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+    const response = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${XAI_API_KEY}`
       },
       body: JSON.stringify({
-        contents: [
-          { role: 'user', parts: [{ text: systemPrompt + '\n\n' + userPrompt }] }
+        model: 'grok-beta', // stable fallback model
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt }
         ],
-        generationConfig: {
-          temperature: 0.3,
-          responseMimeType: 'application/json'
-        }
+        temperature: 0.3,
+        response_format: { type: 'json_object' }
       })
     })
 
     if (!response.ok) {
-      console.error('Gemini API error:', response.status)
-      const errText = await response.text()
-      throw new Error(`Gemini returned status ${response.status}: ${errText}`)
+      console.error('xAI API error:', response.status)
+      throw new Error(`xAI returned status ${response.status}`)
     }
 
     const resData: any = await response.json()
-    const content = resData.candidates?.[0]?.content?.parts?.[0]?.text || '{}'
+    const content = resData.choices?.[0]?.message?.content || '{}'
     
     let result = JSON.parse(content)
     return res.status(200).json(result)

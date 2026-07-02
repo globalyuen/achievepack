@@ -121,8 +121,9 @@ function parseInquiryContent(text: string, filename: string) {
 
   // Clean title
   let cleanName = name
-    .replace(/^(?:Re:\s*|Fwd:\s*|RE:\s*|FWD:\s*|Re-New-Event-|New-Event-)+/gi, '')
+    .replace(/^(?:Re:\s*|Fwd:\s*|RE:\s*|FWD:\s*|Re-New-Event-|New-Event-|Hi New Event:\s*|New Event:\s*)+/gi, '')
     .replace(/---.*/g, '')
+    .replace(/\s\d{1,2}:\d{2}\s*(?:am|pm|AM|PM).*/, '') // Strip time like 10:45pm Tue...
     .replace(/-/g, ' ')
     .trim()
 

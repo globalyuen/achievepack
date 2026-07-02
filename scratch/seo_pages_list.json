@@ -1,0 +1,177 @@
+[
+  {
+    "file": "EcoFriendlyFoodPackagingPage.tsx",
+    "key": "seoPages.pages.ecoFriendlyFoodPackaging",
+    "title": "{t(`${p}.ecoFriendlyFoodPackagingHighBa`)}"
+  },
+  {
+    "file": "CompostablePackagingBlogPage.tsx",
+    "key": "seoPages.pages.compostablePackagingBlog",
+    "title": "CompostablePackagingBlogPage.tsx"
+  },
+  {
+    "file": "CustomBrandPackagingPage.tsx",
+    "key": "seoPages.pages.customBrandPackaging",
+    "title": "{t(`${p}.customBrandPackagingStructural`)}"
+  },
+  {
+    "file": "EUPPWRCompliancePage.tsx",
+    "key": "seoPages.pages.eUPPWRCompliance",
+    "title": "{t(`${p}.b2b.seo.title`, \"EU PPWR Packaging Compliance Guide: 2026 Brand Roadmap | Achieve Pack\")}"
+  },
+  {
+    "file": "FoodPackagingSupplierPage.tsx",
+    "key": "seoPages.pages.foodPackagingSupplier",
+    "title": "FoodPackagingSupplierPage.tsx"
+  },
+  {
+    "file": "HomeCompostableCoffeeBagsPage.tsx",
+    "key": "seoPages.pages.homeCompostableCoffeeBags",
+    "title": "{t(`${p}.seo.title`, 'Home Compostable Coffee Bags | Certified High-Barrier | Achieve Pack')}"
+  },
+  {
+    "file": "CompostableBabyFoodBagsPage.tsx",
+    "key": "seoPages.pages.compostableBabyFoodBags",
+    "title": "{t(`${p}.compostableBabyFoodBagsNonToxi`)}"
+  },
+  {
+    "file": "MonoMaterialSolutionPage.tsx",
+    "key": "seoPages.pages.monoMaterialSolution",
+    "title": "{t(`seoPages.pages.monoMaterialSolution.metaTitle`)}"
+  },
+  {
+    "file": "PFASFreePackagingPage.tsx",
+    "key": "seoPages.pages.pFASFreePackaging",
+    "title": "{t(`${p}.pfasFreePackagingCertifiedSafe`)}"
+  },
+  {
+    "file": "PCRPackagingGuidePage.tsx",
+    "key": "seoPages.pages.pCRPackagingGuide",
+    "title": "{t(`seoPages.pages.pCRPackagingGuide.metaTitle`)}"
+  },
+  {
+    "file": "GreenCoffeeMaterialsPage.tsx",
+    "key": "seoPages.pages.greenCoffeeMaterials",
+    "title": "{t(`${p}.greenCoffeePackagingMaterialsH`)}"
+  },
+  {
+    "file": "CompostableZipperDurabilityPage.tsx",
+    "key": "seoPages.pages.compostableZipperDurability",
+    "title": "{t(`${p}.seo.title`, 'Solving Compostable Pouch Durability & Broken Zipper Failures | Achieve Pack')}"
+  },
+  {
+    "file": "RecyclableSnackPackagingPage.tsx",
+    "key": "seoPages.pages.recyclableSnackPackaging",
+    "title": "{t(`${p}.recyclableSnackPackagingHighBa`)}"
+  },
+  {
+    "file": "FoodPackagingSupplierServicePage.tsx",
+    "key": "seoPages.pages.foodPackagingSupplierService",
+    "title": "{t(`seoPages.pages.foodPackagingSupplierService.metaTitle`)}"
+  },
+  {
+    "file": "ChildResistantMylarBagsPage.tsx",
+    "key": "seoPages.pages.childResistantMylarBags",
+    "title": "{t(`${p}.childResistantMylarBagsCpscAst`)}"
+  },
+  {
+    "file": "CustomPrintedSustainablePouchesPage.tsx",
+    "key": "seoPages.pages.customPrintedSustainablePouches",
+    "title": "{t(`seoPages.pages.customPrintedSustainablePouches.metaTitle`)}"
+  },
+  {
+    "file": "CompostableCertificationFAQPage.tsx",
+    "key": "seoPages.pages.compostableCertificationFAQ",
+    "title": "{t(`${p}.seo.title`, 'Compostable Packaging Certification FAQ | Global Standards | Achieve Pack')}"
+  },
+  {
+    "file": "CompostableHumidityControlPage.tsx",
+    "key": "seoPages.pages.compostableHumidityControl",
+    "title": "{t(`${p}.compostableHumidityControlHigh`)}"
+  },
+  {
+    "file": "ReducePackagingWasteGuidePage.tsx",
+    "key": "seoPages.pages.reducePackagingWasteGuide",
+    "title": "ReducePackagingWasteGuidePage.tsx"
+  },
+  {
+    "file": "RecycledOceanPlasticPackagingPage.tsx",
+    "key": "seoPages.pages.recycledOceanPlasticPackaging",
+    "title": "{t(`seoPages.pages.recycledOceanPlasticPackaging.metaTitle`)}"
+  },
+  {
+    "file": "EcoPackagingRegulationsPage.tsx",
+    "key": "seoPages.pages.ecoPackagingRegulations",
+    "title": "{t(`${p}.ecoPackagingRegulationsGuideGl`)}"
+  },
+  {
+    "file": "CompostableSpoutedPouchesPage.tsx",
+    "key": "seoPages.pages.compostableSpoutedPouches",
+    "title": "{t(`seoPages.pages.compostableSpoutedPouches.metaTitle`)}"
+  },
+  {
+    "file": "CustomVsStandardPackagingPage.tsx",
+    "key": "seoPages.pages.customVsStandardPackaging",
+    "title": "{t(`${p}.seo.title`, 'Custom vs. Standard Packaging Guide | Combined SKU Discount Hack | Achieve Pack')}"
+  },
+  {
+    "file": "RecyclablePackagingGuidePage.tsx",
+    "key": "seoPages.pages.recyclablePackagingGuide",
+    "title": "{t(`${p}.recyclablePackagingGuideMonoMa`)}"
+  },
+  {
+    "file": "SustainablePackagingPillarPage.tsx",
+    "key": "seoPages.pages.sustainablePackagingPillar",
+    "title": "{t(`seoPages.pages.sustainablePackagingPillar.metaTitle`)}"
+  },
+  {
+    "file": "DigitalPrintingEcoPackagingPage.tsx",
+    "key": "seoPages.pages.digitalPrintingEcoPackaging",
+    "title": "{t(`${p}.digitalPrintingForEcoPackaging`)}"
+  },
+  {
+    "file": "MonoPEPouchesPage.tsx",
+    "key": "seoPages.pages.monoPEPouches",
+    "title": "{t(`${p}.monoPeRecyclablePouchesHighBar`)}"
+  },
+  {
+    "file": "CustomCompostablePouchSuppliersPage.tsx",
+    "key": "seoPages.pages.customCompostablePouchSuppliers",
+    "title": "{t(`seoPages.pages.customCompostablePouchSuppliers.metaTitle`)}"
+  },
+  {
+    "file": "EcoFriendlySupplierServicePage.tsx",
+    "key": "seoPages.pages.ecoFriendlySupplierService",
+    "title": "{t(`${p}.ecoFriendlySupplierVerificatio1`)}"
+  },
+  {
+    "file": "RealWorldSustainabilityPage.tsx",
+    "key": "seoPages.pages.realWorldSustainability",
+    "title": "{t(`seoPages.pages.realWorldSustainability.metaTitle`)}"
+  },
+  {
+    "file": "DTCSustainablePackagingPage.tsx",
+    "key": "seoPages.pages.dTCSustainablePackaging",
+    "title": "{t(`${p}.seo.title`, 'DTC Sustainable Packaging | Logistics & Brand Strategy | Achieve Pack')}"
+  },
+  {
+    "file": "MinimalistD2CPackagingPage.tsx",
+    "key": "seoPages.pages.minimalistD2CPackaging",
+    "title": "{t(`${p}.minimalistD2cPackagingLogistic`)}"
+  },
+  {
+    "file": "EcoFriendlySupplierVerificationPage.tsx",
+    "key": "seoPages.pages.ecoFriendlySupplierVerification",
+    "title": "EcoFriendlySupplierVerificationPage.tsx"
+  },
+  {
+    "file": "CustomBrandPackagingServicePage.tsx",
+    "key": "seoPages.pages.customBrandPackagingService",
+    "title": "CustomBrandPackagingServicePage.tsx"
+  },
+  {
+    "file": "LowMOQStartupPackagingPage.tsx",
+    "key": "seoPages.pages.lowMOQStartupPackaging",
+    "title": "{t(`${p}.lowMoqStartupPackagingAgileSus`)}"
+  }
+]

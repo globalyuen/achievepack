@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-01",
-  "total_images": 4526,
+  "generated": "2026-07-02",
+  "total_images": 4532,
   "total_categories": 173,
   "extensions": {
     ".webp": 1313,
-    ".png": 2972,
-    ".jpg": 238,
+    ".png": 2973,
+    ".jpg": 243,
     ".svg": 3
   },
   "categories": {
@@ -12742,31 +12742,67 @@
       ]
     },
     "knowledge": {
-      "count": 11,
+      "count": 17,
       "images": [
+        {
+          "filename": "heat-sealing-perfect-seal.jpg",
+          "path": "/imgs/knowledge/heat-sealing-perfect-seal.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-01T23:41:29.372Z"
+        },
+        {
+          "filename": "heat-sealing-strip-test.jpg",
+          "path": "/imgs/knowledge/heat-sealing-strip-test.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-01T23:41:29.367Z"
+        },
+        {
+          "filename": "heat-sealing-machine.jpg",
+          "path": "/imgs/knowledge/heat-sealing-machine.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-01T23:41:29.361Z"
+        },
+        {
+          "filename": "bottle-printing-hero.jpg",
+          "path": "/imgs/knowledge/bottle-printing-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-01T02:35:40.849Z"
+        },
+        {
+          "filename": "bottle-printing-pad.jpg",
+          "path": "/imgs/knowledge/bottle-printing-pad.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-01T02:35:40.847Z"
+        },
         {
           "filename": "bottle-printing-silk-screen.jpg",
           "path": "/imgs/knowledge/bottle-printing-silk-screen.jpg",
           "extension": ".jpg",
-          "modified": "2026-06-30T09:43:29.947Z"
+          "modified": "2026-07-01T02:35:40.845Z"
         },
         {
           "filename": "bottle-printing-sticker-label.jpg",
           "path": "/imgs/knowledge/bottle-printing-sticker-label.jpg",
           "extension": ".jpg",
-          "modified": "2026-06-30T09:42:21.784Z"
+          "modified": "2026-07-01T02:35:40.843Z"
         },
         {
           "filename": "bottle-printing-laser-engraving.jpg",
           "path": "/imgs/knowledge/bottle-printing-laser-engraving.jpg",
           "extension": ".jpg",
-          "modified": "2026-06-30T09:39:50.258Z"
+          "modified": "2026-07-01T02:35:40.840Z"
         },
         {
           "filename": "bottle-printing-heat-transfer.jpg",
           "path": "/imgs/knowledge/bottle-printing-heat-transfer.jpg",
           "extension": ".jpg",
-          "modified": "2026-06-30T09:39:10.747Z"
+          "modified": "2026-07-01T02:35:40.836Z"
+        },
+        {
+          "filename": "bottle-printing-foiling-hot-stamping.png",
+          "path": "/imgs/knowledge/bottle-printing-foiling-hot-stamping.png",
+          "extension": ".png",
+          "modified": "2026-07-01T02:27:37.962Z"
         },
         {
           "filename": "premium-finishes-pouch.png",

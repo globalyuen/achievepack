@@ -127,6 +127,7 @@ const LEARN_PAGES = {
       { name: 'Writable & Stampable Pouches', link: '/knowledge/writable-stampable-pouches', image: '/imgs/knowledge/writable-stampable-pouches.jpg' },
       { name: 'Color Matching Guide', link: '/knowledge/digital-printing-pantone-color-matching', image: '/imgs/knowledge/color-matching/pms-cmyk-deviation.png' },
       { name: 'PHA vs PLA', link: '/knowledge/pha-vs-pla', image: '/imgs/materials/citrus_clear_spout_pouch.png' },
+      { name: 'Heat Sealing Guide', link: '/knowledge/pouch-heat-sealing-temperature-guide', image: '/imgs/knowledge/heat-sealing-machine.jpg' },
     ]
   },
   support: {

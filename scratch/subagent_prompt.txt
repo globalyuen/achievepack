@@ -1,0 +1,126 @@
+You are an expert copywriter for Achieve Pack, a sustainable packaging manufacturer.
+We need to generate a "Buyer Concerns & Solutions" section for all of our 103 SEO landing pages.
+
+For EACH of the following keys, you must write:
+1. `title`: "Buyer Concerns & Solutions"
+2. `concern1Title`, `concern1Pain`, `concern1Solution`
+3. `concern2Title`, `concern2Pain`, `concern2Solution`
+4. `concern3Title`, `concern3Pain`, `concern3Solution`
+5. `concern4Title`, `concern4Pain`, `concern4Solution`
+6. `concern5Title`, `concern5Pain`, `concern5Solution`
+
+The concerns and solutions MUST be highly relevant to the specific topic implied by the key name.
+For example, if the key is 'compostablePackaging', the concerns should be about barrier properties, shelf life, and certification.
+
+Please generate a SINGLE JSON file at `/Users/ryanmacmini/Desktop/1 App i made/Master Achieve Pack/achieve pack website/achieve-pack/scratch/buyer_concerns_en.json` containing a JSON object where the root keys are the keys below, and the values are the generated objects.
+Be sure to wrap the entire object in `{ }` and format it properly as valid JSON.
+DO NOT output any markdown blocks like ```json ... ```, ONLY output the raw JSON directly to the file!
+
+Here are the keys:
+[
+  "apparelZipper",
+  "beefJerkyBarrier",
+  "cacaoStandUp",
+  "candyUv",
+  "cheesePocketZipper",
+  "childResistantMylarBags",
+  "cocktailSpout",
+  "collagenHighBarrier",
+  "compostableBabyFoodBags",
+  "compostableCertificationFaq",
+  "compostableHumidityControl",
+  "compostablePackagingBlog",
+  "compostableSpoutedPouches",
+  "compostableZipperDurability",
+  "crispsShaped",
+  "customBrandPackaging",
+  "customBrandPackagingService",
+  "customCompostablePouchSuppliers",
+  "customPrintedSustainablePouches",
+  "customVsStandardPackaging",
+  "ddpPackaging",
+  "detergentSpout",
+  "digitalPrintingEcoPackaging",
+  "driedFruitsTearNotch",
+  "dtcSustainablePackaging",
+  "dynamicPouchTopic",
+  "ecoFriendlyFoodPackaging",
+  "ecoFriendlySupplierService",
+  "ecoFriendlySupplierVerification",
+  "ecoPackagingRegulations",
+  "electronicsAntiStatic",
+  "euppwrCompliance",
+  "euroHoleHang",
+  "evohRetort",
+  "fastAirFreight",
+  "fdaBrcCertified",
+  "foodPackagingSupplier",
+  "foodPackagingSupplierService",
+  "frozenVacuum",
+  "granolaSoftTouch",
+  "greenCoffeeMaterials",
+  "hologramHotStamping",
+  "homeCompostableCoffeeBags",
+  "homeVsIndustrialCompostable",
+  "isoSustainable",
+  "lowMoqStartupPackaging",
+  "matchaSachet",
+  "minimalistD2CPackaging",
+  "monoMaterialSolution",
+  "monoPePouches",
+  "pcrPackagingGuide",
+  "petFoodQuadSeal",
+  "pfasFreePackaging",
+  "pharmaVelcro",
+  "plaRice",
+  "pouchChildResistantMylarBags",
+  "pouchCompostableBabyFoodBags",
+  "pouchCompostableCertificationFaq",
+  "pouchCompostableHumidityControl",
+  "pouchCompostablePackagingBlog",
+  "pouchCompostableSpoutedPouches",
+  "pouchCompostableZipperDurability",
+  "pouchCompostableZipperNoRemoval",
+  "pouchCustomBrandPackaging",
+  "pouchCustomBrandPackagingService",
+  "pouchCustomCompostablePouchSuppliers",
+  "pouchCustomPrintedSustainablePouches",
+  "pouchCustomVsStandardPackaging",
+  "pouchDigitalPrintingEcoPackaging",
+  "pouchDtcSustainablePackaging",
+  "pouchEcoFriendlyFoodPackaging",
+  "pouchEcoFriendlySupplierService",
+  "pouchEcoFriendlySupplierVerification",
+  "pouchEcoPackagingRegulations",
+  "pouchFoodPackagingSupplierService",
+  "pouchGreenCoffeeMaterials",
+  "pouchHighHeatCandlePackaging",
+  "pouchHomeCompostableCoffeeBags",
+  "pouchLowMoqStartupPackaging",
+  "pouchMinimalistD2CPackaging",
+  "pouchMonoMaterialSolution",
+  "pouchMonoPePouches",
+  "pouchPcrPackagingGuide",
+  "pouchPfasFreePackaging",
+  "pouchRealWorldSustainability",
+  "pouchRecyclablePackagingGuide",
+  "pouchRecyclableSnackPackaging",
+  "pouchRecycledOceanPlasticPackaging",
+  "pouchReducePackagingWasteGuide",
+  "pouchReduceWasteGuide",
+  "pouchSustainablePackagingPillar",
+  "premiumTea",
+  "realWorldSustainability",
+  "recyclablePackagingGuide",
+  "recyclableSnackPackaging",
+  "recycledOceanPlasticPackaging",
+  "reducePackagingWasteGuide",
+  "reduceWasteGuide",
+  "ricePaperArtisanal",
+  "spicesMoistureProof",
+  "sustainablePackagingPillar",
+  "urgentOrders",
+  "valveCoffeeBags"
+]
+
+Use the `write_to_file` tool to save the JSON.

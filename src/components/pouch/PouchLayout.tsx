@@ -1047,6 +1047,24 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
         </div>
       </footer>
 
+      {/* Floating Sandbox Warning / WhatsApp Button */}
+      {(location.pathname.includes('/store') || location.pathname.includes('/shop')) && (
+        <a 
+          href={`https://api.whatsapp.com/send/?phone=85269704411&text=${encodeURIComponent('Hi, I am inquiring about ' + (typeof window !== 'undefined' ? window.location.href : ''))}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 left-6 z-50 bg-[#D4FF00] border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all flex flex-col gap-1 max-w-[280px] cursor-pointer group"
+        >
+          <div className="font-['JetBrains_Mono'] font-black text-xs uppercase flex items-center gap-2">
+            <span className="text-lg">🚧</span>
+            <span className="leading-tight">Payment system is under testing (Sandbox Mode)</span>
+          </div>
+          <div className="font-bold text-[10px] leading-tight">
+            No payments can be processed. <span className="underline group-hover:text-black/70">Contact Us to Order......</span>
+          </div>
+        </a>
+      )}
+
       {/* Global B2C Search Modal */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} theme="b2c" />
     </div>

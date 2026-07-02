@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom'
 
 const translations = {
   en: {
-    title: "How to Print on Bottles & Canisters: 4 Main Methods Compared",
-    metaDesc: "Compare Heat Transfer, Laser Engraving, Sticker Labeling, and Silk Screen Printing for custom bottles and canisters. Read materials specs, wash limits, and GRS auditing standards.",
+    title: "How to Print on Bottles & Canisters: 5 Main Methods Compared",
+    metaDesc: "Compare Heat Transfer, Laser Engraving, Sticker Labeling, Silk Screen, and Pad Printing for custom bottles and canisters. Read materials specs, wash limits, and GRS auditing standards.",
     heroTitle: "How to Print on Bottles & Jars: The Ultimate Customization Guide",
-    heroSubtitle: "Analyzing heat transfer, laser engraving, stickers, and silk screen printing for sustainable rigid packaging.",
+    heroSubtitle: "Analyzing heat transfer, laser engraving, stickers, silk screen, and pad printing for sustainable rigid packaging.",
     faq1q: "Which printing method is best for cylindrical acrylic canisters?",
     faq1a: "For cylindrical acrylic canisters, silk screen printing is the industry standard for 1-2 spot colors due to high adhesion and lower cost. For complex full-color designs, heat transfer film via a heated silicone roller offers the best wrap-around result, while adhesive labels are the most versatile for fast product runs.",
     faq2q: "How does heat transfer printing on a bottle bottom work?",
@@ -20,44 +20,50 @@ const translations = {
     faq3q: "Is laser engraving permanent on painted metallic and plastic surfaces?",
     faq3a: "Yes. Laser engraving is a subtractive process that uses a high-energy laser beam to vaporize or etch the top coat of the bottle, exposing the material underneath (such as stainless steel or contrasting polymer layers). It is 100% permanent, wash-proof, and won't fade.",
     introTitle: "Rigid Packaging Customization: Decoding the Print Pipeline",
-    quickAnswer: "Quick Answer: Small spot-color logos are best applied via Silk Screen Printing, while full-color wraps require Heat Transfer Film under pressure. Permanent tactile marks are achieved by Laser Engraving, and variable batches utilize high-durability Sticker Labels.",
+    quickAnswer: "Quick Answer: Small spot-color logos on bottom curves are printed using Pad Printing. Silk Screen is best for body spot colors, while full-color wraps require Heat Transfer. Laser Engraving provides permanent markings, and Sticker Labels are best for versatile smaller batches.",
     takeawayTitle: "Key Takeaways",
     takeaway1: "Silk screen printing provides the thickest ink layer, delivering vibrant spot colors with excellent chemical resistance.",
     takeaway2: "Heat transfer plates transfer complex photographic graphics from a PET carrier film to the bottle surface at 180°C.",
     takeaway3: "Laser engraving vaporizes surface coats, creating durable, tactile, and completely wash-proof branding.",
     takeaway4: "Self-adhesive sticker labels are highly versatile, allowing easy design pivots and material textures.",
+    takeaway5: "Pad printing uses a soft silicone bulb to transfer ink onto complex or recessed surfaces like curved bottle bottoms.",
     introP1: "Customizing rigid containers like acrylic canisters, PET bottles, and metal jars requires selecting the correct mechanical printing pipeline. The right choice depends on the surface curvature, container material, design complexity, and expected lifecycle limits.",
-    introP2: "Below, we dive deep into the mechanics of Heat Transfer, Laser Engraving, Sticker Decals, and Silk Screen Printing, analyzing how they perform under commercial wash cycles, GRS standards, and everyday shipping environments.",
+    introP2: "Below, we dive deep into the mechanics of Heat Transfer, Laser Engraving, Sticker Decals, Silk Screen, and Pad Printing, analyzing how they perform under commercial wash cycles, GRS standards, and everyday shipping environments.",
     expertTitle: "Expert Engineering Insight",
     expertSub: "From Ryan Wong's Engineering Notebook",
     expertQ1: "\"A common error in bottle customization is trying to use direct heat transfer iron-ons on the bottom curve of an acrylic jar. Direct heat plates cause uneven pressure, resulting in micro-bubbles and logo peeling.\"",
-    expertQ2: "To print successfully on curved bottoms, we employ a heated silicone rubber transfer roller. The soft silicone conforms to the bottle surface, ensuring even pressure and thermal dwell time. For rigid acrylic, we also pre-treat the surface with a flame or corona discharge to maximize ink adhesion and pass the 3M tape test.",
+    expertQ2: "To print successfully on curved bottoms, we employ a heated silicone rubber transfer roller or utilize pad printing. The soft silicone pad or roller conforms to the bottle surface, ensuring even pressure and thermal dwell time. For rigid acrylic, we also pre-treat the surface with a flame or corona discharge to maximize ink adhesion and pass the 3M tape test.",
     matrixTitle: "Technical Comparison Matrix: Bottle Customization",
     matrixParam: "Technical Parameter",
     methodHeat: "Heat Transfer",
     methodLaser: "Laser Engraving",
     methodSticker: "Stickers & Labels",
     methodScreen: "Silk Screen",
+    methodPad: "Pad Printing",
     durability: "Wash Durability (Cycles)",
     heatDur: "100+ Cycles (Commercial)",
     laserDur: "Infinite (Lifetime Permanent)",
     stickerDur: "50-100 Cycles (Premium PET)",
     screenDur: "200+ Cycles (Epoxy Inks)",
+    padDur: "150+ Cycles (Silicone Inks)",
     setupCost: "Initial Setup / Plates Cost",
     heatSetup: "High (Per Cylinder Plate)",
     laserSetup: "Zero (Digital Vector)",
     stickerSetup: "Low (Digital Die-Cut)",
     screenSetup: "Medium (Mesh Screen)",
+    padSetup: "Low-Medium (Etched Cliché)",
     minOrder: "Minimum Order Quantity (MOQ)",
     heatMoq: "3,000+ units",
     laserMoq: "100+ units",
     stickerMoq: "100+ units",
     screenMoq: "500+ units",
+    padMoq: "1,000+ units",
     colorCapability: "Color Capability",
     heatColor: "Full-color photographic gradients",
     laserColor: "Monochrome (Subtracted layer)",
     stickerColor: "Full CMYK + Metallic/Textured",
     screenColor: "1-4 Spot Colors (PMS matching)",
+    padColor: "1-2 Spot Colors (Ideal for bottom curves)",
     ctaTitle: "Request a Printing Feasibility Review",
     ctaDesc: "Send us your artwork to analyze the optimal printing setup for your bottles, canisters, and lids under GRS circular standards.",
     ctaBtn: "Consult with Ryan Wong",
@@ -66,13 +72,13 @@ const translations = {
     shopTitle: "Customize Reusable Canisters",
     shopDesc: "We support screen printing, laser engraving, and custom label application from 100+ units.",
     shopBtn: "Shop Reusable Canisters",
-    processTitle: "Step-by-Step Print Mechanics"
+    processTitle: "Five Main Printing Processes Illustrated"
   },
   'zh-TW': {
-    title: "瓶罐印刷指南：四種主流客製化工藝深度比較",
-    metaDesc: "比較熱轉印、雷射雕刻、不干膠貼紙和絲網印刷四種瓶罐客製化工藝。了解材料適性、耐洗性與 GRS 永續包裝規範。",
-    heroTitle: "瓶罐客製化指南：解密四種主流印刷工藝",
-    heroSubtitle: "深入分析熱轉印、雷射雕刻、貼標與絲網印刷在永續硬質包裝中的應用與技術規格。",
+    title: "瓶罐印刷指南：五種主流客製化工藝深度比較",
+    metaDesc: "比較熱轉印、雷射雕刻、不干膠貼紙、絲網印刷與移印五種瓶罐客製化工藝。了解材料適性、耐洗性與 GRS 永續包裝規範。",
+    heroTitle: "瓶罐客製化指南：解密五種主流印刷工藝",
+    heroSubtitle: "深入分析熱轉印、雷射雕刻、貼標、絲網印刷與移印在永續硬質包裝中的應用與技術規格。",
     faq1q: "哪種印刷方法最適合亞克力罐？",
     faq1a: "對於亞克力罐，絲網印刷是印製 1-2 色單色標誌的首選，附著力強且成本較低。若有複雜的多色或漸層設計，採用矽膠輪加熱的熱轉印膜是最佳選擇；而對於小批量和多品項，不干膠貼紙是最具彈性的做法。",
     faq2q: "瓶底或瓶身的熱轉印是如何運作的？",
@@ -80,44 +86,50 @@ const translations = {
     faq3q: "雷射雕刻在塗層金屬或塑料表面是永久性的嗎？",
     faq3a: "是的。雷射雕刻是一種減法工藝，利用高能量雷射光束氣化或蝕刻瓶子表面的塗層，顯露出底層的材質色彩（如不鏽鋼或不同顏色的聚合物層）。它100%永久存在，耐磨防刮且永不褪色。",
     introTitle: "硬質包裝客製化：解構印刷生產鏈",
-    quickAnswer: "快速解答：小面積單色標誌首選「絲網印刷」；全彩漸層包裝適用「熱轉印膜」；金屬與高端瓶罐推薦「雷射雕刻」實現永續不褪色；小批量多樣化設計最適合採用「不干膠貼紙」。",
+    quickAnswer: "快速解答：瓶底或小面積凹凸弧面首選「移印」；瓶身單色標誌採用「絲網印刷」；全彩漸層大面積使用「熱轉印膜」；金屬與高端耐磨標誌推薦「雷射雕刻」；小批量靈活設計選用「不干膠貼紙」。",
     takeawayTitle: "關鍵要點",
     takeaway1: "絲網印刷能提供最厚實的墨層，呈現飽滿的專色並具備極佳的耐化學性。",
     takeaway2: "熱轉印工藝在高溫（180°C）下，將 PET 載體膜上的全彩照片級圖案完整轉移至瓶身。",
     takeaway3: "雷射雕刻直接氣化表面塗層，創造出極佳的耐磨性、質感與完全防洗的品牌標誌。",
     takeaway4: "不干膠貼紙提供最大的材質選擇與彈性，適合產品迭代與豐富的表面紋理。",
+    takeaway5: "移印工藝使用軟性矽膠移印頭，能將油墨精準轉移到瓶底凹槽或雙曲面等複雜區域。",
     introP1: "硬質包裝容器（如亞克力密封罐、PET 瓶和金屬茶罐）的客製化，首要步驟是選擇正確的物理印刷生產工藝。這取決於容器的表面曲率、材質特性、設計複雜度以及預期的生命週期。",
-    introP2: "下面我們將深入探討熱轉印、雷射雕刻、貼標與絲網印刷的工藝機制，並分析其在商業清洗、GRS 永續標準與物流運輸中的實際表現。",
+    introP2: "下面我們將深入探討熱轉印、雷射雕刻、貼標、絲網印刷與移印的工藝機制，並分析其在商業清洗、GRS 永續標準與物流運輸中的實際表現。",
     expertTitle: "專家工程見解",
     expertSub: "來自 Ryan Wong 的工程筆記",
     expertQ1: "「在亞克力罐的弧面底部進行客製化時，一個常見錯誤是試圖使用直壓式熨印轉印。這種硬性直壓會導致弧面受力不均，產生微小氣泡和邊緣翹起起皮。」",
-    expertQ2: "為了解決弧面印刷，我們採用了受熱均勻的軟性矽膠轉印滾輪。軟性矽膠能順應瓶身弧度，確保壓力和熱傳導均勻。對於表面緻密的亞克力，我們會先進行火焰或電暈預處理，以提升油墨的附著力，確保通過 3M 拉力測試。」",
+    expertQ2: "為了解決瓶底或雙曲面印刷，我們採用軟性矽膠轉印滾輪或移印。矽膠移印頭能順應複雜的瓶底弧度，確保壓力和油墨轉移均勻。對於表面緻密的亞克力，我們會先進行電暈預處理，以提升油墨的附著力，確保通過 3M 拉力測試。」",
     matrixTitle: "技術參數比較表：瓶罐客製化印刷",
     matrixParam: "技術參數",
     methodHeat: "熱轉印 (Transfer)",
     methodLaser: "雷射雕刻 (Laser)",
     methodSticker: "貼紙標籤 (Stickers)",
     methodScreen: "絲網印刷 (Screen)",
+    methodPad: "移印工藝 (Pad)",
     durability: "耐清洗壽命 (洗碗機測試)",
     heatDur: "100次以上商業洗滌",
     laserDur: "永久不磨損 (與材質共存)",
     stickerDur: "50-100次 (高端防水PET)",
     screenDur: "200次以上 (環氧樹脂油墨)",
+    padDur: "150次以上 (矽膠固化油墨)",
     setupCost: "版費與前期設置成本",
     heatSetup: "高 (需製作電雕鋼版鋼輥)",
     laserSetup: "零版費 (數位向量控制)",
     stickerSetup: "極低 (數位刀模切)",
     screenSetup: "中等 (網版感光製版)",
+    padSetup: "中低 (凹版鋼板/鋼模製版)",
     minOrder: "最低起訂量 (MOQ)",
     heatMoq: "3,000 個起",
     laserMoq: "100 個起",
     stickerMoq: "100 個起",
     screenMoq: "500 個起",
+    padMoq: "1,000 個起",
     colorCapability: "色彩表現力",
     heatColor: "支持全彩色相片級漸層",
     laserColor: "單色 (取決於底材顯色)",
     stickerColor: "全彩 CMYK + 燙金與局部紋理",
     screenColor: "1-4 色專色 (PMS 對色系統)",
+    padColor: "1-2 色專色 (最適合瓶底與凹面)",
     ctaTitle: "預約瓶罐客製化工藝評估",
     ctaDesc: "提供您的標誌與包裝設計，由包裝工程師為您規劃最符合 GRS 永續認證與生產預算的印刷方案。",
     ctaBtn: "預約 Ryan Wong 的諮詢",
@@ -126,7 +138,7 @@ const translations = {
     shopTitle: "客製化可重複使用罐",
     shopDesc: "支持 100 個起進行絲網印刷、雷射雕刻與標籤貼紙定制服務。",
     shopBtn: "選購密封罐系列",
-    processTitle: "四種印刷工藝工作原理圖"
+    processTitle: "五種主流印刷工藝工作原理圖"
   }
 }
 
@@ -264,6 +276,19 @@ export default function BottlePrintingGuidePage() {
   const { i18n } = useTranslation()
   const isPouchDomain = getDomain() === 'pouch'
   
+  const [lightboxImage, setLightboxImage] = React.useState<string | null>(null)
+  const [lightboxCaption, setLightboxCaption] = React.useState<string>('')
+
+  const openLightbox = (imgSrc: string, caption: string) => {
+    setLightboxImage(imgSrc)
+    setLightboxCaption(caption)
+  }
+
+  const closeLightbox = () => {
+    setLightboxImage(null)
+    setLightboxCaption('')
+  }
+  
   // Language switcher translation selector
   const currentLang = i18n.language && i18n.language.startsWith('zh') ? 'zh-TW' : 'en'
   const t = translations[currentLang]
@@ -310,20 +335,42 @@ export default function BottlePrintingGuidePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
           <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
             <h4 className="font-black text-lg uppercase mb-3 text-black">1. {t.methodHeat}</h4>
-            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black">
-              <img src="/imgs/knowledge/bottle-printing-heat-transfer.jpg" alt="Heat Transfer Printing Machine" className="w-full h-full object-cover" />
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              <div className="relative group cursor-zoom-in overflow-hidden rounded border border-black aspect-[4/3] bg-slate-950">
+                <img 
+                  src="/imgs/knowledge/bottle-printing-heat-transfer.jpg" 
+                  alt="Heat Transfer Printing Machine Schematic" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                  onClick={() => openLightbox("/imgs/knowledge/bottle-printing-heat-transfer.jpg", currentLang === 'zh-TW' ? "技術原理圖：滾輪式瓶身熱轉印" : "Technical Schematic: Roller-based Bottle Heat Transfer")}
+                />
+                <span className="absolute bottom-1 right-1 bg-black text-white text-[9px] px-1 font-['JetBrains_Mono'] uppercase">Schematic</span>
+              </div>
+              <div className="relative group cursor-zoom-in overflow-hidden rounded border border-black aspect-[4/3] bg-slate-950">
+                <img 
+                  src="/imgs/knowledge/bottle-printing-foiling-hot-stamping.png" 
+                  alt="Heat Transfer / Hot Foiling Production" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                  onClick={() => openLightbox("/imgs/knowledge/bottle-printing-foiling-hot-stamping.png", currentLang === 'zh-TW' ? "真實生產線：瓶罐熱轉印與燙金工藝" : "Production Line: Bottle Heat Transfer & Hot Foiling Process")}
+                />
+                <span className="absolute bottom-1 right-1 bg-black text-white text-[9px] px-1 font-['JetBrains_Mono'] uppercase">Live Photo</span>
+              </div>
             </div>
             <p className="text-xs text-neutral-600 font-bold font-['JetBrains_Mono']">
               {currentLang === 'zh-TW' 
-                ? "將受熱（約180°C）的矽膠壓版/壓輪向轉印薄膜施壓，使背膠熔化並把圖案貼合在瓶身上。"
-                : "Heated silicone roller rolls over carrier film, thermal-releasing full-color ink directly to bottle body."}
+                ? "技術原理（左）：滾輪式熱轉印。生產實拍（右）：通過加熱矽膠輪將轉印薄膜壓合至瓶身，實現高解析度全彩印刷與燙金。"
+                : "Schematic (Left): Roller-based transfer. Live (Right): Heated silicone roller transfers design under pressure for high-resolution graphics and hot foiling."}
             </p>
           </div>
 
           <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
             <h4 className="font-black text-lg uppercase mb-3 text-black">2. {t.methodLaser}</h4>
-            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black">
-              <img src="/imgs/knowledge/bottle-printing-laser-engraving.jpg" alt="Laser Engraving Schematic" className="w-full h-full object-cover" />
+            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black relative group cursor-zoom-in bg-slate-950">
+              <img 
+                src="/imgs/knowledge/bottle-printing-laser-engraving.jpg" 
+                alt="Laser Engraving Schematic" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                onClick={() => openLightbox("/imgs/knowledge/bottle-printing-laser-engraving.jpg", currentLang === 'zh-TW' ? "技術原理圖：高能雷射雕刻" : "Technical Schematic: High-Energy Laser Engraving")}
+              />
             </div>
             <p className="text-xs text-neutral-600 font-bold font-['JetBrains_Mono']">
               {currentLang === 'zh-TW' 
@@ -334,8 +381,13 @@ export default function BottlePrintingGuidePage() {
 
           <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
             <h4 className="font-black text-lg uppercase mb-3 text-black">3. {t.methodSticker}</h4>
-            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black">
-              <img src="/imgs/knowledge/bottle-printing-sticker-label.jpg" alt="Sticker Labeling Machine" className="w-full h-full object-cover" />
+            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black relative group cursor-zoom-in bg-slate-950">
+              <img 
+                src="/imgs/knowledge/bottle-printing-sticker-label.jpg" 
+                alt="Sticker Labeling Machine" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                onClick={() => openLightbox("/imgs/knowledge/bottle-printing-sticker-label.jpg", currentLang === 'zh-TW' ? "技術原理圖：不干膠貼標機" : "Technical Schematic: Self-Adhesive Labeling")}
+              />
             </div>
             <p className="text-xs text-neutral-600 font-bold font-['JetBrains_Mono']">
               {currentLang === 'zh-TW' 
@@ -346,13 +398,35 @@ export default function BottlePrintingGuidePage() {
 
           <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
             <h4 className="font-black text-lg uppercase mb-3 text-black">4. {t.methodScreen}</h4>
-            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black">
-              <img src="/imgs/knowledge/bottle-printing-silk-screen.jpg" alt="Silk Screen Printing Schematic" className="w-full h-full object-cover" />
+            <div className="w-full aspect-[4/3] mb-3 overflow-hidden rounded border border-black relative group cursor-zoom-in bg-slate-950">
+              <img 
+                src="/imgs/knowledge/bottle-printing-silk-screen.jpg" 
+                alt="Silk Screen Printing Schematic" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                onClick={() => openLightbox("/imgs/knowledge/bottle-printing-silk-screen.jpg", currentLang === 'zh-TW' ? "技術原理圖：絲網印刷" : "Technical Schematic: Silk Screen Printing")}
+              />
             </div>
             <p className="text-xs text-neutral-600 font-bold font-['JetBrains_Mono']">
               {currentLang === 'zh-TW' 
                 ? "刮油刀施壓使專色油墨穿過感光開孔網布，覆蓋在瓶身上，墨層厚實飽滿且附著力佳。"
                 : "Flexible squeegee forces thick resin-based ink through open stencil mesh directly on bottle."}
+            </p>
+          </div>
+
+          <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between col-span-1 md:col-span-2">
+            <h4 className="font-black text-lg uppercase mb-3 text-black">5. {t.methodPad}</h4>
+            <div className="w-full max-w-xl mx-auto aspect-[4/3] mb-3 overflow-hidden rounded border border-black relative group cursor-zoom-in bg-slate-950">
+              <img 
+                src="/imgs/knowledge/bottle-printing-pad.jpg" 
+                alt="Pad Printing Machine" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                onClick={() => openLightbox("/imgs/knowledge/bottle-printing-pad.jpg", currentLang === 'zh-TW' ? "技術原理圖：凹凸面與瓶底移印工藝" : "Technical Schematic: Curved Bottom Pad Printing")}
+              />
+            </div>
+            <p className="text-xs text-neutral-600 font-bold font-['JetBrains_Mono']">
+              {currentLang === 'zh-TW' 
+                ? "移印頭（矽膠球）將油墨從凹版鋼板轉移到瓶罐底部或雙曲面凹陷處，能適應極具挑戰性的曲面與瓶底標示。"
+                : "Silicone transfer bulb absorbs ink from an etched steel plate and stamps it onto non-flat bottom grooves or dual-curve surfaces."}
             </p>
           </div>
         </div>
@@ -365,7 +439,9 @@ export default function BottlePrintingGuidePage() {
       content: (
         <div className="space-y-6 border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex items-center gap-4 border-b-4 border-black pb-4 mb-4">
-            <Award className="w-10 h-10 text-black" strokeWidth={3} />
+            <div className="flex-shrink-0 w-16 h-16 bg-white border-4 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rounded-full overflow-hidden">
+              <img src="/imgs/seo/ryan_headshot_new.png" alt="Ryan Wong" className="w-full h-full object-cover" />
+            </div>
             <div>
               <h4 className="font-black text-2xl uppercase">{t.expertSub}</h4>
               <p className="text-xs font-['JetBrains_Mono'] font-black uppercase bg-[#D4FF00] border-2 border-black px-2 py-0.5 mt-1 inline-block">14+ Years Experience | GRS Auditing</p>
@@ -398,6 +474,7 @@ export default function BottlePrintingGuidePage() {
                 <th className="border-2 border-black p-3 text-left uppercase font-black">{t.methodLaser}</th>
                 <th className="border-2 border-black p-3 text-left uppercase font-black">{t.methodSticker}</th>
                 <th className="border-2 border-black p-3 text-left uppercase font-black">{t.methodScreen}</th>
+                <th className="border-2 border-black p-3 text-left uppercase font-black">{t.methodPad}</th>
               </tr>
             </thead>
             <tbody>
@@ -407,6 +484,7 @@ export default function BottlePrintingGuidePage() {
                 <td className="border-2 border-black p-3">{t.laserDur}</td>
                 <td className="border-2 border-black p-3">{t.stickerDur}</td>
                 <td className="border-2 border-black p-3">{t.screenDur}</td>
+                <td className="border-2 border-black p-3">{t.padDur}</td>
               </tr>
               <tr className="border-b-2 border-black">
                 <td className="border-2 border-black p-3 font-bold">{t.setupCost}</td>
@@ -414,6 +492,7 @@ export default function BottlePrintingGuidePage() {
                 <td className="border-2 border-black p-3">{t.laserSetup}</td>
                 <td className="border-2 border-black p-3">{t.stickerSetup}</td>
                 <td className="border-2 border-black p-3">{t.screenSetup}</td>
+                <td className="border-2 border-black p-3">{t.padSetup}</td>
               </tr>
               <tr className="border-b-2 border-black">
                 <td className="border-2 border-black p-3 font-bold">{t.minOrder}</td>
@@ -421,6 +500,7 @@ export default function BottlePrintingGuidePage() {
                 <td className="border-2 border-black p-3">{t.laserMoq}</td>
                 <td className="border-2 border-black p-3">{t.stickerMoq}</td>
                 <td className="border-2 border-black p-3">{t.screenMoq}</td>
+                <td className="border-2 border-black p-3">{t.padMoq}</td>
               </tr>
               <tr>
                 <td className="border-2 border-black p-3 font-bold">{t.colorCapability}</td>
@@ -428,6 +508,7 @@ export default function BottlePrintingGuidePage() {
                 <td className="border-2 border-black p-3">{t.laserColor}</td>
                 <td className="border-2 border-black p-3">{t.stickerColor}</td>
                 <td className="border-2 border-black p-3">{t.screenColor}</td>
+                <td className="border-2 border-black p-3">{t.padColor}</td>
               </tr>
             </tbody>
           </table>
@@ -460,20 +541,42 @@ export default function BottlePrintingGuidePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
           <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col justify-between">
             <h4 className="font-bold text-xl text-neutral-900 mb-4">1. {t.methodHeat}</h4>
-            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100">
-              <img src="/imgs/knowledge/bottle-printing-heat-transfer.jpg" alt="Heat Transfer Printing Machine" className="w-full h-full object-cover" />
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              <div className="relative group cursor-zoom-in overflow-hidden rounded-xl border border-neutral-100 aspect-[4/3] bg-slate-950 shadow-sm">
+                <img 
+                  src="/imgs/knowledge/bottle-printing-heat-transfer.jpg" 
+                  alt="Heat Transfer Printing Machine Schematic" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                  onClick={() => openLightbox("/imgs/knowledge/bottle-printing-heat-transfer.jpg", currentLang === 'zh-TW' ? "技術原理圖：滾輪式瓶身熱轉印" : "Technical Schematic: Roller-based Bottle Heat Transfer")}
+                />
+                <span className="absolute bottom-2 right-2 bg-neutral-900/80 backdrop-blur-sm text-white text-[9px] px-1.5 py-0.5 rounded font-['JetBrains_Mono'] uppercase">Schematic</span>
+              </div>
+              <div className="relative group cursor-zoom-in overflow-hidden rounded-xl border border-neutral-100 aspect-[4/3] bg-slate-950 shadow-sm">
+                <img 
+                  src="/imgs/knowledge/bottle-printing-foiling-hot-stamping.png" 
+                  alt="Heat Transfer / Hot Foiling Production" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                  onClick={() => openLightbox("/imgs/knowledge/bottle-printing-foiling-hot-stamping.png", currentLang === 'zh-TW' ? "真實生產線：瓶罐熱轉印與燙金工藝" : "Production Line: Bottle Heat Transfer & Hot Foiling Process")}
+                />
+                <span className="absolute bottom-2 right-2 bg-neutral-900/80 backdrop-blur-sm text-white text-[9px] px-1.5 py-0.5 rounded font-['JetBrains_Mono'] uppercase">Live Photo</span>
+              </div>
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed">
               {currentLang === 'zh-TW' 
-                ? "利用加熱板傳導熱量至受熱均勻的矽膠滾輪，將高解析度的轉印薄膜壓印到旋转的瓶身上。"
-                : "Uses a heated silicone plate or roller to apply reverse-printed PET carrier graphics onto the bottle under pressure."}
+                ? "技術原理（左）：熱轉印。生產實拍（右）：利用矽膠輪將轉印薄膜壓印到旋轉的瓶身，高溫（約180°C）熔化圖案並牢固附著。"
+                : "Schematic (Left): Heat transfer process. Live Photo (Right): Roll-to-roll heat transfer press rolling reverse-printed PET carrier graphics onto the bottle."}
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col justify-between">
             <h4 className="font-bold text-xl text-neutral-900 mb-4">2. {t.methodLaser}</h4>
-            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100">
-              <img src="/imgs/knowledge/bottle-printing-laser-engraving.jpg" alt="Laser Engraving Schematic" className="w-full h-full object-cover" />
+            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100 relative group cursor-zoom-in bg-slate-950">
+              <img 
+                src="/imgs/knowledge/bottle-printing-laser-engraving.jpg" 
+                alt="Laser Engraving Schematic" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                onClick={() => openLightbox("/imgs/knowledge/bottle-printing-laser-engraving.jpg", currentLang === 'zh-TW' ? "技術原理圖：高能雷射雕刻" : "Technical Schematic: High-Energy Laser Engraving")}
+              />
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed">
               {currentLang === 'zh-TW' 
@@ -484,8 +587,13 @@ export default function BottlePrintingGuidePage() {
 
           <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col justify-between">
             <h4 className="font-bold text-xl text-neutral-900 mb-4">3. {t.methodSticker}</h4>
-            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100">
-              <img src="/imgs/knowledge/bottle-printing-sticker-label.jpg" alt="Sticker Labeling Machine" className="w-full h-full object-cover" />
+            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100 relative group cursor-zoom-in bg-slate-950">
+              <img 
+                src="/imgs/knowledge/bottle-printing-sticker-label.jpg" 
+                alt="Sticker Labeling Machine" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                onClick={() => openLightbox("/imgs/knowledge/bottle-printing-sticker-label.jpg", currentLang === 'zh-TW' ? "技術原理圖：不干膠貼標機" : "Technical Schematic: Self-Adhesive Labeling")}
+              />
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed">
               {currentLang === 'zh-TW' 
@@ -496,13 +604,35 @@ export default function BottlePrintingGuidePage() {
 
           <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col justify-between">
             <h4 className="font-bold text-xl text-neutral-900 mb-4">4. {t.methodScreen}</h4>
-            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100">
-              <img src="/imgs/knowledge/bottle-printing-silk-screen.jpg" alt="Silk Screen Printing Schematic" className="w-full h-full object-cover" />
+            <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100 relative group cursor-zoom-in bg-slate-950">
+              <img 
+                src="/imgs/knowledge/bottle-printing-silk-screen.jpg" 
+                alt="Silk Screen Printing Schematic" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                onClick={() => openLightbox("/imgs/knowledge/bottle-printing-silk-screen.jpg", currentLang === 'zh-TW' ? "技術原理圖：絲網印刷" : "Technical Schematic: Silk Screen Printing")}
+              />
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed">
               {currentLang === 'zh-TW' 
                 ? "刮刀將油墨透過感光網版的孔洞均勻擠壓到瓶罐表面，墨層厚實飽滿，耐用性極高。"
                 : "Squeegee sweeps thick chemical-resistant screen ink through stencil mesh holes onto the curved surface."}
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col justify-between col-span-1 md:col-span-2">
+            <h4 className="font-bold text-xl text-neutral-900 mb-4">5. {t.methodPad}</h4>
+            <div className="w-full max-w-2xl mx-auto aspect-[4/3] mb-4 overflow-hidden rounded-xl border border-neutral-100 relative group cursor-zoom-in bg-slate-950">
+              <img 
+                src="/imgs/knowledge/bottle-printing-pad.jpg" 
+                alt="Pad Printing Machine" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" 
+                onClick={() => openLightbox("/imgs/knowledge/bottle-printing-pad.jpg", currentLang === 'zh-TW' ? "技術原理圖：凹凸面與瓶底移印工藝" : "Technical Schematic: Curved Bottom Pad Printing")}
+              />
+            </div>
+            <p className="text-sm text-neutral-600 leading-relaxed">
+              {currentLang === 'zh-TW' 
+                ? "移印頭（矽膠球）將油墨從凹版鋼板轉移到瓶罐底部或雙曲面凹陷處，能適應極具挑戰性的曲面與瓶底標示。"
+                : "Silicone transfer bulb absorbs ink from an etched steel plate and stamps it onto non-flat bottom grooves or dual-curve surfaces."}
             </p>
           </div>
         </div>
@@ -516,7 +646,7 @@ export default function BottlePrintingGuidePage() {
         <div className="space-y-6">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-shrink-0 w-24 h-24 bg-neutral-100 rounded-full overflow-hidden border-4 border-white shadow-md">
-              <img src="/imgs/ryan-wong-avatar.png" alt="Ryan Wong" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+              <img src="/imgs/seo/ryan_headshot_new.png" alt="Ryan Wong" className="w-full h-full object-cover" />
             </div>
             <div>
               <h4 className="font-bold text-2xl text-neutral-900 mb-2">{t.expertSub}</h4>
@@ -549,11 +679,12 @@ export default function BottlePrintingGuidePage() {
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="bg-neutral-50 text-neutral-800 border-b border-neutral-200">
-                  <th className="p-5 font-semibold w-1/5 uppercase tracking-wider text-xs">{t.matrixParam}</th>
-                  <th className="p-5 font-bold text-primary-800 bg-primary-50 w-1/5 uppercase tracking-wider text-xs border-x border-primary-100">{t.methodHeat}</th>
-                  <th className="p-5 font-semibold w-1/5 uppercase tracking-wider text-xs">{t.methodLaser}</th>
-                  <th className="p-5 font-semibold w-1/5 uppercase tracking-wider text-xs">{t.methodSticker}</th>
-                  <th className="p-5 font-semibold w-1/5 uppercase tracking-wider text-xs">{t.methodScreen}</th>
+                  <th className="p-5 font-semibold w-1/6 uppercase tracking-wider text-xs">{t.matrixParam}</th>
+                  <th className="p-5 font-bold text-primary-800 bg-primary-50 w-1/6 uppercase tracking-wider text-xs border-x border-primary-100">{t.methodHeat}</th>
+                  <th className="p-5 font-semibold w-1/6 uppercase tracking-wider text-xs">{t.methodLaser}</th>
+                  <th className="p-5 font-semibold w-1/6 uppercase tracking-wider text-xs">{t.methodSticker}</th>
+                  <th className="p-5 font-semibold w-1/6 uppercase tracking-wider text-xs">{t.methodScreen}</th>
+                  <th className="p-5 font-semibold w-1/6 uppercase tracking-wider text-xs bg-neutral-100 text-neutral-800">{t.methodPad}</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
@@ -563,6 +694,7 @@ export default function BottlePrintingGuidePage() {
                   <td className="p-5 text-neutral-600">{t.laserDur}</td>
                   <td className="p-5 text-neutral-600">{t.stickerDur}</td>
                   <td className="p-5 text-neutral-600">{t.screenDur}</td>
+                  <td className="p-5 text-neutral-600 bg-neutral-50/50">{t.padDur}</td>
                 </tr>
                 <tr className="bg-neutral-50/50 hover:bg-neutral-50 border-b border-neutral-200">
                   <td className="p-5 font-medium text-neutral-900">{t.setupCost}</td>
@@ -570,6 +702,7 @@ export default function BottlePrintingGuidePage() {
                   <td className="p-5 text-neutral-600">{t.laserSetup}</td>
                   <td className="p-5 text-neutral-600">{t.stickerSetup}</td>
                   <td className="p-5 text-neutral-600">{t.screenSetup}</td>
+                  <td className="p-5 text-neutral-600 bg-neutral-50/50">{t.padSetup}</td>
                 </tr>
                 <tr className="hover:bg-neutral-50 border-b border-neutral-200">
                   <td className="p-5 font-medium text-neutral-900">{t.minOrder}</td>
@@ -577,6 +710,7 @@ export default function BottlePrintingGuidePage() {
                   <td className="p-5 text-neutral-600">{t.laserMoq}</td>
                   <td className="p-5 text-neutral-600">{t.stickerMoq}</td>
                   <td className="p-5 text-neutral-600">{t.screenMoq}</td>
+                  <td className="p-5 text-neutral-600 bg-neutral-50/50">{t.padMoq}</td>
                 </tr>
                 <tr className="bg-neutral-50/50 hover:bg-neutral-50">
                   <td className="p-5 font-medium text-neutral-900">{t.colorCapability}</td>
@@ -584,6 +718,7 @@ export default function BottlePrintingGuidePage() {
                   <td className="p-5 text-neutral-600">{t.laserColor}</td>
                   <td className="p-5 text-neutral-600">{t.stickerColor}</td>
                   <td className="p-5 text-neutral-600">{t.screenColor}</td>
+                  <td className="p-5 text-neutral-600 bg-neutral-50/50">{t.padColor}</td>
                 </tr>
               </tbody>
             </table>
@@ -592,6 +727,37 @@ export default function BottlePrintingGuidePage() {
       )
     }
   ]
+
+  const renderLightbox = () => {
+    if (!lightboxImage) return null;
+    return (
+      <div 
+        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/90 p-4 transition-all duration-300"
+        onClick={closeLightbox}
+      >
+        <button 
+          className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 border border-white/20 transition-all font-mono text-xl focus:outline-none animate-pulse"
+          onClick={closeLightbox}
+          aria-label="Close lightbox"
+        >
+          ✕
+        </button>
+        <div className="relative max-w-5xl max-h-[80vh] overflow-hidden flex items-center justify-center border-4 border-white shadow-2xl bg-slate-900 rounded-lg">
+          <img 
+            src={lightboxImage} 
+            alt={lightboxCaption} 
+            className="max-w-full max-h-[75vh] object-contain select-none pointer-events-auto"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+        {lightboxCaption && (
+          <p className="mt-4 text-white font-['JetBrains_Mono'] font-bold text-sm bg-black/75 px-4 py-2 rounded border border-white/10 max-w-2xl text-center shadow-lg">
+            {lightboxCaption}
+          </p>
+        )}
+      </div>
+    );
+  };
 
   if (isPouchDomain) {
     return (
@@ -616,6 +782,7 @@ export default function BottlePrintingGuidePage() {
           ctaTitle={t.upgradeCta}
           ctaDescription={t.upgradeDesc}
         />
+        {renderLightbox()}
       </PouchLayout>
     )
   }
@@ -642,7 +809,7 @@ export default function BottlePrintingGuidePage() {
         canonicalUrl={seoProps.canonicalUrl}
         heroTitle={heroProps.heroTitle}
         heroSubtitle={heroProps.heroSubtitle}
-        heroImage="/imgs/knowledge/bottle-printing-heat-transfer.jpg"
+        heroImage="/imgs/knowledge/bottle-printing-hero.jpg"
         introSummary={t.quickAnswer}
         sections={sectionsForAchieve}
         faqs={faqSections.map(f => ({ question: f.q, answer: f.a }))}
@@ -652,6 +819,7 @@ export default function BottlePrintingGuidePage() {
         ctaButtonText={t.ctaBtn}
         heroStyle="banner"
       />
+      {renderLightbox()}
     </>
   )
 }
