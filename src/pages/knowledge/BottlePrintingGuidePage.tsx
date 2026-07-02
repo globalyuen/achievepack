@@ -72,7 +72,18 @@ const translations = {
     shopTitle: "Customize Reusable Canisters",
     shopDesc: "We support screen printing, laser engraving, and custom label application from 100+ units.",
     shopBtn: "Shop Reusable Canisters",
-    processTitle: "Five Main Printing Processes Illustrated"
+    processTitle: "Five Main Printing Processes Illustrated",
+    problemTitle: "5 Common Bottle Printing Problems (And Solutions)",
+    prob1Title: "1. Ink Peeling / Poor Adhesion",
+    prob1Desc: "Problem: Inks failing to bond with smooth surfaces like PET or acrylic. Solution: Pre-treating the surface with flame or corona discharge to increase surface tension before printing.",
+    prob2Title: "2. Color Mismatch",
+    prob2Desc: "Problem: Printed colors not matching the brand's Pantone (PMS) specifications due to base material color interference. Solution: Printing a double layer of opaque white base coat underneath the colored inks.",
+    prob3Title: "3. Registration Issues / Blurry Print",
+    prob3Desc: "Problem: Blurry prints or misaligned colors on multi-color passes (especially on curved surfaces). Solution: Using high-precision servo-driven rotary machines or switching to heat transfer for perfect multi-color alignment in a single pass.",
+    prob4Title: "4. Scratching & Scuffing",
+    prob4Desc: "Problem: Logos rubbing off during shipping or daily friction. Solution: Applying a clear UV-cured topcoat over the print, or utilizing Laser Engraving for a permanent physical etch.",
+    prob5Title: "5. Distorted Graphics on Curves",
+    prob5Desc: "Problem: Logos warping out of proportion when printed on tapered or dual-curve bottoms. Solution: Employing Pad Printing with soft silicone bulbs that deform naturally around uneven geometries to transfer the ink cleanly."
   },
   'zh-TW': {
     title: "瓶罐印刷指南：五種主流客製化工藝深度比較",
@@ -138,7 +149,44 @@ const translations = {
     shopTitle: "客製化可重複使用罐",
     shopDesc: "支持 100 個起進行絲網印刷、雷射雕刻與標籤貼紙定制服務。",
     shopBtn: "選購密封罐系列",
-    processTitle: "五種主流印刷工藝工作原理圖"
+    processTitle: "五種主流印刷工藝工作原理圖",
+    problemTitle: "五個常見的瓶罐印刷問題（及其解決方案）",
+    prob1Title: "1. 墨水剝落 / 附著力差",
+    prob1Desc: "問題：油墨無法與PET或亞克力等光滑表面結合。 解決方案：在印刷前使用火焰或電暈處理表面，以增加表面張力。",
+    prob2Title: "2. 顏色不匹配",
+    prob2Desc: "問題：由於基材顏色的干擾，印刷顏色與品牌的Pantone（PMS）規格不符。 解決方案：在彩色油墨下方印刷雙層不透明的白色底漆。",
+    prob3Title: "3. 套印不準 / 印刷模糊",
+    prob3Desc: "問題：在多色套印中（特別是在曲面上）出現模糊的印刷或顏色錯位。 解決方案：使用高精度伺服驅動旋轉機器，或改用熱轉印技術，在單次印刷中實現完美的多色對齊。",
+    prob4Title: "4. 刮痕與磨損",
+    prob4Desc: "問題：標誌在運輸或日常摩擦中被磨掉。 解決方案：在印刷品上塗抹透明的UV固化頂層，或利用雷射雕刻進行永久性的物理蝕刻。",
+    prob5Title: "5. 曲面圖案變形",
+    prob5Desc: "問題：在錐形或雙曲面底部印刷時，標誌變形且比例失調。 解決方案：採用移印工藝，利用柔軟的矽膠移印頭，自然地貼合不規則幾何形狀，將油墨乾淨地轉移。"
+  },
+  'es': {
+    problemTitle: "5 Problemas Comunes de Impresión en Botellas (y Soluciones)",
+    prob1Title: "1. Desprendimiento de Tinta / Mala Adherencia",
+    prob1Desc: "Problema: Las tintas no se adhieren a superficies lisas como PET o acrílico. Solución: Pretratar la superficie con llama o descarga corona para aumentar la tensión superficial antes de imprimir.",
+    prob2Title: "2. Inconsistencia de Color",
+    prob2Desc: "Problema: Los colores impresos no coinciden con las especificaciones Pantone (PMS) de la marca debido a la interferencia del color del material base. Solución: Imprimir una doble capa de base blanca opaca debajo de las tintas de color.",
+    prob3Title: "3. Problemas de Registro / Impresión Borrosa",
+    prob3Desc: "Problema: Impresiones borrosas o colores desalineados en pasadas multicolores. Solución: Usar máquinas rotativas accionadas por servo de alta precisión o cambiar a transferencia de calor para una alineación multicolor perfecta.",
+    prob4Title: "4. Rasguños y Desgaste",
+    prob4Desc: "Problema: Los logotipos se borran durante el envío o la fricción diaria. Solución: Aplicar una capa superior transparente curada con UV sobre la impresión, o utilizar el grabado láser para un grabado físico permanente.",
+    prob5Title: "5. Gráficos Distorsionados en Curvas",
+    prob5Desc: "Problema: Los logotipos se deforman desproporcionadamente cuando se imprimen en fondos cónicos o de doble curva. Solución: Emplear tampografía con bulbos de silicona blanda que se deforman naturalmente para transferir la tinta limpiamente."
+  },
+  'fr': {
+    problemTitle: "5 Problèmes Courants d'Impression sur Bouteilles (Et Solutions)",
+    prob1Title: "1. Décollement de l'Encre / Mauvaise Adhérence",
+    prob1Desc: "Problème: Les encres n'adhèrent pas aux surfaces lisses comme le PET ou l'acrylique. Solution: Prétraiter la surface avec une flamme ou une décharge corona pour augmenter la tension superficielle avant l'impression.",
+    prob2Title: "2. Incohérence des Couleurs",
+    prob2Desc: "Problème: Les couleurs imprimées ne correspondent pas aux spécifications Pantone (PMS) de la marque en raison de l'interférence du matériau de base. Solution: Imprimer une double couche de fond blanc opaque sous les encres de couleur.",
+    prob3Title: "3. Problèmes de Repérage / Impression Floue",
+    prob3Desc: "Problème: Impressions floues ou couleurs mal alignées lors des passages de plusieurs couleurs. Solution: Utiliser des machines rotatives servocommandées de haute précision ou passer au transfert thermique pour un alignement parfait.",
+    prob4Title: "4. Éraflures et Rayures",
+    prob4Desc: "Problème: Les logos s'effacent lors de l'expédition ou du frottement quotidien. Solution: Appliquer une couche de finition transparente polymérisée aux UV sur l'impression, ou utiliser la gravure laser pour une gravure permanente.",
+    prob5Title: "5. Graphismes Déformés sur Courbes",
+    prob5Desc: "Problème: Les logos se déforment lorsqu'ils sont imprimés sur des fonds coniques ou à double courbure. Solution: Utiliser la tampographie avec des tampons en silicone souple qui se déforment naturellement pour transférer proprement l'encre."
   }
 }
 
@@ -290,8 +338,13 @@ export default function BottlePrintingGuidePage() {
   }
   
   // Language switcher translation selector
-  const currentLang = i18n.language && i18n.language.startsWith('zh') ? 'zh-TW' : 'en'
-  const t = translations[currentLang]
+  let currentLang = 'en';
+  if (i18n.language) {
+    if (i18n.language.startsWith('zh')) currentLang = 'zh-TW';
+    else if (i18n.language.startsWith('es')) currentLang = 'es';
+    else if (i18n.language.startsWith('fr')) currentLang = 'fr';
+  }
+  const t = { ...translations['en'], ...(translations[currentLang as keyof typeof translations] || {}) };
 
   const seoProps = {
     title: t.title,
@@ -428,6 +481,35 @@ export default function BottlePrintingGuidePage() {
                 ? "移印頭（矽膠球）將油墨從凹版鋼板轉移到瓶罐底部或雙曲面凹陷處，能適應極具挑戰性的曲面與瓶底標示。"
                 : "Silicone transfer bulb absorbs ink from an etched steel plate and stamps it onto non-flat bottom grooves or dual-curve surfaces."}
             </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: "problems-solutions",
+      title: t.problemTitle,
+      icon: <HelpCircle className="h-6 w-6" />,
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-3">
+            <div className="flex items-center gap-2"><Flame className="w-8 h-8 text-[#ff00ff]" /><h4 className="font-black text-lg text-black uppercase">{t.prob1Title}</h4></div>
+            <p className="text-sm font-semibold text-neutral-800">{t.prob1Desc}</p>
+          </div>
+          <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-3">
+            <div className="flex items-center gap-2"><Scissors className="w-8 h-8 text-[#ff00ff]" /><h4 className="font-black text-lg text-black uppercase">{t.prob2Title}</h4></div>
+            <p className="text-sm font-semibold text-neutral-800">{t.prob2Desc}</p>
+          </div>
+          <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-3">
+            <div className="flex items-center gap-2"><Layers className="w-8 h-8 text-[#ff00ff]" /><h4 className="font-black text-lg text-black uppercase">{t.prob3Title}</h4></div>
+            <p className="text-sm font-semibold text-neutral-800">{t.prob3Desc}</p>
+          </div>
+          <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-3">
+            <div className="flex items-center gap-2"><ShieldCheck className="w-8 h-8 text-[#ff00ff]" /><h4 className="font-black text-lg text-black uppercase">{t.prob4Title}</h4></div>
+            <p className="text-sm font-semibold text-neutral-800">{t.prob4Desc}</p>
+          </div>
+          <div className="border-4 border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-3 md:col-span-2">
+            <div className="flex items-center gap-2"><Printer className="w-8 h-8 text-[#ff00ff]" /><h4 className="font-black text-lg text-black uppercase">{t.prob5Title}</h4></div>
+            <p className="text-sm font-semibold text-neutral-800">{t.prob5Desc}</p>
           </div>
         </div>
       )
@@ -634,6 +716,35 @@ export default function BottlePrintingGuidePage() {
                 ? "移印頭（矽膠球）將油墨從凹版鋼板轉移到瓶罐底部或雙曲面凹陷處，能適應極具挑戰性的曲面與瓶底標示。"
                 : "Silicone transfer bulb absorbs ink from an etched steel plate and stamps it onto non-flat bottom grooves or dual-curve surfaces."}
             </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: "problems-solutions",
+      title: t.problemTitle,
+      icon: <HelpCircle className="h-6 w-6" />,
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+          <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col gap-4">
+            <div className="flex items-center gap-3"><div className="p-3 bg-primary-50 rounded-xl"><Flame className="w-6 h-6 text-primary-600" /></div><h4 className="font-bold text-lg text-neutral-900">{t.prob1Title}</h4></div>
+            <p className="text-sm text-neutral-600 leading-relaxed">{t.prob1Desc}</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col gap-4">
+            <div className="flex items-center gap-3"><div className="p-3 bg-primary-50 rounded-xl"><Scissors className="w-6 h-6 text-primary-600" /></div><h4 className="font-bold text-lg text-neutral-900">{t.prob2Title}</h4></div>
+            <p className="text-sm text-neutral-600 leading-relaxed">{t.prob2Desc}</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col gap-4">
+            <div className="flex items-center gap-3"><div className="p-3 bg-primary-50 rounded-xl"><Layers className="w-6 h-6 text-primary-600" /></div><h4 className="font-bold text-lg text-neutral-900">{t.prob3Title}</h4></div>
+            <p className="text-sm text-neutral-600 leading-relaxed">{t.prob3Desc}</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col gap-4">
+            <div className="flex items-center gap-3"><div className="p-3 bg-primary-50 rounded-xl"><ShieldCheck className="w-6 h-6 text-primary-600" /></div><h4 className="font-bold text-lg text-neutral-900">{t.prob4Title}</h4></div>
+            <p className="text-sm text-neutral-600 leading-relaxed">{t.prob4Desc}</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-sm flex flex-col gap-4 md:col-span-2">
+            <div className="flex items-center gap-3"><div className="p-3 bg-primary-50 rounded-xl"><Printer className="w-6 h-6 text-primary-600" /></div><h4 className="font-bold text-lg text-neutral-900">{t.prob5Title}</h4></div>
+            <p className="text-sm text-neutral-600 leading-relaxed">{t.prob5Desc}</p>
           </div>
         </div>
       )

@@ -7,6 +7,129 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common Compostable Packaging Problems (And Solutions)",
+    problems: [
+      {
+        title: "1. Low Barrier Protection",
+        desc: "Moisture and oxygen can easily compromise product freshness in standard bio-plastics.",
+        solution: "High-Barrier Compostable Films engineered with advanced bio-metallization to block moisture and oxygen."
+      },
+      {
+        title: "2. Poor Seal Strength",
+        desc: "Weak seams cause pouches to burst during transit or handling.",
+        solution: "Advanced Heat-Sealable Bio-Polymers ensuring robust structural seal integrity comparable to traditional plastics."
+      },
+      {
+        title: "3. Premature Degradation",
+        desc: "Packaging begins to break down on retail shelves before the product is consumed.",
+        solution: "Controlled-Decomposition Engineering that maintains stability during shelf life and only degrades under composting conditions."
+      },
+      {
+        title: "4. Non-Compliant Certifications",
+        desc: "Greenwashed materials that fail municipal or industrial composting standards.",
+        solution: "BPI and CMA Certified materials guaranteeing verified compliance with strict composting regulations."
+      },
+      {
+        title: "5. Inferior Print Quality",
+        desc: "Faded colors and poor graphics due to incompatible eco-friendly inks.",
+        solution: "Digital High-Fidelity Eco-Ink Printing delivering vibrant, shelf-ready aesthetics without sacrificing compostability."
+      }
+    ]
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes de Empaques Compostables (Y Soluciones)",
+    problems: [
+      {
+        title: "1. Baja Protección de Barrera",
+        desc: "La humedad y el oxígeno pueden comprometer fácilmente la frescura del producto en bioplásticos estándar.",
+        solution: "Películas compostables de alta barrera diseñadas con biometalización avanzada para bloquear la humedad y el oxígeno."
+      },
+      {
+        title: "2. Mala Resistencia del Sello",
+        desc: "Las uniones débiles hacen que las bolsas se rompan durante el tránsito o manipulación.",
+        solution: "Biopolímeros avanzados termosellables que garantizan una integridad estructural robusta comparable a los plásticos tradicionales."
+      },
+      {
+        title: "3. Degradación Prematura",
+        desc: "El empaque comienza a descomponerse en los estantes de las tiendas antes de que se consuma el producto.",
+        solution: "Ingeniería de descomposición controlada que mantiene la estabilidad durante la vida útil y solo se degrada bajo condiciones de compostaje."
+      },
+      {
+        title: "4. Certificaciones no Conformes",
+        desc: "Materiales con 'lavado verde' que no cumplen con los estándares de compostaje municipal o industrial.",
+        solution: "Materiales certificados por BPI y CMA que garantizan el cumplimiento verificado con regulaciones estrictas de compostaje."
+      },
+      {
+        title: "5. Calidad de Impresión Inferior",
+        desc: "Colores desvaídos y gráficos deficientes debido a tintas ecológicas incompatibles.",
+        solution: "Impresión digital de alta fidelidad con tintas ecológicas que ofrece una estética vibrante y lista para los estantes sin sacrificar la compostabilidad."
+      }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants d'Emballages Compostables (Et Solutions)",
+    problems: [
+      {
+        title: "1. Faible Protection Barrière",
+        desc: "L'humidité et l'oxygène peuvent facilement compromettre la fraîcheur des produits dans les bioplastiques standards.",
+        solution: "Films compostables à haute barrière conçus avec une bio-métallisation avancée pour bloquer l'humidité et l'oxygène."
+      },
+      {
+        title: "2. Faible Résistance de Scellage",
+        desc: "Les coutures faibles provoquent l'éclatement des sachets pendant le transport ou la manipulation.",
+        solution: "Bio-polymères thermoscellables avancés assurant une intégrité structurelle robuste comparable aux plastiques traditionnels."
+      },
+      {
+        title: "3. Dégradation Prématurée",
+        desc: "L'emballage commence à se décomposer sur les étagères avant la consommation du produit.",
+        solution: "Ingénierie à décomposition contrôlée qui maintient la stabilité pendant la durée de conservation et ne se dégrade que sous des conditions de compostage."
+      },
+      {
+        title: "4. Certifications Non Conformes",
+        desc: "Matériaux 'greenwashés' qui ne répondent pas aux normes de compostage municipal ou industriel.",
+        solution: "Matériaux certifiés BPI et CMA garantissant une conformité vérifiée avec les réglementations strictes de compostage."
+      },
+      {
+        title: "5. Qualité d'Impression Inférieure",
+        desc: "Couleurs délavées et graphismes médiocres dus à des encres écologiques incompatibles.",
+        solution: "Impression numérique haute fidélité avec des encres écologiques offrant une esthétique vibrante sans sacrifier la compostabilité."
+      }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: "5個常見的可堆肥包裝問題（及解決方案）",
+    problems: [
+      {
+        title: "1. 阻隔保護不足",
+        desc: "標準生物塑料中的水分和氧氣容易破壞產品的新鮮度。",
+        solution: "高阻隔可堆肥薄膜，採用先進的生物金屬化技術，有效阻擋水分和氧氣。"
+      },
+      {
+        title: "2. 密封強度差",
+        desc: "脆弱的接縫導致包裝袋在運輸或處理過程中破裂。",
+        solution: "先進的熱封生物聚合物，確保強大的結構密封完整性，媲美傳統塑料。"
+      },
+      {
+        title: "3. 過早降解",
+        desc: "包裝在產品消費前就在零售貨架上開始分解。",
+        solution: "受控分解工程，在保質期內保持穩定性，僅在堆肥條件下降解。"
+      },
+      {
+        title: "4. 認證不合規",
+        desc: "未能通過市政或工業堆肥標準的“漂綠”材料。",
+        solution: "經過 BPI 和 CMA 認證的材料，保證符合嚴格的堆肥法規。"
+      },
+      {
+        title: "5. 印刷質量低劣",
+        desc: "由於不兼容的環保油墨，導致顏色褪色和圖形效果差。",
+        solution: "高保真數字環保油墨印刷，在不犧牲可堆肥性的情況下提供充滿活力的貨架美感。"
+      }
+    ]
+  }
+}
+
 interface CompostService {
   state: string
   city: string
@@ -17,7 +140,9 @@ interface CompostService {
 
 
 export default function PouchCompostingServicesPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const langKey = i18n.language === 'zh-TW' || i18n.language === 'zh-HK' ? 'zh-TW' : (i18n.language || 'en').substring(0, 2);
+  const langData = localTranslations[langKey as keyof typeof localTranslations] || localTranslations.en;
   const COMPOST_SERVICES: CompostService[] = useMemo(() => [
     { state: "Alabama", city: "Birmingham", name: t('seoPages.pages.pouchCompostingServices.mountainBrookPublicWorks'), url: "https://www.mtnbrook.org/publicworks/page/compost" },
   { state: "Alaska", city: "Anchorage", name: t('seoPages.pages.pouchCompostingServices.alaskaWasteCommercialComposting'), url: "https://www.alaskawaste.net/" },
@@ -437,6 +562,40 @@ export default function PouchCompostingServicesPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-t-4 border-black text-left">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="mb-16">
+            <NeoBadge color="magenta">Engineering Solutions</NeoBadge>
+            <h2 className="text-4xl md:text-5xl font-black uppercase mt-6">
+              {langData.sectionTitle}
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {langData.problems.map((prob, idx) => (
+                <div key={idx} className="bg-neutral-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4 items-start">
+                  <AlertTriangle className="h-8 w-8 text-[#FF00FF] flex-shrink-0" />
+                  <div>
+                    <h3 className="font-black text-xl uppercase mb-2">{prob.title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 mb-2"><strong>Pain Point:</strong> {prob.desc}</p>
+                    <p className="font-['JetBrains_Mono'] text-sm text-black"><strong>Solution:</strong> {prob.solution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/pouch-composting-services-pain-points.jpg" 
+                alt="Composting Packaging Solutions"
+                className="relative z-10 border-4 border-black w-full shadow-2xl object-cover h-[800px]"
+              />
+            </div>
           </div>
         </div>
       </section>

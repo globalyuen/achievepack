@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Ruler, Maximize2, Package, CheckCircle, ArrowRight, Mail, Send, Loader2 } from 'lucide-react'
+import { Ruler, Maximize2, Package, CheckCircle, ArrowRight, Mail, Send, Loader2, AlertTriangle } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import SortableSizesTable, { STAND_UP_SIZES, FLAT_BOTTOM_SIZES } from '../../../components/SortableSizesTable'
@@ -9,8 +9,64 @@ import { DIELINE_CATALOG, type DielineItem } from '../../../data/dielineCatalog'
 import { useTranslation } from 'react-i18next'
 
 export default function PouchPouchSizingPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchPouchSizing'
+
+  const localTranslations: Record<string, any> = {
+    en: {
+      problemsTitle: "5 Common Pouch Sizing Problems (And Solutions)",
+      p1Title: "Volume vs. Weight Mismatch",
+      p1Desc: "Problem: Specifying a pouch based solely on weight (e.g., 500g) without accounting for product density. Solution: Use volumetric testing and density-based capacity charts for your specific product type.",
+      p2Title: "Inadequate Seal Area Allowances",
+      p2Desc: "Problem: Failing to leave sufficient margin for thermal sealing and zip-locks, reducing usable space. Solution: Include a minimum 10-15mm top seal and side seal allowance in final dimension calculations.",
+      p3Title: "Gusset Expansion Limitations",
+      p3Desc: "Problem: The bottom gusset does not fully open if the pouch is under-filled or poorly dimensioned. Solution: Utilize 3D prototyping and ensure the gusset width is proportional to the pouch height (typically 1:3 ratio).",
+      p4Title: "Artwork Distortion at the Base",
+      p4Desc: "Problem: Graphics placed too close to the bottom gusset become distorted or hidden when the pouch is filled. Solution: Apply safety margins (typically 15-20mm from the bottom fold) and use 3D rendering to preview the filled shape.",
+      p5Title: "Center of Gravity Instability",
+      p5Desc: "Problem: Tall, narrow pouches tip over easily when displayed on retail shelves. Solution: Optimize the aspect ratio and choose a flat-bottom (box pouch) design for taller items to lower the center of gravity."
+    },
+    es: {
+      problemsTitle: "5 Problemas Comunes de Tamaño de Bolsas (Y Soluciones)",
+      p1Title: "Desajuste de Volumen vs. Peso",
+      p1Desc: "Problema: Especificar una bolsa basándose únicamente en el peso (ej. 500g) sin considerar la densidad del producto. Solución: Use pruebas volumétricas y tablas de capacidad basadas en la densidad.",
+      p2Title: "Márgenes de Sellado Inadecuados",
+      p2Desc: "Problema: No dejar margen suficiente para el sellado térmico y el cierre zip, reduciendo el espacio útil. Solución: Incluya una tolerancia mínima de 10-15mm para el sellado superior y lateral.",
+      p3Title: "Limitaciones de Expansión del Fuelle",
+      p3Desc: "Problema: El fuelle inferior no se abre completamente si la bolsa está poco llena o mal dimensionada. Solución: Utilice prototipos 3D y asegúrese de que el ancho del fuelle sea proporcional a la altura.",
+      p4Title: "Distorsión del Diseño en la Base",
+      p4Desc: "Problema: Los gráficos colocados muy cerca del fuelle inferior se distorsionan al llenar la bolsa. Solución: Aplique márgenes de seguridad (15-20mm desde el doblez) y use renderizado 3D.",
+      p5Title: "Inestabilidad del Centro de Gravedad",
+      p5Desc: "Problema: Las bolsas altas y estrechas se vuelcan fácilmente en los estantes. Solución: Optimice la relación de aspecto y elija un diseño de fondo plano para artículos más altos."
+    },
+    fr: {
+      problemsTitle: "5 Problèmes Courants de Dimensionnement des Sachets (Et Solutions)",
+      p1Title: "Décalage Volume vs Poids",
+      p1Desc: "Problème: Spécifier un sachet uniquement en fonction du poids (ex. 500g) sans tenir compte de la densité du produit. Solution: Utilisez des tests volumétriques et des tableaux de capacité basés sur la densité.",
+      p2Title: "Marges de Scellage Inadéquates",
+      p2Desc: "Problème: Ne pas laisser une marge suffisante pour le scellage thermique et les fermetures zip. Solution: Prévoyez une tolérance minimale de 10 à 15 mm pour les joints supérieurs et latéraux.",
+      p3Title: "Limites d'Expansion du Soufflet",
+      p3Desc: "Problème: Le soufflet de fond ne s'ouvre pas complètement si le sachet est mal dimensionné. Solution: Utilisez le prototypage 3D et assurez-vous que la largeur du soufflet est proportionnelle à la hauteur.",
+      p4Title: "Déformation de l'Illustration à la Base",
+      p4Desc: "Problème: Les graphiques placés trop près du soufflet inférieur sont déformés lorsque le sachet est rempli. Solution: Appliquez des marges de sécurité (15-20 mm) et utilisez le rendu 3D.",
+      p5Title: "Instabilité du Centre de Gravité",
+      p5Desc: "Problème: Les sachets hauts et étroits se renversent facilement sur les étagères. Solution: Optimisez le rapport d'aspect et choisissez une conception à fond plat pour les articles plus grands."
+    },
+    'zh-TW': {
+      problemsTitle: "5個常見的包裝袋尺寸問題（及解決方案）",
+      p1Title: "體積與重量不匹配",
+      p1Desc: "問題：僅根據重量（如500克）指定包裝袋，而沒有考慮產品密度。解決方案：使用體積測試和基於密度的容量表。",
+      p2Title: "密封區預留不足",
+      p2Desc: "問題：沒有為熱封和拉鍊預留足夠的邊緣，減少了可用空間。解決方案：在尺寸計算中包括最小10-15毫米的頂部和側邊密封餘量。",
+      p3Title: "底部折邊展開限制",
+      p3Desc: "問題：如果包裝袋尺寸不當，底部折邊無法完全打開。解決方案：利用3D打樣，確保折邊寬度與包裝袋高度成比例。",
+      p4Title: "底部圖案變形",
+      p4Desc: "問題：圖形太靠近底部折邊，裝滿後會扭曲或被隱藏。解決方案：應用安全邊距（距離底部折痕15-20毫米）並使用3D渲染預覽。",
+      p5Title: "重心不穩",
+      p5Desc: "問題：又高又窄的袋子在貨架上很容易翻倒。解決方案：優化長寬比，對於較高的產品選擇平底袋設計以降低重心。"
+    }
+  }
+  const currentLang = localTranslations[i18n.language] || localTranslations.en
 
   const title = t(`${p}.title`)
   const description = t(`${p}.description`)
@@ -342,6 +398,39 @@ export default function PouchPouchSizingPage() {
                    {t(`${p}.needCustomSize.btn`)}
                  </NeoButton>
                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <h2 className="text-3xl md:text-4xl font-['Space_Grotesk'] font-black uppercase mb-6">
+                {currentLang.problemsTitle}
+              </h2>
+              <div className="space-y-6">
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <div key={num} className="flex gap-4 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-gray-50">
+                    <AlertTriangle className="w-8 h-8 text-black flex-shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-['Space_Grotesk'] font-black text-lg uppercase">{currentLang[`p${num}Title`]}</h4>
+                      <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mt-2">{currentLang[`p${num}Desc`]}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative h-full min-h-[400px]">
+              <div className="absolute inset-0 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-gray-100 overflow-hidden">
+                <img 
+                  src="/imgs/knowledge/pouch-sizing-pain-points.jpg" 
+                  alt="Pouch sizing pain points and engineering solutions" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

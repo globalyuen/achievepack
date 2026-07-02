@@ -10,8 +10,111 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 // MAIN PAGE
 // ============================================
 
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common Kraft Duplex Problems (And Solutions)",
+    problems: [
+      {
+        problem: "Kraft paper absorbs moisture in humid environments.",
+        solution: "Premium inner PE/CPP lamination acts as a moisture barrier."
+      },
+      {
+        problem: "Difficulty in creating a hermetic heat seal on paper.",
+        solution: "Co-extruded heat-sealable inner layer ensures tight closure."
+      },
+      {
+        problem: "Shorter shelf life for oxygen-sensitive products.",
+        solution: "Ideal for fast-moving goods or roasted coffee with degassing valves."
+      },
+      {
+        problem: "Paper is prone to tearing or puncture during transit.",
+        solution: "Thickened duplex lamination adds structural rigidity and tear resistance."
+      },
+      {
+        problem: "Colors appear dull or bleed on natural kraft paper.",
+        solution: "High-contrast flexographic printing tailored for porous surfaces."
+      }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes del Kraft Dúplex (Y Soluciones)",
+    problems: [
+      {
+        problem: "El papel kraft absorbe humedad en ambientes húmedos.",
+        solution: "La laminación interior de PE/CPP premium actúa como barrera contra la humedad."
+      },
+      {
+        problem: "Dificultad para crear un sello térmico hermético en papel.",
+        solution: "La capa interior termosellable coextruida asegura un cierre hermético."
+      },
+      {
+        problem: "Vida útil más corta para productos sensibles al oxígeno.",
+        solution: "Ideal para productos de alta rotación o café tostado con válvulas desgasificadoras."
+      },
+      {
+        problem: "El papel es propenso a rasgarse o pincharse durante el tránsito.",
+        solution: "La laminación dúplex engrosada añade rigidez estructural y resistencia al desgarro."
+      },
+      {
+        problem: "Los colores se ven apagados o se corren en papel kraft natural.",
+        solution: "Impresión flexográfica de alto contraste adaptada para superficies porosas."
+      }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants du Kraft Duplex (Et Solutions)",
+    problems: [
+      {
+        problem: "Le papier kraft absorbe l'humidité dans les environnements humides.",
+        solution: "Le laminage interne PE/CPP premium agit comme une barrière contre l'humidité."
+      },
+      {
+        problem: "Difficulté à créer un scellage thermique hermétique sur du papier.",
+        solution: "La couche interne thermoscellable coextrudée assure une fermeture étanche."
+      },
+      {
+        problem: "Durée de conservation plus courte pour les produits sensibles à l'oxygène.",
+        solution: "Idéal pour les produits à rotation rapide ou le café torréfié avec valves de dégazage."
+      },
+      {
+        problem: "Le papier est sujet aux déchirures ou aux perforations pendant le transport.",
+        solution: "Le laminage duplex épaissi ajoute de la rigidité structurelle et une résistance aux déchirures."
+      },
+      {
+        problem: "Les couleurs paraissent ternes ou bavent sur le papier kraft naturel.",
+        solution: "Impression flexographique à contraste élevé adaptée aux surfaces poreuses."
+      }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: "5 個常見的牛皮紙雙層問題 (及其解決方案)",
+    problems: [
+      {
+        problem: "牛皮紙在潮濕環境中容易吸收水分。",
+        solution: "優質的內部 PE/CPP 複合層可作為防潮屏障。"
+      },
+      {
+        problem: "難以在紙張上建立氣密熱封。",
+        solution: "共擠熱封內層確保緊密閉合。"
+      },
+      {
+        problem: "對氧氣敏感的產品保質期較短。",
+        solution: "非常適合快速流轉的商品或帶有排氣閥的烘焙咖啡。"
+      },
+      {
+        problem: "紙張在運輸過程中容易撕裂或刺穿。",
+        solution: "加厚的雙層複合增加了結構剛性和抗撕裂性。"
+      },
+      {
+        problem: "在天然牛皮紙上顏色顯得暗淡或暈染。",
+        solution: "專為多孔表面量身定制的高對比度柔版印刷。"
+      }
+    ]
+  }
+};
+
 export default function PouchKraftDuplexPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchKraftDuplex'
 
   const FEATURES = [
@@ -184,6 +287,42 @@ export default function PouchKraftDuplexPage() {
                 <span className="text-sm font-bold">{app}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems */}
+      <section className="py-16 px-4 bg-gray-50 border-t-2 border-b-2 border-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-black text-4xl mb-12 uppercase text-center">
+            {localTranslations[i18n.language as keyof typeof localTranslations]?.problemsTitle || localTranslations.en.problemsTitle}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {(localTranslations[i18n.language as keyof typeof localTranslations]?.problems || localTranslations.en.problems).map((item, idx) => (
+                <NeoCard key={idx} className="bg-white hover:-translate-y-1 transition-transform">
+                  <div className="flex gap-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <AlertCircle className="w-6 h-6 text-red-500" />
+                      <div className="w-1 h-full bg-gray-200 rounded"></div>
+                      <CheckCircle className="w-6 h-6 text-green-500" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-lg mb-2 text-gray-900">{item.problem}</p>
+                      <p className="text-gray-700">{item.solution}</p>
+                    </div>
+                  </div>
+                </NeoCard>
+              ))}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-2 border-black"></div>
+              <img 
+                src="/imgs/knowledge/kraft-duplex-pain-points.jpg" 
+                alt="Kraft Duplex Pain Points and Solutions" 
+                className="relative z-10 w-full h-auto object-cover border-2 border-black"
+              />
+            </div>
           </div>
         </div>
       </section>

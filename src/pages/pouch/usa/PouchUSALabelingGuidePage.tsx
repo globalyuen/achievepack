@@ -6,8 +6,65 @@ import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 
+const localTranslations = {
+  en: {
+    heading: "5 Common USA Pouch Labeling Problems (And Solutions)",
+    p1Title: "1. Non-compliant Nutrition Facts",
+    p1Desc: "The FDA has strict rules for font sizes and formatting on nutrition panels. Solution: Use automated pre-flight checks and templates that strictly adhere to 21 CFR 101.9.",
+    p2Title: "2. Distorted Barcodes on Curves",
+    p2Desc: "Pouch curvature can stretch or warp barcodes, making them unreadable by scanners. Solution: Orient barcodes vertically (ladder style) or place them on flat gusset areas.",
+    p3Title: "3. Incorrect Allergen Declarations",
+    p3Desc: "Failing to clearly state major food allergens in the 'Contains' statement leads to recalls. Solution: Implement a bolding system and secondary review for all allergen text.",
+    p4Title: "4. Ink Smudging and Scuffing",
+    p4Desc: "Standard inks can rub off flexible films during transit. Solution: Utilize UV-cured inks or add a protective over-varnish to the printed label.",
+    p5Title: "5. Misaligned Labels on Stand-up Pouches",
+    p5Desc: "Manual application often results in crooked labels on the non-uniform surface of a pouch. Solution: Use automated labeling machines with custom fixtures for flexible packaging."
+  },
+  es: {
+    heading: "5 Problemas Comunes de Etiquetado de Bolsas en EE. UU. (Y Soluciones)",
+    p1Title: "1. Información Nutricional No Conforme",
+    p1Desc: "La FDA tiene reglas estrictas para el tamaño de fuente y el formato. Solución: Use plantillas y revisiones automáticas que cumplan estrictamente con 21 CFR 101.9.",
+    p2Title: "2. Códigos de Barras Distorsionados en Curvas",
+    p2Desc: "La curvatura de la bolsa puede deformar los códigos de barras. Solución: Oriente los códigos de barras verticalmente o colóquelos en áreas planas del fuelle.",
+    p3Title: "3. Declaraciones de Alérgenos Incorrectas",
+    p3Desc: "No declarar claramente los alérgenos principales provoca retiros. Solución: Implemente un sistema de resaltado y una revisión secundaria.",
+    p4Title: "4. Manchas y Desgaste de Tinta",
+    p4Desc: "Las tintas estándar pueden borrarse durante el tránsito. Solución: Utilice tintas de secado UV o agregue un barniz protector.",
+    p5Title: "5. Etiquetas Desalineadas en Bolsas Doypack",
+    p5Desc: "La aplicación manual suele resultar en etiquetas torcidas. Solución: Utilice máquinas etiquetadoras automáticas con accesorios personalizados."
+  },
+  fr: {
+    heading: "5 Problèmes Courants d'Étiquetage des Sachets aux États-Unis (Et Solutions)",
+    p1Title: "1. Valeurs Nutritionnelles Non Conformes",
+    p1Desc: "La FDA a des règles strictes concernant la taille des polices et le formatage. Solution : Utilisez des vérifications automatisées et des modèles conformes au 21 CFR 101.9.",
+    p2Title: "2. Codes-barres Déformés sur les Courbes",
+    p2Desc: "La courbure du sachet peut déformer les codes-barres. Solution : Orientez les codes-barres verticalement ou placez-les sur des zones planes.",
+    p3Title: "3. Déclarations d'Allergènes Incorrectes",
+    p3Desc: "L'omission de déclarer clairement les principaux allergènes entraîne des rappels. Solution : Mettez en place un système de mise en évidence et une double vérification.",
+    p4Title: "4. Maculage et Éraflures d'Encre",
+    p4Desc: "Les encres standard peuvent s'effacer pendant le transport. Solution : Utilisez des encres à séchage UV ou ajoutez un vernis de protection.",
+    p5Title: "5. Étiquettes Mal Alignées sur les Sachets Tient-debout",
+    p5Desc: "L'application manuelle entraîne souvent des étiquettes de travers. Solution : Utilisez des étiqueteuses automatiques avec des supports adaptés."
+  },
+  'zh-TW': {
+    heading: "5 個常見的美國軟包裝標籤問題（及解決方案）",
+    p1Title: "1. 營養標示不合規",
+    p1Desc: "FDA 對營養標籤的字體大小和格式有嚴格規定。解決方案：使用嚴格遵守 21 CFR 101.9 的自動化預檢和模板。",
+    p2Title: "2. 條碼在曲面上變形",
+    p2Desc: "袋子的彎曲會拉伸或扭曲條碼，導致掃描器無法讀取。解決方案：將條碼垂直放置（梯形）或放置在平坦的側折區域。",
+    p3Title: "3. 過敏原聲明錯誤",
+    p3Desc: "未清楚標明主要食物過敏原會導致產品回收。解決方案：對所有過敏原文字實施粗體系統和二次審核。",
+    p4Title: "4. 墨水暈染和刮擦",
+    p4Desc: "標準墨水在運輸過程中可能會從薄膜上摩擦掉。解決方案：使用 UV 固化墨水或在印刷標籤上添加保護油墨。",
+    p5Title: "5. 直立袋標籤貼歪",
+    p5Desc: "手動貼標通常會導致標籤在袋子表面歪斜。解決方案：使用帶有軟包裝專用夾具的自動貼標機。"
+  }
+}
+
 export default function PouchUSALabelingGuidePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const localT = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
   const title = t('pouchUSALabelingGuidePage.title')
   const description = t('pouchUSALabelingGuidePage.description')
 
@@ -100,6 +157,62 @@ export default function PouchUSALabelingGuidePage() {
             <p>
               {t('pouchUSALabelingGuidePage.para6')}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-[#FFF5E1] border-b-4 border-black">
+        <div className="max-w-5xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+                {localT.heading}
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4 items-start">
+                  <AlertCircle className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase">{localT.p1Title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 mt-2">{localT.p1Desc}</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <AlertCircle className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase">{localT.p2Title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 mt-2">{localT.p2Desc}</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <AlertCircle className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase">{localT.p3Title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 mt-2">{localT.p3Desc}</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <AlertCircle className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase">{localT.p4Title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 mt-2">{localT.p4Desc}</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <AlertCircle className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase">{localT.p5Title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-gray-700 mt-2">{localT.p5Desc}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <NeoCard className="bg-white border-4 border-black p-2 transform rotate-2">
+                <img src="/imgs/knowledge/usa-pouch-labeling-pain-points.jpg" alt="Packaging labeling problems" className="w-full h-auto border-2 border-black" />
+              </NeoCard>
+              <div className="absolute top-6 -right-6 w-full h-full border-4 border-black bg-blue-500 -z-10 -rotate-1" />
+            </div>
           </div>
         </div>
       </section>

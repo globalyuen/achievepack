@@ -7,8 +7,64 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 
+const localTranslations = {
+  en: {
+    title: "5 Common Plastic-Free Packaging Problems (And Engineering Solutions)",
+    p1Title: "1. Poor Barrier Properties",
+    p1Desc: "Problem: Natural materials let moisture and oxygen in, spoiling food fast. Solution: High-barrier metallized cellulose layer ensures shelf life matches traditional plastics.",
+    p2Title: "2. Weak Structural Integrity",
+    p2Desc: "Problem: Eco-pouches tear easily or puncture. Solution: 3-layer laminated construction with FSC Kraft and PLA provides industrial-grade burst strength.",
+    p3Title: "3. Heat Seal Failure",
+    p3Desc: "Problem: Leaks at the seals because bioplastics don't melt uniformly. Solution: Advanced starch-based heat seal resins that activate cleanly at low temperatures.",
+    p4Title: "4. Misleading 'Greenwashing'",
+    p4Desc: "Problem: Many 'plastic-free' bags still leave microplastics. Solution: Fully verified materials ensuring zero toxicity and 100% compostability.",
+    p5Title: "5. Poor Print Quality",
+    p5Desc: "Problem: Kraft paper absorbs ink poorly, looking cheap. Solution: Water-based digital printing on specially treated eco-films for vibrant, premium branding."
+  },
+  es: {
+    title: "5 Problemas Comunes de Empaques Sin Plástico (Y Soluciones)",
+    p1Title: "1. Propiedades de Barrera Deficientes",
+    p1Desc: "Problema: Los materiales naturales permiten la entrada de humedad, estropeando los alimentos. Solución: Capa de celulosa metalizada de alta barrera.",
+    p2Title: "2. Integridad Estructural Débil",
+    p2Desc: "Problema: Las bolsas ecológicas se rompen fácilmente. Solución: Construcción de 3 capas con Kraft FSC y PLA para resistencia industrial.",
+    p3Title: "3. Falla en el Sellado por Calor",
+    p3Desc: "Problema: Fugas en los sellos. Solución: Resinas de sellado térmico a base de almidón que se activan limpiamente a bajas temperaturas.",
+    p4Title: "4. 'Greenwashing' Engañoso",
+    p4Desc: "Problema: Muchas bolsas dejan microplásticos. Solución: Materiales verificados que garantizan cero toxicidad y compostabilidad 100%.",
+    p5Title: "5. Mala Calidad de Impresión",
+    p5Desc: "Problema: El papel Kraft absorbe mal la tinta. Solución: Impresión digital a base de agua en películas ecológicas tratadas."
+  },
+  fr: {
+    title: "5 Problèmes Courants des Emballages Sans Plastique (Et Solutions)",
+    p1Title: "1. Faibles Propriétés de Barrière",
+    p1Desc: "Problème : L'humidité pénètre, détériorant les aliments. Solution : Couche de cellulose métallisée haute barrière.",
+    p2Title: "2. Faible Intégrité Structurelle",
+    p2Desc: "Problème : Les éco-sachets se déchirent facilement. Solution : Construction à 3 couches avec Kraft FSC et PLA.",
+    p3Title: "3. Échec du Thermoscellage",
+    p3Desc: "Problème : Fuites aux joints. Solution : Résines de thermoscellage à base d'amidon qui s'activent à basse température.",
+    p4Title: "4. 'Greenwashing' Trompeur",
+    p4Desc: "Problème : Beaucoup de sacs laissent des microplastiques. Solution : Matériaux vérifiés garantissant zéro toxicité et 100% compostables.",
+    p5Title: "5. Mauvaise Qualité d'Impression",
+    p5Desc: "Problème : Le papier Kraft absorbe mal l'encre. Solution : Impression numérique à base d'eau sur des films écologiques."
+  },
+  "zh-TW": {
+    title: "5 個常見的無塑膠包裝問題（及工程解決方案）",
+    p1Title: "1. 阻隔性能差",
+    p1Desc: "問題：天然材料會讓水分進入，使食物變質。解決方案：高阻隔金屬化纖維素層可確保與傳統塑膠相同的保質期。",
+    p2Title: "2. 結構強度弱",
+    p2Desc: "問題：環保袋容易撕裂。解決方案：採用 FSC 牛皮紙和 PLA 的三層複合結構，提供工業級強度。",
+    p3Title: "3. 熱封失敗",
+    p3Desc: "問題：封口處漏氣。解決方案：先進的澱粉基熱封樹脂，在低溫下能完美封合。",
+    p4Title: "4. 誤導性的「漂綠」",
+    p4Desc: "問題：許多所謂的無塑膠袋仍會留下微塑膠。解決方案：完全經過驗證的材料，確保零毒性且 100% 可堆肥。",
+    p5Title: "5. 印刷品質差",
+    p5Desc: "問題：牛皮紙吸墨性差，看起來廉價。解決方案：在經過特殊處理的環保薄膜上進行水性數位印刷。"
+  }
+}
 export default function PouchPlasticFreePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language || 'en') as keyof typeof localTranslations
+  const l = localTranslations[lang] || localTranslations['en']
 
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
 
@@ -273,6 +329,65 @@ export default function PouchPlasticFreePage() {
                 alt={t('seoPages.pages.pouchPlasticFree.alt_threelayerCompostableBagCutaway')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-t-4 border-black text-left">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="mb-16">
+            <NeoBadge color="magenta">Pain Points</NeoBadge>
+            <h2 className="font-black text-4xl md:text-5xl uppercase mt-4">
+              {l.title}
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/plastic-free-pain-points.jpg" 
+                alt="Plastic Free Pain Points" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+            <div className="space-y-6">
+              <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                <AlertTriangle className="w-8 h-8 flex-shrink-0 text-[#FF00FF]" />
+                <div>
+                  <h3 className="font-black text-xl uppercase mb-2">{l.p1Title}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">{l.p1Desc}</p>
+                </div>
+              </div>
+              <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                <Shield className="w-8 h-8 flex-shrink-0 text-[#10b981]" />
+                <div>
+                  <h3 className="font-black text-xl uppercase mb-2">{l.p2Title}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">{l.p2Desc}</p>
+                </div>
+              </div>
+              <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                <Zap className="w-8 h-8 flex-shrink-0 text-[#D4FF00]" />
+                <div>
+                  <h3 className="font-black text-xl uppercase mb-2">{l.p3Title}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">{l.p3Desc}</p>
+                </div>
+              </div>
+              <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                <Recycle className="w-8 h-8 flex-shrink-0 text-[#FF00FF]" />
+                <div>
+                  <h3 className="font-black text-xl uppercase mb-2">{l.p4Title}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">{l.p4Desc}</p>
+                </div>
+              </div>
+              <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                <Layers className="w-8 h-8 flex-shrink-0 text-[#10b981]" />
+                <div>
+                  <h3 className="font-black text-xl uppercase mb-2">{l.p5Title}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">{l.p5Desc}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

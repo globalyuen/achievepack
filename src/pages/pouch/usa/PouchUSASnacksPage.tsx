@@ -6,8 +6,113 @@ import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 
+const localTranslations = {
+  en: {
+    painPointsTitle: "5 Common Snacks Packaging Problems (And Solutions)",
+    points: [
+      {
+        title: "Stale Snacks (Loss of Freshness)",
+        desc: "High-barrier films and resealable zippers lock out oxygen and moisture, extending shelf life."
+      },
+      {
+        title: "Punctures from Sharp Snacks",
+        desc: "Puncture-resistant laminated materials ensure durability against chips and pretzels."
+      },
+      {
+        title: "Grease and Oil Leakage",
+        desc: "Specialized oil-resistant inner linings (e.g., PE or foil) prevent unsightly stains."
+      },
+      {
+        title: "Poor Shelf Presence",
+        desc: "Custom stand-up pouches with vivid, high-definition printing attract consumers instantly."
+      },
+      {
+        title: "Non-Recyclable Packaging",
+        desc: "Mono-material recyclable pouches or compostable films meet modern sustainability goals."
+      }
+    ]
+  },
+  es: {
+    painPointsTitle: "5 Problemas Comunes de Empaques para Snacks (Y Soluciones)",
+    points: [
+      {
+        title: "Snacks Rancios (Pérdida de Frescura)",
+        desc: "Las películas de alta barrera y los cierres herméticos bloquean el oxígeno y la humedad, prolongando la vida útil."
+      },
+      {
+        title: "Perforaciones por Snacks Puntiagudos",
+        desc: "Materiales laminados resistentes a las perforaciones garantizan durabilidad frente a papas fritas y pretzels."
+      },
+      {
+        title: "Fugas de Grasa y Aceite",
+        desc: "Revestimientos internos especializados resistentes al aceite evitan manchas antiestéticas."
+      },
+      {
+        title: "Poca Presencia en el Estante",
+        desc: "Las bolsas doypack personalizadas con impresión de alta definición atraen instantáneamente a los consumidores."
+      },
+      {
+        title: "Empaques No Reciclables",
+        desc: "Las bolsas reciclables de un solo material o películas compostables cumplen con los objetivos de sostenibilidad."
+      }
+    ]
+  },
+  fr: {
+    painPointsTitle: "5 Problèmes Courants d'Emballage de Snacks (Et Solutions)",
+    points: [
+      {
+        title: "Snacks Rassasiés (Perte de Fraîcheur)",
+        desc: "Les films à haute barrière et les fermetures zippées refermables bloquent l'oxygène et l'humidité."
+      },
+      {
+        title: "Perforations dues aux Snacks Pointus",
+        desc: "Les matériaux stratifiés résistants aux perforations assurent la durabilité contre les chips et les bretzels."
+      },
+      {
+        title: "Fuite de Graisse et d'Huile",
+        desc: "Des revêtements internes spéciaux résistants à l'huile empêchent les taches disgracieuses."
+      },
+      {
+        title: "Mauvaise Présence en Rayon",
+        desc: "Les sachets tenant debout personnalisés avec une impression haute définition attirent instantanément les consommateurs."
+      },
+      {
+        title: "Emballages Non Recyclables",
+        desc: "Les sachets recyclables mono-matériau ou les films compostables répondent aux objectifs modernes de durabilité."
+      }
+    ]
+  },
+  'zh-TW': {
+    painPointsTitle: "5 個常見的零食包裝問題（與解決方案）",
+    points: [
+      {
+        title: "零食變質（失去新鮮度）",
+        desc: "高阻隔薄膜和可重複密封的拉鏈能阻擋氧氣和水分，延長保質期。"
+      },
+      {
+        title: "尖銳零食刺破包裝",
+        desc: "抗刺穿的層壓材料確保包裝能承受薯片和蝴蝶餅的碰撞。"
+      },
+      {
+        title: "油漬滲漏",
+        desc: "防油內襯（如 PE 或鋁箔）可防止出現不美觀的油漬。"
+      },
+      {
+        title: "貨架吸引力不足",
+        desc: "客製化自立袋搭配高解析度生動印刷，能瞬間吸引消費者目光。"
+      },
+      {
+        title: "不可回收包裝",
+        desc: "單一材質可回收包裝袋或可堆肥薄膜，符合現代永續發展目標。"
+      }
+    ]
+  }
+};
+
 export default function PouchUSASnacksPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const langData = localTranslations[currentLang] || localTranslations['en'];
   const title = t('pouchUSASnacksPage.title')
   const description = t('pouchUSASnacksPage.description')
 
@@ -93,6 +198,33 @@ export default function PouchUSASnacksPage() {
             <p>
               {t('pouchUSASnacksPage.para5')}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {langData.painPointsTitle}
+          </h2>
+          
+          <img 
+            src="/imgs/knowledge/[topic-name-pain-points].jpg" 
+            alt="Snacks Packaging Pain Points" 
+            className="w-full h-96 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-12"
+          />
+
+          <div className="space-y-6">
+            {langData.points.map((point, idx) => (
+              <div key={idx} className="bg-gray-50 p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                <CheckCircle className="text-orange-500 w-8 h-8 flex-shrink-0" />
+                <div>
+                  <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2">{point.title}</h3>
+                  <p className="font-['JetBrains_Mono'] text-gray-700">{point.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

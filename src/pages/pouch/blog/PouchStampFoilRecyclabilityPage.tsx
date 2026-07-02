@@ -1,16 +1,73 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { Scale, CheckCircle, AlertTriangle, Recycle, ArrowRight, ShieldCheck, HelpCircle, Award, Shield, Factory } from 'lucide-react'
+import { Scale, CheckCircle, AlertTriangle, Recycle, ArrowRight, ShieldCheck, HelpCircle, Award, Shield, Factory, Zap, Layers, Beaker, Package } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 import { getBaseUrl } from '../../../utils/domain'
 import EcoMaterialSourcingGuide from '../../../components/pouch/EcoMaterialSourcingGuide'
 
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common Foil Stamping Recyclability Problems (And Solutions)",
+    p1: "Sensor Disruption",
+    d1: "Heavy metallic coverage can confuse sorting sensors in recycling facilities. Solution: Use minimal foil coverage and modern wash-off metallic inks.",
+    p2: "Mixed Material Contamination",
+    d2: "Traditional foil requires non-recyclable PET layers. Solution: Switch to Mono-PE compatible hot/cold stamping foils.",
+    p3: "Barrier Loss",
+    d3: "Removing foil entirely lowers shelf life. Solution: Use AlOx/SiOx coated high-barrier Mono-PE films with surface metallic accents.",
+    p4: "Weight Limit Violations",
+    d4: "Exceeding the 5% non-PE weight limit ruins mono-material certification. Solution: Keep foil volume strictly below 5%.",
+    p5: "Adhesion Flaking",
+    d5: "Foil flaking during transport or recycling. Solution: Employ advanced surface treatment and eco-compatible adhesives."
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de Reciclabilidad del Estampado (y Soluciones)",
+    p1: "Interrupción de Sensores",
+    d1: "La alta cobertura metálica puede confundir a los sensores de reciclaje. Solución: Usar cobertura mínima y tintas metálicas lavables.",
+    p2: "Contaminación por Materiales Mixtos",
+    d2: "El foil tradicional requiere capas de PET no reciclables. Solución: Cambiar a láminas compatibles con Mono-PE.",
+    p3: "Pérdida de Barrera",
+    d3: "Eliminar el foil reduce la vida útil. Solución: Usar películas Mono-PE de alta barrera con acentos metálicos superficiales.",
+    p4: "Violación de Límites de Peso",
+    d4: "Exceder el 5% de peso no PE arruina la certificación. Solución: Mantener el volumen de foil por debajo del 5%.",
+    p5: "Desprendimiento",
+    d5: "Descamación del foil durante el transporte. Solución: Tratamiento de superficie avanzado y adhesivos ecológicos."
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants de Recyclabilité du Marquage à Chaud (et Solutions)",
+    p1: "Perturbation des Capteurs",
+    d1: "Une forte couverture métallique peut perturber les capteurs de tri. Solution : Utiliser une couverture minimale et des encres lavables.",
+    p2: "Contamination par Matériaux Mixtes",
+    d2: "Le film traditionnel nécessite du PET non recyclable. Solution : Passer aux films compatibles Mono-PE.",
+    p3: "Perte de Barrière",
+    d3: "Supprimer le film réduit la durée de conservation. Solution : Utiliser des films Mono-PE haute barrière avec des accents de surface.",
+    p4: "Dépassement de Poids",
+    d4: "Dépasser la limite de 5 % annule la certification. Solution : Maintenir le volume sous les 5 %.",
+    p5: "Écaillement",
+    d5: "Écaillement lors du transport. Solution : Traitement de surface avancé et adhésifs écologiques."
+  },
+  'zh-TW': {
+    problemsTitle: "燙金可回收性的 5 個常見問題（與解決方案）",
+    p1: "感測器干擾",
+    d1: "大面積金屬覆蓋會干擾回收廠分類感測器。解決方案：使用最小覆蓋率和可水洗金屬油墨。",
+    p2: "混合材質污染",
+    d2: "傳統燙金需要不可回收的 PET 層。解決方案：改用與單一 PE 相容的燙金箔。",
+    p3: "阻隔性降低",
+    d3: "完全去除金屬層會降低保存期限。解決方案：使用高阻隔單一 PE 薄膜搭配表面金屬點綴。",
+    p4: "超重違規",
+    d4: "超過 5% 的非 PE 重量限制會破壞單一材質認證。解決方案：將燙金體積嚴格控制在 5% 以下。",
+    p5: "附著脫落",
+    d5: "運輸過程中的燙金脫落。解決方案：採用先進的表面處理和環保黏合劑。"
+  }
+}
+
 export default function PouchStampFoilRecyclabilityPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const baseUrl = getBaseUrl()
+  const lang = i18n.language || 'en'
+  const tLocal = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const FAQS = [
     {
@@ -138,6 +195,65 @@ export default function PouchStampFoilRecyclabilityPage() {
                   <div className="text-xs font-bold uppercase">{t('pouchStampFoilRecyclabilityPage.overview.stat2Label')}</div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-[#f4f4f4] border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">PAIN POINTS</NeoBadge>
+              <h2 className="font-black text-5xl md:text-6xl uppercase leading-tight italic mt-6 mb-8">
+                {tLocal.problemsTitle}
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="mt-1"><Zap className="w-6 h-6 text-yellow-500" /></div>
+                  <div>
+                    <h4 className="font-black text-xl uppercase">{tLocal.p1}</h4>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mt-1">{tLocal.d1}</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="mt-1"><Layers className="w-6 h-6 text-red-500" /></div>
+                  <div>
+                    <h4 className="font-black text-xl uppercase">{tLocal.p2}</h4>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mt-1">{tLocal.d2}</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="mt-1"><Beaker className="w-6 h-6 text-blue-500" /></div>
+                  <div>
+                    <h4 className="font-black text-xl uppercase">{tLocal.p3}</h4>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mt-1">{tLocal.d3}</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="mt-1"><Scale className="w-6 h-6 text-emerald-500" /></div>
+                  <div>
+                    <h4 className="font-black text-xl uppercase">{tLocal.p4}</h4>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mt-1">{tLocal.d4}</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="mt-1"><Package className="w-6 h-6 text-purple-500" /></div>
+                  <div>
+                    <h4 className="font-black text-xl uppercase">{tLocal.p5}</h4>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mt-1">{tLocal.d5}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/knowledge/foil-stamping-recyclability-pain-points.jpg" 
+                alt="Foil Stamping Recyclability Problems and Solutions" 
+                className="relative z-10 border-4 border-black w-full"
+              />
             </div>
           </div>
         </div>

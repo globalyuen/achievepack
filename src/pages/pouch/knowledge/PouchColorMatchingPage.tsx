@@ -7,10 +7,136 @@ import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 import { useCalendly } from '../../../contexts/CalendlyContext'
 
+const localTranslations: Record<string, any> = {
+  en: {
+    problemsTitle: "5 Common Color Matching Problems (And Solutions)",
+    problems: [
+      {
+        title: "1. Material Absorption Shifts",
+        desc: "Packaging substrates like Kraft paper or foil interact with ink differently than white paper, altering final shades.",
+        sol: "We create calibrated CMYK profiles matched specifically to your chosen substrate."
+      },
+      {
+        title: "2. Matte Finish Dulling",
+        desc: "Matte varnishes disperse light, making colors appear significantly darker and desaturated compared to glossy films.",
+        sol: "Our prepress team applies specialized curves to compensate for matte light dispersion."
+      },
+      {
+        title: "3. Pantone to CMYK Gamut Loss",
+        desc: "Standard digital CMYK cannot reproduce the extreme vibrancy of bright spot Pantones, leading to muddy results.",
+        sol: "We utilize custom CMYK tuning and physical video proofing to achieve the closest visual match."
+      },
+      {
+        title: "4. Batch-to-Batch Inconsistency",
+        desc: "Colors shifting between different production runs due to environmental or machine variations.",
+        sol: "We lock in your approved color profile and enforce strict densitometry checks for every run."
+      },
+      {
+        title: "5. Metamerism (Lighting Shifts)",
+        desc: "Colors looking perfect under office fluorescents but completely wrong in daylight.",
+        sol: "All physical proofs are evaluated under standardized D65 studio lighting."
+      }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de Color (Y Soluciones)",
+    problems: [
+      {
+        title: "1. Cambios por Absorción del Material",
+        desc: "Los sustratos como papel Kraft o aluminio interactúan con la tinta de manera diferente, alterando los tonos finales.",
+        sol: "Creamos perfiles CMYK calibrados específicamente para el sustrato elegido."
+      },
+      {
+        title: "2. Opacidad del Acabado Mate",
+        desc: "Los barnices mate dispersan la luz, haciendo que los colores se vean más oscuros y desaturados.",
+        sol: "Aplicamos curvas especializadas para compensar la dispersión de luz en acabados mate."
+      },
+      {
+        title: "3. Pérdida de Gama CMYK",
+        desc: "El CMYK digital estándar no puede reproducir la vitalidad extrema de los colores Pantone brillantes.",
+        sol: "Utilizamos ajuste CMYK personalizado y pruebas físicas en video para lograr la coincidencia más cercana."
+      },
+      {
+        title: "4. Inconsistencia entre Lotes",
+        desc: "Los colores cambian entre diferentes tiradas de producción debido a variaciones de la máquina.",
+        sol: "Fijamos su perfil de color aprobado y realizamos controles estrictos de densitometría en cada tirada."
+      },
+      {
+        title: "5. Metamerismo (Cambios por Iluminación)",
+        desc: "Los colores se ven perfectos bajo luces fluorescentes pero incorrectos a la luz del día.",
+        sol: "Todas las pruebas se evalúan bajo iluminación de estudio D65 estandarizada."
+      }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants de Couleur (Et Solutions)",
+    problems: [
+      {
+        title: "1. Changements dus à l'Absorption",
+        desc: "Les substrats comme le papier Kraft interagissent avec l'encre différemment du papier blanc, modifiant les teintes.",
+        sol: "Nous créons des profils CMJN calibrés spécifiquement pour le substrat choisi."
+      },
+      {
+        title: "2. Ternissement de la Finition Mate",
+        desc: "Les vernis mats dispersent la lumière, rendant les couleurs plus sombres et désaturées.",
+        sol: "Nous appliquons des courbes spécialisées pour compenser la dispersion de la lumière mate."
+      },
+      {
+        title: "3. Perte de Gamme CMJN",
+        desc: "Le CMJN standard ne peut reproduire l'extrême vibrance des Pantones éclatants.",
+        sol: "Nous utilisons un ajustement CMJN personnalisé et des épreuves vidéo physiques pour la meilleure correspondance."
+      },
+      {
+        title: "4. Inconstance entre les Lots",
+        desc: "Les couleurs varient entre différentes séries de production à cause de variations mécaniques.",
+        sol: "Nous verrouillons votre profil couleur et effectuons des contrôles densitométriques stricts."
+      },
+      {
+        title: "5. Métamérisme (Éclairage)",
+        desc: "Les couleurs semblent parfaites sous des néons mais complètement fausses à la lumière du jour.",
+        sol: "Toutes les épreuves sont évaluées sous un éclairage de studio D65 standardisé."
+      }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: "5 個常見的顏色匹配問題（與解決方案）",
+    problems: [
+      {
+        title: "1. 材質吸收導致色偏",
+        desc: "牛皮紙或鋁箔等包裝材質與油墨的交互作用不同於白紙，會改變最終色調。",
+        sol: "我們為您選擇的材質建立專屬校準的 CMYK 色彩描述檔。"
+      },
+      {
+        title: "2. 霧面處理導致顏色黯淡",
+        desc: "霧面清漆會散射光線，與亮面薄膜相比，顏色顯得更暗且飽和度更低。",
+        sol: "我們的印前團隊會套用特殊曲線來補償霧面散光的問題。"
+      },
+      {
+        title: "3. 潘通轉 CMYK 的色域流失",
+        desc: "標準數位 CMYK 無法重現亮色潘通的極度鮮豔感，導致結果混濁。",
+        sol: "我們利用自訂 CMYK 微調與實體影片打樣，以達到最接近的視覺匹配。"
+      },
+      {
+        title: "4. 批次間的顏色不一致",
+        desc: "由於環境或機器差異，不同生產批次間的顏色會發生偏移。",
+        sol: "我們鎖定您核准的色彩描述檔，並在每次生產時強制執行嚴格的密度檢查。"
+      },
+      {
+        title: "5. 條件等色（光源色偏）",
+        desc: "顏色在辦公室螢光燈下看起來完美，但在日光下卻完全錯誤。",
+        sol: "所有實體打樣都在標準化的 D65 攝影棚光源下進行評估。"
+      }
+    ]
+  }
+}
+
 export default function PouchColorMatchingPage() {
   const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
+
+  const currentLang = i18n.language || 'en'
+  const tContent = localTranslations[currentLang] || localTranslations.en
 
   const p = 'seoPages.pages.colorMatching'
 
@@ -175,6 +301,41 @@ export default function PouchColorMatchingPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-black">
+            {tContent.problemsTitle}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {tContent.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="bg-neutral-50 p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <h3 className="font-['Space_Grotesk'] font-black text-xl mb-2 flex items-center gap-2 text-black">
+                    <AlertTriangle className="h-5 w-5 text-red-500 shrink-0" />
+                    {prob.title}
+                  </h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 mb-4">{prob.desc}</p>
+                  <div className="bg-[#D4FF00] p-4 border-2 border-black flex gap-3 items-start">
+                    <CheckCircle className="h-5 w-5 shrink-0 mt-0.5 text-black" />
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold text-black">{prob.sol}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative h-full min-h-[400px]">
+              <div className="absolute inset-0 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-neutral-200 overflow-hidden">
+                <img 
+                  src="/imgs/knowledge/color-matching-pain-points.jpg" 
+                  alt="Color Matching Pain Points" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

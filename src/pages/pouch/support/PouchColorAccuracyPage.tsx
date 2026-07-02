@@ -1,14 +1,71 @@
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Monitor, Printer, Palette, CheckCircle } from 'lucide-react'
+import { Monitor, Printer, Palette, CheckCircle, AlertTriangle, Layers, Sun, Image as ImageIcon } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common Color Accuracy Problems (And Solutions)",
+    p1Title: "1. Screen-to-Print Mismatch (RGB vs CMYK)",
+    p1Desc: "Problem: Colors on screen (glowing light) look duller when printed (absorbing ink).\nSolution: Convert RGB artwork to CMYK early in the design process and use standardized Pantone (PMS) reference books.",
+    p2Title: "2. Unpredictable Shifts in Group Printing",
+    p2Desc: "Problem: Small batches printed together share ink profiles, causing slight variances.\nSolution: Opt for individual runs for strict brand colors, or accept a 10% variance for cost efficiency.",
+    p3Title: "3. Substrate Influence on Color",
+    p3Desc: "Problem: The material (matte vs glossy plastic, kraft paper) changes how ink absorbs and reflects.\nSolution: Always request physical proofs on the exact substrate material before full production.",
+    p4Title: "4. Lighting Conditions (Metamerism)",
+    p4Desc: "Problem: Colors appear differently under daylight, fluorescent, and LED store lights.\nSolution: Evaluate color proofs under standardized D50 (5000K) lighting conditions.",
+    p5Title: "5. Gradients and Banding",
+    p5Desc: "Problem: Smooth digital gradients can look stepped or banded when printed.\nSolution: Add slight noise to gradients and ensure high-resolution (300 DPI) vector formats are used."
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes de Precisión de Color (y Soluciones)",
+    p1Title: "1. Desajuste entre Pantalla e Impresión (RGB vs CMYK)",
+    p1Desc: "Problema: Los colores en pantalla brillan, pero impresos se ven más apagados.\nSolución: Convierta el arte RGB a CMYK al inicio y use guías Pantone (PMS).",
+    p2Title: "2. Cambios Impredecibles en Impresión Grupal",
+    p2Desc: "Problema: Lotes pequeños impresos juntos comparten perfiles de tinta, causando variaciones.\nSolución: Elija tiradas individuales para colores estrictos o acepte una variación del 10% para ahorrar costos.",
+    p3Title: "3. Influencia del Sustrato en el Color",
+    p3Desc: "Problema: El material cambia la forma en que la tinta se absorbe y refleja la luz.\nSolución: Solicite siempre pruebas físicas en el material exacto antes de la producción total.",
+    p4Title: "4. Condiciones de Iluminación (Metamerismo)",
+    p4Desc: "Problema: Los colores se ven diferentes bajo luz diurna, fluorescente o LED.\nSolución: Evalúe las pruebas de color bajo iluminación estandarizada D50 (5000K).",
+    p5Title: "5. Degradados y Bandas",
+    p5Desc: "Problema: Los degradados suaves pueden verse escalonados al imprimirse.\nSolución: Añada un ligero ruido a los degradados y use formatos vectoriales de alta resolución (300 DPI)."
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants de Précision des Couleurs (et Solutions)",
+    p1Title: "1. Décalage Écran-Impression (RVB vs CMJN)",
+    p1Desc: "Problème : Les couleurs à l'écran sont plus vives qu'imprimées.\nSolution : Convertissez les créations RVB en CMJN tôt et utilisez des nuanciers Pantone (PMS).",
+    p2Title: "2. Variations Imprévisibles en Impression Groupée",
+    p2Desc: "Problème : Les petits lots partagent des profils d'encre, causant des écarts.\nSolution : Optez pour des tirages individuels pour des couleurs strictes, ou acceptez un écart de 10 % pour réduire les coûts.",
+    p3Title: "3. Influence du Support sur la Couleur",
+    p3Desc: "Problème : Le matériau modifie l'absorption et la réflexion de l'encre.\nSolution : Demandez toujours des épreuves physiques sur le support exact avant production.",
+    p4Title: "4. Conditions d'Éclairage (Métamérisme)",
+    p4Desc: "Problème : Les couleurs varient sous la lumière du jour, fluorescente ou LED.\nSolution : Évaluez les épreuves sous un éclairage standardisé D50 (5000K).",
+    p5Title: "5. Dégradés et Effet de Bande",
+    p5Desc: "Problème : Les dégradés numériques peuvent apparaître sous forme de bandes à l'impression.\nSolution : Ajoutez un léger bruit aux dégradés et utilisez des formats vectoriels haute résolution."
+  },
+  "zh-TW": {
+    sectionTitle: "5個常見的色彩準確度問題（與解決方案）",
+    p1Title: "1. 螢幕與印刷的色差 (RGB vs CMYK)",
+    p1Desc: "問題：螢幕上的顏色看起來比印刷出來的更鮮豔。\n解決方案：在設計初期將 RGB 轉換為 CMYK，並使用標準的 Pantone (PMS) 色票。",
+    p2Title: "2. 併版印刷中不可預測的色偏",
+    p2Desc: "問題：小批量併版印刷共用墨水設定，導致輕微的顏色變化。\n解決方案：對於嚴格的品牌色彩選擇獨立開版，或接受 10% 的色差以節省成本。",
+    p3Title: "3. 材質對顏色的影響",
+    p3Desc: "問題：材質（霧面、亮面、牛皮紙）會改變墨水的吸收和反射方式。\n解決方案：在大批量生產前，務必索取實際材質的實體打樣。",
+    p4Title: "4. 照明條件 (條件等色)",
+    p4Desc: "問題：顏色在日光、螢光燈和 LED 燈下看起來不同。\n解決方案：在標準化的 D50 (5000K) 照明條件下評估色彩打樣。",
+    p5Title: "5. 漸層與斷層現象",
+    p5Desc: "問題：平滑的數位漸層在印刷時可能會出現階梯狀或斷層。\n解決方案：在漸層中加入輕微的雜訊，並確保使用高解析度 (300 DPI) 的向量格式。"
+  }
+};
+
 export default function PouchColorAccuracyPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const p = 'seoPages.pages.pouchColorAccuracy';
 
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const localT = localTranslations[currentLang] || localTranslations['en'];
   const floatAnim = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
@@ -146,6 +203,46 @@ export default function PouchColorAccuracyPage() {
             <p>
               {t(`${p}.deepDive.proceed.desc`, "We can move forward with the standard group run if a slight variance is acceptable, or we can quote you for a dedicated run if accuracy is the priority.")}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-24 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-5xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {localT.sectionTitle}
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {[
+                { title: localT.p1Title, desc: localT.p1Desc, icon: Monitor },
+                { title: localT.p2Title, desc: localT.p2Desc, icon: AlertTriangle },
+                { title: localT.p3Title, desc: localT.p3Desc, icon: Layers },
+                { title: localT.p4Title, desc: localT.p4Desc, icon: Sun },
+                { title: localT.p5Title, desc: localT.p5Desc, icon: ImageIcon }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-start gap-4">
+                  <div className="bg-[#db2777] p-2 text-white border-2 border-black shrink-0">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-['Space_Grotesk'] font-bold text-lg leading-tight">{item.title}</h4>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mt-1 whitespace-pre-line">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <NeoCard className="bg-[#facc15] relative z-10 !p-0 overflow-hidden border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                <img 
+                  src="/imgs/knowledge/color-accuracy-pain-points.jpg" 
+                  alt="Color Accuracy Solutions" 
+                  className="w-full h-auto object-cover border-2 border-black"
+                />
+              </NeoCard>
+              <div className="absolute top-8 -right-8 w-full h-full border-4 border-black bg-blue-500 -z-0 rotate-3" />
+            </div>
           </div>
         </div>
       </section>

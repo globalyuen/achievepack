@@ -1,13 +1,71 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { CheckCircle, ArrowRight, Droplet, Sun, Contrast } from 'lucide-react'
+import { CheckCircle, ArrowRight, Droplet, Sun, Contrast, AlertTriangle, Eye, Layers, Maximize, Target } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    title: "5 Common White Ink Underprint Problems (And Solutions)",
+    p1Title: "1. Dull or Metallic-Looking Colors on Foil",
+    p1Desc: "Apply a 100% white ink underprint block beneath the color layer to ensure vibrant, true-to-brand PMS colors.",
+    p2Title: "2. Hard-to-Read Text on Transparent Windows",
+    p2Desc: "Add a high-density white ink backing behind text elements to provide contrast against the product inside.",
+    p3Title: "3. Muddy Gradients on Specialty Substrates",
+    p3Desc: "Use a halftone white ink underprint that fades gradually, matching the gradient profile of the top CMYK layer.",
+    p4Title: "4. Unscannable Barcodes on Reflective Surfaces",
+    p4Desc: "Print a solid white ink block specifically behind the barcode area to create the necessary contrast for infrared scanners.",
+    p5Title: "5. White Halos from Misregistration",
+    p5Desc: "Implement a slight choke (shrink) on the white underprint layer by 0.1mm - 0.2mm so it stays hidden beneath the top colors."
+  },
+  'zh-TW': {
+    title: "5 個常見的白墨打底問題（及解決方案）",
+    p1Title: "1. 鋁箔上的顏色顯得暗淡或金屬感太重",
+    p1Desc: "在顏色層下方應用 100% 的白墨打底塊，以確保鮮豔且符合品牌的 PMS 顏色。",
+    p2Title: "2. 透明開窗上的文字難以閱讀",
+    p2Desc: "在文字元素後面添加高密度的白墨背襯，以與內部產品形成對比。",
+    p3Title: "3. 特殊材質上的漸變顯得渾濁",
+    p3Desc: "使用逐漸淡出的半色調白墨打底，匹配頂部 CMYK 層的漸變輪廓。",
+    p4Title: "4. 反光表面上的條碼無法掃描",
+    p4Desc: "專門在條碼區域後面列印實心的白墨塊，為紅外掃描儀創造必要的對比度。",
+    p5Title: "5. 套印不準導致的白色光暈",
+    p5Desc: "對白墨打底層進行 0.1 毫米至 0.2 毫米的輕微縮邊（choke），使其隱藏在頂層顏色之下。"
+  },
+  es: {
+    title: "5 Problemas Comunes de la Tinta Blanca (Y Soluciones)",
+    p1Title: "1. Colores Opacos o Metálicos en Papel Aluminio",
+    p1Desc: "Aplique un bloque de impresión inferior de tinta blanca al 100% debajo de la capa de color para garantizar colores PMS vibrantes y fieles a la marca.",
+    p2Title: "2. Texto Difícil de Leer en Ventanas Transparentes",
+    p2Desc: "Agregue un respaldo de tinta blanca de alta densidad detrás de los elementos de texto para proporcionar contraste contra el producto en el interior.",
+    p3Title: "3. Degradados Turbios en Sustratos Especiales",
+    p3Desc: "Use una capa base de tinta blanca de medios tonos que se desvanezca gradualmente, coincidiendo con el perfil de degradado de la capa CMYK superior.",
+    p4Title: "4. Códigos de Barras no Escaneables en Superficies Reflectantes",
+    p4Desc: "Imprima un bloque de tinta blanca sólida específicamente detrás del área del código de barras para crear el contraste necesario para los escáneres infrarrojos.",
+    p5Title: "5. Halos Blancos por Falta de Registro",
+    p5Desc: "Implemente un ligero estrangulamiento (reducción) en la capa de impresión blanca subyacente de 0.1 mm a 0.2 mm para que permanezca oculta debajo de los colores superiores."
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Impression à l'Encre Blanche (Et Solutions)",
+    p1Title: "1. Couleurs Ternes ou Métalliques sur Film",
+    p1Desc: "Appliquez un bloc d'impression sous-jacent d'encre blanche à 100 % sous la couche de couleur pour garantir des couleurs PMS vibrantes et fidèles à la marque.",
+    p2Title: "2. Texte Difficile à Lire sur des Fenêtres Transparentes",
+    p2Desc: "Ajoutez un support d'encre blanche haute densité derrière les éléments textuels pour créer un contraste avec le produit à l'intérieur.",
+    p3Title: "3. Dégradés Boueux sur des Substrats Spéciaux",
+    p3Desc: "Utilisez une sous-couche d'encre blanche en demi-teinte qui s'estompe progressivement, correspondant au profil de dégradé de la couche CMYK supérieure.",
+    p4Title: "4. Codes-Barres Illisibles sur des Surfaces Réfléchissantes",
+    p4Desc: "Imprimez un bloc d'encre blanche solide spécifiquement derrière la zone du code-barres pour créer le contraste nécessaire pour les scanners infrarouges.",
+    p5Title: "5. Halos Blancs Dus à un Défaut de Repérage",
+    p5Desc: "Appliquez un léger rétrécissement (choke) sur la couche d'encre blanche de 0,1 mm à 0,2 mm pour qu'elle reste cachée sous les couleurs supérieures."
+  }
+}
+
 export default function PouchWhiteInkUnderprintPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const langKey = (i18n.language && i18n.language.startsWith('zh')) ? 'zh-TW' : 
+                  (localTranslations[i18n.language as keyof typeof localTranslations] ? i18n.language : 'en');
+  const lt = localTranslations[langKey as keyof typeof localTranslations];
   const p = 'seoPages.pages.pouchWhiteInkUnderprint';
 
   const title = t(`${p}.title`)
@@ -113,6 +171,61 @@ export default function PouchWhiteInkUnderprintPage() {
             <p>
               {t(`${p}.content.howToSetUp.p1`)}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {lt.title}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <div className="bg-gray-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="font-['Space_Grotesk'] font-black text-xl mb-2 text-black flex items-center gap-2">
+                   <AlertTriangle className="w-6 h-6 text-red-500 shrink-0" />
+                   {lt.p1Title}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{lt.p1Desc}</p>
+              </div>
+              <div className="bg-gray-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="font-['Space_Grotesk'] font-black text-xl mb-2 text-black flex items-center gap-2">
+                   <Eye className="w-6 h-6 text-blue-500 shrink-0" />
+                   {lt.p2Title}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{lt.p2Desc}</p>
+              </div>
+              <div className="bg-gray-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="font-['Space_Grotesk'] font-black text-xl mb-2 text-black flex items-center gap-2">
+                   <Layers className="w-6 h-6 text-yellow-500 shrink-0" />
+                   {lt.p3Title}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{lt.p3Desc}</p>
+              </div>
+              <div className="bg-gray-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="font-['Space_Grotesk'] font-black text-xl mb-2 text-black flex items-center gap-2">
+                   <Maximize className="w-6 h-6 text-green-500 shrink-0" />
+                   {lt.p4Title}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{lt.p4Desc}</p>
+              </div>
+              <div className="bg-gray-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="font-['Space_Grotesk'] font-black text-xl mb-2 text-black flex items-center gap-2">
+                   <Target className="w-6 h-6 text-purple-500 shrink-0" />
+                   {lt.p5Title}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{lt.p5Desc}</p>
+              </div>
+            </div>
+            <div className="sticky top-24">
+              <img 
+                src="/imgs/knowledge/white-ink-underprint-pain-points.jpg" 
+                alt="White ink underprint solutions" 
+                className="w-full h-auto object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              />
+            </div>
           </div>
         </div>
       </section>

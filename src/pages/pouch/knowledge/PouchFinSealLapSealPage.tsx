@@ -6,8 +6,53 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common Fin Seal vs. Lap Seal Problems (And Solutions)",
+    problems: [
+      { title: "Burst Seams in Transit", desc: "Upgrade to a multi-layer Fin Seal for enhanced burst strength." },
+      { title: "Graphic Interruption", desc: "Keep crucial barcodes and text away from the center back seam area." },
+      { title: "Liquid Leakage", desc: "Exclusively use Fin Seals for liquid products to ensure an airtight barrier." },
+      { title: "Weak Bonding", desc: "Utilize inside-to-inside (PE-to-PE) sealing to prevent delamination." },
+      { title: "Bulky Presentation", desc: "Opt for a tacked-down Fin Seal so the pouch lies flat and professional." }
+    ]
+  },
+  es: {
+    sectionTitle: "5 problemas comunes de sellado (y soluciones)",
+    problems: [
+      { title: "Costuras rotas en tránsito", desc: "Actualice a un sello tipo aleta multicapa para mayor resistencia." },
+      { title: "Interrupción gráfica", desc: "Mantenga códigos y textos cruciales alejados de la costura central." },
+      { title: "Fuga de líquidos", desc: "Use exclusivamente sellos tipo aleta para líquidos." },
+      { title: "Adhesión débil", desc: "Utilice sellado interior a interior (PE a PE)." },
+      { title: "Presentación abultada", desc: "Opte por un sello tipo aleta pegado para que quede plano." }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 problèmes courants de scellage (et solutions)",
+    problems: [
+      { title: "Coutures éclatées", desc: "Passez à un joint à aileron multicouche pour une meilleure résistance." },
+      { title: "Interruption graphique", desc: "Éloignez les codes-barres de la couture arrière centrale." },
+      { title: "Fuite de liquide", desc: "Utilisez des joints à aileron pour les liquides pour une barrière étanche." },
+      { title: "Faible adhérence", desc: "Utilisez un scellage intérieur-intérieur (PE sur PE)." },
+      { title: "Présentation volumineuse", desc: "Optez pour un joint à aileron rabattu pour rester plat." }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: "5 個常見背封問題 (與解決方案)",
+    problems: [
+      { title: "運輸途中背封爆裂", desc: "升級為多層背鰭封口 (Fin Seal)，增強抗破裂強度。" },
+      { title: "圖案與文字中斷", desc: "確保條碼與重要文字遠離包裝正後方的封口區域。" },
+      { title: "液體外漏問題", desc: "針對液體產品，務必使用背鰭封口以確保氣密與防水。" },
+      { title: "黏合強度不足", desc: "採用內層對內層 (PE 對 PE) 的封合方式以防止分層。" },
+      { title: "包裝外觀不平整", desc: "選擇將背鰭平貼固定，使包裝袋平整且專業。" }
+    ]
+  }
+};
+
 export default function PouchFinSealLapSealPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations;
+  const localData = localTranslations[currentLang] || localTranslations.en;
   const p = 'seoPages.pages.pouchFinSealLapSeal';
 
   const title = t(`${p}.seo.title`, "Fin Seal vs. Lap Seal | Back Seal Types | POUCH.ECO")
@@ -118,6 +163,40 @@ export default function PouchFinSealLapSealPage() {
             <p>
               {t(`${p}.deepDive.whenLapSeal.desc`, "Lap seals are primarily used in high-speed, automated Form-Fill-Seal (VFFS) machines running single-layer or specialized co-extruded films (like a bag of potato chips). The main advantage of a Lap Seal is that it uses slightly less film material (since the edges just overlap instead of pinching together), which saves money when producing tens of millions of bags. For custom, multi-layer laminated pouches, however, the Fin Seal is far superior.")}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+                {localData.sectionTitle}
+              </h2>
+              <div className="space-y-6">
+                {localData.problems.map((prob, idx) => (
+                  <div key={idx} className="flex gap-4 p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-gray-50">
+                    <AlertCircle className="w-8 h-8 text-red-500 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-['Space_Grotesk'] font-bold text-xl uppercase mb-1">{prob.title}</h3>
+                      <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{prob.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <NeoCard className="bg-white p-2 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <img 
+                  src="/imgs/knowledge/fin-seal-lap-seal-pain-points.jpg" 
+                  alt="Fin Seal vs Lap Seal Pain Points" 
+                  className="w-full h-auto object-cover border-2 border-black"
+                />
+              </NeoCard>
+              <div className="absolute top-6 -right-6 w-full h-full border-4 border-black bg-blue-500 -z-10" />
+            </div>
           </div>
         </div>
       </section>

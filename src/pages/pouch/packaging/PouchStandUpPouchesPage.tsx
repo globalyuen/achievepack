@@ -2,15 +2,96 @@ import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Home, HelpCircle, ChevronDown, ChevronUp, Sparkles, MessageCircle, FileText } from 'lucide-react'
+import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Home, HelpCircle, ChevronDown, ChevronUp, Sparkles, MessageCircle, FileText, XCircle, CheckCircle2 } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common Stand-Up Pouch Problems (And Solutions)",
+    problemsSubtitle: "Don't let subpar packaging ruin your product. Here is how we engineer solutions to the most common pouch failures:",
+    p1Title: "1. Weak Seals & Leaking",
+    p1Prob: "Problem: Poor heat sealing causes the bottom gusset to burst under pressure, leading to leaks.",
+    p1Sol: "Solution: We use high-strength thermal seal layers and rigorous burst testing to ensure structural integrity.",
+    p2Title: "2. Poor Shelf Stability",
+    p2Prob: "Problem: Asymmetric folding causes the pouch to tip over on retail shelves.",
+    p2Sol: "Solution: Precision K-seal and Doyen bottom designs create a perfectly flat, sturdy base.",
+    p3Title: "3. Barrier Failure",
+    p3Prob: "Problem: Oxygen or moisture penetrates the bag, causing the product to go stale.",
+    p3Sol: "Solution: Multi-layer EVOH or metalized films block O2 and moisture, extending shelf life up to 12+ months.",
+    p4Title: "4. Zipper Malfunction",
+    p4Prob: "Problem: Powders clog the zipper track, making it impossible to reseal.",
+    p4Sol: "Solution: We integrate premium press-to-close or powder-proof slider zippers for reliable resealability.",
+    p5Title: "5. Difficult to Open",
+    p5Prob: "Problem: Consumers struggle to tear the pouch open, resulting in jagged edges or spills.",
+    p5Sol: "Solution: Laser-scored tear notches guarantee clean, effortless, and straight opening every time."
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de las Bolsas Stand-Up (y Soluciones)",
+    problemsSubtitle: "No deje que un envase deficiente arruine su producto. Así es como diseñamos soluciones para las fallas más comunes:",
+    p1Title: "1. Sellos Débiles y Fugas",
+    p1Prob: "Problema: Un mal termosellado hace que el fuelle inferior se rompa bajo presión, provocando fugas.",
+    p1Sol: "Solución: Utilizamos capas de sellado térmico de alta resistencia y pruebas de explosión para garantizar la integridad.",
+    p2Title: "2. Mala Estabilidad en el Estante",
+    p2Prob: "Problema: El plegado asimétrico hace que la bolsa se vuelque en los estantes minoristas.",
+    p2Sol: "Solución: Los diseños de fondo Doyen y sello en K de precisión crean una base perfectamente plana y resistente.",
+    p3Title: "3. Falla de Barrera",
+    p3Prob: "Problema: El oxígeno o la humedad penetran en la bolsa, haciendo que el producto pierda frescura.",
+    p3Sol: "Solución: Las películas multicapa de EVOH o metalizadas bloquean el O2 y la humedad, extendiendo la vida útil a más de 12 meses.",
+    p4Title: "4. Mal Funcionamiento del Cierre",
+    p4Prob: "Problema: Los polvos obstruyen el riel del cierre (zipper), imposibilitando el resellado.",
+    p4Sol: "Solución: Integramos cierres premium o deslizadores a prueba de polvo para una resellabilidad confiable.",
+    p5Title: "5. Difícil de Abrir",
+    p5Prob: "Problema: Los consumidores batallan para abrir la bolsa, resultando en bordes rasgados o derrames.",
+    p5Sol: "Solución: Las muescas de desgarre marcadas con láser garantizan una apertura limpia, recta y sin esfuerzo siempre."
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants des Sachets Doypack (Et Solutions)",
+    problemsSubtitle: "Ne laissez pas un emballage médiocre gâcher votre produit. Voici comment nous résolvons les défaillances les plus courantes :",
+    p1Title: "1. Soudures Faibles et Fuites",
+    p1Prob: "Problème : Un mauvais thermoscellage fait éclater le soufflet inférieur sous la pression, entraînant des fuites.",
+    p1Sol: "Solution : Nous utilisons des couches de thermoscellage à haute résistance et des tests d'éclatement rigoureux.",
+    p2Title: "2. Mauvaise Stabilité en Rayon",
+    p2Prob: "Problème : Un pliage asymétrique fait basculer le sachet sur les étagères des magasins.",
+    p2Sol: "Solution : Les fonds Doyen et les soudures en K de précision créent une base parfaitement plate et solide.",
+    p3Title: "3. Défaillance de la Barrière",
+    p3Prob: "Problème : L'oxygène ou l'humidité pénètre dans le sac, rendant le produit rassis.",
+    p3Sol: "Solution : Les films multicouches EVOH ou métallisés bloquent l'O2 et l'humidité, prolongeant la durée de conservation.",
+    p4Title: "4. Dysfonctionnement du Zip",
+    p4Prob: "Problème : Les poudres bouchent la glissière, rendant la refermeture impossible.",
+    p4Sol: "Solution : Nous intégrons des zips premium ou des curseurs anti-poudre pour une refermeture fiable.",
+    p5Title: "5. Difficile à Ouvrir",
+    p5Prob: "Problème : Les consommateurs ont du mal à déchirer le sachet, ce qui provoque des renversements.",
+    p5Sol: "Solution : Les encoches de déchirure découpées au laser garantissent une ouverture nette, droite et sans effort."
+  },
+  "zh-TW": {
+    problemsTitle: "5 個常見的直立袋問題 (及解決方案)",
+    problemsSubtitle: "別讓劣質包裝毀了您的產品。我們針對最常見的包裝失效問題提供專業解決方案：",
+    p1Title: "1. 封口不牢與漏氣",
+    p1Prob: "問題：熱封不良導致底部折邊在壓力下破裂，引發漏氣漏液。",
+    p1Sol: "解決方案：我們採用高強度熱封層及嚴格的爆破測試，確保結構完整。",
+    p2Title: "2. 貨架穩定性差",
+    p2Prob: "問題：不對稱的折疊導致袋子在零售貨架上容易傾倒。",
+    p2Sol: "解決方案：精密的 K 型封口和 Doyen 底部設計創造了完美平坦、堅固的底座。",
+    p3Title: "3. 阻隔失效",
+    p3Prob: "問題：氧氣或水分穿透包裝袋，導致產品受潮或變質。",
+    p3Sol: "解決方案：多層 EVOH 或金屬化薄膜可阻絕氧氣及水分，延長保質期達 12 個月以上。",
+    p4Title: "4. 拉鍊卡粉故障",
+    p4Prob: "問題：粉末堵塞拉鍊軌道，導致無法重新密封。",
+    p4Sol: "解決方案：我們整合了優質的按壓式拉鍊或防粉塵滑塊，確保可靠的重複密封性。",
+    p5Title: "5. 難以撕開",
+    p5Prob: "問題：消費者難以撕開包裝，導致撕裂邊緣不整齊或產品溢出。",
+    p5Sol: "解決方案：激光打孔易撕口保證每次都能乾淨、筆直且不費力地打開。"
+  }
+}
+
 export default function PouchStandUpPouchesPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.language || 'en'
+  const tLocal = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en
   const [scrollPercent, setScrollPercent] = useState(0)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
@@ -319,6 +400,57 @@ export default function PouchStandUpPouchesPage() {
             <p>
               {t(`${p}.guide.section3P1`, "Historically, custom printed packaging required massive minimum order quantities (MOQs) of 10,000 to 50,000 units, creating a significant barrier to entry for small businesses. We leverage state-of-the-art digital printing to offer MOQs starting at just 500 units. This allows startups to test new products, launch seasonal flavors, and run promotional campaigns without tying up capital in excessive packaging inventory.")}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-100 border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-4 text-black">
+              {tLocal.problemsTitle}
+            </h2>
+            <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 max-w-2xl mx-auto">
+              {tLocal.problemsSubtitle}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 text-left">
+              {[
+                { title: tLocal.p1Title, prob: tLocal.p1Prob, sol: tLocal.p1Sol },
+                { title: tLocal.p2Title, prob: tLocal.p2Prob, sol: tLocal.p2Sol },
+                { title: tLocal.p3Title, prob: tLocal.p3Prob, sol: tLocal.p3Sol },
+                { title: tLocal.p4Title, prob: tLocal.p4Prob, sol: tLocal.p4Sol },
+                { title: tLocal.p5Title, prob: tLocal.p5Prob, sol: tLocal.p5Sol },
+              ].map((item, i) => (
+                <div key={i} className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <h3 className="font-black text-xl uppercase mb-3 text-black">{item.title}</h3>
+                  <div className="flex gap-3 mb-2 items-start">
+                    <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 leading-relaxed">{item.prob}</p>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold text-black leading-relaxed">{item.sol}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="relative">
+              <img 
+                src="/imgs/knowledge/stand-up-pouches-pain-points.jpg" 
+                alt="Stand Up Pouches Quality Control" 
+                className="w-full h-auto object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-3">
+                <span className="font-['JetBrains_Mono'] font-black uppercase text-lg text-black">
+                  Zero Failure <br/>Engineering
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -1,14 +1,75 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Coffee, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Coffee, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, Target, Calendar, Phone, Download, Mail, AlertTriangle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const localTranslations = {
+  en: {
+    title: "5 Common Coffee Packaging Problems (And Solutions)",
+    intro: "Packaging coffee properly is critical for maintaining its quality, flavor, and shelf-life. Here are 5 common pain points and how our engineering solves them.",
+    prob1: "Loss of Flavor & Aroma (CO2 Buildup)",
+    sol1: "Solution: One-way degassing valves to release CO2 while keeping oxygen out, ensuring freshness.",
+    prob2: "Exposure to Light, Moisture & Oxygen",
+    sol2: "Solution: Multi-layer high-barrier films (like AL or metallized PET) that provide extreme protection against UV and humidity.",
+    prob3: "Poor Resealability After Opening",
+    sol3: "Solution: Premium press-to-close zippers or pocket zippers for reliable, airtight resealing.",
+    prob4: "Punctures or Leaks During Shipping",
+    sol4: "Solution: High tensile strength laminates and reinforced wide side-seals to survive transit.",
+    prob5: "Sustainability & Eco-Friendly Demands",
+    sol5: "Solution: Innovative Recyclable Mono-PE or Industrially Compostable packaging structures."
+  },
+  es: {
+    title: "5 Problemas Comunes del Empaque de Café (y Soluciones)",
+    intro: "El empaque adecuado del café es fundamental para mantener su calidad, sabor y vida útil. Aquí hay 5 puntos críticos comunes y cómo nuestra ingeniería los resuelve.",
+    prob1: "Pérdida de Sabor y Aroma (Acumulación de CO2)",
+    sol1: "Solución: Válvulas desgasificadoras unidireccionales para liberar CO2 manteniendo el oxígeno afuera.",
+    prob2: "Exposición a la Luz, Humedad y Oxígeno",
+    sol2: "Solución: Películas multicapa de alta barrera (como AL o PET metalizado) para máxima protección.",
+    prob3: "Mala Capacidad de Resellado Tras Abrir",
+    sol3: "Solución: Cierres de presión de alta calidad o cierres tipo bolsillo para un resellado hermético confiable.",
+    prob4: "Perforaciones o Fugas Durante el Envío",
+    sol4: "Solución: Laminados de alta resistencia a la tracción y sellos laterales reforzados para sobrevivir al transporte.",
+    prob5: "Demandas de Sostenibilidad y Ecología",
+    sol5: "Solución: Innovadoras estructuras de empaque de Mono-PE reciclable o compostable industrialmente."
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage de Café (et Solutions)",
+    intro: "L'emballage correct du café est essentiel pour maintenir sa qualité, sa saveur et sa durée de conservation. Voici 5 points faibles courants et comment notre ingénierie les résout.",
+    prob1: "Perte de Saveur et d'Arôme (Accumulation de CO2)",
+    sol1: "Solution : Valves de dégazage unidirectionnelles pour libérer le CO2 tout en bloquant l'oxygène.",
+    prob2: "Exposition à la Lumière, l'Humidité et l'Oxygène",
+    sol2: "Solution : Films multicouches à haute barrière (comme AL ou PET métallisé) pour une protection maximale.",
+    prob3: "Mauvaise Refermabilité Après Ouverture",
+    sol3: "Solution : Zips à pression de qualité supérieure ou zips de poche pour une fermeture hermétique fiable.",
+    prob4: "Perforations ou Fuites Pendant l'Expédition",
+    sol4: "Solution : Stratifiés à haute résistance à la traction et joints latéraux renforcés pour résister au transport.",
+    prob5: "Exigences de Durabilité et d'Écologie",
+    sol5: "Solution : Structures d'emballage innovantes en Mono-PE recyclable ou compostables industriellement."
+  },
+  'zh-TW': {
+    title: "5個常見的咖啡包裝問題（及解決方案）",
+    intro: "正確包裝咖啡對於保持其品質、風味和保質期至關重要。以下是5個常見痛點以及我們的工程如何解決它們。",
+    prob1: "風味與香氣流失 (CO2 積聚)",
+    sol1: "解決方案：單向排氣閥可在排出 CO2 的同時阻擋氧氣進入，確保新鮮度。",
+    prob2: "暴露於光線、濕氣與氧氣",
+    sol2: "解決方案：多層高阻隔薄膜（如鋁箔或鍍鋁 PET）提供最大程度的保護。",
+    prob3: "開封後密封性差",
+    sol3: "解決方案：優質壓合夾鏈或口袋夾鏈，提供可靠的氣密重新密封。",
+    prob4: "運輸過程中的刺穿或洩漏",
+    sol4: "解決方案：高抗拉強度複合材料和加固的寬邊封口，可承受運輸過程的考驗。",
+    prob5: "可持續性與環保需求",
+    sol5: "解決方案：創新的可回收單一材質 PE 或工業可堆肥包裝結構。"
+  }
+}
 const USACoffeePage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.usaCoffee'
+  
+  const lang = i18n.language || 'en';
+  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en;
 
   const { openCalendly } = useCalendly()
   const sections = [
@@ -34,6 +95,45 @@ const USACoffeePage: React.FC = () => {
               <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.scenarioTrigger.card3Title`)}</h4>
               <p className="text-sm text-neutral-600 mt-1">{t(`${p}.sections.scenarioTrigger.card3Desc`)}</p>
             </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points',
+      title: localTrans.title,
+      icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>{localTrans.intro}</p>
+          <div className="space-y-3 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100">
+              <h4 className="font-bold text-red-700 flex items-center gap-2"><AlertTriangle className="h-4 w-4" /> 1. {localTrans.prob1}</h4>
+              <p className="text-sm mt-1 text-green-700 font-medium">{localTrans.sol1}</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100">
+              <h4 className="font-bold text-red-700 flex items-center gap-2"><AlertTriangle className="h-4 w-4" /> 2. {localTrans.prob2}</h4>
+              <p className="text-sm mt-1 text-green-700 font-medium">{localTrans.sol2}</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100">
+              <h4 className="font-bold text-red-700 flex items-center gap-2"><AlertTriangle className="h-4 w-4" /> 3. {localTrans.prob3}</h4>
+              <p className="text-sm mt-1 text-green-700 font-medium">{localTrans.sol3}</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100">
+              <h4 className="font-bold text-red-700 flex items-center gap-2"><AlertTriangle className="h-4 w-4" /> 4. {localTrans.prob4}</h4>
+              <p className="text-sm mt-1 text-green-700 font-medium">{localTrans.sol4}</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100">
+              <h4 className="font-bold text-red-700 flex items-center gap-2"><AlertTriangle className="h-4 w-4" /> 5. {localTrans.prob5}</h4>
+              <p className="text-sm mt-1 text-green-700 font-medium">{localTrans.sol5}</p>
+            </div>
+          </div>
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/knowledge/usa-coffee-packaging-pain-points.jpg" 
+              alt="Coffee Packaging Engineering Solutions" 
+              className="w-full rounded-lg shadow-md"
+            />
           </div>
         </div>
       )

@@ -1,12 +1,135 @@
 import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, CheckCircle, Package, Leaf, Zap, Shield, Sparkles, ChevronDown, ChevronUp, Calendar, Mail } from 'lucide-react'
+import { ArrowRight, CheckCircle, Package, Leaf, Zap, Shield, Sparkles, ChevronDown, ChevronUp, Calendar, Mail, AlertCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 
+const translations = {
+  en: {
+    sectionTitle: "5 Common Degassing Valve Problems (And Solutions)",
+    problems: [
+      {
+        title: "Pouch Bursting During Shipping",
+        desc: "Excess gas from roasted coffee or fermented foods builds up, causing the bag to inflate and burst in transit.",
+        solution: "Solution: Implement a one-way degassing sticker valve that safely releases CO2 at a specified pressure threshold."
+      },
+      {
+        title: "Oxygen Entering and Spoiling Product",
+        desc: "Poor quality valves allow outside oxygen to seep back in, ruining flavor and reducing shelf life.",
+        solution: "Solution: Use high-precision smart valves that seal completely once internal pressure drops, preventing any reverse airflow."
+      },
+      {
+        title: "Valves Clogged by Fine Powders",
+        desc: "Fine coffee grounds or liquids block the tiny venting holes, stopping the valve from functioning.",
+        solution: "Solution: Add a specialized liquid-proof or dust-proof membrane layer over the valve opening."
+      },
+      {
+        title: "Bulky Hard Plastic Valves Increasing Costs",
+        desc: "Traditional hard valves take up more space on the reel, require special application equipment, and increase shipping volume.",
+        solution: "Solution: Switch to ultra-thin sticker valves that come pre-applied on the film roll."
+      },
+      {
+        title: "Inconsistent Venting Performance",
+        desc: "Batches of valves open at different pressures, leading to some bags looking bloated while others look flat.",
+        solution: "Solution: Source valves from manufacturers with automated quality control testing for consistent cracking pressure."
+      }
+    ]
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes con Válvulas Desgasificadoras (Y Soluciones)",
+    problems: [
+      {
+        title: "Rotura de la Bolsa Durante el Envío",
+        desc: "El exceso de gas del café tostado o los alimentos fermentados se acumula, lo que hace que la bolsa se infle y reviente durante el tránsito.",
+        solution: "Solución: Implemente una válvula de desgasificación unidireccional que libere CO2 de forma segura a un umbral de presión específico."
+      },
+      {
+        title: "Entrada de Oxígeno y Deterioro del Producto",
+        desc: "Las válvulas de mala calidad permiten que el oxígeno exterior vuelva a entrar, arruinando el sabor y reduciendo la vida útil.",
+        solution: "Solución: Utilice válvulas inteligentes de alta precisión que se sellan completamente una vez que baja la presión interna."
+      },
+      {
+        title: "Válvulas Obstruidas por Polvos Finos",
+        desc: "Los posos de café finos o los líquidos bloquean los pequeños orificios de ventilación, deteniendo el funcionamiento de la válvula.",
+        solution: "Solución: Agregue una capa de membrana especializada a prueba de líquidos o polvo sobre la abertura de la válvula."
+      },
+      {
+        title: "Válvulas Voluminosas que Aumentan los Costos",
+        desc: "Las válvulas tradicionales de plástico duro ocupan más espacio en el carrete, requieren equipo de aplicación especial y aumentan el volumen de envío.",
+        solution: "Solución: Cambie a válvulas adhesivas ultrafinas que vienen pre-aplicadas en el rollo de película."
+      },
+      {
+        title: "Rendimiento de Ventilación Inconsistente",
+        desc: "Lotes de válvulas se abren a diferentes presiones, lo que hace que algunas bolsas parezcan hinchadas mientras que otras se ven planas.",
+        solution: "Solución: Adquiera válvulas de fabricantes con pruebas de control de calidad automatizadas para una presión de apertura constante."
+      }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants avec les Valves de Dégazage (Et Solutions)",
+    problems: [
+      {
+        title: "Rupture de la Poche Pendant l'Expédition",
+        desc: "L'excès de gaz provenant du café torréfié ou des aliments fermentés s'accumule, provoquant le gonflement et l'éclatement du sachet.",
+        solution: "Solution : Mettez en œuvre une valve de dégazage unidirectionnelle qui libère le CO2 en toute sécurité à un seuil de pression spécifié."
+      },
+      {
+        title: "L'Oxygène Pénètre et Altière le Produit",
+        desc: "Les valves de mauvaise qualité permettent à l'oxygène extérieur de s'infiltrer, ruinant la saveur et réduisant la durée de conservation.",
+        solution: "Solution : Utilisez des valves intelligentes de haute précision qui se scellent complètement une fois que la pression interne baisse."
+      },
+      {
+        title: "Valves Bouchées par des Poudres Fines",
+        desc: "Le marc de café fin ou les liquides bloquent les minuscules trous de ventilation, empêchant la valve de fonctionner.",
+        solution: "Solution : Ajoutez une couche de membrane spécialisée étanche aux liquides ou à la poussière sur l'ouverture de la valve."
+      },
+      {
+        title: "Valves Encombrantes Qui Augmentent les Coûts",
+        desc: "Les valves rigides traditionnelles prennent plus de place sur la bobine, nécessitent un équipement d'application spécial et augmentent le volume d'expédition.",
+        solution: "Solution : Passez aux valves autocollantes ultra-fines qui sont pré-appliquées sur le rouleau de film."
+      },
+      {
+        title: "Performances de Ventilation Incohérentes",
+        desc: "Les lots de valves s'ouvrent à des pressions différentes, de sorte que certains sacs semblent gonflés tandis que d'autres paraissent plats.",
+        solution: "Solution : Achetez des valves auprès de fabricants proposant des tests de contrôle qualité automatisés pour une pression d'ouverture constante."
+      }
+    ]
+  },
+  "zh-TW": {
+    sectionTitle: "5 個常見的排氣閥問題（及解決方案）",
+    problems: [
+      {
+        title: "運輸過程中袋子破裂",
+        desc: "烘焙咖啡或發酵食品產生的多餘氣體積聚，導致袋子在運輸過程中膨脹並破裂。",
+        solution: "解決方案：實施單向排氣貼片閥門，在指定的壓力閾值下安全釋放二氧化碳。"
+      },
+      {
+        title: "氧氣進入導致產品變質",
+        desc: "劣質閥門會讓外部氧氣滲入，破壞風味並縮短保質期。",
+        solution: "解決方案：使用高精度智能閥門，一旦內部壓力下降，它們就會完全密封，防止任何空氣回流。"
+      },
+      {
+        title: "細粉堵塞閥門",
+        desc: "細咖啡粉或液體堵塞了微小的通風孔，導致閥門停止運作。",
+        solution: "解決方案：在閥門開口上方添加一層專用的防水或防塵透氣膜。"
+      },
+      {
+        title: "笨重的硬質塑料閥門增加成本",
+        desc: "傳統硬質閥門在卷膜上佔據更多空間，需要特殊的應用設備，並增加運輸體積。",
+        solution: "解決方案：改用預先貼在薄膜卷上的超薄貼片閥門。"
+      },
+      {
+        title: "排氣性能不一致",
+        desc: "各批次閥門在不同的壓力下開啟，導致有些袋子看起來膨脹，有些則扁平。",
+        solution: "解決方案：向具有自動化質量控制測試的製造商採購閥門，以確保一致的開啟壓力。"
+      }
+    ]
+  }
+} as const;
+type LocaleKey = keyof typeof translations;
 export default function SmartDegassingStickerPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
   const [lightboxImage, setLightboxImage] = useState<string | null>(null)
 
@@ -409,6 +532,43 @@ export default function SmartDegassingStickerPage() {
                   <span><strong>{t('smartDegassingStickerPage.guide.steps.4.title')}</strong> {t('smartDegassingStickerPage.guide.steps.4.desc')}</span>
                 </li>
               </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PAIN POINTS SECTION */}
+      <section className="py-16 bg-neutral-100 border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-6 text-black">
+                {translations[(i18n.language as LocaleKey) || 'en']?.sectionTitle || translations['en'].sectionTitle}
+              </h2>
+              <div className="space-y-6">
+                {(translations[(i18n.language as LocaleKey) || 'en']?.problems || translations['en'].problems).map((problem, idx) => (
+                  <div key={idx} className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl">
+                    <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2 text-red-600 flex items-center gap-2">
+                      <AlertCircle className="w-6 h-6 flex-shrink-0" />
+                      {problem.title}
+                    </h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mb-3">
+                      {problem.desc}
+                    </p>
+                    <div className="bg-[#10B981]/10 p-3 border-l-4 border-[#10B981] font-['JetBrains_Mono'] text-sm text-emerald-900 font-bold flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 flex-shrink-0 text-[#10B981]" />
+                      <span>{problem.solution}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-first md:order-last border-4 border-black rounded-xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white group">
+              <img 
+                src="/imgs/knowledge/smart-degassing-sticker-pain-points.jpg" 
+                alt="Degassing Valve Pain Points Illustration" 
+                className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300" 
+              />
             </div>
           </div>
         </div>

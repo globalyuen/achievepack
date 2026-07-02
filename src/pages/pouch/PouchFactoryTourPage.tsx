@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Play, X, ChevronLeft, ChevronRight, Factory, Printer, Layers, Scissors, Package, CheckCircle } from 'lucide-react'
+import { Play, X, ChevronLeft, ChevronRight, Factory, Printer, Layers, Scissors, Package, CheckCircle, AlertTriangle } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../components/pouch/PouchUI'
 
@@ -59,8 +59,113 @@ const FACTORY_VIDEOS: Video[] = [
   }
 ]
 
+const translations = {
+  en: {
+    painPointsTitle: "5 Common Pouch Manufacturing Problems (And Solutions)",
+    painPoints: [
+      {
+        problem: "Poor Seal Strength Leading to Leaks",
+        solution: "Advanced heat sealing with optimized pressure and dwell time calibration."
+      },
+      {
+        problem: "Ink Delamination or Smearing",
+        solution: "High-bond lamination adhesives and surface corona treatment."
+      },
+      {
+        problem: "Inaccurate Slitting Causing Uneven Edges",
+        solution: "Automated edge guiding systems and web tension control."
+      },
+      {
+        problem: "Trapped Air or Wrinkles During Lamination",
+        solution: "Precision nip roller pressure and web tension management."
+      },
+      {
+        problem: "Color Inconsistency Across Batches",
+        solution: "Automated spectrophotometer color matching and Pantone calibration."
+      }
+    ]
+  },
+  es: {
+    painPointsTitle: "5 Problemas Comunes de Fabricación de Bolsas (Y Soluciones)",
+    painPoints: [
+      {
+        problem: "Poca resistencia del sellado que provoca fugas",
+        solution: "Sellado térmico avanzado con presión optimizada y tiempo de permanencia."
+      },
+      {
+        problem: "Delaminación o manchas de tinta",
+        solution: "Adhesivos de laminación de alta adherencia y tratamiento corona."
+      },
+      {
+        problem: "Corte inexacto que causa bordes desiguales",
+        solution: "Sistemas de guía de bordes automatizados y control de tensión."
+      },
+      {
+        problem: "Aire atrapado o arrugas durante la laminación",
+        solution: "Presión de rodillos nip de precisión y gestión de tensión de la banda."
+      },
+      {
+        problem: "Inconsistencia de color entre lotes",
+        solution: "Coincidencia de color automatizada con espectrofotómetro y calibración Pantone."
+      }
+    ]
+  },
+  fr: {
+    painPointsTitle: "5 Problèmes Courants de Fabrication de Sachets (Et Solutions)",
+    painPoints: [
+      {
+        problem: "Faible résistance du scellage entraînant des fuites",
+        solution: "Thermoscellage avancé avec pression et temps de maintien optimisés."
+      },
+      {
+        problem: "Délamination ou maculage de l'encre",
+        solution: "Adhésifs de complexage à haute adhérence et traitement corona."
+      },
+      {
+        problem: "Refente imprécise causant des bords inégaux",
+        solution: "Systèmes de guidage de bord automatisés et contrôle de la tension."
+      },
+      {
+        problem: "Air emprisonné ou plis pendant le complexage",
+        solution: "Pression de précision des rouleaux de pincement et gestion de la tension de la bande."
+      },
+      {
+        problem: "Incohérence des couleurs d'un lot à l'autre",
+        solution: "Correspondance de couleur automatisée par spectrophotomètre et étalonnage Pantone."
+      }
+    ]
+  },
+  'zh-TW': {
+    painPointsTitle: "5 個常見的軟包裝製造問題（與解決方案）",
+    painPoints: [
+      {
+        problem: "封口強度不足導致洩漏",
+        solution: "優化壓力與熱封時間的先進熱封技術。"
+      },
+      {
+        problem: "油墨脫層或污損",
+        solution: "高粘合力複合膠水及電暈處理。"
+      },
+      {
+        problem: "分切不準確導致邊緣不齊",
+        solution: "自動化糾偏系統與張力控制。"
+      },
+      {
+        problem: "複合過程中的氣泡或褶皺",
+        solution: "精密壓輥壓力與卷材張力管理。"
+      },
+      {
+        problem: "批次間的顏色不一致",
+        solution: "自動化分光光度計配色及 Pantone 校準。"
+      }
+    ]
+  }
+}
+
 export default function PouchFactoryTourPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.language || 'en'
+  const tLocal = translations[currentLang as keyof typeof translations] || translations.en
   const [activeVideo, setActiveVideo] = useState<Video | null>(null)
 
   const handleNext = () => {
@@ -246,6 +351,44 @@ export default function PouchFactoryTourPage() {
                 </ul>
               </NeoCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-16 px-4 bg-white border-b-4 border-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
+              {tLocal.painPointsTitle}
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              {tLocal.painPoints.map((item, idx) => (
+                <NeoCard key={idx} className="p-6">
+                  <h3 className="font-black text-xl uppercase mb-2 flex items-start gap-2">
+                    <AlertTriangle className="w-6 h-6 text-red-500 shrink-0 mt-1" />
+                    <span>{item.problem}</span>
+                  </h3>
+                  <div className="flex items-start gap-2 text-gray-700 font-['Space_Grotesk']">
+                    <CheckCircle className="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" />
+                    <span>{item.solution}</span>
+                  </div>
+                </NeoCard>
+              ))}
+            </div>
+            
+            <div className="relative">
+              <NeoCard className="p-2 bg-[#D4FF00]">
+                <img 
+                  src="/imgs/knowledge/pouch-manufacturing-pain-points.jpg" 
+                  alt="Pouch Manufacturing Pain Points"
+                  className="w-full h-auto border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] object-cover"
+                />
+              </NeoCard>
+            </div>
           </div>
         </div>
       </section>

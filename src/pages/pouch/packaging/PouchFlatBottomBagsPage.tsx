@@ -2,13 +2,142 @@ import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
-import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box } from 'lucide-react'
+import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, AlertTriangle, TrendingUp, Droplets, PackageCheck, Wind } from 'lucide-react'
+
+const localTranslations = {
+  en: {
+    painPointsTitle: "5 Common Flat Bottom Bag Problems (And Solutions)",
+    painPoints: [
+      {
+        icon: 'AlertTriangle',
+        problem: "1. Poor Shelf Stability: Standard pouches tip over easily, ruining retail display.",
+        solution: "Solution: True flat bottom design with sealed gussets creates a rigid, brick-like foundation."
+      },
+      {
+        icon: 'Wind',
+        problem: "2. Loss of Freshness: Coffee or snacks lose flavor due to oxygen and moisture ingress.",
+        solution: "Solution: High-barrier multi-layer laminations (AL/VMPET) combined with one-way degassing valves."
+      },
+      {
+        icon: 'PackageCheck',
+        problem: "3. Inefficient Storage Volume: Wasted space during transit increases shipping costs.",
+        solution: "Solution: The box-like shape maximizes internal volume, holding more product in a smaller footprint."
+      },
+      {
+        icon: 'Droplets',
+        problem: "4. Weak Side Seals Bursting: Bags split open under stacking pressure or impact.",
+        solution: "Solution: Quad-seal reinforced edges distribute pressure evenly, preventing blowouts."
+      },
+      {
+        icon: 'TrendingUp',
+        problem: "5. Poor Pouring Experience: Products spill or get trapped in corners.",
+        solution: "Solution: Wide top openings with integrated zippers allow for easy scooping and pouring."
+      }
+    ]
+  },
+  es: {
+    painPointsTitle: "5 problemas comunes de las bolsas de fondo plano (y soluciones)",
+    painPoints: [
+      {
+        icon: 'AlertTriangle',
+        problem: "1. Mala estabilidad en los estantes: Las bolsas estándar se vuelcan fácilmente.",
+        solution: "Solución: El diseño de fondo plano real con fuelles sellados crea una base rígida."
+      },
+      {
+        icon: 'Wind',
+        problem: "2. Pérdida de frescura: El café o los snacks pierden sabor por el oxígeno y la humedad.",
+        solution: "Solución: Laminaciones multicapa de alta barrera con válvulas desgasificadoras unidireccionales."
+      },
+      {
+        icon: 'PackageCheck',
+        problem: "3. Volumen de almacenamiento ineficiente: El espacio desperdiciado aumenta los costos de envío.",
+        solution: "Solución: La forma de caja maximiza el volumen interno, almacenando más en menos espacio."
+      },
+      {
+        icon: 'Droplets',
+        problem: "4. Sellos laterales débiles: Las bolsas se rompen bajo la presión de apilamiento.",
+        solution: "Solución: Los bordes reforzados con sello cuádruple distribuyen la presión uniformemente."
+      },
+      {
+        icon: 'TrendingUp',
+        problem: "5. Mala experiencia de vertido: Los productos se derraman o se atrapan en las esquinas.",
+        solution: "Solución: Aberturas superiores anchas con cremalleras integradas para facilitar el uso."
+      }
+    ]
+  },
+  fr: {
+    painPointsTitle: "5 problèmes courants des sachets à fond plat (et solutions)",
+    painPoints: [
+      {
+        icon: 'AlertTriangle',
+        problem: "1. Mauvaise stabilité en rayon : Les sachets standard se renversent facilement.",
+        solution: "Solution : La conception à fond plat véritable avec soufflets scellés crée une base rigide."
+      },
+      {
+        icon: 'Wind',
+        problem: "2. Perte de fraîcheur : Le café ou les snacks perdent leur saveur à cause de l'oxygène et de l'humidité.",
+        solution: "Solution : Stratifications multicouches à haute barrière avec valves de dégazage unidirectionnelles."
+      },
+      {
+        icon: 'PackageCheck',
+        problem: "3. Volume de stockage inefficace : L'espace gaspillé augmente les coûts d'expédition.",
+        solution: "Solution : La forme en boîte maximise le volume interne, contenant plus de produit."
+      },
+      {
+        icon: 'Droplets',
+        problem: "4. Faiblesse des joints latéraux : Les sacs éclatent sous la pression d'empilement.",
+        solution: "Solution : Les bords renforcés à quatre joints répartissent la pression uniformément."
+      },
+      {
+        icon: 'TrendingUp',
+        problem: "5. Mauvaise expérience de versement : Les produits se renversent ou restent coincés dans les coins.",
+        solution: "Solution : Larges ouvertures supérieures avec fermetures éclair intégrées pour un service facile."
+      }
+    ]
+  },
+  'zh-TW': {
+    painPointsTitle: "八邊封平底袋的 5 個常見痛點 (與解決方案)",
+    painPoints: [
+      {
+        icon: 'AlertTriangle',
+        problem: "1. 貨架穩定性差：標準包裝袋容易傾倒，破壞商品展示。",
+        solution: "解決方案：真正的平底設計和密封側片，打造如磚塊般堅固的底座。"
+      },
+      {
+        icon: 'Wind',
+        problem: "2. 失去新鮮度：咖啡或零食因氧氣和濕氣進入而失去風味。",
+        solution: "解決方案：高阻隔多層複合材料 (AL/VMPET) 結合單向排氣閥。"
+      },
+      {
+        icon: 'PackageCheck',
+        problem: "3. 儲存體積效率低：運輸過程中的空間浪費增加了運輸成本。",
+        solution: "解決方案：盒狀設計最大化了內部體積，在更小的佔地面積內容納更多產品。"
+      },
+      {
+        icon: 'Droplets',
+        problem: "4. 側邊封口薄弱導致破裂：包裝袋在堆疊壓力或衝擊下裂開。",
+        solution: "解決方案：四邊封加固邊緣均勻分佈壓力，防止破裂。"
+      },
+      {
+        icon: 'TrendingUp',
+        problem: "5. 倒出體驗差：產品容易溢出或卡在角落。",
+        solution: "解決方案：帶有集成夾鏈的寬頂部開口，方便舀取和倒出。"
+      }
+    ]
+  }
+}
+
+const iconMap = {
+  AlertTriangle, Wind, PackageCheck, Droplets, TrendingUp
+}
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
 export default function PouchFlatBottomBagsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language || 'en') as keyof typeof localTranslations
+  const currentTranslations = localTranslations[lang] || localTranslations.en
   const [scrollPercent, setScrollPercent] = useState(0)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const heroCardRef = useRef<HTMLDivElement>(null)
@@ -113,6 +242,44 @@ export default function PouchFlatBottomBagsPage() {
             </p>
             <NeoBadge color="bg-white">{t('pouchFlatBottomBagsPage.benefits.volumeOptimization.badge')}</NeoBadge>
           </NeoCard>
+        </div>
+      </section>
+
+      {/* 5 Common Pain Points Section */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto border-t-4 border-black bg-white">
+        <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+          {currentTranslations.painPointsTitle}
+        </h2>
+        
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            {currentTranslations.painPoints.map((item, idx) => {
+              const IconComponent = iconMap[item.icon as keyof typeof iconMap];
+              return (
+                <div key={idx} className="bg-gray-50 p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-[#FF00FF] p-3 border-2 border-black">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-['Space_Grotesk'] font-bold text-xl text-black mb-2">{item.problem}</h4>
+                      <p className="font-['JetBrains_Mono'] text-gray-700 font-medium">
+                        {item.solution}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          
+          <div className="relative">
+            <img 
+              src="/imgs/knowledge/flat-bottom-bags-pain-points.jpg" 
+              alt="Flat Bottom Bags Pain Points"
+              className="w-full h-auto object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            />
+          </div>
         </div>
       </section>
 

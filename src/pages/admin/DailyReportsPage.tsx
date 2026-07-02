@@ -19,6 +19,7 @@ import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
 import FamilyTab from '../../components/admin/FamilyTab';
 import CalendlyFollowUp from '../../components/admin/CalendlyFollowUp';
 import UnifiedInbox from '../../components/admin/UnifiedInbox';
+import CalendarView from '../../components/admin/CalendarView';
 import PouchEcoGPTKPage from '../pouch/PouchEcoGPTKPage';
 import * as XLSX from 'xlsx';
 import { useTranslation, Trans } from "react-i18next";
@@ -108,7 +109,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'|'family'|'pricing'>('reports');
+  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'calendar'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'|'family'|'pricing'>('reports');
   const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
@@ -1321,9 +1322,12 @@ export default function DailyReportsPage() {
                 <span className="xs:hidden">Inbox</span>
               </button>
               <button onClick={() => setActiveTab('reports')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'reports' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
-                <ClipboardList className="w-4 h-4"/>
-                <span className="hidden xs:inline">{t(`${p}.dailyReports`)}</span>
-                <span className="xs:hidden">{t(`${p}.reports`)}</span>
+                <ClipboardList className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                Reports
+              </button>
+              <button onClick={() => setActiveTab('calendar')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'calendar' ? 'bg-rose-500 text-white shadow-md shadow-rose-500/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                Calendar
               </button>
               <button onClick={() => setActiveTab('logs')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'logs' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
                 <History className="w-4 h-4"/>
@@ -1422,6 +1426,13 @@ export default function DailyReportsPage() {
         {activeTab === 'whatsapp' && (
           <div className="mt-8">
             <UnifiedInbox />
+          </div>
+        )}
+
+        {/* Tab Content: Calendar */}
+        {activeTab === 'calendar' && (
+          <div className="mt-8">
+            <CalendarView reports={reports} />
           </div>
         )}
 

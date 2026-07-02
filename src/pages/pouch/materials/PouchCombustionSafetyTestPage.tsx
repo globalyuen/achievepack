@@ -24,8 +24,116 @@ import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 
 export default function PouchCombustionSafetyTestPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchCombustionSafetyTest'
+  
+  const currentLang = i18n.language || 'en';
+  
+  const localTranslations = {
+    en: {
+      title: "5 Common Combustion Safety Problems (And Solutions)",
+      problems: [
+        {
+          q: "1. Toxic Fumes Release",
+          a: "Burning standard plastics releases harmful toxins and VOCs. Solution: Our PLA materials are certified to release non-toxic emissions during combustion."
+        },
+        {
+          q: "2. High Ash Residue",
+          a: "Incomplete combustion leaves significant solid waste and ash. Solution: Eco-friendly pouches burn efficiently, leaving minimal clean ash behind."
+        },
+        {
+          q: "3. Microplastic Contamination",
+          a: "Residue from combustion can introduce microplastics into soil and air. Solution: 100% compostable layers ensure zero microplastic generation even when burned."
+        },
+        {
+          q: "4. Chemical Flammability Risks",
+          a: "Unregulated inks and adhesives can cause aggressive, dangerous flare-ups. Solution: We use water-based inks and organic adhesives for controlled, safe burning."
+        },
+        {
+          q: "5. Inconsistent Material Melting",
+          a: "Standard polymers melt and drip dangerously before combusting. Solution: Engineered PLA layers maintain structural integrity longer and avoid hazardous dripping."
+        }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de Seguridad en Combustión (Y Soluciones)",
+      problems: [
+        {
+          q: "1. Liberación de Gases Tóxicos",
+          a: "La quema de plásticos estándar libera toxinas y COV nocivos. Solución: Nuestros materiales de PLA están certificados para liberar emisiones no tóxicas."
+        },
+        {
+          q: "2. Alto Residuo de Ceniza",
+          a: "La combustión incompleta deja residuos sólidos y cenizas. Solución: Las bolsas ecológicas se queman eficientemente, dejando una mínima ceniza limpia."
+        },
+        {
+          q: "3. Contaminación por Microplásticos",
+          a: "Los residuos de la combustión introducen microplásticos en el suelo y aire. Solución: Capas 100% compostables aseguran cero generación de microplásticos."
+        },
+        {
+          q: "4. Riesgos de Inflamabilidad Química",
+          a: "Las tintas y adhesivos no regulados causan llamaradas peligrosas. Solución: Usamos tintas a base de agua y adhesivos orgánicos para una combustión segura."
+        },
+        {
+          q: "5. Fusión Inconsistente del Material",
+          a: "Los polímeros estándar se derriten y gotean peligrosamente. Solución: Las capas de PLA mantienen su integridad estructural por más tiempo."
+        }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants de Sécurité de Combustion (Et Solutions)",
+      problems: [
+        {
+          q: "1. Rejet de Fumées Toxiques",
+          a: "La combustion de plastiques standards libère des toxines nocives. Solution : Nos matériaux en PLA sont certifiés pour des émissions non toxiques."
+        },
+        {
+          q: "2. Résidus de Cendres Élevés",
+          a: "La combustion incomplète laisse d'importants déchets solides. Solution : Les sachets écologiques brûlent efficacement, laissant un minimum de cendres."
+        },
+        {
+          q: "3. Contamination par les Microplastiques",
+          a: "Les résidus introduisent des microplastiques dans l'environnement. Solution : Des couches 100% compostables garantissent l'absence de microplastiques."
+        },
+        {
+          q: "4. Risques d'Inflammabilité Chimique",
+          a: "Les encres et adhésifs non réglementés provoquent des flammes dangereuses. Solution : Nous utilisons des encres à l'eau et des adhésifs organiques."
+        },
+        {
+          q: "5. Fusion Incohérente des Matériaux",
+          a: "Les polymères standards fondent et gouttent dangereusement. Solution : Les couches de PLA maintiennent leur intégrité structurelle plus longtemps."
+        }
+      ]
+    },
+    'zh-TW': {
+      title: "5 個常見的燃燒安全問題（與解決方案）",
+      problems: [
+        {
+          q: "1. 釋放有毒氣體",
+          a: "燃燒標準塑料會釋放有害毒素和揮發性有機化合物。解決方案：我們的 PLA 材料經認證在燃燒時釋放無毒排放物。"
+        },
+        {
+          q: "2. 灰燼殘留量高",
+          a: "不完全燃燒會留下大量固體廢物和灰燼。解決方案：環保包裝袋燃燒效率高，只留下極少量的乾淨灰燼。"
+        },
+        {
+          q: "3. 微塑料污染",
+          a: "燃燒殘留物會將微塑料引入土壤和空氣。解決方案：100% 可堆肥層確保在燃燒時實現零微塑料產生。"
+        },
+        {
+          q: "4. 化學易燃性風險",
+          a: "未經管制的油墨和粘合劑可能導致危險的突然起火。解決方案：我們使用水性油墨和有機粘合劑以實現安全受控的燃燒。"
+        },
+        {
+          q: "5. 材料熔化不均勻",
+          a: "標準聚合物在燃燒前會危險地熔化和滴落。解決方案：經過工程設計的 PLA 層可以更長時間地保持結構完整性。"
+        }
+      ]
+    }
+  };
+  
+  // @ts-ignore
+  const currentTranslations = localTranslations[currentLang] || localTranslations.en;
 
   const floatAnim = {
     y: [0, -6, 0],
@@ -494,6 +602,43 @@ export default function PouchCombustionSafetyTestPage() {
               ))}
             </ul>
           </NeoCard>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-20 border-b-4 border-black bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="flex items-center gap-3 mb-12 justify-center">
+            <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase text-center">
+              {currentTranslations.title}
+            </h2>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-neutral-50 overflow-hidden">
+              <img 
+                src="/imgs/knowledge/pouch-combustion-safety-test-pain-points.jpg" 
+                alt="Combustion Safety Problems and Solutions" 
+                className="w-full h-auto object-cover aspect-square"
+              />
+            </div>
+            
+            <div className="space-y-6">
+              {currentTranslations.problems.map((problem: any, idx: number) => (
+                <div key={idx} className="flex gap-4 border-4 border-black p-5 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform">
+                  <div className="w-12 h-12 bg-[#D4FF00] border-2 border-black rounded-full flex items-center justify-center flex-shrink-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <Activity className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <h3 className="font-black uppercase text-lg mb-2">{problem.q}</h3>
+                    <p className="font-['Space_Grotesk'] text-sm text-neutral-700 leading-relaxed">
+                      {problem.a}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

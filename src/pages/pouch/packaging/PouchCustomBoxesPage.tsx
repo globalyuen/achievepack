@@ -1,6 +1,6 @@
 import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { useState } from 'react'
-import { Package, Award, Sparkles, CheckCircle, HelpCircle } from 'lucide-react'
+import { Package, Award, Sparkles, CheckCircle, HelpCircle, AlertCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
@@ -8,8 +8,55 @@ import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 
 export default function PouchCustomBoxesPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+
+  const currentLang = i18n.language || 'en'
+
+  const localTranslations: Record<string, any> = {
+    en: {
+      title: "5 Common Custom Boxes Problems (And Solutions)",
+      problems: [
+        { q: "Crushed Boxes During Transit", a: "Utilizing multi-layer corrugated e-flute board with reinforced edges to ensure structural integrity and crush resistance." },
+        { q: "Faded or Scuffed Printing", a: "Applying an anti-scratch matte lamination or UV coating to protect the ink and maintain a premium look." },
+        { q: "Inconsistent Folding and Assembly", a: "Implementing precise die-cutting with automated scoring for smooth, fast, and uniform assembly without tearing." },
+        { q: "Inserts Not Fitting the Product", a: "Custom-engineered EVA foam or molded pulp inserts precisely cut to match the product's exact dimensions for a secure fit." },
+        { q: "Expensive Shipping Costs", a: "Designing space-efficient, flat-pack structures that minimize volumetric weight while maximizing protective capabilities." }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de Cajas Personalizadas (Y Soluciones)",
+      problems: [
+        { q: "Cajas Aplastadas Durante el Tránsito", a: "Uso de cartón corrugado multicapa con bordes reforzados para garantizar la integridad estructural y la resistencia al aplastamiento." },
+        { q: "Impresión Descolorida o Rayada", a: "Aplicación de un laminado mate antiarañazos o recubrimiento UV para proteger la tinta y mantener un aspecto premium." },
+        { q: "Plegado y Ensamblaje Inconsistentes", a: "Implementación de troquelado preciso con marcado automático para un ensamblaje suave, rápido y uniforme sin desgarros." },
+        { q: "Inserciones que no se Ajustan al Producto", a: "Inserciones de espuma EVA o pulpa moldeada diseñadas a medida, cortadas con precisión para que coincidan con las dimensiones exactas del producto para un ajuste seguro." },
+        { q: "Costos de Envío Elevados", a: "Diseño de estructuras de paquete plano eficientes en espacio que minimizan el peso volumétrico al tiempo que maximizan las capacidades de protección." }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants des Boîtes Personnalisées (Et Solutions)",
+      problems: [
+        { q: "Boîtes Écrasées Pendant le Transport", a: "Utilisation de carton ondulé multicouche avec des bords renforcés pour assurer l'intégrité structurelle et la résistance à l'écrasement." },
+        { q: "Impression Décolorée ou Éraflée", a: "Application d'un pelliculage mat anti-rayures ou d'un revêtement UV pour protéger l'encre et conserver un aspect haut de gamme." },
+        { q: "Pliage et Assemblage Incohérents", a: "Mise en œuvre d'une découpe précise avec rainurage automatique pour un assemblage fluide, rapide et uniforme sans déchirure." },
+        { q: "Inserts ne s'Adaptant pas au Produit", a: "Inserts en mousse EVA ou en pulpe moulée conçus sur mesure et découpés avec précision pour correspondre aux dimensions exactes du produit." },
+        { q: "Coûts d'Expédition Élevés", a: "Conception de structures à plat peu encombrantes qui minimisent le poids volumétrique tout en maximisant les capacités de protection." }
+      ]
+    },
+    'zh-TW': {
+      title: "5 個常見的客製化包裝盒問題（及解決方案）",
+      problems: [
+        { q: "運輸過程中包裝盒被壓碎", a: "採用具有加固邊緣的多層瓦楞紙板，確保結構完整性和抗壓性。" },
+        { q: "印刷褪色或刮花", a: "應用防刮啞光覆膜或 UV 塗層以保護油墨並保持高端外觀。" },
+        { q: "摺疊和組裝不一致", a: "實施精確的模切和自動壓痕，實現順暢、快速且均勻的組裝，且不會撕裂。" },
+        { q: "內襯不適合產品", a: "定製設計的 EVA 泡棉或模塑紙漿內襯，精確切割以符合產品的確切尺寸，確保安全貼合。" },
+        { q: "昂貴的運輸成本", a: "設計節省空間的平鋪結構，在最大化保護能力的同時最小化體積重量。" }
+      ]
+    }
+  }
+
+  const tLocal = localTranslations[currentLang] || localTranslations.en
 
   const title = t('pouchCustomBoxesPage.title')
   const description = t('pouchCustomBoxesPage.description')
@@ -300,6 +347,46 @@ export default function PouchCustomBoxesPage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <NeoBadge color="magenta">Engineering</NeoBadge>
+            <h2 className="text-4xl md:text-5xl font-black uppercase mt-6">
+              {tLocal.title}
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              {tLocal.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-left flex gap-4">
+                  <AlertCircle className="w-8 h-8 text-[#FF00FF] shrink-0" />
+                  <div>
+                    <h3 className="font-black text-xl uppercase mb-2">{prob.q}</h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-700 flex gap-2 items-start">
+                      <CheckCircle className="w-4 h-4 text-[#10b981] shrink-0 mt-0.5" />
+                      <span>{prob.a}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="sticky top-24">
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
+                <ClickableImage 
+                  src="/imgs/knowledge/custom-boxes-pain-points.jpg" 
+                  alt={tLocal.title} 
+                  className="relative z-10 border-4 border-black w-full shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -1,12 +1,87 @@
 import { useState, useMemo, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { BookOpen, Calendar, ArrowRight, TrendingUp, Leaf, Coffee, Package, Search, Loader2 } from 'lucide-react'
+import { BookOpen, Calendar, ArrowRight, TrendingUp, Leaf, Coffee, Package, Search, Loader2, AlertCircle, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { createClient } from '@supabase/supabase-js'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
+
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common Sustainable Packaging Problems (And Solutions)",
+    prob1Title: "Overwhelmed by Eco-Certifications",
+    prob1Desc: "Navigating BPI, ASTM D6400, and state laws (like CA AB 1201) is confusing.",
+    prob1Sol: "We provide clear compliance guides and pre-certified materials to ensure your packaging meets all legal requirements.",
+    prob2Title: "High Minimum Order Quantities (MOQs)",
+    prob2Desc: "Traditional packaging requires 10,000+ units, tying up cash flow.",
+    prob2Sol: "Our digital printing technology enables low MOQs starting at just 100 units with zero plate fees.",
+    prob3Title: "Compostable Material Failures",
+    prob3Desc: "Eco-friendly bags often crack or lose barrier properties during transit.",
+    prob3Sol: "We use advanced high-barrier structures and professional humidity control to maintain material integrity.",
+    prob4Title: "Material Confusion",
+    prob4Desc: "Brands struggle to choose the right sustainable material for their specific product.",
+    prob4Sol: "Our experts match your product needs (barrier, shelf life, disposal) with the optimal mono-material or compostable film.",
+    prob5Title: "Hidden Costs & Plate Fees",
+    prob5Desc: "Unexpected setup fees and printing plates destroy profit margins.",
+    prob5Sol: "Transparent pricing models powered by digital printing mean no hidden fees and exact cost predictability."
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de Empaques Sostenibles (Y Soluciones)",
+    prob1Title: "Abrumado por las Eco-Certificaciones",
+    prob1Desc: "Navegar por BPI, ASTM D6400 y leyes estatales es confuso.",
+    prob1Sol: "Proporcionamos guías de cumplimiento claras y materiales precertificados.",
+    prob2Title: "Altas Cantidades Mínimas (MOQ)",
+    prob2Desc: "El embalaje tradicional requiere más de 10,000 unidades.",
+    prob2Sol: "La impresión digital permite MOQs desde 100 unidades sin gastos de planchas.",
+    prob3Title: "Fallos en Materiales Compostables",
+    prob3Desc: "Las bolsas ecológicas a menudo se agrietan o pierden barrera.",
+    prob3Sol: "Utilizamos estructuras de alta barrera y control de humedad profesional.",
+    prob4Title: "Confusión de Materiales",
+    prob4Desc: "Las marcas dudan entre materiales reciclables y compostables.",
+    prob4Sol: "Nuestros expertos adaptan las necesidades de su producto con el film óptimo.",
+    prob5Title: "Costos Ocultos y Planchas",
+    prob5Desc: "Las tarifas de configuración inesperadas destruyen los márgenes.",
+    prob5Sol: "Precios transparentes y previsibilidad exacta de costos mediante impresión digital."
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants d'Emballages Durables (Et Solutions)",
+    prob1Title: "Submergé par les Éco-Certifications",
+    prob1Desc: "Naviguer dans les normes BPI, ASTM D6400 et les lois locales est complexe.",
+    prob1Sol: "Nous fournissons des guides de conformité et des matériaux pré-certifiés.",
+    prob2Title: "Quantités Minimales de Commande Élevées",
+    prob2Desc: "L'emballage traditionnel nécessite plus de 10 000 unités.",
+    prob2Sol: "L'impression numérique permet des MOQ à partir de 100 unités sans frais de plaques.",
+    prob3Title: "Défaillances des Matériaux Compostables",
+    prob3Desc: "Les sacs écologiques se fissurent souvent ou perdent leur barrière.",
+    prob3Sol: "Nous utilisons des structures à haute barrière et un contrôle professionnel de l'humidité.",
+    prob4Title: "Confusion des Matériaux",
+    prob4Desc: "Les marques peinent à choisir entre recyclable et compostable.",
+    prob4Sol: "Nos experts adaptent vos besoins avec le film mono-matériau ou compostable optimal.",
+    prob5Title: "Coûts Cachés et Frais de Plaques",
+    prob5Desc: "Les frais de mise en route inattendus détruisent les marges.",
+    prob5Sol: "Une tarification transparente grâce à l'impression numérique, sans frais cachés."
+  },
+  'zh-TW': {
+    problemsTitle: "5 個常見的永續包裝問題 (及其解決方案)",
+    prob1Title: "環保認證繁雜",
+    prob1Desc: "了解 BPI、ASTM D6400 及各州法律令人困惑。",
+    prob1Sol: "我們提供清晰的合規指南和預先認證的材料。",
+    prob2Title: "最低起訂量 (MOQ) 過高",
+    prob2Desc: "傳統包裝需要一萬個以上的數量，佔用現金流。",
+    prob2Sol: "我們的數位印刷技術可實現低至 100 個的起訂量，免版費。",
+    prob3Title: "可堆肥材料失效",
+    prob3Desc: "環保袋在運輸過程中經常破裂或失去阻隔性能。",
+    prob3Sol: "我們採用先進的高阻隔結構和專業的濕度控制。",
+    prob4Title: "材料選擇困惑",
+    prob4Desc: "品牌很難在可回收和可堆肥材料之間做出正確選擇。",
+    prob4Sol: "我們的專家會根據您的產品需求，匹配最適合的單一材料或可堆肥薄膜。",
+    prob5Title: "隱藏成本與版費",
+    prob5Desc: "意想不到的設置費和印刷版費會降低利潤。",
+    prob5Sol: "由數位印刷支援的透明定價模式意味著沒有隱藏費用。"
+  }
+}
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL || '',
@@ -14,7 +89,13 @@ const supabase = createClient(
 )
 
 export default function PouchBlogPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language?.split('-')[0] || 'en'
+  const tl = (key: string) => {
+    const l = i18n.language.startsWith('zh') ? 'zh-TW' : (['es', 'fr', 'en'].includes(lang) ? lang : 'en');
+    return (localTranslations as any)[l]?.[key] || (localTranslations as any)['en'][key];
+  }
+
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All Posts')
   const [dynamicPosts, setDynamicPosts] = useState<any[]>([])
@@ -614,6 +695,45 @@ export default function PouchBlogPage() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-16 px-4 bg-white border-t-4 border-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="flex-1">
+              <h2 className="font-black text-4xl mb-8 uppercase">
+                {tl('problemsTitle')}
+              </h2>
+              <div className="space-y-6">
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <div key={num} className="bg-[#F0F0F0] border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4">
+                    <div className="flex-shrink-0 mt-1 text-black">
+                      <AlertCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg font-['JetBrains_Mono']">{tl(`prob${num}Title`)}</h3>
+                      <p className="text-gray-700 text-sm mt-1 mb-2 font-['Space_Grotesk']">{tl(`prob${num}Desc`)}</p>
+                      <div className="flex gap-2 items-start text-green-700 bg-green-50 p-2 border border-green-200">
+                        <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                        <p className="text-sm font-semibold">{tl(`prob${num}Sol`)}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex-1 w-full">
+              <div className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-[#D4FF00] p-4 transform rotate-1">
+                <img 
+                  src="/imgs/knowledge/sustainable-packaging-pain-points.jpg" 
+                  alt="Sustainable Packaging Solutions" 
+                  className="w-full h-auto border-2 border-black"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

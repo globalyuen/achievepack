@@ -1,13 +1,58 @@
 import React from 'react'
 import DualDomainSEOHead from '../../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
-import { Layers, CheckCircle, ArrowRight, Package, Grid, BookOpen } from 'lucide-react'
+import { Layers, CheckCircle, ArrowRight, Package, Grid, BookOpen, AlertCircle } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation, Trans } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    title: "5 Common Pouch Packaging Problems (And Solutions)",
+    problems: [
+      { q: "Pouch Leaks at the Bottom Seal", a: "Solution: Multi-layer films and robust seal tooling" },
+      { q: "Zippers Not Closing Properly", a: "Solution: Heavy-duty press-to-close or slider zippers" },
+      { q: "Oxygen or Moisture Ruining Product", a: "Solution: High-barrier EVOH or AL layers" },
+      { q: "Pouch Not Standing Straight", a: "Solution: Optimized bottom gusset design" },
+      { q: "Degassing Valves Clogging", a: "Solution: Valves with internal nylon filters" }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes (Y Soluciones)",
+    problems: [
+      { q: "Fugas en el sello inferior", a: "Solución: Películas multicapa y herramientas de sellado robustas" },
+      { q: "Cierres que no cierran correctamente", a: "Solución: Cierres a presión o deslizables de alta resistencia" },
+      { q: "Oxígeno o humedad que arruinan el producto", a: "Solución: Capas de alta barrera EVOH o AL" },
+      { q: "La bolsa no se mantiene recta", a: "Solución: Diseño de fuelle inferior optimizado" },
+      { q: "Válvulas de desgasificación obstruidas", a: "Solución: Válvulas con filtros internos de nailon" }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants (Et Solutions)",
+    problems: [
+      { q: "Fuites au niveau du joint inférieur", a: "Solution: Films multicouches et outils de scellage robustes" },
+      { q: "Zips qui ne se ferment pas correctement", a: "Solution: Zips à pression ou à curseur très résistants" },
+      { q: "Oxygène ou humidité gâchant le produit", a: "Solution: Couches haute barrière EVOH ou AL" },
+      { q: "Le sachet ne tient pas droit", a: "Solution: Conception optimisée du soufflet de fond" },
+      { q: "Vannes de dégazage bouchées", a: "Solution: Vannes avec filtres internes en nylon" }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的包裝袋問題（以及解決方案）",
+    problems: [
+      { q: "底部封口漏氣", a: "解決方案：多層薄膜和堅固的封口模具" },
+      { q: "拉鍊無法正確閉合", a: "解決方案：重型壓入式或滑塊拉鍊" },
+      { q: "氧氣或水分破壞產品", a: "解決方案：高阻隔 EVOH 或鋁箔層" },
+      { q: "袋子無法直立", a: "解決方案：優化的底部折邊設計" },
+      { q: "排氣閥堵塞", a: "解決方案：帶有內部尼龍過濾器的排氣閥" }
+    ]
+  }
+};
+
 export default function PouchAllOptionsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = (i18n.language as keyof typeof localTranslations) || 'en';
+  const tLocal = localTranslations[currentLang] || localTranslations.en;
   const p = 'seoPages.pages.pouchAllOptions';
 
   const title = t(`${p}.title`);
@@ -124,6 +169,37 @@ export default function PouchAllOptionsPage() {
             <p>
               <Trans i18nKey={`${p}.anatomy.sections.3.desc2`} components={[<strong key="0" />, <strong key="1" />, <strong key="2" />, <strong key="3" />]} />
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-white">
+            {tLocal.title}
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {tLocal.problems.map((prob, idx) => (
+                <div key={idx} className="bg-gray-900 border-2 border-white p-6 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+                  <h3 className="font-['Space_Grotesk'] font-bold text-xl uppercase mb-2 flex items-center gap-3 text-red-400">
+                    <AlertCircle className="w-6 h-6 flex-shrink-0" /> {prob.q}
+                  </h3>
+                  <p className="font-['JetBrains_Mono'] text-green-400 flex items-start gap-3 pl-9">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" /> {prob.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <img 
+                src="/imgs/knowledge/pouch-options-pain-points.jpg" 
+                alt="Pouch Packaging Options Pain Points" 
+                className="w-full h-auto border-4 border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] object-cover rounded-sm"
+              />
+            </div>
           </div>
         </div>
       </section>

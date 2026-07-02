@@ -1,14 +1,61 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import DualDomainSEOHead from '../../components/DualDomainSEOHead'
-import { ShoppingBag, Package, Zap } from 'lucide-react'
+import { ShoppingBag, Package, Zap, ShieldAlert, Wrench, Droplets, Scissors, Crosshair } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { ThreeFloatingBackground } from '../../components/ThreeFloatingBackground'
 
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchProductsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language || 'en').startsWith('zh') ? 'zh-TW' : (i18n.language || 'en').substring(0, 2)
+  const safeLang = ['en', 'es', 'fr', 'zh-TW'].includes(lang) ? lang : 'en'
+
+  const LOCAL_TRANSLATIONS = {
+    en: {
+      title: "5 Common Pouch Packaging Problems (And Solutions)",
+      problems: [
+        { id: 1, icon: <ShieldAlert className="w-6 h-6"/>, title: "Poor Barrier Properties", solution: "Multi-layer laminate structures to block oxygen and moisture." },
+        { id: 2, icon: <Wrench className="w-6 h-6"/>, title: "Zipper Failure", solution: "Precision-engineered press-to-close zippers with audible tactile feedback." },
+        { id: 3, icon: <Droplets className="w-6 h-6"/>, title: "Leaking Side Seams", solution: "Wide seal margins with specialized heat sealants." },
+        { id: 4, icon: <Scissors className="w-6 h-6"/>, title: "Difficulty in Opening", solution: "Laser-scored tear notches for clean, straight-line opening." },
+        { id: 5, icon: <Crosshair className="w-6 h-6"/>, title: "Punctures During Transit", solution: "Addition of a nylon (BOPA) or PET layer for high puncture resistance." }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de Empaque (Y Soluciones)",
+      problems: [
+        { id: 1, icon: <ShieldAlert className="w-6 h-6"/>, title: "Malas propiedades de barrera", solution: "Estructuras laminadas multicapa para bloquear oxígeno y humedad." },
+        { id: 2, icon: <Wrench className="w-6 h-6"/>, title: "Fallo del cierre (Zipper)", solution: "Cierres a presión diseñados con precisión y respuesta táctil audible." },
+        { id: 3, icon: <Droplets className="w-6 h-6"/>, title: "Fugas en costuras laterales", solution: "Márgenes de sellado amplios con selladores térmicos especializados." },
+        { id: 4, icon: <Scissors className="w-6 h-6"/>, title: "Dificultad para abrir", solution: "Muescas de desgarro marcadas con láser para apertura recta." },
+        { id: 5, icon: <Crosshair className="w-6 h-6"/>, title: "Perforaciones en tránsito", solution: "Capa de nailon (BOPA) o PET para alta resistencia a la perforación." }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants d'Emballage (Et Solutions)",
+      problems: [
+        { id: 1, icon: <ShieldAlert className="w-6 h-6"/>, title: "Mauvaises propriétés de barrière", solution: "Structures stratifiées multicouches contre l'oxygène et l'humidité." },
+        { id: 2, icon: <Wrench className="w-6 h-6"/>, title: "Défaillance de la fermeture", solution: "Fermetures zippées conçues avec précision avec retour tactile." },
+        { id: 3, icon: <Droplets className="w-6 h-6"/>, title: "Fuites aux coutures latérales", solution: "Larges marges de scellage avec mastics thermiques spécialisés." },
+        { id: 4, icon: <Scissors className="w-6 h-6"/>, title: "Difficulté d'ouverture", solution: "Encoches de déchirure au laser pour une ouverture propre." },
+        { id: 5, icon: <Crosshair className="w-6 h-6"/>, title: "Perforations pendant le transport", solution: "Couche de nylon (BOPA) ou PET pour une haute résistance." }
+      ]
+    },
+    'zh-TW': {
+      title: "5 個常見軟包裝問題（與工程解決方案）",
+      problems: [
+        { id: 1, icon: <ShieldAlert className="w-6 h-6"/>, title: "阻隔性能差", solution: "多層複合結構，有效阻擋氧氣和水分。" },
+        { id: 2, icon: <Wrench className="w-6 h-6"/>, title: "拉鏈容易損壞", solution: "精密設計的按壓式拉鏈，具有清晰的觸覺反饋。" },
+        { id: 3, icon: <Droplets className="w-6 h-6"/>, title: "側邊封口洩漏", solution: "加寬的封口邊緣，採用專業的熱封材料。" },
+        { id: 4, icon: <Scissors className="w-6 h-6"/>, title: "難以撕開", solution: "激光打孔易撕口，實現整齊直線撕開。" },
+        { id: 5, icon: <Crosshair className="w-6 h-6"/>, title: "運輸過程中刺破", solution: "增加尼龍 (BOPA) 或 PET 層，提供高抗刺穿性。" }
+      ]
+    }
+  };
+  // @ts-ignore
+  const tLocal = LOCAL_TRANSLATIONS[safeLang] || LOCAL_TRANSLATIONS['en'];
   const PRODUCTS = [
     {
       id: 'stand-up',
@@ -185,6 +232,49 @@ export default function PouchProductsPage() {
 
               </NeoCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-black text-white relative overflow-hidden border-t-4 border-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="font-black text-4xl md:text-6xl uppercase leading-none">
+              {tLocal.title}
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image generated by Imagen */}
+            <div className="w-full">
+              <NeoCard className="!p-0 overflow-hidden aspect-[4/3] bg-zinc-900 border-2 border-white">
+                <img 
+                  src="/imgs/knowledge/pouch-products-pain-points.jpg" 
+                  alt="Pouch Packaging Challenges" 
+                  className="w-full h-full object-cover"
+                />
+              </NeoCard>
+            </div>
+            
+            {/* List of problems */}
+            <div className="space-y-6">
+              {tLocal.problems.map((item: any) => (
+                <div key={item.id} className="bg-zinc-900 border-2 border-white p-6 hover:bg-zinc-800 transition-colors">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-[#D4FF00] text-black p-3 rounded-full flex-shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl uppercase mb-2">{item.title}</h3>
+                      <p className="font-['JetBrains_Mono'] text-sm text-zinc-300">
+                        {item.solution}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

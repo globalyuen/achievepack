@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowRight, CheckCircle, Package, Leaf, Zap, Shield, Wrench, Sparkles, X, ChevronDown, ChevronUp, Calendar } from 'lucide-react'
+import { ArrowRight, CheckCircle, Package, Leaf, Zap, Shield, Wrench, Sparkles, X, ChevronDown, ChevronUp, Calendar, AlertTriangle } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { SortableOptionsTable, CLOSURE_OPTIONS, SURFACE_OPTIONS } from '../../../components/SortableOptionsTable'
 
@@ -14,8 +14,66 @@ const StarRating = ({ rating }: { rating: number }) => (
 )
 
 export default function SurfaceAndReclosureOptionsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.language || 'en'
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+
+  const localTranslations = {
+    en: {
+      title: "5 Common Surface & Reclosure Problems (And Solutions)",
+      pain1: "Zippers breaking or detaching from the pouch film.",
+      sol1: "Ultrasonic welding and reinforced flange integration.",
+      pain2: "Loss of vacuum or gas barrier through the degassing valve.",
+      sol2: "Precision multi-layer valve sealing and 100% inline pressure testing.",
+      pain3: "Matte finishes showing scratches and scuffs during transport.",
+      sol3: "Anti-scratch soft-touch matte lamination with protective BOPP outer layer.",
+      pain4: "Spout leaking around the fitment base.",
+      sol4: "Customized sealing dies matching the exact contour of the spout base.",
+      pain5: "Difficulty opening child-resistant closures for elderly users.",
+      sol5: "Ergonomic push-to-unlock sliders engineered with balanced resistance."
+    },
+    es: {
+      title: "5 Problemas Comunes de Superficies y Cierres (y Soluciones)",
+      pain1: "Los cierres se rompen o se desprenden de la película de la bolsa.",
+      sol1: "Soldadura ultrasónica e integración de pestañas reforzadas.",
+      pain2: "Pérdida de vacío o barrera de gas a través de la válvula de desgasificación.",
+      sol2: "Sellado de válvula multicapa de precisión y pruebas de presión en línea al 100%.",
+      pain3: "Los acabados mate muestran rayones y desgastes durante el transporte.",
+      sol3: "Laminación mate suave al tacto antirayones con capa exterior protectora de BOPP.",
+      pain4: "Fugas en la boquilla alrededor de la base del accesorio.",
+      sol4: "Troqueles de sellado personalizados que coinciden con el contorno exacto de la base de la boquilla.",
+      pain5: "Dificultad para abrir cierres a prueba de niños para usuarios mayores.",
+      sol5: "Deslizadores ergonómicos de presionar para desbloquear diseñados con resistencia equilibrada."
+    },
+    fr: {
+      title: "5 Problèmes Courants de Surfaces et de Fermetures (et Solutions)",
+      pain1: "Les fermetures éclair se cassent ou se détachent du film du sachet.",
+      sol1: "Soudage par ultrasons et intégration de brides renforcées.",
+      pain2: "Perte de vide ou de barrière aux gaz par la valve de dégazage.",
+      sol2: "Scellage de valve multicouche de précision et tests de pression en ligne à 100 %.",
+      pain3: "Les finitions mates montrent des rayures et des éraflures pendant le transport.",
+      sol3: "Pelliculage mat doux au toucher anti-rayures avec couche extérieure protectrice en BOPP.",
+      pain4: "Fuites du bec verseur autour de la base de fixation.",
+      sol4: "Matrices de scellage personnalisées épousant le contour exact de la base du bec verseur.",
+      pain5: "Difficulté à ouvrir les fermetures à l'épreuve des enfants pour les utilisateurs âgés.",
+      sol5: "Curseurs ergonomiques à pousser pour déverrouiller conçus avec une résistance équilibrée."
+    },
+    'zh-TW': {
+      title: "5 個常見的表面與封口問題（及解決方案）",
+      pain1: "拉鍊斷裂或從袋膜上脫落。",
+      sol1: "超音波焊接和加固法蘭整合。",
+      pain2: "透過排氣閥流失真空或氣體阻隔。",
+      sol2: "精密多層閥門密封和 100% 在線壓力測試。",
+      pain3: "霧面處理在運輸過程中出現刮痕和磨損。",
+      sol3: "防刮觸感霧面複合，帶有保護性 BOPP 外層。",
+      pain4: "吸嘴在配件底座周圍洩漏。",
+      sol4: "客製化密封模具，完全匹配吸嘴底座的輪廓。",
+      pain5: "老年使用者難以打開防兒童開啟封口。",
+      sol5: "符合人體工學的按壓解鎖滑塊，採用平衡阻力設計。"
+    }
+  }
+
+  const tLocal = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en
 
   // Surface finish gallery data
   const SURFACE_GALLERY = [
@@ -457,6 +515,57 @@ export default function SurfaceAndReclosureOptionsPage() {
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.versatile.point2')}</li>
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#10B981]" /> {t('surfaceAndReclosureOptionsPage.reclosure.features.versatile.point3')}</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Common Problems Section */}
+      <section className="py-16 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-[#10B981]">
+            {tLocal.title}
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {[
+                { pain: tLocal.pain1, sol: tLocal.sol1 },
+                { pain: tLocal.pain2, sol: tLocal.sol2 },
+                { pain: tLocal.pain3, sol: tLocal.sol3 },
+                { pain: tLocal.pain4, sol: tLocal.sol4 },
+                { pain: tLocal.pain5, sol: tLocal.sol5 }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="p-2 bg-red-100 rounded-lg text-red-600 shrink-0">
+                      <AlertTriangle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-1">Pain Point</h4>
+                      <p className="text-sm font-['JetBrains_Mono'] text-gray-700">{item.pain}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 pl-14">
+                    <div className="p-1 bg-green-100 rounded text-green-600 shrink-0">
+                      <CheckCircle className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-1">Engineering Solution</h4>
+                      <p className="text-sm font-['JetBrains_Mono'] text-[#10B981]">{item.sol}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="lb-img relative rounded-2xl overflow-hidden border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <img 
+                src="/imgs/knowledge/surface-reclosure-pain-points.jpg" 
+                alt="Surface and Reclosure Pain Points and Solutions"
+                className="w-full h-auto object-cover aspect-[4/5] md:aspect-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

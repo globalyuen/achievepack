@@ -8,7 +8,53 @@ import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 
 export default function PouchCompostingBenefitsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  const localTranslations: Record<string, { title: string, problems: { title: string, desc: string }[] }> = {
+    en: {
+      title: "5 Common Composting Problems (And Solutions)",
+      problems: [
+        { title: "1. Non-Compostable Contamination", desc: "Mixing traditional plastics with organic waste ruins compost quality. Solution: Standardize on certified compostable packaging." },
+        { title: "2. Inadequate Moisture Levels", desc: "Too dry halts decomposition; too wet causes anaerobic rotting. Solution: Automated moisture monitoring and balancing carbon-to-nitrogen ratios." },
+        { title: "3. Poor Aeration", desc: "Lack of oxygen slows the process and produces methane. Solution: Regular turning or forced-air systems to maintain aerobic conditions." },
+        { title: "4. Slow Degradation Rates", desc: "Some materials take too long to break down. Solution: Optimal temperature management and using highly disintegrable bio-plastics." },
+        { title: "5. Pathogen Survival", desc: "Low temperatures fail to kill harmful bacteria. Solution: Maintaining thermophilic temperatures (>55°C) for sustained periods." }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de Compostaje (Y Soluciones)",
+      problems: [
+        { title: "1. Contaminación con No Compostables", desc: "Mezclar plásticos tradicionales con residuos orgánicos arruina la calidad del compost. Solución: Estandarizar con envases compostables certificados." },
+        { title: "2. Niveles de Humedad Inadecuados", desc: "Muy seco detiene la descomposición; muy húmedo causa putrefacción anaeróbica. Solución: Monitoreo automatizado de humedad y equilibrio de la relación carbono-nitrógeno." },
+        { title: "3. Mala Aireación", desc: "La falta de oxígeno ralentiza el proceso y produce metano. Solución: Volteo regular o sistemas de aire forzado para mantener condiciones aeróbicas." },
+        { title: "4. Tasas de Degradación Lentas", desc: "Algunos materiales tardan demasiado en descomponerse. Solución: Gestión óptima de la temperatura y uso de bioplásticos altamente desintegrables." },
+        { title: "5. Supervivencia de Patógenos", desc: "Las bajas temperaturas no logran matar las bacterias dañinas. Solución: Mantener temperaturas termofílicas (>55°C) durante períodos prolongados." }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants de Compostage (Et Solutions)",
+      problems: [
+        { title: "1. Contamination par des Non-Compostables", desc: "Mélanger des plastiques traditionnels avec des déchets organiques ruine la qualité du compost. Solution: Standardiser avec des emballages certifiés compostables." },
+        { title: "2. Niveaux d'Humidité Inadéquats", desc: "Trop sec arrête la décomposition; trop humide provoque une pourriture anaérobie. Solution: Surveillance automatisée de l'humidité et équilibre du rapport carbone/azote." },
+        { title: "3. Mauvaise Aération", desc: "Le manque d'oxygène ralentit le processus et produit du méthane. Solution: Retournement régulier ou systèmes à air forcé pour maintenir des conditions aérobies." },
+        { title: "4. Taux de Dégradation Lents", desc: "Certains matériaux mettent trop de temps à se décomposer. Solution: Gestion optimale de la température et utilisation de bioplastiques hautement désintégrables." },
+        { title: "5. Survie des Pathogènes", desc: "Les basses températures ne parviennent pas à tuer les bactéries nocives. Solution: Maintenir des températures thermophiles (>55°C) pendant des périodes prolongées." }
+      ]
+    },
+    'zh-TW': {
+      title: "5 個常見的堆肥問題（及解決方案）",
+      problems: [
+        { title: "1. 非可堆肥物污染", desc: "將傳統塑料與有機廢物混合會破壞堆肥質量。解決方案：標準化使用經過認證的可堆肥包裝。" },
+        { title: "2. 水分不足或過多", desc: "太乾會停止分解；太濕會導致厭氧腐爛。解決方案：自動化水分監測並平衡碳氮比。" },
+        { title: "3. 通風不良", desc: "缺氧會減慢過程並產生甲烷。解決方案：定期翻動或使用強制送風系統以保持需氧條件。" },
+        { title: "4. 降解速度慢", desc: "有些材料需要太長時間才能分解。解決方案：優化溫度管理並使用高分解性的生物塑料。" },
+        { title: "5. 病原體存活", desc: "低溫無法殺死有害細菌。解決方案：長時間維持嗜熱溫度（>55°C）。" }
+      ]
+    }
+  }
+
+  const currentLang = i18n.language || 'en'
+  const transData = localTranslations[currentLang] || localTranslations['en']
 
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
 
@@ -334,6 +380,37 @@ export default function PouchCompostingBenefitsPage() {
             <p>
               {t('seoPages.pages.pouchCompostingBenefits.asCitiesWorldwideDeploy')}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-neutral-50 border-t-4 border-black text-left">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <NeoBadge color="cyan">Troubleshooting</NeoBadge>
+              <h2 className="font-black text-4xl md:text-5xl uppercase">{transData.title}</h2>
+              <div className="space-y-4 mt-8">
+                {transData.problems.map((prob, idx) => (
+                  <div key={idx} className="flex gap-4 items-start border-b-2 border-black/10 pb-4">
+                    <Shield className="w-6 h-6 text-[#FF00FF] flex-shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-black text-lg uppercase">{prob.title}</h4>
+                      <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 mt-1 leading-relaxed">{prob.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#FF00FF] translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/knowledge/composting-benefits-pain-points.jpg" 
+                alt="Composting Problems and Solutions" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl object-cover h-[600px]"
+              />
+            </div>
           </div>
         </div>
       </section>

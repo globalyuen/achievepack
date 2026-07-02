@@ -1,9 +1,66 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
-import { Package, TrendingUp, Shield, DollarSign } from 'lucide-react'
+import { Package, TrendingUp, Shield, DollarSign, AlertCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations: Record<string, any> = {
+  en: {
+    title: "5 Common Low MOQ Stand-Up Pouch Problems (And Solutions)",
+    p1: "High Initial Setup Costs",
+    s1: "Digital printing eliminates plate fees, allowing custom packaging from just 100pcs.",
+    p2: "Long Lead Times",
+    s2: "Print-on-demand technology speeds up production and reduces wait times significantly.",
+    p3: "Obsolete Inventory Waste",
+    s3: "Ordering in small batches prevents overstocking and wasted materials.",
+    p4: "Difficulty Managing Multiple SKUs",
+    s4: "Variable data printing makes handling different designs effortless.",
+    p5: "Inconsistent Print Quality",
+    s5: "High-resolution digital tech matches rotogravure quality for professional results."
+  },
+  es: {
+    title: "5 Problemas Comunes de las Bolsas Stand-Up de Bajo MOQ (Y Soluciones)",
+    p1: "Altos Costos Iniciales de Configuración",
+    s1: "La impresión digital elimina las tarifas de las planchas, permitiendo empaques personalizados desde solo 100 piezas.",
+    p2: "Largos Tiempos de Entrega",
+    s2: "La tecnología de impresión bajo demanda acelera la producción y reduce los tiempos de espera significativamente.",
+    p3: "Desperdicio de Inventario Obsoleto",
+    s3: "Ordenar en pequeños lotes previene el exceso de inventario y el desperdicio de materiales.",
+    p4: "Dificultad para Manejar Múltiples SKUs",
+    s4: "La impresión de datos variables facilita el manejo de diferentes diseños sin esfuerzo.",
+    p5: "Calidad de Impresión Inconsistente",
+    s5: "La tecnología digital de alta resolución iguala la calidad del huecograbado para obtener resultados profesionales."
+  },
+  fr: {
+    title: "5 Problèmes Courants des Sachets Tient-Debout à Faible MOQ (Et Solutions)",
+    p1: "Coûts de Configuration Initiale Élevés",
+    s1: "L'impression numérique élimine les frais de plaques, permettant des emballages personnalisés à partir de 100 pièces.",
+    p2: "Longs Délais de Livraison",
+    s2: "La technologie d'impression à la demande accélère la production et réduit considérablement les temps d'attente.",
+    p3: "Gaspillage de Stocks Obsolètes",
+    s3: "Commander en petits lots évite le surstockage et le gaspillage de matériaux.",
+    p4: "Difficulté à Gérer Plusieurs SKUs",
+    s4: "L'impression de données variables rend la gestion de différents designs sans effort.",
+    p5: "Qualité d'Impression Incohérente",
+    s5: "La technologie numérique haute résolution égale la qualité de l'héliogravure pour des résultats professionnels."
+  },
+  "zh-TW": {
+    title: "5 個常見的低 MOQ 站立袋痛點 (及解決方案)",
+    p1: "高昂的初始設置成本",
+    s1: "數位印刷免除了製版費，最低100個即可客製化包裝。",
+    p2: "漫長的交貨時間",
+    s2: "隨需列印技術加快了生產速度，顯著縮短了等待時間。",
+    p3: "庫存過時的浪費",
+    s3: "小批量訂購可防止庫存過剩和材料浪費。",
+    p4: "管理多個 SKU 的困難",
+    s4: "可變數據印刷使處理不同的設計變得輕而易舉。",
+    p5: "印刷品質不一致",
+    s5: "高解析度數位技術可媲美凹版印刷的品質，呈現專業效果。"
+  }
+};
+
 export default function LowMOQStandUpPouchPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const tLoc = localTranslations[lang] || localTranslations.en
 
   const sections = [
     {
@@ -135,6 +192,27 @@ export default function LowMOQStandUpPouchPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points-solutions',
+      title: tLoc.title,
+      icon: <AlertCircle className="w-6 h-6 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <img src="/imgs/knowledge/low-moq-pouch-pain-points.jpg" alt="Low MOQ Pouch Pain Points" className="w-full rounded-xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover mb-8" />
+          <div className="grid gap-6">
+            {[1, 2, 3, 4, 5].map((num) => (
+              <div key={num} className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex gap-4 items-start">
+                <AlertCircle className="w-8 h-8 text-black flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-black text-xl mb-2 text-neutral-900">{tLoc[`p${num}`]}</h3>
+                  <p className="text-neutral-700 font-medium">{tLoc[`s${num}`]}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )

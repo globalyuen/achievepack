@@ -1,15 +1,77 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { FileCheck, AlertTriangle, CheckCircle, Shield, MapPin, MessageCircle, BookOpen, Scale, Target, Calendar, Download, Mail } from 'lucide-react'
+import { FileCheck, AlertTriangle, CheckCircle, Shield, MapPin, MessageCircle, BookOpen, Scale, Target, Calendar, Download, Mail, XCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common USA Labeling Problems (And Solutions)",
+    prob1: "1. Vague 'Recyclable' Claims",
+    prob1Desc: "Problem: General recyclable claims without specifying the material can trigger penalties under laws like California SB 343. Solution: Use precise material specifications and standardized icons (e.g., How2Recycle).",
+    prob2: "2. Misleading 'Biodegradable' Text",
+    prob2Desc: "Problem: Unverified biodegradable claims lead to greenwashing lawsuits. Solution: Implement certified ASTM D6400 / D6868 logos and use specific 'Industrial Compostable' caveats.",
+    prob3: "3. FDA Nutrition Panel Errors",
+    prob3Desc: "Problem: Incorrect font sizes or missing allergen info on food packaging. Solution: Use automated templates that enforce FDA spacing and dynamically bold allergens.",
+    prob4: "4. Ink Fading and Smudging",
+    prob4Desc: "Problem: Essential barcodes and texts fade during transport. Solution: Apply UV-resistant, eco-friendly soy inks combined with durable top coats.",
+    prob5: "5. Incorrect Warning Placement",
+    prob5Desc: "Problem: Mandatory Prop 65 warnings hidden or misplaced causing recalls. Solution: Enforce precision dieline reviews with strict safe zones before printing.",
+    imageAlt: "Common USA labeling problems and solutions illustration"
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de Etiquetado en EE. UU. (Y Soluciones)",
+    prob1: "1. Afirmaciones Vagas de 'Reciclable'",
+    prob1Desc: "Problema: Afirmaciones generales sin especificar el material pueden desencadenar multas (ej. California SB 343). Solución: Use especificaciones precisas de material e íconos estandarizados.",
+    prob2: "2. Texto 'Biodegradable' Engañoso",
+    prob2Desc: "Problema: Afirmaciones no verificadas llevan a demandas por lavado verde. Solución: Implemente logotipos certificados ASTM D6400 / D6868 y advertencias de 'Compostaje Industrial'.",
+    prob3: "3. Errores en el Panel Nutricional de la FDA",
+    prob3Desc: "Problema: Tamaños de fuente incorrectos o información de alérgenos faltante. Solución: Use plantillas automatizadas con espaciado de la FDA y alérgenos en negrita.",
+    prob4: "4. Decoloración y Manchado de Tinta",
+    prob4Desc: "Problema: Códigos de barras y textos esenciales se desvanecen. Solución: Aplique tintas de soya ecológicas resistentes a los rayos UV con capas superiores duraderas.",
+    prob5: "5. Colocación Incorrecta de Advertencias",
+    prob5Desc: "Problema: Advertencias obligatorias de la Prop 65 ocultas o mal ubicadas. Solución: Exija revisiones precisas de las líneas de troquel con zonas seguras estrictas.",
+    imageAlt: "Ilustración de problemas y soluciones comunes de etiquetado en EE. UU."
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants d'Étiquetage aux États-Unis (Et Solutions)",
+    prob1: "1. Déclarations Vagues sur la Recyclabilité",
+    prob1Desc: "Problème: Les affirmations générales sans spécifier le matériau entraînent des sanctions (ex: SB 343). Solution: Spécifications précises des matériaux et icônes normalisées.",
+    prob2: "2. Texte 'Biodégradable' Trompeur",
+    prob2Desc: "Problème: Les allégations non vérifiées mènent à des poursuites. Solution: Mettez en œuvre les logos certifiés ASTM D6400 / D6868 avec des avertissements 'Compostage Industriel'.",
+    prob3: "3. Erreurs du Panneau Nutritionnel FDA",
+    prob3Desc: "Problème: Tailles de police incorrectes ou allergènes manquants. Solution: Modèles automatisés avec espacement FDA et allergènes en gras dynamiques.",
+    prob4: "4. Décoloration et Bavures d'Encre",
+    prob4Desc: "Problème: Les codes-barres essentiels s'effacent. Solution: Appliquez des encres de soja écologiques résistantes aux UV et des couches de finition durables.",
+    prob5: "5. Mauvais Emplacement des Avertissements",
+    prob5Desc: "Problème: Avertissements Prop 65 mal placés provoquant des rappels. Solution: Examens de découpe de précision avec des zones de sécurité strictes avant l'impression.",
+    imageAlt: "Illustration des problèmes et solutions courants d'étiquetage aux États-Unis"
+  },
+  'zh-TW': {
+    problemsTitle: "5 個常見的美國標籤問題（與解決方案）",
+    prob1: "1. 模糊的「可回收」聲明",
+    prob1Desc: "問題：未具體說明材質的通用回收聲明可能引發處罰（如加州 SB 343）。解決方案：使用精確的材料規格和標準化圖標（如 How2Recycle）。",
+    prob2: "2. 誤導性的「可生物降解」文字",
+    prob2Desc: "問題：未經證實的聲明會導致漂綠訴訟。解決方案：使用經過認證的 ASTM D6400 / D6868 標誌，並明確標示「僅限工業堆肥」。",
+    prob3: "3. FDA 營養標籤錯誤",
+    prob3Desc: "問題：食品包裝上的字體大小不正確或缺少過敏原資訊。解決方案：使用自動化模板以強制執行 FDA 間距規則，並動態加粗過敏原。",
+    prob4: "4. 油墨褪色和污損",
+    prob4Desc: "問題：重要的條碼和文字在運輸過程中褪色。解決方案：應用抗紫外線的環保大豆油墨和耐用的頂層塗層。",
+    prob5: "5. 警告標語位置不正確",
+    prob5Desc: "問題：強制性的 65 號提案警告被隱藏或位置錯誤，導致產品召回。解決方案：在印刷前，嚴格審查刀模線並設定安全區域。",
+    imageAlt: "美國常見標籤問題與解決方案插圖"
+  }
+}
+
 const USALabelingGuidePage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.usaLabelingGuide'
   const { openCalendly } = useCalendly()
+
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations
+  const l = localTranslations[currentLang] || localTranslations.en
 
   const sections = [
     {
@@ -393,6 +455,61 @@ const USALabelingGuidePage: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'common-problems',
+      title: l.problemsTitle,
+      icon: <AlertTriangle className="h-5 w-5 text-amber-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-amber-50 p-4 rounded-lg border border-amber-200 mt-4">
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">{l.prob1}</h4>
+                  <p className="text-sm text-neutral-700">{l.prob1Desc}</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">{l.prob2}</h4>
+                  <p className="text-sm text-neutral-700">{l.prob2Desc}</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">{l.prob3}</h4>
+                  <p className="text-sm text-neutral-700">{l.prob3Desc}</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">{l.prob4}</h4>
+                  <p className="text-sm text-neutral-700">{l.prob4Desc}</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">{l.prob5}</h4>
+                  <p className="text-sm text-neutral-700">{l.prob5Desc}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/knowledge/usa-labeling-pain-points.jpg" 
+              alt={l.imageAlt}
+              className="w-full rounded-lg shadow-md"
+            />
           </div>
         </div>
       )

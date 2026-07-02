@@ -7,8 +7,115 @@ import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation, Trans } from 'react-i18next'
 
 export default function PouchKSealStandUpPouchesPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const p = 'seoPages.pages.pouchKSealStandUpPouches';
+
+  const localTranslations: Record<string, any> = {
+    en: {
+      title: "5 Common K-Seal Pouch Problems (And Solutions)",
+      items: [
+        {
+          q: "Bottom Gusset Leaks",
+          a: "Reinforced K-Seal corners distribute stress evenly, preventing pinholes."
+        },
+        {
+          q: "Poor Upright Stability",
+          a: "Optimized gusset angle and stiffness ratio ensures the pouch stands straight."
+        },
+        {
+          q: "Puncture During Transport",
+          a: "Multi-layer laminated films with nylon or PET increase burst strength."
+        },
+        {
+          q: "Delamination at Seal",
+          a: "High-bond adhesive and precise temperature control during sealing prevent separation."
+        },
+        {
+          q: "Difficult Opening",
+          a: "Laser-scored tear notches and precision zipper alignment enable smooth opening."
+        }
+      ]
+    },
+    es: {
+      title: "5 Problemas Comunes de Bolsas K-Seal (Y Soluciones)",
+      items: [
+        {
+          q: "Fugas en el Fuelle Inferior",
+          a: "Las esquinas K-Seal reforzadas distribuyen el estrés uniformemente, evitando microperforaciones."
+        },
+        {
+          q: "Poca Estabilidad Vertical",
+          a: "El ángulo optimizado del fuelle y la relación de rigidez aseguran que la bolsa se mantenga recta."
+        },
+        {
+          q: "Perforación Durante el Transporte",
+          a: "Las películas laminadas multicapa con nailon o PET aumentan la resistencia a la rotura."
+        },
+        {
+          q: "Delaminación en el Sello",
+          a: "Adhesivo de alta adherencia y control preciso de temperatura evitan la separación."
+        },
+        {
+          q: "Apertura Difícil",
+          a: "Muescas de desgarro con láser y alineación precisa del cierre permiten una apertura suave."
+        }
+      ]
+    },
+    fr: {
+      title: "5 Problèmes Courants des Sachets K-Seal (Et Solutions)",
+      items: [
+        {
+          q: "Fuites au Soufflet Inférieur",
+          a: "Les coins K-Seal renforcés répartissent le stress uniformément, évitant les micro-trous."
+        },
+        {
+          q: "Mauvaise Stabilité Verticale",
+          a: "L'angle optimisé du soufflet et la rigidité assurent que le sachet reste droit."
+        },
+        {
+          q: "Perforation Pendant le Transport",
+          a: "Les films multicouches avec nylon ou PET augmentent la résistance à la rupture."
+        },
+        {
+          q: "Délamination au Sceau",
+          a: "Un adhésif à haute adhérence et un contrôle précis de la température évitent la séparation."
+        },
+        {
+          q: "Ouverture Difficile",
+          a: "Des encoches de déchirure au laser et un alignement précis de la fermeture éclair permettent une ouverture fluide."
+        }
+      ]
+    },
+    'zh-TW': {
+      title: "5 個常見的 K-Seal 站立袋問題（及解決方案）",
+      items: [
+        {
+          q: "底部折邊洩漏",
+          a: "加固的 K-Seal 邊角可均勻分佈應力，防止針孔產生。"
+        },
+        {
+          q: "直立穩定性差",
+          a: "優化的折邊角度和剛度比確保袋子直立不倒。"
+        },
+        {
+          q: "運輸過程中刺破",
+          a: "採用尼龍或 PET 的多層複合膜可提高抗破裂強度。"
+        },
+        {
+          q: "封口處脫層",
+          a: "高黏合力黏著劑和精確的封口溫度控制可防止分離。"
+        },
+        {
+          q: "難以撕開",
+          a: "雷射易撕口和精確的拉鍊對齊使開啟更順暢。"
+        }
+      ]
+    }
+  };
+
+  const currentLang = i18n.language || 'en';
+  const localT = localTranslations[currentLang] || localTranslations['en'];
+
 
   const title = t(`${p}.title`);
   const description = t(`${p}.description`);
@@ -115,6 +222,37 @@ export default function PouchKSealStandUpPouchesPage() {
             <p>
               <Trans i18nKey={`${p}.engineering.sections.2.paragraphs.0`} components={[<strong key="0" />]} />
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-5xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-black">
+            {localT.title}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {localT.items.map((item: any, idx: number) => (
+                <div key={idx} className="flex gap-4 items-start bg-gray-50 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <CheckCircle className="w-8 h-8 text-[#10b981] flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-['Space_Grotesk'] font-black text-lg text-black mb-1">{item.q}</h4>
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700">{item.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div>
+              <NeoCard className="bg-white !p-2 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <img 
+                  src="/imgs/knowledge/k-seal-stand-up-pouch-pain-points.jpg" 
+                  alt={localT.title}
+                  className="w-full h-auto object-cover border-2 border-black"
+                />
+              </NeoCard>
+            </div>
           </div>
         </div>
       </section>

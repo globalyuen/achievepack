@@ -5,8 +5,57 @@ import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 
+const localTranslations = {
+  en: {
+    problemsTitle: '5 Common Material Packaging Problems (And Solutions)',
+    problems: [
+      { problem: 'Moisture & Oxygen Penetration', solution: 'High-barrier inner film locks out moisture and oxygen, extending shelf life.' },
+      { problem: 'Weak Heat Seals', solution: 'Optimized sealing layer ensures strong, hermetic seals for product safety.' },
+      { problem: 'Tearing During Transit', solution: 'Laminated multi-layer structure provides enhanced tear and puncture resistance.' },
+      { problem: 'Misleading Eco-Claims', solution: 'BPI and B-Corp certified materials guarantee authentic compostability.' },
+      { problem: 'Poor Print Quality', solution: 'Specially treated outer kraft layer supports crisp, high-resolution printing.' }
+    ]
+  },
+  es: {
+    problemsTitle: '5 Problemas Comunes de Empaque (Y Soluciones)',
+    problems: [
+      { problem: 'Penetración de Humedad y Oxígeno', solution: 'La película interior de alta barrera bloquea la humedad y el oxígeno, extendiendo la vida útil.' },
+      { problem: 'Sellos Térmicos Débiles', solution: 'La capa de sellado optimizada garantiza sellos herméticos y fuertes.' },
+      { problem: 'Desgarro Durante el Transporte', solution: 'La estructura multicapa proporciona una mayor resistencia al desgarro y perforación.' },
+      { problem: 'Afirmaciones Ecológicas Engañosas', solution: 'Los materiales certificados por BPI garantizan una compostabilidad auténtica.' },
+      { problem: 'Mala Calidad de Impresión', solution: 'La capa exterior tratada especialmente admite una impresión nítida y de alta resolución.' }
+    ]
+  },
+  fr: {
+    problemsTitle: '5 Problèmes Courants d\'Emballage (Et Solutions)',
+    problems: [
+      { problem: 'Pénétration d\'Humidité et d\'Oxygène', solution: 'Le film intérieur haute barrière bloque l\'humidité et l\'oxygène, prolongeant la durée de conservation.' },
+      { problem: 'Thermoscellages Faibles', solution: 'La couche de scellage optimisée garantit des joints hermétiques et solides.' },
+      { problem: 'Déchirure Pendant le Transport', solution: 'La structure multicouche offre une résistance accrue à la déchirure et à la perforation.' },
+      { problem: 'Fausses Allégations Écologiques', solution: 'Les matériaux certifiés BPI garantissent une compostabilité authentique.' },
+      { problem: 'Mauvaise Qualité d\'Impression', solution: 'La couche extérieure spécialement traitée permet une impression nette et haute résolution.' }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: '5 個常見包裝材料問題 (及解決方案)',
+    problems: [
+      { problem: '水分與氧氣滲透', solution: '高阻隔內膜鎖住水分和氧氣，延長保質期。' },
+      { problem: '熱封性弱', solution: '優化的密封層確保了堅固、氣密的密封，保障產品安全。' },
+      { problem: '運輸過程中撕裂', solution: '層壓多層結構提供了增強的抗撕裂和抗穿刺性。' },
+      { problem: '誤導性的環保聲明', solution: 'BPI 認證材料保證了真實的可堆肥性。' },
+      { problem: '印刷品質差', solution: '經過特殊處理的外層牛皮紙支援清晰的高解析度印刷。' }
+    ]
+  }
+};
+
 export default function MaterialDataSheetPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language || 'en';
+  const tl = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en;
+
+  // sectionsForPouch and sectionsForAchieve handled internally
+  const sectionsForPouch = tl.problems;
+  const sectionsForAchieve = tl.problems;
 
   const featuresList = t('materialDataSheetPage.features.items', { returnObjects: true }) as string[] || [];
   const usageKeys = ['dryFoods', 'coffee', 'confectionery', 'nuts', 'fruits', 'bakery'] as const;
@@ -106,6 +155,36 @@ export default function MaterialDataSheetPage() {
                   <div className="flex gap-4 items-center grayscale hover:grayscale-0 transition-all">
                     <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-10 object-contain" />
                     <img src="/bcorp.svg" alt="B Corp" className="h-10 object-contain" />
+                  </div>
+                </div>
+              </div>
+
+              {/* 5 Common Problems */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-black uppercase mb-6 border-b-4 border-black pb-2 flex items-center gap-2">
+                  <Info className="w-6 h-6" /> {tl.problemsTitle}
+                </h2>
+                <div className="flex flex-col md:flex-row gap-8">
+                  <div className="w-full md:w-1/2 space-y-6">
+                    {sectionsForPouch.map((prob, idx) => (
+                      <div key={idx} className="bg-gray-50 border-2 border-black p-4">
+                        <h4 className="font-black uppercase mb-2 flex items-center gap-2">
+                          <CheckCircle className="w-5 h-5 text-red-600" /> {prob.problem}
+                        </h4>
+                        <p className="font-['JetBrains_Mono'] text-sm text-gray-700">
+                          <span className="font-bold text-green-700 mr-2">Solution:</span>{prob.solution}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="w-full md:w-1/2">
+                    <div className="bg-[#f3f4f6] border-4 border-black p-4 shadow-[inset_4px_4px_10px_rgba(0,0,0,0.1)] h-full flex items-center justify-center">
+                      <img 
+                        src="/imgs/knowledge/material-data-sheet-pain-points.jpg" 
+                        alt="Material Data Sheet Pain Points" 
+                        className="max-w-full h-auto object-cover border-2 border-black"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

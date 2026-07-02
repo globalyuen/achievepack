@@ -1,13 +1,138 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'
-import { Shield, Zap, Package, ArrowRight, CheckCircle, Award, BarChart3, Droplets, Sun, Wind } from 'lucide-react'
+import { Shield, Zap, Package, ArrowRight, CheckCircle, Award, BarChart3, Droplets, Sun, Wind, AlertTriangle } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 
+const translations: Record<string, any> = {
+  en: {
+    problemsTitle: "5 Common Kraft High Barrier Pouch Problems (And Solutions)",
+    problems: [
+      {
+        title: "Oxygen Transmission & Food Spoilage",
+        description: "Standard kraft paper is porous, leading to rapid oxygen ingress and food spoilage.",
+        solution: "We integrate AL (Aluminum) or VMPET layers between the kraft and PE, ensuring near-zero Oxygen Transmission Rate (OTR)."
+      },
+      {
+        title: "Moisture Ingress & Clumping",
+        description: "Dry goods like coffee or powders can clump if moisture penetrates the packaging.",
+        solution: "A specialized multi-layer structure with a high-barrier inner PE film provides exceptional Water Vapor Transmission Rate (WVTR) protection."
+      },
+      {
+        title: "Pouch Puncturing During Transit",
+        description: "Rough handling during shipping can cause sharp products to puncture the pouch.",
+        solution: "We reinforce the structure with a BOPA (Nylon) layer, significantly increasing puncture resistance and structural integrity."
+      },
+      {
+        title: "Unattractive Wrinkling of Kraft Paper",
+        description: "Kraft paper can easily wrinkle or crease, ruining the premium brand aesthetic.",
+        solution: "We apply a Matte BOPP outer layer over the kraft paper, protecting it from moisture and creasing while maintaining a natural look."
+      },
+      {
+        title: "Poor Seal Integrity",
+        description: "Thick multi-layer structures can be difficult to heat seal, leading to leaks.",
+        solution: "We utilize high-quality PE or CPP sealing layers with optimized heat sealing profiles to ensure strong, leak-proof closures."
+      }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de las Bolsas Kraft de Alta Barrera (y Soluciones)",
+    problems: [
+      {
+        title: "Transmisión de Oxígeno y Deterioro de Alimentos",
+        description: "El papel kraft estándar es poroso, lo que permite la entrada rápida de oxígeno y el deterioro de los alimentos.",
+        solution: "Integramos capas de AL (Aluminio) o VMPET entre el kraft y el PE, asegurando una Tasa de Transmisión de Oxígeno (OTR) casi nula."
+      },
+      {
+        title: "Ingreso de Humedad y Aglomeración",
+        description: "Los productos secos como el café o los polvos pueden aglomerarse si la humedad penetra el envase.",
+        solution: "Una estructura especializada multicapa con una película interior de PE de alta barrera proporciona una protección excepcional contra la Tasa de Transmisión de Vapor de Agua (WVTR)."
+      },
+      {
+        title: "Perforación de la Bolsa Durante el Tránsito",
+        description: "El manejo brusco durante el envío puede hacer que los productos afilados perforen la bolsa.",
+        solution: "Reforzamos la estructura con una capa de BOPA (Nylon), aumentando significativamente la resistencia a la perforación."
+      },
+      {
+        title: "Arrugas Poco Atractivas en el Papel Kraft",
+        description: "El papel kraft puede arrugarse fácilmente, arruinando la estética premium de la marca.",
+        solution: "Aplicamos una capa exterior de BOPP mate sobre el papel kraft, protegiéndolo de la humedad y las arrugas mientras mantiene un aspecto natural."
+      },
+      {
+        title: "Mala Integridad del Sello",
+        description: "Las estructuras gruesas multicapa pueden ser difíciles de sellar por calor, provocando fugas.",
+        solution: "Utilizamos capas de sellado de PE o CPP de alta calidad con perfiles de sellado por calor optimizados para garantizar cierres fuertes."
+      }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants des Sachets Kraft à Haute Barrière (et Solutions)",
+    problems: [
+      {
+        title: "Transmission d'Oxygène et Détérioration des Aliments",
+        description: "Le papier kraft standard est poreux, entraînant une pénétration rapide de l'oxygène.",
+        solution: "Nous intégrons des couches d'AL (Aluminium) ou de VMPET entre le kraft et le PE, garantissant un taux de transmission d'oxygène (OTR) proche de zéro."
+      },
+      {
+        title: "Pénétration d'Humidité",
+        description: "Les produits secs peuvent s'agglutiner si l'humidité pénètre dans l'emballage.",
+        solution: "Une structure multicouche avec un film intérieur en PE à haute barrière offre une protection exceptionnelle (WVTR)."
+      },
+      {
+        title: "Perforation du Sachet",
+        description: "Une manipulation brutale peut provoquer des perforations par des produits pointus.",
+        solution: "Nous renforçons la structure avec une couche BOPA (Nylon), augmentant considérablement la résistance à la perforation."
+      },
+      {
+        title: "Plis Disgracieux du Papier Kraft",
+        description: "Le papier kraft peut se froisser, ruinant l'esthétique haut de gamme.",
+        solution: "Nous appliquons une couche extérieure en BOPP mat pour le protéger de l'humidité et des plis tout en conservant un aspect naturel."
+      },
+      {
+        title: "Mauvaise Intégrité du Scellage",
+        description: "Les structures multicouches épaisses peuvent être difficiles à thermosceller.",
+        solution: "Nous utilisons des couches de scellage en PE ou CPP de haute qualité pour garantir des fermetures solides et étanches."
+      }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: "5 個常見的牛皮紙高阻隔包裝袋問題（與解決方案）",
+    problems: [
+      {
+        title: "氧氣滲透與食品變質",
+        description: "標準牛皮紙多孔，會導致氧氣快速進入和食品變質。",
+        solution: "我們在牛皮紙和 PE 之間整合了 AL (鋁箔) 或 VMPET 層，確保極低的氧氣透過率 (OTR)。"
+      },
+      {
+        title: "濕氣滲入與結塊",
+        description: "如果濕氣滲入包裝，咖啡或粉末等乾貨會結塊。",
+        solution: "採用高阻隔內部 PE 薄膜的專業多層結構，提供卓越的水氣透過率 (WVTR) 防護。"
+      },
+      {
+        title: "運輸過程中的刺穿",
+        description: "運輸過程中的粗暴處理可能會導致尖銳產品刺穿包裝袋。",
+        solution: "我們使用 BOPA (尼龍) 層強化結構，顯著提高抗穿刺性和結構完整性。"
+      },
+      {
+        title: "牛皮紙起皺",
+        description: "牛皮紙容易起皺或產生摺痕，破壞高端品牌美感。",
+        solution: "我們在牛皮紙外層複合消光 BOPP，保護其免受濕氣和摺痕影響，同時保持自然外觀。"
+      },
+      {
+        title: "封口完整性差",
+        description: "厚實的多層結構可能難以熱封，導致漏氣。",
+        solution: "我們使用高品質的 PE 或 CPP 封口層，並優化熱封參數，確保封口堅固防漏。"
+      }
+    ]
+  }
+}
+
 const PouchKraftHighBarrierPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.language || 'en'
+  const localT = translations[currentLang] || translations['en']
   const p = 'seoPages.pages.pouchKraftHighBarrier'
 
   const baseUrl = getBaseUrl()
@@ -129,6 +254,44 @@ const PouchKraftHighBarrierPage: React.FC = () => {
             <h4 className="font-black text-xl mb-4 uppercase">{t(`${p}.aromaTitle`)}</h4>
             <p className="text-sm font-['JetBrains_Mono'] text-gray-600">{t(`${p}.aromaDesc`)}</p>
           </NeoCard>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-black">
+            {localT.problemsTitle}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {localT.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="bg-gray-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="flex items-center gap-3 mb-3">
+                    <AlertTriangle className="w-6 h-6 text-[#451a03] flex-shrink-0" />
+                    <h3 className="font-black text-xl uppercase">{prob.title}</h3>
+                  </div>
+                  <p className="font-['JetBrains_Mono'] text-sm text-gray-700 mb-4">
+                    <span className="font-bold text-red-500">Problem:</span> {prob.description}
+                  </p>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
+                    <p className="font-['JetBrains_Mono'] text-sm text-gray-700">
+                      <span className="font-bold text-[#10b981]">Solution:</span> {prob.solution}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <img 
+                src="/imgs/knowledge/kraft-high-barrier-pain-points.jpg" 
+                alt="Kraft High Barrier Pouches Engineering Solutions" 
+                className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover"
+              />
+              <div className="absolute top-4 -right-4 w-full h-full border-4 border-black bg-[#451a03] -z-10" />
+            </div>
+          </div>
         </div>
       </section>
 

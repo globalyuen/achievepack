@@ -1,13 +1,70 @@
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
-import { Beaker, Shield, AlertTriangle, ArrowRight, Sparkles, CheckCircle, Package } from 'lucide-react'
+import { Beaker, Shield, AlertTriangle, ArrowRight, Sparkles, CheckCircle, Package, Zap, Sun, Droplet, Recycle } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 import { getBaseUrl } from '../../../utils/domain'
 
+const LOCAL_TRANSLATIONS = {
+  en: {
+    sectionTitle: '5 Common Citrus Oil Packaging Problems (And Solutions)',
+    pp1Title: 'Terpene Permeation',
+    pp1Desc: 'D-Limonene degrades regular plastics. Solution: Aluminum foil or EVOH-coated PE for ultimate barrier.',
+    pp2Title: 'Oxidation & Shelf Life',
+    pp2Desc: 'Oxygen degrades active botanicals. Solution: Strict OTR barrier materials prevent degradation.',
+    pp3Title: 'Light Degradation',
+    pp3Desc: 'UV light damages sensitive oils. Solution: Opaque packaging or UV-blocking layers.',
+    pp4Title: 'Leakage & Seeping',
+    pp4Desc: 'Oils can leak through weak seals. Solution: Reinforced seams and durable spouts prevent spills.',
+    pp5Title: 'Eco vs Barrier',
+    pp5Desc: 'Strong barrier plastics are hard to recycle. Solution: Recyclable Mono-PE or Bio-PE.'
+  },
+  es: {
+    sectionTitle: '5 Problemas Comunes del Empaque de Aceite Cítrico (y Soluciones)',
+    pp1Title: 'Permeabilidad a Terpenos',
+    pp1Desc: 'El D-Limoneno degrada los plásticos. Solución: Papel de aluminio o PE con EVOH para máxima barrera.',
+    pp2Title: 'Oxidación y Vida Útil',
+    pp2Desc: 'El oxígeno degrada los botánicos activos. Solución: Materiales con barrera OTR estricta.',
+    pp3Title: 'Degradación por Luz',
+    pp3Desc: 'La luz UV daña los aceites. Solución: Empaques opacos o capas que bloquean los rayos UV.',
+    pp4Title: 'Fugas y Filtraciones',
+    pp4Desc: 'Los aceites se filtran por sellos débiles. Solución: Costuras reforzadas y boquillas duraderas.',
+    pp5Title: 'Ecología vs Barrera',
+    pp5Desc: 'Los plásticos de barrera son difíciles de reciclar. Solución: Mono-PE reciclable o Bio-PE.'
+  },
+  fr: {
+    sectionTitle: '5 Problèmes Courants d\'Emballage d\'Huile d\'Agrumes (et Solutions)',
+    pp1Title: 'Perméation des Terpènes',
+    pp1Desc: 'Le D-Limonène dégrade les plastiques. Solution : Feuille d\'aluminium ou PE avec EVOH pour une barrière ultime.',
+    pp2Title: 'Oxydation et Durée de Conservation',
+    pp2Desc: 'L\'oxygène dégrade les actifs botaniques. Solution : Matériaux à barrière OTR stricte.',
+    pp3Title: 'Dégradation par la Lumière',
+    pp3Desc: 'La lumière UV endommage les huiles. Solution : Emballage opaque ou couches anti-UV.',
+    pp4Title: 'Fuites et Suintements',
+    pp4Desc: 'Les huiles fuient à travers des joints faibles. Solution : Coutures renforcées et becs durables.',
+    pp5Title: 'Écologie vs Barrière',
+    pp5Desc: 'Les plastiques barrières sont difficiles à recycler. Solution : Mono-PE recyclable ou Bio-PE.'
+  },
+  'zh-TW': {
+    sectionTitle: '柑橘精油包裝的 5 個常見問題（及解決方案）',
+    pp1Title: '萜烯滲透',
+    pp1Desc: 'D-檸檬烯會降解普通塑料。解決方案：鋁箔或 EVOH 塗層 PE 以提供終極阻隔。',
+    pp2Title: '氧化與保質期',
+    pp2Desc: '氧氣會降解活性植物成分。解決方案：嚴格的 OTR 阻隔材料防止降解。',
+    pp3Title: '光降解',
+    pp3Desc: '紫外線會破壞敏感精油。解決方案：不透明包裝或防紫外線層。',
+    pp4Title: '洩漏與滲出',
+    pp4Desc: '精油可能從薄弱的密封處洩漏。解決方案：加固接縫和耐用的吸嘴防止溢出。',
+    pp5Title: '環保與阻隔',
+    pp5Desc: '強阻隔塑料難以回收。解決方案：可回收的單一材質 PE 或生物基 PE。'
+  }
+}
+
 export default function PouchCitrusOilPackagingPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language || 'en') as keyof typeof LOCAL_TRANSLATIONS
+  const currentLang = LOCAL_TRANSLATIONS[lang] || LOCAL_TRANSLATIONS['en']
 
   const baseUrl = getBaseUrl()
 
@@ -284,6 +341,43 @@ export default function PouchCitrusOilPackagingPage() {
               ))}
             </tbody>
           </table>
+        </NeoCard>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-16 px-4 md:px-6 max-w-7xl mx-auto">
+        <NeoCard className="border-4 border-black">
+          <h2 className="font-black text-3xl md:text-5xl uppercase mb-8 text-center">
+            {currentLang.sectionTitle}
+          </h2>
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="w-full md:w-1/2">
+              <ClickableImage
+                src="/imgs/knowledge/citrus-oil-packaging-pain-points.jpg"
+                alt={currentLang.sectionTitle}
+                className="w-full h-auto border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+              />
+            </div>
+            <div className="w-full md:w-1/2 space-y-6">
+              {[
+                { title: currentLang.pp1Title, desc: currentLang.pp1Desc, Icon: Shield },
+                { title: currentLang.pp2Title, desc: currentLang.pp2Desc, Icon: Zap },
+                { title: currentLang.pp3Title, desc: currentLang.pp3Desc, Icon: Sun },
+                { title: currentLang.pp4Title, desc: currentLang.pp4Desc, Icon: Droplet },
+                { title: currentLang.pp5Title, desc: currentLang.pp5Desc, Icon: Recycle },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-4 p-4 border-2 border-black bg-white hover:bg-neutral-50 transition-colors">
+                  <div className="bg-[#D4FF00] p-2 border-2 border-black">
+                    <item.Icon className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-lg uppercase leading-tight mb-1">{item.title}</h4>
+                    <p className="font-['Space_Grotesk'] text-sm text-neutral-700">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </NeoCard>
       </section>
 

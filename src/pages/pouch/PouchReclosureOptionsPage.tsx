@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Lock, RefreshCw, Package, CheckCircle, Heart, Sparkles, Star, Shield } from 'lucide-react'
+import { Lock, RefreshCw, Package, CheckCircle, Heart, Sparkles, Star, Shield, AlertTriangle, Wrench } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -8,8 +8,125 @@ import { getBaseUrl } from '../../utils/domain'
 // Neo-Brutalist Components
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
+const localTranslations = {
+  en: {
+    painPoints: {
+      title: "5 Common Reclosure Problems (And Solutions)",
+      subtitle: "Engineering solutions for flexible packaging failures",
+      items: [
+        {
+          problem: "Zippers losing grip due to powder/crumbs",
+          solution: "Powder-proof zippers with special track designs"
+        },
+        {
+          problem: "Hard to open for elderly/disabled",
+          solution: "Ergonomic, easy-grip slider zippers"
+        },
+        {
+          problem: "Air leakage reducing shelf life",
+          solution: "High-barrier press-to-close zippers for airtight seals"
+        },
+        {
+          problem: "Tampering before purchase",
+          solution: "Tamper-evident tear notches above the zipper"
+        },
+        {
+          problem: "Liquid spillage in transit",
+          solution: "Dual-track locking zippers for leak-proof security"
+        }
+      ]
+    }
+  },
+  es: {
+    painPoints: {
+      title: "5 problemas comunes de recierre (y soluciones)",
+      subtitle: "Soluciones de ingeniería para fallas en empaques flexibles",
+      items: [
+        {
+          problem: "Las cremalleras pierden agarre debido al polvo/migajas",
+          solution: "Cremalleras a prueba de polvo con diseños especiales de rieles"
+        },
+        {
+          problem: "Difícil de abrir para ancianos/discapacitados",
+          solution: "Cremalleras deslizantes ergonómicas y de fácil agarre"
+        },
+        {
+          problem: "Fuga de aire que reduce la vida útil",
+          solution: "Cremalleras de cierre a presión de alta barrera para un sellado hermético"
+        },
+        {
+          problem: "Manipulación antes de la compra",
+          solution: "Muescas de desgarre a prueba de manipulaciones sobre la cremallera"
+        },
+        {
+          problem: "Derrame de líquidos en tránsito",
+          solution: "Cremalleras de bloqueo de doble riel para una seguridad a prueba de fugas"
+        }
+      ]
+    }
+  },
+  fr: {
+    painPoints: {
+      title: "5 problèmes courants de refermeture (et solutions)",
+      subtitle: "Solutions d'ingénierie pour les défaillances des emballages flexibles",
+      items: [
+        {
+          problem: "Les fermetures éclair perdent leur adhérence à cause de la poudre/miettes",
+          solution: "Fermetures éclair anti-poudre avec conceptions de rails spéciales"
+        },
+        {
+          problem: "Difficile à ouvrir pour les personnes âgées/handicapées",
+          solution: "Fermetures à glissière ergonomiques à prise facile"
+        },
+        {
+          problem: "Fuite d'air réduisant la durée de conservation",
+          solution: "Fermetures à pression haute barrière pour des joints hermétiques"
+        },
+        {
+          problem: "Altération avant l'achat",
+          solution: "Encoches de déchirure inviolables au-dessus de la fermeture éclair"
+        },
+        {
+          problem: "Déversement de liquide en transit",
+          solution: "Fermetures à glissière à double rail pour une sécurité anti-fuite"
+        }
+      ]
+    }
+  },
+  'zh-TW': {
+    painPoints: {
+      title: "5 個常見的重新密封問題 (及其解決方案)",
+      subtitle: "針對軟包裝失效的工程解決方案",
+      items: [
+        {
+          problem: "拉鍊因粉末/碎屑而失去抓地力",
+          solution: "採用特殊軌道設計的防粉拉鍊"
+        },
+        {
+          problem: "老年人/身障人士難以打開",
+          solution: "符合人體工學、易於抓握的滑塊拉鍊"
+        },
+        {
+          problem: "漏氣縮短保質期",
+          solution: "高阻隔按壓拉鍊，實現氣密密封"
+        },
+        {
+          problem: "購買前被篡改",
+          solution: "拉鍊上方的防篡改撕口"
+        },
+        {
+          problem: "運輸途中液體溢出",
+          solution: "雙軌鎖定拉鍊，實現防漏安全"
+        }
+      ]
+    }
+  }
+}
+
 export default function PouchReclosureOptionsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = (i18n.language || 'en').split('-')[0] === 'zh' ? 'zh-TW' : (i18n.language || 'en').split('-')[0]
+  const content = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en
   const baseUrl = getBaseUrl()
 
   const CLOSURE_TYPES = [
@@ -178,6 +295,54 @@ export default function PouchReclosureOptionsPage() {
                 <p className="text-gray-600">{t(`pouchReclosureOptionsPage.benefits.items.${benefit.index}.desc`)}</p>
               </NeoCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-black text-5xl md:text-6xl mb-6">
+              {content.painPoints.title}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {content.painPoints.subtitle}
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="border-4 border-black p-2 bg-gray-50 transform -rotate-2">
+              <img 
+                src={`${baseUrl}/imgs/knowledge/pouch-reclosure-pain-points.jpg`} 
+                alt="Reclosure pain points" 
+                className="w-full h-auto border-2 border-black"
+              />
+            </div>
+            
+            <div className="space-y-6">
+              {content.painPoints.items.map((item, idx) => (
+                <NeoCard key={idx} className="!p-4">
+                  <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                    <div className="bg-red-100 p-3 border-2 border-black flex-shrink-0">
+                      <AlertTriangle className="w-6 h-6 text-red-600" />
+                    </div>
+                    <div className="flex-grow">
+                      <p className="font-bold text-red-900 line-through decoration-red-400">{item.problem}</p>
+                    </div>
+                    <div className="hidden sm:block">
+                      <Lock className="w-5 h-5 text-gray-400" />
+                    </div>
+                    <div className="bg-green-100 p-3 border-2 border-black flex-shrink-0">
+                      <Wrench className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div className="flex-grow">
+                      <p className="font-bold text-green-900">{item.solution}</p>
+                    </div>
+                  </div>
+                </NeoCard>
+              ))}
+            </div>
           </div>
         </div>
       </section>

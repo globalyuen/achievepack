@@ -6,8 +6,113 @@ import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common US Coffee Packaging Problems (And Solutions)",
+    problems: [
+      {
+        title: "Problem 1: Bursting Bags and Valve Failure",
+        desc: "Freshly roasted beans release CO2. We integrate premium one-way degassing valves to safely vent gas while preventing oxygen ingress."
+      },
+      {
+        title: "Problem 2: Rapid Staling and Flavor Loss",
+        desc: "Poor barriers let oxygen and moisture in. We utilize ultra-high-barrier films to lock in aroma and maximize shelf life."
+      },
+      {
+        title: "Problem 3: Unattainable Minimum Order Quantities",
+        desc: "Traditional printing requires massive orders. Our HP Indigo digital printing allows low MOQs, perfect for limited edition roasts."
+      },
+      {
+        title: "Problem 4: Increasing Demand for Sustainability",
+        desc: "Consumers reject unrecyclable packaging. We provide fully recyclable Mono-PE bags that meet strict US sustainability standards."
+      },
+      {
+        title: "Problem 5: Unstable Bags on Retail Shelves",
+        desc: "Flimsy bags tip over, damaging brand perception. Our flat bottom pouch construction ensures maximum stability and premium billboard display."
+      }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de Empaque de Café en EE. UU. (y Soluciones)",
+    problems: [
+      {
+        title: "Problema 1: Bolsas Rotas y Fallas en la Válvula",
+        desc: "Los granos recién tostados liberan CO2. Integramos válvulas de desgasificación unidireccionales de primera calidad para ventilar el gas de forma segura y evitar la entrada de oxígeno."
+      },
+      {
+        title: "Problema 2: Envejecimiento Rápido y Pérdida de Sabor",
+        desc: "Las malas barreras dejan entrar oxígeno y humedad. Utilizamos películas de barrera ultra alta para bloquear el aroma y maximizar la vida útil."
+      },
+      {
+        title: "Problema 3: Cantidades Mínimas de Pedido Inalcanzables",
+        desc: "La impresión tradicional requiere pedidos masivos. Nuestra impresión digital HP Indigo permite MOQ bajos, perfectos para tostados de edición limitada."
+      },
+      {
+        title: "Problema 4: Creciente Demanda de Sostenibilidad",
+        desc: "Los consumidores rechazan los envases no reciclables. Ofrecemos bolsas Mono-PE totalmente reciclables que cumplen con los estrictos estándares de sostenibilidad de EE. UU."
+      },
+      {
+        title: "Problema 5: Bolsas Inestables en los Estantes",
+        desc: "Las bolsas endebles se caen, dañando la percepción de la marca. Nuestra construcción de bolsa de fondo plano garantiza la máxima estabilidad."
+      }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants d'Emballage de Café aux États-Unis (et Solutions)",
+    problems: [
+      {
+        title: "Problème 1 : Rupture de Sacs et Défaillance de Valve",
+        desc: "Les grains fraîchement torréfiés libèrent du CO2. Nous intégrons des valves de dégazage unidirectionnelles de qualité supérieure pour évacuer le gaz en toute sécurité tout en empêchant l'oxygène d'entrer."
+      },
+      {
+        title: "Problème 2 : Vieillissement Rapide et Perte de Saveur",
+        desc: "De mauvaises barrières laissent entrer l'oxygène et l'humidité. Nous utilisons des films à très haute barrière pour emprisonner l'arôme et maximiser la durée de conservation."
+      },
+      {
+        title: "Problème 3 : Quantités Minimales de Commande Inaccessibles",
+        desc: "L'impression traditionnelle nécessite des commandes massives. Notre impression numérique HP Indigo permet de faibles MOQ, parfaits pour les éditions limitées."
+      },
+      {
+        title: "Problème 4 : Demande Croissante de Durabilité",
+        desc: "Les consommateurs rejettent les emballages non recyclables. Nous proposons des sacs Mono-PE entièrement recyclables qui répondent aux normes strictes de durabilité des États-Unis."
+      },
+      {
+        title: "Problème 5 : Sacs Instables sur les Étagères",
+        desc: "Les sacs fragiles se renversent, nuisant à la perception de la marque. Notre construction de sachet à fond plat assure une stabilité maximale."
+      }
+    ]
+  },
+  "zh-TW": {
+    problemsTitle: "美國咖啡包裝的 5 個常見問題（與解決方案）",
+    problems: [
+      {
+        title: "問題 1：排氣閥失效導致破袋",
+        desc: "剛烘焙的咖啡豆會釋放二氧化碳。我們整合了優質的單向排氣閥，安全排出氣體同時防止氧氣進入。"
+      },
+      {
+        title: "問題 2：快速老化與風味流失",
+        desc: "不良的阻隔層會讓氧氣和水分進入。我們採用超高阻隔薄膜來鎖住香氣，將保質期延長至最長。"
+      },
+      {
+        title: "問題 3：無法達成的最低起訂量",
+        desc: "傳統印刷需要龐大的訂單量。我們的 HP Indigo 數位印刷允許較低的最低起訂量，非常適合限量版烘焙豆。"
+      },
+      {
+        title: "問題 4：對永續性的需求日益增加",
+        desc: "消費者拒絕不可回收的包裝。我們提供完全可回收的單一材質 PE 袋，符合美國嚴格的永續標準。"
+      },
+      {
+        title: "問題 5：零售貨架上展示不穩定",
+        desc: "軟弱的袋子容易傾倒，損害品牌形象。我們的平底袋結構確保最大的穩定性和優質的展示效果。"
+      }
+    ]
+  }
+};
+
 export default function PouchUSACoffeePage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language || 'en';
+  const localT = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en;
   const title = t("seoPages.pages.pouchUSACoffee.seoTitle", "USA Coffee Packaging Guide | Custom Printed Coffee Bags | POUCH.ECO");
   const description = t("seoPages.pages.pouchUSACoffee.seoDescription", "The ultimate guide to custom coffee packaging for USA roasters. From FDA compliance and degassing valves to local market trends and sustainable materials.");
 
@@ -128,6 +233,46 @@ export default function PouchUSACoffeePage() {
             <p>
               {t("seoPages.pages.pouchUSACoffee.formatsText", "The US market predominantly favors two pouch formats for specialty coffee. The Stand-Up Pouch (Doypack) is a cost-effective, versatile option perfect for 12oz retail bags. The Flat Bottom Bag (Box Pouch) offers maximum volume efficiency, five panels of printable billboard space, and exceptional shelf stability, making it the premier choice for premium roasts and 2lb or 5lb wholesale formats.")}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {localT.problemsTitle}
+          </h2>
+          
+          <img 
+            src="/imgs/knowledge/usa-coffee-packaging-pain-points.jpg" 
+            alt="USA Coffee Packaging Pain Points" 
+            className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+          />
+
+          <div className="space-y-6">
+            {localT.problems.map((prob, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-gray-50 p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-start gap-4"
+              >
+                <div className="mt-1">
+                  <CheckCircle className="w-6 h-6 text-[#10b981]" />
+                </div>
+                <div>
+                  <h3 className="font-['Space_Grotesk'] font-black text-xl uppercase mb-2">
+                    {prob.title}
+                  </h3>
+                  <p className="font-['JetBrains_Mono'] text-gray-700">
+                    {prob.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

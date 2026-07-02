@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Sparkles, Eye, Star, Heart, CheckCircle, Palette, ChevronDown, ArrowRight, Leaf } from 'lucide-react'
+import { Sparkles, Eye, Star, Heart, CheckCircle, Palette, ChevronDown, ArrowRight, Leaf, AlertTriangle, Droplet, Zap, Maximize, Crosshair } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -16,10 +16,160 @@ interface FAQItem {
   a: string
 }
 
+const translations = {
+  en: {
+    sectionTitle: "5 Common Pouch Surface Finish Problems (And Solutions)",
+    desc: "Don't let poor finish choices ruin your packaging. Here are the top 5 pain points and how AchievePack engineering solves them.",
+    points: [
+      {
+        icon: AlertTriangle,
+        title: "1. Scuffing & Scratching (Matte Finish)",
+        problem: "Standard matte finishes easily show white scuff marks during shipping.",
+        solution: "Use Anti-Scuff Matte Coating or Soft-Touch Lamination to provide a durable, scratch-resistant barrier."
+      },
+      {
+        icon: Droplet,
+        title: "2. Fingerprints & Smudges",
+        problem: "Dark colored matte or gloss pouches act as fingerprint magnets.",
+        solution: "Apply Fingerprint-Resistant UV Coatings or switch to tactile Soft-Touch to completely mask oils."
+      },
+      {
+        icon: Zap,
+        title: "3. Ink Flaking on Folds",
+        problem: "Glossy finishes crack or flake ink along gusset folds.",
+        solution: "Ensure proper dyne level (surface tension) treatment before printing and use high-grade flexible inks."
+      },
+      {
+        icon: Maximize,
+        title: "4. Barcode Scanning Glare",
+        problem: "High-gloss finishes cause glare, making barcodes unreadable by scanners.",
+        solution: "Use Spot UV to leave the barcode area matte, or print the barcode on a white matte block."
+      },
+      {
+        icon: Crosshair,
+        title: "5. Inconsistent Spot UV Registration",
+        problem: "Spot UV bleeds or misaligns with the printed text underneath.",
+        solution: "Utilize precision-registration cylinder presses to guarantee exact alignment without bleeding."
+      }
+    ]
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes con Acabados de Bolsas (Y Soluciones)",
+    desc: "No permita que las malas decisiones de acabado arruinen su empaque. Estos son los 5 principales puntos críticos y cómo la ingeniería de AchievePack los resuelve.",
+    points: [
+      {
+        icon: AlertTriangle,
+        title: "1. Desgaste y Rasguños (Acabado Mate)",
+        problem: "Los acabados mate estándar muestran fácilmente marcas blancas de desgaste durante el envío.",
+        solution: "Use revestimiento mate antidesgaste o laminación Soft-Touch para una barrera duradera."
+      },
+      {
+        icon: Droplet,
+        title: "2. Huellas Dactilares y Manchas",
+        problem: "Las bolsas mate o brillantes de colores oscuros actúan como imanes de huellas.",
+        solution: "Aplique recubrimientos UV resistentes a huellas o cambie al táctil Soft-Touch."
+      },
+      {
+        icon: Zap,
+        title: "3. Descamación de Tinta en Pliegues",
+        problem: "Los acabados brillantes agrietan o descascaran la tinta a lo largo de los pliegues.",
+        solution: "Asegure un nivel de dinas (tensión superficial) adecuado antes de imprimir y use tintas flexibles."
+      },
+      {
+        icon: Maximize,
+        title: "4. Reflejo al Escanear Códigos de Barras",
+        problem: "Los acabados de alto brillo causan reflejos, impidiendo la lectura de códigos de barras.",
+        solution: "Use Spot UV para dejar el área del código mate, o imprímalo en un bloque mate blanco."
+      },
+      {
+        icon: Crosshair,
+        title: "5. Registro Inconsistente de Spot UV",
+        problem: "El Spot UV se desborda o se desalinea con el texto impreso debajo.",
+        solution: "Utilice prensas de cilindro de registro de precisión para garantizar una alineación exacta."
+      }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants de Finition de Sachet (Et Solutions)",
+    desc: "Ne laissez pas de mauvais choix de finition gâcher votre emballage. Voici les 5 principaux points douloureux et comment AchievePack les résout.",
+    points: [
+      {
+        icon: AlertTriangle,
+        title: "1. Éraflures et Rayures (Finition Mate)",
+        problem: "Les finitions mates standard montrent facilement des marques blanches pendant l'expédition.",
+        solution: "Utilisez un revêtement mat anti-éraflures ou un laminage Soft-Touch pour une barrière durable."
+      },
+      {
+        icon: Droplet,
+        title: "2. Empreintes Digitales et Taches",
+        problem: "Les sachets mats ou brillants de couleur sombre attirent les empreintes.",
+        solution: "Appliquez des revêtements UV anti-traces ou passez au Soft-Touch tactile."
+      },
+      {
+        icon: Zap,
+        title: "3. Écaillage de l'Encre sur les Plis",
+        problem: "Les finitions brillantes fissurent ou écaillent l'encre le long des soufflets.",
+        solution: "Assurez un traitement de tension superficielle approprié avant l'impression."
+      },
+      {
+        icon: Maximize,
+        title: "4. Reflet sur le Code-Barres",
+        problem: "Les finitions très brillantes provoquent des reflets, rendant les codes-barres illisibles.",
+        solution: "Utilisez le Spot UV pour laisser la zone du code mate."
+      },
+      {
+        icon: Crosshair,
+        title: "5. Alignement Incohérent du Spot UV",
+        problem: "Le Spot UV bave ou se désaligne avec le texte imprimé en dessous.",
+        solution: "Utilisez des presses à repérage de précision pour garantir un alignement exact."
+      }
+    ]
+  },
+  "zh-TW": {
+    sectionTitle: "5 個常見的表面處理痛點（及解決方案）",
+    desc: "不要讓糟糕的表面處理選擇毀了您的包裝。以下是 5 大痛點以及 AchievePack 工程的解決方案。",
+    points: [
+      {
+        icon: AlertTriangle,
+        title: "1. 磨損與刮痕（霧面）",
+        problem: "標準霧面在運輸過程中容易出現白色磨痕。",
+        solution: "使用防刮霧面塗層或觸感膜 (Soft-Touch) 提供耐用的防刮屏障。"
+      },
+      {
+        icon: Droplet,
+        title: "2. 指紋與污漬",
+        problem: "深色的霧面或亮面袋子容易沾染指紋。",
+        solution: "塗佈抗指紋 UV 塗層或改用觸感膜來完全掩蓋油污。"
+      },
+      {
+        icon: Zap,
+        title: "3. 摺痕處油墨脫落",
+        problem: "亮面處理在側邊摺痕處容易導致油墨龜裂或脫落。",
+        solution: "在印刷前確保適當的達因值（表面張力）處理，並使用高品質柔性油墨。"
+      },
+      {
+        icon: Maximize,
+        title: "4. 條碼掃描反光",
+        problem: "高亮面會導致反光，使掃描器無法讀取條碼。",
+        solution: "使用局部上光 (Spot UV) 讓條碼區域保持霧面，或將條碼印在白色霧面區塊上。"
+      },
+      {
+        icon: Crosshair,
+        title: "5. 局部上光對位不準",
+        problem: "局部上光邊緣暈開或與下方印刷文字錯位。",
+        solution: "利用高精度對位印刷機來確保精確對齊而不溢邊。"
+      }
+    ]
+  }
+}
+
 export default function PouchSurfaceFinishPage() {
   const baseUrl = getBaseUrl()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
+  
+  const lang = (i18n.language || 'en') as keyof typeof translations;
+  const localT = translations[lang] || translations.en;
 
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index)
@@ -315,6 +465,48 @@ export default function PouchSurfaceFinishPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-black text-4xl md:text-5xl text-emerald-950 mt-4 mb-4">
+              {localT.sectionTitle}
+            </h2>
+            <p className="text-lg text-emerald-900/70 max-w-3xl mx-auto">
+              {localT.desc}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {localT.points.map((pt, idx) => (
+                <NeoCard key={idx} className="p-5 border-2 border-emerald-900 bg-emerald-50/30 hover:bg-emerald-50 transition-colors">
+                  <div className="flex gap-4">
+                    <div className="mt-1">
+                      <pt.icon className="w-8 h-8 text-emerald-700" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl text-emerald-950 mb-2">{pt.title}</h3>
+                      <p className="text-sm text-red-700 font-medium mb-1"><strong>Problem:</strong> {pt.problem}</p>
+                      <p className="text-sm text-emerald-800 font-medium"><strong>Solution:</strong> {pt.solution}</p>
+                    </div>
+                  </div>
+                </NeoCard>
+              ))}
+            </div>
+            <div>
+              <NeoCard className="p-2 bg-emerald-100/50 border-4 border-emerald-900 shadow-[8px_8px_0px_0px_#022c22]">
+                <ClickableImage 
+                  src="/imgs/knowledge/pouch-surface-finish-pain-points.jpg" 
+                  alt="5 common pouch surface finish problems and solutions" 
+                  className="w-full object-cover border-2 border-black"
+                />
+              </NeoCard>
+            </div>
           </div>
         </div>
       </section>

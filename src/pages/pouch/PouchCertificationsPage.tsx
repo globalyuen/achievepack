@@ -1,13 +1,140 @@
 import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 import { motion } from 'framer-motion'
-import { Shield, CheckCircle, Award, Leaf, Globe, Factory, Home, ExternalLink, ChevronDown, Recycle } from 'lucide-react'
+import { Shield, CheckCircle, Award, Leaf, Globe, Factory, Home, ExternalLink, ChevronDown, Recycle, AlertTriangle, Lightbulb } from 'lucide-react'
+
+const localTranslations = {
+  en: {
+    problemsHeading: "5 Common Pouch Certification Problems (And Solutions)",
+    problems: [
+      {
+        title: "1. Navigating Complex Regional Standards",
+        pain: "Different markets require different certifications (BPI in NA, EN 13432 in EU, AS 4736 in AU).",
+        solution: "Unified material engineering that meets multiple standards globally, simplifying compliance."
+      },
+      {
+        title: "2. Balancing Barrier Properties with Compostability",
+        pain: "High barrier requirements often conflict with the need for materials to break down in compost facilities.",
+        solution: "Multi-layer high-barrier bio-based films that pass disintegration tests while keeping moisture/oxygen out."
+      },
+      {
+        title: "3. Ink and Adhesive Toxicity",
+        pain: "Standard inks and adhesives can fail ecotoxicity tests, preventing certification.",
+        solution: "Utilizing verified water-based inks and solvent-free compostable adhesives that leave no harmful residues."
+      },
+      {
+        title: "4. Shelf-Life Limitations of Certified Materials",
+        pain: "Compostable materials may degrade too quickly, limiting product shelf life.",
+        solution: "Specialized laminate structures to extend shelf life without compromising end-of-life biodegradability."
+      },
+      {
+        title: "5. High Cost and Long Timeline of Certification",
+        pain: "The certification process can be prohibitively expensive and time-consuming for brands.",
+        solution: "Using pre-certified material structures to bypass lengthy testing phases and reduce costs."
+      }
+    ]
+  },
+  es: {
+    problemsHeading: "5 Problemas Comunes de Certificación (y Soluciones)",
+    problems: [
+      {
+        title: "1. Navegar por estándares regionales complejos",
+        pain: "Diferentes mercados requieren diferentes certificaciones (BPI en Norteamérica, EN 13432 en Europa, AS 4736 en Australia).",
+        solution: "Ingeniería de materiales unificada que cumple con múltiples estándares a nivel mundial."
+      },
+      {
+        title: "2. Equilibrar las propiedades de barrera con la compostabilidad",
+        pain: "Los requisitos de alta barrera a menudo entran en conflicto con la necesidad de que los materiales se descompongan.",
+        solution: "Películas multicapa de base biológica de alta barrera que superan las pruebas de desintegración."
+      },
+      {
+        title: "3. Toxicidad de tintas y adhesivos",
+        pain: "Las tintas y adhesivos estándar pueden no superar las pruebas de ecotoxicidad.",
+        solution: "Uso de tintas a base de agua verificadas y adhesivos compostables sin disolventes."
+      },
+      {
+        title: "4. Limitaciones de vida útil de los materiales certificados",
+        pain: "Los materiales compostables pueden degradarse demasiado rápido, limitando la vida útil del producto.",
+        solution: "Estructuras laminadas especializadas para extender la vida útil sin comprometer la biodegradabilidad."
+      },
+      {
+        title: "5. Alto costo y largo tiempo del proceso",
+        pain: "El proceso de certificación puede ser prohibitivamente costoso y llevar mucho tiempo.",
+        solution: "Uso de estructuras de materiales precertificadas para evitar largas fases de prueba y reducir costos."
+      }
+    ]
+  },
+  fr: {
+    problemsHeading: "5 Problèmes Courants de Certification (Et Solutions)",
+    problems: [
+      {
+        title: "1. Naviguer dans des normes régionales complexes",
+        pain: "Différents marchés exigent différentes certifications (BPI en AN, EN 13432 en UE, AS 4736 en AU).",
+        solution: "Ingénierie des matériaux unifiée répondant à de multiples normes mondiales."
+      },
+      {
+        title: "2. Équilibrer les propriétés barrières et la compostabilité",
+        pain: "Les exigences de haute barrière entrent souvent en conflit avec la nécessité pour les matériaux de se décomposer.",
+        solution: "Films biosourcés multicouches à haute barrière qui réussissent les tests de désintégration."
+      },
+      {
+        title: "3. Toxicité des encres et des adhésifs",
+        pain: "Les encres et adhésifs standards peuvent échouer aux tests d'écotoxicité.",
+        solution: "Utilisation d'encres à l'eau vérifiées et d'adhésifs compostables sans solvant."
+      },
+      {
+        title: "4. Limites de durée de conservation",
+        pain: "Les matériaux compostables peuvent se dégrader trop rapidement, limitant la durée de conservation.",
+        solution: "Structures stratifiées spécialisées pour prolonger la durée de conservation sans compromettre la biodégradabilité."
+      },
+      {
+        title: "5. Coût élevé et délais longs",
+        pain: "Le processus de certification peut être très coûteux et prendre beaucoup de temps.",
+        solution: "Utilisation de structures de matériaux pré-certifiées pour contourner les longues phases de test."
+      }
+    ]
+  },
+  'zh-TW': {
+    problemsHeading: "5 個常見的認證問題（與解決方案）",
+    problems: [
+      {
+        title: "1. 應對複雜的區域標準",
+        pain: "不同市場需要不同的認證（北美的 BPI，歐洲的 EN 13432，澳洲的 AS 4736）。",
+        solution: "符合全球多項標準的統一材料工程，簡化合規性。"
+      },
+      {
+        title: "2. 在阻隔性能與可堆肥性之間取得平衡",
+        pain: "高阻隔要求通常與材料在堆肥設施中分解的需求相衝突。",
+        solution: "通過崩解測試的高阻隔多層生物基薄膜，同時隔絕水分和氧氣。"
+      },
+      {
+        title: "3. 油墨和黏合劑毒性",
+        pain: "標準油墨和黏合劑可能無法通過生態毒性測試，從而無法獲得認證。",
+        solution: "使用經過驗證的水性油墨和無溶劑可堆肥黏合劑，不殘留有害物質。"
+      },
+      {
+        title: "4. 認證材料的保質期限制",
+        pain: "可堆肥材料可能降解過快，限制了產品的保質期。",
+        solution: "採用專門的複合結構，在不影響使用後生物降解性的情況下延長保質期。"
+      },
+      {
+        title: "5. 認證過程成本高且耗時長",
+        pain: "對品牌而言，認證過程可能成本高昂且非常耗時。",
+        solution: "使用預先認證的材料結構，以避開漫長的測試階段並降低成本。"
+      }
+    ]
+  }
+}
+
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchCertificationsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language as keyof typeof localTranslations) || 'en'
+  const currentTranslations = localTranslations[lang] || localTranslations.en
+  
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   
   const certifications = [
@@ -355,6 +482,41 @@ export default function PouchCertificationsPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-black text-4xl md:text-5xl uppercase text-center mb-12">
+            {currentTranslations.problemsHeading}
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {currentTranslations.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="bg-[#F0F0F0] p-6 border-4 border-black">
+                  <h3 className="font-black text-xl mb-3">{prob.title}</h3>
+                  <div className="flex gap-3 mb-3 text-red-600">
+                    <AlertTriangle className="w-6 h-6 flex-shrink-0" />
+                    <p><strong>Pain Point:</strong> {prob.pain}</p>
+                  </div>
+                  <div className="flex gap-3 text-green-700">
+                    <Lightbulb className="w-6 h-6 flex-shrink-0" />
+                    <p><strong>Solution:</strong> {prob.solution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative">
+              <img 
+                src="/imgs/knowledge/pouch-certifications-pain-points.jpg" 
+                alt="Pouch Certification Pain Points"
+                className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>

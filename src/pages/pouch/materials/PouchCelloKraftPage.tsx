@@ -1,15 +1,61 @@
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'
-import { Leaf, Shield, Award, CheckCircle, Package, Sparkles, Heart, Star, TrendingUp } from 'lucide-react'
+import { Leaf, Shield, Award, CheckCircle, Package, Sparkles, Heart, Star, TrendingUp, AlertTriangle } from 'lucide-react'
 import { motion } from 'framer-motion'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { getBaseUrl } from '../../../utils/domain'
 
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common Cello Kraft Pouch Problems (And Solutions)",
+    problems: [
+      { title: "Paper Tearing Easily", desc: "Triplex lamination adds structural integrity and tear resistance, preventing rips." },
+      { title: "Moisture Permeability", desc: "Integrated high-barrier layers effectively block moisture to keep contents fresh." },
+      { title: "Dull Printing on Kraft", desc: "Reverse-printing on the outer clear layer ensures vibrant, scratch-resistant graphics." },
+      { title: "Poor Shelf Stability", desc: "Engineered bottom gussets provide a firm base for a self-standing, stable display." },
+      { title: "Weak Heat Sealing", desc: "Advanced inner PE layers guarantee strong, consistent, and leak-proof seals." }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de las Bolsas Cello Kraft (Y Soluciones)",
+    problems: [
+      { title: "Desgarro Fácil del Papel", desc: "La laminación triplex añade integridad estructural y resistencia al desgarro." },
+      { title: "Permeabilidad a la Humedad", desc: "Capas de alta barrera integradas bloquean eficazmente la humedad." },
+      { title: "Impresión Opaca en Kraft", desc: "La impresión inversa en la capa exterior transparente asegura gráficos vibrantes." },
+      { title: "Mala Estabilidad en Estantes", desc: "Los fuelles inferiores diseñados proporcionan una base firme para mantenerse de pie." },
+      { title: "Sellado Débil", desc: "Las capas interiores de PE garantizan sellados térmicos fuertes y a prueba de fugas." }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants des Sachets Cello Kraft (Et Solutions)",
+    problems: [
+      { title: "Déchirure Facile du Papier", desc: "Le laminage triplex ajoute une intégrité structurelle et empêche les déchirures." },
+      { title: "Perméabilité à l'Humidité", desc: "Des couches barrières bloquent efficacement l'humidité pour garder la fraîcheur." },
+      { title: "Impression Terne", desc: "L'impression inversée sur la couche transparente garantit des graphiques éclatants." },
+      { title: "Mauvaise Stabilité", desc: "Les soufflets de fond offrent une base ferme pour tenir debout en rayon." },
+      { title: "Scellage Faible", desc: "Les couches intérieures en PE garantissent des scellages thermiques solides." }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: "5個常見牛皮紙袋問題（及解決方案）",
+    problems: [
+      { title: "紙張易撕裂", desc: "三層複合結構增加了結構完整性，防止撕裂破損。" },
+      { title: "容易受潮", desc: "內置高阻隔層有效阻擋水氣，保持內容物新鮮。" },
+      { title: "牛皮紙印刷暗淡", desc: "在外層透明膜上進行里印，確保圖案鮮豔且防刮。" },
+      { title: "貨架穩定性差", desc: "精心設計的底部插角提供穩固的自立基礎。" },
+      { title: "熱封不牢", desc: "先進的內層 PE 膜保證了強韌、一致且防漏的封口。" }
+    ]
+  }
+};
+
 export default function PouchCelloKraftPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchCelloKraft'
+  
+  const currentLang = i18n.language || 'en';
+  const langData = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations['en'];
 
   const baseUrl = getBaseUrl()
 
@@ -217,6 +263,39 @@ export default function PouchCelloKraftPage() {
                 </div>
               </div>
             </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* Problems & Solutions Section */}
+      <section className="py-24 bg-amber-50/50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-black text-4xl md:text-5xl mb-8">
+                {langData.problemsTitle}
+              </h2>
+              <div className="space-y-4">
+                {langData.problems.map((problem, idx) => (
+                  <div key={idx} className="flex items-start gap-4 p-4 border-2 border-black bg-white">
+                    <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">{problem.title}</h3>
+                      <p className="text-gray-700">{problem.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <NeoCard className="bg-white">
+                <img 
+                  src="/imgs/knowledge/cello-kraft-pouches-pain-points.jpg" 
+                  alt="Cello Kraft Pouches Pain Points"
+                  className="w-full rounded-lg border-2 border-black"
+                />
+              </NeoCard>
+            </div>
           </div>
         </div>
       </section>

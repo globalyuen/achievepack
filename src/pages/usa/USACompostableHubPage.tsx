@@ -6,9 +6,86 @@ import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const localTranslations = {
+  en: {
+    title: "5 Common USA Compostable Packaging Problems (And Solutions)",
+    p1Title: "1. Poor Barrier Properties",
+    p1Desc: "Compostable films often struggle with oxygen and moisture barriers.",
+    p1Sol: "Solution: High-barrier AlOx/SiOx coated films ensure extended freshness.",
+    p2Title: "2. Short Shelf Life",
+    p2Desc: "Organic products can spoil quickly in standard compostable bags.",
+    p2Sol: "Solution: Multi-layer lamination of PBAT and PLA creates a durable, protective environment.",
+    p3Title: "3. Structural Weakness (Tearing)",
+    p3Desc: "Bags easily rip during transit or on retail shelves.",
+    p3Sol: "Solution: Enhanced material engineering prevents tears while maintaining compostability.",
+    p4Title: "4. High Material Cost",
+    p4Desc: "Transitioning to compostable packaging can increase budgets.",
+    p4Sol: "Solution: Supply chain optimization and right-sizing the pouch minimize excess waste and cost.",
+    p5Title: "5. Certification Confusion (BPI vs TUV)",
+    p5Desc: "Navigating regional compostability standards in the US is complex.",
+    p5Sol: "Solution: Using pre-certified materials (BPI, TUV) guarantees compliance and consumer trust."
+  },
+  es: {
+    title: "5 Problemas Comunes de Empaques Compostables en EE.UU. (Y Soluciones)",
+    p1Title: "1. Propiedades de Barrera Deficientes",
+    p1Desc: "Las películas compostables a menudo tienen problemas con las barreras de oxígeno y humedad.",
+    p1Sol: "Solución: Películas recubiertas de AlOx/SiOx de alta barrera garantizan frescura prolongada.",
+    p2Title: "2. Vida Útil Corta",
+    p2Desc: "Los productos orgánicos pueden echarse a perder rápidamente en bolsas compostables estándar.",
+    p2Sol: "Solución: Laminación multicapa de PBAT y PLA crea un entorno duradero y protector.",
+    p3Title: "3. Debilidad Estructural (Desgarros)",
+    p3Desc: "Las bolsas se rompen fácilmente durante el tránsito o en los estantes minoristas.",
+    p3Sol: "Solución: Ingeniería de materiales mejorada previene desgarros manteniendo la compostabilidad.",
+    p4Title: "4. Alto Costo de Materiales",
+    p4Desc: "La transición a empaques compostables puede aumentar los presupuestos.",
+    p4Sol: "Solución: Optimización de la cadena de suministro y el tamaño adecuado reducen el desperdicio y costo.",
+    p5Title: "5. Confusión de Certificaciones (BPI vs TUV)",
+    p5Desc: "Navegar los estándares regionales de compostabilidad en EE.UU. es complejo.",
+    p5Sol: "Solución: Uso de materiales precertificados (BPI, TUV) garantiza cumplimiento y confianza."
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballages Compostables aux États-Unis (Et Solutions)",
+    p1Title: "1. Faibles Propriétés Barrières",
+    p1Desc: "Les films compostables luttent souvent avec les barrières à l'oxygène et à l'humidité.",
+    p1Sol: "Solution : Des films enduits d'AlOx/SiOx à haute barrière garantissent une fraîcheur prolongée.",
+    p2Title: "2. Durée de Conservation Courte",
+    p2Desc: "Les produits biologiques peuvent se gâter rapidement dans des sacs compostables standards.",
+    p2Sol: "Solution : La lamination multicouche de PBAT et PLA crée un environnement durable et protecteur.",
+    p3Title: "3. Faiblesse Structurelle (Déchirures)",
+    p3Desc: "Les sacs se déchirent facilement pendant le transport ou en rayon.",
+    p3Sol: "Solution : L'ingénierie des matériaux améliorée prévient les déchirures tout en maintenant la compostabilité.",
+    p4Title: "4. Coût Élevé des Matériaux",
+    p4Desc: "Passer aux emballages compostables peut augmenter les budgets.",
+    p4Sol: "Solution : L'optimisation de la chaîne d'approvisionnement et le dimensionnement adéquat minimisent les coûts.",
+    p5Title: "5. Confusion des Certifications (BPI vs TUV)",
+    p5Desc: "Naviguer dans les normes régionales de compostabilité aux États-Unis est complexe.",
+    p5Sol: "Solution : L'utilisation de matériaux pré-certifiés (BPI, TUV) garantit la conformité et la confiance."
+  },
+  'zh-TW': {
+    title: "美國可堆肥包裝的5個常見問題（及解決方案）",
+    p1Title: "1. 阻隔性能差",
+    p1Desc: "可堆肥薄膜通常難以提供良好的氧氣和水分阻隔。",
+    p1Sol: "解決方案：高阻隔AlOx/SiOx塗層薄膜確保延長保鮮期。",
+    p2Title: "2. 保質期短",
+    p2Desc: "有機產品在標準可堆肥袋中容易快速變質。",
+    p2Sol: "解決方案：PBAT和PLA的多層複合技術創造了持久的保護環境。",
+    p3Title: "3. 結構脆弱（易撕裂）",
+    p3Desc: "袋子在運輸或零售貨架上容易破裂。",
+    p3Sol: "解決方案：改進材料工程設計在保持可堆肥性的同時防止撕裂。",
+    p4Title: "4. 材料成本高",
+    p4Desc: "改用可堆肥包裝可能會增加預算。",
+    p4Sol: "解決方案：供應鏈優化和合適尺寸設計可最大程度減少浪費和成本。",
+    p5Title: "5. 認證混亂（BPI vs TUV）",
+    p5Desc: "在美國各地應對區域可堆肥性標準非常複雜。",
+    p5Sol: "解決方案：使用預先認證的材料（BPI、TUV）可確保合規性和消費者信任。"
+  }
+}
+
 const USACompostableHubPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.usaCompostableHub'
+  const currentLang = i18n.language || 'en'
+  const currentLangTranslations = localTranslations[currentLang as keyof typeof localTranslations] || localTranslations.en
   const { openCalendly } = useCalendly()
 
   const sections = [
@@ -229,6 +306,69 @@ const USACompostableHubPage: React.FC = () => {
             <p className="text-sm">
               <strong>{t(`${p}.sections.stateRegulations.needHelpStrong`)}</strong>{t(`${p}.sections.stateRegulations.needHelpText`)}<Link to="/usa/labeling-guide" className="text-primary-600 hover:underline font-semibold">{t(`${p}.sections.stateRegulations.needHelpLink`)}</Link>
             </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'problems-solutions',
+      title: currentLangTranslations.title,
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-1 gap-4">
+            <div className="flex items-start gap-3 bg-red-50 p-4 rounded-lg border border-red-100">
+              <AlertTriangle className="h-6 w-6 text-red-600 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-red-900">{currentLangTranslations.p1Title}</h4>
+                <p className="text-sm text-red-700 mt-1">{currentLangTranslations.p1Desc}</p>
+                <p className="text-sm font-semibold text-green-700 mt-2 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {currentLangTranslations.p1Sol}</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3 bg-orange-50 p-4 rounded-lg border border-orange-100">
+              <Package className="h-6 w-6 text-orange-600 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-orange-900">{currentLangTranslations.p2Title}</h4>
+                <p className="text-sm text-orange-700 mt-1">{currentLangTranslations.p2Desc}</p>
+                <p className="text-sm font-semibold text-green-700 mt-2 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {currentLangTranslations.p2Sol}</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-amber-50 p-4 rounded-lg border border-amber-100">
+              <Target className="h-6 w-6 text-amber-600 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-amber-900">{currentLangTranslations.p3Title}</h4>
+                <p className="text-sm text-amber-700 mt-1">{currentLangTranslations.p3Desc}</p>
+                <p className="text-sm font-semibold text-green-700 mt-2 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {currentLangTranslations.p3Sol}</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-blue-50 p-4 rounded-lg border border-blue-100">
+              <Globe className="h-6 w-6 text-blue-600 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-blue-900">{currentLangTranslations.p4Title}</h4>
+                <p className="text-sm text-blue-700 mt-1">{currentLangTranslations.p4Desc}</p>
+                <p className="text-sm font-semibold text-green-700 mt-2 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {currentLangTranslations.p4Sol}</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-purple-50 p-4 rounded-lg border border-purple-100">
+              <FileCheck className="h-6 w-6 text-purple-600 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-purple-900">{currentLangTranslations.p5Title}</h4>
+                <p className="text-sm text-purple-700 mt-1">{currentLangTranslations.p5Desc}</p>
+                <p className="text-sm font-semibold text-green-700 mt-2 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {currentLangTranslations.p5Sol}</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/knowledge/usa-compostable-packaging-pain-points.jpg" 
+              alt={currentLangTranslations.title} 
+              className="w-full rounded-lg shadow-md"
+            />
           </div>
         </div>
       )

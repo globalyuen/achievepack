@@ -1,4 +1,4 @@
-import { Leaf, Shield, Eye, Sparkles, ArrowRight, CheckCircle } from 'lucide-react'
+import { Leaf, Shield, Eye, Sparkles, ArrowRight, CheckCircle, AlertTriangle } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
@@ -17,11 +17,140 @@ import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 const MATERIAL_KEYS = ['kraftTriplex', 'kraftDuplex', 'clearHigh', 'clearMedium', 'matteWhite', 'blackMatte'] as const
 
 // ============================================
+// LOCAL TRANSLATIONS
+// ============================================
+
+const localTranslations = {
+  en: {
+    problemsTitle: "5 Common Material Selection Problems (And Solutions)",
+    problems: [
+      {
+        title: "1. Barrier Property Confusion",
+        desc: "Not knowing which barrier level is needed, leading to spoiled products.",
+        solution: "Solution: Use our clear visual indicators and barrier tiers to match your product's sensitivity."
+      },
+      {
+        title: "2. Unsure About Shelf Life",
+        desc: "Selecting materials that don't protect products long enough.",
+        solution: "Solution: We provide exact shelf-life ratings for each material tier to guarantee freshness."
+      },
+      {
+        title: "3. Cost Overruns",
+        desc: "Over-engineering packaging with unnecessary layers.",
+        solution: "Solution: Detailed price comparisons ($$, $$$) help you match materials to your specific budget."
+      },
+      {
+        title: "4. Sustainability Misconceptions",
+        desc: "Not knowing if materials are actually recyclable or eco-friendly.",
+        solution: "Solution: Clear eco-friendly symbols highlight compostable and recyclable options."
+      },
+      {
+        title: "5. Appearance Variability",
+        desc: "Matte vs Gloss mismatch with branding expectations.",
+        solution: "Solution: We provide physical sample kits before bulk ordering to ensure brand alignment."
+      }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes en la Selección de Materiales (Y Soluciones)",
+    problems: [
+      {
+        title: "1. Confusión de Propiedades de Barrera",
+        desc: "No saber qué nivel de barrera se necesita, lo que lleva a productos estropeados.",
+        solution: "Solución: Utilice nuestros indicadores visuales claros para igualar la sensibilidad de su producto."
+      },
+      {
+        title: "2. Inseguridad sobre la Vida Útil",
+        desc: "Seleccionar materiales que no protegen los productos el tiempo suficiente.",
+        solution: "Solución: Proporcionamos calificaciones exactas de vida útil para garantizar la frescura."
+      },
+      {
+        title: "3. Sobrecostos",
+        desc: "Sobreingeniería de empaques con capas innecesarias.",
+        solution: "Solución: Comparaciones de precios detalladas ayudan a ajustar los materiales a su presupuesto."
+      },
+      {
+        title: "4. Conceptos Erróneos de Sostenibilidad",
+        desc: "No saber si los materiales son realmente reciclables o ecológicos.",
+        solution: "Solución: Símbolos ecológicos claros destacan opciones compostables y reciclables."
+      },
+      {
+        title: "5. Variabilidad de Apariencia",
+        desc: "Desajuste entre mate y brillante con las expectativas de la marca.",
+        solution: "Solución: Proporcionamos kits de muestras físicas antes de ordenar a granel."
+      }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants de Sélection de Matériaux (Et Solutions)",
+    problems: [
+      {
+        title: "1. Confusion sur les Propriétés Barrière",
+        desc: "Ne pas savoir quel niveau de barrière est nécessaire, entraînant la détérioration des produits.",
+        solution: "Solution : Utilisez nos indicateurs visuels clairs pour correspondre à la sensibilité de votre produit."
+      },
+      {
+        title: "2. Incertitude sur la Durée de Conservation",
+        desc: "Sélectionner des matériaux qui ne protègent pas les produits assez longtemps.",
+        solution: "Solution : Nous fournissons des évaluations exactes de durée de conservation pour garantir la fraîcheur."
+      },
+      {
+        title: "3. Dépassements de Coûts",
+        desc: "Sur-ingénierie des emballages avec des couches inutiles.",
+        solution: "Solution : Des comparaisons de prix détaillées vous aident à adapter les matériaux à votre budget."
+      },
+      {
+        title: "4. Idées Fausses sur la Durabilité",
+        desc: "Ne pas savoir si les matériaux sont recyclables ou écologiques.",
+        solution: "Solution : Des symboles écologiques clairs mettent en évidence les options compostables et recyclables."
+      },
+      {
+        title: "5. Variabilité d'Apparence",
+        desc: "Décalage Mat vs Brillant avec les attentes de la marque.",
+        solution: "Solution : Nous fournissons des kits d'échantillons physiques avant la commande en gros."
+      }
+    ]
+  },
+  'zh-TW': {
+    problemsTitle: "5個常見的材質選擇問題（及解決方案）",
+    problems: [
+      {
+        title: "1. 阻隔性混淆",
+        desc: "不知道需要什麼級別的阻隔，導致產品變質。",
+        solution: "解決方案：使用我們清晰的視覺指示器和阻隔等級來匹配您產品的敏感度。"
+      },
+      {
+        title: "2. 不確定保質期",
+        desc: "選擇的材質無法為產品提供足夠長時間的保護。",
+        solution: "解決方案：我們為每個材質等級提供準確的保質期評級，以保證新鮮度。"
+      },
+      {
+        title: "3. 成本超支",
+        desc: "使用不必要的塗層進行過度包裝設計。",
+        solution: "解決方案：詳細的價格比較（$$，$$$）可幫助您根據具體預算選擇材料。"
+      },
+      {
+        title: "4. 可持續性誤解",
+        desc: "不知道材料是否真的可回收或環保。",
+        solution: "解決方案：清晰的環保標誌突出了可堆肥和可回收的選擇。"
+      },
+      {
+        title: "5. 外觀差異",
+        desc: "啞光與亮光與品牌期望不符。",
+        solution: "解決方案：我們在大批量訂購之前提供實物樣品包，以確保品牌一致性。"
+      }
+    ]
+  }
+}
+
+// ============================================
 // MAIN PAGE
 // ============================================
 
 export default function PouchMaterialCatalogPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations
+  const loc = localTranslations[currentLang] || localTranslations.en
 
   const MATERIALS = [
     {
@@ -240,6 +369,42 @@ export default function PouchMaterialCatalogPage() {
               </tbody>
             </table>
           </NeoCard>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-black text-4xl mb-8 uppercase">{loc.problemsTitle}</h2>
+              <div className="space-y-6">
+                {loc.problems.map((problem, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="mt-1">
+                      <AlertTriangle className="w-6 h-6 text-red-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl mb-1">{problem.title}</h3>
+                      <p className="text-gray-600 mb-2">{problem.desc}</p>
+                      <p className="text-green-700 font-bold bg-green-50 p-2 inline-block border border-green-200">
+                        {problem.solution}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <NeoCard className="p-0 overflow-hidden">
+                <img 
+                  src="/imgs/knowledge/pouch-material-catalog-pain-points.jpg" 
+                  alt="Material Selection Pain Points" 
+                  className="w-full h-auto object-cover"
+                />
+              </NeoCard>
+            </div>
+          </div>
         </div>
       </section>
 

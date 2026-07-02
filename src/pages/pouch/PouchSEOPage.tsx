@@ -1,13 +1,71 @@
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Search, TrendingUp, Target, Award, BarChart3, CheckCircle, ArrowRight, Calendar } from 'lucide-react'
+import { Search, TrendingUp, Target, Award, BarChart3, CheckCircle, ArrowRight, Calendar, AlertTriangle } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton } from '../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+const translations = {
+  en: {
+    problemsTitle: "5 Common SEO Problems (And Solutions)",
+    p1: "Low Organic Traffic",
+    s1: "Target long-tail eco-friendly keywords to attract high-intent buyers.",
+    p2: "High Bounce Rate",
+    s2: "Optimize page speed and ensure mobile responsiveness.",
+    p3: "Poor Keyword Rankings",
+    s3: "Create comprehensive guides focused on sustainable packaging.",
+    p4: "Lack of Authority",
+    s4: "Build backlinks from authoritative sustainability blogs.",
+    p5: "Keyword Cannibalization",
+    s5: "Map distinct keywords clearly to specific product or blog pages."
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de SEO (y Soluciones)",
+    p1: "Bajo Tráfico Orgánico",
+    s1: "Apunta a palabras clave ecológicas de cola larga para atraer compradores.",
+    p2: "Alta Tasa de Rebote",
+    s2: "Optimiza la velocidad de la página y la adaptabilidad móvil.",
+    p3: "Baja Clasificación de Palabras Clave",
+    s3: "Crea guías completas centradas en envases sostenibles.",
+    p4: "Falta de Autoridad",
+    s4: "Construye enlaces de retroceso desde blogs de sostenibilidad autorizados.",
+    p5: "Canibalización de Palabras Clave",
+    s5: "Asigna distintas palabras clave claramente a páginas específicas de productos."
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants de SEO (et Solutions)",
+    p1: "Faible Trafic Organique",
+    s1: "Ciblez des mots-clés écologiques de longue traîne.",
+    p2: "Taux de Rebond Élevé",
+    s2: "Optimisez la vitesse de la page et la réactivité mobile.",
+    p3: "Mauvais Classement des Mots-Clés",
+    s3: "Créez des guides complets axés sur les emballages durables.",
+    p4: "Manque d'Autorité",
+    s4: "Obtenez des backlinks de blogs de développement durable faisant autorité.",
+    p5: "Cannibalisation des Mots-Clés",
+    s5: "Mappez clairement des mots-clés distincts à des pages spécifiques."
+  },
+  'zh-TW': {
+    problemsTitle: "5個常見SEO問題（及解決方案）",
+    p1: "自然流量低",
+    s1: "鎖定長尾環保關鍵字，吸引高意向買家。",
+    p2: "跳出率高",
+    s2: "優化頁面載入速度，並確保良好的移動設備響應性。",
+    p3: "關鍵字排名差",
+    s3: "建立專注於可持續包裝的全面指南。",
+    p4: "缺乏權威性",
+    s4: "從權威的可持續發展部落格建立反向連結。",
+    p5: "關鍵字蠶食",
+    s5: "將不同的關鍵字清晰地映射到特定產品或部落格頁面。"
+  }
+}
+
+
 export default function PouchSEOPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = (translations as any)[i18n.language] || translations.en
+
   // Add scroll detection for enhanced animations
   useEffect(() => {
     let scrollTimer: NodeJS.Timeout
@@ -399,6 +457,65 @@ export default function PouchSEOPage() {
                   <p className="text-5xl font-['Space_Grotesk'] font-black text-[#10b981] mb-2">{t('pouchSEOPage.stats.s3.val', '14.6%')}</p>
                   <p className="font-['JetBrains_Mono'] text-sm">{t('pouchSEOPage.stats.s3.desc', 'average conversion rate for organic search (vs 1.7% for paid ads)')}</p>
                 </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common SEO Problems */}
+      <section className="py-16 md:py-24 bg-gray-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-4 flex items-center justify-center gap-4">
+              <AlertTriangle className="h-10 w-10 text-[#10b981]" />
+              {currentLang.problemsTitle}
+            </h2>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              {[1, 2, 3, 4, 5].map((num) => (
+                <div key={num} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-start gap-4">
+                  <div className="bg-[#D4FF00] border-2 border-black w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
+                    {num}
+                  </div>
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] font-black uppercase text-lg mb-1">
+                      {currentLang[`p${num}`]}
+                    </h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-600">
+                      {currentLang[`s${num}`]}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                <img 
+                  src="/imgs/knowledge/seo-packaging-pain-points.jpg" 
+                  alt="SEO Problems and Solutions" 
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </motion.div>
           </div>

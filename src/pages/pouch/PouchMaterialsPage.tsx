@@ -1,5 +1,5 @@
 import DualDomainSEOHead from '../../components/DualDomainSEOHead'
-import { Leaf, Recycle, Heart, ArrowRight } from 'lucide-react'
+import { Leaf, Recycle, Heart, ArrowRight, ShieldAlert, Droplets, Thermometer, Hammer } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -7,8 +7,84 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 // Reusing Neo-components for consistency
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
+const localTranslations = {
+  en: {
+    sectionTitle: "5 Common Pouch Materials Problems (And Solutions)",
+    p1Title: "Barrier Property Failures",
+    p1Desc: "Inadequate oxygen and moisture barriers cause premature product spoilage.",
+    p1Sol: "Multi-layer laminations (e.g., AL/EVOH) to ensure maximum protection.",
+    p2Title: "Delamination during Retort/Heat",
+    p2Desc: "Layers separating when exposed to high heat or retort sterilization.",
+    p2Sol: "High-temperature resistant adhesives and specialized retort-grade cast polypropylene (CPP).",
+    p3Title: "Poor Seal Strength / Leaks",
+    p3Desc: "Weak seals leading to leaks during transport or storage.",
+    p3Sol: "Optimized sealant layers (like LLDPE) and adjusting seal temperature/pressure settings.",
+    p4Title: "Sustainability vs. Performance",
+    p4Desc: "Finding eco-friendly materials that don't compromise barrier properties.",
+    p4Sol: "Using Mono-material structures (MDO-PE/PE) or advanced certified compostable laminates.",
+    p5Title: "Puncture Resistance",
+    p5Desc: "Punctures from sharp contents (e.g., pet food kibble, bones).",
+    p5Sol: "Incorporating BOPA (Nylon) or thick PET layers to enhance mechanical strength."
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes de Materiales para Bolsas (Y Soluciones)",
+    p1Title: "Fallos en la Propiedad de Barrera",
+    p1Desc: "Las barreras inadecuadas contra el oxígeno y la humedad provocan el deterioro del producto.",
+    p1Sol: "Laminaciones multicapa (ej. AL/EVOH) para garantizar la máxima protección.",
+    p2Title: "Delaminación durante la Esterilización",
+    p2Desc: "Separación de capas al exponerse a altas temperaturas.",
+    p2Sol: "Adhesivos resistentes a altas temperaturas y polipropileno cast (CPP) especial para autoclave.",
+    p3Title: "Baja Resistencia del Sello / Fugas",
+    p3Desc: "Sellos débiles que provocan fugas durante el transporte.",
+    p3Sol: "Capas sellantes optimizadas (como LLDPE) y ajuste de temperatura/presión de sellado.",
+    p4Title: "Sostenibilidad vs. Rendimiento",
+    p4Desc: "Encontrar materiales ecológicos que no comprometan las propiedades de barrera.",
+    p4Sol: "Uso de estructuras monomateriales (MDO-PE/PE) o laminados compostables certificados.",
+    p5Title: "Resistencia a Perforaciones",
+    p5Desc: "Perforaciones por contenidos punzantes (ej. comida para mascotas).",
+    p5Sol: "Incorporar BOPA (Nylon) o capas gruesas de PET para mejorar la resistencia mecánica."
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants des Matériaux de Sachets (Et Solutions)",
+    p1Title: "Défaillances des Propriétés Barrières",
+    p1Desc: "Des barrières inadéquates à l'oxygène et à l'humidité entraînent la détérioration du produit.",
+    p1Sol: "Laminations multicouches (ex: AL/EVOH) pour assurer une protection maximale.",
+    p2Title: "Délamination lors de la Stérilisation",
+    p2Desc: "Séparation des couches lors de l'exposition à une forte chaleur.",
+    p2Sol: "Adhésifs résistant aux hautes températures et polypropylène coulé (CPP) spécial autoclave.",
+    p3Title: "Faible Résistance des Scellés / Fuites",
+    p3Desc: "Scellés faibles entraînant des fuites lors du transport.",
+    p3Sol: "Couches de scellage optimisées (comme le LLDPE) et ajustement de la température/pression.",
+    p4Title: "Durabilité vs. Performance",
+    p4Desc: "Trouver des matériaux écologiques qui ne compromettent pas les propriétés barrières.",
+    p4Sol: "Utilisation de structures mono-matériaux (MDO-PE/PE) ou de stratifiés compostables certifiés.",
+    p5Title: "Résistance à la Perforation",
+    p5Desc: "Perforations par des contenus tranchants.",
+    p5Sol: "Intégration de BOPA (Nylon) ou de couches épaisses de PET pour renforcer la résistance mécanique."
+  },
+  'zh-TW': {
+    sectionTitle: "軟包裝材料的 5 個常見問題（與解決方案）",
+    p1Title: "阻隔性能失效",
+    p1Desc: "氧氣和水分阻隔不足導致產品提前變質。",
+    p1Sol: "多層複合材料 (如 AL/EVOH) 以確保最大程度的保護。",
+    p2Title: "高溫殺菌過程中的脫層",
+    p2Desc: "在高溫或高壓殺菌下，材料層之間發生分離。",
+    p2Sol: "使用耐高溫黏合劑和專用的耐高溫流延聚丙烯 (CPP)。",
+    p3Title: "封口強度差 / 洩漏",
+    p3Desc: "封口不牢導致運輸或儲存過程中出現洩漏。",
+    p3Sol: "優化熱封層 (如 LLDPE) 並調整封口溫度和壓力設定。",
+    p4Title: "永續性與性能的取捨",
+    p4Desc: "尋找既環保又不影響阻隔性能的材料。",
+    p4Sol: "使用單一材質結構 (MDO-PE/PE) 或先進的認證可堆肥複合材料。",
+    p5Title: "抗穿刺性不足",
+    p5Desc: "內容物尖銳 (如寵物食品) 造成的穿刺。",
+    p5Sol: "加入 BOPA (尼龍) 或厚 PET 層以增強機械強度。"
+  }
+}
+
 export default function PouchMaterialsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const loc = (localTranslations[i18n.language as keyof typeof localTranslations] || localTranslations.en) as typeof localTranslations.en
 
   const MATERIALS = [
     {
@@ -131,6 +207,78 @@ export default function PouchMaterialsPage() {
                 </div>
               </NeoCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="font-black text-4xl md:text-5xl uppercase mb-12 text-center">{loc.sectionTitle}</h2>
+          
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="flex-1 w-full">
+              <div className="border-4 border-black p-2 bg-[#F0F0F0] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <img src="/imgs/knowledge/pouch-materials-pain-points.jpg" alt={loc.sectionTitle} className="w-full h-auto border-2 border-black" />
+              </div>
+            </div>
+            
+            <div className="flex-1 space-y-6 w-full">
+              <NeoCard className="bg-white hover:bg-[#D4FF00] transition-colors">
+                <div className="flex items-start gap-4">
+                  <ShieldAlert className="w-8 h-8 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-xl uppercase mb-2">1. {loc.p1Title}</h3>
+                    <p className="font-['Space_Grotesk'] text-gray-700 mb-2">{loc.p1Desc}</p>
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold border-l-2 border-black pl-3">{loc.p1Sol}</p>
+                  </div>
+                </div>
+              </NeoCard>
+
+              <NeoCard className="bg-white hover:bg-[#00FFFF] transition-colors">
+                <div className="flex items-start gap-4">
+                  <Thermometer className="w-8 h-8 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-xl uppercase mb-2">2. {loc.p2Title}</h3>
+                    <p className="font-['Space_Grotesk'] text-gray-700 mb-2">{loc.p2Desc}</p>
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold border-l-2 border-black pl-3">{loc.p2Sol}</p>
+                  </div>
+                </div>
+              </NeoCard>
+
+              <NeoCard className="bg-white hover:bg-[#FF00FF] transition-colors">
+                <div className="flex items-start gap-4">
+                  <Droplets className="w-8 h-8 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-xl uppercase mb-2">3. {loc.p3Title}</h3>
+                    <p className="font-['Space_Grotesk'] text-gray-700 mb-2">{loc.p3Desc}</p>
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold border-l-2 border-black pl-3">{loc.p3Sol}</p>
+                  </div>
+                </div>
+              </NeoCard>
+
+              <NeoCard className="bg-white hover:bg-[#D4FF00] transition-colors">
+                <div className="flex items-start gap-4">
+                  <Recycle className="w-8 h-8 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-xl uppercase mb-2">4. {loc.p4Title}</h3>
+                    <p className="font-['Space_Grotesk'] text-gray-700 mb-2">{loc.p4Desc}</p>
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold border-l-2 border-black pl-3">{loc.p4Sol}</p>
+                  </div>
+                </div>
+              </NeoCard>
+
+              <NeoCard className="bg-white hover:bg-[#00FFFF] transition-colors">
+                <div className="flex items-start gap-4">
+                  <Hammer className="w-8 h-8 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-xl uppercase mb-2">5. {loc.p5Title}</h3>
+                    <p className="font-['Space_Grotesk'] text-gray-700 mb-2">{loc.p5Desc}</p>
+                    <p className="font-['JetBrains_Mono'] text-sm font-bold border-l-2 border-black pl-3">{loc.p5Sol}</p>
+                  </div>
+                </div>
+              </NeoCard>
+            </div>
           </div>
         </div>
       </section>

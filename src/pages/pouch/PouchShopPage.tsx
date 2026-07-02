@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS, getProductSubCategory } from '../../store/productData';
-import { ShoppingBag, ArrowRight, Filter, ChevronRight } from 'lucide-react';
+import { ShoppingBag, ArrowRight, Filter, ChevronRight, CheckCircle } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Products' },
@@ -39,8 +39,51 @@ const SUSTAINABILITIES = [
   { id: 'reusable', label: 'Reusable' },
 ];
 
+const LOCAL_TRANSLATIONS = {
+  en: {
+    title: "5 Common Pouch Packaging Problems (And Solutions)",
+    problems: [
+      { title: "Punctures During Shipping", desc: "Use multi-layer barrier films for structural integrity." },
+      { title: "Loss of Freshness", desc: "High-barrier EVOH layers and airtight ziplocks." },
+      { title: "Poor Print on Eco Materials", desc: "Digital printing on treated recyclable laminates." },
+      { title: "Zipper Failures", desc: "Heavy-duty press-to-close zippers with precision heat-sealing." },
+      { title: "Non-Recyclable Waste", desc: "Mono-material PE structures for 100% recyclability." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Empaque (Y Soluciones)",
+    problems: [
+      { title: "Perforaciones durante el envío", desc: "Uso de películas de barrera multicapa para la integridad estructural." },
+      { title: "Pérdida de frescura", desc: "Capas EVOH de alta barrera y cierres herméticos." },
+      { title: "Mala impresión en ecológicos", desc: "Impresión digital en laminados reciclables tratados." },
+      { title: "Fallos en el cierre", desc: "Cierres de presión con sellado térmico de precisión." },
+      { title: "Residuos no reciclables", desc: "Estructuras de PE monomaterial 100% reciclables." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage (Et Solutions)",
+    problems: [
+      { title: "Perforations lors de l'expédition", desc: "Films barrières multicouches pour l'intégrité." },
+      { title: "Perte de fraîcheur", desc: "Couches EVOH haute barrière et zips hermétiques." },
+      { title: "Mauvaise impression", desc: "Impression numérique sur stratifiés recyclables." },
+      { title: "Défaillances du zip", desc: "Fermetures à pression robustes avec thermoscellage." },
+      { title: "Déchets non recyclables", desc: "Structures mono-matériau en PE 100 % recyclables." }
+    ]
+  },
+  'zh-TW': {
+    title: "5個常見的包裝袋問題（以及解決方案）",
+    problems: [
+      { title: "運輸過程中的刺穿", desc: "使用多層阻隔膜確保結構完整性。" },
+      { title: "失去新鮮度", desc: "高阻隔 EVOH 層和氣密拉鍊。" },
+      { title: "環保材料印刷不良", desc: "在經過處理的可回收層壓板上進行數位印刷。" },
+      { title: "拉鍊故障", desc: "採用精密熱封的重型按壓密封拉鍊。" },
+      { title: "不可回收廢棄物", desc: "採用單一材質 PE 結構，實現 100% 可回收。" }
+    ]
+  }
+};
+
 export default function PouchShopPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   
   const activeCategory = searchParams.get('category') || 'all';
@@ -359,6 +402,32 @@ export default function PouchShopPage() {
             </div>
           </div>
           
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-8 items-center">
+          <div className="w-full md:w-1/2">
+            <h2 className="text-3xl font-black uppercase mb-6 border-b-4 border-black pb-2">
+              {LOCAL_TRANSLATIONS[i18n.language as keyof typeof LOCAL_TRANSLATIONS]?.title || LOCAL_TRANSLATIONS.en.title}
+            </h2>
+            <div className="space-y-4">
+              {(LOCAL_TRANSLATIONS[i18n.language as keyof typeof LOCAL_TRANSLATIONS]?.problems || LOCAL_TRANSLATIONS.en.problems).map((prob, idx) => (
+                <div key={idx} className="flex gap-4">
+                  <div className="bg-[#D4FF00] border-2 border-black p-2 h-fit flex-shrink-0">
+                    <CheckCircle className="w-6 h-6" strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <h3 className="font-black uppercase text-lg">{prob.title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-sm">{prob.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <img src="/imgs/knowledge/sustainable-custom-pouches-pain-points.jpg" alt="Packaging solutions" className="w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] object-cover aspect-video" />
+          </div>
         </div>
       </div>
     </PouchLayout>

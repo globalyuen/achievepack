@@ -1,17 +1,128 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Cookie, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, ShoppingBag, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Cookie, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, ShoppingBag, Target, Calendar, Phone, Download, Mail, AlertTriangle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const localTranslations = {
+  en: {
+    title: "5 Common USA Snacks Packaging Problems (And Solutions)",
+    prob1: "1. Stale Snacks & Short Shelf Life",
+    sol1: "Solution: Use High-Barrier EVOH Films to block oxygen and moisture.",
+    prob2: "2. Poor Resealability & Spillage",
+    sol2: "Solution: Integrated Press-to-Close or Velcro Zippers for multiple uses.",
+    prob3: "3. Puncture Leaks from Sharp Snacks",
+    sol3: "Solution: Multi-Layer Puncture-Resistant Lamination (PET/NY/PE).",
+    prob4: "4. Pushback on Plastic Waste",
+    sol4: "Solution: Switch to Recyclable (PE/PE) or Compostable (PLA) structures.",
+    prob5: "5. Low Shelf Impact in Crowded Aisles",
+    sol5: "Solution: Spot Gloss & Matte Mixed Finishes for premium tactile appeal."
+  },
+  es: {
+    title: "5 Problemas Comunes de Empaques de Snacks (Y Soluciones)",
+    prob1: "1. Snacks Rancios y Vida Útil Corta",
+    sol1: "Solución: Uso de películas de alta barrera EVOH para bloquear oxígeno y humedad.",
+    prob2: "2. Mala Capacidad de Resellado y Derrames",
+    sol2: "Solución: Cierres a presión integrados o cremalleras de Velcro para múltiples usos.",
+    prob3: "3. Fugas por Perforaciones de Snacks Puntiagudos",
+    sol3: "Solución: Laminación multicapa resistente a perforaciones (PET/NY/PE).",
+    prob4: "4. Rechazo a los Residuos Plásticos",
+    sol4: "Solución: Cambio a estructuras reciclables (PE/PE) o compostables (PLA).",
+    prob5: "5. Bajo Impacto Visual en los Estantes",
+    sol5: "Solución: Acabados mixtos de brillo focalizado y mate para un atractivo táctil premium."
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage de Snacks (Et Solutions)",
+    prob1: "1. Snacks Rassis et Durée de Conservation Courte",
+    sol1: "Solution : Films à haute barrière EVOH pour bloquer l'oxygène et l'humidité.",
+    prob2: "2. Mauvaise Refermabilité et Déversements",
+    sol2: "Solution : Zips à pression intégrés ou Velcro pour des utilisations multiples.",
+    prob3: "3. Perforations dues aux Snacks Pointus",
+    sol3: "Solution : Lamination multicouche résistante aux perforations (PET/NY/PE).",
+    prob4: "4. Rejet des Déchets Plastiques",
+    sol4: "Solution : Passage à des structures recyclables (PE/PE) ou compostables (PLA).",
+    prob5: "5. Faible Attrait en Rayon",
+    sol5: "Solution : Finitions mixtes mates et vernis sélectif pour un effet premium."
+  },
+  'zh-TW': {
+    title: "5大常見美國零食包裝問題（與解決方案）",
+    prob1: "1. 零食變質與保質期短",
+    sol1: "解決方案：使用高阻隔EVOH薄膜阻擋氧氣與水分。",
+    prob2: "2. 重新密封性差與溢出",
+    sol2: "解決方案：整合壓拉鍊或魔術貼拉鍊，方便多次使用。",
+    prob3: "3. 尖銳零食刺穿包裝",
+    sol3: "解決方案：多層防刺穿層壓結構（PET/NY/PE）。",
+    prob4: "4. 塑料廢棄物抵制",
+    sol4: "解決方案：改用可回收（PE/PE）或可堆肥（PLA）結構。",
+    prob5: "5. 貨架吸引力不足",
+    sol5: "解決方案：局部亮光與啞光混合工藝，提升高端觸感。"
+  }
+}
+
 const USASnacksPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.usaSnacks'
   const { openCalendly } = useCalendly()
 
+  const currentLang = (i18n.language || 'en') as keyof typeof localTranslations
+  const tLocal = localTranslations[currentLang] || localTranslations.en
+
   const sections = [
+    {
+      id: 'pain-points',
+      title: tLocal.title,
+      icon: <AlertTriangle className="h-5 w-5 text-red-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <ul className="space-y-3">
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong>{tLocal.prob1}</strong><br/>
+                <span className="text-green-700 font-medium">{tLocal.sol1}</span>
+              </div>
+            </li>
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong>{tLocal.prob2}</strong><br/>
+                <span className="text-green-700 font-medium">{tLocal.sol2}</span>
+              </div>
+            </li>
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong>{tLocal.prob3}</strong><br/>
+                <span className="text-green-700 font-medium">{tLocal.sol3}</span>
+              </div>
+            </li>
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong>{tLocal.prob4}</strong><br/>
+                <span className="text-green-700 font-medium">{tLocal.sol4}</span>
+              </div>
+            </li>
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong>{tLocal.prob5}</strong><br/>
+                <span className="text-green-700 font-medium">{tLocal.sol5}</span>
+              </div>
+            </li>
+          </ul>
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/knowledge/usa-snacks-packaging-pain-points.jpg"
+              alt="Snacks Packaging Pain Points"
+              className="w-full rounded-lg shadow-md"
+            />
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: t(`${p}.sections.overview.title`),

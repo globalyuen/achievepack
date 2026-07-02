@@ -169,9 +169,115 @@ const SPEC_FINDER_DATABASE = [
   }
 ]
 
+const LOCAL_TRANSLATIONS: Record<string, any> = {
+  en: {
+    title: "5 Common Technical Spec Problems (And Solutions)",
+    problems: [
+      {
+        title: "High OTR/WVTR Causing Spoilage",
+        desc: "Solution: Ultra-high barrier metallized or foil-equivalent structures that lock out oxygen and moisture."
+      },
+      {
+        title: "Greenwashing & Unverified Claims",
+        desc: "Solution: Certified compostable (EN 13432) or recyclable structures with real lab testing."
+      },
+      {
+        title: "Guesswork in Material Selection",
+        desc: "Solution: Our Spec Finder app matches your exact product requirements to precise materials."
+      },
+      {
+        title: "Inaccurate Thickness & GSM Specs",
+        desc: "Solution: Detailed layer-by-layer technical data sheets ensuring QA compliance."
+      },
+      {
+        title: "Difficulty Transitioning from Fossil-Plastics",
+        desc: "Solution: Drop-in bio-based PE and PCR alternatives that run on existing machinery."
+      }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de Especificaciones Técnicas (Y Soluciones)",
+    problems: [
+      {
+        title: "Alto OTR/WVTR que Causa Deterioro",
+        desc: "Solución: Estructuras metalizadas de barrera ultra alta o equivalentes a aluminio que bloquean el oxígeno y la humedad."
+      },
+      {
+        title: "Lavado Verde y Afirmaciones no Verificadas",
+        desc: "Solución: Estructuras compostables certificadas (EN 13432) o reciclables con pruebas reales de laboratorio."
+      },
+      {
+        title: "Suposiciones en la Selección de Materiales",
+        desc: "Solución: Nuestra aplicación Spec Finder ajusta exactamente los requisitos de su producto a materiales precisos."
+      },
+      {
+        title: "Especificaciones Inexactas de Grosor y GSM",
+        desc: "Solución: Fichas técnicas detalladas capa por capa que garantizan el cumplimiento de QA."
+      },
+      {
+        title: "Dificultad en la Transición de Plásticos Fósiles",
+        desc: "Solución: Alternativas de PE de base biológica y PCR que funcionan en maquinaria existente."
+      }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants de Spécifications Techniques (Et Solutions)",
+    problems: [
+      {
+        title: "OTR/WVTR Élevé Causant la Détérioration",
+        desc: "Solution : Structures métallisées à ultra-haute barrière ou équivalentes à l'aluminium qui bloquent l'oxygène et l'humidité."
+      },
+      {
+        title: "Écoblanchiment et Allégations Non Vérifiées",
+        desc: "Solution : Structures compostables certifiées (EN 13432) ou recyclables avec de vrais tests en laboratoire."
+      },
+      {
+        title: "Incertitude dans le Choix des Matériaux",
+        desc: "Solution : Notre application Spec Finder associe exactement les exigences de votre produit à des matériaux précis."
+      },
+      {
+        title: "Spécifications Inexactes d'Épaisseur et de GSM",
+        desc: "Solution : Fiches techniques détaillées couche par couche garantissant la conformité QA."
+      },
+      {
+        title: "Difficulté de Transition des Plastiques Fossiles",
+        desc: "Solution : Alternatives en PE biosourcé et PCR fonctionnant sur les machines existantes."
+      }
+    ]
+  },
+  'zh-TW': {
+    title: "5 個常見的技術規格問題（與解決方案）",
+    problems: [
+      {
+        title: "高 OTR/WVTR 導致產品變質",
+        desc: "解決方案：超高阻隔金屬化或等同鋁箔的結構，有效阻絕氧氣與水分。"
+      },
+      {
+        title: "漂綠與未經證實的環保聲明",
+        desc: "解決方案：具備實際實驗室測試的認證可堆肥 (EN 13432) 或可回收結構。"
+      },
+      {
+        title: "材料選擇憑藉猜測",
+        desc: "解決方案：我們的規格搜尋器應用程式能將您的產品需求與精確材料相匹配。"
+      },
+      {
+        title: "厚度與克重規格不準確",
+        desc: "解決方案：詳細的逐層技術數據表，確保符合品質保證 (QA)。"
+      },
+      {
+        title: "難以從化石塑膠過渡",
+        desc: "解決方案：可直接替代的生物基 PE 與 PCR 替代品，且適用於現有機器。"
+      }
+    ]
+  }
+};
+
 export default function PouchTechSpecsPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const pouchMode = isPouch()
+
+  const lang = i18n.language?.toLowerCase().startsWith('es') ? 'es' : i18n.language?.toLowerCase().startsWith('fr') ? 'fr' : i18n.language?.toLowerCase().startsWith('zh') ? 'zh-TW' : 'en';
+  const localT = LOCAL_TRANSLATIONS[lang] || LOCAL_TRANSLATIONS['en'];
 
   // Material Spec Finder States
   const [selectedIndustry, setSelectedIndustry] = useState<string>('coffee')
@@ -650,6 +756,36 @@ export default function PouchTechSpecsPage() {
           </div>
         </div>
       </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-20 bg-[#F9F9F9] border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="border-4 border-black bg-white p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            <h2 className="font-black text-3xl md:text-5xl uppercase mb-12 flex items-center gap-4">
+              <AlertCircle className="w-10 h-10 text-[#D4FF00] fill-black" />
+              {localT.title}
+            </h2>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                {localT.problems.map((prob: any, idx: number) => (
+                  <div key={idx} className="flex gap-4 items-start border-b-2 border-dashed border-black pb-4 last:border-0">
+                    <div className="bg-black text-[#D4FF00] font-black w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h3 className="font-black text-lg uppercase mb-1">{prob.title}</h3>
+                      <p className="font-['Space_Grotesk'] text-gray-700 font-bold">{prob.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="border-4 border-black bg-black p-2 shadow-[8px_8px_0px_0px_rgba(212,255,0,1)] transform rotate-1">
+                <img src="/imgs/knowledge/technical-specifications-pain-points.jpg" alt={localT.title} className="w-full h-auto border-2 border-[#D4FF00]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   ) : (
     <>
@@ -997,6 +1133,39 @@ export default function PouchTechSpecsPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section (Achieve) */}
+      <section className="py-20 bg-neutral-900 border-b border-neutral-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="mb-12">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/20 mb-4">
+              <AlertCircle className="w-3.5 h-3.5" /> Pain Points & Solutions
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{localT.title}</h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              {localT.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="flex gap-4 items-start">
+                  <div className="bg-neutral-800 border border-neutral-700 text-emerald-400 font-bold w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner">
+                    {idx + 1}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2 text-neutral-200">{prob.title}</h3>
+                    <p className="text-neutral-400 leading-relaxed">{prob.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+              <div className="relative bg-neutral-950 p-2.5 rounded-3xl shadow-2xl border border-neutral-800">
+                <img src="/imgs/knowledge/technical-specifications-pain-points.jpg" alt={localT.title} className="w-full h-auto rounded-2xl border border-neutral-850" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

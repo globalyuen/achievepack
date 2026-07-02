@@ -6,8 +6,131 @@ import { Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Droplets, Recycle, A
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 
+const translations = {
+  en: {
+    title: "5 Common Plastic-Free Kraft Problems (And Solutions)",
+    problems: [
+      {
+        title: "Poor Barrier Properties",
+        desc: "Kraft paper alone offers poor moisture and oxygen barriers, leading to product spoilage.",
+        solution: "Apply a thin aqueous coating or metallized vacuum deposition (like ALOx) that maintains eco-friendliness while drastically improving the barrier."
+      },
+      {
+        title: "Low Tear Resistance",
+        desc: "Kraft paper is prone to tearing and puncturing during transit compared to traditional plastic films.",
+        solution: "Utilize cross-laminated kraft paper structures or blend with bio-based polymers to enhance structural integrity and puncture resistance."
+      },
+      {
+        title: "Heat Sealing Difficulties",
+        desc: "Traditional kraft paper cannot be heat-sealed, making it hard to create airtight pouches.",
+        solution: "Coat the inner layer with a compostable biopolymer (such as PBS or PLA) to enable secure and reliable heat-sealing."
+      },
+      {
+        title: "Dull Print Quality",
+        desc: "The porous nature of kraft paper absorbs ink, leading to washed-out or dull branding colors.",
+        solution: "Employ UV printing techniques with eco-friendly inks or apply a specialized pre-coating layer to ensure vibrant and sharp print results."
+      },
+      {
+        title: "Shorter Shelf Life",
+        desc: "Products packaged in pure kraft often have a significantly shorter shelf life than those in plastic.",
+        solution: "Engineer multi-layered compostable structures featuring high-barrier bio-coatings to match the shelf life of conventional plastics."
+      }
+    ]
+  },
+  es: {
+    title: "5 problemas comunes del papel kraft sin plástico (y soluciones)",
+    problems: [
+      {
+        title: "Propiedades de barrera deficientes",
+        desc: "El papel kraft por sí solo ofrece poca barrera contra la humedad y el oxígeno, lo que provoca el deterioro del producto.",
+        solution: "Aplicar un revestimiento acuoso fino o deposición al vacío metalizada (como ALOx) que mantiene el respeto por el medio ambiente mientras mejora drásticamente la barrera."
+      },
+      {
+        title: "Baja resistencia al desgarro",
+        desc: "El papel kraft es propenso a rasgarse y perforarse durante el tránsito en comparación con las películas plásticas tradicionales.",
+        solution: "Utilizar estructuras de papel kraft laminado transversalmente o mezclar con polímeros de origen biológico para mejorar la integridad estructural y la resistencia a las perforaciones."
+      },
+      {
+        title: "Dificultades de sellado por calor",
+        desc: "El papel kraft tradicional no se puede sellar con calor, lo que dificulta la creación de bolsas herméticas.",
+        solution: "Recubrir la capa interna con un biopolímero compostable (como PBS o PLA) para permitir un sellado por calor seguro y confiable."
+      },
+      {
+        title: "Calidad de impresión opaca",
+        desc: "La naturaleza porosa del papel kraft absorbe la tinta, lo que da lugar a colores de marca lavados u opacos.",
+        solution: "Emplear técnicas de impresión UV con tintas ecológicas o aplicar una capa de prerrecubrimiento especializada para garantizar resultados de impresión vibrantes y nítidos."
+      },
+      {
+        title: "Vida útil más corta",
+        desc: "Los productos envasados en kraft puro a menudo tienen una vida útil significativamente más corta que los de plástico.",
+        solution: "Diseñar estructuras compostables multicapa que cuenten con biorrevestimientos de alta barrera para igualar la vida útil de los plásticos convencionales."
+      }
+    ]
+  },
+  fr: {
+    title: "5 problèmes courants du kraft sans plastique (et solutions)",
+    problems: [
+      {
+        title: "Faibles propriétés de barrière",
+        desc: "Le papier kraft seul offre de faibles barrières contre l'humidité et l'oxygène, entraînant la détérioration du produit.",
+        solution: "Appliquer un fin revêtement aqueux ou une déposition sous vide métallisée (comme ALOx) qui maintient l'aspect écologique tout en améliorant considérablement la barrière."
+      },
+      {
+        title: "Faible résistance à la déchirure",
+        desc: "Le papier kraft est sujet aux déchirures et aux perforations pendant le transport par rapport aux films plastiques traditionnels.",
+        solution: "Utiliser des structures en papier kraft à stratification croisée ou mélanger avec des polymères biosourcés pour améliorer l'intégrité structurelle et la résistance aux perforations."
+      },
+      {
+        title: "Difficultés de thermoscellage",
+        desc: "Le papier kraft traditionnel ne peut pas être thermoscellé, ce qui rend difficile la création de sachets hermétiques.",
+        solution: "Enduire la couche interne d'un biopolymère compostable (comme le PBS ou le PLA) pour permettre un thermoscellage sûr et fiable."
+      },
+      {
+        title: "Qualité d'impression terne",
+        desc: "La nature poreuse du papier kraft absorbe l'encre, conduisant à des couleurs de marque délavées ou ternes.",
+        solution: "Employer des techniques d'impression UV avec des encres écologiques ou appliquer une couche de pré-revêtement spécialisée pour garantir des résultats d'impression vibrants et nets."
+      },
+      {
+        title: "Durée de conservation plus courte",
+        desc: "Les produits emballés dans du kraft pur ont souvent une durée de conservation nettement plus courte que ceux dans du plastique.",
+        solution: "Concevoir des structures compostables multicouches dotées de bio-revêtements à haute barrière pour égaler la durée de conservation des plastiques conventionnels."
+      }
+    ]
+  },
+  'zh-TW': {
+    title: "5個常見的無塑牛皮紙問題（及解決方案）",
+    problems: [
+      {
+        title: "阻隔性能差",
+        desc: "單純的牛皮紙對水分和氧氣的阻隔性較差，容易導致產品變質。",
+        solution: "採用極薄的水性塗層或真空鍍金屬（如 ALOx），在保持環保特性的同時大幅提升阻隔效果。"
+      },
+      {
+        title: "抗撕裂性低",
+        desc: "與傳統塑膠薄膜相比，牛皮紙在運輸過程中更容易破裂和穿刺。",
+        solution: "使用交叉層壓牛皮紙結構，或與生物基聚合物混合，增強結構完整性和抗穿刺性。"
+      },
+      {
+        title: "熱封困難",
+        desc: "傳統牛皮紙無法熱封，難以製成氣密袋。",
+        solution: "在內層塗上可堆肥的生物聚合物（如 PBS 或 PLA），實現安全可靠的熱封。"
+      },
+      {
+        title: "印刷品質暗淡",
+        desc: "牛皮紙的多孔特性會吸收油墨，導致品牌色彩顯得褪色或暗淡。",
+        solution: "採用環保油墨的 UV 印刷技術，或塗上專用的預塗層，確保印刷效果鮮豔清晰。"
+      },
+      {
+        title: "保存期限較短",
+        desc: "純牛皮紙包裝的產品，其保存期限通常明顯短於塑膠包裝。",
+        solution: "設計多層可堆肥結構，配備高阻隔生物塗層，使保存期限媲美傳統塑膠。"
+      }
+    ]
+  }
+};
+
 export default function PouchPlasticFreeKraftPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.pouchPlasticFreeKraft'
 
   const floatAnim = {
@@ -142,6 +265,48 @@ export default function PouchPlasticFreeKraftPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 Common Problems Section */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="mb-12">
+          <h2 className="font-black text-5xl md:text-6xl uppercase text-black">
+            {(translations[i18n.language as keyof typeof translations] || translations.en).title}
+          </h2>
+        </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-8">
+            {((translations[i18n.language as keyof typeof translations] || translations.en).problems).map((prob, idx) => (
+              <NeoCard key={idx} color="bg-white">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <AlertTriangle className="w-8 h-8 text-red-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-xl uppercase mb-2">{prob.title}</h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 mb-4">{prob.desc}</p>
+                    <div className="bg-[#D4FF00] p-4 border-2 border-black">
+                      <div className="flex gap-2 items-center mb-2">
+                        <CheckCircle className="w-5 h-5 text-black" />
+                        <span className="font-black uppercase text-sm">Solution</span>
+                      </div>
+                      <p className="font-['JetBrains_Mono'] text-sm font-bold">{prob.solution}</p>
+                    </div>
+                  </div>
+                </div>
+              </NeoCard>
+            ))}
+          </div>
+          <div className="sticky top-24">
+            <NeoCard className="!p-0 overflow-hidden border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+              <img 
+                src="/imgs/knowledge/plastic-free-kraft-pain-points.jpg" 
+                alt="Plastic-Free Kraft Pain Points" 
+                className="w-full h-auto object-cover"
+              />
+            </NeoCard>
           </div>
         </div>
       </section>
