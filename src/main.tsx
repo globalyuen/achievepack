@@ -216,6 +216,8 @@ const AustraliashippingcooPage = lazyWithRetry(() => import('./pages/industry/au
 const PremiumfinishesPage = lazyWithRetry(() => import('./pages/industry/premiumfinishesPage'))
 const HighbarrierretortPage = lazyWithRetry(() => import('./pages/industry/highbarrierretortPage'))
 const CustomspoutpouchesPage = lazyWithRetry(() => import('./pages/industry/customspoutpouchesPage'))
+const AutomaticLabelingMachinePage = lazyWithRetry(() => import('./pages/industry/automaticlabelingmachinePage'))
+const StockbagspoutedpouchPage = lazyWithRetry(() => import('./pages/industry/stockbagspoutedpouchPage'))
 const PetfoodquadsealPage = lazyWithRetry(() => import('./pages/industry/petfoodquadsealPage'))
 const KraftwindowpouchPage = lazyWithRetry(() => import('./pages/industry/kraftwindowpouchPage'))
 const MatchasupplementsachetsPage = lazyWithRetry(() => import('./pages/industry/matchasupplementsachetsPage'))
@@ -894,6 +896,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/industry/premium-finishes" element={<PremiumfinishesPage />} />
                   <Route path="/industry/high-barrier-retort" element={<HighbarrierretortPage />} />
                   <Route path="/industry/custom-spout-pouches" element={<CustomspoutpouchesPage />} />
+                  <Route path="/industry/automatic-labeling-machine" element={<AutomaticLabelingMachinePage />} />
+                  <Route path="/industry/stock-bag-spouted-pouch" element={<StockbagspoutedpouchPage />} />
                   <Route path="/industry/pet-food-quad-seal" element={<PetfoodquadsealPage />} />
                   <Route path="/industry/kraft-window-pouch" element={<KraftwindowpouchPage />} />
                   <Route path="/industry/matcha-supplement-sachets" element={<MatchasupplementsachetsPage />} />
@@ -1291,6 +1295,8 @@ if (getDomain() === 'pouch') {
                         <Route path="/industry/premium-finishes" element={<PremiumfinishesPage />} />
                         <Route path="/industry/high-barrier-retort" element={<HighbarrierretortPage />} />
                         <Route path="/industry/custom-spout-pouches" element={<CustomspoutpouchesPage />} />
+                        <Route path="/industry/automatic-labeling-machine" element={<AutomaticLabelingMachinePage />} />
+                        <Route path="/industry/stock-bag-spouted-pouch" element={<StockbagspoutedpouchPage />} />
                         <Route path="/industry/pet-food-quad-seal" element={<PetfoodquadsealPage />} />
                         <Route path="/industry/kraft-window-pouch" element={<KraftwindowpouchPage />} />
                         <Route path="/industry/matcha-supplement-sachets" element={<MatchasupplementsachetsPage />} />
@@ -1321,6 +1327,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/industry/premium-finishes" element={<PremiumfinishesPage />} />
                   <Route path="/industry/high-barrier-retort" element={<HighbarrierretortPage />} />
                   <Route path="/industry/custom-spout-pouches" element={<CustomspoutpouchesPage />} />
+                  <Route path="/industry/automatic-labeling-machine" element={<AutomaticLabelingMachinePage />} />
+                  <Route path="/industry/stock-bag-spouted-pouch" element={<StockbagspoutedpouchPage />} />
                   <Route path="/industry/pet-food-quad-seal" element={<PetfoodquadsealPage />} />
                   <Route path="/industry/kraft-window-pouch" element={<KraftwindowpouchPage />} />
                   <Route path="/industry/matcha-supplement-sachets" element={<MatchasupplementsachetsPage />} />

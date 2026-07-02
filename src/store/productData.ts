@@ -8619,6 +8619,256 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       }
     ],
     customPrintNote: 'Custom spool sizes, filament diameters, and colorways are available for bulk orders of 100+ spools. Please consult our engineering team.'
+  },
+  {
+    id: 'aluminum-foil-spout-pouch-stock',
+    name: 'Stock Aluminum Foil Spout Pouch (Lightproof Liquid Bag)',
+    category: 'conventional-stock',
+    description: 'Premium lightproof aluminum foil spout pouches ideal for liquids such as beer, drinks, jam, sauce, and more. Features an easy-pour spout, durable bottom gusset for retail display, and strong barrier properties.',
+    shortDesc: 'Stock aluminum foil spout pouch for beverages and sauces',
+    features: [
+      "Lightproof aluminum foil structure for maximum UV protection",
+      "Leak-proof screw cap design",
+      "Self-standing bottom gusset",
+      "Available in multiple capacities (50ml to 5000ml)",
+      "Low MOQ starting from 100 pieces"
+    ],
+    images: [
+      '/imgs/seo/spout_pouch_1.png',
+      '/spout_pouch_transparent_1500_1783005719700.jpg',
+      '/spout_pouch_transparent_2500_1783005739487.jpg',
+      '/spout_pouch_transparent_5000_1783005756961.jpg'
+    ],
+    badge: '🚀 Quick Ship',
+    rating: 4.9,
+    reviews: 24,
+    inStock: true,
+    turnaround: '3-5 Days',
+    minOrder: 100,
+    shape: 'Spout Pouch',
+    material: 'Aluminum Foil / PET / PE (Transparent options available)',
+    basePrice: 75.0,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Multiple sizes available',
+    sizeVariants: [
+      {
+        id: 'spout-50ml',
+        label: '50ml (Center Spout)',
+        dimensions: '50ml (20 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 75.0,
+        unitPrice: 0.75
+      },
+      {
+        id: 'spout-100ml',
+        label: '100ml (Center Spout)',
+        dimensions: '100ml (20 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 96.0,
+        unitPrice: 0.96
+      },
+      {
+        id: 'spout-230ml',
+        label: '230ml (Center Spout)',
+        dimensions: '230ml (20 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 108.0,
+        unitPrice: 1.08
+      },
+      {
+        id: 'spout-280ml',
+        label: '280ml (Center Spout)',
+        dimensions: '280ml (20 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 111.0,
+        unitPrice: 1.11
+      },
+      {
+        id: 'spout-350ml',
+        label: '350ml (Center Spout)',
+        dimensions: '350ml (20 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 117.0,
+        unitPrice: 1.17
+      },
+      {
+        id: 'spout-500ml',
+        label: '500ml (Center Spout)',
+        dimensions: '500ml (30 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 195.0,
+        unitPrice: 1.95
+      },
+      {
+        id: 'spout-1000ml',
+        label: '1000ml (Corner Spout)',
+        dimensions: '1000ml (30 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 246.0,
+        unitPrice: 2.46
+      },
+      {
+        id: 'spout-1500ml',
+        label: '1500ml (Corner Spout)',
+        dimensions: '1500ml (30 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 315.0,
+        unitPrice: 3.15
+      },
+      {
+        id: 'spout-1800ml',
+        label: '1800ml (Corner Spout)',
+        dimensions: '1800ml (30 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 369.0,
+        unitPrice: 3.69
+      },
+      {
+        id: 'spout-2000ml',
+        label: '2000ml (Corner Spout)',
+        dimensions: '2000ml (30 Thickness)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 390.0,
+        unitPrice: 3.90
+      },
+      {
+        id: 'spout-1500ml-trans',
+        label: '1500ml Transparent (Corner Spout)',
+        dimensions: '1500ml (40 Thickness) Transparent',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 450.0,
+        unitPrice: 4.50,
+        heroImageIndex: 1
+      },
+      {
+        id: 'spout-2500ml-trans',
+        label: '2500ml Transparent (Corner Spout)',
+        dimensions: '2500ml (44 Thickness) Transparent',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 630.0,
+        unitPrice: 6.30,
+        heroImageIndex: 2
+      },
+      {
+        id: 'spout-5000ml-trans',
+        label: '5000ml Transparent (Corner Spout)',
+        dimensions: '5000ml (44 Thickness) Transparent',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 840.0,
+        unitPrice: 8.40,
+        heroImageIndex: 3
+      }
+    ]
+  },
+  {
+    id: 'automatic-labeling-machine',
+    name: 'Full-automatic Labeling Machine for Packaging Boxes and Pouches',
+    category: 'conventional-stock',
+    description: 'A high-precision automatic labeling machine designed for cosmetic PE self-adhesive labels, color boxes, lids, and cards. Enhances production efficiency with a reliable stepper/servo motor drive and PLC touch screen control system.',
+    shortDesc: 'Automatic labeling machine for packaging color boxes, lids, and cards',
+    features: [
+      "High-precision stepper/servo motor drive",
+      "Advanced PLC control system with touch screen",
+      "Adjustable labeling speed (30-150 pcs/min)",
+      "Applicable for paper boxes, plastic lids, and flat pouches",
+      "Durable stainless steel construction"
+    ],
+    images: [
+      '/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN016ZhDFP2EpFUnVyDls_--2165598793.jpg',
+      '/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN01Dr0Uy42EpFUwqmjVi_--2165598793.jpg',
+      '/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN01RiEkx62EpFUvmW5zJ_--2165598793.jpg'
+    ],
+    badge: '⚙️ Industrial Grade',
+    rating: 5.0,
+    reviews: 8,
+    inStock: true,
+    turnaround: '15-20 Days',
+    minOrder: 1,
+    shape: 'Machinery',
+    material: 'Stainless Steel / Aluminum Alloy',
+    basePrice: 1405.0,
+    minQuantity: 1,
+    quantityStep: 1,
+    sizeInfo: 'Various Configurations Available',
+    sizeVariants: [
+      {
+        id: 'desktop-labeling',
+        label: 'Desktop Labeling Machine (桌面贴标机)',
+        dimensions: 'Standard Desktop',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 1405.0,
+        unitPrice: 1405.0
+      },
+      {
+        id: 'paging-standard',
+        label: 'Paging Machine + Desktop Labeling Machine (分页机+标准款桌面贴标机)',
+        dimensions: 'Paging + Labeling',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 2380.0,
+        unitPrice: 2380.0
+      },
+      {
+        id: 'paging-machine',
+        label: 'Paging Machine Only (分页机)',
+        dimensions: 'Stand-alone Paging',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 786.0,
+        unitPrice: 786.0
+      },
+      {
+        id: 'assembly-line-labeling',
+        label: 'Assembly Line Labeling Machine (流水线贴标机)',
+        dimensions: 'Assembly Line Integration',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 1490.0,
+        unitPrice: 1490.0
+      },
+      {
+        id: 'print-and-label',
+        label: 'Print and Label All-in-One Machine (打印贴标一体机)',
+        dimensions: 'All-in-One Printing & Labeling',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 2648.0,
+        unitPrice: 2648.0
+      },
+      {
+        id: 'addon-brush',
+        label: '(Add-on) Electric Brush (电动毛刷)',
+        dimensions: 'Accessory',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 203.0,
+        unitPrice: 203.0
+      },
+      {
+        id: 'addon-stand',
+        label: '(Add-on) Labeling Machine / Paging Machine Stand (贴标机/分页机脚架)',
+        dimensions: 'Accessory',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 79.0,
+        unitPrice: 79.0
+      }
+    ]
   }
 ]
 
