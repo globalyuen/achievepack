@@ -18,7 +18,7 @@ import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
 import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
 import FamilyTab from '../../components/admin/FamilyTab';
 import CalendlyFollowUp from '../../components/admin/CalendlyFollowUp';
-import WhatsAppFollowUp from '../../components/admin/WhatsAppFollowUp';
+import UnifiedInbox from '../../components/admin/UnifiedInbox';
 import PouchEcoGPTKPage from '../pouch/PouchEcoGPTKPage';
 import * as XLSX from 'xlsx';
 import { useTranslation, Trans } from "react-i18next";
@@ -1317,8 +1317,8 @@ export default function DailyReportsPage() {
               </button>
               <button onClick={() => setActiveTab('whatsapp')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'whatsapp' ? 'bg-green-600 text-white shadow-md shadow-green-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
                 <MessageSquare className="w-4 h-4"/>
-                <span className="hidden xs:inline">WhatsApp Follow Up</span>
-                <span className="xs:hidden">WhatsApp</span>
+                <span className="hidden xs:inline">Unified Inbox</span>
+                <span className="xs:hidden">Inbox</span>
               </button>
               <button onClick={() => setActiveTab('reports')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'reports' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
                 <ClipboardList className="w-4 h-4"/>
@@ -1421,7 +1421,7 @@ export default function DailyReportsPage() {
         {/* Tab Content: WhatsApp Follow Up */}
         {activeTab === 'whatsapp' && (
           <div className="mt-8">
-            <WhatsAppFollowUp />
+            <UnifiedInbox />
           </div>
         )}
 

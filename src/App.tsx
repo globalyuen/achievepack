@@ -3031,6 +3031,7 @@ function App() {
               <h4 className="text-sm font-semibold mb-2">{t('footer.support')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
                 <li><Link to="/support/faqs" className="hover:text-primary-500">{t('footer.links.faqs')}</Link></li>
+                <li><Link to="/knowledge/pouch-heat-sealing-temperature-guide" className="hover:text-primary-500">{t('pouchHeatSealing.seo.title', 'Heat Sealing Guide')}</Link></li>
                 <li><Link to="/support/lead-time" className="hover:text-primary-500">{t('footer.links.leadTime')}</Link></li>
                 <li><Link to="/support/unprinted-samples" className="hover:text-primary-500">{t('appHome.string_117')}</Link></li>
                 <li><Link to="/support/sample-quote" className="hover:text-primary-500">{t('appHome.string_118')}</Link></li>
