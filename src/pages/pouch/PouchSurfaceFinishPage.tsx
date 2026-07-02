@@ -16,8 +16,11 @@ interface FAQItem {
   a: string
 }
 
+// Assigned SEO Page Section List for Pouch
 export const sectionsForPouch = ["5 Common Pouch Surface Finish Problems (And Solutions)"]
+// Assigned SEO Page Section List for Achieve
 export const sectionsForAchieve = ["5 Common Pouch Surface Finish Problems (And Solutions)"]
+
 
 const translations = {
   en: {

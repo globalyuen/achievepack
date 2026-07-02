@@ -8,7 +8,7 @@ import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 
 const translations = {
   en: {
-    title: "5 Common Custom Sample Problems (And Solutions)",
+    title: "5 Common Custom Printed Pouch Sample Problems (And Solutions)",
     p1: "High Setup Costs for a Single Sample",
     d1: "Setting up commercial machines for one custom printed sample is prohibitively expensive.",
     s1: "Utilize Digital Printing and our Sheet Sample option to get a high-quality visual representation without plate fees.",
@@ -26,7 +26,7 @@ const translations = {
     s5: "Always start with a custom printed sample to physically test product fill volume before committing to a bulk order."
   },
   es: {
-    title: "5 Problemas Comunes de Muestras Personalizadas (Y Soluciones)",
+    title: "5 Problemas Comunes de Muestras de Bolsas Impresas Personalizadas (Y Soluciones)",
     p1: "Altos costos de configuración para una sola muestra",
     d1: "Configurar máquinas comerciales para una muestra impresa personalizada es prohibitivamente costoso.",
     s1: "Utilice la impresión digital y nuestra opción de Muestra en Hoja para obtener una representación visual de alta calidad sin tarifas de placas.",
@@ -44,7 +44,7 @@ const translations = {
     s5: "Siempre comience con una muestra impresa personalizada para probar físicamente el volumen de llenado del producto antes de comprometerse con un pedido a granel."
   },
   fr: {
-    title: "5 Problèmes Courants d'Échantillons Personnalisés (Et Solutions)",
+    title: "5 Problèmes Courants des Échantillons de Sachets Imprimés Personnalisés (Et Solutions)",
     p1: "Coûts de configuration élevés pour un seul échantillon",
     d1: "La configuration des machines commerciales pour un échantillon imprimé personnalisé est d'un coût prohibitif.",
     s1: "Utilisez l'impression numérique et notre option d'échantillon en feuille pour obtenir une représentation visuelle de haute qualité sans frais de plaques.",
@@ -62,7 +62,7 @@ const translations = {
     s5: "Commencez toujours par un échantillon imprimé personnalisé pour tester physiquement le volume de remplissage du produit avant de vous engager dans une commande en gros."
   },
   "zh-TW": {
-    title: "5個常見的客製化樣品問題（及解決方案）",
+    title: "5個常見的客製化印刷包裝袋打樣問題（及解決方案）",
     p1: "單一打樣的高昂設置成本",
     d1: "為客製化印刷樣品設置商業機器是極其昂貴的。",
     s1: "利用數位印刷和我們的平張樣品選項，無需印版費用即可獲得高質量的視覺呈現。",
@@ -81,8 +81,8 @@ const translations = {
   }
 };
 
-const sectionsForPouch = ["5 Common Custom Sample Problems (And Solutions)"];
-const sectionsForAchieve = ["5 Common Custom Sample Problems (And Solutions)"];
+const sectionsForPouch = ["5 Common Custom Printed Pouch Sample Problems (And Solutions)"];
+const sectionsForAchieve = ["5 Common Custom Printed Pouch Sample Problems (And Solutions)"];
 
 const PouchCustomPrintedSamplePage: React.FC = () => {
     const { t } = useTranslation();
@@ -282,8 +282,8 @@ const PouchCustomPrintedSamplePage: React.FC = () => {
                             
                             <div className="mb-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden max-w-4xl mx-auto">
                                 <img 
-                                    src="/imgs/knowledge/custom-sample-pain-points.jpg" 
-                                    alt="Custom Sample Pain Points and Solutions"
+                                    src="/imgs/knowledge/pouch-custom-printed-sample-pain-points.jpg" 
+                                    alt="Custom Printed Pouch Sample Pain Points and Solutions"
                                     className="w-full h-auto object-cover"
                                 />
                             </div>

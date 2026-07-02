@@ -836,7 +836,7 @@ export default function PouchTechSpecsPage() {
             <div>
               <NeoCard className="p-2 bg-neutral-100 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <img 
-                  src="/imgs/knowledge/technical-specifications-pain-points.jpg" 
+                  src="/imgs/knowledge/pouch-tech-specs-pain-points.jpg" 
                   alt="5 common technical specifications problems and solutions" 
                   className="w-full object-cover border-2 border-black"
                 />
@@ -1223,7 +1223,7 @@ export default function PouchTechSpecsPage() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
               <div className="relative bg-neutral-950 p-2.5 rounded-3xl shadow-2xl border border-neutral-800">
-                <img src="/imgs/knowledge/technical-specifications-pain-points.jpg" alt={localT.sectionTitle} className="w-full h-auto rounded-2xl border border-neutral-850" />
+                <img src="/imgs/knowledge/pouch-tech-specs-pain-points.jpg" alt={localT.sectionTitle} className="w-full h-auto rounded-2xl border border-neutral-850" />
               </div>
             </div>
           </div>

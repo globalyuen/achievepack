@@ -285,7 +285,7 @@ export default function PouchMaterialBarrierPropertiesPage() {
             <div className="relative">
               <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
               <img 
-                src="/imgs/knowledge/material-barrier-properties-pain-points.jpg" 
+                src="/imgs/knowledge/pouch-material-barrier-properties-pain-points.jpg" 
                 alt={tLocal.sectionTitle} 
                 className="relative z-10 border-4 border-black w-full object-cover aspect-square"
               />

@@ -590,7 +590,7 @@ export default function PouchSnacksPage() {
             >
               <div className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white p-4">
                 <ClickableImage 
-                  src="/imgs/knowledge/snack-pouch-pain-points.jpg"
+                  src="/imgs/knowledge/pouch-snacks-pain-points.jpg"
                   alt="Snack Pouch Engineering"
                   className="w-full h-auto object-cover border-4 border-black"
                 />

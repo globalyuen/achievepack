@@ -50,10 +50,12 @@ const translations: Record<string, any> = {
   }
 };
 
+// Target sections for Pouch page layout integration
 export const sectionsForPouch = [
   { id: 'pouch-problems', translationKey: 'title' }
 ];
 
+// Target sections for Achieve page layout integration
 export const sectionsForAchieve = [
   { id: 'pouch-problems', translationKey: 'title' }
 ];

@@ -308,7 +308,7 @@ export default function PouchBabyFoodPage() {
           
           <div className="mb-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
             <img 
-              src="/imgs/knowledge/baby-food-pouch-pain-points.jpg" 
+              src="/imgs/knowledge/pouch-baby-food-pain-points.jpg" 
               alt="Baby Food Pouch Pain Points"
               className="w-full h-auto object-cover"
             />

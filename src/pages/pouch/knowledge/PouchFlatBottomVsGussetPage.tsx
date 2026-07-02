@@ -594,7 +594,7 @@ export default function PouchFlatBottomVsGussetPage() {
             <div className="lg:w-1/2">
               <NeoCard className="bg-white p-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <img 
-                  src="/imgs/knowledge/flat-bottom-gusset-pain-points.jpg" 
+                  src="/imgs/knowledge/pouch-flat-bottom-vs-gusset-pain-points.jpg" 
                   alt="Flat Bottom vs Gusset Pain Points" 
                   className="w-full h-auto object-cover border-2 border-black"
                 />

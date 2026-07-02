@@ -6,6 +6,7 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton } from '../../components/pouch/PouchUI'
 import { useTranslation } from 'react-i18next'
 
+// SEO Problems & Solutions sections to display on Pouch and Achieve versions of the site
 export const sectionsForPouch = ["5 Common Pouch SEO Problems (And Solutions)"]
 export const sectionsForAchieve = ["5 Common Pouch SEO Problems (And Solutions)"]
 

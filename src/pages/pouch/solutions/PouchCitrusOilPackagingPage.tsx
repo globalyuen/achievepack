@@ -356,7 +356,7 @@ export default function PouchCitrusOilPackagingPage() {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-full md:w-1/2">
               <ClickableImage
-                src="/imgs/knowledge/citrus-oil-packaging-pain-points.jpg"
+                src="/imgs/knowledge/pouch-citrus-oil-pain-points.jpg"
                 alt={currentLang.sectionTitle}
                 className="w-full h-auto border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
               />

@@ -6,7 +6,7 @@ import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Droplets, Zap
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
-
+// 5 Common Sauce Packaging Pain Points & Engineering Solutions
 const translations = {
   en: {
     title: "5 Common Sauce Packaging Problems (And Solutions)",

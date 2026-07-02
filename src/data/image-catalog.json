@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-02",
-  "total_images": 4647,
+  "total_images": 4669,
   "total_categories": 173,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 358,
+    ".jpg": 380,
     ".svg": 3
   },
   "categories": {
@@ -12742,8 +12742,188 @@
       ]
     },
     "knowledge": {
-      "count": 132,
+      "count": 154,
       "images": [
+        {
+          "filename": "pouch-baby-food-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-baby-food-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:29:26.145Z"
+        },
+        {
+          "filename": "pouch-custom-printed-sample-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-custom-printed-sample-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:29:24.057Z"
+        },
+        {
+          "filename": "pouch-sauces-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-sauces-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:29:16.142Z"
+        },
+        {
+          "filename": "pouch-supplements-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-supplements-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:29:05.058Z"
+        },
+        {
+          "filename": "pouch-pet-food-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-pet-food-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:28:47.884Z"
+        },
+        {
+          "filename": "pouch-snacks-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-snacks-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:28:47.147Z"
+        },
+        {
+          "filename": "pouch-flat-bottom-vs-gusset-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-flat-bottom-vs-gusset-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:28:43.591Z"
+        },
+        {
+          "filename": "pouch-frozen-food-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-frozen-food-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:28:39.894Z"
+        },
+        {
+          "filename": "pouch-printing-types-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-printing-types-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:28:22.236Z"
+        },
+        {
+          "filename": "pouch-products-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-products-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:27:52.775Z"
+        },
+        {
+          "filename": "pouch-tech-specs-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-tech-specs-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:27:45.971Z"
+        },
+        {
+          "filename": "pouch-seo-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-seo-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:27:30.348Z"
+        },
+        {
+          "filename": "pouch-blog-article-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-blog-article-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:27:15.521Z"
+        },
+        {
+          "filename": "pouch-factory-tour-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-factory-tour-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:27:12.360Z"
+        },
+        {
+          "filename": "pouch-material-barrier-properties-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-material-barrier-properties-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:26:54.090Z"
+        },
+        {
+          "filename": "refill-pouches-pain-points.jpg",
+          "path": "/imgs/knowledge/refill-pouches-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:26:35.597Z"
+        },
+        {
+          "filename": "drink-liquid-pouch-pain-points.jpg",
+          "path": "/imgs/knowledge/drink-liquid-pouch-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:26:34.977Z"
+        },
+        {
+          "filename": "pouch-citrus-oil-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-citrus-oil-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:26:33.865Z"
+        },
+        {
+          "filename": "pouch-surface-finish-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-surface-finish-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:26:15.337Z"
+        },
+        {
+          "filename": "pouch-barrier-overview-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-barrier-overview-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:26:03.497Z"
+        },
+        {
+          "filename": "pouch-solutions-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-solutions-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:25:46.449Z"
+        },
+        {
+          "filename": "pouch-kraft-high-barrier-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-kraft-high-barrier-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:25:46.413Z"
+        },
+        {
+          "filename": "pouch-pcr-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-pcr-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:25:38.010Z"
+        },
+        {
+          "filename": "pouch-recyclable-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-recyclable-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:25:26.282Z"
+        },
+        {
+          "filename": "pouch-compostable-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-compostable-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:25:22.293Z"
+        },
+        {
+          "filename": "pouch-shop-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-shop-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:24:51.937Z"
+        },
+        {
+          "filename": "pouch-plastic-free-kraft-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-plastic-free-kraft-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:24:45.178Z"
+        },
+        {
+          "filename": "usa-compostable-hub-pain-points.jpg",
+          "path": "/imgs/knowledge/usa-compostable-hub-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:24:44.187Z"
+        },
+        {
+          "filename": "smart-degassing-sticker-pain-points.jpg",
+          "path": "/imgs/knowledge/smart-degassing-sticker-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:24:43.776Z"
+        },
+        {
+          "filename": "pouch-biope-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-biope-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T12:24:42.640Z"
+        },
         {
           "filename": "custom-sample-pain-points.jpg",
           "path": "/imgs/knowledge/custom-sample-pain-points.jpg",
@@ -12755,12 +12935,6 @@
           "path": "/imgs/knowledge/baby-food-pouch-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T10:07:30.135Z"
-        },
-        {
-          "filename": "pouch-sauces-pain-points.jpg",
-          "path": "/imgs/knowledge/pouch-sauces-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T10:06:53.977Z"
         },
         {
           "filename": "pet-food-pain-points.jpg",
@@ -12793,22 +12967,10 @@
           "modified": "2026-07-02T10:05:38.059Z"
         },
         {
-          "filename": "pouch-products-pain-points.jpg",
-          "path": "/imgs/knowledge/pouch-products-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T10:04:33.436Z"
-        },
-        {
           "filename": "technical-specifications-pain-points.jpg",
           "path": "/imgs/knowledge/technical-specifications-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T10:04:31.078Z"
-        },
-        {
-          "filename": "pouch-seo-pain-points.jpg",
-          "path": "/imgs/knowledge/pouch-seo-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T10:04:30.916Z"
         },
         {
           "filename": "printing-types-pain-points.jpg",
@@ -12817,34 +12979,16 @@
           "modified": "2026-07-02T10:04:27.103Z"
         },
         {
-          "filename": "pouch-factory-tour-pain-points.jpg",
-          "path": "/imgs/knowledge/pouch-factory-tour-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T10:03:33.779Z"
-        },
-        {
           "filename": "material-barrier-properties-pain-points.jpg",
           "path": "/imgs/knowledge/material-barrier-properties-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T10:03:33.453Z"
         },
         {
-          "filename": "refill-pouches-pain-points.jpg",
-          "path": "/imgs/knowledge/refill-pouches-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T10:03:10.501Z"
-        },
-        {
           "filename": "compostable-packaging-pain-points.jpg",
           "path": "/imgs/knowledge/compostable-packaging-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T10:03:09.141Z"
-        },
-        {
-          "filename": "drink-liquid-pouch-pain-points.jpg",
-          "path": "/imgs/knowledge/drink-liquid-pouch-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T10:02:13.965Z"
         },
         {
           "filename": "citrus-oil-packaging-pain-points.jpg",
@@ -12857,12 +13001,6 @@
           "path": "/imgs/knowledge/pouch-barrier-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T10:01:45.318Z"
-        },
-        {
-          "filename": "pouch-surface-finish-pain-points.jpg",
-          "path": "/imgs/knowledge/pouch-surface-finish-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T10:01:26.706Z"
         },
         {
           "filename": "flexible-pouch-packaging-pain-points.jpg",
@@ -12905,12 +13043,6 @@
           "path": "/imgs/knowledge/plastic-free-kraft-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T09:58:32.616Z"
-        },
-        {
-          "filename": "smart-degassing-sticker-pain-points.jpg",
-          "path": "/imgs/knowledge/smart-degassing-sticker-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T09:58:11.538Z"
         },
         {
           "filename": "pouch-packaging-pain-points.jpg",

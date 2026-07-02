@@ -168,6 +168,10 @@ const translations: Record<string, any> = {
   }
 }
 
+
+
+
+
 export default function RefillPouchesPage() {
   const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'

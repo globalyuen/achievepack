@@ -317,7 +317,7 @@ export default function PouchFrozenFoodPage() {
             
             <div className="sticky top-24">
               <ClickableImage 
-                src="/imgs/knowledge/frozen-food-pain-points.jpg" 
+                src="/imgs/knowledge/pouch-frozen-food-pain-points.jpg" 
                 alt={pageT.title} 
                 className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />

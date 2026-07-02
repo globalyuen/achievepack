@@ -211,7 +211,7 @@ export default function PouchPrintingTypesPage() {
           
           <div className="mb-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
             <img 
-              src="/imgs/knowledge/printing-types-pain-points.jpg" 
+              src="/imgs/knowledge/pouch-printing-types-pain-points.jpg" 
               alt={t(`${p}.problems.imgAlt`, "Printing Types Pain Points and Solutions")}
               className="w-full h-auto object-cover"
             />

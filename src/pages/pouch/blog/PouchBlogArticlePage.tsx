@@ -18,7 +18,18 @@ const translations = {
     problem4: "Tearing During Transit",
     solution4: "Reinforced film structures and impact-resistant materials.",
     problem5: "Incomplete Degradation",
-    solution5: "Certified industrial/home compostable materials strictly adhering to EN 13432."
+    solution5: "Certified industrial/home compostable materials strictly adhering to EN 13432.",
+    pouchProblemsTitle: "5 Common Flexible Pouch Problems (And Solutions)",
+    pouchProblem1: "Seal Leakage and Bursting",
+    pouchSolution1: "Precision thermal seal validation and optimized multi-layer composite structures.",
+    pouchProblem2: "Inadequate Oxygen & Moisture Barrier",
+    pouchSolution2: "High-barrier EVOH, AL, or metallized film lamination to preserve freshness.",
+    pouchProblem3: "Puncture and Tear Failures",
+    pouchSolution3: "Nylon (BOPA) or PET structural reinforcement layers to absorb impact.",
+    pouchProblem4: "Gas Buildup & Pouch Bloating",
+    pouchSolution4: "Integration of high-precision one-way degassing valves to vent internal pressure.",
+    pouchProblem5: "Film Delamination & Wrinkling",
+    pouchSolution5: "Advanced solventless adhesive bonding and web tension control during lamination."
   },
   es: {
     problemsTitle: "5 Problemas Comunes de Empaques Compostables (Y Soluciones)",
@@ -31,7 +42,18 @@ const translations = {
     problem4: "Desgarro durante el tránsito",
     solution4: "Estructuras de película reforzadas y materiales resistentes a impactos.",
     problem5: "Degradación incompleta",
-    solution5: "Materiales compostables certificados que cumplen estrictamente con EN 13432."
+    solution5: "Materiales compostables certificados que cumplen estrictamente con EN 13432.",
+    pouchProblemsTitle: "5 Problemas Comunes de las Bolsas Flexibles (Y Soluciones)",
+    pouchProblem1: "Fuga y ruptura del sello",
+    pouchSolution1: "Validación de sellado térmico de precisión y estructuras compuestas multicapa optimizadas.",
+    pouchProblem2: "Barrera de oxígeno y humedad inadecuada",
+    pouchSolution2: "Laminación de película metalizada, EVOH o AL de alta barrera para preservar la frescura.",
+    pouchProblem3: "Fallas por perforación y desgarro",
+    pouchSolution3: "Capas de refuerzo estructural de nailon (BOPA) o PET para absorber impactos.",
+    pouchProblem4: "Acumulación de gas e hinchazón de la bolsa",
+    pouchSolution4: "Integración de válvulas de desgasificación unidireccionales de alta precisión para liberar la presión interna.",
+    pouchProblem5: "Delaminación y arrugas de la película",
+    pouchSolution5: "Unión avanzada con adhesivos sin solventes y control de tensión de la bobina durante la laminación."
   },
   fr: {
     problemsTitle: "5 Problèmes Courants d'Emballage Compostable (Et Solutions)",
@@ -42,9 +64,20 @@ const translations = {
     problem3: "Courte durée de conservation",
     solution3: "Films compostables métallisés à haute barrière.",
     problem4: "Déchirure pendant le transport",
-    solution4: "Structures de film renforcées et matériaux résistants aux chocs.",
+    solution4: "Structures de film renforcées et matériaux résistant aux chocs.",
     problem5: "Dégradation incomplète",
-    solution5: "Matériaux compostables certifiés strictement conformes à la norme EN 13432."
+    solution5: "Matériaux compostables certifiés strictement conformes à la norme EN 13432.",
+    pouchProblemsTitle: "5 Problèmes Courants des Sachets Souples (Et Solutions)",
+    pouchProblem1: "Fuite et rupture de scellage",
+    pouchSolution1: "Validation précise du scellage thermique et structures composites multicouches optimisées.",
+    pouchProblem2: "Barrière inadéquate à l'oxygène et à l'humidité",
+    pouchSolution2: "Lamination de films EVOH, AL ou métallisés à haute barrière pour préserver la fraîcheur.",
+    pouchProblem3: "Déchirures et perforations",
+    pouchSolution3: "Couches de renforcement structurel en nylon (BOPA) ou PET pour absorber les chocs.",
+    pouchProblem4: "Accumulation de gaz et gonflement du sachet",
+    pouchSolution4: "Intégration de valves de dégazage unidirectionnelles de haute précision pour évacuer la pression interne.",
+    pouchProblem5: "Décollement et plissement du film",
+    pouchSolution5: "Collage avancé avec adhésifs sans solvant et contrôle de tension de bande lors de la lamination."
   },
   'zh-TW': {
     problemsTitle: "5個常見的可堆肥包裝問題（及解決方案）",
@@ -57,7 +90,18 @@ const translations = {
     problem4: "運輸過程中破裂",
     solution4: "加強型薄膜結構和抗衝擊材料。",
     problem5: "降解不完全",
-    solution5: "嚴格遵守EN 13432的認證工業/家庭可堆肥材料。"
+    solution5: "嚴格遵守EN 13432的認證工業/家庭可堆肥材料。",
+    pouchProblemsTitle: "5個常見的軟包裝袋問題（及解決方案）",
+    pouchProblem1: "封口洩漏與破裂",
+    pouchSolution1: "精確的熱封驗證與優化的多層複合結構設計。",
+    pouchProblem2: "氧氣與水氣阻隔不足",
+    pouchSolution2: "採用高阻隔 EVOH、鋁箔（AL）或鍍鋁薄膜複合以保持新鮮度。",
+    pouchProblem3: "穿刺與撕裂破損",
+    pouchSolution3: "加入尼龍（BOPA）或 PET 結構強化層以吸收衝擊力。",
+    pouchProblem4: "氣體積聚與袋身膨脹",
+    pouchSolution4: "整合高精度單向排氣閥以釋放內部壓力。",
+    pouchProblem5: "薄膜分層與起皺",
+    pouchSolution5: "採用先進的無溶劑黏合劑與複合過程中的精確張力控制。"
   }
 }
 
@@ -190,8 +234,34 @@ export default function PouchBlogArticlePage() {
     )
   }
 
-  const sectionsForPouch = [...sections, problemSection]
-  const sectionsForAchieve = [...sections, problemSection]
+  const pouchProblemSection = {
+    id: 'pouch-common-problems',
+    title: langData.pouchProblemsTitle,
+    icon: <AlertTriangle className="w-6 h-6" />,
+    content: (
+      <div className="space-y-6">
+        <img 
+          src="/imgs/knowledge/pouch-blog-article-pain-points.jpg" 
+          alt="Flexible Pouch Packaging Problems" 
+          className="w-full h-auto rounded-lg shadow-lg my-6"
+        />
+        <ul className="space-y-4">
+          {[1, 2, 3, 4, 5].map((num) => (
+            <li key={num} className="flex gap-3">
+              <ShieldCheck className="w-6 h-6 text-blue-500 shrink-0" />
+              <div>
+                <strong className="block text-gray-900">{langData[`pouchProblem${num}` as keyof typeof langData]}</strong>
+                <span className="text-gray-600">{langData[`pouchSolution${num}` as keyof typeof langData]}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  const sectionsForPouch = [...sections, problemSection, pouchProblemSection]
+  const sectionsForAchieve = [...sections, problemSection, pouchProblemSection]
 
   return (
     <BlogArticleTemplate

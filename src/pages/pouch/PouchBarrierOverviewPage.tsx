@@ -1,4 +1,4 @@
-import { Shield, Clock, Target, Zap, Package, TrendingUp, HelpCircle, CheckCircle, X, AlertTriangle, Wrench } from 'lucide-react'
+import { Shield, Clock, Target, Zap, Package, TrendingUp, HelpCircle, CheckCircle, X, AlertTriangle, Wrench, Wind, Droplets, Sun, Flame, ShieldAlert } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
@@ -6,133 +6,133 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 
 const translations: Record<string, any> = {
   en: {
-    sectionTitle: "5 Common Pouch Barrier Problems (And Solutions)",
-    problems: [
+    painPointsTitle: "5 Common Pouch Barrier Problems (And Solutions)",
+    painPoints: [
       {
-        title: "Premature Spoilage (High OTR)",
-        description: "Oxygen enters the pouch, causing food to spoil faster.",
-        solution: "Implement high-barrier EVOH or aluminum foil layers to dramatically reduce the Oxygen Transmission Rate."
+        title: "Oxygen Ingress & Premature Spoilage (OTR)",
+        description: "Atmospheric oxygen permeates the film, causing oxidation, rancidity, and rapid microbial growth.",
+        solution: "Incorporate high-barrier EVOH co-extrusions or pure Aluminum foil layers to drop OTR below 1 cc/m²/day."
       },
       {
-        title: "Moisture Clumping (High MVTR)",
-        description: "Powders and dry goods absorb moisture and clump together.",
-        solution: "Add Metallized PET (VMPET) or AL layers to effectively block water vapor."
+        title: "Moisture Penetration & Product Clumping (MVTR)",
+        description: "Ambient humidity enters the pouch, causing dry powders, spices, or dehydrated goods to harden and clump.",
+        solution: "Deploy Metallized Polyester (VMPET) or high-density PE sealant layers to achieve near-zero MVTR."
       },
       {
-        title: "UV Light Degradation",
-        description: "Light-sensitive products degrade or change color when exposed to UV.",
-        solution: "Use opaque, printed, or fully metallized barrier films to block 100% of UV exposure."
+        title: "UV & Light-Induced Quality Degradation",
+        description: "Exposure to ultraviolet and visible light degrades vitamins, alters colors, and creates off-flavors in light-sensitive products.",
+        solution: "Integrate fully opaque metallized films or high-density white pigmented barrier structures that block 100% of light."
       },
       {
-        title: "Flavor and Aroma Loss",
-        description: "Volatile aromatic compounds escape, leaving products tasting bland.",
-        solution: "Utilize Nylon (PA) layers or specialized sealants to lock in flavors and prevent aroma scalping."
+        title: "Aroma Loss & Flavor Scalping",
+        description: "Volatile aromatic compounds escape outward, while package polymers absorb flavor compounds, leaving products tasteless.",
+        solution: "Utilize high-barrier BOPA (Nylon) or special aroma-preserving EVOH resins to lock in aroma and prevent flavor migration."
       },
       {
-        title: "Puncture-induced Barrier Failure",
-        description: "Sharp edges cause pinholes, instantly destroying the barrier.",
-        solution: "Reinforce the laminate structure with BOPA (Nylon) to increase puncture resistance and flex-crack resistance."
+        title: "Flex Cracking & Puncture Failures",
+        description: "Stress during transit creates micro-pinholes or cracks in aluminum foil, instantly destroying the barrier performance.",
+        solution: "Reinforce laminate structures with BOPA (Nylon) for outstanding puncture resistance and flex-crack survival."
       }
     ]
   },
   es: {
-    sectionTitle: "5 Problemas Comunes de Barrera (Y Soluciones)",
-    problems: [
+    painPointsTitle: "5 Problemas Comunes de Barrera en Bolsas (Y Soluciones)",
+    painPoints: [
       {
-        title: "Deterioro Prematuro (Alta Tasa OTR)",
-        description: "El oxígeno entra en la bolsa, provocando que los alimentos se estropeen más rápido.",
-        solution: "Implementar capas de alta barrera de EVOH o papel de aluminio para reducir drásticamente la tasa de transmisión de oxígeno."
+        title: "Ingreso de Oxígeno y Deterioro Prematuro (OTR)",
+        description: "El oxígeno atmosférico penetra la película, provocando oxidación, rancidez y un rápido crecimiento microbiano.",
+        solution: "Incorporar capas de EVOH de alta barrera coextruidas o papel de aluminio puro para reducir el OTR por debajo de 1 cc/m²/día."
       },
       {
-        title: "Aglutinación por Humedad (Alta Tasa MVTR)",
-        description: "Los polvos y productos secos absorben la humedad y se aglutinan.",
-        solution: "Añadir capas de PET metalizado (VMPET) o aluminio para bloquear eficazmente el vapor de agua."
+        title: "Penetración de Humedad y Aglutinación (MVTR)",
+        description: "La humedad ambiental entra en la bolsa, provocando que los polvos secos, especias o productos deshidratados se endurezcan y aglutinen.",
+        solution: "Desplegar capas de Poliéster Metalizado (VMPET) o capas de sellado de PE de alta densidad para lograr un MVTR cercano a cero."
       },
       {
-        title: "Degradación por Luz UV",
-        description: "Los productos sensibles a la luz se degradan o cambian de color al exponerse a los rayos UV.",
-        solution: "Utilizar películas de barrera opacas, impresas o totalmente metalizadas para bloquear el 100% de la exposición UV."
+        title: "Degradación de Calidad Inducida por Luz y UV",
+        description: "La exposición a la luz ultravioleta y visible degrada las vitaminas, altera los colores y crea sabores no deseados en productos sensibles a la luz.",
+        solution: "Integrar películas metalizadas totalmente opacas o estructuras de barrera pigmentadas de blanco de alta densidad que bloqueen el 100% de la luz."
       },
       {
-        title: "Pérdida de Sabor y Aroma",
-        description: "Los compuestos aromáticos volátiles escapan, dejando los productos sin sabor.",
-        solution: "Utilizar capas de Nylon (PA) o selladores especializados para conservar los sabores y evitar la pérdida de aroma."
+        title: "Pérdida de Aroma y Absorción de Sabor",
+        description: "Los compuestos aromáticos volátiles se escapan hacia el exterior, mientras que los polímeros del envase absorben los compuestos del sabor, dejando los productos insípidos.",
+        solution: "Utilizar resinas de BOPA (Nylon) de alta barrera o EVOH especiales para conservar el aroma para bloquear los olores y evitar la migración del sabor."
       },
       {
-        title: "Falla de Barrera por Perforación",
-        description: "Los bordes afilados causan agujeros, destruyendo instantáneamente la barrera.",
-        solution: "Reforzar la estructura laminada con BOPA (Nylon) para aumentar la resistencia a las perforaciones y al agrietamiento por flexión."
+        title: "Agrietamiento por Flexión y Fallas por Perforación",
+        description: "El estrés durante el tránsito crea micro-agujeros o grietas en el papel de aluminio, destruyendo instantáneamente el rendimiento de la barrera.",
+        solution: "Reforzar las estructuras laminadas con BOPA (Nylon) para obtener una excelente resistencia a las perforaciones y durabilidad contra el agrietamiento por flexión."
       }
     ]
   },
   fr: {
-    sectionTitle: "5 Problèmes Courants de Barrière (Et Solutions)",
-    problems: [
+    painPointsTitle: "5 Problèmes Courants de Barrière de Sachet (Et Solutions)",
+    painPoints: [
       {
-        title: "Détérioration Prématurée (OTR Élevé)",
-        description: "L'oxygène pénètre dans le sachet, accélérant la détérioration des aliments.",
-        solution: "Intégrer des couches haute barrière en EVOH ou en feuille d'aluminium pour réduire considérablement le taux de transmission d'oxygène."
+        title: "Pénétration d'Oxygène et Détérioration Prématurée (OTR)",
+        description: "L'oxygène atmosphérique traverse le film, provoquant l'oxydation, le rancissement et une croissance microbienne rapide.",
+        solution: "Intégrer des couches coextrudées d'EVOH haute barrière ou d'aluminium pur pour abaisser l'OTR sous 1 cc/m²/jour."
       },
       {
-        title: "Agglomération due à l'Humidité (MVTR Élevé)",
-        description: "Les poudres et les produits secs absorbent l'humidité et s'agglutinent.",
-        solution: "Ajouter des couches de PET métallisé (VMPET) ou d'aluminium pour bloquer efficacement la vapeur d'eau."
+        title: "Pénétration d'Humidité et Agglomération (MVTR)",
+        description: "L'humidité ambiante pénètre dans le sachet, provoquant le durcissement et l'agglomération des poudres sèches, épices ou produits déshydratés.",
+        solution: "Déployer des couches de polyester métallisé (VMPET) ou de PE haute densité pour obtenir un MVTR proche de zéro."
       },
       {
-        title: "Dégradation par les Rayons UV",
-        description: "Les produits sensibles à la lumière se dégradent ou changent de couleur lorsqu'ils sont exposés aux UV.",
-        solution: "Utiliser des films barrières opaques, imprimés ou entièrement métallisés pour bloquer 100 % de l'exposition aux UV."
+        title: "Dégradation de la Qualité par la Lumière et les UV",
+        description: "L'exposition aux UV et à la lumière visible dégrade les vitamines, altère les couleurs et crée des goûts indésirables dans les produits sensibles.",
+        solution: "Intégrer des films métallisés totalement opaques ou des structures barrières pigmentées en blanc haute densité bloquant 100 % de la lumière."
       },
       {
-        title: "Perte de Saveur et d'Arôme",
-        description: "Les composés aromatiques volatils s'échappent, rendant les produits fades.",
-        solution: "Utiliser des couches de Nylon (PA) ou des scellants spécialisés pour retenir les saveurs et empêcher la perte d'arômes."
+        title: "Perte d'Arôme et Migration des Saveurs",
+        description: "Les composés aromatiques volatils s'échappent vers l'extérieur, tandis que les polymères de l'emballage absorbent les saveurs, altérant le goût du produit.",
+        solution: "Utiliser du BOPA (Nylon) haute barrière ou des résines EVOH spécifiques pour préserver les arômes et empêcher la migration des saveurs."
       },
       {
-        title: "Rupture de la Barrière par Perforation",
-        description: "Les bords tranchants provoquent des micro-perforations, détruisant instantanément la barrière.",
-        solution: "Renforcer la structure stratifiée avec du BOPA (Nylon) pour augmenter la résistance à la perforation et aux fissures de flexion."
+        title: "Fissures de Flexion et Ruptures par Perforation",
+        description: "Les contraintes de transport créent des micro-perforations ou des fissures dans l'aluminium, détruisant instantanément la barrière.",
+        solution: "Renforcer les structures stratifiées avec du BOPA (Nylon) pour une excellente résistance aux perforations et aux fissures de flexion."
       }
     ]
   },
   'zh-TW': {
-    sectionTitle: "5個常見的阻隔包裝問題 (與解決方案)",
-    problems: [
+    painPointsTitle: "5個常見的軟袋阻隔包裝問題 (與解決方案)",
+    painPoints: [
       {
-        title: "提早變質 (高透氧率 OTR)",
-        description: "氧氣進入袋內，導致食品加速變質。",
-        solution: "採用高阻隔 EVOH 或鋁箔層，大幅降低氧氣穿透率。"
+        title: "氧氣滲入與提早變質 (OTR)",
+        description: "大氣中的氧氣穿透包裝膜，導致產品氧化、酸敗及微生物快速滋生。",
+        solution: "採用高阻隔 EVOH 共擠出層或純鋁箔層，將透氧率 (OTR) 降至 1 cc/m²/day 以下。"
       },
       {
-        title: "受潮結塊 (高透濕率 MVTR)",
-        description: "粉末和乾燥產品吸收水分並結塊。",
-        solution: "添加鍍鋁 PET (VMPET) 或純鋁層，有效阻擋水氣。"
+        title: "水分滲透與產品結塊 (MVTR)",
+        description: "環境濕度進入袋內，導致乾燥粉末、香料或脫水食品受潮變硬並結塊。",
+        solution: "使用鍍鋁聚酯薄膜 (VMPET) 或高密度 PE 密封層，實現趨近於零的透濕率 (MVTR)。"
       },
       {
-        title: "紫外線降解",
-        description: "光敏產品在紫外線照射下會降解或變色。",
-        solution: "使用不透明、印刷或全金屬化的阻隔膜，阻擋 100% 的紫外線照射。"
+        title: "光線與紫外線引起的品質降解",
+        description: "暴露於紫外線和可見光下會破壞維生素、使顏色變異，並在光敏感產品中產生異味。",
+        solution: "整合完全不透明的鍍鋁薄膜或高密度白色阻隔結構，阻擋 100% 的光線照射。"
       },
       {
-        title: "風味與香氣流失",
-        description: "揮發性芳香化合物逸出，導致產品味道變淡。",
-        solution: "利用尼龍 (PA) 層或專用密封層鎖住風味，防止香氣流失。"
+        title: "香氣流失與風味吸附",
+        description: "揮發性香氣化合物向外逸出，或包裝聚合物吸附風味化合物，導致產品失去原有風味。",
+        solution: "利用高阻隔 BOPA (尼龍) 或特殊的保香性 EVOH 樹脂鎖住風味，防止香氣流失與遷移。"
       },
       {
-        title: "穿刺導致阻隔失效",
-        description: "尖銳邊緣產生針孔，瞬間破壞阻隔層。",
-        solution: "使用 BOPA (尼龍) 強化複合結構，增加抗穿刺和抗折裂性。"
+        title: "折裂與穿刺損壞",
+        description: "運輸過程中的物理應力會在鋁箔中產生微小針孔或裂紋，瞬間使阻隔性能失效。",
+        solution: "使用 BOPA (雙向拉伸尼龍) 強化複合結構，提供卓越的抗穿刺性與抗折裂性。"
       }
     ]
   }
 }
 
 const sectionsForPouch = [
-  { id: 'barrier-problems', translationKey: 'sectionTitle' }
+  { id: 'pouch-barrier-pain-points', translationKey: 'painPointsTitle' }
 ]
 
 const sectionsForAchieve = [
-  { id: 'barrier-problems', translationKey: 'sectionTitle' }
+  { id: 'pouch-barrier-pain-points', translationKey: 'painPointsTitle' }
 ]
 
 // ============================================
@@ -410,39 +410,44 @@ export default function PouchBarrierOverviewPage() {
       </section>
 
       {/* 5 Common Problems */}
-      <section id="barrier-problems" className="py-16 px-4 bg-white border-y-4 border-black">
+      <section id="pouch-barrier-pain-points" className="py-16 px-4 bg-white border-y-4 border-black">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-black text-4xl mb-12 uppercase text-center">{localT.sectionTitle}</h2>
+          <h2 className="font-black text-4xl mb-12 uppercase text-center">{localT.painPointsTitle}</h2>
           
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="relative">
               <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
               <img 
-                src="/imgs/knowledge/pouch-barrier-pain-points.jpg" 
+                src="/imgs/knowledge/pouch-barrier-overview-pain-points.jpg" 
                 alt="Pouch Barrier Problems and Solutions" 
                 className="relative z-10 border-4 border-black w-full object-cover aspect-square"
               />
             </div>
             
             <div className="space-y-6">
-              {localT.problems.map((prob: any, idx: number) => (
-                <div key={idx} className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                  <h3 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
-                    <span className="bg-black text-white w-8 h-8 flex items-center justify-center font-mono text-xs">{idx + 1}</span>
-                    {prob.title}
-                  </h3>
-                  <div className="space-y-3 font-mono text-sm">
-                    <div className="flex gap-3">
-                      <AlertTriangle className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
-                      <p className="text-gray-700">{prob.description}</p>
-                    </div>
-                    <div className="flex gap-3">
-                      <Wrench className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                      <p className="text-gray-900 font-bold">{prob.solution}</p>
+              {localT.painPoints.map((prob: any, idx: number) => {
+                const IconComponent = [Wind, Droplets, Sun, Flame, ShieldAlert][idx] || AlertTriangle
+                return (
+                  <div key={idx} className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h3 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
+                      <span className="bg-black text-white w-8 h-8 flex items-center justify-center font-mono text-xs">
+                        <IconComponent className="w-4 h-4 text-[#D4FF00]" />
+                      </span>
+                      {prob.title}
+                    </h3>
+                    <div className="space-y-3 font-mono text-sm">
+                      <div className="flex gap-3">
+                        <AlertTriangle className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
+                        <p className="text-gray-700">{prob.description}</p>
+                      </div>
+                      <div className="flex gap-3">
+                        <Wrench className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                        <p className="text-gray-900 font-bold">{prob.solution}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>

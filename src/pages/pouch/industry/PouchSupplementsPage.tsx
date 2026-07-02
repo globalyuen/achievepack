@@ -504,7 +504,7 @@ export default function PouchSupplementsPage() {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
               <ClickableImage 
-                src="/imgs/knowledge/supplement-packaging-pain-points.jpg" 
+                src="/imgs/knowledge/pouch-supplements-pain-points.jpg" 
                 alt="Supplement packaging problems and solutions" 
                 className="w-full h-auto object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />
