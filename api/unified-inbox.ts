@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import * as fs from 'fs'
 import * as path from 'path'
+import * as crypto from 'crypto'
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -88,7 +89,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const batchSize = 50
       for (let i = 0; i < uniqueWapp.length; i += batchSize) {
         const batch = uniqueWapp.slice(i, i + batchSize).map(item => ({
-          id: item.id,
+          id: getDeterministicUUID(item.id),
           name: item.name,
           phone: item.phone,
           chat_history: item.chat_history || null,
@@ -316,4 +317,15 @@ declare global {
 }
 String.prototype.stripAndClean = function() {
   return this.replace(/---.*/, '').trim()
+}
+
+function getDeterministicUUID(name: string): string {
+  const hash = crypto.createHash('md5').update(name).digest('hex')
+  return [
+    hash.substring(0, 8),
+    hash.substring(8, 12),
+    '3' + hash.substring(13, 16),
+    (parseInt(hash.substring(16, 17), 16) & 0x3 | 0x8).toString(16) + hash.substring(17, 20),
+    hash.substring(20, 32)
+  ].join('-')
 }

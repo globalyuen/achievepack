@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { FEATURED_PRODUCTS, getProductSubCategory } from '../../store/productData';
+import { useProductTranslation } from '../../utils/productTranslation';
 import { ShoppingBag, ArrowRight, Filter, ChevronRight, CheckCircle } from 'lucide-react';
 
 const CATEGORIES = [
@@ -84,6 +85,7 @@ const LOCAL_TRANSLATIONS = {
 
 export default function PouchShopPage() {
   const { t, i18n } = useTranslation();
+  const { translateProducts } = useProductTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   
   const activeCategory = searchParams.get('category') || 'all';
@@ -120,29 +122,31 @@ export default function PouchShopPage() {
     });
   };
 
-  const filteredProducts = FEATURED_PRODUCTS.filter(p => {
-    // Get product subCategory using helper
-    const subCat = getProductSubCategory(p);
-    
-    // Normalize categories (e.g. sample vs samples)
-    const matchesCategory = activeCategory === 'all' || 
-      p.category === activeCategory || 
-      subCat === activeCategory ||
-      (activeCategory === 'sample' && subCat === 'samples') ||
-      (activeCategory === 'eco-stock' && (subCat === 'eco-stock-plain' || subCat === 'eco-stock-custom-print')) ||
-      (activeCategory === 'conventional-stock' && subCat === 'conventional-stock-plain');
-    
-    // Some products don't have shape prop, fallback to name matching
-    const matchesShape = activeShape === 'all' || 
-      (p as any).shape === activeShape || 
-      p.name?.toLowerCase().includes(activeShape.toLowerCase().replace(' pouch', '')) ||
-      (activeShape === 'Stand Up Pouch / Doypack' && p.name?.toLowerCase().includes('stand up'));
+  const filteredProducts = translateProducts(
+    FEATURED_PRODUCTS.filter(p => {
+      // Get product subCategory using helper
+      const subCat = getProductSubCategory(p);
+      
+      // Normalize categories (e.g. sample vs samples)
+      const matchesCategory = activeCategory === 'all' || 
+        p.category === activeCategory || 
+        subCat === activeCategory ||
+        (activeCategory === 'sample' && subCat === 'samples') ||
+        (activeCategory === 'eco-stock' && (subCat === 'eco-stock-plain' || subCat === 'eco-stock-custom-print')) ||
+        (activeCategory === 'conventional-stock' && subCat === 'conventional-stock-plain');
+      
+      // Some products don't have shape prop, fallback to name matching
+      const matchesShape = activeShape === 'all' || 
+        (p as any).shape === activeShape || 
+        p.name?.toLowerCase().includes(activeShape.toLowerCase().replace(' pouch', '')) ||
+        (activeShape === 'Stand Up Pouch / Doypack' && p.name?.toLowerCase().includes('stand up'));
 
-    const matchesSustainability = activeSustainability === 'all' || 
-      (p as any).sustainability === activeSustainability;
+      const matchesSustainability = activeSustainability === 'all' || 
+        (p as any).sustainability === activeSustainability;
 
-    return matchesCategory && matchesShape && matchesSustainability;
-  });
+      return matchesCategory && matchesShape && matchesSustainability;
+    })
+  );
 
   return (
     <PouchLayout>

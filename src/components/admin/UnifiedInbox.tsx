@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, MapPin, TrendingUp, Calendar, Clock, Bell, ExternalLink, Save, X, Edit2, Info, CheckCircle2, Copy, Mail, Phone, MessageSquare } from 'lucide-react';
+import { Search, MapPin, TrendingUp, Calendar, Clock, Bell, ExternalLink, Save, X, Edit2, Info, CheckCircle2, Copy, Mail, Phone, MessageSquare, Download } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 export type FollowUpStatus = '未跟進' | '已發郵件' | '已聯絡/WhatsApp' | '已通話/會議' | '已寄樣品' | '報價中' | '已下單' | '無效/垃圾';
@@ -194,8 +194,20 @@ export default function UnifiedInbox() {
     const initialNotes = lead.hasWhatsApp ? lead.whatsappData?.notes : lead.emailData?.notes;
     
     setEditStatus((initialStatus as FollowUpStatus) || '未跟進');
-    setEditNotes(initialNotes || '');
-    setAiSuggestion(null);
+    
+    // Extract and parse AI Summary if present
+    if (initialNotes && initialNotes.includes('【AI Summary】')) {
+      const parsed = parseNotesAiSummary(initialNotes);
+      if (parsed) {
+        setAiSuggestion(parsed);
+      }
+      // Remove AI Summary block from the editable notes textbox
+      const cleaned = initialNotes.replace(/【AI Summary】[\s\S]*?$/, '').trim();
+      setEditNotes(cleaned);
+    } else {
+      setEditNotes(initialNotes || '');
+      setAiSuggestion(null);
+    }
     
     const emailToSearch = lead.emailData?.email || '';
     fetchZohoEmails(emailToSearch, lead.name || '');
@@ -204,13 +216,21 @@ export default function UnifiedInbox() {
   const handleSaveEdit = async () => {
     if (!editingLead) return;
     try {
+      let finalWhatsappNotes = editNotes;
+      let finalEmailNotes = editNotes;
+
       // Update WhatsApp if present
       if (editingLead.hasWhatsApp && editingLead.whatsappData) {
+        const originalNotes = editingLead.whatsappData.notes || '';
+        const aiSummaryIndex = originalNotes.indexOf('【AI Summary】');
+        const aiSummaryBlock = aiSummaryIndex !== -1 ? originalNotes.substring(aiSummaryIndex) : '';
+        finalWhatsappNotes = aiSummaryBlock ? `${editNotes}\n\n${aiSummaryBlock}`.trim() : editNotes;
+
         const { error } = await supabase
           .from('whatsapp_inquiries')
           .update({
             status: editStatus,
-            notes: editNotes
+            notes: finalWhatsappNotes
           })
           .eq('id', editingLead.whatsappData.id);
         if (error) throw error;
@@ -218,11 +238,16 @@ export default function UnifiedInbox() {
 
       // Update Email if present
       if (editingLead.hasEmail && editingLead.emailData) {
+        const originalNotes = editingLead.emailData.notes || '';
+        const aiSummaryIndex = originalNotes.indexOf('【AI Summary】');
+        const aiSummaryBlock = aiSummaryIndex !== -1 ? originalNotes.substring(aiSummaryIndex) : '';
+        finalEmailNotes = aiSummaryBlock ? `${editNotes}\n\n${aiSummaryBlock}`.trim() : editNotes;
+
         const { error } = await supabase
           .from('calendly_inquiries')
           .update({
             status: editStatus,
-            notes: editNotes
+            notes: finalEmailNotes
           })
           .eq('id', editingLead.emailData.id);
         if (error) throw error;
@@ -234,8 +259,8 @@ export default function UnifiedInbox() {
           ? { 
               ...item, 
               status: editStatus, 
-              whatsappData: item.whatsappData ? { ...item.whatsappData, status: editStatus, notes: editNotes } : null,
-              emailData: item.emailData ? { ...item.emailData, status: editStatus, notes: editNotes } : null
+              whatsappData: item.whatsappData ? { ...item.whatsappData, status: editStatus, notes: finalWhatsappNotes } : null,
+              emailData: item.emailData ? { ...item.emailData, status: editStatus, notes: finalEmailNotes } : null
             } 
           : item
       ));
@@ -568,7 +593,7 @@ export default function UnifiedInbox() {
               {editingLead.hasWhatsApp && (
                 <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-xs text-emerald-900">
                   <span className="font-bold flex items-center gap-1"><MessageSquare className="w-3.5 h-3.5"/> WhatsApp 對話：</span>
-                  <pre className="mt-1 leading-relaxed text-emerald-800 whitespace-pre-wrap font-mono max-h-40 overflow-y-auto">{editingLead.whatsappData?.chat_history || '（未填寫）'}</pre>
+                  <ChatViewer chatHistory={editingLead.whatsappData?.chat_history || ''} name={editingLead.name || ''} />
                 </div>
               )}
               
@@ -705,3 +730,125 @@ export default function UnifiedInbox() {
     </div>
   );
 }
+
+interface ChatMessage {
+  time: string;
+  sender: string;
+  content: string;
+  isMe: boolean;
+}
+
+const parseChatHistory = (history: string, customerName: string): ChatMessage[] => {
+  if (!history) return [];
+  const lines = history.split('\n');
+  const messages: ChatMessage[] = [];
+  let currentMsg: ChatMessage | null = null;
+
+  const headerRegex = /^\*\*\[([\d\-:\s]+)\]\s*([^:]+):\*\*(.*)$/;
+
+  for (const line of lines) {
+    const match = line.match(headerRegex);
+    if (match) {
+      if (currentMsg) {
+        messages.push(currentMsg);
+      }
+      const time = match[1].trim();
+      const sender = match[2].trim();
+      const content = match[3].trim();
+      currentMsg = {
+        time,
+        sender,
+        content,
+        isMe: sender.toLowerCase() === 'you'
+      };
+    } else {
+      if (currentMsg) {
+        currentMsg.content += '\n' + line;
+      } else {
+        currentMsg = {
+          time: '',
+          sender: customerName,
+          content: line,
+          isMe: false
+        };
+      }
+    }
+  }
+  if (currentMsg) {
+    messages.push(currentMsg);
+  }
+  return messages;
+};
+
+const resolveMediaUrl = (url: string, name: string) => {
+  const cleanName = name.replace(/[^a-zA-Z0-9]/g, '');
+  const filename = url.split('/').pop() || '';
+  return `/whatsapp_media/${cleanName}/${filename}`;
+};
+
+const renderMessageContent = (content: string, name: string) => {
+  // Check image
+  const imgRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
+  const imgMatch = content.match(imgRegex);
+  if (imgMatch) {
+    const alt = imgMatch[1];
+    const src = resolveMediaUrl(imgMatch[2], name);
+    return <img src={src} alt={alt} className="max-w-full rounded-lg border border-gray-200 shadow-sm mt-1" />;
+  }
+
+  // Check video/file link
+  const fileRegex = /\[Attached File:\s*([^\]]+)\]\(([^)]+)\)/i;
+  const fileMatch = content.match(fileRegex);
+  if (fileMatch) {
+    const filename = fileMatch[1];
+    const src = resolveMediaUrl(fileMatch[2], name);
+    const isVideo = filename.toLowerCase().endsWith('.mp4') || filename.toLowerCase().endsWith('.mov');
+    if (isVideo) {
+      return (
+        <video src={src} controls className="max-w-full rounded-lg border border-gray-200 shadow-sm mt-1">
+          Your browser does not support the video tag.
+        </video>
+      );
+    }
+    return (
+      <a href={src} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-blue-600 hover:underline font-semibold mt-1">
+        <Download className="w-4 h-4" /> {filename}
+      </a>
+    );
+  }
+
+  return <div className="whitespace-pre-wrap">{content}</div>;
+};
+
+const ChatViewer = ({ chatHistory, name }: { chatHistory: string; name: string }) => {
+  const messages = parseChatHistory(chatHistory, name);
+  if (messages.length === 0) {
+    return <div className="text-gray-500 italic py-2">無對話記錄</div>;
+  }
+  return (
+    <div className="mt-2 space-y-3 max-h-80 overflow-y-auto p-3 bg-gray-50 rounded-xl border border-gray-200">
+      {messages.map((msg, idx) => (
+        <div key={idx} className={`flex flex-col ${msg.isMe ? 'items-end' : 'items-start'}`}>
+          <div className="text-[10px] text-gray-500 mb-0.5 px-1">{msg.sender} • {msg.time}</div>
+          <div className={`p-2.5 rounded-2xl max-w-[85%] text-xs shadow-sm ${msg.isMe ? 'bg-emerald-600 text-white rounded-tr-none' : 'bg-white text-gray-900 rounded-tl-none border border-gray-100'}`}>
+            {renderMessageContent(msg.content, name)}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const parseNotesAiSummary = (notes: string) => {
+  if (!notes || !notes.includes('【AI Summary】')) return null;
+  const statusMatch = notes.match(/互動狀態：([^\n]+)/);
+  const nextMatch = notes.match(/下一步行動：([^\n]+)/);
+  const draftMatch = notes.match(/建議回覆：([\s\S]+)$/);
+  
+  return {
+    statusSummary: statusMatch ? statusMatch[1].trim() : '',
+    nextAction: nextMatch ? nextMatch[1].trim() : '',
+    whatsappDraft: draftMatch ? draftMatch[1].trim() : ''
+  };
+};
+

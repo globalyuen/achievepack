@@ -50,13 +50,17 @@ const TRANSLATIONS = {
   }
 };
 
+import { useProductTranslation } from '../../utils/productTranslation';
+
 export default function PouchProductDetailPage() {
   const { productId } = useParams();
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language || 'en';
   const tData = TRANSLATIONS[currentLang as keyof typeof TRANSLATIONS] || TRANSLATIONS.en;
 
-  const product = FEATURED_PRODUCTS.find(p => p.id === productId);
+  const { translateProduct } = useProductTranslation();
+  const rawProduct = FEATURED_PRODUCTS.find(p => p.id === productId);
+  const product = rawProduct ? translateProduct(rawProduct) : undefined;
 
   if (!product) {
     return (

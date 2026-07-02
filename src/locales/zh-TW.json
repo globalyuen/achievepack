@@ -47843,5 +47843,1038 @@
     },
     "viewFullSize": "查看原圖",
     "viewMacroShot": "查看微距照片"
+  },
+  "productData": {
+    "sample-sizing-pack": {
+      "name": "尺寸樣品包（傳統塑料材質）",
+      "shortDesc": "免費樣品 + 運費 $40",
+      "description": "以傳統塑料材質製成的標準尺寸免費樣品，適合用於測試不同尺寸是否符合您的產品需求。",
+      "features": [
+        "多種標準尺寸",
+        "傳統塑料材質",
+        "免費樣品",
+        "快速出貨"
+      ]
+    },
+    "sample-assorted-eco": {
+      "name": "多款環保軟包樣品組合",
+      "shortDesc": "免費樣品 + 運費 $40",
+      "description": "混合環保樣品袋組合，包含 PCR/Bio 生物材質、可回收材質及可堆肥材質等多種選擇。",
+      "features": [
+        "PCR/Bio 生物材質",
+        "可回收選項",
+        "可堆肥選項",
+        "多款混合組合"
+      ]
+    },
+    "sample-top-film": {
+      "name": "客製數位印刷上層薄膜樣品",
+      "shortDesc": "樣品費 $20 + 運費 $40",
+      "description": "大幅面數位印刷薄膜樣品，適合測試印刷品質與色彩還原效果。",
+      "features": [
+        "760mm x 1000mm",
+        "數位印刷品質",
+        "色彩測試",
+        "快速交期"
+      ]
+    },
+    "sample-hand-sealed": {
+      "name": "客製數位印刷手工熱封軟袋",
+      "shortDesc": "樣品費 $20 + 運費 $40",
+      "description": "客製尺寸手工熱封數位印刷軟袋，在批量下單前可先測試您的確切規格要求。",
+      "features": [
+        "客製尺寸",
+        "手工熱封",
+        "數位印刷",
+        "完全客製化"
+      ]
+    },
+    "conven-3ss-clear-xzip": {
+      "name": "三邊封軟袋 – 透明，無拉鏈",
+      "shortDesc": "100件起 US$90",
+      "description": "晶瑩剔透的三邊封軟袋，低阻隔光面處理，完整展示產品內容物，視覺效果極佳。",
+      "features": [
+        "透明材質",
+        "低阻隔（亮面）",
+        "數位印刷",
+        "免費運送"
+      ]
+    },
+    "conven-3ss-clear-zip": {
+      "name": "三邊封軟袋 – 透明，附拉鏈",
+      "shortDesc": "100件起 US$110",
+      "description": "可重複密封的透明三邊封軟袋，兼具產品展示透視性與便利重封功能。",
+      "features": [
+        "透明材質",
+        "可重封拉鏈",
+        "低阻隔（亮面）",
+        "數位印刷"
+      ]
+    },
+    "conven-3ss-met-xzip": {
+      "name": "三邊封軟袋 – 鍍金屬膜，無拉鏈",
+      "shortDesc": "100件起 US$90",
+      "description": "鍍金屬膜三邊封軟袋，高阻隔防護性能優異，適合對光線及水分敏感的產品。",
+      "features": [
+        "鍍金屬膜材質",
+        "高阻隔（霧面）",
+        "遮光保護",
+        "數位印刷"
+      ]
+    },
+    "conven-3ss-met-zip": {
+      "name": "三邊封軟袋 – 鍍金屬膜，附拉鏈",
+      "shortDesc": "100件起 US$110",
+      "description": "頂級鍍金屬膜三邊封附拉鏈軟袋，最高等級防護性能結合便利重封設計，有效保持產品新鮮度。",
+      "features": [
+        "鍍金屬膜材質",
+        "可重封拉鏈",
+        "高阻隔（霧面）",
+        "最佳保鮮效果"
+      ]
+    },
+    "conven-sup-clear-xzip": {
+      "name": "站立式軟袋 – 透明，無拉鏈",
+      "shortDesc": "100件起 US$90",
+      "description": "透明站立式軟袋，貨架陳列效果出色，可直立展示產品內容物，視覺衝擊力強。",
+      "features": [
+        "透明材質",
+        "自立設計",
+        "低阻隔（亮面）",
+        "貨架陳列效果佳"
+      ]
+    },
+    "conven-sup-clear-zip": {
+      "name": "站立式軟袋 – 透明，附拉鏈",
+      "shortDesc": "100件起 US$100",
+      "description": "可重封透明站立式軟袋，完美結合產品透視性、貨架吸引力與便利重封功能。",
+      "features": [
+        "透明材質",
+        "自立 + 拉鏈",
+        "低阻隔（亮面）",
+        "免費運送"
+      ]
+    },
+    "conven-sup-met-xzip": {
+      "name": "站立式軟袋 – 鍍金屬膜，無拉鏈",
+      "shortDesc": "100件起 US$90",
+      "description": "鍍金屬膜站立式軟袋，高阻隔防護性能兼具頂級外觀質感與產品保護效果。",
+      "features": [
+        "鍍金屬膜材質",
+        "自立設計",
+        "高阻隔（霧面）",
+        "高端質感"
+      ]
+    },
+    "conven-sup-met-zip": {
+      "name": "站立式軟袋 – 鍍金屬膜，附拉鏈",
+      "shortDesc": "100件起 US$100",
+      "description": "頂級鍍金屬膜站立式附拉鏈軟袋，集所有高端功能於一身，為我們的暢銷首選款式。",
+      "features": [
+        "鍍金屬膜材質",
+        "自立 + 拉鏈",
+        "高阻隔（霧面）",
+        "暢銷款"
+      ]
+    },
+    "conven-fb-met-zip": {
+      "name": "平底軟袋 – 鍍金屬膜，附拉鏈",
+      "shortDesc": "500件起 US$900",
+      "description": "鍍金屬膜高阻隔平底拉鏈軟袋，結構穩固挺立，外型典雅大方，貨架陳列效果極為出色。",
+      "features": [
+        "鍍金屬膜材質",
+        "平底 + 拉鏈",
+        "高阻隔（霧面）",
+        "自立穩固結構"
+      ]
+    },
+    "small-sachet-conventional": {
+      "name": "小型獨立包裝袋 – 傳統材質",
+      "shortDesc": "500件起 US$159.60",
+      "description": "客製印刷小型獨立包裝袋，採用頂級絲光純鋁多層複合結構（120微米 / 12丝），提供超高水分及光線阻隔性能。適合單份咖啡、茶葉、粉末類及美妝試用樣品分裝。",
+      "features": [
+        "絲光純鋁（12丝）",
+        "超高阻隔性能",
+        "燙金 & 數位印刷",
+        "客製尺寸 & 造型"
+      ]
+    },
+    "eco-3side": {
+      "name": "環保數位印刷 – 三邊封軟袋",
+      "shortDesc": "1,000件起 US$100",
+      "description": "環保三邊封軟袋，可選擇 PCR/Bio 生物塑料、單材質可回收或生物可降解材質。",
+      "features": [
+        "環保材質",
+        "碳排放降低 30%",
+        "數位印刷",
+        "永續環保"
+      ]
+    },
+    "eco-centerseal": {
+      "name": "環保數位印刷 – 中央封合軟袋",
+      "shortDesc": "1,000件起 US$100",
+      "description": "環保中央封合設計，簡約經濟實惠，提供多種永續環保材質選擇。",
+      "features": [
+        "環保材質",
+        "中央封合",
+        "數位印刷",
+        "永續環保"
+      ]
+    },
+    "eco-standup": {
+      "name": "環保數位印刷 – 站立式軟袋 / Doypack",
+      "shortDesc": "1,000件起 US$120",
+      "description": "頂級環保站立式軟袋，以永續環保材質呈現出色的貨架陳列效果。",
+      "features": [
+        "環保材質",
+        "自立設計",
+        "數位印刷",
+        "高端質感"
+      ]
+    },
+    "eco-boxbottom": {
+      "name": "環保數位印刷 – 盒底軟袋",
+      "shortDesc": "1,000件起 US$170",
+      "description": "環保盒底軟袋，以永續環保材質提供最大的結構穩定性與容量。",
+      "features": [
+        "環保材質",
+        "盒底設計",
+        "大容量",
+        "永續環保"
+      ]
+    },
+    "eco-flatbottom": {
+      "name": "環保數位印刷 – 方形平底軟袋",
+      "shortDesc": "1,000件起 US$190",
+      "description": "環保平底軟袋，以環保材質呈現頂級平底造型設計。",
+      "features": [
+        "環保材質",
+        "平底設計",
+        "高端造型",
+        "永續環保"
+      ]
+    },
+    "eco-quadseal": {
+      "name": "環保數位印刷 – 四邊封軟袋",
+      "shortDesc": "1,000件起 US$160",
+      "description": "環保四邊封軟袋，四角密封設計提供最高結構穩定性，採用永續環保材質。",
+      "features": [
+        "環保材質",
+        "四邊封合",
+        "高度穩定性",
+        "永續環保"
+      ]
+    },
+    "eco-sidegusset": {
+      "name": "環保數位印刷 – 側邊擴展軟袋",
+      "shortDesc": "1,000件起 US$140",
+      "description": "環保側邊擴展軟袋，採用永續環保材質，呈現經典咖啡袋風格造型。",
+      "features": [
+        "環保材質",
+        "側邊擴展",
+        "咖啡袋造型",
+        "永續環保"
+      ]
+    },
+    "media__1780570697340.jpg": {
+      "name": "客製環保捲膜（Rollstock）",
+      "shortDesc": "專為自動化成形-充填-封口（FFS）包裝生產線設計的環保客製捲膜",
+      "description": "專為自動化成形-充填-封口（FFS）包裝機械工程設計的客製環保捲膜。可選擇 PCR/Bio 生物塑料、單材質可回收或生物可降解材質。",
+      "features": [
+        "環保材質：可選擇生物可降解、可堆肥或可回收聚合物薄膜",
+        "自動化 FFS 適配：工程優化滑動性及高抗拉強度，確保自動包裝機無縫運行",
+        "數位客製印刷：免制版費，短版印刷亦可實現鮮豔多色還原",
+        "食品級認證：100% 符合 FDA、LFGB 及 BRC 食品安全標準"
+      ]
+    },
+    "food-grade-three-layer-chocolate-cushioning-paper-pad": {
+      "name": "食品級三層巧克力緩衝紙墊 – 黑白印刷，防潮防震蜂巢華夫紙墊",
+      "shortDesc": "食品級三層巧克力緩衝蜂巢華夫紙墊，具防潮防震功能",
+      "description": "採用三層蜂巢華夫結構工程設計的頂級食品級緩衝紙墊，專為精緻巧克力、糖果點心、糕點及精細烘焙品設計。提供卓越的防震吸收、防潮及緩衝保護，有效防止運輸過程中破裂或壓碎。採用 100% 天然可生物降解及可堆肥紙質材料，配以食品安全黑白印刷設計。",
+      "features": [
+        "食品安全 & FDA 合規：採用 100% 食品級紙張製造，可直接接觸糖果食品。",
+        "三層蜂巢華夫緩衝結構：展開式華夫紋提供優異的防震保護性能。",
+        "防潮 & 防油：外層有效防止油脂滲透，維持產品高端呈現效果。",
+        "100% 生物可降解 & 可堆肥：取代塑料氣泡墊的植物基永續替代方案。",
+        "客製印刷 & 尺寸選項：支援品牌客製黑白印刷，契合品牌 Logo 設計。"
+      ]
+    },
+    "reusable-acrylic-airtight-canister": {
+      "name": "可重複使用壓克力密封收納罐",
+      "shortDesc": "頂級可重複使用壓克力收納罐，配雙層密封金色瓶蓋",
+      "description": "專為乾貨、茶葉、咖啡、草本植物及美妝產品設計的頂級高耐用可重複使用壓克力密封收納罐。採用食品級高透明壓克力罐身，配備雙層防護金色螺旋瓶蓋及矽膠密封墊圈，確保長期保鮮及防潮效果。作為一次性零售包裝的永續替代方案，優化設計適合家庭及商業無限次補充使用。",
+      "features": [
+        "零廢棄循環設計：工程設計支援無限次洗滌及補充使用，取代一次性包裝。",
+        "高透明食品級壓克力：類玻璃透明外觀兼具高抗破碎性及低運輸重量。",
+        "雙層金色螺旋瓶蓋：食品級內螺紋雙層保護蓋，實現防滲漏密封效果。",
+        "矽膠密封墊圈：海洋級保鮮密封，防止內容物接觸空氣及潮濕環境。",
+        "多種容量規格：提供從 100ml 至 400ml 共 20 種精確容量，適配各類零售貨架空間。"
+      ]
+    },
+    "spouted-stand-up-pouch-bio-pe": {
+      "name": "Bio-PE 吸嘴站立式軟袋",
+      "shortDesc": "環保甘蔗 Bio-PE 站立式軟袋，配防漏吸嘴",
+      "description": "採用甘蔗衍生植物基聚乙烯（Bio-PE）工程設計的頂級客製規格 B2B 批發包裝方案。以 PET12/AL7/NY15/Bio-PE80 複合結構配方，在提供與傳統塑料相同阻隔性能的同時，顯著降低品牌碳排放足跡。可與標準 PE 回收流相容，配備堅固焊接密封及防竄改可重封螺旋蓋，適合液體、泥狀食品、嬰兒食品及補充填充使用。",
+      "features": [
+        "進階 B2B 規格：甘蔗基 Bio-PE，吸嘴內徑 8mm",
+        "頂級環保材質：採用可再生 PET12/AL7/NY15/Bio-PE80 工程設計。",
+        "100% 可回收：與標準 PE 回收流（#2 及 #4）相容。",
+        "防漏焊接密封：專為液體、泥狀及食品級配方運輸設計。",
+        "防竄改瓶蓋：內建可靠封口系統，有效保持產品新鮮度。"
+      ]
+    },
+    "recyclable-3ss-evoh-pe-102x152": {
+      "name": "102mm x 152mm 三邊封軟袋（可回收 PE / EVOH-PE）",
+      "shortDesc": "頂級客製報價 B2B 三邊封軟袋，採用可回收 PE/EVOH-PE 複合薄膜",
+      "description": "達到最高商業標準的頂級客製規格 B2B 批發包裝方案。採用高性能可回收 PE/EVOH-PE 複合結構，提供對抗潮濕、光線及氧化的最高阻隔防護性能。專為零售陳列配方，確保保鮮及結構完整性，為咖啡、茶葉、有機零食或工業零件提供卓越的貨架壽命保護。具備標準封口寬度、整潔平邊及易撕缺口。",
+      "features": [
+        "進階 B2B 規格：高阻隔 EVOH-PE 複合材質，標準封口寬度，無拉鏈",
+        "三邊封設計：優化平面格式，適合專業零售陳列及高效裝箱。",
+        "頂級材質結構：採用 100% 可回收單聚合物 Mono-PE 配 EVOH 阻隔層工程設計。",
+        "批發分級定價：最低 MOQ 從 200 件起，提供分級批量折扣。",
+        "環保意識之選：完全可回收結構，符合標準循環回收流設計。"
+      ]
+    },
+    "rice-paper-500g-standup": {
+      "name": "220mm x 240mm + 90mm 站立式拉鏈軟袋（米紙 / PBAT）",
+      "shortDesc": "頂級客製報價 B2B 站立式軟袋，採用米紙 30g / PBAT 100 配 PLA 排氣閥",
+      "description": "達到最高商業標準的頂級客製規格 B2B 批發包裝方案。採用重磅米紙 30g / PBAT 100 可堆肥多層複合結構，提供對抗潮濕、光線及氧化的最高阻隔防護性能。專為零售陳列配方，確保風味及結構完整性，為咖啡、特色食品、有機美食或工業耗材提供卓越的貨架壽命保護。配備便利撕口、可靠的可重封拉鏈、PLA 排氣閥及堅固密封線。",
+      "features": [
+        "進階 B2B 規格：可重封生物可降解拉鏈，PLA 排氣閥",
+        "站立式軟袋設計：完美成型的 B2B 商業包裝，優化專業品牌形象呈現。",
+        "頂級材質結構：採用高性能米紙 30g / PBAT 100 可堆肥層複合工程設計。",
+        "批發分級定價：最低 MOQ 從 500 件起，提供客製折扣方案。",
+        "安全封口系統：內建可靠密封，有效保持產品新鮮度並阻隔水分。"
+      ]
+    },
+    "stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl": {
+      "name": "300mm x 340mm + 150mm 站立式軟袋（白色牛皮紙 60g）",
+      "shortDesc": "頂級客製報價 B2B 站立式軟袋，採用白色牛皮紙 60g / PLA 鍍鋁塗層 / PLA+PBAT 生物可降解",
+      "description": "達到最高商業標準的頂級客製規格 B2B 批發包裝方案。採用重磅白色牛皮紙 60g / PLA 鍍鋁塗層 / PLA+PBAT 生物可降解多層複合結構，提供對抗潮濕、光線及氧化的最高阻隔防護性能。專為零售陳列配方，確保風味及結構完整性，為咖啡、特色食品、有機美食或工業耗材提供卓越的貨架壽命保護。配備便利撕口及堅固密封線。",
+      "features": [
+        "進階 B2B 規格：生物可降解拉鏈 13mm-PLA2，透明袋體",
+        "站立式軟袋設計：完美成型的 B2B 商業包裝，優化專業品牌形象呈現。",
+        "頂級材質結構：採用高性能白色牛皮紙 60g / PLA 鍍鋁塗層 / PLA+PBAT 生物可降解層複合工程設計。",
+        "批發分級定價：最低 MOQ 從 1,000 件起，提供客製折扣方案。",
+        "安全封口系統：內建可靠密封，有效保持產品新鮮度並阻隔水分。"
+      ]
+    },
+    "stand-up-zipper-bag-50-tablets-white-kraft-paper-60g-pla-pba": {
+      "name": "215mm x 215mm x 100mm 站立式軟袋（白色牛皮紙 60g）",
+      "shortDesc": "頂級客製報價 B2B 站立式軟袋，採用白色牛皮紙 60g / PLA+PBAT 生物可降解",
+      "description": "達到最高商業標準的頂級客製規格 B2B 批發包裝方案。採用重磅白色牛皮紙 60g / PLA+PBAT 生物可降解多層複合結構，提供對抗潮濕、光線及氧化的最高阻隔防護性能。專為零售陳列配方，確保風味及結構完整性，為咖啡、特色食品、有機美食或工業耗材提供卓越的貨架壽命保護。配備便利撕口及堅固密封線。",
+      "features": [
+        "進階 B2B 規格：局部防變色油，生物可降解拉鏈 13mm PLA2，厚度 135",
+        "站立式軟袋設計：完美成型的 B2B 商業包裝，優化專業品牌形象呈現。",
+        "頂級材質結構：採用高性能白色牛皮紙 60g / PLA+PBAT 生物可降解層複合工程設計。",
+        "批發分級定價：最低 MOQ 從 1,000 件起，提供客製折扣方案。",
+        "安全封口系統：內建可靠密封，有效保持產品新鮮度並阻隔水分。"
+      ]
+    },
+    "stand-up-zipper-bag-50-tablets-suggested-size-white-kraft-pa": {
+      "name": "215 mm x 215 mm x 100 mm 立體夾鏈袋 (建議容量 50 錠)",
+      "shortDesc": "優質客製化報價 B2B 立體袋，由 白色牛皮紙 60g / PLA 鍍鋁 / PLA+PBAT 可降解材料製成",
+      "description": "專為滿足最高商業標準而設計的優質客製化規格批發 B2B 包裝解決方案。採用高強度的 白色牛皮紙 60g / PLA 鍍鋁 / PLA+PBAT 可降解多層結構，本產品確保對濕氣、光線和氧化的最大屏障防禦。專為零售展示保留風味和結構完整性而調配，為咖啡、特製品、有機點心或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：防變色油、可降解夾鏈 13mm PLA2、厚度 150",
+        "立體袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能 白色牛皮紙 60g / PLA 鍍鋁 / PLA+PBAT 可降解層設計。",
+        "批發價值梯隊：最低 MOQ 1,000 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "stand-up-pouch-white-kraft-paper-60g-pla-aluminized-pla-pbat": {
+      "name": "300 x 340 + 150 mm 立體袋 (白色牛皮紙 60g)",
+      "shortDesc": "優質客製化報價 B2B 立體袋，由 白色牛皮紙 60g / PLA 鍍鋁 / PLA+PBAT 可生物降解材料製成",
+      "description": "專為滿足最高商業標準而設計的優質客製化規格批發 B2B 包裝解決方案。採用高強度的 白色牛皮紙 60g / PLA 鍍鋁 / PLA+PBAT 可生物降解多層結構，本產品確保對濕氣、光線和氧化的最大屏障防禦。專為零售展示保留風味和結構完整性而調配，為咖啡、特製品、有機點心或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：可降解夾鏈 13mm PLA2",
+        "立體袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能 白色牛皮紙 60g / PLA 鍍鋁 / PLA+PBAT 可生物降解層設計。",
+        "批發價值梯隊：最低 MOQ 1,000 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50": {
+      "name": "602-4 夾鏈立體袋",
+      "shortDesc": "優質客製 B2B 立體袋，由高阻隔 NK25/白色牛皮紙 50g/PBS 60 製成",
+      "description": "專為滿足高性能包裝標準而設計的優質客製規格 B2B 包裝解決方案。採用高強度的 高阻隔 NK25/白色牛皮紙 50g/PBS 60，總厚度 135U 複合結構，本產品確保對濕氣、光線和氧化的最大屏障抵抗力。專為零售展示保留上架穩定性和結構完整性而調配，為咖啡、乾燥點心、特製品或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：夾鏈立體袋，每個袋子 22.81g",
+        "立體袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能 高阻隔 NK25/白色牛皮紙 50g/PBS 60，總厚度 135U 層設計。",
+        "批發價值梯隊：最低 MOQ 10,000 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized": {
+      "name": "背封側風琴袋",
+      "shortDesc": "優質客製 B2B 側風琴袋，由 白色牛皮紙-60g/PLA 鍍鋁///PLA+PBAT 可降解材料製成",
+      "description": "專為滿足高性能包裝標準而設計的優質客製規格 B2B 包裝解決方案。採用高強度的 白色牛皮紙-60g/PLA 鍍鋁///PLA+PBAT 可降解複合結構，本產品確保對濕氣、光線和氧化的最大屏障抵抗力。專為零售展示保留上架穩定性和結構完整性而調配，為咖啡、乾燥點心、特製品或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：局部銅版啞光油、厚度 150",
+        "側風琴袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能 白色牛皮紙-60g/PLA 鍍鋁///PLA+PBAT 可降解層設計。",
+        "批發價值梯隊：最低 MOQ 1,000 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "middle-seal-gusset-bag-transparent-compostable": {
+      "name": "背封側風琴袋 (透明)",
+      "shortDesc": "優質客製 B2B 側風琴袋，配有高清晰度透明可堆肥薄膜",
+      "description": "專為滿足高性能包裝標準而設計的優質客製規格 B2B 包裝解決方案。採用高清晰度可堆肥 PLA/PBAT 透明結構，本產品在保持對濕氣和灰塵的高阻隔保護的同時，確保了出色的產品可見性。專為零售展示保留上架穩定性和結構完整性而調配，為咖啡、乾燥點心、特製品或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：透明袋、厚度 150",
+        "側風琴袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能透明可堆肥 PLA+PBAT 層設計。",
+        "批發價值梯隊：最低 MOQ 1,000 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102": {
+      "name": "三邊封袋",
+      "shortDesc": "優質客製 B2B 三邊封袋，由可回收 PE/EVOH-PE 複合薄膜製成",
+      "description": "專為滿足高性能包裝標準而設計的優質客製規格 B2B 包裝解決方案。採用高強度的可回收 PE/EVOH-PE 複合薄膜複合結構，本產品確保對濕氣、光線和氧化的最大屏障抵抗力。專為零售展示保留上架穩定性和結構完整性而調配，為咖啡、乾燥點心、特製品或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：無夾鏈、標準密封寬度",
+        "三邊封袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能可回收 PE/EVOH-PE 複合薄膜層設計。",
+        "批發價值梯隊：最低 MOQ 200 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "eco-friendly-kraft-honeycomb-packing-paper-wrap": {
+      "name": "環保牛皮蜂巢包裝紙",
+      "shortDesc": "優質 80g 原生木漿可堆肥蜂巢緩衝包裝紙，適用於玻璃、化妝品和花卉",
+      "description": "由 100% 天然原生木漿牛皮紙製成的優質、超強防護緩衝解決方案。採用獨特的蜂巢拉伸結構，該包裝紙提供出色的避震、防刮和負荷分佈，無需使用塑膠氣泡紙。具備可生物降解、可堆肥和可回收性，非常適合用於高檔化妝品、玻璃與陶瓷器皿、電子產品以及優雅的花卉包裝。",
+      "features": [
+        "100% 原生木漿，FSC 認證牛皮紙",
+        "拉伸蜂巢結構提供卓越的避震性能",
+        "替代塑膠氣泡紙和包裝填充顆粒的環保選擇",
+        "無需膠帶或剪刀：互鎖設計，包裝輕鬆",
+        "提供 4 種優雅顏色，呈現高級美觀感",
+        "天然可生物降解、可堆肥且完全可回收"
+      ]
+    },
+    "retro-horizontal-kraft-food-handle-bag": {
+      "name": "復古橫式手提牛皮食品與禮品袋",
+      "shortDesc": "加厚 FSC 認證復古橫式牛皮包裝袋，附提手和內層淋膜",
+      "description": "一款極具優雅、復古主題的橫式牛皮紙包裝袋，配有安全牢固的提手和高阻隔防潮食品級內層淋膜。採用加厚 FSC 認證的天然牛皮紙製成，融合了經典的有機美學與出色的耐用性、抗撕裂性及食品保存性能。非常適合大裝乾貨、特色大米、雜糧、優質乾果、茶葉、有機零食以及質樸的禮品呈現。",
+      "features": [
+        "加厚 FSC 認證有機牛皮紙，具備復古設計",
+        "內部食品級防潮、防漏淋膜",
+        "堅固提手便於攜帶，提供極佳便利性",
+        "橫式站立佈局，具備寬扁平風琴底",
+        "特色雜糧、大米、乾果、茶葉和禮品的理想選擇",
+        "外身 100% 可回收且可生物降解"
+      ]
+    },
+    "40ml-foil-capsule-and-packing-machine": {
+      "name": "40ml 鋁箔膠囊與包裝機",
+      "shortDesc": "DIY 食品級 100% 可回收 40ml 鋁箔膠囊和緊湊型熱封機套裝",
+      "description": "一款多功能的 DIY 保存套裝，配有高阻隔食品級雙色鋁箔杯 (40ml) 和配套的密封蓋，以及一台緊湊型手動熱封機。採用優質 100% 可回收鋁箔，並通過無膠熱壓密封工藝製成，該套裝保證了出色的密封性能、耐高溫性以及優越的防潮/防氧化屏障。非常適合 DIY 包裝並鎖定散裝茶葉、咖啡粉/液、蜂蜜、醬汁、益生菌、草藥和乾燥調味品的新鮮度。",
+      "features": [
+        "100% 可回收食品級高阻隔鋁箔",
+        "雙色金屬質感外觀 (高級美感)",
+        "無膠熱壓密封工藝，確保封口牢固",
+        "緊湊可攜式封口機 (手動操作)",
+        "優異的耐熱與耐冷性能 (適合冷藏)",
+        "高度多功能的 DIY 包裝 (茶葉、咖啡、蜂蜜、醬汁)"
+      ]
+    },
+    "100-recyclable-pe-wire-cut-zipper-bag": {
+      "name": "100% 可回收 PE 切線夾鏈袋",
+      "shortDesc": "高清晰食品級可回收 PE 切線夾鏈袋",
+      "description": "100% 可回收、高清晰度、食品級 PE 切線夾鏈袋。專為安全、環保的儲存和整理而設計。具有高透明度外觀、超強凹凸咬合夾鏈以及乾淨耐用的切線熱封邊緣。由優質原生聚乙烯材料製成，不含任何常規塑料添加劑，完全符合全球食品接觸安全標準並可完全回收。非常適合乾食品、配件、零件和零售商品。",
+      "features": [
+        "100% 可回收食品級 PE 材質",
+        "高透明度與玻璃般清晰度",
+        "強力凹凸咬合式夾鏈",
+        "乾淨俐落的切線熱封邊緣",
+        "符合 FDA & LFGB 食品安全標準"
+      ]
+    },
+    "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch": {
+      "name": "無印刷白色牛皮可堆肥與可生物降解夾鏈立體袋",
+      "shortDesc": "優質環保白色牛皮立體夾鏈袋",
+      "description": "100% 認證可堆肥和可生物降解立體袋，由優質天然白色牛皮紙和高阻隔可堆肥植物基生物薄膜製成。具有堅固的防漏可複封夾鏈、便於開啟的易撕口和穩固的底風琴。零 PE，零常規塑料 — 完全符合 BPI、OK Compost 和 Din Certco 可堆肥標準，適用於環保產品包裝。",
+      "features": [
+        "100% 認證可堆肥與可生物降解",
+        "優質天然白色牛皮紙外觀",
+        "高阻隔植物基環保防護",
+        "強韌密封可複封夾鏈",
+        "穩固底風琴，帶來完美貨架展示效果"
+      ]
+    },
+    "eco-stock-flatbottom-kraft": {
+      "name": "Compostable Flat Bottom Pouch – Natural Kraft",
+      "shortDesc": "1000 個起，美金 1000 元起",
+      "description": "100% 可堆肥平底袋，具備本色牛皮紙外觀。由植物基材料製成，可在工業堆肥設施中降解。具有單側夾鏈，便於重複密封。",
+      "features": [
+        "100% 可堆肥",
+        "工業堆肥認證",
+        "高阻隔 (+12 個月)",
+        "單側夾鏈",
+        "本色牛皮紙外觀"
+      ]
+    },
+    "eco-stock-flatbottom-clear": {
+      "name": "Compostable Flat Bottom Pouch – Milky Clear",
+      "shortDesc": "1000 個起，美金 1000 元起",
+      "description": "100% 可堆肥平底袋，採用乳白半透明外觀以展示產品。由植物基材料製成，具備工業堆肥認證。配有單側夾鏈，使用便利。",
+      "features": [
+        "100% 可堆肥",
+        "工業堆肥認證",
+        "高阻隔 (+12 個月)",
+        "單側夾鏈",
+        "乳白半透明外觀"
+      ]
+    },
+    "eco-stock-header-adhesive": {
+      "name": "Compostable Gusseted Bag with Adhesive Header",
+      "shortDesc": "100 個起，美金 5.56 元起",
+      "description": "100% 認證可堆肥風琴袋，配有自粘袋頭以確保安全密封。由植物基材料製成。價格含空運運費。有多種尺寸可選，可加選懸掛孔。",
+      "features": [
+        "100% 認證可堆肥",
+        "自粘袋頭封口",
+        "側折風琴設計",
+        "包含空運運費",
+        "可選懸掛孔"
+      ]
+    },
+    "eco-stock-header-adhesive-custom": {
+      "name": "Custom Printed Compostable Gusseted Bag with Adhesive Header",
+      "shortDesc": "5,000 個起，單個美金 0.112 元起",
+      "description": "客製印刷 100% 認證可堆肥風琴袋，配有自粘袋頭。提供全彩數位印刷。每個設計 MOQ 5,000 個。最高提供 50,000 個的大量折扣。",
+      "features": [
+        "全彩數位印刷",
+        "100% 認證可堆肥",
+        "自粘袋頭封口",
+        "提供批量折扣",
+        "免費設計支持"
+      ]
+    },
+    "eco-stock-mailer-zipbag": {
+      "name": "Compostable Resealable Mailer Bag",
+      "shortDesc": "400 個起，美金 5.83 元起",
+      "description": "100% 可生物降解自封快遞袋，採用 PLA+PBAT 製成。具有耐用的自封夾鏈以供多次使用，防潮防塵。認證可堆肥 – 在工業條件下 3 個月內分解，自然條件下 1-2 年分解。",
+      "features": [
+        "100% 可生物降解 (PLA+PBAT)",
+        "自封夾鏈",
+        "防潮與防塵保護",
+        "可重複使用設計",
+        "符合 GB/T35795-2017 認證"
+      ]
+    },
+    "eco-stock-mailer-zipbag-custom": {
+      "name": "Custom Printed Compostable Mailer Bag",
+      "shortDesc": "5,000 個起，美金 124 元起",
+      "description": "客製印刷 100% 可生物降解自封快遞袋，由 PLA+PBAT 製成。可印有您的品牌 Logo 和設計的全彩印刷。具有耐用的自封夾鏈以供多次使用，防潮防塵。具備可堆肥認證。",
+      "features": [
+        "全彩客製印刷",
+        "100% 可生物降解 (PLA+PBAT)",
+        "自封夾鏈",
+        "防潮與防塵保護",
+        "每個尺寸 MOQ 5,000 個"
+      ]
+    },
+    "eco-stock-tea-bags-pla": {
+      "name": "Corn Fiber Tea Bags (Disposable PLA Filter Bags)",
+      "shortDesc": "100 個起，美金 4 元起",
+      "description": "食品級玉米纖維 (PLA) 茶過濾袋。非常適合沖泡茶葉、香料和草藥。質地輕盈、過濾乾淨且滲透性強。由天然玉米澱粉製成，安全無異味。折疊反折式設計，方便填充與密封。價格包含空運運費。",
+      "features": [
+        "100% PLA 玉米纖維",
+        "食品接觸級",
+        "反折式蓋口",
+        "乾淨過濾與高滲透性",
+        "包含空運運費"
+      ]
+    },
+    "250g-recyclable-one-side-zipper-one-way-degassing-valve-stand-up-pouch": {
+      "name": "250g Recyclable One Side Zipper One Way Degassing Valve Stand-Up Pouch",
+      "shortDesc": "優質無金屬可回收立體袋，配有排氣閥和單側夾鏈",
+      "description": "一款超優質、具備環保責任的立體包裝解決方案。由高阻隔單一材質 PE 設計製成，這種無金屬且無鋁的包裝袋可在標準塑料回收流中完全回收。配備優質單向排氣閥和安全的單側夾鏈。非常適合 250g 精品整豆咖啡、手工研磨咖啡、散裝茶葉和高端有機粉末。",
+      "features": [
+        "單一流回收：100% Mono-PE 複合薄膜，完全無鋁且無金屬",
+        "單向排氣閥：隔絕氧氣並釋放多餘的 CO2 以鎖住新鮮度",
+        "單側口袋夾鏈：強韌的可複封口袋夾鏈，配有易撕口，便於日常使用",
+        "寬大的底風琴：平底拉伸，可直立於貨架上，展現整潔的外觀",
+        "符合 FDA & LFGB 食品安全標準"
+      ]
+    },
+    "recyclable-flat-bottom-one-sided-zipper-pouch": {
+      "name": "Recyclable Flat Bottom One Sided Zipper Pouch",
+      "shortDesc": "優質無金屬可回收平底袋，配有單向排氣閥和單側口袋夾鏈",
+      "description": "一款優質、單一流可回收的平底八邊封包裝解決方案。由高阻隔單一材質 PE 製成，這款無金屬、無鋁的立體方底袋非常適合散裝烘焙咖啡豆、手工散裝茶葉、有機粉末和優質乾燥食品。具有堅固的單向排氣閥和安全的單側口袋夾鏈，以實現極致的日常新鮮度。",
+      "features": [
+        "單一流回收：100% Mono-PE 複合淋膜，完全無鋁且無金屬",
+        "單向排氣閥：內置微孔過濾器，可排出多餘 CO2，同時隔絕氧氣",
+        "單側口袋夾鏈：氣密可複封夾鏈，配有快速易撕口",
+        "八邊封平底：堅固的正方形底座，可筆直站立在零售貨架上，不塌陷",
+        "優質霧面淋膜：乾淨的有機外觀，符合 FDA 和 LFGB 食品級標準"
+      ]
+    },
+    "side-gusset-bag-and-tray-conventional": {
+      "name": "Side Gusset Individual Dessert Pouch with Tray (Recyclable Mono-PP Stock)",
+      "shortDesc": "完全可回收的 Mono-PP 磨砂側風琴包裝袋，配有配套的食品安全可回收內托，適用於高級分裝禮品呈現和循環經濟整合。",
+      "description": "一款無印刷、優質的現貨環保包裝解決方案，包含配套的食品安全硬質可回收內托和磨砂可回收 Mono-PP 側風琴外包裝。專為小型烘焙食品、鳳梨酥、餅乾、月餅和精緻點心的單個包裝而設計。配套的高性能 Mono-PP 材質可在標準的 5 號 PP 回收流中進行無縫收集和回收，促進循環經濟。硬質內托可在運輸過程中提供卓越的物理保護，防止擠壓或彎曲，而高阻隔、防油磨砂外包裝袋可鎖住風味新鮮度、延長保質期，並精美展示您的甜點分裝品牌，適用於高級 B2C 零售呈現。",
+      "features": [
+        "[100% CIRCULAR ECONOMY INTEGRATION] 完全採用 Mono-PP (5 號 PP) 磨砂包裝袋和配套的硬質內托設計，可進行省力的單一材質回收，消除混合塑料垃圾。",
+        "[RIGID DESSERT PROTECTION TRAY] 配套的食品安全可回收內托嵌入物提供堅固的結構支持，使精緻的糕點、月餅和餅乾在運輸和處理過程中保持完好無損。",
+        "[PREMIUM FROSTED SILHOUETTE PRESENTATION] 磨砂半透明霧面外包裝，營造出極具優雅的高端零售視覺，完美展現單個甜點份量之美。",
+        "[HIGH-BARRIER FRESHNESS PRESERVATION] 防油、防潮屏障結構鎖住風味新鮮度，阻隔濕氣，並防止油脂滲透，以延長保質期。",
+        "[SEALABLE STOCK BULK VALUE] 預切、易於使用的側風琴袋，設計用於快速手動或自動脈衝熱封，以 1,000 個的批發大包裝銷售，適合商業烘焙坊。"
+      ]
+    },
+    "eco-compostable-rollstock-film": {
+      "name": "Home Compostable Dual-Sided Rollstock Film",
+      "shortDesc": "優質家用可堆肥雙面牛皮紙卷膜，專為自動化 FFS 包裝線設計",
+      "description": "一款專業、高性能的環保卷膜，專為自動化 FFS 包裝機械而設計。採用獨特的雙面複合結構——正面為可生物降解的塗層牛皮紙，背面為塗層半透明紙——這款包裝卷膜在保持完整的家用可堆肥性的同時，實現了精美的品牌可見性。非常適合份量包裝、小包袋、咖啡莢、茶包袋和手工香料。",
+      "features": [
+        "雙面環保結構：正面天然牛皮紙 50g + 背面半透明牛皮紙 50g，提升貨架視覺吸引力",
+        "具備自動化 FFS 準備：在自動包裝機和袋裝機上具有無縫滑動和高抗張強度",
+        "認證家用可堆肥：在家庭/住宅後院堆肥環境中自然分解",
+        "數位客製印刷：零版費，使用可堆肥 HP Indigo 水性油墨呈現生動的多彩印刷",
+        "食品級認證：100% 符合 FDA、LFGB 和 BRC 標準，保證乾燥食品接觸安全"
+      ]
+    },
+    "rice-paper-zipper-bags": {
+      "name": "Rice Paper Stand-up Zipper Bags",
+      "shortDesc": "優質可堆肥立體夾鏈袋，由正宗 30g 白色米紙配上生物內層製成",
+      "description": "一款由正宗 30g 紋理白色米紙製成的優雅、環保包裝解決方案。提供低阻隔 (天然 PBAT 層) 和高阻隔 (NK25 生物薄膜層) 款式，以實現最佳的新鮮度保存。具備高質感和有機吸引力，非常適合優質 B2B 食品、咖啡、乾燥草藥和奢侈品。配備可堆肥夾鏈和易撕口。",
+      "features": [
+        "正宗有紋理的白色米紙：提供有機、高級的貨架視覺與觸覺吸引力。",
+        "可堆肥結構：採用可生物降解米紙 and PLA/PBAT 內襯製成。",
+        "彈性的阻隔選擇：提供低阻隔 (PBAT) 或高阻隔 (NK25/PBAT) 款式，以符合您的產品需求。",
+        "可堆肥可複封夾鏈：以便利的重複密封性能保持內容物氣密與新鮮。",
+        "可熱封與易撕口：易於手動熱封，並為顧客提供便利的易撕口。"
+      ]
+    },
+    "flat-bottom-magic-tape-pouches": {
+      "name": "Eight-Side Seal Magic Tape Zipper Bags (4 lb Dry Food)",
+      "shortDesc": "可回收高阻隔 4 磅平底包裝袋，配有簡易 B2B 魔術貼夾鏈",
+      "description": "一款專為乾食品儲存設計的優質、環保平底八邊封包裝解決方案。採用完全可回收的 PE70/EVOH-PE70 結構設計，這款高阻隔袋使乾食品、零食和穀物完美防潮。配備創新的 B2B 魔術貼夾鏈，非常便於顧客開啟、重複密封並反複使用。",
+      "features": [
+        "100% 可回收 Mono-PE：完全可回收的單一材質結構，配備高性能 EVOH 阻隔層。",
+        "平底八邊封：無可比擬的貨架穩定性，完美直立以實現高級零售呈現。",
+        "魔術貼夾鏈：創新的魔鬼氈式封口，即使軌道中殘留粉末狀內容物，也能輕鬆密封。",
+        "高阻隔防護：保護內容物免受濕氣、異味和光線降解。",
+        "4 磅大容量：非常適合寵物食品、批發原料、麵粉和穀物的 B2B 大包裝尺寸。"
+      ]
+    },
+    "compostable-stand-up-pouches": {
+      "name": "Compostable Stand-Up Zipper Pouches",
+      "shortDesc": "牛皮紙可堆肥立體夾鏈袋，適用於有機零食和批發 B2B 儲存",
+      "description": "可持續、工業可堆肥的立體袋，專為零食、優質食品原料和工業乾燥物品設計。該環保袋結合了天然白色牛皮紙外殼與可生物降解的 PLA/PBAT 內襯，旨在標準的工業堆肥設施中自然分解，不留下有害的微塑料。配備可堆肥的氣密夾鏈。",
+      "features": [
+        "FSC-認證白色牛皮紙：天然、有機導向的電子商店呈現，具備出色的觸覺品質。",
+        "工業可堆肥：採用 PLA 和 PBAT 生物樹脂製成的認證可堆肥結構。",
+        "氣密可複封夾鏈：保持堅果、茶葉、種子、咖啡和香料酥脆新鮮。",
+        "強健的結構完整性：出色的立體強度，在顧客的檯面或貨架上顯得美觀。",
+        "彈性的 B2B 尺寸：提供 5 oz 零食尺寸以及客製工業規格。"
+      ]
+    },
+    "transparent-colorful-cellophane-candy-wrapping-paper": {
+      "name": "透明彩色玻璃紙糖果包裝紙",
+      "shortDesc": "優質可生物降解纖維素糖果包裝紙，提供多種鮮豔的透明色彩",
+      "description": "由天然棉花/木材纖維素製成的優質食品級玻璃紙糖果包裝紙。完全可生物降解、可堆肥且不含塑料。具有出色的透明度、高光澤和扭轉保持性能。非常適合包裝牛軋糖、巧克力、硬糖、糕點和節日點心。",
+      "features": [
+        "100% 可生物降解纖維素：由有機植物基木漿和棉漿製成，自然分解不含微塑料。",
+        "出色的扭轉保持力：具有高剛性和記憶性，能牢固地保持在糖果周圍扭轉的形狀而不展開。",
+        "鮮豔透明色彩：純食品安全染料提供亮麗的色彩清晰度 (紅、綠、橘、粉、藍、紫、黃、透明)。",
+        "食品級認證：完全無毒、無異味，符合 FDA 標準，適用於直接糖果及食品包裝。",
+        "可熱封選擇：兼容標準手持式或連續式熱封機。"
+      ]
+    },
+    "stand-up-pouch-full-matte-finish-pe70-evoh-pe70-140-microns": {
+      "name": "260 mm x 325 mm + 120 mm 立體袋 (全霧面 PE70)",
+      "shortDesc": "優質客製化報價 B2B 立體袋，由 全霧面 PE70/EVOH-PE70 製成",
+      "description": "專為滿足最高商業標準而設計的優質客製化規格批發 B2B 包裝解決方案。採用高強度的 全霧面 PE70/EVOH-PE70，140 microns 厚度多層結構，本產品確保對濕氣、光線和氧化的最大屏障防禦。專為零售展示保留風味和結構完整性而調配，為咖啡、特製品、有機點心或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：標準夾鏈",
+        "立體袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能 全霧面 PE70/EVOH-PE70，140 microns 厚度層設計。",
+        "批發價值梯隊：最低 MOQ 100 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "28-lb-dry-food-bag-pet12-ny15-metallocene-milky-white-pe135": {
+      "name": "406mm 寬 x 790mm 高 x 152mm 側折風琴立體袋 (PET12)",
+      "shortDesc": "優質客製化報價 B2B 側風琴袋，由 PET12/NY15/Metallocene + 乳白 PE135 (三層結構) 製成",
+      "description": "專為滿足最高商業標準而設計的優質客製化規格批發 B2B 包裝解決方案。採用高強度的 PET12/NY15/Metallocene + 乳白 PE135 (三層結構) 多層結構，本產品確保對濕氣、光線和氧化的最大屏障防禦。專為零售展示保留風味和結構完整性而調配，為咖啡、特製品、有機點心或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：四邊封側風琴袋、無夾鏈、9 色印刷 + 霧面光油",
+        "側風琴袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能 PET12/NY15/Metallocene + 乳白 PE135 (三層結構) 層設計。",
+        "批發價值梯隊：最低 MOQ 10,000 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "flat-bottom-pouch-pe-evoh-pe-140-microns-thickness-110w-x-39": {
+      "name": "110W x 390H x 65OBG/OSG mm 平底袋 (PE)",
+      "shortDesc": "優質客製化報價 B2B 平底袋，由 PE/EVOH-PE 製成",
+      "description": "專為滿足最高商業標準而設計的優質客製化規格批發 B2B 包裝解決方案。採用高強度的 PE/EVOH-PE，140 microns 厚度多層結構，本產品確保對濕氣、光線 and 氧化的最大屏障防禦。專為零售展示保留風味和結構完整性而調配，為咖啡、特製品、有機點心或工業用品提供卓越的保質期保存。具有方便的易撕口和堅固的密封線。",
+      "features": [
+        "先進 B2B 規格：單向排氣閥、全霧面、單側夾鏈",
+        "平底袋設計：完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "優質材料結構：採用高性能 PE/EVOH-PE，140 microns 厚度層設計。",
+        "批發價值梯隊：最低 MOQ 1,000 個起，提供客製化折扣。",
+        "安全封口系統：內置可靠的密封，以保持新鮮度並阻擋濕氣。"
+      ]
+    },
+    "compostable-vacuum-sealing-3-side-seal-bag-certified-home-co": {
+      "name": "140 x 140 mm Side Gusset Pouch ( Certified Home Composite material )",
+      "shortDesc": "採用 Certified Home Composite material 製成的高級客製化報價 B2B 側風琴袋",
+      "description": "一款專為滿足最高商業標準而設計的高級、客製化規格批發 B2B 包裝解決方案。採用高強度 Certified Home Composite material，70 UM 厚度的多層結構，確保對濕度、光線和氧化具有最強的阻隔防禦力。專為零售展示而配製，能鎖住風味並保持結構完整性，為咖啡、特色食品、有機零食或工業用品提供卓越的保質期保存。具有便捷的易撕口和堅固的封口線。",
+      "features": [
+        "Advanced B2B Specs: 4-color printing",
+        "Side Gusset Pouch Design: 完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "Premium Material Structure: 使用高性能 Certified Home Composite material，70 UM 厚度層設計而成。",
+        "Wholesale Value Tiers: 低 MOQ 15,000 pieces 起，提供客製化折扣。",
+        "Secure Closure System: 內置可靠的密封條，鎖住新鮮並阻擋水分。"
+      ]
+    },
+    "three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular": {
+      "name": "70x70 mm Side Gusset Pouch ( MOPP-Dual Corona )",
+      "shortDesc": "採用 MOPP-Dual Corona/Enhanced VMPET/Regular PE 製成的高級客製化報價 B2B 側風琴袋",
+      "description": "一款專為滿足最高商業標準而設計的高級、客製化規格批發 B2B 包裝解決方案。採用高強度 MOPP-Dual Corona/Enhanced VMPET/Regular PE，100 microns 多層結構，確保對濕度、光線和氧化具有最強的阻隔防禦力。專為零售展示而配製，能鎖住風味並保持結構完整性，為咖啡、特色食品、有機零食或工業用品提供卓越的保質期保存。具有便捷的易撕口和堅固的封口線。",
+      "features": [
+        "Advanced B2B Specs: Three-side seal design",
+        "Side Gusset Pouch Design: 完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "Premium Material Structure: 使用高性能 MOPP-Dual Corona/Enhanced VMPET/Regular PE，100 microns 層設計而成。",
+        "Wholesale Value Tiers: 低 MOQ 1,000 pieces 起，提供客製化折扣。",
+        "Secure Closure System: 內置可靠的密封條，鎖住新鮮並阻擋水分。"
+      ]
+    },
+    "stand-up-spout-pouch-10mm-pet12-al7-ny15-pe80-102x152-4-28-5": {
+      "name": "102x152.4+28.5 mm Stand-Up Spout Pouch (10mm)",
+      "shortDesc": "採用 PET12/AL7/NY15/PE80 製成的高級客製化報價 B2B 吸嘴袋",
+      "description": "一款專為滿足最高商業標準而設計的高級、客製化規格批發 B2B 包裝解決方案。採用高強度 PET12/AL7/NY15/PE80 多層結構，確保對濕度、光線和氧化具有最強的阻隔防禦力。專為零售展示而配製，能鎖住風味並保持結構完整性，為咖啡、特色食品、有機零食或工業用品提供卓越的保質期保存。具有便捷的易撕口 and 堅固的封口線。",
+      "features": [
+        "Advanced B2B Specs: Spout pouch with 6g per piece",
+        "Spout Pouch Design: 完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "Premium Material Structure: 使用高性能 PET12/AL7/NY15/PE80 層設計而成。",
+        "Wholesale Value Tiers: 低 MOQ 1,000 pieces 起，提供客製化折扣。",
+        "Secure Closure System: 內置可靠的密封條，鎖住新鮮並阻擋水分。"
+      ]
+    },
+    "9-1-13-8-3-93-stand-up-pouch-w-velcro-mopp-double-electric-e": {
+      "name": "231.5 mm*350.5 mm+100mm Stand Up Pouch ( MOPP-Double Electric )",
+      "shortDesc": "採用 MOPP-Double Electric/Enhanced VMPET///Regular PE 製成的高級客製化報價 B2B 自立袋",
+      "description": "一款專為滿足最高商業標準而設計的高級、客製化規格批發 B2B 包裝解決方案。採用高強度 MOPP-Double Electric/Enhanced VMPET///Regular PE 多層結構，確保對濕度、光線和氧化具有最強的阻隔防禦力。專為零售展示而配製，能鎖住風味並保持結構完整性，為咖啡、特色食品、有機零食或工業用品提供卓越的保質期保存。具有便捷的易撕口和堅固的封口線。",
+      "features": [
+        "Advanced B2B Specs: Thickness 140 microns, Velcro closure 23MM",
+        "Stand Up Pouch Design: 完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "Premium Material Structure: 使用高性能 MOPP-Double Electric/Enhanced VMPET///Regular PE 層設計而成。",
+        "Wholesale Value Tiers: 低 MOQ 200 pieces 起，提供客製化折扣。",
+        "Secure Closure System: 內置可靠的密封條，鎖住新鮮並阻擋水分。"
+      ]
+    },
+    "stand-up-zipper-bag-mopp-double-sided-pet-12-al-ordinary-pe": {
+      "name": "120 mm x 200 mm x 70 mm Stand Up Pouch ( MOPP double-sided )",
+      "shortDesc": "採用 MOPP double-sided / PET-12 / AL / Ordinary PE 製成的高級客製化報價 B2B 自立袋",
+      "description": "一款專為滿足最高商業標準而設計的高級、客製化規格批發 B2B 包裝解決方案。採用高強度 MOPP double-sided / PET-12 / AL / Ordinary PE 多層結構，確保對濕度、光線和氧化具有最強的阻隔防禦力。專為零售展示而配製，能鎖住風味並保持結構完整性，為咖啡、特色食品、有機零食或工業用品提供卓越的保質期保存。具有便捷的易撕口和堅固的封口線。",
+      "features": [
+        "Advanced B2B Specs: Ordinary zipper 13mm PPE, thickness 120 microns, stamp foiling",
+        "Stand Up Pouch Design: 完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "Premium Material Structure: 使用高性能 MOPP double-sided / PET-12 / AL / Ordinary PE 層設計而成。",
+        "Wholesale Value Tiers: 低 MOQ 1,500 pieces 起，提供客製化折扣。",
+        "Secure Closure System: 內置可靠的密封條，鎖住新鮮並阻擋水分。"
+      ]
+    },
+    "stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe": {
+      "name": "120 mm*200 mm*35 mm Stand Up Pouch ( MOPP double-sided )",
+      "shortDesc": "採用 MOPP double-sided/AL/PET-12//Standard PE 製成的高級客製化報價 B2B 自立袋",
+      "description": "一款專為滿足最高商業標準而設計的高級、客製化規格批發 B2B 包裝解決方案。採用高強度 MOPP double-sided/AL/PET-12//Standard PE 多層結構，確保對濕度、光線和氧化具有最強的阻隔防禦力。專為零售展示而配製，能鎖住風味並保持結構完整性，為咖啡、特色食品、有機零食或工業用品提供卓越的保質期保存。具有便捷的易撕口和堅固的封口線。",
+      "features": [
+        "Advanced B2B Specs: Ordinary zipper 13mm-PPE, thickness 120",
+        "Stand Up Pouch Design: 完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "Premium Material Structure: 使用高性能 MOPP double-sided/AL/PET-12//Standard PE 層設計而成。",
+        "Wholesale Value Tiers: 低 MOQ 1,500 pieces 起，提供客製化折扣。",
+        "Secure Closure System: 內置可靠的密封條，鎖住新鮮並阻擋水分."
+      ]
+    },
+    "soft-touch-matte-standup-pouch-432b83ee": {
+      "name": "231.5 mm * 350.5 mm + 100 mm Stand-up Pouch ( Soft Touch Matte Coating )",
+      "shortDesc": "具有 Soft Touch Matte Coating (H touch film / reinforced VMPET / standard PE) 的高級客製化 B2B 自立袋",
+      "description": "一款高級、客製化規格的 B2B 包裝解決方案，專為滿足高性能包裝標準而設計。採用高強度 H touch film / reinforced VMPET / standard PE，厚度 140 microns 的複合結構，確保對濕度、光線和氧化具有最強的阻隔抗性。專為保持上架穩定性和零售展示的結構完整性而配製，為咖啡、乾貨、特色食品或工業用品提供卓越的保質期保存。具有便捷的易撕口和堅固的封口線。",
+      "features": [
+        "Advanced B2B Specs: Ordinary zipper 13mm-PPE, Digital Print, 140 microns",
+        "Stand Up Pouch Design: 完美形狀的 B2B 商業包裝，針對專業品牌推廣進行了優化。",
+        "Premium Material Structure: 使用高性能 H touch film / reinforced VMPET / standard PE 層設計而成。",
+        "Wholesale Value Tiers: 低 MOQ 200 pieces 起，提供客製化折扣。",
+        "Secure Closure System: 內置可靠的密封條，鎖住新鮮並阻擋水分。"
+      ]
+    },
+    "flat-bottom-one-sided-zipper-conventional": {
+      "name": "Flat Bottom Pouch with One-Sided Zipper (Conventional Stock)",
+      "shortDesc": "高級無印刷啞光平底包裝盒袋，配有易撕單面拉鍊封口",
+      "description": "一款極為高級的 B2B 現貨平底袋，具有便捷的易撕單面拉鍊封口。採用高阻隔結構設計，保護咖啡整豆、特色茶葉和乾貨免受水分、氧氣和紫外光的侵害。堅固的箱型平底確保完美的直立貨架穩定性與高端視覺呈現。",
+      "features": [
+        "Sturdy Eight-Side Sealed Flat Bottom: 動態的直立貨架展現力和極佳的穩定性",
+        "Airtight One-Sided Zipper: 可重複密封的拉鍊封口，阻擋氧氣並鎖住優質香氣",
+        "High-Barrier Laminate Structure: Matte PET + VMPET + 食品安全 PE，鎖住新鮮",
+        "Food-Grade FDA Certified: 100% 安全、無味，非常適合零售商業包裝",
+        "Pre-Cut Easy-Tear Notches: 拉鍊上方平整的易撕邊緣，方便顧客快速開啟"
+      ]
+    },
+    "flat-bottom-pouch-with-card-insert": {
+      "name": "Flat Bottom Pouch with Card Insert",
+      "shortDesc": "高級八邊封平底盒型袋，整合高透明度正面插卡袋",
+      "description": "一款極具質感的高級 B2B 現貨包裝解決方案，正面整合了高透明度的插卡槽，可輕鬆插入卡片或標籤。採用堅固的平底設計（八邊封盒型），提供無可比擬的貨架穩定性與美觀呈現。配有高強度可重複使用的拉鍊鎖、易撕口，以及多層高阻隔結構（Matte BOPP + 金屬化 VMPET + 食品級 PE）保證對光線、氧氣和水分的最佳阻隔。非常適合烘焙工坊、手工茶品牌、寵物零食、有機超級食品和零售糖果，滿足高度靈活、模組化的品牌行銷需求。",
+      "features": [
+        "Front Card Insert Pocket: 高透明度插套，便於快速、專業地更換品牌展示卡",
+        "Stable Eight-Side Sealed Box Bottom: 自立設計，適合動態的零售貨架展示",
+        "Heavy-Duty Reusable Airtight Zipper: 開封後仍能保持內容物完全新鮮",
+        "High-Barrier Laminate Structure: Matte BOPP + VMPET + PE，鎖住香氣並阻擋水分",
+        "Pre-Cut Easy-Tear Notches & Heat Sealable Header 適用於防啟封的安全保障",
+        "提供 2 種優質牛皮紙飾面：White Kraft & Brown Kraft，並有魔方款和長款兩種形狀選擇"
+      ]
+    },
+    "textured-burlap-cork-pattern-coffee-pouch-with-valve": {
+      "name": "Textured Burlap & Cork Pattern Stand Up Pouch with Valve",
+      "shortDesc": "高級無金屬可回收自立袋，配有防堵塞脫氣閥及有機麻布/軟木紋理",
+      "description": "一款超高級、環保的自立包裝解決方案，具有獨特的麻布和天然軟木圖案。由高阻隔單一材料 PE 製成，這款無金屬且無鋁的袋子完全可以在標準塑料回收流中回收。配備高級單向脫氣閥，該閥具有整合的微濾網，可防止咖啡細粉或粉末堵塞閥門。非常適合特色整豆咖啡、手工磨碎咖啡、散裝茶葉和高端有機粉末。",
+      "features": [
+        "Natural Textured Aesthetics: 仿麻布與真實軟木印刷，呈現有機品牌外觀",
+        "Single-Stream Recyclable: 100% Mono-PE 複合薄膜，完全無鋁和無金屬",
+        "Anti-Clogging Valve: 帶有整合過濾網的單向脫氣閥，阻擋氧氣並防止粉末堵塞",
+        "Built-In Freshness Zipper: 堅固的可重複密封拉鍊，帶有易撕口，便於日常重複使用",
+        "高抗穿刺與抗撕裂性能，符合食品級 FDA & LFGB 標準"
+      ]
+    },
+    "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip": {
+      "name": "Coffee & Tea One-Sided Zipper Flat Bottom Pouch with Hanging Strip",
+      "shortDesc": "創新的平底袋，帶有便攜懸掛提帶、易撕 T 型拉鍊及高級白牛皮紙飾面",
+      "description": "一款創新且功能性強的包裝解決方案，配有堅固的鐵環便攜懸掛提帶，便於攜帶，並結合了先進的易撕單面拉鍊和內置可重複密封拉鍊。採用高級三層高阻隔層壓材料（Matte BOPP + 天然白牛皮紙 + 金屬化箔 + PE）製成，厚度高達 150 微米。提供對氧氣和水分的絕對保護。需要使用熱封機封合拉鍊上方的頂部。",
+      "features": [
+        "堅固的鐵環懸掛提帶設計，方便輕鬆攜帶與懸掛",
+        "先進的單面 T-Zipper 與易撕拉片，方便開啟與重新密封",
+        "高級三層白牛皮紙與金屬化箔高阻隔層壓材料",
+        "堅固的 150 微米厚度，提供極致的貨架防護力與耐用性",
+        "堅固的八邊封盒底設計，呈現完美的貨架展示效果",
+        "提供 4 種豐富的現代啞光飾面：Cream White, Vibrant Orange, Forest Green, Matte Black"
+      ]
+    },
+    "flat-bottom-pouch-tin-tie": {
+      "name": "Flat Bottom Pouch with Tin Tie",
+      "shortDesc": "高級八邊封平底袋，配有加厚雙鐵絲 tin tie 封口，適用於咖啡、茶葉和乾貨",
+      "description": "一款高級八邊封平底袋，配有整合式加厚雙鐵絲 tin tie 封口。採用高阻隔食品級層壓層（BOPP、鋁箔和 PE）特別製造，提供卓越的防氧、防潮和防光保護。非常適合特色咖啡、散裝茶葉、烘焙伴侶粉、優質零食和餅乾等需要反覆密封且保持最佳新鮮度的產品。",
+      "features": [
+        "加厚雙鐵絲 Tin Tie 封口，可實現無數次重複使用的保鮮密封",
+        "堅固的八邊封盒底設計，呈現完美的貨架展示效果",
+        "Matte BOPP + 純鋁箔核心 + 食品級 PE 高阻隔層壓材料",
+        "總厚度 120 微米，提供最大程度的抗撕裂與抗穿刺性能",
+        "非常適合特色散裝茶葉、新鮮咖啡豆和優質零食",
+        "提供 3 種亮眼的啞光飾面：Silver, Green, and Red"
+      ]
+    },
+    "bottle-shape-sachet-bag": {
+      "name": "Bottle-Shaped Specialty Foil Sachet Pouch",
+      "shortDesc": "吸睛的瓶形高阻隔鋁箔隨身袋，適用於蜂蜜、乳液和化妝品樣品",
+      "description": "一款引人注目的瓶形特色鋁箔隨身袋，專為單次使用樣品和高級零售包裝設計。具有高阻隔食品級內部層壓結構，提供對氧氣、水分和光線的絕對保護。是蜂蜜、液體糖漿、草本萃取物、面部乳液、面霜、精華液以及高端化妝品樣品的極佳選擇。",
+      "features": [
+        "獨特的 Bottle-Shaped 設計，最大化品牌辨識度",
+        "高阻隔鋁箔核心，保護活性成分",
+        "非常適合單次使用的液體、凝膠或粉末樣品",
+        "精確的易撕口，方便順暢地開啟",
+        "寬扁的封口邊緣，防止任何洩漏",
+        "提供 4 種華麗的季節性啞光飾面"
+      ]
+    },
+    "spouted-foil-pouch": {
+      "name": "Spouted Foil Stand Up Pouch",
+      "shortDesc": "高級自立鋁箔袋，配有中心吸嘴與可重複密封蓋",
+      "description": "高級高阻隔亮光/啞光鋁箔自立袋，配有整合式中心吸嘴和防開啟重複密封螺帽蓋。高防護性的鋁箔層壓結構，能保護液體、果泥、嬰兒食品、醬料、果汁和化學補充裝免受氧氣、水分和紫外光的侵害。防溢、抗穿刺且輕便。",
+      "features": [
+        "整合防漏中心吸嘴與螺帽蓋",
+        "先進的 3 層鋁箔層壓結構",
+        "防溢出可重複密封螺帽蓋",
+        "輕量化與低碳包裝的替代方案",
+        "堅固的底部風琴，可直立展示"
+      ]
+    },
+    "rice-paper-flatbottom-valve": {
+      "name": "Rice Paper Flat Bottom Zipper Pouch with Valve",
+      "shortDesc": "高級白米紙袋，配有脫氣閥",
+      "description": "高級白米紙平底拉鍊袋，配有單向脫氣閥。採用高阻隔結構設計，保護咖啡豆、茶葉和其他對光線/水分敏感的物品。具有易撕口和口袋拉鍊，可鎖住極致的新鮮度。",
+      "features": [
+        "有紋理的天然米紙飾面",
+        "整合式單向脫氣閥",
+        "高阻隔保鮮保護",
+        "方便的口袋拉鍊與易撕口",
+        "平底設計，呈現完美的貨架展示"
+      ]
+    },
+    "clear-matte-zipper-stand-up-pouch": {
+      "name": "Matte and Clear Unprinted Stock Zipper Stand Up Pouch",
+      "shortDesc": "高級透明自立拉鍊袋，提供 Matte 或 Glossy 飾面選擇",
+      "description": "高級無印刷透明自密封自立袋，配有可重複使用的拉鍊、易撕口和底部風琴。提供 Matte（磨砂/半透明）和 Glossy（超透明/光澤）兩種飾面。高阻隔層壓結構可保護茶葉、乾果、零食、餅乾、咖啡等免受灰塵、水分和蟲害。配有超強的可重複密封拉鍊和堅固的底座，用於專業的貨架展示。",
+      "features": [
+        "提供 Matte（磨砂）或 Glossy（超透明）飾面",
+        "優質可重複使用、可密封的拉鍊",
+        "易撕口設計，可即時開啟",
+        "堅固的底部風琴，可直立展示",
+        "食品級優質安全阻隔材料"
+      ]
+    },
+    "flat-bottom-zipper-pouch": {
+      "name": "Matte and Clear Unprinted Stock Flat Bottom Zipper Pouch",
+      "shortDesc": "高級平底八邊封拉鍊袋，提供 Matte 或 Glossy 飾面選擇",
+      "description": "高級無印刷平底（八邊封）袋，具有高容量的 5 面結構、可重複使用的拉鍊和易撕口。提供 Matte（磨砂/半透明）和 Glossy（超透明/光澤）兩種飾面。平底設計提供最大的穩定性以及生動的箱狀貨架展示效果。非常適合高密度儲存食品、零食、咖啡豆、寵物食品和穀物。",
+      "features": [
+        "優雅的平底 5 面盒狀外形，最大化儲存空間",
+        "提供 Matte（半透明）或 Glossy（超透明）飾面",
+        "高強度可重複使用的氣密拉鍊",
+        "寬開口與易撕口，方便即時拿取",
+        "高阻隔優質材料，守護新鮮度"
+      ]
+    },
+    "eco-custom-label": {
+      "name": "Custom Biodegradable Clear PLA Adhesive Sticker & Label",
+      "shortDesc": "現貨高級 100% 可生物降解透明 PLA 可堆肥封口標籤與衛生貼紙",
+      "description": "高級現貨、100% 可生物降解與可堆肥的透明 PLA 自黏貼紙與標籤。由高透明度植物基 PLA 薄膜結合高性能可堆肥丙烯酸膠水製成。100% 防潮、防油且完全透明，非常適合作為高端有機化妝品、玻璃瓶包裝和食品級包裝。完全通過 EN 13432 和 ASTM D6400 認證，在堆肥條件下可在 180 天內清潔降解，無微塑料殘留。",
+      "features": [
+        "High-Clarity Clear PLA Film",
+        "100% Compostable & Biodegradable",
+        "Water-Resistant & Oil-Resistant",
+        "Food-Grade Acrylic Bio-Adhesive",
+        "180-Day Zero Microplastic Degradation"
+      ]
+    },
+    "eco-pla-sealing-sticker": {
+      "name": "Premium PLA Biodegradable Clear Sealing Sticker",
+      "shortDesc": "認證可堆肥高級透明圓形 PLA 封口貼紙與包裝標籤",
+      "description": "高性能、100% 植物基可堆肥透明圓形貼紙，配有高性能生物膠水。非常適合零售包裝盒封口、衛生防護和環保食品包裝。在堆肥條件下可在不到 14 週（98 天）內完全降解為天然有機化合物，留下零微塑料或有毒殘留物。",
+      "features": [
+        "100% Plant-Based Clear PLA Film",
+        "高性能可堆肥丙烯酸生物膠水",
+        "≤14 週（98 天）內完全生物降解",
+        "Waterproof, Oil-resistant, and High-Tack Adhesion",
+        "Zero Microplastics and Zero Toxic Chemicals"
+      ]
+    },
+    "custom-multi-layer-sticker-labels": {
+      "name": "Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)",
+      "shortDesc": "高級客製化多層可撕與重複黏貼摺頁標籤，配有高解析度雙面印刷",
+      "description": "使用 Achieve Pack 的 Custom Multi-Layer Peelable Booklet Labels，升級您的緊湊型產品包裝。專為 B2C 化妝品罐、醫藥滴劑瓶、美食罐密封和奢華包裝盒設計。這種創新的多頁標籤讓您可以在一個節省空間的摺頁設計中容納廣泛的法規規格、使用說明和品牌推廣。體驗永久性、無微塑料的黏合力，以及動態、無殘膠的重複撕貼便利性。",
+      "features": [
+        "[SPACE-SAVING MULTI-PAGE BOOKLET] 高達 5 頁的客製化折疊頁（9 個可印刷面），可將廣泛的法規警告、多語言成分、使用說明或品牌故事宣傳直接包裝到緊湊的容器上，而不會使您的產品顯得雜亂。",
+        "[PREMIUM DOUBLE-SIDED HD PRINT] 在面層和底層黏合層上進行鮮豔的高解析度 CMYK 彩色印刷，確保所有內頁均具有乾淨、防污的清晰度與無瑕的品牌美學契合度。",
+        "[CLEAN RESIDUE-FREE RE-SEALING] 高性能無黏邊可撕與重複密封設計，允許消費者打開、翻閱並重新密封說明書數百次，而不會出現翹角、皺褶或粘性殘膠。",
+        "[ZERO MICROPLASTIC BIO-ADHESIVE] 採用 FSC 認證的可生物降解面材和有機水性生物膠水製成，在標準環境條件下能清潔分解，滿足現代 B2C 買家的綠色環保需求。",
+        "[COMPLETELY BESPOKE SPECIFICATIONS] 無限制的刀模線客製化（圓形、客製化輪廓、矩形），精確度達毫米級。免除模具與設定費，超低 MOQ 僅 1,000 pcs 起。"
+      ]
+    },
+    "large-format-kraft-heavy-bag-conventional": {
+      "name": "Large Format Kraft Multi-Wall Side Gusset Pouch (Conventional Stock)",
+      "shortDesc": "高強度多層牛皮紙側風琴大袋，配有高強度 PP 編織內襯，適用於重型大宗貨物",
+      "description": "一款極其耐用、大容量的現貨側風琴包裝解決方案，專為重型 B2B 商業應用而設計。採用多層結構，將厚實的 FSC 認證天然牛皮紙外殼與高拉伸強度的 PP 編織內襯相結合。這款抗穿刺、不起毛的袋子旨在承載 2.5 kg 至 25 kg 之間的重型載荷，而不會撕裂或拉伸。配有可膨脹的 M 型側折板，以最大化儲存容量，以及與工業連續帶封口機相容的熱封口頂端。是包裝優質寵物食品、狗糧、有機木炭、批發麵粉、農業穀物和木質顆粒的理想且可靠的解決方案。以超值的 10 個一包裝形式販售。",
+      "features": [
+        "Heavy-Duty PP Woven Liner: 無可比擬的高拉伸和抗穿刺性能，安全容納重型內容物而無撕裂。",
+        "Expandable M-Folded Side Gusset: 側板可延伸以最大化大宗容量儲存，同時保持整齊的包裝線條。",
+        "Water-Resistant PE/PP Barrier: 阻隔水分、潮濕空氣和油脂，確保內容物保持完全乾燥與防潮保存。",
+        "FSC Certified Natural Kraft: 提供有機、環保的商業美學與絕佳的觸覺抓握感。",
+        "Impulse & Band Seal Ready: 加厚的上部封口端專為工業和手動高溫封口機設計，實現氣密保存。"
+      ]
+    },
+    "cotton-paper-foil-gusset-pouch": {
+      "name": "Premium Silk Cotton Paper Foil Laminated Side Gusset Pouch",
+      "shortDesc": "高級柔軟觸感棉紙側風琴袋，配有高阻隔鋁箔層壓結構，適用於高端茶葉和咖啡包裝",
+      "description": "高級絲光棉紙側風琴袋，配有高阻隔鋁箔層壓和食品級 PE 內層。採用柔軟觸感的天然棉紙紋理設計，以及高度防護的內阻隔層，保護茶葉、咖啡和精緻粉末免受光線、水分和氧氣的侵害。非常適合手工包裝、高級茶葉系列和客製化特色商品。",
+      "features": [
+        "Natural Cotton Paper Outer: 提供奢華、柔軟觸感的有機紋理，提升您的品牌形象。",
+        "Aluminum Foil High Barrier: 高級內部金屬化層壓阻擋 100% 的光線、水分和氧氣，最大化保持新鮮度。",
+        "Expandable Side Gusset: 側風琴設計可延伸以增加容量，在貨架上展示得非常美觀。",
+        "Secure Heat Sealable: 加厚的上部封口端可與標準手動或工業熱封機相容，實現氣密密封。",
+        "Food-Grade Safe Lining: 內部 PE 層無味、無毒，並通過 FDA 批准，可直接接觸食品。"
+      ]
+    },
+    "white-cotton-paper-vacuum-bag": {
+      "name": "White Cotton Paper Vacuum Seal Bag (Conventional Stock)",
+      "shortDesc": "高級柔軟觸感白棉紙真空密封側風琴袋，適用於米磚、穀物和藍莓",
+      "description": "高級白棉紙真空密封袋，配有側風琴，專為包裝穀物、米磚、茶葉和藍莓而設計。由厚實的 PE 內層和柔軟觸感的棉紙外層製成，該袋在真空條件下提供高度耐用且氣密的密封。真空密封時，風琴側折可膨脹形成整齊的磚形，非常適合零售展示和重型儲存。",
+      "features": [
+        "Natural Cotton Paper Outer: 柔軟、具觸感、有機紙張紋理，展現乾淨且高端的外觀。",
+        "High-Strength PE Lining: 配方設計可承受強大真空壓力，無穿刺或洩漏。",
+        "Gusseted Side Fold Design: 可膨脹的側面在真空密封後可形成結構化、可堆疊的磚形。",
+        "Airtight Heat Sealable: 適用於真空包裝機和連續帶式封口機，以實現長期保鮮。",
+        "Food-Grade Protection: 抗穿刺、食品接觸安全，是穀物、種子和水果保存的理想選擇。"
+      ]
+    },
+    "semi-transparent-cotton-rice-paper-tea-bag": {
+      "name": "Food-Grade Semi-Transparent White Cotton Rice Paper Tea Bag (Conventional Stock)",
+      "shortDesc": "高級半透明白棉紙側風琴袋，適用於散裝茶葉和草本沖泡",
+      "description": "高級食品級半透明白棉紙側風琴袋，專為優質散裝茶葉、抹茶粉和草本沖泡設計。採用食品安全 PE 內襯和柔軟觸感、透氣的棉紙外殼製成。該袋能保存精緻的茶香，保護茶葉免受潮濕，其半透明的質地為內部的優質商品提供了微妙而奢華的預覽。",
+      "features": [
+        "Artisan Cotton Paper Outer: 柔軟、透氣、有機紙張紋理，具有高級半透明美學。",
+        "Food-Grade Protection: 無毒、無味的 PE 內層，安全適用於直接接觸散裝茶葉和草本。",
+        "Side Gusset Design: 可膨脹的側風琴最大化儲存容量，並在貨架上優雅地展示。",
+        "Airtight Heat Sealable: 易於使用連續帶式封口機或脈衝封口機密封，以實現持久的香氣保存。",
+        "Tear-Notch Openings: 頂部封口端有便捷的易撕口，便於消費者快速方便地開啟。"
+      ]
+    },
+    "water-soluble-fishing-bait-bags-pva-3-side-seal": {
+      "name": "Water-Soluble Fishing Bait Bags (PVA / Instant-Dissolve)",
+      "shortDesc": "高級環保 PVA 即溶水溶性三邊封魚餌袋",
+      "description": "一款高級、環保的 PVA（聚乙烯醇）水溶性餌料袋，專為先進的運動和商業釣魚設計。採用高性能即溶 PVA 薄膜製造，這款三邊封平口袋可在水中迅速且完全溶解，不留下任何有毒殘留物。非常適合在水庫、湖泊、大河流和海釣中進行精確、集中的誘餌投放。對水域生態系統安全，且對吸引魚群高度有效。",
+      "features": [
+        "Eco-Friendly PVA Material: 100% 可生物降解且水溶性，完全溶解而不殘留毒性。",
+        "Instant-Dissolve Formulation: 在水中快速且完全溶解，即時在目標點釋放窩料。",
+        "Precise Groundbait Placement: 確保餌料集中在您落鉤的精確位置，最大化集魚效果。",
+        "3-Side Seal Design: 扁平格式優化，便於包裝、安全運輸和快速部署。",
+        "Safe for Aquatic Ecosystems: 無毒、澱粉基化合物，對魚類和其他水生生物安全。"
+      ]
+    },
+    "compostable-citrus-orange-filament-rollstock": {
+      "name": "Home Compostable CitrusCycle™ Orange Peel Waste PHA 3D Printing Filament",
+      "shortDesc": "海洋可降解、100% 生物基 PHA 線材，由升級改造的有機廢棄物製成。無需預先乾燥。",
+      "description": "使用我們的 Loopha PHA 永續 3D 列印線材，改造您的包裝原型設計與刀模線測試。此高性能材料由聚羥基烷酸酯（PHA）和升級改造的有機廢棄物製成，代表了下一代生物塑料。它提供 10 種原料複合材料選擇，包括橙皮、咖啡渣、茶葉/抹茶、葡萄皮、桃子、竹子、牡蠣殼、木炭、稻米和海藻。與需要嚴格工業堆肥和強制 4 小時預先乾燥的標準 PLA 不同，Loopha PHA 原生支持家用可堆肥和海洋可降解。至關重要的是，它的軟化溫度在 60°C 以上（PLA 為 50-55°C），具有高韌性、低冷卻收縮率（允許在無加熱床的環境下進行列印），並在列印過程中散發出微妙、令人愉悅的有機香氣，而非化學廢氣。",
+      "features": [
+        "10 Organic Composites: 可選橙皮、咖啡、綠茶、葡萄、桃子、竹子、牡蠣殼、木炭、稻米或海藻，每種都展示出獨特的天然紋理和色彩。",
+        "6 Core Advantages: 高熱穩定性（>60°C）、優質韌性、自然土壤/海洋降解、安全無毒（零微塑料）、低碳足跡以及無毒有機香氣。",
+        "No Pre-Drying Bottleneck: 穩定的聚合物結構允許拆箱即印，無需 PLA 和 PETG 所需的 4 小時預先乾燥。",
+        "Zero Heated Bed Required: 低冷卻收縮率可防止翹曲，確保在標準 FDM 設備上具有出色的列印性能。",
+        "B2B Wholesale Tiers: 捲裝為 1 kg 軸裝格式，專為環保包裝原型設計和生物塑料研究而優化。"
+      ]
+    },
+    "box-corrugated-custom": {
+      "name": "Custom Printed Corrugated Mailer Boxes",
+      "shortDesc": "FSC 回收硬質郵寄盒，配有高級飾面",
+      "description": "高級客製化印刷瓦楞郵寄盒，非常適合咖啡、茶葉、巧克力和手工食品。配有四色 CMYK 印刷及啞光飾面，可選燙金和壓花。由 FSC 認證的回收紙製成，是尋求永續高端包裝的環保意識品牌的完美選擇。",
+      "features": [
+        "Matte Finish",
+        "Gold Foil Available",
+        "Embossed Details",
+        "FSC Certified Recycled Paper",
+        "Four Color Custom Printed (CMYK)",
+        "Rigid Box Construction"
+      ]
+    },
+    "box-tuck-custom": {
+      "name": "Custom Printed Tuck Boxes",
+      "shortDesc": "高級卡紙盒，配有燙金與壓花",
+      "description": "高級客製化印刷卡紙盒（折疊紙盒），配有優雅的啞光飾面、燙金和壓花細節。非常適合巧克力棒、隨身茶包、精緻糖果和需要精緻呈現的手工產品。由 FSC 認證紙張製成，專為環保意識品牌打造。",
+      "features": [
+        "250g White Card",
+        "Matte Finish",
+        "Gold Foil Stamping",
+        "Embossed Details",
+        "FSC Certified Paper",
+        "Tuck End Closure"
+      ]
+    },
+    "triangle-coffee-box-card": {
+      "name": "Triangle Coffee Box with Card Insertion",
+      "shortDesc": "高級三角形紙盒，配有整合式正面插卡套",
+      "description": "一款極具獨特性與質感的三角形 B2B 包裝解決方案，正面整合了用於插入標籤或卡片的口袋套。設計為獨特的三角形插耳紙盒形狀，這款包裝在零售貨架上呈現出令人驚嘆的美學效果。非常適合高端濾掛式咖啡、特色茶包、手工點心和高端禮品。由永續的 350g 環保紙卡製成，這款包裝盒將現代設計與高端永續性完美結合。",
+      "features": [
+        "Triangular Tuck Box Design: 獨特的結構佈局，提供高端的貨架展現力",
+        "Front Card Insertion Slot: 非常適合模組化品牌推廣、風味卡或客製化標籤",
+        "Premium Eco Stock: 由 350g 永續、回收高密度紙卡製成",
+        "FSC Certified & 100% Recyclable: 完美契合環保品牌價值觀",
+        "Tuck End Easy Assembly: 便捷的扁平出貨佈局，配有堅固、安全的封口折板"
+      ]
+    }
   }
 }

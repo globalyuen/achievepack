@@ -25,6 +25,7 @@ import {
   DropdownMenuSeparator,
 } from '../components/animate-ui/components/radix/dropdown-menu'
 import { useTranslation, Trans } from "react-i18next";
+import { useProductTranslation } from '../utils/productTranslation'
 
 // SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
 // Organized by material type: pcr (PCR/Bio), mono (Mono Recyclable), compost (Biodegradable)
@@ -505,7 +506,9 @@ const ProductPage: React.FC = () => {
     })
   }, [navigate])
   
-  const product = FEATURED_PRODUCTS.find(p => p.id === productId)
+  const { translateProduct, translateProducts } = useProductTranslation()
+  const translatedProducts = useMemo(() => translateProducts(FEATURED_PRODUCTS), [translateProducts])
+  const product = translatedProducts.find(p => p.id === productId)
   const isEcoDigital = product?.category === 'eco-digital'
   const isConventionalDigital = product?.category === 'conventional-digital'
   const isEcoStock = product?.category === 'eco-stock' || product?.category === 'conventional-stock' || product?.category === '3d-print'
@@ -5592,13 +5595,13 @@ const ProductPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-neutral-900 mb-8">{t(`${p}.relatedProducts`)}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {FEATURED_PRODUCTS
+            {translatedProducts
               .filter(p => p.id !== product?.id && p.category === product?.category)
               .slice(0, 4)
               .concat(
-                FEATURED_PRODUCTS
+                translatedProducts
                   .filter(p => p.id !== product?.id && p.category !== product?.category)
-                  .slice(0, 4 - FEATURED_PRODUCTS.filter(p => p.id !== product?.id && p.category === product?.category).slice(0, 4).length)
+                  .slice(0, 4 - translatedProducts.filter(p => p.id !== product?.id && p.category === product?.category).slice(0, 4).length)
               )
               .map((relatedProduct) => (
                 <Link

@@ -51,7 +51,7 @@ Analyze this customer contact and return the suggested actions and WhatsApp draf
         'Authorization': `Bearer ${XAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'grok-beta', // stable fallback model
+        model: 'grok-latest', // stable fallback model
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt }

@@ -19,6 +19,7 @@ import { TextRotate } from './components/ui/TextRotate'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
+import { useProductTranslation } from './utils/productTranslation'
 import ReadingProgress from './components/ReadingProgress'
 import { getDomain, getBrandConfig, getBaseUrl } from './utils/domain'
 import QuoteLightbox from './components/QuoteLightbox';
@@ -95,8 +96,8 @@ import KnowHowCarousel from './components/KnowHowCarousel'
 
 
 function App() {
-
   const { t, i18n } = useTranslation();
+  const { translateProducts } = useProductTranslation();
   const { cartCount, addToCart, setIsCartOpen } = useStore();
   const navigate = useNavigate();
   const [isPending, startTransition] = useTransition();
@@ -1954,7 +1955,7 @@ function App() {
 
           {/* Products Coverflow Carousel - same style as Discover Products */}
           <CoverflowCarousel
-            items={FEATURED_PRODUCTS.slice(0, 10).map((product) => ({
+            items={translateProducts(FEATURED_PRODUCTS.slice(0, 10)).map((product) => ({
               image: product.images[0],
               link: `/store?product=${product.id}`,
               label: product.name.length > 25 ? product.name.substring(0, 22) + '...' : product.name,

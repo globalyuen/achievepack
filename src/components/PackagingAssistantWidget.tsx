@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { MessageCircle, X, Send, Loader2, Bot, User, ExternalLink, MapPin, ArrowRight, Calendar } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { FEATURED_PRODUCTS } from '../store/productData'
+import { useProductTranslation } from '../utils/productTranslation'
 import { useCalendly } from '../contexts/CalendlyContext'
 
 interface Message {
@@ -25,6 +26,7 @@ interface PageContext {
 }
 
 const PackagingAssistantWidget: React.FC = () => {
+  const { translateProduct } = useProductTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [inputValue, setInputValue] = useState('')
@@ -112,8 +114,9 @@ const PackagingAssistantWidget: React.FC = () => {
     // Product page detection
     if (path.startsWith('/store/product/')) {
       const productId = path.split('/store/product/')[1]
-      const product = FEATURED_PRODUCTS.find(p => p.id === productId)
-      if (product) {
+      const rawProduct = FEATURED_PRODUCTS.find(p => p.id === productId)
+      if (rawProduct) {
+        const product = translateProduct(rawProduct)
         return {
           path,
           pageType: 'product',

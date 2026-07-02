@@ -16,6 +16,7 @@ import { useStore } from '../store/StoreContext'
 import ProductCarousel from '../components/ProductCarousel'
 import { ThreePouchViewer } from '../components/ThreePouchViewer'
 import { FEATURED_PRODUCTS } from '../store/productData'
+import { useProductTranslation } from '../utils/productTranslation'
 
 /**
  * Pouch.eco Homepage - B2C Focused
@@ -67,6 +68,7 @@ const NeoBadge = ({ children, color = 'bg-[#10b981]' }: any) => (
 
 export default function PouchEcoHomePage() {
   const { t } = useTranslation()
+  const { translateProducts } = useProductTranslation()
   const p = 'seoPages.pages.pouchEcoHome'
 
   const brand = getBrandConfig()
@@ -535,7 +537,7 @@ export default function PouchEcoHomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {FEATURED_PRODUCTS.filter(p => ['sample-sizing-pack', 'compostable-stand-up-pouches', 'spouted-foil-pouch'].includes(p.id)).map((product) => {
+          {translateProducts(FEATURED_PRODUCTS.filter(p => ['sample-sizing-pack', 'compostable-stand-up-pouches', 'spouted-foil-pouch'].includes(p.id))).map((product) => {
             const imageUrl = product.images?.[0] || '';
             return (
               <Link 

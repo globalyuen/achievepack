@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Menu, X, Sparkles, AlertTriangle, Mail, DollarSign, Package, Printer, Plane, ChevronLeft, ChevronRight, Leaf, Globe } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct, getProductType, getProductSubCategory } from '../store/productData'
+import { useProductTranslation } from '../utils/productTranslation'
 import { getProductImage } from '../utils/productImageMapper'
 import type { ShapeType } from '../utils/productImageMapper'
 import MegaMenu from '../components/MegaMenu'
@@ -331,6 +332,7 @@ const getCustomQuoteRoute = (id: string): string | null => {
 
 const StorePage: React.FC = () => {
   const { t } = useTranslation()
+  const { translateProducts } = useProductTranslation()
   const { cartCount, setIsCartOpen } = useStore()
   const { openQuoteLightbox } = useCustomQuote()
   const navigate = useNavigate()
@@ -675,60 +677,62 @@ const StorePage: React.FC = () => {
     // Convert URL shape param to internal shape name
     const internalShape = urlShapeToInternal[selectedShape] || selectedShape
     
-    return FEATURED_PRODUCTS.filter(product => {
-      // Get product's subCategory for filtering
-      const productSubCategory = getProductSubCategory(product)
-      
-      // Special handling for different category filters
-      let matchesCategory = false
-      if (selectedCategory === 'all') {
-        matchesCategory = productSubCategory !== 'custom-pouches'
-      } else if (selectedCategory === 'mailer') {
-        // Mailer category filters by shape 'Mailer Bag'
+    return translateProducts(
+      FEATURED_PRODUCTS.filter(product => {
+        // Get product's subCategory for filtering
+        const productSubCategory = getProductSubCategory(product)
+        
+        // Special handling for different category filters
+        let matchesCategory = false
+        if (selectedCategory === 'all') {
+          matchesCategory = productSubCategory !== 'custom-pouches'
+        } else if (selectedCategory === 'mailer') {
+          // Mailer category filters by shape 'Mailer Bag'
+          const productShape = getProductShape(product)
+          matchesCategory = productShape === 'Mailer Bag'
+        } else if (selectedCategory === 'samples' || selectedCategory === 'sample') {
+          // Sample category
+          matchesCategory = product.category === 'sample'
+        } else if (selectedCategory === 'eco-stock-plain') {
+          // Eco Stock Plain (no custom print)
+          matchesCategory = productSubCategory === 'eco-stock-plain'
+        } else if (selectedCategory === 'eco-stock-custom-print') {
+          // Eco Stock Custom Print
+          matchesCategory = productSubCategory === 'eco-stock-custom-print'
+        } else {
+          // Standard category match
+          matchesCategory = product.category === selectedCategory || productSubCategory === selectedCategory
+        }
+        
+        const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                             product.description.toLowerCase().includes(searchQuery.toLowerCase())
+        
         const productShape = getProductShape(product)
-        matchesCategory = productShape === 'Mailer Bag'
-      } else if (selectedCategory === 'samples' || selectedCategory === 'sample') {
-        // Sample category
-        matchesCategory = product.category === 'sample'
-      } else if (selectedCategory === 'eco-stock-plain') {
-        // Eco Stock Plain (no custom print)
-        matchesCategory = productSubCategory === 'eco-stock-plain'
-      } else if (selectedCategory === 'eco-stock-custom-print') {
-        // Eco Stock Custom Print
-        matchesCategory = productSubCategory === 'eco-stock-custom-print'
-      } else {
-        // Standard category match
-        matchesCategory = product.category === selectedCategory || productSubCategory === selectedCategory
-      }
-      
-      const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                           product.description.toLowerCase().includes(searchQuery.toLowerCase())
-      
-      const productShape = getProductShape(product)
-      const matchesShape = selectedShape === 'all' || productShape === internalShape || productShape === selectedShape
-      
-      // Sub-filters for selected shape
-      const matchesSubMaterial = selectedSubMaterial === 'all' || getProductClassification(product) === selectedSubMaterial
-      
-      let productType: 'custom' | 'stock' = 'custom'
-      if (
-        productSubCategory === 'eco-stock-plain' || 
-        productSubCategory === 'conventional-stock-plain' || 
-        productSubCategory === '3d-print' ||
-        product.category === 'conventional-stock' || 
-        product.category === 'eco-stock' ||
-        product.category === '3d-print' ||
-        product.id.includes('stock') ||
-        product.id.includes('plain')
-      ) {
-        productType = 'stock'
-      }
-      
-      const matchesSubType = selectedSubType === 'all' || productType === selectedSubType
-      
-      return matchesCategory && matchesSearch && matchesShape && matchesSubMaterial && matchesSubType
-    })
-  }, [selectedCategory, searchQuery, selectedShape, selectedSubMaterial, selectedSubType])
+        const matchesShape = selectedShape === 'all' || productShape === internalShape || productShape === selectedShape
+        
+        // Sub-filters for selected shape
+        const matchesSubMaterial = selectedSubMaterial === 'all' || getProductClassification(product) === selectedSubMaterial
+        
+        let productType: 'custom' | 'stock' = 'custom'
+        if (
+          productSubCategory === 'eco-stock-plain' || 
+          productSubCategory === 'conventional-stock-plain' || 
+          productSubCategory === '3d-print' ||
+          product.category === 'conventional-stock' || 
+          product.category === 'eco-stock' ||
+          product.category === '3d-print' ||
+          product.id.includes('stock') ||
+          product.id.includes('plain')
+        ) {
+          productType = 'stock'
+        }
+        
+        const matchesSubType = selectedSubType === 'all' || productType === selectedSubType
+        
+        return matchesCategory && matchesSearch && matchesShape && matchesSubMaterial && matchesSubType
+      })
+    )
+  }, [selectedCategory, searchQuery, selectedShape, selectedSubMaterial, selectedSubType, translateProducts])
 
   const sortedProducts = useMemo(() => {
     return [...filteredProducts].sort((a, b) => {

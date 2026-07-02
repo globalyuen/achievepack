@@ -45995,5 +45995,1038 @@
     },
     "viewFullSize": "Ver Tamaño Completo",
     "viewMacroShot": "Ver Foto Macro"
+  },
+  "productData": {
+    "sample-sizing-pack": {
+      "name": "Pack de Muestras por Talla (Plástico Convencional)",
+      "shortDesc": "Muestras gratuitas + envío US$40",
+      "description": "Muestras gratuitas en tallas estándar fabricadas con material de plástico convencional. Ideales para probar diferentes tamaños antes de realizar un pedido a escala.",
+      "features": [
+        "Múltiples Tallas Estándar",
+        "Plástico Convencional",
+        "Muestras Gratuitas",
+        "Envío Rápido"
+      ]
+    },
+    "sample-assorted-eco": {
+      "name": "Muestra Surtida de Bolsas Eco",
+      "shortDesc": "Muestras gratuitas + envío US$40",
+      "description": "Bolsas de muestra eco-amigables mixtas que incluyen materiales PCR/Bio, Reciclables y Compostables.",
+      "features": [
+        "Materiales PCR/Bio",
+        "Opciones Reciclables",
+        "Opciones Compostables",
+        "Pack Variado"
+      ]
+    },
+    "sample-top-film": {
+      "name": "Film Superior con Impresión Digital Personalizada de Tu Diseño",
+      "shortDesc": "Muestra US$20 + envío US$40",
+      "description": "Muestra de film de gran formato con impresión digital. Perfecta para evaluar la calidad de impresión y la fidelidad de colores.",
+      "features": [
+        "760mm x 1000mm",
+        "Calidad de Impresión Digital",
+        "Prueba de Color",
+        "Entrega Rápida"
+      ]
+    },
+    "sample-hand-sealed": {
+      "name": "Bolsas Selladas a Mano con Impresión Digital Personalizada",
+      "shortDesc": "Muestra US$20 + envío US$40",
+      "description": "Bolsas selladas a mano con impresión digital y talla personalizada. Prueba tus especificaciones exactas antes de realizar un pedido a gran escala.",
+      "features": [
+        "Tallas Personalizadas",
+        "Sellado a Mano",
+        "Impresión Digital",
+        "Personalización Completa"
+      ]
+    },
+    "conven-3ss-clear-xzip": {
+      "name": "Bolsa de Sello Triple – Transparente, Sin Cierre",
+      "shortDesc": "Desde US$90 por 100 pcs",
+      "description": "Bolsa de sello en tres lados de cristal transparente con acabado de barrera baja. Perfecta para exhibir tus productos con máxima visibilidad.",
+      "features": [
+        "Material Transparente",
+        "Barrera Baja (Brillante)",
+        "Impresión Digital",
+        "Envío Gratis"
+      ]
+    },
+    "conven-3ss-clear-zip": {
+      "name": "Bolsa de Sello Triple – Transparente, Con Cierre",
+      "shortDesc": "Desde US$110 por 100 pcs",
+      "description": "Bolsa de sello en tres lados transparente y resellable. Combina visibilidad del producto con la comodidad de un cierre hermético.",
+      "features": [
+        "Material Transparente",
+        "Cierre Resellable",
+        "Barrera Baja (Brillante)",
+        "Impresión Digital"
+      ]
+    },
+    "conven-3ss-met-xzip": {
+      "name": "Bolsa de Sello Triple – Metalizada, Sin Cierre",
+      "shortDesc": "Desde US$90 por 100 pcs",
+      "description": "Bolsa de sello en tres lados metalizada con protección de alta barrera. Ideal para productos sensibles a la luz y a la humedad.",
+      "features": [
+        "Material Metalizado",
+        "Alta Barrera (Mate)",
+        "Protección a la Luz",
+        "Impresión Digital"
+      ]
+    },
+    "conven-3ss-met-zip": {
+      "name": "Bolsa de Sello Triple – Metalizada, Con Cierre",
+      "shortDesc": "Desde US$110 por 100 pcs",
+      "description": "Bolsa premium de sello en tres lados metalizada con cierre. Máxima protección con resello conveniente para conservar la frescura del producto.",
+      "features": [
+        "Material Metalizado",
+        "Cierre Resellable",
+        "Alta Barrera (Mate)",
+        "Máxima Frescura"
+      ]
+    },
+    "conven-sup-clear-xzip": {
+      "name": "Bolsa de Pie – Transparente, Sin Cierre",
+      "shortDesc": "Desde US$90 por 100 pcs",
+      "description": "Bolsa de pie transparente con excelente presencia en anaquel. Exhibe tu producto de manera vertical y visible en los puntos de venta.",
+      "features": [
+        "Material Transparente",
+        "Diseño de Pie",
+        "Barrera Baja (Brillante)",
+        "Presencia en Anaquel"
+      ]
+    },
+    "conven-sup-clear-zip": {
+      "name": "Bolsa de Pie – Transparente, Con Cierre",
+      "shortDesc": "Desde US$100 por 100 pcs",
+      "description": "Bolsa de pie transparente y resellable. Combinación perfecta de visibilidad, atractivo en anaquel y comodidad de cierre hermético.",
+      "features": [
+        "Material Transparente",
+        "Pie + Cierre",
+        "Barrera Baja (Brillante)",
+        "Envío Gratis"
+      ]
+    },
+    "conven-sup-met-xzip": {
+      "name": "Bolsa de Pie – Metalizada, Sin Cierre",
+      "shortDesc": "Desde US$90 por 100 pcs",
+      "description": "Bolsa de pie metalizada con protección de alta barrera. Combina una apariencia premium con una sólida protección del producto.",
+      "features": [
+        "Material Metalizado",
+        "Diseño de Pie",
+        "Alta Barrera (Mate)",
+        "Presentación Premium"
+      ]
+    },
+    "conven-sup-met-zip": {
+      "name": "Bolsa de Pie – Metalizada, Con Cierre",
+      "shortDesc": "Desde US$100 por 100 pcs",
+      "description": "Bolsa de pie metalizada premium con cierre. Nuestra opción más vendida que reúne todas las características premium en un solo envase.",
+      "features": [
+        "Material Metalizado",
+        "Pie + Cierre",
+        "Alta Barrera (Mate)",
+        "Más Vendida"
+      ]
+    },
+    "conven-fb-met-zip": {
+      "name": "Bolsa de Fondo Plano – Metalizada, Con Cierre",
+      "shortDesc": "Desde US$900 por 500 pcs",
+      "description": "Bolsa de fondo plano con cierre y protección de alta barrera metalizada. Ofrece máxima estabilidad, estructura elegante y presentación premium en anaquel.",
+      "features": [
+        "Material Metalizado",
+        "Fondo Plano + Cierre",
+        "Alta Barrera (Mate)",
+        "Estructura Autosustentable"
+      ]
+    },
+    "small-sachet-conventional": {
+      "name": "Sobre Pequeño – Material Convencional",
+      "shortDesc": "Desde US$159.60 por 500 pcs",
+      "description": "Sobre pequeño con impresión personalizada fabricado en una estructura multilaminar de aluminio puro sedoso de alta calidad (120 micrones / 12丝). Proporciona una barrera ultra-alta contra la humedad y la luz. Ideal para porciones individuales de café, té, polvos y muestras cosméticas.",
+      "features": [
+        "Aluminio Puro Sedoso (12丝)",
+        "Barrera Ultra-Alta",
+        "Hot Stamping e Impresión Digital",
+        "Tallas y Formas Personalizadas"
+      ]
+    },
+    "eco-3side": {
+      "name": "Eco Digital – Bolsa de Sello Triple",
+      "shortDesc": "Desde US$100 por 1,000 pcs",
+      "description": "Bolsa de sello en tres lados eco-amigable. Elija entre materiales PCR/Bio Plástico, Mono Reciclable o Biodegradable.",
+      "features": [
+        "Materiales Eco",
+        "30% Menos Carbono",
+        "Impresión Digital",
+        "Sustentable"
+      ]
+    },
+    "eco-centerseal": {
+      "name": "Eco Digital – Bolsa de Sello Central",
+      "shortDesc": "Desde US$100 por 1,000 pcs",
+      "description": "Sello central eco-amigable. Diseño simple y económico con opciones de materiales sustentables.",
+      "features": [
+        "Materiales Eco",
+        "Sello Central",
+        "Impresión Digital",
+        "Sustentable"
+      ]
+    },
+    "eco-standup": {
+      "name": "Eco Digital – Bolsa de Pie / Doypack",
+      "shortDesc": "Desde US$120 por 1,000 pcs",
+      "description": "Bolsa de pie eco premium. Excelente presencia en anaquel con materiales sustentables.",
+      "features": [
+        "Materiales Eco",
+        "Diseño de Pie",
+        "Impresión Digital",
+        "Premium"
+      ]
+    },
+    "eco-boxbottom": {
+      "name": "Eco Digital – Bolsa de Fondo Cuadrado",
+      "shortDesc": "Desde US$170 por 1,000 pcs",
+      "description": "Bolsa de fondo cuadrado eco. Máxima estabilidad y capacidad con materiales sustentables.",
+      "features": [
+        "Materiales Eco",
+        "Fondo Cuadrado",
+        "Alta Capacidad",
+        "Sustentable"
+      ]
+    },
+    "eco-flatbottom": {
+      "name": "Eco Digital – Bolsa de Fondo Plano Cuadrado",
+      "shortDesc": "Desde US$190 por 1,000 pcs",
+      "description": "Bolsa de fondo plano eco. Diseño de fondo plano premium con materiales eco-amigables.",
+      "features": [
+        "Materiales Eco",
+        "Fondo Plano",
+        "Diseño Premium",
+        "Sustentable"
+      ]
+    },
+    "eco-quadseal": {
+      "name": "Eco Digital – Bolsa de Cuádruple Sello",
+      "shortDesc": "Desde US$160 por 1,000 pcs",
+      "description": "Bolsa de cuádruple sello eco. Sellado en cuatro esquinas para máxima estabilidad con materiales sustentables.",
+      "features": [
+        "Materiales Eco",
+        "Cuádruple Sello",
+        "Alta Estabilidad",
+        "Sustentable"
+      ]
+    },
+    "eco-sidegusset": {
+      "name": "Eco Digital – Bolsa con Fuelle Lateral",
+      "shortDesc": "Desde US$140 por 1,000 pcs",
+      "description": "Bolsa con fuelle lateral eco. Estilo clásico de bolsa para café con materiales sustentables.",
+      "features": [
+        "Materiales Eco",
+        "Fuelle Lateral",
+        "Estilo Bolsa de Café",
+        "Sustentable"
+      ]
+    },
+    "media__1780570697340.jpg": {
+      "name": "Rollstock Eco Personalizado",
+      "shortDesc": "Film de rollstock eco-amigable personalizado diseñado para líneas de envasado automatizadas Form-Fill-Seal",
+      "description": "Film de rollstock eco-amigable personalizado, diseñado específicamente para maquinaria de envasado automatizada Form-Fill-Seal (FFS). Elija entre materiales PCR/Bio Plástico, Mono Reciclable o Biodegradable.",
+      "features": [
+        "Materiales Eco: Seleccione entre films poliméricos biodegradables, compostables o reciclables",
+        "Listo para FFS Automatizado: Diseñado para deslizamiento continuo y alta resistencia a la tracción en máquinas automáticas de envasado",
+        "Impresión Digital Personalizada: Sin costo de planchas y reproducción multicolor vívida para tiradas cortas",
+        "Certificado Grado Alimentario: 100% conforme con los estándares de seguridad FDA, LFGB y BRC"
+      ]
+    },
+    "food-grade-three-layer-chocolate-cushioning-paper-pad": {
+      "name": "Pad Acolchado de Papel de Tres Capas para Chocolates Grado Alimentario, Impresión en Blanco y Negro, Antihumedad y Absorción de Impactos en Patrón Waffle de Panal",
+      "shortDesc": "Pad acolchado de papel de panal waffle de tres capas grado alimentario con absorción de impactos antihumedad",
+      "description": "Un pad acolchado de papel de alta calidad, grado alimentario, diseñado con una estructura de tres capas en patrón waffle de panal. Pensado específicamente para chocolates finos, confitería, pasteles y productos horneados delicados. Proporciona una superior absorción de impactos, resistencia a la humedad y amortiguación para prevenir roturas o aplastamientos durante el transporte. Fabricado con materiales de papel 100% naturales, biodegradables y compostables, con diseños impresos en blanco y negro de uso alimentario.",
+      "features": [
+        "Seguro para Alimentos y Conforme con FDA: Fabricado con papel 100% grado alimentario para contacto directo con confitería.",
+        "Acolchado Waffle de Panal de 3 Capas: El patrón waffle expandido ofrece una excelente protección contra impactos.",
+        "Antihumedad y Resistente al Aceite: Las capas exteriores previenen la absorción de grasa y mantienen la presentación premium.",
+        "100% Biodegradable y Compostable: Alternativa de origen vegetal a los forro de burbujas de plástico.",
+        "Impresión y Tallas Personalizadas: Personalizables con impresión en blanco y negro para adaptarse al diseño del logo de su marca."
+      ]
+    },
+    "reusable-acrylic-airtight-canister": {
+      "name": "Canister Hermético de Acrílico Reutilizable",
+      "shortDesc": "Canister de almacenamiento acrílico premium reutilizable con tapa dorada de doble capa hermética",
+      "description": "Un canister hermético de acrílico de alta durabilidad y reutilizable, diseñado para productos secos, té, café, hierbas y artículos de belleza. Fabricado con un cuerpo acrílico grado alimentario de alta transparencia y una tapa dorada protectora de doble capa con junta de silicona hermética, que garantiza una conservación de frescura y control de humedad a largo plazo. Una alternativa sustentable al empaque minorista de un solo uso, optimizado para el rellenado continuo en hogares y entornos comerciales.",
+      "features": [
+        "Diseño Circular Cero Residuos: Diseñado para ciclos infinitos de lavado y rellenado, reemplazando el empaque desechable.",
+        "Acrílico Grado Alimentario de Alta Transparencia: Elegante transparencia similar al vidrio con alta resistencia a golpes y bajo peso de envío.",
+        "Tapa Dorada de Rosca de Doble Capa: Tapa de protección de doble capa con roscas internas grado alimentario para un sello hermético y a prueba de fugas.",
+        "Junta de Silicona de Sellado: Conservación de frescura de grado marino que protege el contenido del aire y la humedad.",
+        "Múltiples Clasificaciones de Tamaño: Disponible en 20 capacidades exactas desde 100ml hasta 400ml para adaptarse a cualquier espacio en anaquel."
+      ]
+    },
+    "spouted-stand-up-pouch-bio-pe": {
+      "name": "Bolsa de Pie con Pitorro en Bio-PE",
+      "shortDesc": "Bolsa de pie eco-amigable de Bio-PE de caña de azúcar con pitorro sellado a prueba de fugas",
+      "description": "Una solución de empaque mayorista B2B premium de especificaciones personalizadas, fabricada con polietileno de origen vegetal derivado de caña de azúcar (Bio-PE). Formulada con una estructura PET12/AL7/NY15/Bio-PE80, esta bolsa ofrece un rendimiento de barrera idéntico al plástico convencional, reduciendo significativamente la huella de carbono de su marca. Totalmente reciclable en las corrientes estándar de PE, con sellos soldados robustos y una tapa roscada resellable con indicador de manipulación para líquidos, purés, alimentos para bebés y rellenados.",
+      "features": [
+        "Especificaciones B2B Avanzadas: Bio-PE de caña de azúcar, diámetro interior de pitorro 8mm",
+        "Material Eco Premium: Fabricado con PET12/AL7/NY15/Bio-PE80 de fuentes renovables.",
+        "100% Reciclable: Compatible con las corrientes de reciclaje estándar de PE (#2 y #4).",
+        "Sellos Soldados a Prueba de Fugas: Diseñados para el transporte de formulaciones líquidas, purés y grado alimentario.",
+        "Tapa con Indicador de Manipulación: Sistema de cierre fiable integrado para conservar la frescura."
+      ]
+    },
+    "recyclable-3ss-evoh-pe-102x152": {
+      "name": "Bolsa de Sello Triple 102mm x 152mm (PE Reciclable / EVOH-PE)",
+      "shortDesc": "Bolsa de sello triple B2B premium con cotización personalizada, fabricada con film compuesto de PE Reciclable/EVOH-PE",
+      "description": "Una solución de empaque mayorista B2B premium de especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Con una estructura compuesta de PE Reciclable/EVOH-PE de alto rendimiento, este producto garantiza una defensa de barrera máxima contra la humedad, la luz y la oxidación. Formulado específicamente para conservar la frescura y la integridad estructural en la exhibición minorista, ofrece una preservación excepcional de la vida útil para café, té, snacks orgánicos o componentes industriales. Incluye ancho de sello estándar, bordes planos impecables y muescas de apertura fácil.",
+      "features": [
+        "Especificaciones B2B Avanzadas: Compuesto EVOH-PE de alta barrera, ancho de sello estándar, sin cierre",
+        "Diseño de Sello Triple: Formato plano optimizado para presentaciones minoristas profesionales y empaquetado eficiente.",
+        "Estructura de Material Premium: Fabricado con mono-PE de polímero único 100% reciclable con barrera de EVOH.",
+        "Niveles de Valor Mayorista: MOQ bajo desde 200 piezas con descuentos por volumen escalonados.",
+        "Opción Eco-Consciente: Estructura totalmente reciclable diseñada para corrientes de recuperación circular estándar."
+      ]
+    },
+    "rice-paper-500g-standup": {
+      "name": "Bolsa de Pie con Cierre 220mm x 240mm + 90mm (Papel de Arroz / PBAT)",
+      "shortDesc": "Bolsa de pie B2B premium con cotización personalizada fabricada en Papel de Arroz 30g / PBAT 100 con válvula desgasificadora PLA",
+      "description": "Una solución de empaque mayorista B2B premium de especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Con una estructura multicapa compostable de alta resistencia en Papel de Arroz 30g / PBAT 100, este producto garantiza una defensa de barrera máxima contra la humedad, la luz y la oxidación. Formulado específicamente para conservar el sabor y la integridad estructural en la exhibición minorista, ofrece una preservación excepcional de la vida útil para café, alimentos especiales, productos orgánicos o suministros industriales. Incluye muescas de apertura fácil, un cierre resellable fiable, una válvula desgasificadora PLA y líneas de sello robustas.",
+      "features": [
+        "Especificaciones B2B Avanzadas: Cierre biodegradable resellable, válvula desgasificadora PLA",
+        "Diseño de Bolsa de Pie: Empaque comercial B2B perfectamente proporcionado y optimizado para branding profesional.",
+        "Estructura de Material Premium: Fabricado con capas compostables de alto rendimiento en Papel de Arroz 30g / PBAT 100.",
+        "Niveles de Valor Mayorista: MOQ bajo desde 500 piezas con descuentos personalizados.",
+        "Sistema de Cierre Seguro: Sellos integrados fiables para conservar la frescura y bloquear la humedad."
+      ]
+    },
+    "stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl": {
+      "name": "Bolsa de Pie 300mm x 340mm + 150mm (Papel Kraft Blanco 60g)",
+      "shortDesc": "Bolsa de pie B2B premium con cotización personalizada fabricada en Papel Kraft Blanco 60g/Recubrimiento de Aluminio PLA/PLA+PBAT Biodegradable",
+      "description": "Una solución de empaque mayorista B2B premium de especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Con una estructura multicapa biodegradable de alta resistencia en Papel Kraft Blanco 60g/Recubrimiento de Aluminio PLA/PLA+PBAT, este producto garantiza una defensa de barrera máxima contra la humedad, la luz y la oxidación. Formulado específicamente para conservar el sabor y la integridad estructural en la exhibición minorista, ofrece una preservación excepcional de la vida útil para café, alimentos especiales, productos orgánicos o suministros industriales. Incluye muescas de apertura fácil y líneas de sello robustas.",
+      "features": [
+        "Especificaciones B2B Avanzadas: Cierre biodegradable 13mm-PLA2, bolsa transparente",
+        "Diseño de Bolsa de Pie: Empaque comercial B2B perfectamente proporcionado y optimizado para branding profesional.",
+        "Estructura de Material Premium: Fabricado con capas de alto rendimiento en Papel Kraft Blanco 60g/Recubrimiento de Aluminio PLA/PLA+PBAT Biodegradable.",
+        "Niveles de Valor Mayorista: MOQ bajo desde 1,000 piezas con descuentos personalizados.",
+        "Sistema de Cierre Seguro: Sellos integrados fiables para conservar la frescura y bloquear la humedad."
+      ]
+    },
+    "stand-up-zipper-bag-50-tablets-white-kraft-paper-60g-pla-pba": {
+      "name": "Bolsa de Pie 215mm x 215mm x 100mm (Papel Kraft Blanco 60g)",
+      "shortDesc": "Bolsa de pie B2B premium con cotización personalizada fabricada en Papel Kraft Blanco 60g / PLA+PBAT Biodegradable",
+      "description": "Una solución de empaque mayorista B2B premium de especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Con una estructura multicapa biodegradable de alta resistencia en Papel Kraft Blanco 60g / PLA+PBAT, este producto garantiza una defensa de barrera máxima contra la humedad, la luz y la oxidación. Formulado específicamente para conservar el sabor y la integridad estructural en la exhibición minorista, ofrece una preservación excepcional de la vida útil para café, alimentos especiales, productos orgánicos o suministros industriales. Incluye muescas de apertura fácil y líneas de sello robustas.",
+      "features": [
+        "Especificaciones B2B Avanzadas: Aceite antidescoloramiento parcial, cierre biodegradable 13mm PLA2, grosor 135",
+        "Diseño de Bolsa de Pie: Empaque comercial B2B perfectamente proporcionado y optimizado para branding profesional.",
+        "Estructura de Material Premium: Fabricado con capas biodegradables de alto rendimiento en Papel Kraft Blanco 60g / PLA+PBAT.",
+        "Niveles de Valor Mayorista: MOQ bajo desde 1,000 piezas con descuentos personalizados.",
+        "Sistema de Cierre Seguro: Sellos integrados fiables para conservar la frescura y bloquear la humedad."
+      ]
+    },
+    "stand-up-zipper-bag-50-tablets-suggested-size-white-kraft-pa": {
+      "name": "Bolsa stand-up con cierre de 215 mm x 215 mm x 100 mm (tamaño sugerido para 50 tabletas)",
+      "shortDesc": "Bolsa stand-up B2B premium de cotización personalizada hecha de Papel kraft blanco 60g / PLA aluminizado / PLA+PBAT degradable",
+      "description": "Una solución de empaque mayorista B2B premium con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de Papel kraft blanco 60g / PLA aluminizado / PLA+PBAT degradable, este producto garantiza la máxima defensa de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: Aceite antidecoloración, cierre degradable 13mm PLA2, espesor 150",
+        "Diseño de bolsa stand-up: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de alto rendimiento de Papel kraft blanco 60g / PLA aluminizado / PLA+PBAT degradable.",
+        "Niveles de valor al por mayor: Bajo MOQ desde 1,000 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "stand-up-pouch-white-kraft-paper-60g-pla-aluminized-pla-pbat": {
+      "name": "Bolsa stand-up de 300 x 340 + 150 mm (Papel kraft blanco 60g)",
+      "shortDesc": "Bolsa stand-up B2B premium de cotización personalizada hecha de Papel kraft blanco 60g / PLA aluminizado / PLA+PBAT biodegradable",
+      "description": "Una solución de empaque mayorista B2B premium con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de Papel kraft blanco 60g / PLA aluminizado / PLA+PBAT biodegradable, este producto garantiza la máxima defensa de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor and la integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: Cierre degradable 13mm PLA2",
+        "Diseño de bolsa stand-up: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de alto rendimiento de Papel kraft blanco 60g / PLA aluminizado / PLA+PBAT biodegradable.",
+        "Niveles de valor al por mayor: Bajo MOQ desde 1,000 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50": {
+      "name": "Bolsa stand-up con cierre 602-4",
+      "shortDesc": "Bolsa stand-up B2B premium personalizada hecha de High Barrier NK25/Kraft Blanco 50g/PBS 60",
+      "description": "Una solución de empaque B2B premium con especificaciones personalizadas, diseñada para cumplir con estándares de empaque de alto rendimiento. Al utilizar una estructura compuesta de alta resistencia de High Barrier NK25/Kraft Blanco 50g/PBS 60, espesor total 135U, este producto garantiza la máxima resistencia de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para retener la estabilidad en estante e integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, bocadillos secos, alimentos de especialidad o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: Bolsa stand-up con cierre, 22.81g por bolsa",
+        "Diseño de bolsa stand-up: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de alto rendimiento de High Barrier NK25/Kraft Blanco 50g/PBS 60, espesor total 135U.",
+        "Niveles de valor al por mayor: Bajo MOQ desde 10,000 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized": {
+      "name": "Bolsa con fuelle y sello medio",
+      "shortDesc": "Bolsa con fuelle lateral B2B premium personalizada hecha de Papel kraft blanco-60g/PLA aluminizado///PLA+PBAT degradable",
+      "description": "Una solución de empaque B2B premium con especificaciones personalizadas, diseñada para cumplir con estándares de empaque de alto rendimiento. Al utilizar una estructura compuesta de alta resistencia de Papel kraft blanco-60g/PLA aluminizado///PLA+PBAT degradable, este producto garantiza la máxima resistencia de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para retener la estabilidad en estante e integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, bocadillos secos, alimentos de especialidad o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: Aceite mate parcial de placa de cobre, espesor 150",
+        "Diseño de bolsa con fuelle lateral: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de alto rendimiento de Papel kraft blanco-60g/PLA aluminizado///PLA+PBAT degradable.",
+        "Niveles de valor al por mayor: Bajo MOQ desde 1,000 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "middle-seal-gusset-bag-transparent-compostable": {
+      "name": "Bolsa con fuelle y sello medio (Transparente)",
+      "shortDesc": "Bolsa con fuelle lateral B2B premium personalizada con película compostable transparente de alta claridad",
+      "description": "Una solución de empaque B2B premium con especificaciones personalizadas, diseñada para cumplir con estándares de empaque de alto rendimiento. Al utilizar una estructura transparente compostable de PLA/PBAT de alta claridad, este producto garantiza una excelente visibilidad del producto mientras mantiene una alta protección de barrera contra la humedad y el polvo. Formulado específicamente para retener la estabilidad en estante e integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, bocadillos secos, alimentos de especialidad o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: Bolsa transparente, espesor 150",
+        "Diseño de bolsa con fuelle lateral: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de PLA+PBAT compostables y transparentes de alto rendimiento.",
+        "Niveles de valor al por mayor: Bajo MOQ desde 1,000 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102": {
+      "name": "Bolsa sellada por tres lados",
+      "shortDesc": "Bolsa sellada por tres lados B2B premium personalizada hecha de película compuesta reciclable de PE/EVOH-PE",
+      "description": "Una solución de empaque B2B premium con especificaciones personalizadas, diseñada para cumplir con estándares de empaque de alto rendimiento. Al utilizar una estructura compuesta de película de PE/EVOH-PE reciclable de alta resistencia, este producto garantiza la máxima resistencia de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para retener la estabilidad en estante e integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, bocadillos secos, alimentos de especialidad o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: sin cierre, ancho de sello estándar",
+        "Diseño de bolsa de tres sellos laterales: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de película compuesta reciclable de PE/EVOH-PE de alto rendimiento.",
+        "Niveles de valor al por mayor: Bajo MOQ desde 200 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "eco-friendly-kraft-honeycomb-packing-paper-wrap": {
+      "name": "Envoltura de papel Kraft de nido de abeja ecológica para embalaje",
+      "shortDesc": "Envoltura de amortiguación de nido de abeja compostable premium de pulpa de madera virgen de 80g para vidrio, cosméticos y flores",
+      "description": "Una solución de amortiguación y protección ultra-protectora premium hecha de papel Kraft 100% de pulpa de madera virgen natural. Al emplear una estructura de expansión única en forma de nido de abeja, esta envoltura proporciona una excelente absorción de impactos, prevención de rayones y distribución de carga sin necesidad de envolturas plásticas de burbujas. Biodegradable, compostable y reciclable, es ideal para cosméticos premium, artículos de vidrio y cerámica, electrónica y elegantes arreglos florales.",
+      "features": [
+        "100% pulpa de madera virgen, papel Kraft con certificación FSC",
+        "Estructura expandible de nido de abeja para una absorción de impactos superior",
+        "Alternativa ecológica a la envoltura de burbujas de plástico y cacahuates de embalaje",
+        "No requiere cinta ni tijeras: Diseño entrelazado para un fácil embalaje",
+        "Disponible en 4 colores elegantes para una presentación estética premium",
+        "Naturalmente biodegradable, compostable y completamente reciclable"
+      ]
+    },
+    "retro-horizontal-kraft-food-handle-bag": {
+      "name": "Bolsa horizontal retro de Kraft para alimentos y regalos con asa",
+      "shortDesc": "Bolsa de empaque Kraft horizontal retro engrosada con certificación FSC, con asa troquelada y laminación interna",
+      "description": "Una bolsa de empaque de papel Kraft horizontal de estilo retro excepcionalmente elegante, que cuenta con una asa troquelada segura y una laminación interna de grado alimenticio a prueba de humedad de alta barrera. Fabricada con papel Kraft natural engrosado con certificación FSC, combina una estética orgánica clásica con una excelente durabilidad, resistencia a los desgarros y propiedades de conservación de alimentos. Perfecta para alimentos secos a granel, arroz de especialidad, granos, frutas secas premium, hojas de té, bocadillos orgánicos y presentaciones de regalos rústicos.",
+      "features": [
+        "Papel Kraft orgánico engrosado con certificación FSC con diseño retro",
+        "Laminación interna de grado alimenticio a prueba de humedad y fugas",
+        "Asa troquelada resistente para llevar en la mano para una comodidad premium",
+        "Diseño horizontal con base de fuelle plano y ancho",
+        "Ideal para granos especiales, arroz, frutas secas, té y regalos",
+        "Cuerpo exterior 100% reciclable y biodegradable"
+      ]
+    },
+    "40ml-foil-capsule-and-packing-machine": {
+      "name": "Cápsula de aluminio de 40ml y máquina envasadora",
+      "shortDesc": "Juego de cápsulas de aluminio de 40ml de grado alimenticio 100% reciclables para bricolaje y sellador térmico compacto",
+      "description": "Un juego de preservación versátil para bricolaje que cuenta con vasos de papel de aluminio bicolor de alta barrera y grado alimenticio (40ml) con tapas de sellado a juego, junto con un sellador térmico manual compacto. Fabricado con papel de aluminio premium 100% reciclable con un proceso de sellado térmico prensado en caliente sin pegamento, este juego garantiza un rendimiento de sellado sobresaliente, alta resistencia a temperaturas y barreras superiores contra la humedad y la oxidación. Perfecto para el empaque casero y conservación de frescura de hojas de té sueltas, café en polvo o líquido, miel, salsas, probióticos, medicina herbal y condimentos secos.",
+      "features": [
+        "Papel de aluminio de alta barrera de grado alimenticio 100% reciclable",
+        "Acabado metálico bicolor (estética premium)",
+        "Proceso de sellado por prensa en caliente libre de pegamento para un cierre seguro",
+        "Máquina selladora portátil compacta (operación manual)",
+        "Excelente resistencia al calor y al frío (seguro para refrigeración)",
+        "Empaque casero altamente versátil (té, café, miel, salsas)"
+      ]
+    },
+    "100-recyclable-pe-wire-cut-zipper-bag": {
+      "name": "Bolsa con cierre de corte de alambre de PE 100% reciclable",
+      "shortDesc": "Bolsa con cierre de corte de alambre de PE reciclable de grado alimenticio y alta claridad",
+      "description": "Bolsas con cierre de corte de alambre de PE de grado alimenticio, 100% reciclables y de alta claridad. Diseñadas para un almacenamiento y organización seguros y ecológicos. Cuentan con un acabado de alta transparencia, un cierre hermético cóncavo-convexo ultra-resistente y bordes limpios y duraderos sellados térmicamente por corte de alambre. Fabricadas con materiales de polietileno virgen premium sin aditivos plásticos estándar, cumplen plenamente con las normas globales de seguridad para el contacto con alimentos y son completamente reciclables. Perfectas para alimentos secos, accesorios, componentes y productos minoristas.",
+      "features": [
+        "Material de PE de grado alimenticio 100% reciclable",
+        "Alta transparencia y claridad similar al vidrio",
+        "Cierre hermético cóncavo-convexo resistente",
+        "Bordes sellados térmicamente por corte de alambre limpios y definidos",
+        "Cumple con las normas de seguridad alimentaria de la FDA y LFGB"
+      ]
+    },
+    "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch": {
+      "name": "Bolsa stand-up con cierre compostable y biodegradable de Kraft blanco sin imprimir",
+      "shortDesc": "Bolsa stand-up con cierre de Kraft blanco ecológica premium",
+      "description": "Bolsa stand-up 100% certificada como compostable y biodegradable hecha de papel Kraft blanco natural premium y bio-films de base vegetal compostables de alta barrera. Cuenta con un fuerte cierre hermético resellable, muescas de fácil apertura y un fuelle de fondo estable. Cero PE, cero plásticos estándar: cumple plenamente con las normas de compostaje BPI, OK Compost y Din Certco para el empaque ecológico de productos.",
+      "features": [
+        "100% certificada como compostable y biodegradable",
+        "Acabado premium de papel Kraft blanco natural",
+        "Protección ecológica de alta barrera a base de plantas",
+        "Fuerte cierre hermético resellable",
+        "Fuelle de fondo resistente para una perfecta presentación en estante"
+      ]
+    },
+    "eco-stock-flatbottom-kraft": {
+      "name": "Bolsa de fondo plano compostable – Kraft natural",
+      "shortDesc": "Desde US$1000 por 1000 pcs",
+      "description": "Bolsa de fondo plano 100% compostable con acabado de Kraft natural. Fabricada con materiales de origen vegetal que se descomponen en instalaciones de compostaje industrial. Cuenta con cierre de un solo lado para facilitar el resellado.",
+      "features": [
+        "100% compostable",
+        "Certificación de compostaje industrial",
+        "Alta barrera (+12 meses)",
+        "Cierre de un solo lado",
+        "Acabado Kraft natural"
+      ]
+    },
+    "eco-stock-flatbottom-clear": {
+      "name": "Bolsa de fondo plano compostable – Transparente lechoso",
+      "shortDesc": "Desde US$1000 por 1000 pcs",
+      "description": "Bolsa de fondo plano 100% compostable con acabado transparente lechoso para la visibilidad del producto. Fabricada a partir de materiales de origen vegetal con certificación de compostaje industrial. Cuenta con cierre de un solo lado para mayor comodidad.",
+      "features": [
+        "100% compostable",
+        "Certificación de compostaje industrial",
+        "Alta barrera (+12 meses)",
+        "Cierre de un solo lado",
+        "Acabado transparente lechoso"
+      ]
+    },
+    "eco-stock-header-adhesive": {
+      "name": "Bolsa con fuelle compostable con encabezado adhesivo",
+      "shortDesc": "Desde US$5.56 por 100 pcs",
+      "description": "Bolsa con fuelle 100% certificada como compostable con encabezado adhesivo para un sellado seguro. Fabricada a partir de materiales de origen vegetal. El precio incluye envío aéreo. Múltiples tamaños disponibles con orificio para colgar opcional.",
+      "features": [
+        "100% certificada como compostable",
+        "Cierre de encabezado adhesivo",
+        "Diseño con fuelle",
+        "Envío aéreo incluido",
+        "Orificio para colgar opcional"
+      ]
+    },
+    "eco-stock-header-adhesive-custom": {
+      "name": "Bolsa con fuelle compostable impresa personalizada con encabezado adhesivo",
+      "shortDesc": "Desde US$0.112/unidad para 5,000 pcs",
+      "description": "Bolsa con fuelle impresa personalizada 100% certificada como compostable con encabezado adhesivo. Impresión digital a todo color disponible. MOQ 5,000 pcs por diseño. Descuentos por volumen disponibles de hasta 50,000 pcs.",
+      "features": [
+        "Impresión digital a todo color",
+        "100% certificada como compostable",
+        "Cierre de encabezado adhesivo",
+        "Descuentos por volumen disponibles",
+        "Soporte de diseño gratuito"
+      ]
+    },
+    "eco-stock-mailer-zipbag": {
+      "name": "Bolsa de correo resellable compostable",
+      "shortDesc": "Desde US$5.83 por 400 pcs",
+      "description": "Bolsa de correo resellable 100% biodegradable hecha de PLA+PBAT. Cuenta con un cierre zip duradero para múltiples usos, y protección contra la humedad y el polvo. Certificada como compostable: se descompone en 3 meses (industrial) o 1-2 años (condiciones naturales).",
+      "features": [
+        "100% biodegradable (PLA+PBAT)",
+        "Cierre zip resellable",
+        "Protección contra la humedad y el polvo",
+        "Diseño reutilizable",
+        "Certificación GB/T35795-2017"
+      ]
+    },
+    "eco-stock-mailer-zipbag-custom": {
+      "name": "Bolsa de correo compostable impresa personalizada",
+      "shortDesc": "Desde US$124 por 5,000 pcs",
+      "description": "Bolsa de correo resellable 100% biodegradable impresa personalizada hecha de PLA+PBAT. Impresión a todo color con el logotipo y diseño de su marca. Cuenta con un cierre zip duradero para múltiples usos, y protección contra la humedad y el polvo. Certificada como compostable.",
+      "features": [
+        "Impresión personalizada a todo color",
+        "100% biodegradable (PLA+PBAT)",
+        "Cierre zip resellable",
+        "Protección contra la humedad y el polvo",
+        "MOQ 5,000 pcs por tamaño"
+      ]
+    },
+    "eco-stock-tea-bags-pla": {
+      "name": "Bolsas de té de fibra de maíz (Bolsas de filtro PLA desechables)",
+      "shortDesc": "Desde USD 4 por 100 pcs",
+      "description": "Bolsas de filtro de té de fibra de maíz (PLA) de grado alimenticio. Ideales para preparar té, especias e hierbas. Ligeras, con filtración limpia y fuerte permeabilidad. Hechas de almidón de maíz natural, seguras y sin olor. Tipo de solapa plegable para facilitar el llenado y sellado. El precio incluye envío aéreo.",
+      "features": [
+        "100% fibra de maíz PLA",
+        "Grado de contacto con alimentos",
+        "Cierre de solapa plegable",
+        "Filtración limpia y alta permeabilidad",
+        "Envío aéreo incluido"
+      ]
+    },
+    "250g-recyclable-one-side-zipper-one-way-degassing-valve-stand-up-pouch": {
+      "name": "Bolsa stand-up de 250g reciclable con cierre de un solo lado y válvula de desgasificación unidireccional",
+      "shortDesc": "Bolsa stand-up reciclable sin metal premium con válvula de desgasificación y cierre de un solo lado",
+      "description": "Una solución de empaque stand-up ultra-premium y ecológicamente responsable. Diseñada a partir de mono-material PE de alta barrera, esta bolsa sin metal y libre de aluminio es completamente reciclable en los flujos de plástico estándar. Equipada con una válvula de desgasificación unidireccional premium y un cierre seguro de un solo lado. Perfecta para cafés en grano entero de especialidad de 250g, cafés molidos artesanales, tés de hoja suelta y polvos orgánicos de alta gama.",
+      "features": [
+        "Reciclable en un solo flujo: Película compuesta 100% de Mono-PE, completamente libre de aluminio y metales",
+        "Válvula de desgasificación unidireccional: Mantiene el oxígeno fuera y libera el exceso de CO2 para conservar la frescura",
+        "Cierre pocket zipper de un solo lado: Fuerte cierre de bolsillo resellable con muescas de fácil apertura para la comodidad diaria",
+        "Generoso fuelle de fondo: La expansión de fondo plano se mantiene erguida en los estantes para una presentación impecable",
+        "Cumple con las normas de seguridad alimentaria de la FDA y LFGB"
+      ]
+    },
+    "recyclable-flat-bottom-one-sided-zipper-pouch": {
+      "name": "Bolsa de fondo plano reciclable con cierre de un solo lado",
+      "shortDesc": "Bolsa de fondo plano reciclable sin metal premium con válvula de desgasificación unidireccional y cierre pocket zipper de un solo lado",
+      "description": "Una solución de empaque premium de fondo plano y ocho sellos laterales, reciclable en un solo flujo. Fabricada con mono-material PE de alta barrera, esta bolsa de fondo de bloque vertical libre de metales y aluminio es perfecta para granos de café tostado a granel, tés artesanales de hoja suelta, polvos orgánicos y alimentos secos de calidad premium. Cuenta con una robusta válvula de desgasificación unidireccional y un cierre pocket zipper seguro de un solo lado para la máxima frescura diaria.",
+      "features": [
+        "Reciclable en un solo flujo: Laminación compuesta 100% de Mono-PE, completamente libre de aluminio y metales",
+        "Válvula de desgasificación unidireccional: Microfiltro integrado que permite el escape del exceso de CO2 mientras bloquea la entrada de oxígeno",
+        "Cierre pocket zipper de un solo lado: Cierre hermético resellable con muescas rápidas de fácil apertura",
+        "Fondo plano con ocho sellos laterales: La base cuadrada sólida se mantiene erguida en los estantes de exhibición sin encorvarse",
+        "Laminación mate premium: Apariencia orgánica y limpia que cumple con las normas de grado alimenticio de la FDA y LFGB"
+      ]
+    },
+    "side-gusset-bag-and-tray-conventional": {
+      "name": "Bolsa con fuelle lateral para postres individuales con bandeja (Stock de Mono-PP reciclable)",
+      "shortDesc": "Bolsas de envoltura con fuelle lateral esmeriladas de Mono-PP totalmente reciclables con bandejas reciclables aptas para alimentos a juego, para una presentación de regalos en porciones individuales premium e integración en la economía circular.",
+      "description": "Una solución de empaque ecológico lista para usar (stock) y sin imprimir, que contiene bandejas rígidas reciclables aptas para alimentos y envolturas con fuelle lateral de Mono-PP reciclable esmerilado a juego. Diseñada especialmente para el empaque en porciones individuales de productos de panadería pequeños, pasteles de piña, galletas, pasteles de luna y confitería gourmet. El material de Mono-PP de alto rendimiento a juego permite una recolección y reciclaje sin problemas en los flujos estándar de PP Categoría 5, promoviendo una economía circular. El inserto de bandeja rígida brinda la máxima protección física contra aplastamientos o deformaciones durante el tránsito, mientras que la envoltura esmerilada de alta barrera y a prueba de grasa conserva la frescura del sabor, prolonga la vida útil y exhibe bellamente su marca de postres en porciones individuales para una presentación minorista B2C premium.",
+      "features": [
+        "[100% INTEGRACIÓN EN LA ECONOMÍA CIRCULAR] Diseñado completamente a partir de bolsas de envoltura esmeriladas de Mono-PP (Categoría 5 PP) y bandejas rígidas a juego, lo que permite un reciclaje sin esfuerzo de un solo material para eliminar los residuos plásticos mixtos.",
+        "[BANDEJA RÍGIDA DE PROTECCIÓN PARA POSTRES] El inserto de bandeja reciclable y apto para alimentos a juego proporciona un soporte estructural robusto, manteniendo la pastelería fina, los pasteles de luna y las galletas perfectamente intactos durante el transporte y la manipulación.",
+        "[PRESENTACIÓN DE SILUETA ESMERILADA PREMIUM] La envoltura mate translúcida esmerilada crea una presentación minorista altamente elegante y de alta gama que muestra maravillosamente la estética de las porciones individuales de postre.",
+        "[PRESERVACIÓN DE FRESCURA DE ALTA BARRERA] La estructura de barrera contra la humedad y a prueba de grasa conserva la frescura del sabor, bloquea la humedad y evita la filtración de grasa para prolongar la vida útil.",
+        "[VALOR AL POR MAYOR EN STOCK SELLABLE] Bolsas con fuelle lateral pre-cortadas y fáciles de usar, diseñadas para un sellado térmico por impulso manual o automático rápido, vendidas en paquetes mayoristas de 1,000 unidades para panaderías comerciales."
+      ]
+    },
+    "eco-compostable-rollstock-film": {
+      "name": "Película en rollo (rollstock film) de doble cara compostable en casa",
+      "shortDesc": "Película en rollo Kraft de doble cara compostable en casa premium diseñada para líneas de empaque automatizadas Form-Fill-Seal",
+      "description": "Una película en rollo ecológica profesional y de alto rendimiento diseñada específicamente para maquinaria de empaque automatizada Form-Fill-Seal (FFS). Con una arquitectura compuesta única de doble cara (papel Kraft recubierto biodegradable en el lado frontal y papel translúcido recubierto en el lado posterior), esta película de empaque permite una hermosa visibilidad de la marca al tiempo que mantiene una compostabilidad doméstica total. Perfecta para empaques en porciones, sobres pequeños, monodosis de café, sobres de té y especias artesanales.",
+      "features": [
+        "Arquitectura ecológica de doble cara: Papel Kraft natural 50g (frente) + Papel Kraft translúcido 50g (dorso) para una atractiva visualización en estante",
+        "Lista para FFS automatizado: Diseñada para un deslizamiento continuo y alta resistencia a la tracción en máquinas automáticas de envasado y sobres",
+        "Certificación de compostaje doméstico: Se descompone de forma natural en entornos de compostaje residencial/casero",
+        "Impresión digital personalizada: Sin costos de placa, reproducción vívida de múltiples colores utilizando tintas de base agua HP Indigo compostables",
+        "Certificación de grado alimenticio: Cumple al 100% con las normas FDA, LFGB y BRC para la seguridad en el contacto con alimentos secos"
+      ]
+    },
+    "rice-paper-zipper-bags": {
+      "name": "Bolsas stand-up con cierre de papel de arroz",
+      "shortDesc": "Bolsas stand-up con cierre compostables premium hechas de papel de arroz blanco auténtico de 30g con bio-laminación",
+      "description": "Una elegante y ecológica solución de empaque elaborada a partir de auténtico papel de arroz blanco texturizado de 30g. Disponible en modelos de baja barrera (capa natural de PBAT) y alta barrera (capa de bio-film NK25) para una óptima preservación de la frescura. Textura sobresaliente, atractivo orgánico, perfecta para alimentos B2B premium, café, hierbas secas y artículos de lujo. Equipada con un cierre compostable y muescas de fácil apertura.",
+      "features": [
+        "Papel de arroz blanco texturizado auténtico: Atractivo visual y táctil orgánico y premium para estantes.",
+        "Construcción compostable: Fabricada con papel de arroz biodegradable y laminación de PLA/PBAT.",
+        "Opciones de barrera flexibles: Modelos de baja barrera (PBAT) o alta barrera (NK25/PBAT) para adaptarse a las necesidades de su producto.",
+        "Cierre resellable compostable: Mantiene el contenido hermético y fresco con una práctica resellabilidad.",
+        "Termosellable y con muesca de apertura: Fácil sellado térmico manual con muescas de fácil apertura muy convenientes para los clientes."
+      ]
+    },
+    "flat-bottom-magic-tape-pouches": {
+      "name": "Bolsas con cierre Magic Tape y ocho sellos laterales (4 lb de alimento seco)",
+      "shortDesc": "Bolsas de empaque de fondo plano reciclables de alta barrera para 4 lb de alimento seco con cierres sencillos Magic Tape B2B",
+      "description": "Una solución de empaque premium y ecológica de fondo plano y ocho sellos laterales, diseñada específicamente para el almacenamiento de alimentos secos. Desarrollada con una estructura de PE70/EVOH-PE70 completamente reciclable, esta bolsa de alta barrera mantiene los alimentos secos, bocadillos y granos perfectamente protegidos de la humedad. Equipada con un innovador cierre Magic Tape B2B, que es sumamente fácil de abrir, volver a sellar y usar repetidamente por los clientes.",
+      "features": [
+        "100% Mono-PE reciclable: Estructura de mono-material completamente reciclable con barrera EVOH de alto rendimiento.",
+        "Fondo plano con ocho sellos laterales: Estabilidad en estante inigualable, se mantiene perfectamente erguida para una presentación minorista premium.",
+        "Cierre Magic Tape: Cierre innovador tipo velcro que sella fácilmente incluso cuando quedan residuos de polvo en el riel.",
+        "Protección de alta barrera: Protege el contenido contra la degradación por humedad, olores y luz.",
+        "Gran capacidad de 4 lb: Tamaño a granel B2B perfecto para alimentos para mascotas, ingredientes al por mayor, harina y granos."
+      ]
+    },
+    "compostable-stand-up-pouches": {
+      "name": "Bolsas stand-up con cierre compostables",
+      "shortDesc": "Bolsas stand-up con cierre compostables de papel Kraft para bocadillos orgánicos y almacenamiento B2B al por mayor",
+      "description": "Bolsas stand-up sostenibles y compostables a nivel industrial diseñadas para bocadillos, ingredientes alimenticios premium y artículos secos industriales. Combinando una cubierta exterior de papel Kraft blanco natural con un revestimiento biodegradable de PLA/PBAT, estas bolsas ecológicas están diseñadas para descomponerse naturalmente en instalaciones de compostaje industrial estándar sin dejar microplásticos dañinos. Equipadas con un cierre hermético compostable.",
+      "features": [
+        "Kraft blanco con certificación FSC: Presentación natural orientada a tiendas electrónicas con excelente calidad táctil.",
+        "Compostable industrialmente: Estructura compostable certificada que utiliza bio-resinas PLA y PBAT.",
+        "Cierre hermético resellable: Mantiene nueces, té, semillas, café y especias crujientes y frescos.",
+        "Sólida integridad estructural: Excelente resistencia de estabilidad vertical para lucir espectacular en las encimeras o estantes de los clientes.",
+        "Tamaños B2B flexibles: Disponibles en tamaños para bocadillos de 5 oz y especificaciones industriales personalizadas."
+      ]
+    },
+    "transparent-colorful-cellophane-candy-wrapping-paper": {
+      "name": "Papel de celofán transparente de colores para envolver dulces",
+      "shortDesc": "Hojas de celulosa biodegradable premium para envolver dulces en múltiples colores transparentes vibrantes",
+      "description": "Hojas de papel celofán de grado alimenticio premium para envolver dulces, hechas de celulosa natural de algodón y madera. Completamente biodegradables, compostables y libres de plástico. Cuentan con una excelente transparencia, alto brillo y propiedades de retención de torsión. Perfectas para envolver turrones, chocolates, caramelos duros, repostería y golosinas navideñas.",
+      "features": [
+        "100% celulosa biodegradable: Hecha de pulpa de madera y algodón orgánica a base de plantas, descomponiéndose de forma natural sin dejar microplásticos.",
+        "Excelente retención de torsión: Presenta una alta rigidez y memoria, manteniendo su forma torcida de manera segura alrededor de los dulces sin desdoblarse.",
+        "Colores transparentes vívidos: Colorantes puros aptos para alimentos que brindan una claridad de color brillante (rojo, verde, naranja, rosa, azul, púrpura, amarillo, transparente).",
+        "Certificación de grado alimenticio: Completamente no tóxico, inodoro y conforme con las normas de la FDA para la envoltura directa de confitería y alimentos.",
+        "Opciones termosellables: Compatible con máquinas de sellado térmico portátiles o continuas estándar."
+      ]
+    },
+    "stand-up-pouch-full-matte-finish-pe70-evoh-pe70-140-microns": {
+      "name": "Bolsa stand-up de 260 mm x 325 mm + 120 mm (acabado mate completo PE70)",
+      "shortDesc": "Bolsa stand-up B2B premium de cotización personalizada hecha de Acabado mate completo PE70/EVOH-PE70",
+      "description": "Una solución de empaque mayorista B2B premium con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de Acabado mate completo PE70/EVOH-PE70, 140 micrones de espesor, este producto garantiza la máxima defensa de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: Cierre estándar",
+        "Diseño de bolsa stand-up: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de Acabado mate completo PE70/EVOH-PE70 de alto rendimiento con 140 micrones de espesor.",
+        "Niveles de valor al por mayor: Bajo MOQ desde 100 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "28-lb-dry-food-bag-pet12-ny15-metallocene-milky-white-pe135": {
+      "name": "Bolsa stand-up de 406mm de ancho x 790mm de alto x 152mm de fuelle (PET12)",
+      "shortDesc": "Bolsa con fuelle lateral B2B premium de cotización personalizada hecha de PET12/NY15/Metallocene + Milky White PE135 (estructura de 3 capas)",
+      "description": "Una solución de empaque mayorista B2B premium con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de PET12/NY15/Metallocene + Milky White PE135 (estructura de 3 capas), este producto garantiza la máxima defensa de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: Bolsa con fuelle lateral de cuatro sellos (quad seal), sin cierre, 9 colores + barniz mate",
+        "Diseño de bolsa con fuelle lateral: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de alto rendimiento de PET12/NY15/Metallocene + Milky White PE135 (estructura de 3 capas).",
+        "Niveles de valor al por mayor: Bajo MOQ desde 10,000 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "flat-bottom-pouch-pe-evoh-pe-140-microns-thickness-110w-x-39": {
+      "name": "Bolsa de fondo plano de 110W x 390H x 65OBG/OSG mm (PE)",
+      "shortDesc": "Bolsa de fondo plano B2B premium de cotización personalizada hecha de PE/EVOH-PE",
+      "description": "Una solución de empaque mayorista B2B premium con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de PE/EVOH-PE con 140 micrones de espesor, este producto garantiza la máxima defensa de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con muescas de fácil apertura y robustas líneas de sellado.",
+      "features": [
+        "Especificaciones B2B avanzadas: Válvula de desgasificación unidireccional, superficie mate completa, cierre de un solo lado",
+        "Diseño de bolsa de fondo plano: Empaque comercial B2B de forma perfecta optimizado para posicionamiento de marca profesional.",
+        "Estructura de material premium: Diseñada utilizando capas de alto rendimiento de PE/EVOH-PE con 140 micrones de espesor.",
+        "Niveles de valor al por mayor: Bajo MOQ desde 1,000 piezas con descuentos personalizados.",
+        "Sistema de cierre seguro: Sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "compostable-vacuum-sealing-3-side-seal-bag-certified-home-co": {
+      "name": "Pouch con fuelle lateral de 140 x 140 mm ( Certified Home Composite material )",
+      "shortDesc": "Pouch con fuelle lateral B2B premium cotizado a medida fabricado con Certified Home Composite material",
+      "description": "Una solución de empaque B2B premium para venta al por mayor con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de Certified Home Composite material y un espesor de 70 UM, este producto garantiza la máxima barrera de defensa contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, brinda una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con prácticas muescas de fácil rasgado y líneas de sellado robustas.",
+      "features": [
+        "Especificaciones B2B avanzadas: impresión a 4 colores",
+        "Diseño de pouch con fuelle lateral: empaque comercial B2B con la forma perfecta y optimizado para el posicionamiento de marca profesional.",
+        "Estructura de material premium: diseñado utilizando Certified Home Composite material de alto rendimiento y capas con espesor de 70 UM.",
+        "Niveles de valor al por mayor: MOQ bajo a partir de 15,000 unidades con descuentos personalizados.",
+        "Sistema de cierre seguro: sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular": {
+      "name": "Pouch con fuelle lateral de 70x70 mm ( MOPP-Dual Corona )",
+      "shortDesc": "Pouch con fuelle lateral B2B premium cotizado a medida fabricado con MOPP-Dual Corona/Enhanced VMPET/Regular PE",
+      "description": "Una solución de empaque B2B premium para venta al por mayor con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de MOPP-Dual Corona/Enhanced VMPET/Regular PE y 100 micrones de espesor, este producto garantiza la máxima barrera de defensa contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, brinda una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con prácticas muescas de fácil rasgado y líneas de sellado robustas.",
+      "features": [
+        "Especificaciones B2B avanzadas: diseño con sellado en tres lados",
+        "Diseño de pouch con fuelle lateral: empaque comercial B2B con la forma perfecta y optimizado para el posicionamiento de marca profesional.",
+        "Estructura de material premium: diseñado utilizando capas de MOPP-Dual Corona/Enhanced VMPET/Regular PE de alto rendimiento de 100 micrones.",
+        "Niveles de valor al por mayor: MOQ bajo a partir de 1,000 unidades con descuentos personalizados.",
+        "Sistema de cierre seguro: sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "stand-up-spout-pouch-10mm-pet12-al7-ny15-pe80-102x152-4-28-5": {
+      "name": "Pouch stand-up con boquilla de 102x152.4+28.5 mm (10mm)",
+      "shortDesc": "Pouch con boquilla B2B premium cotizado a medida fabricado con PET12/AL7/NY15/PE80",
+      "description": "Una solución de empaque B2B premium para venta al por mayor con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de PET12/AL7/NY15/PE80, este producto garantiza la máxima barrera de defensa contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, brinda una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con prácticas muescas de fácil rasgado y líneas de sellado robustas.",
+      "features": [
+        "Especificaciones B2B avanzadas: pouch con boquilla con un peso de 6g por unidad",
+        "Diseño de pouch con boquilla: empaque comercial B2B con la forma perfecta y optimizado para el posicionamiento de marca profesional.",
+        "Estructura de material premium: diseñado utilizando capas de PET12/AL7/NY15/PE80 de alto rendimiento.",
+        "Niveles de valor al por mayor: MOQ bajo a partir de 1,000 unidades con descuentos personalizados.",
+        "Sistema de cierre seguro: sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "9-1-13-8-3-93-stand-up-pouch-w-velcro-mopp-double-electric-e": {
+      "name": "Pouch stand-up de 231.5 mm*350.5 mm+100mm ( MOPP-Double Electric )",
+      "shortDesc": "Pouch stand-up B2B premium cotizado a medida fabricado con MOPP-Double Electric/Enhanced VMPET///Regular PE",
+      "description": "Una solución de empaque B2B premium para venta al por mayor con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de MOPP-Double Electric/Enhanced VMPET///Regular PE, este producto garantiza la máxima barrera de defensa contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, brinda una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con prácticas muescas de fácil rasgado y líneas de sellado robustas.",
+      "features": [
+        "Especificaciones B2B avanzadas: espesor de 140 micrones, cierre de Velcro de 23MM",
+        "Diseño de pouch stand-up: empaque comercial B2B con la forma perfecta y optimizado para el posicionamiento de marca profesional.",
+        "Estructura de material premium: diseñado utilizando capas de MOPP-Double Electric/Enhanced VMPET///Regular PE de alto rendimiento.",
+        "Niveles de valor al por mayor: MOQ bajo a partir de 200 unidades con descuentos personalizados.",
+        "Sistema de cierre seguro: sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "stand-up-zipper-bag-mopp-double-sided-pet-12-al-ordinary-pe": {
+      "name": "Pouch stand-up de 120 mm x 200 mm x 70 mm ( MOPP doble cara )",
+      "shortDesc": "Pouch stand-up B2B premium cotizado a medida fabricado con MOPP doble cara / PET-12 / AL / Ordinary PE",
+      "description": "Una solución de empaque B2B premium para venta al por mayor con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de MOPP doble cara / PET-12 / AL / Ordinary PE, este producto garantiza la máxima barrera de defensa contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, brinda una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con prácticas muescas de fácil rasgado y líneas de sellado robustas.",
+      "features": [
+        "Especificaciones B2B avanzadas: cierre zipper común de 13mm PPE, espesor de 120 micrones, estampado metalizado (stamp foiling)",
+        "Diseño de pouch stand-up: empaque comercial B2B con la forma perfecta y optimizado para el posicionamiento de marca profesional.",
+        "Estructura de material premium: diseñado utilizando capas de MOPP doble cara / PET-12 / AL / Ordinary PE de alto rendimiento.",
+        "Niveles de valor al por mayor: MOQ bajo a partir de 1,500 unidades con descuentos personalizados.",
+        "Sistema de cierre seguro: sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe": {
+      "name": "Pouch stand-up de 120 mm*200 mm*35 mm ( MOPP doble cara )",
+      "shortDesc": "Pouch stand-up B2B premium cotizado a medida fabricado con MOPP doble cara/AL/PET-12//Standard PE",
+      "description": "Una solución de empaque B2B premium para venta al por mayor con especificaciones personalizadas, diseñada para cumplir con los más altos estándares comerciales. Al incorporar una estructura multicapa de alta resistencia de MOPP doble cara/AL/PET-12//Standard PE, este producto garantiza la máxima barrera de defensa contra la humedad, la luz y la oxidación. Formulado específicamente para retener el sabor y la integridad estructural para su exhibición en puntos de venta, brinda una preservación excepcional de la vida útil para café, alimentos de especialidad, bocadillos orgánicos o suministros industriales. Cuenta con prácticas muescas de fácil rasgado y líneas de sellado robustas.",
+      "features": [
+        "Especificaciones B2B avanzadas: cierre zipper común de 13mm-PPE, espesor de 120",
+        "Diseño de pouch stand-up: empaque comercial B2B con la forma perfecta y optimizado para el posicionamiento de marca profesional.",
+        "Estructura de material premium: diseñado utilizando capas de MOPP doble cara/AL/PET-12//Standard PE de alto rendimiento.",
+        "Niveles de valor al por mayor: MOQ bajo a partir de 1,500 unidades con descuentos personalizados.",
+        "Sistema de cierre seguro: sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "soft-touch-matte-standup-pouch-432b83ee": {
+      "name": "Pouch stand-up de 231.5 mm * 350.5 mm + 100 mm ( Soft Touch Matte Coating )",
+      "shortDesc": "Pouch stand-up B2B personalizado premium con Soft Touch Matte Coating (película de tacto H / VMPET reinforced / standard PE)",
+      "description": "Una solución de empaque B2B premium y personalizada, diseñada para cumplir con estándares de empaque de alto rendimiento. Al utilizar una estructura compuesta de película de tacto H / VMPET reinforced / standard PE de alta resistencia con un espesor de 140 micrones, este producto garantiza la máxima resistencia de barrera contra la humedad, la luz y la oxidación. Formulado específicamente para mantener la estabilidad en estante y la integridad estructural para su exhibición en puntos de venta, proporciona una preservación excepcional de la vida útil para café, bocadillos secos, alimentos de especialidad o suministros industriales. Cuenta con prácticas muescas de fácil rasgado y líneas de sellado robustas.",
+      "features": [
+        "Especificaciones B2B avanzadas: cierre zipper común de 13mm-PPE, impresión digital, 140 micrones",
+        "Diseño de pouch stand-up: empaque comercial B2B con la forma perfecta y optimizado para el posicionamiento de marca profesional.",
+        "Estructura de material premium: diseñado utilizando capas de película de tacto H / VMPET reinforced / standard PE de alto rendimiento.",
+        "Niveles de valor al por mayor: MOQ bajo a partir de 200 unidades con descuentos personalizados.",
+        "Sistema de cierre seguro: sellos confiables integrados para preservar la frescura y bloquear la humedad."
+      ]
+    },
+    "flat-bottom-one-sided-zipper-conventional": {
+      "name": "Pouch de fondo plano con cierre unilateral (Stock convencional)",
+      "shortDesc": "Pouch tipo caja de fondo plano mate premium sin impresión con cierre zipper unilateral de fácil rasgado",
+      "description": "Un pouch de fondo plano de stock B2B excepcionalmente premium que cuenta con un conveniente cierre zipper unilateral de fácil rasgado. Fabricado con una estructura de alta barrera para proteger granos de café enteros, tés de especialidad y alimentos secos contra la humedad, el oxígeno y la luz UV. El fondo plano resistente tipo caja garantiza una perfecta estabilidad vertical en estantes y una presentación de alta gama.",
+      "features": [
+        "Fondo plano resistente sellado en ocho lados: presencia dinámica vertical en estantes y máxima estabilidad",
+        "Cierre zipper unilateral hermético: el cierre zip resellable bloquea el oxígeno y retiene el aroma premium",
+        "Estructura laminada de alta barrera: PET mate + VMPET + PE de grado alimentario seguro preserva la frescura",
+        "Grado alimenticio certificado por la FDA: 100% seguro, inodoro y perfecto para empaques comerciales de venta al por menor",
+        "Muescas de fácil rasgado precortadas: cabezal de rasgado limpio sobre el cierre zipper para un acceso rápido del cliente"
+      ]
+    },
+    "flat-bottom-pouch-with-card-insert": {
+      "name": "Pouch de fondo plano con portatarjeta",
+      "shortDesc": "Pouch tipo caja de fondo plano con sellado en ocho lados premium con bolsillo frontal integrado de alta claridad para insertar tarjetas",
+      "description": "Una solución de empaque de stock B2B excepcionalmente premium que cuenta con un bolsillo frontal de alta claridad integrado para insertar tarjetas o etiquetas de manera sencilla. Diseñado con un fondo plano resistente (forma de caja con sellado en ocho lados) para una estabilidad inigualable en estante y una hermosa presentación. Equipado con un cierre zip reutilizable de alta resistencia, muescas de fácil rasgado y una estructura multicapa de alta barrera (BOPP mate + VMPET metalizado + PE de grado alimentario) que garantiza la máxima preservación contra la luz, el oxígeno y la humedad. Perfecto para tostadoras de café, marcas de té artesanal, premios para mascotas, superalimentos orgánicos y confitería lista para la venta al por menor que requiera un branding altamente flexible y modular.",
+      "features": [
+        "Bolsillo portatarjeta frontal: funda de alta claridad para tarjetas de branding personalizadas rápidas y profesionales",
+        "Fondo de caja estable sellado en ocho lados: diseño autodiseñado para exhibiciones dinámicas en estantes de venta al por menor",
+        "Cierre zipper hermético reutilizable de alta resistencia: mantiene el contenido completamente fresco después de abrir",
+        "Estructura laminada de alta barrera: BOPP mate + VMPET + PE bloquea el aroma y detiene la humedad",
+        "Muescas de fácil rasgado precortadas y cabezal termosellable para seguridad a prueba de manipulaciones",
+        "Disponible en 2 acabados Kraft premium: Kraft blanco y Kraft marrón, en formas cúbicas y largas"
+      ]
+    },
+    "textured-burlap-cork-pattern-coffee-pouch-with-valve": {
+      "name": "Pouch stand-up con válvula y patrón texturizado de arpillera y corcho",
+      "shortDesc": "Pouch stand-up reciclable sin metal premium con válvula desgasificadora antiobstrucción y texturas orgánicas de arpillera/corcho",
+      "description": "Una solución de empaque stand-up ecológica y ultra-premium que presenta patrones distintivos de lino de arpillera y corcho natural. Fabricado con mono-material PE de alta barrera, este pouch libre de metal y aluminio es completamente reciclable en los flujos de plástico estándar. Equipado con una válvula desgasificadora de una vía premium que cuenta con una malla de microfiltro integrada para evitar que los granos de café finos o el polvo obstruyan la válvula. Perfecto para cafés de especialidad en grano entero, café molido artesanal, tés de hoja suelta y polvos orgánicos de alta gama.",
+      "features": [
+        "Estética de textura natural: estampados de lino de arpillera y corcho real para una imagen de marca orgánica",
+        "Reciclable en un solo flujo: película compuesta 100% de Mono-PE, completamente libre de aluminio y metal",
+        "Válvula antiobstrucción: la válvula desgasificadora de una vía con malla de filtro integrada mantiene el oxígeno fuera y evita la obstrucción por polvo",
+        "Cierre zipper de frescura integrado: cierre zipper resellable resistente con muescas de fácil rasgado para una reutilización diaria conveniente",
+        "Alta resistencia a la perforación y al desgarro con cumplimiento de grado alimenticio FDA y LFGB"
+      ]
+    },
+    "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip": {
+      "name": "Pouch de fondo plano para café y té con cierre unilateral y tira para colgar",
+      "shortDesc": "Innovador pouch de fondo plano con tira para colgar y transportar, cierre zipper en T de fácil rasgado y acabado de papel kraft blanco premium",
+      "description": "Una solución de empaque innovadora y altamente funcional que presenta una tira para colgar con bucle de anillo de hierro robusto para un transporte conveniente, junto con un avanzado cierre zipper unilateral de fácil rasgado y un cierre zipper resellable integrado. Construido a partir de un laminado de alta barrera premium de tres capas (BOPP mate + papel kraft blanco natural + papel metalizado + PE) con un espesor sustancial de 150 micrones. Proporciona protección absoluta contra el oxígeno y la humedad. Requiere una termoselladora para sellar la parte superior por encima del cierre zipper.",
+      "features": [
+        "Diseño de tira para colgar con bucle de anillo de hierro resistente para colgar y transportar sin esfuerzo",
+        "Cierre zipper en T unilateral avanzado y pestaña de fácil rasgado para abrir y volver a sellar de manera sencilla",
+        "Laminado de alta barrera premium de tres capas de papel kraft blanco y papel metalizado",
+        "Espesor robusto de 150 micrones para la máxima protección en estante y durabilidad",
+        "Diseño de fondo de caja resistente sellado en ocho lados para una presentación perfecta en estante",
+        "Disponible en 4 ricos acabados mate modernos: blanco crema, naranja vibrante, verde bosque, negro mate"
+      ]
+    },
+    "flat-bottom-pouch-tin-tie": {
+      "name": "Pouch de fondo plano con tin tie",
+      "shortDesc": "Pouch de fondo plano sellado en ocho lados premium con cierre tin tie de doble alambre engrosado para café, té y alimentos secos",
+      "description": "Un pouch de fondo plano de caja sellado en ocho lados premium que presenta un cierre tin tie de doble alambre engrosado integrado. Especialmente construido con capas laminadas de grado alimenticio de alta barrera (BOPP, papel de aluminio y PE) para ofrecer una protección superior contra el oxígeno, la humedad y la luz. Perfecto para cafés de especialidad, tés de hoja suelta, mezclas para repostería, bocadillos premium y galletas que requieren resellado repetido mientras mantienen su frescura máxima.",
+      "features": [
+        "Cierre tin tie de doble alambre engrosado para un sello de frescura reutilizable múltiples veces",
+        "Diseño de fondo de caja resistente sellado en ocho lados para una presentación perfecta en estante",
+        "Laminado de alta barrera de BOPP mate + núcleo de papel de aluminio puro + PE de grado alimenticio",
+        "Espesor total de 120 micrones para una máxima resistencia al desgarro y la perforación",
+        "Perfecto para té de hoja suelta de especialidad, granos de café frescos y bocadillos premium",
+        "Disponible en 3 impresionantes acabados mate: plateado, verde y rojo"
+      ]
+    },
+    "bottle-shape-sachet-bag": {
+      "name": "Pouch sachet de papel de aluminio especial con forma de botella",
+      "shortDesc": "Llamativo pouch sachet de papel de aluminio de alta barrera con forma de botella para miel, lociones y muestras de cosméticos",
+      "description": "Un llamativo pouch sachet de papel de aluminio especial con forma de botella diseñado para muestras de un solo uso y empaques premium de venta al por menor. Cuenta con un laminado interno de grado alimenticio de alta barrera que brinda protección absoluta contra el oxígeno, la humedad y la luz. Excelente opción para miel, jarabes líquidos, extractos herbales, lociones faciales, cremas, sueros y muestras de cosméticos de alta gama.",
+      "features": [
+        "Diseño único con forma de botella para el máximo reconocimiento de marca",
+        "El núcleo de papel de aluminio de alta barrera protege los ingredientes activos",
+        "Perfecto para muestras de un solo uso de líquidos, geles o polvos",
+        "Muesca de fácil rasgado precisa para una apertura suave y sin esfuerzo",
+        "Bordes anchos de sellado plano para evitar cualquier fuga",
+        "Disponible en 4 magníficos acabados mate estacionales"
+      ]
+    },
+    "spouted-foil-pouch": {
+      "name": "Pouch stand-up de papel de aluminio con boquilla",
+      "shortDesc": "Pouch stand-up de papel de aluminio premium con boquilla central y tapa resellable",
+      "description": "Pouches stand-up de papel de aluminio brillante/mate de alta barrera premium con boquilla central integrada y una tapa de rosca resellable con sello de seguridad. La estructura laminada de papel de aluminio altamente protectora resguarda líquidos, purés, alimentos para bebés, salsas, jugos y repuestos químicos contra el oxígeno, la humedad y la luz UV. A prueba de derrames, resistente a perforaciones y ligero.",
+      "features": [
+        "Boquilla central y tapa integradas a prueba de fugas",
+        "Laminación avanzada de papel de aluminio de 3 capas",
+        "Tapa de rosca resellable a prueba de derrames",
+        "Alternativa de empaque ligera y de baja emisión de carbono",
+        "Fuelle de fondo resistente para exhibición vertical"
+      ]
+    },
+    "rice-paper-flatbottom-valve": {
+      "name": "Pouch de fondo plano de papel de arroz con cierre zipper y válvula",
+      "shortDesc": "Pouch de papel de arroz blanco premium con válvula desgasificadora",
+      "description": "Pouch de fondo plano de papel de arroz blanco premium con cierre zipper y una válvula desgasificadora de una vía. Fabricado con una estructura de alta barrera para proteger granos de café, té y otros artículos sensibles a la luz y la humedad. Cuenta con una muesca de fácil rasgado y cierre de bolsillo (pocket-zipper) para la máxima retención de la frescura.",
+      "features": [
+        "Acabado de papel de arroz natural texturizado",
+        "Válvula desgasificadora de una vía integrada",
+        "Protección de frescura de alta barrera",
+        "Conveniente cierre de bolsillo (pocket-zipper) y muesca de fácil rasgado",
+        "Fondo plano para una presentación perfecta en estante"
+      ]
+    },
+    "clear-matte-zipper-stand-up-pouch": {
+      "name": "Pouch stand-up con cierre zipper de stock mate y transparente sin impresión",
+      "shortDesc": "Pouch stand-up transparente premium con cierre zipper en acabado mate o brillante",
+      "description": "Pouches stand-up auto-sellables transparentes sin impresión premium con cierre hermético reutilizable, muesca de fácil rasgado y fuelle de fondo. Disponible en acabados mate (esmerilado/translúcido) y brillante (ultra claro/brillante). Las estructuras laminadas de alta barrera protegen el té, los frutos secos, los bocadillos, las galletas, el café y otros artículos del polvo, la humedad y las plagas. Cuenta con un cierre zipper resellable ultra resistente y una base de fondo resistente para una exhibición profesional en estantes.",
+      "features": [
+        "Disponible en acabado mate (esmerilado) o brillante (ultra claro)",
+        "Cierre zipper resellable reutilizable premium",
+        "Muesca de fácil rasgado para una apertura instantánea",
+        "Fuelle de fondo resistente para exhibición vertical",
+        "Materiales de barrera seguros premium de grado alimenticio"
+      ]
+    },
+    "flat-bottom-zipper-pouch": {
+      "name": "Pouch de fondo plano con cierre zipper de stock mate y transparente sin impresión",
+      "shortDesc": "Pouch con cierre zipper sellado en ojo lados de fondo plano premium en acabado mate o brillante",
+      "description": "Pouches de fondo plano (sellados en ocho lados) sin impresión premium con estructura de 5 paneles de alta capacidad, cierre hermético reutilizable y muesca de fácil rasgado. Disponible en acabados mate (esmerilado/translúcido) y brillante (ultra claro/brillante). Diseñado con fondos planos para una máxima estabilidad y una exhibición dinámica tipo caja en estantes. Perfecto para almacenamiento de alta densidad de alimentos, bocadillos, granos de café, alimentos para mascotas y granos de cereales.",
+      "features": [
+        "Elegante forma de caja de 5 paneles de fondo plano para el máximo almacenamiento",
+        "Disponible en acabado mate (translúcido) o brillante (ultra claro)",
+        "Cierre hermético reutilizable de alta resistencia",
+        "Apertura amplia y muesca de fácil rasgado para un acceso instantáneo",
+        "Materiales premium de alta barrera protegen la frescura"
+      ]
+    },
+    "eco-custom-label": {
+      "name": "Etiqueta y calcomanía adhesiva personalizada de PLA transparente biodegradable",
+      "shortDesc": "Etiquetas de sellado y calcomanías de higiene compostables de PLA transparente 100% biodegradable premium en stock",
+      "description": "Calcomanías y etiquetas adhesivas listas para usar de PLA transparente 100% biodegradable y compostable premium. Fabricadas con película de PLA de base vegetal de alta claridad combinada con adhesivo acrílico compostable de alto rendimiento. 100% resistentes a la humedad, resistentes al aceite y completamente transparentes, lo que las hace ideales para cosméticos orgánicos de alta gama, empaques de botellas de vidrio y empaques de grado alimenticio. Totalmente certificadas bajo las normas EN 13432 y ASTM D6400 para degradarse limpiamente dentro de los 180 días en condiciones de compostaje con cero residuos de microplásticos.",
+      "features": [
+        "Película de PLA transparente de alta claridad",
+        "100% compostable y biodegradable",
+        "Resistente al agua y al aceite",
+        "Bio-adhesivo acrílico de grado alimenticio",
+        "Degradación en 180 días con cero microplásticos"
+      ]
+    },
+    "eco-pla-sealing-sticker": {
+      "name": "Calcomanía de sellado transparente biodegradable de PLA premium",
+      "shortDesc": "Calcomanías de sellado y etiquetas de empaque circulares de PLA transparente premium certificadas como compostables",
+      "description": "Calcomanías circulares transparentes compostables de alto rendimiento, 100% de origen vegetal, con bio-adhesivo de alto rendimiento. Perfectas para el sellado de cajas de venta al por menor, protección higiénica y empaques de alimentos respetuosos con el medio ambiente. Se degradan por completo en compuestos orgánicos naturales en menos de 14 semanas (98 days) en condiciones de compostaje, sin dejar microplásticos ni residuos tóxicos.",
+      "features": [
+        "Película de PLA transparente 100% de origen vegetal",
+        "Bio-adhesivo acrílico compostable de alto rendimiento",
+        "Biodegradación completa en ≤14 semanas (98 días)",
+        "Impermeable, resistente al aceite y adhesión de alta adherencia",
+        "Cero microplásticos y cero productos químicos tóxicos"
+      ]
+    },
+    "custom-multi-layer-sticker-labels": {
+      "name": "Etiquetas adhesivas despegables multicapa personalizadas (desplegables: doble capa)",
+      "shortDesc": "Etiquetas desplegables despegables y resellables multicapa personalizadas premium con impresión a doble cara de alta resolución",
+      "description": "Eleve el empaque de sus productos compactos con las etiquetas tipo folleto despegables multicapa personalizadas de Achieve Pack. Diseñadas especialmente para frascos de cosméticos B2C, goteros farmacéuticos, sellos de frascos gourmet y cajas de lujo. Esta innovadora etiqueta de varias páginas le permite alojar extensas especificaciones regulatorias, instrucciones de uso y elementos de marca en un solo diseño desplegable que ahorra espacio. Experimente una adhesión permanente libre de microplásticos con la conveniencia de un despegado y resellado dinámico y sin residuos.",
+      "features": [
+        "[FOLLETO MULTIPÁGINA QUE AHORRA ESPACIO] Hasta 5 páginas desplegables personalizadas (9 caras imprimibles) para empacar extensas advertencias regulatorias, ingredientes multilingües, instrucciones de uso o narrativas promocionales directamente en contenedores compactos sin saturar su producto.",
+        "[IMPRESIÓN HD PREMIUM A DOBLE CARA] Impresión a color CMYK vívida y de alta definición tanto en las capas adhesivas frontales como en las de base, lo que garantiza una legibilidad limpia y resistente a las manchas, así como una alineación estética impecable de la marca en todas las hojas internas.",
+        "[RESELLADO LIMPIO SIN RESIDUOS] La acción de despegado y resellado de borde seco de alto rendimiento permite a los consumidores abrir, hojear y volver a sellar el folleto cientos de veces con zero esquinas levantadas, arrugas ni residuos de adhesivo pegajoso.",
+        "[BIO-ADHESIVO CERO MICROPLÁSTICOS] Diseñado con material frontal biodegradable certificado por el FSC y bio-adhesivos orgánicos a base de agua que se descomponen limpiamente bajo condiciones ambientales estándar, satisfaciendo las demandas ecológicas de los compradores B2C modernos.",
+        "[ESPECIFICACIONES COMPLETAMENTE A MEDIDA] Personalizaciones ilimitadas de líneas de troquel (círculos, contornos personalizados, rectángulos) con precisión milimétrica. Tarifas de troquelado y configuración condonadas con un MOQ ultra bajo que comienza en solo 1,000 unidades."
+      ]
+    },
+    "large-format-kraft-heavy-bag-conventional": {
+      "name": "Pouch de gran formato Kraft con fuelle lateral y paredes múltiples (Stock convencional)",
+      "shortDesc": "Sacos con fuelle lateral de papel Kraft de pared múltiple de alta resistencia con revestimientos internos tejidos de PP de alta resistencia para cargas pesadas a granel",
+      "description": "Una solución de empaque con fuelle lateral de stock de gran capacidad y excepcionalmente duradera, diseñada para aplicaciones comerciales B2B de servicio pesado. Diseñada con una estructura de pared múltiple que combina una cubierta exterior de papel Kraft natural grueso certificado por el FSC con un revestimiento interior tejido de PP de alta resistencia a la tracción. Este saco a prueba de pinchazos y sin formación de pelusa está diseñado para transportar cargas pesadas de entre 2.5 kg y 25 kg sin desgarrarse ni estirarse. Equipado con paneles laterales plegados en M expandibles para maximizar la capacidad de almacenamiento y un cabezal termosellable compatible con selladoras industriales de banda continua. Una solución ideal y confiable para empacar premios premium para mascotas, comida para perros, carbón vegetal orgánico, harina al por mayor, granos agrícolas y pellets de madera. Se vende en accesibles paquetes a granel convenientes de 10 unidades.",
+      "features": [
+        "Revestimiento tejido de PP de alta resistencia: la inigualable resistencia a la tracción y a la perforación sostiene contenidos pesados de forma segura sin desgarros.",
+        "Fuelle lateral plegado en M expandible: los paneles laterales se expanden para maximizar el almacenamiento de volumen a granel mientras se mantienen líneas de empaque ordenadas.",
+        "Barrera de PE/PP resistente al agua: mantiene la humedad, el aire húmedo y la grasa fuera, asegurando que el contenido permanezca completamente seco y preservado en seco.",
+        "Papel Kraft natural certificado por el FSC: proporciona una estética comercial orgánica y respetuosa con el medio ambiente con un agarre táctil premium.",
+        "Listo para sellado por impulso y banda: cabezal superior grueso diseñado para selladoras industriales y manuales de alto calor para una preservación hermética."
+      ]
+    },
+    "cotton-paper-foil-gusset-pouch": {
+      "name": "Pouch con fuelle lateral premium laminado de papel de algodón de seda y papel de aluminio",
+      "shortDesc": "Pouches con fuelle lateral de papel de algodón premium de tacto suave con laminado de papel de aluminio de alta barrera para empaques de café y té premium",
+      "description": "Pouch con fuelle lateral de papel de algodón de seda premium con laminación de papel de aluminio de alta barrera e interior de PE de grado alimenticio. Diseñado con una textura de papel de algodón natural de tacto suave y una barrera interna altamente protectora que resguarda las hojas de té, el café y los polvos delicados contra la luz, la humedad y el oxígeno. Ideal para empaques artesanales, colecciones de té premium y productos de especialidad personalizados.",
+      "features": [
+        "Acabado de papel de algodón natural: ofrece una textura orgánica lujosa y de tacto suave que eleva la presentación de su marca.",
+        "Alta barrera de papel de aluminio: la laminación metálica interna premium bloquea el 100% de la luz, la humedad y el oxígeno para maximizar la frescura.",
+        "Fuelle lateral expandible: el diseño con fuelle lateral se expande para aumentar la capacidad de volumen, exhibiéndose hermosamente en los estantes.",
+        "Termosellable seguro: cabezal superior grueso compatible con selladoras térmicas manuales o industriales estándar para un cierre hermético.",
+        "Revestimiento seguro de grado alimenticio: la capa interna de PE no tiene olor, no es tóxica y está aprobada por la FDA para el contacto directo con alimentos."
+      ]
+    },
+    "white-cotton-paper-vacuum-bag": {
+      "name": "Bolsa de sellado al vacío de papel de algodón blanco (Stock convencional)",
+      "shortDesc": "Bolsas con fuelle lateral para sellado al vacío de papel de algodón blanco de tacto suave premium para bloques de arroz, granos y arándanos",
+      "description": "Bolsa de sellado al vacío de papel de algodón blanco premium con fuelles laterales, diseñada para el empaque de granos, bloques de arroz, hojas de té y arándanos. Elaborada con un revestimiento interior de PE grueso y exterior de papel de algodón de tacto suave, esta bolsa proporciona un sello hermético y altamente duradero bajo condiciones de vacío. Los fuelles laterales plegados se expanden para formar una forma de bloque limpia cuando se sella al vacío, ideal para exhibición minorista y almacenamiento de servicio pesado.",
+      "features": [
+        "Exterior de papel de algodón natural: textura de papel suave, táctil y orgánica que le da un aspecto limpio y premium.",
+        "Revestimiento de PE de alta resistencia: formulado para soportar una fuerte presión de vacío sin perforaciones ni fugas.",
+        "Diseño de pliegue lateral con fuelle: los lados expandibles crean formas de bloques apilables y estructuradas una vez selladas al vacío.",
+        "Termosellable hermético: diseñado para máquinas de sellado al vacío y selladoras de banda continua para una frescura a largo plazo.",
+        "Protección de grado alimenticio: resistente a perforaciones, seguro para el contacto con alimentos e ideal para la preservación de granos, semillas y frutas."
+      ]
+    },
+    "semi-transparent-cotton-rice-paper-tea-bag": {
+      "name": "Bolsa de té de papel de arroz y algodón blanco semitransparente de grado alimentario (Stock convencional)",
+      "shortDesc": "Pouches con fuelle lateral de papel de algodón blanco semitransparente premium para té de hoja suelta e infusiones de hierbas",
+      "description": "Pouch con fuelle lateral de papel de algodón blanco semitransparente de grado alimentario premium, diseñado especialmente para té de hoja suelta premium, matcha en polvo e infusiones de hierbas. Elaborado con un revestimiento interno de PE seguro para alimentos y una cubierta externa de papel de algodón transpirable y de tacto suave. Este pouch preserva los delicados aromas del té y protege las hojas contra la humedad, mientras que su textura semitransparente ofrece una vista previa sutil y lujosa del contenido premium en su interior.",
+      "features": [
+        "Exterior de papel de algodón artesanal: textura de papel suave, transpirable y orgánica con una estética semitransparente premium.",
+        "Protección de grado alimentario: capa interna de PE no tóxica y sin olor, segura para el contacto directo con té de hoja suelta y hierbas.",
+        "Diseño de fuelle lateral: los fuelles laterales expandibles maximizan la capacidad de almacenamiento y se exhiben elegantemente en los estantes.",
+        "Termosellable hermético: fácil de sellar utilizando selladoras de banda continua o selladoras por impulso para una preservación del aroma de larga duración.",
+        "Aperturas con muesca de fácil rasgado: convenientes muescas de fácil rasgado en el cabezal para una apertura rápida y fácil por parte de los consumidores."
+      ]
+    },
+    "water-soluble-fishing-bait-bags-pva-3-side-seal": {
+      "name": "Bolsas para carnada de pesca solubles en agua (PVA / Disolución instantánea)",
+      "shortDesc": "Bolsas para carnada de pesca solubles en agua de sellado en 3 lados de disolución instantánea de PVA ecológicas premium",
+      "description": "Una bolsa para carnada soluble en agua de PVA (alcohol polivinílico) ecológica premium, diseñada para la pesca deportiva avanzada y comercial. Diseñada con una película de PVA de disolución instantánea de alto rendimiento, este pouch plano con sellado en 3 lados se disuelve rápida y completamente en el agua sin dejar ningún residuo tóxico. Perfecta para el cebado concentrado y preciso en embalses, lagos, ríos grandes y pesca marítima. Segura para el ecosistema acuático y altamente efectiva para atraer peces.",
+      "features": [
+        "Material de PVA ecológico: 100% biodegradable y soluble en agua, disolviéndose por completo sin dejar residuos tóxicos.",
+        "Formulación de disolución instantánea: disolución rápida y completa en agua para liberar el engodo de forma instantánea en el punto objetivo.",
+        "Colocación precisa del engodo: asegura que la carnada permanezca concentrada exactamente donde deja caer el anzuelo, maximizando la concentración de peces.",
+        "Diseño de sellado en 3 lados: formato plano optimizado para empacar fácilmente, un transporte seguro y un despliegue rápido.",
+        "Seguro para ecosistemas acuáticos: compuesto no tóxico a base de almidón que es seguro para los peces y otros organismos acuáticos."
+      ]
+    },
+    "compostable-citrus-orange-filament-rollstock": {
+      "name": "Filamento para impresión 3D de PHA a partir de residuos de cáscara de naranja CitrusCycle™ compostable en casa",
+      "shortDesc": "Filamento de PHA 100% de base biológica biodegradable en el mar hecho de residuos orgánicos suprarreciclados. No requiere presecado.",
+      "description": "Transforme sus prototipos de empaque y pruebas de líneas de troquel con nuestro filamento de impresión 3D sostenible Loopha PHA. Diseñado a partir de polihidroxialcanoato (PHA) y residuos orgánicos suprarreciclados, este material de alto rendimiento representa la próxima generación de bioplásticos. Está disponible en 10 compuestos de materia prima que incluyen cáscara de naranja, residuos de café, té/matcha, hollejos de uva, durazno, bambú, concha de ostra, carbón vegetal, arroz y algas marinas. A diferencia del PLA estándar, que requiere un compostaje industrial estricto y un presecado obligatorio de 4 horas, el Loopha PHA es de origen compostable en casa y biodegradable en el mar. De manera crucial, cuenta con una temperatura de ablandamiento superior a 60°C (el PLA es de 50-55°C), alta tenacidad, baja contracción por enfriamiento (lo que permite impresiones sin cama caliente) y emite un aroma orgánico sutil y agradable durante la impresión en lugar de vapores químicos.",
+      "features": [
+        "10 compuestos orgánicos: elija entre naranja, café, té verde, uva, durazno, bambú, concha de ostra, carbón vegetal, arroz o algas marinas, cada uno con texturas y colores naturales únicos.",
+        "6 ventajas principales: alta estabilidad térmica (>60°C), tenacidad premium, degradación natural en suelo/mar, seguro y no tóxico (cero microplásticos), baja huella de carbono y aroma orgánico no tóxico.",
+        "Sin cuello de botella por presecado: la estructura de polímero estable permite la impresión directamente al sacarlo de la caja sin el presecado de 4 horas requerido para el PLA y el PETG.",
+        "Cama caliente no requerida: la baja contracción por enfriamiento evita la deformación, asegurando una impresión excepcional en configuraciones FDM estándar.",
+        "Niveles de venta al por mayor B2B: bobinado en formato de rollo de 1 kg, optimizado para prototipos de empaques ecológicos e investigación de bioplásticos."
+      ]
+    },
+    "box-corrugated-custom": {
+      "name": "Cajas mailer de cartón corrugado impresas personalizadas",
+      "shortDesc": "Caja mailer rígida reciclada FSC con acabados premium",
+      "description": "Cajas mailer de cartón corrugado impresas personalizadas premium, ideales para café, té, chocolate y productos alimenticios artesanales. Cuenta con impresión a cuatro colores CMYK con acabado mate, estampado de papel de oro y relieve opcionales. Fabricadas con papel reciclado certificado FSC, perfectas para marcas ecológicas que buscan un empaque premium sostenible.",
+      "features": [
+        "Acabado mate",
+        "Estampado de oro disponible",
+        "Detalles en relieve",
+        "Papel reciclado certificado FSC",
+        "Impresión personalizada a cuatro colores (CMYK)",
+        "Construcción de caja rígida"
+      ]
+    },
+    "box-tuck-custom": {
+      "name": "Cajas plegables impresas personalizadas",
+      "shortDesc": "Caja plegable premium con estampado de oro y relieve",
+      "description": "Cajas plegables (cartulinas) impresas personalizadas premium con un elegante acabado mate, estampado en caliente de papel de oro y detalles en relieve. Perfectas para barras de chocolate, sobres de té, confitería pequeña y productos artesanales que requieren una presentación sofisticada. Fabricadas a partir de papel certificado FSC para marcas ecológicas.",
+      "features": [
+        "Cartulina blanca de 250g",
+        "Acabado mate",
+        "Estampado en caliente de papel de oro",
+        "Detalles en relieve",
+        "Papel certificado FSC",
+        "Cierre de solapas encajables (Tuck End)"
+      ]
+    },
+    "triangle-coffee-box-card": {
+      "name": "Caja triangular para café con inserción de tarjeta",
+      "shortDesc": "Caja de papel triangular premium con funda integrada de inserción de tarjeta frontal",
+      "description": "Una solución de empaque B2B triangular excepcionalmente única y premium que cuenta con una funda de bolsillo frontal integrada para la inserción de etiquetas o tarjetas. Diseñado en una distintiva forma de caja triangular plegable, este empaque logra una declaración estética impresionante en los estantes de venta al por menor. Ideal para café en bolsa de goteo premium, bolsas de té de especialidad, bocadillos artesanales y regalos de alta gama. Elaborada a partir de cartulina de papel sostenible de 350g ecológicamente responsable, esta caja combina el diseño moderno con la sustentabilidad de alta gama.",
+      "features": [
+        "Diseño de caja plegable triangular: diseño estructural único para una presencia en estante de alta gama",
+        "Ranura de inserción de tarjeta frontal: perfecta para branding modular, tarjetas de sabor o etiquetas personalizadas",
+        "Soporte ecológico premium: elaborado a partir de cartulina de papel de alta densidad reciclada y sostenible de 350g",
+        "Certificado FSC y 100% reciclable: se alinea perfectamente con los valores de marca ecológicamente responsables",
+        "Ensamblado fácil de solapas: diseño conveniente para envío plano con solapas de cierre resistentes y seguras"
+      ]
+    }
   }
 }
