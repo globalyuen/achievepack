@@ -397,7 +397,7 @@ export default function UnifiedInbox() {
         <div className="text-center py-12 text-red-500">{error}</div>
       ) : viewMode === 'table' ? (
         <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
-          <table className="w-full text-left text-sm border-collapse min-w-[800px]">
+          <table className="w-full text-left text-sm border-collapse table-fixed">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-200 text-gray-600 text-xs uppercase tracking-wider">
                 <th className="py-3 px-4 font-bold w-[20%]">客戶資訊</th>
