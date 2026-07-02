@@ -12745,6 +12745,12 @@
       "count": 165,
       "images": [
         {
+          "filename": "industrial-compostable-pain-points.jpg",
+          "path": "/imgs/knowledge/industrial-compostable-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-02T13:36:22.209Z"
+        },
+        {
           "filename": "combustion-safety-test-pain-points.jpg",
           "path": "/imgs/knowledge/combustion-safety-test-pain-points.jpg",
           "extension": ".jpg",
@@ -13523,12 +13529,6 @@
           "path": "/imgs/knowledge/pouch-combustion-safety-test-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T02:53:54.465Z"
-        },
-        {
-          "filename": "industrial-compostable-pain-points.jpg",
-          "path": "/imgs/knowledge/industrial-compostable-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T02:51:27.091Z"
         },
         {
           "filename": "cello-kraft-pouches-pain-points.jpg",
