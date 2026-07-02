@@ -1,15 +1,68 @@
 import React from 'react'
-import { Recycle, Leaf, Shield, CheckCircle, Factory, MessageCircle, BookOpen, Building2, Image, TrendingUp, BarChart3, ArrowLeftRight, ShoppingBag, Coffee, Sparkles, Globe, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Recycle, Leaf, Shield, CheckCircle, Factory, MessageCircle, BookOpen, Building2, Image, TrendingUp, BarChart3, ArrowLeftRight, ShoppingBag, Coffee, Sparkles, Globe, Target, Calendar, Phone, Download, Mail, AlertTriangle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+export const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Recyclable Mono-PE Problems (And Solutions)",
+    points: [
+      { q: "Thermal Sensitivity & Narrow Sealing Window", a: "Mono-PE melts easily under sealing jaws. Solution: Co-extrude Machine Direction Oriented PE (MDO-PE) outer layer with low-melting Metallocene PE (mPE) sealant layer to broaden the sealing window." },
+      { q: "Insufficient Oxygen & Moisture Barrier", a: "Pure PE has higher permeability than PET/foil. Solution: Co-extrude less than 5% EVOH barrier layer or apply Al2O3/SiOx nano-coatings, maintaining full recyclability in Class 4 streams." },
+      { q: "Lack of Stiffness & Pouch Sagging", a: "PE is naturally soft, causing pouches to sag on retail shelves. Solution: Use oriented PE (MDO-PE/BOPE) in the outer layer to increase tensile strength and structural stiffness." },
+      { q: "Low Puncture & Tear Resistance", a: "Single PE layers can puncture from sharp-edged foods. Solution: Blend Linear Low-Density Polyethylene (LLDPE) with high-density metallocene PE to enhance impact strength and toughness." },
+      { q: "Hazy Optics & Low Gloss", a: "Mono-PE structures often have lower gloss than PET laminates. Solution: Use specialized high-clarity cast PE (CPE) films or apply high-gloss, recyclable outer varnishes." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes del Mono-PE Reciclable (y Soluciones)",
+    points: [
+      { q: "Sensibilidad térmica y ventana de sellado estrecha", a: "El mono-PE se derrite fácilmente bajo las mordazas de sellado. Solución: Coextruir una capa exterior de PE orientado en dirección de la máquina (MDO-PE) con una capa de sellado de PE de metaloceno (mPE) de bajo punto de fusión para ampliar el rango de temperatura." },
+      { q: "Barrera insuficiente de oxígeno y humedad", a: "El PE puro tiene mayor permeabilidad que el PET o el aluminio. Solución: Coextruir menos de 5% de capa de barrera EVOH o aplicar nanocubrimientos de Al2O3/SiOx, manteniendo la reciclabilidad total en el flujo de PE Clase 4." },
+      { q: "Falta de rigidez y caída de la bolsa", a: "El PE es naturalmente blando, lo que hace que las bolsas se caigan en los estantes. Solución: Usar PE orientado (MDO-PE/BOPE) en la capa exterior para aumentar la resistencia a la tracción y la rigidez estructural." },
+      { q: "Baja resistencia a la perforación y al desgarro", a: "Las capas de PE individuales pueden perforarse con alimentos de bordes afilados. Solución: Mezclar polietileno lineal de baja densidad (LLDPE) con PE de metaloceno de alta densidad para mejorar la resistencia al impacto y la tenacidad." },
+      { q: "Óptica brumosa y bajo brillo", a: "Las estructuras de mono-PE suelen tener un brillo inferior al de los laminados de PET. Solución: Utilizar películas especializadas de PE fundido de alta claridad (CPE) o aplicar barnices exteriores reciclables de alto brillo." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants du Mono-PE Recyclable (et Solutions)",
+    points: [
+      { q: "Sensibilité thermique et fenêtre de scellage étroite", a: "Le mono-PE fond facilement sous les mâchoires de scellage. Solution : Co-extruder une couche externe de PE orienté dans le sens de la machine (MDO-PE) avec une couche de scellant en PE métallocène (mPE) à bas point de fusion pour élargir la plage de scellage." },
+      { q: "Barrière insuffisante à l'oxygène et à l'humidité", a: "Le PE pur a une perméabilité plus élevée que le PET ou l'aluminium. Solution : Co-extruder moins de 5% de couche barrière EVOH ou appliquer des nano-revêtements Al2O3/SiOx, préservant ainsi la recyclabilité totale dans la filière PE Classe 4." },
+      { q: "Manque de rigidité et affaissement du sachet", a: "Le PE est naturellement souple, ce qui fait s'affaisser les sachets sur les étagères. Solution : Utiliser du PE orienté (MDO-PE/BOPE) dans la couche externe pour augmenter la résistance à la traction et la rigidité structurelle." },
+      { q: "Faible résistance à la perforation et à la déchirure", a: "Les monocouches de PE peuvent être perforées par des aliments à bords tranchants. Solution : Mélanger du polyéthylène linéaire basse densité (LLDPE) avec du PE métallocène haute densité pour améliorer la résistance aux chocs et la ténacité." },
+      { q: "Aspect trouble et faible brillance", a: "Les structures mono-PE ont souvent une brillance inférieure à celle des stratifiés PET. Solution : Utiliser des films spécialisés de PE coulé (CPE) à haute clarté ou appliquer des vernis externes recyclables à haute brillance." }
+    ]
+  },
+  'zh-TW': {
+    title: "5個常見的可回收單一材料 PE (Mono-PE) 問題（及解決方案）",
+    points: [
+      { q: "熱敏感性與窄封口溫度區間", a: "單一 PE 材料在封口刀下容易融化變形。解決方案：將縱向拉伸 PE (MDO-PE) 外層與低熔點茂金屬 PE (mPE) 封口層進行共擠，以加寬熱封溫度窗口。" },
+      { q: "氧氣與水氣阻隔性不足", a: "純 PE 的滲透性高於 PET 或鋁箔。解決方案：共擠低於 5% 的 EVOH 阻隔層，或塗覆 Al2O3/SiOx 奈米塗層，以在 4 號 PE 回收體系中保持完全可回收性。" },
+      { q: "剛性不足與袋身塌陷", a: "PE 材質天然偏軟，導致包裝袋在零售貨架上塌陷。解決方案：在外層使用定向拉伸 PE (MDO-PE/BOPE) 以增加抗張強度和結構剛性。" },
+      { q: "抗穿刺與抗撕裂強度低", a: "單一 PE 層容易被有尖銳邊角的食品刺破。解決方案：在共擠工藝中將線性低密度聚乙烯 (LLDPE) 與高密度茂金屬 PE 混合，以增強抗衝擊強度和韌性。" },
+      { q: "外觀霧度高與光澤度低", a: "Mono-PE 結構的光澤度通常低於傳統 PET 複合結構。解決方案：使用特製的高清晰流延 PE (CPE) 薄膜，或塗覆高光澤、可回收的外層光油。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = [
+  { id: 'pain-points', translationKey: 'title' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'pain-points', translationKey: 'title' }
+];
+
 const RecyclableMonoPEPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.recyclableMonoPE'
+  const currentLang = i18n.language || 'en';
+  const tPain = translations[currentLang as keyof typeof translations] || translations.en;
   
   const getTranslationArray = <T = string,>(key: string): T[] => {
     const val = t(key, { returnObjects: true });
@@ -478,6 +531,37 @@ const RecyclableMonoPEPage: React.FC = () => {
           <p className="text-sm text-neutral-600 mt-4">
             Ready to make the switch? <Link to="/store" className="text-primary-600 hover:underline">Order recyclable mono-PE samples</Link> or <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">book a free consultation</a> with our packaging experts.
           </p>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points',
+      title: tPain.title,
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-1/3">
+              <img 
+                src="/imgs/knowledge/recyclable-mono-pe-pain-points.jpg" 
+                alt={tPain.title}
+                className="w-full h-auto rounded-xl shadow-md object-cover"
+              />
+            </div>
+            <div className="md:w-2/3 space-y-4">
+              {tPain.points.map((pt: any, idx: number) => (
+                <div key={idx} className="flex gap-3">
+                  <div className="flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-5 w-5 text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-neutral-900">{pt.q}</h4>
+                    <p className="text-sm text-neutral-600 mt-1">{pt.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       )
     }

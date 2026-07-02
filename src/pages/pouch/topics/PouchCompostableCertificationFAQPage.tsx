@@ -62,6 +62,9 @@ const translations: Record<string, any> = {
   }
 }
 
+export const sectionsForPouch = ["5 Common Compostable Certification Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Compostable Certification Problems (And Solutions)"];
+
 const PouchCompostableCertificationFAQPage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const p = 'pouchCompostableCertificationFAQPage'

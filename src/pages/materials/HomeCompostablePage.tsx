@@ -6,8 +6,141 @@ import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import ClickableImage from '../../components/ClickableImage'
 
+const translations = {
+  en: {
+    problemsTitle: "5 Common Home Compostable Problems (And Solutions)",
+    problems: [
+      {
+        title: "Low Moisture & Vapor Barrier",
+        description: "Home compostable films often lack strong moisture barriers, leading to premature structural breakdown when packaging moist or oily foods.",
+        solution: "We utilize multi-layer co-extrusion incorporating cellulose or high-barrier bio-coatings that protect the product while maintaining 100% home compostability."
+      },
+      {
+        title: "Inconsistent Backyard Degradation",
+        description: "Backyard compost heaps rarely reach the high, stable temperatures of industrial facilities, causing packaging to remain intact for years.",
+        solution: "Our materials are formulated with ambient-temperature active biopolymers (like PBS and starch blends) certified to decompose within 180 days at 20-30°C."
+      },
+      {
+        title: "Weak Heat Seals and Leaks",
+        description: "Compostable polymers have a narrow heat-sealing window, resulting in weak seal joints or packaging failures on high-speed filling lines.",
+        solution: "We integrate specialized bio-sealant layers with low seal initiation temperatures (SIT) to ensure airtight, high-strength seals without melting the outer layer."
+      },
+      {
+        title: "Chemical Ecotoxicity from Inks",
+        description: "Standard industrial inks and adhesives can release harmful chemical residues or heavy metals into home gardens, disrupting soil ecosystems.",
+        solution: "We exclusively print with water-based and soy-based vegetable inks, using compostable adhesives certified toxic-free for soil microflora."
+      },
+      {
+        title: "Low Puncture and Tear Resistance",
+        description: "Eco-friendly films can be brittle and prone to tearing during transit and handling.",
+        solution: "We blend highly flexible PBAT with tensile-strong PBS to create a resilient laminate structure that survives rough logistics without sacrificing eco-friendliness."
+      }
+    ]
+  },
+  es: {
+    problemsTitle: "5 Problemas Comunes de los Materiales Compostables en el Hogar (y Soluciones)",
+    problems: [
+      {
+        title: "Baja barrera contra la humedad y el vapor",
+        description: "Las películas compostables en el hogar suelen carecer de barreras fuertes contra la humedad, lo que provoca una degradación estructural prematura al envasar alimentos húmedos o aceitosos.",
+        solution: "Utilizamos coextrusión multicapa que incorpora celulosa o biorevestimientos de alta barrera que protegen el producto manteniendo una compostabilidad doméstica del 100%."
+      },
+      {
+        title: "Degradación inconsistente en el patio trasero",
+        description: "Las pilas de compost doméstico rara vez alcanzan las temperaturas altas y estables de las instalaciones industriales, lo que hace que los envases permanezcan intactos durante años.",
+        solution: "Nuestros materiales están formulados con biopolímeros activos a temperatura ambiente (como mezclas de PBS y almidón) certificados para descomponerse en 180 días a 20-30 °C."
+      },
+      {
+        title: "Sellados térmicos débiles y fugas",
+        description: "Los polímeros compostables tienen una ventana estrecha de sellado térmico, lo que provoca juntas de sellado débiles o fallas en el empaque en líneas de llenado de alta velocidad.",
+        solution: "Integramos capas de biosellador especializadas con bajas temperaturas de inicio de sellado (SIT) para garantizar sellos herméticos de alta resistencia sin derretir la capa exterior."
+      },
+      {
+        title: "Ecotoxicidad química de las tintas",
+        description: "Las tintas y adhesivos industriales estándar pueden liberar residuos químicos nocivos o metales pesados en los jardines domésticos, alterando los ecosistemas del suelo.",
+        solution: "Imprimimos exclusivamente con tintas vegetales a base de agua y soja, utilizando adhesivos compostables certificados como libres de tóxicos para la microflora del suelo."
+      },
+      {
+        title: "Baja resistencia a la perforación y al desgarro",
+        description: "Las películas ecológicas pueden ser quebradizas y propensas a romperse durante el tránsito y la manipulación.",
+        solution: "Mezclamos PBAT altamente flexible con PBS de alta resistencia a la tracción para crear una estructura laminada resistente que sobrevive a la logística dura sin sacrificar el respeto al medio ambiente."
+      }
+    ]
+  },
+  fr: {
+    problemsTitle: "5 Problèmes Courants du Compostage Domestique (et Solutions)",
+    problems: [
+      {
+        title: "Faible barrière à l'humidité et à la vapeur",
+        description: "Les films compostables à domicile manquent souvent de barrières solides contre l'humidité, entraînant une dégradation structurelle prématurée lors de l'emballage d'aliments humides ou gras.",
+        solution: "Nous utilisons une coextrusion multicouche intégrant de la cellulose ou des bio-revêtements haute barrière qui protègent le produit tout en maintenant une compostabilité domestique à 100%."
+      },
+      {
+        title: "Dégradation irrégulière dans le jardin",
+        description: "Les tas de compost domestiques atteignent rarement les températures élevées et stables des installations industrielles, ce qui fait que les emballages restent intacts pendant des années.",
+        solution: "Nos matériaux sont formulés avec des biopolymères actifs à température ambiante (comme des mélanges de PBS et d'amidon) certifiés pour se décomposer en 180 jours entre 20 et 30 °C."
+      },
+      {
+        title: "Thermoscellages faibles et fuites",
+        description: "Les polymères compostables ont une fenêtre de thermoscellage étroite, ce qui entraîne des joints de scellage faibles ou des défaillances d'emballage sur les lignes de conditionnement à grande vitesse.",
+        solution: "Nous intégrons des couches de bio-scellant spécialisées à basse température d'initiation de scellage (SIT) pour garantir des soudures étanches et très résistantes sans faire fondre la couche externe."
+      },
+      {
+        title: "Écotoxicité chimique des encres",
+        description: "Les encres et adhésifs industriels standard peuvent libérer des résidus chimiques nocifs ou des métaux lourds dans les jardins familiaux, perturbant les écosystèmes du sol.",
+        solution: "Nous imprimons exclusivement avec des encres végétales à base d'eau et de soja, en utilisant des adhésifs compostables certifiés sans danger pour la microflore du sol."
+      },
+      {
+        title: "Faible résistance à la perforation et à la déchirure",
+        description: "Les films écologiques peuvent être fragiles et sujets aux déchirures lors du transport et de la manipulation.",
+        solution: "Nous mélangeons du PBAT hautement flexible avec du PBS à haute résistance à la traction pour créer une structure laminée résiliente qui survit aux contraintes logistiques sans sacrifier l'éco-responsabilité."
+      }
+    ]
+  },
+  "zh-TW": {
+    problemsTitle: "5 個常見的家用可堆肥包裝問題（及解決方案）",
+    problems: [
+      {
+        title: "防潮與阻氣屏障低",
+        description: "家用可堆肥薄膜通常缺乏足夠的防潮性，包裝潮濕或含油食品時容易導致結構過早降解損壞。",
+        solution: "我們採用結合纖維素或高阻隔生物塗層的多層共擠技術，在保護產品的同時保持 100% 的家用可堆肥性。"
+      },
+      {
+        title: "後院堆肥降解速度不均勻",
+        description: "家用後院堆肥箱很難達到工業堆肥的高溫與穩定環境，導致包裝材料在土堆中數年不降解。",
+        solution: "我們的材料採用可在常溫下活化的生物聚合物（如 PBS 與澱粉共混物），經認證在 20-30°C 環境下 180 天內即可完全降解。"
+      },
+      {
+        title: "熱封強度差與滲漏問題",
+        description: "可堆肥高分子材料的熱封溫度範圍極窄，容易導致封口強度不足或在高連速包裝線上封口熔毀失效。",
+        solution: "我們集成了具有低起始封口溫度 (SIT) 的專用生物密封層，在不熔解外層的前提下，確保提供氣密且高強度的封口。"
+      },
+      {
+        title: "油墨與黏合劑的土壤毒性",
+        description: "標準工業印刷油墨和黏合劑在降解時會釋放有害化學殘留物或重金屬到家庭菜園中，破壞土壤生態系統。",
+        solution: "我們完全採用水性及大豆基環保植物油墨進行印刷，並搭配經認證對土壤微生物無毒的可堆肥黏合劑。"
+      },
+      {
+        title: "抗穿刺與抗撕裂性能差",
+        description: "環保薄膜通常較脆，在物流運輸及消費者搬運過程中極易發生破裂或穿刺漏洞。",
+        solution: "我們將高柔韌性的 PBAT 與高抗張強度的 PBS 進行共混，製造出強韌的複合包裝結構，既能抵禦粗暴物流，又不失環保初衷。"
+      }
+    ]
+  }
+};
+
+const sectionsForPouch = [
+  { id: 'home-compostable-problems', translationKey: 'problemsTitle' }
+];
+
+const sectionsForAchieve = [
+  { id: 'home-compostable-problems', translationKey: 'problemsTitle' }
+];
+
 const HomeCompostablePage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.language || 'en'
+  const localT = translations[currentLang as keyof typeof translations] || translations.en
   const { openCalendly } = useCalendly()
   
   const p = 'seoPages.pages.homeCompostable'
@@ -468,6 +601,48 @@ const HomeCompostablePage: React.FC = () => {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'home-compostable-problems',
+      title: localT.problemsTitle,
+      icon: <Recycle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="space-y-4">
+              {localT.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="bg-neutral-50 p-5 rounded-xl border border-neutral-200 shadow-sm hover:border-green-300 transition-colors">
+                  <h4 className="font-bold text-neutral-900 flex items-center gap-2 mb-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600 text-xs font-bold">!</span>
+                    {prob.title}
+                  </h4>
+                  <p className="text-sm text-neutral-600 mb-3">
+                    <strong>Problem:</strong> {prob.description}
+                  </p>
+                  <p className="text-sm text-green-700 bg-green-50 p-2.5 rounded-lg border border-green-100 flex gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Solution:</strong> {prob.solution}</span>
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="sticky top-6">
+              <div className="relative group overflow-hidden rounded-2xl border-4 border-white shadow-xl">
+                <img 
+                  src="/imgs/knowledge/home-compostable-pain-points.jpg" 
+                  alt="5 Common Home Compostable Problems & Solutions" 
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+                  <p className="text-white text-sm font-medium">
+                    AchievePack Advanced Home Compostable Packaging Technology
+                  </p>
+                </div>
               </div>
             </div>
           </div>

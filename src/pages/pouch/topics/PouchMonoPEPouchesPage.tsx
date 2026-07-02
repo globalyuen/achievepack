@@ -7,7 +7,7 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 import ClickableImage from '../../../components/ClickableImage'
 
-const painPointsTranslations: Record<string, any> = {
+const translations: Record<string, any> = {
   en: {
     title: "5 Common Mono-PE Pouch Problems (And Solutions)",
     badge: "Engineering Insights",
@@ -54,6 +54,14 @@ const painPointsTranslations: Record<string, any> = {
   }
 }
 
+export const sectionsForPouch = [
+  "5 Common Mono-PE Pouch Problems (And Solutions)"
+]
+
+export const sectionsForAchieve = [
+  "5 Common Mono-PE Pouch Problems (And Solutions)"
+]
+
 const getIcon = (name: string) => {
   switch (name) {
     case 'Factory': return <Factory className="w-8 h-8" />
@@ -69,7 +77,7 @@ const PouchMonoPEPouchesPage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const p = 'pouchMonoPEPouchesPage'
   const baseUrl = getBaseUrl()
-  const localT = painPointsTranslations[i18n.language] || painPointsTranslations['en']
+  const localT = translations[i18n.language] || translations['en']
   
   const MONO_METRICS = [
     { label: t(`${p}.metrics.recyclability.label`), value: t(`${p}.metrics.recyclability.value`), unit: t(`${p}.metrics.recyclability.unit`), desc: t(`${p}.metrics.recyclability.desc`) },

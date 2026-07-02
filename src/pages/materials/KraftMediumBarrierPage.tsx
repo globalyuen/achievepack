@@ -1,12 +1,65 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Leaf, Shield, Award, CheckCircle, Package, Layers, Factory, TrendingUp, BarChart3, ArrowLeftRight, Building2, ShoppingBag, Coffee, Sparkles, Globe, Recycle } from 'lucide-react';
+import { Leaf, Shield, Award, CheckCircle, Package, Layers, Factory, TrendingUp, BarChart3, ArrowLeftRight, Building2, ShoppingBag, Coffee, Sparkles, Globe, Recycle, AlertTriangle, Wrench } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { Link } from 'react-router-dom';
 
+export const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Kraft Medium Barrier Problems (And Solutions)",
+    points: [
+      { q: "Moisture Absorption & Softening", a: "Raw kraft paper is highly hydrophilic, absorbing ambient moisture which weakens structural rigidity and makes the package feel soggy. Solution: Laminate with a high-tensile inner VMPET/PE lining that acts as a dual-sided moisture shield, keeping the paper dry and the pouch structurally sound." },
+      { q: "Aroma & Oil Migration", a: "Delicate aromas (like coffee) and essential oils can migrate through weak barriers, causing oxidation and staining the exterior kraft surface. Solution: Incorporate an active barrier layer with low oxygen transmission rates (OTR) and oil-resistant resins to lock in flavor and prevent grease staining." },
+      { q: "Uneven Heat Seal Quality", a: "The thick, fibrous structure of kraft paper acts as a thermal insulator, leading to insufficient heat transfer and weak seal seams. Solution: Use low-temperature seal initiation (SIT) inner PE layers and optimize dwell time to guarantee consistent, air-tight hermetic seals." },
+      { q: "Creasing and Flex-Cracking", a: "Kraft paper lacks elasticity, making it prone to creasing, flex-cracking, and micro-punctures during shipping and handling. Solution: Integrate a flexible, shock-absorbing biaxially oriented polyester layer (PET) to reinforce corners and absorb transit vibrations." },
+      { q: "Ink Smudging & Low Contrast", a: "High porosity of natural kraft fibers absorbs ink unevenly, leading to muddy colors, low contrast, or ink rub-off. Solution: Employ advanced digital or flexographic printing on a clear outer film, reverse-printing the graphics to protect them under a pristine matte finish." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de la Barrera Media de Kraft (y Soluciones)",
+    points: [
+      { q: "Absorción de Humedad y Ablandamiento", a: "El papel kraft crudo es muy hidrófilo y absorbe la humedad ambiental, lo que debilita la rigidez estructural y hace que el envase se sienta blando. Solución: Laminar con un revestimiento interior de VMPET/PE de alta resistencia a la tracción que actúa como un escudo contra la humedad de doble cara." },
+      { q: "Migración de Aromas y Aceites", a: "Los aromas delicados (como el café) y los aceites esenciales pueden migrar a través de barreras débiles, causando oxidación y manchando la superficie exterior. Solución: Incorporar una capa de barrera activa con bajas tasas de transmisión de oxígeno (OTR) y resinas resistentes a las grasas." },
+      { q: "Calidad de Sellado Térmico Desgual", a: "La estructura gruesa y fibrosa del papel kraft actúa como aislante térmico, lo que provoca una transferencia de calor insuficiente y costuras débiles. Solución: Utilizar capas internas de PE de inicio de sellado a baja temperatura (SIT) y optimizar el tiempo de presión para garantizar un sellado hermético." },
+      { q: "Arrugas y Agrietamiento por Flexión", a: "El papel kraft carece de elasticidad, lo que lo hace propenso a arrugarse, agrietarse y sufrir microperforaciones durante el envío. Solución: Integrar una capa de poliéster orientado biaxialmente (PET) flexible y amortiguadora para reforzar las esquinas." },
+      { q: "Manchado de Tinta y Bajo Contraste", a: "La alta porosidad de las fibras naturales de kraft absorbe la tinta de manera desigual, provocando colores apagados o desprendimiento de tinta. Solución: Emplear impresión digital o flexográfica avanzada en una película exterior transparente, imprimiendo el diseño en reverso." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants du Kraft Barrière Moyenne (Et Solutions)",
+    points: [
+      { q: "Absorption d'Humidité et Ramollissement", a: "Le papier kraft brut est très hydrophile et absorbe l'humidité ambiante, ce qui affaiblit la rigidité structurelle et ramollit l'emballage. Solution : Laminer avec un revêtement intérieur en VMPET/PE à haute résistance pour former un double bouclier d'étanchéité." },
+      { q: "Migration des Arômes et des Huiles", a: "Les arômes délicats (comme le café) et les huiles peuvent traverser les barrières faibles, provoquant l'oxydation et tachant le papier kraft. Solution : Intégrer une couche barrière active à faible taux de transmission d'oxygène (OTR) et des résines résistantes aux graisses." },
+      { q: "Soudure Thermique Irrégulière", a: "La structure épaisse et fibreuse du papier kraft sert d'isolant thermique, ce qui entraîne des soudures fragiles. Solution : Utiliser des couches internes de PE à basse température d'initiation de scellage (SIT) et optimiser les paramètres de pression." },
+      { q: "Plis et Fissures de Flexion", a: "Le papier kraft manque d'élasticité, ce qui le rend sensible aux faux plis, aux fissures de flexion et aux micro-perforations pendant le transport. Solution : Intégrer une couche de polyester flexible (PET) pour absorber les chocs et renforcer les angles de la pochette." },
+      { q: "Bavures d'Encre et Faible Contraste", a: "La porosité élevée des fibres de kraft absorbe l'encre de manière inégale, ce qui rend les couleurs ternes ou sensibles aux frottements. Solution : Utiliser une impression numérique ou flexographique avancée sur film externe transparent avec impression inversée." }
+    ]
+  },
+  'zh-TW': {
+    title: "中阻隔牛皮紙袋的 5 個常見問題（與工程解決方案）",
+    points: [
+      { q: "吸濕與袋身軟化", a: "天然牛皮紙具有高度親水性，易吸收環境水分，導致袋身失去剛性、手感扁塌。解決方案：於內層複合高強度 VMPET/PE 薄膜，形成雙向防潮屏障，保持紙張乾爽與包裝挺度。" },
+      { q: "香氣流失與油脂滲透", a: "咖啡或茶葉等精細香氣易透過微弱阻隔逸散，且油脂可能滲透紙張，導致氧化並污染外觀。解決方案：使用高阻隔活性阻隔層，降低透氧率 (OTR) 並搭配耐油樹脂，牢牢鎖住香氣並防油漬。" },
+      { q: "熱封不均與漏氣", a: "牛皮紙纖維粗厚，熱傳導性差，封口時易因熱量不均導致封合強度不足或微小漏氣。解決方案：採用低起封溫度 (SIT) 的高品質 PE 內層，並精確調校熱封時間與溫度，確保百分之百氣密。" },
+      { q: "折痕與擠壓破袋", a: "牛皮紙缺乏延展彈性，在物流運輸的擠壓與震動下，極易產生難看的折痕或角隅破裂。解決方案：在結構中嵌入高韌性雙向拉伸聚酯 (PET) 緩衝層，增強角落強度，有效防止運輸破損。" },
+      { q: "印刷暈染與色彩黯淡", a: "紙張表面孔隙大且不平整，墨水易被過度吸收，導致圖案模糊、對比度低或印刷脫落。解決方案：將圖案以反向印刷（裏印）技術印製於外層高透光保護膜，兼顧精緻色彩與耐磨擦保護。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = [
+  { id: 'pain-points', translationKey: 'title' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'pain-points', translationKey: 'title' }
+];
+
 const KraftMediumBarrierPage: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const p = 'seoPages.pages.kraftMediumBarrier';
+  const currentLang = i18n.language || 'en';
+  const tPain = translations[currentLang as keyof typeof translations] || translations.en;
 
   // Helper to render bold prefixes (split by colon or Chinese full-width colon)
   const renderBullet = (text: string) => {
@@ -412,6 +465,37 @@ const KraftMediumBarrierPage: React.FC = () => {
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-xl border border-amber-200">
               <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.sustainability.emissions.title`)}</h4>
               <p className="text-sm text-amber-700">{t(`${p}.sections.sustainability.emissions.desc`)}</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points',
+      title: tPain.title,
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-1/3">
+              <img 
+                src="/imgs/knowledge/kraft-medium-barrier-pain-points.jpg" 
+                alt={tPain.title}
+                className="w-full h-auto rounded-xl shadow-md object-cover"
+              />
+            </div>
+            <div className="md:w-2/3 space-y-4">
+              {tPain.points.map((pt: any, idx: number) => (
+                <div key={idx} className="flex gap-3">
+                  <div className="flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-5 w-5 text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-neutral-900">{pt.q}</h4>
+                    <p className="text-sm text-neutral-600 mt-1">{pt.a}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

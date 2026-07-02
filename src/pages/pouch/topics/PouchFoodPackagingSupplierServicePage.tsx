@@ -62,6 +62,9 @@ const LOCAL_TRANSLATIONS = {
   }
 }
 
+export const sectionsForPouch = ["5 Common Food Packaging Supplier Problems (And Solutions)"]
+export const sectionsForAchieve = ["5 Common Food Packaging Supplier Problems (And Solutions)"]
+
 const PouchFoodPackagingSupplierServicePage: React.FC = () => {
   const baseUrl = getBaseUrl()
   const { t, i18n } = useTranslation()

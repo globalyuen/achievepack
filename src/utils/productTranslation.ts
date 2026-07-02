@@ -5,20 +5,19 @@ import es from '../locales/es.json';
 import zhTW from '../locales/zh-TW.json';
 
 const locales: Record<string, any> = {
-  en,
-  fr,
-  es,
-  'zh-TW': zhTW,
-  // Add simple fallbacks for lang codes like 'zh', 'fr-FR', etc.
+  'en': en,
+  'fr': fr,
+  'es': es,
+  'zh-tw': zhTW,
   'zh': zhTW,
-  'fr-FR': fr,
-  'es-ES': es,
+  'fr-fr': fr,
+  'es-es': es,
   'es-419': es
 };
 
 /**
  * Pure function to translate a product's text fields for a given language code.
- * Useful for static scripts (like feed generation) or where hook context is unavailable.
+ * Case-insensitive and supports underscore/hyphen normalization.
  */
 export function translateProductDirect<T extends { id: string; name: string; description: string; shortDesc: string; features: string[] }>(
   product: T,
@@ -26,10 +25,17 @@ export function translateProductDirect<T extends { id: string; name: string; des
 ): T {
   if (!product) return product;
 
-  // Normalize language key (e.g. 'en-US' -> 'en')
-  let langKey = lang;
-  if (!locales[langKey]) {
-    langKey = lang.split('-')[0];
+  // Normalize language format (e.g. 'zh_TW' -> 'zh-tw')
+  const searchLang = (lang || 'en').toLowerCase().replace('_', '-');
+  
+  let langKey = 'en';
+  if (locales[searchLang]) {
+    langKey = searchLang;
+  } else {
+    const primaryCode = searchLang.split('-')[0];
+    if (locales[primaryCode]) {
+      langKey = primaryCode;
+    }
   }
 
   const locale = locales[langKey] || locales['en'];

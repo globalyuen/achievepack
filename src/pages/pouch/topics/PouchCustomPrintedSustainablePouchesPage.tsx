@@ -114,6 +114,9 @@ const translations: Record<string, any> = {
   }
 }
 
+export const sectionsForPouch = ["5 Common Custom Printed Sustainable Pouches Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Custom Printed Sustainable Pouches Problems (And Solutions)"];
+
 const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'

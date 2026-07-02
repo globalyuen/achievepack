@@ -54,6 +54,14 @@ const translations: Record<string, any> = {
   }
 };
 
+const sectionsForPouch = [
+  { id: "ocean-plastic-problems", translationKey: "title" }
+];
+
+const sectionsForAchieve = [
+  { id: "ocean-plastic-problems", translationKey: "title" }
+];
+
 const PouchRecycledOceanPlasticPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
   const { t, i18n } = useTranslation()
@@ -206,37 +214,45 @@ const PouchRecycledOceanPlasticPackagingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Pain Points Section */}
-      <section className="py-24 bg-white border-b-4 border-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative order-2 lg:order-1">
-              <div className="absolute inset-0 bg-red-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <ClickableImage 
-                src="/imgs/knowledge/ocean-plastic-packaging-pain-points.jpg" 
-                alt="Ocean Plastic Packaging Pain Points" 
-                className="relative z-10 border-4 border-black w-full shadow-2xl"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <NeoBadge color="red">{localT.badge}</NeoBadge>
-              <h2 className="font-black text-5xl md:text-6xl mt-6 uppercase leading-tight italic mb-12">
-                {localT.title}
-              </h2>
-              <div className="space-y-6">
-                {localT.problems.map((prob: any, idx: number) => (
-                  <div key={idx} className="bg-neutral-50 p-6 border-l-4 border-red-500 shadow-sm">
-                    <h4 className="font-bold text-neutral-900 text-xl mb-3 flex items-start gap-3">
-                      <AlertTriangle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                      {prob.q}
-                    </h4>
-                    <p className="text-neutral-700 text-md leading-relaxed font-['JetBrains_Mono'] ml-9">
-                      {prob.a}
-                    </p>
+      {/* 5 Common Recycled Ocean Plastic Packaging Problems (And Solutions) Section */}
+      <section id="ocean-plastic-problems" className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            {localT.title}
+          </h2>
+          
+          <div className="mb-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <ClickableImage 
+              src="/imgs/knowledge/ocean-plastic-packaging-pain-points.jpg" 
+              alt={localT.title}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          <div className="space-y-8">
+            {localT.problems.map((prob: any, idx: number) => {
+              const icons = [
+                <Droplets className="w-8 h-8 text-blue-500" />,
+                <Shield className="w-8 h-8 text-green-500" />,
+                <Anchor className="w-8 h-8 text-sky-500" />,
+                <TrendingUp className="w-8 h-8 text-orange-500" />,
+                <Waves className="w-8 h-8 text-teal-500" />
+              ];
+              return (
+                <div key={idx} className="bg-neutral-50 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:translate-x-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 mt-1">{icons[idx] || <AlertTriangle className="w-8 h-8 text-red-500" />}</div>
+                    <div>
+                      <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-2 text-black">{prob.q}</h3>
+                      <div className="bg-black text-white p-4 font-['JetBrains_Mono'] text-sm">
+                        <span className="text-[#D4FF00] font-bold uppercase mb-1 block">Engineering Solution:</span>
+                        {prob.a}
+                      </div>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

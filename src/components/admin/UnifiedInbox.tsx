@@ -94,6 +94,10 @@ export default function UnifiedInbox() {
   // AI Suggestion States
   const [aiSuggestion, setAiSuggestion] = useState<{ statusSummary: string; nextAction: string; whatsappDraft: string } | null>(null);
   const [enlargedMedia, setEnlargedMedia] = useState<{ src: string; type: 'image' | 'video' } | null>(null);
+  const [expandedRows, setExpandedRows] = useState<Record<string, boolean>>({});
+  const toggleRowExpand = (id: string) => {
+    setExpandedRows(prev => ({ ...prev, [id]: !prev[id] }));
+  };
   const [loadingAi, setLoadingAi] = useState(false);
 
   // Fetch inquiries from unified API
@@ -409,130 +413,188 @@ export default function UnifiedInbox() {
                 const status = lead.status || '未跟進';
                 const notes = lead.whatsappData?.notes || lead.emailData?.notes || '';
                 const mediaItems = extractMediaItems(lead.whatsappData?.chat_history || '', lead.name || '');
+                const isExpanded = !!expandedRows[lead.id];
+                
+                // Get clean last text message for preview
+                const chatLines = lead.whatsappData?.chat_history ? lead.whatsappData.chat_history.split('\n') : [];
+                let lastTextMsg = '';
+                for (let i = chatLines.length - 1; i >= 0; i--) {
+                  const line = chatLines[i].trim();
+                  if (line && !line.includes('![') && !line.includes('[Attached File:')) {
+                    const cleaned = line.replace(/^\*\*\[[\d\-:\s]+\]\s*[^:]+:\*\*\s*/, '').trim();
+                    if (cleaned) {
+                      lastTextMsg = cleaned;
+                      break;
+                    }
+                  }
+                }
+                const textPreview = lastTextMsg || lead.emailData?.inquiry || '';
+
                 return (
-                  <tr key={lead.id} className="hover:bg-indigo-50/30 transition-colors bg-white group">
-                    <td className="py-3 px-4 align-top">
-                      <div className="font-bold text-gray-900 text-sm mb-1 group-hover:text-indigo-700 transition-colors">{lead.name}</div>
-                      <div className="flex flex-col gap-1 text-[11px]">
-                        {lead.phone && (
-                          <span className="text-gray-500 flex items-center gap-1.5 w-max" title={lead.phone}>
-                            <Phone className="w-3.5 h-3.5 opacity-70" /> 
-                            <span className="truncate max-w-[200px]">{lead.phone}</span>
-                          </span>
-                        )}
-                        {lead.emailData?.email && (
-                          <span className="text-gray-500 flex items-center gap-1.5 w-max" title={lead.emailData.email}>
-                            <Mail className="w-3.5 h-3.5 opacity-70" /> 
-                            <span className="truncate max-w-[200px]">{lead.emailData.email}</span>
-                          </span>
-                        )}
-                        <span className="text-gray-400 flex items-center gap-1.5 mt-1">
-                          <Calendar className="w-3.5 h-3.5" />
-                          {lead.raw_date}
-                        </span>
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 align-top">
-                      <div className="flex flex-col gap-1.5">
-                        {lead.hasWhatsApp && (
-                          <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 w-max">
-                            <MessageSquare className="w-3 h-3"/> WhatsApp
-                          </span>
-                        )}
-                        {lead.hasEmail && (
-                          <span className="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 w-max">
-                            <Calendar className="w-3 h-3"/> Calendly
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 align-top">
-                      <div className="text-[12px] text-gray-600 leading-relaxed max-w-full space-y-2">
-                        {lead.hasWhatsApp && (
-                          <div>
-                            <div className="text-[10px] font-bold text-emerald-700 mb-0.5">WhatsApp 對話:</div>
-                            <div className="line-clamp-2 hover:line-clamp-none transition-all whitespace-pre-wrap font-mono" title={lead.whatsappData?.chat_history}>
-                              {lead.whatsappData?.chat_history || '無對話'}
-                            </div>
-                          </div>
-                        )}
-                        {lead.hasEmail && (
-                          <div>
-                            <div className="text-[10px] font-bold text-blue-700 mb-0.5">Calendly 詢問:</div>
-                            <div className="line-clamp-2 hover:line-clamp-none transition-all whitespace-pre-wrap font-mono text-gray-500" title={lead.emailData?.inquiry}>
-                              {lead.emailData?.inquiry || '無詢問內容'}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 align-top">
-                      {mediaItems.length > 0 ? (
-                        <div className="flex flex-wrap gap-1.5 max-w-[120px]">
-                          {mediaItems.map((item, mIdx) => {
-                            if (item.type === 'image') {
-                              return (
-                                <img 
-                                  key={mIdx}
-                                  src={item.src} 
-                                  alt={item.filename}
-                                  className="w-10 h-10 object-cover rounded-lg border border-gray-200 cursor-zoom-in hover:scale-105 transition-transform shadow-sm"
-                                  onClick={() => setEnlargedMedia({ src: item.src, type: 'image' })}
-                                />
-                              );
-                            } else if (item.type === 'video') {
-                              return (
-                                <div 
-                                  key={mIdx}
-                                  className="relative w-10 h-10 rounded-lg border border-gray-200 bg-gray-900 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform overflow-hidden shadow-sm"
-                                  onClick={() => setEnlargedMedia({ src: item.src, type: 'video' })}
-                                >
-                                  <video src={item.src} className="w-full h-full object-cover opacity-60" />
-                                  <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-[10px]">▶</span>
-                                </div>
-                              );
-                            } else {
-                              return (
-                                <a 
-                                  key={mIdx}
-                                  href={item.src}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="w-10 h-10 rounded-lg border border-gray-200 bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors shadow-sm"
-                                  title={item.filename}
-                                >
-                                  <Download className="w-4 h-4" />
-                                </a>
-                              );
-                            }
-                          })}
+                  <React.Fragment key={lead.id}>
+                    <tr 
+                      className={`hover:bg-indigo-50/20 cursor-pointer transition-colors border-b border-gray-100 ${isExpanded ? 'bg-indigo-50/10' : 'bg-white'}`}
+                      onClick={() => toggleRowExpand(lead.id)}
+                    >
+                      <td className="py-2 px-4 align-middle">
+                        <div className="font-bold text-gray-900 text-sm">{lead.name}</div>
+                        <div className="flex gap-2 text-[10px] text-gray-400 mt-0.5">
+                          <span>{lead.raw_date}</span>
+                          {lead.phone && <span>• {lead.phone}</span>}
                         </div>
-                      ) : (
-                        <span className="text-gray-400 text-xs italic">無媒體檔案</span>
-                      )}
-                    </td>
-                    <td className="py-3 px-4 align-top">
-                      <div className="flex flex-col gap-1.5 items-start">
-                        <span className={`px-2.5 py-1 border rounded-md text-[11px] font-bold shadow-sm ${STATUS_COLORS[status]}`}>
+                      </td>
+                      <td className="py-2 px-4 align-middle">
+                        <div className="flex gap-1">
+                          {lead.hasWhatsApp && (
+                            <span className="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-1.5 py-0.5 rounded border border-emerald-100/50 flex items-center gap-0.5">
+                              WA
+                            </span>
+                          )}
+                          {lead.hasEmail && (
+                            <span className="bg-blue-50 text-blue-700 text-[10px] font-bold px-1.5 py-0.5 rounded border border-blue-100/50 flex items-center gap-0.5">
+                              Mail
+                            </span>
+                          )}
+                        </div>
+                      </td>
+                      <td className="py-2 px-4 align-middle max-w-xs">
+                        <div className="text-xs text-gray-600 truncate font-mono" title={textPreview}>
+                          {textPreview || <span className="text-gray-400 italic">無文字詢問</span>}
+                        </div>
+                      </td>
+                      <td className="py-2 px-4 align-middle">
+                        {mediaItems.length > 0 ? (
+                          <span className="text-xs font-bold text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded border flex items-center gap-1 w-max">
+                            📎 {mediaItems.length} 個檔案
+                          </span>
+                        ) : (
+                          <span className="text-gray-400 text-xs italic">無</span>
+                        )}
+                      </td>
+                      <td className="py-2 px-4 align-middle">
+                        <span className={`px-2 py-0.5 rounded text-[11px] font-bold shadow-sm ${STATUS_COLORS[status]}`}>
                           {status}
                         </span>
-                        {notes && (
-                          <div className="text-[11px] text-gray-500 bg-gray-50 p-1.5 rounded border border-gray-100 w-full max-h-16 overflow-y-auto" title={notes}>
-                            {notes}
+                      </td>
+                      <td className="py-2 px-4 align-middle text-center" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center justify-center gap-1.5">
+                          <button
+                            onClick={() => handleEditClick(lead)}
+                            className="px-2.5 py-1 text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200/50 rounded-lg transition-colors font-bold text-xs shadow-sm flex items-center gap-1"
+                          >
+                            <Edit2 className="w-3 h-3" /> 跟進
+                          </button>
+                          <button 
+                            onClick={() => toggleRowExpand(lead.id)}
+                            className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-gray-600 transition-colors"
+                          >
+                            <span className="text-xs font-bold">{isExpanded ? '▲' : '▼'}</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    
+                    {isExpanded && (
+                      <tr className="bg-indigo-50/5">
+                        <td colSpan={6} className="py-4 px-6 border-b border-indigo-100/40">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            {/* Left: Chat history */}
+                            <div className="space-y-3">
+                              {lead.hasWhatsApp && (
+                                <div>
+                                  <h4 className="font-bold text-emerald-800 flex items-center gap-1 text-xs mb-1.5">
+                                    <MessageSquare className="w-3.5 h-3.5"/> WhatsApp 完整對話：
+                                  </h4>
+                                  <ChatViewer chatHistory={lead.whatsappData?.chat_history || ''} name={lead.name || ''} />
+                                </div>
+                              )}
+                              {lead.hasEmail && (
+                                <div className="bg-blue-50/50 p-3 rounded-xl border border-blue-100 text-xs text-blue-900">
+                                  <h4 className="font-bold flex items-center gap-1 text-blue-800 mb-1">
+                                    <Calendar className="w-3.5 h-3.5"/> Calendly 預約詢問：
+                                  </h4>
+                                  <div className="font-semibold text-blue-900 mb-1">時間: {lead.emailData?.meeting_time}</div>
+                                  <pre className="whitespace-pre-wrap font-mono leading-relaxed bg-white p-2.5 rounded border border-blue-100/50 max-h-40 overflow-y-auto text-gray-700">
+                                    {lead.emailData?.inquiry || '（無詢問內容）'}
+                                  </pre>
+                                </div>
+                              )}
+                            </div>
+                            
+                            {/* Right: Media list & Notes */}
+                            <div className="space-y-4">
+                              <div>
+                                <h4 className="font-bold text-gray-700 flex items-center gap-1 text-xs mb-1.5">
+                                  📁 儲存的多媒體與附件檔案 ({mediaItems.length})：
+                                </h4>
+                                {mediaItems.length > 0 ? (
+                                  <div className="flex flex-wrap gap-2">
+                                    {mediaItems.map((item, mIdx) => (
+                                      <div key={mIdx} className="hover:scale-105 transition-transform">
+                                        {item.type === 'image' ? (
+                                          <img 
+                                            src={item.src} 
+                                            alt={item.filename}
+                                            className="w-16 h-16 object-cover rounded-xl border border-gray-300 shadow-sm cursor-zoom-in"
+                                            onClick={() => setEnlargedMedia({ src: item.src, type: 'image' })}
+                                          />
+                                        ) : item.type === 'video' ? (
+                                          <div 
+                                            className="relative w-16 h-16 rounded-xl border border-gray-300 bg-gray-900 flex items-center justify-center cursor-pointer overflow-hidden shadow-sm"
+                                            onClick={() => setEnlargedMedia({ src: item.src, type: 'video' })}
+                                          >
+                                            <video src={item.src} className="w-full h-full object-cover opacity-60" />
+                                            <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-xs">▶</span>
+                                          </div>
+                                        ) : (
+                                          <a 
+                                            href={item.src} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="w-16 h-16 rounded-xl border border-gray-300 bg-gray-50 flex flex-col items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors shadow-sm text-[10px]"
+                                            title={item.filename}
+                                          >
+                                            <Download className="w-5 h-5 mb-0.5 text-gray-600" />
+                                            下載
+                                          </a>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <span className="text-gray-400 text-xs italic">無媒體檔案</span>
+                                )}
+                              </div>
+                              
+                              {notes && (
+                                <div>
+                                  <h4 className="font-bold text-gray-700 text-xs mb-1">跟進備忘：</h4>
+                                  <div className="text-xs text-gray-600 bg-gray-50 p-3 rounded-xl border border-gray-200 whitespace-pre-wrap leading-relaxed max-h-40 overflow-y-auto">
+                                    {notes}
+                                  </div>
+                                </div>
+                              )}
+                              
+                              <div className="flex gap-2 pt-2">
+                                <button 
+                                  onClick={() => handleEditClick(lead)}
+                                  className="px-4 py-2 bg-indigo-700 text-white hover:bg-indigo-800 rounded-xl font-bold text-xs shadow-sm flex items-center gap-1.5"
+                                >
+                                  <Edit2 className="w-3.5 h-3.5" /> 編輯/更新進度
+                                </button>
+                                <button 
+                                  onClick={() => toggleRowExpand(lead.id)}
+                                  className="px-3 py-2 text-gray-500 hover:text-gray-700 text-xs font-semibold"
+                                >
+                                  收起詳情
+                                </button>
+                              </div>
+                            </div>
                           </div>
-                        )}
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 align-top text-center">
-                      <button
-                         onClick={() => handleEditClick(lead)}
-                        className="w-full px-3 py-1.5 text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200/50 rounded-lg transition-colors font-bold text-xs shadow-sm flex items-center justify-center gap-1.5"
-                      >
-                        <Edit2 className="w-3.5 h-3.5" />
-                        跟進
-                      </button>
-                    </td>
-                  </tr>
+                        </td>
+                      </tr>
+                    )}
+                  </React.Fragment>
                 );
               })}
               {filteredInquiries.length === 0 && (

@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+export const sectionsForPouch = ["5 Common Flat Bottom Bags Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Flat Bottom Bags Problems (And Solutions)"];
+
 const translations: Record<string, Record<string, any>> = {
   en: {
     title: "5 Common Flat Bottom Bags Problems (And Solutions)",

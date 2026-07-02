@@ -24,8 +24,61 @@ import ClickableImage from '../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
+const translations = {
+  en: {
+    title: "5 Common Combustion Safety Test Problems (And Solutions)",
+    items: [
+      { problem: "Greenwashing & Counterfeit Film", solution: "Verify feedstock source instantly with a combustion test; genuine PLA burns with a sweet caramel odor, while PET emits toxic chemical fumes." },
+      { problem: "Burn Test Safety Hazards", solution: "Use stainless steel tweezers to hold the film sample, conduct the test under a fume hood or outdoors, and keep water nearby." },
+      { problem: "Severe Melting and Dripping", solution: "Observe the thermal reaction: genuine PLA forms a dry, brittle ash skeleton, whereas PET instantly melts into a dangerous liquid." },
+      { problem: "Toxic Adhesive Contamination", solution: "Formulate a certified, non-toxic bio-adhesive using natural plant-based resins that burn cleanly without black soot." },
+      { problem: "Starch-Plastic Blends Detection", solution: "Combine the ash crumble test (PLA ash turns to fine powder) with a high-temperature threshold test." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de la Prueba de Seguridad de Combustión (Y Soluciones)",
+    items: [
+      { problem: "Greenwashing y Film Falso", solution: "Verifique el origen de la materia prima al instante con una prueba de combustión; el PLA genuino se quema con un olor dulce a caramelo, mientras que el PET emite gases químicos tóxicos." },
+      { problem: "Riesgos de Seguridad en la Prueba", solution: "Use pinzas de acero inoxidable para sostener la muestra, realice la prueba bajo una campana extractora o al aire libre, y mantenga agua cerca." },
+      { problem: "Derretimiento y Goteo Grave", solution: "Observe la reacción térmica: el PLA genuino forma un esqueleto de ceniza seca y quebradiza, mientras que el PET se derrite instantáneamente en un líquido peligroso." },
+      { problem: "Contaminación por Adhesivo Tóxico", solution: "Formule un bioadhesivo certificado y no tóxico que utilice resinas naturales de origen vegetal que se quemen limpiamente sin hollín negro." },
+      { problem: "Detección de Mezclas de Almidón y Plástico", solution: "Combine la prueba de desmoronamiento de cenizas (la ceniza de PLA se convierte en un polvo fino) con una prueba de umbral de alta temperatura." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants du Test de Sécurité de Combustion (Et Solutions)",
+    items: [
+      { problem: "Greenwashing et Faux Film", solution: "Vérifiez instantanément la source de la matière première grâce à un test de combustion ; le vrai PLA brûle avec une odeur douce de caramel, tandis que le PET émet des fumées chimiques toxiques." },
+      { problem: "Risques de Sécurité lors du Test", solution: "Utilisez des pincettes en acier inoxydable pour tenir l'échantillon de film, effectuez le test sous une hotte aspirante ou à l'extérieur, et gardez de l'eau à proximité." },
+      { problem: "Fusion et Écoulement Gravissimes", solution: "Observez la réaction thermique : le vrai PLA forme un squelette de cendres sèches et cassantes, tandis que le PET fond instantanément en un liquide dangereux." },
+      { problem: "Contamination par Adhésif Toxique", solution: "Formulez un bio-adhésif certifié et non toxique utilisant des résines végétales naturelles qui brûlent proprement sans suie noire." },
+      { problem: "Détection de Mélanges Amidon-Plastique", solution: "Combinez le test d'effritement des cendres (les cendres de PLA se transforment en poudre fine) avec un test de seuil de température élevée." }
+    ]
+  },
+  "zh-TW": {
+    title: "5 個常見的燃燒安全測試問題（及其解決方案）",
+    items: [
+      { problem: "漂綠與假冒薄膜", solution: "通過燃燒測試立即驗證原料來源：真正的 PLA 燃燒時帶有甜美的焦糖味，而 PET 則釋放有毒化學煙霧。" },
+      { problem: "燃燒測試安全隱患", solution: "使用不鏽鋼鑷子夾持薄膜樣品，在通風櫥或戶外通風良好處進行測試，並在旁準備滅火水源。" },
+      { problem: "嚴重熔融與滴落危險", solution: "觀察熱反應特徵：真正的 PLA 會形成乾燥且易碎的炭灰骨架，而 PET 則會立即熔化成危險的液體滴落物。" },
+      { problem: "有毒膠水殘留與污染", solution: "配製通過認證的無毒生質膠水，採用天然植物樹脂與增粘劑，燃燒時無黑煙且不留有害殘留物。" },
+      { problem: "混配澱粉塑料的識別", solution: "結合炭灰粉碎測試（PLA 炭化邊緣可輕易捏碎成細粉）與控溫熱變形閾值測試進行多重驗證。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = [
+  { id: "combustion-problems", translationKey: "title" }
+];
+
+export const sectionsForAchieve = [
+  { id: "combustion-problems", translationKey: "title" }
+];
+
 const CombustionSafetyTestPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.language || 'en'
+  const trans = translations[currentLang as keyof typeof translations] || translations.en
   const p = 'seoPages.pages.combustionSafetyTest.achievePack'
 
   const sections = [
@@ -508,6 +561,35 @@ const CombustionSafetyTestPage: React.FC = () => {
                 </span>
               </li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'combustion-problems',
+      title: trans.title,
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              {trans.items.map((item, idx) => (
+                <div key={idx} className="flex gap-3 bg-white p-4 rounded-xl shadow-sm border border-neutral-100">
+                  <AlertTriangle className="h-5 w-5 text-primary-600 shrink-0 mt-0.5" />
+                  <div>
+                    <h5 className="font-bold text-neutral-900">{item.problem}</h5>
+                    <p className="text-sm text-neutral-600 mt-1">{item.solution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img 
+                src="/imgs/knowledge/combustion-safety-test-pain-points.jpg" 
+                alt="Combustion Safety Test Pain Points" 
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
           </div>
         </div>
       )

@@ -118,7 +118,7 @@ const ImageTextRow: React.FC<{
   )
 }
 
-const pcrPainPointsTranslations: Record<string, any> = {
+const translations: Record<string, any> = {
   en: {
     title: "5 Common PCR Problems (And Solutions)",
     points: [
@@ -261,12 +261,15 @@ const pcrPainPointsTranslations: Record<string, any> = {
   }
 }
 
+const sectionsForPouch = ["5 Common PCR Problems (And Solutions)"];
+const sectionsForAchieve = ["5 Common PCR Problems (And Solutions)"];
+
 const PCRRealisticPage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
 
   const lang = i18n.language || 'en'
-  const painPointsData = pcrPainPointsTranslations[lang] || pcrPainPointsTranslations['en']
+  const painPointsData = translations[lang] || translations['en']
 
   const p = 'seoPages.pages.pcrRealistic'
   const keywords = t(`${p}.keywords`, { returnObjects: true }) as string[] || []

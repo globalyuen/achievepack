@@ -1,5 +1,5 @@
 import React from 'react'
-import { Recycle, Shield, CheckCircle, Thermometer, Target, Calendar, Phone, Download, Mail, MessageCircle, Image, TrendingUp, BarChart3, ArrowLeftRight, Factory, ShoppingBag, Coffee, Sparkles, Globe, Building2 } from 'lucide-react'
+import { Recycle, Shield, CheckCircle, Thermometer, Target, Calendar, Phone, Download, Mail, MessageCircle, Image, TrendingUp, BarChart3, ArrowLeftRight, Factory, ShoppingBag, Coffee, Sparkles, Globe, Building2, AlertTriangle, Wrench } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -8,9 +8,142 @@ import ClickableImage from '../../components/ClickableImage'
 import { getDomain } from '../../utils/domain'
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
+const translations: Record<string, any> = {
+  en: {
+    sectionTitle: "5 Common Mono-PP Pouch Problems (And Solutions)",
+    problems: [
+      {
+        title: "Narrow Sealing Temperature Window",
+        description: "Because mono-PP uses the same polymer family throughout, outer layers can melt or burn through at the high temperatures needed to seal the inner layer.",
+        solution: "Use a co-extruded structure with high-melting-point BOPP on the outside and low-melting-point cast PP (CPP) on the seal layer."
+      },
+      {
+        title: "Oxygen & Moisture Barrier Limitations",
+        description: "Standard mono-polypropylene lacks the high gas barrier of traditional PET/Al foil laminates, risking premature product oxidation.",
+        solution: "Apply ultra-thin AlOx/SiOx vacuum coatings or co-extrude a thin EVOH layer (less than 5% by weight) to keep the pouch 100% recyclable."
+      },
+      {
+        title: "Brittleness in Cold-Chain/Freezing",
+        description: "Polypropylene becomes brittle at sub-zero temperatures (glass transition near 0°C), causing drop-test failures and cracks in frozen foods.",
+        solution: "Incorporate impact-modifying PP block-copolymers or elastomer blends in the core layer to maintain flexibility and puncture resistance."
+      },
+      {
+        title: "Tension Control & High-Speed Runnability",
+        description: "Mono-PP has higher elasticity than PET, leading to film stretching, registration misalignment, and wrinkling on VFFS machines.",
+        solution: "Utilize Machine Direction Oriented (MDO) PP films to increase stiffness and match the mechanical behavior of traditional laminates."
+      },
+      {
+        title: "Deformation During Hot-Filling",
+        description: "Mono-PP can warp or lose structural integrity at elevated filling temperatures above standard polypropylene tolerance.",
+        solution: "Use high-crystallinity PP (HCPP) resins and optimize crystallization parameters to raise the heat deflection temperature."
+      }
+    ]
+  },
+  es: {
+    sectionTitle: "5 Problemas Comunes de las Bolsas Mono-PP (Y Soluciones)",
+    problems: [
+      {
+        title: "Ventana Estrecha de Temperatura de Sellado",
+        description: "Dado que el mono-PP utiliza la misma familia de polímeros en toda la estructura, las capas externas pueden derretirse o quemarse a las altas temperaturas necesarias para sellar la capa interna.",
+        solution: "Utilice una estructura coextruida con BOPP de alto punto de fusión en el exterior y PP fundido (CPP) de bajo punto de fusión en la capa de sellado."
+      },
+      {
+        title: "Limitaciones de Barrera al Oxígeno y la Humedad",
+        description: "El mono-polipropileno estándar carece de la alta barrera a los gases de los laminados tradicionales de PET/papel de aluminio, lo que genera riesgo de oxidación prematura del producto.",
+        solution: "Aplique recubrimientos al vacío de AlOx/SiOx ultrafinos o coextruya una capa delgada de EVOH (menos del 5% en peso) para mantener la bolsa 100% reciclable."
+      },
+      {
+        title: "Fragilidad en Cadena de Frío/Congelación",
+        description: "El polipropileno se vuelve frágil a temperaturas bajo cero (transición vítrea cerca de 0°C), lo que provoca fallas en las pruebas de caída y grietas en alimentos congelados.",
+        solution: "Incorpore copolímeros en bloque de PP modificadores de impacto o mezclas de elastómeros en la capa central para mantener la flexibilidad y la resistencia a los pinchazos."
+      },
+      {
+        title: "Control de Tensión y Funcionamiento a Alta Velocidad",
+        description: "El mono-PP tiene mayor elasticidad que el PET, lo que provoca el estiramiento del film, desalineación del registro y arrugas en las máquinas de envasado vertical.",
+        solution: "Utilice películas de PP orientadas en la dirección de la máquina (MDO) para aumentar la rigidez y emular el comportamiento mecánico de los laminados tradicionales."
+      },
+      {
+        title: "Deformación Durante el Llenado en Caliente",
+        description: "El mono-PP puede deformarse o perder integridad estructural a temperaturas de llenado que superen la tolerancia estándar del polipropileno.",
+        solution: "Utilice resinas de PP de alta cristalinidad (HCPP) y optimice los parámetros de cristalización para elevar la temperatura de deflexión térmica."
+      }
+    ]
+  },
+  fr: {
+    sectionTitle: "5 Problèmes Courants des Sachets Mono-PP (Et Solutions)",
+    problems: [
+      {
+        title: "Fenêtre de Température de Scellage Étroite",
+        description: "Comme le mono-PP utilise la même famille de polymères dans toute la structure, les couches externes peuvent fondre ou brûler aux températures élevées nécessaires pour sceller la couche interne.",
+        solution: "Utilisez une structure coextrudée avec du BOPP à point de fusion élevé à l'extérieur et du PP coulé (CPP) à bas point de fusion sur la couche de scellage."
+      },
+      {
+        title: "Limites de la Barrière à l'Oxygène et à l'Humidité",
+        description: "Le mono-polypropylène standard n'a pas la barrière élevée aux gaz des stratifiés traditionnels en PET/feuille d'aluminium, risquant une oxydation prématurée du produit.",
+        solution: "Appliquez des revêtements sous vide AlOx/SiOx ultra-fins ou coextrudez une fine couche d'EVOH (moins de 5% en poids) pour garder le sachet 100% recyclable."
+      },
+      {
+        title: "Fragilité dans la Chaîne du Froid/Congélation",
+        description: "Le polypropylène devient cassant à des températures inférieures à zéro (transition vitreuse proche de 0°C), provoquant des ruptures lors des tests de chute et des fissures dans les aliments congelés.",
+        solution: "Incorporez des copolymères à blocs de PP modifiant l'impact ou des mélanges d'élastomères dans la couche centrale pour maintenir la flexibilité et la résistance à la perforation."
+      },
+      {
+        title: "Contrôle de la Tension et Débit à Haute Vitesse",
+        description: "Le mono-PP a une élasticité plus élevée que le PET, ce qui entraîne un étirement du film, un désalignement du repérage et des plis sur les machines d'emballage.",
+        solution: "Utilisez des films PP orientés dans le sens de la machine (MDO) pour augmenter la rigidité et égaler le comportement mécanique des stratifiés traditionnels."
+      },
+      {
+        title: "Déformation Lors du Remplissage à Chaud",
+        description: "Le mono-PP peut se déformer ou perdre son intégrité structurelle à des températures de remplissage élevées dépassant la tolérance standard du polypropylène.",
+        solution: "Utilisez des résines PP à haute cristallinité (HCPP) et optimisez les paramètres de cristallisation pour augmenter la température de déflexion thermique."
+      }
+    ]
+  },
+  'zh-TW': {
+    sectionTitle: "Mono-PP 包裝袋的 5 個常見問題 (及解決方案)",
+    problems: [
+      {
+        title: "熱封溫度窗口狹窄",
+        description: "由於單一材料 PP 全包裝皆使用同族聚合物，當以高溫熱封內層時，外層容易熔化或燒穿。",
+        solution: "採用共擠結構，外層使用高熔點的 BOPP，熱封層使用低熔點的流延 PP (CPP)。"
+      },
+      {
+        title: "氧氣與水氣阻隔性能限制",
+        description: "標準單一聚丙烯缺乏傳統 PET/鋁箔複合膜的高氣體阻隔性，容易導致產品提早氧化變質。",
+        solution: "塗布超薄 AlOx/SiOx 真空鍍膜，或共擠低於 5 wt% 的 EVOH 阻隔層，在確保 100% 可回收性的同時大幅提升阻隔性。"
+      },
+      {
+        title: "冷鏈與低溫冷凍下的脆裂問題",
+        description: "聚丙烯在零度以下會變得脆弱（玻璃轉化溫度接近 0°C），導致冷凍食品在跌落測試時破裂或開裂。",
+        solution: "在芯層中加入抗衝擊改性的聚丙烯共聚物 (PP Block-Copolymer) 或彈性體共混物，以維持低溫下的韌性與耐穿刺性。"
+      },
+      {
+        title: "張力控制與高速包裝適性",
+        description: "單一 PP 比 PET 具有更高的彈性，在高速包裝線上易拉伸變形，導致印刷對位不準或封口起皺。",
+        solution: "使用經過縱向拉伸的 MDO-PP 薄膜，大幅提升薄膜剛性，使其機械性能媲美傳統複合薄膜。"
+      },
+      {
+        title: "高溫熱灌裝下的變形故障",
+        description: "在高溫熱灌裝過程中，單一 PP 的溫度若超過其熱變形極限，袋身容易收縮、扭曲或失去結構剛性。",
+        solution: "採用高結晶度聚丙烯 (HCPP) 樹脂，並優化結晶工藝，以提高包裝袋的耐熱變形溫度。"
+      }
+    ]
+  }
+};
+
+const sectionsForPouch = [
+  { id: 'mono-pp-problems', translationKey: 'sectionTitle' }
+];
+
+const sectionsForAchieve = [
+  { id: 'mono-pp-problems', translationKey: 'sectionTitle' }
+];
+
 const RecyclableMonoPPPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
+  const currentLang = i18n.language || 'en';
+  const localT = translations[currentLang] || translations['en'];
   const p = 'seoPages.pages.recyclableMonoPP'
   const isPouchDomain = getDomain() === 'pouch'
 
@@ -170,6 +303,40 @@ const RecyclableMonoPPPage: React.FC = () => {
               <p className="text-sm text-neutral-600 font-sans">
                 {t(`${p}.b2c.sections.personalization.card2Desc`)}
               </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'mono-pp-problems',
+      title: localT.sectionTitle,
+      icon: <Shield className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-8 items-start mt-6">
+            <div className="border-4 border-black rounded-lg overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
+              <img src="/imgs/knowledge/recyclable-mono-pp-pain-points.jpg" alt="Mono-PP Problems and Solutions" className="w-full h-auto object-cover" />
+            </div>
+            <div className="space-y-6">
+              {localT.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase flex items-center gap-2">
+                    <span className="bg-black text-white w-6 h-6 flex items-center justify-center text-xs rounded-full">{idx + 1}</span>
+                    {prob.title}
+                  </h4>
+                  <div className="mt-2 text-xs space-y-2 text-neutral-600 font-sans">
+                    <p className="flex items-start gap-1">
+                      <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>{prob.description}</span>
+                    </p>
+                    <p className="flex items-start gap-1 text-neutral-900 font-semibold">
+                      <Wrench className="w-4 h-4 text-[#10b981] flex-shrink-0 mt-0.5" />
+                      <span>{prob.solution}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -768,6 +935,40 @@ const RecyclableMonoPPPage: React.FC = () => {
               <Link to="/materials/recyclable-mono-pe" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-purple-300 transition">
                 {t(`${p}.sections.decisionCta.explore.btn`)}
               </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'mono-pp-problems',
+      title: localT.sectionTitle,
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="border border-neutral-200 rounded-lg overflow-hidden shadow-md bg-white">
+              <img src="/imgs/knowledge/recyclable-mono-pp-pain-points.jpg" alt="Mono-PP Problems and Solutions" className="w-full h-auto object-cover" />
+            </div>
+            <div className="space-y-4">
+              {localT.problems.map((prob: any, idx: number) => (
+                <div key={idx} className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                  <h4 className="font-bold text-neutral-900 flex items-center gap-2 mb-2">
+                    <span className="bg-purple-600 text-white w-6 h-6 flex items-center justify-center text-xs rounded-full">{idx + 1}</span>
+                    {prob.title}
+                  </h4>
+                  <div className="text-sm space-y-2">
+                    <p className="flex items-start gap-2 text-neutral-600">
+                      <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>{prob.description}</span>
+                    </p>
+                    <p className="flex items-start gap-2 text-neutral-900 font-semibold">
+                      <Wrench className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span>{prob.solution}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

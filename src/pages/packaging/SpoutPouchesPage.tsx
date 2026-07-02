@@ -638,6 +638,9 @@ const SpoutPouchesPage: React.FC = () => {
     }
   ]
 
+  const sectionsForPouch = [sections[sections.length - 1]];
+  const sectionsForAchieve = [sections[sections.length - 1]];
+
   // variables faqs and tables are declared at the top now!
 
   const relatedLinks = [

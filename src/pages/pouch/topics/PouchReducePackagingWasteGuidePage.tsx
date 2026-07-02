@@ -58,6 +58,14 @@ const translations = {
   }
 } as const;
 
+export const sectionsForPouch = [
+  "5 Common Reduce Packaging Waste Problems (And Solutions)"
+];
+
+export const sectionsForAchieve = [
+  "5 Common Reduce Packaging Waste Problems (And Solutions)"
+];
+
 const PouchReducePackagingWasteGuidePage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const p = 'pouchReducePackagingWasteGuidePage'

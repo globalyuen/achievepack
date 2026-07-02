@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
 
-const seoTranslations: Record<string, any> = {
+const translations: Record<string, any> = {
   en: {
     title: "5 Common Checkout & RFQ Problems (And Solutions)",
     problems: [
@@ -48,6 +48,8 @@ const seoTranslations: Record<string, any> = {
     ]
   }
 }
+
+const seoTranslations = translations;
 
 // Generate order/RFQ number
 const generateOrderNumber = (isRfq: boolean = false) => {

@@ -1,58 +1,67 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Leaf, Shield, Award, CheckCircle, Package, Layers, Factory, TrendingUp, BarChart3, ArrowLeftRight, Building2, ShoppingBag, Coffee, Sparkles, Globe, Recycle, AlertTriangle } from 'lucide-react';
+import { Leaf, Shield, Award, CheckCircle, Package, Layers, Factory, TrendingUp, BarChart3, ArrowLeftRight, Building2, ShoppingBag, Coffee, Sparkles, Globe, Recycle, AlertTriangle, Wrench } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { Link } from 'react-router-dom';
+
+export const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Kraft High Barrier Problems (And Solutions)",
+    points: [
+      { q: "Foil Cracking (Pinholing)", a: "Flex cracking during transport compromises barrier. Solution: Use specialized nylon or PET reinforcing layers." },
+      { q: "Weak Seal Strength", a: "Foil layer prevents heat from reaching seal layer easily. Solution: Optimize heat sealing profile and use high-performance LLDPE." },
+      { q: "Delamination", a: "Adhesive failure between kraft and foil. Solution: Use high-bond, temperature-resistant adhesives and proper curing time." },
+      { q: "Kraft Paper Wrinkling", a: "Moisture absorption by paper causes wrinkles. Solution: Apply a thin protective matte coating over the kraft paper." },
+      { q: "Inconsistent Oxygen Barrier", a: "Micro-leaks at gussets. Solution: Advanced pouch converting equipment with precise tension control and specialized gusset sealing jaws." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de la Barrera Alta Kraft (y Soluciones)",
+    points: [
+      { q: "Agrietamiento de la lámina (Pinholing)", a: "El agrietamiento por flexión durante el transporte compromete la barrera. Solución: Utilizar capas de refuerzo especializadas de nailon o PET." },
+      { q: "Resistencia de sellado débil", a: "La capa de lámina evita que el calor llegue fácilmente a la capa de sellado. Solución: Optimizar el perfil de sellado por calor y usar LLDPE de alto rendimiento." },
+      { q: "Delaminación", a: "Falla del adhesivo entre el papel kraft y la lámina. Solución: Usar adhesivos de alta adherencia y resistentes a la temperatura y un tiempo de curado adecuado." },
+      { q: "Arrugado del papel Kraft", a: "La absorción de humedad por el papel causa arrugas. Solución: Aplicar un recubrimiento mate protector delgado sobre el papel kraft." },
+      { q: "Barrera de oxígeno inconsistente", a: "Microfugas en los fuelles. Solución: Equipos de conversión de bolsas avanzados con control de tensión preciso y mordazas de sellado de fuelles especializadas." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Communs de la Haute Barrière Kraft (et Solutions)",
+    points: [
+      { q: "Fissuration de l'aluminium (trous d'épingle)", a: "La fissuration par flexion pendant le transport occupe la barrière. Solution : Utiliser des couches de renfort spécialisées en nylon ou PET." },
+      { q: "Faible résistance du scellage", a: "La couche d'aluminium empêche la chaleur d'atteindre facilement la couche de scellage. Solution : Optimiser le profil de thermoscellage et utiliser du LLDPE haute performance." },
+      { q: "Délamination", a: "Défaillance de l'adhésif entre le papier kraft et l'aluminium. Solution : Utiliser des adhésifs à haute adhérence et résistants à la température ainsi qu'un temps de durcissement approprié." },
+      { q: "Froissement du papier Kraft", a: "L'absorption d'humidité par le papier provoque des plis. Solution : Appliquer un fin revêtement mat protecteur sur le papier kraft." },
+      { q: "Barrière à l'oxygène incohérente", a: "Micro-fuites aux soufflets. Solution : Équipement de conversion de sachets avancé avec contrôle de tension précis et mâchoires de scellage de soufflets spécialisées." }
+    ]
+  },
+  'zh-TW': {
+    title: "5個常見的牛皮紙高阻隔包裝問題（及解決方案）",
+    points: [
+      { q: "鋁箔破裂（針孔）", a: "運輸過程中的彎折破裂會破壞阻隔性。解決方案：使用專門的尼龍或PET增強層。" },
+      { q: "封口強度弱", a: "鋁箔層阻礙熱量輕易到達封口層。解決方案：優化熱封曲線並使用高性能LLDPE。" },
+      { q: "脫層", a: "牛皮紙和鋁箔之間的黏合劑失效。解決方案：使用高黏著力、耐高溫的黏合劑和適當的固化時間。" },
+      { q: "牛皮紙起皺", a: "紙張吸收水分導致起皺。解決方案：在牛皮紙上塗覆一層薄的保護性霧面塗層。" },
+      { q: "氧氣阻隔不穩定", a: "側翼的微漏。解決方案：採用先進的製袋設備，配備精確的張力控制和專門的側翼封口夾。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = [
+  { id: 'pain-points', translationKey: 'title' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'pain-points', translationKey: 'title' }
+];
+
 
 const KraftHighBarrierPage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const p = 'seoPages.pages.kraftHighBarrier';
   const currentLang = i18n.language || 'en';
 
-  const painPointsData = {
-    en: {
-      title: "5 Common Kraft High Barrier Problems (And Solutions)",
-      points: [
-        { q: "Foil Cracking (Pinholing)", a: "Flex cracking during transport compromises barrier. Solution: Use specialized nylon or PET reinforcing layers." },
-        { q: "Weak Seal Strength", a: "Foil layer prevents heat from reaching seal layer easily. Solution: Optimize heat sealing profile and use high-performance LLDPE." },
-        { q: "Delamination", a: "Adhesive failure between kraft and foil. Solution: Use high-bond, temperature-resistant adhesives and proper curing time." },
-        { q: "Kraft Paper Wrinkling", a: "Moisture absorption by paper causes wrinkles. Solution: Apply a thin protective matte coating over the kraft paper." },
-        { q: "Inconsistent Oxygen Barrier", a: "Micro-leaks at gussets. Solution: Advanced pouch converting equipment with precise tension control and specialized gusset sealing jaws." }
-      ]
-    },
-    es: {
-      title: "5 Problemas Comunes de la Barrera Alta Kraft (y Soluciones)",
-      points: [
-        { q: "Agrietamiento de la lámina (Pinholing)", a: "El agrietamiento por flexión durante el transporte compromete la barrera. Solución: Utilizar capas de refuerzo especializadas de nailon o PET." },
-        { q: "Resistencia de sellado débil", a: "La capa de lámina evita que el calor llegue fácilmente a la capa de sellado. Solución: Optimizar el perfil de sellado por calor y usar LLDPE de alto rendimiento." },
-        { q: "Delaminación", a: "Falla del adhesivo entre el papel kraft y la lámina. Solución: Usar adhesivos de alta adherencia y resistentes a la temperatura y un tiempo de curado adecuado." },
-        { q: "Arrugado del papel Kraft", a: "La absorción de humedad por el papel causa arrugas. Solución: Aplicar un recubrimiento mate protector delgado sobre el papel kraft." },
-        { q: "Barrera de oxígeno inconsistente", a: "Microfugas en los fuelles. Solución: Equipos de conversión de bolsas avanzados con control de tensión preciso y mordazas de sellado de fuelles especializadas." }
-      ]
-    },
-    fr: {
-      title: "5 Problèmes Communs de la Haute Barrière Kraft (et Solutions)",
-      points: [
-        { q: "Fissuration de l'aluminium (trous d'épingle)", a: "La fissuration par flexion pendant le transport compromet la barrière. Solution : Utiliser des couches de renfort spécialisées en nylon ou PET." },
-        { q: "Faible résistance du scellage", a: "La couche d'aluminium empêche la chaleur d'atteindre facilement la couche de scellage. Solution : Optimiser le profil de thermoscellage et utiliser du LLDPE haute performance." },
-        { q: "Délamination", a: "Défaillance de l'adhésif entre le papier kraft et l'aluminium. Solution : Utiliser des adhésifs à haute adhérence et résistants à la température ainsi qu'un temps de durcissement approprié." },
-        { q: "Froissement du papier Kraft", a: "L'absorption d'humidité par le papier provoque des plis. Solution : Appliquer un fin revêtement mat protecteur sur le papier kraft." },
-        { q: "Barrière à l'oxygène incohérente", a: "Micro-fuites aux soufflets. Solution : Équipement de conversion de sachets avancé avec contrôle de tension précis et mâchoires de scellage de soufflets spécialisées." }
-      ]
-    },
-    'zh-TW': {
-      title: "5個常見的牛皮紙高阻隔包裝問題（及解決方案）",
-      points: [
-        { q: "鋁箔破裂（針孔）", a: "運輸過程中的彎折破裂會破壞阻隔性。解決方案：使用專門的尼龍或PET增強層。" },
-        { q: "封口強度弱", a: "鋁箔層阻礙熱量輕易到達封口層。解決方案：優化熱封曲線並使用高性能LLDPE。" },
-        { q: "脫層", a: "牛皮紙和鋁箔之間的黏合劑失效。解決方案：使用高黏著力、耐高溫的黏合劑和適當的固化時間。" },
-        { q: "牛皮紙起皺", a: "紙張吸收水分導致起皺。解決方案：在牛皮紙上塗覆一層薄的保護性霧面塗層。" },
-        { q: "氧氣阻隔不穩定", a: "側翼的微漏。解決方案：採用先進的製袋設備，配備精確的張力控制和專門的側翼封口夾。" }
-      ]
-    }
-  };
-
-  const tPain = painPointsData[currentLang as keyof typeof painPointsData] || painPointsData.en;
+  const tPain = translations[currentLang as keyof typeof translations] || translations.en;
 
   // Helper to render bold prefixes (split by colon or Chinese full-width colon)
   const renderBullet = (text: string) => {

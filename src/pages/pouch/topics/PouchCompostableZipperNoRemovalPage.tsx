@@ -53,6 +53,9 @@ const translations: Record<string, any> = {
   }
 };
 
+export const sectionsForPouch = ["5 Common Compostable Zipper Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Compostable Zipper Problems (And Solutions)"];
+
 export default function PouchCompostableZipperNoRemovalPage() {
   const { t, i18n } = useTranslation()
   const p = 'pouchCompostableZipperNoRemovalPage'

@@ -26,6 +26,7 @@ import {
 } from '../components/animate-ui/components/radix/dropdown-menu'
 import { useTranslation, Trans } from "react-i18next";
 import { useProductTranslation } from '../utils/productTranslation'
+import LanguageSelector from '../components/LanguageSelector'
 
 // SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
 // Organized by material type: pcr (PCR/Bio), mono (Mono Recyclable), compost (Biodegradable)
@@ -506,8 +507,8 @@ const ProductPage: React.FC = () => {
     })
   }, [navigate])
   
-  const { translateProduct, translateProducts } = useProductTranslation()
-  const translatedProducts = useMemo(() => translateProducts(FEATURED_PRODUCTS), [translateProducts])
+  const { translateProduct, translateProducts, currentLang } = useProductTranslation()
+  const translatedProducts = useMemo(() => translateProducts(FEATURED_PRODUCTS), [currentLang])
   const product = translatedProducts.find(p => p.id === productId)
   const isEcoDigital = product?.category === 'eco-digital'
   const isConventionalDigital = product?.category === 'conventional-digital'
@@ -1544,16 +1545,19 @@ const ProductPage: React.FC = () => {
             >
               <ArrowLeft className="h-4 w-4" /> {t(`${p}.backToStore`)}</a>
           </div>
-          <button onClick={() => {
-            if (cartCount === 0) {
-              navigate('/store')
-            } else {
-              setIsCartOpen(true)
-            }
-          }} className="relative p-2 hover:bg-neutral-100 rounded-full transition">
-            <ShoppingCart className="h-6 w-6 text-neutral-700" />
-            {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">{cartCount}</span>}
-          </button>
+          <div className="flex items-center gap-3">
+            <button onClick={() => {
+              if (cartCount === 0) {
+                navigate('/store')
+              } else {
+                setIsCartOpen(true)
+              }
+            }} className="relative p-2 hover:bg-neutral-100 rounded-full transition">
+              <ShoppingCart className="h-6 w-6 text-neutral-700" />
+              {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">{cartCount}</span>}
+            </button>
+            <LanguageSelector />
+          </div>
         </div>
       </header>
 

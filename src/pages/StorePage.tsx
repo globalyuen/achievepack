@@ -10,6 +10,7 @@ import { useProductTranslation } from '../utils/productTranslation'
 import { getProductImage } from '../utils/productImageMapper'
 import type { ShapeType } from '../utils/productImageMapper'
 import MegaMenu from '../components/MegaMenu'
+import LanguageSelector from '../components/LanguageSelector'
 import Footer from '../components/Footer'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
@@ -332,7 +333,7 @@ const getCustomQuoteRoute = (id: string): string | null => {
 
 const StorePage: React.FC = () => {
   const { t } = useTranslation()
-  const { translateProducts } = useProductTranslation()
+  const { translateProducts, currentLang } = useProductTranslation()
   const { cartCount, setIsCartOpen } = useStore()
   const { openQuoteLightbox } = useCustomQuote()
   const navigate = useNavigate()
@@ -732,7 +733,7 @@ const StorePage: React.FC = () => {
         return matchesCategory && matchesSearch && matchesShape && matchesSubMaterial && matchesSubType
       })
     )
-  }, [selectedCategory, searchQuery, selectedShape, selectedSubMaterial, selectedSubType, translateProducts])
+  }, [selectedCategory, searchQuery, selectedShape, selectedSubMaterial, selectedSubType, currentLang])
 
   const sortedProducts = useMemo(() => {
     return [...filteredProducts].sort((a, b) => {
@@ -939,6 +940,7 @@ const StorePage: React.FC = () => {
               >
                 <User className="h-5 w-5 text-white" />
               </Link>
+              <LanguageSelector />
             </div>
 
             {/* Mobile Menu Button */}
@@ -960,6 +962,7 @@ const StorePage: React.FC = () => {
                   </span>
                 )}
               </button>
+              <LanguageSelector />
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"

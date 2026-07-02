@@ -5,6 +5,9 @@ import { ArrowLeft, FileText, Truck, CreditCard, Package, Shield, AlertCircle, S
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 
+export const sectionsForPouch = ["5 Common Packaging Order Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Packaging Order Problems (And Solutions)"];
+
 const termsTranslations: Record<string, any> = {
   en: {
     problemsTitle: "5 Common Packaging Order Problems (And Solutions)",

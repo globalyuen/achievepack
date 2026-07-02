@@ -6,6 +6,9 @@ import { NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 import ClickableImage from '../../components/ClickableImage';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
 
+export const sectionsForPouch = ["5 Common Unprinted Pouch Problems (And Solutions)"];
+export const sectionsForAchieve = ["5 Common Unprinted Pouch Problems (And Solutions)"];
+
 const translations: Record<string, any> = {
   en: {
     title: "5 Common Unprinted Pouch Problems (And Solutions)",

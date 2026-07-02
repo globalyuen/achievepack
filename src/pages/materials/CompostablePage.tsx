@@ -1,14 +1,67 @@
 import React from 'react'
-import { Leaf, Shield, Award, CheckCircle, Globe, Recycle, MessageCircle, BookOpen, Building2, Target, Calendar, Phone, Download, Mail, Image, TrendingUp, BarChart3, ArrowLeftRight, Factory, ShoppingBag, Coffee, Sparkles } from 'lucide-react'
+import { Leaf, Shield, Award, CheckCircle, Globe, Recycle, MessageCircle, BookOpen, Building2, Target, Calendar, Phone, Download, Mail, Image, TrendingUp, BarChart3, ArrowLeftRight, Factory, ShoppingBag, Coffee, Sparkles, Wrench, AlertTriangle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+export const translations: Record<string, any> = {
+  en: {
+    title: "5 Common Compostable Packaging Problems (And Solutions)",
+    points: [
+      { q: "Premature Degradation", a: "Moisture and heat exposure can trigger early decomposition on shelves. Solution: Store in temperature-controlled environments and utilize multi-layer structures with protective outer barriers." },
+      { q: "Weak Heat Seals", a: "PLA (Polylactic Acid) has a very narrow seal temperature range, causing weak or brittle seals. Solution: Utilize precisely controlled heat-sealing profiles and advanced PLA polymers designed for lower sealing temperatures." },
+      { q: "High Permeability (Poor Barrier)", a: "Simple bio-plastics offer poor oxygen and moisture barriers, reducing shelf life. Solution: Integrate high-barrier NatureFlex™ or metallized cellulose layers to match conventional plastic performance." },
+      { q: "Low Tear & Puncture Resistance", a: "Bio-based films can be brittle, leading to punctures and tears during distribution. Solution: Formulate custom blends of PLA with flexible PBAT to increase puncture resistance and drop strength." },
+      { q: "Degassing Valve Failures", a: "Standard degassing valves do not adhere well to compostable films, causing leaks. Solution: Apply ultrasonic welding to integrate fully compostable valves made from matching plant-based polymers." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes de los Envases Compostables (y Soluciones)",
+    points: [
+      { q: "Degradación prematura", a: "La exposición a la humedad y al calor puede activar una descomposición temprana en el estante. Solución: Almacenar en ambientes con temperatura controlada y utilizar estructuras multicapa con barreras externas protectoras." },
+      { q: "Sellados térmicos débiles", a: "El PLA (ácido poliláctico) tiene un rango de temperatura de sellado muy estrecho, lo que genera sellos débiles o quebradizos. Solución: Utilizar perfiles de termosellado controlados con precisión y polímeros de PLA avanzados diseñados para temperaturas de sellado más bajas." },
+      { q: "Alta permeabilidad (barrera deficiente)", a: "Los bioplásticos simples ofrecen barreras deficientes al oxígeno y la humedad, lo que reduce la vida útil. Solución: Integrar capas de NatureFlex™ de alta barrera o celulosa metalizada para igualar el rendimiento del plástico convencional." },
+      { q: "Baja resistencia al desgarro y la perforación", a: "Las películas de origen biológico pueden ser frágiles, lo que provoca perforaciones y desgarros durante la distribución. Solución: Formular mezclas personalizadas de PLA con PBAT flexible para aumentar la resistencia a la perforación y al impacto por caída." },
+      { q: "Fallas en la válvula desgasificadora", a: "Las válvulas desgasificadoras estándar no se adhieren bien a las películas compostables, lo que provoca fugas. Solución: Aplicar soldadura ultrasónica para integrar válvulas totalmente compostables hechas de polímeros vegetales compatibles." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Communs des Emballages Compostables (et Solutions)",
+    points: [
+      { q: "Dégradation prématurée", a: "L'exposition à l'humidité et à la chaleur peut déclencher une décomposition précoce en rayon. Solution: Stocker dans des environnements à température contrôlée et utiliser des structures multicouches avec des barrières externes protectrices." },
+      { q: "Soudures thermiques faibles", a: "Le PLA (acide polylactique) présente une plage de température de scellage très étroite, entraînant des soudures fragiles ou cassantes. Solution: Utiliser des profils de thermoscellage contrôlés avec précision et des polymères PLA avancés conçus pour des températures de scellage plus basses." },
+      { q: "Perméabilité élevée (faible barrière)", a: "Les bioplastiques simples offrent de faibles barrières à l'oxygène et à l'humidité, réduisant la durée de conservation. Solution: Intégrer des couches NatureFlex™ à haute barrière ou de la cellulose métallisée pour égaler les performances du plastique conventionnel." },
+      { q: "Faible résistance aux déchirures et perforations", a: "Les films biosourcés peuvent être cassants, entraînant des perforations et des déchirures lors de la distribution. Solution: Formuler des mélanges personnalisés de PLA avec du PBAT flexible pour augmenter la résistance à la perforation et aux chutes." },
+      { q: "Défaillance des valves de dégazage", a: "Les valves de dégazage standard n'adhèrent pas bien aux films compostables, provoquant des fuites. Solution: Appliquer le soudage par ultrasons pour intégrer des valves entièrement compostables fabriquées à partir de polymères biosourcés compatibles." }
+    ]
+  },
+  'zh-TW': {
+    title: "5個常見的可堆肥包裝問題（及解決方案）",
+    points: [
+      { q: "過早降解", a: "暴露於濕氣和熱源中可能會引發貨架上的提前分解。解決方案：存放在溫控環境中，並使用具有外部保護屏障的多層結構。" },
+      { q: "熱封強度弱", a: "PLA（聚乳酸）的封口溫度範圍非常窄，容易導致封口弱或脆化。解決方案：採用精確控制的熱封溫度曲線和專為低溫封口設計的先進PLA聚合物。" },
+      { q: "高滲透性（阻隔差）", a: "單純的生物塑料對氧氣和水分的阻隔性較差，會縮短保質期。解決方案：整合高阻隔性 NatureFlex™ 或金屬化纖維素層，以達到與傳統塑料相當的性能。" },
+      { q: "抗撕裂與耐穿刺性差", a: "生物基薄膜可能較為脆弱，在運輸分銷過程中容易產生穿刺和撕裂。解決方案：調配 PLA 與柔韌性 PBAT 的定制混合物，以提高抗穿刺性和抗跌落強度。" },
+      { q: "排氣閥封口失效", a: "標準排氣閥與可堆肥薄膜的黏合度不佳，會導致漏氣。解決方案：應用超音波焊接技術，整合由相容植物基聚合物製成的完全可堆肥排氣閥。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = [
+  { id: 'pain-points', translationKey: 'title' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'pain-points', translationKey: 'title' }
+];
+
 const CompostablePage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
+  const currentLang = i18n.language || 'en'
+  const tPain = translations[currentLang as keyof typeof translations] || translations.en
   
   // Translation key prefix
   const p = 'seoPages.pages.compostable'
@@ -769,6 +822,37 @@ const CompostablePage: React.FC = () => {
                 <li>• Price is the only consideration</li>
                 <li>• <Link to="/materials/recyclable-mono-pe" className="underline">Consider recyclable mono-PE instead →</Link></li>
               </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points',
+      title: tPain.title,
+      icon: <Wrench className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-1/3">
+              <img 
+                src="/imgs/knowledge/compostable-pain-points.jpg" 
+                alt={tPain.title}
+                className="w-full h-auto rounded-xl shadow-md object-cover"
+              />
+            </div>
+            <div className="md:w-2/3 space-y-4">
+              {tPain.points.map((pt, idx) => (
+                <div key={idx} className="flex gap-3">
+                  <div className="flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-5 w-5 text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-neutral-900">{pt.q}</h4>
+                    <p className="text-sm text-neutral-600 mt-1">{pt.a}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

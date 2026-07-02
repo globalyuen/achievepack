@@ -1,15 +1,68 @@
 import React from 'react'
-import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle, Target, Calendar, Phone, Download, Mail, Image, TrendingUp, BarChart3, ArrowLeftRight, ShoppingBag, Coffee, Sparkles, Globe, Building2, Leaf } from 'lucide-react'
+import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle, Target, Calendar, Phone, Download, Mail, Image, TrendingUp, BarChart3, ArrowLeftRight, ShoppingBag, Coffee, Sparkles, Globe, Building2, Leaf, AlertTriangle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+export const translations: Record<string, any> = {
+  en: {
+    title: "5 Common PCR Packaging Problems (And Solutions)",
+    points: [
+      { q: "Odor and Discoloration", a: "PCR materials often have off-odors and visual impurities. Solution: Multi-layer co-extrusion shielding with a virgin contact layer." },
+      { q: "Reduced Structural Strength", a: "Recycled plastics can become brittle over time. Solution: Proprietary blending with reinforcing polymers for high tensile strength." },
+      { q: "Food Safety Compliance", a: "Risk of contaminant migration in food-grade applications. Solution: FDA-approved functional barrier layers to block migration." },
+      { q: "Material Inconsistency", a: "Batch-to-batch variation in PCR resin performance. Solution: Strict GRS-certified sourcing and automated quality control." },
+      { q: "Poor Seal Integrity", a: "Impurities can interfere with the heat sealing process. Solution: Advanced sealant web optimization for consistent hermetic seals." }
+    ]
+  },
+  es: {
+    title: "5 Problemas Comunes del Empaque PCR (Y Soluciones)",
+    points: [
+      { q: "Olor y Decoloración", a: "Los materiales PCR a menudo tienen malos olores e impurezas visuales. Solución: Blindaje de coextrusión multicapa con una capa de contacto virgen." },
+      { q: "Resistencia Estructural Reducida", a: "Los plásticos reciclados pueden volverse quebradizos con el tiempo. Solución: Mezcla patentada con polímeros de refuerzo para una alta resistencia a la tracción." },
+      { q: "Cumplimiento de Seguridad Alimentaria", a: "Riesgo de migración de contaminantes en aplicaciones alimentarias. Solución: Capas de barrera funcionales aprobadas por la FDA para bloquear la migración." },
+      { q: "Inconsistencia del Material", a: "Variación entre lotes en la resina PCR. Solución: Abastecimiento estricto certificado por GRS y control de calidad automático." },
+      { q: "Poca Integridad del Sello", a: "Las impurezas pueden interferir con el proceso de sellado térmico. Solución: Optimización avanzada de la red de sellado para sellos herméticos consistentes." }
+    ]
+  },
+  fr: {
+    title: "5 Problèmes Courants d'Emballage PCR (Et Solutions)",
+    points: [
+      { q: "Odeur et Décoloration", a: "Les matériaux PCR présentent souvent de mauvaises odeurs et des impuretés visuelles. Solution: Blindage par coextrusion multicouche avec une couche de contact vierge." },
+      { q: "Résistance Structurelle Réduite", a: "Les plastiques recyclés peuvent devenir cassants avec le temps. Solution: Mélange breveté avec des polymères de renforcement pour une haute résistance à la traction." },
+      { q: "Conformité Sécurité Alimentaire", a: "Risque de migration de contaminants dans les applications de qualité alimentaire. Solution: Couches barrières fonctionnelles approuvées par l'EFSA/FDA pour bloquer la migration." },
+      { q: "Incohérence des Matériaux", a: "Variation d'un lot à l'autre de la résine PCR. Solution: Approvisionnement strict certifié GRS et contrôle de qualité automatisé." },
+      { q: "Mauvaise Intégrité du Scellage", a: "Les impuretés peuvent interférer avec le thermoscellage. Solution: Optimisation avancée de la bande de scellage pour des scellés hermétiques cohérents." }
+    ]
+  },
+  'zh-TW': {
+    title: "PCR 包裝的 5 個常見問題（及解決方案）",
+    points: [
+      { q: "異味與變色", a: "PCR 材料通常帶有異味與視覺雜質。解決方案: 使用原生接觸層的多層共擠出屏障技術。" },
+      { q: "結構強度降低", a: "回收塑料容易隨著時間變脆並降低耐用性。解決方案: 混合強化聚合物的專利配方，提供高拉伸強度。" },
+      { q: "食品安全合規性", a: "食品級應用中的污染物質遷移風險。解決方案: 採用 FDA 認可的功能性阻隔層，阻擋物質遷移。" },
+      { q: "材料不穩定", a: "PCR 樹脂在性能上存在批次差異。解決方案: 嚴格的 GRS 認證採購與自動化品質控制。" },
+      { q: "密封完整性差", a: "雜質會干擾熱封過程。解決方案: 先進的密封層優化，確保穩定的氣密密封。" }
+    ]
+  }
+};
+
+export const sectionsForPouch = [
+  { id: 'pcr-problems', translationKey: 'title' }
+];
+
+export const sectionsForAchieve = [
+  { id: 'pcr-problems', translationKey: 'title' }
+];
+
 const PCRPage: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.pcr'
+  const currentLang = i18n.language || 'en'
+  const tPain = translations[currentLang as keyof typeof translations] || translations.en
   
   const getTranslationArray = <T = string,>(key: string): T[] => {
     const val = t(key, { returnObjects: true });
@@ -526,6 +579,37 @@ const PCRPage: React.FC = () => {
               <Link to="/materials/compostable" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-emerald-300 transition">
                 Compare Options
               </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pcr-problems',
+      title: tPain.title,
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-1/3">
+              <img 
+                src="/imgs/knowledge/pcr-pain-points.jpg" 
+                alt={tPain.title}
+                className="w-full h-auto rounded-xl shadow-md object-cover"
+              />
+            </div>
+            <div className="md:w-2/3 space-y-4">
+              {tPain.points.map((pt: any, idx: number) => (
+                <div key={idx} className="flex gap-3">
+                  <div className="flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-5 w-5 text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-neutral-900">{pt.q}</h4>
+                    <p className="text-sm text-neutral-600 mt-1">{pt.a}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
