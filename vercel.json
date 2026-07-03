@@ -206,6 +206,10 @@
   ],
   "rewrites": [
     {
+      "source": "/sitemap-misc.xml",
+      "destination": "/sitemap-pouch.xml"
+    },
+    {
       "source": "/sitemap.xml",
       "has": [{ "type": "host", "value": "(www\\.)?pouch\\.eco" }],
       "destination": "/sitemap-pouch.xml"

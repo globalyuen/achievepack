@@ -41,10 +41,8 @@ export const uploadWithTus = async (bucketName: string, fileName: string, file: 
         ? `https://${projectId}.storage.supabase.co/storage/v1/upload/resumable`
         : `${supabaseUrl}/storage/v1/upload/resumable`
 
-      // Use public anon key for collaborative buckets or when no session exists.
-      // This bypasses user-specific RLS authenticated checks (e.g. auth.uid() folder restrictions) which block uploads to shared paths.
-      const useAnonKey = bucketName === 'artworks' || bucketName === 'daily_reports_files' || !session;
-      const token = useAnonKey ? (supabaseAnonKey || session?.access_token) : (session?.access_token || supabaseAnonKey);
+      // Use the active session's token if logged in (authenticated), otherwise fallback to the public anon key.
+      const token = session?.access_token || supabaseAnonKey;
 
       if (!token) {
         reject(new Error('No authorization token available for upload'));

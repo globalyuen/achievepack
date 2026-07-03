@@ -55,7 +55,7 @@ function getSitemapParams(route: string) {
 
 // Helper to get alternate language links for a route
 function getAlternateLinks(domain: string, route: string) {
-  const cleanRoute = route === '/' ? '' : route;
+  const cleanRoute = route === '/' ? '' : (route.startsWith('/') ? route : '/' + route);
   return [
     { lang: 'x-default', href: `${domain}${cleanRoute}` },
     { lang: 'en', href: `${domain}${cleanRoute}` },
@@ -95,7 +95,7 @@ function buildSitemapXml(domain: string, routes: string[]) {
       return;
     }
     
-    const cleanRoute = route === '/' ? '' : route;
+    const cleanRoute = route === '/' ? '' : (route.startsWith('/') ? route : '/' + route);
     const { changefreq, priority } = getSitemapParams(route);
 
     // Languages to output
@@ -197,7 +197,7 @@ function generate() {
     if (route.includes('ctrl-x9k7m') || route.includes('dashboard')) {
       return;
     }
-    const cleanRoute = route === '/' ? '' : route;
+    const cleanRoute = route === '/' ? '' : (route.startsWith('/') ? route : '/' + route);
     const { changefreq, priority } = getSitemapParams(route);
 
     const langs = [
@@ -228,7 +228,7 @@ function generate() {
     if (route.includes('ctrl-x9k7m') || route.includes('dashboard')) {
       return;
     }
-    const cleanRoute = route === '/' ? '' : route;
+    const cleanRoute = route === '/' ? '' : (route.startsWith('/') ? route : '/' + route);
     const { changefreq, priority } = getSitemapParams(route);
 
     const langs = [
