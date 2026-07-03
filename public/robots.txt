@@ -16,6 +16,7 @@ Disallow: /signin
 Disallow: /forgot-password
 Disallow: /reset-password
 Disallow: /dashboard
+Disallow: /whatsapp_media/
 
 # Disallow checkout and order confirmation pages (no SEO value)
 Disallow: /store/checkout
