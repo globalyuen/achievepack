@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-03",
-  "total_images": 4704,
-  "total_categories": 175,
+  "total_images": 4707,
+  "total_categories": 176,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 415,
+    ".jpg": 418,
     ".svg": 3
   },
   "categories": {
@@ -29076,6 +29076,29 @@
           "path": "/imgs/topics/dtc_packaging_1778212333445.png",
           "extension": ".png",
           "modified": "2026-05-08T03:54:44.213Z"
+        }
+      ]
+    },
+    "topics/candy-uv": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/candy-uv/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:44:34.176Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/candy-uv/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:44:34.174Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/candy-uv/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:44:34.171Z"
         }
       ]
     },
