@@ -19,7 +19,7 @@ const StockBagSpoutedPouchPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-6 justify-center">
             <div className="flex flex-col items-center">
               <ClickableImage 
-                src="/imgs/seo/spout_pouch_1.png" 
+                src="/imgs/pouches/spouted_pouch_1_1783005263734.jpg" 
                 alt="Aluminum Foil Spout Pouch" 
                 className="max-w-full rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
                 caption="Spouted Pouch - Main View"
@@ -27,7 +27,7 @@ const StockBagSpoutedPouchPage: React.FC = () => {
             </div>
             <div className="flex flex-col items-center">
               <ClickableImage 
-                src="/imgs/seo/spout_pouch_2.png" 
+                src="/imgs/pouches/spouted_pouch_2_1783005275031.jpg" 
                 alt="Spouted Pouch Detail" 
                 className="max-w-full rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
                 caption="Spouted Pouch - Detail View"
@@ -93,7 +93,7 @@ const StockBagSpoutedPouchPage: React.FC = () => {
       title={t(`${p}.title`, 'Stock Bag Spouted Pouch')}
       description={t(`${p}.description`, 'Aluminum foil spout pouch lightproof liquid bag for beer, drinks, jam, and sauce.')}
       heroSubtitle={t(`${p}.heroSubtitle`, 'Aluminum foil spout pouch lightproof liquid bag for beer, drinks, jam, and sauce.')}
-      heroImage="/imgs/seo/spout_pouch_1.png"
+      heroImage="/imgs/pouches/spouted_pouch_1_1783005263734.jpg"
       contentCategory={t(`${p}.contentCategory`, 'Spout Pouches')}
       sections={sections}
       faqs={faqs}

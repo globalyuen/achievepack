@@ -8636,10 +8636,11 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       "Low MOQ starting from 100 pieces"
     ],
     images: [
-      '/imgs/seo/spout_pouch_1.png',
-      '/spout_pouch_transparent_1500_1783005719700.jpg',
-      '/spout_pouch_transparent_2500_1783005739487.jpg',
-      '/spout_pouch_transparent_5000_1783005756961.jpg'
+      '/imgs/pouches/spouted_pouch_1_1783005263734.jpg',
+      '/imgs/pouches/spouted_pouch_2_1783005275031.jpg',
+      '/imgs/pouches/spout_pouch_transparent_1500_1783005719700.jpg',
+      '/imgs/pouches/spout_pouch_transparent_2500_1783005739487.jpg',
+      '/imgs/pouches/spout_pouch_transparent_5000_1783005756961.jpg'
     ],
     badge: '🚀 Quick Ship',
     rating: 4.9,
