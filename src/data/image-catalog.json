@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-03",
-  "total_images": 4680,
-  "total_categories": 173,
+  "total_images": 4691,
+  "total_categories": 174,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 391,
+    ".jpg": 402,
     ".svg": 3
   },
   "categories": {
@@ -14180,6 +14180,77 @@
           "path": "/imgs/legal/quality-control.png",
           "extension": ".png",
           "modified": "2026-05-15T03:15:45.318Z"
+        }
+      ]
+    },
+    "machinery": {
+      "count": 11,
+      "images": [
+        {
+          "filename": "labeling_machine_logo_1782952599869.jpg",
+          "path": "/imgs/machinery/labeling_machine_logo_1782952599869.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.642Z"
+        },
+        {
+          "filename": "labeling_machine_9_1782951244496.jpg",
+          "path": "/imgs/machinery/labeling_machine_9_1782951244496.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.641Z"
+        },
+        {
+          "filename": "labeling_machine_8_1782951231337.jpg",
+          "path": "/imgs/machinery/labeling_machine_8_1782951231337.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.640Z"
+        },
+        {
+          "filename": "labeling_machine_6_1782951161051.jpg",
+          "path": "/imgs/machinery/labeling_machine_6_1782951161051.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.638Z"
+        },
+        {
+          "filename": "labeling_machine_7_1782951191838.jpg",
+          "path": "/imgs/machinery/labeling_machine_7_1782951191838.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.638Z"
+        },
+        {
+          "filename": "labeling_machine_5_1782951092552.jpg",
+          "path": "/imgs/machinery/labeling_machine_5_1782951092552.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.636Z"
+        },
+        {
+          "filename": "labeling_machine_4_1782950967899.jpg",
+          "path": "/imgs/machinery/labeling_machine_4_1782950967899.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.634Z"
+        },
+        {
+          "filename": "labeling_machine_3_1782950910958.jpg",
+          "path": "/imgs/machinery/labeling_machine_3_1782950910958.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.633Z"
+        },
+        {
+          "filename": "labeling_machine_2_1782950885955.jpg",
+          "path": "/imgs/machinery/labeling_machine_2_1782950885955.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.632Z"
+        },
+        {
+          "filename": "labeling_machine_1_1782950839286.jpg",
+          "path": "/imgs/machinery/labeling_machine_1_1782950839286.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.630Z"
+        },
+        {
+          "filename": "labeling_machine_10_1782951256719.jpg",
+          "path": "/imgs/machinery/labeling_machine_10_1782951256719.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:21:18.629Z"
         }
       ]
     },

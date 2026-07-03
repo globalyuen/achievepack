@@ -228,6 +228,8 @@ export const POUCH_SHAPES: PouchShape[] = [
   { id: 'stand-up', label: 'Stand Up Pouch', hasZipper: false },
   { id: 'zipper-stand-up', label: 'Zipper Stand Up Pouch', hasZipper: true },
   { id: 'zipper-flat-bottom', label: 'Zipper Flat Bottom Pouch', hasZipper: true },
+  { id: 'Spout Pouch', label: 'Spout Pouch', hasZipper: false },
+  { id: 'Machinery', label: 'Machinery', hasZipper: false },
 ]
 
 export const POUCH_SIZES: PouchSize[] = [
@@ -8788,9 +8790,12 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       "Durable stainless steel construction"
     ],
     images: [
-      '/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN016ZhDFP2EpFUnVyDls_--2165598793.jpg',
-      '/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN01Dr0Uy42EpFUwqmjVi_--2165598793.jpg',
-      '/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN01RiEkx62EpFUvmW5zJ_--2165598793.jpg'
+      '/imgs/machinery/labeling_machine_logo_1782952599869.jpg',
+      '/imgs/machinery/labeling_machine_1_1782950839286.jpg',
+      '/imgs/machinery/labeling_machine_2_1782950885955.jpg',
+      '/imgs/machinery/labeling_machine_3_1782950910958.jpg',
+      '/imgs/machinery/labeling_machine_4_1782950967899.jpg',
+      '/imgs/machinery/labeling_machine_5_1782951092552.jpg'
     ],
     badge: '⚙️ Industrial Grade',
     rating: 5.0,

@@ -47027,6 +47027,30 @@
         "Certificado FSC y 100% reciclable: se alinea perfectamente con los valores de marca ecológicamente responsables",
         "Ensamblado fácil de solapas: diseño conveniente para envío plano con solapas de cierre resistentes y seguras"
       ]
+    },
+    "automatic-labeling-machine": {
+      "name": "Máquina Etiquetadora Totalmente Automática para Cajas y Bolsas",
+      "shortDesc": "Etiquetadora automática para cajas de color, tapas y tarjetas",
+      "description": "Una máquina etiquetadora automática de alta precisión diseñada para etiquetas cosméticas de PE, cajas, tapas y tarjetas. Mejora la eficiencia de producción con un motor paso a paso/servo y un sistema de control de pantalla táctil PLC.",
+      "features": [
+        "Motor paso a paso/servo de alta precisión",
+        "Sistema de control avanzado PLC con pantalla táctil",
+        "Velocidad de etiquetado ajustable (30-150 pzas/min)",
+        "Aplicable a cajas de papel, tapas de plástico y bolsas planas",
+        "Construcción duradera de acero inoxidable"
+      ]
+    },
+    "aluminum-foil-spout-pouch-stock": {
+      "name": "Bolsa con Boquilla de Papel de Aluminio (Bolsa de Líquido a Prueba de Luz)",
+      "shortDesc": "Bolsa de aluminio con boquilla para bebidas y salsas",
+      "description": "Bolsas de aluminio de calidad superior ideales para líquidos como cerveza, bebidas, mermelada, salsa, y más. Cuenta con una boquilla fácil de verter, un fuelle inferior duradero, y fuertes propiedades de barrera.",
+      "features": [
+        "Estructura de aluminio a prueba de luz para máxima protección UV",
+        "Diseño de tapa de rosca a prueba de fugas",
+        "Fuelle inferior autoportante",
+        "Disponible en múltiples capacidades (50ml a 5000ml)",
+        "Bajo MOQ a partir de 100 piezas"
+      ]
     }
   }
 }

@@ -108,6 +108,7 @@ const SHAPES = [
   { id: 'Tuck Box', label: 'Tuck Box' },
   { id: 'Label & Sticker', label: 'Label & Sticker' },
   { id: 'Wrapping Paper', label: 'Wrapping Paper' },
+  { id: 'Machinery', label: 'Machinery' },
 ]
 
 const getProductClassification = (product: StoreProduct): 'compostable' | 'recyclable' | 'conventional' => {
@@ -316,6 +317,20 @@ const SHAPE_ITEMS = [
         <path d="M28 35 H72 M28 55 H72" strokeWidth="1" strokeDasharray="2 2" />
         <path d="M40 15 V65 M60 15 V65" strokeWidth="1" strokeDasharray="2 2" />
         <path d="M34 25 C34 25 38 29 50 29 C62 29 66 25 66 25" strokeWidth="1" />
+      </svg>
+    )
+  },
+  {
+    id: 'Machinery',
+    label: 'Machinery',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <rect x="25" y="25" width="50" height="40" rx="4" strokeWidth="2" />
+        <circle cx="35" cy="45" r="5" strokeWidth="2" />
+        <circle cx="65" cy="45" r="5" strokeWidth="2" />
+        <path d="M45 45 H55" strokeWidth="2" />
+        <path d="M25 35 H75" strokeWidth="1" />
+        <path d="M40 25 V15 H60 V25" strokeWidth="1.5" />
       </svg>
     )
   }
@@ -653,6 +668,7 @@ const StorePage: React.FC = () => {
         'Corrugated Box': 'Corrugated Box',
         'Tuck Box': 'Tuck Box',
         'Label & Sticker': 'Label & Sticker',
+        'Machinery': 'Machinery',
       }
       return shapeMap[shape] || shape
     }
@@ -671,7 +687,8 @@ const StorePage: React.FC = () => {
     'mailer': 'Mailer Bag',
     'box': 'Corrugated Box',
     'label': 'Label & Sticker',
-    'wrapping-paper': 'Wrapping Paper'
+    'wrapping-paper': 'Wrapping Paper',
+    'machinery': 'Machinery'
   }
 
   const filteredProducts = useMemo(() => {

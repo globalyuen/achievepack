@@ -13,20 +13,16 @@ const AutomaticLabelingMachinePage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <p className="text-sm text-neutral-600">Explore the Automatic Labeling Machine for Packaging Boxes and Pouches:</p>
           <div className="grid md:grid-cols-2 gap-6 justify-center">
-            <div className="flex flex-col items-center">
+            <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
               <ClickableImage 
-                src="/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN016ZhDFP2EpFUnVyDls_--2165598793.jpg" 
-                alt="Automatic Labeling Machine" 
-                className="max-w-full rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
-                caption="Labeling Machine - Main View"
+                src="/imgs/machinery/labeling_machine_1_1782950839286.jpg" 
+                alt="Automatic Labeling Machine Setup"
               />
             </div>
-            <div className="flex flex-col items-center">
+            <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
               <ClickableImage 
-                src="/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN01Dr0Uy42EpFUwqmjVi_--2165598793.jpg" 
-                alt="Labeling Process" 
-                className="max-w-full rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
-                caption="Labeling Process - Detail View"
+                src="/imgs/machinery/labeling_machine_3_1782950910958.jpg" 
+                alt="Detailed View of Labeling Machine"
               />
             </div>
           </div>
@@ -89,7 +85,7 @@ const AutomaticLabelingMachinePage: React.FC = () => {
       title="Automatic Labeling Machine"
       description="Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels."
       heroSubtitle="Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels."
-      heroImage="/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN01RiEkx62EpFUvmW5zJ_--2165598793.jpg"
+      heroImage="/imgs/machinery/labeling_machine_logo_1782952599869.jpg"
       contentCategory="Packaging Machinery"
       sections={sections}
       faqs={faqs}

@@ -49016,6 +49016,30 @@
         "FSC Certified & 100% Recyclable: Perfectly aligns with eco-responsible brand values",
         "Tuck End Easy Assembly: Convenient flat-ship layout with sturdy, secure closure flaps"
       ]
+    },
+    "automatic-labeling-machine": {
+      "name": "Full-automatic Labeling Machine for Packaging Boxes and Pouches",
+      "shortDesc": "Automatic labeling machine for packaging color boxes, lids, and cards",
+      "description": "A high-precision automatic labeling machine designed for cosmetic PE self-adhesive labels, color boxes, lids, and cards. Enhances production efficiency with a reliable stepper/servo motor drive and PLC touch screen control system.",
+      "features": [
+        "High-precision stepper/servo motor drive",
+        "Advanced PLC control system with touch screen",
+        "Adjustable labeling speed (30-150 pcs/min)",
+        "Applicable for paper boxes, plastic lids, and flat pouches",
+        "Durable stainless steel construction"
+      ]
+    },
+    "aluminum-foil-spout-pouch-stock": {
+      "name": "Stock Aluminum Foil Spout Pouch (Lightproof Liquid Bag)",
+      "shortDesc": "Stock aluminum foil spout pouch for beverages and sauces",
+      "description": "Premium lightproof aluminum foil spout pouches ideal for liquids such as beer, drinks, jam, sauce, and more. Features an easy-pour spout, durable bottom gusset for retail display, and strong barrier properties.",
+      "features": [
+        "Lightproof aluminum foil structure for maximum UV protection",
+        "Leak-proof screw cap design",
+        "Self-standing bottom gusset",
+        "Available in multiple capacities (50ml to 5000ml)",
+        "Low MOQ starting from 100 pieces"
+      ]
     }
   }
 }

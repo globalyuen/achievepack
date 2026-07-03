@@ -46962,6 +46962,30 @@
         "Certifié FSC et 100% recyclable : s'aligne parfaitement avec les valeurs de marque éco-responsables",
         "Assemblage facile à pattes rentrantes : disposition d'expédition à plat pratique avec rabats de fermeture robustes et sécurisés"
       ]
+    },
+    "automatic-labeling-machine": {
+      "name": "Étiqueteuse Entièrement Automatique pour Boîtes et Sachets",
+      "shortDesc": "Étiqueteuse automatique pour boîtes de couleur, couvercles et cartes",
+      "description": "Une étiqueteuse automatique de haute précision conçue pour les étiquettes auto-adhésives cosmétiques en PE, les boîtes de couleur, les couvercles et les cartes. Améliore l'efficacité de la production avec un moteur pas à pas/servo fiable et un système de contrôle à écran tactile PLC.",
+      "features": [
+        "Entraînement par moteur pas à pas/servo de haute précision",
+        "Système de contrôle avancé PLC avec écran tactile",
+        "Vitesse d'étiquetage réglable (30-150 pcs/min)",
+        "Applicable aux boîtes en papier, couvercles en plastique et sachets plats",
+        "Construction durable en acier inoxydable"
+      ]
+    },
+    "aluminum-foil-spout-pouch-stock": {
+      "name": "Sachet à Bec en Feuille d'Aluminium (Sac pour Liquide à l'Épreuve de la Lumière)",
+      "shortDesc": "Sachet à bec en aluminium pour boissons et sauces",
+      "description": "Sachets à bec en aluminium de qualité supérieure idéaux pour les liquides tels que la bière, les boissons, la confiture, la sauce, et plus encore. Dispose d'un bec verseur facile, d'un soufflet inférieur durable pour affichage, et de solides propriétés de barrière.",
+      "features": [
+        "Structure en aluminium étanche à la lumière pour protection UV",
+        "Conception de bouchon à vis anti-fuite",
+        "Soufflet inférieur autoportant",
+        "Disponible en plusieurs capacités (50ml à 5000ml)",
+        "Faible MOQ à partir de 100 pièces"
+      ]
     }
   }
 }

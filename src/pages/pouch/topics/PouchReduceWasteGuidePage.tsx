@@ -58,19 +58,19 @@ const PouchReduceWasteGuidePage: React.FC = () => {
   const currentT = localTranslations[lang] || localTranslations.en
 
   const WASTE_METRICS = [
-    { label: t('pouchReduceWasteGuidePage.engineering.metrics.m1.label'), value: t('pouchReduceWasteGuidePage.engineering.metrics.m1.value'), unit: t('pouchReduceWasteGuidePage.engineering.metrics.m1.unit'), desc: t('pouchReduceWasteGuidePage.engineering.metrics.m1.desc') },
-    { label: t('pouchReduceWasteGuidePage.engineering.metrics.m2.label'), value: t('pouchReduceWasteGuidePage.engineering.metrics.m2.value'), unit: t('pouchReduceWasteGuidePage.engineering.metrics.m2.unit'), desc: t('pouchReduceWasteGuidePage.engineering.metrics.m2.desc') },
-    { label: t('pouchReduceWasteGuidePage.engineering.metrics.m3.label'), value: t('pouchReduceWasteGuidePage.engineering.metrics.m3.value'), unit: t('pouchReduceWasteGuidePage.engineering.metrics.m3.unit'), desc: t('pouchReduceWasteGuidePage.engineering.metrics.m3.desc') },
-    { label: t('pouchReduceWasteGuidePage.engineering.metrics.m4.label'), value: t('pouchReduceWasteGuidePage.engineering.metrics.m4.value'), unit: t('pouchReduceWasteGuidePage.engineering.metrics.m4.unit'), desc: t('pouchReduceWasteGuidePage.engineering.metrics.m4.desc') }
+    { label: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m1.label'), value: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m1.value'), unit: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m1.unit'), desc: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m1.desc') },
+    { label: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m2.label'), value: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m2.value'), unit: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m2.unit'), desc: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m2.desc') },
+    { label: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m3.label'), value: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m3.value'), unit: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m3.unit'), desc: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m3.desc') },
+    { label: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m4.label'), value: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m4.value'), unit: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m4.unit'), desc: t('pouchReducePackagingWasteGuidePage.engineering.metrics.m4.desc') }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>{t('pouchReduceWasteGuidePage.meta.title')}</title>
-        <meta name="description" content={t('pouchReduceWasteGuidePage.meta.description')} />
+        <title>{t('pouchReducePackagingWasteGuidePage.meta.title')}</title>
+        <meta name="description" content={t('pouchReducePackagingWasteGuidePage.meta.description')} />
         <link rel="canonical" href={`${baseUrl}/topics/reduce-waste-guide`} />
-        <meta name="keywords" content={t('pouchReduceWasteGuidePage.meta.keywords')} />
+        <meta name="keywords" content={t('pouchReducePackagingWasteGuidePage.meta.keywords')} />
       </Helmet>
 
       {/* Hero Section */}
@@ -78,21 +78,21 @@ const PouchReduceWasteGuidePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <NeoBadge color="magenta">{t('pouchReduceWasteGuidePage.hero.badge')}</NeoBadge>
-              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic" dangerouslySetInnerHTML={{ __html: t('pouchReduceWasteGuidePage.hero.title') }} />
+              <NeoBadge color="magenta">{t('pouchReducePackagingWasteGuidePage.hero.badge')}</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic" dangerouslySetInnerHTML={{ __html: t('pouchReducePackagingWasteGuidePage.hero.title') }} />
               <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                {t('pouchReduceWasteGuidePage.hero.subtitle')}
+                {t('pouchReducePackagingWasteGuidePage.hero.subtitle')}
               </p>
               <div className="flex flex-wrap gap-6 mt-12">
-                <NeoButton variant="primary" to="/products">{t('pouchReduceWasteGuidePage.hero.browse')}</NeoButton>
-                <NeoButton variant="secondary" to="/sample">{t('pouchReduceWasteGuidePage.hero.order')}</NeoButton>
+                <NeoButton variant="primary" to="/products">{t('pouchReducePackagingWasteGuidePage.hero.browse')}</NeoButton>
+                <NeoButton variant="secondary" to="/sample">{t('pouchReducePackagingWasteGuidePage.hero.order')}</NeoButton>
               </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
-                alt={t('pouchReduceWasteGuidePage.hero.title').replace(/<br\s*\/?>/gi, ' ')} 
+                alt={t('pouchReducePackagingWasteGuidePage.hero.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -108,15 +108,15 @@ const PouchReduceWasteGuidePage: React.FC = () => {
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
-                alt={t('pouchReduceWasteGuidePage.engineering.title').replace(/<br\s*\/?>/gi, ' ')} 
+                alt={t('pouchReducePackagingWasteGuidePage.engineering.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">{t('pouchReduceWasteGuidePage.engineering.badge')}</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic" dangerouslySetInnerHTML={{ __html: t('pouchReduceWasteGuidePage.engineering.title') }} />
+              <NeoBadge color="blue">{t('pouchReducePackagingWasteGuidePage.engineering.badge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic" dangerouslySetInnerHTML={{ __html: t('pouchReducePackagingWasteGuidePage.engineering.title') }} />
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                {t('pouchReduceWasteGuidePage.engineering.p1')}
+                {t('pouchReducePackagingWasteGuidePage.engineering.p1')}
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {WASTE_METRICS.map((p, i) => (
@@ -135,35 +135,35 @@ const PouchReduceWasteGuidePage: React.FC = () => {
       {/* Technical: Circular Design */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="lime">{t('pouchReduceWasteGuidePage.tech.badge')}</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16" dangerouslySetInnerHTML={{ __html: t('pouchReduceWasteGuidePage.tech.title') }} />
+          <NeoBadge color="lime">{t('pouchReducePackagingWasteGuidePage.tech.badge')}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16" dangerouslySetInnerHTML={{ __html: t('pouchReducePackagingWasteGuidePage.tech.title') }} />
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchReduceWasteGuidePage.tech.t1.title')}</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchReducePackagingWasteGuidePage.tech.t1.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                {t('pouchReduceWasteGuidePage.tech.t1.desc')}
+                {t('pouchReducePackagingWasteGuidePage.tech.t1.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchReduceWasteGuidePage.tech.t2.title')}</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchReducePackagingWasteGuidePage.tech.t2.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                {t('pouchReduceWasteGuidePage.tech.t2.desc')}
+                {t('pouchReducePackagingWasteGuidePage.tech.t2.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchReduceWasteGuidePage.tech.t3.title')}</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchReducePackagingWasteGuidePage.tech.t3.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                {t('pouchReduceWasteGuidePage.tech.t3.desc')}
+                {t('pouchReducePackagingWasteGuidePage.tech.t3.desc')}
               </p>
             </div>
 
             <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
-              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchReduceWasteGuidePage.tech.t4.title')}</h3>
+              <h3 className="text-3xl font-black uppercase mb-4">{t('pouchReducePackagingWasteGuidePage.tech.t4.title')}</h3>
               <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
-                {t('pouchReduceWasteGuidePage.tech.t4.desc')}
+                {t('pouchReducePackagingWasteGuidePage.tech.t4.desc')}
               </p>
             </div>
           </div>
@@ -175,24 +175,24 @@ const PouchReduceWasteGuidePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="blue">{t('pouchReduceWasteGuidePage.lab.badge')}</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic" dangerouslySetInnerHTML={{ __html: t('pouchReduceWasteGuidePage.lab.title') }} />
+              <NeoBadge color="blue">{t('pouchReducePackagingWasteGuidePage.lab.badge')}</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic" dangerouslySetInnerHTML={{ __html: t('pouchReducePackagingWasteGuidePage.lab.title') }} />
               <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
-                {t('pouchReduceWasteGuidePage.lab.p1')}
+                {t('pouchReducePackagingWasteGuidePage.lab.p1')}
               </p>
               <div className="mt-12 space-y-4">
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <Trash2 className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">{t('pouchReduceWasteGuidePage.lab.f1_title')}</h4>
-                    <p className="text-sm opacity-60">{t('pouchReduceWasteGuidePage.lab.f1_desc')}</p>
+                    <h4 className="font-black uppercase">{t('pouchReducePackagingWasteGuidePage.lab.f1_title')}</h4>
+                    <p className="text-sm opacity-60">{t('pouchReducePackagingWasteGuidePage.lab.f1_desc')}</p>
                   </div>
                 </div>
                 <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
                   <BarChart3 className="w-12 h-12 flex-shrink-0" />
                   <div>
-                    <h4 className="font-black uppercase">{t('pouchReduceWasteGuidePage.lab.f2_title')}</h4>
-                    <p className="text-sm opacity-60">{t('pouchReduceWasteGuidePage.lab.f2_desc')}</p>
+                    <h4 className="font-black uppercase">{t('pouchReducePackagingWasteGuidePage.lab.f2_title')}</h4>
+                    <p className="text-sm opacity-60">{t('pouchReducePackagingWasteGuidePage.lab.f2_desc')}</p>
                   </div>
                 </div>
               </div>
@@ -201,7 +201,7 @@ const PouchReduceWasteGuidePage: React.FC = () => {
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/illustrated/a_topic_04_digital_print_var_c_4560298.webp" 
-                alt={t('pouchReduceWasteGuidePage.lab.title').replace(/<br\s*\/?>/gi, ' ')} 
+                alt={t('pouchReducePackagingWasteGuidePage.lab.title').replace(/<br\s*\/?>/gi, ' ')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -245,14 +245,14 @@ const PouchReduceWasteGuidePage: React.FC = () => {
       {/* FAQ: Technical Waste */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="magenta">{t('pouchReduceWasteGuidePage.faq.badge')}</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12" dangerouslySetInnerHTML={{ __html: t('pouchReduceWasteGuidePage.faq.title') }} />
+          <NeoBadge color="magenta">{t('pouchReducePackagingWasteGuidePage.faq.badge')}</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12" dangerouslySetInnerHTML={{ __html: t('pouchReducePackagingWasteGuidePage.faq.title') }} />
           <div className="space-y-4">
             {[
-              { q: t('pouchReduceWasteGuidePage.faq.q1_q'), a: t('pouchReduceWasteGuidePage.faq.q1_a') },
-              { q: t('pouchReduceWasteGuidePage.faq.q2_q'), a: t('pouchReduceWasteGuidePage.faq.q2_a') },
-              { q: t('pouchReduceWasteGuidePage.faq.q3_q'), a: t('pouchReduceWasteGuidePage.faq.q3_a') },
-              { q: t('pouchReduceWasteGuidePage.faq.q4_q'), a: t('pouchReduceWasteGuidePage.faq.q4_a') }
+              { q: t('pouchReducePackagingWasteGuidePage.faq.q1_q'), a: t('pouchReducePackagingWasteGuidePage.faq.q1_a') },
+              { q: t('pouchReducePackagingWasteGuidePage.faq.q2_q'), a: t('pouchReducePackagingWasteGuidePage.faq.q2_a') },
+              { q: t('pouchReducePackagingWasteGuidePage.faq.q3_q'), a: t('pouchReducePackagingWasteGuidePage.faq.q3_a') },
+              { q: t('pouchReducePackagingWasteGuidePage.faq.q4_q'), a: t('pouchReducePackagingWasteGuidePage.faq.q4_a') }
             ].map((faq, i) => (
               <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
@@ -269,15 +269,15 @@ const PouchReduceWasteGuidePage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-emerald-900 text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="lime">{t('pouchReduceWasteGuidePage.cta.badge')}</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic" dangerouslySetInnerHTML={{ __html: t('pouchReduceWasteGuidePage.cta.title') }} />
+          <NeoBadge color="lime">{t('pouchReducePackagingWasteGuidePage.cta.badge')}</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic" dangerouslySetInnerHTML={{ __html: t('pouchReducePackagingWasteGuidePage.cta.title') }} />
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            {t('pouchReduceWasteGuidePage.cta.subtitle')}
+            {t('pouchReducePackagingWasteGuidePage.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-white !text-emerald-900">{t('pouchReduceWasteGuidePage.cta.samples')}</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-emerald-900">{t('pouchReducePackagingWasteGuidePage.cta.samples')}</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              {t('pouchReduceWasteGuidePage.cta.audit')}
+              {t('pouchReducePackagingWasteGuidePage.cta.audit')}
             </NeoButton>
           </div>
         </div>
