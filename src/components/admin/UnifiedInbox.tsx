@@ -913,7 +913,7 @@ const parseChatHistory = (history: string, customerName: string): ChatMessage[] 
 const resolveMediaUrl = (url: string, name: string) => {
   const cleanName = name.replace(/[^a-zA-Z0-9]/g, '');
   const filename = url.split('/').pop() || '';
-  return `/whatsapp_media/${cleanName}/${filename}`;
+  return `/whatsapp_media/${cleanName}/${filename}?v=2`;
 };
 
 const renderMessageContent = (content: string, name: string) => {
