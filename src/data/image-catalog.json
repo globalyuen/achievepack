@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-03",
-  "total_images": 4731,
-  "total_categories": 184,
+  "total_images": 4746,
+  "total_categories": 189,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 442,
+    ".jpg": 457,
     ".svg": 3
   },
   "categories": {
@@ -29214,6 +29214,121 @@
           "path": "/imgs/topics/collagen-high-barrier/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T07:23:54.913Z"
+        }
+      ]
+    },
+    "topics/crisps-shaped": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/crisps-shaped/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.024Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/crisps-shaped/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.021Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/crisps-shaped/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.018Z"
+        }
+      ]
+    },
+    "topics/ddp-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/ddp-packaging/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.031Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/ddp-packaging/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.029Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/ddp-packaging/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.026Z"
+        }
+      ]
+    },
+    "topics/detergent-spout": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/detergent-spout/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.038Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/detergent-spout/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.036Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/detergent-spout/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.034Z"
+        }
+      ]
+    },
+    "topics/dried-fruits-tear-notch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/dried-fruits-tear-notch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.044Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/dried-fruits-tear-notch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.042Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/dried-fruits-tear-notch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.040Z"
+        }
+      ]
+    },
+    "topics/electronics-anti-static": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/electronics-anti-static/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.051Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/electronics-anti-static/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.049Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/electronics-anti-static/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:17:42.047Z"
         }
       ]
     },
