@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-03",
-  "total_images": 4691,
-  "total_categories": 174,
+  "total_images": 4704,
+  "total_categories": 175,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 402,
+    ".jpg": 415,
     ".svg": 3
   },
   "categories": {
@@ -15221,6 +15221,89 @@
           "path": "/imgs/pouch/packaging/pouch_fb_hero.png",
           "extension": ".png",
           "modified": "2026-05-06T07:36:32.023Z"
+        }
+      ]
+    },
+    "pouches": {
+      "count": 13,
+      "images": [
+        {
+          "filename": "spouted_pouch_9_1783005352538.jpg",
+          "path": "/imgs/pouches/spouted_pouch_9_1783005352538.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.070Z"
+        },
+        {
+          "filename": "spouted_pouch_7_1783005330595.jpg",
+          "path": "/imgs/pouches/spouted_pouch_7_1783005330595.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.068Z"
+        },
+        {
+          "filename": "spouted_pouch_8_1783005342118.jpg",
+          "path": "/imgs/pouches/spouted_pouch_8_1783005342118.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.068Z"
+        },
+        {
+          "filename": "spouted_pouch_6_1783005319378.jpg",
+          "path": "/imgs/pouches/spouted_pouch_6_1783005319378.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.067Z"
+        },
+        {
+          "filename": "spouted_pouch_5_1783005310884.jpg",
+          "path": "/imgs/pouches/spouted_pouch_5_1783005310884.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.065Z"
+        },
+        {
+          "filename": "spouted_pouch_4_1783005299878.jpg",
+          "path": "/imgs/pouches/spouted_pouch_4_1783005299878.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.064Z"
+        },
+        {
+          "filename": "spouted_pouch_3_1783005288612.jpg",
+          "path": "/imgs/pouches/spouted_pouch_3_1783005288612.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.063Z"
+        },
+        {
+          "filename": "spouted_pouch_2_1783005275031.jpg",
+          "path": "/imgs/pouches/spouted_pouch_2_1783005275031.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.062Z"
+        },
+        {
+          "filename": "spouted_pouch_1_1783005263734.jpg",
+          "path": "/imgs/pouches/spouted_pouch_1_1783005263734.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.061Z"
+        },
+        {
+          "filename": "spouted_pouch_10_1783005361583.jpg",
+          "path": "/imgs/pouches/spouted_pouch_10_1783005361583.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.058Z"
+        },
+        {
+          "filename": "spout_pouch_transparent_5000_1783005756961.jpg",
+          "path": "/imgs/pouches/spout_pouch_transparent_5000_1783005756961.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.057Z"
+        },
+        {
+          "filename": "spout_pouch_transparent_2500_1783005739487.jpg",
+          "path": "/imgs/pouches/spout_pouch_transparent_2500_1783005739487.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.056Z"
+        },
+        {
+          "filename": "spout_pouch_transparent_1500_1783005719700.jpg",
+          "path": "/imgs/pouches/spout_pouch_transparent_1500_1783005719700.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T01:45:49.055Z"
         }
       ]
     },
