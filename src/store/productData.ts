@@ -8658,7 +8658,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     minOrder: 100,
     shape: 'Spout Pouch',
     material: 'Aluminum Foil / PET / PE (Transparent options available)',
-    basePrice: 75.0,
+    basePrice: 7.5,
     minQuantity: 100,
     quantityStep: 100,
     sizeInfo: 'Multiple sizes available',
@@ -8669,8 +8669,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '50ml (20 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 75.0,
-        unitPrice: 0.75
+        totalPrice: 7.50,
+        unitPrice: 0.075
       },
       {
         id: 'spout-100ml',
@@ -8678,8 +8678,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '100ml (20 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 96.0,
-        unitPrice: 0.96
+        totalPrice: 9.60,
+        unitPrice: 0.096
       },
       {
         id: 'spout-230ml',
@@ -8687,8 +8687,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '230ml (20 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 108.0,
-        unitPrice: 1.08
+        totalPrice: 10.80,
+        unitPrice: 0.108
       },
       {
         id: 'spout-280ml',
@@ -8696,8 +8696,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '280ml (20 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 111.0,
-        unitPrice: 1.11
+        totalPrice: 11.10,
+        unitPrice: 0.111
       },
       {
         id: 'spout-350ml',
@@ -8705,8 +8705,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '350ml (20 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 117.0,
-        unitPrice: 1.17
+        totalPrice: 11.70,
+        unitPrice: 0.117
       },
       {
         id: 'spout-500ml',
@@ -8714,8 +8714,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '500ml (30 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 195.0,
-        unitPrice: 1.95
+        totalPrice: 19.50,
+        unitPrice: 0.195
       },
       {
         id: 'spout-1000ml',
@@ -8723,8 +8723,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1000ml (30 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 246.0,
-        unitPrice: 2.46
+        totalPrice: 24.60,
+        unitPrice: 0.246
       },
       {
         id: 'spout-1500ml',
@@ -8732,8 +8732,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1500ml (30 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 315.0,
-        unitPrice: 3.15
+        totalPrice: 31.50,
+        unitPrice: 0.315
       },
       {
         id: 'spout-1800ml',
@@ -8741,8 +8741,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1800ml (30 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 369.0,
-        unitPrice: 3.69
+        totalPrice: 36.90,
+        unitPrice: 0.369
       },
       {
         id: 'spout-2000ml',
@@ -8750,8 +8750,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '2000ml (30 Thickness)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 390.0,
-        unitPrice: 3.90
+        totalPrice: 39.0,
+        unitPrice: 0.390
       },
       {
         id: 'spout-1500ml-trans',
@@ -8759,8 +8759,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '1500ml (40 Thickness) Transparent',
         hasHole: false,
         quantity: 100,
-        totalPrice: 450.0,
-        unitPrice: 4.50,
+        totalPrice: 45.0,
+        unitPrice: 0.450,
         heroImageIndex: 1
       },
       {
@@ -8769,8 +8769,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '2500ml (44 Thickness) Transparent',
         hasHole: false,
         quantity: 100,
-        totalPrice: 630.0,
-        unitPrice: 6.30,
+        totalPrice: 63.0,
+        unitPrice: 0.630,
         heroImageIndex: 2
       },
       {
@@ -8779,8 +8779,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '5000ml (44 Thickness) Transparent',
         hasHole: false,
         quantity: 100,
-        totalPrice: 840.0,
-        unitPrice: 8.40,
+        totalPrice: 84.0,
+        unitPrice: 0.840,
         heroImageIndex: 3
       }
     ]
