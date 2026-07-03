@@ -87,11 +87,10 @@ const AutomaticLabelingMachinePage: React.FC = () => {
   return (
     <SEOPageLayout
       title="Automatic Labeling Machine"
-      subtitle="Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels."
+      description="Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels."
+      heroSubtitle="Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels."
       heroImage="/taobao/Full-automatic labeling machine for packaging color boxes, lids, cards, and cosmetic PE self-adhesive labels/O1CN01RiEkx62EpFUvmW5zJ_--2165598793.jpg"
-      category="Packaging Machinery"
-      date="2026-07-02"
-      author="Achieve Pack Team"
+      contentCategory="Packaging Machinery"
       sections={sections}
       faqs={faqs}
       tables={tables}

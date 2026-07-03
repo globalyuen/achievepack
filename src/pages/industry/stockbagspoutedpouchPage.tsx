@@ -66,7 +66,7 @@ const StockBagSpoutedPouchPage: React.FC = () => {
   const faqs = [
     { question: "Are these pouches suitable for hot filling?", answer: "Yes, our aluminum foil spout pouches can handle hot fill applications up to 85°C (185°F)." },
     { question: "What is the minimum order quantity (MOQ)?", answer: "Our stock spouted pouches have a low MOQ starting from just 100 pieces, making them ideal for small businesses and startups." },
-    { question: "Can I customize the print on the pouches?", fix: "While these are stock bags, we offer fully customizable digital printing options for bulk orders. Contact our sales team for details." }
+    { question: "Can I customize the print on the pouches?", answer: "While these are stock bags, we offer fully customizable digital printing options for bulk orders. Contact our sales team for details." }
   ]
 
   const tables = [
@@ -87,11 +87,10 @@ const StockBagSpoutedPouchPage: React.FC = () => {
   return (
     <SEOPageLayout
       title="Stock Bag Spouted Pouch"
-      subtitle="Aluminum foil spout pouch lightproof liquid bag for beer, drinks, jam, and sauce."
+      description="Aluminum foil spout pouch lightproof liquid bag for beer, drinks, jam, and sauce."
+      heroSubtitle="Aluminum foil spout pouch lightproof liquid bag for beer, drinks, jam, and sauce."
       heroImage="/imgs/seo/spout_pouch_1.png"
-      category="Spout Pouches"
-      date="2026-07-02"
-      author="Achieve Pack Team"
+      contentCategory="Spout Pouches"
       sections={sections}
       faqs={faqs}
       tables={tables}
