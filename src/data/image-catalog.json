@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-03",
-  "total_images": 4716,
-  "total_categories": 179,
+  "total_images": 4731,
+  "total_categories": 184,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 427,
+    ".jpg": 442,
     ".svg": 3
   },
   "categories": {
@@ -29079,6 +29079,52 @@
         }
       ]
     },
+    "topics/beef-jerky-barrier": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/beef-jerky-barrier/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.885Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/beef-jerky-barrier/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.883Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/beef-jerky-barrier/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.880Z"
+        }
+      ]
+    },
+    "topics/cacao-stand-up": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/cacao-stand-up/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.896Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/cacao-stand-up/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.894Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/cacao-stand-up/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.888Z"
+        }
+      ]
+    },
     "topics/candy-uv": {
       "count": 3,
       "images": [
@@ -29099,6 +29145,75 @@
           "path": "/imgs/topics/candy-uv/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T06:44:34.171Z"
+        }
+      ]
+    },
+    "topics/cheese-pocket-zipper": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/cheese-pocket-zipper/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.906Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/cheese-pocket-zipper/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.903Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/cheese-pocket-zipper/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.898Z"
+        }
+      ]
+    },
+    "topics/cocktail-spout": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/cocktail-spout/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.911Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/cocktail-spout/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.909Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/cocktail-spout/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.908Z"
+        }
+      ]
+    },
+    "topics/collagen-high-barrier": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/collagen-high-barrier/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.916Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/collagen-high-barrier/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.915Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/collagen-high-barrier/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T07:23:54.913Z"
         }
       ]
     },
