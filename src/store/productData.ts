@@ -8638,6 +8638,14 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     images: [
       '/imgs/pouches/spouted_pouch_1_1783005263734.jpg',
       '/imgs/pouches/spouted_pouch_2_1783005275031.jpg',
+      '/imgs/pouches/spouted_pouch_3_1783005288612.jpg',
+      '/imgs/pouches/spouted_pouch_4_1783005299878.jpg',
+      '/imgs/pouches/spouted_pouch_5_1783005310884.jpg',
+      '/imgs/pouches/spouted_pouch_6_1783005319378.jpg',
+      '/imgs/pouches/spouted_pouch_7_1783005330595.jpg',
+      '/imgs/pouches/spouted_pouch_8_1783005342118.jpg',
+      '/imgs/pouches/spouted_pouch_9_1783005352538.jpg',
+      '/imgs/pouches/spouted_pouch_10_1783005361583.jpg',
       '/imgs/pouches/spout_pouch_transparent_1500_1783005719700.jpg',
       '/imgs/pouches/spout_pouch_transparent_2500_1783005739487.jpg',
       '/imgs/pouches/spout_pouch_transparent_5000_1783005756961.jpg'
