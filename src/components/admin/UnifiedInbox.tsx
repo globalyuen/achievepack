@@ -79,6 +79,8 @@ export default function UnifiedInbox() {
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [viewMode, setViewMode] = useState<'table' | 'calendar'>('table');
+  const [channelFilter, setChannelFilter] = useState<'all' | 'whatsapp' | 'email' | 'both'>('all');
+  const [sortBy, setSortBy] = useState<'dateNewest' | 'dateOldest' | 'convLongest' | 'convShortest' | 'mediaMost' | 'mediaLeast'>('dateNewest');
 
   const [editingLead, setEditingLead] = useState<UnifiedInquiry | null>(null);
   const [editStatus, setEditStatus] = useState<FollowUpStatus>('未跟進');
@@ -277,22 +279,59 @@ export default function UnifiedInbox() {
     }
   };
 
-  const filteredInquiries = inquiries.filter(lead => {
-    const term = searchTerm.toLowerCase();
-    const status = lead.status || '未跟進';
-    const notes = (lead.whatsappData?.notes || '') + (lead.emailData?.notes || '');
-    const chat = (lead.whatsappData?.chat_history || '') + (lead.emailData?.inquiry || '');
-    const email = lead.emailData?.email || '';
-    
-    return (
-      lead.name.toLowerCase().includes(term) ||
-      chat.toLowerCase().includes(term) ||
-      (lead.phone && lead.phone.includes(term)) ||
-      email.toLowerCase().includes(term) ||
-      status.toLowerCase().includes(term) ||
-      notes.toLowerCase().includes(term)
-    );
-  });
+  const filteredInquiries = inquiries
+    .filter(lead => {
+      // 1. Channel Filter
+      if (channelFilter === 'whatsapp' && !lead.hasWhatsApp) return false;
+      if (channelFilter === 'email' && !lead.hasEmail) return false;
+      if (channelFilter === 'both' && (!lead.hasWhatsApp || !lead.hasEmail)) return false;
+
+      // 2. Search Term Filter
+      const term = searchTerm.toLowerCase();
+      const status = lead.status || '未跟進';
+      const notes = (lead.whatsappData?.notes || '') + (lead.emailData?.notes || '');
+      const chat = (lead.whatsappData?.chat_history || '') + (lead.emailData?.inquiry || '');
+      const email = lead.emailData?.email || '';
+      
+      return (
+        lead.name.toLowerCase().includes(term) ||
+        chat.toLowerCase().includes(term) ||
+        (lead.phone && lead.phone.includes(term)) ||
+        email.toLowerCase().includes(term) ||
+        status.toLowerCase().includes(term) ||
+        notes.toLowerCase().includes(term)
+      );
+    })
+    .sort((a, b) => {
+      // 3. Sorting logic
+      if (sortBy === 'dateNewest') {
+        return (b.raw_date || '').localeCompare(a.raw_date || '');
+      }
+      if (sortBy === 'dateOldest') {
+        return (a.raw_date || '').localeCompare(b.raw_date || '');
+      }
+      if (sortBy === 'convLongest') {
+        const lenA = (a.whatsappData?.chat_history || '').length + (a.emailData?.inquiry || '').length;
+        const lenB = (b.whatsappData?.chat_history || '').length + (b.emailData?.inquiry || '').length;
+        return lenB - lenA;
+      }
+      if (sortBy === 'convShortest') {
+        const lenA = (a.whatsappData?.chat_history || '').length + (a.emailData?.inquiry || '').length;
+        const lenB = (b.whatsappData?.chat_history || '').length + (b.emailData?.inquiry || '').length;
+        return lenA - lenB;
+      }
+      if (sortBy === 'mediaMost') {
+        const mediaA = extractMediaItems(a.whatsappData?.chat_history || '', a.name || '').length;
+        const mediaB = extractMediaItems(b.whatsappData?.chat_history || '', b.name || '').length;
+        return mediaB - mediaA;
+      }
+      if (sortBy === 'mediaLeast') {
+        const mediaA = extractMediaItems(a.whatsappData?.chat_history || '', a.name || '').length;
+        const mediaB = extractMediaItems(b.whatsappData?.chat_history || '', b.name || '').length;
+        return mediaA - mediaB;
+      }
+      return 0;
+    });
 
   // Group by date for calendar view
   const groupedByDate = filteredInquiries.reduce((acc, lead) => {
@@ -359,35 +398,73 @@ export default function UnifiedInbox() {
       </div>
 
       {/* Search and Filter */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-        <div className="relative w-full md:w-80">
-          <input
-            type="text"
-            placeholder="搜尋名稱、對話內容、電話或狀態..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-gray-50 text-sm"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
-        </div>
-        
-        <div className="flex items-center gap-2 bg-gray-100 p-1 rounded-xl">
-          <button
-            onClick={() => setViewMode('table')}
-            className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-colors ${viewMode === 'table' ? 'bg-white shadow text-gray-800' : 'text-gray-500 hover:text-gray-700'}`}
-          >
-            列表檢視 (Table)
-          </button>
-          <button
-            onClick={() => setViewMode('calendar')}
-            className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-colors ${viewMode === 'calendar' ? 'bg-white shadow text-gray-800' : 'text-gray-500 hover:text-gray-700'}`}
-          >
-            日曆檢視 (Calendar)
-          </button>
+      <div className="flex flex-col lg:flex-row gap-4 mb-6 items-stretch lg:items-center justify-between bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+        <div className="flex flex-col md:flex-row gap-3 flex-1 items-stretch md:items-center">
+          {/* Search Input */}
+          <div className="relative flex-1 max-w-xs">
+            <input
+              type="text"
+              placeholder="搜尋名稱、電話、內容..."
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-gray-50 text-sm"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
+          </div>
+
+          {/* Channel Filter Select */}
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-gray-500 whitespace-nowrap">渠道：</span>
+            <select
+              value={channelFilter}
+              onChange={(e) => setChannelFilter(e.target.value as any)}
+              className="px-3 py-2 border border-gray-300 rounded-xl bg-gray-50 text-xs font-semibold focus:ring-2 focus:ring-indigo-500 outline-none cursor-pointer"
+            >
+              <option value="all">全部渠道 (All)</option>
+              <option value="whatsapp">僅限 WhatsApp</option>
+              <option value="email">僅限 Calendly (Email)</option>
+              <option value="both">雙渠道 (WhatsApp + Email)</option>
+            </select>
+          </div>
+
+          {/* Sort Select */}
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-gray-500 whitespace-nowrap">排序：</span>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as any)}
+              className="px-3 py-2 border border-gray-300 rounded-xl bg-gray-50 text-xs font-semibold focus:ring-2 focus:ring-indigo-500 outline-none cursor-pointer"
+            >
+              <option value="dateNewest">最後聯繫：最新 → 最舊</option>
+              <option value="dateOldest">最後聯繫：最舊 → 最新</option>
+              <option value="convLongest">對話長度：最長 → 最短</option>
+              <option value="convShortest">對話長度：最短 → 最長</option>
+              <option value="mediaMost">媒體檔案：最多 → 最少</option>
+              <option value="mediaLeast">媒體檔案：最少 → 最多</option>
+            </select>
+          </div>
         </div>
 
-        <div className="text-sm font-bold text-gray-500">
-          顯示 {filteredInquiries.length} 筆項目
+        <div className="flex items-center justify-between lg:justify-end gap-4 mt-2 lg:mt-0">
+          {/* View Mode Toggle */}
+          <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl">
+            <button
+              onClick={() => setViewMode('table')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${viewMode === 'table' ? 'bg-white shadow text-gray-800' : 'text-gray-500 hover:text-gray-700'}`}
+            >
+              列表 (Table)
+            </button>
+            <button
+              onClick={() => setViewMode('calendar')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${viewMode === 'calendar' ? 'bg-white shadow text-gray-800' : 'text-gray-500 hover:text-gray-700'}`}
+            >
+              日曆 (Calendar)
+            </button>
+          </div>
+
+          <div className="text-xs font-bold text-gray-500 whitespace-nowrap">
+            顯示 {filteredInquiries.length} 筆項目
+          </div>
         </div>
       </div>
 
