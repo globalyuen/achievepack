@@ -177,6 +177,8 @@ export default function Footer() {
               <li><Link to="/industry/pet-food-quad-seal" className="hover:text-primary-400 font-medium text-primary-400">Pet Food Quad Seal Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/sustainable-healthcare-packaging" className="hover:text-primary-400 font-medium text-primary-400">Sustainable Healthcare <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/meat-jerky-packaging" className="hover:text-primary-400 font-medium text-primary-400">Meat Jerky Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/industry/automatic-labeling-machine" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.automaticLabeling', 'Automatic Labeling Machine')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/industry/stock-bag-spouted-pouch" className="hover:text-primary-400 font-medium text-primary-400">{t('pouchEcoFooter.stockSpoutedPouch', 'Stock Spouted Pouch')} <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 

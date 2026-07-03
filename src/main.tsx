@@ -276,7 +276,6 @@ const PouchPCRPackagingGuidePage = lazyWithRetry(() => import('./pages/pouch/top
 const PouchFoodPackagingSupplierServicePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchFoodPackagingSupplierServicePage'))
 const PouchEcoFriendlySupplierServicePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchEcoFriendlySupplierServicePage'))
 const PouchCustomBrandPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCustomBrandPackagingPage'))
-const PouchReduceWasteGuidePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchReduceWasteGuidePage'))
 const PouchCompostableBabyFoodBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableBabyFoodBagsPage'))
 const PouchGreenCoffeeMaterialsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchGreenCoffeeMaterialsPage'))
 const PouchRecyclableSnackPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecyclableSnackPackagingPage'))
@@ -932,8 +931,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/food-packaging-supplier" element={<PouchFoodPackagingSupplierServicePage />} />
                   <Route path="/topics/eco-friendly-packaging-supplier" element={<PouchEcoFriendlySupplierServicePage />} />
                   <Route path="/topics/custom-packaging" element={<PouchCustomBrandPackagingPage />} />
-                  <Route path="/topics/reduce-packaging-waste" element={<PouchReduceWasteGuidePage />} />
-                  <Route path="/topics/reduce-waste-guide" element={<PouchReduceWasteGuidePage />} />
+                   <Route path="/topics/reduce-packaging-waste" element={<PouchReducePackagingWasteGuidePage />} />
+                   <Route path="/topics/reduce-waste-guide" element={<PouchReducePackagingWasteGuidePage />} />
                   <Route path="/topics/compostable-baby-food-bags" element={<PouchCompostableBabyFoodBagsPage />} />
                   <Route path="/topics/green-coffee-materials" element={<PouchGreenCoffeeMaterialsPage />} />
                   <Route path="/topics/recyclable-snack-packaging" element={<PouchRecyclableSnackPackagingPage />} />
@@ -1296,7 +1295,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/industry/high-barrier-retort" element={<HighbarrierretortPage />} />
                         <Route path="/industry/custom-spout-pouches" element={<CustomspoutpouchesPage />} />
                         <Route path="/industry/automatic-labeling-machine" element={<AutomaticLabelingMachinePage />} />
-                        <Route path="/industry/stock-bag-spouted-pouch" element={<StockbagspoutedpouchPage />} />
+                  <Route path="/industry/stock-bag-spouted-pouch" element={<StockbagspoutedpouchPage />} />
                         <Route path="/industry/pet-food-quad-seal" element={<PetfoodquadsealPage />} />
                         <Route path="/industry/kraft-window-pouch" element={<KraftwindowpouchPage />} />
                         <Route path="/industry/matcha-supplement-sachets" element={<MatchasupplementsachetsPage />} />
