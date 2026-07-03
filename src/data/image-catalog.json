@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-03",
-  "total_images": 4746,
-  "total_categories": 189,
+  "total_images": 4771,
+  "total_categories": 194,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 457,
+    ".jpg": 482,
     ".svg": 3
   },
   "categories": {
@@ -24952,8 +24952,68 @@
       ]
     },
     "store/products": {
-      "count": 324,
+      "count": 334,
       "images": [
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-10.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.101Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-7.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.100Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-8.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.100Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-9.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.100Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-5.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.099Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-6.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.099Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-2.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.098Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-3.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.098Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-4.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.098Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-1.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:16.097Z"
+        },
         {
           "filename": "reusable-acrylic-airtight-canister-thumbnail-2.jpg",
           "path": "/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-2.jpg",
@@ -29329,6 +29389,121 @@
           "path": "/imgs/topics/electronics-anti-static/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T23:17:42.047Z"
+        }
+      ]
+    },
+    "topics/euro-hole-hang": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/euro-hole-hang/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:26:44.109Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/euro-hole-hang/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:26:17.772Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/euro-hole-hang/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:25:54.429Z"
+        }
+      ]
+    },
+    "topics/evoh-retort": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/evoh-retort/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:27:56.044Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/evoh-retort/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:27:15.934Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/evoh-retort/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:27:00.881Z"
+        }
+      ]
+    },
+    "topics/fast-air-freight": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/fast-air-freight/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:28:59.113Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/fast-air-freight/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:28:38.651Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/fast-air-freight/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:28:19.336Z"
+        }
+      ]
+    },
+    "topics/fda-brc-certified": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/fda-brc-certified/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:32:27.872Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/fda-brc-certified/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:30:20.452Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/fda-brc-certified/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:29:27.959Z"
+        }
+      ]
+    },
+    "topics/frozen-vacuum": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/frozen-vacuum/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:33:53.730Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/frozen-vacuum/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:33:14.359Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/frozen-vacuum/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:32:49.141Z"
         }
       ]
     },

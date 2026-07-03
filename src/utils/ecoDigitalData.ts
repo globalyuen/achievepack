@@ -15,6 +15,7 @@ export type PouchShape =
   | 'Flat Squared Bottom Pouch'
   | 'Quad Seal Pouch'
   | 'Side Gusset Pouch'
+  | 'Shrink Sleeve'
 
 // Material types
 export type EcoMaterial =
@@ -169,6 +170,7 @@ export const PACKAGING_SHAPE_FACTORS: Record<PouchShape, {
   'Flat Squared Bottom Pouch': { cost: 100.00, weight: 20.00, multiplier: 1.40 },
   'Quad Seal Pouch': { cost: 50.00, weight: 20.00, multiplier: 1.15 },
   'Side Gusset Pouch': { cost: 30.00, weight: 20.00, multiplier: 1.10 },
+  'Shrink Sleeve': { cost: -50.00, weight: -10.00, multiplier: 0.50 },
 }
 
 // MATERIALS_FACTORS

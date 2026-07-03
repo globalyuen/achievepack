@@ -9598,6 +9598,50 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://pouch.eco/packaging/shrink-sleeves</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/packaging/shrink-sleeves" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/fr/packaging/shrink-sleeves</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/packaging/shrink-sleeves" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/es/packaging/shrink-sleeves</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/packaging/shrink-sleeves" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/zh-tw/packaging/shrink-sleeves</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/packaging/shrink-sleeves" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/packaging/shrink-sleeves" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://pouch.eco/packaging/side-gusset-bags</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/packaging/side-gusset-bags" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/packaging/side-gusset-bags" />
@@ -13113,6 +13157,50 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/shop/eco-quadseal" />
     <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/shop/eco-quadseal" />
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/shop/eco-quadseal" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/shop/eco-shrinksleeve</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/shop/eco-shrinksleeve" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/fr/shop/eco-shrinksleeve</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/shop/eco-shrinksleeve" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/es/shop/eco-shrinksleeve</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/shop/eco-shrinksleeve" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pouch.eco/zh-tw/shop/eco-shrinksleeve</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pouch.eco/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pouch.eco/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pouch.eco/fr/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pouch.eco/es/shop/eco-shrinksleeve" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://pouch.eco/zh-tw/shop/eco-shrinksleeve" />
     <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

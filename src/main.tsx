@@ -242,6 +242,7 @@ const SustainableteasachetsPage = lazyWithRetry(() => import('./pages/composting
 const MeatjerkypackagingPage = lazyWithRetry(() => import('./pages/composting/meatjerkypackagingPage'))
 const BrownwhitekraftPage = lazyWithRetry(() => import('./pages/composting/brownwhitekraftPage'))
 const StandUpPouchesPage = lazyWithRetry(() => import('./pages/packaging/StandUpPouchesPage'))
+const ShrinkSleevesPage = lazyWithRetry(() => import('./pages/packaging/ShrinkSleevesPage'))
 const FlatBottomBagsPage = lazyWithRetry(() => import('./pages/packaging/FlatBottomBagsPage'))
 const SpoutPouchesPage = lazyWithRetry(() => import('./pages/packaging/SpoutPouchesPage'))
 const FlatPouchesPage = lazyWithRetry(() => import('./pages/packaging/FlatPouchesPage'))
@@ -860,6 +861,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/function/large-format-kraft-heavy-bags" element={<LargeFormatKraftHeavyBagPage />} />
                   <Route path="/function/pre-zippered-rollstock" element={<PreZipperedRollstockPage />} />
                   <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
+                  <Route path="/packaging/shrink-sleeves" element={<ShrinkSleevesPage />} />
                   <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
                   <Route path="/packaging/side-gusset-bags" element={<PouchSideGussetBagsPage />} />
                   <Route path="/packaging/custom-boxes" element={<PouchCustomBoxesPage />} />
@@ -1359,6 +1361,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/packaging/flat-pouches" element={<FlatPouchesPage />} />
                         <Route path="/packaging/side-gusset-bags" element={<SideGussetBagsPage />} />
                         <Route path="/packaging/vacuum-pouches" element={<VacuumPouchesPage />} />
+                        <Route path="/packaging/shrink-sleeves" element={<ShrinkSleevesPage />} />
                         <Route path="/packaging/custom-boxes" element={<CustomBoxesPage />} />
 
                         {/* Materials Pages */}

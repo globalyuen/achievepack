@@ -983,6 +983,40 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     },
     videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
+
+  // Shrink Sleeve
+  {
+    id: 'eco-shrinksleeve',
+    name: 'Eco Digital – Shrink Sleeve',
+    category: 'eco-digital',
+    description: 'Custom PET heat shrink bottle label sleeves with color logo printing. Perfect for 360-degree bottle branding.',
+    shortDesc: 'From US$90 for 1,000 pcs',
+    features: ['Recyclable PET (♻️ 1)', '360° Branding', 'High Shrinkage Ratio', 'Water-Resistant'],
+    images: [
+      '/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-2.jpg',
+      '/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-4.jpg',
+      '/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-5.jpg',
+      '/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-8.jpg'
+    ],
+    badge: '♻️ Recyclable #1',
+    rating: 4.9,
+    reviews: 182,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Shrink Sleeve',
+    basePrice: 90,
+    ecoConfig: {
+      defaultMaterial: 'Mono Recyclable Plastic',
+      defaultSize: 'XS',
+      defaultQuantity: '1,000 (Digital print)',
+      defaultDesignCount: 1,
+      defaultBarrier: 'mid clear mid barrier (Optional Window)',
+      defaultStiffness: 'No Paper Lining (standard)',
+      defaultZipper: 'No',
+      defaultShippingMethod: 'Air Freight',
+    },
+  },
   {
     id: 'media__1780570697340.jpg',
     name: 'Custom Eco Rollstock',

@@ -27,6 +27,7 @@ const SHAPES = [
   { id: 'Stand Up Pouch / Doypack', label: 'Stand Up Pouch' },
   { id: 'Flat Squared Bottom Pouch', label: 'Flat Bottom' },
   { id: 'Side Gusset Pouch', label: 'Side Gusset' },
+  { id: 'Shrink Sleeve', label: 'Shrink Sleeve' },
   { id: 'Quad Seal Pouch', label: 'Quad Seal' },
   { id: '3 Side Seal Pouch', label: '3 Side Seal' },
   { id: 'Spouted Stand Up Pouch', label: 'Spouted Pouch' },

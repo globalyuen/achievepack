@@ -13,6 +13,7 @@ export type ShapeType =
   | 'Side Gusset Pouch'
   | 'Label & Sticker'
   | 'Spouted Stand Up Pouch'
+  | 'Shrink Sleeve'
 
 export type ClosureType = 'No' | 'Regular Zipper' | 'One-Sided Zipper' | 'Child Resistant Zipper' | 'Slider' | 'Tin Tie' | 'Spout'
 export type SurfaceType = 'Glossy' | 'Matt' | 'Metallic' | 'Soft Touch' | 'Emboss' | 'Stamp Foil'
@@ -50,6 +51,7 @@ const shapeNameMap: Record<ShapeType, string> = {
   'Side Gusset Pouch': 'side -seal',
   'Label & Sticker': 'label-sticker',
   'Spouted Stand Up Pouch': 'spout',
+  'Shrink Sleeve': 'shrink-sleeve',
 }
 
 const closureMap: Record<ClosureType, string> = {
@@ -101,6 +103,10 @@ export function getProductImage(options: ImageMapperOptions): string {
 
   if (shape === 'Label & Sticker') {
     return '/taobao/pla-compostable-clear-label/clear-label-hygiene-cover.jpg'
+  }
+
+  if (shape === 'Shrink Sleeve') {
+    return '/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-2.jpg'
   }
 
   const shapeName = shapeNameMap[shape]

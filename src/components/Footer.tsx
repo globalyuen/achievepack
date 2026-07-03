@@ -93,6 +93,7 @@ export default function Footer() {
               <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.flatPouches', 'Flat Pouches')}</Link></li>
               <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">{t('pouchEcoFooter.sideGussetBags', 'Side Gusset Bags')}</Link></li>
               <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">{t('pouchEcoFooter.customBoxes', 'Custom Boxes')}</Link></li>
+              <li><Link to="/packaging/shrink-sleeves" className="hover:text-primary-400 font-medium text-primary-400">Shrink Sleeves <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/quotes/rollstock" className="hover:text-primary-400">{t('pouchEcoFooter.rollstock', 'Rollstock')}</Link></li>
               <li><Link to="/industry/stock-bag-spouted-pouch" className="hover:text-primary-400 font-medium text-primary-400">Stock Spouted Pouch <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/industry/automatic-labeling-machine" className="hover:text-primary-400 font-medium text-primary-400">Labeling Machine <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>

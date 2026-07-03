@@ -101,6 +101,7 @@ const SHAPES = [
   { id: 'Flat Squared Bottom Pouch', label: 'Flat Bottom' },
   { id: 'Quad Seal Pouch', label: 'Quad Seal' },
   { id: 'Side Gusset Pouch', label: 'Side Gusset' },
+  { id: 'Shrink Sleeve', label: 'Shrink Sleeve' },
   { id: 'Spouted Stand Up Pouch', label: 'Spouted Stand Up' },
   { id: 'Header Bag', label: 'Header Bag' },
   { id: 'Mailer Bag', label: 'Mailer Bag' },
@@ -229,6 +230,17 @@ const SHAPE_ITEMS = [
         <path d="M44 25 V70" strokeWidth="1.5" />
         <path d="M56 25 V70" strokeWidth="1.5" strokeDasharray="2 2" />
         <line x1="35" y1="20" x2="65" y2="20" strokeWidth="1.5" />
+      </svg>
+    )
+  },
+  {
+    id: 'Shrink Sleeve',
+    label: 'Shrink Sleeve',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M35 15 C 35 15, 45 12, 50 12 C 55 12, 65 15, 65 15 V 65 C 65 65, 55 68, 50 68 C 45 68, 35 65, 35 65 Z" stroke="currentColor" strokeWidth="2.2" fill="none" />
+        <path d="M35 25 C 35 25, 45 22, 50 22 C 55 22, 65 25, 65 25" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <path d="M35 55 C 35 55, 45 52, 50 52 C 55 52, 65 55, 65 55" stroke="currentColor" strokeWidth="1.5" fill="none" />
       </svg>
     )
   },

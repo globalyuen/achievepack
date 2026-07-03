@@ -26,6 +26,7 @@ const LEARN_PAGES = {
       { name: 'Flat Pouches', link: '/packaging/flat-pouches', image: '/imgs/illustrated/a_achievepack_flat_pouches_0260646.webp' },
       { name: 'Spout Pouches', link: '/packaging/spout-pouches', image: '/imgs/illustrated/a_achievepack_spout_pouches_1062736.webp' },
       { name: 'Vacuum Pouches', link: '/packaging/vacuum-pouches', image: '/imgs/illustrated/a_achievepack_vacuum_pouches_8597303.webp' },
+      { name: 'Shrink Sleeves', link: '/packaging/shrink-sleeves', image: '/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-2.jpg' },
       { name: 'Custom Boxes', link: '/packaging/custom-boxes', image: '/imgs/illustrated/a_achievepack_custom_boxes_6574270.webp' },
     ]
   },
