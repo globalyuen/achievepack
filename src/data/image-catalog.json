@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-03",
-  "total_images": 4707,
-  "total_categories": 176,
+  "total_images": 4716,
+  "total_categories": 179,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 418,
+    ".jpg": 427,
     ".svg": 3
   },
   "categories": {
@@ -29099,6 +29099,75 @@
           "path": "/imgs/topics/candy-uv/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T06:44:34.171Z"
+        }
+      ]
+    },
+    "topics/matcha-sachet": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/matcha-sachet/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:57:52.952Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/matcha-sachet/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:57:52.951Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/matcha-sachet/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:57:52.949Z"
+        }
+      ]
+    },
+    "topics/pharma-velcro": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/pharma-velcro/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:54:55.859Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/pharma-velcro/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:54:55.858Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/pharma-velcro/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:54:55.856Z"
+        }
+      ]
+    },
+    "topics/valve-coffee-bags": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/valve-coffee-bags/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:55:52.460Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/valve-coffee-bags/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:55:52.458Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/valve-coffee-bags/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T06:55:52.456Z"
         }
       ]
     },
