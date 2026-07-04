@@ -14,6 +14,7 @@ import { HeroGrainBackground } from '../components/HeroGrainBackground'
 import Newsletter from '../components/Newsletter'
 import { useStore } from '../store/StoreContext'
 import ProductCarousel from '../components/ProductCarousel'
+import ProductCatalogBanner from '../components/ProductCatalogBanner'
 import { ThreePouchViewer } from '../components/ThreePouchViewer'
 import { FEATURED_PRODUCTS } from '../store/productData'
 import { useProductTranslation } from '../utils/productTranslation'
@@ -248,6 +249,7 @@ export default function PouchEcoHomePage() {
           </button>
         </div>
       </nav>
+      <ProductCatalogBanner />
 
       {/* Hero Section with Dark Background */}
       <section className="relative pt-16 pb-24 border-b-4 border-black overflow-hidden bg-neutral-900">

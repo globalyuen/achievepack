@@ -25,6 +25,7 @@ import { getDomain, getBrandConfig, getBaseUrl } from './utils/domain'
 import QuoteLightbox from './components/QuoteLightbox';
 import { ThreePouchViewer } from './components/ThreePouchViewer';
 import ProductCarousel from './components/ProductCarousel';
+import ProductCatalogBanner from './components/ProductCatalogBanner';
 
 // Error boundary to handle chunk loading failures
 class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -913,6 +914,7 @@ function App() {
         </div>
 
       </nav>
+      <ProductCatalogBanner />
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (

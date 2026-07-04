@@ -3080,7 +3080,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     inStock: true,
     turnaround: '3-5 days',
     minOrder: 1,
-    shape: 'Hand-Clamp Heat Sealer',
+    shape: 'Machinery',
     material: 'High-Strength Steel & PTFE Heat-Resistant Coating',
     basePrice: 91.14,
     pricePerPiece: 91.14,
@@ -9452,8 +9452,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       "Durable stainless steel construction"
     ],
     images: [
-      '/imgs/machinery/labeling_machine_logo_1782952599869.jpg',
       '/imgs/machinery/labeling_machine_1_1782950839286.jpg',
+      '/imgs/machinery/labeling_machine_logo_1782952599869.jpg',
       '/imgs/machinery/labeling_machine_2_1782950885955.jpg',
       '/imgs/machinery/labeling_machine_3_1782950910958.jpg',
       '/imgs/machinery/labeling_machine_4_1782950967899.jpg',
