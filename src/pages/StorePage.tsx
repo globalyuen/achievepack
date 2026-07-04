@@ -105,8 +105,7 @@ const SHAPES = [
   { id: 'Spouted Stand Up Pouch', label: 'Spouted Stand Up' },
   { id: 'Header Bag', label: 'Header Bag' },
   { id: 'Mailer Bag', label: 'Mailer Bag' },
-  { id: 'Corrugated Box', label: 'Corrugated Box' },
-  { id: 'Tuck Box', label: 'Tuck Box' },
+  { id: 'Box', label: 'Box' },
   { id: 'Label & Sticker', label: 'Label & Sticker' },
   { id: 'Wrapping Paper', label: 'Wrapping Paper' },
   { id: 'Machinery', label: 'Machinery' },
@@ -155,6 +154,23 @@ const getProductClassification = (product: StoreProduct): 'compostable' | 'recyc
   }
   
   return 'conventional'
+}
+
+const getProductSustainability = (product: StoreProduct): 'conventional' | 'recyclable' | 'compostable' | 'reusable' | 'other' => {
+  const name = product.name.toLowerCase()
+  const id = product.id.toLowerCase()
+  const subCat = ('subCategory' in product ? (product.subCategory || '') : '').toLowerCase()
+  
+  if (subCat === 'reusable' || id.includes('reusable') || name.includes('reusable')) {
+    return 'reusable'
+  }
+  
+  const cat = (product.category || '').toLowerCase()
+  if (cat.includes('machinery') || id.includes('machine') || name.includes('machine') || id.includes('sample-kit') || id.includes('color-swatch')) {
+    return 'other'
+  }
+  
+  return getProductClassification(product)
 }
 
 const SHAPE_ITEMS = [
@@ -296,7 +312,7 @@ const SHAPE_ITEMS = [
     )
   },
   {
-    id: 'Corrugated Box',
+    id: 'Box',
     label: 'Box',
     icon: (
       <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
@@ -375,12 +391,25 @@ const StorePage: React.FC = () => {
   const [selectedShape, setSelectedShape] = useState<string>(urlShape)
   const [selectedSubMaterial, setSelectedSubMaterial] = useState<string>('all')
   const [selectedSubType, setSelectedSubType] = useState<string>('all')
+  const [selectedSustainability, setSelectedSustainability] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortBy, setSortBy] = useState<SortOption>('popularity')
   const [isSortOpen, setIsSortOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
+  const [isSandboxCollapsed, setIsSandboxCollapsed] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('store_sandbox_collapsed') === 'true'
+    }
+    return false
+  })
+  const [isShippingCollapsed, setIsShippingCollapsed] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('store_shipping_collapsed') === 'true'
+    }
+    return false
+  })
 
   const shapeContainerRef = useRef<HTMLDivElement>(null)
   const [isShapeHovered, setIsShapeHovered] = useState(false)
@@ -460,11 +489,11 @@ const StorePage: React.FC = () => {
   }, [isShapeHovered])
 
   const scrollShapesLeft = () => {
-    shapeContainerRef.current?.scrollBy({ left: -260, behavior: 'smooth' })
+    shapeContainerRef.current?.scrollBy({ left: -234, behavior: 'smooth' })
   }
 
   const scrollShapesRight = () => {
-    shapeContainerRef.current?.scrollBy({ left: 260, behavior: 'smooth' })
+    shapeContainerRef.current?.scrollBy({ left: 234, behavior: 'smooth' })
   }
 
 
@@ -488,11 +517,7 @@ const StorePage: React.FC = () => {
       }
     })
     return counts
-  }, [])
-
-
-
-  // Sync state with URL params when they change
+  }, [])  // Sync state with URL params when they change
   useEffect(() => {
     const newCategory = searchParams.get('category') || 'all'
     const newShape = searchParams.get('shape') || 'all'
@@ -501,8 +526,9 @@ const StorePage: React.FC = () => {
       setSelectedShape(newShape)
       setSelectedSubMaterial('all')
       setSelectedSubType('all')
+      setSelectedSustainability('all')
     }
-  }, [searchParams])
+  }, [searchParams, selectedCategory, selectedShape])
 
   // Debounced search handler for INP optimization
   const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -532,6 +558,7 @@ const StorePage: React.FC = () => {
       setSelectedShape(nextShape)
       setSelectedSubMaterial('all')
       setSelectedSubType('all')
+      setSelectedSustainability('all')
       const newParams = new URLSearchParams(searchParams)
       if (nextShape === 'all') {
         newParams.delete('shape')
@@ -541,7 +568,6 @@ const StorePage: React.FC = () => {
       setSearchParams(newParams, { replace: true })
     })
   }, [selectedShape, searchParams, setSearchParams])
-
   const handleSortChange = useCallback((option: SortOption) => {
     setSortBy(option)
     setIsSortOpen(false)
@@ -653,7 +679,7 @@ const StorePage: React.FC = () => {
         lowerShape.includes('tuck') || 
         lowerShape.includes('corrugated')
       ) {
-        return 'Corrugated Box'
+        return 'Box'
       }
       
       // 12. Label & Sticker
@@ -677,8 +703,9 @@ const StorePage: React.FC = () => {
         'Spouted Stand Up Pouch': 'Spouted Stand Up Pouch',
         'Header Bag': 'Header Bag',
         'Mailer Bag': 'Mailer Bag',
-        'Corrugated Box': 'Corrugated Box',
-        'Tuck Box': 'Tuck Box',
+        'Corrugated Box': 'Box',
+        'Tuck Box': 'Box',
+        'Box': 'Box',
         'Label & Sticker': 'Label & Sticker',
         'Machinery': 'Machinery',
       }
@@ -697,7 +724,7 @@ const StorePage: React.FC = () => {
     'spout': 'Spouted Stand Up Pouch',
     'spouted-stand-up': 'Spouted Stand Up Pouch',
     'mailer': 'Mailer Bag',
-    'box': 'Corrugated Box',
+    'box': 'Box',
     'label': 'Label & Sticker',
     'wrapping-paper': 'Wrapping Paper',
     'machinery': 'Machinery'
@@ -759,10 +786,12 @@ const StorePage: React.FC = () => {
         
         const matchesSubType = selectedSubType === 'all' || productType === selectedSubType
         
-        return matchesCategory && matchesSearch && matchesShape && matchesSubMaterial && matchesSubType
+        const matchesSustainability = selectedSustainability === 'all' || getProductSustainability(product) === selectedSustainability
+        
+        return matchesCategory && matchesSearch && matchesShape && matchesSubMaterial && matchesSubType && matchesSustainability
       })
     )
-  }, [selectedCategory, searchQuery, selectedShape, selectedSubMaterial, selectedSubType, currentLang])
+  }, [selectedCategory, searchQuery, selectedShape, selectedSubMaterial, selectedSubType, selectedSustainability, currentLang])
 
   const sortedProducts = useMemo(() => {
     return [...filteredProducts].sort((a, b) => {
@@ -871,7 +900,9 @@ const StorePage: React.FC = () => {
                             item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             item.description.toLowerCase().includes(searchQuery.toLowerCase());
       
-      return matchesCategory && matchesShape && matchesSearch;
+      const matchesSustainability = selectedSustainability === 'all' || getProductSustainability(item) === selectedSustainability;
+      
+      return matchesCategory && matchesShape && matchesSearch && matchesSustainability;
     });
 
     if (selectedShape !== 'all') {
@@ -883,7 +914,7 @@ const StorePage: React.FC = () => {
     }
 
     return sortedProducts;
-  }, [sortedProducts, selectedShape, searchQuery, selectedCategory]);
+  }, [sortedProducts, selectedShape, searchQuery, selectedCategory, selectedSustainability]);
 
   const getSortLabel = (sort: SortOption) => {
     const labels: Record<SortOption, string> = {
@@ -946,6 +977,45 @@ const StorePage: React.FC = () => {
 
             {/* Right Actions */}
             <div className="hidden lg:flex items-center space-x-3">
+              {isSandboxCollapsed && (
+                <button
+                  onClick={() => {
+                    setIsSandboxCollapsed(false)
+                    localStorage.setItem('store_sandbox_collapsed', 'false')
+                  }}
+                  className="relative w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-600 flex items-center justify-center text-white transition-colors cursor-pointer group"
+                  title="Show Payment Sandbox Warning"
+                >
+                  <AlertTriangle className="h-5 w-5" />
+                  <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-neutral-900/95 text-white text-[11px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-205 z-50 border border-neutral-800">
+                    <div className="flex items-start gap-1">
+                      <span>🚧</span>
+                      <span>Payment system is under testing (Sandbox Mode) - No payments can be processed. Click to expand warning details.</span>
+                    </div>
+                    <div className="absolute bottom-full right-3 border-4 border-transparent border-b-neutral-900" />
+                  </div>
+                </button>
+              )}
+              {isShippingCollapsed && (
+                <button
+                  onClick={() => {
+                    setIsShippingCollapsed(false)
+                    localStorage.setItem('store_shipping_collapsed', 'false')
+                  }}
+                  className="relative w-10 h-10 rounded-full bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center text-white transition-colors cursor-pointer group"
+                  title="Show Shipping Offer"
+                >
+                  <Plane className="h-5 w-5 animate-pulse" />
+                  <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-neutral-900/95 text-white text-[11px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-205 z-50 border border-neutral-800">
+                    <div className="flex items-start gap-1">
+                      <span>✈️</span>
+                      <span>Special Offer: Free Air Shipping for stock packaging orders above USD $200! Click to expand offer details.</span>
+                    </div>
+                    <div className="absolute bottom-full right-3 border-4 border-transparent border-b-neutral-900" />
+                  </div>
+                </button>
+              )}
+
               <button
                 onClick={() => {
                   if (cartCount === 0) {
@@ -974,6 +1044,39 @@ const StorePage: React.FC = () => {
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center gap-2">
+              {isSandboxCollapsed && (
+                <button
+                  onClick={() => {
+                    setIsSandboxCollapsed(false)
+                    localStorage.setItem('store_sandbox_collapsed', 'false')
+                  }}
+                  className="relative w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-600 flex items-center justify-center text-white transition-colors cursor-pointer group"
+                  title="Show Payment Sandbox Warning"
+                >
+                  <AlertTriangle className="h-4.5 w-4.5" />
+                  <div className="absolute right-0 top-full mt-2 w-64 p-3 bg-neutral-900/95 text-white text-[10px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-neutral-800">
+                    <span>🚧 Sandbox Mode: Payment system under testing. Click to expand.</span>
+                    <div className="absolute bottom-full right-2.5 border-4 border-transparent border-b-neutral-900" />
+                  </div>
+                </button>
+              )}
+              {isShippingCollapsed && (
+                <button
+                  onClick={() => {
+                    setIsShippingCollapsed(false)
+                    localStorage.setItem('store_shipping_collapsed', 'false')
+                  }}
+                  className="relative w-9 h-9 rounded-full bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center text-white transition-colors cursor-pointer group"
+                  title="Show Shipping Offer"
+                >
+                  <Plane className="h-4.5 w-4.5" />
+                  <div className="absolute right-0 top-full mt-2 w-64 p-3 bg-neutral-900/95 text-white text-[10px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-neutral-800">
+                    <span>✈️ Special Offer: Free Air Shipping above $200! Click to expand.</span>
+                    <div className="absolute bottom-full right-2.5 border-4 border-transparent border-b-neutral-900" />
+                  </div>
+                </button>
+              )}
+
               <button
                 onClick={() => {
                   if (cartCount === 0) {
@@ -1054,38 +1157,65 @@ const StorePage: React.FC = () => {
       {/* Spacer for fixed header */}
       <div className="h-16"></div>
 
-      <div className="bg-amber-50 border-b border-amber-200">
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-            <div className="flex items-center gap-2 text-amber-800">
-              <AlertTriangle className="h-5 w-5 flex-shrink-0" />
-              <span className="font-medium">
-                🚧 Payment system is under testing (Sandbox Mode) - No payments can be processed
-              </span>
+      {/* Sandbox Warning Banner */}
+      {!isSandboxCollapsed && (
+        <div className="bg-amber-50 border-b border-amber-200 relative">
+          <div className="max-w-7xl mx-auto px-10 py-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+              <div className="flex items-center gap-2 text-amber-800">
+                <AlertTriangle className="h-5 w-5 flex-shrink-0" />
+                <span className="font-medium">
+                  🚧 Payment system is under testing (Sandbox Mode) - No payments can be processed
+                </span>
+              </div>
+              <a
+                href="mailto:checkout@achievepack.com?subject=Order%20Inquiry&body=Hi%2C%20I%20would%20like%20to%20place%20an%20order.%20Please%20contact%20me."
+                className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-colors whitespace-nowrap"
+              >
+                <Mail className="h-4 w-4" />
+                Contact Us to Order
+              </a>
             </div>
-            <a
-              href="mailto:checkout@achievepack.com?subject=Order%20Inquiry&body=Hi%2C%20I%20would%20like%20to%20place%20an%20order.%20Please%20contact%20me."
-              className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-colors whitespace-nowrap"
-            >
-              <Mail className="h-4 w-4" />
-              Contact Us to Order
-            </a>
           </div>
+          <button 
+            onClick={() => {
+              setIsSandboxCollapsed(true)
+              localStorage.setItem('store_sandbox_collapsed', 'true')
+            }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-amber-800 hover:text-amber-955 p-1.5 hover:bg-amber-100 rounded-full transition-all cursor-pointer"
+            title="Collapse Warning"
+            aria-label="Collapse warning"
+          >
+            <X className="h-4 w-4" />
+          </button>
         </div>
-      </div>
+      )}
 
       {/* Premium Free Air Shipping Announcement Banner */}
-      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-750 text-white border-b border-emerald-800 shadow-sm relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 py-2 sm:py-2.5">
-          <div className="flex items-center justify-center gap-2 text-center text-[10px] sm:text-xs font-semibold tracking-wide uppercase">
-            <Plane className="h-3.5 w-3.5 animate-bounce text-emerald-100 flex-shrink-0" />
-            <span>
-              ✈️ Special Offer: For all <span className="underline decoration-wavy decoration-emerald-300 font-extrabold text-amber-300">stock packaging</span> orders above <span className="bg-emerald-900/50 px-2 py-0.5 rounded-full font-bold text-amber-200">USD $200</span> enjoy <span className="text-amber-300 font-extrabold">Free Air Shipping!</span>
-            </span>
-            <Sparkles className="h-3 w-3 text-amber-300 hidden sm:inline" />
+      {!isShippingCollapsed && (
+        <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-750 text-white border-b border-emerald-800 shadow-sm relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-10 py-2 sm:py-2.5">
+            <div className="flex items-center justify-center gap-2 text-center text-[10px] sm:text-xs font-semibold tracking-wide uppercase">
+              <Plane className="h-3.5 w-3.5 animate-bounce text-emerald-100 flex-shrink-0" />
+              <span>
+                ✈️ Special Offer: For all <span className="underline decoration-wavy decoration-emerald-300 font-extrabold text-amber-300">stock packaging</span> orders above <span className="bg-emerald-900/50 px-2 py-0.5 rounded-full font-bold text-amber-200">USD $200</span> enjoy <span className="text-amber-300 font-extrabold">Free Air Shipping!</span>
+              </span>
+              <Sparkles className="h-3 w-3 text-amber-300 hidden sm:inline" />
+            </div>
           </div>
+          <button 
+            onClick={() => {
+              setIsShippingCollapsed(true)
+              localStorage.setItem('store_shipping_collapsed', 'true')
+            }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-100 hover:text-white p-1.5 hover:bg-emerald-700/50 rounded-full transition-all cursor-pointer"
+            title="Collapse Offer"
+            aria-label="Collapse offer"
+          >
+            <X className="h-4 w-4" />
+          </button>
         </div>
-      </div>
+      )}
       {/* Interactive Shape Filter Grid - Desktop Carousel */}
       <section className="hidden md:block bg-white border-b border-neutral-200 py-3.5 mb-2 select-none relative group/marquee">
         <style dangerouslySetInnerHTML={{ __html: `
@@ -1121,23 +1251,25 @@ const StorePage: React.FC = () => {
                   <button
                     key={`${item.id}-${idx}`}
                     onClick={() => handleShapeChange(item.id)}
-                    className={`flex-shrink-0 flex flex-col items-center justify-between py-3.5 px-4 w-[130px] h-[110px] border rounded-xl transition-all duration-200 group cursor-pointer relative overflow-hidden ${
+                    className={`flex-shrink-0 flex items-center justify-center w-16 h-16 border rounded-xl transition-all duration-200 group cursor-pointer relative overflow-visible ${
                       isActive 
-                        ? 'border-primary-500 bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 font-black shadow-sm' 
+                        ? 'border-primary-500 bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 shadow-sm' 
                         : 'border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600'
                     }`}
                   >
-                    <span className={`text-[10px] font-black uppercase text-center tracking-tight mb-2 min-h-[28px] flex items-center justify-center transition-colors duration-150 leading-tight whitespace-normal ${isActive ? 'text-primary-700 animate-pulse' : 'text-neutral-800 group-hover:text-primary-600'}`}>
-                      {item.label}
-                    </span>
-                    
-                    <div className={`w-12 h-9 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${isActive ? 'text-primary-600' : 'text-neutral-500 group-hover:text-neutral-800'}`}>
+                    <div className={`w-10 h-10 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${isActive ? 'text-primary-600' : 'text-neutral-500 group-hover:text-neutral-800'}`}>
                       {item.icon}
                     </div>
                     
+                    {/* Custom CSS Tooltip */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 bg-neutral-900 text-white text-[10px] font-black uppercase tracking-wider rounded-md shadow-md whitespace-nowrap pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 border border-neutral-800">
+                      {item.label}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-neutral-900" />
+                    </div>
+
                     {/* Premium bottom active highlight indicator */}
                     {isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-600" />
+                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-600 rounded-b-xl" />
                     )}
                   </button>
                 );
@@ -1165,23 +1297,25 @@ const StorePage: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => handleShapeChange(item.id)}
-                className={`flex-shrink-0 flex flex-col items-center justify-between py-3 px-2.5 w-[96px] border rounded-xl transition-all duration-200 snap-center relative overflow-hidden ${
+                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 border rounded-xl transition-all duration-200 snap-center relative overflow-visible ${
                   isActive 
-                    ? 'bg-gradient-to-b from-primary-50 to-primary-100/30 border-primary-500 text-primary-700 font-bold shadow-sm' 
+                    ? 'bg-gradient-to-b from-primary-50 to-primary-100/30 border-primary-500 text-primary-700 shadow-sm' 
                     : 'bg-white border-neutral-200 text-neutral-600 active:bg-neutral-50'
                 }`}
               >
-                <span className="text-[9px] font-black uppercase text-center tracking-tight mb-2 h-[20px] flex items-center justify-center line-clamp-2 leading-tight">
-                  {item.label}
-                </span>
-                
-                <div className={`w-9 h-9 flex items-center justify-center transition-transform duration-200 ${isActive ? 'text-primary-600' : 'text-neutral-400'}`}>
+                <div className={`w-8 h-8 flex items-center justify-center transition-transform duration-200 ${isActive ? 'text-primary-600' : 'text-neutral-400'}`}>
                   {item.icon}
+                </div>
+
+                {/* Mobile Tooltip/Tap reveal */}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-0.5 bg-neutral-900 text-white text-[9px] font-black uppercase tracking-wider rounded-md shadow-md whitespace-nowrap pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 border border-neutral-800">
+                  {item.label}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-neutral-900" />
                 </div>
                 
                 {/* Mobile bottom active indicator */}
                 {isActive && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500 rounded-b-xl" />
                 )}
               </button>
             );
@@ -1431,7 +1565,7 @@ const StorePage: React.FC = () => {
               </div>
 
               {/* Shape Filter */}
-              <div className="p-4">
+              <div className="p-4 border-b border-neutral-100">
                 <h4 className="font-bold text-neutral-900 mb-3">Shape</h4>
                 <ul className="space-y-2">
                   {SHAPES.map(shape => (
@@ -1447,6 +1581,30 @@ const StorePage: React.FC = () => {
                 </ul>
               </div>
 
+              {/* Sustainability Filter */}
+              <div className="p-4">
+                <h4 className="font-bold text-neutral-900 mb-3">Sustainability</h4>
+                <ul className="space-y-2">
+                  {[
+                    { id: 'all', label: 'All Levels' },
+                    { id: 'conventional', label: 'Conventional' },
+                    { id: 'recyclable', label: 'Recyclable' },
+                    { id: 'compostable', label: 'Compostable' },
+                    { id: 'reusable', label: 'Reusable' },
+                    { id: 'other', label: 'Other' },
+                  ].map(level => (
+                    <li key={level.id}>
+                      <button
+                        onClick={() => setSelectedSustainability(level.id)}
+                        className={`w-full text-left py-2 px-3 text-sm rounded-lg transition ${selectedSustainability === level.id ? 'bg-primary-50 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}
+                      >
+                        {level.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               {/* Apply Button */}
               <div className="sticky bottom-0 bg-white border-t border-neutral-200 p-4">
                 <button
@@ -1455,9 +1613,9 @@ const StorePage: React.FC = () => {
                 >
                   Apply Filters
                 </button>
-                {(selectedCategory !== 'all' || selectedShape !== 'all') && (
+                {(selectedCategory !== 'all' || selectedShape !== 'all' || selectedSustainability !== 'all') && (
                   <button
-                    onClick={() => { setSelectedCategory('all'); setSelectedShape('all'); }}
+                    onClick={() => { setSelectedCategory('all'); setSelectedShape('all'); setSelectedSustainability('all'); }}
                     className="w-full mt-2 py-2 text-primary-600 font-medium text-sm hover:underline"
                   >
                     Clear All Filters
@@ -1546,6 +1704,34 @@ const StorePage: React.FC = () => {
                         }`}
                       >
                         {shape.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Sustainability Filter */}
+              <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
+                <h3 className="font-bold text-neutral-900 mb-4">Sustainability</h3>
+                <ul className="space-y-2">
+                  {[
+                    { id: 'all', label: 'All Levels' },
+                    { id: 'conventional', label: 'Conventional' },
+                    { id: 'recyclable', label: 'Recyclable' },
+                    { id: 'compostable', label: 'Compostable' },
+                    { id: 'reusable', label: 'Reusable' },
+                    { id: 'other', label: 'Other' },
+                  ].map(level => (
+                    <li key={level.id}>
+                      <button
+                        onClick={() => setSelectedSustainability(level.id)}
+                        className={`w-full text-left py-1.5 text-sm transition flex items-center justify-between ${
+                          selectedSustainability === level.id
+                            ? 'text-primary-600 font-semibold'
+                            : 'text-neutral-600 hover:text-neutral-900'
+                        }`}
+                      >
+                        <span>{level.label}</span>
                       </button>
                     </li>
                   ))}
@@ -1690,6 +1876,7 @@ const StorePage: React.FC = () => {
                   onClick={() => { 
                     setSelectedCategory('all'); 
                     setSelectedShape('all');
+                    setSelectedSustainability('all');
                     setSearchQuery('') 
                   }}
                   className="mt-4 text-primary-600 font-medium hover:underline"

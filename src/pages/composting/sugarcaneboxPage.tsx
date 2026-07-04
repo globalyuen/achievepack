@@ -1,0 +1,132 @@
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Leaf, Beaker, Zap, Layers, BookOpen, MessageCircle } from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
+
+const SugarcaneboxPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.sugarcaneBox'
+
+  const getTranslationArray = <T = string,>(key: string): T[] => {
+    const val = t(key, { returnObjects: true })
+    return Array.isArray(val) ? (val as T[]) : []
+  }
+
+  const sections = [
+    {
+      id: 'mockup',
+      title: 'Packaging Box Showcase',
+      icon: <Leaf className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p className="text-sm text-neutral-600">Click the product mockups below to enlarge:</p>
+          <div className="grid md:grid-cols-2 gap-6 justify-center">
+            <div className="flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-1.jpg" 
+                alt={t(`${p}.title`)} 
+                className="max-w-full rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
+                caption={t(`${p}.title`) + " - Natural Bagasse Soap Box"}
+              />
+            </div>
+            <div className="flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-2.jpg" 
+                alt={t(`${p}.title`)} 
+                className="max-w-full rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
+                caption={t(`${p}.title`) + " - White Sugarcane Gift Box"}
+              />
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'detail1',
+      title: t(`${p}.sections.detail1.title`),
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700 leading-relaxed">
+          <p>{t(`${p}.sections.detail1.desc`)}</p>
+        </div>
+      )
+    },
+    {
+      id: 'specifications',
+      title: t(`${p}.sections.specifications.title`),
+      icon: <Zap className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700 leading-relaxed">
+          <p>{t(`${p}.sections.specifications.desc`)}</p>
+        </div>
+      )
+    },
+    {
+      id: 'qa',
+      title: t(`${p}.sections.qa.title`),
+      icon: <BookOpen className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700 leading-relaxed">
+          <p className="italic bg-neutral-50 border-l-4 border-primary-500 p-4 rounded-r-lg font-mono text-sm text-neutral-800">
+            {t(`${p}.sections.qa.desc`)}
+          </p>
+        </div>
+      )
+    }
+  ]
+
+  const faqs = [
+    { question: t(`${p}.faqs.q1`), answer: t(`${p}.faqs.a1`) },
+    { question: t(`${p}.faqs.q2`), answer: t(`${p}.faqs.a2`) },
+    { question: t(`${p}.faqs.q3`), answer: t(`${p}.faqs.a3`) }
+  ]
+
+  const tables = [
+    {
+      title: t(`${p}.table.title`),
+      data: {
+        headers: getTranslationArray(`${p}.table.headers`),
+        rows: getTranslationArray<string[]>(`${p}.table.rows`)
+      }
+    }
+  ]
+
+  const relatedLinks = [
+    { title: "Compostable Packaging", url: "/materials/compostable", description: "Certified EN 13432 compostable bags for organic brands" },
+    { title: "Plastics Free Solutions", url: "/composting/plastic-free", description: "100% plastic-free cellulose and bagasse packaging" },
+    { title: "PLA Sealing Stickers", url: "/store/product/eco-pla-sealing-sticker", description: "Compostable PLA sealing tape & stickers" }
+  ]
+
+  return (
+    <SEOPageLayout
+      heroBgColor="#134e4a"
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
+      keywords={[
+        'sugarcane pulp box',
+        'bagasse packaging box',
+        'compostable soap box',
+        'biodegradable gift box',
+        'molded fiber box',
+        'eco friendly boxes'
+      ]}
+      canonicalUrl="https://achievepack.com/composting/sugarcane-pulp-box"
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
+      heroImage="/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-1.jpg"
+      heroImageAlt={t(`${p}.title`)}
+      introSummary={t(`${p}.introSummary`)}
+      sections={sections}
+      faqs={faqs}
+      tables={tables}
+      schemaType="Product"
+      relatedLinks={relatedLinks}
+      ctaTitle={t(`${p}.ctaTitle`)}
+      ctaDescription={t(`${p}.ctaDescription`)}
+      ctaButtonText={t(`${p}.ctaButtonText`)}
+    />
+  )
+}
+
+export default SugarcaneboxPage

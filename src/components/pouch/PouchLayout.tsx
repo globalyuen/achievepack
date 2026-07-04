@@ -774,17 +774,18 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/packaging/shrink-sleeves" className="hover:underline">Shrink Sleeves <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
                 <li><Link to="/the-way-to-use-k-seal-bag-packing-heavy-content" className="hover:underline text-emerald-800 font-extrabold">{t('pouchLayoutFooter.links.kSeal')}</Link></li>
                 <li><Link to="/products" className="hover:underline">{t('pouchLayoutFooter.links.allProducts')}</Link></li>
-                <li><Link to="/industry/premium-matte-pouches" className="hover:underline">Premium Matte Finish <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/premium-finishes" className="hover:underline">Premium Pouch Finishes <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/premium-soft-touch" className="hover:underline">Premium Soft Touch <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/custom-die-cut-pouches" className="hover:underline">Custom Die-Cut Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/resealable-tin-tie-bags" className="hover:underline">Resealable Tin Tie Bags <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/clear-transparent-pouches" className="hover:underline">Clear Transparent Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/euro-hole-hang-bags" className="hover:underline">Euro Hole Hang Bags <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/custom-spout-pouches" className="hover:underline">Custom Spout Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/child-resistant-cbd" className="hover:underline">Child Resistant Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/matcha-supplement-sachets" className="hover:underline">Matcha Supplement Sachets <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/sustainable-tea-sachets" className="hover:underline">Sustainable Tea Sachets <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
+                <li><Link to="/industry/premium-matte-pouches" className="hover:underline">Premium Matte Finish</Link></li>
+                <li><Link to="/industry/premium-finishes" className="hover:underline">Premium Pouch Finishes</Link></li>
+                <li><Link to="/industry/premium-soft-touch" className="hover:underline">Premium Soft Touch</Link></li>
+                <li><Link to="/industry/custom-die-cut-pouches" className="hover:underline">Custom Die-Cut Pouches</Link></li>
+                <li><Link to="/industry/resealable-tin-tie-bags" className="hover:underline">Resealable Tin Tie Bags</Link></li>
+                <li><Link to="/industry/clear-transparent-pouches" className="hover:underline">Clear Transparent Pouches</Link></li>
+                <li><Link to="/industry/compostable-sugarcane-pulp-box" className="hover:underline">Compostable Sugarcane Pulp Box</Link></li>
+                <li><Link to="/industry/euro-hole-hang-bags" className="hover:underline">Euro Hole Hang Bags</Link></li>
+                <li><Link to="/industry/custom-spout-pouches" className="hover:underline">Custom Spout Pouches</Link></li>
+                <li><Link to="/industry/child-resistant-cbd" className="hover:underline">Child Resistant Pouches</Link></li>
+                <li><Link to="/industry/matcha-supplement-sachets" className="hover:underline">Matcha Supplement Sachets</Link></li>
+                <li><Link to="/industry/sustainable-tea-sachets" className="hover:underline">Sustainable Tea Sachets</Link></li>
               </ul>
             </div>
 
@@ -798,19 +799,19 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/category/packaging-technical-data-sheet" className="hover:underline text-emerald-800 font-extrabold">{t('pouchLayoutFooter.links.tds')}</Link></li>
                 <li><Link to="/knowledge/pha-vs-pla" className="hover:underline text-emerald-800">{t('pouchLayoutFooter.links.phaVsPla', '[PHA VS PLA]')}</Link></li>
                 <li><Link to="/materials" className="hover:underline">{t('pouchLayoutFooter.links.materialHub')}</Link></li>
-                <li><Link to="/industry/pla-compostable-packaging" className="hover:underline">PLA Compostable Guide <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/compostable-laminated-film" className="hover:underline">Compostable Laminated Film <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/compostable-protein-bags" className="hover:underline">Compostable Protein Bags <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/eco-coffee-bags-valve" className="hover:underline">Compostable Coffee Bags <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/pcr-packaging-pouches" className="hover:underline">PCR Packaging Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/recyclable-vacuum-bags" className="hover:underline">Recyclable Vacuum Bags <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/sustainable-kraft-solutions" className="hover:underline">Sustainable Kraft Solutions <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/brown-white-kraft" className="hover:underline">Brown vs White Kraft <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/kraft-window-pouch" className="hover:underline">Kraft Window Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/eco-friendly-tea-coffee" className="hover:underline">Eco Coffee & Tea Bags <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
+                <li><Link to="/industry/pla-compostable-packaging" className="hover:underline">PLA Compostable Guide</Link></li>
+                <li><Link to="/industry/compostable-laminated-film" className="hover:underline">Compostable Laminated Film</Link></li>
+                <li><Link to="/industry/compostable-protein-bags" className="hover:underline">Compostable Protein Bags</Link></li>
+                <li><Link to="/industry/eco-coffee-bags-valve" className="hover:underline">Compostable Coffee Bags</Link></li>
+                <li><Link to="/industry/pcr-packaging-pouches" className="hover:underline">PCR Packaging Pouches</Link></li>
+                <li><Link to="/industry/recyclable-vacuum-bags" className="hover:underline">Recyclable Vacuum Bags</Link></li>
+                <li><Link to="/industry/sustainable-kraft-solutions" className="hover:underline">Sustainable Kraft Solutions</Link></li>
+                <li><Link to="/industry/brown-white-kraft" className="hover:underline">Brown vs White Kraft</Link></li>
+                <li><Link to="/industry/kraft-window-pouch" className="hover:underline">Kraft Window Pouches</Link></li>
+                <li><Link to="/industry/eco-friendly-tea-coffee" className="hover:underline">Eco Coffee & Tea Bags</Link></li>
                 <li><Link to="/industry/durable-reusable-pouches" className="hover:underline">{t('pouchLayoutFooter.links.durableReusable', 'Eco-Friendly Ziplock Pouches')}</Link></li>
-                <li><Link to="/knowledge/reusable-packaging" className="hover:underline text-emerald-800">Reusable Canisters <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/knowledge/bottle-printing-guide" className="hover:underline text-emerald-800">Bottle Printing Guide <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
+                <li><Link to="/knowledge/reusable-packaging" className="hover:underline text-emerald-800">Reusable Canisters</Link></li>
+                <li><Link to="/knowledge/bottle-printing-guide" className="hover:underline text-emerald-800">Bottle Printing Guide</Link></li>
               </ul>
             </div>
 
@@ -825,16 +826,16 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/industry/pet-food" className="hover:underline">{t('pouchLayoutFooter.links.petFood')}</Link></li>
                 <li><Link to="/industry/supplements" className="hover:underline">{t('pouchLayoutFooter.links.supplements')}</Link></li>
                 <li><Link to="/industry/sauces-condiments" className="hover:underline">{t('pouchLayoutFooter.links.sauces')}</Link></li>
-                <li><Link to="/industry/fresh-produce" className="hover:underline">Fresh Produce Packaging <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
+                <li><Link to="/industry/fresh-produce" className="hover:underline">Fresh Produce Packaging</Link></li>
                 <li><Link to="/solutions/citrus-oil-packaging" className="hover:underline text-emerald-800 font-extrabold">{t('pouchLayoutFooter.links.citrusOil')}</Link></li>
-                <li><Link to="/industry/wholesale-unprinted-pouches" className="hover:underline">Wholesale Unprinted Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/low-moq-fast-turnaround" className="hover:underline">Low MOQ Packaging <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/australia-shipping-coo" className="hover:underline">Import & Shipping Guide <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/high-barrier-food-pouches" className="hover:underline">High-Barrier Food Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/high-barrier-retort" className="hover:underline">High-Barrier Retort Pouches <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/pet-food-quad-seal" className="hover:underline">Pet Food Quad Seal Bags <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/sustainable-healthcare-packaging" className="hover:underline">Sustainable Healthcare <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
-                <li><Link to="/industry/meat-jerky-packaging" className="hover:underline">Meat Jerky Packaging <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
+                <li><Link to="/industry/wholesale-unprinted-pouches" className="hover:underline">Wholesale Unprinted Pouches</Link></li>
+                <li><Link to="/industry/low-moq-fast-turnaround" className="hover:underline">Low MOQ Packaging</Link></li>
+                <li><Link to="/industry/australia-shipping-coo" className="hover:underline">Import & Shipping Guide</Link></li>
+                <li><Link to="/industry/high-barrier-food-pouches" className="hover:underline">High-Barrier Food Pouches</Link></li>
+                <li><Link to="/industry/high-barrier-retort" className="hover:underline">High-Barrier Retort Pouches</Link></li>
+                <li><Link to="/industry/pet-food-quad-seal" className="hover:underline">Pet Food Quad Seal Bags</Link></li>
+                <li><Link to="/industry/sustainable-healthcare-packaging" className="hover:underline">Sustainable Healthcare</Link></li>
+                <li><Link to="/industry/meat-jerky-packaging" className="hover:underline">Meat Jerky Packaging</Link></li>
               </ul>
 
               <h4 className="font-black uppercase mb-3 text-base border-b-2 border-black pb-1">{t('pouchLayoutFooter.categories.usaMarket')}</h4>
@@ -850,23 +851,23 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             <div>
               <h4 className="font-black uppercase mb-3 text-base border-b-2 border-black pb-1">Apps & Support</h4>
               <div className="flex flex-col gap-1.5 mb-4">
-                <Link to="/size-guide" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-purple-700 font-extrabold text-[10px] uppercase">
+                <Link to="/size-guide" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-purple-750 font-extrabold text-[10px] uppercase">
                   <SizingFinderIcon className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />
                   Size Guide
                 </Link>
-                <Link to="/tech-specs" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-blue-700 font-extrabold text-[10px] uppercase">
+                <Link to="/tech-specs" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-blue-750 font-extrabold text-[10px] uppercase">
                   <MaterialSpecFinderIcon className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />
                   Spec Finder
                 </Link>
-                <Link to="/3d-showcase" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-amber-700 font-extrabold text-[10px] uppercase">
+                <Link to="/3d-showcase" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-amber-750 font-extrabold text-[10px] uppercase">
                   <Box className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />
                   3D Showcase
                 </Link>
-                <Link to="/dieline-creator" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-cyan-700 font-extrabold text-[10px] uppercase">
+                <Link to="/dieline-creator" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-cyan-750 font-extrabold text-[10px] uppercase">
                   <Sparkles className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />
                   Dieline Creator
                 </Link>
-                <Link to="/dieline-finder" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-pink-700 font-extrabold text-[10px] uppercase">
+                <Link to="/dieline-finder" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white text-pink-750 font-extrabold text-[10px] uppercase">
                   <Layout className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />
                   Dieline Finder
                 </Link>
@@ -973,9 +974,14 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           </div>
 
           <div className="border-t-4 border-black pt-6 flex flex-col md:flex-row justify-between items-center font-['JetBrains_Mono'] text-[11px] font-bold gap-4">
-            <div className="text-center md:text-left leading-tight">
-              {t('pouchLayout.copyright', '© 2026 POUCH.ECO // ECO PACKAGING PROTOCOL')}<br/>
-              <span className="opacity-70">{t('pouchLayout.allMaterialsCertified', 'ALL MATERIALS CERTIFIED')}</span>
+            <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left leading-tight">
+              <Link to="/">
+                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-6 w-auto" loading="lazy" />
+              </Link>
+              <div>
+                {t('pouchLayout.copyright', '© 2026 POUCH.ECO // ECO PACKAGING PROTOCOL')}<br/>
+                <span className="opacity-70">{t('pouchLayout.allMaterialsCertified', 'ALL MATERIALS CERTIFIED')}</span>
+              </div>
             </div>
             
             {/* Social Media Icons */}

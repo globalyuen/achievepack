@@ -4437,7 +4437,461 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       { id: 'cellophane-transparent-15x15', label: 'Transparent 15×15cm (50 Pcs/Pack) - 透明 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 }
     ],
     customPrintNote: 'Custom full-color print versions and custom packaging dimensions are available from 10,000+ pieces. Please consult our team.'
-  }
+  },
+{
+    id: 'compostable-sugarcane-pulp-box',
+    name: 'Compostable Sugarcane Pulp Packaging Box (Multi-Size Gift & Soap Box)',
+    category: 'eco-stock',
+    description: 'Premium biodegradable packaging box crafted from 100% compostable sugarcane bagasse pulp. Ideal for soaps, gifts, cosmetics, tea, and artisan products. Engineered with a durable, shock-proof, and moisture-resistant design. These boxes feature a natural organic texture that communicates brand sustainability and protects contents.',
+    shortDesc: 'Biodegradable sugarcane pulp box for soap, gifts and cosmetics',
+    features: [
+      '100% Compostable: Crafted from natural sugarcane bagasse pulp, biodegradable within 90-180 days.',
+      'Durable & Shock-Proof: Thick rigid molded construction absorbs impacts and protects fragile items.',
+      'Premium Natural Texture: Raw eco-friendly feel with clean embossing to elevate your brand presence.',
+      'Eco-Friendly Material: Chemical-free, unbleached natural fibers, safe for eco-conscious cosmetics.',
+      'Multi-Size & Versatility: Wide selection of dimensions, window options, flip lids, and accessories.'
+    ],
+    images: [
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-1.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-2.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-3.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-4.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-5.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-6.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-7.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-8.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-9.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-10.jpg'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.8,
+    reviews: 32,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    shape: 'Box',
+    material: '100% Sugarcane Bagasse Pulp',
+    basePrice: 56.00,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Various sizes available (from 10.5x6.5x3cm)',
+    sizeVariants: [
+      {
+        id: 'sugarcane-box-v1',
+        label: 'Paper Sleeve (10 Pcs/Pack)',
+        dimensions: '纸质腰封/10张',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 11.20,
+        unitPrice: 0.112
+      },
+      {
+        id: 'sugarcane-box-v2',
+        label: 'White Sealing Stickers - Small (50 Pcs/Pack)',
+        dimensions: '白色小号封口贴/50张',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 5.04,
+        unitPrice: 0.050
+      },
+      {
+        id: 'sugarcane-box-v3',
+        label: 'Yellow Sealing Stickers - Small (50 Pcs/Pack)',
+        dimensions: '黄色小号封口贴/50张',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 5.04,
+        unitPrice: 0.050
+      },
+      {
+        id: 'sugarcane-box-v4',
+        label: 'Small Natural Box (10.5×6.5×3 cm)',
+        dimensions: '小号/单个/10.5×6.5×3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 56.00,
+        unitPrice: 0.560
+      },
+      {
+        id: 'sugarcane-box-v5',
+        label: 'Small White Box (10.5×6.5×3 cm)',
+        dimensions: '小号白/单个/10.5×6.5×3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 70.00,
+        unitPrice: 0.700
+      },
+      {
+        id: 'sugarcane-box-v6',
+        label: 'Small Window Box (10.5×6.5×3 cm)',
+        dimensions: '小号开窗/单个/10.5×6.5×3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 56.00,
+        unitPrice: 0.560
+      },
+      {
+        id: 'sugarcane-box-v7',
+        label: 'Small Tab-Lock Box (10.5×6.5×3 cm)',
+        dimensions: '插稍/单个/10.5×6.5×3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 56.00,
+        unitPrice: 0.560
+      },
+      {
+        id: 'sugarcane-box-v8',
+        label: 'Large Natural Box (15×10.5×2.7 cm)',
+        dimensions: '本色大号/单个/15×10.5×2.7',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 218.00,
+        unitPrice: 2.180
+      },
+      {
+        id: 'sugarcane-box-v9',
+        label: 'Large White Box (15×10.5×2.7 cm)',
+        dimensions: '白色大号/单个/15×10.5×2.7',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 238.00,
+        unitPrice: 2.380
+      },
+      {
+        id: 'sugarcane-box-v10',
+        label: 'Large Tall Box (15.3×11.1×3.8 cm)',
+        dimensions: '大号加高/单个/15.3×11.1×3.8',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 224.00,
+        unitPrice: 2.240
+      },
+      {
+        id: 'sugarcane-box-v11',
+        label: 'White Bun Box (19.5×17.5×6.5 cm)',
+        dimensions: '白馒头/单个/19.5×17.5×6.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 462.00,
+        unitPrice: 4.620
+      },
+      {
+        id: 'sugarcane-box-v12',
+        label: 'White No-Seal Box (11.5×7.5×2.5 cm)',
+        dimensions: '白色无封口/单个/11.5×7.5×2.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 280.00,
+        unitPrice: 2.800
+      },
+      {
+        id: 'sugarcane-box-v13',
+        label: 'Natural No-Seal Box (11.5×7.5×2.3 cm)',
+        dimensions: '牛皮色无封口/单个/11.5×7.5×2.3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 280.00,
+        unitPrice: 2.800
+      },
+      {
+        id: 'sugarcane-box-v14',
+        label: 'White Box + White Seal (11.5×7.5×2.3 cm)',
+        dimensions: '白色盒+白色封口/单个/11.5×7.5×2.3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 364.00,
+        unitPrice: 3.640
+      },
+      {
+        id: 'sugarcane-box-v15',
+        label: 'White Box + Kraft Seal (11.5×7.5×2.3 cm)',
+        dimensions: '白色盒+牛皮色封口/单个/11.5×7.5×2.3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 364.00,
+        unitPrice: 3.640
+      },
+      {
+        id: 'sugarcane-box-v16',
+        label: 'Natural Box + White Seal (11.5×7.5×2.3 cm)',
+        dimensions: '牛皮色盒+白色封口/单个/11.5×7.5×2.3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 364.00,
+        unitPrice: 3.640
+      },
+      {
+        id: 'sugarcane-box-v17',
+        label: 'Natural Box + Kraft Seal (11.5×7.5×2.3 cm)',
+        dimensions: '牛皮色盒+牛皮色封口/单个/11.5×7.5×2.3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 364.00,
+        unitPrice: 3.640
+      },
+      {
+        id: 'sugarcane-box-v18',
+        label: 'White Square Box (9.5×9.5×4.8 cm)',
+        dimensions: '白色方/单个/9.5×9.5×4.8',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 238.00,
+        unitPrice: 2.380
+      },
+      {
+        id: 'sugarcane-box-v19',
+        label: 'Jewelry Box (16×6.5×3 cm)',
+        dimensions: '首饰盒/单个/16×6.5×3',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 249.00,
+        unitPrice: 2.490
+      },
+      {
+        id: 'sugarcane-box-v20',
+        label: 'Small White Tea Box (15.3×6.3×3.5 cm)',
+        dimensions: '小白茶盒/单个/15.3×6.3×3.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 330.00,
+        unitPrice: 3.300
+      },
+      {
+        id: 'sugarcane-box-v21',
+        label: 'Medium White Tea Box (23×8×6.5 cm)',
+        dimensions: '中白茶盒/单个/23×8×6.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 442.00,
+        unitPrice: 4.420
+      },
+      {
+        id: 'sugarcane-box-v22',
+        label: 'Large White Tea Box (24×12×6.7 cm)',
+        dimensions: '大白茶盒/单个/24×12×6.7',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 442.00,
+        unitPrice: 4.420
+      },
+      {
+        id: 'sugarcane-box-v23',
+        label: 'White Chopstick Box (25.5×10.5×4.5 cm)',
+        dimensions: '白色筷子盒/单个/25.5×10.5×4.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 336.00,
+        unitPrice: 3.360
+      },
+      {
+        id: 'sugarcane-box-v24',
+        label: 'Natural Chopstick Box (25.5×10.5×4.5 cm)',
+        dimensions: '本色筷子盒/单个/25.5×10.5×4.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 280.00,
+        unitPrice: 2.800
+      },
+      {
+        id: 'sugarcane-box-v25',
+        label: 'White T-Shirt Box (19.5×12.5×6.5 cm)',
+        dimensions: '白色T恤盒/单个/19.5×12.5×6.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 364.00,
+        unitPrice: 3.640
+      },
+      {
+        id: 'sugarcane-box-v26',
+        label: 'Natural T-Shirt Box (19.5×12.5×6.5 cm)',
+        dimensions: '本色T恤盒/单个/19.5×12.5×6.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 308.00,
+        unitPrice: 3.080
+      },
+      {
+        id: 'sugarcane-box-v27',
+        label: 'Natural Flip Pencil Box (16×7×2.2 cm)',
+        dimensions: '本色翻盖笔盒/单个/16×7×2.2',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 210.00,
+        unitPrice: 2.100
+      },
+      {
+        id: 'sugarcane-box-v28',
+        label: 'Flip Pencil Box with Elastic Band (16×7×2.2 cm)',
+        dimensions: '翻盖笔盒+松紧带/单个/16×7×2.2',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 218.00,
+        unitPrice: 2.180
+      },
+      {
+        id: 'sugarcane-box-v29',
+        label: 'White Large Box with Lid (26.3×22.4×8.6 cm)',
+        dimensions: '白色大+盖/单个/26.3×22.4×8.6',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 476.00,
+        unitPrice: 4.760
+      },
+      {
+        id: 'sugarcane-box-v30',
+        label: 'Natural Large Box with Lid (26.3×22.4×8.6 cm)',
+        dimensions: '本色大+盖/单个/26.3×22.4×8.6',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 392.00,
+        unitPrice: 3.920
+      },
+      {
+        id: 'sugarcane-box-v31',
+        label: 'Box No. 1 with Logo (32×19×11.8 cm)',
+        dimensions: '一号盒有logo/单个/32×19×11.8',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 448.00,
+        unitPrice: 4.480
+      },
+      {
+        id: 'sugarcane-box-v32',
+        label: 'Box No. 1 without Logo (32×19×11.8 cm)',
+        dimensions: '一号盒无logo/单个/32×19×11.8',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 448.00,
+        unitPrice: 4.480
+      },
+      {
+        id: 'sugarcane-box-v33',
+        label: 'Box No. 2 (27×13.5×11.5 cm)',
+        dimensions: '二号盒/单个/27×13.5×11.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 252.00,
+        unitPrice: 2.520
+      },
+      {
+        id: 'sugarcane-box-v34',
+        label: 'Box No. 3 (30.5×21.5×14.5 cm)',
+        dimensions: '三号盒/单个/30.5×21.5×14.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 532.00,
+        unitPrice: 5.320
+      },
+      {
+        id: 'sugarcane-box-v35',
+        label: 'Natural Small Coffee Box (13×8×7.5 cm)',
+        dimensions: '本色小咖啡盒/单个/13×8×7.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 252.00,
+        unitPrice: 2.520
+      },
+      {
+        id: 'sugarcane-box-v36',
+        label: 'White Small Coffee Box (13×8×7.5 cm)',
+        dimensions: '白色小咖啡盒单个/13×8×7.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 269.00,
+        unitPrice: 2.690
+      },
+      {
+        id: 'sugarcane-box-v37',
+        label: 'Natural Large Coffee Box (16×12.5×12 cm)',
+        dimensions: '本色大咖啡盒/单个/16×12.5×12',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 280.00,
+        unitPrice: 2.800
+      },
+      {
+        id: 'sugarcane-box-v38',
+        label: 'White Large Coffee Box (16×12.5×12 cm)',
+        dimensions: '白色大咖啡盒/单个/16×12.5×12',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 308.00,
+        unitPrice: 3.080
+      },
+      {
+        id: 'sugarcane-box-v39',
+        label: '6-Piece Mooncake Box (33×22×5 cm)',
+        dimensions: '6粒月饼盒/单个/33×22×5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 420.00,
+        unitPrice: 4.200
+      },
+      {
+        id: 'sugarcane-box-v40',
+        label: '8-Piece Mooncake Box (33×22×5 cm)',
+        dimensions: '8粒月饼盒/单个/33×22×5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 504.00,
+        unitPrice: 5.040
+      },
+      {
+        id: 'sugarcane-box-v41',
+        label: 'White Flip Lid Box (20×12.5×4.5 cm)',
+        dimensions: '白色翻盖/单个/20×12.5×4.5',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 190.00,
+        unitPrice: 1.900
+      },
+      {
+        id: 'sugarcane-box-v42',
+        label: 'Paper Rope (200m/Roll)',
+        dimensions: '纸绳200米/卷',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 2.52,
+        unitPrice: 2.520
+      },
+      {
+        id: 'sugarcane-box-v43',
+        label: 'Natural Kraft Honeycomb Paper - 30×30 cm (10 Sheets/Pack)',
+        dimensions: '30×30/张牛皮色气泡纸/10张装',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 5.60,
+        unitPrice: 0.056
+      },
+      {
+        id: 'sugarcane-box-v44',
+        label: 'Natural Kraft Honeycomb Paper - 38×40 cm (10 Sheets/Pack)',
+        dimensions: '38×40/张牛皮色气泡纸/10张装',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 8.40,
+        unitPrice: 0.084
+      },
+      {
+        id: 'sugarcane-box-v45',
+        label: 'White Honeycomb Paper - 30×30 cm (10 Sheets/Pack)',
+        dimensions: '30×30/张白色气泡纸/10张装',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 5.60,
+        unitPrice: 0.056
+      },
+      {
+        id: 'sugarcane-box-v46',
+        label: 'White Honeycomb Paper - 38×40 cm (10 Sheets/Pack)',
+        dimensions: '38×40/张白色气泡纸/10张装',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 8.40,
+        unitPrice: 0.084
+      }
+    ]
+  },
 ]
 
 // Custom Printed Boxes Products

@@ -5506,22 +5506,67 @@
         "tables": [
           {
             "title": "Spécifications Techniques du Manchon Rétractable",
-            "headers": ["Paramètre", "Spécification", "Valeur Commerciale"],
+            "headers": [
+              "Paramètre",
+              "Spécification",
+              "Valeur Commerciale"
+            ],
             "rows": [
-              ["Matériau de Base", "PET-G Premium ou PVC Économique", "Grande clarté optique et performance de rétraction uniforme dans les tunnels de vapeur, de gaz ou électriques."],
-              ["Taux de Rétraction", "Horizontal : 60%–78% | Vertical : 1%–3%", "Calibré pour les courbes extrêmes de bouteilles, évitant la distorsion graphique ou les effets de déformation indésirables."],
-              ["Épaisseur du Film", "Options de film de 30 à 50 microns", "Équilibre la résistance à la traction pour les applicateurs automatiques rapides avec l'efficacité du matériau."],
-              ["Finitions Spéciales", "Vernis mat, marquage à chaud métallique (hot-stamping), fenêtres transparentes", "Finitions tactiles haut de gamme et découpes de fenêtre pour montrer la couleur ou le niveau du produit."]
+              [
+                "Matériau de Base",
+                "PET-G Premium ou PVC Économique",
+                "Grande clarté optique et performance de rétraction uniforme dans les tunnels de vapeur, de gaz ou électriques."
+              ],
+              [
+                "Taux de Rétraction",
+                "Horizontal : 60%–78% | Vertical : 1%–3%",
+                "Calibré pour les courbes extrêmes de bouteilles, évitant la distorsion graphique ou les effets de déformation indésirables."
+              ],
+              [
+                "Épaisseur du Film",
+                "Options de film de 30 à 50 microns",
+                "Équilibre la résistance à la traction pour les applicateurs automatiques rapides avec l'efficacité du matériau."
+              ],
+              [
+                "Finitions Spéciales",
+                "Vernis mat, marquage à chaud métallique (hot-stamping), fenêtres transparentes",
+                "Finitions tactiles haut de gamme et découpes de fenêtre pour montrer la couleur ou le niveau du produit."
+              ]
             ]
           },
           {
             "title": "Comparaison des Types d'Application",
-            "headers": ["Type d'Application", "Matériau Rétractable", "Taux de Rétraction", "Cas d'Utilisation Idéal"],
+            "headers": [
+              "Type d'Application",
+              "Matériau Rétractable",
+              "Taux de Rétraction",
+              "Cas d'Utilisation Idéal"
+            ],
             "rows": [
-              ["Manchon Complet (Full-Body)", "PET-G / PVC", "Jusqu'à 78%", "Marquage de marque à 360 degrés sur bouteilles courbes de jus, boissons et produits laitiers"],
-              ["Bande de Col et Sceau", "PET / PVC", "Jusqu'à 60%", "Sceaux de sécurité de goulot, sauces de remplissage à chaud et pots de cosmétiques"],
-              ["Lots Multiples (Multipacks)", "PET-G", "Jusqu'à 70%", "Packs promotionnels, offres doubles et regroupements de produits"],
-              ["Préformes", "PET-G", "Jusqu'à 75%", "Manchons de bouchon/goulot préformés pour les cadences rapides de lignes automatisées"]
+              [
+                "Manchon Complet (Full-Body)",
+                "PET-G / PVC",
+                "Jusqu'à 78%",
+                "Marquage de marque à 360 degrés sur bouteilles courbes de jus, boissons et produits laitiers"
+              ],
+              [
+                "Bande de Col et Sceau",
+                "PET / PVC",
+                "Jusqu'à 60%",
+                "Sceaux de sécurité de goulot, sauces de remplissage à chaud et pots de cosmétiques"
+              ],
+              [
+                "Lots Multiples (Multipacks)",
+                "PET-G",
+                "Jusqu'à 70%",
+                "Packs promotionnels, offres doubles et regroupements de produits"
+              ],
+              [
+                "Préformes",
+                "PET-G",
+                "Jusqu'à 75%",
+                "Manchons de bouchon/goulot préformés pour les cadences rapides de lignes automatisées"
+              ]
             ]
           }
         ],
@@ -36426,6 +36471,68 @@
           ]
         }
       },
+      "sugarcaneBox": {
+        "title": "Achat de Boîtes d'Emballage en Pulpe de Canne à Sucre Compostables",
+        "description": "Boîtes d'emballage biodégradables de qualité supérieure en pulpe de bagasse 100% compostable. Guide pour savons, cadeaux et cosmétiques.",
+        "heroTitle": "Achat de Boîtes d'Emballage en Pulpe de Canne à Sucre Compostables",
+        "heroSubtitle": "Boîtes en fibres moulées durables, écologiques et résistantes aux chocs à base de bagasse naturelle.",
+        "introSummary": "Les boîtes en pulpe de canne à sucre biodégradables représentent l'avenir de l'emballage durable. Fabriquées à partir de fibres de bagasse de canne à sucre 100% naturelles, ces boîtes sont compostables, durables et parfaites pour les cosmétiques, les cadeaux et les savons.",
+        "ctaTitle": "Besoin d'emballages personnalisés en pulpe de canne à sucre ?",
+        "ctaDescription": "Commandez des échantillons gratuits ou concevez des boîtes personnalisées avec logo gaufré pour votre marque. Vente directe d'usine.",
+        "ctaButtonText": "Demander des échantillons gratuits",
+        "sections": {
+          "detail1": {
+            "title": "Achat de Boîtes d'Emballage en Pulpe de Canne à Sucre Compostables",
+            "desc": "L'achat de boîtes d'emballage en pulpe de bagasse de canne à sucre biodégradables permet à votre marque de s'aligner sur les exigences modernes de l'économie circulaire. Ces boîtes sont fabriquées à partir de fibres de canne à sucre non blanchies recyclées, compressées sous haute pression et température pour former des conteneurs rigides, durables et résistants aux chocs. Certifiées aptes au contact alimentaire et compostables, elles se dégradent naturellement dans le sol en 90 à 180 jours sans laisser de résidus chimiques."
+          },
+          "specifications": {
+            "title": "Spécifications de la Fibre Moulée et Performance du Matériau",
+            "desc": "Nos boîtes en pulpe de canne à sucre sont fabriquées à partir de matières premières certifiées FSC. La structure en fibre naturelle moulée offre une protection supérieure par rapport au plastique traditionnel ou au carton mince. Elle est résistante à la chaleur et aux graisses, et peut être personnalisée avec des fenêtres transparentes, des bandes de papier imprimées (sleeves) et des logos gravés en relief."
+          },
+          "qa": {
+            "title": "Du carnet d'ingénierie de Ryan Wong",
+            "desc": "La pulpe de bagasse moulée offre des avantages tactiles uniques qui communiquent immédiatement un engagement écoresponsable. Cependant, lors de la conception, il faut prévoir des tolérances de parois et des angles de dépouille suffisants pour le démoulage (entre 3 et 5 degrés). Si votre produit est sensible à l'humidité, nous pouvons intégrer un film PLA biosourcé ou utiliser du papier nid d'abeille sulfurisé. Nous offrons un système de validation vidéo pré-production pour garantir le bon ajustement."
+          }
+        },
+        "faqs": {
+          "q1": "Les boîtes en pulpe de canne à sucre sont-elles résistantes à l'eau ?",
+          "a1": "Elles sont naturellement résistantes à l'humidité et aux graisses en raison de la haute densité des fibres moulées. Pour un contact direct avec des savons humides ou des cosmétiques liquides, nous conseillons un emballage papier ou une doublure végétale.",
+          "q2": "Quel est le délai de biodégradation ?",
+          "a2": "Dans des conditions normales de compostage domestique ou industriel, les boîtes se dégradent entièrement en 90 à 180 jours, se transformant en compost organique riche.",
+          "q3": "Est-il possible d'y imprimer un logo personnalisé ?",
+          "a3": "Oui, nous pouvons graver ou gaufrer votre logo directement sur le moule de pulpe. Pour des graphismes en couleur et des textes longs, nous recommandons l'utilisation d'une bande de papier imprimée (belly band)."
+        },
+        "table": {
+          "title": "Boîte en pulpe moulée vs. Emballage traditionnel",
+          "headers": [
+            "Paramètre de spécification",
+            "Emballage coque plastique",
+            "Boîte en pulpe de canne à sucre"
+          ],
+          "rows": [
+            [
+              "Source des matériaux",
+              "Dérivé du pétrole",
+              "100% Bagasse de canne à sucre (végétal)"
+            ],
+            [
+              "Biodégradabilité",
+              "Non biodégradable (siècles)",
+              "100% Compostable (90-180 jours)"
+            ],
+            [
+              "Absorption des chocs",
+              "Mince et fragile",
+              "Structure moulée haute densité"
+            ],
+            [
+              "Image écologique",
+              "Sensation plastique classique",
+              "Sensation tactile organique haut de gamme"
+            ]
+          ]
+        }
+      },
       "matchaSachet": {
         "title": "How to Design Custom Sachets & Stick Pack Films for Matcha?",
         "description": "Yes, sensitive powders like Matcha and active supplements require absolute light and moisture barriers to prevent oxidation and clumping. Achieve Pack provides rollstock film and pre-formed sachets with aluminum foil layers and easy-tear V-notches, designed for high-speed automatic packaging lines with MOQs from 2,000 units.",
@@ -37776,6 +37883,73 @@
         "orderStarterSamples": "Order Starter Samples",
         "moq500NoPlateFeesDigitalPrecis": "MOQ 500 • NO PLATE FEES • DIGITAL PRECISION • FAST TURNAROUND",
         "lowMoqStartupPackagingAgileSus": "Low MOQ Startup Packaging | Agile Sustainable Solutions | Achieve Pack"
+      },
+      "compostableSugarcaneBox": {
+        "title": "Boîte d'Emballage en Pulpe de Canne à Sucre Compostable - Boîte à Savon & Cadeau Biodégradable et Durable",
+        "description": "Boîtes d'emballage biodégradables en pulpe de bagasse de canne à sucre moulée de haute qualité. Options de boîtes de savon et de cadeaux durables, résistantes aux chocs et à l'humidité.",
+        "heroTitle": "Boîte d'Emballage en Pulpe de Canne à Sucre Compostable",
+        "heroSubtitle": "Boîtes moulées en pulpe de bagasse renouvelable. Durables, résistantes aux chocs et entièrement biodégradables.",
+        "introSummary": "Les boîtes compostables en pulpe de canne à sucre sont moulées à partir de fibres de bagasse 100% renouvelables et se décomposent entièrement en 90 à 180 jours. Conçues pour durer et protéger contre les chocs, ces boîtes écologiques sont parfaites pour les savons, les cadeaux, les cosmétiques et les produits artisanaux. Calibrage des couleurs PMS gratuit et MOQ bas à partir de 100 unités.",
+        "ctaTitle": "Demander des Échantillons d'Emballage en Pulpe de Canne à Sucre",
+        "ctaDescription": "Découvrez la texture organique naturelle et haut de gamme de nos boîtes d'emballage en pulpe de canne à sucre. Des kits d'échantillons personnalisés sont disponibles.",
+        "ctaButtonText": "Obtenir des Échantillons Gratuits",
+        "sections": {
+          "detail1": {
+            "title": "Protection Durable, Résistante aux Chocs et Sensationnelle",
+            "desc": "Conçues avec des parois moulées épaisses et rigides, nos boîtes en pulpe de canne à sucre absorbent les chocs pendant le transport, protégeant ainsi les articles délicats comme les savons biologiques et les cosmétiques. Naturellement résistantes à l'huile et à l'humidité."
+          },
+          "specifications": {
+            "title": "Spécifications Techniques et Propriétés du Matériau",
+            "desc": "Fabriquées à partir de fibres de bagasse de canne à sucre non blanchies et sans liants toxiques. Construction robuste, sans danger pour le contact alimentaire direct et certifiée selon les normes EN 13432 et ASTM D6400."
+          },
+          "qa": {
+            "title": "Carnet d'Ingénierie de Ryan Wong",
+            "desc": "Au cours de mes 14 années de conception d'emballages, la bagasse de canne à sucre s'est imposée comme le premier matériau compostable rigide. Elle allie texture esthétique naturelle et grande stabilité structurelle. Nous garantissons la traçabilité des matières premières et proposons un gaufrage personnalisé pour rehausser l'image de votre marque."
+          }
+        },
+        "faqs": {
+          "q1": "Les boîtes en pulpe de canne à sucre sont-elles résistantes à l'eau ?",
+          "a1": "La pulpe de canne à sucre est naturellement résistante à l'humidité. Pour une exposition directe à des liquides, nous recommandons d'utiliser une bio-lamination ou un emballage extérieur. Pour les articles secs, les savons et les cadeaux, elles fonctionnent exceptionnellement bien sans aucun revêtement.",
+          "q2": "Puis-je personnaliser la forme ou ajouter des logos en relief ?",
+          "a2": "Oui, nous prenons en charge les moules personnalisés pour les logos en relief et les formes uniques. La création d'un moule personnalisé nécessite des frais d'outillage uniques, avec des MOQ de production à partir de 5 000 unités.",
+          "q3": "Combien de temps faut-il pour se décomposer ?",
+          "a3": "Dans des conditions standard de compostage domestique ou industriel, nos emballages 100% en pulpe de canne à sucre se dégradent complètement en 90 à 180 jours, ne laissant aucun microplastique ni résidu chimique."
+        },
+        "table": {
+          "title": "Configurations Standard des Boîtes en Pulpe de Canne à Sucre",
+          "headers": [
+            "Taille du Modèle",
+            "Dimensions Externes",
+            "Option de Couleur",
+            "Idéal Pour"
+          ],
+          "rows": [
+            [
+              "Petit (单个/小号)",
+              "10.5 × 6.5 × 3 cm",
+              "Naturel / Blanc",
+              "Savon, Bijoux, Mini Cadeau"
+            ],
+            [
+              "Grand (单个/大号)",
+              "15 × 10.5 × 2.7 cm",
+              "Naturel / Blanc",
+              "Kit Cosmétique, Vêtements, Ensemble de Savon"
+            ],
+            [
+              "Boîte à Pain (白饅頭)",
+              "19.5 × 17.5 × 6.5 cm",
+              "Blanc",
+              "Boîte Alimentaire, Boulangerie, Coffret Cadeau"
+            ],
+            [
+              "Boîte à Baguettes",
+              "25.5 × 10.5 × 4.5 cm",
+              "Naturel / Blanc",
+              "Ustensiles, Papeterie, Articles Longs"
+            ]
+          ]
+        }
       }
     },
     "compostableStandUpPouches": {
@@ -47091,6 +47265,18 @@
         "Soufflet inférieur autoportant",
         "Disponible en plusieurs capacités (50ml à 5000ml)",
         "Faible MOQ à partir de 100 pièces"
+      ]
+    },
+    "compostable-sugarcane-pulp-box": {
+      "name": "Boîte d'Emballage en Pulpe de Canne à Sucre Compostable (Boîte Cadeau & Savon Multi-Tailles)",
+      "shortDesc": "Boîte biodégradable en pulpe de canne à sucre pour savon, cadeaux et cosmétiques",
+      "description": "Boîte d'emballage biodégradable de qualité supérieure, fabriquée à partir de pulpe de bagasse de canne à sucre 100% compostable. Idéale pour les savons, les cadeaux, les cosmétiques, le thé et les produits artisanaux. Conçue avec une structure durable, résistant aux chocs et à l'humidité. Ces boîtes présentent une texture organique naturelle qui communique la durabilité de la marque et protège le contenu.",
+      "features": [
+        "100% Compostable: Fabriqué à partir de pulpe de bagasse de canne à sucre naturelle, biodégradable en 90 à 180 jours.",
+        "Durable & Résistant aux Chocs: La construction moulée rigide et épaisse absorbe les chocs et protège les articles fragiles.",
+        "Texture Naturelle Premium: Sensation écologique brute avec gaufrage net pour rehausser la présence de votre marque.",
+        "Matériau Éco-Responsable: Fibres naturelles non blanchies et sans produits chimiques, sans danger pour les cosmétiques écologiques.",
+        "Multi-Tailles & Polyvalence: Large choix de dimensions, options de fenêtres, couvercles rabattables et accessoires."
       ]
     }
   }

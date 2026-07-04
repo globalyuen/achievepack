@@ -241,6 +241,7 @@ const EuroholehangbagsPage = lazyWithRetry(() => import('./pages/composting/euro
 const SustainableteasachetsPage = lazyWithRetry(() => import('./pages/composting/sustainableteasachetsPage'))
 const MeatjerkypackagingPage = lazyWithRetry(() => import('./pages/composting/meatjerkypackagingPage'))
 const BrownwhitekraftPage = lazyWithRetry(() => import('./pages/composting/brownwhitekraftPage'))
+const SugarcaneboxPage = lazyWithRetry(() => import('./pages/composting/sugarcaneboxPage'))
 const StandUpPouchesPage = lazyWithRetry(() => import('./pages/packaging/StandUpPouchesPage'))
 const ShrinkSleevesPage = lazyWithRetry(() => import('./pages/packaging/ShrinkSleevesPage'))
 const FlatBottomBagsPage = lazyWithRetry(() => import('./pages/packaging/FlatBottomBagsPage'))
@@ -922,6 +923,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/industry/sustainable-tea-sachets" element={<SustainableteasachetsPage />} />
                   <Route path="/industry/meat-jerky-packaging" element={<MeatjerkypackagingPage />} />
                   <Route path="/industry/brown-white-kraft" element={<BrownwhitekraftPage />} />
+                  <Route path="/industry/compostable-sugarcane-pulp-box" element={<SugarcaneboxPage />} />
                   <Route path="/topics/eco-friendly-food-packaging" element={<PouchEcoFriendlyFoodPackagingPage />} />
                   <Route path="/topics/real-world-sustainability" element={<PouchRealWorldSustainabilityPage />} />
                   <Route path="/topics/sustainable-packaging" element={<PouchSustainablePackagingPillarPage />} />
@@ -1321,6 +1323,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/industry/sustainable-tea-sachets" element={<SustainableteasachetsPage />} />
                         <Route path="/industry/meat-jerky-packaging" element={<MeatjerkypackagingPage />} />
                         <Route path="/industry/brown-white-kraft" element={<BrownwhitekraftPage />} />
+                        <Route path="/industry/compostable-sugarcane-pulp-box" element={<SugarcaneboxPage />} />
                   <Route path="/industry/premium-matte-pouches" element={<PremiummattepouchesPage />} />
                   <Route path="/industry/wholesale-unprinted-pouches" element={<WholesaleunprintedpouchesPage />} />
                   <Route path="/industry/high-barrier-food-pouches" element={<HighbarrierfoodpouchesPage />} />
@@ -1353,6 +1356,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/industry/sustainable-tea-sachets" element={<SustainableteasachetsPage />} />
                   <Route path="/industry/meat-jerky-packaging" element={<MeatjerkypackagingPage />} />
                   <Route path="/industry/brown-white-kraft" element={<BrownwhitekraftPage />} />
+                  <Route path="/industry/compostable-sugarcane-pulp-box" element={<SugarcaneboxPage />} />
 
                         {/* Packaging Pages */}
                         <Route path="/packaging/stand-up-pouches" element={<StandUpPouchesPage />} />

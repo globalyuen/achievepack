@@ -2,179 +2,121 @@ import { Link } from 'react-router-dom'
 
 export default function StoreFooter() {
   return (
-    <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8">
+    <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8 border-t border-neutral-800">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 mb-8">
-          {/* Store Info */}
-          <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-3">
-              <img src="/ap-logo-white.webp" alt="Achieve Pack" className="h-8 w-auto" loading="lazy" decoding="async" width="106" height="32" />
-            </Link>
-            {/* B Corp & BPI Logos */}
-            <div className="flex items-center gap-3 mb-4">
-              <Link to="/company/b-corp">
-                <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+        {/* Balanced Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-8">
+          
+          {/* Col 1: Store Info & Quick Contact */}
+          <div className="space-y-4">
+            <div>
+              <Link to="/" className="flex items-center gap-2 mb-3">
+                <img src="/ap-logo-white.webp" alt="Achieve Pack" className="h-7 w-auto" loading="lazy" decoding="async" width="106" height="32" />
               </Link>
-              <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer">
-                <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
-              </a>
+              <p className="text-neutral-400 text-xs mb-3">Premium custom printed packaging and stock pouch solutions with advanced barrier materials.</p>
+              <div className="flex items-center gap-2 mb-3">
+                <Link to="/company/b-corp" className="opacity-80 hover:opacity-100 transition-opacity">
+                  <img src="/bcorp.svg" alt="Certified B Corp" className="h-10 w-auto" loading="lazy" />
+                </Link>
+                <Link to="/company/bpi-certified" className="opacity-80 hover:opacity-100 transition-opacity">
+                  <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-10 w-auto" loading="lazy" />
+                </Link>
+              </div>
             </div>
-            <p className="text-neutral-400 text-sm mb-4">Premium custom printed pouches with eco-friendly options.</p>
-            <div className="space-y-1 text-xs text-neutral-500">
-              <p>Free worldwide shipping</p>
-              <p>15-20 days turnaround</p>
-              <p>Food-grade quality</p>
+            <div className="text-[11px] text-neutral-500 space-y-1">
+              <p>✓ Free worldwide shipping</p>
+              <p>✓ 15-20 days turnaround</p>
+              <p>✓ Food-grade quality standards</p>
+              <p>✓ Contact: <a href="mailto:ryan@achievepack.com" className="hover:text-white underline">ryan@achievepack.com</a></p>
             </div>
           </div>
 
-          {/* Products by Category */}
+          {/* Col 2: Products & Shapes */}
           <div>
-            <h4 className="font-semibold text-sm mb-4">Categories</h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
+            <h4 className="font-semibold text-sm mb-3 text-neutral-200">Products & Shapes</h4>
+            <ul className="space-y-1.5 text-xs text-neutral-400">
               <li><Link to="/store?category=sample" className="hover:text-primary-400">Sample Packs</Link></li>
-              <li><Link to="/store?category=conventional-digital" className="hover:text-primary-400">Conventional Digital</Link></li>
-              <li><Link to="/store?category=eco-digital" className="hover:text-primary-400">Eco Digital</Link></li>
-              <li><Link to="/store?category=eco-stock" className="hover:text-primary-400">Eco Stock</Link></li>
-              <li><Link to="/store?category=boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
-            </ul>
-          </div>
-
-          {/* Shapes */}
-          <div>
-            <h4 className="font-semibold text-sm mb-4">Pouch Shapes</h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
               <li><Link to="/packaging/stand-up-pouches" className="hover:text-primary-400">Stand Up Pouches</Link></li>
               <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">Flat Bottom Bags</Link></li>
-              <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">3 Side Seal</Link></li>
-              <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset</Link></li>
-              <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-400 font-medium text-primary-400">Compostable Side Gusset <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">3 Side Seal / Flat Pouches</Link></li>
+              <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset Bags</Link></li>
               <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
+              <li><Link to="/quotes/rollstock" className="hover:text-primary-400">Rollstock Film</Link></li>
+              <li><Link to="/packaging/shrink-sleeves" className="hover:text-primary-400 font-medium text-primary-400">Shrink Sleeves <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
               <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
-              <li><Link to="/packaging/shrink-sleeves" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Shrink Sleeves <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/quotes/rollstock" className="hover:text-primary-400">Rollstock</Link></li>
-              <li><Link to="/industry/premium-matte-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Premium Matte Finish <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/premium-finishes" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Premium Pouch Finishes <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/premium-soft-touch" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Premium Soft Touch <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/custom-die-cut-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Custom Die-Cut Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/resealable-tin-tie-bags" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Resealable Tin Tie Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/clear-transparent-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Clear Transparent Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/euro-hole-hang-bags" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Euro Hole Hang Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/custom-spout-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Custom Spout Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/child-resistant-cbd" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Child Resistant Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/matcha-supplement-sachets" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Matcha Supplement Sachets <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/sustainable-tea-sachets" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Sustainable Tea Sachets <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
-          {/* Materials */}
+          {/* Col 3: Materials & Specs */}
           <div>
-            <h4 className="font-semibold text-sm mb-4">Materials</h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
-              <li><Link to="/materials/compostable" className="hover:text-primary-400">Compostable</Link></li>
+            <h4 className="font-semibold text-sm mb-3 text-neutral-200">Materials & Specs</h4>
+            <ul className="space-y-1.5 text-xs text-neutral-400">
+              <li><Link to="/materials/compostable" className="hover:text-primary-400">Compostable Materials</Link></li>
               <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
-              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR</Link></li>
+              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR Series</Link></li>
               <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
-              <li><Link to="/materials/kraft-low-barrier" className="hover:text-primary-400">Kraft Low Barrier</Link></li>
-              <li><Link to="/materials/kraft-medium-barrier" className="hover:text-primary-400">Kraft Medium Barrier</Link></li>
               <li><Link to="/materials/kraft-high-barrier" className="hover:text-primary-400">Kraft High Barrier</Link></li>
               <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400">Plastic-Free Kraft</Link></li>
-              <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400">Combustion Test</Link></li>
-              <li><Link to="/materials/conventional-printed-sachets" className="hover:text-primary-400 font-medium text-primary-400">Conventional Printed Sachets <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/topics/eu-ppwr-compliance" className="hover:text-primary-400 font-medium text-primary-400">EU PPWR Compliance <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/eco-packaging-reality" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco-Packaging Reality <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/writable-stampable-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Writable & Stampable Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/digital-printing-pantone-color-matching" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Color Matching Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/pha-vs-pla" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">PHA vs PLA <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/pouch-heat-sealing-temperature-guide" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Heat Sealing Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/pla-compostable-packaging" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">PLA Compostable Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/compostable-laminated-film" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Compostable Laminated Film <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/compostable-protein-bags" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Compostable Protein Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/eco-coffee-bags-valve" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Compostable Coffee Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/pcr-packaging-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">PCR Packaging Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/recyclable-vacuum-bags" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Recyclable Vacuum Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/sustainable-kraft-solutions" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Sustainable Kraft Solutions <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/brown-white-kraft" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Brown vs White Kraft <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/kraft-window-pouch" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Kraft Window Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/eco-friendly-tea-coffee" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco Coffee & Tea Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/durable-reusable-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco-Friendly Ziplock Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/reusable-packaging" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Reusable Canisters <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/bottle-printing-guide" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Bottle Printing Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-            </ul>
-          </div>
-
-          {/* Material Data */}
-          <div>
-            <h4 className="font-semibold text-sm mb-4">Material Data</h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
-              <li><Link to="/materials/data-sheet" className="hover:text-primary-400">Material Data Sheet</Link></li>
+              <li><Link to="/materials/data-sheet" className="hover:text-primary-400 font-medium text-white">Material Data Sheets</Link></li>
               <li><Link to="/features/material-barrier-properties" className="hover:text-primary-400">Barrier Properties</Link></li>
-              <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-400">Heat-Resistant Pouches</Link></li>
-              <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">Carbon-Neutral Bags</Link></li>
-              <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">Spout Pouches Juice</Link></li>
-              <li><Link to="/function/rice-paper-bags" className="hover:text-primary-400">Rice Paper Bags</Link></li>
-              <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-400">PVA Water-Soluble Bags</Link></li>
-              <li><Link to="/function/large-format-kraft-heavy-bags" className="hover:text-primary-400 font-medium text-primary-400">Kraft Heavy-Duty Sacks <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-400 font-medium text-primary-400 font-semibold">Pre-Zippered Rollstock <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
-          {/* Store Policies */}
+          {/* Col 4: Specialty & Finishes */}
           <div>
-            <h4 className="font-semibold text-sm mb-4">Store Policies</h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
+            <h4 className="font-semibold text-sm mb-3 text-neutral-200">Specialty & Finishes</h4>
+            <ul className="space-y-1.5 text-xs text-neutral-400">
+              <li><Link to="/industry/premium-finishes" className="hover:text-primary-400">Premium Pouch Finishes</Link></li>
+              <li><Link to="/industry/premium-matte-pouches" className="hover:text-primary-400">Matte Finish Pouches</Link></li>
+              <li><Link to="/industry/premium-soft-touch" className="hover:text-primary-400">Soft Touch Pouches</Link></li>
+              <li><Link to="/industry/custom-die-cut-pouches" className="hover:text-primary-400">Custom Die-Cut Pouches</Link></li>
+              <li><Link to="/industry/resealable-tin-tie-bags" className="hover:text-primary-400">Resealable Tin Tie Bags</Link></li>
+              <li><Link to="/industry/clear-transparent-pouches" className="hover:text-primary-400">Clear Transparent Pouches</Link></li>
+              <li><Link to="/industry/compostable-sugarcane-pulp-box" className="hover:text-primary-400">Compostable Sugarcane Pulp Box</Link></li>
+              <li><Link to="/industry/euro-hole-hang-bags" className="hover:text-primary-400">Euro Hole Hang Bags</Link></li>
+              <li><Link to="/industry/custom-spout-pouches" className="hover:text-primary-400">Custom Spout Pouches</Link></li>
+              <li><Link to="/industry/child-resistant-cbd" className="hover:text-primary-400">Child Resistant Pouches</Link></li>
+            </ul>
+          </div>
+
+          {/* Col 5: Support & Policies */}
+          <div>
+            <h4 className="font-semibold text-sm mb-3 text-neutral-200">Support & Policies</h4>
+            <ul className="space-y-1.5 text-xs text-neutral-400">
+              <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
+              <li><Link to="/support/color-accuracy-digital-printing" className="hover:text-primary-400">Color Accuracy Guide</Link></li>
+              <li><Link to="/knowledge/workflow" className="hover:text-primary-400">How It Works</Link></li>
+              <li><Link to="/blog" className="hover:text-primary-400">Blog & Resources</Link></li>
               <li><Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link></li>
+              <li><Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link></li>
               <li><Link to="/return-policy" className="hover:text-primary-400">Return Policy</Link></li>
               <li><Link to="/support/lead-time" className="hover:text-primary-400">Shipping & Lead Time</Link></li>
-              <li><Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link></li>
             </ul>
           </div>
 
-          {/* Support */}
-          <div>
-            <h4 className="font-semibold text-sm mb-4">Help & Support</h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
-              <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
-              <li><Link to="/support/color-accuracy-digital-printing" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Color Accuracy Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/workflow" className="hover:text-primary-400">How It Works</Link></li>
-              <li><Link to="/blog" className="hover:text-primary-400">Blog</Link></li>
-              <li><a href="mailto:ryan@achievepack.com" className="hover:text-primary-400">Contact Us</a></li>
-              <li><Link to="/" className="hover:text-primary-400">Main Website</Link></li>
-              <li><Link to="/industry/fresh-produce" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Fresh Produce Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/wholesale-unprinted-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Wholesale Unprinted Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/low-moq-fast-turnaround" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Low MOQ Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/australia-shipping-coo" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Import & Shipping Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/high-barrier-food-pouches" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">High-Barrier Food Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/high-barrier-retort" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">High-Barrier Retort Pouches <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/pet-food-quad-seal" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Pet Food Quad Seal Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/sustainable-healthcare-packaging" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Sustainable Healthcare <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/industry/meat-jerky-packaging" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Meat Jerky Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Citrus Oil Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-neutral-800 pt-6">
-          {/* Certification & Payment Logos */}
+          {/* Verification & Payment Logos */}
           <div className="flex flex-col items-center gap-4 mb-6">
-            {/* BPI & B Corp Logos */}
-            <img src="/bpi-bcorp-logos.svg" alt="BPI & B Corp Certified" className="h-12 w-auto" loading="lazy" decoding="async" />
-            
-            {/* Payment Logos */}
-            <img src="/pay-logos.svg" alt="Payment Methods" className="h-8 w-auto" loading="lazy" decoding="async" />
-            
-            {/* SSL Secure Badge */}
-            <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
+            <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded border border-neutral-850">
               <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
-              <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
+              <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Checkout</span>
             </div>
+            <img src="/pay-logos.svg" alt="Payment Methods" className="h-7 w-auto" loading="lazy" />
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-neutral-500 text-xs">© 2010-2026 Achieve Pack. All rights reserved.</p>
-            <div className="text-neutral-600 text-xs text-center md:text-right">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-neutral-800/60 pt-6">
+            <div className="flex items-center gap-4">
+              <Link to="/">
+                <img src="/ap-logo-white.webp" alt="Achieve Pack Logo" className="h-6 w-auto" loading="lazy" />
+              </Link>
+              <p className="text-neutral-500 text-xs">© 2010-2026 Achieve Pack. All rights reserved.</p>
+            </div>
+            <div className="text-neutral-600 text-[10px] text-center md:text-right">
               <p>Hong Kong Business Registration: 41007097</p>
               <p>No.41 1/F Wo Liu Hang Tsuen, Fotan, Hong Kong</p>
             </div>

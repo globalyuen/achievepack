@@ -93,6 +93,7 @@ const LEARN_PAGES = {
       { name: 'Sustainable Sachet Packaging', link: '/industry/sustainable-tea-sachets', image: '/imgs/store/products/small-sachet-conventional-thumbnail-1.png' },
       { name: 'How to Select Eco-Friendly P', link: '/industry/meat-jerky-packaging', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' },
       { name: 'the Difference Between Brown', link: '/industry/brown-white-kraft', image: '/imgs/illustrated/a_home_compostable_card_v1_2166648.webp' },
+      { name: 'Compostable Sugarcane Pulp Box', link: '/industry/compostable-sugarcane-pulp-box', image: '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-1.jpg' },
       { name: 'Citrus Oil Packaging', link: '/solutions/citrus-oil-packaging', image: '/imgs/materials/citrus_clear_spout_pouch.png' }
     ]
   },

@@ -5506,22 +5506,67 @@
         "tables": [
           {
             "title": "Especificaciones Técnicas de la Manga Termoencogible",
-            "headers": ["Parámetro", "Especificación", "Valor Comercial"],
+            "headers": [
+              "Parámetro",
+              "Especificación",
+              "Valor Comercial"
+            ],
             "rows": [
-              ["Material Base", "PET-G Premium o PVC Económico", "Alta claridad óptica y encogimiento uniforme en túneles de vapor, gas o eléctricos."],
-              ["Relación de Encogimiento", "Horizontal: 60%–78% | Vertical: 1%–3%", "Calibrado para curvas extremas de botellas, evitando la distorsión gráfica o efectos de curvatura no deseados."],
-              ["Espesor", "Opciones de película de 30 a 50 micras", "Equilibra la resistencia a la tracción necesaria para aplicadoras automáticas con la eficiencia del material."],
-              ["Acabados Especiales", "Barniz mate, estampado metálico (hot-stamping), ventanas transparentes", "Acabados táctiles premium y ventanas troqueladas para mostrar el color o nivel del producto."]
+              [
+                "Material Base",
+                "PET-G Premium o PVC Económico",
+                "Alta claridad óptica y encogimiento uniforme en túneles de vapor, gas o eléctricos."
+              ],
+              [
+                "Relación de Encogimiento",
+                "Horizontal: 60%–78% | Vertical: 1%–3%",
+                "Calibrado para curvas extremas de botellas, evitando la distorsión gráfica o efectos de curvatura no deseados."
+              ],
+              [
+                "Espesor",
+                "Opciones de película de 30 a 50 micras",
+                "Equilibra la resistencia a la tracción necesaria para aplicadoras automáticas con la eficiencia del material."
+              ],
+              [
+                "Acabados Especiales",
+                "Barniz mate, estampado metálico (hot-stamping), ventanas transparentes",
+                "Acabados táctiles premium y ventanas troqueladas para mostrar el color o nivel del producto."
+              ]
             ]
           },
           {
             "title": "Comparación de Tipos de Aplicación",
-            "headers": ["Tipo de Aplicación", "Material Termoencogible", "Tasa de Encogimiento", "Caso de Uso Ideal"],
+            "headers": [
+              "Tipo de Aplicación",
+              "Material Termoencogible",
+              "Tasa de Encogimiento",
+              "Caso de Uso Ideal"
+            ],
             "rows": [
-              ["Manga Completa (Full-Body)", "PET-G / PVC", "Hasta 78%", "Imagen de marca de 360 grados en botellas curvas de jugos, bebidas y lácteos"],
-              ["Banda de Cuello y Sellado", "PET / PVC", "Hasta 60%", "Sellos de cuello de seguridad, salsas de llenado en caliente y frascos de cosméticos"],
-              ["Paquetes Múltiples (Multipacks)", "PET-G", "Hasta 70%", "Paquetes promocionales, ofertas dobles y agrupaciones de productos"],
-              ["Preformas", "PET-G", "Hasta 75%", "Mangas de tapa/cuello preformadas para velocidades de línea automáticas de alto volumen"]
+              [
+                "Manga Completa (Full-Body)",
+                "PET-G / PVC",
+                "Hasta 78%",
+                "Imagen de marca de 360 grados en botellas curvas de jugos, bebidas y lácteos"
+              ],
+              [
+                "Banda de Cuello y Sellado",
+                "PET / PVC",
+                "Hasta 60%",
+                "Sellos de cuello de seguridad, salsas de llenado en caliente y frascos de cosméticos"
+              ],
+              [
+                "Paquetes Múltiples (Multipacks)",
+                "PET-G",
+                "Hasta 70%",
+                "Paquetes promocionales, ofertas dobles y agrupaciones de productos"
+              ],
+              [
+                "Preformas",
+                "PET-G",
+                "Hasta 75%",
+                "Mangas de tapa/cuello preformadas para velocidades de línea automáticas de alto volumen"
+              ]
             ]
           }
         ],
@@ -36426,6 +36471,68 @@
           ]
         }
       },
+      "sugarcaneBox": {
+        "title": "Adquisición de Cajas de Embalaje de Pulpa de Caña de Azúcar Compostables",
+        "description": "Cajas de embalaje de pulpa de caña de azúcar biodegradables de calidad superior hechas de pulpa de bagazo 100% compostable. Guía para jabones, regalos y cosméticos.",
+        "heroTitle": "Adquisición de Cajas de Embalaje de Pulpa de Caña de Azúcar Compostables",
+        "heroSubtitle": "Cajas de fibra moldeada sostenibles, duraderas y resistentes a impactos hechas de pulpa de bagazo natural.",
+        "introSummary": "Las cajas de pulpa de caña de azúcar biodegradables representan el futuro del embalaje sostenible. Fabricadas a partir de fibras de bagazo de caña de azúcar 100% naturales, estas cajas son compostables, duraderas y perfectas para cosméticos, regalos y jabones.",
+        "ctaTitle": "¿Busca embalaje de pulpa de caña de azúcar personalizado?",
+        "ctaDescription": "Solicite muestras gratuitas o diseñe cajas personalizadas con relieve para su marca. Suministro directo de fábrica.",
+        "ctaButtonText": "Solicitar Muestras Gratuitas",
+        "sections": {
+          "detail1": {
+            "title": "Adquisición de Cajas de Embalaje de Pulpa de Caña de Azúcar Compostables",
+            "desc": "La adquisición de cajas de embalaje de pulpa de bagazo de caña de azúcar biodegradables permite que su marca se alinee con los estándares modernos de la economía circular. Estas cajas se fabrican con fibras de caña de azúcar sin blanquear sobrantes, comprimidas a alta presión y temperatura para formar contenedores extremadamente rígidos, duraderos y resistentes a impactos. Son seguras para el contacto con alimentos, certificadas como compostables y se degradan naturalmente en el suelo en un plazo de 90 a 180 días sin dejar residuos químicos."
+          },
+          "specifications": {
+            "title": "Especificaciones de Fibra Moldeada y Rendimiento del Material",
+            "desc": "Nuestras cajas de pulpa de caña de azúcar se fabrican con materias primas certificadas por el FSC. La estructura de fibra natural moldeada ofrece una protección superior en comparación con el plástico convencional o el cartón delgado. Es resistente al calor, resistente a la grasa y se puede personalizar con ventanas transparentes, fajas de papel impresas (sleeves) y logotipos grabados en relieve para una exhibición retail premium."
+          },
+          "qa": {
+            "title": "Del Cuaderno de Ingeniería de Ryan Wong",
+            "desc": "El bagazo moldeado tiene beneficios táctiles únicos que comunican sostenibilidad de inmediato. Sin embargo, los diseñadores deben considerar las tolerancias de las paredes, los ángulos de inclinación del molde y los parámetros de apilamiento. Para formas personalizadas, se requieren ángulos de inclinación de 3 a 5 grados para facilitar el desmoldeo. Si su producto es muy sensible a la humedad, podemos añadir una delgada lámina de PLA de origen vegetal o recomendar papel de nido de abeja resistente a la grasa dentro de la caja. Ofrecemos alineación por video pre-producción para asegurar el ajuste perfecto de sus productos."
+          }
+        },
+        "faqs": {
+          "q1": "¿Son las cajas de pulpa de caña de azúcar resistentes al agua?",
+          "a1": "Son naturalmente resistentes a la humedad y la grasa debido a la alta densidad de las fibras moldeadas. Para el contacto directo con jabones húmedos o cosméticos ricos en líquidos, recomendamos una delgada faja protectora de papel o papel antigrasa.",
+          "q2": "¿Cuál es la tasa de biodegradación?",
+          "a2": "En condiciones normales de compostaje doméstico o industrial, las cajas de pulpa de caña de azúcar se biodegradan completamente en un plazo de 90 a 180 días, convirtiéndose en compost orgánico rico en nutrientes.",
+          "q3": "¿Se pueden imprimir con logotipos personalizados?",
+          "a3": "Sí, podemos grabar en relieve su logotipo directamente en el molde. Para gráficos a todo color e información del producto, recomendamos envolver la caja con una faja de papel impresa (belly band)."
+        },
+        "table": {
+          "title": "Caja de Pulpa Moldeada vs. Embalaje Tradicional",
+          "headers": [
+            "Parámetro de especificación",
+            "Blíster de plástico",
+            "Caja de pulpa de caña de azúcar"
+          ],
+          "rows": [
+            [
+              "Origen del material",
+              "Basado en petróleo",
+              "100% Bagazo de caña de azúcar (vegetal)"
+            ],
+            [
+              "Biodegradabilidad",
+              "No biodegradable (siglos)",
+              "100% Compostable (90-180 días)"
+            ],
+            [
+              "Amortiguación de impactos",
+              "Delgado y quebradizo",
+              "Estructura moldeada de alta densidad"
+            ],
+            [
+              "Imagen ecológica de marca",
+              "Sensación de plástico convencional",
+              "Sensación táctil premium orgánica"
+            ]
+          ]
+        }
+      },
       "matchaSachet": {
         "title": "How to Design Custom Sachets & Stick Pack Films for Matcha?",
         "description": "Yes, sensitive powders like Matcha and active supplements require absolute light and moisture barriers to prevent oxidation and clumping. Achieve Pack provides rollstock film and pre-formed sachets with aluminum foil layers and easy-tear V-notches, designed for high-speed automatic packaging lines with MOQs from 2,000 units.",
@@ -37776,6 +37883,73 @@
         "orderStarterSamples": "Order Starter Samples",
         "moq500NoPlateFeesDigitalPrecis": "MOQ 500 • NO PLATE FEES • DIGITAL PRECISION • FAST TURNAROUND",
         "lowMoqStartupPackagingAgileSus": "Low MOQ Startup Packaging | Agile Sustainable Solutions | Achieve Pack"
+      },
+      "compostableSugarcaneBox": {
+        "title": "Caja de Embalaje de Pulpa de Caña de Azúcar Compostable - Caja de Jabón y Regalo Biodegradable Duradera",
+        "description": "Cajas de embalaje de pulpa de bagazo de caña de azúcar moldeada biodegradable de alta calidad. Opciones de cajas de jabón y regalo duraderas, resistentes a los golpes y a la humedad.",
+        "heroTitle": "Caja de Embalaje de Pulpa de Caña de Azúcar Compostable",
+        "heroSubtitle": "Cajas moldeadas de pulpa de bagazo renovable. Duraderas, a prueba de golpes y completamente biodegradables.",
+        "introSummary": "Las cajas de pulpa de caña de azúcar compostables están moldeadas con fibras de bagazo 100% renovables y se descomponen por completo en 90 a 180 días. Diseñadas para brindar durabilidad y protección contra golpes, estas cajas ecológicas son perfectas para jabones, regalos, cosméticos y productos artesanales. Calibración de color PMS gratuita y MOQ bajos desde 100 unidades.",
+        "ctaTitle": "Solicitar Muestras de Embalaje de Pulpa de Caña de Azúcar",
+        "ctaDescription": "Experimente la textura orgánica natural y premium de nuestras cajas de embalaje de pulpa de caña de azúcar. Kits de muestras personalizados disponibles.",
+        "ctaButtonText": "Obtenga Muestras Gratis",
+        "sections": {
+          "detail1": {
+            "title": "Protección Sostenible Duradera y a Prueba de Golpes",
+            "desc": "Diseñadas con paredes moldeadas rígidas y gruesas, nuestras cajas de pulpa de caña de azúcar absorben los impactos durante el tránsito, protegiendo artículos delicados como jabones orgánicos y cosméticos. Naturalmente resistentes al aceite y tolerantes a la humedad."
+          },
+          "specifications": {
+            "title": "Especificaciones Técnicas y Propiedades del Material",
+            "desc": "Fabricadas a partir de fibras de bagazo de caña de azúcar sin blanquear y sin aglutinantes tóxicos. Construcción de alto gramaje, segura para el contacto directo con alimentos y certificada bajo EN 13432 y ASTM D6400."
+          },
+          "qa": {
+            "title": "Del Cuaderno de Ingeniería de Ryan Wong",
+            "desc": "En mis 14 años de diseño de embalajes, el bagazo de caña de azúcar ha surgido como el principal material compostable rígido. Combina una textura estética natural con una alta estabilidad estructural. Garantizamos la trazabilidad de la materia prima y ofrecemos un grabado limpio personalizado para elevar la presencia de su marca."
+          }
+        },
+        "faqs": {
+          "q1": "¿Are de pulpa de caña de azúcar resistentes al agua?",
+          "a1": "La pulpa de caña de azúcar es tolerante a la humedad por naturaleza. Para la exposición directa a líquidos, recomendamos utilizar una biolaminación o una envoltura exterior. Para artículos secos, jabones y regalos, funcionan excepcionalmente bien sin ningún recubrimiento.",
+          "q2": "¿Puedo personalizar la forma o agregar logotipos grabados?",
+          "a2": "Sí, admitimos moldes personalizados para logotipos grabados y formas únicas. La configuración del molde personalizado requiere una tarifa de herramientas por única vez, con MOQ de producción a partir de 5,000 unidades.",
+          "q3": "¿Cuánto tiempo tarda en descomponerse?",
+          "a3": "Bajo condiciones estándar de compostaje doméstico o industrial, nuestro embalaje de pulpa de caña de azúcar 100% se degrada por completo en un plazo de 90 a 180 días, dejando cero microplásticos o residuos químicos."
+        },
+        "table": {
+          "title": "Configuraciones Estándar de Cajas de Pulpa de Caña de Azúcar",
+          "headers": [
+            "Tamaño del Modelo",
+            "Dimensiones Externas",
+            "Opción de Color",
+            "Ideal Para"
+          ],
+          "rows": [
+            [
+              "Pequeño (单个/小号)",
+              "10.5 × 6.5 × 3 cm",
+              "Natural / Blanco",
+              "Jabón, Joyería, Mini Regalo"
+            ],
+            [
+              "Grande (单个/大号)",
+              "15 × 10.5 × 2.7 cm",
+              "Natural / Blanco",
+              "Kit de Cosméticos, Ropa, Juego de Jabón"
+            ],
+            [
+              "Caja de Pan (白饅頭)",
+              "19.5 × 17.5 × 6.5 cm",
+              "Blanco",
+              "Caja de Comida, Panadería, Paquete de Regalo"
+            ],
+            [
+              "Caja de Palillos",
+              "25.5 × 10.5 × 4.5 cm",
+              "Natural / Blanco",
+              "Utensilios, Papelería, Artículos Largos"
+            ]
+          ]
+        }
       }
     },
     "compostableStandUpPouches": {
@@ -47156,6 +47330,18 @@
         "Fuelle inferior autoportante",
         "Disponible en múltiples capacidades (50ml a 5000ml)",
         "Bajo MOQ a partir de 100 piezas"
+      ]
+    },
+    "compostable-sugarcane-pulp-box": {
+      "name": "Caja de Embalaje de Pulpa de Caña de Azúcar Compostable (Caja de Regalo y Jabón de Varios Tamaños)",
+      "shortDesc": "Caja de pulpa de caña de azúcar biodegradable para jabón, regalos y cosméticos",
+      "description": "Caja de embalaje biodegradable premium fabricada con pulpa de bagazo de caña de azúcar 100% compostable. Ideal para jabones, regalos, cosméticos, té y productos artesanales. Diseñada con un diseño duradero, resistente a los golpes y a la humedad. Estas cajas presentan una textura orgánica natural que comunica la sostenibilidad de la marca y protege el contenido.",
+      "features": [
+        "100% Compostable: Fabricado con pulpa de bagazo de caña de azúcar natural, biodegradable en un plazo de 90 a 180 días.",
+        "Duradero y a Prueba de Golpes: La construcción moldeada rígida y gruesa absorbe los impactos y protege los artículos frágiles.",
+        "Textura Natural Premium: Sensación ecológica cruda con un relieve limpio para elevar la presencia de su marca.",
+        "Material Respetuoso con el Medio Ambiente: Fibras naturales sin blanquear y sin productos químicos, seguras para cosméticos ecológicos.",
+        "Varios Tamaños y Versatilidad: Amplia selección de dimensiones, opciones de ventanas, tapas abatibles y accesorios."
       ]
     }
   }
