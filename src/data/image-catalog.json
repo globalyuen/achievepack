@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-03",
-  "total_images": 4771,
-  "total_categories": 194,
+  "generated": "2026-07-04",
+  "total_images": 4786,
+  "total_categories": 199,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 482,
+    ".jpg": 497,
     ".svg": 3
   },
   "categories": {
@@ -29507,6 +29507,98 @@
         }
       ]
     },
+    "topics/granola-soft-touch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/granola-soft-touch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:50:42.271Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/granola-soft-touch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:50:42.269Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/granola-soft-touch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:50:42.267Z"
+        }
+      ]
+    },
+    "topics/hologram-hot-stamping": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/hologram-hot-stamping/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:52:02.169Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/hologram-hot-stamping/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:52:02.167Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/hologram-hot-stamping/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:52:02.165Z"
+        }
+      ]
+    },
+    "topics/home-vs-industrial-compostable": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/home-vs-industrial-compostable/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:53:24.240Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/home-vs-industrial-compostable/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:53:24.238Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/home-vs-industrial-compostable/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:53:24.235Z"
+        }
+      ]
+    },
+    "topics/iso-sustainable": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/iso-sustainable/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:55:13.505Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/iso-sustainable/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:55:13.503Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/iso-sustainable/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:55:13.501Z"
+        }
+      ]
+    },
     "topics/matcha-sachet": {
       "count": 3,
       "images": [
@@ -29527,6 +29619,29 @@
           "path": "/imgs/topics/matcha-sachet/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T06:57:52.949Z"
+        }
+      ]
+    },
+    "topics/pet-food-quad-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/pet-food-quad-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:57:11.113Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/pet-food-quad-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:57:11.109Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/pet-food-quad-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:57:11.106Z"
         }
       ]
     },

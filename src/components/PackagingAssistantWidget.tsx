@@ -168,6 +168,7 @@ const PackagingAssistantWidget: React.FC = () => {
         'flat-pouches': 'Flat Pouches (3 Side Seal)',
         'side-gusset-bags': 'Side Gusset Bags',
         'spout-pouches': 'Spout Pouches',
+        'shrink-sleeves': 'Shrink Sleeves',
         'quad-seal-bags': 'Quad Seal Bags',
       }
       return { path, pageType: 'packaging', pageName: shapeNames[shape] || 'Packaging Shapes' }

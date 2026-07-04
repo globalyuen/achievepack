@@ -96,6 +96,7 @@ const SHAPE_CATEGORIES_COL1 = [
 
 const SHAPE_CATEGORIES_COL2 = [
   { name: 'Custom Boxes', link: '/store?category=boxes' },
+  { name: 'Shrink Sleeve', link: '/store?shape=Shrink Sleeve' },
   { name: 'Mailer Bags', link: '/store?category=mailer' },
   { name: 'Labels & Stickers', link: '/products/labels-and-stickers' },
   { name: 'Lab Bags', link: '/products/lab-bags' },
