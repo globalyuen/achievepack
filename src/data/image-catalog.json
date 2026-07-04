@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-04",
-  "total_images": 4804,
+  "total_images": 4809,
   "total_categories": 205,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 515,
+    ".jpg": 520,
     ".svg": 3
   },
   "categories": {
@@ -24952,8 +24952,38 @@
       ]
     },
     "store/products": {
-      "count": 334,
+      "count": 339,
       "images": [
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-15.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-15.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T01:00:04.607Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-14.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-14.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T01:00:04.605Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-13.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-13.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T01:00:04.601Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-12.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T01:00:04.599Z"
+        },
+        {
+          "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-11.jpg",
+          "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T01:00:04.597Z"
+        },
         {
           "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-10.jpg",
           "path": "/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-10.jpg",

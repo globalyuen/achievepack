@@ -612,6 +612,10 @@ const ProductPage: React.FC = () => {
   const [selectedSpout, setSelectedSpout] = useState<'Yes' | 'No'>('No')
   const [selectedShipping, setSelectedShipping] = useState('Air Freight')
   
+  // Custom size states for Shrink Sleeve (user input)
+  const [customWidth, setCustomWidth] = useState(100)
+  const [customHeight, setCustomHeight] = useState(150)
+  
   // Tab state for Package Visualization / Specifications
   const [activeTab, setActiveTab] = useState<'visualization' | 'specifications'>('visualization')
 
@@ -843,6 +847,10 @@ const ProductPage: React.FC = () => {
     const params = new URLSearchParams()
     
     if (isEcoDigital) {
+      if (productId === 'eco-shrinksleeve') {
+        params.set('width', customWidth.toString())
+        params.set('height', customHeight.toString())
+      }
       params.set('material', selectedMaterial)
       params.set('size', selectedSize)
       params.set('quantity', selectedQuantity)
@@ -868,7 +876,7 @@ const ProductPage: React.FC = () => {
     }
     
     return `${baseUrl}/store/product/${productId}?${params.toString()}`
-  }, [isEcoDigital, isConventionalDigital, isBoxes, productId, selectedMaterial, selectedSize, selectedQuantity, selectedDesignCount, selectedBarrier, selectedStiffness, selectedClosure, selectedSurface, selectedLaserScoring, selectedValve, selectedAdhesiveTape, selectedHangHole, selectedSpout, selectedShipping, selectedConvSize, selectedConvQuantity, ecoStockProduct, selectedSizeVariant, selectedSizeWithQty, selectedQtyOption, selectedEcoStockQuantity])
+  }, [isEcoDigital, isConventionalDigital, isBoxes, productId, selectedMaterial, selectedSize, selectedQuantity, selectedDesignCount, selectedBarrier, selectedStiffness, selectedClosure, selectedSurface, selectedLaserScoring, selectedValve, selectedAdhesiveTape, selectedHangHole, selectedSpout, selectedShipping, selectedConvSize, selectedConvQuantity, ecoStockProduct, selectedSizeVariant, selectedSizeWithQty, selectedQtyOption, selectedEcoStockQuantity, customWidth, customHeight])
   
   // Open share modal
   const handleShareClick = () => {
@@ -966,8 +974,14 @@ const ProductPage: React.FC = () => {
   useEffect(() => {
     if (ecoProduct?.ecoConfig) {
       // Check if URL has configuration params - if so, skip defaults
-      const hasUrlParams = searchParams.has('material') || searchParams.has('size') || searchParams.has('quantity')
-      if (hasUrlParams) return // URL params take priority
+      const hasUrlParams = searchParams.has('material') || searchParams.has('size') || searchParams.has('quantity') || searchParams.has('width') || searchParams.has('height')
+      if (hasUrlParams) {
+        const w = searchParams.get('width')
+        const h = searchParams.get('height')
+        if (w) setCustomWidth(Number(w))
+        if (h) setCustomHeight(Number(h))
+        return // URL params take priority
+      }
       
       setSelectedMaterial(ecoProduct.ecoConfig.defaultMaterial)
       setSelectedSize(ecoProduct.ecoConfig.defaultSize)
@@ -979,6 +993,31 @@ const ProductPage: React.FC = () => {
       setSelectedShipping(ecoProduct.ecoConfig.defaultShippingMethod)
     }
   }, [ecoProduct, searchParams])
+
+  // Sync custom width/height with selectedSize for eco-shrinksleeve pricing
+  useEffect(() => {
+    if (product?.id === 'eco-shrinksleeve') {
+      // Map custom lay-flat dimensions area to closest standard EcoSizeCode
+      const area = customWidth * customHeight
+      let sizeCode: string = 'XS'
+      if (area <= 9900) sizeCode = 'XXXS'
+      else if (area <= 17600) sizeCode = 'XXS'
+      else if (area <= 26000) sizeCode = 'XS'
+      else if (area <= 30000) sizeCode = 'S'
+      else if (area <= 36800) sizeCode = 'M'
+      else if (area <= 45000) sizeCode = 'L'
+      else if (area <= 60000) sizeCode = 'XL'
+      else sizeCode = 'XXL'
+      
+      setSelectedSize(sizeCode)
+      
+      // Force defaults for options that must be removed/disabled
+      setSelectedClosure('No')
+      setSelectedBarrier('mid clear mid barrier (Optional Window)')
+      setSelectedStiffness('Without Paper Lining (Softer)')
+      setSelectedMaterial('Mono Recyclable Plastic')
+    }
+  }, [customWidth, customHeight, product?.id])
 
   // Scroll to top and reset image index when product changes
   useEffect(() => {
@@ -4282,188 +4321,246 @@ const ProductPage: React.FC = () => {
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
                     {t(`${p}.ecoMaterialType`)}</label>
                   
-                  {/* Compare Options Link */}
-                  <button
-                    type="button"
-                    onClick={() => setCompareModal({ type: 'material', isOpen: true })}
-                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
-                  >
-                    {t(`${p}.compareAllMaterialOptions`)}</button>
-                  
-                  {/* Mobile: Native Select */}
-                  <div className="md:hidden flex gap-3 items-center">
-                    <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
-                      <option value="PCR or Bio Plastic">{t(`${p}.pcrOrBioPlastic`)}</option>
-                      <option value="Mono Recyclable Plastic">{t(`${p}.monoRecyclablePlastic`)}</option>
-                      <option value="Biodegradable and Compostable">{t(`${p}.biodegradableAndCompostable`)}</option>
-                    </select>
-                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
-                      <img 
-                        src={selectedMaterial === 'PCR or Bio Plastic' 
-                          ? '/imgs/store/eco-material/pcr-or-biope.webp'
-                          : selectedMaterial === 'Mono Recyclable Plastic'
-                          ? '/imgs/store/eco-material/recycle.webp'
-                          : '/imgs/store/eco-material/compostable.webp'
-                        } 
-                        alt={selectedMaterial} 
-                        className="max-w-full max-h-full object-contain"
-                      />
+                  {product?.id === 'eco-shrinksleeve' ? (
+                    <div className="bg-primary-50 border-2 border-primary-500 rounded-xl p-3 flex items-center gap-3">
+                      <div className="flex-shrink-0 bg-white rounded-lg p-2 w-12 h-12 flex items-center justify-center border border-primary-200">
+                        <img src="/imgs/store/eco-material/recycle.webp" alt="PET" className="max-w-full max-h-full object-contain" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-primary-700">PET (100% Recyclable)</p>
+                        <p className="text-[10px] text-neutral-500">Resin Code ♻️ 1 compliant film, highly recyclable</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Tablet/Desktop: Popover Grid */}
-                  <div className="hidden md:block">
-                    <div className="grid grid-cols-3 gap-2">
-                      {[
-                        { value: 'PCR or Bio Plastic', label: 'PCR / Bio PE', image: '/imgs/store/eco-material/pcr-or-biope.webp', desc: 'Recycled or plant-based' },
-                        { value: 'Mono Recyclable Plastic', label: 'Mono PE', image: '/imgs/store/eco-material/recycle.webp', desc: 'Fully recyclable' },
-                        { value: 'Biodegradable and Compostable', label: 'Compostable', image: '/imgs/store/eco-material/compostable.webp', desc: 'Certified compostable' },
-                      ].map(mat => (
-                        <button
-                          key={mat.value}
-                          type="button"
-                          onClick={() => setSelectedMaterial(mat.value)}
-                          className={`relative p-3 rounded-xl border-2 transition-all text-left ${
-                            selectedMaterial === mat.value
-                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
-                              : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
-                          }`}
-                        >
-                          <img src={mat.image} alt="" className="w-10 h-10 object-contain mx-auto mb-2" />
-                          <p className={`text-xs font-semibold text-center ${selectedMaterial === mat.value ? 'text-primary-700' : 'text-neutral-800'}`}>
-                            {mat.label}
-                          </p>
-                          <p className="text-[10px] text-neutral-500 text-center mt-0.5">{mat.desc}</p>
-                          {selectedMaterial === mat.value && (
-                            <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
-                              <CheckCircle className="w-3 h-3 text-white" />
-                            </div>
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                  ) : (
+                    <>
+                      {/* Compare Options Link */}
+                      <button
+                        type="button"
+                        onClick={() => setCompareModal({ type: 'material', isOpen: true })}
+                        className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                      >
+                        {t(`${p}.compareAllMaterialOptions`)}</button>
+                      
+                      {/* Mobile: Native Select */}
+                      <div className="md:hidden flex gap-3 items-center">
+                        <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
+                          <option value="PCR or Bio Plastic">{t(`${p}.pcrOrBioPlastic`)}</option>
+                          <option value="Mono Recyclable Plastic">{t(`${p}.monoRecyclablePlastic`)}</option>
+                          <option value="Biodegradable and Compostable">{t(`${p}.biodegradableAndCompostable`)}</option>
+                        </select>
+                        <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
+                          <img 
+                            src={selectedMaterial === 'PCR or Bio Plastic' 
+                              ? '/imgs/store/eco-material/pcr-or-biope.webp'
+                              : selectedMaterial === 'Mono Recyclable Plastic'
+                              ? '/imgs/store/eco-material/recycle.webp'
+                              : '/imgs/store/eco-material/compostable.webp'
+                            } 
+                            alt={selectedMaterial} 
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Tablet/Desktop: Popover Grid */}
+                      <div className="hidden md:block">
+                        <div className="grid grid-cols-3 gap-2">
+                          {[
+                            { value: 'PCR or Bio Plastic', label: 'PCR / Bio PE', image: '/imgs/store/eco-material/pcr-or-biope.webp', desc: 'Recycled or plant-based' },
+                            { value: 'Mono Recyclable Plastic', label: 'Mono PE', image: '/imgs/store/eco-material/recycle.webp', desc: 'Fully recyclable' },
+                            { value: 'Biodegradable and Compostable', label: 'Compostable', image: '/imgs/store/eco-material/compostable.webp', desc: 'Certified compostable' },
+                          ].map(mat => (
+                            <button
+                              key={mat.value}
+                              type="button"
+                              onClick={() => setSelectedMaterial(mat.value)}
+                              className={`relative p-3 rounded-xl border-2 transition-all text-left ${
+                                selectedMaterial === mat.value
+                                  ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
+                                  : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                              }`}
+                            >
+                              <img src={mat.image} alt="" className="w-10 h-10 object-contain mx-auto mb-2" />
+                              <p className={`text-xs font-semibold text-center ${selectedMaterial === mat.value ? 'text-primary-700' : 'text-neutral-800'}`}>
+                                {mat.label}
+                              </p>
+                              <p className="text-[10px] text-neutral-500 text-center mt-0.5">{mat.desc}</p>
+                              {selectedMaterial === mat.value && (
+                                <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-3 h-3 text-white" />
+                                </div>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    {getSizeLabel}
+                    {product?.id === 'eco-shrinksleeve' ? 'Custom Flat Dimensions (mm)' : getSizeLabel}
                   </label>
                   
-                  {/* Compare Options Link */}
-                  <button
-                    type="button"
-                    onClick={() => setCompareModal({ type: 'size', isOpen: true })}
-                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
-                  >
-                    {t(`${p}.compareAllSizeOptions`)}</button>
-                  
-                  {/* Mobile: Native Select */}
-                  <div className="md:hidden flex gap-3 items-center">
-                    <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
-                      {sizeOptions.map(size => (
-                        <option key={size.value} value={size.value}>{size.label}</option>
-                      ))}
-                    </select>
-                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
-                      <img 
-                        src={getSizeImage(selectedSize as EcoSizeType)} 
-                        alt={`Size ${selectedSize}`} 
-                        className="max-w-full max-h-full object-contain"
-                      />
+                  {product?.id === 'eco-shrinksleeve' ? (
+                    <div className="space-y-3 bg-neutral-50 p-4 rounded-xl border border-neutral-200">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-[11px] font-semibold text-neutral-500 mb-1 uppercase tracking-wider">Lay-Flat Width (mm)</label>
+                          <div className="relative">
+                            <input 
+                              type="number"
+                              min={40}
+                              max={400}
+                              value={customWidth}
+                              onChange={e => setCustomWidth(Math.max(40, Math.min(400, Number(e.target.value) || 40)))}
+                              className="w-full p-3 border border-neutral-200 rounded-lg text-sm text-neutral-900 bg-white font-medium focus:ring-2 focus:ring-primary-200 focus:border-primary-500 transition-all"
+                            />
+                            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-neutral-400 font-medium">mm</span>
+                          </div>
+                          <span className="text-[10px] text-neutral-500 mt-1 block">Range: 40 - 400 mm</span>
+                        </div>
+                        <div>
+                          <label className="block text-[11px] font-semibold text-neutral-500 mb-1 uppercase tracking-wider">Cut Length / Height (mm)</label>
+                          <div className="relative">
+                            <input 
+                              type="number"
+                              min={40}
+                              max={500}
+                              value={customHeight}
+                              onChange={e => setCustomHeight(Math.max(40, Math.min(500, Number(e.target.value) || 40)))}
+                              className="w-full p-3 border border-neutral-200 rounded-lg text-sm text-neutral-900 bg-white font-medium focus:ring-2 focus:ring-primary-200 focus:border-primary-500 transition-all"
+                            />
+                            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-neutral-400 font-medium">mm</span>
+                          </div>
+                          <span className="text-[10px] text-neutral-500 mt-1 block">Range: 40 - 500 mm</span>
+                        </div>
+                      </div>
+                      <p className="text-[10px] text-neutral-500 leading-relaxed pt-1.5 border-t border-neutral-200/60">
+                        * Lay-Flat Width = (Bottle Circumference at widest point × 1.05 for clearance) ÷ 2. Custom area determines digital print pricing bucket ({customWidth * customHeight} mm²).
+                      </p>
                     </div>
-                  </div>
-                  
-                  {/* Desktop: Card Grid */}
-                  <div className="hidden md:block">
-                    <div className="grid grid-cols-4 gap-2">
-                      {SIZE_OPTIONS.map(size => (
-                        <button
-                          key={size.id}
-                          type="button"
-                          onClick={() => setSelectedSize(size.id)}
-                          className={`relative p-2 rounded-xl border-2 transition-all text-left ${
-                            selectedSize === size.id
-                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
-                              : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
-                          }`}
-                        >
-                          <img src={size.img} alt="" className="w-full h-12 object-contain mb-1" />
-                          <p className={`text-xs font-semibold text-center ${selectedSize === size.id ? 'text-primary-700' : 'text-neutral-800'}`}>
-                            {size.id}
-                          </p>
-                          <p className="text-[9px] text-neutral-500 text-center truncate">{sizeOptions.find(s => s.value === size.id)?.label.split('/')[0]}</p>
-                          {selectedSize === size.id && (
-                            <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
-                              <CheckCircle className="w-3 h-3 text-white" />
-                            </div>
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                  ) : (
+                    <>
+                      {/* Compare Options Link */}
+                      <button
+                        type="button"
+                        onClick={() => setCompareModal({ type: 'size', isOpen: true })}
+                        className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                      >
+                        {t(`${p}.compareAllSizeOptions`)}</button>
+                      
+                      {/* Mobile: Native Select */}
+                      <div className="md:hidden flex gap-3 items-center">
+                        <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
+                          {sizeOptions.map(size => (
+                            <option key={size.value} value={size.value}>{size.label}</option>
+                          ))}
+                        </select>
+                        <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
+                          <img 
+                            src={getSizeImage(selectedSize as EcoSizeType)} 
+                            alt={`Size ${selectedSize}`} 
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Desktop: Card Grid */}
+                      <div className="hidden md:block">
+                        <div className="grid grid-cols-4 gap-2">
+                          {SIZE_OPTIONS.map(size => (
+                            <button
+                              key={size.id}
+                              type="button"
+                              onClick={() => setSelectedSize(size.id)}
+                              className={`relative p-2 rounded-xl border-2 transition-all text-left ${
+                                selectedSize === size.id
+                                  ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
+                                  : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                              }`}
+                            >
+                              <img src={size.img} alt="" className="w-full h-12 object-contain mb-1" />
+                              <p className={`text-xs font-semibold text-center ${selectedSize === size.id ? 'text-primary-700' : 'text-neutral-800'}`}>
+                                {size.id}
+                              </p>
+                              <p className="text-[9px] text-neutral-500 text-center truncate">{sizeOptions.find(s => s.value === size.id)?.label.split('/')[0]}</p>
+                              {selectedSize === size.id && (
+                                <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-3 h-3 text-white" />
+                                </div>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    {t(`${p}.closure`)}</label>
-                  
-                  {/* Compare Options Link */}
-                  <button
-                    type="button"
-                    onClick={() => setCompareModal({ type: 'closure', isOpen: true })}
-                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
-                  >
-                    {t(`${p}.compareAllClosureOptions`)}</button>
-                  
-                  {/* Mobile: Native Select */}
-                  <div className="md:hidden flex gap-3 items-center">
-                    <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
-                      {CLOSURE_OPTIONS.map(c => (
-                        <option key={c.id} value={c.id}>{c.name}</option>
-                      ))}
-                    </select>
-                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
-                      <img 
-                        src={CLOSURE_OPTIONS.find(c => c.id === selectedClosure)?.img || '/imgs/store/closure/no-zipper.webp'} 
-                        alt={`${selectedClosure} closure`} 
-                        className="max-w-full max-h-full object-contain"
-                      />
+                {product?.id !== 'eco-shrinksleeve' && (
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
+                      {t(`${p}.closure`)}</label>
+                    
+                    {/* Compare Options Link */}
+                    <button
+                      type="button"
+                      onClick={() => setCompareModal({ type: 'closure', isOpen: true })}
+                      className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                    >
+                      {t(`${p}.compareAllClosureOptions`)}</button>
+                    
+                    {/* Mobile: Native Select */}
+                    <div className="md:hidden flex gap-3 items-center">
+                      <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
+                        {CLOSURE_OPTIONS.map(c => (
+                          <option key={c.id} value={c.id}>{c.name}</option>
+                        ))}
+                      </select>
+                      <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
+                        <img 
+                          src={CLOSURE_OPTIONS.find(c => c.id === selectedClosure)?.img || '/imgs/store/closure/no-zipper.webp'} 
+                          alt={`${selectedClosure} closure`} 
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Desktop: Card Grid */}
+                    <div className="hidden md:block">
+                      <div className="grid grid-cols-4 gap-2">
+                        {CLOSURE_OPTIONS.map(closure => (
+                          <button
+                            key={closure.id}
+                            type="button"
+                            onClick={() => setSelectedClosure(closure.id as ClosureType)}
+                            className={`relative p-2 rounded-xl border-2 transition-all text-left ${
+                              selectedClosure === closure.id
+                                ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
+                                : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                            }`}
+                          >
+                            <img src={closure.img} alt="" className="w-full h-12 object-contain mb-1" />
+                            <p className={`text-[10px] font-semibold text-center ${selectedClosure === closure.id ? 'text-primary-700' : 'text-neutral-800'}`}>
+                              {closure.name.length > 12 ? closure.name.split(' ')[0] : closure.name}
+                            </p>
+                            {closure.premium && (
+                              <span className="absolute top-1 left-1 text-[8px] bg-amber-100 text-amber-700 px-1 py-0.5 rounded">
+                                {t(`${p}.premium`)}</span>
+                            )}
+                            {selectedClosure === closure.id && (
+                              <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
+                                <CheckCircle className="w-3 h-3 text-white" />
+                              </div>
+                            )}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  
-                  {/* Desktop: Card Grid */}
-                  <div className="hidden md:block">
-                    <div className="grid grid-cols-4 gap-2">
-                      {CLOSURE_OPTIONS.map(closure => (
-                        <button
-                          key={closure.id}
-                          type="button"
-                          onClick={() => setSelectedClosure(closure.id as ClosureType)}
-                          className={`relative p-2 rounded-xl border-2 transition-all text-left ${
-                            selectedClosure === closure.id
-                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
-                              : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
-                          }`}
-                        >
-                          <img src={closure.img} alt="" className="w-full h-12 object-contain mb-1" />
-                          <p className={`text-[10px] font-semibold text-center ${selectedClosure === closure.id ? 'text-primary-700' : 'text-neutral-800'}`}>
-                            {closure.name.length > 12 ? closure.name.split(' ')[0] : closure.name}
-                          </p>
-                          {closure.premium && (
-                            <span className="absolute top-1 left-1 text-[8px] bg-amber-100 text-amber-700 px-1 py-0.5 rounded">
-                              {t(`${p}.premium`)}</span>
-                          )}
-                          {selectedClosure === closure.id && (
-                            <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
-                              <CheckCircle className="w-3 h-3 text-white" />
-                            </div>
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                )}
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
@@ -4532,111 +4629,115 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    {t(`${p}.barrier`)}</label>
-                  
-                  {/* Compare Options Link */}
-                  <button
-                    type="button"
-                    onClick={() => setCompareModal({ type: 'barrier', isOpen: true })}
-                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
-                  >
-                    {t(`${p}.compareAllBarrierOptions`)}</button>
-                  
-                  {/* Dropdown Option */}
-                  <DropdownMenu>
-                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
-                      <span className="font-medium text-neutral-900">
-                        {selectedBarrier === 'mid clear mid barrier (Optional Window)' ? 'Mid Barrier (Window)' :
-                         selectedBarrier === 'metalised high barrier (No Window)' ? 'High Barrier (No Window)' :
-                         'Highest Barrier (No Window)'}
-                      </span>
-                      <ChevronDown className="h-5 w-5 text-neutral-400" />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>{t(`${p}.selectBarrierType`)}</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuRadioGroup value={selectedBarrier} onValueChange={setSelectedBarrier}>
-                        <DropdownMenuRadioItem value="mid clear mid barrier (Optional Window)">{t(`${p}.midBarrierWindow`)}</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="metalised high barrier (No Window)">{t(`${p}.highBarrierNoWindow`)}</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="Aluminum highest barrier (No Window)">{t(`${p}.highestBarrierNoWindow`)}</DropdownMenuRadioItem>
-                      </DropdownMenuRadioGroup>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </div>
+                {product?.id !== 'eco-shrinksleeve' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">
+                        {t(`${p}.barrier`)}</label>
+                      
+                      {/* Compare Options Link */}
+                      <button
+                        type="button"
+                        onClick={() => setCompareModal({ type: 'barrier', isOpen: true })}
+                        className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                      >
+                        {t(`${p}.compareAllBarrierOptions`)}</button>
+                      
+                      {/* Dropdown Option */}
+                      <DropdownMenu>
+                        <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                          <span className="font-medium text-neutral-900">
+                            {selectedBarrier === 'mid clear mid barrier (Optional Window)' ? 'Mid Barrier (Window)' :
+                             selectedBarrier === 'metalised high barrier (No Window)' ? 'High Barrier (No Window)' :
+                             'Highest Barrier (No Window)'}
+                          </span>
+                          <ChevronDown className="h-5 w-5 text-neutral-400" />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                          <DropdownMenuLabel>{t(`${p}.selectBarrierType`)}</DropdownMenuLabel>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuRadioGroup value={selectedBarrier} onValueChange={setSelectedBarrier}>
+                            <DropdownMenuRadioItem value="mid clear mid barrier (Optional Window)">{t(`${p}.midBarrierWindow`)}</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="metalised high barrier (No Window)">{t(`${p}.highBarrierNoWindow`)}</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="Aluminum highest barrier (No Window)">{t(`${p}.highestBarrierNoWindow`)}</DropdownMenuRadioItem>
+                          </DropdownMenuRadioGroup>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    {t(`${p}.stiffnessAndThickness`)}</label>
-                  
-                  {/* Compare Options Link */}
-                  <button
-                    type="button"
-                    onClick={() => setCompareModal({ type: 'stiffness', isOpen: true })}
-                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
-                  >
-                    {t(`${p}.compareAllStiffnessOptions`)}</button>
-                  
-                  {/* Dropdown Option */}
-                  <DropdownMenu>
-                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
-                      <span className="font-medium text-neutral-900">
-                        {selectedStiffness === 'Without Paper Lining (Softer)' ? 'Softer (No Paper)' : 'Stiffer (With Paper)'}
-                      </span>
-                      <ChevronDown className="h-5 w-5 text-neutral-400" />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                      <DropdownMenuLabel>{t(`${p}.selectStiffness`)}</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuRadioGroup value={selectedStiffness} onValueChange={setSelectedStiffness}>
-                        <DropdownMenuRadioItem value="Without Paper Lining (Softer)">{t(`${p}.softerNoPaper`)}</DropdownMenuRadioItem>
-                        <DropdownMenuRadioItem value="With Paper Lining (stiffer)">{t(`${p}.stifferWithPaper`)}</DropdownMenuRadioItem>
-                      </DropdownMenuRadioGroup>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </div>
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">
+                        {t(`${p}.stiffnessAndThickness`)}</label>
+                      
+                      {/* Compare Options Link */}
+                      <button
+                        type="button"
+                        onClick={() => setCompareModal({ type: 'stiffness', isOpen: true })}
+                        className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                      >
+                        {t(`${p}.compareAllStiffnessOptions`)}</button>
+                      
+                      {/* Dropdown Option */}
+                      <DropdownMenu>
+                        <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                          <span className="font-medium text-neutral-900">
+                            {selectedStiffness === 'Without Paper Lining (Softer)' ? 'Softer (No Paper)' : 'Stiffer (With Paper)'}
+                          </span>
+                          <ChevronDown className="h-5 w-5 text-neutral-400" />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                          <DropdownMenuLabel>{t(`${p}.selectStiffness`)}</DropdownMenuLabel>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuRadioGroup value={selectedStiffness} onValueChange={setSelectedStiffness}>
+                            <DropdownMenuRadioItem value="Without Paper Lining (Softer)">{t(`${p}.softerNoPaper`)}</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="With Paper Lining (stiffer)">{t(`${p}.stifferWithPaper`)}</DropdownMenuRadioItem>
+                          </DropdownMenuRadioGroup>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    {t(`${p}.additionalFeatures`)}</label>
-                  
-                  {/* Compare Options Link */}
-                  <button
-                    type="button"
-                    onClick={() => setCompareModal({ type: 'additional', isOpen: true })}
-                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
-                  >
-                    {t(`${p}.compareAllAdditionalOptions`)}</button>
-                  
-                  {/* Checkbox Options */}
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <label className="flex items-center gap-3 cursor-pointer group">
-                      <Checkbox
-                        checked={selectedValve === 'Yes'}
-                        onCheckedChange={(checked) => setSelectedValve(checked ? 'Yes' : 'No')}
-                        className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
-                      />
-                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.valve`)}</span>
-                    </label>
-                    <label className="flex items-center gap-3 cursor-pointer group">
-                      <Checkbox
-                        checked={selectedLaserScoring === 'Yes'}
-                        onCheckedChange={(checked) => setSelectedLaserScoring(checked ? 'Yes' : 'No')}
-                        className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
-                      />
-                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.laserTear`)}</span>
-                    </label>
-                    <label className="flex items-center gap-3 cursor-pointer group">
-                      <Checkbox
-                        checked={selectedHangHole === 'Yes'}
-                        onCheckedChange={(checked) => setSelectedHangHole(checked ? 'Yes' : 'No')}
-                        className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
-                      />
-                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.hangHole`)}</span>
-                    </label>
-                  </div>
-                </div>
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">
+                        {t(`${p}.additionalFeatures`)}</label>
+                      
+                      {/* Compare Options Link */}
+                      <button
+                        type="button"
+                        onClick={() => setCompareModal({ type: 'additional', isOpen: true })}
+                        className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                      >
+                        {t(`${p}.compareAllAdditionalOptions`)}</button>
+                      
+                      {/* Checkbox Options */}
+                      <div className="grid grid-cols-2 gap-3 text-sm">
+                        <label className="flex items-center gap-3 cursor-pointer group">
+                          <Checkbox
+                            checked={selectedValve === 'Yes'}
+                            onCheckedChange={(checked) => setSelectedValve(checked ? 'Yes' : 'No')}
+                            className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
+                          />
+                          <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.valve`)}</span>
+                        </label>
+                        <label className="flex items-center gap-3 cursor-pointer group">
+                          <Checkbox
+                            checked={selectedLaserScoring === 'Yes'}
+                            onCheckedChange={(checked) => setSelectedLaserScoring(checked ? 'Yes' : 'No')}
+                            className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
+                          />
+                          <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.laserTear`)}</span>
+                        </label>
+                        <label className="flex items-center gap-3 cursor-pointer group">
+                          <Checkbox
+                            checked={selectedHangHole === 'Yes'}
+                            onCheckedChange={(checked) => setSelectedHangHole(checked ? 'Yes' : 'No')}
+                            className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
+                          />
+                          <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">{t(`${p}.hangHole`)}</span>
+                        </label>
+                      </div>
+                    </div>
+                  </>
+                )}
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">{t(`${p}.quantity`)}</label>
