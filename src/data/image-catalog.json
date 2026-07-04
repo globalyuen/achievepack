@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-04",
-  "total_images": 4829,
+  "total_images": 4863,
   "total_categories": 205,
   "extensions": {
     ".webp": 1313,
-    ".png": 2973,
-    ".jpg": 540,
+    ".png": 3017,
+    ".jpg": 530,
     ".svg": 3
   },
   "categories": {
@@ -24952,8 +24952,272 @@
       ]
     },
     "store/products": {
-      "count": 359,
+      "count": 393,
       "images": [
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-44.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-44.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.556Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-42.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-42.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.555Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-43.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-43.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.555Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-41.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-41.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.551Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-40.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-40.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.544Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-36.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-36.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.543Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-37.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-37.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.543Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-38.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-38.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.543Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-39.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-39.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.543Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-34.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-34.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.542Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-35.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-35.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.542Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-33.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-33.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.541Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-31.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-31.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.539Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-32.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-32.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.539Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-29.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-29.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.538Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-30.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-30.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.538Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-28.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-28.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.537Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-27.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-27.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.536Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-26.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-26.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.535Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-24.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-24.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.529Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-25.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-25.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.529Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-19.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-19.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.528Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-20.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-20.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.528Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-21.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-21.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.528Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-22.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-22.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.528Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-23.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-23.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.528Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-17.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-17.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.519Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-18.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-18.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.519Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-14.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-14.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.518Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-15.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-15.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.518Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-16.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-16.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.518Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-11.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-11.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.512Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-12.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-12.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.512Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-13.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-13.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.512Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-10.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-10.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.510Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-9.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-9.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.506Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-8.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-8.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.505Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-7.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-7.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.504Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-6.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-6.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.501Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-5.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-5.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.496Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-4.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-4.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.495Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-3.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-3.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.494Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-2.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-2.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.492Z"
+        },
+        {
+          "filename": "compostable-sugarcane-pulp-box-sku-1.png",
+          "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-1.png",
+          "extension": ".png",
+          "modified": "2026-07-04T06:32:42.483Z"
+        },
         {
           "filename": "compostable-sugarcane-pulp-box-thumbnail-10.jpg",
           "path": "/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-10.jpg",
@@ -25013,66 +25277,6 @@
           "path": "/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-1.jpg",
           "extension": ".jpg",
           "modified": "2026-07-04T05:48:01.244Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-10.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-10.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.558Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-9.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-9.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.556Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-8.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-8.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.553Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-7.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-7.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.550Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-6.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-6.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.548Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-5.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-5.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.546Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-4.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-4.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.543Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-3.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-3.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.540Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-2.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-2.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.538Z"
-        },
-        {
-          "filename": "compostable-sugarcane-pulp-packaging-box-thumbnail-1.jpg",
-          "path": "/imgs/store/products/compostable-sugarcane-pulp-packaging-box-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-04T05:37:07.532Z"
         },
         {
           "filename": "shrink-sleeve-labels-shrink-sleeve-thumbnail-15.jpg",

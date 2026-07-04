@@ -4461,7 +4461,51 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-7.jpg',
       '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-8.jpg',
       '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-9.jpg',
-      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-10.jpg'
+      '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-10.jpg',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-1.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-2.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-3.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-4.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-5.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-6.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-7.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-8.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-9.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-10.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-11.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-12.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-13.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-14.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-15.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-16.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-17.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-18.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-19.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-20.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-21.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-22.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-23.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-24.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-25.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-26.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-27.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-28.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-29.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-30.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-31.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-32.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-33.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-34.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-35.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-36.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-37.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-38.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-39.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-40.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-41.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-42.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-43.png',
+      '/imgs/store/products/compostable-sugarcane-pulp-box-sku-44.png'
     ],
     badge: '🌱 100% Compostable',
     rating: 4.8,
@@ -4478,6 +4522,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     sizeVariants: [
       {
         id: 'sugarcane-box-v1',
+        heroImageIndex: 10,
         label: 'Paper Sleeve (10 Pcs/Pack)',
         dimensions: '纸质腰封/10张',
         hasHole: false,
@@ -4487,6 +4532,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v2',
+        heroImageIndex: 11,
         label: 'White Sealing Stickers - Small (50 Pcs/Pack)',
         dimensions: '白色小号封口贴/50张',
         hasHole: false,
@@ -4496,6 +4542,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v3',
+        heroImageIndex: 12,
         label: 'Yellow Sealing Stickers - Small (50 Pcs/Pack)',
         dimensions: '黄色小号封口贴/50张',
         hasHole: false,
@@ -4505,6 +4552,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v4',
+        heroImageIndex: 13,
         label: 'Small Natural Box (10.5×6.5×3 cm)',
         dimensions: '小号/单个/10.5×6.5×3',
         hasHole: false,
@@ -4514,6 +4562,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v5',
+        heroImageIndex: 14,
         label: 'Small White Box (10.5×6.5×3 cm)',
         dimensions: '小号白/单个/10.5×6.5×3',
         hasHole: false,
@@ -4523,6 +4572,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v6',
+        heroImageIndex: 15,
         label: 'Small Window Box (10.5×6.5×3 cm)',
         dimensions: '小号开窗/单个/10.5×6.5×3',
         hasHole: false,
@@ -4532,6 +4582,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v7',
+        heroImageIndex: 16,
         label: 'Small Tab-Lock Box (10.5×6.5×3 cm)',
         dimensions: '插稍/单个/10.5×6.5×3',
         hasHole: false,
@@ -4541,6 +4592,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v8',
+        heroImageIndex: 17,
         label: 'Large Natural Box (15×10.5×2.7 cm)',
         dimensions: '本色大号/单个/15×10.5×2.7',
         hasHole: false,
@@ -4550,6 +4602,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v9',
+        heroImageIndex: 18,
         label: 'Large White Box (15×10.5×2.7 cm)',
         dimensions: '白色大号/单个/15×10.5×2.7',
         hasHole: false,
@@ -4559,6 +4612,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v10',
+        heroImageIndex: 19,
         label: 'Large Tall Box (15.3×11.1×3.8 cm)',
         dimensions: '大号加高/单个/15.3×11.1×3.8',
         hasHole: false,
@@ -4568,6 +4622,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v11',
+        heroImageIndex: 20,
         label: 'White Bun Box (19.5×17.5×6.5 cm)',
         dimensions: '白馒头/单个/19.5×17.5×6.5',
         hasHole: false,
@@ -4577,6 +4632,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v12',
+        heroImageIndex: 21,
         label: 'White No-Seal Box (11.5×7.5×2.5 cm)',
         dimensions: '白色无封口/单个/11.5×7.5×2.5',
         hasHole: false,
@@ -4586,6 +4642,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v13',
+        heroImageIndex: 22,
         label: 'Natural No-Seal Box (11.5×7.5×2.3 cm)',
         dimensions: '牛皮色无封口/单个/11.5×7.5×2.3',
         hasHole: false,
@@ -4595,6 +4652,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v14',
+        heroImageIndex: 23,
         label: 'White Box + White Seal (11.5×7.5×2.3 cm)',
         dimensions: '白色盒+白色封口/单个/11.5×7.5×2.3',
         hasHole: false,
@@ -4604,6 +4662,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v15',
+        heroImageIndex: 24,
         label: 'White Box + Kraft Seal (11.5×7.5×2.3 cm)',
         dimensions: '白色盒+牛皮色封口/单个/11.5×7.5×2.3',
         hasHole: false,
@@ -4613,6 +4672,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v16',
+        heroImageIndex: 25,
         label: 'Natural Box + White Seal (11.5×7.5×2.3 cm)',
         dimensions: '牛皮色盒+白色封口/单个/11.5×7.5×2.3',
         hasHole: false,
@@ -4622,6 +4682,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v17',
+        heroImageIndex: 26,
         label: 'Natural Box + Kraft Seal (11.5×7.5×2.3 cm)',
         dimensions: '牛皮色盒+牛皮色封口/单个/11.5×7.5×2.3',
         hasHole: false,
@@ -4631,6 +4692,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v18',
+        heroImageIndex: 27,
         label: 'White Square Box (9.5×9.5×4.8 cm)',
         dimensions: '白色方/单个/9.5×9.5×4.8',
         hasHole: false,
@@ -4640,6 +4702,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v19',
+        heroImageIndex: 28,
         label: 'Jewelry Box (16×6.5×3 cm)',
         dimensions: '首饰盒/单个/16×6.5×3',
         hasHole: false,
@@ -4649,6 +4712,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v20',
+        heroImageIndex: 29,
         label: 'Small White Tea Box (15.3×6.3×3.5 cm)',
         dimensions: '小白茶盒/单个/15.3×6.3×3.5',
         hasHole: false,
@@ -4658,6 +4722,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v21',
+        heroImageIndex: 30,
         label: 'Medium White Tea Box (23×8×6.5 cm)',
         dimensions: '中白茶盒/单个/23×8×6.5',
         hasHole: false,
@@ -4667,6 +4732,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v22',
+        heroImageIndex: 31,
         label: 'Large White Tea Box (24×12×6.7 cm)',
         dimensions: '大白茶盒/单个/24×12×6.7',
         hasHole: false,
@@ -4676,6 +4742,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v23',
+        heroImageIndex: 32,
         label: 'White Chopstick Box (25.5×10.5×4.5 cm)',
         dimensions: '白色筷子盒/单个/25.5×10.5×4.5',
         hasHole: false,
@@ -4685,6 +4752,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v24',
+        heroImageIndex: 33,
         label: 'Natural Chopstick Box (25.5×10.5×4.5 cm)',
         dimensions: '本色筷子盒/单个/25.5×10.5×4.5',
         hasHole: false,
@@ -4694,6 +4762,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v25',
+        heroImageIndex: 34,
         label: 'White T-Shirt Box (19.5×12.5×6.5 cm)',
         dimensions: '白色T恤盒/单个/19.5×12.5×6.5',
         hasHole: false,
@@ -4703,6 +4772,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v26',
+        heroImageIndex: 35,
         label: 'Natural T-Shirt Box (19.5×12.5×6.5 cm)',
         dimensions: '本色T恤盒/单个/19.5×12.5×6.5',
         hasHole: false,
@@ -4712,6 +4782,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v27',
+        heroImageIndex: 36,
         label: 'Natural Flip Pencil Box (16×7×2.2 cm)',
         dimensions: '本色翻盖笔盒/单个/16×7×2.2',
         hasHole: false,
@@ -4721,6 +4792,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v28',
+        heroImageIndex: 37,
         label: 'Flip Pencil Box with Elastic Band (16×7×2.2 cm)',
         dimensions: '翻盖笔盒+松紧带/单个/16×7×2.2',
         hasHole: false,
@@ -4730,6 +4802,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v29',
+        heroImageIndex: 38,
         label: 'White Large Box with Lid (26.3×22.4×8.6 cm)',
         dimensions: '白色大+盖/单个/26.3×22.4×8.6',
         hasHole: false,
@@ -4739,6 +4812,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v30',
+        heroImageIndex: 39,
         label: 'Natural Large Box with Lid (26.3×22.4×8.6 cm)',
         dimensions: '本色大+盖/单个/26.3×22.4×8.6',
         hasHole: false,
@@ -4748,6 +4822,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v31',
+        heroImageIndex: 40,
         label: 'Box No. 1 with Logo (32×19×11.8 cm)',
         dimensions: '一号盒有logo/单个/32×19×11.8',
         hasHole: false,
@@ -4757,6 +4832,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v32',
+        heroImageIndex: 41,
         label: 'Box No. 1 without Logo (32×19×11.8 cm)',
         dimensions: '一号盒无logo/单个/32×19×11.8',
         hasHole: false,
@@ -4766,6 +4842,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v33',
+        heroImageIndex: 42,
         label: 'Box No. 2 (27×13.5×11.5 cm)',
         dimensions: '二号盒/单个/27×13.5×11.5',
         hasHole: false,
@@ -4775,6 +4852,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v34',
+        heroImageIndex: 43,
         label: 'Box No. 3 (30.5×21.5×14.5 cm)',
         dimensions: '三号盒/单个/30.5×21.5×14.5',
         hasHole: false,
@@ -4784,6 +4862,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v35',
+        heroImageIndex: 44,
         label: 'Natural Small Coffee Box (13×8×7.5 cm)',
         dimensions: '本色小咖啡盒/单个/13×8×7.5',
         hasHole: false,
@@ -4793,6 +4872,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v36',
+        heroImageIndex: 45,
         label: 'White Small Coffee Box (13×8×7.5 cm)',
         dimensions: '白色小咖啡盒单个/13×8×7.5',
         hasHole: false,
@@ -4802,6 +4882,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v37',
+        heroImageIndex: 46,
         label: 'Natural Large Coffee Box (16×12.5×12 cm)',
         dimensions: '本色大咖啡盒/单个/16×12.5×12',
         hasHole: false,
@@ -4811,6 +4892,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v38',
+        heroImageIndex: 47,
         label: 'White Large Coffee Box (16×12.5×12 cm)',
         dimensions: '白色大咖啡盒/单个/16×12.5×12',
         hasHole: false,
@@ -4820,6 +4902,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v39',
+        heroImageIndex: 42,
         label: '6-Piece Mooncake Box (33×22×5 cm)',
         dimensions: '6粒月饼盒/单个/33×22×5',
         hasHole: false,
@@ -4829,6 +4912,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v40',
+        heroImageIndex: 43,
         label: '8-Piece Mooncake Box (33×22×5 cm)',
         dimensions: '8粒月饼盒/单个/33×22×5',
         hasHole: false,
@@ -4838,6 +4922,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v41',
+        heroImageIndex: 48,
         label: 'White Flip Lid Box (20×12.5×4.5 cm)',
         dimensions: '白色翻盖/单个/20×12.5×4.5',
         hasHole: false,
@@ -4847,6 +4932,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v42',
+        heroImageIndex: 49,
         label: 'Paper Rope (200m/Roll)',
         dimensions: '纸绳200米/卷',
         hasHole: false,
@@ -4856,6 +4942,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v43',
+        heroImageIndex: 50,
         label: 'Natural Kraft Honeycomb Paper - 30×30 cm (10 Sheets/Pack)',
         dimensions: '30×30/张牛皮色气泡纸/10张装',
         hasHole: false,
@@ -4865,6 +4952,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v44',
+        heroImageIndex: 51,
         label: 'Natural Kraft Honeycomb Paper - 38×40 cm (10 Sheets/Pack)',
         dimensions: '38×40/张牛皮色气泡纸/10张装',
         hasHole: false,
@@ -4874,6 +4962,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v45',
+        heroImageIndex: 52,
         label: 'White Honeycomb Paper - 30×30 cm (10 Sheets/Pack)',
         dimensions: '30×30/张白色气泡纸/10张装',
         hasHole: false,
@@ -4883,6 +4972,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: 'sugarcane-box-v46',
+        heroImageIndex: 53,
         label: 'White Honeycomb Paper - 38×40 cm (10 Sheets/Pack)',
         dimensions: '38×40/张白色气泡纸/10张装',
         hasHole: false,
