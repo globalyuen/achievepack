@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-04",
-  "total_images": 4786,
-  "total_categories": 199,
+  "total_images": 4804,
+  "total_categories": 205,
   "extensions": {
     ".webp": 1313,
     ".png": 2973,
-    ".jpg": 497,
+    ".jpg": 515,
     ".svg": 3
   },
   "categories": {
@@ -29139,6 +29139,29 @@
         }
       ]
     },
+    "topics/apparel-zipper": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/apparel-zipper/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:20:08.875Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/apparel-zipper/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:20:08.871Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/apparel-zipper/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:20:08.869Z"
+        }
+      ]
+    },
     "topics/beef-jerky-barrier": {
       "count": 3,
       "images": [
@@ -29665,6 +29688,121 @@
           "path": "/imgs/topics/pharma-velcro/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T06:54:55.856Z"
+        }
+      ]
+    },
+    "topics/pla-rice": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/pla-rice/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:10:56.271Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/pla-rice/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:10:56.269Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/pla-rice/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:10:56.267Z"
+        }
+      ]
+    },
+    "topics/premium-tea": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/premium-tea/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:11:59.785Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/premium-tea/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:11:59.783Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/premium-tea/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:11:59.781Z"
+        }
+      ]
+    },
+    "topics/rice-paper-artisanal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/rice-paper-artisanal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:13:28.159Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/rice-paper-artisanal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:13:28.157Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/rice-paper-artisanal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:13:28.152Z"
+        }
+      ]
+    },
+    "topics/spices-moisture-proof": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/spices-moisture-proof/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:15:09.528Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/spices-moisture-proof/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:15:09.525Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/spices-moisture-proof/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:15:09.522Z"
+        }
+      ]
+    },
+    "topics/urgent-orders": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/urgent-orders/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:17:38.115Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/urgent-orders/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:17:38.113Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/urgent-orders/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T00:17:38.110Z"
         }
       ]
     },
