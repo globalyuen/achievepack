@@ -2760,6 +2760,7 @@ function App() {
                 <li><Link to="/packaging/flat-pouches" className="hover:text-primary-500">{t('footer.links.flatPouches')}</Link></li>
                 <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-500">{t('footer.links.sideGussetBags')}</Link></li>
                 <li><Link to="/packaging/custom-boxes" className="hover:text-primary-500">{t('achievePackHome.footer.customBoxes', 'Custom Boxes')}</Link></li>
+                <li><Link to="/packaging/shrink-sleeves" className="hover:text-primary-500">{t('footer.links.shrinkSleeves', 'Shrink Sleeves')}</Link></li>
                 <li><Link to="/products/labels-and-stickers" className="hover:text-primary-500">{t('achievePackHome.footer.labelsStickers', 'Labels & Stickers')}</Link></li>
                 <li><Link to="/products/lab-bags" className="hover:text-primary-500">{t('achievePackHome.footer.labBags', 'Lab Bags')}</Link></li>
               </ul>

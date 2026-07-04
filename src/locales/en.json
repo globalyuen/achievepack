@@ -469,6 +469,7 @@
       "vacuumPouches": "Vacuum Pouches",
       "flatPouches": "Flat Pouches",
       "sideGussetBags": "Side Gusset Bags",
+      "shrinkSleeves": "Shrink Sleeves",
       "compostable": "Compostable",
       "homeCompostable": "Home Compostable",
       "industrialCompostable": "Industrial Compostable",
@@ -5568,7 +5569,114 @@
           "bulk food bag"
         ]
       },
+      "shrinkSleeves": {
+        "title": "Custom Shrink Sleeves | 360° Bottle Labels | Achieve Pack",
+        "heroTitle": "Shrink Sleeve Labels",
+        "heroSubtitle": "Maximum 360° branding real estate on any bottle shape. Recyclable PET-G (♻️ 1) available. Low MOQ from 1,000 units with digital print technology.",
+        "introSummary": "Shrink sleeves provide full-body 360-degree printed coverage that conforms perfectly to complex bottle curvatures. Made from recyclable PET (♻️ #1), they transform ordinary containers into visually striking retail products while meeting modern sustainability mandates.",
+        "heroImageAlt": "Custom printed PET shrink sleeve bottle labels",
+        "metaDescription": "B2B high-volume custom printed heat shrink sleeve labels in PET-G (♻️ 1) and PVC. Complete 360-degree surface branding for bottles, cans, and jars. Direct factory pricing from 1,000 units.",
+        "cta": {
+          "title": "Spec Your Shrink Sleeves",
+          "description": "Our prepress team is ready to assist with pre-distortion alignment to ensure your design looks flawless on complex container contours.",
+          "button": "Request Factory Quote"
+        },
+        "sections": {
+          "overview": {
+            "title": "What is a Shrink Sleeve?",
+            "intro": "A shrink sleeve is a full-body label made from PET-G or PVC film that conforms to any complex container shape when exposed to controlled heat.",
+            "desc": "Unlike pressure-sensitive labels limited to flat surfaces, shrink sleeves wrap 360 degrees around bottles, cans, jars, and specialty containers — providing maximum branding real estate and tamper-evidence."
+          },
+          "applications": {
+            "title": "Common Applications",
+            "desc": "Shrink sleeves are the preferred labeling format for beverage, food, dairy, cosmetics, and pharmaceutical brands that demand premium shelf presence on complex container shapes.",
+            "items": [
+              "Beverages & Juice Bottles",
+              "Dairy & Yogurt Containers",
+              "Cosmetics & Skincare Jars",
+              "Pharmaceutical Tamper Seals",
+              "Sauce & Condiment Bottles",
+              "Promotional Multipacks",
+              "Craft Beer & Cider Cans",
+              "Sports Nutrition Bottles",
+              "Household Cleaner Bottles"
+            ]
+          },
+          "sustainability": {
+            "title": "Sustainability & Recyclability",
+            "desc": "Our PET shrink sleeves carry Resin Code ♻️ 1 — the most widely accepted plastic in global municipal recycling programs. We recommend wash-off inks and micro-perforations near the label seam so end consumers can peel the sleeve before placing the bottle in the recycling bin, ensuring full compatibility with standard MRF sorting equipment."
+          }
+        },
+        "faqs": [
+          {
+            "question": "Is PET shrink sleeve packaging recyclable?",
+            "answer": "Yes! PET (Polyethylene Terephthalate) is recognized as Recyclable #1 (♻️ 1), the most widely recycled plastic resin globally. For optimal sorting, we recommend using wash-off inks or perforations so consumers can easily peel the sleeve before recycling the bottle."
+          },
+          {
+            "question": "What is the main difference between PET-G and PVC shrink sleeves?",
+            "answer": "PET-G offers superior shrinkage control (up to 78%), excellent clarity, and is highly recyclable (#1). PVC is more cost-effective with standard shrinkage (50–60%), but is less environmentally friendly and harder to process in standard municipal recycling lines."
+          },
+          {
+            "question": "Do you offer tamper-evident features?",
+            "answer": "Yes. We integrate horizontal or vertical perforations near the cap region. When the bottle cap is twisted, the seal breaks cleanly, providing tamper-evidence for food, beverage, and pharmaceutical safety."
+          },
+          {
+            "question": "What printing technologies are supported?",
+            "answer": "We support high-definition flexographic printing for large runs (low unit cost) and premium digital printing for short runs starting at 1,000 units with zero cylinder plate setup fees."
+          }
+        ],
+        "tables": [
+          {
+            "title": "Shrink Sleeve Technical Specifications",
+            "headers": ["Parameter", "Specification", "Business Value"],
+            "rows": [
+              ["Material Base", "Premium PET-G or Cost-effective PVC", "High optical clarity and uniform shrink performance across gas, steam, or electric heat tunnels."],
+              ["Shrinkage Ratio", "Horizontal: 60%–78% | Vertical: 1%–3%", "Calibrated for extreme bottle curvatures, preventing graphic distortion or smiley effects."],
+              ["Thickness Gauge", "30 to 50 Micron film thickness options", "Balances tensile strength for automatic high-speed applicators with material efficiency."],
+              ["Specialty Finishes", "Matte coating, metallic foil hot-stamping, window elements", "Premium tactile finishes and window cutouts showcase product color or level."]
+            ]
+          },
+          {
+            "title": "Application Type Comparison",
+            "headers": ["Application Type", "Shrink Material", "Shrinkage Rate", "Ideal Use Case"],
+            "rows": [
+              ["Full-Body Sleeve", "PET-G / PVC", "Up to 78%", "360-degree branding on contoured juice, beverage, and dairy bottles"],
+              ["Neck Band & Seal", "PET / PVC", "Up to 60%", "Tamper-evident neck seals, hot-fill sauces, and cosmetic jars"],
+              ["Multipacks / Combo", "PET-G", "Up to 70%", "Bogo promotional bundles, twin-packs, and multi-tier product packs"],
+              ["Pre-forms", "PET-G", "Up to 75%", "Pre-shaped cap/neck sleeves for high-volume automated line speeds"]
+            ]
+          }
+        ],
+        "relatedLinks": [
+          {
+            "title": "Stand-Up Pouches",
+            "url": "/packaging/stand-up-pouches",
+            "description": "Classic shelf-standing pouches"
+          },
+          {
+            "title": "Custom Labels & Stickers",
+            "url": "/products/labels-and-stickers",
+            "description": "Flat label alternatives"
+          },
+          {
+            "title": "Spout Pouches",
+            "url": "/packaging/spout-pouches",
+            "description": "Liquid packaging solutions"
+          }
+        ],
+        "metaKeywords": [
+          "custom shrink sleeves",
+          "heat shrink labels",
+          "shrink sleeve labels",
+          "PET shrink sleeve",
+          "recyclable bottle labels",
+          "360 degree branding",
+          "bottle label printing",
+          "achieve pack shrink"
+        ]
+      },
       "coffeeTea": {
+
         "title": "Coffee & Tea Packaging | Aromatic Barrier Pouches",
         "heroTitle": "Packaging for Coffee Nerds",
         "heroSubtitle": "Degassing valves for fresh roasts. High barrier for maximum aroma retention. Compostable kraft options that look as good as your beans taste.",

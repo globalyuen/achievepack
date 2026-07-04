@@ -771,6 +771,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/packaging/spout-pouches" className="hover:underline">{t('pouchLayoutFooter.links.spoutPouches')}</Link></li>
                 <li><Link to="/packaging/flat-pouches" className="hover:underline">{t('pouchLayoutFooter.links.flatPouches')}</Link></li>
                 <li><Link to="/packaging/vacuum-pouches" className="hover:underline">{t('pouchLayoutFooter.links.vacuumPouches')}</Link></li>
+                <li><Link to="/packaging/shrink-sleeves" className="hover:underline">Shrink Sleeves <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
                 <li><Link to="/the-way-to-use-k-seal-bag-packing-heavy-content" className="hover:underline text-emerald-800 font-extrabold">{t('pouchLayoutFooter.links.kSeal')}</Link></li>
                 <li><Link to="/products" className="hover:underline">{t('pouchLayoutFooter.links.allProducts')}</Link></li>
                 <li><Link to="/industry/premium-matte-pouches" className="hover:underline">Premium Matte Finish <span className="bg-black text-[#D4FF00] text-[8px] px-1 py-0.2 ml-1 border border-black font-black uppercase">New</span></Link></li>
