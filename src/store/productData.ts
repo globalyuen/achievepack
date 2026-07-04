@@ -3048,6 +3048,81 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     ],
     customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.'
   },
+  // Hand-Clamp Sealer
+  {
+    id: 'hand-clamp-sealer',
+    name: 'Hand-Clamp Sealer – Small Commercial Plastic, Aluminum Foil, and Kraft Paper Bag Heat Sealing Machine, Portable Handheld High-Power Thermal Sealer',
+    category: 'eco-stock',
+    description: 'A professional, heavy-duty hand-clamp heat sealer designed for sealing various types of bags, including aluminum foil, composite films, kraft paper, and other heat-sealable materials. Built with high-strength PTFE heat-resistant jaw coatings and an adjustable temperature controller (0-300°C) to ensure uniform heat distribution and consistent, high-integrity seals. Portable and lightweight plier-type design, perfect for home, commercial, and industrial packaging applications.',
+    shortDesc: 'Portable handheld commercial heat sealer with 0-300°C temperature control',
+    features: [
+      'Wide 0-300°C Adjustable Temperature Range',
+      'Uniform Dual-Jaw Heating for Thick Bags',
+      'PTFE Heat-Resistant Coating for Long Lifespan',
+      'Heavy-Duty, Portable Plier-Type Design',
+      'Perfect for Aluminum Foil, Kraft Paper & Composite Films'
+    ],
+    images: [
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-1.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-2.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-3.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-4.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-5.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-6.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-7.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-8.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-9.jpg',
+      '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-10.jpg'
+    ],
+    badge: '⚡ High-Power Direct Heat',
+    rating: 4.9,
+    reviews: 58,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 1,
+    shape: 'Hand-Clamp Heat Sealer',
+    material: 'High-Strength Steel & PTFE Heat-Resistant Coating',
+    basePrice: 91.14,
+    pricePerPiece: 91.14,
+    minQuantity: 1,
+    quantityStep: 1,
+    sizeInfo: 'Sealing Length: 200mm, 300mm, 400mm (Sealing Width: 10mm / 18mm)',
+    shelfLife: 'Indefinite (Wear parts replaceable)',
+    certification: 'CE & RoHS Certified Quality Compliance',
+    sizeVariants: [
+      {
+        id: 'hand-clamp-sealer-fkr-200',
+        label: 'FKR-200 (200mm / 8" Sealing Length)',
+        dimensions: '200mm sealing length, 10mm seal width, 300W power',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 91.14,
+        unitPrice: 91.14,
+        heroImageIndex: 0
+      },
+      {
+        id: 'hand-clamp-sealer-fkr-300',
+        label: 'FKR-300 (300mm / 12" Sealing Length)',
+        dimensions: '300mm sealing length, 10mm seal width, 400W power',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 112.14,
+        unitPrice: 112.14,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hand-clamp-sealer-fkr-400',
+        label: 'FKR-400 (400mm / 16" Sealing Length)',
+        dimensions: '400mm sealing length, 10mm seal width, 500W power',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 133.14,
+        unitPrice: 133.14,
+        heroImageIndex: 5
+      }
+    ],
+    customPrintNote: 'Custom color shell and branding available from 500+ sets. Please consult our team.'
+  },
   // 100% Recyclable PE Wire Cut Zipper Bag
   {
     id: '100-recyclable-pe-wire-cut-zipper-bag',

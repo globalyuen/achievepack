@@ -157,6 +157,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
   '/dieline-creator': () => import('./pages/PouchDielineCreatorPage'),
   '/knowledge/writable-stampable-pouches': () => import('./pages/knowledge/WritableStampablePouchesPage'),
+  '/knowledge/hand-clamp-sealer': () => import('./pages/knowledge/HandClampSealerPage'),
   '/ctrl-x9k7m/bookkeeping': () => import('./pages/admin/BookkeepingPage'),
 }
 
@@ -385,6 +386,7 @@ const PhaVsPla = lazyWithRetry(() => import('./pages/knowledge/PhaVsPla'))
 const ReusablePackagingPage = lazyWithRetry(() => import('./pages/knowledge/ReusablePackagingPage'))
 const BottlePrintingGuidePage = lazyWithRetry(() => import('./pages/knowledge/BottlePrintingGuidePage'))
 const PouchHeatSealingGuidePage = lazyWithRetry(() => import('./pages/knowledge/PouchHeatSealingGuidePage'))
+const HandClampSealerPage = lazyWithRetry(() => import('./pages/knowledge/HandClampSealerPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -823,6 +825,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/reusable-packaging" element={<ReusablePackagingPage />} />
                   <Route path="/knowledge/bottle-printing-guide" element={<BottlePrintingGuidePage />} />
                   <Route path="/knowledge/pouch-heat-sealing-temperature-guide" element={<PouchHeatSealingGuidePage />} />
+                  <Route path="/knowledge/hand-clamp-sealer" element={<HandClampSealerPage />} />
                   {/* <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} /> */}
                   {/* <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} /> */}
                   {/* <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} /> */}
@@ -1449,6 +1452,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/reusable-packaging" element={<ReusablePackagingPage />} />
                         <Route path="/knowledge/bottle-printing-guide" element={<BottlePrintingGuidePage />} />
                         <Route path="/knowledge/pouch-heat-sealing-temperature-guide" element={<PouchHeatSealingGuidePage />} />
+                        <Route path="/knowledge/hand-clamp-sealer" element={<HandClampSealerPage />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />

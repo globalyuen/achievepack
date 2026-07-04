@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-04",
-  "total_images": 4863,
+  "total_images": 4873,
   "total_categories": 205,
   "extensions": {
     ".webp": 1313,
     ".png": 3017,
-    ".jpg": 530,
+    ".jpg": 540,
     ".svg": 3
   },
   "categories": {
@@ -24952,8 +24952,68 @@
       ]
     },
     "store/products": {
-      "count": 393,
+      "count": 403,
       "images": [
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-10.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.409Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-9.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.402Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-8.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.400Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-7.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.393Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-6.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.390Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-5.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.387Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-4.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.384Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-3.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.381Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-2.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.380Z"
+        },
+        {
+          "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-1.jpg",
+          "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-04T07:12:41.378Z"
+        },
         {
           "filename": "compostable-sugarcane-pulp-box-sku-44.png",
           "path": "/imgs/store/products/compostable-sugarcane-pulp-box-sku-44.png",
