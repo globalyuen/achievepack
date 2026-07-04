@@ -398,15 +398,9 @@ const StorePage: React.FC = () => {
   const [isSortOpen, setIsSortOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
-  const [isSandboxCollapsed, setIsSandboxCollapsed] = useState(() => {
+  const [isBannerCollapsed, setIsBannerCollapsed] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('store_sandbox_collapsed') === 'true'
-    }
-    return false
-  })
-  const [isShippingCollapsed, setIsShippingCollapsed] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('store_shipping_collapsed') === 'true'
+      return localStorage.getItem('store_banner_collapsed') === 'true'
     }
     return false
   })
@@ -977,39 +971,29 @@ const StorePage: React.FC = () => {
 
             {/* Right Actions */}
             <div className="hidden lg:flex items-center space-x-3">
-              {isSandboxCollapsed && (
+              {isBannerCollapsed && (
                 <button
                   onClick={() => {
-                    setIsSandboxCollapsed(false)
-                    localStorage.setItem('store_sandbox_collapsed', 'false')
-                  }}
-                  className="relative w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-600 flex items-center justify-center text-white transition-colors cursor-pointer group"
-                  title="Show Payment Sandbox Warning"
-                >
-                  <AlertTriangle className="h-5 w-5" />
-                  <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-neutral-900/95 text-white text-[11px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-205 z-50 border border-neutral-800">
-                    <div className="flex items-start gap-1">
-                      <span>🚧</span>
-                      <span>Payment system is under testing (Sandbox Mode) - No payments can be processed. Click to expand warning details.</span>
-                    </div>
-                    <div className="absolute bottom-full right-3 border-4 border-transparent border-b-neutral-900" />
-                  </div>
-                </button>
-              )}
-              {isShippingCollapsed && (
-                <button
-                  onClick={() => {
-                    setIsShippingCollapsed(false)
-                    localStorage.setItem('store_shipping_collapsed', 'false')
+                    setIsBannerCollapsed(false)
+                    localStorage.setItem('store_banner_collapsed', 'false')
                   }}
                   className="relative w-10 h-10 rounded-full bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center text-white transition-colors cursor-pointer group"
-                  title="Show Shipping Offer"
+                  title="Show Notice & Offer"
                 >
-                  <Plane className="h-5 w-5 animate-pulse" />
-                  <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-neutral-900/95 text-white text-[11px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-205 z-50 border border-neutral-800">
-                    <div className="flex items-start gap-1">
-                      <span>✈️</span>
-                      <span>Special Offer: Free Air Shipping for stock packaging orders above USD $200! Click to expand offer details.</span>
+                  <Sparkles className="h-5 w-5 animate-pulse" />
+                  <div className="absolute right-0 top-full mt-2 w-80 p-3 bg-neutral-900/95 text-white text-[11px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-205 z-50 border border-neutral-800">
+                    <div className="space-y-1.5 text-left">
+                      <div className="flex items-start gap-1">
+                        <span>🚧</span>
+                        <span>Payment system under testing (Sandbox Mode) - No payments can be processed.</span>
+                      </div>
+                      <div className="flex items-start gap-1">
+                        <span>✈️</span>
+                        <span>Free Air Shipping for stock packaging orders above USD $200!</span>
+                      </div>
+                      <div className="text-[9px] text-neutral-400 mt-1 border-t border-neutral-800 pt-1.5 text-center">
+                        Click to restore top banner
+                      </div>
                     </div>
                     <div className="absolute bottom-full right-3 border-4 border-transparent border-b-neutral-900" />
                   </div>
@@ -1044,34 +1028,18 @@ const StorePage: React.FC = () => {
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center gap-2">
-              {isSandboxCollapsed && (
+              {isBannerCollapsed && (
                 <button
                   onClick={() => {
-                    setIsSandboxCollapsed(false)
-                    localStorage.setItem('store_sandbox_collapsed', 'false')
-                  }}
-                  className="relative w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-600 flex items-center justify-center text-white transition-colors cursor-pointer group"
-                  title="Show Payment Sandbox Warning"
-                >
-                  <AlertTriangle className="h-4.5 w-4.5" />
-                  <div className="absolute right-0 top-full mt-2 w-64 p-3 bg-neutral-900/95 text-white text-[10px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-neutral-800">
-                    <span>🚧 Sandbox Mode: Payment system under testing. Click to expand.</span>
-                    <div className="absolute bottom-full right-2.5 border-4 border-transparent border-b-neutral-900" />
-                  </div>
-                </button>
-              )}
-              {isShippingCollapsed && (
-                <button
-                  onClick={() => {
-                    setIsShippingCollapsed(false)
-                    localStorage.setItem('store_shipping_collapsed', 'false')
+                    setIsBannerCollapsed(false)
+                    localStorage.setItem('store_banner_collapsed', 'false')
                   }}
                   className="relative w-9 h-9 rounded-full bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center text-white transition-colors cursor-pointer group"
-                  title="Show Shipping Offer"
+                  title="Show Notice & Offer"
                 >
-                  <Plane className="h-4.5 w-4.5" />
+                  <Sparkles className="h-4.5 w-4.5" />
                   <div className="absolute right-0 top-full mt-2 w-64 p-3 bg-neutral-900/95 text-white text-[10px] leading-relaxed font-bold rounded-lg shadow-lg whitespace-normal pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-neutral-800">
-                    <span>✈️ Special Offer: Free Air Shipping above $200! Click to expand.</span>
+                    <span>🚧 Sandbox Mode & ✈️ Free Air Shipping above $200! Click to expand.</span>
                     <div className="absolute bottom-full right-2.5 border-4 border-transparent border-b-neutral-900" />
                   </div>
                 </button>
@@ -1157,62 +1125,48 @@ const StorePage: React.FC = () => {
       {/* Spacer for fixed header */}
       <div className="h-16"></div>
 
-      {/* Sandbox Warning Banner */}
-      {!isSandboxCollapsed && (
-        <div className="bg-amber-50 border-b border-amber-200 relative">
-          <div className="max-w-7xl mx-auto px-10 py-3">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-              <div className="flex items-center gap-2 text-amber-800">
-                <AlertTriangle className="h-5 w-5 flex-shrink-0" />
-                <span className="font-medium">
-                  🚧 Payment system is under testing (Sandbox Mode) - No payments can be processed
+      {/* Combined Sandbox Alert & Free Shipping Offer Banner */}
+      {!isBannerCollapsed && (
+        <div className="bg-neutral-900 border-b border-neutral-800 text-white relative">
+          <div className="max-w-7xl mx-auto px-10 py-2">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 text-center text-[10px] sm:text-xs font-semibold">
+              {/* Payment Alert */}
+              <div className="flex items-center gap-1.5 text-amber-400">
+                <AlertTriangle className="h-3.5 w-3.5 flex-shrink-0 animate-pulse text-amber-500" />
+                <span className="text-amber-200">
+                  Sandbox Mode: Payment system is under testing (No payments processed)
+                </span>
+                <a
+                  href="mailto:checkout@achievepack.com?subject=Order%20Inquiry&body=Hi%2C%20I%20would%20like%20to%20place%20an%20order.%20Please%20contact%20me."
+                  className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-amber-600 hover:bg-amber-700 text-white text-[9px] font-bold rounded-full transition-colors whitespace-nowrap ml-1"
+                >
+                  <Mail className="h-2.5 w-2.5" />
+                  Contact Us to Order
+                </a>
+              </div>
+
+              {/* Separator */}
+              <span className="text-neutral-700 hidden md:inline">|</span>
+
+              {/* Free Shipping Alert */}
+              <div className="flex items-center gap-1.5 text-emerald-400">
+                <Plane className="h-3 w-3 flex-shrink-0 text-emerald-300" />
+                <span className="text-neutral-250">
+                  Special Offer: Free Air Shipping on all <span className="underline decoration-wavy decoration-emerald-500 font-extrabold text-amber-300">stock packaging</span> orders above <span className="bg-emerald-950/70 px-1.5 py-0.5 rounded-full font-bold text-amber-200">USD $200</span>
                 </span>
               </div>
-              <a
-                href="mailto:checkout@achievepack.com?subject=Order%20Inquiry&body=Hi%2C%20I%20would%20like%20to%20place%20an%20order.%20Please%20contact%20me."
-                className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-colors whitespace-nowrap"
-              >
-                <Mail className="h-4 w-4" />
-                Contact Us to Order
-              </a>
             </div>
           </div>
           <button 
             onClick={() => {
-              setIsSandboxCollapsed(true)
-              localStorage.setItem('store_sandbox_collapsed', 'true')
+              setIsBannerCollapsed(true)
+              localStorage.setItem('store_banner_collapsed', 'true')
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-amber-800 hover:text-amber-955 p-1.5 hover:bg-amber-100 rounded-full transition-all cursor-pointer"
-            title="Collapse Warning"
-            aria-label="Collapse warning"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white p-1 hover:bg-neutral-800 rounded-full transition-all cursor-pointer"
+            title="Collapse Banner"
+            aria-label="Collapse banner"
           >
-            <X className="h-4 w-4" />
-          </button>
-        </div>
-      )}
-
-      {/* Premium Free Air Shipping Announcement Banner */}
-      {!isShippingCollapsed && (
-        <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-750 text-white border-b border-emerald-800 shadow-sm relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-10 py-2 sm:py-2.5">
-            <div className="flex items-center justify-center gap-2 text-center text-[10px] sm:text-xs font-semibold tracking-wide uppercase">
-              <Plane className="h-3.5 w-3.5 animate-bounce text-emerald-100 flex-shrink-0" />
-              <span>
-                ✈️ Special Offer: For all <span className="underline decoration-wavy decoration-emerald-300 font-extrabold text-amber-300">stock packaging</span> orders above <span className="bg-emerald-900/50 px-2 py-0.5 rounded-full font-bold text-amber-200">USD $200</span> enjoy <span className="text-amber-300 font-extrabold">Free Air Shipping!</span>
-              </span>
-              <Sparkles className="h-3 w-3 text-amber-300 hidden sm:inline" />
-            </div>
-          </div>
-          <button 
-            onClick={() => {
-              setIsShippingCollapsed(true)
-              localStorage.setItem('store_shipping_collapsed', 'true')
-            }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-100 hover:text-white p-1.5 hover:bg-emerald-700/50 rounded-full transition-all cursor-pointer"
-            title="Collapse Offer"
-            aria-label="Collapse offer"
-          >
-            <X className="h-4 w-4" />
+            <X className="h-3.5 w-3.5" />
           </button>
         </div>
       )}
