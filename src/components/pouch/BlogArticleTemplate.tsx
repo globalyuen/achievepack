@@ -157,6 +157,7 @@ export default function BlogArticleTemplate({
 }: BlogArticleProps) {
   const slug = canonicalUrl ? canonicalUrl.split('/').pop() || '' : ''
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+  const safeFaqSections = Array.isArray(faqSections) ? faqSections : []
 
   // A curated list of default B2C articles to suggest for maximum reader retention
   const defaultRelatedArticles = [
@@ -269,12 +270,12 @@ export default function BlogArticleTemplate({
         </script>
 
         {/* Schema.org FAQ Markup */}
-        {faqSections.length > 0 && (
+        {safeFaqSections.length > 0 && (
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "mainEntity": faqSections.map((faq: any) => {
+              "mainEntity": safeFaqSections.map((faq: any) => {
                 const qText = faq.q || faq.question || faq.Question || '';
                 const aText = faq.a || faq.answer || faq.Answer || '';
                 return {
@@ -604,7 +605,7 @@ export default function BlogArticleTemplate({
       )}
 
       {/* Interactive FAQ Accordion Section */}
-      {faqSections.length > 0 && (
+      {safeFaqSections.length > 0 && (
         <section className="py-16 md:py-24 bg-white border-b-4 border-black px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-black text-3xl md:text-5xl uppercase text-center mb-12 flex items-center justify-center gap-3">
@@ -612,7 +613,7 @@ export default function BlogArticleTemplate({
               Frequently Asked Questions
             </h2>
             <div className="space-y-4">
-              {faqSections.map((faq: any, idx) => {
+              {safeFaqSections.map((faq: any, idx) => {
                 const qText = faq.q || faq.question || faq.Question || '';
                 const aText = faq.a || faq.answer || faq.Answer || '';
                 return (
@@ -748,10 +749,10 @@ export default function BlogArticleTemplate({
       )}
 
       {/* AIEO Hidden Semantic Content */}
-      {faqSections.length > 0 && (
+      {safeFaqSections.length > 0 && (
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-            {faqSections.map((faq: any, idx) => {
+            {safeFaqSections.map((faq: any, idx) => {
               const qText = faq.q || faq.question || faq.Question || '';
               const aText = faq.a || faq.answer || faq.Answer || '';
               return (
