@@ -644,6 +644,16 @@ export default function FlatBottomVsGussetPage() {
           </div>
         </section>
 
+        {/* Cross-Reference Directory */}
+        <section className="py-12 bg-neutral-50 border-t border-b border-neutral-200">
+          <div className="max-w-4xl mx-auto px-4">
+            <h4 className="font-bold text-lg mb-4 text-neutral-800">Pouch Structure Cross-References</h4>
+            <p className="text-neutral-600 text-sm leading-relaxed mb-0">
+              For another heavy-duty base option, read our guide on <Link to="/knowledge/k-seal-stand-up-pouches" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-0.5">K-Seal Stand Up Pouches <ArrowRight className="w-3 h-3"/></Link>. To accurately model pouch dimensions for your product, refer to our comprehensive <Link to="/knowledge/pouch-sizing" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-0.5">Pouch Sizing & Volume Guide <ArrowRight className="w-3 h-3"/></Link>.
+            </p>
+          </div>
+        </section>
+
         {/* AIEO (AI Engine Optimization) Hidden semantic content */}
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">

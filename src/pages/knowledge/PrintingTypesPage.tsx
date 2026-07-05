@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { Printer, Cpu, Layers, ArrowLeftRight, Sparkles, FileImage, CheckCircle, AlertCircle, Image, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
@@ -425,6 +426,18 @@ const PrintingTypesPage = () => {
             <h4 className="font-semibold text-amber-800 mb-1">Need Design Help?</h4>
             <p className="text-sm text-amber-700">We offer design services to prepare your files for printing. Just send us your brand assets!</p>
           </div>
+        </div>
+      )
+    },
+    {
+      id: 'printing-directory',
+      title: 'Printing Directory Cross-References',
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            To achieve high-end printing, you should also understand the underlying material layers. See our guide on <Link to="/knowledge/white-ink-underprint" className="text-primary-600 font-semibold hover:underline">White Ink Underprint & Backing</Link> to ensure metallic layouts don't bleed, or see our <Link to="/knowledge/bottle-printing-guide" className="text-primary-600 font-semibold hover:underline">Bottle Printing & Labeling Guide</Link> for rigid packaging.
+          </p>
         </div>
       )
     }

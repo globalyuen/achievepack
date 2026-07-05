@@ -29,7 +29,7 @@ export default function KnowHowCarousel({ theme = 'achieve' }: KnowHowCarouselPr
   const [isKnowHowDragging, setIsKnowHowDragging] = useState(false);
 
   useEffect(() => {
-    setCards(shuffleArray(seoKnowHowCards));
+    setCards(shuffleArray(seoKnowHowCards).slice(0, 30));
   }, []);
 
   const handleKnowHowMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {

@@ -341,7 +341,7 @@ export default function PhaVsPla() {
           </div>
           <p className="text-lg leading-relaxed">{t.introP2}</p>
           <p className="text-lg leading-relaxed mt-4">
-            If you are looking to perfectly match your brand's PMS colors on these new eco-materials, we highly recommend reading our <Link to="/knowledge/color-matching" className="text-primary-600 font-semibold underline decoration-2 underline-offset-4 hover:text-primary-800 transition-colors">Color Matching Guide</Link> for digital printing processes.
+            If you are looking to perfectly match your brand's PMS colors on these new eco-materials, we highly recommend reading our <Link to="/knowledge/color-matching" className="text-primary-600 font-semibold underline decoration-2 underline-offset-4 hover:text-primary-800 transition-colors">Color Matching Guide</Link>. Furthermore, check out the <Link to="/knowledge/eco-packaging-reality" className="text-primary-600 font-semibold underline decoration-2 underline-offset-4 hover:text-primary-800 transition-colors">Eco-Packaging Reality</Link> and our analysis of <Link to="/knowledge/reusable-packaging" className="text-primary-600 font-semibold underline decoration-2 underline-offset-4 hover:text-primary-800 transition-colors">Reusable Packaging Systems</Link> for a complete environmental strategy.
           </p>
         </div>
       )
@@ -413,8 +413,11 @@ export default function PhaVsPla() {
           
           <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 my-6">
             <h4 className="font-bold text-lg mb-2">Cross-Reference</h4>
-            <p className="text-neutral-600 mb-0">
+            <p className="text-neutral-600 mb-2">
               When transitioning to compostable materials like PHA, color calibration can shift slightly due to the substrate's organic nature. Review our <Link to="/knowledge/color-matching" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">Color Matching Standards <ArrowRight className="w-3 h-3"/></Link> to ensure your brand's PMS alignment remains consistent on eco-friendly lines.
+            </p>
+            <p className="text-neutral-600 mb-0">
+              Also explore the lifecycle differences in our <Link to="/knowledge/eco-packaging-reality" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">Eco-Packaging Reality Guide <ArrowRight className="w-3 h-3"/></Link> and read about circular <Link to="/knowledge/reusable-packaging" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">Reusable Packaging Systems <ArrowRight className="w-3 h-3"/></Link>.
             </p>
           </div>
         </div>

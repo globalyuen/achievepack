@@ -170,6 +170,12 @@ export default function ReusablePackagingPage() {
           </div>
           <p className="text-black font-semibold text-base leading-relaxed">{t.introP1}</p>
           <p className="text-black font-semibold text-base leading-relaxed">{t.introP2}</p>
+          <div className="bg-white border-4 border-black p-6 font-['JetBrains_Mono'] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-6">
+            <h5 className="font-black text-sm uppercase mb-2">// Cross-Reference</h5>
+            <p className="text-black text-xs leading-relaxed mb-0">
+              To compare with single-use eco options, read our guide on the <Link to="/knowledge/eco-packaging-reality" className="font-bold underline">Eco-Packaging Reality</Link> or check our <Link to="/knowledge/pha-vs-pla" className="font-bold underline">PHA vs PLA Analysis</Link>.
+            </p>
+          </div>
         </div>
       )
     },
@@ -265,6 +271,12 @@ export default function ReusablePackagingPage() {
           
           <p className="text-neutral-700 text-lg leading-relaxed">{t.introP1}</p>
           <p className="text-neutral-700 text-lg leading-relaxed">{t.introP2}</p>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 my-6">
+            <h4 className="font-bold text-lg mb-2">Cross-Reference</h4>
+            <p className="text-neutral-600 mb-0 text-sm">
+              When reviewing reusable loops, it is helpful to compare single-use alternatives. Read our guide on the <Link to="/knowledge/eco-packaging-reality" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">Eco-Packaging Reality <ArrowRight className="w-3 h-3"/></Link> or compare material specifications in our <Link to="/knowledge/pha-vs-pla" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">PHA vs PLA Analysis <ArrowRight className="w-3 h-3"/></Link>.
+            </p>
+          </div>
         </div>
       )
     },

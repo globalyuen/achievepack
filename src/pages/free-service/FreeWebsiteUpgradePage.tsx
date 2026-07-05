@@ -748,6 +748,20 @@ const FreeWebsiteUpgradePage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [activeDot, setActiveDot] = useState(0)
 
+  const [shuffledCards, setShuffledCards] = useState<any[]>([]);
+
+  React.useEffect(() => {
+    const shuffle = (array: any[]) => {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    };
+    setShuffledCards(shuffle(seoKnowHowCards).slice(0, 30));
+  }, []);
+
   // Drag to scroll state
   const scrollerRef = useRef<HTMLDivElement>(null)
   const [isDown, setIsDown] = useState(false)
@@ -1676,7 +1690,7 @@ const FreeWebsiteUpgradePage: React.FC = () => {
               onScroll={handleKnowHowScroll}
               className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 px-[5%] md:px-[10%] py-4 scrollbar-none select-none cursor-grab active:cursor-grabbing"
             >
-              {seoKnowHowCards.map((item, idx) => {
+              {shuffledCards.map((item, idx) => {
                 return (
                   <div 
                     key={idx} 
@@ -1744,7 +1758,7 @@ const FreeWebsiteUpgradePage: React.FC = () => {
 
           {/* Pagination Dots for Know How Carousel */}
           <div className="flex justify-center gap-2 pb-6 flex-wrap px-4 max-w-xl mx-auto">
-            {seoKnowHowCards.map((_, idx) => (
+            {shuffledCards.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => scrollToKnowHowSlide(idx)}

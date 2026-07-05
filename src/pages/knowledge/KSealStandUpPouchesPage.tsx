@@ -471,6 +471,16 @@ export default function KSealStandUpPouchesPage() {
 
         </article>
 
+        {/* Cross-Reference Directory */}
+        <section className="py-12 bg-neutral-50 border-t border-b border-neutral-250">
+          <div className="max-w-4xl mx-auto px-4">
+            <h4 className="font-bold text-lg mb-4 text-neutral-800">Pouch Structure Cross-References</h4>
+            <p className="text-neutral-600 text-sm leading-relaxed mb-0">
+              To compare K-Seals against other flat-bottom packaging formats, consult our <Link to="/knowledge/flat-bottom-vs-gusset" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-0.5">Flat Bottom vs. Side Gusset comparison <ArrowRight className="w-3 h-3"/></Link>. For precise capacity calculations, read our <Link to="/knowledge/pouch-sizing" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-0.5">Pouch Sizing & Capacity Guide <ArrowRight className="w-3 h-3"/></Link>.
+            </p>
+          </div>
+        </section>
+
         {/* AI-Optimized Hidden Content */}
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">

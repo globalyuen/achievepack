@@ -590,6 +590,12 @@ export default function BottlePrintingGuidePage() {
           </div>
           <p className="text-black font-semibold text-base leading-relaxed">{t.introP1}</p>
           <p className="text-black font-semibold text-base leading-relaxed">{t.introP2}</p>
+          <div className="bg-white border-4 border-black p-6 font-['JetBrains_Mono'] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-6">
+            <h5 className="font-black text-sm uppercase mb-2">// Cross-Reference</h5>
+            <p className="text-black text-xs leading-relaxed mb-0">
+              To understand flexible packaging printing techniques, check out our guide on <Link to="/knowledge/printing-types" className="font-bold underline">Modern Printing Methods</Link> or read about the technical details of <Link to="/knowledge/white-ink-underprint" className="font-bold underline">White Ink Underprint & Backing</Link>.
+            </p>
+          </div>
         </div>
       )
     },
@@ -932,6 +938,12 @@ export default function BottlePrintingGuidePage() {
           </div>
           <p className="text-neutral-700 text-lg leading-relaxed">{t.introP1}</p>
           <p className="text-neutral-700 text-lg leading-relaxed">{t.introP2}</p>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 my-6">
+            <h4 className="font-bold text-lg mb-2">Cross-Reference</h4>
+            <p className="text-neutral-600 mb-0 text-sm">
+              To understand flexible packaging printing techniques, check out our guide on <Link to="/knowledge/printing-types" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">Modern Printing Methods <ArrowRight className="w-3 h-3"/></Link> or read about the technical details of <Link to="/knowledge/white-ink-underprint" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">White Ink Underprint & Backing <ArrowRight className="w-3 h-3"/></Link>.
+            </p>
+          </div>
         </div>
       )
     },

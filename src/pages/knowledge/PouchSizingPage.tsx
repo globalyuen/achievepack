@@ -790,6 +790,18 @@ const PouchSizingPage: React.FC = () => {
         </div>
       )
     },
+    {
+      id: 'sizing-directory',
+      title: 'Pouch Sizing & Format Directory',
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            Correctly sizing your pouch is only the first step. To understand how different formats compare on the retail shelf, read our guide comparing <Link to="/knowledge/flat-bottom-vs-gusset" className="text-primary-600 font-semibold hover:underline">Flat Bottom vs. Side Gusset Pouches</Link>, or explore the heavy-duty stability characteristics of <Link to="/knowledge/k-seal-stand-up-pouches" className="text-primary-600 font-semibold hover:underline">K-Seal Stand Up Pouches</Link>.
+          </p>
+        </div>
+      )
+    }
   ]
 
   const faqs = [

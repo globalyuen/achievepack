@@ -86,6 +86,12 @@ export default function PouchHeatSealingGuidePage() {
             </p>
           </div>
           {renderAuthorCard()}
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
+            <h4 className="font-bold text-lg mb-2 text-neutral-800">Sealing & Assembly Cross-References</h4>
+            <p className="text-neutral-600 text-sm leading-relaxed mb-0">
+              For details on structural seal styles, read our guide comparing <Link to="/knowledge/fin-seal-lap-seal" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-0.5">Fin Seal vs. Lap Seal joints <ArrowRight className="w-3 h-3"/></Link>. If you are utilizing a manual sealer, consult our instructions for <Link to="/knowledge/hand-clamp-sealer" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-0.5">Hand Clamp Sealers <ArrowRight className="w-3 h-3"/></Link>.
+            </p>
+          </div>
         </div>
       )
     },

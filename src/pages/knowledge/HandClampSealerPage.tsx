@@ -142,6 +142,12 @@ export default function HandClampSealerPage() {
             </p>
           </div>
           {renderAuthorCard()}
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
+            <h4 className="font-bold text-lg mb-2 text-neutral-800 font-sans">Sealing & Assembly Cross-References</h4>
+            <p className="text-neutral-600 text-sm leading-relaxed mb-0 font-sans">
+              To calibrate heat sealing parameters (temperature, pressure, dwell time), check out our comprehensive <Link to="/knowledge/pouch-heat-sealing-guide" className="text-primary-600 font-semibold hover:underline inline-flex items-center gap-0.5">Pouch Heat Sealing Calibration Guide <ArrowRight className="w-3 h-3"/></Link>. To compare structural seal seam styles, see our guide on <Link to="/knowledge/fin-seal-lap-seal" className="text-primary-600 font-semibold hover:underline inline-flex items-center gap-0.5">Fin Seal vs. Lap Seal joints <ArrowRight className="w-3 h-3"/></Link>.
+            </p>
+          </div>
         </div>
       )
     },

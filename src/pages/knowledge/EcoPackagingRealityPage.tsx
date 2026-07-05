@@ -518,6 +518,16 @@ export default function EcoPackagingRealityPage() {
           </div>
         </section>
 
+        {/* Cross-Reference Directory */}
+        <section className="py-12 bg-neutral-50 border-t border-b border-neutral-200">
+          <div className="max-w-4xl mx-auto px-4">
+            <h4 className="font-bold text-lg mb-4 text-neutral-800">Technical Cross-References</h4>
+            <p className="text-neutral-600 text-sm leading-relaxed mb-0">
+              To further refine your sustainability strategy, compare the operational qualities of raw materials in our <Link to="/knowledge/pha-vs-pla" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-0.5">PHA vs PLA Guide <ArrowRight className="w-3 h-3"/></Link>, or learn about closed-loop logistics in our analysis of <Link to="/knowledge/reusable-packaging" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-0.5">Reusable Packaging Systems <ArrowRight className="w-3 h-3"/></Link>.
+            </p>
+          </div>
+        </section>
+
         {/* Visually Hidden AIEO semantic block for crawler parsing */}
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
