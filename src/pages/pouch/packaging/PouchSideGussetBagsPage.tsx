@@ -431,7 +431,7 @@ export default function PouchSideGussetBagsPage() {
                 className="w-full h-80 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />
               <img
-                src="/imgs/pouch-shape/side-gusset-pouch-eco.png"
+                src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp"
                 alt={t('pouchSideGussetBagsPage.imgAlt2')}
                 className="w-full h-80 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />

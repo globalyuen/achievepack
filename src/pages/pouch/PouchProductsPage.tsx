@@ -140,8 +140,73 @@ export default function PouchProductsPage() {
       stats: { moq: '500', material: 'RECYCLABLE', barrier: 'HIGH' },
       features: ['Classic Coffee Shape', 'High Volume Capacity', 'Quad Seal Rigidity'],
       color: 'bg-[#FF00FF]', // Magenta
-      image: '/imgs/pouch-shape/side-gusset-pouch-eco.png',
+      image: '/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp',
       link: '/packaging/side-gusset-bags'
+    },
+    {
+      id: 'vacuum',
+      name: 'VACUUM_POUCH',
+      description: 'Heavy-duty vacuum sealer bags. Perfect for frozen food, meats, and long-term storage.',
+      problem: 'Fresh food, meats, and cheese spoil quickly without an airtight seal that can withstand freezing and rough handling.',
+      solution: 'Our multi-layer co-extruded Vacuum Pouches offer an absolute hermetic oxygen and moisture barrier, designed to withstand deep-freezing and sous-vide cooking.',
+      price: '$0.35',
+      stats: { moq: '1K', material: 'PA_PE', barrier: 'HERMETIC' },
+      features: ['Oxygen & Moisture Protection', 'High Puncture Resistance', 'Sous-Vide Grade'],
+      color: 'bg-[#00FFFF]', // Cyan
+      image: '/imgs/pouch-shape/vacuum-pouch-eco.jpg',
+      link: '/packaging/vacuum-pouches'
+    },
+    {
+      id: 'custom-box',
+      name: 'CUSTOM_BOX',
+      description: 'Premium folding cartons and mailer boxes. Perfect for retail display and subscription boxes.',
+      problem: 'Setting up custom retail paper boxes and mailers is complicated, requiring high setup plate/die fees and slow delivery times.',
+      solution: 'Get custom-printed folding cartons and mailers from low MOQs with soy-based inks on sustainable paperboard.',
+      price: '$0.75',
+      stats: { moq: '100', material: 'FSC_CARD', barrier: 'RIGID' },
+      features: ['Custom Structural Design', 'Soy-Based Inks', 'Biodegradable Board'],
+      color: 'bg-white', // White
+      image: '/imgs/pouch-shape/custom-box-eco.jpg',
+      link: '/packaging/custom-boxes'
+    },
+    {
+      id: 'shrink-sleeve',
+      name: 'SHRINK_SLEEVE',
+      description: 'Full-body heat shrink labels. Perfect for 360-degree bottle branding with spot varnishes.',
+      problem: 'Standard bottles have non-print zones and cannot display branding on irregular or tapered geometries.',
+      solution: 'Our 360-degree heat-shrinkable sleeve labels fit any bottle shape seamlessly, supporting high-contrast matte and spot gloss finishes.',
+      price: '$0.15',
+      stats: { moq: '5K', material: 'rPET_PETG', barrier: '360_COVER' },
+      features: ['Contour-Matched Fit', 'Tactile Spot Varnish', 'No Non-Print Zone'],
+      color: 'bg-[#FF00FF]', // Magenta
+      image: '/imgs/pouch-shape/shrink-sleeve-label-eco.jpg',
+      link: '/packaging/shrink-sleeves'
+    },
+    {
+      id: 'custom-labels',
+      name: 'CUSTOM_LABELS_AND_STICKERS',
+      description: 'Premium roll labels and sheet stickers. Elevate your jar, pouch, or box branding.',
+      problem: 'Custom sheet and roll labels often have high minimums or lack premium finishing options like gold foil or spot UV.',
+      solution: 'Order custom labels and stickers from 100 units. Available in bio-degradable, water-resistant, or paper stocks with premium foil/UV options.',
+      price: '$0.10',
+      stats: { moq: '100', material: 'BIO/PAPER', barrier: 'WATERPROOF' },
+      features: ['Spot UV & Foil Options', 'Roll or Sheet Formats', 'Biodegradable Options'],
+      color: 'bg-[#D4FF00]', // Yellow
+      image: '/imgs/pouch-shape/custom-labels-eco.jpg',
+      link: '/products/labels-and-stickers'
+    },
+    {
+      id: 'compostable-mailers',
+      name: 'COMPOSTABLE_MAILER_BAGS',
+      description: '100% biodegradable shipping bags. Durable reclosure for sustainable e-commerce shipping.',
+      problem: 'Single-use plastic shipping mailers generate massive non-recyclable landfill waste for online brands.',
+      solution: 'Switch to fully certified compostable mailers that break down in 90 days. Dual adhesive strips make return shipping easy.',
+      price: '$0.30',
+      stats: { moq: '500', material: 'PLA+PBAT', barrier: 'TOUGH_SHELL' },
+      features: ['Dual Adhesive Strip', 'Durable & Waterproof', 'Decomposes in 90 Days'],
+      color: 'bg-[#00FFFF]', // Cyan
+      image: '/imgs/pouch-shape/compostable-mailer-eco.jpg',
+      link: '/store?category=mailer'
     }
   ]
 

@@ -41466,6 +41466,56 @@
           "Grande capacité volumétrique",
           "Rigidité grâce au scellage quadruple"
         ]
+      },
+      {
+        "name": "Sachet sous Vide",
+        "problem": "Les aliments frais, viandes et fromages se gâtent rapidement sans un joint hermétique capable de résister à la congélation.",
+        "solution": "Nos sachets sous vide coextrudés multicouches offrent une barrière hermétique absolue à l'oxygène et à l'humidité, conçus pour la congélation et la cuisson sous-vide.",
+        "features": [
+          "Protection Oxygène & Humidité",
+          "Haute Résistance à la Perforation",
+          "Qualité Alimentaire Sous-Vide"
+        ]
+      },
+      {
+        "name": "Boîte Personnalisée",
+        "problem": "La configuration de boîtes en carton et d'emballages personnalisés est complexe, avec des frais de matrice élevés et des délais longs.",
+        "solution": "Commandez des cartons pliants et des boîtes d'expédition imprimés sur mesure à partir de faibles MOQ, avec des encres à base de soja.",
+        "features": [
+          "Conception Structurelle sur Mesure",
+          "Encres Écologiques au Soja",
+          "Carton Biodégradable Certifié"
+        ]
+      },
+      {
+        "name": "Manchon Rétractable",
+        "problem": "Les bouteilles standards ont des zones non imprimables et ne peuvent afficher la marque sur des formes irrégulières ou coniques.",
+        "solution": "Nos manchons thermorétractables à 360 degrés s'adaptent à toutes les bouteilles, prenant en charge les finitions mates et brillantes.",
+        "features": [
+          "Ajustement Parfait aux Contours",
+          "Vernis Sélectif Tactile",
+          "Sans Zone Blanche Non Imprimée"
+        ]
+      },
+      {
+        "name": "Étiquettes et Autocollants Personnalisés",
+        "problem": "Les étiquettes en rouleau et en feuille personnalisées ont souvent des minimums élevés ou manquent d'options de finition premium comme la dorure à chaud ou le vernis sélectif.",
+        "solution": "Commandez des étiquettes et autocollants personnalisés à partir de 100 unités. Disponibles en matières biodégradables, résistantes à l'eau ou papier avec finitions premium.",
+        "features": [
+          "Options Vernis Sélectif & Dorure",
+          "Formats en Rouleau ou en Feuille",
+          "Options Biodégradables"
+        ]
+      },
+      {
+        "name": "Enveloppes d'Expédition Compostables",
+        "problem": "Les enveloppes d'expédition en plastique à usage unique génèrent des tonnes de déchets non recyclables pour les marques d'e-commerce.",
+        "solution": "Passez aux enveloppes d'expédition compostables certifiées qui se dégradent en 90 jours. Double bande adhésive pour faciliter les retours.",
+        "features": [
+          "Double Bande Adhésive",
+          "Durable & Imperméable",
+          "Se Décompose en 90 Jours"
+        ]
       }
     ],
     "labels": {

@@ -83,7 +83,29 @@ const translations = {
     prob4Title: "4. Scratching & Scuffing",
     prob4Desc: "Problem: Logos rubbing off during shipping or daily friction. Solution: Applying a clear UV-cured topcoat over the print, or utilizing Laser Engraving for a permanent physical etch.",
     prob5Title: "5. Distorted Graphics on Curves",
-    prob5Desc: "Problem: Logos warping out of proportion when printed on tapered or dual-curve bottoms. Solution: Employing Pad Printing with soft silicone bulbs that deform naturally around uneven geometries to transfer the ink cleanly."
+    prob5Desc: "Problem: Logos warping out of proportion when printed on tapered or dual-curve bottoms. Solution: Employing Pad Printing with soft silicone bulbs that deform naturally around uneven geometries to transfer the ink cleanly.",
+    shrinkSleeveSectionTitle: "Why Shrink Sleeves Outperform Direct Bottle Printing",
+    shrinkSleeveIntro: "While direct screen printing, pad printing, and labeling are standard for basic containers, they have strict physical limitations. High-volume premium beverage, cosmetic, and food brands switch to heat-shrinkable film sleeve labels to overcome printing zones, shape constraints, and color resolution limits. Here are the 5 major rigid packaging problems solved by shrink sleeves.",
+    problem: "Problem",
+    solution: "Solution",
+    sleeveP1Title: "1. Tactile Gloss/Matte Contrast (Spot Varnish)",
+    sleeveP1Prob: "Direct printing inks lay flat, making it impossible to render rich tactile patterns, embossing feel, or matte-gloss contrast on the container's surface.",
+    sleeveP1Sol: "Shrink sleeves support reverse spot-varnish gravure printing, integrating premium matte finishes with glossy window logos to deliver sensory depth.",
+    sleeveP2Title: "2. Photorealistic High-Resolution Print",
+    sleeveP2Prob: "Direct silk screen printing is limited by screen mesh sizes (typically under 80 LPI), causing grainy halftones and making photorealistic color gradients impossible.",
+    sleeveP2Sol: "Flexographic and digital gravure shrink sleeve printing easily exceeds 150 LPI, rendering micro-details, ultra-sharp vector text, and seamless photographic gradients.",
+    sleeveP3Title: "3. Seamless 360° Wrap (No 5mm Non-Print Zone)",
+    sleeveP3Prob: "Direct screen printers require a mechanical registration gap (typically a 5mm to 8mm unprinted vertical band) to prevent wet ink from smudging when the bottle rotates.",
+    sleeveP3Sol: "Shrink sleeves are printed flat on rollstock before being seamed, enabling continuous 360° coverage from neck to base with zero blank margins.",
+    sleeveP4Title: "4. Contoured Match for Irregular Geometries",
+    sleeveP4Prob: "Flat screen printing or rigid rollers cannot print on tapered necks, contoured waists, or hourglass jars without severe graphic warping and ink accumulation.",
+    sleeveP4Sol: "Heat shrink tunnels shrink the film label dynamically to conform to the container's exact geometry, accommodating stretch ratios up to 75% without distortion.",
+    sleeveP5Title: "5. Internal Reverse Print for Ultimate Durability",
+    sleeveP5Prob: "Directly printed surface inks are exposed to scratching during transit, hand friction, oils, and soap wash cycles, leading to premature branding degradation.",
+    sleeveP5Sol: "Shrink sleeves print ink on the inside of the transparent film, so the plastic barrier itself shields the design from mechanical scratch, moisture, and chemical cleaners.",
+    sleeveCtaTitle: "Establish 360° Branding with Custom Shrink Sleeves",
+    sleeveCtaDesc: "Boost your product shelf-appeal with high-gloss contour-matched shrink sleeves. Order customized runs starting from low MOQ.",
+    sleeveCtaBtn: "Shop Custom Shrink Sleeves"
   },
   'zh-TW': {
     title: "瓶罐印刷指南：五種主流客製化工藝深度比較",
@@ -95,7 +117,7 @@ const translations = {
     faq2q: "瓶底或瓶身的熱轉印是如何運作的？",
     faq2a: "熱轉印印刷是使用加熱的矽膠印版或膠輪向轉印膜施壓。當瓶子在滾輪上旋轉時，高溫（150°C-210°C）熔化轉印膜上的熱熔膠層，將印刷圖案釋放並牢固粘合到亞克力或塑料表面，完成精細的全彩色包裝。",
     faq3q: "雷射雕刻在塗層金屬或塑料表面是永久性的嗎？",
-    faq3a: "是的。雷射雕刻是一種減法工藝，利用高能量雷射光束氣化或蝕刻瓶子表面的塗層，顯露出底層的材質色彩（如不鏽鋼或不同顏色的聚合物層）。它100%永久存在，耐磨防刮且永不褪色。",
+    faq3a: "是的。雷射雕刻是一種減法工藝，利用高能量雷射光束氣化或蝕刻瓶子表面的塗層，顯露出底層的材質色彩（如不鏽鋼或不同顏色的聚合物層）。它100%永久存在，耐磨防刮且油墨不褪色。",
     introTitle: "硬質包裝客製化：解構印刷生產鏈",
     quickAnswer: "快速解答：瓶底或小面積凹凸弧面首選「移印」；瓶身單色標誌採用「絲網印刷」；全彩漸層大面積使用「熱轉印膜」；金屬與高端耐磨標誌推薦「雷射雕刻」；小批量靈活設計選用「不干膠貼紙」。",
     takeawayTitle: "關鍵要點",
@@ -108,7 +130,7 @@ const translations = {
     introP2: "下面我們將深入探討熱轉印、雷射雕刻、貼標、絲網印刷與移印的工藝機制，並分析其在商業清洗、GRS 永續標準與物流運輸中的實際表現。",
     expertTitle: "專家工程見解",
     expertSub: "來自 Ryan Wong 的工程筆記",
-    expertQ1: "「在亞克力罐的弧面底部進行客製化時，一個常見錯誤是試圖使用直壓式熨印轉印。這種硬性直壓會導致弧面受力不均，產生微小氣泡和邊緣翹起起皮。」",
+    expertQ1: "「張力不足是導致油墨脫落的主要原因。我們在印刷前通常會使用火焰或電暈處理表面以增加附著力。」",
     expertQ2: "為了解決瓶底或雙曲面印刷，我們採用軟性矽膠轉印滾輪或移印。矽膠移印頭能順應複雜的瓶底弧度，確保壓力和油墨轉移均勻。對於表面緻密的亞克力，我們會先進行電暈預處理，以提升油墨的附著力，確保通過 3M 拉力測試。」",
     matrixTitle: "技術參數比較表：瓶罐客製化印刷",
     matrixParam: "技術參數",
@@ -160,39 +182,230 @@ const translations = {
     prob4Title: "4. 刮痕與磨損",
     prob4Desc: "問題：標誌在運輸或日常摩擦中被磨掉。 解決方案：在印刷品上塗抹透明的UV固化頂層，或利用雷射雕刻進行永久性的物理蝕刻。",
     prob5Title: "5. 曲面圖案變形",
-    prob5Desc: "問題：在錐形或雙曲面底部印刷時，標誌變形且比例失調。 解決方案：採用移印工藝，利用柔軟的矽膠移印頭，自然地貼合不規則幾何形狀，將油墨乾淨地轉移。"
+    prob5Desc: "問題：在錐形或雙曲面底部印刷時，標誌變形且比例失調。 解決方案：採用移印工藝，利用柔軟的矽膠移印頭，自然地貼合不規則幾何形狀，將油墨乾淨地轉移。",
+    shrinkSleeveSectionTitle: "為何收縮膜套標優於瓶身直接印刷：解決五大包裝痛點",
+    shrinkSleeveIntro: "雖然直接絲網印刷、移印和貼紙是目前瓶罐客製化的常用方法，但它們存在著無法逾越的物理限制。高端飲料、化妝品和食品品牌通常會切換到熱收縮膜套標（Shrink Sleeves），以解決印刷盲區、複雜瓶身曲度以及色彩解析度受限等問題。以下是收縮膜套標解決的五大硬質包裝印刷痛點。",
+    problem: "問題",
+    solution: "解決方案",
+    sleeveP1Title: "1. 局部啞光與光澤對比（暗花 / 觸感局部光）",
+    sleeveP1Prob: "瓶身直接印刷的油墨層相對平坦，無法在容器表面呈現豐富的觸感紋理、凹凸立體感或局部的啞光/光澤對比（即「暗花」效果）。",
+    sleeveP1Sol: "收縮膜套標支持反向凹版局部上光印刷，可將高端啞光磨砂觸感與光澤明亮的圖案或透明窗口無縫融合，帶來極佳的立體視覺與觸覺質感。",
+    sleeveP2Title: "2. 照片級高解析度印刷與漸層",
+    sleeveP2Prob: "直接絲網印刷受限於網目大小（通常低於 80 LPI），在處理多色漸層時會產生粗糙的網點，無法實現照片級的精細彩色圖像。",
+    sleeveP2Sol: "柔版與數位凹版套標印刷解析度輕鬆超過 150 LPI，能完美呈現微米級細節、極度清晰的向量文字與流暢無痕的照片級色彩漸層。",
+    sleeveP3Title: "3. 無縫 360° 全包覆印刷（無 5mm 印刷留白盲區）",
+    sleeveP3Prob: "直接絲網印刷需要機械定位對點留白區（通常為 5mm 至 8mm 的垂直非印刷帶），以防瓶子旋轉時濕油墨發生重疊擦碰和模糊。",
+    sleeveP3Sol: "收縮膜套標在製袋合掌前以平面捲材形式印刷，收縮後能實現從瓶口到瓶底 360° 完全不間斷的圖案包覆，無任何空白邊緣。",
+    sleeveP4Title: "4. 完美貼合異形與複雜曲線瓶身",
+    sleeveP4Prob: "平網印刷或硬性轉印輥無法在錐形瓶頸、收腰曲線或沙漏型瓶罐上進行印刷，否則會導致嚴重的圖案扭曲變形與油墨堆積。",
+    sleeveP4Sol: "通過熱收縮通道（蒸汽或熱風），薄膜套標會動態收縮以緊密貼合容器的幾何形狀，能適應高達 75% 的收縮率且圖像不變形。",
+    sleeveP5Title: "5. 內層反向印刷帶來的極致耐磨防刮性",
+    sleeveP5Prob: "直接印刷在瓶罐表面的油墨容易在物流運輸、日常手部摩擦、化學油脂以及洗潔精洗滌中被劃傷剥落，導致品牌形象磨損損壞。",
+    sleeveP5Sol: "收縮膜套標將油墨印刷在透明薄膜的內側（反印工藝），外層的塑料薄膜屏障能自然保護印刷圖案免受物理刮擦、潮濕和化學清洗劑的損害。",
+    sleeveCtaTitle: "使用收縮膜套標打造無縫 360° 品牌形象",
+    sleeveCtaDesc: "利用高光澤、高貼合度的收縮套標提升產品在貨架上的吸引力。起訂量低，支持多種材質與光澤工藝。",
+    sleeveCtaBtn: "客製化收縮膜套標系列"
   },
   'es': {
-    problemTitle: "5 Problemas Comunes de Impresión en Botellas (y Soluciones)",
-    prob1Title: "1. Desprendimiento de Tinta / Mala Adherencia",
-    prob1Desc: "Problema: Las tintas no se adhieren a superficies lisas como PET o acrílico. Solución: Pretratar la superficie con llama o descarga corona para aumentar la tensión superficial antes de imprimir.",
-    prob2Title: "2. Inconsistencia de Color",
-    prob2Desc: "Problema: Los colores impresos no coinciden con las especificaciones Pantone (PMS) de la marca debido a la interferencia del color del material base. Solución: Imprimir una doble capa de base blanca opaca debajo de las tintas de color.",
-    prob3Title: "3. Problemas de Registro / Impresión Borrosa",
-    prob3Desc: "Problema: Impresiones borrosas o colores desalineados en pasadas multicolores. Solución: Usar máquinas rotativas accionadas por servo de alta precisión o cambiar a transferencia de calor para una alineación multicolor perfecta.",
-    prob4Title: "4. Rasguños y Desgaste",
-    prob4Desc: "Problema: Los logotipos se borran durante el envío o la fricción diaria. Solución: Aplicar una capa superior transparente curada con UV sobre la impresión, o utilizar el grabado láser para un grabado físico permanente.",
-    prob5Title: "5. Gráficos Distorsionados en Curvas",
-    prob5Desc: "Problema: Los logotipos se deforman desproporcionadamente cuando se imprimen en fondos cónicos o de doble curva. Solución: Emplear tampografía con bulbos de silicona blanda que se deforman naturalmente para transferir la tinta limpiamente."
+    title: "Cómo imprimir en botellas y botes: comparación de 5 métodos",
+    metaDesc: "Compare la transferencia de calor, el grabado láser, el etiquetado adhesivo, la serigrafía y la tampografía para botellas y botes personalizados. GRS e i18n compatibles.",
+    heroTitle: "Cómo imprimir en botellas y frascos: guía definitiva de personalización",
+    heroSubtitle: "Análisis de transferencia de calor, grabado láser, adhesivos, serigrafía y tampografía para envases rígidos.",
+    faq1q: "¿Qué método de impresión es mejor para botes acrílicos cilíndricos?",
+    faq1a: "Para botes acrílicos cilíndricos, la serigrafía es el estándar para 1-2 colores directos debido a su alta adherencia y bajo costo. Para diseños a todo color complejos, la película de transferencia de calor ofrece el mejor resultado, mientras que las etiquetas adhesivas son las más versátiles para tiradas rápidas.",
+    faq2q: "¿Cómo funciona la transferencia de calor en el fondo de una botella?",
+    faq2a: "Utiliza un rodillo o placa de silicona caliente para aplicar presión a una película portadora. A medida que la botella gira, el calor (150°C-210°C) funde la capa adhesiva de la película, liberando la tinta sobre la superficie plástica, creando un diseño permanente.",
+    faq3q: "¿El grabado láser es permanente en superficies metálicas y plásticas?",
+    faq3a: "Sí. Es un proceso sustractivo que utiliza un rayo láser para vaporizar la capa superior de la botella, exponiendo el material inferior. Es 100% permanente y resistente al lavado.",
+    introTitle: "Personalización de envases rígidos: el pipeline de impresión",
+    quickAnswer: "Respuesta rápida: Tampografía para logotipos pequeños en curvas de fondo. Serigrafía para colores directos en el cuerpo. Transferencia de calor para envolturas a todo color. Grabado láser para marcas permanentes. Etiquetas adhesivas para tiradas pequeñas.",
+    takeawayTitle: "Puntos clave",
+    takeaway1: "La serigrafía proporciona la capa de tinta más gruesa, ofreciendo colores vibrantes y resistencia química.",
+    takeaway2: "La transferencia de calor aplica gráficos fotográficos complejos a 180°C desde una película PET.",
+    takeaway3: "El grabado láser vaporiza las capas superficiales, logrando un grabado permanente y resistente.",
+    takeaway4: "Las etiquetas adhesivas son muy versátiles, ideales para cambios de diseño rápidos.",
+    takeaway5: "La tampografía utiliza una bombilla de silicona suave para transferir tinta a superficies empotradas.",
+    introP1: "La personalización de contenedores rígidos como frascos de acrílico o botellas de PET requiere elegir el pipeline mecánico adecuado según la curvatura, material y ciclo de vida.",
+    introP2: "Analizamos el rendimiento de cada método bajo ciclos de lavado comerciales y estándares GRS.",
+    expertTitle: "Perspectiva del experto",
+    expertSub: "Del cuaderno de Ryan Wong",
+    expertQ1: "\"Un error común es intentar aplicar transferencias directas en la curva inferior de un frasco. Las placas de calor directo causan presión desigual, burbujas y desprendimientos.\"",
+    expertQ2: "Para imprimir en fondos curvos, usamos rodillos de transferencia de silicona caliente o tampografía. Pretratamos el acrílico rígido con llama para maximizar la adherencia.",
+    matrixTitle: "Matriz técnica de comparación de impresión en botellas",
+    matrixParam: "Parámetro técnico",
+    methodHeat: "Transferencia de calor",
+    methodLaser: "Grabado láser",
+    methodSticker: "Etiquetas y adhesivos",
+    methodScreen: "Serigrafía",
+    methodPad: "Tampografía",
+    durability: "Durabilidad al lavado (ciclos)",
+    heatDur: "100+ ciclos (comercial)",
+    laserDur: "Infinito (permanente)",
+    stickerDur: "50-100 ciclos (PET Premium)",
+    screenDur: "200+ ciclos (tintas epoxi)",
+    padDur: "150+ ciclos (tintas de silicona)",
+    setupCost: "Costo de configuración inicial",
+    heatSetup: "Alto (cilindro grabado)",
+    laserSetup: "Cero (vector digital)",
+    stickerSetup: "Bajo (troquel digital)",
+    screenSetup: "Medio (pantalla de malla)",
+    padSetup: "Bajo-medio (placa grabada)",
+    minOrder: "Cantidad mínima de pedido (MOQ)",
+    heatMoq: "3,000+ unidades",
+    laserMoq: "100+ unidades",
+    stickerMoq: "100+ unidades",
+    screenMoq: "500+ unidades",
+    padMoq: "1,000+ unidades",
+    colorCapability: "Capacidad de color",
+    heatColor: "Gradientes fotográficos a todo color",
+    laserColor: "Monocromático (material de fondo)",
+    stickerColor: "CMYK completo + metalizado",
+    screenColor: "1-4 colores directos (PMS)",
+    padColor: "1-2 colores directos (curvas de fondo)",
+    ctaTitle: "Solicite una revisión de viabilidad",
+    ctaDesc: "Envíenos su diseño para analizar la mejor configuración de impresión según estándares circulares GRS.",
+    ctaBtn: "Consultar con Ryan Wong",
+    upgradeCta: "Comprar frascos personalizables",
+    upgradeDesc: "Explore nuestros frascos y botes herméticos reutilizables con opciones de personalización.",
+    shopTitle: "Personalizar botes reutilizables",
+    shopDesc: "Admitimos serigrafía, grabado láser y etiquetado a partir de 100 unidades.",
+    shopBtn: "Comprar botes reutilizables",
+    processTitle: "Ilustración de los 5 procesos de impresión",
+    problemTitle: "5 problemas comunes de impresión en botellas (y soluciones)",
+    prob1Title: "1. Desprendimiento de tinta / mala adherencia",
+    prob1Desc: "Problema: Las tintas no se adhieren al PET o acrílico liso. Solución: Pretratar la superficie con llama o descarga corona antes de imprimir.",
+    prob2Title: "2. Discordancia de color",
+    prob2Desc: "Problema: El color impreso no coincide con Pantone debido al color del material base. Solución: Imprimir una base blanca opaca.",
+    prob3Title: "3. Problemas de registro / impresión borrosa",
+    prob3Desc: "Problema: Colores desalineados en pasadas múltiples. Solución: Usar servomotores rotativos o transferencia de calor de una pasada.",
+    prob4Title: "4. Arañazos y desgaste",
+    prob4Desc: "Problema: Los logotipos se borran con la fricción. Solución: Aplicar barniz UV o usar grabado láser permanente.",
+    prob5Title: "5. Gráficos distorsionados en curvas",
+    prob5Desc: "Problema: Diseños deformados en fondos cónicos. Solución: Tampografía con bulbos de silicona que se adaptan a la curva.",
+    shrinkSleeveSectionTitle: "Por qué las etiquetas termorretráctiles superan la impresión directa en botellas",
+    shrinkSleeveIntro: "Aunque la serigrafía directa, la tampografía y el etiquetado son comunes, tienen límites físicos estrictos. Las marcas premium de bebidas, cosméticos y alimentos cambian a fundas termorretráctiles para superar los límites de color y forma. Presentamos los 5 problemas principales que solucionan las fundas.",
+    problem: "Problema",
+    solution: "Solución",
+    sleeveP1Title: "1. Contraste táctil brillo/mate (Detalles texturizados)",
+    sleeveP1Prob: "Las tintas de impresión directa quedan planas, lo que imposibilita renderizar patrones táctiles ricos o contrastes de brillo y mate en la botella.",
+    sleeveP1Sol: "Las fundas termorretráctiles admiten la impresión en huecograbado con barniz localizado invertido, integrando acabados mate premium con logotipos brillantes.",
+    sleeveP2Title: "2. Impresión fotorrealista de alta resolución",
+    sleeveP2Prob: "La serigrafía directa está limitada por los tamaños de malla de pantalla, lo que genera semitonos granulados e imposibilita gradientes de color complejos.",
+    sleeveP2Sol: "La impresión flexográfica y digital en fundas termorretráctiles supera los 150 LPI, logrando microdetalles y gradientes fotográficos impecables.",
+    sleeveP3Title: "3. Envoltura de 360° sin costuras (Sin zona de 5 mm)",
+    sleeveP3Prob: "Las impresoras de serigrafía directa requieren un espacio de registro mecánico (banda vertical sin imprimir) para evitar manchas de tinta.",
+    sleeveP3Sol: "Las fundas termorretráctiles se imprimen en plano antes de sellarse, lo que permite una cobertura continua de 360° de arriba a abajo.",
+    sleeveP4Title: "4. Ajuste contorneado para geometrías irregulares",
+    sleeveP4Prob: "La serigrafía plana o los rodillos rígidos no pueden imprimir en cuellos cónicos o frascos de reloj de arena sin deformaciones severas.",
+    sleeveP4Sol: "Los túneles de encogimiento térmico encogen la funda dinámicamente para adaptarse a la geometría exacta, tolerando ratios de hasta 75%.",
+    sleeveP5Title: "5. Impresión inversa interna para máxima durabilidad",
+    sleeveP5Prob: "Las tintas impresas directamente en la superficie se rayan con facilidad debido a la fricción, aceites y ciclos de lavado.",
+    sleeveP5Sol: "Las fundas termorretráctiles imprimen la tinta en el interior de la película, protegiendo el diseño de arañazos mecánicos y humedad.",
+    sleeveCtaTitle: "Establezca una marca de 360° con fundas termorretráctiles",
+    sleeveCtaDesc: "Aumente el atractivo de su producto en el estante con fundas termoencogibles. Bajo MOQ para producciones flexibles.",
+    sleeveCtaBtn: "Comprar fundas termorretráctiles"
   },
   'fr': {
-    problemTitle: "5 Problèmes Courants d'Impression sur Bouteilles (Et Solutions)",
-    prob1Title: "1. Décollement de l'Encre / Mauvaise Adhérence",
-    prob1Desc: "Problème: Les encres n'adhèrent pas aux surfaces lisses comme le PET ou l'acrylique. Solution: Prétraiter la surface avec une flamme ou une décharge corona pour augmenter la tension superficielle avant l'impression.",
-    prob2Title: "2. Incohérence des Couleurs",
-    prob2Desc: "Problème: Les couleurs imprimées ne correspondent pas aux spécifications Pantone (PMS) de la marque en raison de l'interférence du matériau de base. Solution: Imprimer une double couche de fond blanc opaque sous les encres de couleur.",
-    prob3Title: "3. Problèmes de Repérage / Impression Floue",
-    prob3Desc: "Problème: Impressions floues ou couleurs mal alignées lors des passages de plusieurs couleurs. Solution: Utiliser des machines rotatives servocommandées de haute précision ou passer au transfert thermique pour un alignement parfait.",
-    prob4Title: "4. Éraflures et Rayures",
-    prob4Desc: "Problème: Les logos s'effacent lors de l'expédition ou du frottement quotidien. Solution: Appliquer une couche de finition transparente polymérisée aux UV sur l'impression, ou utiliser la gravure laser pour une gravure permanente.",
-    prob5Title: "5. Graphismes Déformés sur Courbes",
-    prob5Desc: "Problème: Les logos se déforment lorsqu'ils sont imprimés sur des fonds coniques ou à double courbure. Solution: Utiliser la tampographie avec des tampons en silicone souple qui se déforment naturellement pour transférer proprement l'encre."
+    title: "Guide d'impression sur bouteilles : 5 méthodes comparées",
+    metaDesc: "Comparez le transfert thermique, la gravure laser, l'étiquetage, la sérigraphie et la tampographie pour bouteilles et pots personnalisés. Conforme GRS.",
+    heroTitle: "Impression sur bouteilles et pots : le guide de personnalisation ultime",
+    heroSubtitle: "Analyse des techniques d'impression pour des emballages rigides durables.",
+    faq1q: "Quelle méthode d'impression convient le mieux aux pots en acrylique ?",
+    faq1a: "Pour les botes cylindriques en acrylique, la sérigraphie est le standard pour 1 ou 2 couleurs en raison de sa forte adhérence et de son faible coût. Le transfert thermique est recommandé pour des motifs complexes multicolores, tandis que les étiquettes adhésives sont plus flexibles pour les petites séries.",
+    faq2q: "Comment fonctionne le transfert thermique sur le fond d'une bouteille ?",
+    faq2a: "Il applique une pression thermique sur un film de transfert à l'aide d'un rouleau en silicone chaud (150°C-210°C), faisant fondre la couche adhésive pour lier l'encre de manière permanente sur le plastique.",
+    faq3q: "La gravure laser est-elle permanente sur le métal et le plastique ?",
+    faq3a: "Oui. C'est un processus soustractif qui vaporise la couche supérieure de surface pour exposer le matériau inférieur. C'est 100% permanent et résistant au lavage.",
+    introTitle: "Personnalisation des emballages rigides : les flux d'impression",
+    quickAnswer: "Réponse rapide : Tampographie pour petits logos sur courbes de fond. Sérigraphie pour couleurs directes du corps. Transfert thermique pour habillages complets. Gravure laser pour marquages permanents. Étiquettes adhésives pour séries limitées.",
+    takeawayTitle: "Points clés",
+    takeaway1: "La sérigraphie offre la couche d'encre la plus épaisse, avec d'excellentes résistances chimiques.",
+    takeaway2: "Le transfert thermique applique des graphiques complexes à 180°C depuis un film PET.",
+    takeaway3: "La gravure laser crée des marquages durables, tactiles et résistants au lave-vaisselle.",
+    takeaway4: "Les étiquettes adhésives offrent une grande flexibilité de conception et de textures.",
+    takeaway5: "La tampographie utilise un tampon en silicone souple pour imprimer sur les surfaces courbes et bouteilles.",
+    introP1: "Le choix du pipeline d'impression pour les emballages rigides dépend de la forme du conteneur, du matériau et de la durabilité requise.",
+    introP2: "Nous évaluons chaque méthode d'impression selon les normes GRS et la résistance aux lavages industriels.",
+    expertTitle: "L'avis de l'expert",
+    expertSub: "Du carnet d'ingénierie de Ryan Wong",
+    expertQ1: "\"Une erreur fréquente est d'utiliser le transfert direct sur la courbe inférieure d'un pot. Les plaques rigides créent des bulles et provoquent le décollement de l'encre.\"",
+    expertQ2: "Pour les surfaces courbes, nous appliquons un rouleau chaud ou la tampographie. Nous traitons préalablement les surfaces plastiques avec une flamme pour assurer l'adhérence.",
+    matrixTitle: "Matrice de comparaison technique d'impression sur bouteilles",
+    matrixParam: "Paramètre technique",
+    methodHeat: "Transfert thermique",
+    methodLaser: "Gravure laser",
+    methodSticker: "Étiquettes et adhésifs",
+    methodScreen: "Sérigraphie",
+    methodPad: "Tampographie",
+    durability: "Résistance au lavage (cycles)",
+    heatDur: "100+ cycles (commercial)",
+    laserDur: "Infini (permanent)",
+    stickerDur: "50-100 cycles (PET Premium)",
+    screenDur: "200+ cycles (encres époxy)",
+    padDur: "150+ cycles (encres silicone)",
+    setupCost: "Coût d'installation initial",
+    heatSetup: "Élevé (cylindre gravé)",
+    laserSetup: "Zéro (contrôle numérique)",
+    stickerSetup: "Faible (découpe numérique)",
+    screenSetup: "Moyen (écran de maille)",
+    padSetup: "Faible-moyen (cliché gravé)",
+    minOrder: "Quantité minimum de commande (MOQ)",
+    heatMoq: "3 000+ unités",
+    laserMoq: "100+ unités",
+    stickerMoq: "100+ unités",
+    screenMoq: "500+ unités",
+    padMoq: "1 000+ unités",
+    colorCapability: "Performance couleur",
+    heatColor: "Dégradés photographiques complets",
+    laserColor: "Monochrome (selon matériau)",
+    stickerColor: "CMYK complet + dorure/textures",
+    screenColor: "1-4 couleurs directes (PMS)",
+    padColor: "1-2 couleurs directes (fond courbé)",
+    ctaTitle: "Demander une étude de faisabilité",
+    ctaDesc: "Envoyez-nous vos fichiers graphiques pour évaluer le meilleur processus d'impression selon vos contraintes GRS.",
+    ctaBtn: "Consulter Ryan Wong",
+    upgradeCta: "Acheter des pots personnalisables",
+    upgradeDesc: "Découvrez nos botes hermétiques réutilisables avec des options de personnalisation d'impression.",
+    shopTitle: "Personnaliser des pots réutilisables",
+    shopDesc: "Nous prenons en charge la sérigraphie, le laser et l'étiquetage à partir de 100 unités.",
+    shopBtn: "Acheter des pots réutilisables",
+    processTitle: "Illustration des 5 processus d'impression",
+    problemTitle: "5 problèmes d'impression courants (et solutions)",
+    prob1Title: "1. Décollement de l'encre / mauvaise adhérence",
+    prob1Desc: "Problème: L'encre n'adhère pas au PET ou à l'acrylique lisse. Solution: Traitement préalable à la flamme ou décharge corona pour augmenter la tension superficielle.",
+    prob2Title: "2. Écart de couleur",
+    prob2Desc: "Problème: La couleur imprimée ne correspond pas au Pantone de la marque. Solution: Imprimer une sous-couche blanche opaque.",
+    prob3Title: "3. Problèmes de repérage / impression floue",
+    prob3Desc: "Problème: Couleurs mal alignées lors de passes multiples. Solution: Utiliser des servomoteurs rotatifs ou le transfert thermique en une seule passe.",
+    prob4Title: "4. Éraflures et rayures",
+    prob4Desc: "Problème: Les logos s'effacent lors du frottement quotidien. Solution: Appliquer un vernis de finition UV ou utiliser la gravure laser.",
+    prob5Title: "5. Graphismes déformés sur courbes",
+    prob5Desc: "Problème: Logos déformés sur fonds coniques. Solution: Tampographie avec des tampons en silicone qui épousent la courbure.",
+    shrinkSleeveSectionTitle: "Pourquoi les manchons thermorétractables surpassent l'impression directe",
+    shrinkSleeveIntro: "Bien que la sérigraphie directe, la tampographie et l'étiquetage soient courants, ils présentent des limites physiques strictes. Les marques premium passent aux manchons thermorétractables pour surmonter les limites de couleur et de forme. Voici les 5 problèmes majeurs résolus par les manchons.",
+    problem: "Problème",
+    solution: "Solution",
+    sleeveP1Title: "1. Contraste tactile brillant/mat (Détails texturés)",
+    sleeveP1Prob: "Les encres d'impression directe restent plates, ce qui empêche de restituer des motifs tactiles riches ou des contrastes brillant/mat sur le flacon.",
+    sleeveP1Sol: "Les manchons thermorétractables prennent en charge l'héliogravure avec vernis sélectif inversé, combinant finitions mates haut de gamme et logos brillants.",
+    sleeveP2Title: "2. Impression haute résolution photoréaliste",
+    sleeveP2Prob: "La sérigraphie directe est limitée par la taille des mailles de l'écran, ce qui génère des trames granuleuses et empêche les dégradés complexes.",
+    sleeveP2Sol: "L'impression flexographique et numérique sur manchons dépasse les 150 LPI, offrant des micro-détails et des dégradés photographiques parfaits.",
+    sleeveP3Title: "3. Habillage 360° sans couture (Sans marge de 5 mm)",
+    sleeveP3Prob: "Les imprimantes directes nécessitent un espace de repérage mécanique (bande verticale non imprimée) pour éviter les bavures d'encre.",
+    sleeveP3Sol: "Les manchons sont imprimés à plat avant d'être scellés, permettant un habillage continu à 360° du col à la base.",
+    sleeveP4Title: "4. Adaptation aux géométries irrégulières",
+    sleeveP4Prob: "La sérigraphie plane ou les rouleaux rigides ne peuvent imprimer sur des cols coniques sans déformations graphiques majeures.",
+    sleeveP4Sol: "Les tunnels de rétraction thermique rétractent le manchon pour épouser la géométrie exacte, avec des taux de rétraction allant jusqu'à 75%.",
+    sleeveP5Title: "5. Impression inversée interne pour une durabilité maximale",
+    sleeveP5Prob: "Les encres imprimées en surface sont exposées aux rayures lors du transport, aux frottements et aux cycles de lavage.",
+    sleeveP5Sol: "Les manchons impriment l'encre à l'intérieur du film, protégeant le graphisme des rayures mécaniques et de l'humidité.",
+    sleeveCtaTitle: "Créez un habillage de marque à 360° avec les manchons",
+    sleeveCtaDesc: "Boostez l'attractivité de vos produits avec des manchons thermorétractables. MOQ bas pour des lancements flexibles.",
+    sleeveCtaBtn: "Acheter des manchons thermorétractables"
   }
-}
+};
 
-// ----------------------------------------------------
-// Custom interactive vector illustrations representing printing methods
-// ----------------------------------------------------
 const HeatTransferSVG = () => (
   <svg viewBox="0 0 400 300" className="w-full h-full bg-slate-900 rounded-xl border border-slate-800 shadow-inner">
     {/* Background Grid Lines */}
@@ -596,6 +809,113 @@ export default function BottlePrintingGuidePage() {
           </table>
         </div>
       )
+    },
+    {
+      id: "shrink-sleeves-comparison",
+      title: t.shrinkSleeveSectionTitle,
+      icon: <Layers className="h-6 w-6" />,
+      content: (
+        <div className="space-y-12 my-8">
+          <p className="text-black font-semibold text-lg leading-relaxed">
+            {t.shrinkSleeveIntro}
+          </p>
+          
+          <div className="space-y-10">
+            {/* Point 1: Textured Details */}
+            <div className="border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-black text-xl uppercase text-black mb-3">{t.sleeveP1Title}</h4>
+                <p className="text-sm font-semibold text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP1Prob}</p>
+                <p className="text-sm font-semibold text-green-700"><strong>{t.solution}:</strong> {t.sleeveP1Sol}</p>
+              </div>
+              <div className="border-2 border-black rounded overflow-hidden aspect-[4/3] bg-neutral-100 cursor-zoom-in relative group">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-textured-detail.jpg" 
+                  alt={t.sleeveP1Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-textured-detail.jpg", t.sleeveP1Title)}
+                />
+              </div>
+            </div>
+
+            {/* Point 2: Ultra High Resolution */}
+            <div className="border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-black text-xl uppercase text-black mb-3">{t.sleeveP2Title}</h4>
+                <p className="text-sm font-semibold text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP2Prob}</p>
+                <p className="text-sm font-semibold text-green-700"><strong>{t.solution}:</strong> {t.sleeveP2Sol}</p>
+              </div>
+              <div className="border-2 border-black rounded overflow-hidden aspect-[4/3] bg-neutral-100 cursor-zoom-in relative group">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-high-resolution.jpg" 
+                  alt={t.sleeveP2Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-high-resolution.jpg", t.sleeveP2Title)}
+                />
+              </div>
+            </div>
+
+            {/* Point 3: 360-Degree Printing */}
+            <div className="border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-black text-xl uppercase text-black mb-3">{t.sleeveP3Title}</h4>
+                <p className="text-sm font-semibold text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP3Prob}</p>
+                <p className="text-sm font-semibold text-green-700"><strong>{t.solution}:</strong> {t.sleeveP3Sol}</p>
+              </div>
+              <div className="border-2 border-black rounded overflow-hidden aspect-[4/3] bg-neutral-100 cursor-zoom-in relative group">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-seamless-wrap.jpg" 
+                  alt={t.sleeveP3Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-seamless-wrap.jpg", t.sleeveP3Title)}
+                />
+              </div>
+            </div>
+
+            {/* Point 4: Irregular Shapes */}
+            <div className="border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-black text-xl uppercase text-black mb-3">{t.sleeveP4Title}</h4>
+                <p className="text-sm font-semibold text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP4Prob}</p>
+                <p className="text-sm font-semibold text-green-700"><strong>{t.solution}:</strong> {t.sleeveP4Sol}</p>
+              </div>
+              <div className="border-2 border-black rounded overflow-hidden aspect-[4/3] bg-neutral-100 cursor-zoom-in relative group">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-irregular-shape.jpg" 
+                  alt={t.sleeveP4Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-irregular-shape.jpg", t.sleeveP4Title)}
+                />
+              </div>
+            </div>
+
+            {/* Point 5: Scratch and Water Durability */}
+            <div className="border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-black text-xl uppercase text-black mb-3">{t.sleeveP5Title}</h4>
+                <p className="text-sm font-semibold text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP5Prob}</p>
+                <p className="text-sm font-semibold text-green-700"><strong>{t.solution}:</strong> {t.sleeveP5Sol}</p>
+              </div>
+              <div className="border-2 border-black rounded overflow-hidden aspect-[4/3] bg-neutral-100 cursor-zoom-in relative group">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-durable-protection.jpg" 
+                  alt={t.sleeveP5Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-durable-protection.jpg", t.sleeveP5Title)}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-[#D4FF00] border-4 border-black p-8 font-['JetBrains_Mono'] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h5 className="font-black text-xl uppercase mb-2 text-black">{t.sleeveCtaTitle}</h5>
+            <p className="text-black text-sm mb-6">{t.sleeveCtaDesc}</p>
+            <Link to="/packaging/shrink-sleeves" className="inline-flex items-center gap-2 bg-black text-white border-2 border-black px-6 py-3 font-black uppercase text-sm hover:bg-white hover:text-black transition-colors">
+              {t.sleeveCtaBtn} <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      )
     }
   ]
 
@@ -836,6 +1156,113 @@ export default function BottlePrintingGuidePage() {
           </div>
         </div>
       )
+    },
+    {
+      id: "shrink-sleeves-comparison",
+      title: t.shrinkSleeveSectionTitle,
+      icon: <Layers className="h-6 w-6" />,
+      content: (
+        <div className="space-y-10 my-8">
+          <p className="text-neutral-700 text-lg leading-relaxed">
+            {t.shrinkSleeveIntro}
+          </p>
+          
+          <div className="space-y-8">
+            {/* Point 1: Textured Details */}
+            <div className="border border-neutral-200 rounded-lg p-6 bg-white shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-bold text-lg text-neutral-900 mb-3">{t.sleeveP1Title}</h4>
+                <p className="text-sm text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP1Prob}</p>
+                <p className="text-sm text-green-700"><strong>{t.solution}:</strong> {t.sleeveP1Sol}</p>
+              </div>
+              <div className="border border-neutral-100 rounded overflow-hidden aspect-[4/3] bg-neutral-50 cursor-zoom-in relative group shadow-inner">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-textured-detail.jpg" 
+                  alt={t.sleeveP1Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-textured-detail.jpg", t.sleeveP1Title)}
+                />
+              </div>
+            </div>
+
+            {/* Point 2: Ultra High Resolution */}
+            <div className="border border-neutral-200 rounded-lg p-6 bg-white shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-bold text-lg text-neutral-900 mb-3">{t.sleeveP2Title}</h4>
+                <p className="text-sm text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP2Prob}</p>
+                <p className="text-sm text-green-700"><strong>{t.solution}:</strong> {t.sleeveP2Sol}</p>
+              </div>
+              <div className="border border-neutral-100 rounded overflow-hidden aspect-[4/3] bg-neutral-50 cursor-zoom-in relative group shadow-inner">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-high-resolution.jpg" 
+                  alt={t.sleeveP2Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-high-resolution.jpg", t.sleeveP2Title)}
+                />
+              </div>
+            </div>
+
+            {/* Point 3: 360-Degree Printing */}
+            <div className="border border-neutral-200 rounded-lg p-6 bg-white shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-bold text-lg text-neutral-900 mb-3">{t.sleeveP3Title}</h4>
+                <p className="text-sm text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP3Prob}</p>
+                <p className="text-sm text-green-700"><strong>{t.solution}:</strong> {t.sleeveP3Sol}</p>
+              </div>
+              <div className="border border-neutral-100 rounded overflow-hidden aspect-[4/3] bg-neutral-50 cursor-zoom-in relative group shadow-inner">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-seamless-wrap.jpg" 
+                  alt={t.sleeveP3Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-seamless-wrap.jpg", t.sleeveP3Title)}
+                />
+              </div>
+            </div>
+
+            {/* Point 4: Irregular Shapes */}
+            <div className="border border-neutral-200 rounded-lg p-6 bg-white shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-bold text-lg text-neutral-900 mb-3">{t.sleeveP4Title}</h4>
+                <p className="text-sm text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP4Prob}</p>
+                <p className="text-sm text-green-700"><strong>{t.solution}:</strong> {t.sleeveP4Sol}</p>
+              </div>
+              <div className="border border-neutral-100 rounded overflow-hidden aspect-[4/3] bg-neutral-50 cursor-zoom-in relative group shadow-inner">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-irregular-shape.jpg" 
+                  alt={t.sleeveP4Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-irregular-shape.jpg", t.sleeveP4Title)}
+                />
+              </div>
+            </div>
+
+            {/* Point 5: Scratch and Water Durability */}
+            <div className="border border-neutral-200 rounded-lg p-6 bg-white shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h4 className="font-bold text-lg text-neutral-900 mb-3">{t.sleeveP5Title}</h4>
+                <p className="text-sm text-red-600 mb-2"><strong>{t.problem}:</strong> {t.sleeveP5Prob}</p>
+                <p className="text-sm text-green-700"><strong>{t.solution}:</strong> {t.sleeveP5Sol}</p>
+              </div>
+              <div className="border border-neutral-100 rounded overflow-hidden aspect-[4/3] bg-neutral-50 cursor-zoom-in relative group shadow-inner">
+                <img 
+                  src="/imgs/knowledge/shrink-sleeve-durable-protection.jpg" 
+                  alt={t.sleeveP5Title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  onClick={() => openLightbox("/imgs/knowledge/shrink-sleeve-durable-protection.jpg", t.sleeveP5Title)}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-primary-50 border border-primary-200 rounded-lg p-8 shadow-sm">
+            <h5 className="font-bold text-xl text-primary-900 mb-2">{t.sleeveCtaTitle}</h5>
+            <p className="text-primary-800 text-sm mb-6">{t.sleeveCtaDesc}</p>
+            <Link to="/packaging/shrink-sleeves" className="inline-flex items-center gap-2 bg-primary-600 text-white rounded-lg px-6 py-3 font-semibold text-sm hover:bg-primary-700 transition-colors shadow-sm">
+              {t.sleeveCtaBtn} <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      )
     }
   ]
 
@@ -872,7 +1299,7 @@ export default function BottlePrintingGuidePage() {
 
   if (isPouchDomain) {
     return (
-      <PouchLayout>
+      <>
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
             {faqSections.map((faq, i) => (
@@ -894,7 +1321,7 @@ export default function BottlePrintingGuidePage() {
           ctaDescription={t.upgradeDesc}
         />
         {renderLightbox()}
-      </PouchLayout>
+      </>
     )
   }
 

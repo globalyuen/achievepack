@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-05",
-  "total_images": 4873,
+  "total_images": 4883,
   "total_categories": 205,
   "extensions": {
     ".webp": 1313,
     ".png": 3017,
-    ".jpg": 540,
+    ".jpg": 550,
     ".svg": 3
   },
   "categories": {
@@ -12742,8 +12742,44 @@
       ]
     },
     "knowledge": {
-      "count": 165,
+      "count": 170,
       "images": [
+        {
+          "filename": "pouch-products-pain-points.jpg",
+          "path": "/imgs/knowledge/pouch-products-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T03:17:29.795Z"
+        },
+        {
+          "filename": "shrink-sleeve-durable-protection.jpg",
+          "path": "/imgs/knowledge/shrink-sleeve-durable-protection.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T02:51:00.947Z"
+        },
+        {
+          "filename": "shrink-sleeve-irregular-shape.jpg",
+          "path": "/imgs/knowledge/shrink-sleeve-irregular-shape.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T02:50:44.566Z"
+        },
+        {
+          "filename": "shrink-sleeve-seamless-wrap.jpg",
+          "path": "/imgs/knowledge/shrink-sleeve-seamless-wrap.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T02:50:26.909Z"
+        },
+        {
+          "filename": "shrink-sleeve-high-resolution.jpg",
+          "path": "/imgs/knowledge/shrink-sleeve-high-resolution.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T02:50:10.314Z"
+        },
+        {
+          "filename": "shrink-sleeve-textured-detail.jpg",
+          "path": "/imgs/knowledge/shrink-sleeve-textured-detail.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T02:49:53.896Z"
+        },
         {
           "filename": "industrial-compostable-pain-points.jpg",
           "path": "/imgs/knowledge/industrial-compostable-pain-points.jpg",
@@ -12977,12 +13013,6 @@
           "path": "/imgs/knowledge/pouch-printing-types-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T12:28:22.236Z"
-        },
-        {
-          "filename": "pouch-products-pain-points.jpg",
-          "path": "/imgs/knowledge/pouch-products-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T12:27:52.775Z"
         },
         {
           "filename": "pouch-tech-specs-pain-points.jpg",
@@ -14985,8 +15015,38 @@
       ]
     },
     "pouch-shape": {
-      "count": 16,
+      "count": 21,
       "images": [
+        {
+          "filename": "compostable-mailer-eco.jpg",
+          "path": "/imgs/pouch-shape/compostable-mailer-eco.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T03:13:51.826Z"
+        },
+        {
+          "filename": "custom-labels-eco.jpg",
+          "path": "/imgs/pouch-shape/custom-labels-eco.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T03:13:51.823Z"
+        },
+        {
+          "filename": "shrink-sleeve-label-eco.jpg",
+          "path": "/imgs/pouch-shape/shrink-sleeve-label-eco.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T03:04:25.225Z"
+        },
+        {
+          "filename": "custom-box-eco.jpg",
+          "path": "/imgs/pouch-shape/custom-box-eco.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T03:04:05.454Z"
+        },
+        {
+          "filename": "vacuum-pouch-eco.jpg",
+          "path": "/imgs/pouch-shape/vacuum-pouch-eco.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-05T03:03:46.121Z"
+        },
         {
           "filename": "flat-bottom-premium.png",
           "path": "/imgs/pouch-shape/flat-bottom-premium.png",

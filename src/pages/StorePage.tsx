@@ -45,7 +45,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
   },
   {
     id: 'stock-group',
-    label: 'Stock Size',
+    label: 'Stock Packaging',
     type: 'group',
     icon: '🏷️',
     badge: 'Buy Now',
@@ -53,6 +53,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
       { id: 'conventional-digital', label: 'Conventional Digital', count: 8 },
       { id: 'eco-stock-plain', label: 'Eco Stock (Plain)', count: 5 },
       { id: 'conventional-stock-plain', label: 'Conventional Stock', count: 1 },
+      { id: 'machinery', label: 'Packaging Machinery', count: 3 },
       { id: '3d-print', label: '3D Printing', count: 1 },
       { id: 'reusable', label: 'Reusable Packaging', count: 1 },
     ]
@@ -89,6 +90,8 @@ const CATEGORIES = [
   { id: 'custom-pouches', label: 'Custom Pouches' },
   { id: '3d-print', label: '3D Printing' },
   { id: 'reusable', label: 'Reusable' },
+  { id: 'stock-packaging', label: 'Stock Packaging' },
+  { id: 'machinery', label: 'Packaging Machinery' },
 ]
 
 const SHAPES = [
@@ -503,6 +506,9 @@ const StorePage: React.FC = () => {
       'eco-stock-custom-print': 0,
       boxes: 0,
       'custom-pouches': 0,
+      '3d-print': 0,
+      reusable: 0,
+      machinery: 0,
     }
     FEATURED_PRODUCTS.forEach(product => {
       const subCategory = getProductSubCategory(product)
@@ -750,6 +756,9 @@ const StorePage: React.FC = () => {
         } else if (selectedCategory === 'eco-stock-custom-print') {
           // Eco Stock Custom Print
           matchesCategory = productSubCategory === 'eco-stock-custom-print'
+        } else if (selectedCategory === 'stock-packaging') {
+          // General stock packaging categories
+          matchesCategory = product.category === 'eco-stock' || product.category === 'conventional-stock' || product.category === 'conventional-digital' || productSubCategory === 'eco-stock-plain' || productSubCategory === 'conventional-stock-plain' || productSubCategory === 'eco-stock-custom-print'
         } else {
           // Standard category match
           matchesCategory = product.category === selectedCategory || productSubCategory === selectedCategory

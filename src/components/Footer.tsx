@@ -78,7 +78,7 @@ export default function Footer() {
           {/* Products & Featured */}
           <div>
             <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.products', 'Products')}</h4>
-            <ul className="space-y-1.5 text-xs text-neutral-400">
+            <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/packaging/stand-up-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.standUpPouches', 'Stand Up Pouches')}</Link></li>
               <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">{t('pouchEcoFooter.flatBottomBags', 'Flat Bottom Bags')}</Link></li>
               <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.spoutPouches', 'Spout Pouches')}</Link></li>
@@ -99,7 +99,7 @@ export default function Footer() {
           {/* Company & Support */}
           <div>
             <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.company', 'Company')}</h4>
-            <ul className="space-y-1.5 text-xs text-neutral-400">
+            <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/company/about" className="hover:text-primary-400">{t('pouchEcoFooter.aboutUs', 'About Us')}</Link></li>
               <li><Link to="/company/b-corp" className="hover:text-primary-400">{t('pouchEcoFooter.ourImpact', 'Our Impact (B Corp)')}</Link></li>
               <li><Link to="/company/certificates" className="hover:text-primary-400">{t('pouchEcoFooter.certificates', 'Certificates')}</Link></li>
@@ -118,7 +118,7 @@ export default function Footer() {
           {/* Industries */}
           <div>
             <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.industries', 'Industries')}</h4>
-            <ul className="space-y-1.5 text-xs text-neutral-400">
+            <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/industry/coffee-tea" className="hover:text-primary-400">{t('pouchEcoFooter.coffeeTea', 'Coffee & Tea')}</Link></li>
               <li><Link to="/industry/snacks-food" className="hover:text-primary-400">{t('pouchEcoFooter.snacksFood', 'Snacks & Food')}</Link></li>
               <li><Link to="/industry/pet-food" className="hover:text-primary-400">{t('pouchEcoFooter.petFood', 'Pet Food')}</Link></li>
@@ -137,7 +137,7 @@ export default function Footer() {
           {/* Technical Specs & Packaging Apps */}
           <div>
             <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.technicalSpecs', 'Technical Specs')}</h4>
-            <ul className="space-y-1.5 text-xs text-neutral-400">
+            <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/tech-specs" className="hover:text-primary-400 font-bold text-white">{t('pouchEcoFooter.technicalSpecHub', 'Technical Spec Hub')}</Link></li>
               <li><Link to="/materials/data-sheet" className="hover:text-primary-400">{t('pouchEcoFooter.materialDataSheets', 'Material Data Sheets')}</Link></li>
               <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">{t('pouchEcoFooter.pcrSeriesSpecs', 'PCR Series Specs')}</Link></li>
@@ -168,17 +168,25 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Row 2: Material Specifications & Composting Guides (Grouped compact) */}
-        <div className="border-t border-neutral-800 pt-8 pb-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Leaf className="h-4.5 w-4.5 text-emerald-500" />
-            <h3 className="text-sm font-extrabold uppercase tracking-wider text-neutral-300">Material Guides & Composting Specifications</h3>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {/* Row 2: Material Specifications & Composting Guides (Grouped compact & collapsible) */}
+        <div className="border-t border-neutral-800 py-4">
+          <details className="group">
+            <summary className="flex items-center justify-between cursor-pointer list-none select-none text-neutral-400 hover:text-white transition-colors py-2 focus:outline-none">
+              <div className="flex items-center gap-2">
+                <Leaf className="h-4.5 w-4.5 text-emerald-500" />
+                <span className="text-xs font-bold uppercase tracking-wider">{t('pouchEcoFooter.technicalDirectory', 'Technical Directory & Composting Specs')}</span>
+              </div>
+              <div className="text-[10px] border border-neutral-700 rounded px-2 py-0.5 bg-neutral-800 text-neutral-400 group-open:bg-neutral-700 group-open:text-white transition-all font-semibold uppercase font-mono">
+                <span className="group-open:hidden">{t('pouchEcoFooter.showAll', '[+] Expand')}</span>
+                <span className="hidden group-open:inline">{t('pouchEcoFooter.hideAll', '[-] Collapse')}</span>
+              </div>
+            </summary>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-4 pt-4 border-t border-neutral-800/40 text-neutral-400 text-xs transition-all duration-300">
             {/* Composting */}
             <div>
               <h4 className="font-semibold text-xs mb-3 text-emerald-400 uppercase tracking-wider">{t('pouchEcoFooter.composting', 'Composting')}</h4>
-              <ul className="space-y-1.5 text-xs text-neutral-400">
+              <ul className="space-y-1 text-xs text-neutral-400">
                 <li><Link to="/composting/composting-benefits" className="hover:text-primary-400">{t('pouchEcoFooter.compostingBenefits', 'Composting Benefits')}</Link></li>
                 <li><Link to="/composting/composting-services" className="hover:text-primary-400">{t('pouchEcoFooter.serviceFinder', 'Service Finder')}</Link></li>
                 <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-400">{t('pouchEcoFooter.biodegradableVsCompostable', 'Biodegradable vs Compostable')}</Link></li>
@@ -197,7 +205,7 @@ export default function Footer() {
             {/* BioPE */}
             <div>
               <h4 className="font-semibold text-xs mb-3 text-primary-400 uppercase tracking-wider">{t('pouchEcoFooter.biope', 'BioPE')}</h4>
-              <ul className="space-y-1.5 text-xs text-neutral-400">
+              <ul className="space-y-1 text-xs text-neutral-400">
                 <li><Link to="/biope/what-is-bio-pe" className="hover:text-primary-400">{t('pouchEcoFooter.whatIsBioPe', 'What is Bio-PE?')}</Link></li>
                 <li><Link to="/biope/bio-pe-vs-compostable" className="hover:text-primary-400">{t('pouchEcoFooter.bioPeVsCompostable', 'Bio-PE vs Compostable')}</Link></li>
                 <li><Link to="/materials/bio-pe" className="hover:text-primary-400">{t('pouchEcoFooter.bioPeMaterials', 'Bio-PE Materials')}</Link></li>
@@ -209,7 +217,7 @@ export default function Footer() {
             {/* PCR */}
             <div>
               <h4 className="font-semibold text-xs mb-3 text-primary-400 uppercase tracking-wider">{t('pouchEcoFooter.pcrSection', 'PCR')}</h4>
-              <ul className="space-y-1.5 text-xs text-neutral-400">
+              <ul className="space-y-1 text-xs text-neutral-400">
                 <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-400">{t('pouchEcoFooter.whatIsPcr', 'What Is PCR Plastic?')}</Link></li>
                 <li><Link to="/pcr/7-checklist" className="hover:text-primary-400">{t('pouchEcoFooter.pcrChecklist', '7-Point Checklist')}</Link></li>
                 <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-400">{t('pouchEcoFooter.realisticPcr', 'Realistic PCR Content')}</Link></li>
@@ -222,7 +230,7 @@ export default function Footer() {
             {/* Recyclable & Compliance */}
             <div>
               <h4 className="font-semibold text-xs mb-3 text-primary-400 uppercase tracking-wider">{t('pouchEcoFooter.recyclableSection', 'Recyclable')}</h4>
-              <ul className="space-y-1.5 text-xs text-neutral-400">
+              <ul className="space-y-1 text-xs text-neutral-400">
                 <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-400">{t('pouchEcoFooter.whatIsRecyclable', 'What Is 100% Recyclable?')}</Link></li>
                 <li><Link to="/recyclable/roadmap-sme" className="hover:text-primary-400">{t('pouchEcoFooter.roadmapSme', 'SME Roadmap')}</Link></li>
                 <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-400">{t('pouchEcoFooter.monoMaterialFoundation', 'Mono-Material Foundation')}</Link></li>
@@ -237,7 +245,7 @@ export default function Footer() {
             {/* Functional Options & Premium Finishes */}
             <div>
               <h4 className="font-semibold text-xs mb-3 text-primary-400 uppercase tracking-wider">Functions & Finishes</h4>
-              <ul className="space-y-1.5 text-xs text-neutral-400">
+              <ul className="space-y-1 text-xs text-neutral-400">
                 <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-400">Microwave Steam Bags</Link></li>
                 <li><Link to="/function/smart-degassing-sticker" className="hover:text-primary-400">Smart Degassing Sticker</Link></li>
                 <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">Carbon-Neutral Bags</Link></li>
@@ -251,15 +259,24 @@ export default function Footer() {
               </ul>
             </div>
           </div>
+          </details>
         </div>
 
-        {/* Row 3: Packaging Topics & Solutions Directory */}
-        <div className="border-t border-neutral-800 pt-8 pb-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Zap className="h-4.5 w-4.5 text-primary-500 fill-current animate-pulse" />
-            <h3 className="text-sm font-extrabold uppercase tracking-wider text-neutral-300">Packaging Topics & Solutions Directory</h3>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-xs text-neutral-400">
+        {/* Row 3: Packaging Topics & Solutions Directory (Grouped compact & collapsible) */}
+        <div className="border-t border-neutral-800 py-4">
+          <details className="group">
+            <summary className="flex items-center justify-between cursor-pointer list-none select-none text-neutral-400 hover:text-white transition-colors py-2 focus:outline-none">
+              <div className="flex items-center gap-2">
+                <Zap className="h-4.5 w-4.5 text-primary-500 fill-current animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-wider">{t('pouchEcoFooter.solutionsDirectory', 'Packaging Topics & Solutions Directory')}</span>
+              </div>
+              <div className="text-[10px] border border-neutral-700 rounded px-2 py-0.5 bg-neutral-800 text-neutral-400 group-open:bg-neutral-700 group-open:text-white transition-all font-semibold uppercase font-mono">
+                <span className="group-open:hidden">{t('pouchEcoFooter.showAll', '[+] Expand')}</span>
+                <span className="hidden group-open:inline">{t('pouchEcoFooter.hideAll', '[-] Collapse')}</span>
+              </div>
+            </summary>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-xs text-neutral-400 mt-4 pt-4 border-t border-neutral-800/40">
             <ul className="space-y-1">
               <li><Link to="/topics/matcha-sachet" className="hover:text-primary-400">{t('seo_topics.matcha_sachet.title', 'Matcha Sachet')}</Link></li>
               <li><Link to="/topics/cacao-stand-up" className="hover:text-primary-400">{t('seo_topics.cacao_stand_up.title', 'Cacao Stand Up')}</Link></li>
@@ -307,6 +324,7 @@ export default function Footer() {
               <li><Link to="/industry/durable-reusable-pouches" className="hover:text-primary-400">Eco-Friendly Ziplock Bags</Link></li>
             </ul>
           </div>
+          </details>
         </div>
 
         {/* Certification Logos & SSL Badge */}

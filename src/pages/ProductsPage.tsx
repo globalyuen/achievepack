@@ -48,7 +48,7 @@ export default function ProductsPage() {
       id: 'side-gusset-bags',
       title: t(`${p}.products.sideGusset.title`),
       description: t(`${p}.products.sideGusset.desc`),
-      image: '/imgs/pouch-shape/side-gusset-pouch-eco.png',
+      image: '/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp',
       features: [
         t(`${p}.products.sideGusset.features.0`), 
         t(`${p}.products.sideGusset.features.1`), 

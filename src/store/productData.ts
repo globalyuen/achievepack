@@ -16,6 +16,8 @@ export type ProductSubCategory =
   | 'custom-pouches'            // Custom: Custom Pouches with Live Quote
   | '3d-print'                  // 3D Printing Filament / Rollstock
   | 'reusable'                  // Reusable Containers / Canisters
+  | 'machinery'                 // Machinery
+
 
 // Legacy product interface (keeping for backward compatibility)
 export interface PouchProduct {
@@ -9600,6 +9602,16 @@ export const getProductType = (product: StoreProduct): ProductType => {
 
 // Helper function to get sub-category for sidebar menu
 export const getProductSubCategory = (product: StoreProduct): ProductSubCategory => {
+  // Identify machinery products
+  if (
+    product.shape === 'Machinery' ||
+    product.id === 'automatic-labeling-machine' ||
+    product.id === 'hand-clamp-sealer' ||
+    product.id === '40ml-foil-capsule-and-packing-machine'
+  ) {
+    return 'machinery'
+  }
+
   // If product has a live quote link, it belongs to custom-pouches
   if (product.viewQuoteLink && product.viewQuoteLink.startsWith('/view-quote/')) {
     return 'custom-pouches'

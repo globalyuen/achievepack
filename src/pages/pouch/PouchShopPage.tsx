@@ -13,6 +13,8 @@ const CATEGORIES = [
   { id: 'all', label: 'All Products' },
   { id: 'sample', label: 'Sample Packs' },
   { id: 'custom-pouches', label: 'Custom Pouches' },
+  { id: 'stock-packaging', label: 'Stock Packaging' },
+  { id: 'machinery', label: 'Packaging Machinery' },
   { id: 'eco-stock', label: 'Eco Stock' },
   { id: 'eco-digital', label: 'Eco Digital' },
   { id: 'conventional-stock', label: 'Conventional Stock' },
@@ -261,7 +263,8 @@ export default function PouchShopPage() {
         subCat === activeCategory ||
         (activeCategory === 'sample' && subCat === 'samples') ||
         (activeCategory === 'eco-stock' && (subCat === 'eco-stock-plain' || subCat === 'eco-stock-custom-print')) ||
-        (activeCategory === 'conventional-stock' && subCat === 'conventional-stock-plain');
+        (activeCategory === 'conventional-stock' && subCat === 'conventional-stock-plain') ||
+        (activeCategory === 'stock-packaging' && (p.category === 'eco-stock' || p.category === 'conventional-stock' || p.category === 'conventional-digital' || subCat === 'eco-stock-plain' || subCat === 'conventional-stock-plain' || subCat === 'eco-stock-custom-print'));
       
       // Some products don't have shape prop, fallback to name matching
       const matchesShape = activeShape === 'all' || 

@@ -41466,6 +41466,56 @@
           "Alta Capacidad de Volumen",
           "Rigidez de Sellado Cuádruple"
         ]
+      },
+      {
+        "name": "Bolsa al Vacío",
+        "problem": "Los alimentos frescos, carnes y quesos se echan a perder rápidamente sin un sellado hermético que resista la congelación y el transporte.",
+        "solution": "Nuestras bolsas al vacío coextruidas multicapa ofrecen una barrera hermética absoluta contra el oxígeno y la humedad, aptas para congelación profunda y cocción sous-vide.",
+        "features": [
+          "Protección contra Oxígeno y Humedad",
+          "Alta Resistencia a Punciones",
+          "Grado Alimenticio Sous-Vide"
+        ]
+      },
+      {
+        "name": "Caja Personalizada",
+        "problem": "El diseño de cajas de cartón minoristas y envíos personalizados suele requerir altas tarifas de troquelado y largos tiempos de entrega.",
+        "solution": "Obtenga cajas plegables y de envío impresas a medida con MOQs bajos, utilizando tintas de soja sobre cartón sostenible.",
+        "features": [
+          "Diseño Estructural a Medida",
+          "Tintas de Soja Ecológicas",
+          "Cartón Biodegradable Certificado"
+        ]
+      },
+      {
+        "name": "Funda Termorretráctil",
+        "problem": "Las botellas estándar tienen zonas sin impresión y no pueden mostrar la marca en geometrías irregulares o cónicas.",
+        "solution": "Nuestras etiquetas de funda termorretráctil de 360 grados se adaptan a cualquier forma de botella sin problemas, con acabados mate y brillo localizado.",
+        "features": [
+          "Ajuste de Contorno Perfecto",
+          "Barniz Táctil Localizado",
+          "Sin Zona de Impresión en Blanco"
+        ]
+      },
+      {
+        "name": "Etiquetas y Calcomanías Personalizadas",
+        "problem": "Las etiquetas en rollo y hojas personalizadas suelen tener mínimos altos o carecen de opciones de acabado premium como papel de aluminio dorado o barniz UV localizado.",
+        "solution": "Ordene etiquetas y calcomanías personalizadas desde 100 unidades. Disponibles en materiales biodegradables, resistentes al agua o de papel con opciones de papel de aluminio/UV premium.",
+        "features": [
+          "Opciones de Barniz UV y Foil",
+          "Formatos de Rollo u Hojas",
+          "Opciones Biodegradables"
+        ]
+      },
+      {
+        "name": "Bolsas de Envío Compostables",
+        "problem": "Las bolsas de envío de plástico de un solo uso generan una gran cantidad de residuos no reciclables en vertederos para las marcas en línea.",
+        "solution": "Cambie a bolsas de envío totalmente compostables que se descomponen en 90 días. Las tiras adhesivas dobles facilitan los envíos de devolución.",
+        "features": [
+          "Doble Tira Adhesiva",
+          "Duradero y Resistente al Agua",
+          "Se Descompone en 90 Días"
+        ]
       }
     ],
     "labels": {
