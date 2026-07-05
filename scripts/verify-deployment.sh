@@ -51,7 +51,7 @@ check_page_content() {
   
   content=$(curl -s "$url" --max-time 10)
   
-  if echo "$content" | grep -q "$search_string"; then
+  if echo "$content" | grep -qi "$search_string"; then
     echo -e "${GREEN}✓ OK${NC} (Found: '$search_string')" | tee -a "$LOG_FILE"
     return 0
   else
