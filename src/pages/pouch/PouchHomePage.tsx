@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, type MouseEvent, type UIEvent } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play, Sparkles, BookOpen, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react'
+import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play, Sparkles, BookOpen, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight, CheckCircle, Search, PenTool, Calculator, MapPin } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -151,14 +151,203 @@ const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, cove
   )
 }
 
+const PACKAGING_APPS = [
+  {
+    id: 'sizing-finder',
+    title: 'Pouch Sizing Finder App',
+    label: 'Sizing Tool',
+    desc: 'Calculate exact stand-up pouch dimensions and capacity based on product weight & density presets. Match dimensions instantly with standard manufacturing templates.',
+    bullets: [
+      'Density presets (Coffee, Powders, Snacks)',
+      'Volume calculations (Ounces, Grams, ML)',
+      'Standard MoQ and size reference matching'
+    ],
+    link: '/knowledge/pouch-sizing',
+    icon: 'sizing',
+    badgeColor: 'bg-[#FF00FF] text-white',
+    iconBg: 'bg-[#D4FF00]',
+    btnText: 'LAUNCH SIZING APP →'
+  },
+  {
+    id: 'material-spec',
+    title: 'Material Spec Finder App',
+    label: 'Material Tool',
+    desc: 'Search, filter, and compare water vapor & oxygen transmission rates (OTR/WVTR) across 15+ certified compostable, recyclable, PCR, and plant-based structures.',
+    bullets: [
+      '15+ eco duplex & triplex structures',
+      'OTR & WVTR performance level filtering',
+      'Full thickness & weight sheets download'
+    ],
+    link: '/tech-specs',
+    icon: 'spec',
+    badgeColor: 'bg-[#D4FF00] text-black',
+    iconBg: 'bg-[#FF00FF]',
+    btnText: 'LAUNCH SPEC FINDER →'
+  },
+  {
+    id: 'dieline-finder',
+    title: 'Pouch Dieline Finder App',
+    label: 'Dieline Search',
+    desc: 'Search, filter, and download standard print-ready vector flat packaging keylines and dieline files matching your pouch type and dimensions directly from our library.',
+    bullets: [
+      'Over 2,000 standard dieline configurations',
+      'Matches Stand Up, Flat Bottom, and 3-Side Seal',
+      'Vector PDF and Adobe Illustrator files'
+    ],
+    link: '/dieline-finder',
+    icon: 'search',
+    badgeColor: 'bg-[#00FFFF] text-black',
+    iconBg: 'bg-[#D4FF00]',
+    btnText: 'LAUNCH DIELINE FINDER →'
+  },
+  {
+    id: 'dieline-creator',
+    title: 'Dieline Creator PDF App',
+    label: 'Dieline Generator',
+    desc: 'Generate completely custom dielines by entering your custom pouch width, height, gusset depth, and seal margins. Instantly downloads a dimensioned vector PDF.',
+    bullets: [
+      'Enter custom dimensions dynamically',
+      'Configurable seal widths, zipper, and tear notches',
+      'Downloads scale-accurate vector dielines instantly'
+    ],
+    link: '/dieline-creator',
+    icon: 'pentool',
+    badgeColor: 'bg-[#FF00FF] text-white',
+    iconBg: 'bg-[#00FFFF]',
+    btnText: 'LAUNCH DIELINE CREATOR →'
+  },
+  {
+    id: 'compost-finder',
+    title: 'Compost Facility Finder App',
+    label: 'Facility Map',
+    desc: 'Locate local industrial, municipal, and commercial organic waste composting facilities in your area that accept BPI and EN 13432 certified compostable biopolymer packaging.',
+    bullets: [
+      'Search facility database by zip code or city',
+      'Verifies accepted materials and processing specs',
+      'Direct links to municipal collection program pages'
+    ],
+    link: '/composting/composting-services',
+    icon: 'map-pin',
+    badgeColor: 'bg-[#D4FF00] text-black',
+    iconBg: 'bg-[#FF00FF]',
+    btnText: 'LAUNCH COMPOST FINDER →'
+  },
+  {
+    id: '3d-showcase',
+    title: 'Product 3D Showcase App',
+    label: '3D Orbit Viewer',
+    desc: 'Spin, tilt, and examine our eco pouches in 3D space. Inspect seals, reclosure options, and material layers from every angle with real-time web 3D model rendering.',
+    bullets: [
+      'Interactive 3D orbit, tilt, and zoom tools',
+      'Visual structural highlight callouts (zipper, valve)',
+      'Compare Stand Up, Flat Bottom, and Spouted in 3D'
+    ],
+    link: '/3d-showcase',
+    icon: 'box',
+    badgeColor: 'bg-[#00FFFF] text-black',
+    iconBg: 'bg-[#D4FF00]',
+    btnText: 'LAUNCH 3D SHOWCASE →'
+  },
+  {
+    id: 'quote-standup',
+    title: 'Stand-Up Pouch Quote App',
+    label: 'B2B Calculator',
+    desc: 'Get immediate tiered manufacturing pricing estimates for custom printed stand-up bags. Enter your pouch dimensions, material choice, and volume sizes.',
+    bullets: [
+      'Calculates unit costs instantly across tiers',
+      'Configures zippers, tear notches, and valve add-ons',
+      'Generates B2B proposals with shipping estimates'
+    ],
+    link: '/quotes/stand-up-pouch',
+    icon: 'calc',
+    badgeColor: 'bg-[#FF00FF] text-white',
+    iconBg: 'bg-[#00FFFF]',
+    btnText: 'LAUNCH STAND-UP QUOTE →'
+  },
+  {
+    id: 'quote-flatbottom',
+    title: 'Flat Bottom Pouch Quote App',
+    label: 'B2B Calculator',
+    desc: 'Get detailed tiered price quotes for flat bottom quad seal pouches (box pouches) with custom sizes, degassing valves, and front pocket zipper integrations.',
+    bullets: [
+      'Calculates flat bottom specific pouch volume capacity',
+      'Supports matte, gloss, soft-touch, and kraft surfaces',
+      'Generates immediate digital quotes for bulk packaging'
+    ],
+    link: '/quotes/flat-bottom',
+    icon: 'calc',
+    badgeColor: 'bg-[#D4FF00] text-black',
+    iconBg: 'bg-[#FF00FF]',
+    btnText: 'LAUNCH FLAT BOTTOM QUOTE →'
+  },
+  {
+    id: 'quote-threeside',
+    title: '3 Side Seal Pouch Quote App',
+    label: 'B2B Calculator',
+    desc: 'Get instant manufacturing and shipping quotes for flat 3-side seal pouches and stick packs, ideal for single-use supplement sachets, tea, and sample packaging.',
+    bullets: [
+      'Configures tearing notches, euro-holes, and hang tabs',
+      'Calculates digital print runs starting from 500 units',
+      'Compares pricing across kraft, bio-films, and PCR'
+    ],
+    link: '/quotes/three-side-seal',
+    icon: 'calc',
+    badgeColor: 'bg-[#00FFFF] text-black',
+    iconBg: 'bg-[#D4FF00]',
+    btnText: 'LAUNCH 3-SIDE SEAL QUOTE →'
+  },
+  {
+    id: 'quote-spouted',
+    title: 'Spouted Pouch Quote App',
+    label: 'B2B Calculator',
+    desc: 'Calculate tiered production quotations for spouted stand-up pouches and liquid packaging. Configure cap diameters, spout placement, and material barriers.',
+    bullets: [
+      'Specifies center or corner spout placements and caps',
+      'Configures high-barrier multi-layer liquid-safe structures',
+      'Generates direct quotes with freight options'
+    ],
+    link: '/quotes/spouted-pouch',
+    icon: 'calc',
+    badgeColor: 'bg-[#FF00FF] text-white',
+    iconBg: 'bg-[#00FFFF]',
+    btnText: 'LAUNCH SPOUTED QUOTE →'
+  },
+  {
+    id: 'quote-rollstock',
+    title: 'Rollstock Film Quote App',
+    label: 'B2B Calculator',
+    desc: 'Calculate tiered quotes for custom printed rollstock packaging film. Specify reel width, repeat length, winding direction, and core specifications.',
+    bullets: [
+      'Calculates linear meter weight and total roll weight',
+      'Supports auto-packing machine compatibility specs',
+      'Estimates custom cylinder setup and digital charges'
+    ],
+    link: '/quotes/rollstock',
+    icon: 'calc',
+    badgeColor: 'bg-[#D4FF00] text-black',
+    iconBg: 'bg-[#FF00FF]',
+    btnText: 'LAUNCH ROLLSTOCK QUOTE →'
+  }
+];
+
 // ============================================
 // MAIN PAGE
 // ============================================
 
 export default function PouchHomePage() {
   const { t, i18n } = useTranslation()
-  const navigate = useNavigate()
   const productsRef = useRef<HTMLElement>(null)
+  const appsScrollRef = useRef<HTMLDivElement>(null);
+  const scrollAppsLeft = () => {
+    if (appsScrollRef.current) {
+      appsScrollRef.current.scrollBy({ left: -360, behavior: 'smooth' });
+    }
+  };
+  const scrollAppsRight = () => {
+    if (appsScrollRef.current) {
+      appsScrollRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+    }
+  };
 
   const pageT = translations[i18n.language as keyof typeof translations] || translations.en;
 
@@ -1203,90 +1392,159 @@ export default function PouchHomePage() {
       </section>
 
       {/* Neobrutalist Packaging Apps Section */}
-      <section className="py-24 px-4 md:px-6 bg-[#00FFFF] border-t-4 border-black border-b-4">
+      <section className="py-24 px-4 md:px-6 bg-[#00FFFF] border-t-4 border-black border-b-4 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+            <div className="max-w-3xl">
+              <div className="inline-block bg-black text-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase mb-6">
+                {t("pouchHomePage.appSuite.badge", "⚡ INTERACTIVE_UTILITIES")}
+              </div>
+              <h2 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] tracking-tighter text-black">
+                {t("pouchHomePage.appSuite.title", "PACKAGING APP SUITE")}
+              </h2>
+              <p className="font-['Space_Grotesk'] text-lg mt-6 leading-relaxed text-black font-semibold">
+                {t("pouchHomePage.appSuite.subtitle", "Engineer your pouch sizing and material specifications instantly. No guessing, no errors. Pure technical precision.")}
+              </p>
+            </div>
+
+            {/* Scroll Navigation Controls */}
+            <div className="flex items-center gap-4 mt-6 md:mt-0">
+              <button 
+                onClick={scrollAppsLeft} 
+                className="w-14 h-14 rounded-full border-4 border-black bg-white hover:bg-neutral-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-6 h-6 text-black" strokeWidth={3} />
+              </button>
+              <button 
+                onClick={scrollAppsRight} 
+                className="w-14 h-14 rounded-full border-4 border-black bg-[#D4FF00] hover:bg-[#D4FF00]/80 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-6 h-6 text-black" strokeWidth={3} />
+              </button>
+            </div>
+          </div>
+
+          {/* Horizontal Scrollable Container */}
+          <div 
+            ref={appsScrollRef}
+            className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-8"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {PACKAGING_APPS.map((app) => (
+              <div 
+                key={app.id}
+                className="flex-none w-[320px] sm:w-[370px] bg-white border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between group"
+                style={{ scrollSnapAlign: 'start' }}
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-6 pb-4 border-b-2 border-black">
+                    <div className={`w-16 h-16 border-4 border-black flex items-center justify-center group-hover:rotate-3 transition-transform ${app.iconBg}`}>
+                      {app.icon === 'sizing' && <SizingFinderIcon className="w-9 h-9 text-black" strokeWidth={2.5} />}
+                      {app.icon === 'spec' && <MaterialSpecFinderIcon className="w-9 h-9 text-white" strokeWidth={2.5} />}
+                      {app.icon === 'search' && <Search className="w-9 h-9 text-black" strokeWidth={2.5} />}
+                      {app.icon === 'pentool' && <PenTool className="w-9 h-9 text-black" strokeWidth={2.5} />}
+                      {app.icon === 'map-pin' && <MapPin className="w-9 h-9 text-black" strokeWidth={2.5} />}
+                      {app.icon === 'box' && <BoxIcon className="w-9 h-9 text-black" strokeWidth={2.5} />}
+                      {app.icon === 'calc' && <Calculator className="w-9 h-9 text-black" strokeWidth={2.5} />}
+                    </div>
+                    <NeoBadge color={app.badgeColor}>{app.label}</NeoBadge>
+                  </div>
+                  
+                  <h3 className="font-black text-2xl mb-4 uppercase">{app.title}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-neutral-800 min-h-[80px]">
+                    {app.desc}
+                  </p>
+
+                  <ul className="space-y-3 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase min-h-[120px]">
+                    {app.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className={`w-2.5 h-2.5 border border-black mt-1 flex-shrink-0 ${app.iconBg}`}></span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <NeoButton to={app.link} variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
+                  {app.btnText}
+                </NeoButton>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Neobrutalist Website Free Creation & samples Section */}
+      <section className="py-24 px-4 md:px-6 bg-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block bg-black text-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase mb-6">
-              {t("pouchHomePage.appSuite.badge", "⚡ INTERACTIVE_UTILITIES")}
+            <div className="inline-block bg-black text-[#00FFFF] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase mb-6">
+              🌐 FREE_WEB_DEVELOPMENT
             </div>
-            <h2 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] tracking-tighter text-black">
-              {t("pouchHomePage.appSuite.title", "PACKAGING APP SUITE")}
+            <h2 className="font-black text-4xl md:text-6xl uppercase leading-[0.9] tracking-tighter text-black">
+              FREE STOREFRONT & LIVE BRAND DEMOS
             </h2>
-            <p className="font-['Space_Grotesk'] text-lg mt-6 leading-relaxed max-w-2xl mx-auto text-black font-semibold">
-              {t("pouchHomePage.appSuite.subtitle", "Engineer your pouch sizing and material specifications instantly. No guessing, no errors. Pure technical precision.")}
+            <p className="font-['Space_Grotesk'] text-lg mt-6 leading-relaxed text-neutral-700 font-semibold">
+              Get a premium high-converting web storefront for your business or try our live interactive samples.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Sizing Finder App */}
-            <div className="bg-white border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between group">
+            {/* Card 1: Free Website Design */}
+            <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between group">
               <div>
-                <div className="flex justify-between items-start mb-6 pb-4 border-b-2 border-black">
-                  <div className="w-16 h-16 border-4 border-black bg-[#D4FF00] flex items-center justify-center group-hover:rotate-3 transition-transform">
-                    <SizingFinderIcon className="w-9 h-9 text-black" strokeWidth={2.5} />
-                  </div>
-                  <NeoBadge color="bg-[#FF00FF] text-white">{t("pouchHomePage.appSuite.sizing.badge", "SIZING APP")}</NeoBadge>
-                </div>
-                
-                <h3 className="font-black text-3xl mb-4 uppercase">{t("pouchHomePage.appSuite.sizing.title", "[SIZING FINDER APP]")}</h3>
-                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-neutral-800">
-                  {t("pouchHomePage.appSuite.sizing.desc", "Calculate exact dimensions and capacity based on product weight & density presets. Match dimensions instantly with standard manufacturing templates.")}
+                <span className="bg-black text-[#FF00FF] font-['JetBrains_Mono'] font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block">Free Program</span>
+                <h3 className="font-black text-3xl mt-6 mb-4 uppercase">Free Storefront Upgrade</h3>
+                <p className="font-['Space_Grotesk'] text-sm leading-relaxed mb-6 text-black font-medium">
+                  We design and develop a custom modern web storefront in React for brands ordering sustainable packaging from us. Fully responsive, ultra-fast, and search-optimized at zero cost.
                 </p>
-
-                <ul className="space-y-3 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 border border-black bg-[#D4FF00]"></span>
-                    <span>{t("pouchHomePage.appSuite.sizing.bullets.0", "Density presets (Coffee, Powders, Snacks)")}</span>
+                <ul className="space-y-3.5 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-black flex-shrink-0" />
+                    <span>Free custom domain mapping & branding system</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 border border-black bg-[#D4FF00]"></span>
-                    <span>{t("pouchHomePage.appSuite.sizing.bullets.1", "Volume calculations (Ounces, Grams, ML)")}</span>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-black flex-shrink-0" />
+                    <span>Integration of custom dielines and calculators</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 border border-black bg-[#D4FF00]"></span>
-                    <span>{t("pouchHomePage.appSuite.sizing.bullets.2", "Standard MoQ and size reference matching")}</span>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-black flex-shrink-0" />
+                    <span>100% SEO-optimized with multi-language support</span>
                   </li>
                 </ul>
               </div>
-
-              <NeoButton to="/size-guide" variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
-                {t("pouchHomePage.appSuite.sizing.btn", "LAUNCH SIZING APP →")}
+              <NeoButton to="/free-service/website-upgrade" variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
+                Explore Website Program →
               </NeoButton>
             </div>
 
-            {/* Material Spec Finder App */}
-            <div className="bg-white border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between group">
+            {/* Card 2: Interactive Demos */}
+            <div className="bg-[#FF00FF] border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between group text-white">
               <div>
-                <div className="flex justify-between items-start mb-6 pb-4 border-b-2 border-black">
-                  <div className="w-16 h-16 border-4 border-black bg-[#FF00FF] flex items-center justify-center group-hover:-rotate-3 transition-transform">
-                    <MaterialSpecFinderIcon className="w-9 h-9 text-white" strokeWidth={2.5} />
-                  </div>
-                  <NeoBadge color="bg-[#D4FF00] text-black">{t("pouchHomePage.appSuite.spec.badge", "MATERIAL SPEC")}</NeoBadge>
-                </div>
-                
-                <h3 className="font-black text-3xl mb-4 uppercase">{t("pouchHomePage.appSuite.spec.title", "[SPEC FINDER APP]")}</h3>
-                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-neutral-800">
-                  {t("pouchHomePage.appSuite.spec.desc", "Search, filter, and compare water vapor & oxygen transmission rates (OTR/WVTR) across 15+ certified compostable, recyclable, PCR, and plant-based biopolymer structures.")}
+                <span className="bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block">Live Samples</span>
+                <h3 className="font-black text-3xl mt-6 mb-4 uppercase text-black">Interactive Brand Demos</h3>
+                <p className="font-['Space_Grotesk'] text-sm leading-relaxed mb-6 text-white font-medium">
+                  Explore pre-built mockups to see the web capabilities we build for our B2B customers. Real-time product customization, fully responsive structures, and custom packaging calculators.
                 </p>
-
-                <ul className="space-y-3 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 border border-black bg-[#FF00FF]"></span>
-                    <span>{t("pouchHomePage.appSuite.spec.bullets.0", "15+ eco duplex & triplex structures")}</span>
+                <ul className="space-y-3.5 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#D4FF00] flex-shrink-0" />
+                    <span className="text-white">MaxiFoods Storefront Showcase (Responsive shop)</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 border border-black bg-[#FF00FF]"></span>
-                    <span>{t("pouchHomePage.appSuite.spec.bullets.1", "OTR & WVTR performance level filtering")}</span>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#D4FF00] flex-shrink-0" />
+                    <span className="text-white">Achieve Chips 3D Stand-Up Pouch Experience</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 border border-black bg-[#FF00FF]"></span>
-                    <span>{t("pouchHomePage.appSuite.spec.bullets.2", "Full thickness & weight sheets download")}</span>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#D4FF00] flex-shrink-0" />
+                    <span className="text-white">Pencil Interactive Mockup drawing boards</span>
                   </li>
                 </ul>
               </div>
-
-              <NeoButton to="/tech-specs" variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
-                {t("pouchHomePage.appSuite.spec.btn", "LAUNCH SPEC FINDER →")}
+              <NeoButton to="/free-service/all" variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
+                Browse Brand Samples →
               </NeoButton>
             </div>
           </div>

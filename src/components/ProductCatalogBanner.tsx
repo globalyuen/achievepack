@@ -233,6 +233,7 @@ export default function ProductCatalogBanner() {
             <Link
               key={`${item.id}-${index}`}
               to={`/store?shape=${encodeURIComponent(item.id)}`}
+              title={item.label}
               className={`flex-shrink-0 flex items-center justify-center p-2 rounded-xl border border-transparent transition-all duration-200 cursor-pointer relative group ${accentColor} ${hoverBorderColor} hover:bg-neutral-50/50`}
             >
               <div className="w-8 h-8 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">

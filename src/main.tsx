@@ -846,6 +846,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
                   <Route path="/options/surface-and-reclosure" element={<SurfaceAndReclosureOptionsPage />} />
                   <Route path="/options/smart-degassing-sticker" element={<SmartDegassingStickerPageB2C />} />
+                  <Route path="/function/smart-degassing-sticker" element={<SmartDegassingStickerPageB2C />} />
                   <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
                   <Route path="/barriers/material-properties" element={<PouchMaterialBarrierPropertiesPage />} />
                   <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
@@ -961,6 +962,36 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/recycled-ocean-plastic-packaging" element={<PouchRecycledOceanPlasticPackagingPage />} />
                   <Route path="/topics/minimalist-d2c-packaging" element={<PouchMinimalistD2CPackagingPage />} />
                   <Route path="/topics/high-heat-compostable-candle-packaging" element={<PouchHighHeatCandlePackagingPage />} />
+                  <Route path="/topics/matcha-sachet" element={<MatchaSachetPage />} />
+                  <Route path="/topics/cacao-stand-up" element={<CacaoStandUpPage />} />
+                  <Route path="/topics/spices-moisture-proof" element={<SpicesMoistureProofPage />} />
+                  <Route path="/topics/premium-tea" element={<PremiumTeaPage />} />
+                  <Route path="/topics/cocktail-spout" element={<CocktailSpoutPage />} />
+                  <Route path="/topics/candy-uv" element={<CandyUvPage />} />
+                  <Route path="/topics/crisps-shaped" element={<CrispsShapedPage />} />
+                  <Route path="/topics/dried-fruits-tear-notch" element={<DriedFruitsTearNotchPage />} />
+                  <Route path="/topics/cheese-pocket-zipper" element={<CheesePocketZipperPage />} />
+                  <Route path="/topics/euro-hole-hang" element={<EuroHoleHangPage />} />
+                  <Route path="/topics/pet-food-quad-seal" element={<PetFoodQuadSealPage />} />
+                  <Route path="/topics/pharma-velcro" element={<PharmaVelcroPage />} />
+                  <Route path="/topics/detergent-spout" element={<DetergentSpoutPage />} />
+                  <Route path="/topics/electronics-anti-static" element={<ElectronicsAntiStaticPage />} />
+                  <Route path="/topics/apparel-zipper" element={<ApparelZipperPage />} />
+                  <Route path="/topics/hologram-hot-stamping" element={<HologramHotStampingPage />} />
+                  <Route path="/topics/granola-soft-touch" element={<GranolaSoftTouchPage />} />
+                  <Route path="/topics/collagen-high-barrier" element={<CollagenHighBarrierPage />} />
+                  <Route path="/topics/pla-rice" element={<PlaRicePage />} />
+                  <Route path="/topics/rice-paper-artisanal" element={<RicePaperArtisanalPage />} />
+                  <Route path="/topics/ddp-packaging" element={<DdpPackagingPage />} />
+                  <Route path="/topics/fast-air-freight" element={<FastAirFreightPage />} />
+                  <Route path="/topics/fda-brc-certified" element={<FdaBrcCertifiedPage />} />
+                  <Route path="/topics/iso-sustainable" element={<IsoSustainablePage />} />
+                  <Route path="/topics/urgent-orders" element={<UrgentOrdersPage />} />
+                  <Route path="/topics/frozen-vacuum" element={<FrozenVacuumPage />} />
+                  <Route path="/topics/evoh-retort" element={<EvohRetortPage />} />
+                  <Route path="/topics/beef-jerky-barrier" element={<BeefJerkyBarrierPage />} />
+                  <Route path="/topics/valve-coffee-bags" element={<ValveCoffeeBagsPage />} />
+                  <Route path="/topics/home-vs-industrial-compostable" element={<HomeVsIndustrialCompostablePage />} />
                   <Route path="/topics/:slug" element={<DynamicPouchTopicPage />} />
                   <Route path="/topics/custom-brand-solutions" element={<PouchCustomBrandPackagingServicePage />} />
                   <Route path="/topics/eco-friendly-supplier-verification" element={<PouchEcoFriendlySupplierVerificationPage />} />

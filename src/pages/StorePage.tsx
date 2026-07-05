@@ -1205,6 +1205,7 @@ const StorePage: React.FC = () => {
                   <button
                     key={`${item.id}-${idx}`}
                     onClick={() => handleShapeChange(item.id)}
+                    title={item.label}
                     className={`flex-shrink-0 flex items-center justify-center w-16 h-16 border rounded-xl transition-all duration-200 group cursor-pointer relative overflow-visible ${
                       isActive 
                         ? 'border-primary-500 bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 shadow-sm' 
@@ -1251,7 +1252,8 @@ const StorePage: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => handleShapeChange(item.id)}
-                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 border rounded-xl transition-all duration-200 snap-center relative overflow-visible ${
+                title={item.label}
+                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 border rounded-xl transition-all duration-200 snap-center relative overflow-visible group ${
                   isActive 
                     ? 'bg-gradient-to-b from-primary-50 to-primary-100/30 border-primary-500 text-primary-700 shadow-sm' 
                     : 'bg-white border-neutral-200 text-neutral-600 active:bg-neutral-50'

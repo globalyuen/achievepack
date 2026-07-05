@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift, Palette, Sparkles } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift, Palette, Sparkles, Search, PenTool, Box } from 'lucide-react'
 import LanguageSelector from './components/LanguageSelector';
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
@@ -95,6 +95,195 @@ const loadGA = () => {
 import WorkCarousel from './components/WorkCarousel'
 import KnowHowCarousel from './components/KnowHowCarousel'
 
+const PACKAGING_APPS = [
+  {
+    id: 'sizing-finder',
+    title: 'Pouch Sizing Finder App',
+    label: 'Sizing Tool',
+    desc: 'Calculate exact stand-up pouch dimensions and gusset volume based on your target weight, product type, and substance density. Matches dimensions instantly across 100+ standard sizing grids.',
+    bullets: [
+      'Product-specific density presets (Coffee, Tea, Powders, Snacks)',
+      'Accurate volume calculations (Fluid Ounces, Grams, Milliliters)',
+      'Interactive size charts and standard MoQ requirements'
+    ],
+    link: '/knowledge/pouch-sizing',
+    icon: 'sizing',
+    badgeColor: 'bg-primary-500/20 text-primary-400 border-primary-500/30',
+    hoverBorder: 'hover:border-primary-500/50',
+    btnBg: 'bg-primary-500 hover:bg-primary-600 shadow-primary-500/10 hover:shadow-primary-500/25',
+    btnText: 'Launch Sizing Finder'
+  },
+  {
+    id: 'material-spec',
+    title: 'Material Spec Finder App',
+    label: 'Material Tool',
+    desc: 'Search, filter, and compare precise mechanical and barrier properties (Oxygen Transmission OTR & Water Vapor WVTR) across our full catalog of certified eco-friendly laminates.',
+    bullets: [
+      '15+ sustainable duplex and triplex lamination options',
+      'Live barrier level filtering (High, Medium, Light barrier specs)',
+      'Full specification sheets with thickness and MOQs list'
+    ],
+    link: '/tech-specs',
+    icon: 'spec',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+    hoverBorder: 'hover:border-emerald-500/50',
+    btnBg: 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/10 hover:shadow-emerald-500/25',
+    btnText: 'Launch Spec Finder'
+  },
+  {
+    id: 'dieline-finder',
+    title: 'Pouch Dieline Finder App',
+    label: 'Dieline Search',
+    desc: 'Search, filter, and download standard print-ready vector flat packaging keylines and dieline files matching your pouch type and dimensions directly from our asset library.',
+    bullets: [
+      'Over 2,000 standard dieline configurations available for download',
+      'Matches sizes for Stand Up, Flat Bottom, and 3-Side Seal bags',
+      'Vector PDF and Adobe Illustrator (.AI) compatible layout files'
+    ],
+    link: '/dieline-finder',
+    icon: 'search',
+    badgeColor: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+    hoverBorder: 'hover:border-blue-500/50',
+    btnBg: 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/10 hover:shadow-blue-500/25',
+    btnText: 'Launch Dieline Finder'
+  },
+  {
+    id: 'dieline-creator',
+    title: 'Dieline Creator PDF App',
+    label: 'Dieline Generator',
+    desc: 'Generate completely custom dielines by entering your custom pouch width, height, gusset depth, and seal margins. Instantly downloads a dimensioned, high-precision vector PDF.',
+    bullets: [
+      'Enter custom dimensions in millimeters or inches dynamically',
+      'Configurable seal widths, zipper placement, and teardrop notches',
+      'Downloads scale-accurate print-ready vector dielines instantly'
+    ],
+    link: '/dieline-creator',
+    icon: 'pentool',
+    badgeColor: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+    hoverBorder: 'hover:border-purple-500/50',
+    btnBg: 'bg-purple-600 hover:bg-purple-700 shadow-purple-500/10 hover:shadow-purple-500/25',
+    btnText: 'Launch Dieline Creator'
+  },
+  {
+    id: 'compost-finder',
+    title: 'Compost Facility Finder App',
+    label: 'Facility Map',
+    desc: 'Locate local industrial, municipal, and commercial organic waste composting facilities in your area that accept BPI and EN 13432 certified compostable biopolymer packaging.',
+    bullets: [
+      'Search facility database by zip code, city, or state coordinates',
+      'Verifies accepted packaging materials and processing capabilities',
+      'Direct links to municipal organic waste collection program pages'
+    ],
+    link: '/composting/composting-services',
+    icon: 'map-pin',
+    badgeColor: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+    hoverBorder: 'hover:border-amber-500/50',
+    btnBg: 'bg-amber-600 hover:bg-amber-700 shadow-amber-500/10 hover:shadow-amber-500/25',
+    btnText: 'Launch Compost Finder'
+  },
+  {
+    id: '3d-showcase',
+    title: 'Product 3D Showcase App',
+    label: '3D Orbit Viewer',
+    desc: 'Spin, tilt, and examine our eco pouches in 3D space. Inspect seals, reclosure options, and material layers from every angle with real-time web 3D model rendering.',
+    bullets: [
+      'Interactive 3D orbit, tilt, zoom, and auto-rotation tools',
+      'Visual structural highlight callouts (zipper, valve, seals)',
+      'Compare Stand Up Pouches, Flat Bottom, and Spouted bags in 3D'
+    ],
+    link: '/3d-showcase',
+    icon: 'box',
+    badgeColor: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+    hoverBorder: 'hover:border-cyan-500/50',
+    btnBg: 'bg-cyan-600 hover:bg-cyan-700 shadow-cyan-500/10 hover:shadow-cyan-500/25',
+    btnText: 'Launch 3D Showcase'
+  },
+  {
+    id: 'quote-standup',
+    title: 'Stand-Up Pouch Quote App',
+    label: 'B2B Calculator',
+    desc: 'Get immediate tiered manufacturing pricing estimates for custom printed stand-up bags. Enter your pouch dimensions, material choice, and volume sizes.',
+    bullets: [
+      'Calculates unit costs instantly across multiple production volume tiers',
+      'Configures reclosable zippers, tear notches, and valve add-ons',
+      'Generates direct PDF proposals with shipping estimates included'
+    ],
+    link: '/quotes/stand-up-pouch',
+    icon: 'calc',
+    badgeColor: 'bg-teal-500/20 text-teal-400 border-teal-500/30',
+    hoverBorder: 'hover:border-teal-500/50',
+    btnBg: 'bg-teal-600 hover:bg-teal-700 shadow-teal-500/10 hover:shadow-teal-500/25',
+    btnText: 'Launch Stand-Up Quote'
+  },
+  {
+    id: 'quote-flatbottom',
+    title: 'Flat Bottom Pouch Quote App',
+    label: 'B2B Calculator',
+    desc: 'Get detailed tiered price quotes for flat bottom quad seal pouches (box pouches) with custom sizes, degassing valves, and front pocket zipper integrations.',
+    bullets: [
+      'Calculates flat bottom specific pouch volume capacity and pricing',
+      'Supports matte, gloss, soft-touch, and kraft surface configurations',
+      'Generates immediate digital quotes for bulk packaging orders'
+    ],
+    link: '/quotes/flat-bottom',
+    icon: 'calc',
+    badgeColor: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
+    hoverBorder: 'hover:border-rose-500/50',
+    btnBg: 'bg-rose-600 hover:bg-rose-700 shadow-rose-500/10 hover:shadow-rose-500/25',
+    btnText: 'Launch Flat Bottom Quote'
+  },
+  {
+    id: 'quote-threeside',
+    title: '3 Side Seal Pouch Quote App',
+    label: 'B2B Calculator',
+    desc: 'Get instant manufacturing and shipping quotes for flat 3-side seal pouches and stick packs, ideal for single-use supplement sachets, tea, and sample packaging.',
+    bullets: [
+      'Configures tearing notches, euro-holes, and hang card tabs',
+      'Calculates digital print runs starting from 500 units instantly',
+      'Compares unit pricing across kraft, bio-films, and PCR plastics'
+    ],
+    link: '/quotes/three-side-seal',
+    icon: 'calc',
+    badgeColor: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
+    hoverBorder: 'hover:border-orange-500/50',
+    btnBg: 'bg-orange-600 hover:bg-orange-700 shadow-orange-500/10 hover:shadow-orange-500/25',
+    btnText: 'Launch 3-Side Seal Quote'
+  },
+  {
+    id: 'quote-spouted',
+    title: 'Spouted Pouch Quote App',
+    label: 'B2B Calculator',
+    desc: 'Calculate tiered production quotations for spouted stand-up pouches and liquid packaging. Configure cap diameters, spout placement, and material barriers.',
+    bullets: [
+      'Specifies center or corner spout placements and cap specifications',
+      'Configures high-barrier multi-layer liquid-safe laminated structures',
+      'Generates direct quotes with freight options for fluid packing'
+    ],
+    link: '/quotes/spouted-pouch',
+    icon: 'calc',
+    badgeColor: 'bg-pink-500/20 text-pink-400 border-pink-500/30',
+    hoverBorder: 'hover:border-pink-500/50',
+    btnBg: 'bg-pink-600 hover:bg-pink-700 shadow-pink-500/10 hover:shadow-pink-500/25',
+    btnText: 'Launch Spouted Pouch Quote'
+  },
+  {
+    id: 'quote-rollstock',
+    title: 'Rollstock Film Quote App',
+    label: 'B2B Calculator',
+    desc: 'Calculate tiered quotes for custom printed rollstock packaging film. Specify reel width, repeat length, winding direction, and core specifications.',
+    bullets: [
+      'Calculates linear meter weight, total roll weight, and unit costs',
+      'Supports auto-packing machine compatibility specifications',
+      'Estimates custom cylinder setup costs and digital tooling charges'
+    ],
+    link: '/quotes/rollstock',
+    icon: 'calc',
+    badgeColor: 'bg-lime-500/20 text-lime-400 border-lime-500/30',
+    hoverBorder: 'hover:border-lime-500/50',
+    btnBg: 'bg-lime-600 hover:bg-lime-700 shadow-lime-500/10 hover:shadow-lime-500/25',
+    btnText: 'Launch Rollstock Quote'
+  }
+]
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -122,6 +311,17 @@ function App() {
   const videoRef3 = useRef<HTMLVideoElement>(null)
   const videoRef4 = useRef<HTMLVideoElement>(null)
   const videoRef5 = useRef<HTMLVideoElement>(null)
+  const appsScrollRef = useRef<HTMLDivElement>(null);
+  const scrollAppsLeft = () => {
+    if (appsScrollRef.current) {
+      appsScrollRef.current.scrollBy({ left: -360, behavior: 'smooth' });
+    }
+  };
+  const scrollAppsRight = () => {
+    if (appsScrollRef.current) {
+      appsScrollRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -1435,105 +1635,166 @@ function App() {
         <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-500/20 text-primary-400 text-xs font-semibold uppercase tracking-wider mb-4 border border-primary-500/30">
-              <Zap className="h-3.5 w-3.5 text-primary-400 fill-current animate-pulse" />
-              <span>{t('achievePackHome.apps.tag', 'Interactive Engineering Suite')}</span>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-500/20 text-primary-400 text-xs font-semibold uppercase tracking-wider mb-4 border border-primary-500/30">
+                <Zap className="h-3.5 w-3.5 text-primary-400 fill-current animate-pulse" />
+                <span>{t('achievePackHome.apps.tag', 'Interactive Engineering Suite')}</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                {t('achievePackHome.apps.title', 'Professional Packaging Apps')}
+              </h2>
+              <p className="text-lg text-neutral-400 mt-4 leading-relaxed">
+                {t('achievePackHome.apps.desc', "Skip the guesswork. Design, size, and engineer your brand's sustainable packaging in seconds with our bespoke interactive web applications.")}
+              </p>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
-              {t('achievePackHome.apps.title', 'Professional Packaging Apps')}
+            
+            {/* Scroll Navigation Controls */}
+            <div className="flex items-center gap-3 mt-6 md:mt-0">
+              <button 
+                onClick={scrollAppsLeft} 
+                className="w-12 h-12 rounded-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 hover:border-neutral-600 flex items-center justify-center transition-all active:scale-95"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5 text-white" />
+              </button>
+              <button 
+                onClick={scrollAppsRight} 
+                className="w-12 h-12 rounded-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 hover:border-neutral-600 flex items-center justify-center transition-all active:scale-95"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+            </div>
+          </div>
+
+          {/* Horizontal Scrollable Container */}
+          <div 
+            ref={appsScrollRef}
+            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-8"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {PACKAGING_APPS.map((app) => (
+              <div 
+                key={app.id}
+                className={`flex-none w-[310px] sm:w-[360px] bg-neutral-800/40 backdrop-blur-md rounded-3xl border border-neutral-700/60 p-8 flex flex-col justify-between transition-all duration-300 group shadow-lg ${app.hoverBorder}`}
+                style={{ scrollSnapAlign: 'start' }}
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-neutral-900/50 flex items-center justify-center border border-neutral-700/50 group-hover:scale-105 transition-transform duration-300">
+                      {app.icon === 'sizing' && <SizingFinderIcon className="w-8 h-8 text-primary-400" strokeWidth={2} />}
+                      {app.icon === 'spec' && <MaterialSpecFinderIcon className="w-8 h-8 text-emerald-400" strokeWidth={2} />}
+                      {app.icon === 'search' && <Search className="w-8 h-8 text-blue-400" strokeWidth={2} />}
+                      {app.icon === 'pentool' && <PenTool className="w-8 h-8 text-purple-400" strokeWidth={2} />}
+                      {app.icon === 'map-pin' && <MapPin className="w-8 h-8 text-amber-400" strokeWidth={2} />}
+                      {app.icon === 'box' && <Box className="w-8 h-8 text-cyan-400" strokeWidth={2} />}
+                      {app.icon === 'calc' && <CalcIcon className="w-8 h-8 text-teal-400" strokeWidth={2} />}
+                    </div>
+                    <span className={`text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border ${app.badgeColor}`}>
+                      {app.label}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {app.title}
+                  </h3>
+                  <p className="text-sm text-neutral-400 mb-6 leading-relaxed min-h-[80px]">
+                    {app.desc}
+                  </p>
+
+                  <ul className="space-y-3 mb-8 text-sm text-neutral-300 min-h-[140px]">
+                    {app.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Link 
+                  to={app.link} 
+                  className={`w-full text-center py-4 text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2 group/btn ${app.btnBg}`}
+                >
+                  <span>{app.btnText}</span>
+                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Website Free Creation & Brand Samples Showcase */}
+      <section className="py-20 bg-neutral-950 text-white relative overflow-hidden border-t border-neutral-800">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.03),transparent_70%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+              Website Free Creation & Live Brand Demos
             </h2>
-            <p className="text-lg text-neutral-400 mt-4 leading-relaxed">
-              {t('achievePackHome.apps.desc', "Skip the guesswork. Design, size, and engineer your brand's sustainable packaging in seconds with our bespoke interactive web applications.")}
+            <p className="text-neutral-400 mt-4 text-base">
+              Establish a premium web presence for your brand. Get a fully built, custom e-commerce storefront or review our live high-fidelity interactive packaging demos.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* App 1: Sizing Finder */}
-            <div className="bg-neutral-800/50 backdrop-blur-md rounded-3xl border border-neutral-700/60 p-8 flex flex-col justify-between hover:border-primary-500/50 transition-all duration-300 group shadow-lg">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Card 1: Free Website Design */}
+            <div className="bg-neutral-900/40 border border-neutral-800/80 rounded-2xl p-8 hover:border-emerald-500/30 transition-all group flex flex-col justify-between">
               <div>
-                <div className="flex justify-between items-start mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary-500/10 flex items-center justify-center border border-primary-500/20 group-hover:scale-105 transition-transform duration-300">
-                    <SizingFinderIcon className="w-8 h-8 text-primary-400" strokeWidth={2} />
-                  </div>
-                  <span className="bg-primary-500/20 text-primary-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-primary-500/30">
-                    {t('achievePackHome.apps.sizingTool', 'Sizing Tool')}
-                  </span>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  {t('achievePackHome.apps.sizingTitle', 'Pouch Sizing Finder App')}
-                </h3>
+                <span className="text-emerald-400 font-bold text-xs uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">Free Service Program</span>
+                <h3 className="text-2xl font-bold mt-4 mb-3 text-white">Free Storefront Website Program</h3>
                 <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
-                  {t('achievePackHome.apps.sizingDesc', 'Calculate exact stand-up pouch dimensions and gusset volume based on your target weight, product type, and substance density. Matches dimensions instantly across 100+ standard sizing grids.')}
+                  We build custom, high-fidelity storefronts and web calculators for brands ordering packaging from us. Fully coded in React/Next.js, optimized for search engines, and integrated with multi-language capabilities at zero cost.
                 </p>
-
-                <ul className="space-y-3 mb-8 text-sm text-neutral-300">
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
-                    <span>{t('achievePackHome.apps.sizingL1', 'Product-specific density presets (Coffee, Tea, Powders, Snacks)')}</span>
+                <ul className="space-y-3.5 mb-8 text-neutral-300 text-sm">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-emerald-400" />
+                    <span>Free custom domain mapping & branding system</span>
                   </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
-                    <span>{t('achievePackHome.apps.sizingL2', 'Accurate volume calculations (Fluid Ounces, Grams, Milliliters)')}</span>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-emerald-400" />
+                    <span>Integration of pouch calculators and dieline apps</span>
                   </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
-                    <span>{t('achievePackHome.apps.sizingL3', 'Interactive size charts and standard MoQ requirements')}</span>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-emerald-400" />
+                    <span>SEO-optimized, ultra-fast performance, and multi-language</span>
                   </li>
                 </ul>
               </div>
-
-              <Link 
-                to="/knowledge/pouch-sizing" 
-                className="w-full text-center py-4 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-primary-500/10 hover:shadow-primary-500/25 flex items-center justify-center gap-2 group/btn"
-              >
-                <span>{t('achievePackHome.apps.launchSizing', 'Launch Sizing Finder')}</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              <Link to="/free-service/website-upgrade" className="w-full text-center py-3.5 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl border border-neutral-700 hover:border-neutral-600 transition flex items-center justify-center gap-2">
+                <span>Explore Free Website Program</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
-            {/* App 2: Material Spec Finder */}
-            <div className="bg-neutral-800/50 backdrop-blur-md rounded-3xl border border-neutral-700/60 p-8 flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300 group shadow-lg">
+            {/* Card 2: Interactive Demos */}
+            <div className="bg-neutral-900/40 border border-neutral-800/80 rounded-2xl p-8 hover:border-primary-500/30 transition-all group flex flex-col justify-between">
               <div>
-                <div className="flex justify-between items-start mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 group-hover:scale-105 transition-transform duration-300">
-                    <MaterialSpecFinderIcon className="w-8 h-8 text-emerald-400" strokeWidth={2} />
-                  </div>
-                  <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-emerald-500/30">
-                    {t('achievePackHome.apps.materialTool', 'Material Tool')}
-                  </span>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  {t('achievePackHome.apps.materialTitle', 'Material Spec Finder App')}
-                </h3>
+                <span className="text-primary-400 font-bold text-xs uppercase tracking-wider bg-primary-500/10 border border-primary-500/20 px-3 py-1 rounded-full">Interactive Demos</span>
+                <h3 className="text-2xl font-bold mt-4 mb-3 text-white">High-Fidelity Live Brand Samples</h3>
                 <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
-                  {t('achievePackHome.apps.materialDesc', 'Search, filter, and compare precise mechanical and barrier properties (Oxygen Transmission OTR & Water Vapor WVTR) across our full catalog of certified eco-friendly laminates.')}
+                  Experience live storefront and tool integrations. Browse our pre-built mockups displaying interactive product selectors, responsive layouts, and integrated 3D dieline calculators.
                 </p>
-
-                <ul className="space-y-3 mb-8 text-sm text-neutral-300">
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <span>{t('achievePackHome.apps.materialL1', '15+ sustainable duplex and triplex lamination options')}</span>
+                <ul className="space-y-3.5 mb-8 text-neutral-300 text-sm">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary-400" />
+                    <span>MaxiFoods E-Commerce Showcase (Interactive Store)</span>
                   </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <span>{t('achievePackHome.apps.materialL2', 'Live barrier level filtering (High, Medium, Light barrier specs)')}</span>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary-400" />
+                    <span>Achieve Chips Stand-Up Pouch Demo with 3D model</span>
                   </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <span>{t('achievePackHome.apps.materialL3', 'Full specification sheets with thickness and MOQs list')}</span>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary-400" />
+                    <span>Pencil Interactive Mockup drawing boards</span>
                   </li>
                 </ul>
               </div>
-
-              <Link 
-                to="/tech-specs" 
-                className="w-full text-center py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/25 flex items-center justify-center gap-2 group/btn"
-              >
-                <span>{t('achievePackHome.apps.launchMaterial', 'Launch Spec Finder')}</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              <Link to="/free-service/all" className="w-full text-center py-3.5 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl transition flex items-center justify-center gap-2">
+                <span>Browse All Brand Samples</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
