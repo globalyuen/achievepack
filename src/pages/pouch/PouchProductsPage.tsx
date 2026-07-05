@@ -336,7 +336,7 @@ export default function PouchProductsPage() {
             <div className="w-full">
               <NeoCard className="!p-0 overflow-hidden aspect-[4/3] bg-zinc-900 border-2 border-white">
                 <img 
-                  src="/imgs/knowledge/pouch-products-pain-points.jpg" 
+                  src="/imgs/knowledge/pouch-products-pain-points-v2.jpg" 
                   alt="Pouch Packaging Challenges" 
                   className="w-full h-full object-cover"
                 />
