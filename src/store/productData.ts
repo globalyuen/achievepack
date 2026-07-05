@@ -9604,7 +9604,7 @@ export const getProductType = (product: StoreProduct): ProductType => {
 export const getProductSubCategory = (product: StoreProduct): ProductSubCategory => {
   // Identify machinery products
   if (
-    product.shape === 'Machinery' ||
+    ('shape' in product && (product as any).shape === 'Machinery') ||
     product.id === 'automatic-labeling-machine' ||
     product.id === 'hand-clamp-sealer' ||
     product.id === '40ml-foil-capsule-and-packing-machine'
