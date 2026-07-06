@@ -480,15 +480,8 @@ export default function PackageEditorPage() {
     };
   }, []);
 
-  // Fetch dynamic shapes from the Obsidian Database Caching Proxy
-  const handleShapeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const shapeId = e.target.value;
-    setSelectedShapeId(shapeId);
-    if (!shapeId) return;
-
-    const shape = shapes.find(s => s.id === shapeId);
-    if (!shape) return;
-
+  // Shared function to load a packaging shape into the 3D studio scene
+  const loadShape = (shape: Shape) => {
     setIsLoading(true);
     setLoadingText('正在下載並解析 3D 模型...');
 
@@ -638,6 +631,32 @@ export default function PackageEditorPage() {
       }
     );
   };
+
+  // Fetch dynamic shapes from the Obsidian Database Caching Proxy
+  const handleShapeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const shapeId = e.target.value;
+    setSelectedShapeId(shapeId);
+    if (!shapeId) return;
+
+    const shape = shapes.find(s => String(s.id) === String(shapeId));
+    if (shape) {
+      loadShape(shape);
+    }
+  };
+
+  // Auto load shape from URL query parameter
+  useEffect(() => {
+    if (shapes.length === 0) return;
+    const searchParams = new URLSearchParams(window.location.search);
+    const shapeId = searchParams.get('shape');
+    if (shapeId) {
+      const shape = shapes.find(s => String(s.id) === String(shapeId));
+      if (shape) {
+        setSelectedShapeId(shape.id);
+        loadShape(shape);
+      }
+    }
+  }, [shapes]);
 
   // Handle Layer Selection and Drag-and-Move on 2D Canvas
   const handleCanvasMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {

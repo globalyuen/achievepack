@@ -181,6 +181,12 @@ const CoffeeRoasterPage = lazy(() => import('../pages/solutions/CoffeeRoasterPag
 const ArtisanProducerPage = lazy(() => import('../pages/solutions/ArtisanProducerPage'));
 const SnackBrandManagerPage = lazy(() => import('../pages/solutions/SnackBrandManagerPage'));
 
+// 3000+ Catalog and SEO Showcase pages
+const CatalogPage = lazy(() => import('../pages/solutions/CatalogPage'));
+const CustomBoxesCatalogPage = lazy(() => import('../pages/solutions/CustomBoxesCatalogPage'));
+const FlexiblePouchesCatalogPage = lazy(() => import('../pages/solutions/FlexiblePouchesCatalogPage'));
+const CosmeticsBottlesCatalogPage = lazy(() => import('../pages/solutions/CosmeticsBottlesCatalogPage'));
+
 // Topics Pages - AI Search Volume SEO
 const EcoFriendlyFoodPackagingPage = lazy(() => import('../pages/topics/EcoFriendlyFoodPackagingPage'));
 const DTCSustainablePackagingPage = lazy(() => import('../pages/topics/DTCSustainablePackagingPage'));
@@ -347,6 +353,12 @@ const routes = [
   { path: "/solutions/coffee-roaster", element: <LazyRoute component={() => import('../pages/solutions/CoffeeRoasterPage')} fallback={<LoadingFallback />} /> },
   { path: "/solutions/artisan-producer", element: <LazyRoute component={() => import('../pages/solutions/ArtisanProducerPage')} fallback={<LoadingFallback />} /> },
   { path: "/solutions/snack-brand-manager", element: <LazyRoute component={() => import('../pages/solutions/SnackBrandManagerPage')} fallback={<LoadingFallback />} /> },
+
+  // Catalog and Showcase Category routes
+  { path: "/solutions/catalog", element: <LazyRoute component={() => import('../pages/solutions/CatalogPage')} fallback={<LoadingFallback />} /> },
+  { path: "/solutions/custom-boxes-catalog", element: <LazyRoute component={() => import('../pages/solutions/CustomBoxesCatalogPage')} fallback={<LoadingFallback />} /> },
+  { path: "/solutions/flexible-pouches-catalog", element: <LazyRoute component={() => import('../pages/solutions/FlexiblePouchesCatalogPage')} fallback={<LoadingFallback />} /> },
+  { path: "/solutions/cosmetics-bottles-catalog", element: <LazyRoute component={() => import('../pages/solutions/CosmeticsBottlesCatalogPage')} fallback={<LoadingFallback />} /> },
 
   // Topics Pages - AI Search Volume SEO
   { path: "/topics/eco-friendly-food-packaging", element: <LazyRoute component={() => import('../pages/topics/EcoFriendlyFoodPackagingPage')} fallback={<LoadingFallback />} /> },
