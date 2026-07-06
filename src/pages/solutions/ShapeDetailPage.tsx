@@ -38,7 +38,7 @@ export default function ShapeDetailPage() {
   }, []);
 
   const shape = useMemo(() => {
-    return shapes.find((s) => String(s.id) === String(id));
+    return shapes.find((s: any) => String(s.slug) === String(id) || String(s.id) === String(id));
   }, [shapes, id]);
 
   if (loading) {
@@ -148,7 +148,7 @@ export default function ShapeDetailPage() {
   // Construct canonical and hreflang alternate links
   const seoLinks = useMemo(() => {
     const baseUrl = isPouchDomain ? 'https://pouch.eco' : 'https://achievepack.com';
-    const cleanRoute = `/solutions/shapes/${shape.id}`;
+    const cleanRoute = `/solutions/shapes/${shape.slug || shape.id}`;
     
     // Canonical link
     const canonical = currentLang === 'en' 
@@ -165,7 +165,7 @@ export default function ShapeDetailPage() {
     ];
     
     return { canonical, alternates };
-  }, [shape.id, currentLang, isPouchDomain]);
+  }, [shape.id, shape.slug, currentLang, isPouchDomain]);
 
   // AchievePack (AP) Theme Layout
   const renderAPLayout = () => {

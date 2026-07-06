@@ -4,6 +4,7 @@ import { Search, Filter, Box, Layers, Database, Sparkles, HelpCircle, ArrowRight
 import { Helmet } from 'react-helmet-async';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
+import { getDomain } from '../../utils/domain';
 
 interface Shape {
   id: string;
@@ -13,11 +14,13 @@ interface Shape {
   glb_file: string;
   dimensions: string;
   description: string;
+  slug?: string;
 }
 
 const ITEMS_PER_PAGE = 30;
 
 export default function CatalogPage() {
+  const isPouchDomain = getDomain() === 'pouch';
   const [shapes, setShapes] = useState<Shape[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState<'all' | 'box' | 'pouch' | 'bottle'>('all');
@@ -177,6 +180,7 @@ export default function CatalogPage() {
 
                     // Render locally hosted Vercel asset paths
                     const dielineSrc = shape.dieline_image.startsWith('/') ? shape.dieline_image : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
+                    const thumbnailSrc = shape.id === '978' ? dielineSrc : `/thumbnails/${shape.id}.png`;
 
                     return (
                       <div
@@ -186,11 +190,28 @@ export default function CatalogPage() {
                         {/* Thumbnail View */}
                         <div className="aspect-[4/3] bg-neutral-900 relative overflow-hidden flex items-center justify-center border-b border-neutral-800/60 p-4">
                           <img
-                            src={dielineSrc}
+                            src={thumbnailSrc}
                             alt={shape.name}
                             loading="lazy"
                             className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                            onError={(e) => {
+                              // If thumbnail fails to load, fallback to 2D dieline layout
+                              (e.target as HTMLImageElement).src = dielineSrc;
+                            }}
                           />
+                          
+                          {/* Logo Watermark Badge */}
+                          <div className="absolute bottom-2 right-2 bg-neutral-950/80 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 flex items-center gap-1.5 pointer-events-none">
+                            <img 
+                              src={isPouchDomain ? "/ep-logo.svg" : "/ap-logo-white.png"} 
+                              alt={isPouchDomain ? "Pouch" : "AchievePack"}
+                              className="h-3 w-auto opacity-80"
+                            />
+                            <span className="text-[9px] font-black text-white/70 tracking-wider">
+                              {isPouchDomain ? "POUCH" : "AP STUDIO"}
+                            </span>
+                          </div>
+
                           <span className="absolute top-3 left-3 bg-neutral-900/95 border border-neutral-850 px-2 py-0.5 rounded text-[10px] font-semibold text-emerald-400 tracking-wider uppercase">
                             {catName}
                           </span>
@@ -212,7 +233,7 @@ export default function CatalogPage() {
                         {/* Action Link */}
                         <div className="p-4 bg-neutral-950 border-t border-neutral-900 flex gap-2">
                           <Link
-                            to={`/solutions/shapes/${shape.id}`}
+                            to={`/solutions/shapes/${shape.slug || shape.id}`}
                             className="w-1/2 text-center bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 font-bold text-xs py-2 rounded-lg transition-all flex items-center justify-center gap-1"
                           >
                             3D Specs

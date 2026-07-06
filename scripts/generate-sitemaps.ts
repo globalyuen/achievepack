@@ -166,7 +166,7 @@ function generate() {
     try {
       const shapes = JSON.parse(fs.readFileSync(modelsDbPath, 'utf-8'));
       if (Array.isArray(shapes)) {
-        shapeRoutes = shapes.map((s: any) => `/solutions/shapes/${s.id}`);
+        shapeRoutes = shapes.map((s: any) => `/solutions/shapes/${s.slug || s.id}`);
         console.log(`📦 Loaded ${shapeRoutes.length} dynamic packaging shape routes for sitemaps.`);
       }
     } catch (e: any) {
