@@ -463,6 +463,8 @@ const routes = [
   { path: "/free-service/maxi-foods-demo", element: <LazyRoute component={() => import('../pages/free-service/MaxiFoodsDemoPage')} fallback={<LoadingFallback />} /> },
   { path: "/free-service/pencil-demo", element: <LazyRoute component={() => import('../pages/free-service/PencilDemoPage')} fallback={<LoadingFallback />} /> },
 
+  { path: "/app", element: <LazyRoute component={() => import('../pages/PackageEditorPage')} fallback={<LoadingFallback />} /> },
+
   // 404 - Catch All Route
   { path: "*", element: <LazyRoute component={() => import('../pages/NotFoundPage')} fallback={<LoadingFallback />} /> },
 ];
