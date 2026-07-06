@@ -4,6 +4,7 @@ import { CheckCircle, Package, Mail, ArrowRight, User, Upload, Loader2 } from 'l
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
 import { useStore } from '../store/StoreContext'
+import { supabase } from '../lib/supabase'
 
 const OrderConfirmation: React.FC = () => {
   const { t } = useTranslation()
@@ -19,6 +20,116 @@ const OrderConfirmation: React.FC = () => {
   const orderFromUrl = searchParams.get('order')
   const orderNumber = orderFromUrl || location.state?.orderNumber || `AP-${Date.now().toString(36).toUpperCase()}`
   const paymentNote = location.state?.paymentNote
+
+  const [customerEmail, setCustomerEmail] = useState('')
+  const [deliveryCountry, setDeliveryCountry] = useState('US')
+  const [surveyLoaded, setSurveyLoaded] = useState(false)
+
+  // Fetch order details for Google Customer Reviews opt-in
+  useEffect(() => {
+    const fetchOrderDetails = async () => {
+      if (!orderNumber) return
+      
+      try {
+        const { data, error } = await supabase
+          .from('orders')
+          .select('customer_email, shipping_address')
+          .eq('order_number', orderNumber)
+          .maybeSingle()
+          
+        if (error) {
+          console.error('Error fetching order for survey opt-in:', error)
+          if (user?.email && !customerEmail) {
+            setCustomerEmail(user.email)
+            setSurveyLoaded(true)
+          }
+          return
+        }
+
+        if (data) {
+          setCustomerEmail(data.customer_email || user?.email || '')
+          
+          let country = 'US'
+          if (data.shipping_address && typeof data.shipping_address === 'object') {
+            const address = data.shipping_address as any
+            country = address.country || 'US'
+          }
+          
+          let countryCode = country.trim().toUpperCase()
+          if (countryCode.length > 2) {
+            const countryMap: Record<string, string> = {
+              'UNITED STATES': 'US',
+              'TAIWAN': 'TW',
+              'CANADA': 'CA',
+              'AUSTRALIA': 'AU',
+              'UNITED KINGDOM': 'GB',
+              'SINGAPORE': 'SG',
+              'HONG KONG': 'HK'
+            }
+            countryCode = countryMap[countryCode] || 'US'
+          }
+          setDeliveryCountry(countryCode)
+          setSurveyLoaded(true)
+        } else if (user?.email) {
+          setCustomerEmail(user.email)
+          setSurveyLoaded(true)
+        }
+      } catch (err) {
+        console.error('Failed to fetch order details for survey opt-in:', err)
+        if (user?.email) {
+          setCustomerEmail(user.email)
+          setSurveyLoaded(true)
+        }
+      }
+    }
+
+    fetchOrderDetails()
+  }, [orderNumber, statusUpdated, user])
+
+  // Google Customer Reviews Survey Opt-in integration
+  useEffect(() => {
+    if (!surveyLoaded || !orderNumber) return
+
+    const emailToUse = customerEmail || user?.email
+    if (!emailToUse) return
+
+    // Calculate estimated delivery date: 14 days from now
+    const deliveryDate = new Date()
+    deliveryDate.setDate(deliveryDate.getDate() + 14)
+    const yyyy = deliveryDate.getFullYear()
+    const mm = String(deliveryDate.getMonth() + 1).padStart(2, '0')
+    const dd = String(deliveryDate.getDate()).padStart(2, '0')
+    const estimatedDeliveryDate = `${yyyy}-${mm}-${dd}`
+
+    // Define renderOptIn function on window
+    ;(window as any).renderOptIn = () => {
+      if ((window as any).gapi) {
+        ;(window as any).gapi.load('surveyoptin', () => {
+          ;(window as any).gapi.surveyoptin.render({
+            "merchant_id": 5787966617,
+            "order_id": orderNumber,
+            "email": emailToUse,
+            "delivery_country": deliveryCountry,
+            "estimated_delivery_date": estimatedDeliveryDate
+          })
+        })
+      }
+    }
+
+    // Load the Google Platform script
+    const script = document.createElement('script')
+    script.src = 'https://apis.google.com/js/platform.js?onload=renderOptIn'
+    script.async = true
+    script.defer = true
+    document.body.appendChild(script)
+
+    // Cleanup on unmount
+    return () => {
+      document.body.removeChild(script)
+      delete (window as any).renderOptIn
+    }
+  }, [surveyLoaded, orderNumber, customerEmail, user?.email, deliveryCountry])
+
 
   // Update order status when returning from Stripe
   useEffect(() => {

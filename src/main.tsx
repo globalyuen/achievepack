@@ -497,6 +497,12 @@ const SnackBrandManagerPage = lazyWithRetry(() => import('./pages/solutions/Snac
 const CitrusOilPackagingPage = lazyWithRetry(() => import('./pages/solutions/CitrusOilPackagingPage'))
 
 // Topics Pages - AI Search Volume SEO - Lazy loaded
+const AiPackagingResolutionPage = lazyWithRetry(() => import('./pages/topics/AiPackagingResolution'))
+const AiPackagingBleedDimensionsPage = lazyWithRetry(() => import('./pages/topics/AiPackagingBleedDimensions'))
+const AiPackagingSafeMarginsPage = lazyWithRetry(() => import('./pages/topics/AiPackagingSafeMargins'))
+const AiPackagingLayeredAssetsPage = lazyWithRetry(() => import('./pages/topics/AiPackagingLayeredAssets'))
+const AiPackagingBarcodesBottomFoldPage = lazyWithRetry(() => import('./pages/topics/AiPackagingBarcodesBottomFold'))
+
 const MatchaSachetPage = lazyWithRetry(() => import('./pages/topics/MatchaSachet'))
 const CacaoStandUpPage = lazyWithRetry(() => import('./pages/topics/CacaoStandUp'))
 const SpicesMoistureProofPage = lazyWithRetry(() => import('./pages/topics/SpicesMoistureProof'))
@@ -962,6 +968,11 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/recycled-ocean-plastic-packaging" element={<PouchRecycledOceanPlasticPackagingPage />} />
                   <Route path="/topics/minimalist-d2c-packaging" element={<PouchMinimalistD2CPackagingPage />} />
                   <Route path="/topics/high-heat-compostable-candle-packaging" element={<PouchHighHeatCandlePackagingPage />} />
+                  <Route path="/topics/ai-packaging-resolution" element={<AiPackagingResolutionPage />} />
+                  <Route path="/topics/ai-packaging-bleed-dimensions" element={<AiPackagingBleedDimensionsPage />} />
+                  <Route path="/topics/ai-packaging-safe-margins" element={<AiPackagingSafeMarginsPage />} />
+                  <Route path="/topics/ai-packaging-layered-assets" element={<AiPackagingLayeredAssetsPage />} />
+                  <Route path="/topics/ai-packaging-barcodes-bottom-fold" element={<AiPackagingBarcodesBottomFoldPage />} />
                   <Route path="/topics/matcha-sachet" element={<MatchaSachetPage />} />
                   <Route path="/topics/cacao-stand-up" element={<CacaoStandUpPage />} />
                   <Route path="/topics/spices-moisture-proof" element={<SpicesMoistureProofPage />} />
@@ -1552,6 +1563,11 @@ if (getDomain() === 'pouch') {
                         <Route path="/solutions/citrus-oil-packaging" element={<CitrusOilPackagingPage />} />
 
                         {/* Topics Pages - AI Search Volume SEO */}
+          <Route path="/topics/ai-packaging-resolution" element={<AiPackagingResolutionPage />} />
+          <Route path="/topics/ai-packaging-bleed-dimensions" element={<AiPackagingBleedDimensionsPage />} />
+          <Route path="/topics/ai-packaging-safe-margins" element={<AiPackagingSafeMarginsPage />} />
+          <Route path="/topics/ai-packaging-layered-assets" element={<AiPackagingLayeredAssetsPage />} />
+          <Route path="/topics/ai-packaging-barcodes-bottom-fold" element={<AiPackagingBarcodesBottomFoldPage />} />
           <Route path="/topics/matcha-sachet" element={<MatchaSachetPage />} />
           <Route path="/topics/cacao-stand-up" element={<CacaoStandUpPage />} />
           <Route path="/topics/spices-moisture-proof" element={<SpicesMoistureProofPage />} />

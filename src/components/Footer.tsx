@@ -2,9 +2,59 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap } from 'lucide-react'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
+import { useEffect } from 'react'
+import { isAchievePack } from '../utils/domain'
 
 export default function Footer() {
   const { t } = useTranslation()
+
+  // Google Customer Reviews Badge integration
+  useEffect(() => {
+    if (!isAchievePack()) return
+
+    const scriptId = 'merchantWidgetScript'
+    let script = document.getElementById(scriptId) as HTMLScriptElement
+
+    if (!script) {
+      script = document.createElement('script')
+      script.id = scriptId
+      script.src = 'https://www.gstatic.com/shopping/merchant/merchantwidget.js'
+      script.defer = true
+      document.body.appendChild(script)
+    }
+
+    const initWidget = () => {
+      if ((window as any).merchantwidget) {
+        try {
+          ;(window as any).merchantwidget.start({
+            merchant_id: 5787966617,
+            position: 'BOTTOM_LEFT'
+          })
+        } catch (e) {
+          console.error('Error starting Google Customer Reviews badge widget:', e)
+        }
+      }
+    }
+
+    // If script is already loaded
+    if ((window as any).merchantwidget) {
+      initWidget()
+    } else {
+      script.addEventListener('load', initWidget)
+    }
+
+    return () => {
+      script.removeEventListener('load', initWidget)
+      
+      // Clean up the iframe and widget elements if they are created by Google
+      const widgetElement = document.querySelector('iframe[src*="merchantwidget"]') || 
+                            document.querySelector('.gcr-badge') || 
+                            document.getElementById('gcr-badge')
+      if (widgetElement) {
+        widgetElement.remove()
+      }
+    }
+  }, [])
 
   return (
     <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8 border-t border-neutral-850">
@@ -322,6 +372,11 @@ export default function Footer() {
               <li><Link to="/topics/home-vs-industrial-compostable" className="hover:text-primary-400">{t('seo_topics.home_vs_industrial_compostable.title', 'Home vs Industrial')}</Link></li>
               <li><Link to="/industry/kraft-window-pouch" className="hover:text-primary-400">Kraft Window Pouches</Link></li>
               <li><Link to="/industry/durable-reusable-pouches" className="hover:text-primary-400">Eco-Friendly Ziplock Bags</Link></li>
+              <li><Link to="/topics/ai-packaging-resolution" className="hover:text-primary-400">{t('seo_topics.ai_packaging_resolution.title', 'AI Artwork Resolution')}</Link></li>
+              <li><Link to="/topics/ai-packaging-bleed-dimensions" className="hover:text-primary-400">{t('seo_topics.ai_packaging_bleed_dimensions.title', 'AI Bleed & Dimensions')}</Link></li>
+              <li><Link to="/topics/ai-packaging-safe-margins" className="hover:text-primary-400">{t('seo_topics.ai_packaging_safe_margins.title', 'AI Background Margins')}</Link></li>
+              <li><Link to="/topics/ai-packaging-layered-assets" className="hover:text-primary-400">{t('seo_topics.ai_packaging_layered_assets.title', 'AI Layered Assets')}</Link></li>
+              <li><Link to="/topics/ai-packaging-barcodes-bottom-fold" className="hover:text-primary-400">{t('seo_topics.ai_packaging_barcodes_bottom_fold.title', 'AI Barcodes & Bottom')}</Link></li>
             </ul>
           </div>
           </details>

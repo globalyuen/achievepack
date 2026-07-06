@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-05",
-  "total_images": 4883,
-  "total_categories": 205,
+  "generated": "2026-07-06",
+  "total_images": 4898,
+  "total_categories": 210,
   "extensions": {
     ".webp": 1313,
     ".png": 3017,
-    ".jpg": 550,
+    ".jpg": 565,
     ".svg": 3
   },
   "categories": {
@@ -29610,6 +29610,121 @@
           "path": "/imgs/topics/dtc_packaging_1778212333445.png",
           "extension": ".png",
           "modified": "2026-05-08T03:54:44.213Z"
+        }
+      ]
+    },
+    "topics/ai-packaging-barcodes-bottom-fold": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/ai-packaging-barcodes-bottom-fold/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:16:06.075Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/ai-packaging-barcodes-bottom-fold/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:16:06.068Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/ai-packaging-barcodes-bottom-fold/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:16:06.062Z"
+        }
+      ]
+    },
+    "topics/ai-packaging-bleed-dimensions": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/ai-packaging-bleed-dimensions/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:01:41.969Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/ai-packaging-bleed-dimensions/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:01:41.967Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/ai-packaging-bleed-dimensions/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:01:41.964Z"
+        }
+      ]
+    },
+    "topics/ai-packaging-layered-assets": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/ai-packaging-layered-assets/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:03:43.680Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/ai-packaging-layered-assets/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:03:43.677Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/ai-packaging-layered-assets/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:03:43.674Z"
+        }
+      ]
+    },
+    "topics/ai-packaging-resolution": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/ai-packaging-resolution/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:00:45.766Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/ai-packaging-resolution/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:00:45.762Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/ai-packaging-resolution/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:00:45.760Z"
+        }
+      ]
+    },
+    "topics/ai-packaging-safe-margins": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/ai-packaging-safe-margins/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:02:41.951Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/ai-packaging-safe-margins/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:02:41.949Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/ai-packaging-safe-margins/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-06T02:02:41.947Z"
         }
       ]
     },
