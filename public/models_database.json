@@ -3855,8 +3855,8 @@
     "id": "978",
     "name": "处方/非处方药品医药保健塑料管包装模型",
     "keywords": "601250,包装,软包装,烫伤膏,护手霜,祛痘膏,BB霜,防晒霜",
-    "dieline_image": "/dielines/978.png",
-    "glb_file": "/models/978.glb",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a04479d1-07b2-4900-87d7-5d95d507d18e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/731fa632-19d2-4456-be42-dfd4f9ab52ce.glb",
     "dimensions": "产品尺寸：H:133mm  D:21mm",
     "description": "包装贴图尺寸：L:48mm  H:125mm 常见于洗面奶，护手霜，洗发水，护发素，烫伤膏的收纳 参考品牌/产品：澳洲烫伤膏 建议容量：25g"
   },

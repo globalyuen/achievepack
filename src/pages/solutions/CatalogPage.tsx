@@ -210,13 +210,19 @@ export default function CatalogPage() {
                         </div>
 
                         {/* Action Link */}
-                        <div className="p-4 bg-neutral-950 border-t border-neutral-900 flex">
+                        <div className="p-4 bg-neutral-950 border-t border-neutral-900 flex gap-2">
+                          <Link
+                            to={`/solutions/shapes/${shape.id}`}
+                            className="w-1/2 text-center bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 font-bold text-xs py-2 rounded-lg transition-all flex items-center justify-center gap-1"
+                          >
+                            3D Specs
+                          </Link>
                           <Link
                             to={`/app?shape=${shape.id}`}
-                            className="w-full text-center bg-neutral-900 hover:bg-emerald-500 border border-neutral-800 hover:border-emerald-500 text-neutral-300 hover:text-neutral-950 hover:bg-emerald-500 font-bold text-xs py-2 rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5"
+                            className="w-1/2 text-center bg-emerald-500 hover:bg-emerald-450 border border-emerald-500 text-neutral-950 font-bold text-xs py-2 rounded-lg transition-all flex items-center justify-center gap-1"
                           >
-                            Edit in 3D Studio
-                            <ArrowRight className="w-3.5 h-3.5" />
+                            Edit 3D
+                            <ArrowRight className="w-3 h-3" />
                           </Link>
                         </div>
                       </div>

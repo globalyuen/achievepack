@@ -159,14 +159,29 @@ function generate() {
   const productB2BRoutes = FEATURED_PRODUCTS.map(p => `/store/product/${p.id}`);
   console.log(`🛍️ Found ${FEATURED_PRODUCTS.length} products to inject into sitemaps.`);
 
+  // Dynamic packaging shapes injection
+  const modelsDbPath = path.join(__dirname, '../public/models_database.json');
+  let shapeRoutes: string[] = [];
+  if (fs.existsSync(modelsDbPath)) {
+    try {
+      const shapes = JSON.parse(fs.readFileSync(modelsDbPath, 'utf-8'));
+      if (Array.isArray(shapes)) {
+        shapeRoutes = shapes.map((s: any) => `/solutions/shapes/${s.id}`);
+        console.log(`📦 Loaded ${shapeRoutes.length} dynamic packaging shape routes for sitemaps.`);
+      }
+    } catch (e: any) {
+      console.warn('⚠️ Could not load packaging shapes from models_database.json:', e.message);
+    }
+  }
+
   // Merge lists and include core shop route
   const basePouchRoutes = mapping.pouch || [];
   if (!basePouchRoutes.includes('/shop')) {
     basePouchRoutes.push('/shop');
   }
 
-  const pouchRoutes = [...basePouchRoutes, ...dynamicBlogRoutes, ...productB2CRoutes];
-  const achieveRoutes = [...(mapping.achieve || []), ...dynamicBlogRoutes, ...productB2BRoutes];
+  const pouchRoutes = [...basePouchRoutes, ...dynamicBlogRoutes, ...productB2CRoutes, ...shapeRoutes];
+  const achieveRoutes = [...(mapping.achieve || []), ...dynamicBlogRoutes, ...productB2BRoutes, ...shapeRoutes];
 
   console.log(`📊 Loaded ${pouchRoutes.length} B2C (pouch.eco) and ${achieveRoutes.length} B2B (achievepack) routes.`);
 
