@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Box, Sparkles, Check, Info, FileText, ArrowRight } from 'lucide-react';
 import { getDomain } from '../../utils/domain';
@@ -78,17 +78,106 @@ export default function ShapeDetailPage() {
     categoryKey = 'pouch';
   }
 
+  // Detect current language from pathname
+  const location = useLocation();
+  const getLanguageFromPath = (pathStr: string) => {
+    const parts = pathStr.split('/').filter(Boolean);
+    const possibleLang = parts[0]?.toLowerCase();
+    if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+      return possibleLang;
+    }
+    return 'en';
+  };
+  const currentLang = getLanguageFromPath(location.pathname);
+
   // Construct localized meta title and description
-  const metaTitle = `Custom ${shape.name} | Model #${shape.id} Structural 3D Specs | AchievePack`;
-  const metaDesc = `Sourcing custom printed ${shape.name} (Model ID: #${shape.id}). Configure custom dimensions (${shape.dimensions || 'variable parameters'}) directly in our interactive 3D Prepress Studio.`;
+  const localizedMeta = useMemo(() => {
+    const cleanDimensions = shape.dimensions || (isPouchDomain ? 'Dynamic parameters' : 'variable parameters');
+    
+    if (isPouchDomain) {
+      // Pouch.eco
+      switch (currentLang) {
+        case 'es':
+          return {
+            title: `Pouch.eco | Forma de ${shape.name} Personalizada #${shape.id}`,
+            description: `Diseñe y exporte empaques personalizados para ${shape.name}. Modelo ID #${shape.id}. Disponible en películas biodegradables y PE reciclado posconsumo.`
+          };
+        case 'fr':
+          return {
+            title: `Pouch.eco | Forme de ${shape.name} Personnalisée #${shape.id}`,
+            description: `Concevez et exportez des emballages personnalisés pour ${shape.name}. Modèle ID #${shape.id}. Disponible en films biodégradables et PE recyclé post-consommation.`
+          };
+        case 'zh-tw':
+          return {
+            title: `Pouch.eco | 客製化 ${shape.name} 形狀 #${shape.id}`,
+            description: `為 ${shape.name} 設計並匯出客製化包裝。型號 ID #${shape.id}。提供生物可降解薄膜和消費後回收 PE。`
+          };
+        default:
+          return {
+            title: `Pouch.eco | Custom ${shape.name} Shape #${shape.id}`,
+            description: `Design and export custom packaging for ${shape.name}. Model ID #${shape.id}. Available in biodegradable films and post-consumer recycled PE.`
+          };
+      }
+    } else {
+      // AchievePack
+      switch (currentLang) {
+        case 'es':
+          return {
+            title: `Personalizado ${shape.name} | Modelo #${shape.id} Especificaciones 3D | AchievePack`,
+            description: `Adquiera ${shape.name} impreso a medida (Modelo ID: #${shape.id}). Configure dimensiones personalizadas (${cleanDimensions}) directamente en nuestro Estudio de Preimpresión 3D interactivo.`
+          };
+        case 'fr':
+          return {
+            title: `Personnalisé ${shape.name} | Modèle #${shape.id} Spécifications 3D | AchievePack`,
+            description: `Commandez ${shape.name} personnalisé (Modèle ID: #${shape.id}). Configurez les dimensions (${cleanDimensions}) directement dans notre Studio de Prépresse 3D interactif.`
+          };
+        case 'zh-tw':
+          return {
+            title: `客製化 ${shape.name} | 型號 #${shape.id} 結構 3D 規格 | AchievePack`,
+            description: `採購客製化印刷 ${shape.name}（型號 ID：#${shape.id}）。在我們的互動式 3D 印前設計室中直接配置自訂尺寸（${cleanDimensions}）。`
+          };
+        default:
+          return {
+            title: `Custom ${shape.name} | Model #${shape.id} Structural 3D Specs | AchievePack`,
+            description: `Sourcing custom printed ${shape.name} (Model ID: #${shape.id}). Configure custom dimensions (${cleanDimensions}) directly in our interactive 3D Prepress Studio.`
+          };
+      }
+    }
+  }, [shape, currentLang, isPouchDomain]);
+
+  // Construct canonical and hreflang alternate links
+  const seoLinks = useMemo(() => {
+    const baseUrl = isPouchDomain ? 'https://pouch.eco' : 'https://achievepack.com';
+    const cleanRoute = `/solutions/shapes/${shape.id}`;
+    
+    // Canonical link
+    const canonical = currentLang === 'en' 
+      ? `${baseUrl}${cleanRoute}` 
+      : `${baseUrl}/${currentLang}${cleanRoute}`;
+      
+    // Alternates
+    const alternates = [
+      { lang: 'x-default', href: `${baseUrl}${cleanRoute}` },
+      { lang: 'en', href: `${baseUrl}${cleanRoute}` },
+      { lang: 'fr', href: `${baseUrl}/fr${cleanRoute}` },
+      { lang: 'es', href: `${baseUrl}/es${cleanRoute}` },
+      { lang: 'zh-TW', href: `${baseUrl}/zh-tw${cleanRoute}` }
+    ];
+    
+    return { canonical, alternates };
+  }, [shape.id, currentLang, isPouchDomain]);
 
   // AchievePack (AP) Theme Layout
   const renderAPLayout = () => {
     return (
       <>
         <Helmet>
-          <title>{metaTitle}</title>
-          <meta name="description" content={metaDesc} />
+          <title>{localizedMeta.title}</title>
+          <meta name="description" content={localizedMeta.description} />
+          <link rel="canonical" href={seoLinks.canonical} />
+          {seoLinks.alternates.map(alt => (
+            <link key={alt.lang} rel="alternate" hrefLang={alt.lang} href={alt.href} />
+          ))}
         </Helmet>
         <SiteHeader />
         <div className="bg-neutral-900 text-neutral-100 min-h-screen py-16 px-6 lg:px-12 pt-[120px] font-sans">
@@ -211,8 +300,12 @@ export default function ShapeDetailPage() {
     return (
       <>
         <Helmet>
-          <title>{`Pouch.eco | Custom ${shape.name} Shape #${shape.id}`}</title>
-          <meta name="description" content={`Design and export custom packaging for ${shape.name}. Model ID #${shape.id}. Available in biodegradable films and post-consumer recycled PE.`} />
+          <title>{localizedMeta.title}</title>
+          <meta name="description" content={localizedMeta.description} />
+          <link rel="canonical" href={seoLinks.canonical} />
+          {seoLinks.alternates.map(alt => (
+            <link key={alt.lang} rel="alternate" hrefLang={alt.lang} href={alt.href} />
+          ))}
         </Helmet>
         <PouchLayout>
           <div className="min-h-screen bg-[#F0F0F0] text-black font-['Space_Grotesk'] pb-16 pt-8">
@@ -227,7 +320,7 @@ export default function ShapeDetailPage() {
               {/* Left Column: 3D Viewport Neobrutalist style */}
               <div className="border-4 border-black bg-white p-6 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between min-h-[450px]">
                 <div className="flex justify-between items-start mb-4">
-                  <NeoBadge variant="primary" className="text-[10px] tracking-wider uppercase font-black">
+                  <NeoBadge color="lime" className="text-[10px] tracking-wider uppercase font-black">
                     {categoryName}
                   </NeoBadge>
                   <span className="font-['JetBrains_Mono'] text-xs font-bold text-neutral-500">ID: #{shape.id}</span>
