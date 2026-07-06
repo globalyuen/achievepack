@@ -826,7 +826,7 @@ export default function PackageEditorPage() {
     materialsRef.current.forEach((mesh) => {
       const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
       mats.forEach(mat => {
-        const name = mat.name || `Material #${mat.id}`;
+        const name = mat.name || `Material #${(mat as any).id}`;
         if (targetMatName === 'all' || name === targetMatName) {
           if ('roughness' in mat) currentR = (mat as any).roughness;
           if ('metalness' in mat) currentM = (mat as any).metalness;
@@ -845,7 +845,7 @@ export default function PackageEditorPage() {
     materialsRef.current.forEach((mesh) => {
       const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
       mats.forEach(mat => {
-        const name = mat.name || `Material #${mat.id}`;
+        const name = mat.name || `Material #${(mat as any).id}`;
         if (targetMatName === 'all' || name === targetMatName) {
           if ('roughness' in mat) {
             (mat as any).roughness = val;
@@ -864,7 +864,7 @@ export default function PackageEditorPage() {
     materialsRef.current.forEach((mesh) => {
       const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
       mats.forEach(mat => {
-        const name = mat.name || `Material #${mat.id}`;
+        const name = mat.name || `Material #${(mat as any).id}`;
         if (targetMatName === 'all' || name === targetMatName) {
           if ('metalness' in mat) {
             (mat as any).metalness = val;
@@ -1190,7 +1190,7 @@ export default function PackageEditorPage() {
 
           <div className="flex-grow border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.5)] rounded-xl relative overflow-hidden flex items-center justify-center">
             <canvas 
-              ref={dielineCanvasRef} 
+              ref={editorCanvasRef} 
               width={1000} 
               height={619}
               onMouseDown={handleCanvasMouseDown}
