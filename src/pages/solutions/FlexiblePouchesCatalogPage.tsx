@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, HelpCircle, Layers, Shield, Sparkles } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
+import { Helmet } from 'react-helmet-async';
+import SiteHeader from '../../components/SiteHeader';
+import Footer from '../../components/Footer';
 import ClickableImage from '../../components/ClickableImage';
 
 export default function FlexiblePouchesCatalogPage() {
@@ -11,11 +13,15 @@ export default function FlexiblePouchesCatalogPage() {
   ];
 
   return (
-    <SEOPageLayout
-      title="Custom Flexible Pouches Catalog | Barrier Film Packaging Bags"
-      description="Sourcing premium stand-up pouches, flat bottom coffee bags, and spouted liquid pouches. High barrier EVOH structures, recyclable Mono-PE, and compostable films."
-    >
-      <div className="bg-neutral-900 text-neutral-100 min-h-screen py-16 px-6 lg:px-12 font-sans">
+    <>
+      <Helmet>
+        <title>Custom Flexible Pouches Catalog | Barrier Film Packaging Bags | AchievePack</title>
+        <meta name="description" content="Sourcing premium stand-up pouches, flat bottom coffee bags, and spouted liquid pouches. High barrier EVOH structures, recyclable Mono-PE, and compostable films." />
+      </Helmet>
+
+      <SiteHeader />
+
+      <div className="bg-neutral-900 text-neutral-100 min-h-screen py-16 px-6 lg:px-12 font-sans pt-[100px]">
         
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -84,7 +90,7 @@ export default function FlexiblePouchesCatalogPage() {
                 <ArrowRight className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2">Three-Side Seal Flat</h3>
-              <p className="text-sm text-neutral-450 leading-relaxed">
+              <p className="text-sm text-neutral-455 leading-relaxed">
                 Cost-effective flat sachets sealed on the bottom and two sides. Ideal for single-serve samples, cosmetics wipes, and nutritional bars.
               </p>
             </div>
@@ -160,7 +166,7 @@ export default function FlexiblePouchesCatalogPage() {
             <p className="text-sm text-neutral-400 leading-relaxed mb-4">
               Our pouches conform to FDA and BRC guidelines for direct food contact. Standard layers include:
             </p>
-            <ul className="text-xs text-neutral-450 space-y-2">
+            <ul className="text-xs text-neutral-455 space-y-2">
               <li className="flex items-center gap-2">✓ Outer layer: Matte or Gloss finish (PET/OPP)</li>
               <li className="flex items-center gap-2">✓ Barrier layer: Moisture & Gas protection (VMPET/AL/EVOH)</li>
               <li className="flex items-center gap-2">✓ Inner layer: Heat-sealable food safety film (PE/CPP)</li>
@@ -191,6 +197,8 @@ export default function FlexiblePouchesCatalogPage() {
         </div>
 
       </div>
-    </SEOPageLayout>
+
+      <Footer />
+    </>
   );
 }

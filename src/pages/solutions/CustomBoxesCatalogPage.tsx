@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, HelpCircle, Box, Shield, Zap, Sparkles } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
+import { Helmet } from 'react-helmet-async';
+import SiteHeader from '../../components/SiteHeader';
+import Footer from '../../components/Footer';
 import ClickableImage from '../../components/ClickableImage';
 
 export default function CustomBoxesCatalogPage() {
@@ -11,11 +13,15 @@ export default function CustomBoxesCatalogPage() {
   ];
 
   return (
-    <SEOPageLayout
-      title="Custom Paper Boxes Sourcing Guide | Premium Packaging Solutions"
-      description="Explore our catalog of custom folding cartons, corrugated mailers, and luxury rigid boxes. Low 200 MOQ, FSC certified sustainable cardboard, and Pantone matching."
-    >
-      <div className="bg-neutral-900 text-neutral-100 min-h-screen py-16 px-6 lg:px-12 font-sans">
+    <>
+      <Helmet>
+        <title>Custom Paper Boxes Sourcing Guide | Premium Packaging Solutions | AchievePack</title>
+        <meta name="description" content="Explore our catalog of custom folding cartons, corrugated mailers, and luxury rigid boxes. Low 200 MOQ, FSC certified sustainable cardboard, and Pantone matching." />
+      </Helmet>
+
+      <SiteHeader />
+
+      <div className="bg-neutral-900 text-neutral-100 min-h-screen py-16 px-6 lg:px-12 font-sans pt-[100px]">
         
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -187,6 +193,8 @@ export default function CustomBoxesCatalogPage() {
         </div>
 
       </div>
-    </SEOPageLayout>
+
+      <Footer />
+    </>
   );
 }

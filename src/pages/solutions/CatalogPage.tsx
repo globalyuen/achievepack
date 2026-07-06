@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Filter, Box, Layers, Database, Sparkles, HelpCircle, ArrowRight } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
+import { Helmet } from 'react-helmet-async';
+import SiteHeader from '../../components/SiteHeader';
+import Footer from '../../components/Footer';
 
 interface Shape {
   id: string;
@@ -75,11 +77,15 @@ export default function CatalogPage() {
   };
 
   return (
-    <SEOPageLayout
-      title="3000+ Custom Packaging Catalog & B2B Spec Sourcing Library"
-      description="Access our database of over 3000+ packaging shapes, boxes, flexible pouches, and skincare pump bottles. Select any model to customize directly in our interactive 3D Studio."
-    >
-      <div className="bg-neutral-900 text-neutral-100 min-h-screen py-12 px-6 lg:px-12 font-sans">
+    <>
+      <Helmet>
+        <title>3000+ Custom Packaging Catalog & B2B Spec Sourcing Library | AchievePack</title>
+        <meta name="description" content="Access our database of over 3000+ packaging shapes, boxes, flexible pouches, and skincare pump bottles. Select any model to customize directly in our interactive 3D Studio." />
+      </Helmet>
+
+      <SiteHeader />
+
+      <div className="bg-neutral-900 text-neutral-100 min-h-screen py-12 px-6 lg:px-12 font-sans pt-[100px]">
         
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto mb-16 text-center lg:text-left">
@@ -169,15 +175,18 @@ export default function CatalogPage() {
                       catName = 'Flexible Pouch';
                     }
 
+                    // Render locally hosted Vercel asset paths
+                    const dielineSrc = shape.dieline_image.startsWith('/') ? shape.dieline_image : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
+
                     return (
                       <div
                         key={shape.id}
                         className="bg-neutral-950 border border-neutral-800 hover:border-neutral-700 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group"
                       >
-                        {/* Thumbnail View via Serverless Proxy */}
+                        {/* Thumbnail View */}
                         <div className="aspect-[4/3] bg-neutral-900 relative overflow-hidden flex items-center justify-center border-b border-neutral-800/60 p-4">
                           <img
-                            src={shape.dieline_image ? `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}` : '/dieline.png'}
+                            src={dielineSrc}
                             alt={shape.name}
                             loading="lazy"
                             className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
@@ -204,7 +213,7 @@ export default function CatalogPage() {
                         <div className="p-4 bg-neutral-950 border-t border-neutral-900 flex">
                           <Link
                             to={`/app?shape=${shape.id}`}
-                            className="w-full text-center bg-neutral-900 hover:bg-emerald-500 border border-neutral-800 hover:border-emerald-500 text-neutral-300 hover:text-neutral-950 font-bold text-xs py-2 rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5"
+                            className="w-full text-center bg-neutral-900 hover:bg-emerald-500 border border-neutral-800 hover:border-emerald-500 text-neutral-300 hover:text-neutral-950 hover:bg-emerald-500 font-bold text-xs py-2 rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5"
                           >
                             Edit in 3D Studio
                             <ArrowRight className="w-3.5 h-3.5" />
@@ -232,6 +241,8 @@ export default function CatalogPage() {
         )}
 
       </div>
-    </SEOPageLayout>
+
+      <Footer />
+    </>
   );
 }

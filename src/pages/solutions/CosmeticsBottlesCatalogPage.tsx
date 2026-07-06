@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, HelpCircle, Shield, Droplet, Sparkles } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
+import { Helmet } from 'react-helmet-async';
+import SiteHeader from '../../components/SiteHeader';
+import Footer from '../../components/Footer';
 import ClickableImage from '../../components/ClickableImage';
 
 export default function CosmeticsBottlesCatalogPage() {
@@ -11,11 +13,15 @@ export default function CosmeticsBottlesCatalogPage() {
   ];
 
   return (
-    <SEOPageLayout
-      title="Cosmetics & Daily Chemical Bottles Catalog | Skincare Pump Containers"
-      description="Sourcing premium cosmetic pump bottles, facial lotion jars, and organic essential oil dropper bottles. Post-consumer recycled PCR plastic, glass and bio-PE."
-    >
-      <div className="bg-neutral-900 text-neutral-100 min-h-screen py-16 px-6 lg:px-12 font-sans">
+    <>
+      <Helmet>
+        <title>Cosmetics & Daily Chemical Bottles Catalog | Skincare Pump Containers | AchievePack</title>
+        <meta name="description" content="Sourcing premium cosmetic pump bottles, facial lotion jars, and organic essential oil dropper bottles. Post-consumer recycled PCR plastic, glass and bio-PE." />
+      </Helmet>
+
+      <SiteHeader />
+
+      <div className="bg-neutral-900 text-neutral-100 min-h-screen py-16 px-6 lg:px-12 font-sans pt-[100px]">
         
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -191,6 +197,8 @@ export default function CosmeticsBottlesCatalogPage() {
         </div>
 
       </div>
-    </SEOPageLayout>
+
+      <Footer />
+    </>
   );
 }
