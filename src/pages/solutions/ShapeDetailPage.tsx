@@ -17,6 +17,7 @@ interface Shape {
   glb_file: string;
   dimensions: string;
   description: string;
+  slug?: string;
 }
 
 export default function ShapeDetailPage() {

@@ -44,6 +44,11 @@ export default function StoreFooter() {
               <li><Link to="/quotes/rollstock" className="hover:text-primary-400">Rollstock Film</Link></li>
               <li><Link to="/packaging/shrink-sleeves" className="hover:text-primary-400 font-medium text-primary-400">Shrink Sleeves <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
               <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
+              <li className="pt-2 border-t border-neutral-800/40 font-semibold text-neutral-300">3D Spec Directory</li>
+              <li><Link to="/solutions/catalog" className="hover:text-primary-400 font-medium text-emerald-450">3D Packaging Catalog</Link></li>
+              <li><Link to="/solutions/flexible-pouches-catalog" className="hover:text-primary-400">Flexible Pouches Specs</Link></li>
+              <li><Link to="/solutions/custom-boxes-catalog" className="hover:text-primary-400">Custom Boxes Specs</Link></li>
+              <li><Link to="/solutions/cosmetics-bottles-catalog" className="hover:text-primary-400">Cosmetics Bottles Specs</Link></li>
             </ul>
           </div>
 

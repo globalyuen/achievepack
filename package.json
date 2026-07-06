@@ -137,7 +137,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
+      "esbuild",
+      "pngquant-bin"
     ]
   }
 }

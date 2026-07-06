@@ -210,6 +210,15 @@ export default function Footer() {
                   <span>Spec Finder App</span>
                 </Link>
               </li>
+              <li className="pt-2 border-t border-neutral-800/40 font-semibold text-neutral-300">3D Spec Directory</li>
+              <li>
+                <Link to="/solutions/catalog" className="hover:text-primary-400 font-medium text-emerald-450 flex items-center gap-1">
+                  <span>3D Packaging Catalog</span>
+                </Link>
+              </li>
+              <li><Link to="/solutions/flexible-pouches-catalog" className="hover:text-primary-400">Flexible Pouches Specs</Link></li>
+              <li><Link to="/solutions/custom-boxes-catalog" className="hover:text-primary-400">Custom Boxes Specs</Link></li>
+              <li><Link to="/solutions/cosmetics-bottles-catalog" className="hover:text-primary-400">Cosmetics Bottles Specs</Link></li>
               <li className="pt-2 border-t border-neutral-800/40 font-semibold text-neutral-300">{t('pouchEcoFooter.usaMarket', 'USA Market')}</li>
               <li><Link to="/usa/compostable-packaging" className="hover:text-primary-400">{t('pouchEcoFooter.compostablePackagingUsa', 'Compostable Packaging')}</Link></li>
               <li><Link to="/usa/coffee-packaging" className="hover:text-primary-400">{t('pouchEcoFooter.coffeePackagingUsa', 'Coffee Packaging')}</Link></li>
