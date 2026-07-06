@@ -153,6 +153,10 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/products/compostable-side-gusset-bags': () => import('./pages/products/CompostableSideGussetPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
+  '/solutions/catalog': () => import('./pages/solutions/CatalogPage'),
+  '/solutions/custom-boxes-catalog': () => import('./pages/solutions/CustomBoxesCatalogPage'),
+  '/solutions/flexible-pouches-catalog': () => import('./pages/solutions/FlexiblePouchesCatalogPage'),
+  '/solutions/cosmetics-bottles-catalog': () => import('./pages/solutions/CosmeticsBottlesCatalogPage'),
   '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
   '/dieline-creator': () => import('./pages/PouchDielineCreatorPage'),
@@ -495,6 +499,10 @@ const CoffeeRoasterPage = lazyWithRetry(() => import('./pages/solutions/CoffeeRo
 const ArtisanProducerPage = lazyWithRetry(() => import('./pages/solutions/ArtisanProducerPage'))
 const SnackBrandManagerPage = lazyWithRetry(() => import('./pages/solutions/SnackBrandManagerPage'))
 const CitrusOilPackagingPage = lazyWithRetry(() => import('./pages/solutions/CitrusOilPackagingPage'))
+const CatalogPage = lazyWithRetry(() => import('./pages/solutions/CatalogPage'))
+const CustomBoxesCatalogPage = lazyWithRetry(() => import('./pages/solutions/CustomBoxesCatalogPage'))
+const FlexiblePouchesCatalogPage = lazyWithRetry(() => import('./pages/solutions/FlexiblePouchesCatalogPage'))
+const CosmeticsBottlesCatalogPage = lazyWithRetry(() => import('./pages/solutions/CosmeticsBottlesCatalogPage'))
 
 // Topics Pages - AI Search Volume SEO - Lazy loaded
 const AiPackagingResolutionPage = lazyWithRetry(() => import('./pages/topics/AiPackagingResolution'))
@@ -1116,6 +1124,10 @@ if (getDomain() === 'pouch') {
                   <Route path="/solutions/artisan-producer" element={<ArtisanProducerPage />} />
                   <Route path="/solutions/snack-brand-manager" element={<SnackBrandManagerPage />} />
                   <Route path="/solutions/citrus-oil-packaging" element={<CitrusOilPackagingPage />} />
+                  <Route path="/solutions/catalog" element={<CatalogPage />} />
+                  <Route path="/solutions/custom-boxes-catalog" element={<CustomBoxesCatalogPage />} />
+                  <Route path="/solutions/flexible-pouches-catalog" element={<FlexiblePouchesCatalogPage />} />
+                  <Route path="/solutions/cosmetics-bottles-catalog" element={<CosmeticsBottlesCatalogPage />} />
                   <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />
                   <Route path="/case-studies/tea-brand" element={<TeaBrandCaseStudy />} />
                   <Route path="/case-studies/superfood-brand" element={<SuperfoodBrandCaseStudy />} />
@@ -1561,6 +1573,10 @@ if (getDomain() === 'pouch') {
                         <Route path="/solutions/artisan-producer" element={<ArtisanProducerPage />} />
                         <Route path="/solutions/snack-brand-manager" element={<SnackBrandManagerPage />} />
                         <Route path="/solutions/citrus-oil-packaging" element={<CitrusOilPackagingPage />} />
+                        <Route path="/solutions/catalog" element={<CatalogPage />} />
+                        <Route path="/solutions/custom-boxes-catalog" element={<CustomBoxesCatalogPage />} />
+                        <Route path="/solutions/flexible-pouches-catalog" element={<FlexiblePouchesCatalogPage />} />
+                        <Route path="/solutions/cosmetics-bottles-catalog" element={<CosmeticsBottlesCatalogPage />} />
 
                         {/* Topics Pages - AI Search Volume SEO */}
           <Route path="/topics/ai-packaging-resolution" element={<AiPackagingResolutionPage />} />
