@@ -168,7 +168,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute left-0 mt-2 w-[620px] bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-4 font-['Space_Grotesk'] text-black grid grid-cols-2 gap-4"
+                    className="absolute right-0 mt-2 w-[620px] bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-4 font-['Space_Grotesk'] text-black grid grid-cols-2 gap-4"
                   >
                     {/* Left Column: Sizing & Specs Apps */}
                     <div className="space-y-2">
