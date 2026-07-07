@@ -21,6 +21,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.webhook_logs TO anon, authe
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.artwork_files TO anon, authenticated, service_role;
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.artwork_comments TO anon, authenticated, service_role;
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.artwork_batch_items TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.artwork_batches TO anon, authenticated, service_role;
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.project_comments TO anon, authenticated, service_role;
 
 -- 4. Blog & Search Analytics (B2C & B2B Hubs)

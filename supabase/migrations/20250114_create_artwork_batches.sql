@@ -39,3 +39,8 @@ ALTER TABLE artwork_batch_items ENABLE ROW LEVEL SECURITY;
 
 CREATE POLICY "allow_all_batches" ON artwork_batches FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "allow_all_items" ON artwork_batch_items FOR ALL USING (true) WITH CHECK (true);
+
+-- Ensure all tables are exposed to Data/REST/GraphQL APIs (Supabase Breaking Change #45329)
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.artwork_batches TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.artwork_batch_items TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated, service_role;
