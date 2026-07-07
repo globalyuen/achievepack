@@ -47,6 +47,13 @@ export default function PackageEditorPage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadingText, setLoadingText] = useState<string>('正在加載 3D 模型...');
 
+  // Share & Password states
+  const [isShareModalOpen, setIsShareModalOpen] = useState<boolean>(false);
+  const [passwordInput, setPasswordInput] = useState<string>('');
+  const [isPremiumUnlocked, setIsPremiumUnlocked] = useState<boolean>(false);
+  const [shareLink, setShareLink] = useState<string>('');
+  const [copiedLink, setCopiedLink] = useState<boolean>(false);
+
   const [isEmailModalOpen, setIsEmailModalOpen] = useState<boolean>(false);
   const [emailInput, setEmailInput] = useState<string>('');
   const [isSubmittingEmail, setIsSubmittingEmail] = useState<boolean>(false);
@@ -172,6 +179,7 @@ export default function PackageEditorPage() {
     };
 
     const drawWatermark = (cContext: CanvasRenderingContext2D) => {
+      if (isPremiumUnlocked || passwordInput === 'ryan') return; // Skip watermark if premium unlocked
       cContext.save();
       cContext.fillStyle = 'rgba(150, 150, 150, 0.22)';
       cContext.font = 'bold 24px sans-serif';
@@ -203,7 +211,7 @@ export default function PackageEditorPage() {
     }
 
     // Draw repeating pattern of AP Logo on skin
-    if (logoImgRef.current && logoImgRef.current.complete) {
+    if (!isPremiumUnlocked && passwordInput !== 'ryan' && logoImgRef.current && logoImgRef.current.complete) {
       try {
         offscreenCtx.save();
         offscreenCtx.globalCompositeOperation = 'multiply';
@@ -254,7 +262,7 @@ export default function PackageEditorPage() {
   // Sync canvas drawings on state changes
   useEffect(() => {
     updateEditor();
-  }, [layers, selectedLayer, showDieline]);
+  }, [layers, selectedLayer, showDieline, isPremiumUnlocked, passwordInput]);
 
   // Handle Dimensions Scaling
   const updateModelScale = () => {
@@ -780,17 +788,30 @@ export default function PackageEditorPage() {
     }
   };
 
-  // Auto load shape from URL query parameter
+  // Auto load shape and shared artwork from URL parameters
   useEffect(() => {
     if (shapes.length === 0) return;
     const searchParams = new URLSearchParams(window.location.search);
     const shapeId = searchParams.get('shape');
+    const widthParam = searchParams.get('w');
+    const heightParam = searchParams.get('h');
+    const pwParam = searchParams.get('pw');
+    const artworkParam = searchParams.get('artwork');
+
+    if (pwParam === 'ryan') {
+      setIsPremiumUnlocked(true);
+      setPasswordInput('ryan');
+    }
+
     if (shapeId) {
       const shape = shapes.find(s => String(s.id) === String(shapeId));
       if (shape) {
         setSelectedShapeId(shape.id);
         loadShape(shape);
         
+        if (widthParam) setWidth(Number(widthParam));
+        if (heightParam) setHeight(Number(heightParam));
+
         // Automatically switch active tab category on direct load
         const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
         const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
@@ -802,6 +823,26 @@ export default function PackageEditorPage() {
         else if (isBottle) setActiveCategory('bottle');
         else if (isLabel) setActiveCategory('label');
         else setActiveCategory('other');
+
+        // Load shared artwork if present
+        if (artworkParam) {
+          const img = new Image();
+          img.src = artworkParam;
+          img.onload = () => {
+            const sharedLayer: Layer = {
+              id: 'shared-artwork',
+              img,
+              name: 'Shared Artwork',
+              pos: { x: 500, y: 309 },
+              scale: 1.0,
+              rotation: 0,
+              width: 1000,
+              height: 619
+            };
+            setLayers([sharedLayer]);
+            setSelectedLayer(sharedLayer);
+          };
+        }
       }
     }
   }, [shapes]);
@@ -967,6 +1008,44 @@ export default function PackageEditorPage() {
 
     setIsSubmittingEmail(false);
     setEmailSubmitted(true);
+  };
+
+  const generateShareLink = () => {
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = 500;
+    tempCanvas.height = 310;
+    const tempCtx = tempCanvas.getContext('2d');
+    if (!tempCtx) return;
+
+    tempCtx.fillStyle = '#ffffff';
+    tempCtx.fillRect(0, 0, 500, 310);
+
+    layers.forEach(layer => {
+      tempCtx.save();
+      const drawScale = 0.5;
+      tempCtx.translate(layer.pos.x * drawScale, layer.pos.y * drawScale);
+      tempCtx.rotate(layer.rotation * (Math.PI / 180));
+      const w = layer.width * layer.scale * drawScale;
+      const h = layer.height * layer.scale * drawScale;
+      tempCtx.drawImage(layer.img, -w / 2, -h / 2, w, h);
+      tempCtx.restore();
+    });
+
+    const base64Data = tempCanvas.toDataURL('image/jpeg', 0.5);
+
+    const searchParams = new URLSearchParams();
+    searchParams.set('shape', selectedShapeId);
+    searchParams.set('w', String(width));
+    searchParams.set('h', String(height));
+    if (isPremiumUnlocked || passwordInput === 'ryan') {
+      searchParams.set('pw', 'ryan');
+    }
+    searchParams.set('artwork', base64Data);
+
+    const fullUrl = `${window.location.origin}${window.location.pathname}?${searchParams.toString()}`;
+    setShareLink(fullUrl);
+    setIsShareModalOpen(true);
+    setCopiedLink(false);
   };
 
   // Layers ordering Up / Down
@@ -1274,7 +1353,7 @@ export default function PackageEditorPage() {
                     setSelectedShapeId(shape.id);
                     loadShape(shape);
                   }}
-                  className={`w-[96px] h-[96px] flex-shrink-0 rounded-xl border p-1.5 flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-[1.05] ${
+                  className={`w-[128px] h-[128px] flex-shrink-0 rounded-xl border p-1.5 flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-[1.05] ${
                     isSelected
                       ? 'bg-[rgba(100,255,218,0.08)] border-[#64ffda] shadow-[0_0_8px_rgba(100,255,218,0.25)] scale-[1.02]'
                       : 'bg-[rgba(0,0,0,0.4)] border-[rgba(255,255,255,0.08)] hover:border-neutral-500'
@@ -1451,6 +1530,39 @@ export default function PackageEditorPage() {
               </svg>
               Download 3D Model (Watermark-Free)
             </button>
+            {/* Share Artwork Block */}
+            <div className="flex flex-col gap-2 p-2 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-lg">
+              <button 
+                onClick={generateShareLink}
+                className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-400 hover:to-indigo-400 text-white font-semibold text-[13px] py-2 px-3 rounded-lg shadow-md flex items-center justify-center gap-1.5 transition-all duration-300"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.8 2.04.8 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.3 2.04-.8l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/>
+                </svg>
+                Generate Share Link
+              </button>
+              
+              <input 
+                type="password"
+                placeholder="Enter 'ryan' to remove watermark"
+                value={passwordInput}
+                onChange={(e) => {
+                  setPasswordInput(e.target.value);
+                  if (e.target.value === 'ryan') {
+                    setIsPremiumUnlocked(true);
+                  } else {
+                    setIsPremiumUnlocked(false);
+                  }
+                }}
+                className="w-full bg-[rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.15)] focus:border-[#64ffda] text-[11px] text-white px-2.5 py-1.5 rounded-lg outline-none transition-all placeholder-neutral-500 text-center"
+              />
+              {isPremiumUnlocked && (
+                <div className="text-[10px] text-emerald-400 font-bold text-center">
+                  ✨ Watermarks Disabled (Premium Unlocked)
+                </div>
+              )}
+            </div>
+
             <button 
               onClick={resetAllValues}
               className="w-full border border-[rgba(255,255,255,0.15)] hover:border-[#f3f4f6] text-[#9ca3af] hover:text-[#f3f4f6] font-semibold text-[13px] py-2.5 px-4 rounded-lg transition-all duration-300"
@@ -1677,6 +1789,81 @@ export default function PackageEditorPage() {
                 </button>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Share Link Modal */}
+      {isShareModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+          <div className="w-full max-w-md bg-[#10141e] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-2xl relative text-left">
+            <button 
+              onClick={() => {
+                setIsShareModalOpen(false);
+                setShareLink('');
+                setCopiedLink(false);
+              }}
+              className="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="space-y-4">
+              <div className="text-center space-y-2">
+                <div className="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 10.742l5.028-2.933m0 8.366l-5.028-2.933m0 0A3 3 0 108 12a3 3 0 00.684.742zM15 8a3 3 0 11-6 0 3 3 0 016 0zm6 8a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-white">Share Your 3D Design</h3>
+                <p className="text-xs text-neutral-400">
+                  Anyone opening this link will see your customized 3D packaging model with your uploaded artwork layers.
+                </p>
+                {isPremiumUnlocked && (
+                  <p className="text-[11px] text-emerald-400 font-bold bg-emerald-950/20 py-1 px-2 rounded-lg border border-emerald-900/30 text-center">
+                    🔒 Premium unlocked: Watermark-free display enabled for recipients!
+                  </p>
+                )}
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs text-neutral-400">Shareable URL</label>
+                <div className="flex gap-2">
+                  <input 
+                    type="text"
+                    readOnly
+                    value={shareLink}
+                    className="flex-grow bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3 py-2 text-xs outline-none"
+                    onClick={(e) => (e.target as HTMLInputElement).select()}
+                  />
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(shareLink);
+                      setCopiedLink(true);
+                      setTimeout(() => setCopiedLink(false), 2000);
+                    }}
+                    className="bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] font-bold text-xs px-4 py-2 rounded-lg transition-colors flex-shrink-0"
+                  >
+                    {copiedLink ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+              </div>
+
+              <div className="pt-2 text-center">
+                <button
+                  onClick={() => {
+                    setIsShareModalOpen(false);
+                    setShareLink('');
+                    setCopiedLink(false);
+                  }}
+                  className="w-full bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs py-2.5 rounded-lg transition-colors border border-[rgba(255,255,255,0.08)]"
+                >
+                  Close Window
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
