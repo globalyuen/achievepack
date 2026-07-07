@@ -389,12 +389,12 @@ export default function TestimonialsWall() {
                 key={currentPouchImage}
                 src={currentPouchImage}
                 alt="Eco-Friendly Packaging Pouch"
-                className="max-w-full max-h-[230px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.65)] transition-all duration-500 animate-fade-in"
+                className="max-w-full max-h-[230px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.65)] transition-all duration-500 animate-testimonial-fade-in"
               />
             </div>
 
             {hoveredTestimonial ? (
-              <div className="absolute bottom-16 text-center px-6 animate-fade-in">
+              <div className="absolute bottom-16 text-center px-6 animate-testimonial-fade-in">
                 <p className="text-xs text-neutral-400 italic">
                   "{getTestimonialText(t, hoveredTestimonial.id, 'shortQuote', hoveredTestimonial.shortQuote)}"
                 </p>
@@ -453,7 +453,7 @@ export default function TestimonialsWall() {
       {/* Testimonial Popup Modal with 600px Pouch */}
       {activeTestimonial && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4 animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4 animate-testimonial-fade-in"
           onClick={() => setActiveTestimonial(null)}
         >
           <div
@@ -607,7 +607,7 @@ export default function TestimonialsWall() {
             transform: translateY(0px) rotate(0deg);
           }
         }
-        @keyframes fadeIn {
+        @keyframes testimonialFadeIn {
           from { opacity: 0; transform: scale(0.97); }
           to { opacity: 1; transform: scale(1); }
         }
@@ -618,8 +618,8 @@ export default function TestimonialsWall() {
         .animate-float {
           animation: float 6s ease-in-out infinite;
         }
-        .animate-fade-in {
-          animation: fadeIn 0.3s ease-out forwards;
+        .animate-testimonial-fade-in {
+          animation: testimonialFadeIn 0.3s ease-out forwards;
         }
         .animate-scale-up {
           animation: scaleUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
