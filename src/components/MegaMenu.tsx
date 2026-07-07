@@ -1,6 +1,6 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle, Gift, Coffee, Layout, DollarSign } from 'lucide-react'
+import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle, Gift, Coffee, Layout, DollarSign, Box } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { LEARN_PAGES } from './LearnNavigation'
 import { blogPosts } from '../data/blogData'
@@ -618,14 +618,14 @@ export function RightNavMenu() {
 
   return (
     <nav className="flex items-center">
-        {/* PRICING */}
+        {/* 3D STUDIO */}
         <div className="relative">
           <Link 
-            to="/pricing" 
+            to="/app" 
             className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-neutral-700 hover:text-primary-600 transition-colors"
           >
-            <DollarSign className="h-4 w-4 text-emerald-600" />
-            PRICING
+            <Box className="h-4 w-4 text-primary-500" />
+            3D STUDIO
           </Link>
         </div>
 

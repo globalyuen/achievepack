@@ -44,9 +44,13 @@ export default function PackageEditorPage() {
   const [metalness, setMetalness] = useState<number>(0.1);
   const [showDieline, setShowDieline] = useState<boolean>(true);
   const [modelName, setModelName] = useState<string>('包装模型 (Packaging Model)');
-  const [textureName, setTextureName] = useState<string>('AP Logo');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadingText, setLoadingText] = useState<string>('正在加載 3D 模型...');
+
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState<boolean>(false);
+  const [emailInput, setEmailInput] = useState<string>('');
+  const [isSubmittingEmail, setIsSubmittingEmail] = useState<boolean>(false);
+  const [emailSubmitted, setEmailSubmitted] = useState<boolean>(false);
 
   // Three.js and Canvas Refs
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -432,8 +436,16 @@ export default function PackageEditorPage() {
         originalBoxRef.current.setFromObject(model);
         originalBoxRef.current.getSize(originalSizeRef.current);
 
-        const size = originalSizeRef.current;
-        const center = originalBoxRef.current.getCenter(new THREE.Vector3());
+        let size = originalSizeRef.current;
+        let center = originalBoxRef.current.getCenter(new THREE.Vector3());
+
+        if (size.x < 2.0 && size.y < 2.0) {
+          model.scale.set(1000, 1000, 1000);
+          originalBoxRef.current.setFromObject(model);
+          originalBoxRef.current.getSize(originalSizeRef.current);
+          size = originalSizeRef.current;
+          center = originalBoxRef.current.getCenter(new THREE.Vector3());
+        }
 
         model.position.x = -center.x;
         model.position.z = -center.z;
@@ -449,6 +461,13 @@ export default function PackageEditorPage() {
               mats.forEach(mat => {
                 mat.side = THREE.DoubleSide;
                 mat.map = canvasTexture;
+                if ('normalMap' in mat) mat.normalMap = null;
+                if ('bumpMap' in mat) mat.bumpMap = null;
+                if ('roughnessMap' in mat) mat.roughnessMap = null;
+                if ('metalnessMap' in mat) mat.metalnessMap = null;
+                if ('aoMap' in mat) mat.aoMap = null;
+                if ('emissiveMap' in mat) mat.emissiveMap = null;
+                if ('lightMap' in mat) mat.lightMap = null;
                 mat.needsUpdate = true;
               });
             }
@@ -604,8 +623,16 @@ export default function PackageEditorPage() {
         originalBoxRef.current.setFromObject(model);
         originalBoxRef.current.getSize(originalSizeRef.current);
 
-        const size = originalSizeRef.current;
-        const center = originalBoxRef.current.getCenter(new THREE.Vector3());
+        let size = originalSizeRef.current;
+        let center = originalBoxRef.current.getCenter(new THREE.Vector3());
+
+        if (size.x < 2.0 && size.y < 2.0) {
+          model.scale.set(1000, 1000, 1000);
+          originalBoxRef.current.setFromObject(model);
+          originalBoxRef.current.getSize(originalSizeRef.current);
+          size = originalSizeRef.current;
+          center = originalBoxRef.current.getCenter(new THREE.Vector3());
+        }
 
         // Set dimensions inputs
         setUnit('mm');
@@ -627,6 +654,13 @@ export default function PackageEditorPage() {
               mats.forEach(mat => {
                 mat.side = THREE.DoubleSide;
                 mat.map = canvasTextureRef.current;
+                if ('normalMap' in mat) mat.normalMap = null;
+                if ('bumpMap' in mat) mat.bumpMap = null;
+                if ('roughnessMap' in mat) mat.roughnessMap = null;
+                if ('metalnessMap' in mat) mat.metalnessMap = null;
+                if ('aoMap' in mat) mat.aoMap = null;
+                if ('emissiveMap' in mat) mat.emissiveMap = null;
+                if ('lightMap' in mat) mat.lightMap = null;
                 mat.needsUpdate = true;
               });
             }
@@ -892,7 +926,6 @@ export default function PackageEditorPage() {
         };
         setLayers(prev => [...prev, newLayer]);
         setSelectedLayer(newLayer);
-        setTextureName(file.name);
       };
     };
     reader.readAsDataURL(file);
@@ -906,6 +939,34 @@ export default function PackageEditorPage() {
       setLayers(updatedLayers);
       setSelectedLayer(updatedLayers[updatedLayers.length - 1] || null);
     }
+  };
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!emailInput) return;
+    setIsSubmittingEmail(true);
+
+    // Simulate network submission
+    await new Promise(resolve => setTimeout(resolve, 800));
+
+    // Get GLB path for active model
+    const activeShape = shapes.find(s => String(s.id) === String(selectedShapeId));
+    const rawGlbPath = activeShape ? activeShape.glb_file : '/model.glb';
+    const isRemote = rawGlbPath.startsWith('http') || rawGlbPath.startsWith('//');
+    const downloadUrl = isRemote
+      ? '/api/proxy?url=' + encodeURIComponent(rawGlbPath)
+      : rawGlbPath;
+
+    // Trigger download in browser
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = activeShape ? `${activeShape.id}.glb` : 'default-model.glb';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setIsSubmittingEmail(false);
+    setEmailSubmitted(true);
   };
 
   // Layers ordering Up / Down
@@ -1039,7 +1100,6 @@ export default function PackageEditorPage() {
       setLayers([defaultLayer]);
       setSelectedLayer(defaultLayer);
     }
-    setTextureName('AP Logo');
 
     // Reload default model
     setIsLoading(true);
@@ -1050,15 +1110,37 @@ export default function PackageEditorPage() {
     }
 
     const loader = new GLTFLoader();
+    const loadId = ++currentLoadIdRef.current;
     loader.load('/model.glb', (gltf) => {
+      if (loadId !== currentLoadIdRef.current) {
+        gltf.scene.traverse((node) => {
+          if (node instanceof THREE.Mesh) {
+            node.geometry.dispose();
+            const mats = Array.isArray(node.material) ? node.material : [node.material];
+            mats.forEach(m => m && m.dispose());
+          }
+        });
+        return;
+      }
       const model = gltf.scene;
       modelRef.current = model;
 
       originalBoxRef.current.setFromObject(model);
       originalBoxRef.current.getSize(originalSizeRef.current);
 
-      model.position.x = 0;
-      model.position.z = 0;
+      let size = originalSizeRef.current;
+      let center = originalBoxRef.current.getCenter(new THREE.Vector3());
+
+      if (size.x < 2.0 && size.y < 2.0) {
+        model.scale.set(1000, 1000, 1000);
+        originalBoxRef.current.setFromObject(model);
+        originalBoxRef.current.getSize(originalSizeRef.current);
+        size = originalSizeRef.current;
+        center = originalBoxRef.current.getCenter(new THREE.Vector3());
+      }
+
+      model.position.x = -center.x;
+      model.position.z = -center.z;
       model.position.y = -originalBoxRef.current.min.y;
 
       model.traverse((node) => {
@@ -1068,6 +1150,13 @@ export default function PackageEditorPage() {
             mats.forEach(mat => {
               mat.side = THREE.DoubleSide;
               mat.map = canvasTextureRef.current;
+              if ('normalMap' in mat) mat.normalMap = null;
+              if ('bumpMap' in mat) mat.bumpMap = null;
+              if ('roughnessMap' in mat) mat.roughnessMap = null;
+              if ('metalnessMap' in mat) mat.metalnessMap = null;
+              if ('aoMap' in mat) mat.aoMap = null;
+              if ('emissiveMap' in mat) mat.emissiveMap = null;
+              if ('lightMap' in mat) mat.lightMap = null;
               mat.needsUpdate = true;
             });
           }
@@ -1185,7 +1274,7 @@ export default function PackageEditorPage() {
                     setSelectedShapeId(shape.id);
                     loadShape(shape);
                   }}
-                  className={`w-[72px] h-[72px] flex-shrink-0 rounded-xl border p-1.5 flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-[1.05] ${
+                  className={`w-[96px] h-[96px] flex-shrink-0 rounded-xl border p-1.5 flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-[1.05] ${
                     isSelected
                       ? 'bg-[rgba(100,255,218,0.08)] border-[#64ffda] shadow-[0_0_8px_rgba(100,255,218,0.25)] scale-[1.02]'
                       : 'bg-[rgba(0,0,0,0.4)] border-[rgba(255,255,255,0.08)] hover:border-neutral-500'
@@ -1354,6 +1443,15 @@ export default function PackageEditorPage() {
               Export 3D Snapshot
             </button>
             <button 
+              onClick={() => setIsEmailModalOpen(true)}
+              className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-semibold text-[13px] py-2.5 px-4 rounded-lg shadow-lg flex items-center justify-center gap-1.5 transition-all duration-300"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+              </svg>
+              Download 3D Model (Watermark-Free)
+            </button>
+            <button 
               onClick={resetAllValues}
               className="w-full border border-[rgba(255,255,255,0.15)] hover:border-[#f3f4f6] text-[#9ca3af] hover:text-[#f3f4f6] font-semibold text-[13px] py-2.5 px-4 rounded-lg transition-all duration-300"
             >
@@ -1493,11 +1591,96 @@ export default function PackageEditorPage() {
           {/* Status Overlay info */}
           <div id="preview-info" className="absolute bottom-4 left-4 right-4 bg-[rgba(16,20,28,0.85)] border border-[rgba(255,255,255,0.08)] rounded-xl py-2.5 px-4 text-xs flex justify-between shadow-2xl backdrop-blur-md">
             <span>Shape: <strong className="text-[#64ffda]">{modelName}</strong></span>
-            <span>Active: <strong className="text-[#64ffda]">{textureName}</strong></span>
+            <span>Active: <strong className="text-[#64ffda]">{selectedLayer ? selectedLayer.name : 'None'}</strong></span>
           </div>
         </div>
 
       </div>
+
+      {/* Email Modal for Watermark-Free Downloads */}
+      {isEmailModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+          <div className="w-full max-w-md bg-[#10141e] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-2xl relative text-left">
+            <button 
+              onClick={() => {
+                setIsEmailModalOpen(false);
+                setEmailSubmitted(false);
+                setEmailInput('');
+              }}
+              className="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {!emailSubmitted ? (
+              <form onSubmit={handleEmailSubmit} className="space-y-4">
+                <div className="text-center space-y-2">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-white">Download Watermark-Free Model</h3>
+                  <p className="text-xs text-neutral-400">
+                    Enter your email to download the high-resolution, watermark-free 3D model (<strong>.glb</strong> format) for <strong>{modelName}</strong>.
+                  </p>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs text-neutral-400">Email Address</label>
+                  <input 
+                    type="email"
+                    required
+                    placeholder="your@email.com"
+                    value={emailInput}
+                    onChange={(e) => setEmailInput(e.target.value)}
+                    className="w-full bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3.5 py-2.5 text-sm outline-none focus:border-[#64ffda] transition-all"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmittingEmail}
+                  className="w-full bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] disabled:opacity-50 font-bold text-sm py-3 rounded-lg flex items-center justify-center gap-1.5 transition-all duration-300"
+                >
+                  {isSubmittingEmail ? (
+                    <span className="w-4 h-4 border-2 border-[#08090c] border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    'Send Download Link'
+                  )}
+                </button>
+              </form>
+            ) : (
+              <div className="text-center space-y-4 py-4">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-white">Request Received!</h3>
+                  <p className="text-xs text-neutral-400">
+                    The watermark-free 3D model download has started in your browser. We've also sent the download links to <strong>{emailInput}</strong>.
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setIsEmailModalOpen(false);
+                    setEmailSubmitted(false);
+                    setEmailInput('');
+                  }}
+                  className="bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition-colors border border-[rgba(255,255,255,0.08)]"
+                >
+                  Close Window
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

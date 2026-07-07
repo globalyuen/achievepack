@@ -533,6 +533,106 @@ export default function PouchEcoHomePage() {
         </div>
       </section>
 
+      {/* 3D Studio Promo Section */}
+      <section className="py-24 px-4 md:px-6 bg-[#D4FF00] border-t-8 border-b-8 border-black overflow-hidden relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Column: Bold Text Info */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <div className="inline-block bg-black text-white px-4 py-1.5 font-['JetBrains_Mono'] font-bold uppercase tracking-wider transform -rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+                ⚡ FREE 3D PACKAGING STUDIO
+              </div>
+              <h2 className="font-black text-5xl md:text-7xl uppercase text-black leading-tight">
+                DESIGN IN <span className="underline decoration-black decoration-8">REAL-TIME 3D</span> FOR FREE
+              </h2>
+              <p className="font-['JetBrains_Mono'] text-lg font-bold text-black max-w-xl">
+                Choose from over 400+ custom packaging shapes (pouches, boxes, bottles, cans, labels) and upload your design files. Customize dimensions and textures instantly in your browser!
+              </p>
+              
+              <div className="space-y-3 pt-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 bg-black text-[#D4FF00] border-2 border-black flex items-center justify-center font-bold text-xs">
+                    ✓
+                  </div>
+                  <span className="font-['JetBrains_Mono'] text-sm font-black text-black">400+ FREE PACKAGING MODELS</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 bg-black text-[#D4FF00] border-2 border-black flex items-center justify-center font-bold text-xs">
+                    ✓
+                  </div>
+                  <span className="font-['JetBrains_Mono'] text-sm font-black text-black">EMAIL VERIFICATION FOR WATERMARK-FREE GLB DOWNLOADS</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 bg-black text-[#D4FF00] border-2 border-black flex items-center justify-center font-bold text-xs">
+                    ✓
+                  </div>
+                  <span className="font-['JetBrains_Mono'] text-sm font-black text-black">NO PLUGINS OR LOGINS NEEDED - OPEN IN BROWSER</span>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <Link
+                  to="/app"
+                  className="inline-block bg-black text-[#D4FF00] hover:bg-[#10b981] hover:text-black font-black text-lg px-10 py-5 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-none transition-all uppercase tracking-wide"
+                >
+                  START 3D STUDIO NOW &rarr;
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Neo-Brutalist Shape Cards */}
+            <div className="lg:col-span-6 grid grid-cols-2 gap-6">
+              
+              {/* Card 1 */}
+              <Link to="/app" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <div className="w-12 h-12 bg-[#10b981] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
+                  👝
+                </div>
+                <h3 className="font-black text-xl uppercase text-black">POUCH SHAPES</h3>
+                <p className="font-['JetBrains_Mono'] text-[11px] text-gray-700 mt-2">Stand-up, side gusset, flat bottom, and vacuum pouches for coffee, food, and liquids.</p>
+                <div className="mt-4 font-['JetBrains_Mono'] text-xs font-black text-[#10b981] underline">LAUNCH STUDIO</div>
+              </Link>
+
+              {/* Card 2 */}
+              <Link to="/app" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <div className="w-12 h-12 bg-[#3b82f6] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
+                  📦
+                </div>
+                <h3 className="font-black text-xl uppercase text-black">BOX SHAPES</h3>
+                <p className="font-['JetBrains_Mono'] text-[11px] text-gray-700 mt-2">Mailer boxes, tuck boxes, product cartons, and rigid gift boxes ready for custom textures.</p>
+                <div className="mt-4 font-['JetBrains_Mono'] text-xs font-black text-[#3b82f6] underline">LAUNCH STUDIO</div>
+              </Link>
+
+              {/* Card 3 */}
+              <Link to="/app" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <div className="w-12 h-12 bg-[#f59e0b] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
+                  🧴
+                </div>
+                <h3 className="font-black text-xl uppercase text-black">BOTTLES & CANS</h3>
+                <p className="font-['JetBrains_Mono'] text-[11px] text-gray-700 mt-2">Cosmetic bottles, plastic pump spray containers, jars, and aluminum drinks cans.</p>
+                <div className="mt-4 font-['JetBrains_Mono'] text-xs font-black text-[#f59e0b] underline">LAUNCH STUDIO</div>
+              </Link>
+
+              {/* Card 4 */}
+              <div className="bg-black border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] relative flex flex-col justify-between text-left">
+                <div>
+                  <div className="text-[10px] font-['JetBrains_Mono'] font-bold text-[#D4FF00] tracking-widest uppercase mb-1">WEBGL GRAPHICS</div>
+                  <h4 className="font-black text-white text-lg uppercase">HIGH DEFINITION RENDERS</h4>
+                  <p className="font-['JetBrains_Mono'] text-[10px] text-gray-400 mt-2">Full orbit camera rotation, real-time lighting adjustments, material roughness sliders, and export snapshots.</p>
+                </div>
+                <div className="mt-4 font-['JetBrains_Mono'] text-[10px] font-bold text-[#10b981] flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
+                  No Sign Up Required
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Product Photos Carousel */}
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-12">

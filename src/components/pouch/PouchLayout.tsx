@@ -206,18 +206,18 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                         </div>
                       </Link>
 
-                      {/* Pricing Calculator */}
+                      {/* 3D Studio */}
                       <Link
-                        to="/pricing"
+                        to="/app"
                         onClick={() => setIsAppsDropdownOpen(false)}
                         className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
                       >
                         <div className="w-10 h-10 border border-black bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                          <Coffee className="w-6 h-6 text-black" strokeWidth={2.5} />
+                          <Box className="w-6 h-6 text-black" strokeWidth={2.5} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.pricingCalculator', 'PRICING')}]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.pricingCalculatorDesc', 'Packaging budget calculator')}</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.pricingCalculator', '3D STUDIO')}]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.pricingCalculatorDesc', 'Create 3D models and dielines for free')}</div>
                         </div>
                       </Link>
                     </div>
@@ -584,15 +584,15 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   </Link>
 
                   <Link
-                    to="/pricing"
+                    to="/app"
                     onClick={() => setIsMenuOpen(false)}
                     className={`block px-4 py-2 border-2 border-black transition-all ${
-                      isActive('/pricing') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
+                      isActive('/app') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
                     }`}
                   >
                     <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">
-                      <Coffee className="w-4 h-4 text-black" strokeWidth={2.5} />
-                      [PRICING CALCULATOR]
+                      <Box className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      [3D STUDIO]
                     </span>
                   </Link>
                   

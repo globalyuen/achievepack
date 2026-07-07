@@ -1582,6 +1582,117 @@ function App() {
         </div>
       </section>
 
+      {/* 3D Studio Promo Section */}
+      <section className="py-20 relative overflow-hidden bg-[#08090c] text-white border-t border-[rgba(255,255,255,0.05)] border-b border-[rgba(255,255,255,0.05)]">
+        {/* Background glow effects */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#64ffda]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column: Text & Features */}
+            <div className="lg:col-span-5 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgba(100,255,218,0.1)] border border-[#64ffda]/30 text-[#64ffda] text-xs font-semibold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                Free 3D Interactive Design Studio
+              </div>
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Design Your Packaging in <span className="text-[#64ffda]">Real-Time 3D</span>
+              </h2>
+              <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
+                Unlock instant access to over <strong className="text-white">400+ custom packaging shapes</strong> including pouches, boxes, bottles, labels, and more. Customize dimensions, apply artwork layers, adjust metalness and roughness, and preview high-fidelity renderings instantly.
+              </p>
+              
+              <div className="space-y-3.5 pt-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#64ffda]">
+                    <CheckCircle className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm text-neutral-300 font-medium">400+ Packaging Models (GLB & Dielines included)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#64ffda]">
+                    <CheckCircle className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm text-neutral-300 font-medium">Watermark-Free 3D file downloads via email</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#64ffda]">
+                    <CheckCircle className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm text-neutral-300 font-medium">100% Free - No subscription or credit card required</span>
+                </div>
+              </div>
+
+              <div className="pt-4 flex flex-wrap gap-4">
+                <Link
+                  to="/app"
+                  className="bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] font-bold text-sm px-8 py-3.5 rounded-xl shadow-lg shadow-[#64ffda]/10 hover:shadow-[#64ffda]/25 flex items-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5"
+                >
+                  Launch 3D Studio
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/app"
+                  className="border border-[rgba(255,255,255,0.15)] hover:border-white text-neutral-300 hover:text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-300"
+                >
+                  Browse shapes
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Visual Mockup Showcase */}
+            <div className="lg:col-span-7 grid grid-cols-2 gap-4 relative">
+              {/* Decorative light beam */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-[#64ffda]/10 to-transparent blur-2xl rounded-3xl pointer-events-none" />
+
+              {/* Card 1: Pouches */}
+              <Link to="/app" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-[#64ffda] mb-4">
+                  <Package className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-base text-white group-hover:text-[#64ffda] transition-colors">Flexible Pouches</h3>
+                <p className="text-xs text-neutral-400 mt-1.5 leading-relaxed">Stand-up, flat, and side-gusset bags with custom zipper, valve or spout configurations.</p>
+                <div className="mt-4 text-[10px] text-[#64ffda] font-semibold tracking-wider uppercase group-hover:underline">150+ models &rarr;</div>
+              </Link>
+
+              {/* Card 2: Rigid Boxes */}
+              <Link to="/app" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-4">
+                  <Box className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-base text-white group-hover:text-amber-400 transition-colors">Boxes & Cartons</h3>
+                <p className="text-xs text-neutral-400 mt-1.5 leading-relaxed">Corrugated mailers, cosmetic tuck-top boxes, and luxury gift boxes in 3D.</p>
+                <div className="mt-4 text-[10px] text-amber-400 font-semibold tracking-wider uppercase group-hover:underline">120+ models &rarr;</div>
+              </Link>
+
+              {/* Card 3: Bottles & Cans */}
+              <Link to="/app" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-base text-white group-hover:text-cyan-400 transition-colors">Bottles & Jars</h3>
+                <p className="text-xs text-neutral-400 mt-1.5 leading-relaxed">Glass bottles, trigger sprays, cosmetic pots, and standard aluminum beverage cans.</p>
+                <div className="mt-4 text-[10px] text-cyan-400 font-semibold tracking-wider uppercase group-hover:underline">80+ models &rarr;</div>
+              </Link>
+
+              {/* Card 4: Interactive Studio Live */}
+              <div className="bg-gradient-to-br from-[rgba(100,255,218,0.08)] to-[rgba(5,150,105,0.08)] border border-[#64ffda]/20 rounded-2xl p-5 flex flex-col justify-between text-left">
+                <div className="space-y-2">
+                  <span className="inline-block px-2 py-0.5 rounded bg-[#64ffda]/10 text-[#64ffda] text-[9px] font-bold tracking-wider uppercase">Live Studio Preview</span>
+                  <h4 className="font-bold text-sm text-white">Full WebGL Web Editor</h4>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed">Direct texture mapping, orbit controls camera rotation, and dynamic scene shadows.</p>
+                </div>
+                <div className="flex items-center gap-1.5 mt-4 text-[11px] text-white font-medium">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                  <span>No plugins required</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Random Banner - Below Hero */}
       <Suspense fallback={<div className="h-32" />}>
         <RandomBanner className="" />

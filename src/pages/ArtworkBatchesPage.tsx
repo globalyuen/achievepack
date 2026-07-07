@@ -62,6 +62,7 @@ const ArtworkBatchesPage: React.FC = () => {
   
   // Copy link state
   const [copiedLink, setCopiedLink] = useState(false)
+  const [copiedSupplierLink, setCopiedSupplierLink] = useState(false)
   const [copiedPasswordOnly, setCopiedPasswordOnly] = useState(false)
   const [copiedLinkOnly, setCopiedLinkOnly] = useState(false)
   const [copiedSupplierLinkOnly, setCopiedSupplierLinkOnly] = useState(false)
@@ -924,6 +925,15 @@ const ArtworkBatchesPage: React.FC = () => {
     navigator.clipboard.writeText(textToCopy)
     setCopiedLink(true)
     setTimeout(() => setCopiedLink(false), 2000)
+  }
+
+  const handleCopySupplierLink = () => {
+    if (!selectedBatch) return
+    const link = `${window.location.origin}/artwork-review/${selectedBatch.id}?role=supplier`
+    const textToCopy = `图稿与文件确认系统（供应商端）链接: ${link}\n密码: ${selectedBatch.supplier_password || ''}`
+    navigator.clipboard.writeText(textToCopy)
+    setCopiedSupplierLink(true)
+    setTimeout(() => setCopiedSupplierLink(false), 2000)
   }
 
   const handleCopyPasswordOnly = () => {
@@ -3178,10 +3188,19 @@ const ArtworkBatchesPage: React.FC = () => {
                       </button>
                       <button
                         onClick={handleCopyLink}
-                        className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+                        className="flex items-center gap-2 px-3 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+                        title="Copy Customer Link and Password (English)"
                       >
                         {copiedLink ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-                        <span className="text-sm">{copiedLink ? 'Copied!' : 'Copy Link'}</span>
+                        <span className="text-sm">{copiedLink ? 'Copied EN!' : 'Copy Link (EN)'}</span>
+                      </button>
+                      <button
+                        onClick={handleCopySupplierLink}
+                        className="flex items-center gap-2 px-3 py-2 border border-amber-200 bg-amber-50/20 text-amber-700 rounded-lg hover:bg-amber-50 transition"
+                        title="Copy Supplier Link and Password (Simplified Chinese)"
+                      >
+                        {copiedSupplierLink ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4 text-amber-500" />}
+                        <span className="text-sm">{copiedSupplierLink ? '已复制CN!' : 'Copy Link (CN)'}</span>
                       </button>
                       <a
                         href={`/artwork-review/${selectedBatch.id}`}

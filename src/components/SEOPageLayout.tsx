@@ -1,6 +1,6 @@
 import React, { useState, useTransition, useEffect, useRef, useMemo } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu, DollarSign, Play, Check } from 'lucide-react'
+import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu, DollarSign, Play, Check, Box } from 'lucide-react'
 import SEO from './SEO'
 import { useTranslation, Trans } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
@@ -121,13 +121,13 @@ const SEOPageHeader: React.FC = () => {
 
           {/* Nav Items - Desktop */}
           <nav className="flex items-center gap-1">
-            {/* PRICING Menu */}
+            {/* 3D STUDIO Menu */}
             <Link
-              to="/pricing"
+              to="/app"
               className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:bg-primary-600 rounded-lg transition"
             >
-              <DollarSign className="h-4 w-4 text-emerald-300" />
-              Pricing
+              <Box className="h-4 w-4 text-emerald-300" />
+              3D Studio
             </Link>
 
             {/* RESOURCES (LEARN & BLOG) */}
