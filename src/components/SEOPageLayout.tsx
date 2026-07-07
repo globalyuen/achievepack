@@ -270,7 +270,7 @@ const SEOPageHeader: React.FC = () => {
           onMouseEnter={() => handleMouseEnter('resources')}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden text-neutral-800 text-left">
+          <div className="w-[80vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden text-neutral-800 text-left">
             <div className="grid grid-cols-12">
               {/* Left: Learn Center Categories (col-span-3) */}
               <div className="col-span-3 bg-neutral-50 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">

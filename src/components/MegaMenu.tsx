@@ -632,7 +632,7 @@ export function RightNavMenu() {
           </Link>
           {activeMenu === '3d-studio' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[650px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
+              <div className="w-[80vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-primary-600 to-emerald-600 px-5 py-3 text-white">
                   <div className="flex items-center gap-2 mb-0.5">
@@ -745,7 +745,7 @@ export function RightNavMenu() {
           </Link>
           {activeMenu === 'resources' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden text-neutral-800 text-left">
+              <div className="w-[80vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden text-neutral-800 text-left">
                 <div className="grid grid-cols-12">
                   {/* Left: Learn Center Categories (col-span-3) */}
                   <div className="col-span-3 bg-neutral-50 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
@@ -930,7 +930,7 @@ export function RightNavMenu() {
           </Link>
           {activeMenu === 'free' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[800px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
+              <div className="w-[80vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4 text-white">
                   <div className="flex items-center gap-2 mb-1">
