@@ -233,7 +233,7 @@ export default function CatalogPage() {
                         {/* Action Link */}
                         <div className="p-4 bg-neutral-950 border-t border-neutral-900 flex gap-2">
                           <Link
-                            to={`/solutions/shapes/${shape.slug || shape.id}`}
+                            to={`/solutions/shapes/${shape.slug}`}
                             className="w-1/2 text-center bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 font-bold text-xs py-2 rounded-lg transition-all flex items-center justify-center gap-1"
                           >
                             3D Specs

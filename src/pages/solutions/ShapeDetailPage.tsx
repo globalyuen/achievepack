@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Box, Sparkles, Check, Info, FileText, ArrowRight } from 'lucide-react';
 import { getDomain } from '../../utils/domain';
@@ -22,8 +22,20 @@ interface Shape {
 
 export default function ShapeDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const [shapes, setShapes] = useState<Shape[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Detect current language from pathname
+  const getLanguageFromPath = (pathStr: string) => {
+    const parts = pathStr.split('/').filter(Boolean);
+    const possibleLang = parts[0]?.toLowerCase();
+    if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+      return possibleLang;
+    }
+    return 'en';
+  };
+  const currentLang = getLanguageFromPath(location.pathname);
 
   useEffect(() => {
     fetch('/models_database.json')
@@ -49,6 +61,13 @@ export default function ShapeDetailPage() {
         <p className="text-sm">Loading structural specifications...</p>
       </div>
     );
+  }
+
+  // Redirect to slug if requested by ID directly
+  if (shape && id === shape.id && shape.slug && id !== shape.slug) {
+    const languagePrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+    const cleanRoute = `/solutions/shapes/${shape.slug}`;
+    return <Navigate to={`${languagePrefix}${cleanRoute}`} replace />;
   }
 
   if (!shape) {
@@ -78,18 +97,6 @@ export default function ShapeDetailPage() {
     categoryName = 'Flexible Pouch';
     categoryKey = 'pouch';
   }
-
-  // Detect current language from pathname
-  const location = useLocation();
-  const getLanguageFromPath = (pathStr: string) => {
-    const parts = pathStr.split('/').filter(Boolean);
-    const possibleLang = parts[0]?.toLowerCase();
-    if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
-      return possibleLang;
-    }
-    return 'en';
-  };
-  const currentLang = getLanguageFromPath(location.pathname);
 
   // Construct localized meta title and description
   const localizedMeta = useMemo(() => {
