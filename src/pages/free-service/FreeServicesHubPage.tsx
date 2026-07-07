@@ -6,6 +6,17 @@ import { useTranslation, Trans } from "react-i18next";
 
 const FREE_SERVICES = [
   {
+    id: '3d-studio',
+    title: 'Free 3D Studio',
+    description: 'Interactive WebGL package designer. Design, scale, and preview over 400+ custom packaging shapes in 3D, and download watermark-free models.',
+    emoji: '💻',
+    image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp',
+    link: '/app',
+    gradient: 'from-emerald-500 to-teal-500',
+    bgGradient: 'from-emerald-50 to-teal-50',
+    borderColor: 'border-emerald-200',
+  },
+  {
     id: 'design',
     title: 'Free Design Consultation',
     description: 'Expert packaging design advice from our team. Get custom dieline templates, color guidance, and print-ready artwork support.',

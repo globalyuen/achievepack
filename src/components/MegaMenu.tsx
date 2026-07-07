@@ -619,14 +619,121 @@ export function RightNavMenu() {
   return (
     <nav className="flex items-center">
         {/* 3D STUDIO */}
-        <div className="relative">
+        <div className="relative" onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
           <Link 
             to="/app" 
-            className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-neutral-700 hover:text-primary-600 transition-colors"
+            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
+              activeMenu === '3d-studio' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'
+            }`}
           >
-            <Box className="h-4 w-4 text-primary-500" />
+            <Box className="h-4 w-4 text-primary-500 animate-pulse" />
             3D STUDIO
+            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === '3d-studio' ? 'rotate-180' : ''}`} />
           </Link>
+          {activeMenu === '3d-studio' && (
+            <div className="fixed right-[180px] top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[95vw] max-w-[650px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
+                {/* Header */}
+                <div className="bg-gradient-to-r from-primary-600 to-emerald-600 px-5 py-3 text-white">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <Box className="h-5 w-5 text-emerald-300" />
+                    <h3 className="text-base font-bold">Interactive 3D Packaging Studio</h3>
+                  </div>
+                  <p className="text-xs text-white/90">Design, scale, and preview over 400+ custom shapes in real-time WebGL 3D</p>
+                </div>
+                
+                {/* Content */}
+                <div className="p-4 bg-white grid grid-cols-12 gap-5">
+                  {/* Left Column: Info & Button */}
+                  <div className="col-span-5 space-y-3.5 border-r border-neutral-100 pr-4 text-left">
+                    <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Features</div>
+                    <ul className="space-y-1.5">
+                      <li className="flex items-center gap-1.5 text-[11px] font-medium text-neutral-600">
+                        <span className="w-1 h-1 rounded-full bg-emerald-500" />
+                        Custom dimensions scaling
+                      </li>
+                      <li className="flex items-center gap-1.5 text-[11px] font-medium text-neutral-600">
+                        <span className="w-1 h-1 rounded-full bg-emerald-500" />
+                        Upload design layer files
+                      </li>
+                      <li className="flex items-center gap-1.5 text-[11px] font-medium text-neutral-600">
+                        <span className="w-1 h-1 rounded-full bg-emerald-500" />
+                        Watermark-free downloads
+                      </li>
+                    </ul>
+                    <div className="pt-1.5">
+                      <Link
+                        to="/app"
+                        onClick={() => setActiveMenu(null)}
+                        className="flex items-center justify-center gap-1.5 w-full py-2 px-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-[11px] font-semibold shadow-lg shadow-primary-600/20 transition-all"
+                      >
+                        <Sparkles className="h-3.5 w-3.5" />
+                        Launch 3D Studio (Free)
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Pouch Previews */}
+                  <div className="col-span-7 space-y-2.5 text-left">
+                    <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Popular 3D Pouches</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {/* Pouch 1 */}
+                      <Link 
+                        to="/app?shape=1152" 
+                        onClick={() => setActiveMenu(null)}
+                        className="flex items-center gap-2 p-1 hover:bg-neutral-50 rounded-lg border border-neutral-100 hover:border-primary-200 transition-all group"
+                      >
+                        <img src="/thumbnails/1152.png" className="w-8 h-8 rounded object-contain border border-neutral-200 bg-neutral-50 group-hover:scale-105 transition-transform" alt="Snack Food Bag" />
+                        <div className="text-left overflow-hidden">
+                          <div className="font-bold text-[10px] text-neutral-850 truncate group-hover:text-primary-600">Snack Bag 2</div>
+                          <div className="text-[8px] text-neutral-500 truncate">90 x 153 mm</div>
+                        </div>
+                      </Link>
+                      
+                      {/* Pouch 2 */}
+                      <Link 
+                        to="/app?shape=1066" 
+                        onClick={() => setActiveMenu(null)}
+                        className="flex items-center gap-2 p-1 hover:bg-neutral-50 rounded-lg border border-neutral-100 hover:border-primary-200 transition-all group"
+                      >
+                        <img src="/thumbnails/1066.png" className="w-8 h-8 rounded object-contain border border-neutral-200 bg-neutral-50 group-hover:scale-105 transition-transform" alt="Stand Up Pouch" />
+                        <div className="text-left overflow-hidden">
+                          <div className="font-bold text-[10px] text-neutral-850 truncate group-hover:text-primary-600">Stand Up Pouch</div>
+                          <div className="text-[8px] text-neutral-500 truncate">100 x 150 mm</div>
+                        </div>
+                      </Link>
+
+                      {/* Pouch 3 */}
+                      <Link 
+                        to="/app?shape=1093" 
+                        onClick={() => setActiveMenu(null)}
+                        className="flex items-center gap-2 p-1 hover:bg-neutral-50 rounded-lg border border-neutral-100 hover:border-primary-200 transition-all group"
+                      >
+                        <img src="/thumbnails/1093.png" className="w-8 h-8 rounded object-contain border border-neutral-200 bg-neutral-50 group-hover:scale-105 transition-transform" alt="Flat Bottom Bag" />
+                        <div className="text-left overflow-hidden">
+                          <div className="font-bold text-[10px] text-neutral-850 truncate group-hover:text-primary-600">Flat Bottom</div>
+                          <div className="text-[8px] text-neutral-500 truncate">180 x 250 mm</div>
+                        </div>
+                      </Link>
+
+                      {/* Pouch 4 */}
+                      <Link 
+                        to="/app?shape=1003" 
+                        onClick={() => setActiveMenu(null)}
+                        className="flex items-center gap-2 p-1 hover:bg-neutral-50 rounded-lg border border-neutral-100 hover:border-primary-200 transition-all group"
+                      >
+                        <img src="/thumbnails/1003.png" className="w-8 h-8 rounded object-contain border border-neutral-200 bg-neutral-50 group-hover:scale-105 transition-transform" alt="Three Side Seal" />
+                        <div className="text-left overflow-hidden">
+                          <div className="font-bold text-[10px] text-neutral-850 truncate group-hover:text-primary-600">Three Side Seal</div>
+                          <div className="text-[8px] text-neutral-500 truncate">260 x 385 mm</div>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* RESOURCES (LEARN & BLOG) */}
@@ -842,6 +949,23 @@ export function RightNavMenu() {
                       B2B Interactive Apps
                     </div>
                     
+                    {/* 3D Studio */}
+                    <Link
+                      to="/app"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                        <Box className="w-6 h-6 text-emerald-600 animate-pulse" />
+                      </div>
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors flex items-center gap-1">
+                          3D Studio
+                          <span className="text-[8px] bg-green-100 text-green-800 px-1 py-0.5 rounded font-black uppercase">HOT</span>
+                        </div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Design & download 400+ 3D model packaging shapes</div>
+                      </div>
+                    </Link>
+
                     {/* Sizing Finder */}
                     <Link
                       to="/size-guide"
