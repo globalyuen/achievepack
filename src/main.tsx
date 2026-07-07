@@ -516,6 +516,37 @@ const AiPackagingLayeredAssetsPage = lazyWithRetry(() => import('./pages/topics/
 const AiPackagingBarcodesBottomFoldPage = lazyWithRetry(() => import('./pages/topics/AiPackagingBarcodesBottomFold'))
 
 const MatchaSachetPage = lazyWithRetry(() => import('./pages/topics/MatchaSachet'))
+const SnackFoodStandUpPouchPage = lazyWithRetry(() => import('./pages/topics/SnackFoodStandUpPouch'))
+const JellyBeverageStandUpPouchPage = lazyWithRetry(() => import('./pages/topics/JellyBeverageStandUpPouch'))
+const OatmealCerealStandUpPouchPage = lazyWithRetry(() => import('./pages/topics/OatmealCerealStandUpPouch'))
+const CosmeticCreamStandUpPouchPage = lazyWithRetry(() => import('./pages/topics/CosmeticCreamStandUpPouch'))
+const CosmeticSerumStandUpPouchPage = lazyWithRetry(() => import('./pages/topics/CosmeticSerumStandUpPouch'))
+const SnackStandUpPouchLargePage = lazyWithRetry(() => import('./pages/topics/SnackStandUpPouchLarge'))
+const BeverageSoftStandUpPouchPage = lazyWithRetry(() => import('./pages/topics/BeverageSoftStandUpPouch'))
+const KraftPaperShoppingBagPage = lazyWithRetry(() => import('./pages/topics/KraftPaperShoppingBag'))
+const TeaStandUpZipperPouchPage = lazyWithRetry(() => import('./pages/topics/TeaStandUpZipperPouch'))
+const PetTreatStandUpZipperPouchPage = lazyWithRetry(() => import('./pages/topics/PetTreatStandUpZipperPouch'))
+const CondimentSachetThreeSideSealPage = lazyWithRetry(() => import('./pages/topics/CondimentSachetThreeSideSeal'))
+const MedicalTapeThreeSideSealPage = lazyWithRetry(() => import('./pages/topics/MedicalTapeThreeSideSeal'))
+const HouseholdJamThreeSideSealPage = lazyWithRetry(() => import('./pages/topics/HouseholdJamThreeSideSeal'))
+const CerealSachetThreeSideSealPage = lazyWithRetry(() => import('./pages/topics/CerealSachetThreeSideSeal'))
+const CosmeticSampleThreeSideSealPage = lazyWithRetry(() => import('./pages/topics/CosmeticSampleThreeSideSeal'))
+const DriedFruitHangingZipperPouchPage = lazyWithRetry(() => import('./pages/topics/DriedFruitHangingZipperPouch'))
+const CosmeticCleanserThreeSideZipperPouchPage = lazyWithRetry(() => import('./pages/topics/CosmeticCleanserThreeSideZipperPouch'))
+const SnackSachetThreeSideSealPage = lazyWithRetry(() => import('./pages/topics/SnackSachetThreeSideSeal'))
+const TeaSachetThreeSideSealPage = lazyWithRetry(() => import('./pages/topics/TeaSachetThreeSideSeal'))
+const CoffeeSachetThreeSideSealPage = lazyWithRetry(() => import('./pages/topics/CoffeeSachetThreeSideSeal'))
+const DriedFruitFlatBottomPouchPage = lazyWithRetry(() => import('./pages/topics/DriedFruitFlatBottomPouch'))
+const RiceFlatBottomBagPage = lazyWithRetry(() => import('./pages/topics/RiceFlatBottomBag'))
+const BreadFlatBottomBagPage = lazyWithRetry(() => import('./pages/topics/BreadFlatBottomBag'))
+const CoffeeBeansFlatBottomPouchPage = lazyWithRetry(() => import('./pages/topics/CoffeeBeansFlatBottomPouch'))
+const NutsFlatBottomPouchPage = lazyWithRetry(() => import('./pages/topics/NutsFlatBottomPouch'))
+const PetFoodFlatBottomBagPage = lazyWithRetry(() => import('./pages/topics/PetFoodFlatBottomBag'))
+const PillowPackSnackBagPage = lazyWithRetry(() => import('./pages/topics/PillowPackSnackBag'))
+const HouseholdBackSealBagPage = lazyWithRetry(() => import('./pages/topics/HouseholdBackSealBag'))
+const BeefJerkyPillowPouchPage = lazyWithRetry(() => import('./pages/topics/BeefJerkyPillowPouch'))
+const GrainsBackSealPouchPage = lazyWithRetry(() => import('./pages/topics/GrainsBackSealPouch'))
+
 const CacaoStandUpPage = lazyWithRetry(() => import('./pages/topics/CacaoStandUp'))
 const SpicesMoistureProofPage = lazyWithRetry(() => import('./pages/topics/SpicesMoistureProof'))
 const PremiumTeaPage = lazyWithRetry(() => import('./pages/topics/PremiumTea'))
@@ -986,6 +1017,37 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/ai-packaging-layered-assets" element={<AiPackagingLayeredAssetsPage />} />
                   <Route path="/topics/ai-packaging-barcodes-bottom-fold" element={<AiPackagingBarcodesBottomFoldPage />} />
                   <Route path="/topics/matcha-sachet" element={<MatchaSachetPage />} />
+                  <Route path="/topics/snack-food-stand-up-pouch" element={<SnackFoodStandUpPouchPage />} />
+                  <Route path="/topics/jelly-beverage-stand-up-pouch" element={<JellyBeverageStandUpPouchPage />} />
+                  <Route path="/topics/oatmeal-cereal-stand-up-pouch" element={<OatmealCerealStandUpPouchPage />} />
+                  <Route path="/topics/cosmetic-cream-stand-up-pouch" element={<CosmeticCreamStandUpPouchPage />} />
+                  <Route path="/topics/cosmetic-serum-stand-up-pouch" element={<CosmeticSerumStandUpPouchPage />} />
+                  <Route path="/topics/snack-stand-up-pouch-large" element={<SnackStandUpPouchLargePage />} />
+                  <Route path="/topics/beverage-soft-stand-up-pouch" element={<BeverageSoftStandUpPouchPage />} />
+                  <Route path="/topics/kraft-paper-shopping-bag" element={<KraftPaperShoppingBagPage />} />
+                  <Route path="/topics/tea-stand-up-zipper-pouch" element={<TeaStandUpZipperPouchPage />} />
+                  <Route path="/topics/pet-treat-stand-up-zipper-pouch" element={<PetTreatStandUpZipperPouchPage />} />
+                  <Route path="/topics/condiment-sachet-three-side-seal" element={<CondimentSachetThreeSideSealPage />} />
+                  <Route path="/topics/medical-tape-three-side-seal" element={<MedicalTapeThreeSideSealPage />} />
+                  <Route path="/topics/household-jam-three-side-seal" element={<HouseholdJamThreeSideSealPage />} />
+                  <Route path="/topics/cereal-sachet-three-side-seal" element={<CerealSachetThreeSideSealPage />} />
+                  <Route path="/topics/cosmetic-sample-three-side-seal" element={<CosmeticSampleThreeSideSealPage />} />
+                  <Route path="/topics/dried-fruit-hanging-zipper-pouch" element={<DriedFruitHangingZipperPouchPage />} />
+                  <Route path="/topics/cosmetic-cleanser-three-side-zipper-pouch" element={<CosmeticCleanserThreeSideZipperPouchPage />} />
+                  <Route path="/topics/snack-sachet-three-side-seal" element={<SnackSachetThreeSideSealPage />} />
+                  <Route path="/topics/tea-sachet-three-side-seal" element={<TeaSachetThreeSideSealPage />} />
+                  <Route path="/topics/coffee-sachet-three-side-seal" element={<CoffeeSachetThreeSideSealPage />} />
+                  <Route path="/topics/dried-fruit-flat-bottom-pouch" element={<DriedFruitFlatBottomPouchPage />} />
+                  <Route path="/topics/rice-flat-bottom-bag" element={<RiceFlatBottomBagPage />} />
+                  <Route path="/topics/bread-flat-bottom-bag" element={<BreadFlatBottomBagPage />} />
+                  <Route path="/topics/coffee-beans-flat-bottom-pouch" element={<CoffeeBeansFlatBottomPouchPage />} />
+                  <Route path="/topics/nuts-flat-bottom-pouch" element={<NutsFlatBottomPouchPage />} />
+                  <Route path="/topics/pet-food-flat-bottom-bag" element={<PetFoodFlatBottomBagPage />} />
+                  <Route path="/topics/pillow-pack-snack-bag" element={<PillowPackSnackBagPage />} />
+                  <Route path="/topics/household-back-seal-bag" element={<HouseholdBackSealBagPage />} />
+                  <Route path="/topics/beef-jerky-pillow-pouch" element={<BeefJerkyPillowPouchPage />} />
+                  <Route path="/topics/grains-back-seal-pouch" element={<GrainsBackSealPouchPage />} />
+
                   <Route path="/topics/cacao-stand-up" element={<CacaoStandUpPage />} />
                   <Route path="/topics/spices-moisture-proof" element={<SpicesMoistureProofPage />} />
                   <Route path="/topics/premium-tea" element={<PremiumTeaPage />} />
@@ -1593,6 +1655,37 @@ if (getDomain() === 'pouch') {
           <Route path="/topics/ai-packaging-layered-assets" element={<AiPackagingLayeredAssetsPage />} />
           <Route path="/topics/ai-packaging-barcodes-bottom-fold" element={<AiPackagingBarcodesBottomFoldPage />} />
           <Route path="/topics/matcha-sachet" element={<MatchaSachetPage />} />
+                  <Route path="/topics/snack-food-stand-up-pouch" element={<SnackFoodStandUpPouchPage />} />
+                  <Route path="/topics/jelly-beverage-stand-up-pouch" element={<JellyBeverageStandUpPouchPage />} />
+                  <Route path="/topics/oatmeal-cereal-stand-up-pouch" element={<OatmealCerealStandUpPouchPage />} />
+                  <Route path="/topics/cosmetic-cream-stand-up-pouch" element={<CosmeticCreamStandUpPouchPage />} />
+                  <Route path="/topics/cosmetic-serum-stand-up-pouch" element={<CosmeticSerumStandUpPouchPage />} />
+                  <Route path="/topics/snack-stand-up-pouch-large" element={<SnackStandUpPouchLargePage />} />
+                  <Route path="/topics/beverage-soft-stand-up-pouch" element={<BeverageSoftStandUpPouchPage />} />
+                  <Route path="/topics/kraft-paper-shopping-bag" element={<KraftPaperShoppingBagPage />} />
+                  <Route path="/topics/tea-stand-up-zipper-pouch" element={<TeaStandUpZipperPouchPage />} />
+                  <Route path="/topics/pet-treat-stand-up-zipper-pouch" element={<PetTreatStandUpZipperPouchPage />} />
+                  <Route path="/topics/condiment-sachet-three-side-seal" element={<CondimentSachetThreeSideSealPage />} />
+                  <Route path="/topics/medical-tape-three-side-seal" element={<MedicalTapeThreeSideSealPage />} />
+                  <Route path="/topics/household-jam-three-side-seal" element={<HouseholdJamThreeSideSealPage />} />
+                  <Route path="/topics/cereal-sachet-three-side-seal" element={<CerealSachetThreeSideSealPage />} />
+                  <Route path="/topics/cosmetic-sample-three-side-seal" element={<CosmeticSampleThreeSideSealPage />} />
+                  <Route path="/topics/dried-fruit-hanging-zipper-pouch" element={<DriedFruitHangingZipperPouchPage />} />
+                  <Route path="/topics/cosmetic-cleanser-three-side-zipper-pouch" element={<CosmeticCleanserThreeSideZipperPouchPage />} />
+                  <Route path="/topics/snack-sachet-three-side-seal" element={<SnackSachetThreeSideSealPage />} />
+                  <Route path="/topics/tea-sachet-three-side-seal" element={<TeaSachetThreeSideSealPage />} />
+                  <Route path="/topics/coffee-sachet-three-side-seal" element={<CoffeeSachetThreeSideSealPage />} />
+                  <Route path="/topics/dried-fruit-flat-bottom-pouch" element={<DriedFruitFlatBottomPouchPage />} />
+                  <Route path="/topics/rice-flat-bottom-bag" element={<RiceFlatBottomBagPage />} />
+                  <Route path="/topics/bread-flat-bottom-bag" element={<BreadFlatBottomBagPage />} />
+                  <Route path="/topics/coffee-beans-flat-bottom-pouch" element={<CoffeeBeansFlatBottomPouchPage />} />
+                  <Route path="/topics/nuts-flat-bottom-pouch" element={<NutsFlatBottomPouchPage />} />
+                  <Route path="/topics/pet-food-flat-bottom-bag" element={<PetFoodFlatBottomBagPage />} />
+                  <Route path="/topics/pillow-pack-snack-bag" element={<PillowPackSnackBagPage />} />
+                  <Route path="/topics/household-back-seal-bag" element={<HouseholdBackSealBagPage />} />
+                  <Route path="/topics/beef-jerky-pillow-pouch" element={<BeefJerkyPillowPouchPage />} />
+                  <Route path="/topics/grains-back-seal-pouch" element={<GrainsBackSealPouchPage />} />
+
           <Route path="/topics/cacao-stand-up" element={<CacaoStandUpPage />} />
           <Route path="/topics/spices-moisture-proof" element={<SpicesMoistureProofPage />} />
           <Route path="/topics/premium-tea" element={<PremiumTeaPage />} />

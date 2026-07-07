@@ -194,7 +194,7 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
               let mat = mesh.material as THREE.MeshStandardMaterial;
               if (!mat || Array.isArray(mat)) {
                 mat = new THREE.MeshStandardMaterial({
-                  color: 0xe8e1d5,
+                  color: 0xffffff,
                   roughness: 0.44,
                   metalness: 0.08
                 });
@@ -205,12 +205,21 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
                 mat.visible = true;
                 mat.transparent = false;
                 mat.opacity = 1.0;
+              }
 
-                if (mat.color && mat.color.r === 0 && mat.color.g === 0 && mat.color.b === 0) {
-                  const meshName = mesh.name.toLowerCase();
-                  const isBody = meshName.includes('body') || meshName.includes('pouch') || meshName.includes('bag') || meshName.includes('mesh');
-                  mat.color.setHex(isBody ? 0xebe3d5 : 0x2d2a24);
-                }
+              // Clear all material maps to avoid trademark/patent issues
+              mat.map = null;
+              mat.normalMap = null;
+              mat.roughnessMap = null;
+              mat.metalnessMap = null;
+              mat.bumpMap = null;
+              mat.displacementMap = null;
+              mat.emissiveMap = null;
+
+              if (mat.color) {
+                mat.color.setHex(0xffffff);
+              } else {
+                mat.color = new THREE.Color(0xffffff);
               }
             }
           });

@@ -103,6 +103,10 @@ export default function Footer() {
               <p className="text-neutral-400 text-xs mb-4">
                 {t('pouchEcoFooter.tagline', 'Leading the sustainable packaging revolution with certified eco-friendly solutions for businesses worldwide.')}
               </p>
+
+              <div className="font-bold text-neutral-200 text-xs mb-2">
+                {t('pouchEcoFooter.contactUs', 'Contact Us')}
+              </div>
               
               {/* Quick Contact info */}
               <div className="space-y-1.5 text-xs text-neutral-400 mb-4">
@@ -376,6 +380,12 @@ export default function Footer() {
               <li><Link to="/topics/cocktail-spout" className="hover:text-primary-400">{t('seo_topics.cocktail_spout.title', 'Cocktail Spout')}</Link></li>
               <li><Link to="/topics/candy-uv" className="hover:text-primary-400">{t('seo_topics.candy_uv.title', 'Candy UV')}</Link></li>
               <li><Link to="/blog/stamp-foil-recyclability" className="hover:text-primary-400">{t('pouchEcoFooter.stampFoilRecyclability', 'Stamp Foil Recyclability')}</Link></li>
+              <li><Link to="/topics/snack-food-stand-up-pouch" className="hover:text-primary-400">{t('seo_topics.snack_food_stand_up_pouch.title', 'Snack Food Stand-Up Pouch')}</Link></li>
+              <li><Link to="/topics/snack-stand-up-pouch-large" className="hover:text-primary-400">{t('seo_topics.snack_stand_up_pouch_large.title', 'Large Snack Stand-Up Pouch')}</Link></li>
+              <li><Link to="/topics/condiment-sachet-three-side-seal" className="hover:text-primary-400">{t('seo_topics.condiment_sachet_three_side_seal.title', 'Condiment Sachet Three-Side Seal')}</Link></li>
+              <li><Link to="/topics/dried-fruit-hanging-zipper-pouch" className="hover:text-primary-400">{t('seo_topics.dried_fruit_hanging_zipper_pouch.title', 'Hanging Dried Fruit Zipper Pouch')}</Link></li>
+              <li><Link to="/topics/dried-fruit-flat-bottom-pouch" className="hover:text-primary-400">{t('seo_topics.dried_fruit_flat_bottom_pouch.title', 'Flat Bottom Dried Fruit Pouch')}</Link></li>
+              <li><Link to="/topics/pet-food-flat-bottom-bag" className="hover:text-primary-400">{t('seo_topics.pet_food_flat_bottom_bag.title', 'Pet Food Flat Bottom Bag')}</Link></li>
             </ul>
             <ul className="space-y-1">
               <li><Link to="/topics/crisps-shaped" className="hover:text-primary-400">{t('seo_topics.crisps_shaped.title', 'Crisps Shaped')}</Link></li>
@@ -385,6 +395,12 @@ export default function Footer() {
               <li><Link to="/topics/pet-food-quad-seal" className="hover:text-primary-400">{t('seo_topics.pet_food_quad_seal.title', 'Pet Food Quad Seal')}</Link></li>
               <li><Link to="/topics/pharma-velcro" className="hover:text-primary-400">{t('seo_topics.pharma_velcro.title', 'Pharma Velcro')}</Link></li>
               <li><Link to="/industry/recyclable-vacuum-bags" className="hover:text-primary-400">Recyclable Vacuum Bags</Link></li>
+              <li><Link to="/topics/jelly-beverage-stand-up-pouch" className="hover:text-primary-400">{t('seo_topics.jelly_beverage_stand_up_pouch.title', 'Jelly & Beverage Stand-Up Pouch')}</Link></li>
+              <li><Link to="/topics/beverage-soft-stand-up-pouch" className="hover:text-primary-400">{t('seo_topics.beverage_soft_stand_up_pouch.title', 'Soft Beverage Stand-Up Pouch')}</Link></li>
+              <li><Link to="/topics/medical-tape-three-side-seal" className="hover:text-primary-400">{t('seo_topics.medical_tape_three_side_seal.title', 'Medical Tape Three-Side Seal')}</Link></li>
+              <li><Link to="/topics/cosmetic-cleanser-three-side-zipper-pouch" className="hover:text-primary-400">{t('seo_topics.cosmetic_cleanser_three_side_zipper_pouch.title', 'Cosmetic Cleanser Zipper Pouch')}</Link></li>
+              <li><Link to="/topics/rice-flat-bottom-bag" className="hover:text-primary-400">{t('seo_topics.rice_flat_bottom_bag.title', 'Rice Flat Bottom Bag')}</Link></li>
+              <li><Link to="/topics/pillow-pack-snack-bag" className="hover:text-primary-400">{t('seo_topics.pillow_pack_snack_bag.title', 'Pillow Pack Snack Bag')}</Link></li>
             </ul>
             <ul className="space-y-1">
               <li><Link to="/topics/detergent-spout" className="hover:text-primary-400">{t('seo_topics.detergent_spout.title', 'Detergent Spout')}</Link></li>
@@ -394,10 +410,22 @@ export default function Footer() {
               <li><Link to="/topics/granola-soft-touch" className="hover:text-primary-400">{t('seo_topics.granola_soft_touch.title', 'Granola Soft Touch')}</Link></li>
               <li><Link to="/topics/collagen-high-barrier" className="hover:text-primary-400">{t('seo_topics.collagen_high_barrier.title', 'Collagen High Barrier')}</Link></li>
               <li><Link to="/industry/sustainable-kraft-solutions" className="hover:text-primary-400">Sustainable Kraft Solutions</Link></li>
+              <li><Link to="/topics/oatmeal-cereal-stand-up-pouch" className="hover:text-primary-400">{t('seo_topics.oatmeal_cereal_stand_up_pouch.title', 'Oatmeal & Cereal Stand-Up Pouch')}</Link></li>
+              <li><Link to="/topics/kraft-paper-shopping-bag" className="hover:text-primary-400">{t('seo_topics.kraft_paper_shopping_bag.title', 'Kraft Paper Shopping Bag')}</Link></li>
+              <li><Link to="/topics/household-jam-three-side-seal" className="hover:text-primary-400">{t('seo_topics.household_jam_three_side_seal.title', 'Household Jam Three-Side Seal')}</Link></li>
+              <li><Link to="/topics/snack-sachet-three-side-seal" className="hover:text-primary-400">{t('seo_topics.snack_sachet_three_side_seal.title', 'Snack Sachet Three-Side Seal')}</Link></li>
+              <li><Link to="/topics/bread-flat-bottom-bag" className="hover:text-primary-400">{t('seo_topics.bread_flat_bottom_bag.title', 'Bread Flat Bottom Bag')}</Link></li>
+              <li><Link to="/topics/household-back-seal-bag" className="hover:text-primary-400">{t('seo_topics.household_back_seal_bag.title', 'Household Back Seal Bag')}</Link></li>
             </ul>
             <ul className="space-y-1">
               <li><Link to="/topics/pla-rice" className="hover:text-primary-400">{t('seo_topics.pla_rice.title', 'PLA Rice')}</Link></li>
               <li><Link to="/topics/rice-paper-artisanal" className="hover:text-primary-400">{t('seo_topics.rice_paper_artisanal.title', 'Rice Paper Artisanal')}</Link></li>
+              <li><Link to="/topics/cosmetic-cream-stand-up-pouch" className="hover:text-primary-400">{t('seo_topics.cosmetic_cream_stand_up_pouch.title', 'Cosmetic Cream Stand-Up Pouch')}</Link></li>
+              <li><Link to="/topics/tea-stand-up-zipper-pouch" className="hover:text-primary-400">{t('seo_topics.tea_stand_up_zipper_pouch.title', 'Tea Stand-Up Zipper Pouch')}</Link></li>
+              <li><Link to="/topics/cereal-sachet-three-side-seal" className="hover:text-primary-400">{t('seo_topics.cereal_sachet_three_side_seal.title', 'Cereal Sachet Three-Side Seal')}</Link></li>
+              <li><Link to="/topics/tea-sachet-three-side-seal" className="hover:text-primary-400">{t('seo_topics.tea_sachet_three_side_seal.title', 'Tea Sachet Three-Side Seal')}</Link></li>
+              <li><Link to="/topics/coffee-beans-flat-bottom-pouch" className="hover:text-primary-400">{t('seo_topics.coffee_beans_flat_bottom_pouch.title', 'Coffee Beans Flat Bottom Pouch')}</Link></li>
+              <li><Link to="/topics/beef-jerky-pillow-pouch" className="hover:text-primary-400">{t('seo_topics.beef_jerky_pillow_pouch.title', 'Beef Jerky Pillow Pouch')}</Link></li>
               <li><Link to="/topics/ddp-packaging" className="hover:text-primary-400">{t('seo_topics.ddp_packaging.title', 'DDP Packaging')}</Link></li>
               <li><Link to="/topics/fast-air-freight" className="hover:text-primary-400">{t('seo_topics.fast_air_freight.title', 'Fast Air Freight')}</Link></li>
               <li><Link to="/topics/fda-brc-certified" className="hover:text-primary-400">{t('seo_topics.fda_brc_certified.title', 'FDA BRC Certified')}</Link></li>
@@ -418,6 +446,12 @@ export default function Footer() {
               <li><Link to="/topics/ai-packaging-safe-margins" className="hover:text-primary-400">{t('seo_topics.ai_packaging_safe_margins.title', 'AI Background Margins')}</Link></li>
               <li><Link to="/topics/ai-packaging-layered-assets" className="hover:text-primary-400">{t('seo_topics.ai_packaging_layered_assets.title', 'AI Layered Assets')}</Link></li>
               <li><Link to="/topics/ai-packaging-barcodes-bottom-fold" className="hover:text-primary-400">{t('seo_topics.ai_packaging_barcodes_bottom_fold.title', 'AI Barcodes & Bottom')}</Link></li>
+              <li><Link to="/topics/cosmetic-serum-stand-up-pouch" className="hover:text-primary-400">{t('seo_topics.cosmetic_serum_stand_up_pouch.title', 'Cosmetic Serum Stand-Up Pouch')}</Link></li>
+              <li><Link to="/topics/pet-treat-stand-up-zipper-pouch" className="hover:text-primary-400">{t('seo_topics.pet_treat_stand_up_zipper_pouch.title', 'Pet Treat Stand-Up Zipper Pouch')}</Link></li>
+              <li><Link to="/topics/cosmetic-sample-three-side-seal" className="hover:text-primary-400">{t('seo_topics.cosmetic_sample_three_side_seal.title', 'Cosmetic Sample Three-Side Seal')}</Link></li>
+              <li><Link to="/topics/coffee-sachet-three-side-seal" className="hover:text-primary-400">{t('seo_topics.coffee_sachet_three_side_seal.title', 'Coffee Sachet Three-Side Seal')}</Link></li>
+              <li><Link to="/topics/nuts-flat-bottom-pouch" className="hover:text-primary-400">{t('seo_topics.nuts_flat_bottom_pouch.title', 'Nuts Flat Bottom Pouch')}</Link></li>
+              <li><Link to="/topics/grains-back-seal-pouch" className="hover:text-primary-400">{t('seo_topics.grains_back_seal_pouch.title', 'Grains Back Seal Pouch')}</Link></li>
             </ul>
           </div>
           </details>
