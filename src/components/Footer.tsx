@@ -9,6 +9,16 @@ export default function Footer() {
   const { t } = useTranslation()
   const [footerShapes, setFooterShapes] = useState<any[]>([])
 
+  const getLanguageFromPath = (pathStr: string) => {
+    const parts = pathStr.split('/').filter(Boolean);
+    const possibleLang = parts[0]?.toLowerCase();
+    if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+      return possibleLang;
+    }
+    return 'en';
+  };
+  const currentLang = getLanguageFromPath(window.location.pathname);
+
   // Google Customer Reviews Badge integration
   useEffect(() => {
     if (!isAchievePack()) return
@@ -59,16 +69,6 @@ export default function Footer() {
 
   // Load shapes on mount for collapsible footer directory
   useEffect(() => {
-    const getLanguageFromPath = (pathStr: string) => {
-      const parts = pathStr.split('/').filter(Boolean);
-      const possibleLang = parts[0]?.toLowerCase();
-      if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
-        return possibleLang;
-      }
-      return 'en';
-    };
-    const currentLang = getLanguageFromPath(window.location.pathname);
-
     fetch(`/models_database_${currentLang}.json`)
       .then(res => res.json())
       .then(data => {
@@ -86,7 +86,7 @@ export default function Footer() {
           })
           .catch(e => console.error('Error loading fallback catalog for footer:', e));
       });
-  }, []);
+  }, [currentLang]);
 
   return (
     <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8 border-t border-neutral-850">
@@ -442,16 +442,19 @@ export default function Footer() {
                 <p className="text-xs text-neutral-500 py-2">Loading packaging shapes...</p>
               ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
-                  {footerShapes.map((shape) => (
-                    <Link
-                      key={shape.id}
-                      to={`/solutions/shapes/${shape.slug || shape.id}`}
-                      className="hover:text-primary-400 truncate block py-0.5"
-                      title={shape.name}
-                    >
-                      {shape.name}
-                    </Link>
-                  ))}
+                  {footerShapes.map((shape) => {
+                    const langPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+                    return (
+                      <Link
+                        key={shape.id}
+                        to={`${langPrefix}/solutions/shapes/${shape.slug || shape.id}`}
+                        className="hover:text-primary-400 truncate block py-0.5"
+                        title={shape.name}
+                      >
+                        {shape.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>

@@ -27,18 +27,18 @@ export default function CatalogPage() {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [isLoading, setIsLoading] = useState(true);
 
+  const getLanguageFromPath = (pathStr: string) => {
+    const parts = pathStr.split('/').filter(Boolean);
+    const possibleLang = parts[0]?.toLowerCase();
+    if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+      return possibleLang;
+    }
+    return 'en';
+  };
+  const currentLang = getLanguageFromPath(window.location.pathname);
+
   // Fetch compiled database
   useEffect(() => {
-    const getLanguageFromPath = (pathStr: string) => {
-      const parts = pathStr.split('/').filter(Boolean);
-      const possibleLang = parts[0]?.toLowerCase();
-      if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
-        return possibleLang;
-      }
-      return 'en';
-    };
-    const currentLang = getLanguageFromPath(window.location.pathname);
-
     fetch(`/models_database_${currentLang}.json`)
       .then((res) => res.json())
       .then((data: Shape[]) => {
@@ -57,7 +57,7 @@ export default function CatalogPage() {
             setIsLoading(false);
           });
       });
-  }, []);
+  }, [currentLang]);
 
   // Filter shapes based on category and search term
   const filteredShapes = useMemo(() => {
@@ -251,7 +251,7 @@ export default function CatalogPage() {
                         {/* Action Link */}
                         <div className="p-4 bg-neutral-950 border-t border-neutral-900 flex gap-2">
                           <Link
-                            to={`/solutions/shapes/${shape.slug}`}
+                            to={`${currentLang === 'en' ? '' : `/${currentLang}`}/solutions/shapes/${shape.slug}`}
                             className="w-1/2 text-center bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 font-bold text-xs py-2 rounded-lg transition-all flex items-center justify-center gap-1"
                           >
                             3D Specs

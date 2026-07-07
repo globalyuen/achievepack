@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { Layers, Box, Database, Tag, Grid } from 'lucide-react';
 
 interface Layer {
   id: string;
@@ -32,6 +33,7 @@ export default function PackageEditorPage() {
   // States
   const [shapes, setShapes] = useState<Shape[]>([]);
   const [selectedShapeId, setSelectedShapeId] = useState<string>('');
+  const [activeCategory, setActiveCategory] = useState<'pouch' | 'box' | 'bottle' | 'label' | 'other'>('pouch');
   const [layers, setLayers] = useState<Layer[]>([]);
   const [selectedLayer, setSelectedLayer] = useState<Layer | null>(null);
   const [width, setWidth] = useState<number>(170);
@@ -80,17 +82,40 @@ export default function PackageEditorPage() {
   const isDraggingRef = useRef<boolean>(false);
   const dragOffsetRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  // Load static shapes list on mount
+  // Load static shapes list on mount (Force English version for names)
   useEffect(() => {
-    fetch('/models_database.json')
+    fetch('/models_database_en.json')
       .then(res => res.json())
       .then((data: Shape[]) => {
         setShapes(data);
       })
       .catch(err => {
-        console.error('Error loading static models database:', err);
+        console.error('Error loading English shapes database, falling back:', err);
+        fetch('/models_database.json')
+          .then(res => res.json())
+          .then((data: Shape[]) => {
+            setShapes(data);
+          })
+          .catch(e => console.error('Error loading fallback database:', e));
       });
   }, []);
+
+  // Filter shapes based on the active tab category
+  const filteredShapes = React.useMemo(() => {
+    return shapes.filter((shape) => {
+      const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
+      const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
+      const isBottle = shape.keywords.includes('瓶') || shape.keywords.includes('罐') || shape.name.includes('瓶') || shape.name.includes('罐');
+      const isLabel = shape.keywords.includes('标签') || shape.keywords.includes('贴纸') || shape.name.includes('标签') || shape.name.includes('貼紙') || shape.keywords.includes('label') || shape.name.toLowerCase().includes('label');
+      
+      if (activeCategory === 'box') return isBox;
+      if (activeCategory === 'pouch') return isPouch;
+      if (activeCategory === 'bottle') return isBottle;
+      if (activeCategory === 'label') return isLabel;
+      if (activeCategory === 'other') return !isBox && !isPouch && !isBottle && !isLabel;
+      return true;
+    });
+  }, [shapes, activeCategory]);
 
   // Sync canvas dimensions
   const updateEditor = () => {
@@ -499,22 +524,28 @@ export default function PackageEditorPage() {
     }
     materialsRef.current.length = 0;
 
-    // Load new dieline background image via local serverless proxy
+    // Load new dieline background image
     dielineLoadedRef.current = false;
     if (dielineImgRef.current) {
-      dielineImgRef.current.src = '/api/proxy?url=' + encodeURIComponent(shape.dieline_image);
+      const isRemoteDieline = shape.dieline_image.startsWith('http') || shape.dieline_image.startsWith('//');
+      dielineImgRef.current.src = isRemoteDieline
+        ? '/api/proxy?url=' + encodeURIComponent(shape.dieline_image)
+        : shape.dieline_image;
       dielineImgRef.current.onload = () => {
         dielineLoadedRef.current = true;
         updateEditor();
       };
     }
 
-    // Load new GLTF model via local serverless proxy
+    // Load new GLTF model
     const loader = new GLTFLoader();
-    const proxyGlbUrl = '/api/proxy?url=' + encodeURIComponent(shape.glb_file);
+    const isRemoteGlb = shape.glb_file.startsWith('http') || shape.glb_file.startsWith('//');
+    const glbUrl = isRemoteGlb
+      ? '/api/proxy?url=' + encodeURIComponent(shape.glb_file)
+      : shape.glb_file;
 
     loader.load(
-      proxyGlbUrl,
+      glbUrl,
       (gltf) => {
         const model = gltf.scene;
         modelRef.current = model;
@@ -654,6 +685,18 @@ export default function PackageEditorPage() {
       if (shape) {
         setSelectedShapeId(shape.id);
         loadShape(shape);
+        
+        // Automatically switch active tab category on direct load
+        const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
+        const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
+        const isBottle = shape.keywords.includes('瓶') || shape.keywords.includes('罐') || shape.name.includes('瓶') || shape.name.includes('罐');
+        const isLabel = shape.keywords.includes('标签') || shape.keywords.includes('贴纸') || shape.name.includes('标签') || shape.name.includes('貼紙') || shape.keywords.includes('label') || shape.name.toLowerCase().includes('label');
+        
+        if (isBox) setActiveCategory('box');
+        else if (isPouch) setActiveCategory('pouch');
+        else if (isBottle) setActiveCategory('bottle');
+        else if (isLabel) setActiveCategory('label');
+        else setActiveCategory('other');
       }
     }
   }, [shapes]);
@@ -1007,31 +1050,105 @@ export default function PackageEditorPage() {
       )}
 
       {/* Top Bar with Pouch Selector */}
-      <header className="h-[60px] w-full flex-shrink-0 bg-[rgba(16,20,28,0.7)] backdrop-blur-[12px] border-b border-[rgba(255,255,255,0.08)] flex justify-between items-center px-6 shadow-[0_4px_20px_rgba(0,0,0,0.2)] z-20">
-        <div className="flex items-center gap-2.5 font-bold text-[15px] tracking-wider uppercase text-[#f3f4f6]">
-          <svg className="w-5 h-5 fill-[#64ffda]" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-          </svg>
-          <span>AchievePack 3D Studio</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <span className="text-[13px] text-[#9ca3af] font-medium whitespace-nowrap">Select Packaging Shape:</span>
-          <select 
-            id="shape-select" 
-            value={selectedShapeId}
-            onChange={handleShapeChange}
-            className="w-[380px] bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3 py-2 text-[13px] outline-none cursor-pointer focus:border-[#64ffda] focus:shadow-[0_0_8px_rgba(100,255,218,0.15)] transition-all duration-300"
-          >
-            <option value="">-- Choose Pouch Shape --</option>
-            {shapes.map(s => (
-              <option key={s.id} value={s.id}>{s.id} - {s.name}</option>
+      <header className="h-[140px] w-full flex-shrink-0 bg-[rgba(16,20,28,0.75)] backdrop-blur-[12px] border-b border-[rgba(255,255,255,0.08)] flex flex-col p-4 shadow-[0_4px_20px_rgba(0,0,0,0.2)] z-20 overflow-hidden">
+        {/* Row 1: Logo & Category Tabs */}
+        <div className="flex items-center justify-between w-full h-[40px] mb-3">
+          <div className="flex items-center gap-2.5 font-bold text-[15px] tracking-wider uppercase text-[#f3f4f6]">
+            <svg className="w-5 h-5 fill-[#64ffda]" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <span className="hidden sm:inline">AchievePack 3D Studio</span>
+          </div>
+
+          {/* Category Tabs with Icons */}
+          <div className="flex items-center bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-xl p-1 gap-1">
+            {[
+              { id: 'pouch', label: 'Pouch', icon: <Layers className="w-3.5 h-3.5" /> },
+              { id: 'box', label: 'Box', icon: <Box className="w-3.5 h-3.5" /> },
+              { id: 'bottle', label: 'Bottle', icon: <Database className="w-3.5 h-3.5" /> },
+              { id: 'label', label: 'Label', icon: <Tag className="w-3.5 h-3.5" /> },
+              { id: 'other', label: 'Other', icon: <Grid className="w-3.5 h-3.5" /> }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveCategory(tab.id as any)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
+                  activeCategory === tab.id
+                    ? 'bg-[#64ffda] text-[#0a192f] font-bold shadow-[0_0_8px_rgba(100,255,218,0.25)]'
+                    : 'text-[#9ca3af] hover:text-[#f3f4f6]'
+                }`}
+              >
+                {tab.icon}
+                <span>{tab.label}</span>
+              </button>
             ))}
-          </select>
+          </div>
+
+          {/* Spacer/Utility */}
+          <div className="w-[120px] text-right text-[10px] text-neutral-500 font-mono hidden md:block">
+            Shapes: {filteredShapes.length}
+          </div>
+        </div>
+
+        {/* Row 2: Horizontal Scrolling Card Catalogue */}
+        <div className="w-full flex-grow overflow-x-auto overflow-y-hidden flex flex-row items-center gap-3 pb-1 custom-scrollbar">
+          {activeCategory === 'label' ? (
+            <div className="text-xs text-neutral-500 w-full text-center py-2 italic flex items-center justify-center gap-2">
+              <Tag className="w-4 h-4 text-[#64ffda] animate-pulse" />
+              Custom 3D Labels & Stickers editor specs are coming soon!
+            </div>
+          ) : filteredShapes.length === 0 ? (
+            <div className="text-xs text-neutral-500 w-full text-center py-2 italic">
+              No matching shapes found in this category.
+            </div>
+          ) : (
+            filteredShapes.map((shape) => {
+              const isSelected = String(shape.id) === String(selectedShapeId);
+              const dielineSrc = shape.dieline_image.startsWith('/') ? shape.dieline_image : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
+              const thumbnailSrc = `/thumbnails/${shape.id}.png`;
+
+              return (
+                <div
+                  key={shape.id}
+                  onClick={() => {
+                    setSelectedShapeId(shape.id);
+                    loadShape(shape);
+                  }}
+                  className={`w-[160px] h-[68px] flex-shrink-0 rounded-lg border p-1.5 flex flex-row items-center gap-2 cursor-pointer transition-all duration-200 hover:scale-[1.02] ${
+                    isSelected
+                      ? 'bg-[rgba(100,255,218,0.06)] border-[#64ffda] shadow-[0_0_6px_rgba(100,255,218,0.12)]'
+                      : 'bg-[rgba(0,0,0,0.3)] border-[rgba(255,255,255,0.06)] hover:border-neutral-500'
+                  }`}
+                  title={shape.name}
+                >
+                  {/* Thumbnail */}
+                  <div className="w-[45px] h-[45px] bg-[#0c1017] rounded border border-neutral-800 flex items-center justify-center p-0.5 relative overflow-hidden">
+                    <img
+                      src={thumbnailSrc}
+                      alt={shape.name}
+                      loading="lazy"
+                      className="max-w-full max-h-full object-contain"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = dielineSrc;
+                      }}
+                    />
+                  </div>
+                  {/* Info */}
+                  <div className="flex-grow flex flex-col justify-center min-w-0">
+                    <span className="text-[9px] text-neutral-500 font-semibold font-mono">#{shape.id}</span>
+                    <span className={`text-[10px] font-bold truncate ${isSelected ? 'text-[#64ffda]' : 'text-neutral-300'}`}>
+                      {shape.name}
+                    </span>
+                  </div>
+                </div>
+              );
+            })
+          )}
         </div>
       </header>
 
       {/* Main 3-Column Workspace */}
-      <div className="flex-grow flex flex-row h-[calc(100vh-60px)] overflow-hidden">
+      <div className="flex-grow flex flex-row h-[calc(100vh-140px)] overflow-hidden">
         
         {/* 1. Left Sidebar: Control Panel */}
         <div className="w-[340px] flex-shrink-0 bg-[rgba(16,20,28,0.4)] border-r border-[rgba(255,255,255,0.08)] p-6 flex flex-col gap-6 overflow-y-auto custom-scrollbar">
