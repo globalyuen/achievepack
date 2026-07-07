@@ -619,7 +619,7 @@ export function RightNavMenu() {
   return (
     <nav className="flex items-center">
         {/* 3D STUDIO */}
-        <div className="relative" onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
+        <div onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
           <Link 
             to="/app" 
             className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
@@ -737,7 +737,7 @@ export function RightNavMenu() {
         </div>
 
         {/* RESOURCES (LEARN & BLOG) */}
-        <div className="relative" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
+        <div onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
           <Link to="/learn" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'resources' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
             <BookOpen className="h-4 w-4" />
             RESOURCES
@@ -915,7 +915,7 @@ export function RightNavMenu() {
         </div>
 
         {/* FREE - Glowing Button with Mega Menu */}
-        <div className="relative ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
+        <div className="ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
           <Link 
             to="/free-service"
             className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-lg transition-all ${

@@ -355,7 +355,7 @@ export default function Footer() {
 
         {/* Row 3: Packaging Topics & Solutions Directory (Grouped compact & collapsible) */}
         <div className="border-t border-neutral-800 py-4">
-          <details className="group">
+          <details className="group" open>
             <summary className="flex items-center justify-between cursor-pointer list-none select-none text-neutral-400 hover:text-white transition-colors py-2 focus:outline-none">
               <div className="flex items-center gap-2">
                 <Zap className="h-4.5 w-4.5 text-primary-500 fill-current animate-pulse" />
@@ -425,7 +425,7 @@ export default function Footer() {
 
         {/* Row 4: 3D Packaging Model Directory (Grouped compact & collapsible) */}
         <div className="border-t border-neutral-800 py-4">
-          <details className="group">
+          <details className="group" open>
             <summary className="flex items-center justify-between cursor-pointer list-none select-none text-neutral-400 hover:text-white transition-colors py-2 focus:outline-none">
               <div className="flex items-center gap-2">
                 <Box className="h-4.5 w-4.5 text-emerald-500" />
