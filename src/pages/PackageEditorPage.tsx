@@ -1122,7 +1122,7 @@ export default function PackageEditorPage() {
                   title={shape.name}
                 >
                   {/* Thumbnail */}
-                  <div className="w-[45px] h-[45px] bg-[#0c1017] rounded border border-neutral-800 flex items-center justify-center p-0.5 relative overflow-hidden">
+                  <div className="w-[50px] h-[50px] bg-[#0c1017] rounded border border-neutral-800 flex items-center justify-center p-0.5 relative overflow-hidden">
                     <img
                       src={thumbnailSrc}
                       alt={shape.name}
@@ -1135,7 +1135,6 @@ export default function PackageEditorPage() {
                   </div>
                   {/* Info */}
                   <div className="flex-grow flex flex-col justify-center min-w-0">
-                    <span className="text-[9px] text-neutral-500 font-semibold font-mono">#{shape.id}</span>
                     <span className={`text-[10px] font-bold truncate ${isSelected ? 'text-[#64ffda]' : 'text-neutral-300'}`}>
                       {shape.name}
                     </span>

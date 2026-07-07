@@ -152,17 +152,31 @@ export default function StoreFooter() {
               {footerShapes.length === 0 ? (
                 <p className="text-xs text-neutral-500 py-2">Loading packaging shapes...</p>
               ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
+                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                   {footerShapes.map((shape) => {
                     const langPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
                     return (
                       <Link
                         key={shape.id}
                         to={`${langPrefix}/solutions/shapes/${shape.slug || shape.id}`}
-                        className="hover:text-primary-400 truncate block py-0.5"
-                        title={shape.name}
+                        className="w-[60px] h-[60px] flex items-center justify-center bg-neutral-950 border border-neutral-850 hover:border-[#64ffda] rounded-lg transition-all p-1 relative group"
+                        title={`${shape.id} - ${shape.name}`}
                       >
-                        {shape.name}
+                        <img
+                          src={`/thumbnails/${shape.id}.png`}
+                          alt={shape.name}
+                          loading="lazy"
+                          className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform"
+                          onError={(e) => {
+                            const dielineSrc = shape.dieline_image.startsWith('/') 
+                              ? shape.dieline_image 
+                              : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
+                            (e.target as HTMLImageElement).src = dielineSrc;
+                          }}
+                        />
+                        <span className="absolute bottom-0.5 right-1 text-[8px] font-mono text-neutral-500 font-semibold group-hover:text-[#64ffda]">
+                          #{shape.id}
+                        </span>
                       </Link>
                     );
                   })}

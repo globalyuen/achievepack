@@ -63,52 +63,11 @@ export default function ShapeDetailPage() {
     return shapes.find((s: any) => String(s.slug) === String(id) || String(s.id) === String(id));
   }, [shapes, id]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-neutral-900 flex flex-col items-center justify-center text-neutral-100">
-        <div className="w-8 h-8 border-3 border-t-emerald-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mb-4"></div>
-        <p className="text-sm">Loading structural specifications...</p>
-      </div>
-    );
-  }
-
-  // Redirect to slug if requested by ID directly
-  if (shape && id === shape.id && shape.slug && id !== shape.slug) {
-    const languagePrefix = currentLang === 'en' ? '' : `/${currentLang}`;
-    const cleanRoute = `/solutions/shapes/${shape.slug}`;
-    return <Navigate to={`${languagePrefix}${cleanRoute}`} replace />;
-  }
-
-  if (!shape) {
-    return (
-      <div className="min-h-screen bg-neutral-900 flex flex-col items-center justify-center text-neutral-100 px-6 text-center">
-        <Box className="w-12 h-12 text-neutral-600 mb-4 animate-pulse" />
-        <h1 className="text-2xl font-black mb-2">Model Not Found</h1>
-        <p className="text-sm text-neutral-400 mb-6 max-w-sm">
-          We could not find a packaging shape with ID #{id} in our 3D Spec database.
-        </p>
-        <Link to="/solutions/catalog" className="bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold px-6 py-3 rounded-xl transition-all">
-          Return to Catalog
-        </Link>
-      </div>
-    );
-  }
-
   const isPouchDomain = getDomain() === 'pouch';
-
-  // Determine category type
-  let categoryName = 'Rigid Container';
-  let categoryKey = 'bottle';
-  if (shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒')) {
-    categoryName = 'Paper Box';
-    categoryKey = 'box';
-  } else if (shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋')) {
-    categoryName = 'Flexible Pouch';
-    categoryKey = 'pouch';
-  }
 
   // Construct localized meta title and description
   const localizedMeta = useMemo(() => {
+    if (!shape) return { title: '', description: '' };
     const cleanDimensions = shape.dimensions || (isPouchDomain ? 'Dynamic parameters' : 'variable parameters');
     
     if (isPouchDomain) {
@@ -164,6 +123,7 @@ export default function ShapeDetailPage() {
 
   // Construct canonical and hreflang alternate links
   const seoLinks = useMemo(() => {
+    if (!shape) return { canonical: '', alternates: [] };
     const baseUrl = isPouchDomain ? 'https://pouch.eco' : 'https://achievepack.com';
     const cleanRoute = `/solutions/shapes/${shape.slug || shape.id}`;
     
@@ -182,7 +142,49 @@ export default function ShapeDetailPage() {
     ];
     
     return { canonical, alternates };
-  }, [shape.id, shape.slug, currentLang, isPouchDomain]);
+  }, [shape, currentLang, isPouchDomain]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-neutral-900 flex flex-col items-center justify-center text-neutral-100">
+        <div className="w-8 h-8 border-3 border-t-emerald-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-sm">Loading structural specifications...</p>
+      </div>
+    );
+  }
+
+  // Redirect to slug if requested by ID directly
+  if (shape && id === shape.id && shape.slug && id !== shape.slug) {
+    const languagePrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+    const cleanRoute = `/solutions/shapes/${shape.slug}`;
+    return <Navigate to={`${languagePrefix}${cleanRoute}`} replace />;
+  }
+
+  if (!shape) {
+    return (
+      <div className="min-h-screen bg-neutral-900 flex flex-col items-center justify-center text-neutral-100 px-6 text-center">
+        <Box className="w-12 h-12 text-neutral-600 mb-4 animate-pulse" />
+        <h1 className="text-2xl font-black mb-2">Model Not Found</h1>
+        <p className="text-sm text-neutral-400 mb-6 max-w-sm">
+          We could not find a packaging shape with ID #{id} in our 3D Spec database.
+        </p>
+        <Link to="/solutions/catalog" className="bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold px-6 py-3 rounded-xl transition-all">
+          Return to Catalog
+        </Link>
+      </div>
+    );
+  }
+
+  // Determine category type
+  let categoryName = 'Rigid Container';
+  let categoryKey = 'bottle';
+  if (shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒')) {
+    categoryName = 'Paper Box';
+    categoryKey = 'box';
+  } else if (shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋')) {
+    categoryName = 'Flexible Pouch';
+    categoryKey = 'pouch';
+  }
 
   // AchievePack (AP) Theme Layout
   const renderAPLayout = () => {
