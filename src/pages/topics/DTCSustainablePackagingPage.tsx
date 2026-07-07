@@ -134,7 +134,7 @@ const DTCSustainablePackagingPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg" 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
                 alt="Consumer-ready sustainable pouch with recycling icons" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption={t(`${p}.s4.caption`, 'Recycling Ready: High-clarity messaging on 100% recyclable mono-PE structures')}

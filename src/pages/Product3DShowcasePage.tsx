@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
@@ -7,6 +7,16 @@ import { ArrowRight, Sparkles, Leaf, Palette, Download, Mail } from 'lucide-reac
 export default function Product3DShowcasePage() {
   const { t } = useTranslation()
   const p = 'seoPages.pages.product3DShowcase'
+
+  useEffect(() => {
+    if (window.location.hash === '#generate' || window.location.hash.includes('generate')) {
+      window.location.href = 'https://achievepack.com/app';
+    }
+  }, []);
+
+  const appLink = typeof window !== 'undefined' && window.location.hostname.includes('pouch.eco')
+    ? 'https://achievepack.com/app'
+    : '/app';
 
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -82,7 +92,7 @@ export default function Product3DShowcasePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="#generate"
+                href={appLink}
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-xl hover:bg-green-700 transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
                 {t(`${p}.generateFreeModel`)}
