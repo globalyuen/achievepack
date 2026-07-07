@@ -90,6 +90,33 @@ export default function PouchEcoHomePage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const [footerShapes, setFooterShapes] = useState<any[]>([]);
+  const currentLang = React.useMemo(() => {
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    const possibleLang = parts[0]?.toLowerCase();
+    if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+      return possibleLang;
+    }
+    return 'en';
+  }, []);
+
+  useEffect(() => {
+    fetch(`/models_database_${currentLang}.json`)
+      .then(res => res.json())
+      .then((data: any[]) => {
+        setFooterShapes(data);
+      })
+      .catch(err => {
+        console.error('Error loading localized database in PouchEcoHomePage, falling back:', err);
+        fetch('/models_database.json')
+          .then(res => res.json())
+          .then((data: any[]) => {
+            setFooterShapes(data);
+          })
+          .catch(e => console.error('Error loading fallback database in PouchEcoHomePage:', e));
+      });
+  }, [currentLang]);
+
   useEffect(() => {
     const handleThreeScroll = () => {
       if (!threeContainerRef.current) return
@@ -842,6 +869,58 @@ export default function PouchEcoHomePage() {
                 <li>Mon-Fri 9am-6pm PST</li>
               </ul>
             </div>
+          </div>
+
+          {/* 3D Packaging Model Directory (Neo-Brutalist Collapsible style) */}
+          <div className="border-t-4 border-black py-6 mt-8">
+            <details className="group">
+              <summary className="flex items-center justify-between cursor-pointer list-none select-none text-black hover:text-[#10b981] transition-colors py-2 focus:outline-none font-black uppercase tracking-wider">
+                <div className="flex items-center gap-2">
+                  <Box className="h-5 w-5 text-[#10b981]" />
+                  <span>3D Packaging Model Directory</span>
+                </div>
+                <div className="text-xs border-2 border-black px-3 py-1 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-open:bg-[#10b981] group-open:text-white transition-all font-['JetBrains_Mono'] font-bold">
+                  <span className="group-open:hidden">[+] Expand</span>
+                  <span className="hidden group-open:inline">[-] Collapse</span>
+                </div>
+              </summary>
+              
+              <div className="mt-6 pt-6 border-t-2 border-black text-gray-600 text-xs">
+                {footerShapes.length === 0 ? (
+                  <p className="text-xs py-2 font-['JetBrains_Mono']">Loading packaging shapes...</p>
+                ) : (
+                  <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                    {footerShapes.map((shape) => {
+                      const langPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+                      return (
+                        <Link
+                          key={shape.id}
+                          to={`${langPrefix}/solutions/shapes/${shape.slug || shape.id}`}
+                          className="w-[60px] h-[60px] flex items-center justify-center bg-white border-2 border-black hover:bg-gray-50 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all p-1 relative group"
+                          title={`${shape.id} - ${shape.name}`}
+                        >
+                          <img
+                            src={`/thumbnails/${shape.id}.png`}
+                            alt={shape.name}
+                            loading="lazy"
+                            className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform"
+                            onError={(e) => {
+                              const dielineSrc = shape.dieline_image.startsWith('/') 
+                                ? shape.dieline_image 
+                                : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
+                              (e.target as HTMLImageElement).src = dielineSrc;
+                            }}
+                          />
+                          <span className="absolute bottom-0.5 right-1 text-[8px] font-mono text-gray-500 font-semibold group-hover:text-black">
+                            #{shape.id}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </details>
           </div>
 
           <div className="border-t-2 border-black pt-8 text-center text-sm text-gray-600 font-['JetBrains_Mono']">

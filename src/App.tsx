@@ -287,6 +287,7 @@ const PACKAGING_APPS = [
 
 function App() {
   const { t, i18n } = useTranslation();
+  const currentLang = i18n.language || 'en';
   const { translateProducts } = useProductTranslation();
   const { cartCount, addToCart, setIsCartOpen } = useStore();
   const navigate = useNavigate();
@@ -306,6 +307,24 @@ function App() {
   const [activeHeroIndex, setActiveHeroIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
   const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 1024)
+  const [footerShapes, setFooterShapes] = useState<any[]>([])
+
+  useEffect(() => {
+    fetch(`/models_database_${currentLang}.json`)
+      .then(res => res.json())
+      .then((data: any[]) => {
+        setFooterShapes(data)
+      })
+      .catch(err => {
+        console.error('Error loading localized database in App.tsx, falling back:', err)
+        fetch('/models_database.json')
+          .then(res => res.json())
+          .then((data: any[]) => {
+            setFooterShapes(data)
+          })
+          .catch(e => console.error('Error loading fallback database in App.tsx:', e))
+      })
+  }, [currentLang])
   const videoRef1 = useRef<HTMLVideoElement>(null)
   const videoRef2 = useRef<HTMLVideoElement>(null)
   const videoRef3 = useRef<HTMLVideoElement>(null)
@@ -893,7 +912,7 @@ function App() {
   const isPouch = domain === 'pouch'
 
   // Get current language for hreflang
-  const currentLang = i18n.language || 'en'
+  // (currentLang is already declared at the top of App component)
 
   return (
     <>
@@ -3408,6 +3427,58 @@ function App() {
               </ul>
             </div>
           </div>
+          {/* 3D Packaging Model Directory (Grouped compact & collapsible) */}
+          <div className="border-t border-neutral-700/50 py-6 mt-8">
+            <details className="group">
+              <summary className="flex items-center justify-between cursor-pointer list-none select-none text-neutral-400 hover:text-white transition-colors py-2 focus:outline-none">
+                <div className="flex items-center gap-2">
+                  <Box className="h-4.5 w-4.5 text-emerald-500" />
+                  <span className="text-xs font-bold uppercase tracking-wider">3D Packaging Model Directory</span>
+                </div>
+                <div className="text-[10px] border border-neutral-700 rounded px-2 py-0.5 bg-neutral-800 text-neutral-400 group-open:bg-neutral-700 group-open:text-white transition-all font-semibold uppercase font-mono">
+                  <span className="group-open:hidden">[+] Expand</span>
+                  <span className="hidden group-open:inline">[-] Collapse</span>
+                </div>
+              </summary>
+              
+              <div className="mt-4 pt-4 border-t border-neutral-800/40 text-neutral-400 text-xs">
+                {footerShapes.length === 0 ? (
+                  <p className="text-xs text-neutral-500 py-2">Loading packaging shapes...</p>
+                ) : (
+                  <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                    {footerShapes.map((shape) => {
+                      const langPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+                      return (
+                        <Link
+                          key={shape.id}
+                          to={`${langPrefix}/solutions/shapes/${shape.slug || shape.id}`}
+                          className="w-[60px] h-[60px] flex items-center justify-center bg-neutral-950 border border-neutral-850 hover:border-[#64ffda] rounded-lg transition-all p-1 relative group"
+                          title={`${shape.id} - ${shape.name}`}
+                        >
+                          <img
+                            src={`/thumbnails/${shape.id}.png`}
+                            alt={shape.name}
+                            loading="lazy"
+                            className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform"
+                            onError={(e) => {
+                              const dielineSrc = shape.dieline_image.startsWith('/') 
+                                ? shape.dieline_image 
+                                : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
+                              (e.target as HTMLImageElement).src = dielineSrc;
+                            }}
+                          />
+                          <span className="absolute bottom-0.5 right-1 text-[8px] font-mono text-neutral-500 font-semibold group-hover:text-[#64ffda]">
+                            #{shape.id}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </details>
+          </div>
+
           {/* Certifications, Payment & Connect with Us - All Centered */}
           <div className="border-t border-neutral-800 py-8">
             <div className="flex flex-col items-center gap-4">
