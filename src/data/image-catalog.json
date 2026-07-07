@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-07",
-  "total_images": 4898,
-  "total_categories": 210,
+  "total_images": 4900,
+  "total_categories": 211,
   "extensions": {
     ".webp": 1313,
     ".png": 3017,
-    ".jpg": 565,
+    ".jpg": 567,
     ".svg": 3
   },
   "categories": {
@@ -12742,8 +12742,14 @@
       ]
     },
     "knowledge": {
-      "count": 170,
+      "count": 171,
       "images": [
+        {
+          "filename": "dtc-sustainable-packaging-pain-points.jpg",
+          "path": "/imgs/knowledge/dtc-sustainable-packaging-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T12:12:14.319Z"
+        },
         {
           "filename": "pouch-products-pain-points-v2.jpg",
           "path": "/imgs/knowledge/pouch-products-pain-points-v2.jpg",
@@ -23366,6 +23372,17 @@
           "path": "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp",
           "extension": ".webp",
           "modified": "2025-12-18T17:52:48.000Z"
+        }
+      ]
+    },
+    "shapes": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "1282.jpg",
+          "path": "/imgs/shapes/1282.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T12:16:39.589Z"
         }
       ]
     },
