@@ -126,7 +126,7 @@ const SEOPageHeader: React.FC = () => {
               to="/app"
               className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:bg-primary-600 rounded-lg transition whitespace-nowrap"
             >
-              <Box className="h-4 w-4 text-emerald-300" />
+              <Box className="h-4 w-4 text-emerald-300 flex-shrink-0" size={16} />
               3D Studio
             </Link>
 
@@ -266,7 +266,7 @@ const SEOPageHeader: React.FC = () => {
       {/* RESOURCES Mega Menu */}
       {activeMenu === 'resources' && (
         <div
-          className="fixed left-0 right-0 mx-auto top-14 pt-2 z-50 animate-fade-in"
+          className="fixed left-1/2 -translate-x-1/2 top-14 pt-2 z-50 animate-fade-in"
           onMouseEnter={() => handleMouseEnter('resources')}
           onMouseLeave={handleMouseLeave}
         >

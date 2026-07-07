@@ -3540,7 +3540,7 @@ function App() {
           </div>
           {/* 3D Packaging Model Directory (Grouped compact & collapsible) */}
           <div className="border-t border-neutral-700/50 py-6 mt-8">
-            <details className="group">
+            <details className="group" open>
               <summary className="flex items-center justify-between cursor-pointer list-none select-none text-neutral-400 hover:text-white transition-colors py-2 focus:outline-none">
                 <div className="flex items-center gap-2">
                   <Box className="h-4.5 w-4.5 text-emerald-500" />
@@ -3556,7 +3556,7 @@ function App() {
                 {footerShapes.length === 0 ? (
                   <p className="text-xs text-neutral-500 py-2">Loading packaging shapes...</p>
                 ) : (
-                  <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-4 gap-y-2 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                     {footerShapes.map((shape) => {
                       const langPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
                       return (
@@ -3564,21 +3564,10 @@ function App() {
                           key={shape.id}
                           to={`${langPrefix}/solutions/shapes/${shape.slug || shape.id}`}
                           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                          className="w-[60px] h-[60px] flex items-center justify-center bg-neutral-950 border border-neutral-850 hover:border-[#64ffda] rounded-lg transition-all p-1 relative group"
-                          title={`${shape.id} - ${shape.name}`}
+                          className="hover:text-primary-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis block"
+                          title={shape.name}
                         >
-                          <img
-                            src={`/thumbnails/${shape.id}.png`}
-                            alt={shape.name}
-                            loading="lazy"
-                            className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform"
-                            onError={(e) => {
-                              const dielineSrc = shape.dieline_image.startsWith('/') 
-                                ? shape.dieline_image 
-                                : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
-                              (e.target as HTMLImageElement).src = dielineSrc;
-                            }}
-                          />
+                          {shape.name}
                         </Link>
                       );
                     })}

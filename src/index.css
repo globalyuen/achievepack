@@ -113,7 +113,7 @@ img {
 }
 
 /* Calculator animations */
-@keyframes fadeIn {
+@keyframes customFadeIn {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -125,7 +125,7 @@ img {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
+  animation: customFadeIn 0.3s ease-out;
 }
 
 /* Optimize details/summary for INP */

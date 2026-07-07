@@ -626,12 +626,12 @@ export function RightNavMenu() {
               activeMenu === '3d-studio' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'
             }`}
           >
-            <Box className="h-4 w-4 text-primary-500 animate-pulse" />
+            <Box className="h-4 w-4 text-primary-500 animate-pulse flex-shrink-0" size={16} />
             3D STUDIO
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === '3d-studio' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === '3d-studio' && (
-            <div className="fixed left-0 right-0 mx-auto top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[650px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-primary-600 to-emerald-600 px-5 py-3 text-white">
@@ -744,7 +744,7 @@ export function RightNavMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'resources' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'resources' && (
-            <div className="fixed left-0 right-0 mx-auto top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden text-neutral-800 text-left">
                 <div className="grid grid-cols-12">
                   {/* Left: Learn Center Categories (col-span-3) */}
@@ -929,7 +929,7 @@ export function RightNavMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'free' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'free' && (
-            <div className="fixed left-0 right-0 mx-auto top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[800px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4 text-white">
