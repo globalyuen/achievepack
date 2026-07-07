@@ -622,7 +622,7 @@ export function RightNavMenu() {
         <div onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
           <Link 
             to="/app" 
-            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
+            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors whitespace-nowrap ${
               activeMenu === '3d-studio' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'
             }`}
           >
@@ -631,7 +631,7 @@ export function RightNavMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === '3d-studio' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === '3d-studio' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-0 right-0 mx-auto top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[650px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-primary-600 to-emerald-600 px-5 py-3 text-white">
@@ -738,13 +738,13 @@ export function RightNavMenu() {
 
         {/* RESOURCES (LEARN & BLOG) */}
         <div onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
-          <Link to="/learn" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'resources' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+          <Link to="/learn" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors whitespace-nowrap ${activeMenu === 'resources' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
             <BookOpen className="h-4 w-4" />
             RESOURCES
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'resources' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'resources' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-0 right-0 mx-auto top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden text-neutral-800 text-left">
                 <div className="grid grid-cols-12">
                   {/* Left: Learn Center Categories (col-span-3) */}
@@ -918,7 +918,7 @@ export function RightNavMenu() {
         <div className="ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
           <Link 
             to="/free-service"
-            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-lg transition-all ${
+            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-lg transition-all whitespace-nowrap ${
               activeMenu === 'free' 
                 ? 'bg-green-500 text-white shadow-lg shadow-green-500/50' 
                 : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/30 hover:shadow-green-500/50 animate-pulse hover:animate-none'
@@ -929,7 +929,7 @@ export function RightNavMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'free' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'free' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-0 right-0 mx-auto top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[800px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4 text-white">

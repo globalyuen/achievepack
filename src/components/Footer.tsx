@@ -101,9 +101,25 @@ export default function Footer() {
                 <span className="text-base font-bold">{t('pouchEcoFooter.brand', 'Achieve Pack')}</span>
               </div>
               <p className="text-neutral-400 text-xs mb-4">
-                {t('pouchEcoFooter.tagline', 'Sustainable packaging solutions for forward-thinking brands.')}
+                {t('pouchEcoFooter.tagline', 'Leading the sustainable packaging revolution with certified eco-friendly solutions for businesses worldwide.')}
               </p>
               
+              {/* Quick Contact info */}
+              <div className="space-y-1.5 text-xs text-neutral-400 mb-4">
+                <div className="flex items-center gap-1">
+                  <Mail className="h-3.5 w-3.5 text-primary-500" />
+                  <a href="mailto:ryan@achievepack.com" className="hover:text-primary-400">ryan@achievepack.com</a>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Phone className="h-3.5 w-3.5 text-primary-500" />
+                  <a href="tel:+85269704411" className="hover:text-primary-400">+852 6970 4411</a>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Calendar className="h-3.5 w-3.5 text-primary-500" />
+                  <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">{t('pouchEcoFooter.bookMeeting', 'Book Meeting')}</a>
+                </div>
+              </div>
+
               {/* Social Icons */}
               <div className="flex space-x-3 mb-4">
                 <a href="https://www.instagram.com/pouch_eco/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary-500 transition-colors">
@@ -137,22 +153,6 @@ export default function Footer() {
                   <ShieldCheck className="h-3.5 w-3.5 text-green-400" />
                   <span>{t('pouchEcoFooter.bpiCert', 'BPI Cert')}</span>
                 </a>
-              </div>
-            </div>
-
-            {/* Quick Contact info */}
-            <div className="space-y-1 text-xs text-neutral-400">
-              <div className="flex items-center gap-1">
-                <Mail className="h-3.5 w-3.5 text-primary-500" />
-                <a href="mailto:ryan@achievepack.com" className="hover:text-primary-400">ryan@achievepack.com</a>
-              </div>
-              <div className="flex items-center gap-1">
-                <Phone className="h-3.5 w-3.5 text-primary-500" />
-                <a href="tel:+85269704411" className="hover:text-primary-400">+852 6970 4411</a>
-              </div>
-              <div className="flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5 text-primary-500" />
-                <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">{t('pouchEcoFooter.bookMeeting', 'Book Meeting')}</a>
               </div>
             </div>
           </div>
