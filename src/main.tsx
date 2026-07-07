@@ -158,6 +158,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/solutions/flexible-pouches-catalog': () => import('./pages/solutions/FlexiblePouchesCatalogPage'),
   '/solutions/cosmetics-bottles-catalog': () => import('./pages/solutions/CosmeticsBottlesCatalogPage'),
   '/solutions/shapes/:id': () => import('./pages/solutions/ShapeDetailPage'),
+  '/app': () => import('./pages/PackageEditorPage'),
   '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
   '/dieline-creator': () => import('./pages/PouchDielineCreatorPage'),
@@ -505,6 +506,7 @@ const CustomBoxesCatalogPage = lazyWithRetry(() => import('./pages/solutions/Cus
 const FlexiblePouchesCatalogPage = lazyWithRetry(() => import('./pages/solutions/FlexiblePouchesCatalogPage'))
 const CosmeticsBottlesCatalogPage = lazyWithRetry(() => import('./pages/solutions/CosmeticsBottlesCatalogPage'))
 const ShapeDetailPage = lazyWithRetry(() => import('./pages/solutions/ShapeDetailPage'))
+const PackageEditorPage = lazyWithRetry(() => import('./pages/PackageEditorPage'))
 
 // Topics Pages - AI Search Volume SEO - Lazy loaded
 const AiPackagingResolutionPage = lazyWithRetry(() => import('./pages/topics/AiPackagingResolution'))
@@ -1131,6 +1133,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/solutions/flexible-pouches-catalog" element={<FlexiblePouchesCatalogPage />} />
                   <Route path="/solutions/cosmetics-bottles-catalog" element={<CosmeticsBottlesCatalogPage />} />
                   <Route path="/solutions/shapes/:id" element={<ShapeDetailPage />} />
+                  <Route path="/app" element={<PackageEditorPage />} />
                   <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />
                   <Route path="/case-studies/tea-brand" element={<TeaBrandCaseStudy />} />
                   <Route path="/case-studies/superfood-brand" element={<SuperfoodBrandCaseStudy />} />
@@ -1581,6 +1584,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/solutions/flexible-pouches-catalog" element={<FlexiblePouchesCatalogPage />} />
                         <Route path="/solutions/cosmetics-bottles-catalog" element={<CosmeticsBottlesCatalogPage />} />
                         <Route path="/solutions/shapes/:id" element={<ShapeDetailPage />} />
+                        <Route path="/app" element={<PackageEditorPage />} />
                         
                         {/* Topics Pages - AI Search Volume SEO */}
           <Route path="/topics/ai-packaging-resolution" element={<AiPackagingResolutionPage />} />
