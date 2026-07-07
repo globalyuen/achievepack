@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
 import { Layers, Box, Database, Tag, Grid } from 'lucide-react';
 
 interface Layer {
@@ -75,6 +76,7 @@ export default function PackageEditorPage() {
   const rimLightRef = useRef<THREE.DirectionalLight | null>(null);
   const floorRef = useRef<THREE.Mesh | null>(null);
   const gridRef = useRef<THREE.GridHelper | null>(null);
+  const exportingRef = useRef<boolean>(false);
 
   // Offscreen canvas for rendering clean textures
   const offscreenCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -179,7 +181,7 @@ export default function PackageEditorPage() {
     };
 
     const drawWatermark = (cContext: CanvasRenderingContext2D) => {
-      if (isPremiumUnlocked || passwordInput === 'ryan') return; // Skip watermark if premium unlocked
+      if (isPremiumUnlocked || passwordInput === 'ryan' || exportingRef.current) return; // Skip watermark if premium unlocked or exporting
       cContext.save();
       cContext.fillStyle = 'rgba(150, 150, 150, 0.22)';
       cContext.font = 'bold 24px sans-serif';
@@ -211,7 +213,7 @@ export default function PackageEditorPage() {
     }
 
     // Draw repeating pattern of AP Logo on skin
-    if (!isPremiumUnlocked && passwordInput !== 'ryan' && logoImgRef.current && logoImgRef.current.complete) {
+    if (!isPremiumUnlocked && passwordInput !== 'ryan' && !exportingRef.current && logoImgRef.current && logoImgRef.current.complete) {
       try {
         offscreenCtx.save();
         offscreenCtx.globalCompositeOperation = 'multiply';
@@ -571,7 +573,7 @@ export default function PackageEditorPage() {
   }, []);
 
   // Shared function to load a packaging shape into the 3D studio scene
-  const loadShape = (shape: Shape) => {
+  const loadShape = (shape: Shape, presetWidth?: number, presetHeight?: number, presetArtwork?: string) => {
     setIsLoading(true);
     setLoadingText('正在下載並解析 3D 模型...');
 
@@ -642,10 +644,18 @@ export default function PackageEditorPage() {
           center = originalBoxRef.current.getCenter(new THREE.Vector3());
         }
 
-        // Set dimensions inputs
+        // Set dimensions inputs (use preset values if loaded from share link)
         setUnit('mm');
-        setWidth(Math.round(size.x));
-        setHeight(Math.round(size.y));
+        if (presetWidth) {
+          setWidth(presetWidth);
+        } else {
+          setWidth(Math.round(size.x));
+        }
+        if (presetHeight) {
+          setHeight(presetHeight);
+        } else {
+          setHeight(Math.round(size.y));
+        }
         setDepth(parseFloat(size.z.toFixed(1)));
 
         model.position.x = -center.x;
@@ -678,59 +688,41 @@ export default function PackageEditorPage() {
         if (sceneRef.current) {
           // Double check and remove any other old model groups to prevent overlap
           const toRemove: THREE.Object3D[] = [];
-          sceneRef.current.children.forEach((child) => {
-            if (child instanceof THREE.Group && child !== model) {
+          sceneRef.current.traverse((child) => {
+            if (child !== model && child !== sceneRef.current && child instanceof THREE.Group && child.name !== 'lights-group') {
               toRemove.push(child);
             }
           });
-          toRemove.forEach((child) => {
-            sceneRef.current?.remove(child);
-            child.traverse((node) => {
-              if (node instanceof THREE.Mesh) {
-                node.geometry.dispose();
-                const mats = Array.isArray(node.material) ? node.material : [node.material];
-                mats.forEach(m => m && m.dispose());
-              }
-            });
-          });
+          toRemove.forEach((child) => sceneRef.current?.remove(child));
 
           sceneRef.current.add(model);
-        }
-
-        // Adjust camera, floor, lights
-        if (cameraRef.current && controlsRef.current && floorRef.current && sceneRef.current) {
+          
           const maxDim = Math.max(size.x, size.y, size.z);
-          const fov = cameraRef.current.fov * (Math.PI / 180);
+          const fov = cameraRef.current ? cameraRef.current.fov * (Math.PI / 180) : 45 * (Math.PI / 180);
           const cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.8;
 
-          cameraRef.current.far = maxDim * 15;
-          cameraRef.current.position.set(0, size.y * 0.8, cameraZ);
-          cameraRef.current.updateProjectionMatrix();
-
-          controlsRef.current.target.set(0, size.y / 2, 0);
-          controlsRef.current.maxDistance = maxDim * 6;
-          controlsRef.current.minDistance = maxDim * 0.1;
-          controlsRef.current.update();
-
-          const floorSize = maxDim * 8;
-          floorRef.current.geometry.dispose();
-          floorRef.current.geometry = new THREE.PlaneGeometry(floorSize, floorSize);
-
-          if (gridRef.current) {
-            sceneRef.current.remove(gridRef.current);
-            gridRef.current.dispose();
+          if (cameraRef.current) {
+            cameraRef.current.far = maxDim * 15;
+            cameraRef.current.position.set(0, size.y * 0.8, cameraZ);
+            cameraRef.current.updateProjectionMatrix();
           }
-          const newGrid = new THREE.GridHelper(floorSize, 50, 0x1f2937, 0x111827);
-          newGrid.position.y = 0.001;
-          sceneRef.current.add(newGrid);
-          gridRef.current = newGrid;
 
+          if (controlsRef.current) {
+            controlsRef.current.target.set(0, size.y / 2, 0);
+            controlsRef.current.maxDistance = maxDim * 6;
+            controlsRef.current.minDistance = maxDim * 0.1;
+            controlsRef.current.update();
+          }
+
+          if (floorRef.current) {
+            floorRef.current.position.y = -0.1;
+          }
           if (dirLight1Ref.current) {
-            dirLight1Ref.current.position.set(maxDim * 1.5, maxDim * 2.5, maxDim * 1.5);
-            dirLight1Ref.current.shadow.camera.left = -maxDim * 1.5;
-            dirLight1Ref.current.shadow.camera.right = maxDim * 1.5;
-            dirLight1Ref.current.shadow.camera.top = maxDim * 1.5;
-            dirLight1Ref.current.shadow.camera.bottom = -maxDim * 1.5;
+            dirLight1Ref.current.position.set(maxDim * 1.2, maxDim * 2.0, maxDim * 1.2);
+            dirLight1Ref.current.shadow.camera.left = -maxDim * 2;
+            dirLight1Ref.current.shadow.camera.right = maxDim * 2;
+            dirLight1Ref.current.shadow.camera.top = maxDim * 2;
+            dirLight1Ref.current.shadow.camera.bottom = -maxDim * 2;
             dirLight1Ref.current.shadow.camera.near = 0.1;
             dirLight1Ref.current.shadow.camera.far = maxDim * 8;
           }
@@ -742,8 +734,25 @@ export default function PackageEditorPage() {
           }
         }
 
-        // Reset layers to just default AP logo on shape switch
-        if (logoImgRef.current) {
+        // Load preset layers (artwork) if provided, otherwise default AP logo
+        if (presetArtwork) {
+          const img = new Image();
+          img.src = presetArtwork;
+          img.onload = () => {
+            const sharedLayer: Layer = {
+              id: 'shared-artwork',
+              img,
+              name: 'Shared Artwork',
+              pos: { x: 500, y: 309 },
+              scale: 1.0,
+              rotation: 0,
+              width: 1000,
+              height: 619
+            };
+            setLayers([sharedLayer]);
+            setSelectedLayer(sharedLayer);
+          };
+        } else if (logoImgRef.current) {
           const defaultLayer: Layer = {
             id: 'default-ap-logo',
             img: logoImgRef.current,
@@ -807,10 +816,12 @@ export default function PackageEditorPage() {
       const shape = shapes.find(s => String(s.id) === String(shapeId));
       if (shape) {
         setSelectedShapeId(shape.id);
-        loadShape(shape);
         
-        if (widthParam) setWidth(Number(widthParam));
-        if (heightParam) setHeight(Number(heightParam));
+        const presetW = widthParam ? Number(widthParam) : undefined;
+        const presetH = heightParam ? Number(heightParam) : undefined;
+        const presetArt = artworkParam || undefined;
+
+        loadShape(shape, presetW, presetH, presetArt);
 
         // Automatically switch active tab category on direct load
         const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
@@ -823,26 +834,6 @@ export default function PackageEditorPage() {
         else if (isBottle) setActiveCategory('bottle');
         else if (isLabel) setActiveCategory('label');
         else setActiveCategory('other');
-
-        // Load shared artwork if present
-        if (artworkParam) {
-          const img = new Image();
-          img.src = artworkParam;
-          img.onload = () => {
-            const sharedLayer: Layer = {
-              id: 'shared-artwork',
-              img,
-              name: 'Shared Artwork',
-              pos: { x: 500, y: 309 },
-              scale: 1.0,
-              rotation: 0,
-              width: 1000,
-              height: 619
-            };
-            setLayers([sharedLayer]);
-            setSelectedLayer(sharedLayer);
-          };
-        }
       }
     }
   }, [shapes]);
@@ -988,17 +979,64 @@ export default function PackageEditorPage() {
     setIsSubmittingEmail(true);
 
     // Simulate network submission
-    await new Promise(resolve => setTimeout(resolve, 800));
+    await new Promise(resolve => setTimeout(resolve, 600));
 
-    // Get GLB path for active model
     const activeShape = shapes.find(s => String(s.id) === String(selectedShapeId));
+
+    if (modelRef.current) {
+      try {
+        // Temporarily bypass watermark drawing for export texture
+        exportingRef.current = true;
+        updateEditor();
+
+        const exporter = new GLTFExporter();
+        exporter.parse(
+          modelRef.current,
+          (gltf) => {
+            // Restore watermark drawing on UI canvas
+            exportingRef.current = false;
+            updateEditor();
+
+            const blob = new Blob([gltf as ArrayBuffer], { type: 'model/gltf-binary' });
+            const downloadUrl = URL.createObjectURL(blob);
+
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = activeShape ? `${activeShape.id}-custom.glb` : 'custom-design.glb';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(downloadUrl);
+
+            setIsSubmittingEmail(false);
+            setEmailSubmitted(true);
+          },
+          (error) => {
+            console.error('Error exporting custom GLTF:', error);
+            exportingRef.current = false;
+            updateEditor();
+            fallbackDownload(activeShape);
+          },
+          { binary: true }
+        );
+      } catch (err) {
+        console.error('GLTFExporter parsing failed, falling back:', err);
+        exportingRef.current = false;
+        updateEditor();
+        fallbackDownload(activeShape);
+      }
+    } else {
+      fallbackDownload(activeShape);
+    }
+  };
+
+  const fallbackDownload = (activeShape: Shape | undefined) => {
     const rawGlbPath = activeShape ? activeShape.glb_file : '/model.glb';
     const isRemote = rawGlbPath.startsWith('http') || rawGlbPath.startsWith('//');
     const downloadUrl = isRemote
       ? '/api/proxy?url=' + encodeURIComponent(rawGlbPath)
       : rawGlbPath;
 
-    // Trigger download in browser
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = activeShape ? `${activeShape.id}.glb` : 'default-model.glb';
