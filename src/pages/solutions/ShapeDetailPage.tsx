@@ -743,6 +743,12 @@ function getCategoryData(categoryKey: string, shapeName: string, shapeId: string
   return cat[currentLang] || cat.en;
 }
 
+const MOCKUP_SHAPE_IDS = new Set([
+  '1050', '1282', '1757', '1995', '2854', '2921', '2922', '2928', '360', '368', '380',
+  '3947', '4056', '4101', '4108', '4724', '4780', '4812', '4859', '5091', '524',
+  '586', '587', '607', '677', '680', '767', '927', '945', '954', '975'
+]);
+
 export default function ShapeDetailPage() {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
@@ -889,7 +895,8 @@ export default function ShapeDetailPage() {
 
   const previewImage = useMemo(() => {
     if (!shape) return '';
-    return String(shape.id) === '1282' ? '/imgs/shapes/1282.jpg' : `/thumbnails/${shape.id}.png`;
+    const shapeIdStr = String(shape.id);
+    return MOCKUP_SHAPE_IDS.has(shapeIdStr) ? `/imgs/shapes/${shapeIdStr}.jpg` : `/thumbnails/${shape.id}.png`;
   }, [shape]);
 
   const watermarkStyle = useMemo(() => ({
@@ -1020,15 +1027,15 @@ export default function ShapeDetailPage() {
                 </div>
               </div>
 
-              {/* Real-world mockup (ID 1282 only) */}
-              {String(shape.id) === '1282' && (
+              {/* Real-world mockup (When available) */}
+              {MOCKUP_SHAPE_IDS.has(String(shape.id)) && (
                 <div className="bg-neutral-950 border border-neutral-850 rounded-2xl overflow-hidden shadow-2xl">
                   <div className="p-4 bg-neutral-900 border-b border-neutral-800 flex justify-between items-center">
                     <span className="text-xs font-bold text-neutral-300 uppercase tracking-wider">Real-World Mockup</span>
                     <span className="text-[10px] bg-emerald-500/20 text-emerald-400 font-semibold px-2 py-0.5 rounded">High Fidelity Photo</span>
                   </div>
                   <div className="relative w-full aspect-video bg-neutral-900">
-                    <img src="/imgs/shapes/1282.jpg" alt="Real-world Pouch Mockup" className="w-full h-full object-cover" />
+                    <img src={`/imgs/shapes/${shape.id}.jpg`} alt="Real-world Pouch Mockup" className="w-full h-full object-cover" />
                   </div>
                 </div>
               )}
@@ -1355,15 +1362,15 @@ export default function ShapeDetailPage() {
                   </div>
                 </div>
 
-                {/* Real-world mockup (ID 1282 only) */}
-                {String(shape.id) === '1282' && (
+                {/* Real-world mockup (When available) */}
+                {MOCKUP_SHAPE_IDS.has(String(shape.id)) && (
                   <div className="border-4 border-black bg-white p-4 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
                     <div className="border-b-2 border-black pb-2 mb-3 flex justify-between items-center font-['JetBrains_Mono'] text-xs font-black uppercase">
                       <span>Real-World Mockup</span>
                       <NeoBadge color="emerald">High Fidelity Photo</NeoBadge>
                     </div>
                     <div className="border-2 border-black overflow-hidden aspect-video bg-neutral-100">
-                      <img src="/imgs/shapes/1282.jpg" alt="Real-world Pouch Mockup" className="w-full h-full object-cover" />
+                      <img src={`/imgs/shapes/${shape.id}.jpg`} alt="Real-world Pouch Mockup" className="w-full h-full object-cover" />
                     </div>
                   </div>
                 )}
