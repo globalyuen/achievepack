@@ -448,6 +448,7 @@ export default function Footer() {
                       <Link
                         key={shape.id}
                         to={`${langPrefix}/solutions/shapes/${shape.slug || shape.id}`}
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         className="w-[60px] h-[60px] flex items-center justify-center bg-neutral-950 border border-neutral-850 hover:border-[#64ffda] rounded-lg transition-all p-1 relative group"
                         title={`${shape.id} - ${shape.name}`}
                       >
@@ -463,9 +464,6 @@ export default function Footer() {
                             (e.target as HTMLImageElement).src = dielineSrc;
                           }}
                         />
-                        <span className="absolute bottom-0.5 right-1 text-[8px] font-mono text-neutral-500 font-semibold group-hover:text-[#64ffda]">
-                          #{shape.id}
-                        </span>
                       </Link>
                     );
                   })}

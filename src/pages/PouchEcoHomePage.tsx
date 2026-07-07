@@ -896,6 +896,7 @@ export default function PouchEcoHomePage() {
                         <Link
                           key={shape.id}
                           to={`${langPrefix}/solutions/shapes/${shape.slug || shape.id}`}
+                          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                           className="w-[60px] h-[60px] flex items-center justify-center bg-white border-2 border-black hover:bg-gray-50 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all p-1 relative group"
                           title={`${shape.id} - ${shape.name}`}
                         >
@@ -911,9 +912,6 @@ export default function PouchEcoHomePage() {
                               (e.target as HTMLImageElement).src = dielineSrc;
                             }}
                           />
-                          <span className="absolute bottom-0.5 right-1 text-[8px] font-mono text-gray-500 font-semibold group-hover:text-black">
-                            #{shape.id}
-                          </span>
                         </Link>
                       );
                     })}

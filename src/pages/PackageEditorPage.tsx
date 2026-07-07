@@ -197,6 +197,30 @@ export default function PackageEditorPage() {
       offscreenCtx.drawImage(dielineImgRef.current, 0, 0, 1000, 619);
     }
 
+    // Draw repeating pattern of AP Logo on skin
+    if (logoImgRef.current && logoImgRef.current.complete) {
+      try {
+        offscreenCtx.save();
+        offscreenCtx.globalCompositeOperation = 'multiply';
+        const patCanvas = document.createElement('canvas');
+        patCanvas.width = 160;
+        patCanvas.height = 120;
+        const patCtx = patCanvas.getContext('2d');
+        if (patCtx) {
+          patCtx.globalAlpha = 0.12; // subtle repeated watermark pattern
+          patCtx.drawImage(logoImgRef.current, 20, 20, 120, 80);
+          const pattern = offscreenCtx.createPattern(patCanvas, 'repeat');
+          if (pattern) {
+            offscreenCtx.fillStyle = pattern;
+            offscreenCtx.fillRect(0, 0, 1000, 619);
+          }
+        }
+        offscreenCtx.restore();
+      } catch (e) {
+        console.error('Error rendering repeating pattern:', e);
+      }
+    }
+
     layers.forEach(layer => {
       drawSingleLayer(offscreenCtx, layer, false);
     });
@@ -1114,15 +1138,15 @@ export default function PackageEditorPage() {
                     setSelectedShapeId(shape.id);
                     loadShape(shape);
                   }}
-                  className={`w-[160px] h-[68px] flex-shrink-0 rounded-lg border p-1.5 flex flex-row items-center gap-2 cursor-pointer transition-all duration-200 hover:scale-[1.02] ${
+                  className={`w-[72px] h-[72px] flex-shrink-0 rounded-xl border p-1.5 flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-[1.05] ${
                     isSelected
-                      ? 'bg-[rgba(100,255,218,0.06)] border-[#64ffda] shadow-[0_0_6px_rgba(100,255,218,0.12)]'
-                      : 'bg-[rgba(0,0,0,0.3)] border-[rgba(255,255,255,0.06)] hover:border-neutral-500'
+                      ? 'bg-[rgba(100,255,218,0.08)] border-[#64ffda] shadow-[0_0_8px_rgba(100,255,218,0.25)] scale-[1.02]'
+                      : 'bg-[rgba(0,0,0,0.4)] border-[rgba(255,255,255,0.08)] hover:border-neutral-500'
                   }`}
                   title={shape.name}
                 >
                   {/* Thumbnail */}
-                  <div className="w-[50px] h-[50px] bg-[#0c1017] rounded border border-neutral-800 flex items-center justify-center p-0.5 relative overflow-hidden">
+                  <div className="w-full h-full rounded-lg flex items-center justify-center relative overflow-hidden">
                     <img
                       src={thumbnailSrc}
                       alt={shape.name}
@@ -1132,12 +1156,6 @@ export default function PackageEditorPage() {
                         (e.target as HTMLImageElement).src = dielineSrc;
                       }}
                     />
-                  </div>
-                  {/* Info */}
-                  <div className="flex-grow flex flex-col justify-center min-w-0">
-                    <span className={`text-[10px] font-bold truncate ${isSelected ? 'text-[#64ffda]' : 'text-neutral-300'}`}>
-                      {shape.name}
-                    </span>
                   </div>
                 </div>
               );
