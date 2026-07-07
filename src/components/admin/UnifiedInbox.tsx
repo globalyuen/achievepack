@@ -704,27 +704,28 @@ export default function UnifiedInbox() {
                   {groupedByDate[dateStr].map(lead => {
                     const status = lead.status || '未跟進';
                     return (
-                      <div key={lead.id} className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                      <div 
+                        key={lead.id} 
+                        onClick={() => handleEditClick(lead)}
+                        className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-300 hover:bg-indigo-50/10 cursor-pointer transition-all flex flex-col group"
+                      >
                         <div className="flex justify-between items-start mb-2">
-                          <h4 className="font-bold text-gray-900 line-clamp-1">{lead.name}</h4>
+                          <h4 className="font-bold text-gray-900 group-hover:text-indigo-800 transition-colors line-clamp-1">{lead.name}</h4>
                           <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${STATUS_COLORS[status]}`}>
                             {status}
                           </span>
                         </div>
                         <div className="flex gap-1 mb-2">
-                           {lead.hasWhatsApp && <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 rounded">WA</span>}
-                           {lead.hasEmail && <span className="text-[10px] bg-blue-100 text-blue-800 px-1.5 rounded">Email</span>}
+                           {lead.hasWhatsApp && <span className="text-[10px] bg-emerald-50 text-emerald-700 px-1.5 rounded border border-emerald-200/40">WA</span>}
+                           {lead.hasEmail && <span className="text-[10px] bg-blue-50 text-blue-700 px-1.5 rounded border border-blue-200/40">Email</span>}
                         </div>
-                        <div className="text-[11px] text-gray-500 mb-4 line-clamp-3 min-h-[3rem] font-mono">
+                        <div className="text-[11px] text-gray-500 mb-4 line-clamp-3 min-h-[3rem] font-mono leading-relaxed">
                           {lead.hasWhatsApp ? lead.whatsappData?.chat_history : lead.emailData?.inquiry}
                         </div>
-                        <div className="flex items-center gap-2 border-t pt-3 mt-auto">
-                          <button
-                            onClick={() => handleEditClick(lead)}
-                            className="flex-1 px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 rounded-lg text-xs font-bold transition-colors text-center"
-                          >
+                        <div className="flex items-center gap-2 border-t pt-3 mt-auto w-full">
+                          <span className="w-full px-3 py-1.5 bg-indigo-50 group-hover:bg-indigo-600 group-hover:text-white text-indigo-800 rounded-lg text-xs font-bold transition-all text-center">
                             檢視詳情 / 跟進
-                          </button>
+                          </span>
                         </div>
                       </div>
                     );
