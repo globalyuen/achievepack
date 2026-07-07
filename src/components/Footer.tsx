@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap } from 'lucide-react'
+import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap, Box } from 'lucide-react'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { isAchievePack } from '../utils/domain'
 
 export default function Footer() {
   const { t } = useTranslation()
+  const [footerShapes, setFooterShapes] = useState<any[]>([])
 
   // Google Customer Reviews Badge integration
   useEffect(() => {
@@ -55,6 +56,37 @@ export default function Footer() {
       }
     }
   }, [])
+
+  // Load shapes on mount for collapsible footer directory
+  useEffect(() => {
+    const getLanguageFromPath = (pathStr: string) => {
+      const parts = pathStr.split('/').filter(Boolean);
+      const possibleLang = parts[0]?.toLowerCase();
+      if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+        return possibleLang;
+      }
+      return 'en';
+    };
+    const currentLang = getLanguageFromPath(window.location.pathname);
+
+    fetch(`/models_database_${currentLang}.json`)
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          setFooterShapes(data);
+        }
+      })
+      .catch(() => {
+        fetch('/models_database.json')
+          .then(res => res.json())
+          .then(data => {
+            if (Array.isArray(data)) {
+              setFooterShapes(data);
+            }
+          })
+          .catch(e => console.error('Error loading fallback catalog for footer:', e));
+      });
+  }, []);
 
   return (
     <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8 border-t border-neutral-850">
@@ -388,6 +420,41 @@ export default function Footer() {
               <li><Link to="/topics/ai-packaging-barcodes-bottom-fold" className="hover:text-primary-400">{t('seo_topics.ai_packaging_barcodes_bottom_fold.title', 'AI Barcodes & Bottom')}</Link></li>
             </ul>
           </div>
+          </details>
+        </div>
+
+        {/* Row 4: 3D Packaging Model Directory (Grouped compact & collapsible) */}
+        <div className="border-t border-neutral-800 py-4">
+          <details className="group">
+            <summary className="flex items-center justify-between cursor-pointer list-none select-none text-neutral-400 hover:text-white transition-colors py-2 focus:outline-none">
+              <div className="flex items-center gap-2">
+                <Box className="h-4.5 w-4.5 text-emerald-500" />
+                <span className="text-xs font-bold uppercase tracking-wider">{t('pouchEcoFooter.3dDirectory', '3D Packaging Model Directory')}</span>
+              </div>
+              <div className="text-[10px] border border-neutral-700 rounded px-2 py-0.5 bg-neutral-800 text-neutral-400 group-open:bg-neutral-700 group-open:text-white transition-all font-semibold uppercase font-mono">
+                <span className="group-open:hidden">{t('pouchEcoFooter.showAll', '[+] Expand')}</span>
+                <span className="hidden group-open:inline">{t('pouchEcoFooter.hideAll', '[-] Collapse')}</span>
+              </div>
+            </summary>
+            
+            <div className="mt-4 pt-4 border-t border-neutral-800/40 text-neutral-400 text-xs">
+              {footerShapes.length === 0 ? (
+                <p className="text-xs text-neutral-500 py-2">Loading packaging shapes...</p>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
+                  {footerShapes.map((shape) => (
+                    <Link
+                      key={shape.id}
+                      to={`/solutions/shapes/${shape.slug || shape.id}`}
+                      className="hover:text-primary-400 truncate block py-0.5"
+                      title={shape.name}
+                    >
+                      {shape.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </details>
         </div>
 

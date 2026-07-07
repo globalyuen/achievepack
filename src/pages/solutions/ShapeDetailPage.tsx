@@ -38,17 +38,26 @@ export default function ShapeDetailPage() {
   const currentLang = getLanguageFromPath(location.pathname);
 
   useEffect(() => {
-    fetch('/models_database.json')
+    fetch(`/models_database_${currentLang}.json`)
       .then((res) => res.json())
       .then((data: Shape[]) => {
         setShapes(data);
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Error loading database:', err);
-        setLoading(false);
+        console.error('Error loading database, falling back:', err);
+        fetch('/models_database.json')
+          .then((res) => res.json())
+          .then((data: Shape[]) => {
+            setShapes(data);
+            setLoading(false);
+          })
+          .catch((e) => {
+            console.error('Error loading fallback:', e);
+            setLoading(false);
+          });
       });
-  }, []);
+  }, [currentLang]);
 
   const shape = useMemo(() => {
     return shapes.find((s: any) => String(s.slug) === String(id) || String(s.id) === String(id));

@@ -29,15 +29,33 @@ export default function CatalogPage() {
 
   // Fetch compiled database
   useEffect(() => {
-    fetch('/models_database.json')
+    const getLanguageFromPath = (pathStr: string) => {
+      const parts = pathStr.split('/').filter(Boolean);
+      const possibleLang = parts[0]?.toLowerCase();
+      if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+        return possibleLang;
+      }
+      return 'en';
+    };
+    const currentLang = getLanguageFromPath(window.location.pathname);
+
+    fetch(`/models_database_${currentLang}.json`)
       .then((res) => res.json())
       .then((data: Shape[]) => {
         setShapes(data);
         setIsLoading(false);
       })
       .catch((err) => {
-        console.error('Error loading database:', err);
-        setIsLoading(false);
+        console.error('Error loading localized database, falling back:', err);
+        fetch('/models_database.json')
+          .then((res) => res.json())
+          .then((data: Shape[]) => {
+            setShapes(data);
+            setIsLoading(false);
+          })
+          .catch(() => {
+            setIsLoading(false);
+          });
       });
   }, []);
 
