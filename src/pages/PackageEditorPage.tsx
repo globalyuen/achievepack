@@ -73,6 +73,7 @@ export default function PackageEditorPage() {
   const logoImgRef = useRef<HTMLImageElement | null>(null);
   const dielineLoadedRef = useRef<boolean>(false);
   const logoLoadedRef = useRef<boolean>(false);
+  const currentLoadIdRef = useRef<number>(0);
 
   // Bounding box helpers
   const originalSizeRef = useRef<THREE.Vector3>(new THREE.Vector3());
@@ -411,9 +412,20 @@ export default function PackageEditorPage() {
 
     // 8. Load default GLB model
     const loader = new GLTFLoader();
+    const loadId = ++currentLoadIdRef.current;
     loader.load(
       '/model.glb',
       (gltf) => {
+        if (loadId !== currentLoadIdRef.current) {
+          gltf.scene.traverse((node) => {
+            if (node instanceof THREE.Mesh) {
+              node.geometry.dispose();
+              const mats = Array.isArray(node.material) ? node.material : [node.material];
+              mats.forEach(m => m && m.dispose());
+            }
+          });
+          return;
+        }
         const model = gltf.scene;
         modelRef.current = model;
 
@@ -486,12 +498,14 @@ export default function PackageEditorPage() {
         updateModelScale();
       },
       (xhr) => {
+        if (loadId !== currentLoadIdRef.current) return;
         if (xhr.total > 0) {
           const percent = Math.round((xhr.loaded / xhr.total) * 100);
           setLoadingText(`正在加載 3D 模型... ${percent}%`);
         }
       },
       (err) => {
+        if (loadId !== currentLoadIdRef.current) return;
         console.error('Error loading default model:', err);
         setLoadingText('模型加載失敗。請重試。');
       }
@@ -534,6 +548,8 @@ export default function PackageEditorPage() {
     setIsLoading(true);
     setLoadingText('正在下載並解析 3D 模型...');
 
+    const loadId = ++currentLoadIdRef.current;
+
     // Clear previous model from scene
     if (sceneRef.current && modelRef.current) {
       sceneRef.current.remove(modelRef.current);
@@ -556,6 +572,7 @@ export default function PackageEditorPage() {
         ? '/api/proxy?url=' + encodeURIComponent(shape.dieline_image)
         : shape.dieline_image;
       dielineImgRef.current.onload = () => {
+        if (loadId !== currentLoadIdRef.current) return;
         dielineLoadedRef.current = true;
         updateEditor();
       };
@@ -571,6 +588,16 @@ export default function PackageEditorPage() {
     loader.load(
       glbUrl,
       (gltf) => {
+        if (loadId !== currentLoadIdRef.current) {
+          gltf.scene.traverse((node) => {
+            if (node instanceof THREE.Mesh) {
+              node.geometry.dispose();
+              const mats = Array.isArray(node.material) ? node.material : [node.material];
+              mats.forEach(m => m && m.dispose());
+            }
+          });
+          return;
+        }
         const model = gltf.scene;
         modelRef.current = model;
 
@@ -607,6 +634,24 @@ export default function PackageEditorPage() {
         });
 
         if (sceneRef.current) {
+          // Double check and remove any other old model groups to prevent overlap
+          const toRemove: THREE.Object3D[] = [];
+          sceneRef.current.children.forEach((child) => {
+            if (child instanceof THREE.Group && child !== model) {
+              toRemove.push(child);
+            }
+          });
+          toRemove.forEach((child) => {
+            sceneRef.current?.remove(child);
+            child.traverse((node) => {
+              if (node instanceof THREE.Mesh) {
+                node.geometry.dispose();
+                const mats = Array.isArray(node.material) ? node.material : [node.material];
+                mats.forEach(m => m && m.dispose());
+              }
+            });
+          });
+
           sceneRef.current.add(model);
         }
 
@@ -675,12 +720,14 @@ export default function PackageEditorPage() {
         setIsLoading(false);
       },
       (xhr) => {
+        if (loadId !== currentLoadIdRef.current) return;
         if (xhr.total > 0) {
           const percent = Math.round((xhr.loaded / xhr.total) * 100);
           setLoadingText(`正在下載 3D 模型... ${percent}%`);
         }
       },
       (err) => {
+        if (loadId !== currentLoadIdRef.current) return;
         console.error('Error loading shape GLB:', err);
         setLoadingText('模型加載失敗。可能該模型路徑已過期。');
       }
