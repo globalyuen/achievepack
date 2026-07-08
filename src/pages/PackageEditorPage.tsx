@@ -54,11 +54,17 @@ export default function PackageEditorPage() {
   const [isPremiumUnlocked, setIsPremiumUnlocked] = useState<boolean>(false);
   const [shareLink, setShareLink] = useState<string>('');
   const [copiedLink, setCopiedLink] = useState<boolean>(false);
+  const [copiedCode, setCopiedCode] = useState<boolean>(false);
 
   const [isEmailModalOpen, setIsEmailModalOpen] = useState<boolean>(false);
   const [emailInput, setEmailInput] = useState<string>('');
   const [isSubmittingEmail, setIsSubmittingEmail] = useState<boolean>(false);
   const [emailSubmitted, setEmailSubmitted] = useState<boolean>(false);
+
+  // Alphanumeric code-based design sharing states
+  const [designCode, setDesignCode] = useState<string>('');
+  const [isSavingDesign, setIsSavingDesign] = useState<boolean>(false);
+  const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);
 
   // Three.js and Canvas Refs
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -622,11 +628,18 @@ export default function PackageEditorPage() {
   }, []);
 
   // Shared function to load a packaging shape into the 3D studio scene
-  const loadShape = (shape: Shape, presetWidth?: number, presetHeight?: number, presetArtwork?: string) => {
+  const loadShape = (shape: Shape | undefined, presetWidth?: number, presetHeight?: number, presetLayers?: any[]) => {
     setIsLoading(true);
     setLoadingText('正在下載並解析 3D 模型...');
 
     const loadId = ++currentLoadIdRef.current;
+    const shapeName = shape ? shape.name : '包裝模型 (Packaging Model)';
+    const glbUrl = shape 
+      ? (shape.glb_file.startsWith('http') || shape.glb_file.startsWith('//') ? '/api/proxy?url=' + encodeURIComponent(shape.glb_file) : shape.glb_file)
+      : '/model.glb';
+    const dielineUrl = shape
+      ? (shape.dieline_image.startsWith('http') || shape.dieline_image.startsWith('//') ? '/api/proxy?url=' + encodeURIComponent(shape.dieline_image) : shape.dieline_image)
+      : '/dieline.png';
 
     // Clear previous model from scene
     if (sceneRef.current && modelRef.current) {
@@ -645,10 +658,10 @@ export default function PackageEditorPage() {
     // Load new dieline background image
     dielineLoadedRef.current = false;
     if (dielineImgRef.current) {
-      const isRemoteDieline = shape.dieline_image.startsWith('http') || shape.dieline_image.startsWith('//');
+      const isRemoteDieline = dielineUrl.startsWith('http') || dielineUrl.startsWith('//');
       dielineImgRef.current.src = isRemoteDieline
-        ? '/api/proxy?url=' + encodeURIComponent(shape.dieline_image)
-        : shape.dieline_image;
+        ? '/api/proxy?url=' + encodeURIComponent(dielineUrl)
+        : dielineUrl;
       dielineImgRef.current.onload = () => {
         if (loadId !== currentLoadIdRef.current) return;
         dielineLoadedRef.current = true;
@@ -656,13 +669,8 @@ export default function PackageEditorPage() {
       };
     }
 
-    // Load new GLTF model
+    // Load GLTF model
     const loader = new GLTFLoader();
-    const isRemoteGlb = shape.glb_file.startsWith('http') || shape.glb_file.startsWith('//');
-    const glbUrl = isRemoteGlb
-      ? '/api/proxy?url=' + encodeURIComponent(shape.glb_file)
-      : shape.glb_file;
-
     loader.load(
       glbUrl,
       (gltf) => {
@@ -783,24 +791,44 @@ export default function PackageEditorPage() {
           }
         }
 
-        // Load preset layers (artwork) if provided, otherwise default AP logo
-        if (presetArtwork) {
-          const img = new Image();
-          img.src = presetArtwork;
-          img.onload = () => {
-            const sharedLayer: Layer = {
-              id: 'shared-artwork',
-              img,
-              name: 'Shared Artwork',
-              pos: { x: 500, y: 309 },
-              scale: 1.0,
-              rotation: 0,
-              width: 1000,
-              height: 619
-            };
-            setLayers([sharedLayer]);
-            setSelectedLayer(sharedLayer);
-          };
+        // Restore preset layers if provided, otherwise default AP logo
+        if (presetLayers && presetLayers.length > 0) {
+          Promise.all(
+            presetLayers.map(layer => {
+              return new Promise<Layer>((resolve) => {
+                const img = new Image();
+                img.src = layer.imgSrc;
+                img.onload = () => {
+                  resolve({
+                    id: layer.id,
+                    img,
+                    name: layer.name,
+                    pos: layer.pos,
+                    scale: layer.scale,
+                    rotation: layer.rotation,
+                    width: layer.width || img.width,
+                    height: layer.height || img.height
+                  });
+                };
+                img.onerror = () => {
+                  resolve({
+                    id: layer.id,
+                    img: logoImgRef.current || new Image(),
+                    name: layer.name,
+                    pos: layer.pos,
+                    scale: layer.scale,
+                    rotation: layer.rotation,
+                    width: layer.width || 100,
+                    height: layer.height || 100
+                  });
+                };
+              });
+            })
+          ).then((loadedLayers) => {
+            setLayers(loadedLayers);
+            setSelectedLayer(loadedLayers[loadedLayers.length - 1] || null);
+            updateEditor();
+          });
         } else if (logoImgRef.current) {
           const defaultLayer: Layer = {
             id: 'default-ap-logo',
@@ -816,7 +844,7 @@ export default function PackageEditorPage() {
           setSelectedLayer(defaultLayer);
         }
 
-        setModelName(shape.name);
+        setModelName(shapeName);
         setIsLoading(false);
       },
       (xhr) => {
@@ -846,7 +874,7 @@ export default function PackageEditorPage() {
     }
   };
 
-  // Auto load shape and shared artwork from URL parameters
+  // Auto load shape and shared artwork from URL parameters or code
   useEffect(() => {
     if (shapes.length === 0) return;
     const searchParams = new URLSearchParams(window.location.search);
@@ -855,36 +883,84 @@ export default function PackageEditorPage() {
     const heightParam = searchParams.get('h');
     const pwParam = searchParams.get('pw');
     const artworkParam = searchParams.get('artwork');
+    const codeParam = searchParams.get('code');
 
     if (pwParam === 'ryan') {
       setIsPremiumUnlocked(true);
       setPasswordInput('ryan');
     }
 
-    if (shapeId) {
-      const shape = shapes.find(s => String(s.id) === String(shapeId));
-      if (shape) {
-        setSelectedShapeId(shape.id);
-        
+    const loadInitialDesign = async () => {
+      // 1. Prioritize design code loading
+      if (codeParam) {
+        setLoadingText('正在載入您的專屬設計方案...');
+        setIsLoading(true);
+        try {
+          const res = await fetch(`/api/get-design?code=${codeParam}`);
+          const data = await res.json();
+          if (data.success && data.design) {
+            const d = data.design;
+            const shape = shapes.find(s => String(s.id) === String(d.shapeId));
+            
+            if (shape) {
+              setSelectedShapeId(shape.id);
+              loadShape(shape, d.width, d.height, d.layers);
+              // Switch active category
+              const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
+              const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
+              const isBottle = shape.keywords.includes('瓶') || shape.keywords.includes('罐') || shape.name.includes('瓶') || shape.name.includes('罐');
+              const isLabel = shape.keywords.includes('标签') || shape.keywords.includes('贴纸') || shape.name.includes('标签') || shape.name.includes('貼紙') || shape.keywords.includes('label') || shape.name.toLowerCase().includes('label');
+              
+              if (isBox) setActiveCategory('box');
+              else if (isPouch) setActiveCategory('pouch');
+              else if (isBottle) setActiveCategory('bottle');
+              else if (isLabel) setActiveCategory('label');
+              else setActiveCategory('other');
+            } else {
+              // Load default model template with saved custom sizes & layers
+              loadShape(undefined, d.width, d.height, d.layers);
+            }
+            return;
+          }
+        } catch (err) {
+          console.error('Error fetching design by code:', err);
+        }
+      }
+
+      // 2. Fallback to standard URL search parameters
+      if (shapeId) {
+        const shape = shapes.find(s => String(s.id) === String(shapeId));
+        if (shape) {
+          setSelectedShapeId(shape.id);
+          const presetW = widthParam ? Number(widthParam) : undefined;
+          const presetH = heightParam ? Number(heightParam) : undefined;
+          const presetArt = artworkParam ? [{ id: 'shared-artwork', imgSrc: artworkParam, name: 'Shared Artwork', pos: { x: 500, y: 309 }, scale: 1.0, rotation: 0 }] : undefined;
+
+          loadShape(shape, presetW, presetH, presetArt);
+
+          // Automatically switch active tab category
+          const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
+          const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
+          const isBottle = shape.keywords.includes('瓶') || shape.keywords.includes('罐') || shape.name.includes('瓶') || shape.name.includes('罐');
+          const isLabel = shape.keywords.includes('标签') || shape.keywords.includes('贴纸') || shape.name.includes('标签') || shape.name.includes('貼紙') || shape.keywords.includes('label') || shape.name.toLowerCase().includes('label');
+          
+          if (isBox) setActiveCategory('box');
+          else if (isPouch) setActiveCategory('pouch');
+          else if (isBottle) setActiveCategory('bottle');
+          else if (isLabel) setActiveCategory('label');
+          else setActiveCategory('other');
+        }
+      } else {
+        // 3. Absolute default: load default blank model
         const presetW = widthParam ? Number(widthParam) : undefined;
         const presetH = heightParam ? Number(heightParam) : undefined;
-        const presetArt = artworkParam || undefined;
+        const presetArt = artworkParam ? [{ id: 'shared-artwork', imgSrc: artworkParam, name: 'Shared Artwork', pos: { x: 500, y: 309 }, scale: 1.0, rotation: 0 }] : undefined;
 
-        loadShape(shape, presetW, presetH, presetArt);
-
-        // Automatically switch active tab category on direct load
-        const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
-        const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
-        const isBottle = shape.keywords.includes('瓶') || shape.keywords.includes('罐') || shape.name.includes('瓶') || shape.name.includes('罐');
-        const isLabel = shape.keywords.includes('标签') || shape.keywords.includes('贴纸') || shape.name.includes('标签') || shape.name.includes('貼紙') || shape.keywords.includes('label') || shape.name.toLowerCase().includes('label');
-        
-        if (isBox) setActiveCategory('box');
-        else if (isPouch) setActiveCategory('pouch');
-        else if (isBottle) setActiveCategory('bottle');
-        else if (isLabel) setActiveCategory('label');
-        else setActiveCategory('other');
+        loadShape(undefined, presetW, presetH, presetArt);
       }
-    }
+    };
+
+    loadInitialDesign();
   }, [shapes]);
 
   // Handle Layer Selection and Drag-and-Move on 2D Canvas
@@ -1097,42 +1173,49 @@ export default function PackageEditorPage() {
     setEmailSubmitted(true);
   };
 
-  const generateShareLink = () => {
-    const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = 500;
-    tempCanvas.height = 310;
-    const tempCtx = tempCanvas.getContext('2d');
-    if (!tempCtx) return;
+  const saveDesign = async () => {
+    setIsSavingDesign(true);
+    try {
+      // Serialize layers (convert Image objects back to base64 or path string URLs)
+      const serializedLayers = layers.map(layer => ({
+        id: layer.id,
+        name: layer.name,
+        pos: layer.pos,
+        scale: layer.scale,
+        rotation: layer.rotation,
+        width: layer.width,
+        height: layer.height,
+        imgSrc: layer.img.src
+      }));
 
-    tempCtx.fillStyle = '#ffffff';
-    tempCtx.fillRect(0, 0, 500, 310);
+      const response = await fetch('/api/save-design', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          shapeId: selectedShapeId,
+          width,
+          height,
+          depth,
+          unit,
+          layers: serializedLayers
+        })
+      });
 
-    layers.forEach(layer => {
-      tempCtx.save();
-      const drawScale = 0.5;
-      tempCtx.translate(layer.pos.x * drawScale, layer.pos.y * drawScale);
-      tempCtx.rotate(layer.rotation * (Math.PI / 180));
-      const w = layer.width * layer.scale * drawScale;
-      const h = layer.height * layer.scale * drawScale;
-      tempCtx.drawImage(layer.img, -w / 2, -h / 2, w, h);
-      tempCtx.restore();
-    });
-
-    const base64Data = tempCanvas.toDataURL('image/jpeg', 0.5);
-
-    const searchParams = new URLSearchParams();
-    searchParams.set('shape', selectedShapeId);
-    searchParams.set('w', String(width));
-    searchParams.set('h', String(height));
-    if (isPremiumUnlocked || passwordInput === 'ryan') {
-      searchParams.set('pw', 'ryan');
+      const data = await response.json();
+      if (data.success) {
+        setDesignCode(data.code);
+        setIsSaveModalOpen(true);
+      } else {
+        alert('Failed to save design: ' + (data.error || 'Unknown error'));
+      }
+    } catch (err) {
+      console.error('Error saving design:', err);
+      alert('Error connecting to backend API.');
+    } finally {
+      setIsSavingDesign(false);
     }
-    searchParams.set('artwork', base64Data);
-
-    const fullUrl = `${window.location.origin}${window.location.pathname}?${searchParams.toString()}`;
-    setShareLink(fullUrl);
-    setIsShareModalOpen(true);
-    setCopiedLink(false);
   };
 
   // Layers ordering Up / Down
@@ -1600,55 +1683,24 @@ export default function PackageEditorPage() {
           {/* Actions */}
           <div className="mt-auto flex flex-col gap-2">
             <button 
-              onClick={exportScreenshot}
-              className="w-full bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] font-semibold text-[13px] py-2.5 px-4 rounded-lg shadow-lg hover:shadow-[#64ffda]/25 flex items-center justify-center gap-1.5 transition-all duration-300"
+              onClick={saveDesign}
+              disabled={isSavingDesign}
+              className="w-full bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] disabled:opacity-50 font-bold text-[13px] py-3 px-4 rounded-lg shadow-lg hover:shadow-[#64ffda]/25 flex items-center justify-center gap-1.5 transition-all duration-300 uppercase tracking-wider"
             >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z"/>
-              </svg>
-              Export 3D Snapshot
-            </button>
-            <button 
-              onClick={() => setIsEmailModalOpen(true)}
-              className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-semibold text-[13px] py-2.5 px-4 rounded-lg shadow-lg flex items-center justify-center gap-1.5 transition-all duration-300"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
-              </svg>
-              Download 3D Model (Watermark-Free)
-            </button>
-            {/* Share Artwork Block */}
-            <div className="flex flex-col gap-2 p-2 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-lg">
-              <button 
-                onClick={generateShareLink}
-                className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-400 hover:to-indigo-400 text-white font-semibold text-[13px] py-2 px-3 rounded-lg shadow-md flex items-center justify-center gap-1.5 transition-all duration-300"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.8 2.04.8 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.3 2.04-.8l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/>
-                </svg>
-                Generate Share Link
-              </button>
-              
-              <input 
-                type="password"
-                placeholder="Enter 'ryan' to remove watermark"
-                value={passwordInput}
-                onChange={(e) => {
-                  setPasswordInput(e.target.value);
-                  if (e.target.value === 'ryan') {
-                    setIsPremiumUnlocked(true);
-                  } else {
-                    setIsPremiumUnlocked(false);
-                  }
-                }}
-                className="w-full bg-[rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.15)] focus:border-[#64ffda] text-[11px] text-white px-2.5 py-1.5 rounded-lg outline-none transition-all placeholder-neutral-500 text-center"
-              />
-              {isPremiumUnlocked && (
-                <div className="text-[10px] text-emerald-400 font-bold text-center">
-                  ✨ Watermarks Disabled (Premium Unlocked)
-                </div>
+              {isSavingDesign ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-t-[#08090c] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+                  Saving Workspace...
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
+                  </svg>
+                  Save Design & Share
+                </>
               )}
-            </div>
+            </button>
 
             <button 
               onClick={resetAllValues}
@@ -1660,7 +1712,7 @@ export default function PackageEditorPage() {
         </div>
 
         {/* 2. Middle Column: 2D Dieline Editor */}
-        <div className="flex-grow flex flex-col bg-[rgba(8,9,12,0.6)] p-6 gap-5 overflow-hidden">
+        <div className="w-[540px] flex-shrink-0 flex flex-col bg-[rgba(8,9,12,0.6)] p-6 gap-5 overflow-hidden border-r border-[rgba(255,255,255,0.08)]">
           <div>
             <h2 className="text-base font-bold text-[#f3f4f6]">2D Dieline Editor</h2>
             <p className="text-xs text-[#9ca3af] mt-0.5">Drag to place artwork, adjust scaling or layer ordering.</p>
@@ -1784,7 +1836,7 @@ export default function PackageEditorPage() {
         </div>
 
         {/* 3. Right Area: 3D Studio Previewer */}
-        <div id="viewport-panel" className="w-[450px] flex-shrink-0 border-l border-[rgba(255,255,255,0.08)] relative flex flex-col overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1]">
+        <div id="viewport-panel" className="flex-grow relative flex flex-col overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1]">
           <div ref={containerRef} className="flex-grow w-full h-full relative" />
           
           {/* Status Overlay info */}
@@ -1880,14 +1932,15 @@ export default function PackageEditorPage() {
         </div>
       )}
 
-      {/* Share Link Modal */}
-      {isShareModalOpen && (
+      {/* Save Design Modal */}
+      {isSaveModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-sm p-4">
           <div className="w-full max-w-md bg-[#10141e] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-2xl relative text-left">
             <button 
               onClick={() => {
-                setIsShareModalOpen(false);
-                setShareLink('');
+                setIsSaveModalOpen(false);
+                setDesignCode('');
+                setCopiedCode(false);
                 setCopiedLink(false);
               }}
               className="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
@@ -1899,41 +1952,53 @@ export default function PackageEditorPage() {
 
             <div className="space-y-4">
               <div className="text-center space-y-2">
-                <div className="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 10.742l5.028-2.933m0 8.366l-5.028-2.933m0 0A3 3 0 108 12a3 3 0 00.684.742zM15 8a3 3 0 11-6 0 3 3 0 016 0zm6 8a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-white">Share Your 3D Design</h3>
+                <h3 className="text-lg font-bold text-white">Design Saved Successfully!</h3>
                 <p className="text-xs text-neutral-400">
-                  Anyone opening this link will see your customized 3D packaging model with your uploaded artwork layers.
+                  Your 3D design workspace status has been secured. Share the code or link with your customer.
                 </p>
-                {isPremiumUnlocked && (
-                  <p className="text-[11px] text-emerald-400 font-bold bg-emerald-950/20 py-1 px-2 rounded-lg border border-emerald-900/30 text-center">
-                    🔒 Premium unlocked: Watermark-free display enabled for recipients!
-                  </p>
-                )}
               </div>
 
+              {/* Code Box */}
+              <div className="bg-[rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.08)] rounded-xl p-4 flex flex-col items-center justify-center gap-2">
+                <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-wider">Share Code</span>
+                <span className="text-2xl font-bold tracking-widest text-[#64ffda] select-all font-mono">{designCode}</span>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(designCode);
+                    setCopiedCode(true);
+                    setTimeout(() => setCopiedCode(false), 2000);
+                  }}
+                  className="text-xs text-[#9ca3af] hover:text-[#64ffda] underline transition-colors"
+                >
+                  {copiedCode ? 'Code Copied!' : 'Copy Code'}
+                </button>
+              </div>
+
+              {/* Shareable Link */}
               <div className="space-y-1.5">
-                <label className="text-xs text-neutral-400">Shareable URL</label>
+                <label className="text-xs text-neutral-400">Direct Share Link</label>
                 <div className="flex gap-2">
                   <input 
                     type="text"
                     readOnly
-                    value={shareLink}
+                    value={`${window.location.origin}${window.location.pathname}?code=${designCode}`}
                     className="flex-grow bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3 py-2 text-xs outline-none"
                     onClick={(e) => (e.target as HTMLInputElement).select()}
                   />
                   <button
                     onClick={() => {
-                      navigator.clipboard.writeText(shareLink);
+                      navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?code=${designCode}`);
                       setCopiedLink(true);
                       setTimeout(() => setCopiedLink(false), 2000);
                     }}
                     className="bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] font-bold text-xs px-4 py-2 rounded-lg transition-colors flex-shrink-0"
                   >
-                    {copiedLink ? 'Copied!' : 'Copy'}
+                    {copiedLink ? 'Copied!' : 'Copy Link'}
                   </button>
                 </div>
               </div>
@@ -1941,8 +2006,9 @@ export default function PackageEditorPage() {
               <div className="pt-2 text-center">
                 <button
                   onClick={() => {
-                    setIsShareModalOpen(false);
-                    setShareLink('');
+                    setIsSaveModalOpen(false);
+                    setDesignCode('');
+                    setCopiedCode(false);
                     setCopiedLink(false);
                   }}
                   className="w-full bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs py-2.5 rounded-lg transition-colors border border-[rgba(255,255,255,0.08)]"
