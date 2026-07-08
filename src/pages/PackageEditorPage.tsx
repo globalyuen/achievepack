@@ -406,139 +406,188 @@ export default function PackageEditorPage() {
       logoHeight = logoImg.height;
       logoLoadedRef.current = true;
 
-      const defaultLayer: Layer = {
-        id: 'default-ap-logo',
-        img: logoImg,
-        name: 'AP Logo (默認)',
-        pos: { x: 500, y: 309 },
-        scale: 0.5,
-        rotation: 0.0,
-        width: logoImg.width,
-        height: logoImg.height
-      };
-      setLayers([defaultLayer]);
-      setSelectedLayer(defaultLayer);
+      // Only set default AP logo layer if there is no shared artwork param in URL
+      const searchParams = new URLSearchParams(window.location.search);
+      if (!searchParams.get('artwork')) {
+        const defaultLayer: Layer = {
+          id: 'default-ap-logo',
+          img: logoImg,
+          name: 'AP Logo (默認)',
+          pos: { x: 500, y: 309 },
+          scale: 0.5,
+          rotation: 0.0,
+          width: logoImg.width,
+          height: logoImg.height
+        };
+        setLayers([defaultLayer]);
+        setSelectedLayer(defaultLayer);
+      }
       updateEditor();
     };
     let logoWidth = 300;
     let logoHeight = 222;
     logoImgRef.current = logoImg;
 
-    // 8. Load default GLB model
-    const loader = new GLTFLoader();
-    const loadId = ++currentLoadIdRef.current;
-    loader.load(
-      '/model.glb',
-      (gltf) => {
-        if (loadId !== currentLoadIdRef.current) {
-          gltf.scene.traverse((node) => {
-            if (node instanceof THREE.Mesh) {
-              node.geometry.dispose();
-              const mats = Array.isArray(node.material) ? node.material : [node.material];
-              mats.forEach(m => m && m.dispose());
-            }
-          });
-          return;
-        }
-        const model = gltf.scene;
-        modelRef.current = model;
+    const searchParams = new URLSearchParams(window.location.search);
+    const shapeId = searchParams.get('shape');
 
-        originalBoxRef.current.setFromObject(model);
-        originalBoxRef.current.getSize(originalSizeRef.current);
+    if (!shapeId) {
+      // 8. Load default GLB model
+      const loader = new GLTFLoader();
+      const loadId = ++currentLoadIdRef.current;
+      loader.load(
+        '/model.glb',
+        (gltf) => {
+          if (loadId !== currentLoadIdRef.current) {
+            gltf.scene.traverse((node) => {
+              if (node instanceof THREE.Mesh) {
+                node.geometry.dispose();
+                const mats = Array.isArray(node.material) ? node.material : [node.material];
+                mats.forEach(m => m && m.dispose());
+              }
+            });
+            return;
+          }
+          const model = gltf.scene;
+          modelRef.current = model;
 
-        let size = originalSizeRef.current;
-        let center = originalBoxRef.current.getCenter(new THREE.Vector3());
-
-        if (size.x < 2.0 && size.y < 2.0) {
-          model.scale.set(1000, 1000, 1000);
           originalBoxRef.current.setFromObject(model);
           originalBoxRef.current.getSize(originalSizeRef.current);
-          size = originalSizeRef.current;
-          center = originalBoxRef.current.getCenter(new THREE.Vector3());
-        }
 
-        model.position.x = -center.x;
-        model.position.z = -center.z;
-        model.position.y = -originalBoxRef.current.min.y;
+          let size = originalSizeRef.current;
+          let center = originalBoxRef.current.getCenter(new THREE.Vector3());
 
-        model.traverse((node) => {
-          if (node instanceof THREE.Mesh) {
-            node.castShadow = true;
-            node.receiveShadow = true;
-            if (node.material) {
-              materialsRef.current.push(node);
-              const mats = Array.isArray(node.material) ? node.material : [node.material];
-              mats.forEach(mat => {
-                mat.side = THREE.DoubleSide;
-                mat.map = canvasTexture;
-                if ('normalMap' in mat) mat.normalMap = null;
-                if ('bumpMap' in mat) mat.bumpMap = null;
-                if ('roughnessMap' in mat) mat.roughnessMap = null;
-                if ('metalnessMap' in mat) mat.metalnessMap = null;
-                if ('aoMap' in mat) mat.aoMap = null;
-                if ('emissiveMap' in mat) mat.emissiveMap = null;
-                if ('lightMap' in mat) mat.lightMap = null;
-                mat.needsUpdate = true;
-              });
-            }
+          if (size.x < 2.0 && size.y < 2.0) {
+            model.scale.set(1000, 1000, 1000);
+            originalBoxRef.current.setFromObject(model);
+            originalBoxRef.current.getSize(originalSizeRef.current);
+            size = originalSizeRef.current;
+            center = originalBoxRef.current.getCenter(new THREE.Vector3());
           }
-        });
 
-        scene.add(model);
+          // Read URL preset parameters
+          const widthParam = searchParams.get('w');
+          const heightParam = searchParams.get('h');
+          const artworkParam = searchParams.get('artwork');
 
-        // Adjust camera, floor, lighting positions
-        const maxDim = Math.max(size.x, size.y, size.z);
-        const fov = camera.fov * (Math.PI / 180);
-        const cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.8;
+          // Set dimensions inputs
+          setUnit('mm');
+          if (widthParam) {
+            setWidth(Number(widthParam));
+          } else {
+            setWidth(Math.round(size.x));
+          }
+          if (heightParam) {
+            setHeight(Number(heightParam));
+          } else {
+            setHeight(Math.round(size.y));
+          }
+          setDepth(parseFloat(size.z.toFixed(1)));
 
-        camera.far = maxDim * 15;
-        camera.position.set(0, size.y * 0.8, cameraZ);
-        camera.updateProjectionMatrix();
+          model.position.x = -center.x;
+          model.position.z = -center.z;
+          model.position.y = -originalBoxRef.current.min.y;
 
-        controls.target.set(0, size.y / 2, 0);
-        controls.maxDistance = maxDim * 6;
-        controls.minDistance = maxDim * 0.1;
-        controls.update();
+          model.traverse((node) => {
+            if (node instanceof THREE.Mesh) {
+              node.castShadow = true;
+              node.receiveShadow = true;
+              if (node.material) {
+                materialsRef.current.push(node);
+                const mats = Array.isArray(node.material) ? node.material : [node.material];
+                mats.forEach(mat => {
+                  mat.side = THREE.DoubleSide;
+                  mat.map = canvasTexture;
+                  if ('normalMap' in mat) mat.normalMap = null;
+                  if ('bumpMap' in mat) mat.bumpMap = null;
+                  if ('roughnessMap' in mat) mat.roughnessMap = null;
+                  if ('metalnessMap' in mat) mat.metalnessMap = null;
+                  if ('aoMap' in mat) mat.aoMap = null;
+                  if ('emissiveMap' in mat) mat.emissiveMap = null;
+                  if ('lightMap' in mat) mat.lightMap = null;
+                  mat.needsUpdate = true;
+                });
+              }
+            }
+          });
 
-        // Floor / Grid resizing
-        const floorSize = maxDim * 8;
-        floor.geometry.dispose();
-        floor.geometry = new THREE.PlaneGeometry(floorSize, floorSize);
+          scene.add(model);
 
-        scene.remove(grid);
-        grid.dispose();
-        const newGrid = new THREE.GridHelper(floorSize, 50, 0x1f2937, 0x111827);
-        newGrid.position.y = 0.001;
-        scene.add(newGrid);
-        gridRef.current = newGrid;
+          // Adjust camera, floor, lighting positions
+          const maxDim = Math.max(size.x, size.y, size.z);
+          const fov = camera.fov * (Math.PI / 180);
+          const cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.8;
 
-        dirLight1.position.set(maxDim * 1.5, maxDim * 2.5, maxDim * 1.5);
-        dirLight1.shadow.camera.left = -maxDim * 1.5;
-        dirLight1.shadow.camera.right = maxDim * 1.5;
-        dirLight1.shadow.camera.top = maxDim * 1.5;
-        dirLight1.shadow.camera.bottom = -maxDim * 1.5;
-        dirLight1.shadow.camera.near = 0.1;
-        dirLight1.shadow.camera.far = maxDim * 8;
+          camera.far = maxDim * 15;
+          camera.position.set(0, size.y * 0.8, cameraZ);
+          camera.updateProjectionMatrix();
 
-        dirLight2.position.set(-maxDim * 1.5, maxDim * 1.0, -maxDim * 1.5);
-        rimLight.position.set(0, maxDim * 1.5, -maxDim * 2.0);
+          controls.target.set(0, size.y / 2, 0);
+          controls.maxDistance = maxDim * 6;
+          controls.minDistance = maxDim * 0.1;
+          controls.update();
 
-        setIsLoading(false);
-        updateModelScale();
-      },
-      (xhr) => {
-        if (loadId !== currentLoadIdRef.current) return;
-        if (xhr.total > 0) {
-          const percent = Math.round((xhr.loaded / xhr.total) * 100);
-          setLoadingText(`正在加載 3D 模型... ${percent}%`);
+          // Floor / Grid resizing
+          const floorSize = maxDim * 8;
+          floor.geometry.dispose();
+          floor.geometry = new THREE.PlaneGeometry(floorSize, floorSize);
+
+          scene.remove(grid);
+          grid.dispose();
+          const newGrid = new THREE.GridHelper(floorSize, 50, 0x1f2937, 0x111827);
+          newGrid.position.y = 0.001;
+          scene.add(newGrid);
+          gridRef.current = newGrid;
+
+          dirLight1.position.set(maxDim * 1.5, maxDim * 2.5, maxDim * 1.5);
+          dirLight1.shadow.camera.left = -maxDim * 1.5;
+          dirLight1.shadow.camera.right = maxDim * 1.5;
+          dirLight1.shadow.camera.top = maxDim * 1.5;
+          dirLight1.shadow.camera.bottom = -maxDim * 1.5;
+          dirLight1.shadow.camera.near = 0.1;
+          dirLight1.shadow.camera.far = maxDim * 8;
+
+          dirLight2.position.set(-maxDim * 1.5, maxDim * 1.0, -maxDim * 1.5);
+          rimLight.position.set(0, maxDim * 1.5, -maxDim * 2.0);
+
+          // Load preset layers (artwork) if provided
+          if (artworkParam) {
+            const img = new Image();
+            img.src = artworkParam;
+            img.onload = () => {
+              const sharedLayer: Layer = {
+                id: 'shared-artwork',
+                img,
+                name: 'Shared Artwork',
+                pos: { x: 500, y: 309 },
+                scale: 1.0,
+                rotation: 0,
+                width: 1000,
+                height: 619
+              };
+              setLayers([sharedLayer]);
+              setSelectedLayer(sharedLayer);
+              updateEditor();
+            };
+          }
+
+          setIsLoading(false);
+          updateModelScale();
+        },
+        (xhr) => {
+          if (loadId !== currentLoadIdRef.current) return;
+          if (xhr.total > 0) {
+            const percent = Math.round((xhr.loaded / xhr.total) * 100);
+            setLoadingText(`正在加載 3D 模型... ${percent}%`);
+          }
+        },
+        (err) => {
+          if (loadId !== currentLoadIdRef.current) return;
+          console.error('Error loading default model:', err);
+          setLoadingText('模型加載失敗。請重試。');
         }
-      },
-      (err) => {
-        if (loadId !== currentLoadIdRef.current) return;
-        console.error('Error loading default model:', err);
-        setLoadingText('模型加載失敗。請重試。');
-      }
-    );
+      );
+    }
 
     // Animation Loop
     let animationFrameId: number;
