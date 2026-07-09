@@ -164,6 +164,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/dieline-creator': () => import('./pages/PouchDielineCreatorPage'),
   '/knowledge/writable-stampable-pouches': () => import('./pages/knowledge/WritableStampablePouchesPage'),
   '/knowledge/hand-clamp-sealer': () => import('./pages/knowledge/HandClampSealerPage'),
+  '/knowledge/pouch-date-coding-guide': () => import('./pages/knowledge/PouchDateCodingGuidePage'),
   '/ctrl-x9k7m/bookkeeping': () => import('./pages/admin/BookkeepingPage'),
 }
 
@@ -393,6 +394,7 @@ const ReusablePackagingPage = lazyWithRetry(() => import('./pages/knowledge/Reus
 const BottlePrintingGuidePage = lazyWithRetry(() => import('./pages/knowledge/BottlePrintingGuidePage'))
 const PouchHeatSealingGuidePage = lazyWithRetry(() => import('./pages/knowledge/PouchHeatSealingGuidePage'))
 const HandClampSealerPage = lazyWithRetry(() => import('./pages/knowledge/HandClampSealerPage'))
+const PouchDateCodingGuidePage = lazyWithRetry(() => import('./pages/knowledge/PouchDateCodingGuidePage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -875,6 +877,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/bottle-printing-guide" element={<BottlePrintingGuidePage />} />
                   <Route path="/knowledge/pouch-heat-sealing-temperature-guide" element={<PouchHeatSealingGuidePage />} />
                   <Route path="/knowledge/hand-clamp-sealer" element={<HandClampSealerPage />} />
+                  <Route path="/knowledge/pouch-date-coding-guide" element={<PouchDateCodingGuidePage />} />
                   {/* <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} /> */}
                   {/* <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} /> */}
                   {/* <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} /> */}
@@ -1575,6 +1578,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/bottle-printing-guide" element={<BottlePrintingGuidePage />} />
                         <Route path="/knowledge/pouch-heat-sealing-temperature-guide" element={<PouchHeatSealingGuidePage />} />
                         <Route path="/knowledge/hand-clamp-sealer" element={<HandClampSealerPage />} />
+                        <Route path="/knowledge/pouch-date-coding-guide" element={<PouchDateCodingGuidePage />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />

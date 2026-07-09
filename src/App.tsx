@@ -3429,6 +3429,7 @@ function App() {
                 <li><Link to="/support/faqs" className="hover:text-primary-500">{t('footer.links.faqs')}</Link></li>
                 <li><Link to="/knowledge/pouch-heat-sealing-temperature-guide" className="hover:text-primary-500">{t('pouchHeatSealing.seo.title', 'Heat Sealing Guide')}</Link></li>
                 <li><Link to="/knowledge/hand-clamp-sealer" className="hover:text-primary-500">{t('handClampSealer.seo.title', 'Hand-Clamp Sealer Guide')}</Link></li>
+                <li><Link to="/knowledge/pouch-date-coding-guide" className="hover:text-primary-400 font-medium text-primary-400">Pouch Date Coding Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
                 <li><Link to="/support/lead-time" className="hover:text-primary-500">{t('footer.links.leadTime')}</Link></li>
                 <li><Link to="/support/unprinted-samples" className="hover:text-primary-500">{t('appHome.string_117')}</Link></li>
                 <li><Link to="/support/sample-quote" className="hover:text-primary-500">{t('appHome.string_118')}</Link></li>

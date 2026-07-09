@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-07",
-  "total_images": 4900,
+  "generated": "2026-07-09",
+  "total_images": 4930,
   "total_categories": 211,
   "extensions": {
     ".webp": 1313,
     ".png": 3017,
-    ".jpg": 567,
+    ".jpg": 597,
     ".svg": 3
   },
   "categories": {
@@ -23376,13 +23376,193 @@
       ]
     },
     "shapes": {
-      "count": 1,
+      "count": 31,
       "images": [
+        {
+          "filename": "380.jpg",
+          "path": "/imgs/shapes/380.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:24.844Z"
+        },
+        {
+          "filename": "4724.jpg",
+          "path": "/imgs/shapes/4724.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:24.844Z"
+        },
+        {
+          "filename": "587.jpg",
+          "path": "/imgs/shapes/587.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:24.844Z"
+        },
+        {
+          "filename": "607.jpg",
+          "path": "/imgs/shapes/607.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:24.844Z"
+        },
+        {
+          "filename": "1995.jpg",
+          "path": "/imgs/shapes/1995.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "2854.jpg",
+          "path": "/imgs/shapes/2854.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "2921.jpg",
+          "path": "/imgs/shapes/2921.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "368.jpg",
+          "path": "/imgs/shapes/368.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "4056.jpg",
+          "path": "/imgs/shapes/4056.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "586.jpg",
+          "path": "/imgs/shapes/586.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "677.jpg",
+          "path": "/imgs/shapes/677.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "767.jpg",
+          "path": "/imgs/shapes/767.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "945.jpg",
+          "path": "/imgs/shapes/945.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:41:09.407Z"
+        },
+        {
+          "filename": "1050.jpg",
+          "path": "/imgs/shapes/1050.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "1757.jpg",
+          "path": "/imgs/shapes/1757.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "2922.jpg",
+          "path": "/imgs/shapes/2922.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "2928.jpg",
+          "path": "/imgs/shapes/2928.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "3947.jpg",
+          "path": "/imgs/shapes/3947.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "4101.jpg",
+          "path": "/imgs/shapes/4101.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "4780.jpg",
+          "path": "/imgs/shapes/4780.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "5091.jpg",
+          "path": "/imgs/shapes/5091.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "927.jpg",
+          "path": "/imgs/shapes/927.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "954.jpg",
+          "path": "/imgs/shapes/954.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
+        {
+          "filename": "975.jpg",
+          "path": "/imgs/shapes/975.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:56.793Z"
+        },
         {
           "filename": "1282.jpg",
           "path": "/imgs/shapes/1282.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-07T12:16:39.589Z"
+          "modified": "2026-07-07T14:40:42.989Z"
+        },
+        {
+          "filename": "360.jpg",
+          "path": "/imgs/shapes/360.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:42.989Z"
+        },
+        {
+          "filename": "4108.jpg",
+          "path": "/imgs/shapes/4108.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:42.989Z"
+        },
+        {
+          "filename": "4812.jpg",
+          "path": "/imgs/shapes/4812.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:42.989Z"
+        },
+        {
+          "filename": "4859.jpg",
+          "path": "/imgs/shapes/4859.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:42.989Z"
+        },
+        {
+          "filename": "524.jpg",
+          "path": "/imgs/shapes/524.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:42.989Z"
+        },
+        {
+          "filename": "680.jpg",
+          "path": "/imgs/shapes/680.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-07T14:40:42.989Z"
         }
       ]
     },

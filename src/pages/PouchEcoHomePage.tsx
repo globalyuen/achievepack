@@ -958,6 +958,7 @@ export default function PouchEcoHomePage() {
                 <li><Link to="/blog" className="hover:text-[#10b981]">Blog</Link></li>
                 <li><Link to="/testimonials" className="hover:text-[#10b981]">Testimonials</Link></li>
                 <li><Link to="/topics/custom-vs-standard-packaging" className="hover:text-[#10b981]">Custom vs. Standard</Link></li>
+                <li><Link to="/knowledge/pouch-date-coding-guide" className="hover:text-[#10b981]">Date Coding Guide</Link></li>
               </ul>
             </div>
 

@@ -131,6 +131,7 @@ const LEARN_PAGES = {
       { name: 'PHA vs PLA', link: '/knowledge/pha-vs-pla', image: '/imgs/materials/citrus_clear_spout_pouch.png' },
       { name: 'Heat Sealing Guide', link: '/knowledge/pouch-heat-sealing-temperature-guide', image: '/imgs/knowledge/heat-sealing-machine.jpg' },
       { name: 'Hand-Clamp Sealer Guide', link: '/knowledge/hand-clamp-sealer', image: '/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-2.jpg' },
+      { name: 'Pouch Date Coding Guide', link: '/knowledge/pouch-date-coding-guide', image: '/imgs/knowledge/pouch-coding-tij.jpg' },
     ]
   },
   support: {
