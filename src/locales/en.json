@@ -50446,5 +50446,48 @@
         "Multi-Size & Versatility: Wide selection of dimensions, window options, flip lids, and accessories."
       ]
     }
+  },
+  "pouchDateCoding": {
+    "author": {
+      "credentials": "14+ Years Packaging Engineering | GRS & FSC Auditing Expert",
+      "bio": "With a background in polytechnic materials science and GRS certification auditing, Ryan Wong helps B2B brand managers select and integrate optimal printing systems for sustainable flexible pack lines.",
+      "cta": "Consult Ryan"
+    },
+    "seo": {
+      "title": "Pouch Date Coding Guide: Expiration & Lot Printing | Achieve Pack",
+      "description": "Learn how to print expiration dates, best before dates, and lot codes on flexible pouches. Compare TTO, TIJ/CIJ, and hot stamping coding methods.",
+      "keywords": {
+        "1": "Pouch Expiration Date Coder",
+        "2": "Thermal Transfer Overprinting TTO",
+        "3": "Thermal Inkjet Coder TIJ",
+        "4": "Pouch Lot Code Printer",
+        "5": "Bag Sealer Date Stamp"
+      }
+    },
+    "hero": {
+      "title": "Pouch Date Coding: Expiration & Lot Code Printing",
+      "subtitle": "A technical engineering guide to applying scannable barcodes, batch codes, and expiration dates on flexible packaging pouches."
+    },
+    "quickAnswer": "Applying expiration dates to flexible pouches is done via three main methods: Thermal Transfer Overprinting (TTO) for pre-filling flat film inline; Continuous or Thermal Inkjet (CIJ/TIJ) for non-contact coding on filled bags via conveyors; and Hot Stamping or Debossing built directly into the heat sealing jaws. The choice depends on filled vs. flat film states, material composition (plastic vs. paper), and production throughput.",
+    "sections": {
+      "notebook": {
+        "title": "From Ryan Wong's Engineering Notebook",
+        "badge": "Expert Ink Insight",
+        "p1": "\"In my 14 years in packaging design, I've seen many startups run into compliance issues because their expiration dates smudged or became unreadable during shipping. Specialty films, particularly our EN 13432 certified compostable biopolymers or GRS-certified recycled PCR substrates, have surface energies that behave differently from traditional plastics.\"",
+        "p2": "\"If you use water-based inks or standard office stamps on these materials, the print will not cure and will rub off under friction. For Thermal Inkjet (TIJ) printers, always specify a MEK-based or ethanol-based fast-cure solvent ink. For brands utilizing manual band sealers, debossing the characters directly into the heat seal seam is the ultimate fail-safe because it doesn't rely on chemical adhesion.\""
+      },
+      "methods": {
+        "title": "The Three Most Reliable Pouch Coding Methods"
+      },
+      "comparison": {
+        "title": "Technical Comparison: Pouch Coding Technologies"
+      },
+      "painPoints": {
+        "title": "5 Pouch Coding Pain Points & Engineering Solutions"
+      },
+      "tips": {
+        "title": "Strategic Guidelines for Artwork & Placement"
+      }
+    }
   }
 }

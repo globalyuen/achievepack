@@ -48478,5 +48478,48 @@
         "Varios Tamaños y Versatilidad: Amplia selección de dimensiones, opciones de ventanas, tapas abatibles y accesorios."
       ]
     }
+  },
+  "pouchDateCoding": {
+    "author": {
+      "credentials": "14+ Años de Ingeniería de Empaque | Experto en Auditoría GRS y FSC",
+      "bio": "Con formación en ciencia de materiales politécnicos y auditoría de certificación GRS, Ryan Wong ayuda a los gerentes de marca B2B a seleccionar e integrar los sistemas de impresión óptimos para líneas de empaque flexible sostenible.",
+      "cta": "Consultar a Ryan"
+    },
+    "seo": {
+      "title": "Guía de codificación de fecha para bolsas: impresión de caducidad y lote | Achieve Pack",
+      "description": "Aprenda a imprimir fechas de vencimiento, fechas de consumo preferente y códigos de lote en bolsas flexibles. Compare los métodos de codificación TTO, TIJ/CIJ y estampado en caliente.",
+      "keywords": {
+        "1": "Codificador de fecha de caducidad para bolsas",
+        "2": "Sobreimpresión por transferencia térmica TTO",
+        "3": "Codificador por chorro de tinta térmico TIJ",
+        "4": "Impresora de código de lote para bolsas",
+        "5": "Estampador de fecha para selladora de bolsas"
+      }
+    },
+    "hero": {
+      "title": "Codificación de fecha para bolsas: impresión de caducidad y lote",
+      "subtitle": "Una guía técnica de ingeniería para aplicar códigos de barras escaneables, códigos de lote y fechas de vencimiento en bolsas flexibles."
+    },
+    "quickAnswer": "La aplicación de fechas de vencimiento en bolsas flexibles se realiza mediante tres métodos principales: sobreimpresión por transferencia térmica (TTO) para el prellenado en línea de películas planas; inyección de tinta continua o térmica (CIJ/TIJ) para codificación sin contacto en bolsas llenas a través de transportadores; y estampado en caliente o grabado directamente integrado en las mordazas de sellado. La elección depende del estado de la película (llena o plana), la composición del material (plástico o papel) y el volumen de producción.",
+    "sections": {
+      "notebook": {
+        "title": "Del cuaderno de ingeniería de Ryan Wong",
+        "badge": "Experto en tintas",
+        "p1": "\"En mis 14 años en el diseño de empaques, he visto a muchas startups tener problemas de cumplimiento debido a que sus fechas de vencimiento se borraban o se volvían ilegibles durante el envío. Las películas especiales, en particular nuestros biopolímeros compostables certificados EN 13432 o los sustratos de PCR reciclados certificados por GRS, tienen energías superficiales que se comportan de manera diferente a los plásticos tradicionales.\"",
+        "p2": "\"Si utiliza tintas a base de agua o sellos de oficina estándar en estos materiales, la impresión no se curará y se borrará por la fricción en las cajas de envío. Para las impresoras de inyección de tinta térmica (TIJ), especifique siempre una tinta solvente de curado rápido a base de MEK o etanol. Para las marcas que utilizan selladoras manuales, grabar los caracteres directamente en la costura de sellado térmico es la solución infalible porque no depende de la adhesión química.\""
+      },
+      "methods": {
+        "title": "Los tres métodos de codificación de bolsas más confiables"
+      },
+      "comparison": {
+        "title": "Comparación técnica : tecnologías de codificación de bolsas"
+      },
+      "painPoints": {
+        "title": "5 problemas de codificación de bolsas y soluciones de ingeniería"
+      },
+      "tips": {
+        "title": "Directrices estratégicas para el diseño y la colocación"
+      }
+    }
   }
 }

@@ -48414,5 +48414,48 @@
         "Multi-Tailles & Polyvalence: Large choix de dimensions, options de fenêtres, couvercles rabattables et accessoires."
       ]
     }
+  },
+  "pouchDateCoding": {
+    "author": {
+      "credentials": "14+ ans d'ingénierie d'emballage | Expert en audit GRS & FSC",
+      "bio": "Avec une formation en science des matériaux polytechniques et en audit de certification GRS, Ryan Wong aide les responsables de marque B2B à sélectionner et intégrer les systèmes d'impression optimaux pour les lignes d'emballage flexible durable.",
+      "cta": "Consulter Ryan"
+    },
+    "seo": {
+      "title": "Guide de codage de date pour sachets : impression de date d'expiration et de lot | Achieve Pack",
+      "description": "Découvrez comment imprimer les dates d'expiration, les dates de péremption et les codes de lot sur les sachets flexibles. Comparez le TTO, le TIJ/CIJ et le marquage à chaud.",
+      "keywords": {
+        "1": "Codeur de date d'expiration sachet",
+        "2": "Surimpression par transfert thermique TTO",
+        "3": "Codeur jet d'encre thermique TIJ",
+        "4": "Imprimante de code de lot sachet",
+        "5": "Marquage de date pour soudeuse de sacs"
+      }
+    },
+    "hero": {
+      "title": "Codage de date pour sachets : impression de date d'expiration et de lot",
+      "subtitle": "Un guide technique d'ingénierie pour appliquer des codes-barres scannables, des codes de lot et des dates d'expiration sur des sachets flexibles."
+    },
+    "quickAnswer": "L'application de dates d'expiration sur les sachets flexibles s'effectue via trois méthodes principales : la surimpression par transfert thermique (TTO) pour le pré-remplissage en ligne de films plats ; le jet d'encre continu ou thermique (CIJ/TIJ) pour le codage sans contact sur les sacs remplis via des convoyeurs ; et le marquage à chaud ou gaufrage directement intégré dans les mâchoires de scellage. Le choix dépend de l'état du film (rempli ou plat), de la composition du matériau (plastique ou papier) et de la cadence de production.",
+    "sections": {
+      "notebook": {
+        "title": "Du carnet d'ingénierie de Ryan Wong",
+        "badge": "Expert en encrage",
+        "p1": "\"Au cours de mes 14 années dans la conception d'emballages, j'ai vu de nombreuses startups rencontrer des problèmes de conformité parce que leurs dates d'expiration s'effaçaient ou devenaient illisibles pendant le transport. Les films spécialisés, en particulier nos biopolymères compostables certifiés EN 13432 ou nos substrats PCR recyclés certifiés GRS, ont des énergies de surface différentes de celles des plastiques traditionnels.\"",
+        "p2": "\"Si vous utilisez des encres à base d'eau ou des tampons de bureau standard sur ces matériaux, l'impression ne durcira pas et s'effacera sous l'effet du frottement dans les cartons d'expédition. Pour les imprimantes à jet d'encre thermique (TIJ), spécifiez toujours une encre solvant à séchage rapide à base de MEK ou d'éthanol. Pour les marques utilisant des soudeuses manuelles, le gaufrage des caractères directement dans le joint de scellage est la solution infaillible car elle ne dépend pas de l'adhérence chimique.\""
+      },
+      "methods": {
+        "title": "Les trois méthodes de codage de sachets les plus fiables"
+      },
+      "comparison": {
+        "title": "Comparaison technique : technologies de codage pour sachets"
+      },
+      "painPoints": {
+        "title": "5 problèmes de codage de sachets et solutions d'ingénierie"
+      },
+      "tips": {
+        "title": "Directives stratégiques pour le design et le placement"
+      }
+    }
   }
 }

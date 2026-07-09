@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-09",
-  "total_images": 4930,
+  "total_images": 4933,
   "total_categories": 211,
   "extensions": {
     ".webp": 1313,
     ".png": 3017,
-    ".jpg": 597,
+    ".jpg": 600,
     ".svg": 3
   },
   "categories": {
@@ -12742,8 +12742,26 @@
       ]
     },
     "knowledge": {
-      "count": 171,
+      "count": 174,
       "images": [
+        {
+          "filename": "pouch-coding-debossing.jpg",
+          "path": "/imgs/knowledge/pouch-coding-debossing.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-09T09:33:55.480Z"
+        },
+        {
+          "filename": "pouch-coding-tij.jpg",
+          "path": "/imgs/knowledge/pouch-coding-tij.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-09T09:33:55.471Z"
+        },
+        {
+          "filename": "pouch-coding-tto.jpg",
+          "path": "/imgs/knowledge/pouch-coding-tto.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-09T09:33:55.464Z"
+        },
         {
           "filename": "dtc-sustainable-packaging-pain-points.jpg",
           "path": "/imgs/knowledge/dtc-sustainable-packaging-pain-points.jpg",
