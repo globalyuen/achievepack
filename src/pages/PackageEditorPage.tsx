@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -68,6 +67,9 @@ export default function PackageEditorPage() {
   const [designCode, setDesignCode] = useState<string>('');
   const [isSavingDesign, setIsSavingDesign] = useState<boolean>(false);
   const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);
+
+  // Mobile tab state: '3d' | '2d' | 'settings'
+  const [mobileTab, setMobileTab] = useState<'3d' | '2d' | 'settings'>('3d');
 
   // Three.js and Canvas Refs
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -635,7 +637,43 @@ export default function PackageEditorPage() {
         containerRef.current.removeChild(renderer.domElement);
       }
     };
-  }, []);
+    }, []);
+
+  // Re-parent / resize Three.js renderer when switching between mobile tabs or breakpoints
+  useEffect(() => {
+    if (!rendererRef.current || !cameraRef.current) return;
+    const renderer = rendererRef.current;
+    const camera = cameraRef.current;
+
+    // Determine which container should host the renderer canvas
+    const isMobileViewport = window.innerWidth < 1024; // lg breakpoint
+    let targetContainer: HTMLElement | null = null;
+
+    if (isMobileViewport && mobileTab === '3d') {
+      targetContainer = document.getElementById('mobile-3d-container');
+    } else if (!isMobileViewport) {
+      targetContainer = containerRef.current;
+    }
+
+    if (targetContainer && !targetContainer.contains(renderer.domElement)) {
+      // Move the canvas to the correct container
+      if (renderer.domElement.parentElement) {
+        renderer.domElement.parentElement.removeChild(renderer.domElement);
+      }
+      targetContainer.appendChild(renderer.domElement);
+    }
+
+    // Resize renderer to match the new container
+    if (targetContainer) {
+      const w = targetContainer.clientWidth || window.innerWidth;
+      const h = targetContainer.clientHeight || window.innerHeight * 0.5;
+      if (w > 0 && h > 0) {
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      }
+    }
+  }, [mobileTab]);
 
   // Shared function to load a packaging shape into the 3D studio scene
   const loadShape = (shape: Shape | undefined, presetWidth?: number, presetHeight?: number, presetLayers?: any[]) => {
@@ -1462,15 +1500,15 @@ export default function PackageEditorPage() {
         </div>
       )}
 
-      {/* Top Bar with Pouch Selector */}
-      <header className="h-[140px] w-full flex-shrink-0 bg-[rgba(16,20,28,0.75)] backdrop-blur-[12px] border-b border-[rgba(255,255,255,0.08)] flex flex-col p-4 shadow-[0_4px_20px_rgba(0,0,0,0.2)] z-20 overflow-hidden">
-        {/* Row 1: Logo & Category Tabs */}
-        <div className="flex items-center justify-between w-full h-[40px] mb-3">
+      {/* Studio Top Bar - responsive: taller on desktop, compact on mobile */}
+      <header className="w-full flex-shrink-0 bg-[rgba(16,20,28,0.92)] backdrop-blur-[12px] border-b border-[rgba(255,255,255,0.08)] flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.2)] z-20 overflow-hidden">
+        {/* Row 1: Logo & Category Tabs — hidden on mobile to save space */}
+        <div className="hidden sm:flex items-center justify-between w-full px-4 pt-3 pb-2">
           <div className="flex items-center gap-2.5 font-bold text-[15px] tracking-wider uppercase text-[#f3f4f6]">
             <svg className="w-5 h-5 fill-[#64ffda]" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
             </svg>
-            <span className="hidden sm:inline">AchievePack 3D Studio</span>
+            <span>AchievePack 3D Studio</span>
           </div>
 
           {/* Category Tabs with Icons */}
@@ -1485,26 +1523,52 @@ export default function PackageEditorPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id as any)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
+                className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
                   activeCategory === tab.id
                     ? 'bg-[#64ffda] text-[#0a192f] font-bold shadow-[0_0_8px_rgba(100,255,218,0.25)]'
                     : 'text-[#9ca3af] hover:text-[#f3f4f6]'
                 }`}
               >
                 {tab.icon}
-                <span>{tab.label}</span>
+                <span className="hidden sm:inline">{tab.label}</span>
               </button>
             ))}
           </div>
 
-          {/* Spacer/Utility */}
-          <div className="w-[120px] text-right text-[10px] text-neutral-500 font-mono hidden md:block">
+          {/* Shapes count — desktop only */}
+          <div className="w-[80px] text-right text-[10px] text-neutral-500 font-mono hidden md:block">
             Shapes: {filteredShapes.length}
           </div>
         </div>
 
+        {/* Mobile: compact category tabs row */}
+        <div className="flex sm:hidden items-center justify-between px-3 pt-2 pb-1">
+          <span className="text-[11px] font-bold text-[#64ffda] uppercase tracking-widest">3D Studio</span>
+          <div className="flex items-center bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg p-0.5 gap-0.5">
+            {[
+              { id: 'pouch', label: 'Pouch', icon: <Layers className="w-3 h-3" /> },
+              { id: 'box', label: 'Box', icon: <Box className="w-3 h-3" /> },
+              { id: 'bottle', label: 'Bottle', icon: <Database className="w-3 h-3" /> },
+              { id: 'label', label: 'Label', icon: <Tag className="w-3 h-3" /> },
+              { id: 'other', label: '+', icon: <Grid className="w-3 h-3" /> }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveCategory(tab.id as any)}
+                className={`flex items-center gap-0.5 px-2 py-1 rounded text-[9px] font-bold uppercase transition-all duration-200 ${
+                  activeCategory === tab.id
+                    ? 'bg-[#64ffda] text-[#0a192f]'
+                    : 'text-[#9ca3af]'
+                }`}
+              >
+                {tab.icon}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Row 2: Horizontal Scrolling Card Catalogue */}
-        <div className="w-full flex-grow overflow-x-auto overflow-y-hidden flex flex-row items-center gap-3 pb-1 custom-scrollbar">
+        <div className="w-full overflow-x-auto overflow-y-hidden flex flex-row items-center gap-2 px-3 pb-2 pt-1 custom-scrollbar" style={{ height: '76px', minHeight: '76px' }}>
           {activeCategory === 'label' ? (
             <div className="text-xs text-neutral-500 w-full text-center py-2 italic flex items-center justify-center gap-2">
               <Tag className="w-4 h-4 text-[#64ffda] animate-pulse" />
@@ -1554,9 +1618,13 @@ export default function PackageEditorPage() {
         </div>
       </header>
 
-      {/* Main 3-Column Workspace — fills remaining viewport height below SiteHeader (64px) */}
+      {/* ================================================================ */}
+      {/* Main Workspace — 3-column on desktop, tab-switched on mobile      */}
+      {/* ================================================================ */}
       <div className="flex flex-col flex-grow overflow-hidden">
-      <div className="flex-grow flex flex-row overflow-hidden">
+
+        {/* DESKTOP: 3-column side-by-side layout (lg+) */}
+        <div className="hidden lg:flex flex-row flex-grow overflow-hidden">
         
         {/* 1. Left Sidebar: Control Panel */}
         <div className="w-[340px] flex-shrink-0 bg-[rgba(16,20,28,0.4)] border-r border-[rgba(255,255,255,0.08)] p-6 flex flex-col gap-6 overflow-y-auto custom-scrollbar">
@@ -1718,7 +1786,7 @@ export default function PackageEditorPage() {
         </div>
 
         {/* 2. Middle Column: 2D Dieline Editor */}
-        <div className="w-[540px] flex-shrink-0 flex flex-col bg-[rgba(8,9,12,0.6)] p-6 gap-5 overflow-hidden border-r border-[rgba(255,255,255,0.08)]">
+        <div className="w-[520px] flex-shrink-0 flex flex-col bg-[rgba(8,9,12,0.6)] p-5 gap-4 overflow-hidden border-r border-[rgba(255,255,255,0.08)]">
           <div>
             <h2 className="text-base font-bold text-[#f3f4f6]">2D Dieline Editor</h2>
             <p className="text-xs text-[#9ca3af] mt-0.5">Drag to place artwork, adjust scaling or layer ordering.</p>
@@ -1844,15 +1912,172 @@ export default function PackageEditorPage() {
         {/* 3. Right Area: 3D Studio Previewer */}
         <div id="viewport-panel" className="flex-grow relative flex flex-col overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1]">
           <div ref={containerRef} className="flex-grow w-full h-full relative" />
-          
           {/* Status Overlay info */}
           <div id="preview-info" className="absolute bottom-4 left-4 right-4 bg-[rgba(16,20,28,0.85)] border border-[rgba(255,255,255,0.08)] rounded-xl py-2.5 px-4 text-xs flex justify-between shadow-2xl backdrop-blur-md">
             <span>Shape: <strong className="text-[#64ffda]">{modelName}</strong></span>
             <span>Active: <strong className="text-[#64ffda]">{selectedLayer ? selectedLayer.name : 'None'}</strong></span>
           </div>
         </div>
+        {/* end 3. Right Area */}
+        </div>
+        {/* end DESKTOP 3-column */}
 
-      </div>
+        {/* MOBILE: single panel with tab switcher (< lg) */}
+        <div className="flex lg:hidden flex-col flex-grow overflow-hidden relative">
+
+          {/* MOBILE PANEL: 3D View - always mounted, shown/hidden via display */}
+          <div
+            className="flex-grow relative overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1]"
+            style={{ display: mobileTab === '3d' ? 'flex' : 'none', flexDirection: 'column' }}
+          >
+            {/* Three.js mounts here on mobile - containerRef is always rendered in desktop, but on mobile-only viewport it needs to live here */}
+            <div className="flex-grow w-full h-full relative" id="mobile-3d-container" />
+            {/* Status bar */}
+            <div className="absolute bottom-2 left-2 right-2 bg-[rgba(16,20,28,0.88)] border border-[rgba(255,255,255,0.08)] rounded-xl py-2 px-3 text-[11px] flex justify-between backdrop-blur-md">
+              <span>Shape: <strong className="text-[#64ffda]">{modelName}</strong></span>
+              <span className="text-[#9ca3af]">Pinch to zoom · Drag to rotate</span>
+            </div>
+          </div>
+
+          {/* MOBILE PANEL: 2D Dieline Editor */}
+          {mobileTab === '2d' && (
+            <div className="flex-grow flex flex-col bg-[rgba(8,9,12,0.95)] p-3 gap-3 overflow-y-auto">
+              <div>
+                <h2 className="text-sm font-bold text-[#f3f4f6]">2D Dieline Editor</h2>
+                <p className="text-[10px] text-[#9ca3af] mt-0.5">Tap to select layer · Drag to reposition</p>
+              </div>
+              <div className="border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center" style={{ aspectRatio: '1000/619' }}>
+                <canvas
+                  ref={editorCanvasRef}
+                  width={1000}
+                  height={619}
+                  onMouseDown={handleCanvasMouseDown}
+                  onMouseMove={handleCanvasMouseMove}
+                  onMouseUp={handleCanvasMouseUp}
+                  onMouseLeave={handleCanvasMouseUp}
+                  onTouchStart={(e) => {
+                    const touch = e.touches[0];
+                    const rect = (e.target as HTMLCanvasElement).getBoundingClientRect();
+                    handleCanvasMouseDown({ clientX: touch.clientX, clientY: touch.clientY, currentTarget: e.currentTarget, preventDefault: () => e.preventDefault() } as any);
+                  }}
+                  onTouchMove={(e) => {
+                    const touch = e.touches[0];
+                    handleCanvasMouseMove({ clientX: touch.clientX, clientY: touch.clientY, currentTarget: e.currentTarget } as any);
+                  }}
+                  onTouchEnd={() => handleCanvasMouseUp()}
+                  className="max-w-full max-h-full object-contain w-full"
+                />
+              </div>
+              {/* Upload artwork */}
+              <div
+                onClick={() => fileInputRef.current?.click()}
+                className="border-2 border-dashed border-[rgba(100,255,218,0.25)] rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-[#64ffda]/50 transition-all"
+              >
+                <svg className="w-6 h-6 text-[#64ffda] fill-current" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                <span className="text-xs text-[#9ca3af]">Tap to upload artwork / logo</span>
+                <input type="file" ref={fileInputRef} onChange={handleFileUpload} accept="image/*" className="hidden" />
+              </div>
+              {/* Layer controls */}
+              {selectedLayer && (
+                <div className="bg-[rgba(16,20,28,0.7)] border border-[rgba(255,255,255,0.08)] rounded-xl p-3 flex flex-col gap-3">
+                  <div className="text-[11px] font-semibold text-[#64ffda] uppercase">Selected: {selectedLayer.name}</div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex flex-col gap-1">
+                      <div className="flex justify-between text-[10px]"><span className="text-[#9ca3af]">Scale</span><span className="text-[#64ffda]">{selectedLayer.scale.toFixed(2)}</span></div>
+                      <input type="range" min="0.1" max="3" step="0.02" value={selectedLayer.scale} onChange={handleScaleInput} className="w-full accent-[#64ffda]" />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <div className="flex justify-between text-[10px]"><span className="text-[#9ca3af]">Rotation</span><span className="text-[#64ffda]">{selectedLayer.rotation}°</span></div>
+                      <input type="range" min="0" max="360" step="1" value={selectedLayer.rotation} onChange={handleRotationInput} className="w-full accent-[#64ffda]" />
+                    </div>
+                  </div>
+                  <button onClick={deleteSelectedLayer} className="text-xs border border-[#ef4444]/50 text-[#ef4444] rounded-lg px-3 py-1.5 hover:bg-[#ef4444]/10 transition-all">Delete Layer</button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* MOBILE PANEL: Settings */}
+          {mobileTab === 'settings' && (
+            <div className="flex-grow bg-[rgba(16,20,28,0.95)] p-4 flex flex-col gap-4 overflow-y-auto custom-scrollbar">
+              <h2 className="text-sm font-bold text-[#f3f4f6]">Dimensions & Settings</h2>
+
+              {/* Dimensions */}
+              <div className="flex flex-col gap-3 border-b border-[rgba(255,255,255,0.08)] pb-4">
+                <div className="text-[11px] font-semibold text-[#64ffda] tracking-wide uppercase">Dimensions</div>
+                <select value={unit} onChange={handleUnitChange} className="bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3 py-2 text-sm outline-none">
+                  <option value="mm">Millimeters (mm)</option>
+                  <option value="inch">Inches (in)</option>
+                </select>
+                <div className="grid grid-cols-3 gap-2">
+                  {[{ label: 'Width', value: width, setter: (v: number) => { setWidth(v); updateModelScale(); } },
+                    { label: 'Height', value: height, setter: (v: number) => { setHeight(v); updateModelScale(); } },
+                    { label: 'Depth', value: depth, setter: (v: number) => setDepth(v) }].map(dim => (
+                    <div key={dim.label} className="flex flex-col gap-1">
+                      <label className="text-[10px] text-[#9ca3af]">{dim.label}</label>
+                      <input
+                        type="number"
+                        value={dim.value}
+                        onChange={e => dim.setter(parseFloat(e.target.value) || 0)}
+                        className="bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-2 py-1.5 text-sm outline-none text-center w-full"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Material */}
+              <div className="flex flex-col gap-3 border-b border-[rgba(255,255,255,0.08)] pb-4">
+                <div className="text-[11px] font-semibold text-[#64ffda] tracking-wide uppercase">Material</div>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex justify-between text-xs"><span className="text-[#9ca3af]">Roughness</span><span className="text-[#64ffda]">{roughness.toFixed(2)}</span></div>
+                  <input type="range" min="0" max="1" step="0.01" value={roughness} onChange={handleRoughnessInput} className="w-full accent-[#64ffda]" />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex justify-between text-xs"><span className="text-[#9ca3af]">Metalness</span><span className="text-[#64ffda]">{metalness.toFixed(2)}</span></div>
+                  <input type="range" min="0" max="1" step="0.01" value={metalness} onChange={handleMetalnessInput} className="w-full accent-[#64ffda]" />
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-col gap-2 mt-auto">
+                <button
+                  onClick={saveDesign}
+                  disabled={isSavingDesign}
+                  className="w-full bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] disabled:opacity-50 font-bold text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all"
+                >
+                  {isSavingDesign ? <><div className="w-4 h-4 border-2 border-t-[#08090c] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"/><span>Saving...</span></> : <><svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg><span>Save & Share Design</span></>}
+                </button>
+                <button onClick={resetAllValues} className="w-full border border-[rgba(255,255,255,0.15)] text-[#9ca3af] font-semibold text-sm py-2.5 rounded-xl transition-all">
+                  Reset Canvas
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* MOBILE Bottom Tab Bar */}
+          <nav className="flex-shrink-0 bg-[rgba(10,12,18,0.97)] border-t border-[rgba(255,255,255,0.1)] flex items-stretch h-14 safe-b">
+            {([
+              { id: '3d' as const, label: '3D View', icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8.5v7L12 19.82 4 15.5v-7l8-4.32z"/></svg> },
+              { id: '2d' as const, label: '2D Editor', icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> },
+              { id: 'settings' as const, label: 'Settings', icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg> },
+            ] as { id: '3d' | '2d' | 'settings'; label: string; icon: React.ReactNode }[]).map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setMobileTab(tab.id)}
+                className={`flex-1 flex flex-col items-center justify-center gap-0.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-200 ${
+                  mobileTab === tab.id
+                    ? 'text-[#64ffda] border-t-2 border-[#64ffda] bg-[rgba(100,255,218,0.05)]'
+                    : 'text-[#6b7280] border-t-2 border-transparent'
+                }`}
+              >
+                {tab.icon}
+                {tab.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+        {/* end MOBILE */}
 
       {/* Email Modal for Watermark-Free Downloads */}
       {isEmailModalOpen && (
