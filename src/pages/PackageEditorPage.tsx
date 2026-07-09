@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
 import { Layers, Box, Database, Tag, Grid } from 'lucide-react';
+import Footer from '../components/Footer';
+import SiteHeader from '../components/SiteHeader';
 
 interface Layer {
   id: string;
@@ -120,14 +123,21 @@ export default function PackageEditorPage() {
       });
   }, []);
 
+  // Shared category detection helper — pouch wins over bottle if both keywords present
+  const detectCategory = (shape: Shape) => {
+    const kw = shape.keywords;
+    const nm = shape.name;
+    const isPouch = kw.includes('袋') || kw.includes('软包装') || nm.includes('袋') || nm.toLowerCase().includes('pouch') || nm.toLowerCase().includes('bag');
+    const isBox = !isPouch && (kw.includes('纸盒') || kw.includes('盒') || nm.includes('盒') || nm.toLowerCase().includes('box'));
+    const isBottle = !isPouch && !isBox && (kw.includes('瓶') || kw.includes('罐') || nm.includes('瓶') || nm.includes('罐') || nm.toLowerCase().includes('bottle') || nm.toLowerCase().includes('jar'));
+    const isLabel = kw.includes('标签') || kw.includes('贴纸') || nm.includes('标签') || nm.includes('貼紙') || kw.includes('label') || nm.toLowerCase().includes('label') || nm.toLowerCase().includes('sticker');
+    return { isPouch, isBox, isBottle, isLabel };
+  };
+
   // Filter shapes based on the active tab category
   const filteredShapes = React.useMemo(() => {
     return shapes.filter((shape) => {
-      const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
-      const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
-      const isBottle = shape.keywords.includes('瓶') || shape.keywords.includes('罐') || shape.name.includes('瓶') || shape.name.includes('罐');
-      const isLabel = shape.keywords.includes('标签') || shape.keywords.includes('贴纸') || shape.name.includes('标签') || shape.name.includes('貼紙') || shape.keywords.includes('label') || shape.name.toLowerCase().includes('label');
-      
+      const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
       if (activeCategory === 'box') return isBox;
       if (activeCategory === 'pouch') return isPouch;
       if (activeCategory === 'bottle') return isBottle;
@@ -905,14 +915,10 @@ export default function PackageEditorPage() {
             if (shape) {
               setSelectedShapeId(shape.id);
               loadShape(shape, d.width, d.height, d.layers);
-              // Switch active category
-              const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
-              const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
-              const isBottle = shape.keywords.includes('瓶') || shape.keywords.includes('罐') || shape.name.includes('瓶') || shape.name.includes('罐');
-              const isLabel = shape.keywords.includes('标签') || shape.keywords.includes('贴纸') || shape.name.includes('标签') || shape.name.includes('貼紙') || shape.keywords.includes('label') || shape.name.toLowerCase().includes('label');
-              
-              if (isBox) setActiveCategory('box');
-              else if (isPouch) setActiveCategory('pouch');
+              // Switch active category (using shared detectCategory helper)
+              const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
+              if (isPouch) setActiveCategory('pouch');
+              else if (isBox) setActiveCategory('box');
               else if (isBottle) setActiveCategory('bottle');
               else if (isLabel) setActiveCategory('label');
               else setActiveCategory('other');
@@ -938,14 +944,10 @@ export default function PackageEditorPage() {
 
           loadShape(shape, presetW, presetH, presetArt);
 
-          // Automatically switch active tab category
-          const isBox = shape.keywords.includes('纸盒') || shape.keywords.includes('盒') || shape.name.includes('盒');
-          const isPouch = shape.keywords.includes('袋') || shape.keywords.includes('软包装') || shape.name.includes('袋');
-          const isBottle = shape.keywords.includes('瓶') || shape.keywords.includes('罐') || shape.name.includes('瓶') || shape.name.includes('罐');
-          const isLabel = shape.keywords.includes('标签') || shape.keywords.includes('贴纸') || shape.name.includes('标签') || shape.name.includes('貼紙') || shape.keywords.includes('label') || shape.name.toLowerCase().includes('label');
-          
-          if (isBox) setActiveCategory('box');
-          else if (isPouch) setActiveCategory('pouch');
+          // Automatically switch active tab category (using shared detectCategory helper)
+          const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
+          if (isPouch) setActiveCategory('pouch');
+          else if (isBox) setActiveCategory('box');
           else if (isBottle) setActiveCategory('bottle');
           else if (isLabel) setActiveCategory('label');
           else setActiveCategory('other');
@@ -1419,7 +1421,9 @@ export default function PackageEditorPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#08090c] text-[#f3f4f6] font-sans antialiased">
+    <div className="flex flex-col min-h-screen w-screen bg-[#08090c] text-[#f3f4f6] font-sans antialiased">
+      {/* Site Navigation Header for SEO + user navigation */}
+      <SiteHeader />
       {/* CSS Scoped Tokens */}
       <style>{`
         :root {
@@ -1523,15 +1527,15 @@ export default function PackageEditorPage() {
                     setSelectedShapeId(shape.id);
                     loadShape(shape);
                   }}
-                  className={`w-[128px] h-[128px] flex-shrink-0 rounded-xl border p-1.5 flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-[1.05] ${
+                  className={`w-[90px] h-[80px] flex-shrink-0 rounded-xl border flex flex-col items-center justify-center cursor-pointer transition-all duration-200 hover:scale-[1.05] gap-0.5 ${
                     isSelected
                       ? 'bg-[rgba(100,255,218,0.08)] border-[#64ffda] shadow-[0_0_8px_rgba(100,255,218,0.25)] scale-[1.02]'
                       : 'bg-[rgba(0,0,0,0.4)] border-[rgba(255,255,255,0.08)] hover:border-neutral-500'
                   }`}
                   title={shape.name}
                 >
-                  {/* Thumbnail */}
-                  <div className="w-full h-full rounded-lg flex items-center justify-center relative overflow-hidden">
+                  {/* Thumbnail — fixed size with contain so image is never cropped */}
+                  <div className="w-[62px] h-[54px] flex items-center justify-center">
                     <img
                       src={thumbnailSrc}
                       alt={shape.name}
@@ -1542,6 +1546,7 @@ export default function PackageEditorPage() {
                       }}
                     />
                   </div>
+                  <span className="text-[8px] text-[#9ca3af] leading-tight text-center px-1 truncate w-full text-center">{shape.id}</span>
                 </div>
               );
             })
@@ -1549,8 +1554,9 @@ export default function PackageEditorPage() {
         </div>
       </header>
 
-      {/* Main 3-Column Workspace */}
-      <div className="flex-grow flex flex-row h-[calc(100vh-140px)] overflow-hidden">
+      {/* Main 3-Column Workspace — fills remaining viewport height below SiteHeader (64px) */}
+      <div className="flex flex-col flex-grow overflow-hidden">
+      <div className="flex-grow flex flex-row overflow-hidden">
         
         {/* 1. Left Sidebar: Control Panel */}
         <div className="w-[340px] flex-shrink-0 bg-[rgba(16,20,28,0.4)] border-r border-[rgba(255,255,255,0.08)] p-6 flex flex-col gap-6 overflow-y-auto custom-scrollbar">
@@ -2021,6 +2027,10 @@ export default function PackageEditorPage() {
         </div>
       )}
 
+      </div>
+
+      {/* Site Footer for SEO internal linking */}
+      <Footer />
     </div>
   );
 }
