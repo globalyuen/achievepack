@@ -133,9 +133,9 @@ const JellyBeverageStandUpPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20230103/41054600001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20230103/41054600001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/10399873-3540-419d-8ce0-98931eba59b3.png'
+    hero: '/imgs/topics/jelly-beverage-stand-up-pouch/hero.jpg',
+    process: '/imgs/topics/jelly-beverage-stand-up-pouch/process.jpg',
+    comparison: '/imgs/topics/jelly-beverage-stand-up-pouch/comparison.jpg'
   }
 
   const sections = [

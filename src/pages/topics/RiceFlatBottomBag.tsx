@@ -133,9 +133,9 @@ const RiceFlatBottomBag: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/c646619e-9f68-4def-a64d-0ef09ffc6b16.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/c646619e-9f68-4def-a64d-0ef09ffc6b16.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/fdf099f6-184f-43f2-b254-a421b4a8e02b.png'
+    hero: '/imgs/topics/rice-flat-bottom-bag/hero.jpg',
+    process: '/imgs/topics/rice-flat-bottom-bag/process.jpg',
+    comparison: '/imgs/topics/rice-flat-bottom-bag/comparison.jpg'
   }
 
   const sections = [

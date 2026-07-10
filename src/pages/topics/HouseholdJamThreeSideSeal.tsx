@@ -133,9 +133,9 @@ const HouseholdJamThreeSideSeal: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/0dedfe84-eec7-4741-aba3-04ec6c08de07.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/0dedfe84-eec7-4741-aba3-04ec6c08de07.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/0ec5b896-59a8-4d34-ab28-6870bb6a3dba.png'
+    hero: '/imgs/topics/household-jam-three-side-seal/hero.jpg',
+    process: '/imgs/topics/household-jam-three-side-seal/process.jpg',
+    comparison: '/imgs/topics/household-jam-three-side-seal/comparison.jpg'
   }
 
   const sections = [

@@ -135,6 +135,9 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     const loader = new GLTFLoader();
     const masterPouchGroup = new THREE.Group();
     scene.add(masterPouchGroup);
+    
+    const mixers: THREE.AnimationMixer[] = [];
+    const clock = new THREE.Clock();
 
     urls.forEach((item) => {
       loader.load(
@@ -226,6 +229,14 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
 
           // Add to the master group!
           masterPouchGroup.add(loadedModel);
+          
+          if (gltf.animations && gltf.animations.length > 0) {
+            const mixer = new THREE.AnimationMixer(loadedModel);
+            const action = mixer.clipAction(gltf.animations[0]);
+            action.setLoop(THREE.LoopPingPong, Infinity);
+            action.play();
+            mixers.push(mixer);
+          }
         },
         undefined,
         (error) => {
@@ -257,6 +268,9 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
 
     const animate = () => {
       animationId = requestAnimationFrame(animate);
+      
+      const delta = clock.getDelta();
+      mixers.forEach(mixer => mixer.update(delta));
 
       if (masterPouchGroup) {
         const sPercent = scrollRef.current;

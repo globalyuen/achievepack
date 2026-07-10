@@ -92,6 +92,14 @@ export default function PackageEditorPage() {
   // Offscreen canvas for rendering clean textures
   const offscreenCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
+  // Animation Refs & State
+  const mixerRef = useRef<THREE.AnimationMixer | null>(null);
+  const actionRef = useRef<THREE.AnimationAction | null>(null);
+  const clockRef = useRef<THREE.Clock>(new THREE.Clock());
+  const [hasAnimation, setHasAnimation] = useState<boolean>(false);
+  const [animationProgress, setAnimationProgress] = useState<number>(0);
+  const [isAutoPlay, setIsAutoPlay] = useState<boolean>(true);
+
   // Default images loaded checks
   const dielineImgRef = useRef<HTMLImageElement | null>(null);
   const logoImgRef = useRef<HTMLImageElement | null>(null);
@@ -612,6 +620,11 @@ export default function PackageEditorPage() {
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
       controls.update();
+      if (mixerRef.current) {
+        mixerRef.current.update(clockRef.current.getDelta());
+      } else {
+        clockRef.current.getDelta(); // keep clock ticking
+      }
       renderer.render(scene, camera);
     };
     animate();
@@ -734,6 +747,23 @@ export default function PackageEditorPage() {
         }
         const model = gltf.scene;
         modelRef.current = model;
+
+        if (gltf.animations && gltf.animations.length > 0) {
+          const mixer = new THREE.AnimationMixer(model);
+          mixerRef.current = mixer;
+          const action = mixer.clipAction(gltf.animations[0]);
+          actionRef.current = action;
+          action.setLoop(THREE.LoopPingPong, Infinity);
+          action.play();
+          
+          setHasAnimation(true);
+          setIsAutoPlay(true);
+          setAnimationProgress(0);
+        } else {
+          mixerRef.current = null;
+          actionRef.current = null;
+          setHasAnimation(false);
+        }
 
         originalBoxRef.current.setFromObject(model);
         originalBoxRef.current.getSize(originalSizeRef.current);
@@ -1703,6 +1733,56 @@ export default function PackageEditorPage() {
               />
             </div>
           </div>
+
+          {/* Animation Specs */}
+          {hasAnimation && (
+            <div className="flex flex-col gap-4 border-b border-[rgba(255,255,255,0.08)] pb-5">
+              <div className="text-[13px] font-semibold text-[#64ffda] tracking-wide uppercase">Animation (Folding)</div>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => {
+                    if (!actionRef.current) return;
+                    if (isAutoPlay) {
+                      actionRef.current.paused = true;
+                      setIsAutoPlay(false);
+                    } else {
+                      actionRef.current.paused = false;
+                      actionRef.current.play();
+                      setIsAutoPlay(true);
+                    }
+                  }}
+                  className="px-3 py-1.5 bg-[rgba(100,255,218,0.1)] border border-[#64ffda] text-[#64ffda] text-xs font-bold rounded-lg hover:bg-[rgba(100,255,218,0.2)] transition-colors"
+                >
+                  {isAutoPlay ? 'Pause' : 'Auto Play'}
+                </button>
+                <div className="flex-1 flex flex-col gap-1">
+                  <div className="flex justify-between w-full px-1">
+                    <span className="text-[10px] text-neutral-400 font-medium">Layflat</span>
+                    <span className="text-[10px] text-neutral-400 font-medium">Formed</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={animationProgress}
+                    onChange={(e) => {
+                      if (!actionRef.current || !mixerRef.current) return;
+                      const val = parseInt(e.target.value);
+                      setAnimationProgress(val);
+                      setIsAutoPlay(false);
+                      actionRef.current.paused = true;
+                      
+                      const clip = actionRef.current.getClip();
+                      const time = clip.duration * (val / 100);
+                      actionRef.current.time = time;
+                      mixerRef.current.setTime(time);
+                    }}
+                    className="w-full accent-[#64ffda] cursor-pointer"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Material Specs */}
           <div className="flex flex-col gap-4 border-b border-[rgba(255,255,255,0.08)] pb-5">

@@ -133,9 +133,9 @@ const DriedFruitHangingZipperPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20210427/098fa770-f719-4a60-bbe2-ab6bd79c86380001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20210427/098fa770-f719-4a60-bbe2-ab6bd79c86380001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/e9c82349-804e-4531-8cbd-d2e626443f27.png'
+    hero: '/imgs/topics/dried-fruit-hanging-zipper-pouch/hero.jpg',
+    process: '/imgs/topics/dried-fruit-hanging-zipper-pouch/process.jpg',
+    comparison: '/imgs/topics/dried-fruit-hanging-zipper-pouch/comparison.jpg'
   }
 
   const sections = [

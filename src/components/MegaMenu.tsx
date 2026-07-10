@@ -87,19 +87,19 @@ function shuffleArray<T>(array: T[]): T[] {
 
 // SHAPE menu - All packaging shapes (two columns)
 const SHAPE_CATEGORIES_COL1 = [
-  { name: '3 Side Seal Pouch', link: '/store?shape=3-side-seal' },
-  { name: 'Stand Up Pouch', link: '/store?shape=stand-up' },
-  { name: 'Flat Bottom Bags', link: '/store?shape=flat-bottom' },
-  { name: 'Side Gusset Bags', link: '/store?shape=side-gusset' },
-  { name: 'Spout Pouches', link: '/store?shape=spout' },
+  { name: '3 Side Seal Pouch', link: '/store?shape=3-side-seal', icon: '/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp' },
+  { name: 'Stand Up Pouch', link: '/store?shape=stand-up', icon: '/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp' },
+  { name: 'Flat Bottom Bags', link: '/store?shape=flat-bottom', icon: '/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp' },
+  { name: 'Side Gusset Bags', link: '/store?shape=side-gusset', icon: '/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp' },
+  { name: 'Spout Pouches', link: '/store?shape=spout', icon: '/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp' },
 ]
 
 const SHAPE_CATEGORIES_COL2 = [
-  { name: 'Custom Boxes', link: '/store?category=boxes' },
-  { name: 'Shrink Sleeve', link: '/store?shape=Shrink Sleeve' },
-  { name: 'Mailer Bags', link: '/store?category=mailer' },
-  { name: 'Labels & Stickers', link: '/products/labels-and-stickers' },
-  { name: 'Lab Bags', link: '/products/lab-bags' },
+  { name: 'Custom Boxes', link: '/store?category=boxes', icon: '/imgs/pouch-shape/custom-box-eco.jpg' },
+  { name: 'Shrink Sleeve', link: '/store?shape=Shrink Sleeve', icon: '/imgs/pouch-shape/shrink-sleeve-label-eco.jpg' },
+  { name: 'Mailer Bags', link: '/store?category=mailer', icon: '/imgs/pouch-shape/compostable-mailer-eco.jpg' },
+  { name: 'Labels & Stickers', link: '/products/labels-and-stickers', icon: '/imgs/pouch-shape/custom-labels-eco.jpg' },
+  { name: 'Lab Bags', link: '/products/lab-bags', icon: '/imgs/pouch-shape/vacuum-pouch-eco.jpg' },
 ]
 
 // Combined for backward compat
@@ -361,8 +361,12 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
                         <ul className="space-y-0.5">
                           {SHAPE_CATEGORIES_COL1.map((cat) => (
                             <li key={cat.name}>
-                              <Link to={cat.link} className="flex items-center gap-1 py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-xs font-medium">
-                                <ChevronRight className="h-2.5 w-2.5 text-neutral-400" />
+                              <Link to={cat.link} className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-xs font-medium">
+                                {cat.icon ? (
+                                  <img src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain" loading="lazy" />
+                                ) : (
+                                  <ChevronRight className="h-2.5 w-2.5 text-neutral-400" />
+                                )}
                                 {cat.name}
                               </Link>
                             </li>
@@ -375,8 +379,12 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
                         <ul className="space-y-0.5">
                           {SHAPE_CATEGORIES_COL2.map((cat) => (
                             <li key={cat.name}>
-                              <Link to={cat.link} className="flex items-center gap-1 py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-xs font-medium">
-                                <ChevronRight className="h-2.5 w-2.5 text-neutral-400" />
+                              <Link to={cat.link} className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-xs font-medium">
+                                {cat.icon ? (
+                                  <img src={cat.icon} alt={cat.name} className="w-5 h-5 object-contain" loading="lazy" />
+                                ) : (
+                                  <ChevronRight className="h-2.5 w-2.5 text-neutral-400" />
+                                )}
                                 {cat.name}
                               </Link>
                             </li>

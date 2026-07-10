@@ -133,9 +133,9 @@ const GrainsBackSealPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220708/29811590001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220708/29811590001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/c6131962-36e5-4ecc-8bb4-c26ee629129b.png'
+    hero: '/imgs/topics/grains-back-seal-pouch/hero.jpg',
+    process: '/imgs/topics/grains-back-seal-pouch/process.jpg',
+    comparison: '/imgs/topics/grains-back-seal-pouch/comparison.jpg'
   }
 
   const sections = [

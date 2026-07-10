@@ -133,9 +133,9 @@ const SnackSachetThreeSideSeal: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220630/29408020001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220630/29408020001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/028e5c5b-1640-4a89-93a3-2da5118a27e6.png'
+    hero: '/imgs/topics/snack-sachet-three-side-seal/hero.jpg',
+    process: '/imgs/topics/snack-sachet-three-side-seal/process.jpg',
+    comparison: '/imgs/topics/snack-sachet-three-side-seal/comparison.jpg'
   }
 
   const sections = [

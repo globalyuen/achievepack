@@ -133,9 +133,9 @@ const NutsFlatBottomPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/8e6a92c4-3a1c-4970-b7c6-54364bbbd71f.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/8e6a92c4-3a1c-4970-b7c6-54364bbbd71f.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/730c3dac-7bf5-405c-840a-ebdec245e780.png'
+    hero: '/imgs/topics/nuts-flat-bottom-pouch/hero.jpg',
+    process: '/imgs/topics/nuts-flat-bottom-pouch/process.jpg',
+    comparison: '/imgs/topics/nuts-flat-bottom-pouch/comparison.jpg'
   }
 
   const sections = [

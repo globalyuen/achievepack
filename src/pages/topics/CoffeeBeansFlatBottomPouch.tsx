@@ -133,9 +133,9 @@ const CoffeeBeansFlatBottomPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/9c086713-ff9f-439e-8f45-e5883dfa102b.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/9c086713-ff9f-439e-8f45-e5883dfa102b.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/7e896e5b-3366-454c-b6ce-62795280e58b.png'
+    hero: '/imgs/topics/coffee-beans-flat-bottom-pouch/hero.jpg',
+    process: '/imgs/topics/coffee-beans-flat-bottom-pouch/process.jpg',
+    comparison: '/imgs/topics/coffee-beans-flat-bottom-pouch/comparison.jpg'
   }
 
   const sections = [

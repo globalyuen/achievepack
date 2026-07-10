@@ -133,9 +133,9 @@ const BeefJerkyPillowPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220630/29408940001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220630/29408940001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/26931d5e-f4de-475d-9012-88bc1defbb2d.png'
+    hero: '/imgs/topics/beef-jerky-pillow-pouch/hero.jpg',
+    process: '/imgs/topics/beef-jerky-pillow-pouch/process.jpg',
+    comparison: '/imgs/topics/beef-jerky-pillow-pouch/comparison.jpg'
   }
 
   const sections = [

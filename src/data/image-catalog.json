@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-10",
-  "total_images": 4943,
-  "total_categories": 211,
+  "total_images": 5033,
+  "total_categories": 241,
   "extensions": {
     ".webp": 1313,
     ".png": 3017,
-    ".jpg": 610,
+    ".jpg": 700,
     ".svg": 3
   },
   "categories": {
@@ -30049,6 +30049,75 @@
         }
       ]
     },
+    "topics/beef-jerky-pillow-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/beef-jerky-pillow-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:36:31.012Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/beef-jerky-pillow-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:36:31.010Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/beef-jerky-pillow-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:36:31.003Z"
+        }
+      ]
+    },
+    "topics/beverage-soft-stand-up-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/beverage-soft-stand-up-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:12.344Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/beverage-soft-stand-up-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:12.342Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/beverage-soft-stand-up-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:12.340Z"
+        }
+      ]
+    },
+    "topics/bread-flat-bottom-bag": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/bread-flat-bottom-bag/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:41:21.615Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/bread-flat-bottom-bag/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:41:21.613Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/bread-flat-bottom-bag/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:41:21.611Z"
+        }
+      ]
+    },
     "topics/cacao-stand-up": {
       "count": 3,
       "images": [
@@ -30092,6 +30161,29 @@
           "path": "/imgs/topics/candy-uv/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T06:44:34.171Z"
+        }
+      ]
+    },
+    "topics/cereal-sachet-three-side-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/cereal-sachet-three-side-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:44:59.780Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/cereal-sachet-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:44:59.777Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/cereal-sachet-three-side-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:44:59.775Z"
         }
       ]
     },
@@ -30141,6 +30233,52 @@
         }
       ]
     },
+    "topics/coffee-beans-flat-bottom-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/coffee-beans-flat-bottom-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:51:14.708Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/coffee-beans-flat-bottom-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:51:14.705Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/coffee-beans-flat-bottom-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:51:14.703Z"
+        }
+      ]
+    },
+    "topics/coffee-sachet-three-side-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/coffee-sachet-three-side-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:58:43.113Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/coffee-sachet-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:58:43.111Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/coffee-sachet-three-side-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:58:43.109Z"
+        }
+      ]
+    },
     "topics/collagen-high-barrier": {
       "count": 3,
       "images": [
@@ -30161,6 +30299,121 @@
           "path": "/imgs/topics/collagen-high-barrier/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T07:23:54.913Z"
+        }
+      ]
+    },
+    "topics/condiment-sachet-three-side-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/condiment-sachet-three-side-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:09.881Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/condiment-sachet-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:09.879Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/condiment-sachet-three-side-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:09.878Z"
+        }
+      ]
+    },
+    "topics/cosmetic-cleanser-three-side-zipper-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/cosmetic-cleanser-three-side-zipper-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:41:04.406Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/cosmetic-cleanser-three-side-zipper-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:41:04.404Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/cosmetic-cleanser-three-side-zipper-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:41:04.402Z"
+        }
+      ]
+    },
+    "topics/cosmetic-cream-stand-up-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/cosmetic-cream-stand-up-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:44:51.080Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/cosmetic-cream-stand-up-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:44:51.078Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/cosmetic-cream-stand-up-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:44:51.076Z"
+        }
+      ]
+    },
+    "topics/cosmetic-sample-three-side-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/cosmetic-sample-three-side-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:48:39.030Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/cosmetic-sample-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:48:39.028Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/cosmetic-sample-three-side-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:48:39.026Z"
+        }
+      ]
+    },
+    "topics/cosmetic-serum-stand-up-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/cosmetic-serum-stand-up-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:52:33.859Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/cosmetic-serum-stand-up-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:52:33.857Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/cosmetic-serum-stand-up-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:52:33.855Z"
         }
       ]
     },
@@ -30230,6 +30483,52 @@
           "path": "/imgs/topics/detergent-spout/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T23:17:42.034Z"
+        }
+      ]
+    },
+    "topics/dried-fruit-flat-bottom-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/dried-fruit-flat-bottom-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T11:00:29.767Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/dried-fruit-flat-bottom-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T11:00:29.765Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/dried-fruit-flat-bottom-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T11:00:29.763Z"
+        }
+      ]
+    },
+    "topics/dried-fruit-hanging-zipper-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/dried-fruit-hanging-zipper-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.357Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/dried-fruit-hanging-zipper-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.354Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/dried-fruit-hanging-zipper-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.352Z"
         }
       ]
     },
@@ -30394,6 +30693,29 @@
         }
       ]
     },
+    "topics/grains-back-seal-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/grains-back-seal-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.364Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/grains-back-seal-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.362Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/grains-back-seal-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.359Z"
+        }
+      ]
+    },
     "topics/granola-soft-touch": {
       "count": 3,
       "images": [
@@ -30463,6 +30785,52 @@
         }
       ]
     },
+    "topics/household-back-seal-bag": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/household-back-seal-bag/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.374Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/household-back-seal-bag/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.369Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/household-back-seal-bag/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.367Z"
+        }
+      ]
+    },
+    "topics/household-jam-three-side-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/household-jam-three-side-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.392Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/household-jam-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.386Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/household-jam-three-side-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.379Z"
+        }
+      ]
+    },
     "topics/iso-sustainable": {
       "count": 3,
       "images": [
@@ -30483,6 +30851,52 @@
           "path": "/imgs/topics/iso-sustainable/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T23:55:13.501Z"
+        }
+      ]
+    },
+    "topics/jelly-beverage-stand-up-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/jelly-beverage-stand-up-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.399Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/jelly-beverage-stand-up-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.397Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/jelly-beverage-stand-up-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.395Z"
+        }
+      ]
+    },
+    "topics/kraft-paper-shopping-bag": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/kraft-paper-shopping-bag/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.408Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/kraft-paper-shopping-bag/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.405Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/kraft-paper-shopping-bag/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:55:02.401Z"
         }
       ]
     },
@@ -30509,6 +30923,98 @@
         }
       ]
     },
+    "topics/medical-tape-three-side-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/medical-tape-three-side-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:32.518Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/medical-tape-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:32.516Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/medical-tape-three-side-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:32.514Z"
+        }
+      ]
+    },
+    "topics/nuts-flat-bottom-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/nuts-flat-bottom-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:40:55.992Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/nuts-flat-bottom-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:40:55.988Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/nuts-flat-bottom-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:40:55.986Z"
+        }
+      ]
+    },
+    "topics/oatmeal-cereal-stand-up-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/oatmeal-cereal-stand-up-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:45:34.395Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/oatmeal-cereal-stand-up-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:45:34.394Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/oatmeal-cereal-stand-up-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:45:34.392Z"
+        }
+      ]
+    },
+    "topics/pet-food-flat-bottom-bag": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/pet-food-flat-bottom-bag/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:47:58.837Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/pet-food-flat-bottom-bag/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:47:58.832Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/pet-food-flat-bottom-bag/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:47:58.827Z"
+        }
+      ]
+    },
     "topics/pet-food-quad-seal": {
       "count": 3,
       "images": [
@@ -30532,6 +31038,29 @@
         }
       ]
     },
+    "topics/pet-treat-stand-up-zipper-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/pet-treat-stand-up-zipper-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:53:51.213Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/pet-treat-stand-up-zipper-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:53:51.202Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/pet-treat-stand-up-zipper-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:53:51.168Z"
+        }
+      ]
+    },
     "topics/pharma-velcro": {
       "count": 3,
       "images": [
@@ -30552,6 +31081,29 @@
           "path": "/imgs/topics/pharma-velcro/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T06:54:55.856Z"
+        }
+      ]
+    },
+    "topics/pillow-pack-snack-bag": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/pillow-pack-snack-bag/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T11:02:29.151Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/pillow-pack-snack-bag/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T11:02:29.149Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/pillow-pack-snack-bag/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T11:02:29.146Z"
         }
       ]
     },
@@ -30601,6 +31153,29 @@
         }
       ]
     },
+    "topics/rice-flat-bottom-bag": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/rice-flat-bottom-bag/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:30.770Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/rice-flat-bottom-bag/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:38:53.584Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/rice-flat-bottom-bag/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:38:34.672Z"
+        }
+      ]
+    },
     "topics/rice-paper-artisanal": {
       "count": 3,
       "images": [
@@ -30624,6 +31199,75 @@
         }
       ]
     },
+    "topics/snack-food-stand-up-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/snack-food-stand-up-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:40:29.515Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/snack-food-stand-up-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:40:11.114Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/snack-food-stand-up-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:39:50.582Z"
+        }
+      ]
+    },
+    "topics/snack-sachet-three-side-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/snack-sachet-three-side-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:42:00.864Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/snack-sachet-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:41:18.260Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/snack-sachet-three-side-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:40:45.842Z"
+        }
+      ]
+    },
+    "topics/snack-stand-up-pouch-large": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/snack-stand-up-pouch-large/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:44:35.033Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/snack-stand-up-pouch-large/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:43:53.352Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/snack-stand-up-pouch-large/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:43:05.915Z"
+        }
+      ]
+    },
     "topics/spices-moisture-proof": {
       "count": 3,
       "images": [
@@ -30644,6 +31288,52 @@
           "path": "/imgs/topics/spices-moisture-proof/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-04T00:15:09.522Z"
+        }
+      ]
+    },
+    "topics/tea-sachet-three-side-seal": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/tea-sachet-three-side-seal/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:46:37.641Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/tea-sachet-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:45:58.863Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/tea-sachet-three-side-seal/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:45:21.809Z"
+        }
+      ]
+    },
+    "topics/tea-stand-up-zipper-pouch": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/tea-stand-up-zipper-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:49:49.356Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/tea-stand-up-zipper-pouch/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:49:14.020Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/tea-stand-up-zipper-pouch/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T10:48:33.226Z"
         }
       ]
     },

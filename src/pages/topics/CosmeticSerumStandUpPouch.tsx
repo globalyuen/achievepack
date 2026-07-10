@@ -133,9 +133,9 @@ const CosmeticSerumStandUpPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220705/29633320001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220705/29633320001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/e69267b0-f32f-40d1-be10-a3d5512e507f.png'
+    hero: '/imgs/topics/cosmetic-serum-stand-up-pouch/hero.jpg',
+    process: '/imgs/topics/cosmetic-serum-stand-up-pouch/process.jpg',
+    comparison: '/imgs/topics/cosmetic-serum-stand-up-pouch/comparison.jpg'
   }
 
   const sections = [

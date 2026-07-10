@@ -133,9 +133,9 @@ const TeaStandUpZipperPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220701/29461860001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220701/29461860001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/6967b7cf-0cef-49b5-a156-692f626c0414.png'
+    hero: '/imgs/topics/tea-stand-up-zipper-pouch/hero.jpg',
+    process: '/imgs/topics/tea-stand-up-zipper-pouch/process.jpg',
+    comparison: '/imgs/topics/tea-stand-up-zipper-pouch/comparison.jpg'
   }
 
   const sections = [

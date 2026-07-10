@@ -133,9 +133,9 @@ const HouseholdBackSealBag: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/3f05906e-3ee9-46e0-b9d2-6e4c4da100e3.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/3f05906e-3ee9-46e0-b9d2-6e4c4da100e3.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/9ed75d5c-ae45-4822-b16b-de814a3c84ff.png'
+    hero: '/imgs/topics/household-back-seal-bag/hero.jpg',
+    process: '/imgs/topics/household-back-seal-bag/process.jpg',
+    comparison: '/imgs/topics/household-back-seal-bag/comparison.jpg'
   }
 
   const sections = [

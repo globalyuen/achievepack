@@ -133,9 +133,9 @@ const BeverageSoftStandUpPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/e7d3c3f2-ae6d-4873-9295-d913c6101122.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/e7d3c3f2-ae6d-4873-9295-d913c6101122.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/138965eb-45f3-4842-ae95-8262be461d95.png'
+    hero: '/imgs/topics/beverage-soft-stand-up-pouch/hero.jpg',
+    process: '/imgs/topics/beverage-soft-stand-up-pouch/process.jpg',
+    comparison: '/imgs/topics/beverage-soft-stand-up-pouch/comparison.jpg'
   }
 
   const sections = [

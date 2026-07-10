@@ -133,9 +133,9 @@ const OatmealCerealStandUpPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220630/29396730001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220630/29396730001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/b51f7373-92ba-455c-ae33-4feb307247f5.png'
+    hero: '/imgs/topics/oatmeal-cereal-stand-up-pouch/hero.jpg',
+    process: '/imgs/topics/oatmeal-cereal-stand-up-pouch/process.jpg',
+    comparison: '/imgs/topics/oatmeal-cereal-stand-up-pouch/comparison.jpg'
   }
 
   const sections = [

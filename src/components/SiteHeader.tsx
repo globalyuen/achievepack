@@ -346,10 +346,22 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
             <div className="border-t border-neutral-100 pt-3">
               <p className="text-xs font-bold text-primary-600 uppercase mb-2 px-2">Pouch Shapes</p>
               <div className="grid grid-cols-2 gap-1">
-                <Link to="/store?shape=stand-up" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Stand Up Pouch</Link>
-                <Link to="/store?shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Box Bottom Pouch</Link>
-                <Link to="/store?shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Side Gusset Pouch</Link>
-                <Link to="/store?shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">3 Side Seal Pouch</Link>
+                <Link to="/store?shape=stand-up" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                  <img src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" alt="Stand Up Pouch" className="w-5 h-5 object-contain" loading="lazy" />
+                  Stand Up
+                </Link>
+                <Link to="/store?shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                  <img src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" alt="Box Bottom Pouch" className="w-5 h-5 object-contain" loading="lazy" />
+                  Box Bottom
+                </Link>
+                <Link to="/store?shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                  <img src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp" alt="Side Gusset Pouch" className="w-5 h-5 object-contain" loading="lazy" />
+                  Side Gusset
+                </Link>
+                <Link to="/store?shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                  <img src="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp" alt="3 Side Seal Pouch" className="w-5 h-5 object-contain" loading="lazy" />
+                  3 Side Seal
+                </Link>
               </div>
             </div>
             

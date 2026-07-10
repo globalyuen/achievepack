@@ -133,9 +133,9 @@ const MedicalTapeThreeSideSeal: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/8daadc9d-de57-45ba-93f1-1b1a3dcce5ab.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/8daadc9d-de57-45ba-93f1-1b1a3dcce5ab.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/0f12ae82-ac25-451c-8abf-40cb6aac920c.png'
+    hero: '/imgs/topics/medical-tape-three-side-seal/hero.jpg',
+    process: '/imgs/topics/medical-tape-three-side-seal/process.jpg',
+    comparison: '/imgs/topics/medical-tape-three-side-seal/comparison.jpg'
   }
 
   const sections = [

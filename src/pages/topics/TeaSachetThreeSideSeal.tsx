@@ -133,9 +133,9 @@ const TeaSachetThreeSideSeal: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220706/29674350001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220706/29674350001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/4f47bfdc-4bfc-4d68-b9ce-9e970eaf8e94.png'
+    hero: '/imgs/topics/tea-sachet-three-side-seal/hero.jpg',
+    process: '/imgs/topics/tea-sachet-three-side-seal/process.jpg',
+    comparison: '/imgs/topics/tea-sachet-three-side-seal/comparison.jpg'
   }
 
   const sections = [

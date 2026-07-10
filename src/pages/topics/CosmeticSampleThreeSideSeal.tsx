@@ -133,9 +133,9 @@ const CosmeticSampleThreeSideSeal: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/90d8b35d-0115-4420-b4ec-b51843544f53.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/90d8b35d-0115-4420-b4ec-b51843544f53.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/3e302161-c9f8-4d8a-94e6-b9bc6ae31f40.png'
+    hero: '/imgs/topics/cosmetic-sample-three-side-seal/hero.jpg',
+    process: '/imgs/topics/cosmetic-sample-three-side-seal/process.jpg',
+    comparison: '/imgs/topics/cosmetic-sample-three-side-seal/comparison.jpg'
   }
 
   const sections = [

@@ -133,9 +133,9 @@ const PetTreatStandUpZipperPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220701/29468230001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220701/29468230001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/4e6f5c6c-6802-4487-b04e-3a52f91e3fa1.png'
+    hero: '/imgs/topics/pet-treat-stand-up-zipper-pouch/hero.jpg',
+    process: '/imgs/topics/pet-treat-stand-up-zipper-pouch/process.jpg',
+    comparison: '/imgs/topics/pet-treat-stand-up-zipper-pouch/comparison.jpg'
   }
 
   const sections = [

@@ -133,9 +133,9 @@ const PetFoodFlatBottomBag: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/ae846584-2219-4977-b830-33156884103c.jpg',
-    process: 'https://yun.baoxiaohe.com/admin-materials/ae846584-2219-4977-b830-33156884103c.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/fb75a480-4b84-456a-917e-aaa66112d6a3.png'
+    hero: '/imgs/topics/pet-food-flat-bottom-bag/hero.jpg',
+    process: '/imgs/topics/pet-food-flat-bottom-bag/process.jpg',
+    comparison: '/imgs/topics/pet-food-flat-bottom-bag/comparison.jpg'
   }
 
   const sections = [

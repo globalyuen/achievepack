@@ -133,9 +133,9 @@ const KraftPaperShoppingBag: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/0710df76-2b2c-4bd5-a5f1-a4137a17ab51.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/0710df76-2b2c-4bd5-a5f1-a4137a17ab51.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/41ce2dc0-e818-4b0b-a1a4-8886d42872f0.png'
+    hero: '/imgs/topics/kraft-paper-shopping-bag/hero.jpg',
+    process: '/imgs/topics/kraft-paper-shopping-bag/process.jpg',
+    comparison: '/imgs/topics/kraft-paper-shopping-bag/comparison.jpg'
   }
 
   const sections = [

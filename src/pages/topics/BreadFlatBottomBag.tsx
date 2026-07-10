@@ -133,9 +133,9 @@ const BreadFlatBottomBag: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20210531/5087e07f-8a54-4032-b08f-eb569d566a9e0001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20210531/5087e07f-8a54-4032-b08f-eb569d566a9e0001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/f8d75d1f-df0d-41b6-be7a-fdfe1e105ada.png'
+    hero: '/imgs/topics/bread-flat-bottom-bag/hero.jpg',
+    process: '/imgs/topics/bread-flat-bottom-bag/process.jpg',
+    comparison: '/imgs/topics/bread-flat-bottom-bag/comparison.jpg'
   }
 
   const sections = [

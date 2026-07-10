@@ -133,9 +133,9 @@ const DriedFruitFlatBottomPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20210412/5692b562-4014-438f-9474-8795590cfa020001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20210412/5692b562-4014-438f-9474-8795590cfa020001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/253e850f-0b61-44eb-9020-b00d2193c5be.png'
+    hero: '/imgs/topics/dried-fruit-flat-bottom-pouch/hero.jpg',
+    process: '/imgs/topics/dried-fruit-flat-bottom-pouch/process.jpg',
+    comparison: '/imgs/topics/dried-fruit-flat-bottom-pouch/comparison.jpg'
   }
 
   const sections = [

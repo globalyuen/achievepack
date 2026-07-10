@@ -133,9 +133,9 @@ const CosmeticCleanserThreeSideZipperPouch: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/render/20220706/29672440001.jpg',
-    process: 'https://yun.baoxiaohe.com/render/20220706/29672440001.jpg',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/3454a708-98fd-4286-8c9a-66833e68eff6.png'
+    hero: '/imgs/topics/cosmetic-cleanser-three-side-zipper-pouch/hero.jpg',
+    process: '/imgs/topics/cosmetic-cleanser-three-side-zipper-pouch/process.jpg',
+    comparison: '/imgs/topics/cosmetic-cleanser-three-side-zipper-pouch/comparison.jpg'
   }
 
   const sections = [

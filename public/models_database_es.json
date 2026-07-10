@@ -592,7 +592,7 @@
   {
     "id": "1467",
     "name": "Envasado en bolsa de plástico para snacks modelo 6",
-    "keywords": "601990,包装,软包装,饮料袋,塑料袋,果冻袋,液体食品袋,豆浆袋",
+    "keywords": "601990,包装,软包装,饮料袋,塑料袋,果冻袋,液体食品袋,豆浆袋,吸嘴袋,spout pouch",
     "dieline_image": "/dielines/1467.png",
     "glb_file": "/models/1467.glb",
     "dimensions": "产品尺寸：L:90mm   H:150mm ",
@@ -4308,5 +4308,155 @@
     "dimensions": "产品尺寸：L:77mm  H:160mm",
     "description": "Tamaño del mapa de embalaje: L: 77 mm H: 160 mm Se utiliza comúnmente en el almacenamiento de intestinos de flores, palitos de cangrejo, tofu de pescado y konjac. Marca/producto de referencia: Jinmo mill Huahua intestinos Capacidad recomendada: 20g",
     "slug": "three-side-seal-plastic-food-food-beverage-pouch-992"
+  },
+  {
+    "id": "BX-1505",
+    "name": "休闲食品食品饮料酸奶塑料盒包装模型11",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,休闲食品食品饮料酸奶塑料盒包装模型11",
+    "dieline_image": "/dielines/BX-1505.png",
+    "glb_file": "/models/BX-1505.glb",
+    "dimensions": "产品尺寸：D:75mm  H:53mm ",
+    "description": "Packaging map size: 产品尺寸：D:75mm  H:53mm . Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-1505"
+  },
+  {
+    "id": "BX-405",
+    "name": "蛋类食品饮料塑料盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,蛋类食品饮料塑料盒包装模型",
+    "dieline_image": "/dielines/BX-405.png",
+    "glb_file": "/models/BX-405.glb",
+    "dimensions": "产品尺寸：L:272mm  W:90mm \n H:70mm",
+    "description": "Packaging map size: 产品尺寸：L:272mm  W:90mm \n H:70mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-405"
+  },
+  {
+    "id": "BX-404",
+    "name": "蛋类食品饮料塑料盒包装模型2",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,蛋类食品饮料塑料盒包装模型2",
+    "dieline_image": "/dielines/BX-404.png",
+    "glb_file": "/models/BX-404.glb",
+    "dimensions": "产品尺寸：L:272mm  W:100mm \n H:60mm",
+    "description": "Packaging map size: 产品尺寸：L:272mm  W:100mm \n H:60mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-404"
+  },
+  {
+    "id": "BX-412",
+    "name": "蔬菜食品饮料铝制盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,蔬菜食品饮料铝制盒包装模型",
+    "dieline_image": "/dielines/BX-412.png",
+    "glb_file": "/models/BX-412.glb",
+    "dimensions": "产品尺寸：H:145mm  D:100mm",
+    "description": "Packaging map size: 产品尺寸：H:145mm  D:100mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-412"
+  },
+  {
+    "id": "BX-441",
+    "name": "家用清洁生活日用塑料盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,家用清洁生活日用塑料盒包装模型",
+    "dieline_image": "/dielines/BX-441.png",
+    "glb_file": "/models/BX-441.glb",
+    "dimensions": "产品尺寸：L:185mmW:120mmH:85mm",
+    "description": "Packaging map size: 产品尺寸：L:185mmW:120mmH:85mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-441"
+  },
+  {
+    "id": "BX-516",
+    "name": "面部护肤生活日用塑料盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,面部护肤生活日用塑料盒包装模型",
+    "dieline_image": "/dielines/BX-516.png",
+    "glb_file": "/models/BX-516.glb",
+    "dimensions": "产品尺寸：H:80mm  D:120mm",
+    "description": "Packaging map size: 产品尺寸：H:80mm  D:120mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-516"
+  },
+  {
+    "id": "BX-561",
+    "name": "休闲食品食品饮料铝制盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,休闲食品食品饮料铝制盒包装模型",
+    "dieline_image": "/dielines/BX-561.png",
+    "glb_file": "/models/BX-561.glb",
+    "dimensions": "产品尺寸：L:30mmW:25mmH:80mm",
+    "description": "Packaging map size: 产品尺寸：L:30mmW:25mmH:80mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-561"
+  },
+  {
+    "id": "BX-625",
+    "name": "棉签盒日用品塑料罐包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,棉签盒日用品塑料罐包装模型",
+    "dieline_image": "/dielines/BX-625.png",
+    "glb_file": "/models/BX-625.glb",
+    "dimensions": "产品尺寸：L:73mm  D:80mm",
+    "description": "Packaging map size: 产品尺寸：L:73mm  D:80mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-625"
+  },
+  {
+    "id": "BX-712",
+    "name": "透明食品饮料塑料盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,透明食品饮料塑料盒包装模型",
+    "dieline_image": "/dielines/BX-712.png",
+    "glb_file": "/models/BX-712.glb",
+    "dimensions": "产品尺寸：L:136mm  W:117mm  H:65mm",
+    "description": "Packaging map size: 产品尺寸：L:136mm  W:117mm  H:65mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-712"
+  },
+  {
+    "id": "BX-724",
+    "name": "透明食品塑料盒包装模型2",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,透明食品塑料盒包装模型2",
+    "dieline_image": "/dielines/BX-724.png",
+    "glb_file": "/models/BX-724.glb",
+    "dimensions": "产品尺寸：L:225mmW;130mmH:80mm",
+    "description": "Packaging map size: 产品尺寸：L:225mmW;130mmH:80mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-724"
+  },
+  {
+    "id": "BX-731",
+    "name": "口服液医药保健铝盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,口服液医药保健铝盒包装模型",
+    "dieline_image": "/dielines/BX-731.png",
+    "glb_file": "/models/BX-731.glb",
+    "dimensions": "产品尺寸：L:85mm  W:60mm  H:50mm",
+    "description": "Packaging map size: 产品尺寸：L:85mm  W:60mm  H:50mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-731"
+  },
+  {
+    "id": "BX-732",
+    "name": "润喉糖医药保健铝盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,润喉糖医药保健铝盒包装模型",
+    "dieline_image": "/dielines/BX-732.png",
+    "glb_file": "/models/BX-732.glb",
+    "dimensions": "产品尺寸：L:95mm  W:60mm  H:22mm",
+    "description": "Packaging map size: 产品尺寸：L:95mm  W:60mm  H:22mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-732"
+  },
+  {
+    "id": "BX-736",
+    "name": "透明食品塑料盒包装模型4",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,透明食品塑料盒包装模型4",
+    "dieline_image": "/dielines/BX-736.png",
+    "glb_file": "/models/BX-736.glb",
+    "dimensions": "产品尺寸：L:105mmW:105mmH:40mm",
+    "description": "Packaging map size: 产品尺寸：L:105mmW:105mmH:40mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-736"
+  },
+  {
+    "id": "BX-873",
+    "name": "成人用品医药保健铝盒包装模型",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,成人用品医药保健铝盒包装模型",
+    "dieline_image": "/dielines/BX-873.png",
+    "glb_file": "/models/BX-873.glb",
+    "dimensions": "产品尺寸：L:95mm  W:65mm  H:32mm",
+    "description": "Packaging map size: 产品尺寸：L:95mm  W:65mm  H:32mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-873"
+  },
+  {
+    "id": "BX-947",
+    "name": "家用清洁生活日用塑料盒包装模型2",
+    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,家用清洁生活日用塑料盒包装模型2",
+    "dieline_image": "/dielines/BX-947.png",
+    "glb_file": "/models/BX-947.glb",
+    "dimensions": "产品尺寸：L:200mm  W:105mm  H:115mm",
+    "description": "Packaging map size: 产品尺寸：L:200mm  W:105mm  H:115mm. Standard box layout from Baoxiaohe.",
+    "slug": "box-packaging-BX-947"
   }
 ]

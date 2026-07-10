@@ -133,9 +133,9 @@ const PillowPackSnackBag: React.FC = () => {
   const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: 'https://yun.baoxiaohe.com/admin-materials/a92215df-2681-42ed-86d7-26950e5756c0.png',
-    process: 'https://yun.baoxiaohe.com/admin-materials/a92215df-2681-42ed-86d7-26950e5756c0.png',
-    comparison: 'https://yun.baoxiaohe.com/admin-materials/5e4fc666-13e0-4b47-b66f-760f5ba0da73.png'
+    hero: '/imgs/topics/pillow-pack-snack-bag/hero.jpg',
+    process: '/imgs/topics/pillow-pack-snack-bag/process.jpg',
+    comparison: '/imgs/topics/pillow-pack-snack-bag/comparison.jpg'
   }
 
   const sections = [
