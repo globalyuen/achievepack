@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-09",
-  "total_images": 4933,
+  "generated": "2026-07-10",
+  "total_images": 4943,
   "total_categories": 211,
   "extensions": {
     ".webp": 1313,
     ".png": 3017,
-    ".jpg": 600,
+    ".jpg": 610,
     ".svg": 3
   },
   "categories": {
@@ -25227,8 +25227,68 @@
       ]
     },
     "store/products": {
-      "count": 403,
+      "count": 413,
       "images": [
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-10.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.836Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-9.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.834Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-8.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.832Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-7.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.830Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-6.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.828Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-5.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.826Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-4.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.824Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-3.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.822Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-2.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.819Z"
+        },
+        {
+          "filename": "smart-inkjet-coding-machine-printer-thumbnail-1.jpg",
+          "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-10T00:00:49.817Z"
+        },
         {
           "filename": "hand-clamp-sealer-portable-direct-heat-thumbnail-10.jpg",
           "path": "/imgs/store/products/hand-clamp-sealer-portable-direct-heat-thumbnail-10.jpg",
