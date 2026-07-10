@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { RotateCcw, BoxSelect } from 'lucide-react';
 
@@ -133,6 +134,9 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     ];
 
     const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+    loader.setDRACOLoader(dracoLoader);
     const masterPouchGroup = new THREE.Group();
     scene.add(masterPouchGroup);
     

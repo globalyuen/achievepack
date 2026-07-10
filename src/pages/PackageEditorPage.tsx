@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
 import { Layers, Box, Database, Tag, Grid } from 'lucide-react';
 import Footer from '../components/Footer';
@@ -22,6 +23,7 @@ interface Shape {
   id: string;
   name: string;
   keywords: string;
+  category?: string;
   dieline_image: string;
   glb_file: string;
   dimensions: string;
@@ -135,12 +137,12 @@ export default function PackageEditorPage() {
 
   // Shared category detection helper — pouch wins over bottle if both keywords present
   const detectCategory = (shape: Shape) => {
-    const kw = shape.keywords;
-    const nm = shape.name;
-    const isPouch = kw.includes('袋') || kw.includes('软包装') || nm.includes('袋') || nm.toLowerCase().includes('pouch') || nm.toLowerCase().includes('bag');
-    const isBox = !isPouch && (kw.includes('纸盒') || kw.includes('盒') || nm.includes('盒') || nm.toLowerCase().includes('box'));
-    const isBottle = !isPouch && !isBox && (kw.includes('瓶') || kw.includes('罐') || nm.includes('瓶') || nm.includes('罐') || nm.toLowerCase().includes('bottle') || nm.toLowerCase().includes('jar'));
-    const isLabel = kw.includes('标签') || kw.includes('贴纸') || nm.includes('标签') || nm.includes('貼紙') || kw.includes('label') || nm.toLowerCase().includes('label') || nm.toLowerCase().includes('sticker');
+    // We now have a robust `category` field in the database!
+    const cat = shape.category || 'Other';
+    const isPouch = cat === 'Pouch';
+    const isBox = cat === 'Box';
+    const isBottle = cat === 'Bottle';
+    const isLabel = cat === 'Label';
     return { isPouch, isBox, isBottle, isLabel };
   };
 
@@ -460,6 +462,9 @@ export default function PackageEditorPage() {
     if (!shapeId) {
       // 8. Load default GLB model
       const loader = new GLTFLoader();
+      const dracoLoader = new DRACOLoader();
+      dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+      loader.setDRACOLoader(dracoLoader);
       const loadId = ++currentLoadIdRef.current;
       loader.load(
         '/model.glb',
@@ -732,6 +737,9 @@ export default function PackageEditorPage() {
 
     // Load GLTF model
     const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+    loader.setDRACOLoader(dracoLoader);
     loader.load(
       glbUrl,
       (gltf) => {
@@ -1429,6 +1437,9 @@ export default function PackageEditorPage() {
     }
 
     const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+    loader.setDRACOLoader(dracoLoader);
     const loadId = ++currentLoadIdRef.current;
     loader.load('/model.glb', (gltf) => {
       if (loadId !== currentLoadIdRef.current) {

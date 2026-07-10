@@ -7,7 +7,8 @@
     "glb_file": "/models/1003.glb",
     "dimensions": "产品尺寸：L:260mm  H:385mm",
     "description": "包裝貼圖尺寸：L:260mm H:385mm 常見於大禮包，衛龍辣條，鍋巴，堅果的收納 參考品牌/產品：衛龍小麵筋 建議容量：280g",
-    "slug": "three-side-seal-plastic-food-food-beverage-pouch-1003"
+    "slug": "three-side-seal-plastic-food-food-beverage-pouch-1003",
+    "category": "Pouch"
   },
   {
     "id": "1045",
@@ -17,7 +18,8 @@
     "glb_file": "/models/1045.glb",
     "dimensions": "产品尺寸：L:115mm  H:75mm",
     "description": "包裝貼圖尺寸：L:115mm H:75mm 常見於一次性手套，一次性濕紙巾的收納 參考品牌/產品：一次性手套 建議容量：一副",
-    "slug": "three-side-seal-plastic-cleaning-pouch-1045"
+    "slug": "three-side-seal-plastic-cleaning-pouch-1045",
+    "category": "Pouch"
   },
   {
     "id": "1050",
@@ -27,7 +29,8 @@
     "glb_file": "/models/1050.glb",
     "dimensions": "产品尺寸：L:45mm  H:166mm",
     "description": "包裝貼圖尺寸：L:45mm H:166mm 常見於咖啡，奶粉的收納 參考品牌/產品：咖啡 建議容量：5g",
-    "slug": "three-side-seal-plastic-coffee-food-beverage-pouch-1050"
+    "slug": "three-side-seal-plastic-coffee-food-beverage-pouch-1050",
+    "category": "Pouch"
   },
   {
     "id": "1055",
@@ -37,7 +40,8 @@
     "glb_file": "/models/1055.glb",
     "dimensions": "产品尺寸：L:123mm  W:57mm  H:284mm  ",
     "description": "包裝貼圖尺寸：L:123mm H:217mm 常見於噴壺，灑水壺的收納 參考品牌/產品：噴壺 建議容量：",
-    "slug": "stand-up-pouch-1055"
+    "slug": "stand-up-pouch-1055",
+    "category": "Pouch"
   },
   {
     "id": "1057",
@@ -47,7 +51,8 @@
     "glb_file": "/models/1057.glb",
     "dimensions": "产品尺寸：L:310mm  W:75mm  H:430mm",
     "description": "包裝貼圖尺寸：L:310mm W:75mm H:430mm 常見於奶粉，豆奶粉，豆漿粉的收納 參考品牌/產品：金繹氏黑豆豆奶粉 建議容量：760g",
-    "slug": "plastic-food-beverage-pouch-1057"
+    "slug": "plastic-food-beverage-pouch-1057",
+    "category": "Pouch"
   },
   {
     "id": "1065",
@@ -57,7 +62,8 @@
     "glb_file": "/models/1065.glb",
     "dimensions": "产品尺寸：L:46mm  W:46mm  H:12mm",
     "description": "包裝貼圖尺寸：L:46mm W:46mm 常見於面膜、化妝品的收納 參考品牌/產品：面膜 建議容量：5g",
-    "slug": "plastic-cosmetic-cosmetic-box-1065"
+    "slug": "plastic-cosmetic-cosmetic-box-1065",
+    "category": "Pouch"
   },
   {
     "id": "1066",
@@ -67,7 +73,8 @@
     "glb_file": "/models/1066.glb",
     "dimensions": "产品尺寸：L:100mm  H:150mm  ",
     "description": "包裝貼圖尺寸：L:100mm H:150mm 常見於糖果，巧克力，軟糖的收納 參考品牌/產品：樂天酸乳味軟糖 建議容量：50g",
-    "slug": "stand-up-pouch-plastic-food-beverage-pouch-1066"
+    "slug": "stand-up-pouch-plastic-food-beverage-pouch-1066",
+    "category": "Pouch"
   },
   {
     "id": "1074",
@@ -77,7 +84,8 @@
     "glb_file": "/models/1074.glb",
     "dimensions": "产品尺寸：L:93mm  W:23mm  H:277mm",
     "description": "包裝貼圖尺寸：L:93mm W:23mm H:277mm 常見於掛麵、麵條、寬粉的收納 參考品牌/產品：天麥然玉帶掛麵 建議容量：500g",
-    "slug": "plastic-food-pouch-1074"
+    "slug": "plastic-food-pouch-1074",
+    "category": "Pouch"
   },
   {
     "id": "1093",
@@ -87,7 +95,8 @@
     "glb_file": "/models/1093.glb",
     "dimensions": "产品尺寸：L:180mm  w:70mm  H:250mm",
     "description": "包裝貼圖尺寸：L:180mm w:70mm H:250mm 常見於，果乾，蜜餞，山楂條，燕麥片,乾果的收納 參考品牌/產品：固本堂水果燕麥 建議容量：400g",
-    "slug": "plastic-food-beverage-pouch-1093"
+    "slug": "plastic-food-beverage-pouch-1093",
+    "category": "Pouch"
   },
   {
     "id": "1101",
@@ -97,7 +106,8 @@
     "glb_file": "/models/1101.glb",
     "dimensions": "产品尺寸：H:186mm   D:27mm",
     "description": "包裝貼圖尺寸：L:40mm H:160mm 常見於牙膏，藥品的收納 參考品牌/產品：黑色牙膏 建議容量：120g",
-    "slug": "plastic-tube-1101"
+    "slug": "plastic-tube-1101",
+    "category": "Pouch"
   },
   {
     "id": "1105",
@@ -107,7 +117,8 @@
     "glb_file": "/models/1105.glb",
     "dimensions": "产品模型：L:83mm  W:60mm  H:235mm ",
     "description": "包裝貼圖尺寸：L:83mm H:235mm 常見於薯條，薯片，山藥片的收納 參考品牌/產品：豫味之源山藥薄片 建議容量：33g",
-    "slug": "plastic-food-food-beverage-pouch-1105"
+    "slug": "plastic-food-food-beverage-pouch-1105",
+    "category": "Pouch"
   },
   {
     "id": "1129",
@@ -117,7 +128,8 @@
     "glb_file": "/models/1129.glb",
     "dimensions": "产品尺寸：L:157mm  W:36mm  H:195mm",
     "description": "包裝貼圖尺寸：L:315mm H:195mm 常見於泡麵、拌麵、麵食類的收納 參考品牌/產品：泡麵 建議容量：110g",
-    "slug": "plastic-food-pouch-1129"
+    "slug": "plastic-food-pouch-1129",
+    "category": "Pouch"
   },
   {
     "id": "1142",
@@ -127,7 +139,8 @@
     "glb_file": "/models/1142.glb",
     "dimensions": "产品尺寸：H:85mm  D:180mm L:147mm",
     "description": "包裝貼圖尺寸：L:173mm H:117mm 常見於自熱飯、自嗨鍋的收納 參考品牌/產品：杜大廚自熱飯 建議容量：360g",
-    "slug": "plastic-food-beverage-1142"
+    "slug": "plastic-food-beverage-1142",
+    "category": "Pouch"
   },
   {
     "id": "1144",
@@ -137,7 +150,8 @@
     "glb_file": "/models/1144.glb",
     "dimensions": "产品尺寸：H:111mm  D:220mm L:233mm",
     "description": "包裝貼圖尺寸：L:200mm H:200mm 常見於自熱火鍋，自熱飯的收納 參考品牌/產品：開小灶自熱火鍋 建議容量：350g",
-    "slug": "plastic-food-beverage-1144"
+    "slug": "plastic-food-beverage-1144",
+    "category": "Pouch"
   },
   {
     "id": "1152",
@@ -147,7 +161,8 @@
     "glb_file": "/models/1152.glb",
     "dimensions": "产品尺寸：L:90mm  H:153mm",
     "description": "包裝貼圖尺寸：L:89mm H:129mm 常見於果凍，優格的收納 參考品牌/產品：啵樂優格飲品 建議容量：100ml",
-    "slug": "plastic-food-food-pouch-1152"
+    "slug": "plastic-food-food-pouch-1152",
+    "category": "Pouch"
   },
   {
     "id": "1190",
@@ -157,7 +172,8 @@
     "glb_file": "/models/1190.glb",
     "dimensions": "产品尺寸：H:75mm  W:25mm L:52mm",
     "description": "包裝貼圖尺寸：L:154mm H:75mm 常見於紙巾、濕紙巾的收納 參考品牌/產品：本色手帕紙 建議容量：13.5g",
-    "slug": "plastic-cleaning-pouch-1190"
+    "slug": "plastic-cleaning-pouch-1190",
+    "category": "Pouch"
   },
   {
     "id": "1191",
@@ -167,7 +183,8 @@
     "glb_file": "/models/1191.glb",
     "dimensions": "产品尺寸：H:133mm  D:38mm",
     "description": "包裝貼圖尺寸：L:74mm H:103mm 常見於洗面乳,護手霜的收納 參考品牌/產品：雪然洗面乳 建議容量：30g",
-    "slug": "plastic-tube-1191"
+    "slug": "plastic-tube-1191",
+    "category": "Pouch"
   },
   {
     "id": "1192",
@@ -177,7 +194,8 @@
     "glb_file": "/models/1192.glb",
     "dimensions": "产品尺寸：H:80mm  W:10mm L:125mm",
     "description": "包裝貼圖尺寸：L:125mm H:170mm 常見於紙巾、濕紙巾的收納 參考品牌/產品：咖啡時光手帕紙 建議容量：10g",
-    "slug": "plastic-cleaning-pouch-1192"
+    "slug": "plastic-cleaning-pouch-1192",
+    "category": "Pouch"
   },
   {
     "id": "1193",
@@ -187,7 +205,8 @@
     "glb_file": "/models/1193.glb",
     "dimensions": "产品尺寸：H:129mm  D:53mm",
     "description": "包裝貼圖尺寸：L:104mm H:75mm 常見於BB霜，洗面乳的收納 參考品牌/產品：東方女神輕盈無瑕BB霜 建議容量：50ml",
-    "slug": "plastic-tube-1193"
+    "slug": "plastic-tube-1193",
+    "category": "Pouch"
   },
   {
     "id": "1199",
@@ -197,7 +216,8 @@
     "glb_file": "/models/1199.glb",
     "dimensions": "产品尺寸：L:10mm  W:250mm H:310mm",
     "description": "包裝貼圖尺寸：L:250mm H:250mm 常見於食物殘渣、物件碎屑的收納 參考品牌/產品：多功能雙面黏貼垃圾袋 建議容量：115g",
-    "slug": "plastic-cleaning-pouch-1199"
+    "slug": "plastic-cleaning-pouch-1199",
+    "category": "Pouch"
   },
   {
     "id": "1200",
@@ -207,7 +227,8 @@
     "glb_file": "/models/1200.glb",
     "dimensions": "产品尺寸：H:138mm  D:30mm",
     "description": "包裝貼圖尺寸：L:30mm H:106mm 常見於眼霜，BB霜的收納 參考品牌/產品：卓沿白金眼霜 建議容量：15ml",
-    "slug": "plastic-tube-1200"
+    "slug": "plastic-tube-1200",
+    "category": "Pouch"
   },
   {
     "id": "1201",
@@ -217,7 +238,8 @@
     "glb_file": "/models/1201.glb",
     "dimensions": "产品尺寸：H:158mm D:26mm",
     "description": "包裝貼圖尺寸：L:37mm H:103mm 常見於祛痘霜、化妝品、眼霜的收納 參考品牌/產品：悅容朵顏祛痘舒緩凝膠 建議容量：30ml",
-    "slug": "plastic-cosmetic-cosmetic-jar-1201"
+    "slug": "plastic-cosmetic-cosmetic-jar-1201",
+    "category": "Pouch"
   },
   {
     "id": "1203",
@@ -227,7 +249,8 @@
     "glb_file": "/models/1203.glb",
     "dimensions": "产品尺寸：H:147mm D:19mm",
     "description": "包裝貼圖尺寸：L:60mm H:105mm 常見於透明酸凝膠、眼霜、祛痘凝膠的收納 參考品牌/產品：Dr.Alva璦爾博士福瑞達玻尿酸凝膠 建議容量：20g",
-    "slug": "plastic-cosmetic-cosmetic-tube-1203"
+    "slug": "plastic-cosmetic-cosmetic-tube-1203",
+    "category": "Pouch"
   },
   {
     "id": "1204",
@@ -237,7 +260,8 @@
     "glb_file": "/models/1204.glb",
     "dimensions": "产品尺寸：H:134mm  D:46mm",
     "description": "包裝貼圖尺寸：L:45mm H:80mm 常見於BB霜，眼霜的收納 參考品牌/產品：謎底紅BB霜 建議容量：50ml",
-    "slug": "plastic-tube-1204"
+    "slug": "plastic-tube-1204",
+    "category": "Pouch"
   },
   {
     "id": "1206",
@@ -247,7 +271,8 @@
     "glb_file": "/models/1206.glb",
     "dimensions": "产品尺寸：H:164mm  D:84mm",
     "description": "包裝貼圖尺寸：L:86mm H:106mm 常見於美頸霜的收納 參考品牌/產品：藍可芳美頸霜 建議容量：120g",
-    "slug": "plastic-cosmetic-cosmetic-tube-1206"
+    "slug": "plastic-cosmetic-cosmetic-tube-1206",
+    "category": "Pouch"
   },
   {
     "id": "1207",
@@ -257,7 +282,8 @@
     "glb_file": "/models/1207.glb",
     "dimensions": "产品尺寸：H:147mm  D:32mm",
     "description": "包裝貼圖尺寸：L:100mm H:125mm 常見於牙膏、化毛膏的收納 參考品牌/產品：雲南白藥牙膏 建議容量：180ml",
-    "slug": "plastic-tube-1207"
+    "slug": "plastic-tube-1207",
+    "category": "Pouch"
   },
   {
     "id": "1208",
@@ -267,7 +293,8 @@
     "glb_file": "/models/1208.glb",
     "dimensions": "产品尺寸：H:115mm  D:185mm L:155mm",
     "description": "包裝貼圖尺寸：L:138mm H:138mm 常見於自熱飯、自嗨鍋的收納 參考品牌/產品：自嗨鍋自熱米飯 建議容量：260g",
-    "slug": "plastic-food-beverage-1208"
+    "slug": "plastic-food-beverage-1208",
+    "category": "Pouch"
   },
   {
     "id": "1209",
@@ -277,7 +304,8 @@
     "glb_file": "/models/1209.glb",
     "dimensions": "产品尺寸：H:140mm  D:45mm",
     "description": "包裝貼圖尺寸：L:44mm H:113mm 常見於牙膏的收納 參考品牌/產品：ukiwi紐西小精靈馬卡龍少女牙膏 建議容量：100g",
-    "slug": "plastic-tube-1209"
+    "slug": "plastic-tube-1209",
+    "category": "Pouch"
   },
   {
     "id": "1210",
@@ -287,7 +315,8 @@
     "glb_file": "/models/1210.glb",
     "dimensions": "产品尺寸：L:170mm  W:170mm  H:90mm",
     "description": "包裝貼圖尺寸：L:160mm W:160mm 常見於一次性塑膠盒、麵食類的收納 參考品牌/產品：莫小仙網紅自熱火鍋煲仔飯 建議容量：245g",
-    "slug": "plastic-food-beverage-box-1210"
+    "slug": "plastic-food-beverage-box-1210",
+    "category": "Pouch"
   },
   {
     "id": "1212",
@@ -297,7 +326,8 @@
     "glb_file": "/models/1212.glb",
     "dimensions": "产品尺寸：H:125mm  D:18mm",
     "description": "包裝貼圖尺寸：L:57mm H:95mm 常見於眼霜、化妝品的收納 參考品牌/產品：瑾泉新生眼部多效滾珠按摩菁華 建議容量：20ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-1212"
+    "slug": "plastic-cosmetic-cosmetic-tube-1212",
+    "category": "Pouch"
   },
   {
     "id": "1214",
@@ -307,7 +337,8 @@
     "glb_file": "/models/1214.glb",
     "dimensions": "产品尺寸：H:70mm  D:13.5mm",
     "description": "包裝貼圖尺寸：L:32mm H:53mm 常見於眼用凝膠、醫藥的收納 參考品牌/產品：茲養維生素A棕櫚酸酯眼用凝膠 建議容量：5g",
-    "slug": "plastic-pharma-tube-1214"
+    "slug": "plastic-pharma-tube-1214",
+    "category": "Pouch"
   },
   {
     "id": "1270",
@@ -317,7 +348,8 @@
     "glb_file": "/models/1270.glb",
     "dimensions": "产品尺寸：L:150mm  H:190mm  ",
     "description": "包裝貼圖尺寸：L:150mm H:190mm 常見於面膜，手膜的收納 參考品牌/產品：潤西子山羊奶滋養手膜 建議容量：36g",
-    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1270"
+    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1270",
+    "category": "Pouch"
   },
   {
     "id": "1271",
@@ -327,7 +359,8 @@
     "glb_file": "/models/1271.glb",
     "dimensions": "产品尺寸：L:230mm  W:70mm  H:230mm",
     "description": "包裝貼圖尺寸：L:230mm W:230mm 常見於洗衣精、柔軟精、消毒水的收納 參考品牌/產品：洗衣精 建議容量：700ml",
-    "slug": "plastic-stand-up-cleaning-pouch-cap-1271"
+    "slug": "plastic-stand-up-cleaning-pouch-cap-1271",
+    "category": "Pouch"
   },
   {
     "id": "1274",
@@ -337,7 +370,8 @@
     "glb_file": "/models/1274.glb",
     "dimensions": "产品尺寸：L:150mm  H:190mm ",
     "description": "包裝貼圖尺寸：L:150mm H:190mm 常見於手膜，面膜的收納 參考品牌/產品：潤西子山羊奶精華手膜 建議容量：72g",
-    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1274"
+    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1274",
+    "category": "Pouch"
   },
   {
     "id": "1277",
@@ -347,7 +381,8 @@
     "glb_file": "/models/1277.glb",
     "dimensions": "产品尺寸：H:80mm  D:141mm L:149mm",
     "description": "包裝貼圖尺寸：L:141mm H:149mm 常見於泡麵的收納 參考品牌/產品：農心牌牛肉泡菜口味拉麵 建議容量：82g",
-    "slug": "plastic-food-beverage-1277"
+    "slug": "plastic-food-beverage-1277",
+    "category": "Pouch"
   },
   {
     "id": "1279",
@@ -357,7 +392,8 @@
     "glb_file": "/models/1279.glb",
     "dimensions": "产品尺寸：L:146mm  W:20mm  H:198mm ",
     "description": "包裝貼圖尺寸：L:146mm H:198mm 常見於糖果、巧克力、食品袋的收納 參考品牌/產品：甘樂企鵝水果口味硬糖 建議容量：65g",
-    "slug": "plastic-stand-up-food-beverage-pouch-1279"
+    "slug": "plastic-stand-up-food-beverage-pouch-1279",
+    "category": "Pouch"
   },
   {
     "id": "1280",
@@ -367,7 +403,8 @@
     "glb_file": "/models/1280.glb",
     "dimensions": "产品尺寸：L:128mm  H:128mm ",
     "description": "包裝貼圖尺寸：L:128mm H:128mm 常見於糖果、巧克力、食品袋的收納 參考品牌/產品：UHA悠哈味覺糖葡萄果汁軟糖 建議容量：40g",
-    "slug": "plastic-stand-up-food-beverage-pouch-1280"
+    "slug": "plastic-stand-up-food-beverage-pouch-1280",
+    "category": "Pouch"
   },
   {
     "id": "1281",
@@ -377,7 +414,8 @@
     "glb_file": "/models/1281.glb",
     "dimensions": "产品尺寸：L:128mm  W:20mm  H:128mm ",
     "description": "包裝貼圖尺寸：L:146mm H:198mm 常見於糖果、巧克力、食品袋的收納 參考品牌/產品：UHA悠哈味覺糖葡萄果汁軟糖 建議容量：48g",
-    "slug": "plastic-stand-up-food-beverage-pouch-1281"
+    "slug": "plastic-stand-up-food-beverage-pouch-1281",
+    "category": "Pouch"
   },
   {
     "id": "1282",
@@ -387,7 +425,8 @@
     "glb_file": "/models/1282.glb",
     "dimensions": "产品尺寸：L:154mm  H:205mm ",
     "description": "包裝貼圖尺寸：L:154mm H:205mm 常見於糖果、巧克力、食品袋的收納 參考品牌/產品：扇雀飴草莓口味什錦夾心糖 建議容量：81g",
-    "slug": "plastic-stand-up-food-beverage-pouch-1282"
+    "slug": "plastic-stand-up-food-beverage-pouch-1282",
+    "category": "Pouch"
   },
   {
     "id": "1283",
@@ -397,7 +436,8 @@
     "glb_file": "/models/1283.glb",
     "dimensions": "产品尺寸：L:150mm  W:20mm  H:228mm ",
     "description": "包裝貼圖尺寸：L:150mm H:228mm 常見於糖果、巧克力、食品袋的收納 參考品牌/產品：扇雀飴什錦檸檬蘇打汽水味水果碳酸糖果 建議容量：75g",
-    "slug": "plastic-stand-up-food-beverage-pouch-1283"
+    "slug": "plastic-stand-up-food-beverage-pouch-1283",
+    "category": "Pouch"
   },
   {
     "id": "1284",
@@ -407,7 +447,8 @@
     "glb_file": "/models/1284.glb",
     "dimensions": "产品尺寸：L:67mm  H:98mm ",
     "description": "包裝貼圖尺寸：L:201mm H:80mm 常見於糖果、巧克力的收納 參考品牌/產品：tirol松尾多彩什錦夾心巧克力 建議容量：220g",
-    "slug": "plastic-food-food-bottle-1284"
+    "slug": "plastic-food-food-bottle-1284",
+    "category": "Pouch"
   },
   {
     "id": "1288",
@@ -417,7 +458,8 @@
     "glb_file": "/models/1288.glb",
     "dimensions": "产品尺寸：L:125mm  W:50mm  H:240mm ",
     "description": "包裝貼圖尺寸：L:250mm H:240mm 常見於餅乾、點心、食品袋的收納 參考品牌/產品：不二家起司奶油巧克力口味曲奇餅乾 建議容量：147g",
-    "slug": "plastic-food-beverage-pouch-1288"
+    "slug": "plastic-food-beverage-pouch-1288",
+    "category": "Pouch"
   },
   {
     "id": "1289",
@@ -427,7 +469,8 @@
     "glb_file": "/models/1289.glb",
     "dimensions": "产品尺寸：L:110mm  H:178mm ",
     "description": "包裝貼圖尺寸：L:110mm H:170mm 常見於糖果、餅乾的收納 參考品牌/產品：格力高cheeza起司起司三角薄脆餅乾 建議容量：40g",
-    "slug": "plastic-food-food-beverage-pouch-1289"
+    "slug": "plastic-food-food-beverage-pouch-1289",
+    "category": "Pouch"
   },
   {
     "id": "1290",
@@ -437,7 +480,8 @@
     "glb_file": "/models/1290.glb",
     "dimensions": "产品尺寸：L:130mm  W:40mm  H:170mm",
     "description": "包裝貼圖尺寸：L:340mm H:170mm 常見於餅乾、點心、食品袋的收納 參考品牌/產品：不二家巧克力味夾心曲奇餅乾 建議容量：77g",
-    "slug": "plastic-food-beverage-pouch-1290"
+    "slug": "plastic-food-beverage-pouch-1290",
+    "category": "Pouch"
   },
   {
     "id": "1291",
@@ -447,7 +491,8 @@
     "glb_file": "/models/1291.glb",
     "dimensions": "产品尺寸：L:135mm  H:140mm ",
     "description": "包裝貼圖尺寸：L:135mm H:140mm 常見於壓縮餅乾的收納 參考品牌/產品：冠生園壓縮餅乾 建議容量：118g",
-    "slug": "plastic-food-food-beverage-pouch-1291"
+    "slug": "plastic-food-food-beverage-pouch-1291",
+    "category": "Pouch"
   },
   {
     "id": "1292",
@@ -457,7 +502,8 @@
     "glb_file": "/models/1292.glb",
     "dimensions": "产品尺寸：L:200mm  W:60mm  H:163mm",
     "description": "包裝貼圖尺寸：L:200mm W:60mm H:163mm 常見於口罩，護理用具的收納 參考品牌/產品：口罩 建議容量：",
-    "slug": "plastic-1292"
+    "slug": "plastic-1292",
+    "category": "Pouch"
   },
   {
     "id": "1293",
@@ -467,7 +513,8 @@
     "glb_file": "/models/1293.glb",
     "dimensions": "产品尺寸：L:149mm  H:59mm ",
     "description": "包裝貼圖尺寸：L:149mm H:59mm 常見於辣條的收納 參考品牌/產品：衛龍親嘴燒辣條 建議容量：10g",
-    "slug": "plastic-food-food-beverage-pouch-1293"
+    "slug": "plastic-food-food-beverage-pouch-1293",
+    "category": "Pouch"
   },
   {
     "id": "1297",
@@ -477,7 +524,8 @@
     "glb_file": "/models/1297.glb",
     "dimensions": "产品尺寸：L:90mm  H:135mm ",
     "description": "包裝貼圖尺寸：L:90mm H:104mm 常見於果凍的收納 參考品牌/產品：金冠胡蘿蔔果蔬吸果凍 建議容量：80g",
-    "slug": "plastic-food-food-pouch-1297"
+    "slug": "plastic-food-food-pouch-1297",
+    "category": "Pouch"
   },
   {
     "id": "1298",
@@ -487,7 +535,8 @@
     "glb_file": "/models/1298.glb",
     "dimensions": "产品尺寸：L:68mm  W:78mm H:40mm ",
     "description": "包裝貼圖尺寸：L:68mm H:78mm 常見於果凍、優格的收納 參考品牌/產品：呵吻老優格口味可吸果凍 建議容量：250g",
-    "slug": "plastic-food-beverage-1298"
+    "slug": "plastic-food-beverage-1298",
+    "category": "Pouch"
   },
   {
     "id": "1306",
@@ -497,7 +546,8 @@
     "glb_file": "/models/1306.glb",
     "dimensions": "产品尺寸：L:76mm  H:113mm",
     "description": "包裝貼圖尺寸：L:76mm H:113mm 常見於奶茶，咖啡，茶包沖調飲料的收納 參考品牌/產品：喜之郎優樂美奶茶 建議容量：22g",
-    "slug": "plastic-tea-food-beverage-pouch-1306"
+    "slug": "plastic-tea-food-beverage-pouch-1306",
+    "category": "Pouch"
   },
   {
     "id": "1308",
@@ -507,7 +557,8 @@
     "glb_file": "/models/1308.glb",
     "dimensions": "产品尺寸：L:60mm  H:150mm",
     "description": "包裝貼圖尺寸：L:120mm H:150mm 常見於糖果、巧克力、休閒食品的收納 參考品牌/產品：小黃鴨螢光棒棒糖 建議容量：10g",
-    "slug": "plastic-food-beverage-pouch-1308"
+    "slug": "plastic-food-beverage-pouch-1308",
+    "category": "Pouch"
   },
   {
     "id": "1309",
@@ -517,7 +568,8 @@
     "glb_file": "/models/1309.glb",
     "dimensions": "产品尺寸：L:77mm  H:133mm",
     "description": "包裝貼圖尺寸：L:77mm H:108mm 常見於果凍的收納 參考品牌/產品：韓國啵樂樂水蜜桃吸吸果凍 建議容量：120ml",
-    "slug": "plastic-food-food-pouch-1309"
+    "slug": "plastic-food-food-pouch-1309",
+    "category": "Pouch"
   },
   {
     "id": "1310",
@@ -527,7 +579,8 @@
     "glb_file": "/models/1310.glb",
     "dimensions": "产品尺寸：L:260mm  H:370mm ",
     "description": "包裝貼圖尺寸：L:260mm H:370mm 常見於餅乾的收納 參考品牌/產品：BISKITOP動物餅乾 建議容量：320g",
-    "slug": "plastic-food-food-beverage-pouch-1310"
+    "slug": "plastic-food-food-beverage-pouch-1310",
+    "category": "Pouch"
   },
   {
     "id": "1311",
@@ -537,7 +590,8 @@
     "glb_file": "/models/1311.glb",
     "dimensions": "产品尺寸：L:130mm  H:206mm",
     "description": "包裝貼圖尺寸：L:130mm H:206mm 常見於果凍、奶茶、食品飲料的收納 參考品牌/產品：爆搖喜奶茶 建議容量：46g",
-    "slug": "plastic-food-food-pouch-1311"
+    "slug": "plastic-food-food-pouch-1311",
+    "category": "Pouch"
   },
   {
     "id": "1312",
@@ -547,7 +601,8 @@
     "glb_file": "/models/1312.glb",
     "dimensions": "产品尺寸：L:320mm  M: 80mm  H:580mm ",
     "description": "包裝貼圖尺寸：L:320mm M: 80mm H:580mm 常見於貓砂的收納 參考品牌/產品：喵喵醬膨潤土貓砂 建議容量：10kg",
-    "slug": "plastic-pouch-1312"
+    "slug": "plastic-pouch-1312",
+    "category": "Pouch"
   },
   {
     "id": "1313",
@@ -557,7 +612,8 @@
     "glb_file": "/models/1313.glb",
     "dimensions": "产品尺寸：L:110mm  H:195mm",
     "description": "包裝貼圖尺寸：L:220mm H:195mm 常見於豆奶、豆漿、牛奶、沖調飲料的收納 參考品牌/產品：祖名豆奶飲品 建議容量：250ml",
-    "slug": "plastic-food-beverage-pouch-1313"
+    "slug": "plastic-food-beverage-pouch-1313",
+    "category": "Pouch"
   },
   {
     "id": "1457",
@@ -567,7 +623,8 @@
     "glb_file": "/models/1457.glb",
     "dimensions": "产品尺寸：D:18mm  H:130mm ",
     "description": "包裝貼圖尺寸：L:56.5mm H:130mm 常見於密封膠、鋁膜、火腿腸的收納 參考品牌/產品：高士多彩矽酮耐候密封膠 建議容量：",
-    "slug": "plastic-pouch-1457"
+    "slug": "plastic-pouch-1457",
+    "category": "Pouch"
   },
   {
     "id": "1464",
@@ -577,7 +634,8 @@
     "glb_file": "/models/1464.glb",
     "dimensions": "产品尺寸：H:190mm    D:110mm",
     "description": "包裝貼圖尺寸：L:57mm H:48mm 常見於瓜子，乾果的收納 參考品牌/產品：乾果 建議容量：20g",
-    "slug": "plastic-food-food-pouch-1464"
+    "slug": "plastic-food-food-pouch-1464",
+    "category": "Pouch"
   },
   {
     "id": "1465",
@@ -587,7 +645,8 @@
     "glb_file": "/models/1465.glb",
     "dimensions": "产品尺寸：L:300mm  H:260mm",
     "description": "包裝貼圖尺寸：L:600mm H:260mm 常見於冷凍食品、肉類生鮮、食品飲料的收納 參考品牌/產品：肉類生鮮 建議容量：1500g",
-    "slug": "plastic-food-pouch-1465"
+    "slug": "plastic-food-pouch-1465",
+    "category": "Pouch"
   },
   {
     "id": "1467",
@@ -597,7 +656,8 @@
     "glb_file": "/models/1467.glb",
     "dimensions": "产品尺寸：L:90mm   H:150mm ",
     "description": "包裝貼圖尺寸：L:180mm H:150mm 常見於飲料，果凍的收納 參考品牌/產品：飲料 建議容量：150ml",
-    "slug": "plastic-food-food-pouch-1467"
+    "slug": "plastic-food-food-pouch-1467",
+    "category": "Pouch"
   },
   {
     "id": "1471",
@@ -607,7 +667,8 @@
     "glb_file": "/models/1471.glb",
     "dimensions": "产品尺寸：L:230mm  W:105mm  H:410mm",
     "description": "包裝貼圖尺寸：L:230mm W:105mm H:410mm 常見於狗糧，貓糧，寵物食品的收納 參考品牌/產品：貓糧 建議容量：2.5kg",
-    "slug": "plastic-pouch-1471"
+    "slug": "plastic-pouch-1471",
+    "category": "Pouch"
   },
   {
     "id": "1472",
@@ -617,7 +678,8 @@
     "glb_file": "/models/1472.glb",
     "dimensions": "产品尺寸：L:95mm H:110mm ",
     "description": "包裝貼圖尺寸：L:38mm H:55mm 常見於奶昔、優格的收納 參考品牌/產品：優格 建議容量：500ml",
-    "slug": "plastic-food-beverage-box-1472"
+    "slug": "plastic-food-beverage-box-1472",
+    "category": "Pouch"
   },
   {
     "id": "1473",
@@ -627,7 +689,8 @@
     "glb_file": "/models/1473.glb",
     "dimensions": "产品尺寸：L:120mm H:50mm ",
     "description": "包裝貼圖尺寸：L:348mm H:40mm 常見於泡麵，螺螄粉的收納 參考品牌/產品：泡麵 建議容量：",
-    "slug": "plastic-food-beverage-1473"
+    "slug": "plastic-food-beverage-1473",
+    "category": "Pouch"
   },
   {
     "id": "1474",
@@ -637,7 +700,8 @@
     "glb_file": "/models/1474.glb",
     "dimensions": "产品尺寸：L:178mm H:95mm ",
     "description": "包裝貼圖尺寸：L:521mm H:48mm 常見於螺螄粉、泡麵的收納 參考品牌/產品：螺螄粉 建議容量：1250ml",
-    "slug": "plastic-food-beverage-1474"
+    "slug": "plastic-food-beverage-1474",
+    "category": "Pouch"
   },
   {
     "id": "1476",
@@ -647,7 +711,8 @@
     "glb_file": "/models/1476.glb",
     "dimensions": "产品尺寸：L:72mm H:76mm ",
     "description": "包裝貼圖尺寸：L:198mm H:60mm 常見於果凍、優格的收納 參考品牌/產品：果凍 建議容量：120ml",
-    "slug": "plastic-food-beverage-box-1476"
+    "slug": "plastic-food-beverage-box-1476",
+    "category": "Pouch"
   },
   {
     "id": "1483",
@@ -657,7 +722,8 @@
     "glb_file": "/models/1483.glb",
     "dimensions": "产品尺寸：L:90mm H:115mm ",
     "description": "包裝貼圖尺寸：L:254mm H:96mm 常見於奶茶、優格的收納 參考品牌/產品：奶茶 建議容量：520ml",
-    "slug": "plastic-food-beverage-box-1483"
+    "slug": "plastic-food-beverage-box-1483",
+    "category": "Pouch"
   },
   {
     "id": "1484",
@@ -667,7 +733,8 @@
     "glb_file": "/models/1484.glb",
     "dimensions": "产品尺寸：L:109mm  W:70mm H:70mm ",
     "description": "包裝貼圖尺寸：L:270mm H:58mm 常見於果凍、優格的收納 參考品牌/產品：優格 建議容量：100g",
-    "slug": "plastic-food-beverage-box-1484"
+    "slug": "plastic-food-beverage-box-1484",
+    "category": "Pouch"
   },
   {
     "id": "1489",
@@ -677,7 +744,8 @@
     "glb_file": "/models/1489.glb",
     "dimensions": "产品尺寸：L:145mm  W:94mm H:39mm ",
     "description": "包裝貼圖尺寸：L:134mm H:84mm 常見於奶油、雪糕的收納 參考品牌/產品：奶油 建議容量：250ml",
-    "slug": "plastic-food-beverage-box-1489"
+    "slug": "plastic-food-beverage-box-1489",
+    "category": "Pouch"
   },
   {
     "id": "1490",
@@ -687,7 +755,8 @@
     "glb_file": "/models/1490.glb",
     "dimensions": "产品尺寸：L:123mm H:125mm ",
     "description": "包裝貼圖尺寸：L:364mm H:111mm 常見於優格、牛奶的收納 參考品牌/產品：優格 建議容量：180ml",
-    "slug": "plastic-food-beverage-box-1490"
+    "slug": "plastic-food-beverage-box-1490",
+    "category": "Pouch"
   },
   {
     "id": "1491",
@@ -697,7 +766,8 @@
     "glb_file": "/models/1491.glb",
     "dimensions": "产品尺寸：L:103mm  W:95mm H:60mm ",
     "description": "包裝貼圖尺寸：L:280mm H:40mm 常見於優格、雪糕的收納 參考品牌/產品：優格 建議容量：",
-    "slug": "plastic-food-beverage-box-1491"
+    "slug": "plastic-food-beverage-box-1491",
+    "category": "Pouch"
   },
   {
     "id": "1493",
@@ -707,7 +777,8 @@
     "glb_file": "/models/1493.glb",
     "dimensions": "产品尺寸：L:145mm  W:98mm H:52mm ",
     "description": "包裝貼圖尺寸：L:111mm H:80mm 常見於奶油、優格的收納 參考品牌/產品：奶油 建議容量：",
-    "slug": "plastic-food-beverage-box-1493"
+    "slug": "plastic-food-beverage-box-1493",
+    "category": "Pouch"
   },
   {
     "id": "1494",
@@ -717,7 +788,8 @@
     "glb_file": "/models/1494.glb",
     "dimensions": "产品尺寸：D:120mm  H:73mm ",
     "description": "包裝貼圖尺寸：L:76mm H:76mm 常見於優格、布丁、食品飲料的收納 參考品牌/產品：優格 建議容量：300ml",
-    "slug": "plastic-food-beverage-box-1494"
+    "slug": "plastic-food-beverage-box-1494",
+    "category": "Pouch"
   },
   {
     "id": "1497",
@@ -727,7 +799,8 @@
     "glb_file": "/models/1497.glb",
     "dimensions": "产品尺寸：L:74mm  W:72mm H:49mm ",
     "description": "包裝貼圖尺寸：L:68mm H:66mm 常見於鮮辣醬、奶油的收納 參考品牌/產品：鮮辣醬 建議容量：130ml",
-    "slug": "plastic-food-box-1497"
+    "slug": "plastic-food-box-1497",
+    "category": "Pouch"
   },
   {
     "id": "1504",
@@ -737,7 +810,8 @@
     "glb_file": "/models/1504.glb",
     "dimensions": "产品尺寸：L:154mm  W:94mm  H:69mm",
     "description": "包裝貼圖尺寸：L:100mm H:54mm 常見於速食產品、加熱米飯、洗衣凝珠、辣椒醬的收納 參考品牌/產品：速食產品 建議容量：275g",
-    "slug": "plastic-food-beverage-box-1504"
+    "slug": "plastic-food-beverage-box-1504",
+    "category": "Pouch"
   },
   {
     "id": "1506",
@@ -747,7 +821,8 @@
     "glb_file": "/models/1506.glb",
     "dimensions": "产品尺寸：D:72mm  H:117mm ",
     "description": "包裝貼圖尺寸：L:201mm H:102mm 常見於奶昔，優格的收納 參考品牌/產品：孔多里多純醇奶昔 建議容量：200ml",
-    "slug": "plastic-food-beverage-box-1506"
+    "slug": "plastic-food-beverage-box-1506",
+    "category": "Pouch"
   },
   {
     "id": "1516",
@@ -757,7 +832,8 @@
     "glb_file": "/models/1516.glb",
     "dimensions": "产品尺寸：D:92mm  H:117mm ",
     "description": "包裝貼圖尺寸：L:198mm H:65mm 常見於奶茶，優格的收納 參考品牌/產品：奶茶 建議容量：",
-    "slug": "plastic-food-beverage-box-1516"
+    "slug": "plastic-food-beverage-box-1516",
+    "category": "Pouch"
   },
   {
     "id": "1517",
@@ -767,7 +843,8 @@
     "glb_file": "/models/1517.glb",
     "dimensions": "产品尺寸：L:190mm  W:130mm  H:82mm",
     "description": "包裝貼圖尺寸：L:175mm H:115mm 常見於糖果類、餅乾類、點心類的收納 參考品牌/產品：上品牛軋糖 建議容量：256g",
-    "slug": "food-beverage-1517"
+    "slug": "food-beverage-1517",
+    "category": "Pouch"
   },
   {
     "id": "1518",
@@ -777,7 +854,8 @@
     "glb_file": "/models/1518.glb",
     "dimensions": "产品尺寸：D:78mm  H:47mm ",
     "description": "包裝貼圖尺寸：L:216mm H:31mm 常見於布丁，優格的收納 參考品牌/產品：貝果福布丁 建議容量：56g",
-    "slug": "plastic-food-beverage-box-1518"
+    "slug": "plastic-food-beverage-box-1518",
+    "category": "Pouch"
   },
   {
     "id": "1523",
@@ -787,7 +865,8 @@
     "glb_file": "/models/1523.glb",
     "dimensions": "产品尺寸：L:110mm  H:160mm",
     "description": "包裝貼圖尺寸：L:110mm H:160mm 常見於洗衣液，柔軟精的收納 參考品牌/產品：鹽白洗衣液 建議容量：200ml",
-    "slug": "plastic-stand-up-cleaning-pouch-cap-1523"
+    "slug": "plastic-stand-up-cleaning-pouch-cap-1523",
+    "category": "Pouch"
   },
   {
     "id": "1525",
@@ -797,7 +876,8 @@
     "glb_file": "/models/1525.glb",
     "dimensions": "产品尺寸：H:113mm  D:55mm",
     "description": "包裝貼圖尺寸：L:62mm H:82mm 常見於洗面乳的收納 參考品牌/產品：洗面乳 建議容量：40ml",
-    "slug": "plastic-tube-1525"
+    "slug": "plastic-tube-1525",
+    "category": "Pouch"
   },
   {
     "id": "1528",
@@ -807,7 +887,8 @@
     "glb_file": "/models/1528.glb",
     "dimensions": "产品尺寸：D:62mm  H:147mm  ",
     "description": "包裝貼圖尺寸：L:62mm H:120mm 常見於護手霜，BB霜的收納 參考品牌/產品：護手霜 建議容量：100ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-1528"
+    "slug": "plastic-cosmetic-cosmetic-tube-1528",
+    "category": "Pouch"
   },
   {
     "id": "1529",
@@ -817,7 +898,8 @@
     "glb_file": "/models/1529.glb",
     "dimensions": "产品尺寸：H:160mm  D:62mm",
     "description": "包裝貼圖尺寸：L:60mm H:130mm 常見於洗面乳的收納 參考品牌/產品：洗面乳 建議容量：120ml",
-    "slug": "plastic-tube-1529"
+    "slug": "plastic-tube-1529",
+    "category": "Pouch"
   },
   {
     "id": "1531",
@@ -827,7 +909,8 @@
     "glb_file": "/models/1531.glb",
     "dimensions": "产品尺寸：H:205mm  D:76mm",
     "description": "包裝貼圖尺寸：L:75mm H:173mm 常見於洗面乳，護手霜的收納 參考品牌/產品：洗面乳 建議容量：180ml",
-    "slug": "plastic-tube-1531"
+    "slug": "plastic-tube-1531",
+    "category": "Pouch"
   },
   {
     "id": "1545",
@@ -837,7 +920,8 @@
     "glb_file": "/models/1545.glb",
     "dimensions": "产品尺寸：L:164mm  W:90mm H:50mm",
     "description": "包裝貼圖尺寸：L:39mm H:173mm 常見於蛋塔、蛋糕的收納 參考品牌/產品：蛋塔 建議容量：",
-    "slug": "plastic-food-beverage-box-1545"
+    "slug": "plastic-food-beverage-box-1545",
+    "category": "Pouch"
   },
   {
     "id": "1554",
@@ -847,7 +931,8 @@
     "glb_file": "/models/1554.glb",
     "dimensions": "产品尺寸：L:106mm  H:192mm",
     "description": "包裝貼圖尺寸：L:106mm H:160mm 常見於豆奶、豆漿、牛奶、沖調飲料的收納 參考品牌/產品：億品鮮豆奶 建議容量：248ml",
-    "slug": "plastic-food-beverage-pouch-1554"
+    "slug": "plastic-food-beverage-pouch-1554",
+    "category": "Pouch"
   },
   {
     "id": "1555",
@@ -857,7 +942,8 @@
     "glb_file": "/models/1555.glb",
     "dimensions": "产品尺寸：L:125mm  H:95mm ",
     "description": "包裝貼圖尺寸：L:125mm H:95mm 常見於冰塊的收納 參考品牌/產品：創冷航空冰 建議容量：",
-    "slug": "plastic-food-1555"
+    "slug": "plastic-food-1555",
+    "category": "Pouch"
   },
   {
     "id": "1557",
@@ -867,7 +953,8 @@
     "glb_file": "/models/1557.glb",
     "dimensions": "产品尺寸：L:250mm  H:200mm",
     "description": "包裝貼圖尺寸：L:500mm H:200mm 常見於冷凍食品、肉類生鮮、食品飲料的收納 參考品牌/產品：鮮美來蝦滑 建議容量：500g",
-    "slug": "plastic-food-pouch-1557"
+    "slug": "plastic-food-pouch-1557",
+    "category": "Pouch"
   },
   {
     "id": "1619",
@@ -877,7 +964,8 @@
     "glb_file": "/models/1619.glb",
     "dimensions": "产品尺寸：L:30mm H:120mm  ",
     "description": "包裝貼圖尺寸：L:30mm H:120mm 常見於退燒藥，感冒藥，清喉利咽顆粒的收納 參考品牌/產品：清喉利咽顆粒 建議容量：5g",
-    "slug": "pharma-pouch-1619"
+    "slug": "pharma-pouch-1619",
+    "category": "Pouch"
   },
   {
     "id": "1643",
@@ -887,7 +975,8 @@
     "glb_file": "/models/1643.glb",
     "dimensions": "产品尺寸：L:150mm H:220mm  ",
     "description": "包裝貼圖尺寸：L:300mm H:220mm 常見於牛肉乾，肉脯，香酥龍頭魚，零食，堅果的收納 參考品牌/產品：香酥龍頭魚 建議容量：",
-    "slug": "plastic-stand-up-food-beverage-pouch-1643"
+    "slug": "plastic-stand-up-food-beverage-pouch-1643",
+    "category": "Pouch"
   },
   {
     "id": "1664",
@@ -897,7 +986,8 @@
     "glb_file": "/models/1664.glb",
     "dimensions": "产品尺寸：L:420mm  W: 80mm  H:800mm ",
     "description": "包裝貼圖尺寸：L:420mm W: 80mm H:800mm 常見於化肥、米袋、面袋、貓砂的收納 參考品牌/產品：化肥 建議容量：",
-    "slug": "three-side-seal-plastic-pouch-1664"
+    "slug": "three-side-seal-plastic-pouch-1664",
+    "category": "Pouch"
   },
   {
     "id": "1665",
@@ -907,7 +997,8 @@
     "glb_file": "/models/1665.glb",
     "dimensions": "产品尺寸：L:65mm H:170mm  ",
     "description": "包裝貼圖尺寸：L:65mm H:170mm 常見於玻尿酸、化妝品、生活日用、美容美妝的收納 參考品牌/產品：玻尿酸 建議容量：",
-    "slug": "plastic-cosmetic-cosmetic-pouch-1665"
+    "slug": "plastic-cosmetic-cosmetic-pouch-1665",
+    "category": "Pouch"
   },
   {
     "id": "1681",
@@ -917,7 +1008,8 @@
     "glb_file": "/models/1681.glb",
     "dimensions": "产品尺寸：L:80mm  H:80mm",
     "description": "包裝貼圖尺寸：L:76mm H:113mm 常見於奶茶，咖啡，茶包沖調飲料的收納 參考品牌/產品：茶包 建議容量：",
-    "slug": "plastic-tea-food-beverage-pouch-1681"
+    "slug": "plastic-tea-food-beverage-pouch-1681",
+    "category": "Pouch"
   },
   {
     "id": "1703",
@@ -927,7 +1019,8 @@
     "glb_file": "/models/1703.glb",
     "dimensions": "产品尺寸：L:220mm  H:103mm",
     "description": "包裝貼圖尺寸：L:113mm H:220mm 常見於口罩的收納 參考品牌/產品：袋鼠醫師醫用口罩 建議容量：1片",
-    "slug": "plastic-pharma-pouch-1703"
+    "slug": "plastic-pharma-pouch-1703",
+    "category": "Pouch"
   },
   {
     "id": "1716",
@@ -937,7 +1030,8 @@
     "glb_file": "/models/1716.glb",
     "dimensions": "产品尺寸：H:128mm  D:30mm",
     "description": "包裝貼圖尺寸：L:94mm H:76mm 常見於藥膏、軟膏、眼用凝膠、醫藥的收納 參考品牌/產品：藥膏 建議容量：",
-    "slug": "plastic-pharma-tube-1716"
+    "slug": "plastic-pharma-tube-1716",
+    "category": "Pouch"
   },
   {
     "id": "1717",
@@ -947,7 +1041,8 @@
     "glb_file": "/models/1717.glb",
     "dimensions": "产品尺寸：H:96mm  D:30mm",
     "description": "包裝貼圖尺寸：L:30mm H:77mm 常見於頸霜，眼霜的收納 參考品牌/產品：眼霜 建議容量：15g",
-    "slug": "plastic-cosmetic-cosmetic-tube-1717"
+    "slug": "plastic-cosmetic-cosmetic-tube-1717",
+    "category": "Pouch"
   },
   {
     "id": "1718",
@@ -957,7 +1052,8 @@
     "glb_file": "/models/1718.glb",
     "dimensions": "产品尺寸：H:80mm  D:14mm",
     "description": "包裝貼圖尺寸：L:44mm H:58mm 常見於BB霜，眼霜的收納 參考品牌/產品：BB霜 建議容量：",
-    "slug": "plastic-cosmetic-cosmetic-tube-1718"
+    "slug": "plastic-cosmetic-cosmetic-tube-1718",
+    "category": "Pouch"
   },
   {
     "id": "1719",
@@ -967,7 +1063,8 @@
     "glb_file": "/models/1719.glb",
     "dimensions": "产品尺寸：H:170mm  D:60mm",
     "description": "包裝貼圖尺寸：L:61mm H:123mm 常見於洗面乳、保養品、盥洗用品、美容美妝的收納 參考品牌/產品：洗面乳 建議容量：",
-    "slug": "facial-cleanser-plastic-tube-1719"
+    "slug": "facial-cleanser-plastic-tube-1719",
+    "category": "Pouch"
   },
   {
     "id": "1730",
@@ -977,7 +1074,8 @@
     "glb_file": "/models/1730.glb",
     "dimensions": "产品尺寸：H:115mm  D:40mm",
     "description": "包裝貼圖尺寸：L:40mm H:85mm 常見於BB霜、保養品、眼霜、美容美妝、藥膏的收納 參考品牌/產品：BB霜 建議容量：",
-    "slug": "plastic-cosmetic-cosmetic-tube-1730"
+    "slug": "plastic-cosmetic-cosmetic-tube-1730",
+    "category": "Pouch"
   },
   {
     "id": "1731",
@@ -987,7 +1085,8 @@
     "glb_file": "/models/1731.glb",
     "dimensions": "产品尺寸：H:122mm  D:40mm",
     "description": "包裝貼圖尺寸：L:40mm H:80mm 常見於護手霜、眼霜的收納 參考品牌/產品：護手霜 建議容量：40ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-1731"
+    "slug": "plastic-cosmetic-cosmetic-tube-1731",
+    "category": "Pouch"
   },
   {
     "id": "1735",
@@ -997,7 +1096,8 @@
     "glb_file": "/models/1735.glb",
     "dimensions": "产品尺寸：L:75mm  W:25mm  H:160mm",
     "description": "包裝貼圖尺寸：L:75mm H:120mm 常見於洗面乳、盥洗用品、保養品的收納 參考品牌/產品：洗面乳 建議容量：",
-    "slug": "facial-cleanser-plastic-tube-1735"
+    "slug": "facial-cleanser-plastic-tube-1735",
+    "category": "Pouch"
   },
   {
     "id": "1745",
@@ -1007,7 +1107,8 @@
     "glb_file": "/models/1745.glb",
     "dimensions": "产品尺寸：L:114mm W:28mm H:195mm",
     "description": "包裝貼圖尺寸：L:114mm H:165mm 常見於豆奶、豆漿、牛奶、沖調飲料的收納 參考品牌/產品：牛奶 建議容量：500ml",
-    "slug": "plastic-food-beverage-pouch-1745"
+    "slug": "plastic-food-beverage-pouch-1745",
+    "category": "Pouch"
   },
   {
     "id": "1746",
@@ -1017,7 +1118,8 @@
     "glb_file": "/models/1746.glb",
     "dimensions": "产品尺寸：L:70mm  H:90mm",
     "description": "包裝貼圖尺寸：L:70mm H:90mm 常見於面膜、洗面乳的收納 參考品牌/產品：面膜 建議容量：",
-    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1746"
+    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1746",
+    "category": "Pouch"
   },
   {
     "id": "1753",
@@ -1027,7 +1129,8 @@
     "glb_file": "/models/1753.glb",
     "dimensions": "产品尺寸：L:105mm  W:50mm  H:128mm",
     "description": "包裝貼圖尺寸：L:105mm W:50mm H:105mm 常見於洗面乳，洗髮精，面膜的收納 參考品牌/產品：洗面乳 建議容量：",
-    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1753"
+    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1753",
+    "category": "Pouch"
   },
   {
     "id": "1757",
@@ -1037,7 +1140,8 @@
     "glb_file": "/models/1757.glb",
     "dimensions": "产品尺寸：L:88mm  W:30mm H:160mm",
     "description": "包裝貼圖尺寸：L:87mm H:130mm 常見於精華液、乳霜的收納 參考品牌/產品：精華液 建議容量：100ml",
-    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1757"
+    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1757",
+    "category": "Pouch"
   },
   {
     "id": "1758",
@@ -1047,7 +1151,8 @@
     "glb_file": "/models/1758.glb",
     "dimensions": "产品尺寸：L:108mm W:45mm H:210mm",
     "description": "包裝貼圖尺寸：L:108mm H:156mm 常見於消毒液，清潔劑的收納 參考品牌/產品：消毒液 建議容量：",
-    "slug": "plastic-stand-up-cleaning-pouch-cap-1758"
+    "slug": "plastic-stand-up-cleaning-pouch-cap-1758",
+    "category": "Pouch"
   },
   {
     "id": "1759",
@@ -1057,7 +1162,8 @@
     "glb_file": "/models/1759.glb",
     "dimensions": "产品尺寸：L:88mm W:30mm H:133mm",
     "description": "包裝貼圖尺寸：L:87mm H:127mm 常見於豆奶、豆漿、牛奶、飲料的收納 參考品牌/產品：飲料 建議容量：100ml",
-    "slug": "plastic-food-beverage-pouch-1759"
+    "slug": "plastic-food-beverage-pouch-1759",
+    "category": "Pouch"
   },
   {
     "id": "1760",
@@ -1067,7 +1173,8 @@
     "glb_file": "/models/1760.glb",
     "dimensions": "产品尺寸：L:180mm W:120mm H:35mm",
     "description": "包裝貼圖尺寸：L:180mm H:120mm 常見於滷味、熟食的收納 參考品牌/產品：滷味 建議容量：560ml",
-    "slug": "plastic-food-1760"
+    "slug": "plastic-food-1760",
+    "category": "Pouch"
   },
   {
     "id": "1820",
@@ -1077,7 +1184,8 @@
     "glb_file": "/models/1820.glb",
     "dimensions": "产品尺寸：H:182mm  D:63mm",
     "description": "包裝貼圖尺寸：L:62mm H:145mm 常見於洗面乳，面膜的收納 參考品牌/產品：雪花秀與潤睡眠面膜 建議容量：120ml",
-    "slug": "plastic-tube-1820"
+    "slug": "plastic-tube-1820",
+    "category": "Pouch"
   },
   {
     "id": "1875",
@@ -1087,7 +1195,8 @@
     "glb_file": "/models/1875.glb",
     "dimensions": "产品尺寸：L:131mm  H:200mm ",
     "description": "包裝貼圖尺寸：L:131mm H:200mm 常見於手膜，面膜的收納 參考品牌/產品：歐詩漫面膜 建議容量：25ml",
-    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1875"
+    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1875",
+    "category": "Pouch"
   },
   {
     "id": "1876",
@@ -1097,7 +1206,8 @@
     "glb_file": "/models/1876.glb",
     "dimensions": "产品尺寸：L:160mm  H:165mm ",
     "description": "包裝貼圖尺寸：L:160mm H:165mm 常見於手膜，面膜的收納 參考品牌/產品：歐萊雅面膜 建議容量：33g",
-    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1876"
+    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1876",
+    "category": "Pouch"
   },
   {
     "id": "1879",
@@ -1107,7 +1217,8 @@
     "glb_file": "/models/1879.glb",
     "dimensions": "产品尺寸：H:170mm  D:55mm",
     "description": "包裝貼圖尺寸：L:54mm H:139mm 常見於牙膏的收納 參考品牌/產品：愛茉莉麥迪安牙膏 建議容量：120ml",
-    "slug": "plastic-tube-1879"
+    "slug": "plastic-tube-1879",
+    "category": "Pouch"
   },
   {
     "id": "1929",
@@ -1117,7 +1228,8 @@
     "glb_file": "/models/1929.glb",
     "dimensions": "产品尺寸：L:137mm  H:190mm",
     "description": "包裝貼圖尺寸：L:137mm H:190mm 常見於牙膏的收納 參考品牌/產品：銀沙高拉力細滑牙線棒 建議容量：100個",
-    "slug": "plastic-cleaning-pouch-1929"
+    "slug": "plastic-cleaning-pouch-1929",
+    "category": "Pouch"
   },
   {
     "id": "1932",
@@ -1127,7 +1239,8 @@
     "glb_file": "/models/1932.glb",
     "dimensions": "产品尺寸：D:200mm  W:22mm",
     "description": "包裝貼圖尺寸：L:200mm W:200mm 常見於飲料沖調、茶葉、茶餅的收納 參考品牌/產品：茶餅 建議容量：",
-    "slug": "tea-beverage-1932"
+    "slug": "tea-beverage-1932",
+    "category": "Pouch"
   },
   {
     "id": "1934",
@@ -1137,7 +1250,8 @@
     "glb_file": "/models/1934.glb",
     "dimensions": "产品尺寸：L:100mm  H:105mm ",
     "description": "包裝貼圖尺寸：L:100mm H:105mm 常見於手膜，面膜的收納 參考品牌/產品：紅茶麵膜 建議容量：20g",
-    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1934"
+    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1934",
+    "category": "Pouch"
   },
   {
     "id": "1936",
@@ -1147,7 +1261,8 @@
     "glb_file": "/models/1936.glb",
     "dimensions": "产品尺寸：D:264mm  H:60mm",
     "description": "包裝貼圖尺寸：L:250mm H:250mm 常見於休閒食品、餅乾糕點、乾貨、炒貨的收納 參考品牌/產品：蛋糕糕點 建議容量：",
-    "slug": "food-box-1936"
+    "slug": "food-box-1936",
+    "category": "Pouch"
   },
   {
     "id": "1945",
@@ -1157,7 +1272,8 @@
     "glb_file": "/models/1945.glb",
     "dimensions": "产品尺寸：H:102mm  D:41mm W:26mm",
     "description": "包裝貼圖尺寸：L:42mm H:74mm 常見於寵物牙膏，牙膏的收納 參考品牌/產品：KOJIMA貓用乳酸菌牙膏 建議容量：40g",
-    "slug": "plastic-tube-1945"
+    "slug": "plastic-tube-1945",
+    "category": "Pouch"
   },
   {
     "id": "1950",
@@ -1167,7 +1283,8 @@
     "glb_file": "/models/1950.glb",
     "dimensions": "产品尺寸：L:290mm  W:60mm H:285mm ",
     "description": "包裝貼圖尺寸：L:290mm H:285mm 常見於核桃、堅果的收納 參考品牌/產品：楊果鋪紙皮大核桃 建議容量：2000g",
-    "slug": "plastic-zipper-food-beverage-pouch-1950"
+    "slug": "plastic-zipper-food-beverage-pouch-1950",
+    "category": "Pouch"
   },
   {
     "id": "1985",
@@ -1177,7 +1294,8 @@
     "glb_file": "/models/1985.glb",
     "dimensions": "产品尺寸：L:62mm  H:134mm ",
     "description": "包裝貼圖尺寸：L:62mm H:134mm 常見於洗髮水，護髮素，沐浴露，洗面乳，化妝水的收納 參考品牌/產品：淘米水護髮素 建議容量：15ml",
-    "slug": "plastic-pouch-1985"
+    "slug": "plastic-pouch-1985",
+    "category": "Pouch"
   },
   {
     "id": "1986",
@@ -1187,7 +1305,8 @@
     "glb_file": "/models/1986.glb",
     "dimensions": "产品尺寸：H:85mm  D:25mm",
     "description": "包裝貼圖尺寸：L:50mm H:62mm 常見於唇膏、美容美妝、眼藥水、藥膏的收納 參考品牌/產品：唇膏 建議容量：8g",
-    "slug": "plastic-cosmetic-cosmetic-tube-1986"
+    "slug": "plastic-cosmetic-cosmetic-tube-1986",
+    "category": "Pouch"
   },
   {
     "id": "1987",
@@ -1197,7 +1316,8 @@
     "glb_file": "/models/1987.glb",
     "dimensions": "产品尺寸：L:113mm  H:134mm ",
     "description": "包裝貼圖尺寸：L:56mm H:65mm 常見於蒸氣眼罩、面膜的收納 參考品牌/產品：珍惜小黃鴨蒸氣眼罩 建議容量：",
-    "slug": "plastic-cosmetic-cosmetic-pouch-1987"
+    "slug": "plastic-cosmetic-cosmetic-pouch-1987",
+    "category": "Pouch"
   },
   {
     "id": "1988",
@@ -1207,7 +1327,8 @@
     "glb_file": "/models/1988.glb",
     "dimensions": "产品尺寸：H:160mm  D:45mm",
     "description": "包裝貼圖尺寸：L:45mm H:133mm 常見於護手霜、化妝品、美容美妝、牙膏的收納 參考品牌/產品：護手霜 建議容量：75ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-1988"
+    "slug": "plastic-cosmetic-cosmetic-tube-1988",
+    "category": "Pouch"
   },
   {
     "id": "1995",
@@ -1217,7 +1338,8 @@
     "glb_file": "/models/1995.glb",
     "dimensions": "产品尺寸：L:145mm  H:130mm ",
     "description": "包裝貼圖尺寸：L:145mm H:130mm 常見於鼻膜，面膜的收納 參考品牌/產品：極地之悅鼻膜 建議容量：3.5g",
-    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1995"
+    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-1995",
+    "category": "Pouch"
   },
   {
     "id": "1999",
@@ -1227,7 +1349,8 @@
     "glb_file": "/models/1999.glb",
     "dimensions": "产品尺寸：D:32mm  H:72mm",
     "description": "包裝貼圖尺寸：H:32mm H:72mm 常見於番茄醬、芥末醬的收納 參考品牌/產品：亨氏番茄醬 建議容量：9g",
-    "slug": "plastic-food-beverage-1999"
+    "slug": "plastic-food-beverage-1999",
+    "category": "Pouch"
   },
   {
     "id": "2052",
@@ -1237,7 +1360,8 @@
     "glb_file": "/models/2052.glb",
     "dimensions": "产品尺寸：L:203mm  W:143mm  H:50mm ",
     "description": "包裝貼圖尺寸：L:203mm H:143mm 常見於螺螄粉、泡麵的收納 參考品牌/產品：泡麵 建議容量：",
-    "slug": "plastic-food-beverage-2052"
+    "slug": "plastic-food-beverage-2052",
+    "category": "Pouch"
   },
   {
     "id": "2221",
@@ -1247,7 +1371,8 @@
     "glb_file": "/models/2221.glb",
     "dimensions": "产品尺寸：D:80mm W:97mm H:25mm",
     "description": "包裝貼圖尺寸：L:97mm H:97mm 常見於果凍、燒仙草凍的收納 參考品牌/產品：燒仙草凍 建議容量：65g",
-    "slug": "plastic-food-beverage-bottle-2221"
+    "slug": "plastic-food-beverage-bottle-2221",
+    "category": "Pouch"
   },
   {
     "id": "2254",
@@ -1257,7 +1382,8 @@
     "glb_file": "/models/2254.glb",
     "dimensions": "产品尺寸：L:58mm  W:40mm  H:50mm",
     "description": "包裝貼圖尺寸：L:182mm H:50mm 常見於龜苓膏、優格、方便食品、點心的收納 參考品牌/產品：生和堂龜苓膏 建議容量：110g",
-    "slug": "plastic-food-beverage-bottle-2254"
+    "slug": "plastic-food-beverage-bottle-2254",
+    "category": "Pouch"
   },
   {
     "id": "2258",
@@ -1267,7 +1393,8 @@
     "glb_file": "/models/2258.glb",
     "dimensions": "产品尺寸：H:54mm  D:95mm",
     "description": "包裝貼圖尺寸：L:298mm H:40mm 常見於龜莧膏、優格、方便食品、點心的收納 參考品牌/產品：甄萃燒仙草 建議容量：",
-    "slug": "plastic-food-beverage-bottle-2258"
+    "slug": "plastic-food-beverage-bottle-2258",
+    "category": "Pouch"
   },
   {
     "id": "2296",
@@ -1277,7 +1404,8 @@
     "glb_file": "/models/2296.glb",
     "dimensions": "产品尺寸：L:82mm  H:152mm ",
     "description": "包裝貼圖尺寸：L:232mm H:113mm 常見於奶茶，優格的收納 參考品牌/產品：香飄飄臻乳茶 建議容量：340ml",
-    "slug": "plastic-tea-food-beverage-box-2296"
+    "slug": "plastic-tea-food-beverage-box-2296",
+    "category": "Pouch"
   },
   {
     "id": "2303",
@@ -1287,7 +1415,8 @@
     "glb_file": "/models/2303.glb",
     "dimensions": "产品尺寸：L:214mm   H:223mm ",
     "description": "包裝貼圖尺寸：L:214mm H:223mm 常見於零食、小饅頭、麵包的收納 參考品牌/產品：牛奶小饅頭麵包 建議容量：180g",
-    "slug": "plastic-food-food-pouch-2303"
+    "slug": "plastic-food-food-pouch-2303",
+    "category": "Pouch"
   },
   {
     "id": "2346",
@@ -1297,7 +1426,8 @@
     "glb_file": "/models/2346.glb",
     "dimensions": "产品尺寸：H:178mm  D:62mm W:37mm",
     "description": "包裝貼圖尺寸：L:62mm H:150mm 常見於洗面乳，護手霜的收納 參考品牌/產品：雅詩蘭黛氨基酸潔面乳 建議容量：125ml",
-    "slug": "plastic-tube-2346"
+    "slug": "plastic-tube-2346",
+    "category": "Pouch"
   },
   {
     "id": "2382",
@@ -1307,7 +1437,8 @@
     "glb_file": "/models/2382.glb",
     "dimensions": "产品尺寸：L:22.5mm  H:235mm",
     "description": "包裝貼紙尺寸：L:22mm H:235mm 常見於餐具，筷子，一次性餐具的收納 參考品牌/產品：一次性筷子 建議容量：一雙",
-    "slug": "plastic-pouch-2382"
+    "slug": "plastic-pouch-2382",
+    "category": "Pouch"
   },
   {
     "id": "2403",
@@ -1317,7 +1448,8 @@
     "glb_file": "/models/2403.glb",
     "dimensions": "产品尺寸：H:350mm  D:245mm",
     "description": "包裝貼圖尺寸：L:766mm H:350mm 常見於面紙、洗臉的收納 參考品牌/產品：圓形洗臉 建議容量：",
-    "slug": "plastic-cleaning-pouch-2403"
+    "slug": "plastic-cleaning-pouch-2403",
+    "category": "Pouch"
   },
   {
     "id": "2410",
@@ -1327,7 +1459,8 @@
     "glb_file": "/models/2410.glb",
     "dimensions": "产品尺寸：H:350mm  D:245mm",
     "description": "包裝貼圖尺寸：L:766mm H:350mm 常見於面紙、洗臉的收納 參考品牌/產品：圓形洗臉 建議容量：",
-    "slug": "plastic-cleaning-pouch-2410"
+    "slug": "plastic-cleaning-pouch-2410",
+    "category": "Pouch"
   },
   {
     "id": "2436",
@@ -1337,7 +1470,8 @@
     "glb_file": "/models/2436.glb",
     "dimensions": "产品尺寸：L:340mm  W: 160mm  H:600mm ",
     "description": "包裝貼圖尺寸：L:340mm W: 160mm H:600mm 常見於化肥、米袋、面袋、貓砂的收納 參考品牌/產品：鈦白粉 建議容量：25kg",
-    "slug": "three-side-seal-plastic-pouch-2436"
+    "slug": "three-side-seal-plastic-pouch-2436",
+    "category": "Pouch"
   },
   {
     "id": "2698",
@@ -1347,7 +1481,8 @@
     "glb_file": "/models/2698.glb",
     "dimensions": "产品尺寸：D:90mm H:200mm",
     "description": "包裝貼圖尺寸：L:540mm H:174mm 常見於衣服、襪子、生活用品的收納 參考品牌/產品：衣服 建議容量：",
-    "slug": "box-2698"
+    "slug": "box-2698",
+    "category": "Pouch"
   },
   {
     "id": "2744",
@@ -1357,7 +1492,8 @@
     "glb_file": "/models/2744.glb",
     "dimensions": "产品尺寸：L:160mm  H:225mm",
     "description": "包裝貼圖尺寸：L:160mm H:225mm 常見於食品飲料、點心、洋芋片的收納 參考品牌/產品：洋芋片 建議容量：",
-    "slug": "plastic-food-beverage-pouch-2744"
+    "slug": "plastic-food-beverage-pouch-2744",
+    "category": "Pouch"
   },
   {
     "id": "2777",
@@ -1367,7 +1503,8 @@
     "glb_file": "/models/2777.glb",
     "dimensions": "产品尺寸：L:130mm  H:250mm",
     "description": "包裝貼圖尺寸：L:130mm H:250mm 常見於食品飲料、點心、洋芋片的收納 參考品牌/產品：江米條 建議容量：500g",
-    "slug": "plastic-food-beverage-pouch-2777"
+    "slug": "plastic-food-beverage-pouch-2777",
+    "category": "Pouch"
   },
   {
     "id": "2854",
@@ -1377,7 +1514,8 @@
     "glb_file": "/models/2854.glb",
     "dimensions": "产品尺寸：L33mm  H:145mm",
     "description": "包裝貼圖尺寸：L:33mm H:145mm 常見於咖啡，奶，紅棗薑茶的收納 參考品牌/產品：紅棗薑茶 建議容量：10g",
-    "slug": "three-side-seal-plastic-tea-food-beverage-pouch-2854"
+    "slug": "three-side-seal-plastic-tea-food-beverage-pouch-2854",
+    "category": "Pouch"
   },
   {
     "id": "2874",
@@ -1387,7 +1525,8 @@
     "glb_file": "/models/2874.glb",
     "dimensions": "产品尺寸：L:282mm  H:377mm",
     "description": "包裝貼圖尺寸：L:564mm H:377mm 常見於零食，堅果，老式爆米花，的收納 參考品牌/產品：徽嚐鮮老式爆米花 建議容量：",
-    "slug": "stand-up-pouch-plastic-zipper-food-food-beverage-pouch-2874"
+    "slug": "stand-up-pouch-plastic-zipper-food-food-beverage-pouch-2874",
+    "category": "Pouch"
   },
   {
     "id": "2876",
@@ -1397,7 +1536,8 @@
     "glb_file": "/models/2876.glb",
     "dimensions": "产品尺寸：H:205mm  L:32mm W:12mm",
     "description": "包裝貼圖尺寸：L:32mm H:205mm 常見於牙刷的收納 參考品牌/產品：pigeon嬰兒護齒牙刷 建議容量：",
-    "slug": "packaging-2876"
+    "slug": "packaging-2876",
+    "category": "Pouch"
   },
   {
     "id": "2881",
@@ -1407,7 +1547,8 @@
     "glb_file": "/models/2881.glb",
     "dimensions": "产品尺寸：L:155mm  H:296mm ",
     "description": "包裝貼圖尺寸：L:155mm H:270mm 常見於染色膏、髮膜的收納 參考品牌/產品：染色膏 建議容量：900ml",
-    "slug": "plastic-cosmetic-cosmetic-pouch-2881"
+    "slug": "plastic-cosmetic-cosmetic-pouch-2881",
+    "category": "Pouch"
   },
   {
     "id": "2897",
@@ -1417,7 +1558,8 @@
     "glb_file": "/models/2897.glb",
     "dimensions": "产品尺寸：H:170mm  D:42mm",
     "description": "包裝貼圖尺寸：L:42mm H:144mm 常見於眼用膠水的收納 參考品牌/產品：塑膠軟管 建議容量：100ml",
-    "slug": "plastic-tube-2897"
+    "slug": "plastic-tube-2897",
+    "category": "Pouch"
   },
   {
     "id": "2906",
@@ -1427,7 +1569,8 @@
     "glb_file": "/models/2906.glb",
     "dimensions": "产品尺寸：L:360mm  W:120mm  H:326mm",
     "description": "包裝貼圖尺寸：L:360mm H:249mm 常見於食品，日用品的收納 參考品牌/產品：日用品購物袋 建議容量：",
-    "slug": "handle-pouch-2906"
+    "slug": "handle-pouch-2906",
+    "category": "Pouch"
   },
   {
     "id": "2921",
@@ -1437,7 +1580,8 @@
     "glb_file": "/models/2921.glb",
     "dimensions": "产品尺寸：L:138mm  H:200mm",
     "description": "包裝貼圖尺寸：L:138mm H:200mm 常見於麥片，燕麥片的收納 參考品牌/產品：塑膠袋 建議容量：",
-    "slug": "three-side-seal-plastic-food-pouch-2921"
+    "slug": "three-side-seal-plastic-food-pouch-2921",
+    "category": "Pouch"
   },
   {
     "id": "2922",
@@ -1447,7 +1591,8 @@
     "glb_file": "/models/2922.glb",
     "dimensions": "产品尺寸：L:190mm  H:260mm",
     "description": "包裝貼圖尺寸：L:190mm H:260mm 常見於麥片，燕麥片的收納 參考品牌/產品：自立袋 建議容量：",
-    "slug": "plastic-stand-up-food-pouch-2922"
+    "slug": "plastic-stand-up-food-pouch-2922",
+    "category": "Pouch"
   },
   {
     "id": "2923",
@@ -1457,7 +1602,8 @@
     "glb_file": "/models/2923.glb",
     "dimensions": "产品尺寸：H:140mm  D:46mm",
     "description": "包裝貼圖尺寸：L:46mm H:122mm 常見於牙膏，護手霜的收納 參考品牌/產品：軟膏 建議容量：70ml",
-    "slug": "plastic-tube-2923"
+    "slug": "plastic-tube-2923",
+    "category": "Pouch"
   },
   {
     "id": "2928",
@@ -1467,7 +1613,8 @@
     "glb_file": "/models/2928.glb",
     "dimensions": "产品尺寸：L:70mm  H:130mm",
     "description": "包裝貼圖尺寸：L:70mm H:130mm 常見於藥片、點心的收納 參考品牌/產品：自立袋 建議容量：20ml",
-    "slug": "plastic-stand-up-food-pouch-2928"
+    "slug": "plastic-stand-up-food-pouch-2928",
+    "category": "Pouch"
   },
   {
     "id": "2942",
@@ -1477,7 +1624,8 @@
     "glb_file": "/models/2942.glb",
     "dimensions": "产品尺寸：L:154mm  W:94mm  H:69mm",
     "description": "包裝貼圖尺寸：L:93mm H:390mm 常見於速食產品、加熱米飯、洗衣凝珠、辣椒醬的收納 參考品牌/產品：速食產品 建議容量：275g",
-    "slug": "plastic-food-beverage-box-2942"
+    "slug": "plastic-food-beverage-box-2942",
+    "category": "Pouch"
   },
   {
     "id": "2948",
@@ -1487,7 +1635,8 @@
     "glb_file": "/models/2948.glb",
     "dimensions": "产品尺寸：L:350mm  W:100mm  H:250mm",
     "description": "包裝貼圖尺寸：L:350mm H:250mm 常見於外賣，日用品的收納 參考品牌/產品：束口袋 建議容量：3L",
-    "slug": "plastic-handle-pouch-2948"
+    "slug": "plastic-handle-pouch-2948",
+    "category": "Pouch"
   },
   {
     "id": "2949",
@@ -1497,7 +1646,8 @@
     "glb_file": "/models/2949.glb",
     "dimensions": "产品尺寸：L:115mm  W:110mm  H:372mm",
     "description": "包裝貼圖尺寸：L:115mm W:110mm H:315mm 常見於食品，日用品，外帶的收納 參考品牌/產品：外帶袋 建議容量：",
-    "slug": "handle-pouch-2949"
+    "slug": "handle-pouch-2949",
+    "category": "Pouch"
   },
   {
     "id": "2956",
@@ -1507,7 +1657,8 @@
     "glb_file": "/models/2956.glb",
     "dimensions": "产品尺寸：L:230mm W:130mm H:52mm ",
     "description": "包裝貼圖尺寸：L:80mm H:323mm 常見於沙拉、外帶的收納 參考品牌/產品：外帶盒 建議容量：850ml",
-    "slug": "plastic-food-beverage-2956"
+    "slug": "plastic-food-beverage-2956",
+    "category": "Pouch"
   },
   {
     "id": "2958",
@@ -1517,7 +1668,8 @@
     "glb_file": "/models/2958.glb",
     "dimensions": "产品尺寸：L:80mm W:80mm H:35mm ",
     "description": "包裝貼圖尺寸：L:68mm H:235mm 常見於蛋糕、甜點的收納 參考品牌/產品：蛋糕盒 建議容量：150ml",
-    "slug": "plastic-food-beverage-2958"
+    "slug": "plastic-food-beverage-2958",
+    "category": "Pouch"
   },
   {
     "id": "2987",
@@ -1527,7 +1679,8 @@
     "glb_file": "/models/2987.glb",
     "dimensions": "产品尺寸：L:230mm W:130mm H:52mm ",
     "description": "包裝貼圖尺寸：L:80mm H:323mm 常見於沙拉、外帶的收納 參考品牌/產品：外帶盒 建議容量：850ml",
-    "slug": "plastic-food-beverage-2987"
+    "slug": "plastic-food-beverage-2987",
+    "category": "Pouch"
   },
   {
     "id": "2989",
@@ -1537,7 +1690,8 @@
     "glb_file": "/models/2989.glb",
     "dimensions": "产品尺寸：L:350mm  W:100mm  H:250mm",
     "description": "包裝貼圖尺寸：L:350mm H:300mm 常見於外賣，日用品的收納 參考品牌/產品：束口袋 建議容量：3L",
-    "slug": "plastic-handle-pouch-2989"
+    "slug": "plastic-handle-pouch-2989",
+    "category": "Pouch"
   },
   {
     "id": "2994",
@@ -1547,7 +1701,8 @@
     "glb_file": "/models/2994.glb",
     "dimensions": "产品尺寸：L:65mm  W:40mm  H:160mm",
     "description": "包裝貼圖尺寸：L:60mm H:100mm 常見於護手霜、兒童潤膚乳的收納 參考品牌/產品：LISSON寶寶倍安呵護潤膚乳 建議容量：65ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-2994"
+    "slug": "plastic-cosmetic-cosmetic-tube-2994",
+    "category": "Pouch"
   },
   {
     "id": "2995",
@@ -1557,7 +1712,8 @@
     "glb_file": "/models/2995.glb",
     "dimensions": "产品尺寸：L:60mm  W:40mm  H:163mm",
     "description": "包裝貼圖尺寸：L:60mm H:131mm 常見於護手霜、乳液的收納 參考品牌/產品：乳液 建議容量：",
-    "slug": "plastic-tube-2995"
+    "slug": "plastic-tube-2995",
+    "category": "Pouch"
   },
   {
     "id": "2996",
@@ -1567,7 +1723,8 @@
     "glb_file": "/models/2996.glb",
     "dimensions": "产品尺寸：L:27mm  W:16mm  H:136mm",
     "description": "包裝貼圖尺寸：L:27mm H:100mm 常見於護手霜、眼霜的收納 參考品牌/產品：眼霜 建議容量：20ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-2996"
+    "slug": "plastic-cosmetic-cosmetic-tube-2996",
+    "category": "Pouch"
   },
   {
     "id": "2998",
@@ -1577,7 +1734,8 @@
     "glb_file": "/models/2998.glb",
     "dimensions": "产品尺寸：L:30mm  W:18mm  H:111mm",
     "description": "包裝貼圖尺寸：L:30mm H:48mm 常見於bb霜、眼霜的收納 參考品牌/產品：bb霜 建議容量：",
-    "slug": "plastic-cosmetic-cosmetic-tube-2998"
+    "slug": "plastic-cosmetic-cosmetic-tube-2998",
+    "category": "Pouch"
   },
   {
     "id": "3006",
@@ -1587,7 +1745,8 @@
     "glb_file": "/models/3006.glb",
     "dimensions": "产品尺寸：D:70mm H:71mm ",
     "description": "包裝貼圖尺寸：L:192mm H:49mm 常見於牛奶、優格的收納 參考品牌/產品：優格 建議容量：200ml",
-    "slug": "plastic-food-beverage-box-3006"
+    "slug": "plastic-food-beverage-box-3006",
+    "category": "Pouch"
   },
   {
     "id": "3008",
@@ -1597,7 +1756,8 @@
     "glb_file": "/models/3008.glb",
     "dimensions": "产品尺寸：L:145mm  H:270mm",
     "description": "包裝貼圖尺寸：L:145mm H:270mm 常見於魚乾，黃魚酥，鱘魚片，魷魚絲的收納 參考品牌/產品：魚乾 建議容量：",
-    "slug": "plastic-food-beverage-pouch-3008"
+    "slug": "plastic-food-beverage-pouch-3008",
+    "category": "Pouch"
   },
   {
     "id": "3020",
@@ -1607,7 +1767,8 @@
     "glb_file": "/models/3020.glb",
     "dimensions": "产品尺寸：D:68mm H:71mm ",
     "description": "包裝貼圖尺寸：L:207mm H:42mm 常見於牛奶、優格、布丁的收納 參考品牌/產品：布丁 建議容量：",
-    "slug": "plastic-food-beverage-box-3020"
+    "slug": "plastic-food-beverage-box-3020",
+    "category": "Pouch"
   },
   {
     "id": "3025",
@@ -1617,7 +1778,8 @@
     "glb_file": "/models/3025.glb",
     "dimensions": "产品尺寸：L:31mm  H:150mm",
     "description": "包裝貼紙尺寸：L:31mm H:150mm 常見於餐具，筷子，一次性餐具的收納 參考品牌/產品：筷子套 建議容量：一雙",
-    "slug": "plastic-pouch-3025"
+    "slug": "plastic-pouch-3025",
+    "category": "Pouch"
   },
   {
     "id": "3069",
@@ -1627,7 +1789,8 @@
     "glb_file": "/models/3069.glb",
     "dimensions": "产品尺寸：L:240mm  W:120mm  H:303mm",
     "description": "包裝貼圖尺寸：L:240mm W:120mm H:200mm 常見於甜點，零食，日用品的收納 參考品牌/產品：甜點紙袋 建議容量：",
-    "slug": "food-beverage-pouch-3069"
+    "slug": "food-beverage-pouch-3069",
+    "category": "Pouch"
   },
   {
     "id": "3070",
@@ -1637,7 +1800,8 @@
     "glb_file": "/models/3070.glb",
     "dimensions": "产品尺寸：L:160mm  H:350mm",
     "description": "包裝貼圖尺寸：L:160mm H:350mm 常見於牆面膠，牆布專用膠，家裝用品的收納 參考品牌/產品：立秀軟裝牆布專用膠 建議容量：2kg",
-    "slug": "plastic-pouch-3070"
+    "slug": "plastic-pouch-3070",
+    "category": "Pouch"
   },
   {
     "id": "3076",
@@ -1647,7 +1811,8 @@
     "glb_file": "/models/3076.glb",
     "dimensions": "产品尺寸：L:80mm  W:60mm  H:90mm",
     "description": "包裝貼圖尺寸：L:60mm H:260mm 常見於茶葉，花茶的收納 參考品牌/產品：茶葉 建議容量：",
-    "slug": "plastic-tea-food-beverage-pouch-3076"
+    "slug": "plastic-tea-food-beverage-pouch-3076",
+    "category": "Pouch"
   },
   {
     "id": "3078",
@@ -1657,7 +1822,8 @@
     "glb_file": "/models/3078.glb",
     "dimensions": "产品尺寸：L:320mm  W:130mm  H:186mm",
     "description": "包裝貼圖尺寸：L:320mm W:130mm H:145mm 常見於零食，禮品，日用品的收納 參考品牌/產品：禮品紙袋 建議容量：",
-    "slug": "food-beverage-pouch-3078"
+    "slug": "food-beverage-pouch-3078",
+    "category": "Pouch"
   },
   {
     "id": "3183",
@@ -1667,7 +1833,8 @@
     "glb_file": "/models/3183.glb",
     "dimensions": "产品尺寸：L:158mm  W:95mm  H:150mm  ",
     "description": "包裝貼圖尺寸：L:138mm H:90mm 常見於咖啡豆、咖啡、茶葉的收納 參考品牌/產品：咖啡 建議容量：",
-    "slug": "plastic-zipper-coffee-beverage-pouch-3183"
+    "slug": "plastic-zipper-coffee-beverage-pouch-3183",
+    "category": "Pouch"
   },
   {
     "id": "3192",
@@ -1677,7 +1844,8 @@
     "glb_file": "/models/3192.glb",
     "dimensions": "产品尺寸：L:70mm  H:90mm",
     "description": "包裝貼圖尺寸：L:70mm H:90mm 常見於胃藥，退燒藥，感冒藥的收納 參考品牌/產品：康恩貝感冒疏風顆粒 建議容量：10g",
-    "slug": "plastic-pharma-pouch-3192"
+    "slug": "plastic-pharma-pouch-3192",
+    "category": "Pouch"
   },
   {
     "id": "3212",
@@ -1687,7 +1855,8 @@
     "glb_file": "/models/3212.glb",
     "dimensions": "产品尺寸：L:220mm  W: 150mm  H:330mm ",
     "description": "包裝貼圖尺寸：L:220mm W: 150mm H:330mm 常見於紙尿褲、濕紙巾、衛生棉的收納 參考品牌/產品：紙尿褲 建議容量：",
-    "slug": "plastic-pouch-3212"
+    "slug": "plastic-pouch-3212",
+    "category": "Pouch"
   },
   {
     "id": "3215",
@@ -1697,7 +1866,8 @@
     "glb_file": "/models/3215.glb",
     "dimensions": "产品尺寸：L:230mm  W: 115mm  H:530mm ",
     "description": "包裝貼圖尺寸：L:230mm W: 115mm H:550mm 常見於紙尿褲、濕紙巾、衛生棉的收納 參考品牌/產品：紙尿褲 建議容量：",
-    "slug": "plastic-pouch-3215"
+    "slug": "plastic-pouch-3215",
+    "category": "Pouch"
   },
   {
     "id": "3216",
@@ -1707,7 +1877,8 @@
     "glb_file": "/models/3216.glb",
     "dimensions": "产品尺寸：L:210mm  W:116mm  H:509mm",
     "description": "包裝貼圖尺寸：L:210mm W:115mm H:432mm 常見於外賣，日用品的收納 參考品牌/產品：塑膠袋 建議容量：",
-    "slug": "plastic-handle-pouch-3216"
+    "slug": "plastic-handle-pouch-3216",
+    "category": "Pouch"
   },
   {
     "id": "3218",
@@ -1717,7 +1888,8 @@
     "glb_file": "/models/3218.glb",
     "dimensions": "产品尺寸：L:330mm  W:120mm  H:666mm",
     "description": "包裝貼圖尺寸：L:330mm W:120mm H:495mm 常見於外賣，日用品的收納 參考品牌/產品：塑膠袋 建議容量：",
-    "slug": "plastic-handle-pouch-3218"
+    "slug": "plastic-handle-pouch-3218",
+    "category": "Pouch"
   },
   {
     "id": "3219",
@@ -1727,7 +1899,8 @@
     "glb_file": "/models/3219.glb",
     "dimensions": "产品尺寸：L:132mm  H:174mm",
     "description": "包裝貼圖尺寸：L:132mm H:174mm 常見於面膜,腳膜，手膜，眼膜,頸膜的收納 參考品牌/產品：面膜袋 建議容量：1片",
-    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-3219"
+    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-3219",
+    "category": "Pouch"
   },
   {
     "id": "3220",
@@ -1737,7 +1910,8 @@
     "glb_file": "/models/3220.glb",
     "dimensions": "产品尺寸：L:69mm  H:135mm",
     "description": "包裝貼圖尺寸：L:69mm H:135mm 常見於豆奶、豆漿、牛奶、飲料的收納 參考品牌/產品：飲料 建議容量：",
-    "slug": "plastic-food-beverage-pouch-3220"
+    "slug": "plastic-food-beverage-pouch-3220",
+    "category": "Pouch"
   },
   {
     "id": "3222",
@@ -1747,7 +1921,8 @@
     "glb_file": "/models/3222.glb",
     "dimensions": "产品尺寸：L:41mm  H:134mm",
     "description": "包裝貼圖尺寸：L:41mm H:134mm 常見於奶茶、固體飲料、咖啡的收納 參考品牌/產品：固體飲料 建議容量：25g",
-    "slug": "plastic-food-beverage-pouch-3222"
+    "slug": "plastic-food-beverage-pouch-3222",
+    "category": "Pouch"
   },
   {
     "id": "3228",
@@ -1757,7 +1932,8 @@
     "glb_file": "/models/3228.glb",
     "dimensions": "产品尺寸：L:70mm  W:45mm  H:210mm",
     "description": "包裝貼圖尺寸：L:70mm W:45mm H:240mm 常見於奶茶、麵包、點心的收納 參考品牌/產品：海苔肉鬆麵包 建議容量：",
-    "slug": "plastic-pouch-3228"
+    "slug": "plastic-pouch-3228",
+    "category": "Pouch"
   },
   {
     "id": "3240",
@@ -1767,7 +1943,8 @@
     "glb_file": "/models/3240.glb",
     "dimensions": "产品尺寸：L:155mm  W:20mm  H:140mm",
     "description": "包裝貼圖尺寸：L:100mm W:100mm H:100mm 常見於月餅、蛋糕糕點、餅乾的收納 參考品牌/產品：月餅 建議容量：",
-    "slug": "plastic-food-beverage-pouch-3240"
+    "slug": "plastic-food-beverage-pouch-3240",
+    "category": "Pouch"
   },
   {
     "id": "3250",
@@ -1777,7 +1954,8 @@
     "glb_file": "/models/3250.glb",
     "dimensions": "产品尺寸：L:105mm  W:25mm  H:168mm",
     "description": "包裝貼圖尺寸：L:60mm H:60mm 常見於月餅、蛋糕糕點、餅乾的收納 參考品牌/產品：月餅 建議容量：",
-    "slug": "plastic-food-beverage-pouch-3250"
+    "slug": "plastic-food-beverage-pouch-3250",
+    "category": "Pouch"
   },
   {
     "id": "3251",
@@ -1787,7 +1965,8 @@
     "glb_file": "/models/3251.glb",
     "dimensions": "产品尺寸：L:190mm  W:65mm  H:280mm",
     "description": "包裝貼圖尺寸：L:190mm H:690mm 常見於零食，月餅，禮品的收納 參考品牌/產品：月餅紙盒 建議容量：",
-    "slug": "food-beverage-pouch-3251"
+    "slug": "food-beverage-pouch-3251",
+    "category": "Pouch"
   },
   {
     "id": "3264",
@@ -1797,7 +1976,8 @@
     "glb_file": "/models/3264.glb",
     "dimensions": "产品尺寸：D:77mm  H:86mm  ",
     "description": "包裝貼圖尺寸：L:230mm H:72mm 常見於咖啡，奶茶，飲料的收納 參考品牌/產品：紙杯 建議容量：8oz",
-    "slug": "packaging-3264"
+    "slug": "packaging-3264",
+    "category": "Pouch"
   },
   {
     "id": "3265",
@@ -1807,7 +1987,8 @@
     "glb_file": "/models/3265.glb",
     "dimensions": "产品尺寸：L:180mm W:80mm H:210mm ",
     "description": "包裝貼圖尺寸：L:520mm H:100mm 常見於米、五穀雜糧的收納 參考品牌/產品：五穀雜糧 建議容量：2.5kg",
-    "slug": "plastic-food-beverage-pouch-3265"
+    "slug": "plastic-food-beverage-pouch-3265",
+    "category": "Pouch"
   },
   {
     "id": "3279",
@@ -1817,7 +1998,8 @@
     "glb_file": "/models/3279.glb",
     "dimensions": "产品尺寸：L:100mm W:45mm H:220mm ",
     "description": "包裝貼圖尺寸：L:50mm H:530mm 常見於米、五穀雜糧的收納 參考品牌/產品：米 建議容量：",
-    "slug": "plastic-food-beverage-pouch-3279"
+    "slug": "plastic-food-beverage-pouch-3279",
+    "category": "Pouch"
   },
   {
     "id": "3305",
@@ -1827,7 +2009,8 @@
     "glb_file": "/models/3305.glb",
     "dimensions": "产品尺寸：L:395mm  H:585mm",
     "description": "包裝貼圖尺寸：L:395mm H:585mm 常見於點心、麵包、果乾、果脯、零食大禮包的收納 參考品牌/產品：百草味零食大禮包 建議容量：",
-    "slug": "three-side-seal-plastic-food-food-pouch-3305"
+    "slug": "three-side-seal-plastic-food-food-pouch-3305",
+    "category": "Pouch"
   },
   {
     "id": "3313",
@@ -1837,7 +2020,8 @@
     "glb_file": "/models/3313.glb",
     "dimensions": "产品尺寸：L:170mm W:100mm H:50mm ",
     "description": "包裝貼圖尺寸：L:270mm H:300mm 常見於咖啡包、奶茶包的收納 參考品牌/產品：塑膠盒 建議容量：",
-    "slug": "plastic-food-beverage-3313"
+    "slug": "plastic-food-beverage-3313",
+    "category": "Pouch"
   },
   {
     "id": "3342",
@@ -1847,7 +2031,8 @@
     "glb_file": "/models/3342.glb",
     "dimensions": "产品尺寸：L:205mm W:105mm H:60mm ",
     "description": "包裝貼圖尺寸：L:270mm H:40mm 常見於食品飲料、蛋糕甜點、麵包、甜甜圈的收納 參考品牌/產品：雞排三明治 建議容量：160g",
-    "slug": "plastic-food-box-3342"
+    "slug": "plastic-food-box-3342",
+    "category": "Pouch"
   },
   {
     "id": "3353",
@@ -1857,7 +2042,8 @@
     "glb_file": "/models/3353.glb",
     "dimensions": "产品尺寸：L:530mm  W:10mm  H:320mm",
     "description": "包裝貼圖尺寸：L:530mm H:640mm 常見於竹鹽、生活用品、糖、麵粉、糧油調味品的收納 參考品牌/產品：竹鹽 建議容量：5袋",
-    "slug": "packaging-3353"
+    "slug": "packaging-3353",
+    "category": "Pouch"
   },
   {
     "id": "3366",
@@ -1867,7 +2053,8 @@
     "glb_file": "/models/3366.glb",
     "dimensions": "产品尺寸：L:210mm  W:165mm  H:763mm",
     "description": "包裝貼圖尺寸：L:210mm W:165mm H:763mm 常見於紙巾、紙抽、洗臉的收納 參考品牌/產品：餐巾紙 建議容量：5包",
-    "slug": "plastic-cleaning-pouch-3366"
+    "slug": "plastic-cleaning-pouch-3366",
+    "category": "Pouch"
   },
   {
     "id": "3381",
@@ -1877,7 +2064,8 @@
     "glb_file": "/models/3381.glb",
     "dimensions": "产品尺寸：D:40mm  H:90mm",
     "description": "包裝貼圖尺寸：L:45mm H:66mm 常見於防護霜、眼霜的收納 參考品牌/產品：upergoop!冰淇淋輕透物理妝前防護霜 建議容量：45ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-3381"
+    "slug": "plastic-cosmetic-cosmetic-tube-3381",
+    "category": "Pouch"
   },
   {
     "id": "3382",
@@ -1887,7 +2075,8 @@
     "glb_file": "/models/3382.glb",
     "dimensions": "产品尺寸：D:30mm  H:124mm",
     "description": "包裝貼圖尺寸：L:30mm H:102mm 常見於防護霜、眼霜、隔離霜的收納 參考品牌/產品：香緹卡隔離霜 建議容量：50g",
-    "slug": "plastic-cosmetic-cosmetic-tube-3382"
+    "slug": "plastic-cosmetic-cosmetic-tube-3382",
+    "category": "Pouch"
   },
   {
     "id": "3386",
@@ -1897,7 +2086,8 @@
     "glb_file": "/models/3386.glb",
     "dimensions": "产品尺寸：L:245mm  W:90mm  H:495mm ",
     "description": "包裝貼圖尺寸：L:245mm W:90mm H:495mm 常見於化肥、米袋、面袋、貓砂的收納 參考品牌/產品：米袋 建議容量：",
-    "slug": "plastic-pouch-3386"
+    "slug": "plastic-pouch-3386",
+    "category": "Pouch"
   },
   {
     "id": "3428",
@@ -1907,7 +2097,8 @@
     "glb_file": "/models/3428.glb",
     "dimensions": "产品尺寸：L:54mm  W:44mm  H:20mm",
     "description": "包裝貼圖尺寸：L:54mm H:44mm 常見於調味品、番茄醬、糖醋醬的收納 參考品牌/產品：糖醋醬 建議容量：20g",
-    "slug": "plastic-food-box-3428"
+    "slug": "plastic-food-box-3428",
+    "category": "Pouch"
   },
   {
     "id": "3459",
@@ -1917,7 +2108,8 @@
     "glb_file": "/models/3459.glb",
     "dimensions": "产品尺寸：L:175mm  W:135mm  H:70mm",
     "description": "包裝貼圖尺寸：L:90mm H:60mm 常見於的收納水果，蔬菜，蛋糕，糕點，點心 參考品牌/產品：水果 建議容量：",
-    "slug": "plastic-food-beverage-box-3459"
+    "slug": "plastic-food-beverage-box-3459",
+    "category": "Pouch"
   },
   {
     "id": "3460",
@@ -1927,7 +2119,8 @@
     "glb_file": "/models/3460.glb",
     "dimensions": "产品尺寸：L:225mm  W:185mm  H:55mm",
     "description": "包裝貼圖尺寸：L:120mm H:90mm 常見於的收納水果，蔬菜，蛋糕，糕點，點心 參考品牌/產品：糕點 建議容量：",
-    "slug": "plastic-food-beverage-box-3460"
+    "slug": "plastic-food-beverage-box-3460",
+    "category": "Pouch"
   },
   {
     "id": "3462",
@@ -1937,7 +2130,8 @@
     "glb_file": "/models/3462.glb",
     "dimensions": "产品尺寸：L:210mm  W:210mm  H:50mm",
     "description": "包裝貼圖尺寸：L:80mm H:120mm 常見於的收納水果，蔬菜，蛋糕，糕點，點心 參考品牌/產品：水果 建議容量：",
-    "slug": "plastic-food-beverage-box-3462"
+    "slug": "plastic-food-beverage-box-3462",
+    "category": "Pouch"
   },
   {
     "id": "3467",
@@ -1947,7 +2141,8 @@
     "glb_file": "/models/3467.glb",
     "dimensions": "产品尺寸：L:155mm  W:15mm  H:140mm",
     "description": "包裝貼圖尺寸：L:155mm H:140mm 常見於生活用品、休閒零食、茶包、餐具袋的收納 參考品牌/產品：餐具袋 建議容量：",
-    "slug": "plastic-pouch-3467"
+    "slug": "plastic-pouch-3467",
+    "category": "Pouch"
   },
   {
     "id": "348",
@@ -1957,7 +2152,8 @@
     "glb_file": "/models/348.glb",
     "dimensions": "产品尺寸：L:162mm  H:206mm",
     "description": "包裝貼圖尺寸：L:162mm H:206mm 常見於牛肉乾，烤魚乾，豬肉脯的收納 參考品牌/產品：豬肉脯 建議容量：80g",
-    "slug": "plastic-zipper-stand-up-food-beverage-pouch-348"
+    "slug": "plastic-zipper-stand-up-food-beverage-pouch-348",
+    "category": "Pouch"
   },
   {
     "id": "3513",
@@ -1967,7 +2163,8 @@
     "glb_file": "/models/3513.glb",
     "dimensions": "产品尺寸：D:99mm  H:75mm",
     "description": "包裝貼圖尺寸：L:99mm W:36mm H:50mm 常見於蠟燭、化妝品的收納 參考品牌/產品：蠟燭 建議容量：",
-    "slug": "jar-3513"
+    "slug": "jar-3513",
+    "category": "Pouch"
   },
   {
     "id": "355",
@@ -1977,7 +2174,8 @@
     "glb_file": "/models/355.glb",
     "dimensions": "产品尺寸：L:200mm  H:280mm",
     "description": "包裝貼圖尺寸：L:200mm H:280mm 常見於面膜,腳膜，手膜，眼膜,頸膜的收納 參考品牌/產品：百雀羚面膜 建議容量：30ml",
-    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-355"
+    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-355",
+    "category": "Pouch"
   },
   {
     "id": "356",
@@ -1987,7 +2185,8 @@
     "glb_file": "/models/356.glb",
     "dimensions": "产品尺寸：L:178mm  H:255mm",
     "description": "包裝貼圖尺寸：L:178mm H:255mm 常見於洋芋片，蝦條，蝦片，膨化食品，的收納 參考品牌/產品：樂事洋芋片 建議容量：70g",
-    "slug": "plastic-food-food-beverage-pouch-356"
+    "slug": "plastic-food-food-beverage-pouch-356",
+    "category": "Pouch"
   },
   {
     "id": "357",
@@ -1997,7 +2196,8 @@
     "glb_file": "/models/357.glb",
     "dimensions": "产品尺寸：L:95mm  W:58mm  H:238mm",
     "description": "包裝貼圖尺寸：L:95mm W:58mm H:238mm 常見於茶葉，花茶的收納 參考品牌/產品：茶葉 建議容量：120g",
-    "slug": "plastic-tea-food-beverage-pouch-357"
+    "slug": "plastic-tea-food-beverage-pouch-357",
+    "category": "Pouch"
   },
   {
     "id": "358",
@@ -2007,7 +2207,8 @@
     "glb_file": "/models/358.glb",
     "dimensions": "产品尺寸：L:80mm  H:140mm",
     "description": "包裝貼圖尺寸：L:80mm H:140mm 常見於面膜，珍珠粉，的收納 參考品牌/產品：面膜，珍珠粉 建議容量：45g",
-    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-358"
+    "slug": "three-side-seal-plastic-zipper-cosmetic-cosmetic-pouch-358",
+    "category": "Pouch"
   },
   {
     "id": "3587",
@@ -2017,7 +2218,8 @@
     "glb_file": "/models/3587.glb",
     "dimensions": "产品尺寸：L:90mm W:25mm H:60mm ",
     "description": "包裝貼圖尺寸：L:115mm H:130mm 常見於點心、日用品的收納 參考品牌/產品：枕頭盒 建議容量：",
-    "slug": "food-beverage-box-3587"
+    "slug": "food-beverage-box-3587",
+    "category": "Pouch"
   },
   {
     "id": "3588",
@@ -2027,7 +2229,8 @@
     "glb_file": "/models/3588.glb",
     "dimensions": "产品尺寸：D:250mm  H:115mm",
     "description": "包裝貼圖尺寸：L:250 W:26mm H:87mm 常見於休閒食品、餅乾糕點、乾貨、炒貨的收納 參考品牌/產品：蛋糕糕點 建議容量：",
-    "slug": "box-3588"
+    "slug": "box-3588",
+    "category": "Pouch"
   },
   {
     "id": "3589",
@@ -2037,7 +2240,8 @@
     "glb_file": "/models/3589.glb",
     "dimensions": "产品尺寸：L:90mm  W:30mm  H:140mm    ",
     "description": "包裝貼圖尺寸：L:90mm H:140mm 常見於瓜子，乾果的收納 參考品牌/產品：食品袋 建議容量：",
-    "slug": "plastic-food-food-pouch-3589"
+    "slug": "plastic-food-food-pouch-3589",
+    "category": "Pouch"
   },
   {
     "id": "359",
@@ -2047,7 +2251,8 @@
     "glb_file": "/models/359.glb",
     "dimensions": "产品尺寸：L:80mm  H:140mm",
     "description": "包裝貼圖尺寸：L:80mm H:140mm 常見於堅果，花生，澳洲堅果，瓜子，核桃的收納 參考品牌/產品：瓜子，花生 建議容量：30g",
-    "slug": "plastic-stand-up-food-beverage-pouch-359"
+    "slug": "plastic-stand-up-food-beverage-pouch-359",
+    "category": "Pouch"
   },
   {
     "id": "360",
@@ -2057,7 +2262,8 @@
     "glb_file": "/models/360.glb",
     "dimensions": "产品尺寸：L:140mm  W:60mm  H:240mm",
     "description": "包裝貼圖尺寸：L:140mm W:60mm H:240mm 常見於，果乾，蜜餞，山楂條的收納 參考品牌/產品：山楂條，果脯 建議容量：160g",
-    "slug": "plastic-zipper-food-beverage-pouch-360"
+    "slug": "plastic-zipper-food-beverage-pouch-360",
+    "category": "Pouch"
   },
   {
     "id": "3614",
@@ -2067,7 +2273,8 @@
     "glb_file": "/models/3614.glb",
     "dimensions": "产品尺寸：L:89mm W:30mm H:97mm ",
     "description": "包裝貼圖尺寸：L:85mm H:97mm 常見於點心、薯條的收納 參考品牌/產品：麥當勞薯條盒 建議容量：",
-    "slug": "food-beverage-box-3614"
+    "slug": "food-beverage-box-3614",
+    "category": "Pouch"
   },
   {
     "id": "3661",
@@ -2077,7 +2284,8 @@
     "glb_file": "/models/3661.glb",
     "dimensions": "产品尺寸：D:100mm  H:90mm",
     "description": "包裝貼圖尺寸：L:308mm W:28mm H:58mm 常見於蠟燭、化妝品的收納 參考品牌/產品：紙筒 建議容量：",
-    "slug": "jar-3661"
+    "slug": "jar-3661",
+    "category": "Pouch"
   },
   {
     "id": "368",
@@ -2087,7 +2295,8 @@
     "glb_file": "/models/368.glb",
     "dimensions": "产品尺寸：L:120mm  H:170mm",
     "description": "包裝貼圖尺寸：L:120mm H:170mm 常見於零食，堅果，果乾的收納 參考品牌/產品：果脯，話梅，烏梅 建議容量：40g",
-    "slug": "three-side-seal-plastic-zipper-food-beverage-pouch-368"
+    "slug": "three-side-seal-plastic-zipper-food-beverage-pouch-368",
+    "category": "Pouch"
   },
   {
     "id": "369",
@@ -2097,7 +2306,8 @@
     "glb_file": "/models/369.glb",
     "dimensions": "产品尺寸：L:120mm  H:170mm",
     "description": "包裝貼圖尺寸：L:120mm H:170mm 常見於澳洲堅果，瓜子，花生，山核桃，松子，栗子的收納 參考品牌/產品：松子,板栗，山核桃 建議容量：",
-    "slug": "plastic-stand-up-food-pouch-369"
+    "slug": "plastic-stand-up-food-pouch-369",
+    "category": "Pouch"
   },
   {
     "id": "370",
@@ -2107,7 +2317,8 @@
     "glb_file": "/models/370.glb",
     "dimensions": "产品尺寸：L:110mm  W:65mm  H:230mm",
     "description": "包裝貼圖尺寸：L:110mm W:65mm H:230mm 常見於瓜子，花生，澳洲堅果，松子，堅果的收納 參考品牌/產品：瓜子,花生，堅果 建議容量：150g",
-    "slug": "plastic-zipper-food-beverage-pouch-370"
+    "slug": "plastic-zipper-food-beverage-pouch-370",
+    "category": "Pouch"
   },
   {
     "id": "3723",
@@ -2117,7 +2328,8 @@
     "glb_file": "/models/3723.glb",
     "dimensions": "产品尺寸：L:110mm  W:15mm  H:130mm",
     "description": "包裝貼圖尺寸：L:110mm H:130mm 常見於運送氣泡袋、快遞袋、外帶袋、保溫袋的收納 參考品牌/產品：運輸氣泡袋 建議容量：",
-    "slug": "pouch-3723"
+    "slug": "pouch-3723",
+    "category": "Pouch"
   },
   {
     "id": "375",
@@ -2127,7 +2339,8 @@
     "glb_file": "/models/375.glb",
     "dimensions": "产品尺寸：L:196mmH:160mm",
     "description": "包裝貼圖尺寸：L:196mmH:160mm 常見於泡麵，酸辣粉的收納 參考品牌/產品：康師傅紅燒牛肉麵 建議容量：1309",
-    "slug": "plastic-food-beverage-pouch-375"
+    "slug": "plastic-food-beverage-pouch-375",
+    "category": "Pouch"
   },
   {
     "id": "3770",
@@ -2137,7 +2350,8 @@
     "glb_file": "/models/3770.glb",
     "dimensions": "产品尺寸：L:225mm  W:50mm  H:300mm",
     "description": "包裝貼圖尺寸：L:225mm H:300mm 常見於運送氣泡袋、快遞袋、外帶袋、保溫袋的收納 參考品牌/產品：運輸氣泡袋 建議容量：",
-    "slug": "plastic-pouch-3770"
+    "slug": "plastic-pouch-3770",
+    "category": "Pouch"
   },
   {
     "id": "3772",
@@ -2147,7 +2361,8 @@
     "glb_file": "/models/3772.glb",
     "dimensions": "产品尺寸：L:150mm  W:60mm  H:200mm",
     "description": "包裝貼圖尺寸：L:150mm H:200mm 常見於牛皮紙袋、紙袋、麵包袋、收納袋的收納 參考品牌/產品：牛皮紙袋 建議容量：",
-    "slug": "pouch-3772"
+    "slug": "pouch-3772",
+    "category": "Pouch"
   },
   {
     "id": "3790",
@@ -2157,7 +2372,8 @@
     "glb_file": "/models/3790.glb",
     "dimensions": "产品尺寸：L:120mm  H:160mm",
     "description": "包裝貼圖尺寸：L:120mm H:160mm 常見於面膜、美妝、化妝品的收納 參考品牌/產品：面膜 建議容量：",
-    "slug": "plastic-cosmetic-cosmetic-cosmetic-pouch-3790"
+    "slug": "plastic-cosmetic-cosmetic-cosmetic-pouch-3790",
+    "category": "Pouch"
   },
   {
     "id": "380",
@@ -2167,7 +2383,8 @@
     "glb_file": "/models/380.glb",
     "dimensions": "产品尺寸：L:87mm  H:110mmm",
     "description": "包裝貼圖尺寸：L:87mm H:110mmm 常見於旺雪餅，雪花酥，仙貝的收納 參考品牌/產品：旺旺雪餅 建議容量：12g",
-    "slug": "plastic-food-food-beverage-pouch-380"
+    "slug": "plastic-food-food-beverage-pouch-380",
+    "category": "Pouch"
   },
   {
     "id": "3812",
@@ -2177,7 +2394,8 @@
     "glb_file": "/models/3812.glb",
     "dimensions": "产品尺寸：L:180mm  W:80mm  H:280mm",
     "description": "包裝貼圖尺寸：L:180mm W:80mm H:280mm 常見於休閒食品、乾果、食品飲料的收納 參考品牌/產品：乾果乾貨 建議容量：",
-    "slug": "plastic-food-pouch-3812"
+    "slug": "plastic-food-pouch-3812",
+    "category": "Pouch"
   },
   {
     "id": "3813",
@@ -2187,7 +2405,8 @@
     "glb_file": "/models/3813.glb",
     "dimensions": "产品尺寸：L:295mm  W:90mm  H:560mm",
     "description": "包裝貼圖尺寸：L:295mm W:90mm H:560mm 常見於米袋,麵粉的收納 參考品牌/產品：富曬米 建議容量：",
-    "slug": "plastic-food-pouch-3813"
+    "slug": "plastic-food-pouch-3813",
+    "category": "Pouch"
   },
   {
     "id": "386",
@@ -2197,7 +2416,8 @@
     "glb_file": "/models/386.glb",
     "dimensions": "产品尺寸：L:255mmH:435mm",
     "description": "包裝貼圖尺寸：L:255mmH:435mm 常見於麵粉的收納 參考品牌/產品：福臨門麥芯家用小麥粉 建議容量：2.5kg",
-    "slug": "three-side-seal-plastic-food-pouch-386"
+    "slug": "three-side-seal-plastic-food-pouch-386",
+    "category": "Pouch"
   },
   {
     "id": "3888",
@@ -2207,7 +2427,8 @@
     "glb_file": "/models/3888.glb",
     "dimensions": "产品尺寸：L:320mm  H:370mm",
     "description": "包裝貼圖尺寸：L:320mm H:370mm 常見於生活日用、每日收納、貓糧狗糧、寵物用品的收納 參考品牌/產品：貓糧 建議容量：2.5KG",
-    "slug": "plastic-pouch-3888"
+    "slug": "plastic-pouch-3888",
+    "category": "Pouch"
   },
   {
     "id": "3889",
@@ -2217,7 +2438,8 @@
     "glb_file": "/models/3889.glb",
     "dimensions": "产品尺寸：L:100mm  W: 55mm  H:172mm",
     "description": "包裝貼圖尺寸：L:100mm W: 100mm H:100mm 常見於薯條，點心的收納 參考品牌/產品：薯條盒 建議容量：",
-    "slug": "food-box-3889"
+    "slug": "food-box-3889",
+    "category": "Pouch"
   },
   {
     "id": "3890",
@@ -2227,7 +2449,8 @@
     "glb_file": "/models/3890.glb",
     "dimensions": "产品尺寸：L:100mm  W: 50mm  H:119mm",
     "description": "包裝貼圖尺寸：L:100mm W: 100mm H:100mm 常見於薯條，點心的收納 參考品牌/產品：薯條盒 建議容量：",
-    "slug": "food-box-3890"
+    "slug": "food-box-3890",
+    "category": "Pouch"
   },
   {
     "id": "3899",
@@ -2237,7 +2460,8 @@
     "glb_file": "/models/3899.glb",
     "dimensions": "产品尺寸：L:200mm  W: 95mm  H:489mm ",
     "description": "包裝貼圖尺寸：L:200mm W: 95mm H:553mm 常見於紙尿褲、濕紙巾、衛生棉的收納 參考品牌/產品：紙尿褲 建議容量：",
-    "slug": "plastic-pouch-3899"
+    "slug": "plastic-pouch-3899",
+    "category": "Pouch"
   },
   {
     "id": "3913",
@@ -2247,7 +2471,8 @@
     "glb_file": "/models/3913.glb",
     "dimensions": "产品尺寸：L:170mm  W:100mm  H:70mm",
     "description": "包裝貼圖尺寸：L:170mm W:100mm H:70mm 常見於洗臉巾、紙巾、濕紙巾、居家清潔的收納 參考品牌/產品：洗臉 建議容量：",
-    "slug": "plastic-cleaning-pouch-3913"
+    "slug": "plastic-cleaning-pouch-3913",
+    "category": "Pouch"
   },
   {
     "id": "3914",
@@ -2257,7 +2482,8 @@
     "glb_file": "/models/3914.glb",
     "dimensions": "产品尺寸：L:170mm  W:100mm  H:70mm",
     "description": "包裝貼圖尺寸：L:170mm W:100mm H:70mm 常見於洗臉巾、紙巾、濕紙巾、居家清潔的收納 參考品牌/產品：洗臉 建議容量：",
-    "slug": "plastic-cleaning-pouch-3914"
+    "slug": "plastic-cleaning-pouch-3914",
+    "category": "Pouch"
   },
   {
     "id": "3915",
@@ -2267,7 +2493,8 @@
     "glb_file": "/models/3915.glb",
     "dimensions": "产品尺寸：L:170mm  W:100mm  H:70mm",
     "description": "包裝貼圖尺寸：L:170mm W:100mm H:70mm 常見於洗臉巾、紙巾、濕紙巾、居家清潔的收納 參考品牌/產品：洗臉 建議容量：",
-    "slug": "plastic-cleaning-pouch-3915"
+    "slug": "plastic-cleaning-pouch-3915",
+    "category": "Pouch"
   },
   {
     "id": "3916",
@@ -2277,7 +2504,8 @@
     "glb_file": "/models/3916.glb",
     "dimensions": "产品尺寸：L:170mm  W:100mm  H:70mm",
     "description": "包裝貼圖尺寸：L:170mm W:100mm H:70mm 常見於洗臉巾、紙巾、濕紙巾、居家清潔的收納 參考品牌/產品：洗臉 建議容量：",
-    "slug": "plastic-cleaning-pouch-3916"
+    "slug": "plastic-cleaning-pouch-3916",
+    "category": "Pouch"
   },
   {
     "id": "3923",
@@ -2287,7 +2515,8 @@
     "glb_file": "/models/3923.glb",
     "dimensions": "产品尺寸：L:1000mm  W:720mm",
     "description": "包裝貼圖尺寸：L:1000mm W:720mm 常見於鍍鋁捲膜 參考品牌/產品： 建議容量：",
-    "slug": "packaging-3923"
+    "slug": "packaging-3923",
+    "category": "Pouch"
   },
   {
     "id": "3930",
@@ -2297,7 +2526,8 @@
     "glb_file": "/models/3930.glb",
     "dimensions": "产品尺寸：L:2400mm  W:720mm",
     "description": "包裝貼圖尺寸：L:2400mm W:720mm 常見於鍍鋁捲膜 參考品牌/產品： 建議容量：",
-    "slug": "packaging-3930"
+    "slug": "packaging-3930",
+    "category": "Pouch"
   },
   {
     "id": "394",
@@ -2307,7 +2537,8 @@
     "glb_file": "/models/394.glb",
     "dimensions": "产品尺寸：L:260mm  W:100mm  H:70mm",
     "description": "包裝貼圖尺寸：L:200mm W:100mm H:70mm 常見於面紙的收納 參考品牌/產品：純棉親膚洗臉 建議容量：100張~200張",
-    "slug": "plastic-cleaning-pouch-394"
+    "slug": "plastic-cleaning-pouch-394",
+    "category": "Pouch"
   },
   {
     "id": "3947",
@@ -2317,7 +2548,8 @@
     "glb_file": "/models/3947.glb",
     "dimensions": "产品尺寸：L:135mm  W:40mm  H:235mm",
     "description": "包裝貼圖尺寸：L:135mm H:235mm 常見於飲料，牛奶的收納 參考品牌/產品：食品袋 建議容量：",
-    "slug": "plastic-food-food-pouch-3947"
+    "slug": "plastic-food-food-pouch-3947",
+    "category": "Pouch"
   },
   {
     "id": "3950",
@@ -2327,7 +2559,8 @@
     "glb_file": "/models/3950.glb",
     "dimensions": "产品尺寸：L:135mm  W:40mm  H:235mm",
     "description": "包裝貼圖尺寸：L:135mm H:235mm 常見於飲料，牛奶的收納 參考品牌/產品：食品袋 建議容量：",
-    "slug": "plastic-food-food-pouch-3950"
+    "slug": "plastic-food-food-pouch-3950",
+    "category": "Pouch"
   },
   {
     "id": "399",
@@ -2337,7 +2570,8 @@
     "glb_file": "/models/399.glb",
     "dimensions": "产品尺寸：L:200mmW:100mmH:70mm",
     "description": "包裝貼圖尺寸：L:200mm W:100mm H:70mm 常見於洗臉的收納 參考品牌/產品：洗臉 建議容量：150張~200張",
-    "slug": "plastic-cleaning-pouch-399"
+    "slug": "plastic-cleaning-pouch-399",
+    "category": "Pouch"
   },
   {
     "id": "4013",
@@ -2347,7 +2581,8 @@
     "glb_file": "/models/4013.glb",
     "dimensions": "产品尺寸：L:90mm  W:60mm  H:170mm",
     "description": "包裝貼圖尺寸：L:90mm W:60mm H:240mm 常見於生活日用、廚房用品、酵母粉、麵粉、調味的收納 參考品牌/產品：酵母粉 建議容量：",
-    "slug": "plastic-food-beverage-pouch-4013"
+    "slug": "plastic-food-beverage-pouch-4013",
+    "category": "Pouch"
   },
   {
     "id": "4017",
@@ -2357,7 +2592,8 @@
     "glb_file": "/models/4017.glb",
     "dimensions": "产品尺寸：L:100mm  H:150mm",
     "description": "包裝貼圖尺寸：L:100mm H:150mm 常見於面膜,腳膜，手膜，眼膜,頸膜的收納 參考品牌/產品：百雀羚面膜 建議容量：30ml",
-    "slug": "three-side-seal-pouch-4017"
+    "slug": "three-side-seal-pouch-4017",
+    "category": "Pouch"
   },
   {
     "id": "402",
@@ -2367,7 +2603,8 @@
     "glb_file": "/models/402.glb",
     "dimensions": "产品尺寸：L:135mm  W:100mm  H:65mm",
     "description": "包裝貼圖尺寸：L:135mm W:100mm H:65mm 常見於紙巾，抽紙的收納 參考品牌/產品：清風抽紙巾 建議容量：110抽",
-    "slug": "plastic-cleaning-pouch-402"
+    "slug": "plastic-cleaning-pouch-402",
+    "category": "Pouch"
   },
   {
     "id": "4023",
@@ -2377,7 +2614,8 @@
     "glb_file": "/models/4023.glb",
     "dimensions": "产品尺寸：L:270mm  W:100mm  H:380mm",
     "description": "包裝貼圖尺寸：L:270mm W:100mm H:380mm 常見於工業建材、室內裝修、磁磚膠、石灰粉的收納 參考品牌/產品：強力磁磚膠 建議容量：",
-    "slug": "plastic-pouch-4023"
+    "slug": "plastic-pouch-4023",
+    "category": "Pouch"
   },
   {
     "id": "403",
@@ -2387,7 +2625,8 @@
     "glb_file": "/models/403.glb",
     "dimensions": "产品尺寸：H:200mm D:152mm",
     "description": "包裝貼圖尺寸：L:477mm H:105mm 常見於面紙、洗臉巾、濕紙巾、廚房紙的收納 參考品牌/產品：圓形洗臉巾 建議容量：100張",
-    "slug": "plastic-cleaning-pouch-403"
+    "slug": "plastic-cleaning-pouch-403",
+    "category": "Pouch"
   },
   {
     "id": "4035",
@@ -2397,7 +2636,8 @@
     "glb_file": "/models/4035.glb",
     "dimensions": "产品尺寸：L:130mm  W:85mm  H:22mm",
     "description": "包裝貼紙尺寸：L:130mm W:85mm H:22mm 常見於紙巾，抽紙的收納 參考品牌/產品：紙巾 建議容量：",
-    "slug": "plastic-cleaning-pouch-4035"
+    "slug": "plastic-cleaning-pouch-4035",
+    "category": "Pouch"
   },
   {
     "id": "4043",
@@ -2407,7 +2647,8 @@
     "glb_file": "/models/4043.glb",
     "dimensions": "产品尺寸：L:100mmH:150mm",
     "description": "產品尺寸：L:100mmH:150mm",
-    "slug": "pouch-4043"
+    "slug": "pouch-4043",
+    "category": "Pouch"
   },
   {
     "id": "4044",
@@ -2417,7 +2658,8 @@
     "glb_file": "/models/4044.glb",
     "dimensions": "产品尺寸：L:90mm  W:90mm H:90mm",
     "description": "包裝貼圖尺寸：L:90mm W:90mm H:90mm 常見於茶葉、茶包、食品飲料、沖調飲品的收納 參考品牌/產品：紅茶 建議容量：",
-    "slug": "tea-food-beverage-box-4044"
+    "slug": "tea-food-beverage-box-4044",
+    "category": "Pouch"
   },
   {
     "id": "4056",
@@ -2427,7 +2669,8 @@
     "glb_file": "/models/4056.glb",
     "dimensions": "产品尺寸：L:58mm  W:20mm  H:165mm",
     "description": "包裝貼圖尺寸：L:58mm H:165mm 常見於生活日用、食品飲料、調味醬、膠水的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-beverage-pouch-4056"
+    "slug": "plastic-food-beverage-pouch-4056",
+    "category": "Pouch"
   },
   {
     "id": "406",
@@ -2437,7 +2680,8 @@
     "glb_file": "/models/406.glb",
     "dimensions": "产品尺寸：L:255mm  H:435mm",
     "description": "包裝貼圖尺寸：L:255mm H:435mm 常見於米，小米，綠豆，糙米，紅豆，高粱的收納 參考品牌/產品：金龍魚米 建議容量：2.5kg",
-    "slug": "three-side-seal-plastic-food-pouch-406"
+    "slug": "three-side-seal-plastic-food-pouch-406",
+    "category": "Pouch"
   },
   {
     "id": "4061",
@@ -2447,7 +2691,8 @@
     "glb_file": "/models/4061.glb",
     "dimensions": "产品尺寸：L:100mmH:150mm",
     "description": "包裝貼圖尺寸：L:80mmH:140mm 常見於面膜，珍珠粉，的收納 參考品牌/產品：面膜，珍珠粉 建議容量：45g",
-    "slug": "three-side-seal-zipper-pouch-4061"
+    "slug": "three-side-seal-zipper-pouch-4061",
+    "category": "Pouch"
   },
   {
     "id": "4089",
@@ -2457,7 +2702,8 @@
     "glb_file": "/models/4089.glb",
     "dimensions": "产品尺寸：L:263mm  W:75mm  H:25mm",
     "description": "包裝貼圖尺寸：L:263mm W:75mm H:25mm 常見於巧克力，餅乾的收納 參考品牌/產品：巧克力袋 建議容量：",
-    "slug": "plastic-food-food-beverage-pouch-4089"
+    "slug": "plastic-food-food-beverage-pouch-4089",
+    "category": "Pouch"
   },
   {
     "id": "4092",
@@ -2467,7 +2713,8 @@
     "glb_file": "/models/4092.glb",
     "dimensions": "产品尺寸：L:113mm  W:25mm  H:188mm",
     "description": "包裝貼圖尺寸：L:113mm H:188mm 常見於堅果、乾果、點心的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-food-pouch-4092"
+    "slug": "plastic-food-food-pouch-4092",
+    "category": "Pouch"
   },
   {
     "id": "4101",
@@ -2477,7 +2724,8 @@
     "glb_file": "/models/4101.glb",
     "dimensions": "产品尺寸：L:91mm  W:131mm  H:136mm",
     "description": "包裝貼圖尺寸：L:88mm H:132mm 常見於飲料，牛奶，果凍的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-food-pouch-4101"
+    "slug": "plastic-food-food-pouch-4101",
+    "category": "Pouch"
   },
   {
     "id": "4107",
@@ -2487,7 +2735,8 @@
     "glb_file": "/models/4107.glb",
     "dimensions": "产品尺寸：L:200mm  W:98mm  H:300mm ",
     "description": "包裝貼圖尺寸：L:200mm H:1300mm 常見於零食，通心粉的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-food-beverage-pouch-4107"
+    "slug": "plastic-food-food-beverage-pouch-4107",
+    "category": "Pouch"
   },
   {
     "id": "4108",
@@ -2497,7 +2746,8 @@
     "glb_file": "/models/4108.glb",
     "dimensions": "产品尺寸：L:130mm  W:75mm  H:225mm",
     "description": "包裝貼圖尺寸：L:130mm W:65mm H:240mm 常見於瓜子，花生，澳洲堅果，松子，堅果的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-zipper-food-beverage-pouch-4108"
+    "slug": "plastic-zipper-food-beverage-pouch-4108",
+    "category": "Pouch"
   },
   {
     "id": "4117",
@@ -2507,7 +2757,8 @@
     "glb_file": "/models/4117.glb",
     "dimensions": "产品尺寸：L:65mm  W:65mm  H:90mm ",
     "description": "包裝貼圖尺寸：L:65mm H:90mm 常見於糖果、巧克力、食品袋的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-beverage-4117"
+    "slug": "plastic-food-beverage-4117",
+    "category": "Pouch"
   },
   {
     "id": "4121",
@@ -2517,7 +2768,8 @@
     "glb_file": "/models/4121.glb",
     "dimensions": "产品尺寸：L:37mm  W:37mm  H:63mm ",
     "description": "包裝貼圖尺寸：L:115mm H:115mm 常見於糖果、巧克力、食品袋的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-beverage-4121"
+    "slug": "plastic-food-beverage-4121",
+    "category": "Pouch"
   },
   {
     "id": "4124",
@@ -2527,7 +2779,8 @@
     "glb_file": "/models/4124.glb",
     "dimensions": "产品尺寸：L:155mm  W:72mm  H:8mm",
     "description": "包裝貼圖尺寸：L:145mm H:160mm 常見於糖果、巧克力、食品袋的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-beverage-4124"
+    "slug": "plastic-food-beverage-4124",
+    "category": "Pouch"
   },
   {
     "id": "4196",
@@ -2537,7 +2790,8 @@
     "glb_file": "/models/4196.glb",
     "dimensions": "产品尺寸：L:240mm  W:75mm  H:45mm",
     "description": "包裝貼圖尺寸：L:240mm W:75mm H:45mm 常見於巧克力，餅乾的收納 參考品牌/產品：巧克力袋 建議容量：",
-    "slug": "plastic-food-food-beverage-pouch-4196"
+    "slug": "plastic-food-food-beverage-pouch-4196",
+    "category": "Pouch"
   },
   {
     "id": "4271",
@@ -2547,7 +2801,8 @@
     "glb_file": "/models/4271.glb",
     "dimensions": "产品尺寸：L:110mm  W:15mm  H:130mm",
     "description": "包裝貼圖尺寸：L:110mm W:122mm H:155mm 常見於運送氣泡袋、快遞袋、外帶袋、保溫袋的收納 參考品牌/產品：運輸氣泡袋 建議容量：",
-    "slug": "pouch-4271"
+    "slug": "pouch-4271",
+    "category": "Pouch"
   },
   {
     "id": "428",
@@ -2557,7 +2812,8 @@
     "glb_file": "/models/428.glb",
     "dimensions": "产品尺寸：L:83mm  H:138mm",
     "description": "包裝貼圖尺寸：L:83mm H:115mm 常見於番茄醬，沙拉醬，千島醬，燒烤醬，照燒醬的收納 參考品牌/產品：亨氏番茄醬 建議容量:120g",
-    "slug": "plastic-stand-up-food-beverage-pouch-428"
+    "slug": "plastic-stand-up-food-beverage-pouch-428",
+    "category": "Pouch"
   },
   {
     "id": "4299",
@@ -2567,7 +2823,8 @@
     "glb_file": "/models/4299.glb",
     "dimensions": "产品尺寸：H:116mm  D:38mm",
     "description": "包裝貼圖尺寸：L:94mm H:88mm 常見於牙膏、護手霜、化妝品的收納 參考品牌/產品：SALTPRO鹽致海鹽牙膏 建議容量：90g",
-    "slug": "plastic-tube-4299"
+    "slug": "plastic-tube-4299",
+    "category": "Pouch"
   },
   {
     "id": "4300",
@@ -2577,7 +2834,8 @@
     "glb_file": "/models/4300.glb",
     "dimensions": "产品尺寸：L:30mm  H:120.65mm",
     "description": "包裝貼圖尺寸：L:200mm H:280mm 常見於保養品，精華的收納 參考品牌/產品： 建議容量：",
-    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-4300"
+    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-4300",
+    "category": "Pouch"
   },
   {
     "id": "4305",
@@ -2587,7 +2845,8 @@
     "glb_file": "/models/4305.glb",
     "dimensions": "产品尺寸：L:30mm  H:120.65mm",
     "description": "包裝貼圖尺寸：L:71mm H:120.65mm 常見於保養品，精華的收納 參考品牌/產品： 建議容量：",
-    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-4305"
+    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-4305",
+    "category": "Pouch"
   },
   {
     "id": "4316",
@@ -2597,7 +2856,8 @@
     "glb_file": "/models/4316.glb",
     "dimensions": "产品尺寸：L:330mm  w:100mm  H:250mm",
     "description": "包裝貼圖尺寸：L:330mm W:100mm H:250mm 常見於禮品，服裝，食品的收納 參考品牌/產品：購物袋 建議容量：",
-    "slug": "handle-pouch-4316"
+    "slug": "handle-pouch-4316",
+    "category": "Pouch"
   },
   {
     "id": "433",
@@ -2607,7 +2867,8 @@
     "glb_file": "/models/433.glb",
     "dimensions": "产品尺寸：L:100mmH:180mm",
     "description": "包裝貼圖尺寸：L:100mmH:180mm 常見於番茄醬，沙拉醬，千島醬，燒烤醬，照燒醬的收納 參考品牌/產品：亨氏番茄沙司 建議容量：320g",
-    "slug": "plastic-stand-up-food-beverage-pouch-433"
+    "slug": "plastic-stand-up-food-beverage-pouch-433",
+    "category": "Pouch"
   },
   {
     "id": "436",
@@ -2617,7 +2878,8 @@
     "glb_file": "/models/436.glb",
     "dimensions": "产品尺寸：L:110mmH:155mm",
     "description": "包裝貼圖尺寸：L:110mmH:155mm 常見於優格飲料的收納 參考品牌/產 品：君樂寶優格 建議容量：180 g",
-    "slug": "plastic-stand-up-food-beverage-pouch-436"
+    "slug": "plastic-stand-up-food-beverage-pouch-436",
+    "category": "Pouch"
   },
   {
     "id": "4387",
@@ -2627,7 +2889,8 @@
     "glb_file": "/models/4387.glb",
     "dimensions": "产品尺寸：L:115mm W:60mm H:175mm",
     "description": "包裝貼圖尺寸：L:115mm W:60mm H:175mm 常見於紅茶，茶葉，茶包，咖啡的收納 參考品牌/產品：習慣茶 建議容量：21g",
-    "slug": "plastic-zipper-stand-up-tea-food-beverage-pouch-4387"
+    "slug": "plastic-zipper-stand-up-tea-food-beverage-pouch-4387",
+    "category": "Pouch"
   },
   {
     "id": "442",
@@ -2637,7 +2900,8 @@
     "glb_file": "/models/442.glb",
     "dimensions": "产品尺寸：L:72mmW:43mmH:4mm",
     "description": "包裝貼圖尺寸：L:43mmH:72mm 常見於藥品的收納 參考品牌/產品：圓形藥品 建議容量：12片",
-    "slug": "plastic-pharma-442"
+    "slug": "plastic-pharma-442",
+    "category": "Pouch"
   },
   {
     "id": "443",
@@ -2647,7 +2911,8 @@
     "glb_file": "/models/443.glb",
     "dimensions": "产品尺寸：L:100mmW:65mmH:5mm",
     "description": "包裝貼圖尺寸：L:65mmH:100mm 常見於藥品，膠囊的收納 參考品牌/產品：膠囊藥品 建議容量：10片",
-    "slug": "plastic-pharma-443"
+    "slug": "plastic-pharma-443",
+    "category": "Pouch"
   },
   {
     "id": "444",
@@ -2657,7 +2922,8 @@
     "glb_file": "/models/444.glb",
     "dimensions": "产品尺寸：L:90mmW:33mmH:7.8mm",
     "description": "包裝貼圖尺寸：L:90mmH:33mm 常見於藥品，藥丸的收納 參考品牌/產品：藥丸 建議容量：20片",
-    "slug": "plastic-pharma-444"
+    "slug": "plastic-pharma-444",
+    "category": "Pouch"
   },
   {
     "id": "4455",
@@ -2667,7 +2933,8 @@
     "glb_file": "/models/4455.glb",
     "dimensions": "产品尺寸：L:150mm  W:30mm  H:130mm",
     "description": "包裝貼圖尺寸：L:45mm W:70mm 常見於快遞包裹、食品保溫袋、快遞袋、快​​餐袋的收納 參考品牌/產品： 建議容量：",
-    "slug": "food-pouch-4455"
+    "slug": "food-pouch-4455",
+    "category": "Pouch"
   },
   {
     "id": "4456",
@@ -2677,7 +2944,8 @@
     "glb_file": "/models/4456.glb",
     "dimensions": "产品尺寸：L:122mm  W:30mm  H:178mm",
     "description": "包裝貼圖尺寸：L:122mm H:178mm 常見於快遞袋、食品保溫袋、快餐袋的收納 參考品牌/產品： 建議容量：",
-    "slug": "food-pouch-4456"
+    "slug": "food-pouch-4456",
+    "category": "Pouch"
   },
   {
     "id": "450",
@@ -2687,7 +2955,8 @@
     "glb_file": "/models/450.glb",
     "dimensions": "产品尺寸：L:130mm  W:30mm  H:155mm",
     "description": "包裝貼圖尺寸：L:110mm H:155mm 常見於酸奶，牛奶的收納 參考品牌/產品：酸奶 建議容量：180ml",
-    "slug": "plastic-stand-up-food-beverage-pouch-cap-450"
+    "slug": "plastic-stand-up-food-beverage-pouch-cap-450",
+    "category": "Pouch"
   },
   {
     "id": "4511",
@@ -2697,7 +2966,8 @@
     "glb_file": "/models/4511.glb",
     "dimensions": "产品尺寸： L:400mm  W:400mm  H:420mm",
     "description": "包裝貼圖尺寸：L:1600mm H:420mm 常見於生活日用、快遞包裹、外帶箱、保溫箱的收納 參考品牌/產品： 建議容量：2.5kg",
-    "slug": "food-box-4511"
+    "slug": "food-box-4511",
+    "category": "Pouch"
   },
   {
     "id": "4512",
@@ -2707,7 +2977,8 @@
     "glb_file": "/models/4512.glb",
     "dimensions": "产品尺寸： L:400mm  W:400mm  H:420mm",
     "description": "包裝貼圖尺寸：L:1600mm H:420mm 常見於生活日用、快遞包裹、外帶箱、保溫箱的收納 參考品牌/產品： 建議容量：2.5kg",
-    "slug": "food-box-4512"
+    "slug": "food-box-4512",
+    "category": "Pouch"
   },
   {
     "id": "4519",
@@ -2717,7 +2988,8 @@
     "glb_file": "/models/4519.glb",
     "dimensions": "产品尺寸： L:350mm  W:350mm  H:120mm",
     "description": "包裝貼圖尺寸：L:470mm W:350mm H:240mm 常見於生活日用、快遞包裹、外帶箱、保溫箱的收納 參考品牌/產品： 建議容量：15L",
-    "slug": "food-box-4519"
+    "slug": "food-box-4519",
+    "category": "Pouch"
   },
   {
     "id": "4529",
@@ -2727,7 +2999,8 @@
     "glb_file": "/models/4529.glb",
     "dimensions": "产品尺寸：L:172mm  W:60mm  H:225mm",
     "description": "包裝貼圖尺寸：L:370mm H:225mm 常見於泡麵、拌麵、麵食類的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-pouch-4529"
+    "slug": "plastic-food-pouch-4529",
+    "category": "Pouch"
   },
   {
     "id": "4550",
@@ -2737,7 +3010,8 @@
     "glb_file": "/models/4550.glb",
     "dimensions": "产品尺寸：L:200mm  W: 180mm  H:380mm ",
     "description": "包裝貼圖尺寸：L:760mm H:600mm 常見於紙尿褲、濕紙巾、衛生棉的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-pouch-4550"
+    "slug": "plastic-pouch-4550",
+    "category": "Pouch"
   },
   {
     "id": "460",
@@ -2747,7 +3021,8 @@
     "glb_file": "/models/460.glb",
     "dimensions": "产品尺寸：H:100mmD:95mm",
     "description": "包裝貼圖尺寸：L:298mmH:100mm 常見於捲紙的收納 參考品牌/產品：捲紙 建議容量：130g",
-    "slug": "plastic-cleaning-pouch-460"
+    "slug": "plastic-cleaning-pouch-460",
+    "category": "Pouch"
   },
   {
     "id": "4672",
@@ -2757,7 +3032,8 @@
     "glb_file": "/models/4672.glb",
     "dimensions": "产品尺寸：L:55mm  H:85mm",
     "description": "包裝貼圖尺寸：L:55mm H:85mm 常見於果凍、奶茶、食品飲料的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-food-pouch-4672"
+    "slug": "plastic-food-food-pouch-4672",
+    "category": "Pouch"
   },
   {
     "id": "4724",
@@ -2767,7 +3043,8 @@
     "glb_file": "/models/4724.glb",
     "dimensions": "产品尺寸：L:229mm  W:165mm ",
     "description": "包裝貼圖尺寸：L:229mm H:165mm 常見於快遞，日常用品的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-cleaning-pouch-4724"
+    "slug": "plastic-cleaning-pouch-4724",
+    "category": "Pouch"
   },
   {
     "id": "4725",
@@ -2777,7 +3054,8 @@
     "glb_file": "/models/4725.glb",
     "dimensions": "产品尺寸：L:330mm  W:255mm",
     "description": "包装贴图尺寸：L:700mm  H:255mm 常见于快递，日常用品的收纳 参考品牌/产品： 建议容量：",
-    "slug": "plastic-cleaning-pouch-4725"
+    "slug": "plastic-cleaning-pouch-4725",
+    "category": "Pouch"
   },
   {
     "id": "4727",
@@ -2787,7 +3065,8 @@
     "glb_file": "/models/4727.glb",
     "dimensions": "产品尺寸： L:150mm  W:200mm",
     "description": "包裝貼圖尺寸：L:150mm W:200mm 常見於塑膠袋、手提袋、購物袋、垃圾袋的收納 參考品牌/產品： 建議容量：150x200",
-    "slug": "plastic-pouch-4727"
+    "slug": "plastic-pouch-4727",
+    "category": "Pouch"
   },
   {
     "id": "4730",
@@ -2797,7 +3076,8 @@
     "glb_file": "/models/4730.glb",
     "dimensions": "产品尺寸： L:200mm  W:300mm",
     "description": "包裝貼圖尺寸：L:200mm W:300mm 常見於塑膠袋、手提袋、購物袋、垃圾袋的收納 參考品牌/產品： 建議容量：200x300",
-    "slug": "plastic-pouch-4730"
+    "slug": "plastic-pouch-4730",
+    "category": "Pouch"
   },
   {
     "id": "4731",
@@ -2807,7 +3087,8 @@
     "glb_file": "/models/4731.glb",
     "dimensions": "产品尺寸：L:50mm  H:78mm ",
     "description": "包裝貼圖尺寸：L:50mm H:78mm 常見於手膜，面膜，藥品的收納 參考品牌/產品： 建議容量：",
-    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-4731"
+    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-4731",
+    "category": "Pouch"
   },
   {
     "id": "4732",
@@ -2817,7 +3098,8 @@
     "glb_file": "/models/4732.glb",
     "dimensions": "产品尺寸：L:305mm  W:508mm",
     "description": "包装贴图尺寸：L:425mm  H:508mm 常见于生活垃圾，日常用品的收纳 参考品牌/产品： 建议容量：",
-    "slug": "plastic-cleaning-pouch-4732"
+    "slug": "plastic-cleaning-pouch-4732",
+    "category": "Pouch"
   },
   {
     "id": "4733",
@@ -2827,7 +3109,8 @@
     "glb_file": "/models/4733.glb",
     "dimensions": "产品尺寸：L:200mm  W:55mm  H:135mm",
     "description": "包裝貼圖尺寸：L:86mm H:62mm 常見於生活日用、手提袋、塑膠袋、購物袋的收納 參考品牌/產品： 建議容量：200x55x135",
-    "slug": "plastic-pouch-4733"
+    "slug": "plastic-pouch-4733",
+    "category": "Pouch"
   },
   {
     "id": "4735",
@@ -2837,7 +3120,8 @@
     "glb_file": "/models/4735.glb",
     "dimensions": "产品尺寸：L:292mm  W:559mm",
     "description": "包裝貼圖尺寸：L:432mm H:559mm 常見於生活垃圾，日常用品的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-cleaning-pouch-4735"
+    "slug": "plastic-cleaning-pouch-4735",
+    "category": "Pouch"
   },
   {
     "id": "477",
@@ -2847,7 +3131,8 @@
     "glb_file": "/models/477.glb",
     "dimensions": "产品尺寸：L:52mm  D:37mm  H:135mm",
     "description": "包装贴图尺寸：L:22mm  H:62mm 常见于护手霜的收纳 参考品牌/产品：护手霜 建议容量：45g ",
-    "slug": "plastic-cosmetic-cosmetic-477"
+    "slug": "plastic-cosmetic-cosmetic-477",
+    "category": "Pouch"
   },
   {
     "id": "4772",
@@ -2857,7 +3142,8 @@
     "glb_file": "/models/4772.glb",
     "dimensions": "产品尺寸：L:260mm  W:90mm  H:330mm",
     "description": "包裝貼圖尺寸：L:260mm W:90mm H:330mm 常見於狗糧，貓糧，寵物食品的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-pouch-4772"
+    "slug": "plastic-pouch-4772",
+    "category": "Pouch"
   },
   {
     "id": "4777",
@@ -2867,7 +3153,8 @@
     "glb_file": "/models/4777.glb",
     "dimensions": "产品尺寸：L:90mm  W:55mm  H:180mm",
     "description": "包装贴图尺寸：L:90mm  W:55mm  H:180mm 常见于礼品，服装，食品的收纳 参考品牌/产品： 建议容量：",
-    "slug": "pouch-4777"
+    "slug": "pouch-4777",
+    "category": "Pouch"
   },
   {
     "id": "4780",
@@ -2877,7 +3164,8 @@
     "glb_file": "/models/4780.glb",
     "dimensions": "产品尺寸：L:200mm  W:110mm  H:320mm",
     "description": "包裝貼圖尺寸：L:200mm W:110mm H:320mm 常見於禮品，服裝，食品的收納 參考品牌/產品： 建議容量：",
-    "slug": "pouch-4780"
+    "slug": "pouch-4780",
+    "category": "Pouch"
   },
   {
     "id": "4812",
@@ -2887,7 +3175,8 @@
     "glb_file": "/models/4812.glb",
     "dimensions": "产品尺寸：L:125mm  W:80mm  H:200mm  ",
     "description": "包裝貼圖尺寸：L:125mm W:80mm H:200mm 常見於咖啡豆、咖啡、茶葉的收納 參考品牌/產品： 建議容量：310g",
-    "slug": "plastic-zipper-coffee-beverage-pouch-4812"
+    "slug": "plastic-zipper-coffee-beverage-pouch-4812",
+    "category": "Pouch"
   },
   {
     "id": "4817",
@@ -2897,7 +3186,8 @@
     "glb_file": "/models/4817.glb",
     "dimensions": "产品尺寸：L:140mm  W:95mm  H:345mm  ",
     "description": "包装贴图尺寸：L:140mm  W:95mm  H:345mm 常见于咖啡豆、咖啡、茶叶的收纳 参考品牌/产品： 建议容量：1kg",
-    "slug": "plastic-zipper-coffee-beverage-pouch-4817"
+    "slug": "plastic-zipper-coffee-beverage-pouch-4817",
+    "category": "Pouch"
   },
   {
     "id": "483",
@@ -2907,7 +3197,8 @@
     "glb_file": "/models/483.glb",
     "dimensions": "产品尺寸：L:450mmW:150mmH:750mm",
     "description": "包裝貼圖尺寸：L:450mmH:750mm 常見於化學肥料的收納 參考品牌/產品：化肥 建議容量：10kg~30kg",
-    "slug": "three-side-seal-plastic-pouch-483"
+    "slug": "three-side-seal-plastic-pouch-483",
+    "category": "Pouch"
   },
   {
     "id": "4859",
@@ -2917,7 +3208,8 @@
     "glb_file": "/models/4859.glb",
     "dimensions": "产品尺寸：L:113mm  W:73mm  H:218mm ",
     "description": "包装贴图尺寸：L:113mm  W:73mm  H:218mm 常见于化肥、米袋、面袋、猫砂的收纳 参考品牌/产品： 建议容量：500g",
-    "slug": "plastic-pouch-4859"
+    "slug": "plastic-pouch-4859",
+    "category": "Pouch"
   },
   {
     "id": "4869",
@@ -2927,7 +3219,8 @@
     "glb_file": "/models/4869.glb",
     "dimensions": "产品尺寸：L:125mm  W:80mm  H:200mm  ",
     "description": "包装贴图尺寸：L:125mm  W:80mm  H:200mm 常见于咖啡豆、咖啡、茶叶的收纳 参考品牌/产品： 建议容量：310g",
-    "slug": "plastic-zipper-coffee-pouch-4869"
+    "slug": "plastic-zipper-coffee-pouch-4869",
+    "category": "Pouch"
   },
   {
     "id": "4902",
@@ -2937,7 +3230,8 @@
     "glb_file": "/models/4902.glb",
     "dimensions": "产品尺寸：L:60mm  W:10mm  H:160mm",
     "description": "包裝貼圖尺寸：L:60mm H:160mm 常見於飲料沖調、沖水、咖啡、可可粉的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-beverage-pouch-4902"
+    "slug": "plastic-food-beverage-pouch-4902",
+    "category": "Pouch"
   },
   {
     "id": "492",
@@ -2947,7 +3241,8 @@
     "glb_file": "/models/492.glb",
     "dimensions": "产品尺寸：L:260mm  W:33mm  H:310mm",
     "description": "包裝貼圖尺寸：L:260mm H:310mm 常見於衣物，鞋子，日用品的收納 參考品牌/產品：日用品購物袋 建議容量：",
-    "slug": "handle-pouch-492"
+    "slug": "handle-pouch-492",
+    "category": "Pouch"
   },
   {
     "id": "493",
@@ -2957,7 +3252,8 @@
     "glb_file": "/models/493.glb",
     "dimensions": "产品尺寸：L:350mm  W:220mm  H:430mm",
     "description": "包裝貼圖尺寸：L:350mm H:430mm 常見於大米，高粱，大豆，小米的收納 參考品牌/產品：大米 建議容量：5kg",
-    "slug": "food-beverage-pouch-493"
+    "slug": "food-beverage-pouch-493",
+    "category": "Pouch"
   },
   {
     "id": "4955",
@@ -2967,7 +3263,8 @@
     "glb_file": "/models/4955.glb",
     "dimensions": "产品尺寸：L:200mm  W:40mm  H:270mm",
     "description": "包裝貼圖尺寸：L:200mm H:270mm 常見於食品調味、休閒點心、醬料、貓條的收納 參考品牌/產品： 建議容量：",
-    "slug": "stand-up-pouch-plastic-food-4955"
+    "slug": "stand-up-pouch-plastic-food-4955",
+    "category": "Pouch"
   },
   {
     "id": "4961",
@@ -2977,7 +3274,8 @@
     "glb_file": "/models/4961.glb",
     "dimensions": "产品尺寸：L:90mm  W:60mm  H:245mm",
     "description": "包裝貼圖尺寸：L:90mm W:60mm H:245mm 常見於休閒食品、乾果炒貨、貓糧、咖啡茶葉沖水的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-pouch-4961"
+    "slug": "plastic-food-pouch-4961",
+    "category": "Pouch"
   },
   {
     "id": "5001",
@@ -2987,7 +3285,8 @@
     "glb_file": "/models/5001.glb",
     "dimensions": "产品尺寸：L:25mm  W:7mm  H:110mm",
     "description": "包裝貼圖尺寸：L:64mm H:110mm 常見於生活用品、休閒零食、調味沖劑、咖啡的收納 參考品牌/產品： 建議容量：22g",
-    "slug": "plastic-food-beverage-pouch-5001"
+    "slug": "plastic-food-beverage-pouch-5001",
+    "category": "Pouch"
   },
   {
     "id": "5033",
@@ -2997,7 +3296,8 @@
     "glb_file": "/models/5033.glb",
     "dimensions": "产品尺寸：L:60mm  W:25mm  H:160mm",
     "description": "包裝貼圖尺寸：L:60mm W:25mm H:160mm 常見於食品飲料、休閒點心、餅乾、冰淇淋的收納 參考品牌/產品： 建議容量：38g",
-    "slug": "plastic-food-beverage-pouch-5033"
+    "slug": "plastic-food-beverage-pouch-5033",
+    "category": "Pouch"
   },
   {
     "id": "5034",
@@ -3007,7 +3307,8 @@
     "glb_file": "/models/5034.glb",
     "dimensions": "产品尺寸：L:200mm  W:40mm  H:270mm",
     "description": "包裝貼圖尺寸：L:200mm W:100mm H:270mm 常見於食品調味、休閒點心、醬料、貓條的收納 參考品牌/產品： 建議容量：",
-    "slug": "stand-up-pouch-plastic-food-5034"
+    "slug": "stand-up-pouch-plastic-food-5034",
+    "category": "Pouch"
   },
   {
     "id": "5048",
@@ -3017,7 +3318,8 @@
     "glb_file": "/models/5048.glb",
     "dimensions": "产品尺寸：L:56mm  W:57mm  H:110mm",
     "description": "包裝貼圖尺寸：L:56mm W:57mm H:110mm 常見於生活日用、美妝、化妝品、保養品的收納 參考品牌/產品： 建議容量：",
-    "slug": "cosmetic-cosmetic-cosmetic-box-5048"
+    "slug": "cosmetic-cosmetic-cosmetic-box-5048",
+    "category": "Pouch"
   },
   {
     "id": "5073",
@@ -3027,7 +3329,8 @@
     "glb_file": "/models/5073.glb",
     "dimensions": "产品尺寸：L:508mm    H:737mm",
     "description": "包裝貼圖尺寸：L:300mm H:400mm L:100mm H:90mm 常見於服飾、T卹、衣物、衣服的收納 參考品牌/產品： 建議容量：",
-    "slug": "packaging-5073"
+    "slug": "packaging-5073",
+    "category": "Pouch"
   },
   {
     "id": "5074",
@@ -3037,7 +3340,8 @@
     "glb_file": "/models/5074.glb",
     "dimensions": "产品尺寸：L:508mm    H:737mm",
     "description": "包裝貼圖尺寸：L:300mm H:400mm L:100mm H:90mm 常見於服飾、T卹、衣物、衣服的收納 參考品牌/產品： 建議容量：",
-    "slug": "packaging-5074"
+    "slug": "packaging-5074",
+    "category": "Pouch"
   },
   {
     "id": "5075",
@@ -3047,7 +3351,8 @@
     "glb_file": "/models/5075.glb",
     "dimensions": "产品尺寸：L:508mm    H:737mm",
     "description": "包裝貼圖尺寸：L:300mm H:400mm L:100mm H:90mm 常見於服飾、T卹、衣物、衣服的收納 參考品牌/產品： 建議容量：",
-    "slug": "packaging-5075"
+    "slug": "packaging-5075",
+    "category": "Pouch"
   },
   {
     "id": "5076",
@@ -3057,7 +3362,8 @@
     "glb_file": "/models/5076.glb",
     "dimensions": "产品尺寸：L:508mm    H:737mm",
     "description": "包裝貼圖尺寸：L:300mm H:400mm L:100mm H:90mm 常見於服飾、T卹、衣物、衣服的收納 參考品牌/產品： 建議容量：",
-    "slug": "packaging-5076"
+    "slug": "packaging-5076",
+    "category": "Pouch"
   },
   {
     "id": "5080",
@@ -3067,7 +3373,8 @@
     "glb_file": "/models/5080.glb",
     "dimensions": "产品尺寸：L:550mm    H:730mm",
     "description": "包裝貼圖尺寸：L:300mm H:400mm L:100mm H:90mm 常見於服飾、T卹、衣物、衣服的收納 參考品牌/產品： 建議容量：",
-    "slug": "packaging-5080"
+    "slug": "packaging-5080",
+    "category": "Pouch"
   },
   {
     "id": "5081",
@@ -3077,7 +3384,8 @@
     "glb_file": "/models/5081.glb",
     "dimensions": "产品尺寸：L:560mm    H:756mm",
     "description": "包裝貼圖尺寸：L:300mm H:400mm 常見於服飾、T卹、衣物、衣服的收納 參考品牌/產品： 建議容量：",
-    "slug": "packaging-5081"
+    "slug": "packaging-5081",
+    "category": "Pouch"
   },
   {
     "id": "5089",
@@ -3087,7 +3395,8 @@
     "glb_file": "/models/5089.glb",
     "dimensions": "产品尺寸：L:115mm  W:110mm  H:372mm",
     "description": "包裝貼圖尺寸：L:115mm W:110mm H:315mm 常見於食品，日用品，外帶的收納 參考品牌/產品：外帶袋 建議容量：",
-    "slug": "pouch-5089"
+    "slug": "pouch-5089",
+    "category": "Pouch"
   },
   {
     "id": "5091",
@@ -3097,7 +3406,8 @@
     "glb_file": "/models/5091.glb",
     "dimensions": "产品尺寸：L:43mm  W:33mm  H:120mm",
     "description": "包裝貼圖尺寸：L:43mm W:33mm H:120mm 常見於休閒點心、吸食果凍、點心的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-food-beverage-5091"
+    "slug": "plastic-food-food-beverage-5091",
+    "category": "Pouch"
   },
   {
     "id": "5095",
@@ -3107,7 +3417,8 @@
     "glb_file": "/models/5095.glb",
     "dimensions": "产品尺寸：L:60mm  W:30mm  H:135mm",
     "description": "包裝貼圖尺寸：L:60mm W:30mm H:135mm 常見於食品、點心、果凍、吸食類食品的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-food-beverage-pouch-5095"
+    "slug": "plastic-food-food-beverage-pouch-5095",
+    "category": "Pouch"
   },
   {
     "id": "5111",
@@ -3117,7 +3428,8 @@
     "glb_file": "/models/5111.glb",
     "dimensions": "产品尺寸：H:161mm  D:38mm",
     "description": "包裝貼圖尺寸：L:50mm H:128mm 常見於眼霜、化妝品、美妝的收納 參考品牌/產品： 建議容量：",
-    "slug": "cosmetic-cosmetic-cosmetic-tube-5111"
+    "slug": "cosmetic-cosmetic-cosmetic-tube-5111",
+    "category": "Pouch"
   },
   {
     "id": "5113",
@@ -3127,7 +3439,8 @@
     "glb_file": "/models/5113.glb",
     "dimensions": "产品尺寸：L:60mm  W:32mm  H:150mm",
     "description": "包裝貼圖尺寸：L:60mm W:32mm H:150mm 常見於食品、點心、果凍、吸食類食品的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-food-beverage-pouch-5113"
+    "slug": "plastic-food-food-beverage-pouch-5113",
+    "category": "Pouch"
   },
   {
     "id": "5114",
@@ -3137,7 +3450,8 @@
     "glb_file": "/models/5114.glb",
     "dimensions": "产品尺寸：H:150mm  D:54.5mm",
     "description": "包裝貼圖尺寸：L:109mm H:121mm 常見於牙膏、化妝品、美妝的收納 參考品牌/產品： 建議容量：",
-    "slug": "cleaning-tube-5114"
+    "slug": "cleaning-tube-5114",
+    "category": "Pouch"
   },
   {
     "id": "5119",
@@ -3147,7 +3461,8 @@
     "glb_file": "/models/5119.glb",
     "dimensions": "产品尺寸：L:310mm  W:10mm  H:160mm",
     "description": "包裝貼圖尺寸：L:310mm W:10mm H:160mm 常見於生活日用、冷凍食品、調味品的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-pouch-5119"
+    "slug": "plastic-food-pouch-5119",
+    "category": "Pouch"
   },
   {
     "id": "522",
@@ -3157,7 +3472,8 @@
     "glb_file": "/models/522.glb",
     "dimensions": "产品尺寸：L:25mm  H:250mm",
     "description": "包裝貼圖尺寸：L:25mm H:250mm 常見於棒冰，雪糕的收納 參考品牌/產品：旺旺碎冰冰 建議容量：78g",
-    "slug": "plastic-food-beverage-pouch-522"
+    "slug": "plastic-food-beverage-pouch-522",
+    "category": "Pouch"
   },
   {
     "id": "524",
@@ -3167,7 +3483,8 @@
     "glb_file": "/models/524.glb",
     "dimensions": "产品尺寸：L:130mm  W:100mm  H:285mm",
     "description": "包裝貼圖尺寸：L:130mm H:100mm 常見於麵包的收納 參考品牌/產品：麵包 建議容量：8片",
-    "slug": "plastic-food-beverage-pouch-524"
+    "slug": "plastic-food-beverage-pouch-524",
+    "category": "Pouch"
   },
   {
     "id": "5248",
@@ -3177,7 +3494,8 @@
     "glb_file": "/models/5248.glb",
     "dimensions": "产品尺寸：L:560mm   H:756mm",
     "description": "包裝貼圖尺寸：L:mm H:mm 常見於服飾、T卹、衣物、衣服的收納 參考品牌/產品： 建議容量：",
-    "slug": "packaging-5248"
+    "slug": "packaging-5248",
+    "category": "Pouch"
   },
   {
     "id": "5249",
@@ -3187,7 +3505,8 @@
     "glb_file": "/models/5249.glb",
     "dimensions": ".",
     "description": "。",
-    "slug": "packaging-5249"
+    "slug": "packaging-5249",
+    "category": "Pouch"
   },
   {
     "id": "5296",
@@ -3197,7 +3516,8 @@
     "glb_file": "/models/5296.glb",
     "dimensions": "产品尺寸：D:50mm  H:280mm",
     "description": "包裝貼圖尺寸：L:153mm H:280mm 常見於密封膠、鋁膜、火腿腸的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-pouch-5296"
+    "slug": "plastic-pouch-5296",
+    "category": "Pouch"
   },
   {
     "id": "5303",
@@ -3207,7 +3527,8 @@
     "glb_file": "/models/5303.glb",
     "dimensions": "产品尺寸：L:200mm  H:280mm",
     "description": "包裝貼圖尺寸：L:200mm H:280mm 常見於面膜,腳膜，手膜，眼膜,頸膜的收納 參考品牌/產品： 建議容量：30ml",
-    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-5303"
+    "slug": "three-side-seal-plastic-cosmetic-cosmetic-pouch-5303",
+    "category": "Pouch"
   },
   {
     "id": "5304",
@@ -3217,7 +3538,8 @@
     "glb_file": "/models/5304.glb",
     "dimensions": "产品尺寸：L:115mm  H:175mm",
     "description": "包裝貼圖尺寸：L:115mm H:175mm 常見於面膜,腳膜，手膜，眼膜,頸膜的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-zipper-stand-up-tea-food-beverage-pouch-5304"
+    "slug": "plastic-zipper-stand-up-tea-food-beverage-pouch-5304",
+    "category": "Pouch"
   },
   {
     "id": "531",
@@ -3227,7 +3549,8 @@
     "glb_file": "/models/531.glb",
     "dimensions": "产品尺寸：L:205mm  w:113mm  H:270mm",
     "description": "包裝貼圖尺寸：L:636mm H:270mm 常見於外賣，食品的收納 參考品牌/產品：外帶 建議容量：",
-    "slug": "handle-pouch-531"
+    "slug": "handle-pouch-531",
+    "category": "Pouch"
   },
   {
     "id": "534",
@@ -3237,7 +3560,8 @@
     "glb_file": "/models/534.glb",
     "dimensions": "产品尺寸：L:75mmH:155mm",
     "description": "包裝貼圖尺寸：L:75mmH:155mm 常見於冰棒雪糕，冰淇淋的收納 參考品牌/產品：禦冰坊綠豆冰淇淋 建議容量：75g",
-    "slug": "plastic-food-beverage-pouch-534"
+    "slug": "plastic-food-beverage-pouch-534",
+    "category": "Pouch"
   },
   {
     "id": "535",
@@ -3247,7 +3571,8 @@
     "glb_file": "/models/535.glb",
     "dimensions": "产品尺寸：L:60mm  W:30mm   H:180mm",
     "description": "包裝貼圖尺寸：L:60mm H:180mm 常見於雪糕，冰淇淋的收納 參考品牌/產品：雪糕 建議容量：75g",
-    "slug": "plastic-food-beverage-pouch-535"
+    "slug": "plastic-food-beverage-pouch-535",
+    "category": "Pouch"
   },
   {
     "id": "5367",
@@ -3257,7 +3582,8 @@
     "glb_file": "/models/5367.glb",
     "dimensions": "产品尺寸：D:9mm  H:90mm",
     "description": "包裝貼圖尺寸：L:8mm H:35mm 常見於美妝、保養品、精華液、乳液的收納 參考品牌/產品： 建議容量：",
-    "slug": "serum-bottle-5367"
+    "slug": "serum-bottle-5367",
+    "category": "Pouch"
   },
   {
     "id": "537",
@@ -3267,7 +3593,8 @@
     "glb_file": "/models/537.glb",
     "dimensions": "产品尺寸：L:110mm  H:170mm",
     "description": "包裝貼圖尺寸：L:110mm H:170mm 常見於雪糕，餅乾的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-food-pouch-537"
+    "slug": "plastic-food-pouch-537",
+    "category": "Pouch"
   },
   {
     "id": "5421",
@@ -3277,7 +3604,8 @@
     "glb_file": "/models/5421.glb",
     "dimensions": "产品尺寸：D:45mm  H:110mm",
     "description": "包裝貼圖尺寸：L:90mm W:84mm H:26mm 常見於美妝、保養品、精華的收納 參考品牌/產品： 建議容量：",
-    "slug": "cosmetic-cosmetic-cosmetic-5421"
+    "slug": "cosmetic-cosmetic-cosmetic-5421",
+    "category": "Pouch"
   },
   {
     "id": "545",
@@ -3287,7 +3615,8 @@
     "glb_file": "/models/545.glb",
     "dimensions": "产品尺寸：L:45mm  H:120mm",
     "description": "包裝貼圖尺寸：L:45mm H:120mm 常見於糖果，巧克力的收納 參考品牌/產品：士力架 建議容量：35g",
-    "slug": "plastic-food-pouch-545"
+    "slug": "plastic-food-pouch-545",
+    "category": "Pouch"
   },
   {
     "id": "546",
@@ -3297,7 +3626,8 @@
     "glb_file": "/models/546.glb",
     "dimensions": "产品尺寸：L:70mm  H:140mm",
     "description": "包裝貼圖尺寸：L:120mm H:70mm 常見於果凍的收納 參考品牌/產品：喜之郎吸吸果凍 建議容量：57g",
-    "slug": "plastic-food-food-pouch-546"
+    "slug": "plastic-food-food-pouch-546",
+    "category": "Pouch"
   },
   {
     "id": "5487",
@@ -3307,7 +3637,8 @@
     "glb_file": "/models/5487.glb",
     "dimensions": "产品尺寸：L:mm  W:mm  H:mm",
     "description": "包裝貼圖尺寸：L:400mm H:800mm 常見於精華液、化妝品、保養品的收納 參考品牌/產品： 建議容量：",
-    "slug": "shopping-bag-5487"
+    "slug": "shopping-bag-5487",
+    "category": "Pouch"
   },
   {
     "id": "5489",
@@ -3317,7 +3648,8 @@
     "glb_file": "/models/5489.glb",
     "dimensions": "产品尺寸：L:130mm  H:235mm",
     "description": "包裝貼圖尺寸：L:130mm H:235mm 常見於寵物用品、貓糧、狗糧的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-pouch-5489"
+    "slug": "plastic-pouch-5489",
+    "category": "Pouch"
   },
   {
     "id": "552",
@@ -3327,7 +3659,8 @@
     "glb_file": "/models/552.glb",
     "dimensions": "产品尺寸：L:67mm  H:128mm",
     "description": "包裝貼圖尺寸：L:67mm H:128mm 常見於洋芋片，餅乾的收納 參考品牌/產品：董小姐洋芋片 建議容量：28g",
-    "slug": "plastic-food-beverage-pouch-552"
+    "slug": "plastic-food-beverage-pouch-552",
+    "category": "Pouch"
   },
   {
     "id": "5534",
@@ -3337,7 +3670,8 @@
     "glb_file": "/models/5534.glb",
     "dimensions": "产品尺寸：L:180mm  W:50mm  H:190mm",
     "description": "包裝貼圖尺寸：L:180mm W:50mm H:190mm 常見於茶葉、點心、乾果的收納 參考品牌/產品： 建議容量：",
-    "slug": "plastic-zipper-stand-up-tea-food-beverage-pouch-5534"
+    "slug": "plastic-zipper-stand-up-tea-food-beverage-pouch-5534",
+    "category": "Pouch"
   },
   {
     "id": "555",
@@ -3347,7 +3681,8 @@
     "glb_file": "/models/555.glb",
     "dimensions": "产品尺寸：H:125mm  D:30mm",
     "description": "包裝貼圖尺寸：L:128mm H:94mm 常見於糖果的收納 參考品牌/產品：大白兔奶糖 建議容量：3.6g",
-    "slug": "plastic-food-beverage-pouch-555"
+    "slug": "plastic-food-beverage-pouch-555",
+    "category": "Pouch"
   },
   {
     "id": "568",
@@ -3357,7 +3692,8 @@
     "glb_file": "/models/568.glb",
     "dimensions": "产品尺寸：L:60mm   H:75mm",
     "description": "包裝貼圖尺寸：L:60mm H:75mm 常見於紅茶，茶葉，的收納 參考品牌/產品：Twinings川寧英國茶葉 建議容量：2g",
-    "slug": "plastic-tea-food-beverage-pouch-568"
+    "slug": "plastic-tea-food-beverage-pouch-568",
+    "category": "Pouch"
   },
   {
     "id": "571",
@@ -3367,7 +3703,8 @@
     "glb_file": "/models/571.glb",
     "dimensions": "产品尺寸：H:165mmD:28mm",
     "description": "包裝貼圖尺寸：L:52mmH:140mm 常見於護手霜，洗面乳的收納 參考品牌/產品：德國洋小甘菊雛菊護手霜 建議容量：75ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-571"
+    "slug": "plastic-cosmetic-cosmetic-tube-571",
+    "category": "Pouch"
   },
   {
     "id": "575",
@@ -3377,7 +3714,8 @@
     "glb_file": "/models/575.glb",
     "dimensions": "产品尺寸：H:110mmD:40mm",
     "description": "包裝貼圖尺寸：L:85mmH:122mm 常見於護手霜，手膜的收納 參考品牌/產品：護手霜 建議容量：20g~35g",
-    "slug": "plastic-cosmetic-cosmetic-tube-575"
+    "slug": "plastic-cosmetic-cosmetic-tube-575",
+    "category": "Pouch"
   },
   {
     "id": "5770",
@@ -3387,7 +3725,8 @@
     "glb_file": "/models/5770.glb",
     "dimensions": "产品尺寸：L:mm  H:mm",
     "description": "包裝貼圖尺寸：L:mm H:mm 常見於濕紙巾、消毒紙巾、生活日用、居家清潔的收納 參考品牌/產品： 建議容量：",
-    "slug": "cleaning-5770"
+    "slug": "cleaning-5770",
+    "category": "Pouch"
   },
   {
     "id": "580",
@@ -3397,7 +3736,8 @@
     "glb_file": "/models/580.glb",
     "dimensions": "产品尺寸：L:155mm  H:155mm",
     "description": "包裝貼圖尺寸：L:155mm H:155mm 常見於面膜、美妝、化妝品的收納 參考品牌/產品：面膜 建議容量：",
-    "slug": "three-side-seal-plastic-cosmetic-pouch-580"
+    "slug": "three-side-seal-plastic-cosmetic-pouch-580",
+    "category": "Pouch"
   },
   {
     "id": "5806",
@@ -3407,7 +3747,8 @@
     "glb_file": "/models/5806.glb",
     "dimensions": "产品尺寸：L:210mm W:110mm H:260mm",
     "description": "包裝貼圖尺寸：L:210mm W:110mm H:260mm 常見於外帶包裝 參考品牌/產品：外包包裝袋 建議容量：",
-    "slug": "handle-pouch-5806"
+    "slug": "handle-pouch-5806",
+    "category": "Pouch"
   },
   {
     "id": "581",
@@ -3417,7 +3758,8 @@
     "glb_file": "/models/581.glb",
     "dimensions": "产品尺寸：L:62mm   H:203mm",
     "description": "包裝貼圖尺寸：L:124mm H:203mm 常見於牛肉乾，豬肉脯的收納 參考品牌/產品：母親牌牛肉乾 建議容量：22g",
-    "slug": "plastic-food-pouch-581"
+    "slug": "plastic-food-pouch-581",
+    "category": "Pouch"
   },
   {
     "id": "5810",
@@ -3427,7 +3769,8 @@
     "glb_file": "/models/5810.glb",
     "dimensions": "产品尺寸：L:410mm W:120mm H:290mm",
     "description": "包裝貼圖尺寸：L:410mm W:120mm H:290mm 常見於編織包裝袋 參考品牌/產品：編織袋包裝袋 建議容量：",
-    "slug": "handle-pouch-5810"
+    "slug": "handle-pouch-5810",
+    "category": "Pouch"
   },
   {
     "id": "5821",
@@ -3437,7 +3780,8 @@
     "glb_file": "/models/5821.glb",
     "dimensions": "产品尺寸：L:560mm W:140mm H:390mm",
     "description": "包裝貼圖尺寸：L:560mm W:140mm H:390mm 常見於編織包裝袋 參考品牌/產品：編織袋包裝袋 建議容量：",
-    "slug": "handle-pouch-5821"
+    "slug": "handle-pouch-5821",
+    "category": "Pouch"
   },
   {
     "id": "5826",
@@ -3447,7 +3791,8 @@
     "glb_file": "/models/5826.glb",
     "dimensions": "产品尺寸：L:240mm W:150mm H:240mm",
     "description": "包裝貼圖尺寸：L:240mm W:150mm H:240mm 常見於外帶包裝 參考品牌/產品：外包包裝袋 建議容量：",
-    "slug": "handle-pouch-5826"
+    "slug": "handle-pouch-5826",
+    "category": "Pouch"
   },
   {
     "id": "5827",
@@ -3457,7 +3802,8 @@
     "glb_file": "/models/5827.glb",
     "dimensions": "产品尺寸：L:260mm W:170mm H:260mm",
     "description": "包裝貼圖尺寸：L:260mm W:170mm H:260mm 常見於外帶包裝 參考品牌/產品：外包包裝袋 建議容量：",
-    "slug": "handle-pouch-5827"
+    "slug": "handle-pouch-5827",
+    "category": "Pouch"
   },
   {
     "id": "5828",
@@ -3467,7 +3813,8 @@
     "glb_file": "/models/5828.glb",
     "dimensions": "产品尺寸：L:120mm W:100mm H:280mm",
     "description": "包裝貼圖尺寸：L:120mm W:100mm H:280mm 常見於外帶包裝 參考品牌/產品：外包包裝袋 建議容量：",
-    "slug": "handle-pouch-5828"
+    "slug": "handle-pouch-5828",
+    "category": "Pouch"
   },
   {
     "id": "5829",
@@ -3477,7 +3824,8 @@
     "glb_file": "/models/5829.glb",
     "dimensions": "产品尺寸：L:300mm W:200mm H:300mm",
     "description": "包裝貼圖尺寸：L:300mm W:200mm H:300mm 常見於外帶包裝 參考品牌/產品：外包包裝袋 建議容量：",
-    "slug": "handle-pouch-5829"
+    "slug": "handle-pouch-5829",
+    "category": "Pouch"
   },
   {
     "id": "5830",
@@ -3487,7 +3835,8 @@
     "glb_file": "/models/5830.glb",
     "dimensions": "产品尺寸：L:300mm W:260mm H:350mm",
     "description": "包裝貼圖尺寸：L:300mm W:260mm H:350mm 常見於外帶包裝 參考品牌/產品：外包包裝袋 建議容量：",
-    "slug": "handle-pouch-5830"
+    "slug": "handle-pouch-5830",
+    "category": "Pouch"
   },
   {
     "id": "585",
@@ -3497,7 +3846,8 @@
     "glb_file": "/models/585.glb",
     "dimensions": "产品尺寸：L:144mm  H:268mm",
     "description": "包裝貼圖尺寸：L:144mm H:268mm 常見於辣條，蒟蒻爽的收納 參考品牌/產品：衛龍大辣棒 建議容量：78g",
-    "slug": "three-side-seal-plastic-food-pouch-585"
+    "slug": "three-side-seal-plastic-food-pouch-585",
+    "category": "Pouch"
   },
   {
     "id": "586",
@@ -3507,7 +3857,8 @@
     "glb_file": "/models/586.glb",
     "dimensions": "产品尺寸：L:178mm  H:268mm",
     "description": "包裝貼圖尺寸：L:178mm H:268mm 常見於辣條，蒟蒻絲的收納 參考品牌/產品：衛龍蒟蒻絲 建議容量：150g",
-    "slug": "three-side-seal-plastic-food-food-beverage-pouch-586"
+    "slug": "three-side-seal-plastic-food-food-beverage-pouch-586",
+    "category": "Pouch"
   },
   {
     "id": "587",
@@ -3517,7 +3868,8 @@
     "glb_file": "/models/587.glb",
     "dimensions": "产品尺寸：L:153mm  H:225mm",
     "description": "包裝貼圖尺寸：L:153mm H:225mm 常見於肉乾肉脯的收納 參考品牌/產品：肉乾肉脯 建議容量：60g",
-    "slug": "plastic-food-beverage-pouch-587"
+    "slug": "plastic-food-beverage-pouch-587",
+    "category": "Pouch"
   },
   {
     "id": "5919",
@@ -3527,7 +3879,8 @@
     "glb_file": "/models/5919.glb",
     "dimensions": "产品尺寸：H:164mm  D:84mm",
     "description": "包裝貼圖尺寸：L:86mm H:106mm 常見於美頸霜的收納 參考品牌/產品：藍可芳美頸霜 建議容量：120g",
-    "slug": "plastic-cosmetic-cosmetic-tube-5919"
+    "slug": "plastic-cosmetic-cosmetic-tube-5919",
+    "category": "Pouch"
   },
   {
     "id": "593",
@@ -3537,7 +3890,8 @@
     "glb_file": "/models/593.glb",
     "dimensions": "产品尺寸：H:240mm  D:70mm",
     "description": "包裝貼圖尺寸：L:220mmH:219mm 常見於掛麵的收納 參考品牌/產品：中裕掛麵 建議容量：1kg",
-    "slug": "food-beverage-pouch-593"
+    "slug": "food-beverage-pouch-593",
+    "category": "Pouch"
   },
   {
     "id": "595",
@@ -3547,7 +3901,8 @@
     "glb_file": "/models/595.glb",
     "dimensions": "产品尺寸：L:65mm  H:145mm",
     "description": "包裝貼圖尺寸：L:65mm H:145mm 常見於糖果的收納 參考品牌/產品：M豆 建議容量：40g",
-    "slug": "plastic-food-beverage-pouch-595"
+    "slug": "plastic-food-beverage-pouch-595",
+    "category": "Pouch"
   },
   {
     "id": "596",
@@ -3557,7 +3912,8 @@
     "glb_file": "/models/596.glb",
     "dimensions": "产品尺寸：L153mm  H:229mm",
     "description": "包裝貼圖尺寸：L153mm H:229mm 常見於火鍋底料，八角，桂皮，花椒，孜然的收納 參考品牌/產品：大紅袍火鍋底料 建議容量：400g",
-    "slug": "three-side-seal-plastic-zipper-food-beverage-pouch-596"
+    "slug": "three-side-seal-plastic-zipper-food-beverage-pouch-596",
+    "category": "Pouch"
   },
   {
     "id": "5968",
@@ -3567,7 +3923,8 @@
     "glb_file": "/models/5968.glb",
     "dimensions": "产品尺寸：L:55mm  W:25mm  H:150mm",
     "description": "包裝貼圖尺寸：L:55mm W:25mm H:150mm 常見於茶葉，花茶的收納 參考品牌/產品：茶葉 建議容量：",
-    "slug": "tea-food-beverage-pouch-5968"
+    "slug": "tea-food-beverage-pouch-5968",
+    "category": "Pouch"
   },
   {
     "id": "598",
@@ -3577,7 +3934,8 @@
     "glb_file": "/models/598.glb",
     "dimensions": "产品尺寸：L:138mm  H:230mm",
     "description": "包裝貼圖尺寸：L:138mm H:230mm 常見於肉乾肉脯，牛肉乾，小魚乾，豬肉脯的收納 參考品牌/產品：母親牌牛肉乾 建議容量：60g",
-    "slug": "three-side-seal-plastic-food-beverage-pouch-598"
+    "slug": "three-side-seal-plastic-food-beverage-pouch-598",
+    "category": "Pouch"
   },
   {
     "id": "599",
@@ -3587,7 +3945,8 @@
     "glb_file": "/models/599.glb",
     "dimensions": "产品尺寸：L:120mm  W:70mm  H:280mm",
     "description": "包裝貼圖尺寸：L:120mm W:70mm H:280mm 常見於餅乾、點心、食品的收納 參考品牌/產品：好吃點香脆腰果餅餅乾 建議容量：280g",
-    "slug": "plastic-food-food-beverage-pouch-599"
+    "slug": "plastic-food-food-beverage-pouch-599",
+    "category": "Pouch"
   },
   {
     "id": "600",
@@ -3597,7 +3956,8 @@
     "glb_file": "/models/600.glb",
     "dimensions": "产品尺寸：L:254mm  H:340mm",
     "description": "包裝貼圖尺寸：L:254mm H:340mm 常見於藕粉，豆奶粉的收納 參考品牌/產品：佳惠藕粉 建議容量：432g",
-    "slug": "three-side-seal-plastic-food-beverage-pouch-600"
+    "slug": "three-side-seal-plastic-food-beverage-pouch-600",
+    "category": "Pouch"
   },
   {
     "id": "601",
@@ -3607,7 +3967,8 @@
     "glb_file": "/models/601.glb",
     "dimensions": "产品尺寸：L:170mm  H:250mm",
     "description": "包裝貼圖尺寸：L:170mm H:250mm 常見於魚乾，黃魚酥，鱘魚片，魷魚絲的收納 參考品牌/產品：華味亨大海魚塘 建議容量：50g",
-    "slug": "three-side-seal-plastic-food-beverage-pouch-601"
+    "slug": "three-side-seal-plastic-food-beverage-pouch-601",
+    "category": "Pouch"
   },
   {
     "id": "602",
@@ -3617,7 +3978,8 @@
     "glb_file": "/models/602.glb",
     "dimensions": "产品尺寸：L:205mm  H:315mm",
     "description": "包裝貼圖尺寸：L:205mm H:315mm 常見於果乾果脯，話梅‘，加應子的收納 參考品牌/產品：華味亨加應子 建議容量：320g",
-    "slug": "plastic-food-beverage-pouch-602"
+    "slug": "plastic-food-beverage-pouch-602",
+    "category": "Pouch"
   },
   {
     "id": "6041",
@@ -3627,7 +3989,8 @@
     "glb_file": "/models/6041.glb",
     "dimensions": "产品尺寸：L:210mm  W:100mm  H:80mm",
     "description": "包裝貼圖尺寸：L:210mm W:100mm H:80mm 常見於濕紙巾、酒精濕紙巾的收納 參考品牌/產品： 建議容量：",
-    "slug": "packaging-6041"
+    "slug": "packaging-6041",
+    "category": "Pouch"
   },
   {
     "id": "605",
@@ -3637,7 +4000,8 @@
     "glb_file": "/models/605.glb",
     "dimensions": "产品尺寸：L:120mm  H:200mm",
     "description": "包裝貼圖尺寸：L:120mm H:200mm 常見於奶糖，糖果，巧克力，軟糖，水果糖的收納 參考品牌/產品：悠哈奶糖 建議容量：300g",
-    "slug": "plastic-food-beverage-pouch-605"
+    "slug": "plastic-food-beverage-pouch-605",
+    "category": "Pouch"
   },
   {
     "id": "607",
@@ -3647,7 +4011,8 @@
     "glb_file": "/models/607.glb",
     "dimensions": "产品尺寸：L:195mm  H:230mm",
     "description": "包裝貼圖尺寸：L:195mm H:230mm 常見於桂花糕，包子的收納 參考品牌/產品：安井桂花糕 建議容量：300g",
-    "slug": "plastic-food-beverage-pouch-607"
+    "slug": "plastic-food-beverage-pouch-607",
+    "category": "Pouch"
   },
   {
     "id": "613",
@@ -3657,7 +4022,8 @@
     "glb_file": "/models/613.glb",
     "dimensions": "产品尺寸：L150mm  H:216mm",
     "description": "包裝貼圖尺寸：L:150mm H:216mm 常見於瓜子，堅果，核桃，花生的收納 參考品牌/產品：華味亨五香瓜子 建議容量：260g",
-    "slug": "plastic-food-beverage-613"
+    "slug": "plastic-food-beverage-613",
+    "category": "Pouch"
   },
   {
     "id": "6145",
@@ -3667,7 +4033,8 @@
     "glb_file": "/models/6145.glb",
     "dimensions": "产品尺寸：D:9mm  H:90mm",
     "description": "包裝貼圖尺寸：L:8mm H:34.5mm 常見於美妝、保養品、精華液、乳液的收納 參考品牌/產品： 建議容量：",
-    "slug": "serum-bottle-6145"
+    "slug": "serum-bottle-6145",
+    "category": "Pouch"
   },
   {
     "id": "624",
@@ -3677,7 +4044,8 @@
     "glb_file": "/models/624.glb",
     "dimensions": "产品尺寸：H:76mm  D:60mm",
     "description": "包裝貼圖尺寸：L:90mm H:97mm 常見於果凍，布丁的收納 參考品牌/產品：喜之郎果凍 建議容量：200g",
-    "slug": "plastic-food-beverage-bottle-624"
+    "slug": "plastic-food-beverage-bottle-624",
+    "category": "Pouch"
   },
   {
     "id": "630",
@@ -3687,7 +4055,8 @@
     "glb_file": "/models/630.glb",
     "dimensions": "产品尺寸：L:240mm  H:285mm",
     "description": "包裝貼圖尺寸：L:240mm H:285mm 常見於洗衣液，衣領淨，柔軟精，衣物消毒劑的收納 參考品牌/產品：超能洗衣液 建議容量：1.8kg",
-    "slug": "plastic-stand-up-cleaning-pouch-cap-630"
+    "slug": "plastic-stand-up-cleaning-pouch-cap-630",
+    "category": "Pouch"
   },
   {
     "id": "632",
@@ -3697,7 +4066,8 @@
     "glb_file": "/models/632.glb",
     "dimensions": "产品尺寸:L:140mm  H:270mm",
     "description": "包裝貼圖尺寸：L:140mm H:270mm 常見於口罩的收納 參考品牌/產品：恩惠醫療 建議容量：10片",
-    "slug": "plastic-632"
+    "slug": "plastic-632",
+    "category": "Pouch"
   },
   {
     "id": "635",
@@ -3707,7 +4077,8 @@
     "glb_file": "/models/635.glb",
     "dimensions": "产品尺寸：L:105mmH:120mm",
     "description": "包裝貼圖尺寸：L:90mmH:55mm 常見於棉籤的收納 參考品牌/產品：芳草地木棒棉籤 建議容量：120根",
-    "slug": "plastic-pouch-635"
+    "slug": "plastic-pouch-635",
+    "category": "Pouch"
   },
   {
     "id": "636",
@@ -3717,7 +4088,8 @@
     "glb_file": "/models/636.glb",
     "dimensions": "产品尺寸：L:86mm  H:155mm",
     "description": "包裝貼圖尺寸：L:86mm H:155mm 常見於濕紙巾，卸妝巾，消毒濕巾的收納 參考品牌/產品：強生濕紙巾 建議容量：10片",
-    "slug": "plastic-cleaning-pouch-636"
+    "slug": "plastic-cleaning-pouch-636",
+    "category": "Pouch"
   },
   {
     "id": "647",
@@ -3727,7 +4099,8 @@
     "glb_file": "/models/647.glb",
     "dimensions": "产品尺寸：H:170mm  D:40mm",
     "description": "包裝貼圖尺寸：L:63mm H:143mm 常見於洗面乳，護髮素，洗髮精護手霜，身體乳的收納 參考品牌/產品：資生堂洗面乳 建議容量：130ml",
-    "slug": "plastic-tube-647"
+    "slug": "plastic-tube-647",
+    "category": "Pouch"
   },
   {
     "id": "653",
@@ -3737,7 +4110,8 @@
     "glb_file": "/models/653.glb",
     "dimensions": "产品尺寸：L:275mm  H:365mm",
     "description": "包裝貼圖尺寸：L:275mm H:365mm 常見於米，麵粉的收納 參考品牌/產品：優颯麵粉 建議容量：2.5kg",
-    "slug": "three-side-seal-plastic-food-pouch-653"
+    "slug": "three-side-seal-plastic-food-pouch-653",
+    "category": "Pouch"
   },
   {
     "id": "665",
@@ -3747,7 +4121,8 @@
     "glb_file": "/models/665.glb",
     "dimensions": "产品尺寸：L:55mm  H:125mm",
     "description": "包裝貼圖尺寸：L:55mm H:125mm 常見於蒟蒻爽，小魚乾，辣條，風味海帶，牛板筋，魚豆腐的收納 參考品牌/產品：衛龍魔芋爽 建議容量：15g",
-    "slug": "three-side-seal-plastic-food-food-beverage-pouch-665"
+    "slug": "three-side-seal-plastic-food-food-beverage-pouch-665",
+    "category": "Pouch"
   },
   {
     "id": "671",
@@ -3757,7 +4132,8 @@
     "glb_file": "/models/671.glb",
     "dimensions": "产品尺寸：L:65mmH:105mm",
     "description": "包裝貼圖尺寸：L:65mmH:105mm 常見於糖果，跳跳糖。 軟糖，硬糖的收納 參考品牌/產品：百達勁跳糖 建議容量：5g",
-    "slug": "three-side-seal-plastic-food-beverage-pouch-671"
+    "slug": "three-side-seal-plastic-food-beverage-pouch-671",
+    "category": "Pouch"
   },
   {
     "id": "672",
@@ -3767,7 +4143,8 @@
     "glb_file": "/models/672.glb",
     "dimensions": "产品尺寸：L:113mm  H:220mm",
     "description": "包裝貼圖尺寸：L:113mm H:220mm 常見於口罩的收納 參考品牌/產品：可孚醫用口罩 建議容量：10片",
-    "slug": "plastic-pharma-pouch-672"
+    "slug": "plastic-pharma-pouch-672",
+    "category": "Pouch"
   },
   {
     "id": "673",
@@ -3777,7 +4154,8 @@
     "glb_file": "/models/673.glb",
     "dimensions": "产品尺寸：L:147mm  H:247mm",
     "description": "包裝貼圖尺寸：L:147mm H:247mm 常見於口罩，醫療用品，紗布的收納 參考品牌/產品：振德醫療醫用口罩 建議容量：10片",
-    "slug": "three-side-seal-plastic-pharma-pouch-673"
+    "slug": "three-side-seal-plastic-pharma-pouch-673",
+    "category": "Pouch"
   },
   {
     "id": "674",
@@ -3787,7 +4165,8 @@
     "glb_file": "/models/674.glb",
     "dimensions": "产品尺寸：L:70mm  H:110mm",
     "description": "包裝貼圖尺寸：L:70mm H:110mm 常見於濕紙巾，消毒濕紙巾的收納 參考品牌/產品：紙巾，濕紙巾 建議容量：10片",
-    "slug": "plastic-cleaning-pouch-674"
+    "slug": "plastic-cleaning-pouch-674",
+    "category": "Pouch"
   },
   {
     "id": "677",
@@ -3797,7 +4176,8 @@
     "glb_file": "/models/677.glb",
     "dimensions": "产品尺寸：L:80mm  H:100mm",
     "description": "包裝貼圖尺寸：L:80mm H:100mm 常見於醫用膠帶的收納 參考品牌/產品：3M醫用膠帶 建議容量：1卷",
-    "slug": "three-side-seal-plastic-pharma-677"
+    "slug": "three-side-seal-plastic-pharma-677",
+    "category": "Pouch"
   },
   {
     "id": "680",
@@ -3807,7 +4187,8 @@
     "glb_file": "/models/680.glb",
     "dimensions": "产品尺寸：L:190mm  W:90mm  H:365mm",
     "description": "包裝貼圖尺寸：L:190mm W:90mm H:365mm 常見於狗糧，貓糧，寵物食品的收納 參考品牌/產品：頑皮狗糧 建議容量：1.5kg",
-    "slug": "plastic-pouch-680"
+    "slug": "plastic-pouch-680",
+    "category": "Pouch"
   },
   {
     "id": "681",
@@ -3817,7 +4198,8 @@
     "glb_file": "/models/681.glb",
     "dimensions": "产品尺寸：L:45mm  W:28mm  H:185mm",
     "description": "包裝貼圖尺寸：L:140mm H:150mm 常見於洗面乳的收納 參考品牌/產品：洗面乳 建議容量：80g",
-    "slug": "plastic-tube-681"
+    "slug": "plastic-tube-681",
+    "category": "Pouch"
   },
   {
     "id": "687",
@@ -3827,7 +4209,8 @@
     "glb_file": "/models/687.glb",
     "dimensions": "产品尺寸：L:130mm  W:60mm  H:235mm",
     "description": "包裝貼圖尺寸：L:130mm W:60mm H:235mm 常見於瓜子，花生，腰果，澳洲堅果的收納 參考品牌/產品：百草味夏威夷果 建議容量：175g",
-    "slug": "plastic-zipper-food-beverage-pouch-687"
+    "slug": "plastic-zipper-food-beverage-pouch-687",
+    "category": "Pouch"
   },
   {
     "id": "703",
@@ -3837,7 +4220,8 @@
     "glb_file": "/models/703.glb",
     "dimensions": "产品尺寸：L:173mm  H:210mm",
     "description": "包裝貼圖尺寸：L:173mm H:210mm 常見於酸辣粉，泡麵的收納 參考品牌/產品：酸辣粉 建議容量：300g",
-    "slug": "plastic-food-beverage-pouch-703"
+    "slug": "plastic-food-beverage-pouch-703",
+    "category": "Pouch"
   },
   {
     "id": "704",
@@ -3847,7 +4231,8 @@
     "glb_file": "/models/704.glb",
     "dimensions": "产品尺寸：L:370mm  H:290mm",
     "description": "包裝貼圖尺寸：L:370mm H:290mm 常見於糖果巧克力的收納 參考品牌/產品：徐福記大禮包 建議容量：1.5kg",
-    "slug": "plastic-stand-up-food-beverage-pouch-704"
+    "slug": "plastic-stand-up-food-beverage-pouch-704",
+    "category": "Pouch"
   },
   {
     "id": "705",
@@ -3857,7 +4242,8 @@
     "glb_file": "/models/705.glb",
     "dimensions": "产品尺寸：L:200mm  H:270mm",
     "description": "包裝貼圖尺寸：L:200mm H:270mm 常見於肉乾肉脯的收納 參考品牌/產品：肉乾肉脯 建議容量：100g",
-    "slug": "plastic-stand-up-food-beverage-pouch-705"
+    "slug": "plastic-stand-up-food-beverage-pouch-705",
+    "category": "Pouch"
   },
   {
     "id": "735",
@@ -3867,7 +4253,8 @@
     "glb_file": "/models/735.glb",
     "dimensions": "产品尺寸：L:391mm  W:100mm  H:342mm",
     "description": "包裝貼圖尺寸：L:391mm W:100mm H:342mm 常見於紙巾、紙抽、洗臉的收納 參考品牌/產品：清風紙巾 建議容量：6包",
-    "slug": "plastic-pouch-735"
+    "slug": "plastic-pouch-735",
+    "category": "Pouch"
   },
   {
     "id": "766",
@@ -3877,7 +4264,8 @@
     "glb_file": "/models/766.glb",
     "dimensions": "产品尺寸：L:72mm  H:120mm",
     "description": "包裝貼圖尺寸：L:72mm H:120mm 常見於泡麵調味料包，蔬菜包，醬料包的收納 參考品牌/產品：康師傅，湯達人泡麵 建議容量：15g",
-    "slug": "food-beverage-pouch-766"
+    "slug": "food-beverage-pouch-766",
+    "category": "Pouch"
   },
   {
     "id": "767",
@@ -3887,7 +4275,8 @@
     "glb_file": "/models/767.glb",
     "dimensions": "产品尺寸：L:90mm  H:100mm",
     "description": "包裝貼圖尺寸：L:90mm H:100mm 常見於蔬菜包、牛肉粒、調味包的收納 參考品牌/產品：康師傅、湯達人泡麵 建議容量：8g",
-    "slug": "plastic-food-beverage-767"
+    "slug": "plastic-food-beverage-767",
+    "category": "Pouch"
   },
   {
     "id": "772",
@@ -3897,7 +4286,8 @@
     "glb_file": "/models/772.glb",
     "dimensions": "产品尺寸：L:120mm  H:140mm",
     "description": "包裝貼圖尺寸：L:120mm H:140mm 常見於麵餅袋，粉絲袋，泡麵的收納 參考品牌/產品：康師傅，湯達人泡麵 建議容量：62g",
-    "slug": "food-beverage-pouch-772"
+    "slug": "food-beverage-pouch-772",
+    "category": "Pouch"
   },
   {
     "id": "783",
@@ -3907,7 +4297,8 @@
     "glb_file": "/models/783.glb",
     "dimensions": "产品尺寸：H:35mm  D:42mm",
     "description": "包裝貼圖尺寸：L:45mm W:42mm 常見於果凍，布丁，巧克力的收納 參考品牌/產品：星球杯 建議容量：20g",
-    "slug": "plastic-food-beverage-783"
+    "slug": "plastic-food-beverage-783",
+    "category": "Pouch"
   },
   {
     "id": "785",
@@ -3917,7 +4308,8 @@
     "glb_file": "/models/785.glb",
     "dimensions": "产品尺寸：H:30mm  D:45mm",
     "description": "包裝貼圖尺寸：L:45mm W:49mm 常見於果凍，布丁，咖啡沖調的收納 參考品牌/產品：星巴克咖啡膠囊 建議容量：23g",
-    "slug": "plastic-food-beverage-785"
+    "slug": "plastic-food-beverage-785",
+    "category": "Pouch"
   },
   {
     "id": "786",
@@ -3927,7 +4319,8 @@
     "glb_file": "/models/786.glb",
     "dimensions": "产品尺寸：L:213mm  H:155mm",
     "description": "包裝貼圖尺寸：L:213mm H:143mm 常見於茶包、咖啡包等沖調的收納 參考品牌/產品：梔曉茶 建議容量：10包",
-    "slug": "plastic-zipper-tea-food-beverage-pouch-786"
+    "slug": "plastic-zipper-tea-food-beverage-pouch-786",
+    "category": "Pouch"
   },
   {
     "id": "800",
@@ -3937,7 +4330,8 @@
     "glb_file": "/models/800.glb",
     "dimensions": "产品尺寸：L:330mm  w:100mm  H:250mm",
     "description": "包裝貼圖尺寸：L:860mm H:250mm 常見於禮品，服裝，食品的收納 參考品牌/產品：購物袋 建議容量：",
-    "slug": "handle-pouch-800"
+    "slug": "handle-pouch-800",
+    "category": "Pouch"
   },
   {
     "id": "801",
@@ -3947,7 +4341,8 @@
     "glb_file": "/models/801.glb",
     "dimensions": "产品尺寸：L:220mm  w:80mm  H:280mm",
     "description": "包裝貼圖尺寸：L:600mm H:280mm 常見於禮品，服裝，食品的收納 參考品牌/產品：購物袋 建議容量：",
-    "slug": "handle-pouch-801"
+    "slug": "handle-pouch-801",
+    "category": "Pouch"
   },
   {
     "id": "802",
@@ -3957,7 +4352,8 @@
     "glb_file": "/models/802.glb",
     "dimensions": "产品尺寸：L:330mm  w:100mm  H:250mm",
     "description": "包裝貼圖尺寸：L:860mm H:250mm 常見於禮品，服裝，食品的收納 參考品牌/產品：購物袋 建議容量：",
-    "slug": "handle-pouch-802"
+    "slug": "handle-pouch-802",
+    "category": "Pouch"
   },
   {
     "id": "803",
@@ -3967,7 +4363,8 @@
     "glb_file": "/models/803.glb",
     "dimensions": "产品尺寸：L:220mm  w:80mm  H:280mm",
     "description": "包裝貼圖尺寸：L:600mm H:280mm 常見於禮品，服裝，食品的收納 參考品牌/產品：購物袋 建議容量：",
-    "slug": "handle-pouch-803"
+    "slug": "handle-pouch-803",
+    "category": "Pouch"
   },
   {
     "id": "808",
@@ -3977,7 +4374,8 @@
     "glb_file": "/models/808.glb",
     "dimensions": "产品尺寸：L:220mm  w:80mm  H:280mm",
     "description": "包裝貼圖尺寸：L:600mm H:280mm 常見於禮品，服裝，食品的收納 參考品牌/產品：購物袋 建議容量：",
-    "slug": "handle-pouch-808"
+    "slug": "handle-pouch-808",
+    "category": "Pouch"
   },
   {
     "id": "809",
@@ -3987,7 +4385,8 @@
     "glb_file": "/models/809.glb",
     "dimensions": "产品尺寸：L:330mm  w:100mm  H:250mm",
     "description": "包裝貼圖尺寸：L:530mm H:250mm 常見於禮品，服裝，食品的收納 參考品牌/產品：購物袋 建議容量：",
-    "slug": "handle-pouch-809"
+    "slug": "handle-pouch-809",
+    "category": "Pouch"
   },
   {
     "id": "850",
@@ -3997,7 +4396,8 @@
     "glb_file": "/models/850.glb",
     "dimensions": "产品尺寸：L:70mm  H:80mm",
     "description": "包裝貼圖尺寸：L:70mm H:80mm 常見於醋包，調味包，油醋汁的收納 參考品牌/產品：油醋汁 建議容量：",
-    "slug": "plastic-food-beverage-850"
+    "slug": "plastic-food-beverage-850",
+    "category": "Pouch"
   },
   {
     "id": "852",
@@ -4007,7 +4407,8 @@
     "glb_file": "/models/852.glb",
     "dimensions": "产品尺寸：L:88mm  H:128mm",
     "description": "包裝貼圖尺寸：L:88mm H:128mm 常見於 調味包，冷凍乾燥蔬菜包，醬料包，酸菜包的收納 參考品牌/產品：冷凍乾燥蔬菜包 建議容量：",
-    "slug": "plastic-food-beverage-852"
+    "slug": "plastic-food-beverage-852",
+    "category": "Pouch"
   },
   {
     "id": "857",
@@ -4017,7 +4418,8 @@
     "glb_file": "/models/857.glb",
     "dimensions": "产品尺寸：L:110mm  H:170mm",
     "description": "包裝貼圖尺寸：L:110mm H:170mm 常見於菜包，調味包，宮保雞丁的收納 參考品牌/產品：菜餚包 建議容量：",
-    "slug": "plastic-food-beverage-pouch-857"
+    "slug": "plastic-food-beverage-pouch-857",
+    "category": "Pouch"
   },
   {
     "id": "858",
@@ -4027,7 +4429,8 @@
     "glb_file": "/models/858.glb",
     "dimensions": "产品尺寸：H:64mm  H:98mm",
     "description": "包裝貼圖尺寸：H:64mm H:98mm 常見於冷凍乾燥蛋花湯，調味包，冷凍乾燥食品，速食的收納 參考品牌/產品：番茄蛋花湯包 建議容量：",
-    "slug": "plastic-food-beverage-858"
+    "slug": "plastic-food-beverage-858",
+    "category": "Pouch"
   },
   {
     "id": "859",
@@ -4037,7 +4440,8 @@
     "glb_file": "/models/859.glb",
     "dimensions": "产品尺寸：L:100mm  H:150mm",
     "description": "包裝貼圖尺寸：L:100mm H:150mm 常見於米袋，海鮮粥底的收納 參考品牌/產品：粥底包 建議容量：",
-    "slug": "plastic-food-beverage-pouch-859"
+    "slug": "plastic-food-beverage-pouch-859",
+    "category": "Pouch"
   },
   {
     "id": "860",
@@ -4047,7 +4451,8 @@
     "glb_file": "/models/860.glb",
     "dimensions": "产品尺寸：L:80mm  H:100mm",
     "description": "包裝貼圖尺寸：L:80mm H:100mm 常見於米袋的收納 參考品牌/產品：米包 建議容量：",
-    "slug": "plastic-food-beverage-pouch-860"
+    "slug": "plastic-food-beverage-pouch-860",
+    "category": "Pouch"
   },
   {
     "id": "877",
@@ -4057,7 +4462,8 @@
     "glb_file": "/models/877.glb",
     "dimensions": "产品尺寸：L:68mm  H:150mm",
     "description": "包裝貼圖尺寸：L:68mm H:150mm 常見於調味包，米袋，米包的收納 參考品牌/產品：米包 建議容量：",
-    "slug": "plastic-food-beverage-877"
+    "slug": "plastic-food-beverage-877",
+    "category": "Pouch"
   },
   {
     "id": "878",
@@ -4067,7 +4473,8 @@
     "glb_file": "/models/878.glb",
     "dimensions": "产品尺寸：L:90mm  H:120mm",
     "description": "包裝貼圖尺寸：L:90mm H:120mm 常見於調味包的收納 參考品牌/產品：調味包 建議容量：",
-    "slug": "plastic-food-beverage-pouch-878"
+    "slug": "plastic-food-beverage-pouch-878",
+    "category": "Pouch"
   },
   {
     "id": "885",
@@ -4077,7 +4484,8 @@
     "glb_file": "/models/885.glb",
     "dimensions": "产品尺寸：L:50mm  H:125mm ",
     "description": "包裝貼圖尺寸：L:50mm H:125mm 常見於代餐棒，糕點的收納 參考品牌/產品：紅豆風味代餐棒 建議容量：30g",
-    "slug": "plastic-food-food-beverage-pouch-885"
+    "slug": "plastic-food-food-beverage-pouch-885",
+    "category": "Pouch"
   },
   {
     "id": "888",
@@ -4087,7 +4495,8 @@
     "glb_file": "/models/888.glb",
     "dimensions": "产品尺寸：L:68mm  H:40mm",
     "description": "包裝貼圖尺寸：L:52mm H:24mm 常見於布丁，果凍的收納 參考品牌/產品：椰香芒果布丁 建議容量：",
-    "slug": "plastic-food-beverage-box-888"
+    "slug": "plastic-food-beverage-box-888",
+    "category": "Pouch"
   },
   {
     "id": "921",
@@ -4097,7 +4506,8 @@
     "glb_file": "/models/921.glb",
     "dimensions": "产品尺寸：L:235mm  W:95mm  H:238mm",
     "description": "包裝貼圖尺寸：L:235mm W:95mm H:238mm 常見於蛋糕，麵包，糕點，麻薯，瓜子，花生，腰果，澳洲堅果的收納 參考品牌/產品：港榮蒸蛋糕 建議容量：325g",
-    "slug": "plastic-zipper-food-beverage-pouch-921"
+    "slug": "plastic-zipper-food-beverage-pouch-921",
+    "category": "Pouch"
   },
   {
     "id": "922",
@@ -4107,7 +4517,8 @@
     "glb_file": "/models/922.glb",
     "dimensions": "产品尺寸：L:75mm  H:150mm",
     "description": "包裝貼圖尺寸：L:75mm H:150mm 常見於降溫貼，退燒貼，瘦身貼，眼膜的收納 參考品牌/產品：睿健降溫貼 建議容量：1片",
-    "slug": "three-side-seal-plastic-pouch-922"
+    "slug": "three-side-seal-plastic-pouch-922",
+    "category": "Pouch"
   },
   {
     "id": "927",
@@ -4117,7 +4528,8 @@
     "glb_file": "/models/927.glb",
     "dimensions": "产品尺寸：L:115mm  H:175mm",
     "description": "包裝貼圖尺寸：L:115mm H:175mm 常見於紅茶，茶葉，茶包，咖啡的收納 參考品牌/產品：習慣茶 建議容量：21g",
-    "slug": "plastic-zipper-stand-up-tea-food-beverage-pouch-927"
+    "slug": "plastic-zipper-stand-up-tea-food-beverage-pouch-927",
+    "category": "Pouch"
   },
   {
     "id": "933",
@@ -4127,7 +4539,8 @@
     "glb_file": "/models/933.glb",
     "dimensions": "产品尺寸：L:95mm  H:110mm",
     "description": "包裝貼圖尺寸：L:95mm H:110mm 常見於茶包，咖啡，掛耳咖啡​​，茶的收納 參考品牌/產品：瑞幸精品掛耳咖啡 建議容量： 10g",
-    "slug": "plastic-coffee-food-beverage-pouch-933"
+    "slug": "plastic-coffee-food-beverage-pouch-933",
+    "category": "Pouch"
   },
   {
     "id": "935",
@@ -4137,7 +4550,8 @@
     "glb_file": "/models/935.glb",
     "dimensions": "产品尺寸：L:235  H:325mm",
     "description": "包裝貼圖尺寸：L:235 H:325mm 常見於燕麥，咖啡奶粉，即食燕麥的收納 參考品牌/產品：桂格即食燕麥 建議容量：490g",
-    "slug": "plastic-food-beverage-pouch-935"
+    "slug": "plastic-food-beverage-pouch-935",
+    "category": "Pouch"
   },
   {
     "id": "937",
@@ -4147,7 +4561,8 @@
     "glb_file": "/models/937.glb",
     "dimensions": "产品尺寸：L:55mm  H:250mm",
     "description": "包裝貼圖尺寸：L:55mm H:250mm 常見於餐具，筷子，一次性餐具的收納 參考品牌/產品：一次性餐具 建議容量：一套",
-    "slug": "plastic-pouch-937"
+    "slug": "plastic-pouch-937",
+    "category": "Pouch"
   },
   {
     "id": "944",
@@ -4157,7 +4572,8 @@
     "glb_file": "/models/944.glb",
     "dimensions": "产品尺寸：L:65mm  H:75mm",
     "description": "包裝貼圖尺寸：L:65mm H:75mm 常見於茶，咖啡，茶包,綠茶，紅茶，沖調飲料的收納 參考品牌/產品：鐵觀音 建議容量：7g",
-    "slug": "plastic-tea-food-beverage-pouch-944"
+    "slug": "plastic-tea-food-beverage-pouch-944",
+    "category": "Pouch"
   },
   {
     "id": "945",
@@ -4167,7 +4583,8 @@
     "glb_file": "/models/945.glb",
     "dimensions": "产品尺寸：L:56mm  H:65mm ",
     "description": "包裝貼圖尺寸：L:56mm H:65mm 常見於洗髮水，護髮素，沐浴露，洗面乳，化妝水的收納 參考品牌/產品：潔面乳 建議容量：2g",
-    "slug": "plastic-cosmetic-pouch-945"
+    "slug": "plastic-cosmetic-pouch-945",
+    "category": "Pouch"
   },
   {
     "id": "946",
@@ -4177,7 +4594,8 @@
     "glb_file": "/models/946.glb",
     "dimensions": "产品尺寸：L:24mm  H:101mm",
     "description": "包裝貼圖尺寸：L:24mm H:101mm 常見於退燒藥，奶粉，凍乾粉，益生菌凍乾粉的收納 參考品牌/產品：常樂君益生菌凍乾粉 建議容量：2g",
-    "slug": "plastic-pouch-946"
+    "slug": "plastic-pouch-946",
+    "category": "Pouch"
   },
   {
     "id": "952",
@@ -4187,7 +4605,8 @@
     "glb_file": "/models/952.glb",
     "dimensions": "产品尺寸：H:83mm  D:20mm",
     "description": "包裝貼圖尺寸：L:68mm H;140mm 常見於t刮鬍膏，洗面乳，護髮素，沐浴露收納 參考品牌/產品：刮鬍膏 建議容量：15ml",
-    "slug": "plastic-tube-952"
+    "slug": "plastic-tube-952",
+    "category": "Pouch"
   },
   {
     "id": "954",
@@ -4197,7 +4616,8 @@
     "glb_file": "/models/954.glb",
     "dimensions": "产品尺寸：L:115mm  H:235mm",
     "description": "包裝貼圖尺寸：L:115mm H:235mm 常見於狗糧，貓糧，寵物零食，寵物玩具，寵物零食磨牙棒的收納 參考品牌/產品：寵物零食磨牙棒 建議容量：1個",
-    "slug": "plastic-zipper-stand-up-food-pouch-954"
+    "slug": "plastic-zipper-stand-up-food-pouch-954",
+    "category": "Pouch"
   },
   {
     "id": "955",
@@ -4207,7 +4627,8 @@
     "glb_file": "/models/955.glb",
     "dimensions": "产品尺寸：L:110mm  H:160mm",
     "description": "包裝貼圖尺寸：L:110mm H:160mm 常見於壯骨麝香止痛膏，膏藥，退燒貼，祛濕貼，艾灸貼的收納 參考品牌/產品：羚銳壯骨麝香 建議容量：10貼",
-    "slug": "three-side-seal-plastic-zipper-pharma-pouch-955"
+    "slug": "three-side-seal-plastic-zipper-pharma-pouch-955",
+    "category": "Pouch"
   },
   {
     "id": "959",
@@ -4217,7 +4638,8 @@
     "glb_file": "/models/959.glb",
     "dimensions": "产品尺寸：L:46mm  H:87mm",
     "description": "包裝貼圖尺寸：L:46mm H:87mm 常見於胃藥，退燒藥，感冒藥的收納 參考品牌/產品：葵花胃康靈顆粒 建議容量：4g",
-    "slug": "plastic-pharma-pouch-959"
+    "slug": "plastic-pharma-pouch-959",
+    "category": "Pouch"
   },
   {
     "id": "961",
@@ -4227,7 +4649,8 @@
     "glb_file": "/models/961.glb",
     "dimensions": "产品尺寸：L:180mm  H:265mm",
     "description": "包裝貼圖尺寸：L:180mm H:265mm 常見於果乾果脯，話梅‘，加應子,枸杞，葡萄乾，山核桃的收納 參考品牌/產品：淮仁堂枸杞子 建議容量：245g",
-    "slug": "three-side-seal-plastic-food-beverage-pouch-961"
+    "slug": "three-side-seal-plastic-food-beverage-pouch-961",
+    "category": "Pouch"
   },
   {
     "id": "963",
@@ -4237,7 +4660,8 @@
     "glb_file": "/models/963.glb",
     "dimensions": "产品尺寸：L:170mm  H:210mm",
     "description": "包裝貼圖尺寸：L:170mm H:210mm 常見於洗衣液，洗衣凝珠的收納 參考品牌/產品：活力28洗衣凝珠 建議容量：20顆",
-    "slug": "plastic-zipper-cleaning-pouch-963"
+    "slug": "plastic-zipper-cleaning-pouch-963",
+    "category": "Pouch"
   },
   {
     "id": "964",
@@ -4247,7 +4671,8 @@
     "glb_file": "/models/964.glb",
     "dimensions": "产品尺寸：L:164mm  H:220mm",
     "description": "包裝貼圖尺寸：L:164mm H:220mm 常見於數據線，充電器，手機殼的收納 參考品牌/產品：山澤充電器 建議容量：1根",
-    "slug": "three-side-seal-plastic-pouch-964"
+    "slug": "three-side-seal-plastic-pouch-964",
+    "category": "Pouch"
   },
   {
     "id": "965",
@@ -4257,7 +4682,8 @@
     "glb_file": "/models/965.glb",
     "dimensions": "产品尺寸：L:70mm  D:92mm",
     "description": "包装贴图尺寸：L:92mm  W:92mm 常见于八宝粥，黑米粥，粥类的收纳 参考品牌/产品：巴比南瓜粥 建议容量：330g",
-    "slug": "plastic-food-beverage-bottle-965"
+    "slug": "plastic-food-beverage-bottle-965",
+    "category": "Pouch"
   },
   {
     "id": "975",
@@ -4267,7 +4693,8 @@
     "glb_file": "/models/975.glb",
     "dimensions": "产品尺寸：L:98mm  H:180mm",
     "description": "包装贴图尺寸：L:206mm  H:155mm 常见于面膜，泥膜，清洁面膜，涂抹式面膜，番茄酱，沙拉酱，千岛酱，烧烤酱，照烧酱的收纳 参考品牌/产品：日本pdc酒糟面膜 建议容量:170g",
-    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-975"
+    "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-975",
+    "category": "Pouch"
   },
   {
     "id": "976",
@@ -4277,7 +4704,8 @@
     "glb_file": "/models/976.glb",
     "dimensions": "产品尺寸：H:157mm  D:28mm",
     "description": "包装贴图尺寸：L:48mm  H;112mm 常见于t剃须膏，洗面奶，护发素，沐浴露,防晒霜收纳 参考品牌/产品：AHC防晒霜 建议容量：15ml",
-    "slug": "plastic-cosmetic-cosmetic-tube-976"
+    "slug": "plastic-cosmetic-cosmetic-tube-976",
+    "category": "Pouch"
   },
   {
     "id": "988",
@@ -4287,7 +4715,8 @@
     "glb_file": "/models/988.glb",
     "dimensions": "产品尺寸：H:233mm D:59mm",
     "description": "包装贴图尺寸：L:186mm  H:195mm 常见于洗发水，护发素，洗面奶，身体乳，磨砂膏，沐浴露的收纳 参考品牌/产品：潘婷润发精华素 建议容量：400ml ",
-    "slug": "plastic-tube-988"
+    "slug": "plastic-tube-988",
+    "category": "Pouch"
   },
   {
     "id": "991",
@@ -4297,7 +4726,8 @@
     "glb_file": "/models/991.glb",
     "dimensions": "产品尺寸：L:312mm  H:327mm",
     "description": "包装贴图尺寸：L:312  H:327mm 常见于糖果，饮料，零食，虾条，薯片的收纳 参考品牌/产品：咪咪 建议容量：360g",
-    "slug": "plastic-food-food-beverage-pouch-991"
+    "slug": "plastic-food-food-beverage-pouch-991",
+    "category": "Pouch"
   },
   {
     "id": "992",
@@ -4307,7 +4737,8 @@
     "glb_file": "/models/992.glb",
     "dimensions": "产品尺寸：L:77mm  H:160mm",
     "description": "包装贴图尺寸：L:77mm  H:160mm 常见于开花肠，蟹棒，鱼豆腐，魔芋爽的收纳 参考品牌/产品：金磨坊花花肠子 建议容量：20g",
-    "slug": "three-side-seal-plastic-food-food-beverage-pouch-992"
+    "slug": "three-side-seal-plastic-food-food-beverage-pouch-992",
+    "category": "Pouch"
   },
   {
     "id": "BX-1505",
@@ -4317,7 +4748,8 @@
     "glb_file": "/models/BX-1505.glb",
     "dimensions": "产品尺寸：D:75mm  H:53mm ",
     "description": "Packaging map size: 产品尺寸：D:75mm  H:53mm . Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-1505"
+    "slug": "box-packaging-BX-1505",
+    "category": "Box"
   },
   {
     "id": "BX-405",
@@ -4327,7 +4759,8 @@
     "glb_file": "/models/BX-405.glb",
     "dimensions": "产品尺寸：L:272mm  W:90mm \n H:70mm",
     "description": "Packaging map size: 产品尺寸：L:272mm  W:90mm \n H:70mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-405"
+    "slug": "box-packaging-BX-405",
+    "category": "Box"
   },
   {
     "id": "BX-404",
@@ -4337,7 +4770,8 @@
     "glb_file": "/models/BX-404.glb",
     "dimensions": "产品尺寸：L:272mm  W:100mm \n H:60mm",
     "description": "Packaging map size: 产品尺寸：L:272mm  W:100mm \n H:60mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-404"
+    "slug": "box-packaging-BX-404",
+    "category": "Box"
   },
   {
     "id": "BX-412",
@@ -4347,7 +4781,8 @@
     "glb_file": "/models/BX-412.glb",
     "dimensions": "产品尺寸：H:145mm  D:100mm",
     "description": "Packaging map size: 产品尺寸：H:145mm  D:100mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-412"
+    "slug": "box-packaging-BX-412",
+    "category": "Box"
   },
   {
     "id": "BX-441",
@@ -4357,7 +4792,8 @@
     "glb_file": "/models/BX-441.glb",
     "dimensions": "产品尺寸：L:185mmW:120mmH:85mm",
     "description": "Packaging map size: 产品尺寸：L:185mmW:120mmH:85mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-441"
+    "slug": "box-packaging-BX-441",
+    "category": "Box"
   },
   {
     "id": "BX-516",
@@ -4367,7 +4803,8 @@
     "glb_file": "/models/BX-516.glb",
     "dimensions": "产品尺寸：H:80mm  D:120mm",
     "description": "Packaging map size: 产品尺寸：H:80mm  D:120mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-516"
+    "slug": "box-packaging-BX-516",
+    "category": "Box"
   },
   {
     "id": "BX-561",
@@ -4377,7 +4814,8 @@
     "glb_file": "/models/BX-561.glb",
     "dimensions": "产品尺寸：L:30mmW:25mmH:80mm",
     "description": "Packaging map size: 产品尺寸：L:30mmW:25mmH:80mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-561"
+    "slug": "box-packaging-BX-561",
+    "category": "Box"
   },
   {
     "id": "BX-625",
@@ -4387,7 +4825,8 @@
     "glb_file": "/models/BX-625.glb",
     "dimensions": "产品尺寸：L:73mm  D:80mm",
     "description": "Packaging map size: 产品尺寸：L:73mm  D:80mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-625"
+    "slug": "box-packaging-BX-625",
+    "category": "Box"
   },
   {
     "id": "BX-712",
@@ -4397,7 +4836,8 @@
     "glb_file": "/models/BX-712.glb",
     "dimensions": "产品尺寸：L:136mm  W:117mm  H:65mm",
     "description": "Packaging map size: 产品尺寸：L:136mm  W:117mm  H:65mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-712"
+    "slug": "box-packaging-BX-712",
+    "category": "Box"
   },
   {
     "id": "BX-724",
@@ -4407,7 +4847,8 @@
     "glb_file": "/models/BX-724.glb",
     "dimensions": "产品尺寸：L:225mmW;130mmH:80mm",
     "description": "Packaging map size: 产品尺寸：L:225mmW;130mmH:80mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-724"
+    "slug": "box-packaging-BX-724",
+    "category": "Box"
   },
   {
     "id": "BX-731",
@@ -4417,7 +4858,8 @@
     "glb_file": "/models/BX-731.glb",
     "dimensions": "产品尺寸：L:85mm  W:60mm  H:50mm",
     "description": "Packaging map size: 产品尺寸：L:85mm  W:60mm  H:50mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-731"
+    "slug": "box-packaging-BX-731",
+    "category": "Box"
   },
   {
     "id": "BX-732",
@@ -4427,7 +4869,8 @@
     "glb_file": "/models/BX-732.glb",
     "dimensions": "产品尺寸：L:95mm  W:60mm  H:22mm",
     "description": "Packaging map size: 产品尺寸：L:95mm  W:60mm  H:22mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-732"
+    "slug": "box-packaging-BX-732",
+    "category": "Box"
   },
   {
     "id": "BX-736",
@@ -4437,7 +4880,8 @@
     "glb_file": "/models/BX-736.glb",
     "dimensions": "产品尺寸：L:105mmW:105mmH:40mm",
     "description": "Packaging map size: 产品尺寸：L:105mmW:105mmH:40mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-736"
+    "slug": "box-packaging-BX-736",
+    "category": "Box"
   },
   {
     "id": "BX-873",
@@ -4447,7 +4891,8 @@
     "glb_file": "/models/BX-873.glb",
     "dimensions": "产品尺寸：L:95mm  W:65mm  H:32mm",
     "description": "Packaging map size: 产品尺寸：L:95mm  W:65mm  H:32mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-873"
+    "slug": "box-packaging-BX-873",
+    "category": "Box"
   },
   {
     "id": "BX-947",
@@ -4457,6 +4902,7 @@
     "glb_file": "/models/BX-947.glb",
     "dimensions": "产品尺寸：L:200mm  W:105mm  H:115mm",
     "description": "Packaging map size: 产品尺寸：L:200mm  W:105mm  H:115mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-947"
+    "slug": "box-packaging-BX-947",
+    "category": "Box"
   }
 ]
