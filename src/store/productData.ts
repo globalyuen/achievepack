@@ -9538,6 +9538,91 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         unitPrice: 79.0
       }
     ]
+  },
+  {
+    id: 'smart-inkjet-coding-machine',
+    name: 'Smart Inkjet Coding Machine',
+    category: 'conventional-stock',
+    description: 'A versatile and highly efficient smart inkjet coding machine suitable for various surfaces. Ideal for printing production dates, serial numbers, QR codes, and more on carton boxes, glass, plastic, and metal.',
+    shortDesc: 'Handheld mini printer and conveyor line coding machine for dates, numbers, and QR codes.',
+    features: [
+      "Adjustable print height: 2-12.7mm",
+      "High precision 600DPI printing",
+      "Multi-language support including English and Chinese",
+      "Suitable for smooth and porous surfaces",
+      "Available with fast-dry and high adhesion ink cartridges"
+    ],
+    images: [
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-1.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-2.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-3.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-4.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-5.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-6.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-7.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-8.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-9.jpg',
+      '/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-10.jpg'
+    ],
+    badge: '⚙️ Industrial Grade',
+    rating: 5.0,
+    reviews: 12,
+    inStock: true,
+    turnaround: '15-20 Days',
+    minOrder: 1,
+    shape: 'Machinery',
+    material: 'Stainless Steel / Plastic',
+    basePrice: 83.16,
+    minQuantity: 1,
+    quantityStep: 1,
+    sizeInfo: 'Various Configurations Available',
+    sizeVariants: [
+      {
+        id: 'machine-only',
+        label: 'Smart Inkjet Coding Machine (Machine Only)',
+        dimensions: 'Handheld',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 83.16,
+        unitPrice: 83.16
+      },
+      {
+        id: 'machine-original-ink',
+        label: 'High-Definition Printer + Original Ink Cartridge',
+        dimensions: 'Handheld',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 111.30,
+        unitPrice: 111.30
+      },
+      {
+        id: 'machine-fast-dry',
+        label: 'High-Definition Printer + High Adhesion Fast Dry Ink',
+        dimensions: 'Handheld',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 152.88,
+        unitPrice: 152.88
+      },
+      {
+        id: 'machine-smooth-surface',
+        label: 'High-Definition Printer + Smooth Surface Ink Cartridge',
+        dimensions: 'Handheld',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 194.88,
+        unitPrice: 194.88
+      },
+      {
+        id: 'conveyor-combo',
+        label: '12.7mm Conveyor Inkjet Printer Combo',
+        dimensions: 'Conveyor Integration',
+        hasHole: false,
+        quantity: 1,
+        totalPrice: 364.56,
+        unitPrice: 364.56
+      }
+    ]
   }
 ]
 
