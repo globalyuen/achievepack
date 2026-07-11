@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
@@ -343,6 +344,7 @@ export default function PackageEditorPage() {
 
     // 1. Scene
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xf4f4f5); // match bg-zinc-100
     sceneRef.current = scene;
 
     // 2. Camera
@@ -360,6 +362,10 @@ export default function PackageEditorPage() {
     renderer.toneMappingExposure = 1.2;
     containerRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
+
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    pmremGenerator.compileEquirectangularShader();
+    scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
 
     // 4. Orbit Controls
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -622,8 +628,10 @@ export default function PackageEditorPage() {
 
     // Animation Loop
     let animationFrameId: number;
+    let isRendering = true;
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
+      if (!isRendering) return;
       controls.update();
       if (mixerRef.current) {
         mixerRef.current.update(clockRef.current.getDelta());
@@ -633,6 +641,16 @@ export default function PackageEditorPage() {
       renderer.render(scene, camera);
     };
     animate();
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        isRendering = false;
+      } else {
+        isRendering = true;
+        clockRef.current.getDelta(); // reset delta to prevent huge jump
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     // Window Resize Handler
     const handleResize = () => {
@@ -649,6 +667,8 @@ export default function PackageEditorPage() {
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      controls.dispose();
       renderer.dispose();
       canvasTexture.dispose();
       if (containerRef.current && renderer.domElement) {
@@ -1140,6 +1160,29 @@ export default function PackageEditorPage() {
   };
 
   // Upload custom graphic artwork layer
+  // --- Drag and Drop File Upload for 3D Viewport ---
+  const [isViewportDragging, setIsViewportDragging] = useState(false);
+
+  const handleViewportDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsViewportDragging(true);
+  };
+  const handleViewportDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsViewportDragging(false);
+  };
+  const handleViewportDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsViewportDragging(false);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const file = e.dataTransfer.files[0];
+      if (file.type.startsWith('image/')) {
+        const fakeEvent = { target: { files: e.dataTransfer.files } } as unknown as React.ChangeEvent<HTMLInputElement>;
+        handleFileUpload(fakeEvent);
+      }
+    }
+  };
+
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -2001,7 +2044,21 @@ export default function PackageEditorPage() {
         </div>
 
         {/* 3. Right Area: 3D Studio Previewer */}
-        <div id="viewport-panel" className="flex-grow relative flex flex-col overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1]">
+        <div 
+          id="viewport-panel" 
+          className={`flex-grow relative flex flex-col overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1] ${isViewportDragging ? 'ring-4 ring-inset ring-[#64ffda]' : ''}`}
+          onDragOver={handleViewportDragOver}
+          onDragLeave={handleViewportDragLeave}
+          onDrop={handleViewportDrop}
+        >
+          {isViewportDragging && (
+            <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm pointer-events-none">
+              <div className="bg-[#10141c] text-white px-6 py-4 rounded-xl font-medium border border-[#64ffda]/30 flex items-center gap-3">
+                <svg className="w-6 h-6 text-[#64ffda]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                Drop image here to apply to 3D model
+              </div>
+            </div>
+          )}
           <div ref={containerRef} className="flex-grow w-full h-full relative" />
           {/* Status Overlay info */}
           <div id="preview-info" className="absolute bottom-4 left-4 right-4 bg-[rgba(16,20,28,0.85)] border border-[rgba(255,255,255,0.08)] rounded-xl py-2.5 px-4 text-xs flex justify-between shadow-2xl backdrop-blur-md">
