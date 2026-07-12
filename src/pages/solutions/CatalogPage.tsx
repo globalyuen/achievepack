@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Filter, Box, Layers, Database, Sparkles, HelpCircle, ArrowRight } from 'lucide-react';
+import { Search, Filter, Box, Layers, Database, Sparkles, HelpCircle, ArrowRight, ZoomIn, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
@@ -26,6 +26,7 @@ export default function CatalogPage() {
   const [activeCategory, setActiveCategory] = useState<'all' | 'box' | 'pouch' | 'bottle'>('all');
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [isLoading, setIsLoading] = useState(true);
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
 
   const getLanguageFromPath = (pathStr: string) => {
     const parts = pathStr.split('/').filter(Boolean);
@@ -206,7 +207,10 @@ export default function CatalogPage() {
                         className="bg-neutral-950 border border-neutral-800 hover:border-neutral-700 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group"
                       >
                         {/* Thumbnail View */}
-                        <div className="aspect-[4/3] bg-neutral-900 relative overflow-hidden flex items-center justify-center border-b border-neutral-800/60 p-4">
+                        <div 
+                          className="aspect-[4/3] bg-neutral-900 relative overflow-hidden flex items-center justify-center border-b border-neutral-800/60 p-4 cursor-zoom-in"
+                          onClick={() => setEnlargedImage(thumbnailSrc)}
+                        >
                           <img
                             src={thumbnailSrc}
                             alt={shape.name}
@@ -218,8 +222,16 @@ export default function CatalogPage() {
                             }}
                           />
                           
+                          {/* Hover Zoom Overlay */}
+                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                            <div className="bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 text-white text-xs font-bold flex items-center gap-1.5 shadow-lg">
+                              <ZoomIn className="w-4 h-4" />
+                              View Concept
+                            </div>
+                          </div>
+                          
                           {/* Logo Watermark Badge */}
-                          <div className="absolute bottom-2 right-2 bg-neutral-950/80 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 flex items-center gap-1.5 pointer-events-none">
+                          <div className="absolute bottom-2 right-2 bg-neutral-950/80 backdrop-blur-sm px-2 py-1 rounded border border-neutral-800 flex items-center gap-1.5 pointer-events-none z-10">
                             <img 
                               src={isPouchDomain ? "/ep-logo.svg" : "/ap-logo-white.png"} 
                               alt={isPouchDomain ? "Pouch" : "AchievePack"}
@@ -230,7 +242,7 @@ export default function CatalogPage() {
                             </span>
                           </div>
 
-                          <span className="absolute top-3 left-3 bg-neutral-900/95 border border-neutral-850 px-2 py-0.5 rounded text-[10px] font-semibold text-emerald-400 tracking-wider uppercase">
+                          <span className="absolute top-3 left-3 bg-neutral-900/95 border border-neutral-850 px-2 py-0.5 rounded text-[10px] font-semibold text-emerald-400 tracking-wider uppercase z-10">
                             {catName}
                           </span>
                         </div>
@@ -286,6 +298,30 @@ export default function CatalogPage() {
         )}
 
       </div>
+
+      {enlargedImage && (
+        <div 
+          className="fixed inset-0 bg-black/85 z-[9999] flex items-center justify-center p-4 backdrop-blur-sm cursor-zoom-out"
+          onClick={() => setEnlargedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-[85vh] bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-2 shadow-2xl flex flex-col items-center">
+            <button 
+              className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 border border-white/10 hover:scale-105 transition-all z-10"
+              onClick={(e) => { e.stopPropagation(); setEnlargedImage(null); }}
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img 
+              src={enlargedImage} 
+              className="max-w-full max-h-[75vh] object-contain rounded-lg" 
+              alt="Enlarged mockup preview" 
+            />
+            <div className="mt-3 text-center text-xs font-semibold text-neutral-450">
+              Click anywhere to close preview
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </>

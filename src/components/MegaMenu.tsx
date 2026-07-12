@@ -275,6 +275,24 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
   )
 }
 
+const POPULAR_POUCHES = [
+  { id: '1152', name: 'Snack Bag' },
+  { id: '1066', name: 'Stand Up Pouch' },
+  { id: '1093', name: 'Flat Bottom Pouch' },
+  { id: '1003', name: 'Three Side Seal' },
+  { id: '1045', name: 'Household Pouch' },
+  { id: '1050', name: 'Coffee Pouch' },
+  { id: '1055', name: 'Kettle Bag' },
+  { id: '1057', name: 'Milk Powder Bag' },
+  { id: '1065', name: 'Cosmetic Box' },
+  { id: '1074', name: 'Grain & Rice Bag' },
+  { id: '1101', name: 'Toiletries Tube' },
+  { id: '1105', name: 'Snack Food Bag' },
+  { id: '1129', name: 'Instant Noodles Bag' },
+  { id: '1142', name: 'Pillow Bag' },
+  { id: '1144', name: 'Gusseted Pouch' }
+];
+
 interface MegaMenuProps {
   hideLearnBlog?: boolean
 }
@@ -653,7 +671,7 @@ export function RightNavMenu() {
                 {/* Content */}
                 <div className="p-4 bg-white grid grid-cols-12 gap-5">
                   {/* Left Column: Info & Button */}
-                  <div className="col-span-5 space-y-3.5 border-r border-neutral-100 pr-4 text-left">
+                  <div className="col-span-3 space-y-3.5 border-r border-neutral-100 pr-4 text-left">
                     <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Features</div>
                     <ul className="space-y-1.5">
                       <li className="flex items-center gap-1.5 text-[11px] font-medium text-neutral-600">
@@ -682,60 +700,28 @@ export function RightNavMenu() {
                   </div>
 
                   {/* Right Column: Pouch Previews */}
-                  <div className="col-span-7 space-y-2.5 text-left">
+                  <div className="col-span-9 space-y-2.5 text-left">
                     <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Popular 3D Pouches</div>
-                    <div className="grid grid-cols-2 gap-2">
-                      {/* Pouch 1 */}
-                      <Link 
-                        to="/app?shape=1152" 
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2 p-1 hover:bg-neutral-50 rounded-lg border border-neutral-100 hover:border-primary-200 transition-all group"
-                      >
-                        <img src="/thumbnails/1152.png" className="w-8 h-8 rounded object-contain border border-neutral-200 bg-neutral-50 group-hover:scale-105 transition-transform" alt="Snack Food Bag" />
-                        <div className="text-left overflow-hidden">
-                          <div className="font-bold text-[10px] text-neutral-850 truncate group-hover:text-primary-600">Snack Bag 2</div>
-                          <div className="text-[8px] text-neutral-500 truncate">90 x 153 mm</div>
-                        </div>
-                      </Link>
-                      
-                      {/* Pouch 2 */}
-                      <Link 
-                        to="/app?shape=1066" 
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2 p-1 hover:bg-neutral-50 rounded-lg border border-neutral-100 hover:border-primary-200 transition-all group"
-                      >
-                        <img src="/thumbnails/1066.png" className="w-8 h-8 rounded object-contain border border-neutral-200 bg-neutral-50 group-hover:scale-105 transition-transform" alt="Stand Up Pouch" />
-                        <div className="text-left overflow-hidden">
-                          <div className="font-bold text-[10px] text-neutral-850 truncate group-hover:text-primary-600">Stand Up Pouch</div>
-                          <div className="text-[8px] text-neutral-500 truncate">100 x 150 mm</div>
-                        </div>
-                      </Link>
-
-                      {/* Pouch 3 */}
-                      <Link 
-                        to="/app?shape=1093" 
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2 p-1 hover:bg-neutral-50 rounded-lg border border-neutral-100 hover:border-primary-200 transition-all group"
-                      >
-                        <img src="/thumbnails/1093.png" className="w-8 h-8 rounded object-contain border border-neutral-200 bg-neutral-50 group-hover:scale-105 transition-transform" alt="Flat Bottom Bag" />
-                        <div className="text-left overflow-hidden">
-                          <div className="font-bold text-[10px] text-neutral-850 truncate group-hover:text-primary-600">Flat Bottom</div>
-                          <div className="text-[8px] text-neutral-500 truncate">180 x 250 mm</div>
-                        </div>
-                      </Link>
-
-                      {/* Pouch 4 */}
-                      <Link 
-                        to="/app?shape=1003" 
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2 p-1 hover:bg-neutral-50 rounded-lg border border-neutral-100 hover:border-primary-200 transition-all group"
-                      >
-                        <img src="/thumbnails/1003.png" className="w-8 h-8 rounded object-contain border border-neutral-200 bg-neutral-50 group-hover:scale-105 transition-transform" alt="Three Side Seal" />
-                        <div className="text-left overflow-hidden">
-                          <div className="font-bold text-[10px] text-neutral-850 truncate group-hover:text-primary-600">Three Side Seal</div>
-                          <div className="text-[8px] text-neutral-500 truncate">260 x 385 mm</div>
-                        </div>
-                      </Link>
+                    <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-neutral-200 scrollbar-track-transparent snap-x">
+                      {POPULAR_POUCHES.map((pouch) => (
+                        <Link 
+                          key={pouch.id}
+                          to={`/app?shape=${pouch.id}`} 
+                          onClick={() => setActiveMenu(null)}
+                          className="flex-none w-28 snap-start flex flex-col items-center p-2 bg-neutral-50/50 hover:bg-neutral-50 rounded-xl border border-neutral-100 hover:border-primary-200 transition-all group"
+                        >
+                          <img 
+                            src={`/thumbnails/${pouch.id}.png`} 
+                            className="w-24 h-24 rounded-lg object-contain border border-neutral-200 bg-white group-hover:scale-105 transition-all shadow-sm" 
+                            alt={pouch.name} 
+                          />
+                          <div className="mt-2 text-center w-full">
+                            <div className="font-bold text-[10px] text-neutral-800 line-clamp-2 leading-tight group-hover:text-primary-600">
+                              {pouch.name}
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
