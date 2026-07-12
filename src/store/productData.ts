@@ -5252,6 +5252,262 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-8.jpg',
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-9.jpg'
     ]
+  },
+  {
+    id: 'custom-box-packaging',
+    name: 'Custom Printed Box Packaging (Custom Inquiry)',
+    category: 'boxes',
+    shape: 'Custom Box Shape',
+    material: 'White Card, Corrugated, Kraft, Silver/Gold Card, Specialty Paper',
+    description: 'A comprehensive custom packaging solution for any business. Choose from regular box shapes, rigid boxes, corrugated mailers, or specialty blind boxes. We offer various materials including standard white card, durable corrugated, premium silver/gold card, and eco-friendly kraft paper. Elevate your brand with special craftsmanship options like matte/gloss lamination, UV coating, embossing, and hot foil stamping.',
+    shortDesc: 'Fully customizable box packaging tailored to your brand with premium materials and finishes',
+    features: [
+      'Material Selection: White Card, Black Card, Corrugated, Silver Card, Specialty Paper, Kraft Paper',
+      'Craftsmanship Options: Matte/Gloss Film, Embossing, Hot Stamping (Gold/Silver), Die Cutting, UV, Texturing',
+      'Box Shapes: 16+ regular box shapes or fully customized structural designs',
+      'High-Definition Printing: Flawless alignment, clean cuts, and vibrant colors',
+      'Factory Direct: Free design consultation and 100pcs minimum order quantity'
+    ],
+    basePrice: 0,
+    additionalFeatures: [
+      'Free Design Service',
+      'Custom Sizing Available',
+      'Multiple Material Options',
+      'Premium Finishes Available',
+      'Sea Freight Included (40-60 days)'
+    ],
+    minQuantity: 100,
+    minOrder: 100,
+    turnaround: '30 days + 40-60 days sea freight',
+    badge: '📦 Custom Design',
+    rating: 5.0,
+    reviews: 12,
+    inStock: true,
+    inquiryOnly: true,
+    customQuoteNote: 'Custom box pricing depends on your exact dimensions, material choice, and finishing processes. Click the custom inquiry button to get a free personalized quote.',
+    sizeWithQuantities: [
+      { id: 'sku-paper-box', label: '纸盒包装定制 (Custom Paper Box Packaging)', dimensions: 'Custom', quantityOptions: [
+        { quantity: 100, totalPrice: 0, unitPrice: 0 }
+      ]},
+      { id: 'sku-corrugated', label: '瓦楞包装定制 (Custom Corrugated Packaging)', dimensions: 'Custom', quantityOptions: [
+        { quantity: 100, totalPrice: 0, unitPrice: 0 }
+      ]},
+      { id: 'sku-special-craft', label: '特殊工艺包装盒定制 (Custom Packaging Box with Special Craftsmanship)', dimensions: 'Custom', quantityOptions: [
+        { quantity: 100, totalPrice: 0, unitPrice: 0 }
+      ]},
+      { id: 'sku-gold-silver', label: '金卡银卡定制 (Custom Gold & Silver Card)', dimensions: 'Custom', quantityOptions: [
+        { quantity: 100, totalPrice: 0, unitPrice: 0 }
+      ]},
+      { id: 'sku-kraft', label: '牛皮纸包装盒定制 (Custom Kraft Paper Packaging Box)', dimensions: 'Custom', quantityOptions: [
+        { quantity: 100, totalPrice: 0, unitPrice: 0 }
+      ]},
+      { id: 'sku-blind-box', label: '盲盒定制 (Custom Blind Box)', dimensions: 'Custom', quantityOptions: [
+        { quantity: 100, totalPrice: 0, unitPrice: 0 }
+      ]}
+    ],
+    images: [
+      '/imgs/store/products/custom-box-packaging-thumbnail-1.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-2.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-3.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-4.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-5.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-6.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-7.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-8.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-9.jpg',
+      '/imgs/store/products/custom-box-packaging-thumbnail-10.jpg'
+    ]
+  },
+  {
+    id: 'eco-degradable-pulp-boxes',
+    name: 'Eco-Friendly Degradable Pulp Boxes (Custom Inquiry)',
+    category: 'boxes',
+    shape: 'Molded Pulp Box',
+    material: 'Natural Sugarcane Pulp, Honeycomb Paper',
+    description: 'Natural color eco-friendly degradable pulp boxes for handmade soap, jewelry, essential oils and gift packaging, customizable with logo. Made from 100% biodegradable sugarcane pulp and honeycomb paper for a sustainable, earthy aesthetic.',
+    shortDesc: '100% Biodegradable natural pulp boxes and eco-friendly packaging accessories',
+    features: [
+      'Material: Natural Sugarcane Pulp, Honeycomb Paper',
+      '100% Biodegradable & Compostable',
+      'Perfect for Handmade Soap, Jewelry, Essential Oils',
+      'Custom Logo Embossing Available',
+      'Factory Direct: Custom styling and minimum order quantity 100pcs'
+    ],
+    basePrice: 0,
+    additionalFeatures: [
+      'Eco-Friendly Molded Pulp',
+      'Custom Embossing',
+      'Accessories: Hemp Rope, Wax Rope, Drawstring Bags',
+      'Honeycomb Paper Wrapping',
+      'Sea Freight Included (40-60 days)'
+    ],
+    minQuantity: 100,
+    minOrder: 100,
+    turnaround: '25 days + 40-60 days sea freight',
+    badge: '🌱 Biodegradable',
+    rating: 5.0,
+    reviews: 8,
+    inStock: true,
+    inquiryOnly: true,
+    customQuoteNote: 'Pricing depends on pulp box dimensions, order volume, and custom logo embossing requirements. Click the custom inquiry button for a free quote.',
+    sizeWithQuantities: [
+      { id: 'pulp-1', label: '大号纸浆盒本色 +绿手提腰封10套 (Large Natural Pulp Box + Green Handle Sleeve)', dimensions: 'Large', quantityOptions: [ { quantity: 10, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-2', label: '蜂窝纸咖色30x30cm 10张 (Brown Honeycomb Paper 30x30cm 10 sheets)', dimensions: '30x30cm', quantityOptions: [ { quantity: 10, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-3', label: '蜂窝纸咖色30x30cm 100张 (Brown Honeycomb Paper 30x30cm 100 sheets)', dimensions: '30x30cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-4', label: '麻绳1卷（30米） (Hemp Rope 1 roll - 30m)', dimensions: '30m', quantityOptions: [ { quantity: 1, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-5', label: '蜡绳咖啡色20米 (Brown Wax Rope 20m)', dimensions: '20m', quantityOptions: [ { quantity: 1, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-6', label: '束口袋8x11cm 5个 (Drawstring Bag 8x11cm 5pcs)', dimensions: '8x11cm', quantityOptions: [ { quantity: 5, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-7', label: '样品专拍（每款各一个） (Sample Pack - 1 of each)', dimensions: 'Sample', quantityOptions: [ { quantity: 1, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-8', label: '甘蔗浆长方盒 5套 (Sugarcane Pulp Rectangular Box)', dimensions: 'Rectangular', quantityOptions: [ { quantity: 5, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-9', label: '本色甘蔗浆长方盒 5套 (Natural Sugarcane Pulp Rectangular Box)', dimensions: 'Rectangular', quantityOptions: [ { quantity: 5, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-10', label: '甘蔗浆大正方盒5套 (Sugarcane Pulp Large Square Box)', dimensions: 'Large Square', quantityOptions: [ { quantity: 5, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'pulp-11', label: '本色甘蔗浆大正方盒5套 (Natural Sugarcane Pulp Large Square Box)', dimensions: 'Large Square', quantityOptions: [ { quantity: 5, totalPrice: 0, unitPrice: 0 } ]}
+    ],
+    images: [
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-1.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-2.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-3.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-4.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-5.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-6.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-7.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-8.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-9.jpg',
+      '/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-10.jpg'
+    ]
+  },
+  {
+    id: 'dupont-paper-tote-bags',
+    name: 'DuPont Paper Tote Bags (Custom Inquiry)',
+    category: 'boxes',
+    shape: 'Tote Bag',
+    material: 'DuPont Tyvek Paper, Kraft Paper',
+    description: 'DuPont Paper Tote Bag, Waterproof Kraft Paper Shopping Bag, Custom Logo Eco Bag. Made from innovative Tyvek material that looks and feels like paper but is highly durable, tear-resistant, and 100% waterproof.',
+    shortDesc: 'Ultra-durable, waterproof DuPont paper tote bags with custom printing',
+    features: [
+      'Material: DuPont Tyvek Paper, Washable Kraft Paper',
+      'Properties: 100% Waterproof, Tear-Resistant, Lightweight',
+      'Custom Logo Printing and Graphic Text',
+      'Textured (揉纹) and Smooth (平纹) Finishes',
+      'Available in various sizes, folding styles, and wrist bag formats'
+    ],
+    basePrice: 0,
+    additionalFeatures: [
+      'Waterproof Tyvek Material',
+      'Tear-Resistant & Washable',
+      'Custom Logo Printing',
+      'Multiple Strap & Handle Options',
+      'Sea Freight Included (40-60 days)'
+    ],
+    minQuantity: 100,
+    minOrder: 100,
+    turnaround: '25 days + 40-60 days sea freight',
+    badge: '💧 Waterproof',
+    rating: 5.0,
+    reviews: 15,
+    inStock: true,
+    inquiryOnly: true,
+    customQuoteNote: 'Pricing depends on bag size, material finish (smooth/textured), and printing requirements. Click the custom inquiry button for a free quote.',
+    sizeWithQuantities: [
+      { id: 'dupont-1', label: '一个起订/单个定制 (Custom Single Piece Order)', dimensions: 'Custom', quantityOptions: [ { quantity: 1, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-2', label: '【好事发生34*38cm】揉纹 (Good Things Happen - Textured)', dimensions: '34x38cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-3', label: '【万事胜意34*38cm】揉纹 (Everything Goes Well - Textured)', dimensions: '34x38cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-4', label: '【平安喜乐34*38】平纹 (Peace and Joy - Smooth)', dimensions: '34x38cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-5', label: '【请放松34*38】平纹 (Please Relax - Smooth)', dimensions: '34x38cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-6', label: '【让花成花34*38】平纹 (Let Flowers Bloom - Smooth)', dimensions: '34x38cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-7', label: '【手腕袋35*30*10cm】揉纹 (Wrist Bag - Textured)', dimensions: '35x30x10cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-8', label: '【基础款28*38*12cm】揉纹 (Basic Model - Textured)', dimensions: '28x38x12cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-9', label: '【手提包34.5*28.5*14cm】揉纹 (Tote Bag - Textured)', dimensions: '34.5x28.5x14cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-10', label: '【折叠包30*47*15cm】揉纹 (Folding Bag - Textured)', dimensions: '30x47x15cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-11', label: '【正直勇敢32*40*10cm】揉纹 (Honest & Brave - Textured)', dimensions: '32x40x10cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-12', label: '【情绪稳定32*40*10cm】揉纹 (Emotionally Stable - Textured)', dimensions: '32x40x10cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-13', label: '【喜欢熬夜32*40*10cm】揉纹 (Like Staying Up Late - Textured)', dimensions: '32x40x10cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]},
+      { id: 'dupont-14', label: '【夏天的风32*40*10cm】揉纹 (Summer Wind - Textured)', dimensions: '32x40x10cm', quantityOptions: [ { quantity: 100, totalPrice: 0, unitPrice: 0 } ]}
+    ],
+    images: [
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-1.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-2.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-3.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-4.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-5.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-6.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-7.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-8.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-9.jpg',
+      '/imgs/store/products/dupont-paper-tote-bags-thumbnail-10.jpg'
+    ]
+  },
+  {
+    id: 'eco-friendly-cork-gift-box',
+    name: 'Eco-Friendly Cork Gift Box',
+    category: 'boxes',
+    shape: 'Rigid Box',
+    description: 'A sustainable and premium cork material rigid lid-and-base gift box, ideal for scarves, cosmetics, and festival packaging. Supports full custom printing and precise structural engineering.',
+    shortDesc: 'A sustainable and premium cork material rigid gift box.',
+    rating: 5.0,
+    reviews: 0,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 500,
+    basePrice: 0,
+    minQuantity: 500,
+    features: [
+      'Eco-Friendly Natural Cork Material',
+      'Rigid Lid-and-Base Structure',
+      'Custom Printing & Branding',
+      'Premium Texture & Tactile Feel',
+      'FSC Certified Sourcing'
+    ],
+    material: 'Natural Cork, Recycled Rigid Board',
+    additionalFeatures: [],
+    images: [
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-1.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-2.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-3.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-4.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-5.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-6.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-7.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-8.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-9.jpg',
+      '/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-10.jpg'
+    ]
+  },
+  {
+    id: 'eco-friendly-soft-wood-gift-box',
+    name: 'Eco-Friendly Soft Wood Gift Box',
+    category: 'boxes',
+    shape: 'Wood Box',
+    description: 'An elegant soft wood snap-top box designed for premium small items like jewelry, badges, magnets, and rings. Features a natural wood grain aesthetic with eco-conscious manufacturing.',
+    shortDesc: 'An elegant soft wood snap-top box designed for premium items.',
+    rating: 5.0,
+    reviews: 0,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    basePrice: 0,
+    minQuantity: 1000,
+    features: [
+      'Soft Wood Construction',
+      'Secure Snap-Top Lid',
+      'Natural Wood Grain Aesthetics',
+      'Perfect for Jewelry & Small Items',
+      'Biodegradable & Sustainable'
+    ],
+    material: 'Soft Wood, Eco-Friendly Bindings',
+    additionalFeatures: [],
+    images: [
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-1.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-2.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-3.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-4.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-5.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-6.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-7.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-8.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-9.jpg',
+      '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-10.jpg'
+    ]
   }
 ]
 
