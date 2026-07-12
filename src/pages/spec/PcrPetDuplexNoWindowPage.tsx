@@ -140,7 +140,7 @@ const PcrPetDuplexNoWindowPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <p>{t(`${p}.sections.applications.intro`)}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+            {(Array.isArray(t(`${p}.sections.applications.items`, { returnObjects: true })) ? t(`${p}.sections.applications.items`, { returnObjects: true }) as string[] : []).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-neutral-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-neutral-500 flex-shrink-0" />
                 <span className="text-sm text-neutral-800">{item}</span>

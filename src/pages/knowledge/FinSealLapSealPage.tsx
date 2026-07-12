@@ -6,6 +6,7 @@ import LearnNavigation from '../../components/LearnNavigation'
 import Footer from '../../components/Footer'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import { useTranslation, Trans } from "react-i18next";
+import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 // Fin-lap seal images from public/imgs/knowledge/fin-lap
 const SEAL_IMAGES = {
@@ -614,6 +615,9 @@ export default function FinSealLapSealPage() {
         </div>
       )}
 
+      <div className="max-w-7xl mx-auto px-4 pb-12">
+        <RelatedProductsShowcase productIds={['stand-up-pouch-full-matte-finish-pe70-evoh-pe70-140-microns']} />
+      </div>
       <Footer />
     </>
   )

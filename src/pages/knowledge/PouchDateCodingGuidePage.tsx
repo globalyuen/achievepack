@@ -8,6 +8,7 @@ import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { getDomain } from '../../utils/domain'
 import ClickableImage from '../../components/ClickableImage'
+import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 export default function PouchDateCodingGuidePage() {
   const { t } = useTranslation()
@@ -359,20 +360,7 @@ export default function PouchDateCodingGuidePage() {
           </div>
           
           {/* Related Store Products Integration */}
-          <div className="bg-neutral-900 text-white p-6 rounded-2xl border border-neutral-800 shadow-xl mt-8">
-            <h4 className="font-black text-lg mb-2 text-white tracking-wide uppercase">Looking for compatible date-coding machinery?</h4>
-            <p className="text-neutral-400 text-xs leading-relaxed mb-4 font-sans">
-              We supply professional direct-heat sealers and coding machinery optimized for flexible packaging. View our latest machinery offerings or check out our premium bag catalog.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Link to="/store?shape=Machinery" className="bg-emerald-500 hover:bg-emerald-600 text-neutral-900 font-bold px-4 py-3 rounded-lg text-xs uppercase text-center transition-colors">
-                Browse Sealing & Coding Machinery &rarr;
-              </Link>
-              <Link to="/store" className="bg-neutral-800 hover:bg-neutral-700 text-white font-bold px-4 py-3 rounded-lg text-xs uppercase text-center border border-neutral-700 transition-colors">
-                Shop Pre-Made Stock Bags &rarr;
-              </Link>
-            </div>
-          </div>
+          <RelatedProductsShowcase productIds={['smart-inkjet-coding-machine', 'hand-clamp-sealer', 'automatic-labeling-machine']} />
         </div>
       )
     }

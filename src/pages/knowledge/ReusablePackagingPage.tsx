@@ -3,9 +3,10 @@ import { getDomain } from '../../utils/domain'
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import PouchLayout from '../../components/pouch/PouchLayout'
-import { Leaf, Shield, Award, RefreshCw, AlertTriangle, Lightbulb, ArrowRight, ShoppingBag } from 'lucide-react'
+import { Leaf, Shield, Award, RefreshCw, AlertTriangle, Lightbulb, ArrowRight, ShoppingBag, Box } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 const translations = {
   en: {
@@ -357,6 +358,12 @@ export default function ReusablePackagingPage() {
           </div>
         </div>
       )
+    },
+    {
+      id: "related-store-products",
+      title: "Related Products & Equipment",
+      icon: <Box className="h-6 w-6" />,
+      content: <RelatedProductsShowcase productIds={['reusable-acrylic-airtight-canister']} />
     }
   ]
 

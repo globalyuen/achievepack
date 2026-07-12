@@ -165,6 +165,9 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/knowledge/writable-stampable-pouches': () => import('./pages/knowledge/WritableStampablePouchesPage'),
   '/knowledge/hand-clamp-sealer': () => import('./pages/knowledge/HandClampSealerPage'),
   '/knowledge/pouch-date-coding-guide': () => import('./pages/knowledge/PouchDateCodingGuidePage'),
+  '/knowledge/food-packaging-compliance-date-coding': () => import('./pages/knowledge/FoodPackagingCompliancePage'),
+  '/knowledge/packaging-line-automation-date-coding': () => import('./pages/knowledge/PackagingLineAutomationPage'),
+  '/knowledge/compostable-packaging-inkjet-coding': () => import('./pages/knowledge/CompostablePackagingCodingPage'),
   '/ctrl-x9k7m/bookkeeping': () => import('./pages/admin/BookkeepingPage'),
 }
 
@@ -395,6 +398,9 @@ const BottlePrintingGuidePage = lazyWithRetry(() => import('./pages/knowledge/Bo
 const PouchHeatSealingGuidePage = lazyWithRetry(() => import('./pages/knowledge/PouchHeatSealingGuidePage'))
 const HandClampSealerPage = lazyWithRetry(() => import('./pages/knowledge/HandClampSealerPage'))
 const PouchDateCodingGuidePage = lazyWithRetry(() => import('./pages/knowledge/PouchDateCodingGuidePage'))
+const FoodPackagingCompliancePage = lazyWithRetry(() => import('./pages/knowledge/FoodPackagingCompliancePage'))
+const PackagingLineAutomationPage = lazyWithRetry(() => import('./pages/knowledge/PackagingLineAutomationPage'))
+const CompostablePackagingCodingPage = lazyWithRetry(() => import('./pages/knowledge/CompostablePackagingCodingPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -493,7 +499,24 @@ const LabelsAndStickersPage = lazyWithRetry(() => import('./pages/products/Label
 const LabBagsPage = lazyWithRetry(() => import('./pages/products/LabBagsPage'))
 const CustomCompostableLabelsPage = lazyWithRetry(() => import('./pages/products/CustomCompostableLabelsPage'))
 
+// 9 New SEO Pages
+const EcoStandUpPouchGuidePage = lazyWithRetry(() => import('./pages/products/EcoStandUpPouchGuidePage'))
+const EcoStandUpCoffeePouchPage = lazyWithRetry(() => import('./pages/products/EcoStandUpCoffeePouchPage'))
+const EcoVsConventionalPouchPage = lazyWithRetry(() => import('./pages/products/EcoVsConventionalPouchPage'))
+const EcoSideGussetGuidePage = lazyWithRetry(() => import('./pages/products/EcoSideGussetGuidePage'))
+const SideGussetCoffeeBagPage = lazyWithRetry(() => import('./pages/products/SideGussetCoffeeBagPage'))
+const RecyclableSideGussetPage = lazyWithRetry(() => import('./pages/products/RecyclableSideGussetPage'))
+const EcoBoxBottomPouchPage = lazyWithRetry(() => import('./pages/products/EcoBoxBottomPouchPage'))
+const EcoFlatBottomPouchPage = lazyWithRetry(() => import('./pages/products/EcoFlatBottomPouchPage'))
+const PremiumEcoPackagingComparisonPage = lazyWithRetry(() => import('./pages/products/PremiumEcoPackagingComparisonPage'))
+const CustomCorrugatedBoxesPage = lazyWithRetry(() => import('./pages/products/CustomCorrugatedBoxesPage'))
+const CustomTuckBoxesPage = lazyWithRetry(() => import('./pages/products/CustomTuckBoxesPage'))
+const CottonPaperFoilPouchPage = lazyWithRetry(() => import('./pages/products/CottonPaperFoilPouchPage'))
+
 // Solutions Pages - Persona Based SEO - Lazy loaded
+const FoodCodingComplianceSolutionsPage = lazyWithRetry(() => import('./pages/solutions/FoodCodingCompliancePage'))
+const PackagingLineAutomationSolutionsPage = lazyWithRetry(() => import('./pages/solutions/PackagingLineAutomationPage'))
+const EcoPackagingCodingPage = lazyWithRetry(() => import('./pages/solutions/EcoPackagingCodingPage'))
 const StartupFounderPage = lazyWithRetry(() => import('./pages/solutions/StartupFounderPage'))
 const EcommerceBrandPage = lazyWithRetry(() => import('./pages/solutions/EcommerceBrandPage'))
 const CorporateSustainabilityPage = lazyWithRetry(() => import('./pages/solutions/CorporateSustainabilityPage'))
@@ -878,6 +901,9 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/pouch-heat-sealing-temperature-guide" element={<PouchHeatSealingGuidePage />} />
                   <Route path="/knowledge/hand-clamp-sealer" element={<HandClampSealerPage />} />
                   <Route path="/knowledge/pouch-date-coding-guide" element={<PouchDateCodingGuidePage />} />
+                  <Route path="/knowledge/food-packaging-compliance-date-coding" element={<FoodPackagingCompliancePage />} />
+                  <Route path="/knowledge/packaging-line-automation-date-coding" element={<PackagingLineAutomationPage />} />
+                  <Route path="/knowledge/compostable-packaging-inkjet-coding" element={<CompostablePackagingCodingPage />} />
                   {/* <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} /> */}
                   {/* <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} /> */}
                   {/* <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} /> */}
@@ -1113,6 +1139,18 @@ if (getDomain() === 'pouch') {
                   <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
                   <Route path="/products/custom-compostable-labels" element={<CustomCompostableLabelsPage />} />
                   <Route path="/products/compostable-side-gusset-bags" element={<CompostableSideGussetPage />} />
+                  <Route path="/products/eco-stand-up-pouch-guide" element={<EcoStandUpPouchGuidePage />} />
+                  <Route path="/products/eco-stand-up-coffee-pouch" element={<EcoStandUpCoffeePouchPage />} />
+                  <Route path="/products/eco-vs-conventional-pouch-comparison" element={<EcoVsConventionalPouchPage />} />
+                  <Route path="/products/eco-side-gusset-pouch-guide" element={<EcoSideGussetGuidePage />} />
+                  <Route path="/products/side-gusset-coffee-bag-packaging" element={<SideGussetCoffeeBagPage />} />
+                  <Route path="/products/recyclable-side-gusset-bags" element={<RecyclableSideGussetPage />} />
+                  <Route path="/products/eco-box-bottom-pouch" element={<EcoBoxBottomPouchPage />} />
+                  <Route path="/products/eco-flat-bottom-pouch" element={<EcoFlatBottomPouchPage />} />
+                  <Route path="/products/premium-eco-packaging-comparison" element={<PremiumEcoPackagingComparisonPage />} />
+                  <Route path="/products/custom-printed-corrugated-boxes" element={<CustomCorrugatedBoxesPage />} />
+                  <Route path="/products/custom-printed-tuck-boxes" element={<CustomTuckBoxesPage />} />
+                  <Route path="/products/premium-cotton-paper-foil-pouch" element={<CottonPaperFoilPouchPage />} />
                   
                   {/* Legacy pouch.eco routes recovery */}
                   <Route path="/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc" element={<DrinkLiquidPouchPage />} />
@@ -1184,6 +1222,9 @@ if (getDomain() === 'pouch') {
                   <Route path="/spec/biope-kraft-duplex-low" element={<BioPeKraftDuplexLowPage />} />
 
                   {/* Migrated B2C Solutions & Case Studies */}
+                  <Route path="/solutions/food-coding-compliance" element={<FoodCodingComplianceSolutionsPage />} />
+                  <Route path="/solutions/packaging-line-automation" element={<PackagingLineAutomationSolutionsPage />} />
+                  <Route path="/solutions/eco-packaging-coding" element={<EcoPackagingCodingPage />} />
                   <Route path="/solutions/startup-founder" element={<StartupFounderPage />} />
                   <Route path="/solutions/ecommerce-brand" element={<EcommerceBrandPage />} />
                   <Route path="/solutions/corporate-sustainability" element={<CorporateSustainabilityPage />} />
@@ -1579,6 +1620,9 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/pouch-heat-sealing-temperature-guide" element={<PouchHeatSealingGuidePage />} />
                         <Route path="/knowledge/hand-clamp-sealer" element={<HandClampSealerPage />} />
                         <Route path="/knowledge/pouch-date-coding-guide" element={<PouchDateCodingGuidePage />} />
+                        <Route path="/knowledge/food-packaging-compliance-date-coding" element={<FoodPackagingCompliancePage />} />
+                        <Route path="/knowledge/packaging-line-automation-date-coding" element={<PackagingLineAutomationPage />} />
+                        <Route path="/knowledge/compostable-packaging-inkjet-coding" element={<CompostablePackagingCodingPage />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />
@@ -1634,8 +1678,23 @@ if (getDomain() === 'pouch') {
                         <Route path="/products/labels-and-stickers" element={<LabelsAndStickersPage />} />
                         <Route path="/products/lab-bags" element={<LabBagsPage />} />
                         <Route path="/products/custom-compostable-labels" element={<CustomCompostableLabelsPage />} />
+                        <Route path="/products/eco-stand-up-pouch-guide" element={<EcoStandUpPouchGuidePage />} />
+                        <Route path="/products/eco-stand-up-coffee-pouch" element={<EcoStandUpCoffeePouchPage />} />
+                        <Route path="/products/eco-vs-conventional-pouch-comparison" element={<EcoVsConventionalPouchPage />} />
+                        <Route path="/products/eco-side-gusset-pouch-guide" element={<EcoSideGussetGuidePage />} />
+                        <Route path="/products/side-gusset-coffee-bag-packaging" element={<SideGussetCoffeeBagPage />} />
+                        <Route path="/products/recyclable-side-gusset-bags" element={<RecyclableSideGussetPage />} />
+                        <Route path="/products/eco-box-bottom-pouch" element={<EcoBoxBottomPouchPage />} />
+                        <Route path="/products/eco-flat-bottom-pouch" element={<EcoFlatBottomPouchPage />} />
+                        <Route path="/products/premium-eco-packaging-comparison" element={<PremiumEcoPackagingComparisonPage />} />
+                        <Route path="/products/custom-printed-corrugated-boxes" element={<CustomCorrugatedBoxesPage />} />
+                        <Route path="/products/custom-printed-tuck-boxes" element={<CustomTuckBoxesPage />} />
+                        <Route path="/products/premium-cotton-paper-foil-pouch" element={<CottonPaperFoilPouchPage />} />
 
                         {/* Solutions Pages - Persona Based SEO */}
+                        <Route path="/solutions/food-coding-compliance" element={<FoodCodingComplianceSolutionsPage />} />
+                        <Route path="/solutions/packaging-line-automation" element={<PackagingLineAutomationSolutionsPage />} />
+                        <Route path="/solutions/eco-packaging-coding" element={<EcoPackagingCodingPage />} />
                         <Route path="/solutions/startup-founder" element={<StartupFounderPage />} />
                         <Route path="/solutions/ecommerce-brand" element={<EcommerceBrandPage />} />
                         <Route path="/solutions/corporate-sustainability" element={<CorporateSustainabilityPage />} />

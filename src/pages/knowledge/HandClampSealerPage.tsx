@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight, Settings, Thermometer, ShieldCheck, AlertTriangle, Shield, CheckCircle, Package, Calendar, Zap, Layers, Flame } from 'lucide-react'
+import { ArrowRight, Settings, Thermometer, ShieldCheck, AlertTriangle, Shield, CheckCircle, Package, Calendar, Zap, Layers, Flame, Box } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { getDomain } from '../../utils/domain'
+import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 // Custom Clickable Image with Lightbox
 const ClickableImage: React.FC<{
@@ -342,6 +343,12 @@ export default function HandClampSealerPage() {
 
         </div>
       )
+    },
+    {
+      id: "related-store-products",
+      title: t('seo.relatedProducts.sectionTitle', "Related Products & Equipment"),
+      icon: <Box className="h-6 w-6" />,
+      content: <RelatedProductsShowcase productIds={['hand-clamp-sealer', 'smart-inkjet-coding-machine']} />
     }
   ]
 

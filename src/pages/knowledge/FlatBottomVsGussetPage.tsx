@@ -11,6 +11,7 @@ import LearnNavigation from '../../components/LearnNavigation'
 import Footer from '../../components/Footer'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import { useTranslation, Trans } from "react-i18next";
+import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 // Studio Mockups saved under public
 const MOCKUP_IMAGES = {
@@ -709,6 +710,9 @@ export default function FlatBottomVsGussetPage() {
         </div>
       )}
 
+      <div className="max-w-7xl mx-auto px-4 pb-12">
+        <RelatedProductsShowcase productIds={['flat-bottom-one-sided-zipper-conventional', 'rice-paper-flatbottom-valve']} />
+      </div>
       <Footer />
     </>
   )

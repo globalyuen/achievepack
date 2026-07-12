@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
@@ -36,7 +35,10 @@ export default function PackageEditorPage() {
   const editorCanvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // States
+  const searchParams = new URLSearchParams(window.location.search);
+  const initialViewMode = searchParams.get('shape') ? 'editor' : 'catalog';
+  const [viewMode, setViewMode] = useState<'catalog' | 'editor'>(initialViewMode as 'catalog' | 'editor');
+
   const [shapes, setShapes] = useState<Shape[]>([]);
   const [selectedShapeId, setSelectedShapeId] = useState<string>('');
   const [activeCategory, setActiveCategory] = useState<'pouch' | 'box' | 'bottle' | 'label' | 'other'>('pouch');
@@ -337,7 +339,7 @@ export default function PackageEditorPage() {
 
   // Initialize ThreeJS on mount
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || sceneRef.current) return;
 
     const widthContainer = containerRef.current.clientWidth;
     const heightContainer = containerRef.current.clientHeight;
@@ -358,14 +360,8 @@ export default function PackageEditorPage() {
     renderer.setSize(widthContainer, heightContainer);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.2;
     containerRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
-
-    const pmremGenerator = new THREE.PMREMGenerator(renderer);
-    pmremGenerator.compileEquirectangularShader();
-    scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
 
     // 4. Orbit Controls
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -675,7 +671,7 @@ export default function PackageEditorPage() {
         containerRef.current.removeChild(renderer.domElement);
       }
     };
-    }, []);
+  }, [viewMode]);
 
   // Re-parent / resize Three.js renderer when switching between mobile tabs or breakpoints
   useEffect(() => {
@@ -711,7 +707,7 @@ export default function PackageEditorPage() {
         renderer.setSize(w, h);
       }
     }
-  }, [mobileTab]);
+  }, [mobileTab, viewMode]);
 
   // Shared function to load a packaging shape into the 3D studio scene
   const loadShape = (shape: Shape | undefined, presetWidth?: number, presetHeight?: number, presetLayers?: any[]) => {
@@ -1542,6 +1538,123 @@ export default function PackageEditorPage() {
     });
   };
 
+  if (viewMode === 'catalog') {
+    return (
+      <div className="flex flex-col min-h-screen w-screen bg-[#08090c] text-[#f3f4f6] font-sans antialiased overflow-y-auto">
+        <SiteHeader />
+        <style>{`
+          :root {
+            --bg-color: #08090c;
+            --panel-bg: rgba(16, 20, 28, 0.7);
+            --panel-border: rgba(255, 255, 255, 0.08);
+            --accent-color: #64ffda;
+            --accent-glow: rgba(100, 255, 218, 0.15);
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --input-bg: rgba(0, 0, 0, 0.4);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          
+          .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--panel-border);
+            border-radius: 4px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+          }
+        `}</style>
+        <div className="flex-1 px-4 py-8 md:px-12 max-w-[1400px] mx-auto w-full">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-[#f3f4f6]">3D Model Store</h1>
+              <p className="text-[#9ca3af] mt-2 text-sm">Select a base packaging model to start editing in 3D.</p>
+            </div>
+            <div className="flex flex-wrap items-center bg-[rgba(16,20,28,0.7)] border border-[rgba(255,255,255,0.08)] rounded-xl p-1 gap-1">
+              {[
+                { id: 'pouch', label: 'Pouch', icon: <Layers className="w-4 h-4" /> },
+                { id: 'box', label: 'Box', icon: <Box className="w-4 h-4" /> },
+                { id: 'bottle', label: 'Bottle', icon: <Database className="w-4 h-4" /> },
+                { id: 'label', label: 'Label', icon: <Tag className="w-4 h-4" /> },
+                { id: 'other', label: 'Other', icon: <Grid className="w-4 h-4" /> }
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveCategory(tab.id as any)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold uppercase tracking-wider transition-all duration-200 ${
+                    activeCategory === tab.id
+                      ? 'bg-[#64ffda] text-[#0a192f] shadow-[0_0_12px_rgba(100,255,218,0.25)]'
+                      : 'text-[#9ca3af] hover:text-[#f3f4f6] hover:bg-[rgba(255,255,255,0.05)]'
+                  }`}
+                >
+                  {tab.icon}
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {filteredShapes.length === 0 ? (
+             <div className="flex flex-col items-center justify-center py-20 text-neutral-500">
+               <Grid className="w-12 h-12 mb-4 opacity-50" />
+               <p>No models found in this category.</p>
+             </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              {filteredShapes.map(shape => {
+                const thumbnailSrc = `/thumbnails/${shape.id}.png`;
+                const dielineSrc = shape.dieline_image.startsWith('/') ? shape.dieline_image : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
+
+                return (
+                  <div
+                    key={shape.id}
+                    onClick={() => {
+                      setSelectedShapeId(shape.id);
+                      setViewMode('editor');
+                      setIsLoading(true);
+                      const url = new URL(window.location.href);
+                      url.searchParams.set('shape', shape.id);
+                      window.history.pushState({}, '', url.toString());
+                      setTimeout(() => loadShape(shape), 100);
+                    }}
+                    className="group relative bg-[rgba(16,20,28,0.4)] border border-[rgba(255,255,255,0.08)] rounded-2xl overflow-hidden cursor-pointer hover:border-[#64ffda] hover:-translate-y-1 transition-all duration-300 flex flex-col h-[280px]"
+                  >
+                    <div className="flex-1 bg-white relative p-6 flex items-center justify-center overflow-hidden">
+                       <img 
+                         src={thumbnailSrc} 
+                         alt={shape.name}
+                         className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                         onError={(e) => {
+                           (e.target as HTMLImageElement).src = dielineSrc;
+                         }}
+                       />
+                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                         <span className="bg-[#64ffda] text-[#0a192f] px-5 py-2.5 rounded-full font-bold text-sm shadow-[0_0_15px_rgba(100,255,218,0.4)] flex items-center gap-2">
+                            Select & Edit
+                         </span>
+                       </div>
+                    </div>
+                    <div className="p-4 bg-[rgba(16,20,28,0.8)] border-t border-[rgba(255,255,255,0.05)] flex-shrink-0">
+                      <h3 className="font-semibold text-[#f3f4f6] truncate text-sm" title={shape.name}>{shape.name || `Shape ${shape.id}`}</h3>
+                      <p className="text-[11px] text-[#9ca3af] mt-1 font-mono">ID: {shape.id}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen w-screen bg-[#08090c] text-[#f3f4f6] font-sans antialiased">
       {/* Site Navigation Header for SEO + user navigation */}
@@ -1584,124 +1697,6 @@ export default function PackageEditorPage() {
         </div>
       )}
 
-      {/* Studio Top Bar - responsive: taller on desktop, compact on mobile */}
-      <header className="w-full flex-shrink-0 bg-[rgba(16,20,28,0.92)] backdrop-blur-[12px] border-b border-[rgba(255,255,255,0.08)] flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.2)] z-20 overflow-hidden">
-        {/* Row 1: Logo & Category Tabs — hidden on mobile to save space */}
-        <div className="hidden sm:flex items-center justify-between w-full px-4 pt-3 pb-2">
-          <div className="flex items-center gap-2.5 font-bold text-[15px] tracking-wider uppercase text-[#f3f4f6]">
-            <svg className="w-5 h-5 fill-[#64ffda]" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-            </svg>
-            <span>AchievePack 3D Studio</span>
-          </div>
-
-          {/* Category Tabs with Icons */}
-          <div className="flex items-center bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-xl p-1 gap-1">
-            {[
-              { id: 'pouch', label: 'Pouch', icon: <Layers className="w-3.5 h-3.5" /> },
-              { id: 'box', label: 'Box', icon: <Box className="w-3.5 h-3.5" /> },
-              { id: 'bottle', label: 'Bottle', icon: <Database className="w-3.5 h-3.5" /> },
-              { id: 'label', label: 'Label', icon: <Tag className="w-3.5 h-3.5" /> },
-              { id: 'other', label: 'Other', icon: <Grid className="w-3.5 h-3.5" /> }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveCategory(tab.id as any)}
-                className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
-                  activeCategory === tab.id
-                    ? 'bg-[#64ffda] text-[#0a192f] font-bold shadow-[0_0_8px_rgba(100,255,218,0.25)]'
-                    : 'text-[#9ca3af] hover:text-[#f3f4f6]'
-                }`}
-              >
-                {tab.icon}
-                <span className="hidden sm:inline">{tab.label}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Shapes count — desktop only */}
-          <div className="w-[80px] text-right text-[10px] text-neutral-500 font-mono hidden md:block">
-            Shapes: {filteredShapes.length}
-          </div>
-        </div>
-
-        {/* Mobile: compact category tabs row */}
-        <div className="flex sm:hidden items-center justify-between px-3 pt-2 pb-1">
-          <span className="text-[11px] font-bold text-[#64ffda] uppercase tracking-widest">3D Studio</span>
-          <div className="flex items-center bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg p-0.5 gap-0.5">
-            {[
-              { id: 'pouch', label: 'Pouch', icon: <Layers className="w-3 h-3" /> },
-              { id: 'box', label: 'Box', icon: <Box className="w-3 h-3" /> },
-              { id: 'bottle', label: 'Bottle', icon: <Database className="w-3 h-3" /> },
-              { id: 'label', label: 'Label', icon: <Tag className="w-3 h-3" /> },
-              { id: 'other', label: '+', icon: <Grid className="w-3 h-3" /> }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveCategory(tab.id as any)}
-                className={`flex items-center gap-0.5 px-2 py-1 rounded text-[9px] font-bold uppercase transition-all duration-200 ${
-                  activeCategory === tab.id
-                    ? 'bg-[#64ffda] text-[#0a192f]'
-                    : 'text-[#9ca3af]'
-                }`}
-              >
-                {tab.icon}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2: Horizontal Scrolling Card Catalogue */}
-        <div className="w-full overflow-x-auto overflow-y-hidden flex flex-row items-center gap-2 px-3 pb-2 pt-1 custom-scrollbar" style={{ height: '76px', minHeight: '76px' }}>
-          {activeCategory === 'label' ? (
-            <div className="text-xs text-neutral-500 w-full text-center py-2 italic flex items-center justify-center gap-2">
-              <Tag className="w-4 h-4 text-[#64ffda] animate-pulse" />
-              Custom 3D Labels & Stickers editor specs are coming soon!
-            </div>
-          ) : filteredShapes.length === 0 ? (
-            <div className="text-xs text-neutral-500 w-full text-center py-2 italic">
-              No matching shapes found in this category.
-            </div>
-          ) : (
-            filteredShapes.map((shape) => {
-              const isSelected = String(shape.id) === String(selectedShapeId);
-              const dielineSrc = shape.dieline_image.startsWith('/') ? shape.dieline_image : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
-              const thumbnailSrc = `/thumbnails/${shape.id}.png`;
-
-              return (
-                <div
-                  key={shape.id}
-                  onClick={() => {
-                    setSelectedShapeId(shape.id);
-                    loadShape(shape);
-                  }}
-                  className={`w-[90px] h-[80px] flex-shrink-0 rounded-xl border flex flex-col items-center justify-center cursor-pointer transition-all duration-200 hover:scale-[1.05] gap-0.5 ${
-                    isSelected
-                      ? 'bg-[rgba(100,255,218,0.08)] border-[#64ffda] shadow-[0_0_8px_rgba(100,255,218,0.25)] scale-[1.02]'
-                      : 'bg-[rgba(0,0,0,0.4)] border-[rgba(255,255,255,0.08)] hover:border-neutral-500'
-                  }`}
-                  title={shape.name}
-                >
-                  {/* Thumbnail — fixed size with contain so image is never cropped */}
-                  <div className="w-[62px] h-[54px] flex items-center justify-center">
-                    <img
-                      src={thumbnailSrc}
-                      alt={shape.name}
-                      loading="lazy"
-                      className="max-w-full max-h-full object-contain"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = dielineSrc;
-                      }}
-                    />
-                  </div>
-                  <span className="text-[8px] text-[#9ca3af] leading-tight text-center px-1 truncate w-full text-center">{shape.id}</span>
-                </div>
-              );
-            })
-          )}
-        </div>
-      </header>
-
       {/* ================================================================ */}
       {/* Main Workspace — 3-column on desktop, tab-switched on mobile      */}
       {/* ================================================================ */}
@@ -1712,6 +1707,20 @@ export default function PackageEditorPage() {
         
         {/* 1. Left Sidebar: Control Panel */}
         <div className="w-[340px] flex-shrink-0 bg-[rgba(16,20,28,0.4)] border-r border-[rgba(255,255,255,0.08)] p-6 flex flex-col gap-6 overflow-y-auto custom-scrollbar">
+          
+          <button 
+            onClick={() => {
+              setViewMode('catalog');
+              const url = new URL(window.location.href);
+              url.searchParams.delete('shape');
+              window.history.pushState({}, '', url.toString());
+            }}
+            className="flex items-center gap-2 text-xs font-semibold text-[#9ca3af] hover:text-[#64ffda] transition-colors self-start border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.4)] rounded-lg px-3 py-1.5"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Catalog
+          </button>
+
           <div>
             <h1 className="text-lg font-bold text-[#f3f4f6]">3D Studio</h1>
             <p className="text-xs text-[#9ca3af] mt-1">Configure physical pouch sizes and material specs.</p>
@@ -2148,6 +2157,20 @@ export default function PackageEditorPage() {
           {/* MOBILE PANEL: Settings */}
           {mobileTab === 'settings' && (
             <div className="flex-grow bg-[rgba(16,20,28,0.95)] p-4 flex flex-col gap-4 overflow-y-auto custom-scrollbar">
+              
+              <button 
+                onClick={() => {
+                  setViewMode('catalog');
+                  const url = new URL(window.location.href);
+                  url.searchParams.delete('shape');
+                  window.history.pushState({}, '', url.toString());
+                }}
+                className="w-full flex items-center justify-center gap-2 text-[13px] font-semibold text-[#f3f4f6] bg-[rgba(255,255,255,0.05)] hover:bg-[#64ffda] hover:text-[#0a192f] transition-all border border-[rgba(255,255,255,0.1)] rounded-lg py-2 shadow-sm"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back to Catalog
+              </button>
+
               <h2 className="text-sm font-bold text-[#f3f4f6]">Dimensions & Settings</h2>
 
               {/* Dimensions */}

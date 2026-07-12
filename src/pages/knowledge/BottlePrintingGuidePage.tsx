@@ -3,9 +3,10 @@ import { getDomain } from '../../utils/domain'
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import PouchLayout from '../../components/pouch/PouchLayout'
-import { Printer, ShieldCheck, Flame, Scissors, HelpCircle, Layers, ArrowRight, Award } from 'lucide-react'
+import { Printer, ShieldCheck, Flame, Scissors, HelpCircle, Layers, ArrowRight, Award, Box } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 const translations = {
   en: {
@@ -922,6 +923,12 @@ export default function BottlePrintingGuidePage() {
           </div>
         </div>
       )
+    },
+    {
+      id: "related-store-products",
+      title: "Related Products & Equipment",
+      icon: <Box className="h-6 w-6" />,
+      content: <RelatedProductsShowcase productIds={['automatic-labeling-machine']} />
     }
   ]
 
@@ -1275,6 +1282,12 @@ export default function BottlePrintingGuidePage() {
           </div>
         </div>
       )
+    },
+    {
+      id: "related-store-products",
+      title: "Related Products & Equipment",
+      icon: <Box className="h-6 w-6" />,
+      content: <RelatedProductsShowcase productIds={['automatic-labeling-machine']} />
     }
   ]
 

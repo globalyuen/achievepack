@@ -277,7 +277,7 @@ const ArtworkReviewPage: React.FC = () => {
     setSendingCustomerReply(true)
     try {
       const newReply = {
-        author: 'Customer',
+        author: isSupplier ? 'Supplier' : 'Customer',
         text: text.trim(),
         at: new Date().toISOString(),
         assets: assets.length > 0 ? assets : undefined
@@ -1093,7 +1093,7 @@ const ArtworkReviewPage: React.FC = () => {
                                 }}
                                 className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition border border-primary-100"
                               >
-                                {isSupplier ? '上传新版本稿件' : item.status === 'pending' ? 'Review Now' : 'View Details'}
+                                {isSupplier ? '查看图稿与讨论' : item.status === 'pending' ? 'Review Now' : 'View Details'}
                               </button>
           
                               {item.source_link && (
@@ -1150,6 +1150,9 @@ const ArtworkReviewPage: React.FC = () => {
           onSubmit={handleItemApproval}
           onPreview={(url) => setPreviewImage(url)}
           onAddReply={handleCustomerReply}
+          onUpdateItem={(updatedItem) => {
+            setItems(prev => prev.map(i => i.id === updatedItem.id ? updatedItem : i))
+          }}
         />
       )}
 
@@ -1440,8 +1443,9 @@ const ReviewModal: React.FC<{
   onClose: () => void
   onSubmit: (item: ArtworkBatchItem, type: 'approve_as_is' | 'approve_with_changes' | 'not_approved', comment: string, checklist: Record<string, boolean>) => void
   onPreview: (url: string) => void
-  onAddReply: (item: ArtworkBatchItem, text: string, assets?: { type: 'image' | 'link', url: string, name?: string }[]) => Promise<void>
-}> = ({ item, isSupplier, onSupplierUpload, onClose, onSubmit, onPreview, onAddReply }) => {
+  onAddReply: (item: ArtworkBatchItem, text: string, assets?: { type: 'image' | 'link' | 'video', url: string, name?: string, approved?: boolean }[]) => Promise<void>
+  onUpdateItem?: (updatedItem: ArtworkBatchItem) => void
+}> = ({ item, isSupplier, onSupplierUpload, onClose, onSubmit, onPreview, onAddReply, onUpdateItem }) => {
   const { t } = useTranslation()
   const [approvalType, setApprovalType] = useState<'approve_as_is' | 'approve_with_changes' | 'not_approved' | null>(
     item.approval_type || null
@@ -1494,7 +1498,7 @@ const ReviewModal: React.FC<{
   const [sendingReply, setSendingReply] = useState(false)
 
   // Asset states
-  const [pendingAssets, setPendingAssets] = useState<{ type: 'image' | 'link', url: string, name?: string }[]>([])
+  const [pendingAssets, setPendingAssets] = useState<{ type: 'image' | 'link' | 'video', url: string, name?: string, approved?: boolean }[]>([])
   const [uploadingAsset, setUploadingAsset] = useState(false)
   const [showLinkInput, setShowLinkInput] = useState(false)
   const [linkUrl, setLinkUrl] = useState('')
@@ -1525,10 +1529,14 @@ const ReviewModal: React.FC<{
       
       const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(filePath)
       
+      const isVideoAsset = /\.(mp4|mov|webm)$/i.test(file.name)
+      const assetType = isVideoAsset ? 'video' : 'image'
+
       setPendingAssets(prev => [...prev, {
-        type: 'image',
+        type: assetType,
         url: urlData.publicUrl,
-        name: file.name
+        name: file.name,
+        approved: isSupplier && isVideoAsset ? false : true
       }])
     } catch (err) {
       console.error('Asset upload error:', err)
@@ -1568,7 +1576,7 @@ const ReviewModal: React.FC<{
     
     // Update local state to show reply immediately
     const newReply = { 
-      author: 'Customer', 
+      author: isSupplier ? 'Supplier' : 'Customer', 
       text: replyText.trim(), 
       at: new Date().toISOString(),
       assets: assetsToSend
@@ -1709,7 +1717,7 @@ const ReviewModal: React.FC<{
               )}
             </div>
             
-            {/* Right: Review Form or Supplier Upload */}
+            {/* Right: Review Form */}
             <div className="space-y-6">
               {!isSupplier && localItem.supplier_comment && (
                 <div className="mb-2 p-4 bg-amber-50 border border-amber-200 rounded-xl">
@@ -1721,52 +1729,7 @@ const ReviewModal: React.FC<{
                 </div>
               )}
               
-              {isSupplier ? (
-                <div className="bg-primary-50 rounded-2xl border border-primary-100 p-8 flex flex-col items-stretch text-left">
-                  <div className="flex flex-col items-center justify-center text-center mb-6">
-                    <h3 className="font-bold text-gray-900 mb-2 flex items-center justify-center gap-2">
-                      <Sparkles className="h-5 w-5 text-primary-500" />
-                      上传新版本稿件
-                    </h3>
-                    <p className="text-sm text-gray-600 max-w-sm mb-6 text-center">
-                      请在此上传最新版的印前图稿（支持图片或PDF格式）。上传将覆盖原有文件，并将确认状态重置为“待确认”状态。
-                    </p>
-                    
-                    <label className={`cursor-pointer inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 transition shadow-sm w-full max-w-sm ${uploadingNewArtwork ? 'opacity-50 cursor-not-allowed' : ''}`}>
-                    {uploadingNewArtwork ? <RefreshCw className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}
-                    <span>{uploadingNewArtwork ? '正在上传...' : '选择文件并覆盖原图稿'}</span>
-                    <input
-                      type="file"
-                      accept="image/*,application/pdf,.heic,.heif"
-                      className="hidden"
-                      disabled={uploadingNewArtwork}
-                      onChange={(e) => handleSupplierUpload(e, item)}
-                    />
-                  </label>
-                  </div>
-                  
-                  <div className="mt-2 border-t border-primary-100 pt-6">
-                    <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
-                      <MessageSquare className="h-4 w-4 text-primary-500" />
-                      供应商备注 (留言给管理团队)
-                    </label>
-                    <textarea
-                      value={supplierComment}
-                      onChange={(e) => setSupplierComment(e.target.value)}
-                      placeholder="如果您对该图稿有任何补充说明，请在此输入（此留言仅管理团队可见）。"
-                      rows={3}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 transition mb-3"
-                    />
-                    <button
-                      onClick={handleSupplierSaveComment}
-                      disabled={savingSupplierComment || supplierComment === (localItem.supplier_comment || '')}
-                      className="w-full px-4 py-2.5 bg-white border border-primary-200 text-primary-700 font-bold rounded-xl hover:bg-primary-50 disabled:opacity-50 transition"
-                    >
-                      {savingSupplierComment ? '正在保存...' : '保存备注'}
-                    </button>
-                  </div>
-                </div>
-              ) : (
+              {!isSupplier && (
                 <>
                   {/* Checklist */}
                   <div>
@@ -1852,15 +1815,17 @@ const ReviewModal: React.FC<{
                   </label>
                 </div>
               </div>
+                </>
+              )}
 
               {/* Discussion Thread */}
               <div className="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden shadow-inner">
                 <div className="p-4 border-b border-gray-200 bg-white/50 flex items-center justify-between">
                   <h3 className="font-bold text-gray-900 flex items-center gap-2 text-sm">
                     <MessageSquare className="h-4 w-4 text-primary-500" />
-                    Discussion Thread
+                    {isSupplier ? '补充文件与讨论区' : 'Discussion Thread'}
                   </h3>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Live Updates</span>
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{isSupplier ? '实时同步' : 'Live Updates'}</span>
                 </div>
                 
                 <div className="max-h-60 overflow-y-auto p-4 space-y-4">
@@ -1875,50 +1840,133 @@ const ReviewModal: React.FC<{
                   
                   {(localItem.ai_analysis?.replies ?? []).map((r: any, idx: number) => {
                     const isAdmin = r.author === 'Admin' || r.author === 'Achieve Pack'
+                    const isOwnMessage = isSupplier ? r.author === 'Supplier' : r.author === 'Customer'
+                    const isCustomer = r.author === 'Customer'
+                    const isSupplierMsg = r.author === 'Supplier'
+
+                    // Determine display name
+                    let displayName = 'Unknown'
+                    if (isAdmin) displayName = 'Achieve Pack'
+                    else if (isSupplierMsg) displayName = isSupplier ? '您 (You)' : 'Supplier'
+                    else if (isCustomer) displayName = isSupplier ? 'Customer' : 'You'
+
+                    const alignRight = isOwnMessage
+                    const bubbleClass = alignRight
+                      ? 'bg-primary-600 text-white rounded-tr-none'
+                      : 'bg-white border border-gray-200 rounded-tl-none'
+                    const nameClass = alignRight ? 'text-primary-100' : 'text-indigo-600'
+                    const dateClass = alignRight ? 'text-primary-200' : 'text-gray-400'
+                    const linkClass = alignRight ? 'text-white hover:text-primary-100' : 'text-blue-600 hover:text-blue-800'
+
                     return (
-                      <div key={idx} className={`flex flex-col ${isAdmin ? 'items-start' : 'items-end'}`}>
-                        <div className={`px-4 py-2 rounded-2xl shadow-sm max-w-[90%] ${
-                          isAdmin 
-                            ? 'bg-white border border-gray-200 rounded-tl-none' 
-                            : 'bg-primary-600 text-white rounded-tr-none'
-                        }`}>
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className={`text-[10px] font-black uppercase tracking-tight ${isAdmin ? 'text-indigo-600' : 'text-primary-100'}`}>
-                              {isAdmin ? 'Achieve Pack' : 'You'}
-                            </span>
-                            <span className={`text-[9px] ${isAdmin ? 'text-gray-400' : 'text-primary-200'}`}>
-                              {new Date(r?.at || new Date()).toLocaleDateString()}
-                            </span>
+                      <div key={idx} className={`flex flex-col ${alignRight ? 'items-end' : 'items-start'} relative group`}>
+                        <div className={`px-4 py-2 rounded-2xl shadow-sm max-w-[90%] ${bubbleClass}`}>
+                          <div className="flex items-center justify-between mb-1 gap-4">
+                            <div className="flex items-center gap-2">
+                              <span className={`text-[10px] font-black uppercase tracking-tight ${nameClass}`}>
+                                {displayName}
+                              </span>
+                              <span className={`text-[9px] ${dateClass}`}>
+                                {new Date(r?.at || new Date()).toLocaleDateString()}
+                              </span>
+                            </div>
+                            {!isSupplier && r.author === 'Supplier' && (
+                              <button
+                                onClick={async () => {
+                                  const pwd = window.prompt("Enter admin password to delete / 请输入管理员密码:");
+                                  if (pwd === "8888****") {
+                                    const updatedReplies = [...(localItem.ai_analysis?.replies || [])];
+                                    updatedReplies.splice(idx, 1);
+                                    try {
+                                      const { error } = await supabase.from('artwork_batch_items').update({ ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } }).eq('id', localItem.id);
+                                      if (error) throw error;
+                                      const updatedItem = { ...localItem, ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } };
+                                      setLocalItem(updatedItem);
+                                      if (onUpdateItem) onUpdateItem(updatedItem);
+                                    } catch (err) {
+                                      console.error(err);
+                                      alert("Failed to delete message.");
+                                    }
+                                  } else if (pwd !== null) {
+                                    alert("Incorrect password / 密码错误");
+                                  }
+                                }}
+                                className="text-red-500 hover:text-red-700 opacity-50 hover:opacity-100 transition-opacity p-0.5"
+                                title="Admin: Delete Supplier Message"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                              </button>
+                            )}
                           </div>
                           {r?.text && <p className="text-sm leading-relaxed">{r.text}</p>}
                           
                           {/* Reply Assets */}
                           {Array.isArray(r?.assets) && r.assets.length > 0 && (
                             <div className="mt-2 space-y-1.5 pt-2 border-t border-black/5">
-                              {r.assets.filter(Boolean).map((asset: any, aidx: number) => (
+                              {r.assets.filter(Boolean).map((asset: any, aidx: number) => {
+                                if (asset.type === 'video') {
+                                  return (
+                                    <div key={aidx} className="relative rounded-lg overflow-hidden border border-black/10 bg-black flex flex-col">
+                                      {asset.approved || isSupplier ? (
+                                        <video src={asset.url} controls className="max-h-48 w-full object-contain" />
+                                      ) : (
+                                        <div className="p-6 flex flex-col items-center justify-center text-center bg-gray-900 text-white min-h-[120px]">
+                                          <p className="text-xs font-medium mb-3 opacity-80">Video pending admin approval</p>
+                                          {!isSupplier && (
+                                            <button
+                                              onClick={async () => {
+                                                const pwd = window.prompt("Enter admin password to approve video / 请输入管理员密码:");
+                                                if (pwd === "8888****") {
+                                                  const updatedReplies = [...(localItem.ai_analysis?.replies || [])];
+                                                  updatedReplies[idx].assets[aidx].approved = true;
+                                                  try {
+                                                    const { error } = await supabase.from('artwork_batch_items').update({ ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } }).eq('id', localItem.id);
+                                                    if (error) throw error;
+                                                    const updatedItem = { ...localItem, ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } };
+                                                    setLocalItem(updatedItem);
+                                                    if (onUpdateItem) onUpdateItem(updatedItem);
+                                                  } catch (err) {
+                                                    console.error(err);
+                                                    alert("Failed to approve video.");
+                                                  }
+                                                } else if (pwd !== null) {
+                                                  alert("Incorrect password / 密码错误");
+                                                }
+                                              }}
+                                              className="px-3 py-1.5 bg-primary-600 hover:bg-primary-500 rounded text-xs font-bold transition"
+                                            >
+                                              Admin: Approve Video
+                                            </button>
+                                          )}
+                                        </div>
+                                      )}
+                                    </div>
+                                  )
+                                }
+                                
+                                return (
                                 <div key={aidx}>
                                   {asset.type === 'image' ? (
                                     <button 
                                       onClick={() => onPreview(asset.url)}
                                       className="rounded-lg overflow-hidden border border-black/10 hover:opacity-90 transition block"
                                     >
-                                      <img src={asset.url} alt="Attachment" className="max-h-32 w-auto object-contain" />
+                                      <img src={asset.url} alt="Attachment" className="max-h-32 w-auto object-contain bg-white" />
                                     </button>
                                   ) : (
                                     <a 
                                       href={asset.url} 
                                       target="_blank" 
                                       rel="noopener noreferrer"
-                                      className={`flex items-center gap-1.5 text-xs font-bold underline decoration-2 underline-offset-2 ${
-                                        isAdmin ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-primary-100'
-                                      }`}
+                                      className={`flex items-center gap-1.5 text-xs font-bold underline decoration-2 underline-offset-2 ${linkClass}`}
                                     >
                                       <LinkIcon className="h-3 w-3" />
                                       {asset.name || 'View Link'}
                                     </a>
                                   )}
                                 </div>
-                              ))}
+                              )
+                              })}
                             </div>
                           )}
                         </div>
@@ -1928,7 +1976,9 @@ const ReviewModal: React.FC<{
                   
                   {(!localItem.customer_comment && (localItem.ai_analysis?.replies?.length ?? 0) === 0) && (
                     <div className="text-center py-4">
-                      <p className="text-xs text-gray-400 italic">No discussion yet. Send a note to the production team.</p>
+                      <p className="text-xs text-gray-400 italic">
+                        {isSupplier ? '暂无消息。您可以在此处发送链接、截图或备注。' : 'No discussion yet. Send a note to the production team.'}
+                      </p>
                     </div>
                   )}
                 </div>
@@ -2009,7 +2059,7 @@ const ReviewModal: React.FC<{
                       <div className="flex gap-1">
                         <label className="cursor-pointer p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition" title="Attach Image">
                           {uploadingAsset ? <RefreshCw className="h-5 w-5 animate-spin" /> : <ImageIcon className="h-5 w-5" />}
-                          <input type="file" accept="image/*,.heic,.heif" className="hidden" onChange={handleAssetUpload} disabled={uploadingAsset} />
+                          <input type="file" accept="image/*,video/mp4,video/quicktime,.heic,.heif" className="hidden" onChange={handleAssetUpload} disabled={uploadingAsset} />
                         </label>
                         <button 
                           onClick={() => setShowLinkInput(!showLinkInput)}
@@ -2032,21 +2082,21 @@ const ReviewModal: React.FC<{
               </div>
               
               {/* Comment Field (Bottom) */}
-              <div className="pt-4 border-t border-gray-100">
-                <label className="block text-sm font-bold text-gray-900 mb-2">
-                  Final Summary / Decision Notes
-                  {approvalType === 'not_approved' && <span className="ml-1 text-red-500 font-black">*</span>}
-                </label>
-                <textarea
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                  placeholder={approvalType === 'not_approved' ? 'Please describe exactly what needs revision...' : 'Additional notes for the production team...'}
-                  rows={3}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 transition"
-                />
-              </div>
-              </>
-            )}
+              {!isSupplier && (
+                <div className="pt-4 border-t border-gray-100">
+                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                    Final Summary / Decision Notes
+                    {approvalType === 'not_approved' && <span className="ml-1 text-red-500 font-black">*</span>}
+                  </label>
+                  <textarea
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    placeholder={approvalType === 'not_approved' ? 'Please describe exactly what needs revision...' : 'Additional notes for the production team...'}
+                    rows={3}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 transition"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

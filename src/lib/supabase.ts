@@ -647,8 +647,9 @@ export type ArtworkBatchItem = {
     colors?: string[]
     content_detected?: string[]
     quality_score?: string
+    recommendations?: string[]
     analyzed_at?: string
-    replies?: { author: string; text: string; at: string }[]
+    replies?: { author: string; text: string; at: string; assets?: { type: string; url: string; name?: string; approved?: boolean }[] }[]
     thumbnail_url?: string
     thumbnail_crop?: { scale: number, x: number, y: number }
     section_name?: string

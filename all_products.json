@@ -1,0 +1,467 @@
+[
+  {
+    "id": "sample-sizing-pack",
+    "name": "Sizing Pack (Conventional Plastic)",
+    "category": "sample"
+  },
+  {
+    "id": "sample-assorted-eco",
+    "name": "Assorted Eco Pouches Sample",
+    "category": "sample"
+  },
+  {
+    "id": "sample-top-film",
+    "name": "Custom digital printed top film of your design",
+    "category": "sample"
+  },
+  {
+    "id": "sample-hand-sealed",
+    "name": "Custom Digital Printed Hand Sealed Pouches",
+    "category": "sample"
+  },
+  {
+    "id": "conven-3ss-clear-xzip",
+    "name": "3 Side Seal Pouch – Clear, No Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "conven-3ss-clear-zip",
+    "name": "3 Side Seal Pouch – Clear, With Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "conven-3ss-met-xzip",
+    "name": "3 Side Seal Pouch – Metalised, No Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "conven-3ss-met-zip",
+    "name": "3 Side Seal Pouch – Metalised, With Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "conven-sup-clear-xzip",
+    "name": "Stand Up Pouch – Clear, No Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "conven-sup-clear-zip",
+    "name": "Stand Up Pouch – Clear, With Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "conven-sup-met-xzip",
+    "name": "Stand Up Pouch – Metalised, No Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "conven-sup-met-zip",
+    "name": "Stand Up Pouch – Metalised, With Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "conven-fb-met-zip",
+    "name": "Flat Bottom Pouch – Metalised, With Zipper",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "small-sachet-conventional",
+    "name": "Small Sachet – Conventional Material",
+    "category": "conventional-digital"
+  },
+  {
+    "id": "eco-3side",
+    "name": "Eco Digital – 3 Side Seal Pouch",
+    "category": "eco-digital"
+  },
+  {
+    "id": "eco-centerseal",
+    "name": "Eco Digital – Center Seal Pouch",
+    "category": "eco-digital"
+  },
+  {
+    "id": "eco-standup",
+    "name": "Eco Digital – Stand Up Pouch / Doypack",
+    "category": "eco-digital"
+  },
+  {
+    "id": "eco-boxbottom",
+    "name": "Eco Digital – Box Bottom Pouch",
+    "category": "eco-digital"
+  },
+  {
+    "id": "eco-flatbottom",
+    "name": "Eco Digital – Flat Squared Bottom Pouch",
+    "category": "eco-digital"
+  },
+  {
+    "id": "eco-quadseal",
+    "name": "Eco Digital – Quad Seal Pouch",
+    "category": "eco-digital"
+  },
+  {
+    "id": "eco-sidegusset",
+    "name": "Eco Digital – Side Gusset Pouch",
+    "category": "eco-digital"
+  },
+  {
+    "id": "eco-shrinksleeve",
+    "name": "Eco Digital – Shrink Sleeve",
+    "category": "eco-digital"
+  },
+  {
+    "id": "media__1780570697340.jpg",
+    "name": "Custom Eco Rollstock",
+    "category": "eco-digital"
+  },
+  {
+    "id": "food-grade-three-layer-chocolate-cushioning-paper-pad",
+    "name": "Food-Grade Three-Layer Chocolate Cushioning Paper Pad, Black and White Printed, Moisture-Proof and Shock-Absorbing Honeycomb Waffle Paper Pad",
+    "category": "eco-digital"
+  },
+  {
+    "id": "reusable-acrylic-airtight-canister",
+    "name": "Reusable Acrylic Airtight Canister",
+    "category": "eco-stock"
+  },
+  {
+    "id": "spouted-stand-up-pouch-bio-pe",
+    "name": "Bio-PE Spouted Stand Up Pouch",
+    "category": "eco-stock"
+  },
+  {
+    "id": "recyclable-3ss-evoh-pe-102x152",
+    "name": "102mm x 152mm Three-side Seal Pouch ( Recyclable PE / EVOH-PE )",
+    "category": "eco-stock"
+  },
+  {
+    "id": "rice-paper-500g-standup",
+    "name": "220mm x 240mm + 90mm Stand Up Zipper Pouch ( Rice Paper / PBAT )",
+    "category": "eco-stock"
+  },
+  {
+    "id": "stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl",
+    "name": "300mm x 340mm + 150mm Stand Up Pouch ( White Kraft Paper 60g )",
+    "category": "eco-stock"
+  },
+  {
+    "id": "stand-up-zipper-bag-50-tablets-white-kraft-paper-60g-pla-pba",
+    "name": "215 mm * 215 mm * 100 mm Stand Up Pouch ( White kraft paper 60g )",
+    "category": "eco-stock"
+  },
+  {
+    "id": "stand-up-zipper-bag-50-tablets-suggested-size-white-kraft-pa",
+    "name": "215 mm x 215 mm x 100 mm Stand-up Zipper Bag (50 tablets suggested size)",
+    "category": "eco-stock"
+  },
+  {
+    "id": "stand-up-pouch-white-kraft-paper-60g-pla-aluminized-pla-pbat",
+    "name": "300 x 340 + 150 mm Stand Up Pouch ( White kraft paper 60g )",
+    "category": "eco-stock"
+  },
+  {
+    "id": "602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50",
+    "name": "602-4 Zipper Stand-up Pouch",
+    "category": "eco-stock"
+  },
+  {
+    "id": "middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized",
+    "name": "Middle seal gusset bag",
+    "category": "eco-stock"
+  },
+  {
+    "id": "middle-seal-gusset-bag-transparent-compostable",
+    "name": "Middle seal gusset bag (Transparent)",
+    "category": "eco-stock"
+  },
+  {
+    "id": "three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102",
+    "name": "Three-side seal bag",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "eco-friendly-kraft-honeycomb-packing-paper-wrap",
+    "name": "Eco-Friendly Kraft Honeycomb Packing Paper Wrap",
+    "category": "eco-stock"
+  },
+  {
+    "id": "retro-horizontal-kraft-food-handle-bag",
+    "name": "Retro Horizontal Kraft Food & Gift Bag with Handle",
+    "category": "eco-stock"
+  },
+  {
+    "id": "40ml-foil-capsule-and-packing-machine",
+    "name": "40ml Foil Capsule and Packing Machine",
+    "category": "eco-stock"
+  },
+  {
+    "id": "hand-clamp-sealer",
+    "name": "Hand-Clamp Sealer – Small Commercial Plastic, Aluminum Foil, and Kraft Paper Bag Heat Sealing Machine, Portable Handheld High-Power Thermal Sealer",
+    "category": "eco-stock"
+  },
+  {
+    "id": "100-recyclable-pe-wire-cut-zipper-bag",
+    "name": "100% Recyclable PE Wire Cut Zipper Bag",
+    "category": "eco-stock"
+  },
+  {
+    "id": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch",
+    "name": "Unprinted White Kraft Compostable and Biodegradable Zipper Stand Up Pouch",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-stock-flatbottom-kraft",
+    "name": "Compostable Flat Bottom Pouch – Natural Kraft",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-stock-flatbottom-clear",
+    "name": "Compostable Flat Bottom Pouch – Milky Clear",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-stock-header-adhesive",
+    "name": "Compostable Gusseted Bag with Adhesive Header",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-stock-header-adhesive-custom",
+    "name": "Custom Printed Compostable Gusseted Bag with Adhesive Header",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-stock-mailer-zipbag",
+    "name": "Compostable Resealable Mailer Bag",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-stock-mailer-zipbag-custom",
+    "name": "Custom Printed Compostable Mailer Bag",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-stock-tea-bags-pla",
+    "name": "Corn Fiber Tea Bags (Disposable PLA Filter Bags)",
+    "category": "eco-stock"
+  },
+  {
+    "id": "250g-recyclable-one-side-zipper-one-way-degassing-valve-stand-up-pouch",
+    "name": "250g Recyclable One Side Zipper One Way Degassing Valve Stand-Up Pouch",
+    "category": "eco-stock"
+  },
+  {
+    "id": "recyclable-flat-bottom-one-sided-zipper-pouch",
+    "name": "Recyclable Flat Bottom One Sided Zipper Pouch",
+    "category": "eco-stock"
+  },
+  {
+    "id": "side-gusset-bag-and-tray-conventional",
+    "name": "Side Gusset Individual Dessert Pouch with Tray (Recyclable Mono-PP Stock)",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-compostable-rollstock-film",
+    "name": "Home Compostable Dual-Sided Rollstock Film",
+    "category": "eco-stock"
+  },
+  {
+    "id": "rice-paper-zipper-bags",
+    "name": "Rice Paper Stand-up Zipper Bags",
+    "category": "eco-stock"
+  },
+  {
+    "id": "flat-bottom-magic-tape-pouches",
+    "name": "Eight-Side Seal Magic Tape Zipper Bags (4 lb Dry Food)",
+    "category": "eco-stock"
+  },
+  {
+    "id": "compostable-stand-up-pouches",
+    "name": "Compostable Stand-Up Zipper Pouches",
+    "category": "eco-stock"
+  },
+  {
+    "id": "transparent-colorful-cellophane-candy-wrapping-paper",
+    "name": "Transparent Colorful Cellophane Candy Wrapping Paper",
+    "category": "eco-stock"
+  },
+  {
+    "id": "compostable-sugarcane-pulp-box",
+    "name": "Compostable Sugarcane Pulp Packaging Box (Multi-Size Gift & Soap Box)",
+    "category": "eco-stock"
+  },
+  {
+    "id": "stand-up-pouch-full-matte-finish-pe70-evoh-pe70-140-microns",
+    "name": "260 mm x 325 mm + 120 mm Stand Up Pouch ( Full Matte Finish PE70 )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "28-lb-dry-food-bag-pet12-ny15-metallocene-milky-white-pe135",
+    "name": "406mm Width x 790mm Height x 152mm Gusset Stand Up Pouch ( PET12 )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "flat-bottom-pouch-pe-evoh-pe-140-microns-thickness-110w-x-39",
+    "name": "110W x 390H x 65OBG/OSG mm Flat Bottom Pouch ( PE )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "compostable-vacuum-sealing-3-side-seal-bag-certified-home-co",
+    "name": "140 x 140 mm Side Gusset Pouch ( Certified Home Composite material )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular",
+    "name": "70x70 mm Side Gusset Pouch ( MOPP-Dual Corona )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "stand-up-spout-pouch-10mm-pet12-al7-ny15-pe80-102x152-4-28-5",
+    "name": "102x152.4+28.5 mm Stand-Up Spout Pouch (10mm)",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "9-1-13-8-3-93-stand-up-pouch-w-velcro-mopp-double-electric-e",
+    "name": "231.5 mm*350.5 mm+100mm Stand Up Pouch ( MOPP-Double Electric )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "stand-up-zipper-bag-mopp-double-sided-pet-12-al-ordinary-pe",
+    "name": "120 mm x 200 mm x 70 mm Stand Up Pouch ( MOPP double-sided )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe",
+    "name": "120 mm*200 mm*35 mm Stand Up Pouch ( MOPP double-sided )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "soft-touch-matte-standup-pouch-432b83ee",
+    "name": "231.5 mm * 350.5 mm + 100 mm Stand-up Pouch ( Soft Touch Matte Coating )",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "flat-bottom-one-sided-zipper-conventional",
+    "name": "Flat Bottom Pouch with One-Sided Zipper (Conventional Stock)",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "flat-bottom-pouch-with-card-insert",
+    "name": "Flat Bottom Pouch with Card Insert",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "textured-burlap-cork-pattern-coffee-pouch-with-valve",
+    "name": "Textured Burlap & Cork Pattern Stand Up Pouch with Valve",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip",
+    "name": "Coffee & Tea One-Sided Zipper Flat Bottom Pouch with Hanging Strip",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "flat-bottom-pouch-tin-tie",
+    "name": "Flat Bottom Pouch with Tin Tie",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "bottle-shape-sachet-bag",
+    "name": "Bottle-Shaped Specialty Foil Sachet Pouch",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "spouted-foil-pouch",
+    "name": "Spouted Foil Stand Up Pouch",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "rice-paper-flatbottom-valve",
+    "name": "Rice Paper Flat Bottom Zipper Pouch with Valve",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "clear-matte-zipper-stand-up-pouch",
+    "name": "Matte and Clear Unprinted Stock Zipper Stand Up Pouch",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "flat-bottom-zipper-pouch",
+    "name": "Matte and Clear Unprinted Stock Flat Bottom Zipper Pouch",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "eco-custom-label",
+    "name": "Custom Biodegradable Clear PLA Adhesive Sticker & Label",
+    "category": "eco-stock"
+  },
+  {
+    "id": "eco-pla-sealing-sticker",
+    "name": "Premium PLA Biodegradable Clear Sealing Sticker",
+    "category": "eco-stock"
+  },
+  {
+    "id": "custom-multi-layer-sticker-labels",
+    "name": "Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)",
+    "category": "eco-stock"
+  },
+  {
+    "id": "large-format-kraft-heavy-bag-conventional",
+    "name": "Large Format Kraft Multi-Wall Side Gusset Pouch (Conventional Stock)",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "cotton-paper-foil-gusset-pouch",
+    "name": "Premium Silk Cotton Paper Foil Laminated Side Gusset Pouch",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "white-cotton-paper-vacuum-bag",
+    "name": "White Cotton Paper Vacuum Seal Bag (Conventional Stock)",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "semi-transparent-cotton-rice-paper-tea-bag",
+    "name": "Food-Grade Semi-Transparent White Cotton Rice Paper Tea Bag (Conventional Stock)",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "water-soluble-fishing-bait-bags-pva-3-side-seal",
+    "name": "Water-Soluble Fishing Bait Bags (PVA / Instant-Dissolve)",
+    "category": "eco-stock"
+  },
+  {
+    "id": "compostable-citrus-orange-filament-rollstock",
+    "name": "Home Compostable CitrusCycle™ Orange Peel Waste PHA 3D Printing Filament",
+    "category": "3d-print"
+  },
+  {
+    "id": "aluminum-foil-spout-pouch-stock",
+    "name": "Stock Aluminum Foil Spout Pouch (Lightproof Liquid Bag)",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "automatic-labeling-machine",
+    "name": "Full-automatic Labeling Machine for Packaging Boxes and Pouches",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "smart-inkjet-coding-machine",
+    "name": "Smart Inkjet Coding Machine",
+    "category": "conventional-stock"
+  },
+  {
+    "id": "box-corrugated-custom",
+    "name": "Custom Printed Corrugated Mailer Boxes",
+    "category": "boxes"
+  },
+  {
+    "id": "box-tuck-custom",
+    "name": "Custom Printed Tuck Boxes",
+    "category": "boxes"
+  },
+  {
+    "id": "triangle-coffee-box-card",
+    "name": "Triangle Coffee Box with Card Insertion",
+    "category": "boxes"
+  }
+]

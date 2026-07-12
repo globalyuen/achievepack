@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { 
   Leaf, Award, CheckCircle, Package, Shield, Clock, Recycle, 
   MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, 
-  ChevronDown, Compass, Cpu, Layers, Check, X, Sparkles, Scale, Info
+  ChevronDown, Compass, Cpu, Layers, Check, X, Sparkles, Scale, Info, Box
 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
@@ -12,6 +12,7 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 import { getDomain } from '../../utils/domain'
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import { useTranslation } from 'react-i18next'
+import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 const WritableStampablePouchesPage: React.FC = () => {
   const { openCalendly } = useCalendly()
@@ -176,6 +177,12 @@ const WritableStampablePouchesPage: React.FC = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: "related-store-products",
+      title: t('seo.relatedProducts.sectionTitle', "Related Products & Equipment"),
+      icon: <Box className="h-6 w-6" />,
+      content: <RelatedProductsShowcase productIds={['unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch', 'eco-custom-label']} />
     }
   ]
 

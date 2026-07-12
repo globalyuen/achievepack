@@ -178,6 +178,18 @@ export default function Footer() {
               <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-400">{t('pouchEcoFooter.coffeeBagsValve', 'Coffee Bags with Valve')}</Link></li>
               <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.compostablePouches', 'Compostable Pouches')}</Link></li>
               <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Compostable Side Gusset <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/eco-stand-up-pouch-guide" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco Stand Up Pouch <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/eco-stand-up-coffee-pouch" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco Stand Up Coffee <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/eco-vs-conventional-pouch-comparison" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco vs Conventional <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/eco-side-gusset-pouch-guide" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco Side Gusset Guide <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/side-gusset-coffee-bag-packaging" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Side Gusset Coffee <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/recyclable-side-gusset-bags" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Recyclable Side Gusset <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/eco-box-bottom-pouch" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco Box Bottom <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/eco-flat-bottom-pouch" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco Flat Bottom <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/premium-eco-packaging-comparison" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Premium Eco Comparison <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/custom-printed-corrugated-boxes" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Custom Corrugated Boxes <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/custom-printed-tuck-boxes" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Custom Tuck Boxes <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/products/premium-cotton-paper-foil-pouch" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Cotton Paper Foil Pouch <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
               <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.recyclableMonoMaterial', 'Recyclable Mono-Material')}</Link></li>
             </ul>
           </div>
@@ -198,6 +210,9 @@ export default function Footer() {
               <li><Link to="/support/unprinted-samples" className="hover:text-primary-400">{t('pouchEcoFooter.unprintedSamples', 'Unprinted Samples')}</Link></li>
               <li><Link to="/blog" className="hover:text-primary-400">{t('pouchEcoFooter.allArticles', 'All Articles')}</Link></li>
               <li><Link to="/store" className="hover:text-primary-400 font-semibold text-primary-400">{t('pouchEcoFooter.onlineStore', 'Online Store')}</Link></li>
+              <li><Link to="/knowledge/food-packaging-compliance-date-coding" className="hover:text-primary-400">Food Coding Compliance</Link></li>
+              <li><Link to="/knowledge/packaging-line-automation-date-coding" className="hover:text-primary-400">Packaging Line Automation</Link></li>
+              <li><Link to="/knowledge/compostable-packaging-inkjet-coding" className="hover:text-primary-400">Eco Packaging Coding</Link></li>
             </ul>
           </div>
 
@@ -373,6 +388,9 @@ export default function Footer() {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-xs text-neutral-400 mt-4 pt-4 border-t border-neutral-800/40">
             <ul className="space-y-1">
+              <li><Link to="/solutions/food-coding-compliance" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Food Coding Compliance <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/solutions/packaging-line-automation" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Packaging Line Automation <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/solutions/eco-packaging-coding" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco Packaging Coding <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
               <li><Link to="/topics/matcha-sachet" className="hover:text-primary-400">{t('seo_topics.matcha_sachet.title', 'Matcha Sachet')}</Link></li>
               <li><Link to="/topics/cacao-stand-up" className="hover:text-primary-400">{t('seo_topics.cacao_stand_up.title', 'Cacao Stand Up')}</Link></li>
               <li><Link to="/topics/spices-moisture-proof" className="hover:text-primary-400">{t('seo_topics.spices_moisture_proof.title', 'Spices Moisture Proof')}</Link></li>

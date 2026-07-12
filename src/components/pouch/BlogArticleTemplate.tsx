@@ -86,7 +86,7 @@ interface BlogArticleProps {
   title: string
   metaDescription: string
   canonicalUrl: string
-  keywords?: string[]
+  keywords?: string[] | string
   publishedDate?: string
   modifiedDate?: string
   author?: string
@@ -158,6 +158,9 @@ export default function BlogArticleTemplate({
   const slug = canonicalUrl ? canonicalUrl.split('/').pop() || '' : ''
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
   const safeFaqSections = Array.isArray(faqSections) ? faqSections : []
+  const safeKeywords = Array.isArray(keywords) 
+    ? keywords 
+    : (typeof keywords === 'string' ? (keywords as string).split(',').map((s: string) => s.trim()) : [])
 
   // A curated list of default B2C articles to suggest for maximum reader retention
   const defaultRelatedArticles = [
@@ -220,7 +223,7 @@ export default function BlogArticleTemplate({
         <title>{title}</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
-        {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+        {safeKeywords.length > 0 && <meta name="keywords" content={safeKeywords.join(', ')} />}
         
         {/* Open Graph */}
         <meta property="og:title" content={title} />
@@ -265,7 +268,7 @@ export default function BlogArticleTemplate({
               }
             },
             "image": heroImage,
-            "keywords": keywords.join(', ')
+            "keywords": safeKeywords.join(', ')
           })}
         </script>
 

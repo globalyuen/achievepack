@@ -108,6 +108,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
+    "@gltf-transform/core": "^4.4.1",
+    "@gltf-transform/extensions": "^4.4.1",
+    "@gltf-transform/functions": "^4.4.1",
     "@types/node": "^22.10.7",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
@@ -115,6 +118,7 @@
     "@types/three": "^0.184.1",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "10.4.20",
+    "canvas": "^3.2.3",
     "dotenv": "^17.4.2",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",

@@ -758,7 +758,7 @@ interface SEOPageLayoutProps {
   // SEO Meta
   title: string
   description: string
-  keywords?: string[]
+  keywords?: string[] | string
   canonicalUrl?: string
   ogImage?: string
   
@@ -859,6 +859,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   breadcrumbs,
   materialType
 }) => {
+  const safeKeywords = Array.isArray(keywords) 
+    ? keywords 
+    : (typeof keywords === 'string' ? (keywords as string).split(',').map((s: string) => s.trim()) : [])
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
@@ -1010,7 +1013,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           "@type": "WebPage",
           "@id": `${effectiveCanonicalUrl}#webpage`
         },
-        "keywords": keywords.slice(0, 10).join(', '),
+        "keywords": safeKeywords.slice(0, 10).join(', '),
         "inLanguage": "en-US"
       } : null,
       
@@ -1107,7 +1110,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           title={`${title} | Pouch.eco`}
           description={description}
           url={effectiveCanonicalUrl}
-          keywords={keywords}
+          keywords={safeKeywords}
           image={ogImage.startsWith('http') ? ogImage : `https://pouch.eco${ogImage}`}
           schema={enhancedSchema}
           faq={Array.isArray(faqs) ? faqs : undefined}
@@ -1600,7 +1603,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         title={`${title} | Achieve Pack - Eco-Friendly Packaging Solutions`}
         description={description}
         url={effectiveCanonicalUrl}
-        keywords={keywords}
+        keywords={safeKeywords}
         image={ogImage.startsWith('http') ? ogImage : `https://achievepack.com${ogImage}`}
         schema={enhancedSchema}
         faq={Array.isArray(faqs) ? faqs : undefined}

@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-10",
-  "total_images": 5033,
+  "generated": "2026-07-12",
+  "total_images": 5051,
   "total_categories": 241,
   "extensions": {
     ".webp": 1313,
-    ".png": 3017,
-    ".jpg": 700,
+    ".png": 3027,
+    ".jpg": 708,
     ".svg": 3
   },
   "categories": {
@@ -25227,8 +25227,116 @@
       ]
     },
     "store/products": {
-      "count": 413,
+      "count": 431,
       "images": [
+        {
+          "filename": "premium-cotton-paper-foil-pouch-guide.jpg",
+          "path": "/imgs/store/products/premium-cotton-paper-foil-pouch-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T01:03:18.292Z"
+        },
+        {
+          "filename": "custom-tuck-boxes-retail-guide.jpg",
+          "path": "/imgs/store/products/custom-tuck-boxes-retail-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T01:03:07.269Z"
+        },
+        {
+          "filename": "custom-corrugated-mailer-boxes-guide.jpg",
+          "path": "/imgs/store/products/custom-corrugated-mailer-boxes-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T01:02:58.787Z"
+        },
+        {
+          "filename": "premium-cotton-paper-foil-pouch.jpg",
+          "path": "/imgs/store/products/premium-cotton-paper-foil-pouch.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T00:51:14.234Z"
+        },
+        {
+          "filename": "custom-printed-tuck-boxes-guide.jpg",
+          "path": "/imgs/store/products/custom-printed-tuck-boxes-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T00:51:14.232Z"
+        },
+        {
+          "filename": "eco-packaging-coding-guide.jpg",
+          "path": "/imgs/store/products/eco-packaging-coding-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-11T23:51:38.726Z"
+        },
+        {
+          "filename": "packaging-line-automation-guide.jpg",
+          "path": "/imgs/store/products/packaging-line-automation-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-11T23:51:38.724Z"
+        },
+        {
+          "filename": "food-coding-compliance-guide.jpg",
+          "path": "/imgs/store/products/food-coding-compliance-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-11T23:51:38.722Z"
+        },
+        {
+          "filename": "premium-eco-comparison-hero.png",
+          "path": "/imgs/store/products/premium-eco-comparison-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T16:12:57.031Z"
+        },
+        {
+          "filename": "eco-flat-bottom-hero.png",
+          "path": "/imgs/store/products/eco-flat-bottom-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T16:12:57.025Z"
+        },
+        {
+          "filename": "eco-box-bottom-hero.png",
+          "path": "/imgs/store/products/eco-box-bottom-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T16:12:57.019Z"
+        },
+        {
+          "filename": "recyclable-side-gusset-hero.png",
+          "path": "/imgs/store/products/recyclable-side-gusset-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T16:12:57.015Z"
+        },
+        {
+          "filename": "side-gusset-coffee-bag-hero.png",
+          "path": "/imgs/store/products/side-gusset-coffee-bag-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T16:12:57.010Z"
+        },
+        {
+          "filename": "eco-side-gusset-guide-hero.png",
+          "path": "/imgs/store/products/eco-side-gusset-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T16:12:57.008Z"
+        },
+        {
+          "filename": "eco-packaging-shapes-hero.png",
+          "path": "/imgs/store/products/eco-packaging-shapes-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T16:01:24.418Z"
+        },
+        {
+          "filename": "eco-vs-conventional-hero.png",
+          "path": "/imgs/store/products/eco-vs-conventional-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T15:59:50.804Z"
+        },
+        {
+          "filename": "eco-coffee-pouch-hero.png",
+          "path": "/imgs/store/products/eco-coffee-pouch-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T15:59:50.802Z"
+        },
+        {
+          "filename": "eco-standup-guide-hero.png",
+          "path": "/imgs/store/products/eco-standup-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-07-11T15:59:50.800Z"
+        },
         {
           "filename": "smart-inkjet-coding-machine-printer-thumbnail-10.jpg",
           "path": "/imgs/store/products/smart-inkjet-coding-machine-printer-thumbnail-10.jpg",

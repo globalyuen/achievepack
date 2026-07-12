@@ -6,6 +6,7 @@ import LearnNavigation from '../../components/LearnNavigation'
 import Footer from '../../components/Footer'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import { useTranslation, Trans } from "react-i18next";
+import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 // K-seal images from public/imgs/pouch-shape/k-seal
 const KSEAL_IMAGES = {
@@ -523,6 +524,9 @@ export default function KSealStandUpPouchesPage() {
         </div>
       )}
 
+      <div className="max-w-7xl mx-auto px-4 pb-12">
+        <RelatedProductsShowcase productIds={['compostable-stand-up-pouches', 'clear-matte-zipper-stand-up-pouch']} />
+      </div>
       <Footer />
     </>
   )
