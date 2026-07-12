@@ -9,8 +9,9 @@ const __dirname = path.dirname(__filename);
 const OUTPUT_PATH_ACHIEVE = path.join(__dirname, '../public/google-merchant-feed.xml');
 const OUTPUT_PATH_POUCH = path.join(__dirname, '../public/google-merchant-feed-pouch.xml');
 
-function escapeXml(unsafe: string): string {
-  return unsafe
+function escapeXml(unsafe: any): string {
+  if (unsafe == null) return '';
+  return String(unsafe)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -60,7 +61,7 @@ function generateFeed(domain: 'pouch' | 'achieve') {
     
     // Google Product Category: 6848 = Business & Industrial > Packaging & Shipping > Packaging Materials
     const googleCategory = '6848';
-    const productType = escapeXml(product.category.replace(/-/g, ' '));
+    const productType = escapeXml((product.category || '').replace(/-/g, ' '));
 
     // Compile content for material/color extraction
     const content = [
