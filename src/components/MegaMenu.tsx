@@ -290,7 +290,7 @@ const POPULAR_POUCHES = [
   { id: '1105', name: 'Snack Food Bag' },
   { id: '1129', name: 'Instant Noodles Bag' },
   { id: '1142', name: 'Pillow Bag' },
-  { id: '1144', name: 'Gusseted Pouch' }
+  { id: '1144', name: 'Packaging Bowl' }
 ];
 
 interface MegaMenuProps {
