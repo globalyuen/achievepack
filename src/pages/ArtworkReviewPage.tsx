@@ -3,7 +3,8 @@ import { useParams, Link, useLocation } from 'react-router-dom'
 import { 
   Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight, ChevronDown,
   RefreshCw, FileImage, Sparkles, AlertTriangle, Info, Send, MessageSquare,
-  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, Trash2, Paperclip, Pin
+  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, Trash2, Paperclip, Pin,
+  Play, FileText
 } from 'lucide-react'
 import { Image as ImageIcon, Link as LinkIcon } from 'lucide-react'
 import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
@@ -123,7 +124,7 @@ const ArtworkReviewPage: React.FC = () => {
   const [customerReplyText, setCustomerReplyText] = useState('')
   const [sendingCustomerReply, setSendingCustomerReply] = useState(false)
   
-  const [itemSortOption, setItemSortOption] = useState<'name' | 'newest' | 'oldest' | 'activity'>('activity')
+  const [itemSortOption, setItemSortOption] = useState<'name' | 'newest' | 'oldest' | 'activity' | 'supplier-update'>('activity')
 
   // Collapsed sections state
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({})
@@ -186,7 +187,7 @@ const ArtworkReviewPage: React.FC = () => {
       // Category filter
       switch (itemFilter) {
         case 'with-comment':
-          return !!(item?.customer_comment || (Array.isArray(item?.ai_analysis?.replies) && item.ai_analysis.replies.length > 0))
+          return !!(item?.customer_comment || item?.supplier_comment || (Array.isArray(item?.ai_analysis?.replies) && item.ai_analysis.replies.length > 0))
         case 'with-artwork':
           return !!item?.file_url
         case 'blank':
@@ -201,6 +202,23 @@ const ArtworkReviewPage: React.FC = () => {
           return true
       }
     })
+
+    // Helper to calculate supplier's last update timestamp
+    const getSupplierLastUpdateTime = (item: ArtworkBatchItem): number => {
+      let latest = 0;
+      const replies = item.ai_analysis?.replies || [];
+      replies.forEach(r => {
+        if (r.author === 'Supplier') {
+          const t = new Date(r.at).getTime();
+          if (t > latest) latest = t;
+        }
+      });
+      if ((item.revision_count && item.revision_count > 0) || item.supplier_comment) {
+        const updatedAt = new Date(item.updated_at || item.created_at).getTime();
+        if (updatedAt > latest) latest = updatedAt;
+      }
+      return latest;
+    };
 
     // Sort
     return filtered.sort((a, b) => {
@@ -219,6 +237,15 @@ const ArtworkReviewPage: React.FC = () => {
           const dateA = new Date(a.updated_at || a.created_at).getTime()
           const dateB = new Date(b.updated_at || b.created_at).getTime()
           return dateB - dateA
+        case 'supplier-update':
+          const supA = getSupplierLastUpdateTime(a)
+          const supB = getSupplierLastUpdateTime(b)
+          if (supA === 0 && supB === 0) {
+            return new Date(b.updated_at || b.created_at).getTime() - new Date(a.updated_at || a.created_at).getTime()
+          }
+          if (supA === 0) return 1
+          if (supB === 0) return -1
+          return supB - supA
         case 'name':
         default:
           return (a.name || '').localeCompare(b.name || '', undefined, { numeric: true, sensitivity: 'base' })
@@ -849,7 +876,6 @@ const ArtworkReviewPage: React.FC = () => {
         )}
 
         {/* Search & Sort */}
-        {!isSupplier && (
         <div className="mb-6 flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -857,33 +883,34 @@ const ArtworkReviewPage: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t(`${p}.search.placeholder`, "Search by name, keyword, color...")}
+              placeholder={isSupplier ? "搜索文件名、关键字、颜色..." : t(`${p}.search.placeholder`, "Search by name, keyword, color...")}
               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
             />
           </div>
           <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1 sm:py-0">
-            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">{t(`${p}.sort.by`, 'Sort by')}</span>
+            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">{isSupplier ? '排序方式' : t(`${p}.sort.by`, 'Sort by')}</span>
             <select 
               value={itemSortOption}
               onChange={(e) => setItemSortOption(e.target.value as any)}
               className="text-xs border-none focus:ring-0 bg-transparent py-2.5 pr-8 font-medium text-gray-700 cursor-pointer"
             >
-              <option value="activity">{t(`${p}.sort.activity`, 'Latest Activity')}</option>
-              <option value="newest">{t(`${p}.sort.newest`, 'Newest First')}</option>
-              <option value="oldest">{t(`${p}.sort.oldest`, 'Oldest First')}</option>
-              <option value="name">{t(`${p}.sort.name`, 'Name (A-Z)')}</option>
+              <option value="activity">{isSupplier ? '最新活动' : t(`${p}.sort.activity`, 'Latest Activity')}</option>
+              <option value="supplier-update">{isSupplier ? '供应商最新修改' : t(`${p}.sort.supplierUpdate`, "Supplier's Last Update")}</option>
+              <option value="newest">{isSupplier ? '最新创建' : t(`${p}.sort.newest`, 'Newest First')}</option>
+              <option value="oldest">{isSupplier ? '最早创建' : t(`${p}.sort.oldest`, 'Oldest First')}</option>
+              <option value="name">{isSupplier ? '名称排序' : t(`${p}.sort.name`, 'Name (A-Z)')}</option>
             </select>
           </div>
           {/* Filter Tabs */}
           <div className="flex overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden items-center gap-2 mt-4 pt-4 border-t border-gray-100 pb-2 -mx-4 px-4 whitespace-nowrap sm:-mx-0 sm:px-0 sm:flex-wrap sm:pb-0">
             {[
-              { id: 'all', label: 'All', icon: CheckCircle },
-              { id: 'with-comment', label: 'Comments', icon: MessageSquare },
-              { id: 'with-artwork', label: 'With Artwork', icon: FileImage },
-              { id: 'blank', label: 'Blank Cards', icon: LayoutGrid },
-              { id: 'approved', label: 'Approved', icon: CheckCircle },
-              { id: 'rejected', label: 'Rejected', icon: AlertCircle },
-              { id: 'pending', label: 'Pending', icon: Clock },
+              { id: 'all', label: isSupplier ? '全部' : 'All', icon: CheckCircle },
+              { id: 'with-comment', label: isSupplier ? '有留言讨论' : 'Comments', icon: MessageSquare },
+              { id: 'with-artwork', label: isSupplier ? '有图稿文件' : 'With Artwork', icon: FileImage },
+              { id: 'blank', label: isSupplier ? '无图稿空卡' : 'Blank Cards', icon: LayoutGrid },
+              { id: 'approved', label: isSupplier ? '已批准' : 'Approved', icon: CheckCircle },
+              { id: 'rejected', label: isSupplier ? '需修改' : 'Rejected', icon: AlertCircle },
+              { id: 'pending', label: isSupplier ? '待处理' : 'Pending', icon: Clock },
             ].map(f => {
               const Icon = f.icon
               const isActive = itemFilter === f.id
@@ -902,7 +929,7 @@ const ArtworkReviewPage: React.FC = () => {
                   <span className={`ml-1 px-1.5 py-0.5 rounded-full text-[10px] ${isActive ? 'bg-primary-500 text-white' : 'bg-gray-100 text-gray-600'}`}>
                     {items.filter(i => {
                       if (f.id === 'all') return true
-                      if (f.id === 'with-comment') return i.customer_comment || (i.ai_analysis?.replies?.length ?? 0) > 0
+                      if (f.id === 'with-comment') return i.customer_comment || i.supplier_comment || (i.ai_analysis?.replies?.length ?? 0) > 0
                       if (f.id === 'with-artwork') return !!i.file_url
                       if (f.id === 'blank') return !i.file_url
                       if (f.id === 'approved') return i.status === 'approved'
@@ -916,7 +943,6 @@ const ArtworkReviewPage: React.FC = () => {
             })}
           </div>
         </div>
-        )}
 
         {/* Artworks Sections Grid */}
         <div className="space-y-12">
@@ -985,6 +1011,27 @@ const ArtworkReviewPage: React.FC = () => {
                                 <Pin className="h-3.5 w-3.5 fill-current" />
                               </div>
                             )}
+                            
+                            {/* Media Type Overlay Badges */}
+                            {isImage && (
+                              <span className="absolute top-2.5 right-2.5 z-10 inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-500 text-white shadow-sm">
+                                <FileImage className="h-3 w-3" />
+                                {isSupplier ? '图片' : 'Image'}
+                              </span>
+                            )}
+                            {isVideo && (
+                              <span className="absolute top-2.5 right-2.5 z-10 inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-red-500 text-white shadow-sm">
+                                <Play className="h-3 w-3 fill-current" />
+                                {isSupplier ? '视频' : 'Video'}
+                              </span>
+                            )}
+                            {isPdf && (
+                              <span className="absolute top-2.5 right-2.5 z-10 inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500 text-white shadow-sm">
+                                <FileText className="h-3 w-3" />
+                                PDF
+                              </span>
+                            )}
+
                             {(() => {
                               const customThumbUrl = item.ai_analysis?.thumbnail_url
                               const displayUrl = customThumbUrl || (isImage ? item.file_url : null)
@@ -1063,26 +1110,83 @@ const ArtworkReviewPage: React.FC = () => {
                                   </span>
                                 )}
                               </div>
-                              {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
-                                <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
+                              {((item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0) + (item.supplier_comment ? 1 : 0)) > 0 && (
+                                <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1" title={isSupplier ? '留言与讨论记录' : 'Discussion threads'}>
                                   <MessageSquare className="h-2.5 w-2.5" />
-                                  {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
+                                  {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0) + (item.supplier_comment ? 1 : 0)}
                                 </span>
                               )}
                             </div>
                             {/* Thread preview on card */}
-                            {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
-                              <div className="mt-1 space-y-1">
+                            {((item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0) + (item.supplier_comment ? 1 : 0)) > 0 ? (
+                              <div className="mt-2 space-y-1 bg-gray-50 p-2 rounded-lg border border-gray-100">
                                 {item.customer_comment && (
-                                  <p className="text-[10px] text-yellow-700 truncate">
-                                    You: {item.customer_comment}
+                                  <p className="text-[10px] text-yellow-800 truncate">
+                                    <span className="font-semibold">{isSupplier ? 'Customer: ' : 'You: '}</span>
+                                    {item.customer_comment}
                                   </p>
                                 )}
-                                {(item.ai_analysis?.replies ?? []).slice(-1).map((r: any, i: number) => (
-                                  <p key={i} className={`text-[10px] truncate ${r?.author === 'Admin' ? 'text-blue-600' : 'text-gray-500'}`}>
-                                    {r?.author === 'Admin' ? 'AP: ' : 'You: '}{r?.text}
+                                {item.supplier_comment && (
+                                  <p className="text-[10px] text-emerald-800 truncate">
+                                    <span className="font-semibold">{isSupplier ? 'You (Supplier): ' : 'Supplier: '}</span>
+                                    {item.supplier_comment}
                                   </p>
-                                ))}
+                                )}
+                                {(item.ai_analysis?.replies ?? []).slice(-1).map((r: any, idx: number) => {
+                                  let label = r.author;
+                                  if (r.author === 'Supplier') {
+                                    label = isSupplier ? 'You' : 'Supplier';
+                                  } else if (r.author === 'Customer') {
+                                    label = isSupplier ? 'Customer' : 'You';
+                                  } else if (r.author === 'Admin') {
+                                    label = 'AP';
+                                  }
+                                  return (
+                                    <p key={idx} className={`text-[10px] truncate ${r?.author === 'Admin' ? 'text-blue-600 font-medium' : 'text-gray-500'}`}>
+                                      <span className="font-semibold">{label}: </span>
+                                      {r?.text}
+                                    </p>
+                                  );
+                                })}
+                                
+                                {/* Conversation Attachments Mini Previews */}
+                                {(() => {
+                                  const replies = item.ai_analysis?.replies || [];
+                                  const allAssets = replies.flatMap(r => r.assets || []);
+                                  if (allAssets.length === 0) return null;
+                                  return (
+                                    <div className="mt-1.5 flex flex-wrap gap-1 items-center border-t border-gray-100 pt-1.5">
+                                      <span className="text-[9px] uppercase font-bold text-gray-400 mr-0.5">{isSupplier ? '附件:' : 'Media:'}</span>
+                                      {allAssets.map((asset: any, idx: number) => {
+                                        const isAssetImg = asset.type === 'image';
+                                        const isAssetVideo = asset.type === 'video';
+                                        
+                                        if (isAssetImg) {
+                                          return (
+                                            <div key={idx} className="relative w-6 h-6 rounded border border-gray-200 overflow-hidden bg-gray-50 group/asset cursor-pointer" onClick={(e) => { e.stopPropagation(); setPreviewImage(asset.url); }} title={isSupplier ? '点击查看图片' : 'Click to view image attachment'}>
+                                              <img src={asset.url} className="w-full h-full object-cover" alt="Attachment" />
+                                              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/asset:opacity-100 transition-opacity">
+                                                <ZoomIn className="w-2.5 h-2.5 text-white" />
+                                              </div>
+                                            </div>
+                                          );
+                                        } else if (isAssetVideo) {
+                                          return (
+                                            <div key={idx} className="relative w-6 h-6 rounded border border-gray-200 overflow-hidden bg-black flex items-center justify-center cursor-pointer" onClick={(e) => { e.stopPropagation(); setSelectedItem(item); setShowReviewModal(true); }} title={isSupplier ? '点击查看视频' : 'Click to view video attachment'}>
+                                              <Play className="w-3 h-3 text-white fill-current" />
+                                            </div>
+                                          );
+                                        } else {
+                                          return (
+                                            <a key={idx} href={asset.url} target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-gray-100 hover:bg-gray-200 text-gray-600" onClick={(e) => e.stopPropagation()} title={asset.name || 'Link attachment'}>
+                                              <ExternalLink className="w-2.5 h-2.5" />
+                                            </a>
+                                          );
+                                        }
+                                      })}
+                                    </div>
+                                  );
+                                })()}
                               </div>
                             ) : null}
                             <div className="flex items-center gap-2 mt-2">
