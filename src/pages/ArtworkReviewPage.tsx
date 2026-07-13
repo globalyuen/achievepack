@@ -2019,22 +2019,17 @@ const ReviewModal: React.FC<{
                                           {!isSupplier && (
                                             <button
                                               onClick={async () => {
-                                                const pwd = window.prompt("Enter admin password to approve video / 请输入管理员密码:");
-                                                if (pwd === "8888****") {
-                                                  const updatedReplies = [...(localItem.ai_analysis?.replies || [])];
-                                                  updatedReplies[idx].assets[aidx].approved = true;
-                                                  try {
-                                                    const { error } = await supabase.from('artwork_batch_items').update({ ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } }).eq('id', localItem.id);
-                                                    if (error) throw error;
-                                                    const updatedItem = { ...localItem, ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } };
-                                                    setLocalItem(updatedItem);
-                                                    if (onUpdateItem) onUpdateItem(updatedItem);
-                                                  } catch (err) {
-                                                    console.error(err);
-                                                    alert("Failed to approve video.");
-                                                  }
-                                                } else if (pwd !== null) {
-                                                  alert("Incorrect password / 密码错误");
+                                                const updatedReplies = [...(localItem.ai_analysis?.replies || [])];
+                                                updatedReplies[idx].assets[aidx].approved = true;
+                                                try {
+                                                  const { error } = await supabase.from('artwork_batch_items').update({ ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } }).eq('id', localItem.id);
+                                                  if (error) throw error;
+                                                  const updatedItem = { ...localItem, ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } };
+                                                  setLocalItem(updatedItem);
+                                                  if (onUpdateItem) onUpdateItem(updatedItem);
+                                                } catch (err) {
+                                                  console.error(err);
+                                                  alert("Failed to approve video.");
                                                 }
                                               }}
                                               className="px-3 py-1.5 bg-primary-600 hover:bg-primary-500 rounded text-xs font-bold transition"
