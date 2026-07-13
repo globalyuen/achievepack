@@ -324,9 +324,11 @@ const ArtworkReviewPage: React.FC = () => {
 
       if (error) throw error
 
+      const updatedItem = { ...item, ai_analysis: updatedAnalysis, updated_at: now }
       setItems(prev => prev.map(i =>
-        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis, updated_at: now } : i
+        i.id === item.id ? updatedItem : i
       ))
+      setSelectedItem(updatedItem)
       setCustomerReplyText('')
       setReplyingToItem(null)
     } catch (err) {
@@ -1256,6 +1258,7 @@ const ArtworkReviewPage: React.FC = () => {
           onAddReply={handleCustomerReply}
           onUpdateItem={(updatedItem) => {
             setItems(prev => prev.map(i => i.id === updatedItem.id ? updatedItem : i))
+            setSelectedItem(updatedItem)
           }}
         />
       )}
@@ -2019,8 +2022,16 @@ const ReviewModal: React.FC<{
                                           {!isSupplier && (
                                             <button
                                               onClick={async () => {
-                                                const updatedReplies = [...(localItem.ai_analysis?.replies || [])];
-                                                updatedReplies[idx].assets[aidx].approved = true;
+                                                const updatedReplies = (localItem.ai_analysis?.replies || []).map((reply, rIdx) => {
+                                                  if (rIdx !== idx) return reply;
+                                                  return {
+                                                    ...reply,
+                                                    assets: (reply.assets || []).map((asset: any, aIdx: number) => {
+                                                      if (aIdx !== aidx) return asset;
+                                                      return { ...asset, approved: true };
+                                                    })
+                                                  };
+                                                });
                                                 try {
                                                   const { error } = await supabase.from('artwork_batch_items').update({ ai_analysis: { ...(localItem.ai_analysis || {}), replies: updatedReplies } }).eq('id', localItem.id);
                                                   if (error) throw error;
