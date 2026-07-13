@@ -96,7 +96,7 @@ export default function PulpVsCardboard() {
             "When auditing a client's fulfillment line recently, we found they were spending 45 seconds manually assembling a die-cut cardboard insert for a glass cosmetics bottle. By switching them to a custom thermoformed molded pulp tray, we reduced packing time to just 4 seconds per unit. While the pulp part cost $0.08 more than the cardboard insert, the massive reduction in warehouse labor and a 12% drop in breakages resulted in a net saving of $0.42 per shipment."
           </p>
           <div className="bg-white rounded-lg p-4 flex items-center gap-4">
-            <img src="/imgs/team/ryan.jpg" alt="Ryan Wong" className="w-16 h-16 rounded-full object-cover border-2 border-emerald-200" onError={(e) => { e.currentTarget.style.display='none' }} />
+            <img src="/imgs/team/Ryan Wong - Packaging Specialist.png" alt="Ryan Wong" className="w-16 h-16 rounded-full object-cover border-2 border-emerald-200" onError={(e) => { e.currentTarget.style.display='none' }} />
             <div>
               <h5 className="font-bold text-neutral-900">Ryan Wong</h5>
               <p className="text-xs text-neutral-500 font-medium mb-1">14+ Years Packaging Engineering | GRS & FSC Auditing Expert</p>

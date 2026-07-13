@@ -83,7 +83,7 @@ const RecyclablePackagingGuidePage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg" 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
               alt="Recyclable Mono-PE pouch material comparison" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="Technical Clarity: Achieving 100% recyclability without sacrificing shelf-life performance"
@@ -141,7 +141,7 @@ const RecyclablePackagingGuidePage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.jpg" 
+                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
                 alt="Recyclable material manufacturing and quality control" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Operational Precision: Our manufacturing lines are optimized for certified mono-material extrusion"
@@ -238,7 +238,7 @@ const RecyclablePackagingGuidePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg"
+        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp"
       />
     </>
   )

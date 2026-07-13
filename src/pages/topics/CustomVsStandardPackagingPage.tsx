@@ -275,7 +275,7 @@ const CustomVsStandardPackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/seo-photos/usa/coffee/a_coffee_sustainability_roaster_guide_0801372.jpg"
+        heroImage="/imgs/seo-photos/usa/coffee/a_coffee_sustainability_roaster_guide_0801372.webp"
       />
     </>
   )

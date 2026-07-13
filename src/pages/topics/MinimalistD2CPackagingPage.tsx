@@ -84,7 +84,7 @@ const MinimalistD2CPackagingPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg" 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
               alt="Minimalist D2C pouch design" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Minimalist design is a technical exercise in material reduction and logistics optimization"
@@ -199,7 +199,7 @@ const MinimalistD2CPackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg"
+        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp"
       />
     </>
   )

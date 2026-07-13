@@ -81,7 +81,7 @@ export default function HandClampSealerPage() {
       <div className="flex flex-col md:flex-row items-center gap-6">
         <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-emerald-400 flex-shrink-0 bg-neutral-800">
           <img 
-            src="/imgs/team/ryan_wong_avatar.jpg" 
+            src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
             alt="Ryan Wong" 
             className="w-full h-full object-cover" 
             onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=10B981&color=fff&size=128' }} 

@@ -182,7 +182,7 @@ export default function EcoFriendlyDupontPaperBags() {
                   {/* Product 1 */}
                   <div className="border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="h-48 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center p-4">
-                      <img src="/imgs/store/products/eco-tyvek-tote.png" alt="Custom Tyvek Tote" className="max-h-full object-contain mix-blend-multiply dark:mix-blend-normal" />
+                      <img src="/imgs/store/products/dupont-paper-tote-bags-thumbnail-1.jpg" alt="Custom Tyvek Tote" className="max-h-full object-contain mix-blend-multiply dark:mix-blend-normal" />
                     </div>
                     <div className="p-4">
                       <h4 className="font-bold text-lg mb-1">Custom Tyvek Tote Bags</h4>
@@ -193,7 +193,7 @@ export default function EcoFriendlyDupontPaperBags() {
                   {/* Product 2 */}
                   <div className="border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="h-48 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center p-4">
-                      <img src="/imgs/store/products/tyvek-cosmetic-pouch.png" alt="Tyvek Cosmetic Pouch" className="max-h-full object-contain mix-blend-multiply dark:mix-blend-normal" />
+                      <img src="/imgs/store/products/dupont-paper-tote-bags-thumbnail-2.jpg" alt="Tyvek Cosmetic Pouch" className="max-h-full object-contain mix-blend-multiply dark:mix-blend-normal" />
                     </div>
                     <div className="p-4">
                       <h4 className="font-bold text-lg mb-1">Tyvek Cosmetic Pouches</h4>
@@ -204,7 +204,7 @@ export default function EcoFriendlyDupontPaperBags() {
                   {/* Product 3 */}
                   <div className="border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="h-48 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center p-4">
-                      <img src="/imgs/store/products/eco-mailer-bag.png" alt="Tyvek Mailer Bag" className="max-h-full object-contain mix-blend-multiply dark:mix-blend-normal" />
+                      <img src="/imgs/store/products/compostable-mailer-bag.jpg" alt="Tyvek Mailer Bag" className="max-h-full object-contain mix-blend-multiply dark:mix-blend-normal" />
                     </div>
                     <div className="p-4">
                       <h4 className="font-bold text-lg mb-1">Tear-Proof Tyvek Mailers</h4>

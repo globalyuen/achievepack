@@ -90,7 +90,7 @@ const CompostableHumidityControlPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.jpg" 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
               alt="High-barrier compostable humidity control" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Bio-barrier science is now capable of achieving 12+ month shelf-life for moisture-sensitive dry goods"
@@ -205,7 +205,7 @@ const CompostableHumidityControlPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.jpg"
+        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp"
       />
     </>
   )

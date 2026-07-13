@@ -87,7 +87,7 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg" 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
               alt="High performance custom compostable pouch" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Factory-direct transparency ensures every compostable claim is backed by laboratory evidence"
@@ -208,7 +208,7 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Service"
-        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg"
+        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp"
       />
     </>
   )

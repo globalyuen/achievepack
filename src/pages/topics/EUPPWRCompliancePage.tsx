@@ -332,12 +332,12 @@ const EUPPWRCompliancePage: React.FC = () => {
           {
             title: t(`${p}.b2c.related.art1`, 'Eco Packaging Regulations'),
             url: '/blog/eco-packaging-regulations-guide',
-            image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.jpg'
+            image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
           },
           {
             title: t(`${p}.b2c.related.art2`, 'BPI Certified Guide'),
             url: '/blog/bpi-certified-guide',
-            image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.jpg'
+            image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp'
           }
         ]}
       />

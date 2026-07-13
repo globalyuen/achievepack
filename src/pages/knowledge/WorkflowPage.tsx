@@ -29,7 +29,7 @@ const WorkflowPage = () => {
             <h4 className="font-semibold text-neutral-800 mb-3">Our Production Process</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
-                src="/imgs/industry/ads/a_specialty_roaster_studio_scene_1655469.webp" 
+                src="/imgs/seo-photos/a_platform_digital_workflow_0276726.webp" 
                 alt="Design consultation and mockup creation" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Consultation"

@@ -118,7 +118,7 @@ const SustainablePackagingPillarPage: React.FC = () => {
             </div>
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.jpg" 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
                 alt="Close up of sustainable pouch material layers" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Structural Integrity: Multi-layer engineering optimized for Pillar 2 (Recyclability)"

@@ -241,7 +241,7 @@ export default function LuxuryCorkGiftBoxes() {
                 {/* Related Product 1 */}
                 <Link to="/store/category/rigid-boxes" className="group block bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden hover:border-primary-500 transition-colors">
                   <div className="aspect-[4/3] bg-neutral-100 dark:bg-neutral-800 p-4">
-                    <img src="/imgs/store/products/rigid-box-mockup.webp" alt="Custom Rigid Boxes" className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-300" onError={(e) => {e.currentTarget.src = 'https://placehold.co/400x300/171717/333333?text=Rigid+Boxes'}} />
+                    <img src="/imgs/store/products/custom-box-packaging-thumbnail-1.jpg" alt="Custom Rigid Boxes" className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-300" onError={(e) => {e.currentTarget.src = 'https://placehold.co/400x300/171717/333333?text=Rigid+Boxes'}} />
                   </div>
                   <div className="p-5">
                     <h4 className="text-lg font-bold text-neutral-900 dark:text-white mt-0 mb-2">Custom Rigid Boxes</h4>
@@ -252,7 +252,7 @@ export default function LuxuryCorkGiftBoxes() {
                 {/* Related Product 2 */}
                 <Link to="/store/category/kraft-pouches" className="group block bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden hover:border-primary-500 transition-colors">
                   <div className="aspect-[4/3] bg-neutral-100 dark:bg-neutral-800 p-4">
-                    <img src="/imgs/store/products/kraft-standup-pouch.webp" alt="Kraft Stand-up Pouches" className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-300" onError={(e) => {e.currentTarget.src = 'https://placehold.co/400x300/171717/333333?text=Kraft+Pouches'}} />
+                    <img src="/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg" alt="Kraft Stand-up Pouches" className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-300" onError={(e) => {e.currentTarget.src = 'https://placehold.co/400x300/171717/333333?text=Kraft+Pouches'}} />
                   </div>
                   <div className="p-5">
                     <h4 className="text-lg font-bold text-neutral-900 dark:text-white mt-0 mb-2">Kraft Stand-Up Pouches</h4>
@@ -263,7 +263,7 @@ export default function LuxuryCorkGiftBoxes() {
                 {/* Related Product 3 */}
                 <Link to="/store/category/molded-pulp" className="group block bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden hover:border-primary-500 transition-colors">
                   <div className="aspect-[4/3] bg-neutral-100 dark:bg-neutral-800 p-4">
-                    <img src="/imgs/store/products/molded-pulp-inserts.webp" alt="Molded Pulp Inserts" className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-300" onError={(e) => {e.currentTarget.src = 'https://placehold.co/400x300/171717/333333?text=Pulp+Inserts'}} />
+                    <img src="/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-1.jpg" alt="Molded Pulp Inserts" className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-300" onError={(e) => {e.currentTarget.src = 'https://placehold.co/400x300/171717/333333?text=Pulp+Inserts'}} />
                   </div>
                   <div className="p-5">
                     <h4 className="text-lg font-bold text-neutral-900 dark:text-white mt-0 mb-2">Molded Pulp Inserts</h4>

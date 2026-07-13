@@ -220,7 +220,7 @@ export default function AutomatingPulpLines() {
             {tObj.expertInsight}
           </p>
           <div className="bg-white rounded-lg p-4 flex items-center gap-4">
-            <img src="/imgs/team/ryan.jpg" alt="Ryan Wong" className="w-16 h-16 rounded-full object-cover border-2 border-emerald-200" onError={(e) => { e.currentTarget.style.display='none' }} />
+            <img src="/imgs/team/Ryan Wong - Packaging Specialist.png" alt="Ryan Wong" className="w-16 h-16 rounded-full object-cover border-2 border-emerald-200" onError={(e) => { e.currentTarget.style.display='none' }} />
             <div>
               <h5 className="font-bold text-neutral-900">{tObj.expertBio.split(' — ')[0]}</h5>
               <p className="text-xs text-neutral-500 font-medium mb-1">{tObj.expertBio.split(' — ')[1]}</p>

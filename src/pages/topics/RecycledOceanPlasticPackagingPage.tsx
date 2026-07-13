@@ -87,7 +87,7 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_all_options_card_v3_3800862.jpg" 
+              src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
               alt="Coastal ocean-bound plastic collection" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="Impact Verification: coastal collection teams recovering high-risk OBP"

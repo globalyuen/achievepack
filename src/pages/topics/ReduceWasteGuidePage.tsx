@@ -151,7 +151,7 @@ const ReduceWasteGuidePage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/illustrated/a_all_options_card_v3_3800862.jpg" 
+                src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
                 alt="Sustainable unboxing and disposal instructions" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Consumer Engagement: Clear disposal instructions reduce recycling contamination"
@@ -255,7 +255,7 @@ const ReduceWasteGuidePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.jpg"
+        heroImage="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp"
       />
     </>
   )

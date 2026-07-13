@@ -149,7 +149,7 @@ const CompostableCertificationFAQPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.jpg" 
+                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
                 alt="Compostable material manufacturing and quality control" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption={t(`${p}.s4.caption`, 'Operational Integrity: Our manufacturing lines are ISO 9001 and ISO 14001 audited')}
@@ -254,7 +254,7 @@ const CompostableCertificationFAQPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.jpg"
+        heroImage="/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp"
       />
     </>
   )

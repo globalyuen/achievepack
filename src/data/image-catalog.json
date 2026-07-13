@@ -1,12 +1,12 @@
 {
   "generated": "2026-07-13",
-  "total_images": 5196,
+  "total_images": 5197,
   "total_categories": 242,
   "extensions": {
     ".webp": 1313,
     ".png": 3027,
     ".jpg": 853,
-    ".svg": 3
+    ".svg": 4
   },
   "categories": {
     "4-infograhic": {
@@ -16277,8 +16277,14 @@
       ]
     },
     "root": {
-      "count": 38,
+      "count": 39,
       "images": [
+        {
+          "filename": "pattern-dots.svg",
+          "path": "/imgs/pattern-dots.svg",
+          "extension": ".svg",
+          "modified": "2026-07-13T09:40:16.979Z"
+        },
         {
           "filename": "bpi.svg",
           "path": "/imgs/bpi.svg",

@@ -83,7 +83,7 @@ const EcoFriendlySupplierServicePage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.jpg" 
+              src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
               alt="Sustainable packaging manufacturing facility" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="Operational Transparency: Verified Grade-A BRCGS Manufacturing Facilities"
@@ -143,7 +143,7 @@ const EcoFriendlySupplierServicePage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.jpg" 
+                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
                 alt="Quality inspector auditing packaging production" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Physical Verification: On-site QA and Social Compliance Audits"
@@ -248,7 +248,7 @@ const EcoFriendlySupplierServicePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Service"
-        heroImage="/imgs/seo-photos/a_about_sustainability_mission_5914909.jpg"
+        heroImage="/imgs/seo-photos/a_about_sustainability_mission_5914909.webp"
       />
     </>
   )

@@ -87,7 +87,7 @@ const PCRPackagingGuidePage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.jpg" 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
               alt="PCR integrated pouch material layers" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Precision lamination of post-consumer resin for maximum performance and minimum waste"
@@ -241,7 +241,7 @@ const PCRPackagingGuidePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/pcr/guide/a_pcr_sustainability_impact_story_3330780.jpg"
+        heroImage="/imgs/pcr/guide/a_pcr_sustainability_impact_story_3330780.webp"
       />
     </>
   )

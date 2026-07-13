@@ -86,7 +86,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg" 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
               alt="High definition custom printed pouch" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: G7 Master Certification ensures color consistency across all material substrates"
@@ -207,7 +207,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Service"
-        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg"
+        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp"
       />
     </>
   )

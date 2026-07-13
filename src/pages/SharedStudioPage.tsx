@@ -27,18 +27,111 @@ interface Shape {
   description?: string;
 }
 
+const translations = {
+  en: {
+    loading_slug: "Loading exclusive link...",
+    loading_design: "Searching your custom packaging design...",
+    applying_artwork: "Applying custom artwork design...",
+    downloading_model: "Downloading 3D model...",
+    exclusive_showcase: "3D Showcase",
+    open_editor: "Open 3D Editor",
+    proposal_for: "Exclusive Proposal",
+    created_at: "Created Date",
+    spec_details: "Design Specifications",
+    shape: "Package Shape",
+    dimensions: "Dimensions",
+    gusset: "Gusset Depth",
+    material: "Material",
+    compostable: "100% Compostable",
+    feature_barrier: "High-barrier airtight protection, extending food shelf life",
+    feature_moq: "Plate-free digital printing, low MOQ with quick turnaround",
+    btn_edit: "Copy & Modify 3D Design",
+    btn_whatsapp: "Talk to Packaging Expert (WhatsApp)",
+    anonymous: "Anonymous Client",
+    unknown: "Unknown"
+  },
+  zh: {
+    loading_slug: "正在讀取專屬連結...",
+    loading_design: "正在搜尋您的客製化包裝設計...",
+    applying_artwork: "正在套用客製化圖案設計...",
+    downloading_model: "正在下載 3D 模型...",
+    exclusive_showcase: "3D 專屬展示",
+    open_editor: "開啟 3D 編輯器",
+    proposal_for: "專屬合作提案",
+    created_at: "建立日期",
+    spec_details: "設計規格詳情",
+    shape: "包裝形狀",
+    dimensions: "長度規格",
+    gusset: "底部/側邊厚度",
+    material: "材質屬性",
+    compostable: "100% 可堆肥 (Compostable)",
+    feature_barrier: "高阻隔氣密保護，延展食品保鮮期",
+    feature_moq: "免版費數位印刷，快速小量起訂",
+    btn_edit: "複製並修改此 3D 設計",
+    btn_whatsapp: "對接包裝專家 (WhatsApp)",
+    anonymous: "神秘客戶",
+    unknown: "未知"
+  },
+  es: {
+    loading_slug: "Cargando enlace exclusivo...",
+    loading_design: "Buscando su diseño de empaque personalizado...",
+    applying_artwork: "Aplicando diseño de arte personalizado...",
+    downloading_model: "Descargando modelo 3D...",
+    exclusive_showcase: "Presentación 3D",
+    open_editor: "Abrir Editor 3D",
+    proposal_for: "Propuesta Exclusiva",
+    created_at: "Fecha de Creación",
+    spec_details: "Especificaciones del Diseño",
+    shape: "Forma del Empaque",
+    dimensions: "Dimensiones",
+    gusset: "Fuelle/Profundidad",
+    material: "Material",
+    compostable: "100% Compostable",
+    feature_barrier: "Protección hermética de alta barrera para extender vida útil",
+    feature_moq: "Impresión digital sin planchas, MOQ bajo rápido",
+    btn_edit: "Copiar y Modificar Diseño 3D",
+    btn_whatsapp: "Hablar con Experto (WhatsApp)",
+    anonymous: "Cliente Anónimo",
+    unknown: "Desconocido"
+  },
+  fr: {
+    loading_slug: "Chargement du lien exclusif...",
+    loading_design: "Recherche de votre design d'emballage personnalisé...",
+    applying_artwork: "Application du design graphique...",
+    downloading_model: "Téléchargement du modèle 3D...",
+    exclusive_showcase: "Présentation 3D",
+    open_editor: "Ouvrir l'éditeur 3D",
+    proposal_for: "Proposition Exclusive",
+    created_at: "Date de Création",
+    spec_details: "Spécifications du Design",
+    shape: "Forme de l'Emballage",
+    dimensions: "Dimensions",
+    gusset: "Profondeur Soufflet",
+    material: "Matériau",
+    compostable: "100% Compostable",
+    feature_barrier: "Haute barrière hermétique pour prolonger la conservation",
+    feature_moq: "Impression numérique sans plaques, faible MOQ rapide",
+    btn_edit: "Copier & Modifier ce Design 3D",
+    btn_whatsapp: "Parler à un Expert (WhatsApp)",
+    anonymous: "Client Anonyme",
+    unknown: "Inconnu"
+  }
+};
+
 export default function SharedStudioPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   
+  const [lang, setLang] = useState<'en' | 'zh' | 'es' | 'fr'>('en');
   const [loading, setLoading] = useState(true);
-  const [loadingText, setLoadingText] = useState('正在讀取專屬連結...');
+  const [loadingKey, setLoadingKey] = useState<'loading_slug' | 'loading_design' | 'applying_artwork' | 'downloading_model'>('loading_slug');
+  const [downloadProgress, setDownloadProgress] = useState<number | null>(null);
   const [isValidSlug, setIsValidSlug] = useState(true);
   
   // Custom design data from database
   const [companyName, setCompanyName] = useState('');
   const [designData, setDesignData] = useState<any>(null);
-  const [createdAt, setCreatedAt] = useState('');
+  const [createdDate, setCreatedDate] = useState<Date | null>(null);
   
   // ThreeJS states
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,7 +159,7 @@ export default function SharedStudioPage() {
     
     const fetchDesign = async () => {
       try {
-        setLoadingText('正在搜尋您的客製化包裝設計...');
+        setLoadingKey('loading_design');
         const res = await fetch(`/api/get-custom-studio?slug=${slug}`);
         if (res.status === 404) {
           setIsValidSlug(false);
@@ -76,14 +169,10 @@ export default function SharedStudioPage() {
         
         const data = await res.json();
         if (data.success && data.designData) {
-          setCompanyName(data.companyName || '神秘客戶 (Anonymous Client)');
+          setCompanyName(data.companyName || '');
           setDesignData(data.designData);
           if (data.createdAt) {
-            setCreatedAt(new Date(data.createdAt).toLocaleDateString('zh-HK', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            }));
+            setCreatedDate(new Date(data.createdAt));
           }
           
           // Once we have design data, initialize the 3D environment
@@ -223,7 +312,7 @@ export default function SharedStudioPage() {
 
     // Load Shape GLB Model
     try {
-      setLoadingText('正在載入袋子 3D 結構模型...');
+      setLoadingKey('downloading_model');
       const shapesRes = await fetch('/models_database_en.json');
       const shapes: Shape[] = await shapesRes.json();
       const currentShape = shapes.find(s => String(s.id) === String(design.shapeId));
@@ -234,6 +323,9 @@ export default function SharedStudioPage() {
       // Load Dieline background texture
       const dielineImg = new Image();
       dielineImgRef.current = dielineImg;
+      if (dielineUrl.startsWith('http') || dielineUrl.startsWith('//')) {
+        dielineImg.crossOrigin = 'anonymous';
+      }
       dielineImg.src = dielineUrl.startsWith('http') ? '/api/proxy?url=' + encodeURIComponent(dielineUrl) : dielineUrl;
       
       await new Promise<void>((resolve) => {
@@ -314,6 +406,9 @@ export default function SharedStudioPage() {
 
           // Apply lights position relative to model dimensions
           dirLight1.position.set(maxDim * 1.2, maxDim * 2.0, maxDim * 1.2);
+          dirLight2.position.set(-maxDim * 1.2, maxDim * 1.0, -maxDim * 1.2);
+          rimLight.position.set(0, maxDim * 1.5, -maxDim * 1.5);
+
           dirLight1.shadow.camera.left = -maxDim * 2;
           dirLight1.shadow.camera.right = maxDim * 2;
           dirLight1.shadow.camera.top = maxDim * 2;
@@ -331,9 +426,16 @@ export default function SharedStudioPage() {
                 mats.forEach(mat => {
                   mat.side = THREE.DoubleSide;
                   mat.map = canvasTexture;
+                  if ('color' in mat && mat.color && typeof mat.color.setHex === 'function') {
+                    mat.color.setHex(0xffffff);
+                  }
                   if ('normalMap' in mat) mat.normalMap = null;
+                  if ('bumpMap' in mat) mat.bumpMap = null;
                   if ('roughnessMap' in mat) mat.roughnessMap = null;
                   if ('metalnessMap' in mat) mat.metalnessMap = null;
+                  if ('aoMap' in mat) mat.aoMap = null;
+                  if ('emissiveMap' in mat) mat.emissiveMap = null;
+                  if ('lightMap' in mat) mat.lightMap = null;
                   mat.needsUpdate = true;
                 });
               }
@@ -343,7 +445,7 @@ export default function SharedStudioPage() {
           scene.add(model);
 
           // Render layers onto offscreen canvas
-          setLoadingText('正在套用客製化圖案設計...');
+          setLoadingKey('applying_artwork');
           await applyLayersToTexture(design.layers || []);
 
           setLoading(false);
@@ -361,7 +463,13 @@ export default function SharedStudioPage() {
           };
           animate();
         },
-        undefined,
+        (xhr) => {
+          if (xhr.total > 0) {
+            const percent = Math.round((xhr.loaded / xhr.total) * 100);
+            setDownloadProgress(percent);
+            setLoadingKey('downloading_model');
+          }
+        },
         (error) => {
           console.error('Error loading GLTF model:', error);
           setLoading(false);
@@ -380,13 +488,13 @@ export default function SharedStudioPage() {
     const ctx = offscreenCanvas.getContext('2d');
     if (!ctx) return;
 
-    // Draw background dieline first if loaded
-    ctx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+    // Draw solid white background first
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+
+    // Draw background dieline on top if loaded
     if (dielineImgRef.current && dielineImgRef.current.complete) {
       ctx.drawImage(dielineImgRef.current, 0, 0, offscreenCanvas.width, offscreenCanvas.height);
-    } else {
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
     }
 
     // Load and draw all custom artwork layers sequentially
@@ -394,7 +502,9 @@ export default function SharedStudioPage() {
       layersData.map(layer => {
         return new Promise<any>((resolve) => {
           const img = new Image();
-          img.crossOrigin = 'anonymous';
+          if (layer.imgSrc.startsWith('http') || layer.imgSrc.startsWith('//')) {
+            img.crossOrigin = 'anonymous';
+          }
           img.src = layer.imgSrc.startsWith('http') ? '/api/proxy?url=' + encodeURIComponent(layer.imgSrc) : layer.imgSrc;
           img.onload = () => resolve({ ...layer, img });
           img.onerror = () => resolve(null);
@@ -443,6 +553,21 @@ export default function SharedStudioPage() {
     navigate(`/studio?slug=${slug}`);
   };
 
+  const getFormattedDate = () => {
+    if (!createdDate) return translations[lang].unknown;
+    const localeMap = {
+      en: 'en-US',
+      zh: 'zh-HK',
+      es: 'es-ES',
+      fr: 'fr-FR'
+    };
+    return createdDate.toLocaleDateString(localeMap[lang], {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   return (
     <div className="relative min-h-screen bg-[#0a0f1d] text-white flex flex-col font-sans select-none overflow-hidden">
       {/* Premium Header */}
@@ -455,17 +580,33 @@ export default function SharedStudioPage() {
           <span className="h-4 w-px bg-white/20" />
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full text-xs font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
-            3D 專屬展示
+            {translations[lang].exclusive_showcase}
           </div>
         </div>
         
-        <div className="pointer-events-auto">
+        <div className="flex items-center gap-3 pointer-events-auto">
+          {/* Language Selector Dropdown */}
+          <div className="relative">
+            <select 
+              value={lang} 
+              onChange={(e) => setLang(e.target.value as any)}
+              className="bg-white/10 hover:bg-white/20 border border-white/10 text-white rounded-xl text-xs font-semibold px-3 py-2 focus:outline-none cursor-pointer appearance-none pr-8 relative"
+              style={{ WebkitAppearance: 'none' }}
+            >
+              <option value="en" className="bg-slate-900 text-white">EN</option>
+              <option value="zh" className="bg-slate-900 text-white">繁中</option>
+              <option value="es" className="bg-slate-900 text-white">ES</option>
+              <option value="fr" className="bg-slate-900 text-white">FR</option>
+            </select>
+            <span className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-white/60" />
+          </div>
+
           <button 
             onClick={handleEditInStudio}
             className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 text-white rounded-xl text-sm font-semibold transition-all hover:scale-105"
           >
             <Edit3 className="w-4 h-4" />
-            <span>開啟 3D 編輯器</span>
+            <span>{translations[lang].open_editor}</span>
           </button>
         </div>
       </header>
@@ -474,7 +615,9 @@ export default function SharedStudioPage() {
       {loading && (
         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0f1d] text-center gap-4">
           <Loader2 className="w-12 h-12 text-emerald-400 animate-spin" />
-          <p className="text-emerald-400/80 font-medium text-lg tracking-wide">{loadingText}</p>
+          <p className="text-emerald-400/80 font-medium text-lg tracking-wide">
+            {translations[lang][loadingKey]} {downloadProgress !== null ? `(${downloadProgress}%)` : ''}
+          </p>
         </div>
       )}
 
@@ -490,13 +633,13 @@ export default function SharedStudioPage() {
             {/* Top metadata */}
             <div>
               <p className="text-emerald-400 font-bold uppercase tracking-wider text-xs mb-1">
-                專屬合作提案
+                {translations[lang].proposal_for}
               </p>
               <h1 className="text-3xl font-extrabold tracking-tight text-white mb-2 leading-tight">
-                {companyName}
+                {companyName || translations[lang].anonymous}
               </h1>
               <p className="text-white/40 text-sm">
-                建立日期：{createdAt || '未知 (N/A)'}
+                {translations[lang].created_at}: {getFormattedDate()}
               </p>
             </div>
 
@@ -506,12 +649,12 @@ export default function SharedStudioPage() {
             {designData && (
               <div className="space-y-5">
                 <h3 className="text-sm font-bold text-white/80 uppercase tracking-widest">
-                  設計規格詳情
+                  {translations[lang].spec_details}
                 </h3>
                 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col">
-                    <span className="text-white/40 text-xs font-semibold mb-1">包裝形狀</span>
+                    <span className="text-white/40 text-xs font-semibold mb-1">{translations[lang].shape}</span>
                     <span className="text-sm font-bold text-white flex items-center gap-1.5">
                       <Package className="w-4 h-4 text-emerald-400" />
                       {designData.shapeId ? designData.shapeId.toUpperCase().replace(/-/g, ' ') : 'STAND UP POUCH'}
@@ -519,23 +662,23 @@ export default function SharedStudioPage() {
                   </div>
                   
                   <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col">
-                    <span className="text-white/40 text-xs font-semibold mb-1">長度規格</span>
+                    <span className="text-white/40 text-xs font-semibold mb-1">{translations[lang].dimensions}</span>
                     <span className="text-sm font-bold text-white">
                       {designData.width} × {designData.height} {designData.unit || 'mm'}
                     </span>
                   </div>
                   
                   <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col">
-                    <span className="text-white/40 text-xs font-semibold mb-1">底部/側邊厚度</span>
+                    <span className="text-white/40 text-xs font-semibold mb-1">{translations[lang].gusset}</span>
                     <span className="text-sm font-bold text-white">
                       {designData.depth} {designData.unit || 'mm'}
                     </span>
                   </div>
 
                   <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col">
-                    <span className="text-white/40 text-xs font-semibold mb-1">材質屬性</span>
+                    <span className="text-white/40 text-xs font-semibold mb-1">{translations[lang].material}</span>
                     <span className="text-sm font-bold text-emerald-400">
-                      100% 可堆肥 (Compostable)
+                      {translations[lang].compostable}
                     </span>
                   </div>
                 </div>
@@ -543,16 +686,16 @@ export default function SharedStudioPage() {
                 {/* Features highlights */}
                 <div className="space-y-3 pt-2">
                   <div className="flex items-center gap-3 text-sm text-white/80">
-                    <div className="w-5 h-5 bg-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/20 text-emerald-400">
+                    <div className="w-5 h-5 bg-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/20 text-emerald-400 flex-shrink-0">
                       <Check className="w-3 h-3" />
                     </div>
-                    <span>高阻隔氣密保護，延展食品保鮮期</span>
+                    <span>{translations[lang].feature_barrier}</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-white/80">
-                    <div className="w-5 h-5 bg-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/20 text-emerald-400">
+                    <div className="w-5 h-5 bg-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/20 text-emerald-400 flex-shrink-0">
                       <Check className="w-3 h-3" />
                     </div>
-                    <span>免版費數位印刷，快速小量起訂</span>
+                    <span>{translations[lang].feature_moq}</span>
                   </div>
                 </div>
               </div>
@@ -565,7 +708,7 @@ export default function SharedStudioPage() {
               onClick={handleEditInStudio}
               className="w-full py-4 px-6 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-slate-950 font-bold rounded-2xl flex items-center justify-center gap-2.5 transition-all shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 hover:scale-[1.02] cursor-pointer"
             >
-              <span>複製並修改此 3D 設計</span>
+              <span>{translations[lang].btn_edit}</span>
               <ArrowRight className="w-5 h-5" />
             </button>
             
@@ -575,7 +718,7 @@ export default function SharedStudioPage() {
               rel="noopener noreferrer"
               className="w-full py-4 px-6 bg-white/5 hover:bg-white/10 active:bg-white/15 border border-white/10 text-white font-bold rounded-2xl flex items-center justify-center gap-2 transition-all hover:scale-[1.02] text-center"
             >
-              <span>對接包裝專家 (WhatsApp)</span>
+              <span>{translations[lang].btn_whatsapp}</span>
             </a>
           </div>
 

@@ -19,7 +19,7 @@ export default function PouchDateCodingGuidePage() {
     <div className="bg-neutral-50 border-2 border-black p-6 flex flex-col md:flex-row items-center gap-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8">
       <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-primary-500 flex-shrink-0 bg-neutral-200">
         <img 
-          src="/imgs/team/ryan_wong_avatar.jpg" 
+          src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
           alt="Ryan Wong" 
           className="w-full h-full object-cover" 
           onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=10B981&color=fff&size=128' }} 

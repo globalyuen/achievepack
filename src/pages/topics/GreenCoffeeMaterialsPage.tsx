@@ -84,7 +84,7 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.jpg" 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
               alt="High barrier coffee packaging structure" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Advanced EVOH barrier integration for professional-grade coffee freshness"
@@ -141,7 +141,7 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.jpg" 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
                 alt="Recyclable coffee pouch with mono-PE structure" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Recycling Ready: High-barrier mono-PE coffee pouches optimized for curbside recovery"

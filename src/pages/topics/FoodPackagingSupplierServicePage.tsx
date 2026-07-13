@@ -147,7 +147,7 @@ const FoodPackagingSupplierServicePage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.jpg" 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
                 alt="High performance food packaging structure" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Reliable Supply: Consistent high-barrier performance for global food brands"
@@ -248,7 +248,7 @@ const FoodPackagingSupplierServicePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.jpg"
+        heroImage="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp"
       />
     </>
   )

@@ -224,7 +224,7 @@ const MonoPEPouchesPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.jpg"
+        heroImage="/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp"
       />
     </>
   )

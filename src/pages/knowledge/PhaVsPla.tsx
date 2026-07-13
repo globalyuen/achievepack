@@ -535,7 +535,7 @@ export default function PhaVsPla() {
         <div className="space-y-8">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-shrink-0 w-24 h-24 bg-neutral-100 rounded-full overflow-hidden border-4 border-white shadow-md">
-              <img src="/imgs/ryan-wong-avatar.png" alt="Ryan Wong" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+              <img src="/imgs/team/Ryan Wong - Packaging Specialist.png" alt="Ryan Wong" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
             </div>
             <div>
               <h4 className="font-bold text-2xl text-neutral-900 mb-2">{t.expertSub}</h4>
