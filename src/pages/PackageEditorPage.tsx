@@ -36,7 +36,7 @@ export default function PackageEditorPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const searchParams = new URLSearchParams(window.location.search);
-  const initialViewMode = searchParams.get('shape') ? 'editor' : 'catalog';
+  const initialViewMode = (searchParams.get('shape') || searchParams.get('slug') || searchParams.get('code')) ? 'editor' : 'catalog';
   const [viewMode, setViewMode] = useState<'catalog' | 'editor'>(initialViewMode as 'catalog' | 'editor');
 
   const [shapes, setShapes] = useState<Shape[]>([]);
@@ -189,22 +189,8 @@ export default function PackageEditorPage() {
       cContext.translate(layer.pos.x, layer.pos.y);
       cContext.rotate(layer.rotation * (Math.PI / 180));
 
-      let sX = 1.0;
-      let sY = 1.0;
-      let sZ = 1.0;
-      if (modelRef.current) {
-        sX = modelRef.current.scale.x;
-        sY = modelRef.current.scale.y;
-        sZ = modelRef.current.scale.z;
-      }
-
-      // Cosine horizontal scale interpolation to counter-scale depth stretching on the sides
-      const angle = (2 * Math.PI * layer.pos.x) / 1000;
-      const t = Math.pow(Math.cos(angle), 2);
-      const sX_effective = (1 - t) * sX + t * sZ;
-
-      const w = (layer.width * layer.scale) / sX_effective;
-      const h = (layer.height * layer.scale) / sY;
+      const w = layer.width * layer.scale;
+      const h = layer.height * layer.scale;
 
       cContext.drawImage(layer.img, -w / 2, -h / 2, w, h);
 
@@ -1065,6 +1051,7 @@ export default function PackageEditorPage() {
             
             if (shape) {
               setSelectedShapeId(shape.id);
+              setViewMode('editor');
               loadShape(shape, d.width, d.height, d.layers);
               // Switch active category (using shared detectCategory helper)
               const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
@@ -1075,6 +1062,8 @@ export default function PackageEditorPage() {
               else setActiveCategory('other');
             } else {
               // Load default model template with saved custom sizes & layers
+              setSelectedShapeId('');
+              setViewMode('editor');
               loadShape(undefined, d.width, d.height, d.layers);
             }
             return;
@@ -1178,25 +1167,12 @@ export default function PackageEditorPage() {
     const clickX = ((e.clientX - rect.left) / rect.width) * 1000;
     const clickY = ((e.clientY - rect.top) / rect.height) * 619;
 
-    let sX = 1.0;
-    let sY = 1.0;
-    let sZ = 1.0;
-    if (modelRef.current) {
-      sX = modelRef.current.scale.x;
-      sY = modelRef.current.scale.y;
-      sZ = modelRef.current.scale.z;
-    }
-
     let found = false;
     for (let i = layers.length - 1; i >= 0; i--) {
       const layer = layers[i];
 
-      const angle = (2 * Math.PI * layer.pos.x) / 1000;
-      const t = Math.pow(Math.cos(angle), 2);
-      const sX_effective = (1 - t) * sX + t * sZ;
-
-      const drawnW = (layer.width * layer.scale) / sX_effective;
-      const drawnH = (layer.height * layer.scale) / sY;
+      const drawnW = layer.width * layer.scale;
+      const drawnH = layer.height * layer.scale;
 
       if (clickX >= layer.pos.x - drawnW / 2 && clickX <= layer.pos.x + drawnW / 2 &&
           clickY >= layer.pos.y - drawnH / 2 && clickY <= layer.pos.y + drawnH / 2) {
@@ -1225,21 +1201,8 @@ export default function PackageEditorPage() {
       y: mouseY - dragOffsetRef.current.y
     };
 
-    let sX = 1.0;
-    let sY = 1.0;
-    let sZ = 1.0;
-    if (modelRef.current) {
-      sX = modelRef.current.scale.x;
-      sY = modelRef.current.scale.y;
-      sZ = modelRef.current.scale.z;
-    }
-
-    const angle = (2 * Math.PI * updatedPos.x) / 1000;
-    const t = Math.pow(Math.cos(angle), 2);
-    const sX_effective = (1 - t) * sX + t * sZ;
-
-    const drawnW = (selectedLayer.width * selectedLayer.scale) / sX_effective;
-    const drawnH = (selectedLayer.height * selectedLayer.scale) / sY;
+    const drawnW = selectedLayer.width * selectedLayer.scale;
+    const drawnH = selectedLayer.height * selectedLayer.scale;
 
     const limitX = drawnW / 2;
     const limitY = drawnH / 2;
